@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-10-26T09:29:31.899Z",
-  "runId": "40298333383",
+  "assembledAt": "2026-10-26T21:48:42.647Z",
+  "runId": "40403060492",
   "jobs": [
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -34,7 +34,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.383Z",
+      "crawledAt": "2026-10-26T21:48:38.187Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -62,79 +62,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T11:40:25.779Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hopital-la-tour-21f037f09490",
-      "slug": "assistente-medico-in-pediatria-cdi-80-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "assistente-medico-in-pediatria-cdi-80-hopital-de-la-tour-meyrin",
-        "en": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin",
-        "de": "arztliche-assistenz-in-der-kinderheilkunde-cdi-80-hopital-de-la-tour-meyrin",
-        "fr": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Assistant(-e) Médical(-e) en Pédiatrie - CDI 80%",
-      "titleByLocale": {
-        "it": "Assistente medico in Pediatria - CDI 80%",
-        "en": "Medical Assistant in Pediatrics - CDI 80%",
-        "de": "Ärztliche Assistenz in der Kinderheilkunde - CDI 80%",
-        "fr": "Assistant(-e) Médical(-e) en Pédiatrie - CDI 80%"
-      },
-      "description": "Le pôle Mère/Enfant propose aux patients une prise en charge multidisciplinaire. Une équipe de professionnels composée de médecins, infirmières et aides-soignantes prend en charge les enfants ainsi que leurs familles dans un espace dédié à leur bien-être, de la naissance à 18 ans.\n\nAfin de compléter ce service nous recrutons un/e\n\nAssistant(-e) Médical(-e) en Pédiatrie - CDI 80% (ref : 2006)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des pédiatres.\n\nVous devrez assurer l’accueil des patients et de leur famille et le bon ordre du service .\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir les jeunes patients et leurs parents avec empathie, écoute et patience, puis évaluer le degré d'urgence des situations\n\n• Assister le pédiatre lors des examens, mesurer et peser les nourrissons et les enfants\n\n• Pratiquer les soins avec le pédiatre (aides pour les pansements, etc.)\n\n• Effectuer les prises de sang, les injections, les vaccinations, les pansements et préparer le matériel stérile\n\n• Réaliser les analyses médicales de base et préparer les examens spécifiques\n\n• S'assurer du bon ordre et de la propreté du bureau médical : formulaires, documents, affichage\n\n• Organiser les soins à domicile via SITEX/IMAD/pediadom (idem infirmière)\n\n• Organisation des transferts patients au besoin\n\n• Gérer l'agenda, les appels téléphoniques, le suivi de la facturation, les commandes de matériel et la tenue des dossiers médicaux informatisés.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière en Pédiatrie ( obligatoire ), ou au sein d'un cabinet de pédiatrie (en Suisse)\n\n• Diplôme d’Assistant(-e) médical(-e)\n\n• Bonnes connaissances de la langue anglaise (Niveau B1)\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 80%\n Type d'horaires : Réguliers",
-      "descriptionByLocale": {
-        "it": "Il Centro madre/bambino offre ai pazienti cure multidisciplinari. Un team di professionisti composto da medici, infermieri e assistenti si occupa dei bambini e delle loro famiglie in uno spazio dedicato al loro benessere, dalla nascita ai 18 anni.\n\nPer completare questo servizio stiamo reclutando un\n\nAssistente medico in Pediatria - CDI 80% (ref: 2006)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia, avete una varietà di posizioni su un team multidisciplinare tra cui infermieri, caregiver, pediatri.\n\nDovrete garantire la ricezione dei pazienti e delle loro famiglie e l'ordine corretto del servizio.\n\nCome tale siete responsabili di;\n\n• Accogliere i giovani pazienti e i loro genitori con empatia, ascolto e pazienza, quindi valutare l'urgenza delle situazioni\n\n• Partecipare al pediatra durante esami, misurazione e pesatura di neonati e bambini\n\n• Praticare con il pediatra (aids for dressings, ecc.)\n\n• Eseguire campioni di sangue, iniezioni, vaccinazioni, condimenti e preparare attrezzature sterili\n\n• Condurre test medici di base e preparare esami specifici\n\n• Assicurare un corretto ordine e pulizia dell'ufficio medico: moduli, documenti, display\n\n• Organizzare la cura della casa tramite SITEX/IMAD/pediadom (Nurse ID)\n\n• Organizzazione dei trasferimenti dei pazienti come richiesto\n\n• Gestisce i programmi, le chiamate telefoniche, il monitoraggio delle fatture, gli ordini delle attrezzature e la manutenzione dei registri medici informatizzati.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• da 2 a 3 anni di esperienza minima con una struttura ospedaliera a Pediatria (obbligatorio), o in una pratica pediatrica (in Svizzera)\n\n• Assistente medico\n\n• Buona conoscenza della lingua inglese (Level B1)\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e senso di priorità sono qualità essenziali\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 80%\nTipo di programma: Regolare",
-        "en": "The Mother/Child Centre offers patients multidisciplinary care. A team of professionals made up of doctors, nurses and caregivers cares for children and their families in a space dedicated to their well-being, from birth to age 18.\n\nIn order to complete this service we are recruiting a\n\nMedical Assistant in Pediatrics - CDI 80% (ref: 2006)\n\nYour mission:\n\nIn a state-of-the-art facility, you have a variety of positions on a multidisciplinary team including nurses, caregivers, pediatricians.\n\nYou will have to ensure the reception of patients and their families and the correct order of the service.\n\nAs such you are in charge of;\n\n• Welcoming young patients and their parents with empathy, listening and patience, then assessing the urgency of situations\n\n• Attending the pediatrician during examinations, measuring and weighing infants and children\n\n• Practice with the pediatrician (aids for dressings, etc.)\n\n• Perform blood samples, injections, vaccinations, dressings and prepare sterile equipment\n\n• Conduct basic medical tests and prepare specific examinations\n\n• Ensure proper order and cleanliness of the medical office: forms, documents, display\n\n• Organize home care via SITEX/IMAD/pediadom (Nurse ID)\n\n• Organization of patient transfers as required\n\n• Manages schedule, telephone calls, billing tracking, equipment orders, and the maintenance of computerized medical records.\n\nWe are looking for a profile that meets the following criteria:\n\n• 2 to 3 years of minimum experience with a hospital structure in Pediatrics (mandatory), or in a paediatric practice (in Switzerland)\n\n• Medical Assistant\n\n• Good knowledge of the English language (Level B1)\n\n• Self-governing, benevolence, versatility, adaptability, organization and sense of priority are essential qualities\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 80%\nSchedule Type: Regular",
-        "de": "Das Mutter-Kind-Zentrum bietet Patienten eine multidisziplinäre Versorgung. Ein Team von Fachleuten aus Ärzten, Krankenschwestern und Betreuern kümmert sich um Kinder und ihre Familien in einem Raum, der ihrem Wohlbefinden gewidmet ist, von der Geburt bis zum Alter von 18 Jahren.\n\nUm diesen Service zu vervollständigen, rekrutieren wir eine\n\nMedizinische Assistenz in der Pädiatrie - CDI 80% (ref: 2006)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine Vielzahl von Positionen in einem multidisziplinären Team, darunter Krankenschwestern, Betreuer, Kinderärzte.\n\nSie müssen die Aufnahme von Patienten und ihren Familien und die korrekte Reihenfolge des Dienstes sicherstellen.\n\nAls solche sind Sie verantwortlich für;\n\n• Junge Patienten und ihre Eltern mit Empathie, Zuhören und Geduld willkommen heißen und dann die Dringlichkeit von Situationen bewerten\n\n• Besuch des Kinderarztes während der Untersuchungen, Messung und Wiegen von Säuglingen und Kindern\n\n• Üben Sie mit dem Kinderarzt (Hilfe für Dressings, etc.)\n\n• Durchführung von Blutproben, Injektionen, Impfungen, Verbänden und Vorbereitung steriler Geräte\n\n• Führen Sie grundlegende medizinische Tests durch und bereiten Sie spezifische Untersuchungen vor\n\n• Gewährleistung der ordnungsgemäßen Ordnung und Sauberkeit der Arztpraxis: Formulare, Dokumente, Anzeige\n\n• Organisieren Sie die häusliche Pflege über SITEX / IMAD / Pädiadom (Nurse ID)\n\n• Organisation von Patiententransfers nach Bedarf\n\n• Verwaltet Zeitplan, Telefonanrufe, Abrechnungsverfolgung, Gerätebestellungen und die Pflege von computergestützten Krankenakten.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• 2 bis 3 Jahre Mindesterfahrung mit einer Krankenhausstruktur in der Pädiatrie (obligatorisch) oder in einer pädiatrischen Praxis (in der Schweiz)\n\n• Arzthelferin\n\n• Gute Englischkenntnisse (Level B1)\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Prioritätsgefühl sind wesentliche Eigenschaften\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 80%\nZeitplantyp: Regulär",
-        "fr": "Le pôle Mère/Enfant propose aux patients une prise en charge multidisciplinaire. Une équipe de professionnels composée de médecins, infirmières et aides-soignantes prend en charge les enfants ainsi que leurs familles dans un espace dédié à leur bien-être, de la naissance à 18 ans.\n\nAfin de compléter ce service nous recrutons un/e\n\nAssistant(-e) Médical(-e) en Pédiatrie - CDI 80% (ref : 2006)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des pédiatres.\n\nVous devrez assurer l’accueil des patients et de leur famille et le bon ordre du service .\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir les jeunes patients et leurs parents avec empathie, écoute et patience, puis évaluer le degré d'urgence des situations\n\n• Assister le pédiatre lors des examens, mesurer et peser les nourrissons et les enfants\n\n• Pratiquer les soins avec le pédiatre (aides pour les pansements, etc.)\n\n• Effectuer les prises de sang, les injections, les vaccinations, les pansements et préparer le matériel stérile\n\n• Réaliser les analyses médicales de base et préparer les examens spécifiques\n\n• S'assurer du bon ordre et de la propreté du bureau médical : formulaires, documents, affichage\n\n• Organiser les soins à domicile via SITEX/IMAD/pediadom (idem infirmière)\n\n• Organisation des transferts patients au besoin\n\n• Gérer l'agenda, les appels téléphoniques, le suivi de la facturation, les commandes de matériel et la tenue des dossiers médicaux informatisés.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière en Pédiatrie ( obligatoire ), ou au sein d'un cabinet de pédiatrie (en Suisse)\n\n• Diplôme d’Assistant(-e) médical(-e)\n\n• Bonnes connaissances de la langue anglaise (Niveau B1)\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 80%\nType d'horaires : Réguliers"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.381Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-03T13:43:24.957Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -180,7 +107,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdi-80-1540",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.380Z",
+      "crawledAt": "2026-10-26T21:48:38.186Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -208,6 +135,79 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:24.956Z",
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hopital-la-tour-21f037f09490",
+      "slug": "assistente-medico-in-pediatria-cdi-80-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "assistente-medico-in-pediatria-cdi-80-hopital-de-la-tour-meyrin",
+        "en": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin",
+        "de": "arztliche-assistenz-in-der-kinderheilkunde-cdi-80-hopital-de-la-tour-meyrin",
+        "fr": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Assistant(-e) Médical(-e) en Pédiatrie - CDI 80%",
+      "titleByLocale": {
+        "it": "Assistente medico in Pediatria - CDI 80%",
+        "en": "Medical Assistant in Pediatrics - CDI 80%",
+        "de": "Ärztliche Assistenz in der Kinderheilkunde - CDI 80%",
+        "fr": "Assistant(-e) Médical(-e) en Pédiatrie - CDI 80%"
+      },
+      "description": "Le pôle Mère/Enfant propose aux patients une prise en charge multidisciplinaire. Une équipe de professionnels composée de médecins, infirmières et aides-soignantes prend en charge les enfants ainsi que leurs familles dans un espace dédié à leur bien-être, de la naissance à 18 ans.\n\nAfin de compléter ce service nous recrutons un/e\n\nAssistant(-e) Médical(-e) en Pédiatrie - CDI 80% (ref : 2006)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des pédiatres.\n\nVous devrez assurer l’accueil des patients et de leur famille et le bon ordre du service .\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir les jeunes patients et leurs parents avec empathie, écoute et patience, puis évaluer le degré d'urgence des situations\n\n• Assister le pédiatre lors des examens, mesurer et peser les nourrissons et les enfants\n\n• Pratiquer les soins avec le pédiatre (aides pour les pansements, etc.)\n\n• Effectuer les prises de sang, les injections, les vaccinations, les pansements et préparer le matériel stérile\n\n• Réaliser les analyses médicales de base et préparer les examens spécifiques\n\n• S'assurer du bon ordre et de la propreté du bureau médical : formulaires, documents, affichage\n\n• Organiser les soins à domicile via SITEX/IMAD/pediadom (idem infirmière)\n\n• Organisation des transferts patients au besoin\n\n• Gérer l'agenda, les appels téléphoniques, le suivi de la facturation, les commandes de matériel et la tenue des dossiers médicaux informatisés.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière en Pédiatrie ( obligatoire ), ou au sein d'un cabinet de pédiatrie (en Suisse)\n\n• Diplôme d’Assistant(-e) médical(-e)\n\n• Bonnes connaissances de la langue anglaise (Niveau B1)\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 80%\n Type d'horaires : Réguliers",
+      "descriptionByLocale": {
+        "it": "Il Centro madre/bambino offre ai pazienti cure multidisciplinari. Un team di professionisti composto da medici, infermieri e assistenti si occupa dei bambini e delle loro famiglie in uno spazio dedicato al loro benessere, dalla nascita ai 18 anni.\n\nPer completare questo servizio stiamo reclutando un\n\nAssistente medico in Pediatria - CDI 80% (ref: 2006)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia, avete una varietà di posizioni su un team multidisciplinare tra cui infermieri, caregiver, pediatri.\n\nDovrete garantire la ricezione dei pazienti e delle loro famiglie e l'ordine corretto del servizio.\n\nCome tale siete responsabili di;\n\n• Accogliere i giovani pazienti e i loro genitori con empatia, ascolto e pazienza, quindi valutare l'urgenza delle situazioni\n\n• Partecipare al pediatra durante esami, misurazione e pesatura di neonati e bambini\n\n• Praticare con il pediatra (aids for dressings, ecc.)\n\n• Eseguire campioni di sangue, iniezioni, vaccinazioni, condimenti e preparare attrezzature sterili\n\n• Condurre test medici di base e preparare esami specifici\n\n• Assicurare un corretto ordine e pulizia dell'ufficio medico: moduli, documenti, display\n\n• Organizzare la cura della casa tramite SITEX/IMAD/pediadom (Nurse ID)\n\n• Organizzazione dei trasferimenti dei pazienti come richiesto\n\n• Gestisce i programmi, le chiamate telefoniche, il monitoraggio delle fatture, gli ordini delle attrezzature e la manutenzione dei registri medici informatizzati.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• da 2 a 3 anni di esperienza minima con una struttura ospedaliera a Pediatria (obbligatorio), o in una pratica pediatrica (in Svizzera)\n\n• Assistente medico\n\n• Buona conoscenza della lingua inglese (Level B1)\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e senso di priorità sono qualità essenziali\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 80%\nTipo di programma: Regolare",
+        "en": "The Mother/Child Centre offers patients multidisciplinary care. A team of professionals made up of doctors, nurses and caregivers cares for children and their families in a space dedicated to their well-being, from birth to age 18.\n\nIn order to complete this service we are recruiting a\n\nMedical Assistant in Pediatrics - CDI 80% (ref: 2006)\n\nYour mission:\n\nIn a state-of-the-art facility, you have a variety of positions on a multidisciplinary team including nurses, caregivers, pediatricians.\n\nYou will have to ensure the reception of patients and their families and the correct order of the service.\n\nAs such you are in charge of;\n\n• Welcoming young patients and their parents with empathy, listening and patience, then assessing the urgency of situations\n\n• Attending the pediatrician during examinations, measuring and weighing infants and children\n\n• Practice with the pediatrician (aids for dressings, etc.)\n\n• Perform blood samples, injections, vaccinations, dressings and prepare sterile equipment\n\n• Conduct basic medical tests and prepare specific examinations\n\n• Ensure proper order and cleanliness of the medical office: forms, documents, display\n\n• Organize home care via SITEX/IMAD/pediadom (Nurse ID)\n\n• Organization of patient transfers as required\n\n• Manages schedule, telephone calls, billing tracking, equipment orders, and the maintenance of computerized medical records.\n\nWe are looking for a profile that meets the following criteria:\n\n• 2 to 3 years of minimum experience with a hospital structure in Pediatrics (mandatory), or in a paediatric practice (in Switzerland)\n\n• Medical Assistant\n\n• Good knowledge of the English language (Level B1)\n\n• Self-governing, benevolence, versatility, adaptability, organization and sense of priority are essential qualities\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 80%\nSchedule Type: Regular",
+        "de": "Das Mutter-Kind-Zentrum bietet Patienten eine multidisziplinäre Versorgung. Ein Team von Fachleuten aus Ärzten, Krankenschwestern und Betreuern kümmert sich um Kinder und ihre Familien in einem Raum, der ihrem Wohlbefinden gewidmet ist, von der Geburt bis zum Alter von 18 Jahren.\n\nUm diesen Service zu vervollständigen, rekrutieren wir eine\n\nMedizinische Assistenz in der Pädiatrie - CDI 80% (ref: 2006)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine Vielzahl von Positionen in einem multidisziplinären Team, darunter Krankenschwestern, Betreuer, Kinderärzte.\n\nSie müssen die Aufnahme von Patienten und ihren Familien und die korrekte Reihenfolge des Dienstes sicherstellen.\n\nAls solche sind Sie verantwortlich für;\n\n• Junge Patienten und ihre Eltern mit Empathie, Zuhören und Geduld willkommen heißen und dann die Dringlichkeit von Situationen bewerten\n\n• Besuch des Kinderarztes während der Untersuchungen, Messung und Wiegen von Säuglingen und Kindern\n\n• Üben Sie mit dem Kinderarzt (Hilfe für Dressings, etc.)\n\n• Durchführung von Blutproben, Injektionen, Impfungen, Verbänden und Vorbereitung steriler Geräte\n\n• Führen Sie grundlegende medizinische Tests durch und bereiten Sie spezifische Untersuchungen vor\n\n• Gewährleistung der ordnungsgemäßen Ordnung und Sauberkeit der Arztpraxis: Formulare, Dokumente, Anzeige\n\n• Organisieren Sie die häusliche Pflege über SITEX / IMAD / Pädiadom (Nurse ID)\n\n• Organisation von Patiententransfers nach Bedarf\n\n• Verwaltet Zeitplan, Telefonanrufe, Abrechnungsverfolgung, Gerätebestellungen und die Pflege von computergestützten Krankenakten.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• 2 bis 3 Jahre Mindesterfahrung mit einer Krankenhausstruktur in der Pädiatrie (obligatorisch) oder in einer pädiatrischen Praxis (in der Schweiz)\n\n• Arzthelferin\n\n• Gute Englischkenntnisse (Level B1)\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Prioritätsgefühl sind wesentliche Eigenschaften\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 80%\nZeitplantyp: Regulär",
+        "fr": "Le pôle Mère/Enfant propose aux patients une prise en charge multidisciplinaire. Une équipe de professionnels composée de médecins, infirmières et aides-soignantes prend en charge les enfants ainsi que leurs familles dans un espace dédié à leur bien-être, de la naissance à 18 ans.\n\nAfin de compléter ce service nous recrutons un/e\n\nAssistant(-e) Médical(-e) en Pédiatrie - CDI 80% (ref : 2006)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des pédiatres.\n\nVous devrez assurer l’accueil des patients et de leur famille et le bon ordre du service .\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir les jeunes patients et leurs parents avec empathie, écoute et patience, puis évaluer le degré d'urgence des situations\n\n• Assister le pédiatre lors des examens, mesurer et peser les nourrissons et les enfants\n\n• Pratiquer les soins avec le pédiatre (aides pour les pansements, etc.)\n\n• Effectuer les prises de sang, les injections, les vaccinations, les pansements et préparer le matériel stérile\n\n• Réaliser les analyses médicales de base et préparer les examens spécifiques\n\n• S'assurer du bon ordre et de la propreté du bureau médical : formulaires, documents, affichage\n\n• Organiser les soins à domicile via SITEX/IMAD/pediadom (idem infirmière)\n\n• Organisation des transferts patients au besoin\n\n• Gérer l'agenda, les appels téléphoniques, le suivi de la facturation, les commandes de matériel et la tenue des dossiers médicaux informatisés.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• 2 à 3 années d'expérience minimum auprès d'une structure hospitalière en Pédiatrie ( obligatoire ), ou au sein d'un cabinet de pédiatrie (en Suisse)\n\n• Diplôme d’Assistant(-e) médical(-e)\n\n• Bonnes connaissances de la langue anglaise (Niveau B1)\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 80%\nType d'horaires : Réguliers"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T21:48:38.186Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/assistant-e-medical-e-en-pediatrie-cdi-80-1541",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-03T13:43:24.957Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -253,7 +253,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/dieteticien-ne-en-cdi-80-1543",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.379Z",
+      "crawledAt": "2026-10-26T21:48:38.185Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -296,80 +296,6 @@
       }
     },
     {
-      "id": "hopital-la-tour-fa0243493f74",
-      "slug": "100-neuropsicologo-cdi-centro-di-memoria-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "100-neuropsicologo-cdi-centro-di-memoria-hopital-de-la-tour-meyrin",
-        "en": "100-neuropsychologist-cdi-centre-for-memory-hopital-de-la-tour-meyrin",
-        "de": "100-neuropsychologe-cdi-zentrum-fur-gedachtnis-hopital-de-la-tour-meyrin",
-        "fr": "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Neuropsychologue à 100 % CDI – Centre de la mémoire",
-      "titleByLocale": {
-        "it": "100 % Neuropsicologo CDI – Centro di Memoria",
-        "en": "100 % Neuropsychologist CDI – Centre for Memory",
-        "de": "100 % Neuropsychologe CDI – Zentrum für Gedächtnis",
-        "fr": "Neuropsychologue à 100 % CDI – Centre de la mémoire"
-      },
-      "description": "Rejoignez-nous et participez à la création de notre Centre de la mémoire !\n\nL’Hôpital de La Tour ouvre un Centre de la mémoire et recherche un(e) Neuropsychologue à 100 % pour rejoindre une équipe pluridisciplinaire dynamique et contribuer au développement de cette activité.\n\nNeuropsychologue à 100 % CDI – Centre de la mémoire (ref : 2008)\n\nVous souhaitez mettre votre expertise au service d’une prise en charge personnalisée, multidisciplinaire et centrée sur le patient ? Ce poste vous offre l’opportunité de jouer un rôle clé dans le parcours des patients présentant des troubles cognitifs et de participer activement à la création et l’évolution du Centre.\n\nVotre rôle\n\nAu sein du Centre de la mémoire, vous serez notamment amené(e) à :\n\n• réaliser des bilans neuropsychologiques complets et adaptés aux problématiques des patients ;\n\n• évaluer et caractériser les troubles cognitifs et leurs répercussions dans la vie quotidienne ;\n\n• contribuer à l’orientation diagnostique en étroite collaboration avec les neurologues ;\n\n• rédiger les comptes rendus et assurer la restitution des résultats aux patients et à leurs proches ;\n\n• proposer des recommandations et stratégies de compensation adaptées ;\n\n• participer aux réunions et décisions de prise en charge pluridisciplinaires ;\n\n• contribuer au suivi des patients et à l’évolution de leur parcours ;\n\n• participer au développement des projets, des pratiques et des prestations du Centre de la mémoire .\n\nVotre profil\n\n• Master en psychologie, spécialisation neuropsychologie , ou titre reconnu équivalent ;\n\n• expérience en évaluation neuropsychologique, idéalement auprès de patients présentant des troubles cognitifs, neurologiques ou neurodégénératifs ;\n\n• excellente capacité d’analyse, de synthèse et de rédaction ;\n\n• aisance relationnelle et capacité à expliquer des résultats complexes avec pédagogie ;\n\n• goût pour le travail en équipe pluridisciplinaire ;\n\n• autonomie, rigueur, curiosité et esprit d’initiative.\n\nUne expérience en Centre de la mémoire, neurologie, gériatrie ou consultation spécialisée est un atout.\n\nPourquoi nous rejoindre ?\n\nVous intégrerez un environnement stimulant, innovant et pluridisciplinaire , au sein d’un établissement reconnu pour la qualité de sa prise en charge.\n\nVous aurez surtout l’opportunité de participer à un projet en développement , de contribuer à la construction des parcours patients et de faire évoluer les pratiques autour des troubles cognitifs.\n\nTaux d’activité : 100 %\n Lieu : Hôpital de La Tour – Meyrin, Genève\n Entrée en fonction : 1 er novembre 2026\n\nEnvie de participer à cette aventure et de contribuer au développement du Centre de la mémoire de l’Hôpital de La Tour ? Nous nous réjouissons de recevoir votre candidature.",
-      "descriptionByLocale": {
-        "it": "Unisciti a noi e partecipa alla creazione del nostro Centro Memoria!\n\nL'Ospedale di La Tour apre un Centro di Memoria e cerca un neuropsicologo al 100% per unire un team dinamico multidisciplinare e contribuire allo sviluppo di questa attività.\n\n100 % Neuropsicologo CDI – Centro per la Memoria (rif: 2008)\n\nVuoi mettere la tua esperienza al servizio della gestione personalizzata, multidisciplinare e paziente-centro? Questa posizione vi offre l'opportunità di svolgere un ruolo chiave nel viaggio dei pazienti con disturbi cognitivi e di partecipare attivamente alla creazione e all'evoluzione del Centro.\n\nIl tuo ruolo\n\nAll'interno del centro di memoria, vi verrà chiesto di:\n\n• eseguire valutazioni neuropsicologiche complete adattate ai problemi dei pazienti;\n\n• valutare e caratterizzare i disturbi cognitivi e il loro impatto sulla vita quotidiana;\n\n• contribuire all'orientamento diagnostico in stretta collaborazione con i neurologi;\n\n• preparare i rapporti e garantire il ritorno dei risultati ai pazienti e ai loro parenti;\n\n• proporre raccomandazioni e strategie di compensazione appropriate;\n\n• partecipare a riunioni e decisioni di gestione multidisciplinari;\n\n• contribuire al follow-up dei pazienti e all'evoluzione del loro viaggio;\n\n• partecipare allo sviluppo di progetti, pratiche e servizi del Centro Memoria .\n\nIl tuo profilo\n\n• Laurea magistrale in psicologia, specializzazione neuropsicologia, o titolo riconosciuto equivalente;\n\n• esperienza nella valutazione neuropsicologica, idealmente in pazienti con disturbi cognitivi, neurologici o neurodegenerativi;\n\n• ottima capacità di analisi, sintesi e scrittura;\n\n• facilità relazionale e capacità di spiegare risultati complessi con pedagogia;\n\n• gusto per il lavoro di squadra multidisciplinare;\n\n• autonomia, rigore, curiosità e iniziativa.\n\nUn'esperienza nel Centro per la Memoria, la Neurologia, la Geriatria o la Consultazione Specializzata è una risorsa.\n\nPerché unirsi a noi?\n\nIntegrerai un ambiente stimolante, innovativo e multidisciplinare in uno stabilimento riconosciuto per la qualità della sua gestione.\n\nSoprattutto, avrete l'opportunità di partecipare a un progetto in via di sviluppo, di contribuire alla costruzione di percorsi pazienti e di cambiare le pratiche intorno ai disturbi cognitivi.\n\nTasso di partecipazione: 100%\nUbicazione: La Tour Hospital – Meyrin, Ginevra\nIngresso in ufficio: 1 novembre 2026\n\nVuoi partecipare a questa avventura e contribuire allo sviluppo del Centro Memorial dell'Ospedale di La Tour? Non vediamo l'ora di ricevere la vostra domanda.",
-        "en": "Join us and participate in the creation of our Memory Centre!\n\nThe Hospital of La Tour opens a Memory Centre and seeks a Neuropsychologist 100% to join a dynamic multidisciplinary team and contribute to the development of this activity.\n\n100 % Neuropsychologist CDI – Centre for Memory (ref: 2008)\n\nDo you want to put your expertise at the service of personalized, multidisciplinary and patient-centred management? This position offers you the opportunity to play a key role in the journey of patients with cognitive disorders and to participate actively in the creation and evolution of the Centre.\n\nYour role\n\nWithin the Memory Centre, you will be asked to:\n\n• perform complete neuropsychological assessments adapted to patients' problems;\n\n• assess and characterize cognitive disorders and their impact on everyday life;\n\n• contribute to diagnostic orientation in close collaboration with neurologists;\n\n• preparing reports and ensuring the return of results to patients and their relatives;\n\n• propose appropriate compensation recommendations and strategies;\n\n• participate in multidisciplinary management meetings and decisions;\n\n• contribute to the follow-up of patients and the evolution of their journey;\n\n• participate in the development of projects, practices and services of the Memory Centre .\n\nYour profile\n\n• Master's degree in psychology, neuropsychology specialization, or equivalent recognized title;\n\n• experience in neuropsychological evaluation, ideally in patients with cognitive, neurological or neurodegenerative disorders;\n\n• excellent capacity for analysis, synthesis and writing;\n\n• relational ease and ability to explain complex results with pedagogy;\n\n• taste for multidisciplinary team work;\n\n• autonomy, rigour, curiosity and initiative.\n\nAn experience in the Centre for Memory, Neurology, Geriatrics or Specialized Consultation is an asset.\n\nWhy join us?\n\nYou will integrate a stimulating, innovative and multidisciplinary environment into an establishment recognized for the quality of its management.\n\nAbove all, you will have the opportunity to participate in a developing project, to contribute to the construction of patient paths and to change practices around cognitive disorders.\n\nParticipation rate: 100%\nLocation: La Tour Hospital – Meyrin, Geneva\nEntry into office: 1 November 2026\n\nWant to participate in this adventure and contribute to the development of the Memorial Centre of the Hospital of La Tour ? We look forward to receiving your application.",
-        "de": "Begleiten Sie uns und beteiligen Sie sich an der Schaffung unseres Erinnerungszentrums!\n\nDas Krankenhaus von La Tour eröffnet ein Gedächtniszentrum und sucht einen Neuropsychologen zu 100%, um sich einem dynamischen multidisziplinären Team anzuschließen und zur Entwicklung dieser Aktivität beizutragen.\n\n100 % Neuropsychologe CDI – Zentrum für Gedächtnis (ref: 2008)\n\nMöchten Sie Ihre Expertise in den Dienst eines personalisierten, multidisziplinären und patientenzentrierten Managements stellen? Diese Position bietet Ihnen die Möglichkeit, eine Schlüsselrolle auf dem Weg von Patienten mit kognitiven Störungen zu spielen und sich aktiv an der Gründung und Entwicklung des Zentrums zu beteiligen.\n\nDeine Rolle\n\nIm Memory Center werden Sie aufgefordert:\n\n• vollständige neuropsychologische Bewertungen durchführen, die an die Probleme der Patienten angepasst sind;\n\n• Bewertung und Charakterisierung kognitiver Störungen und ihrer Auswirkungen auf den Alltag;\n\n• Beitrag zur diagnostischen Ausrichtung in enger Zusammenarbeit mit Neurologen;\n\n• Erstellung von Berichten und Gewährleistung der Rückgabe der Ergebnisse an Patienten und ihre Angehörigen;\n\n• geeignete Vergütungsempfehlungen und -strategien vorzuschlagen;\n\n• an multidisziplinären Managementsitzungen und -entscheidungen teilnehmen;\n\n• Beitrag zur Nachsorge von Patienten und zur Entwicklung ihrer Reise;\n\n• an der Entwicklung von Projekten, Praktiken und Dienstleistungen des Gedächtniszentrums mitwirken.\n\nDein Profil\n\n• Master-Abschluss in Psychologie, Neuropsychologie Spezialisierung oder gleichwertiger anerkannter Titel;\n\n• Erfahrung in der neuropsychologischen Auswertung, idealerweise bei Patienten mit kognitiven, neurologischen oder neurodegenerativen Störungen;\n\n• ausgezeichnete Fähigkeit zur Analyse, Synthese und Schreiben;\n\n• relationale Leichtigkeit und Fähigkeit, komplexe Ergebnisse mit Pädagogik zu erklären;\n\n• Geschmack für multidisziplinäre Teamarbeit;\n\n• Autonomie, Strenge, Neugier und Initiative.\n\nEine Erfahrung im Zentrum für Gedächtnis, Neurologie, Geriatrie oder Fachberatung ist ein Gewinn.\n\nWarum mitmachen?\n\nSie integrieren ein anregendes, innovatives und multidisziplinäres Umfeld in eine Einrichtung, die für die Qualität ihres Managements anerkannt ist.\n\nVor allem haben Sie die Möglichkeit, an einem sich entwickelnden Projekt teilzunehmen, zum Aufbau von Patientenpfaden beizutragen und Praktiken rund um kognitive Störungen zu ändern.\n\nTeilnahmequote: 100%\nLage: La Tour Hospital – Meyrin, Genf\nAmtsantritt: 1. November 2026\n\nMöchten Sie an diesem Abenteuer teilnehmen und zur Entwicklung des Gedenkzentrums des Krankenhauses von La Tour beitragen? Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Rejoignez-nous et participez à la création de notre Centre de la mémoire !\n\nL’Hôpital de La Tour ouvre un Centre de la mémoire et recherche un(e) Neuropsychologue à 100 % pour rejoindre une équipe pluridisciplinaire dynamique et contribuer au développement de cette activité.\n\nNeuropsychologue à 100 % CDI – Centre de la mémoire (ref : 2008)\n\nVous souhaitez mettre votre expertise au service d’une prise en charge personnalisée, multidisciplinaire et centrée sur le patient ? Ce poste vous offre l’opportunité de jouer un rôle clé dans le parcours des patients présentant des troubles cognitifs et de participer activement à la création et l’évolution du Centre.\n\nVotre rôle\n\nAu sein du Centre de la mémoire, vous serez notamment amené(e) à :\n\n• réaliser des bilans neuropsychologiques complets et adaptés aux problématiques des patients ;\n\n• évaluer et caractériser les troubles cognitifs et leurs répercussions dans la vie quotidienne ;\n\n• contribuer à l’orientation diagnostique en étroite collaboration avec les neurologues ;\n\n• rédiger les comptes rendus et assurer la restitution des résultats aux patients et à leurs proches ;\n\n• proposer des recommandations et stratégies de compensation adaptées ;\n\n• participer aux réunions et décisions de prise en charge pluridisciplinaires ;\n\n• contribuer au suivi des patients et à l’évolution de leur parcours ;\n\n• participer au développement des projets, des pratiques et des prestations du Centre de la mémoire .\n\nVotre profil\n\n• Master en psychologie, spécialisation neuropsychologie , ou titre reconnu équivalent ;\n\n• expérience en évaluation neuropsychologique, idéalement auprès de patients présentant des troubles cognitifs, neurologiques ou neurodégénératifs ;\n\n• excellente capacité d’analyse, de synthèse et de rédaction ;\n\n• aisance relationnelle et capacité à expliquer des résultats complexes avec pédagogie ;\n\n• goût pour le travail en équipe pluridisciplinaire ;\n\n• autonomie, rigueur, curiosité et esprit d’initiative.\n\nUne expérience en Centre de la mémoire, neurologie, gériatrie ou consultation spécialisée est un atout.\n\nPourquoi nous rejoindre ?\n\nVous intégrerez un environnement stimulant, innovant et pluridisciplinaire , au sein d’un établissement reconnu pour la qualité de sa prise en charge.\n\nVous aurez surtout l’opportunité de participer à un projet en développement , de contribuer à la construction des parcours patients et de faire évoluer les pratiques autour des troubles cognitifs.\n\nTaux d’activité : 100 %\nLieu : Hôpital de La Tour – Meyrin, Genève\nEntrée en fonction : 1 er novembre 2026\n\nEnvie de participer à cette aventure et de contribuer au développement du Centre de la mémoire de l’Hôpital de La Tour ? Nous nous réjouissons de recevoir votre candidature."
-      },
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.377Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:13:01.829Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hopital-la-tour-2c25b5aa8ec1",
       "slug": "fisioterapia-cardio-respiratorio-90-cdmax-10-mesi-possibilita-cdi-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -401,7 +327,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/physiotherapeute-cardio-respiratoire-a-90-cdmax-10-mois-possibilite-cdi-1544",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.376Z",
+      "crawledAt": "2026-10-26T21:48:38.184Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -444,6 +370,80 @@
       }
     },
     {
+      "id": "hopital-la-tour-fa0243493f74",
+      "slug": "100-neuropsicologo-cdi-centro-di-memoria-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "100-neuropsicologo-cdi-centro-di-memoria-hopital-de-la-tour-meyrin",
+        "en": "100-neuropsychologist-cdi-centre-for-memory-hopital-de-la-tour-meyrin",
+        "de": "100-neuropsychologe-cdi-zentrum-fur-gedachtnis-hopital-de-la-tour-meyrin",
+        "fr": "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Neuropsychologue à 100 % CDI – Centre de la mémoire",
+      "titleByLocale": {
+        "it": "100 % Neuropsicologo CDI – Centro di Memoria",
+        "en": "100 % Neuropsychologist CDI – Centre for Memory",
+        "de": "100 % Neuropsychologe CDI – Zentrum für Gedächtnis",
+        "fr": "Neuropsychologue à 100 % CDI – Centre de la mémoire"
+      },
+      "description": "Rejoignez-nous et participez à la création de notre Centre de la mémoire !\n\nL’Hôpital de La Tour ouvre un Centre de la mémoire et recherche un(e) Neuropsychologue à 100 % pour rejoindre une équipe pluridisciplinaire dynamique et contribuer au développement de cette activité.\n\nNeuropsychologue à 100 % CDI – Centre de la mémoire (ref : 2008)\n\nVous souhaitez mettre votre expertise au service d’une prise en charge personnalisée, multidisciplinaire et centrée sur le patient ? Ce poste vous offre l’opportunité de jouer un rôle clé dans le parcours des patients présentant des troubles cognitifs et de participer activement à la création et l’évolution du Centre.\n\nVotre rôle\n\nAu sein du Centre de la mémoire, vous serez notamment amené(e) à :\n\n• réaliser des bilans neuropsychologiques complets et adaptés aux problématiques des patients ;\n\n• évaluer et caractériser les troubles cognitifs et leurs répercussions dans la vie quotidienne ;\n\n• contribuer à l’orientation diagnostique en étroite collaboration avec les neurologues ;\n\n• rédiger les comptes rendus et assurer la restitution des résultats aux patients et à leurs proches ;\n\n• proposer des recommandations et stratégies de compensation adaptées ;\n\n• participer aux réunions et décisions de prise en charge pluridisciplinaires ;\n\n• contribuer au suivi des patients et à l’évolution de leur parcours ;\n\n• participer au développement des projets, des pratiques et des prestations du Centre de la mémoire .\n\nVotre profil\n\n• Master en psychologie, spécialisation neuropsychologie , ou titre reconnu équivalent ;\n\n• expérience en évaluation neuropsychologique, idéalement auprès de patients présentant des troubles cognitifs, neurologiques ou neurodégénératifs ;\n\n• excellente capacité d’analyse, de synthèse et de rédaction ;\n\n• aisance relationnelle et capacité à expliquer des résultats complexes avec pédagogie ;\n\n• goût pour le travail en équipe pluridisciplinaire ;\n\n• autonomie, rigueur, curiosité et esprit d’initiative.\n\nUne expérience en Centre de la mémoire, neurologie, gériatrie ou consultation spécialisée est un atout.\n\nPourquoi nous rejoindre ?\n\nVous intégrerez un environnement stimulant, innovant et pluridisciplinaire , au sein d’un établissement reconnu pour la qualité de sa prise en charge.\n\nVous aurez surtout l’opportunité de participer à un projet en développement , de contribuer à la construction des parcours patients et de faire évoluer les pratiques autour des troubles cognitifs.\n\nTaux d’activité : 100 %\n Lieu : Hôpital de La Tour – Meyrin, Genève\n Entrée en fonction : 1 er novembre 2026\n\nEnvie de participer à cette aventure et de contribuer au développement du Centre de la mémoire de l’Hôpital de La Tour ? Nous nous réjouissons de recevoir votre candidature.",
+      "descriptionByLocale": {
+        "it": "Unisciti a noi e partecipa alla creazione del nostro Centro Memoria!\n\nL'Ospedale di La Tour apre un Centro di Memoria e cerca un neuropsicologo al 100% per unire un team dinamico multidisciplinare e contribuire allo sviluppo di questa attività.\n\n100 % Neuropsicologo CDI – Centro per la Memoria (rif: 2008)\n\nVuoi mettere la tua esperienza al servizio della gestione personalizzata, multidisciplinare e paziente-centro? Questa posizione vi offre l'opportunità di svolgere un ruolo chiave nel viaggio dei pazienti con disturbi cognitivi e di partecipare attivamente alla creazione e all'evoluzione del Centro.\n\nIl tuo ruolo\n\nAll'interno del centro di memoria, vi verrà chiesto di:\n\n• eseguire valutazioni neuropsicologiche complete adattate ai problemi dei pazienti;\n\n• valutare e caratterizzare i disturbi cognitivi e il loro impatto sulla vita quotidiana;\n\n• contribuire all'orientamento diagnostico in stretta collaborazione con i neurologi;\n\n• preparare i rapporti e garantire il ritorno dei risultati ai pazienti e ai loro parenti;\n\n• proporre raccomandazioni e strategie di compensazione appropriate;\n\n• partecipare a riunioni e decisioni di gestione multidisciplinari;\n\n• contribuire al follow-up dei pazienti e all'evoluzione del loro viaggio;\n\n• partecipare allo sviluppo di progetti, pratiche e servizi del Centro Memoria .\n\nIl tuo profilo\n\n• Laurea magistrale in psicologia, specializzazione neuropsicologia, o titolo riconosciuto equivalente;\n\n• esperienza nella valutazione neuropsicologica, idealmente in pazienti con disturbi cognitivi, neurologici o neurodegenerativi;\n\n• ottima capacità di analisi, sintesi e scrittura;\n\n• facilità relazionale e capacità di spiegare risultati complessi con pedagogia;\n\n• gusto per il lavoro di squadra multidisciplinare;\n\n• autonomia, rigore, curiosità e iniziativa.\n\nUn'esperienza nel Centro per la Memoria, la Neurologia, la Geriatria o la Consultazione Specializzata è una risorsa.\n\nPerché unirsi a noi?\n\nIntegrerai un ambiente stimolante, innovativo e multidisciplinare in uno stabilimento riconosciuto per la qualità della sua gestione.\n\nSoprattutto, avrete l'opportunità di partecipare a un progetto in via di sviluppo, di contribuire alla costruzione di percorsi pazienti e di cambiare le pratiche intorno ai disturbi cognitivi.\n\nTasso di partecipazione: 100%\nUbicazione: La Tour Hospital – Meyrin, Ginevra\nIngresso in ufficio: 1 novembre 2026\n\nVuoi partecipare a questa avventura e contribuire allo sviluppo del Centro Memorial dell'Ospedale di La Tour? Non vediamo l'ora di ricevere la vostra domanda.",
+        "en": "Join us and participate in the creation of our Memory Centre!\n\nThe Hospital of La Tour opens a Memory Centre and seeks a Neuropsychologist 100% to join a dynamic multidisciplinary team and contribute to the development of this activity.\n\n100 % Neuropsychologist CDI – Centre for Memory (ref: 2008)\n\nDo you want to put your expertise at the service of personalized, multidisciplinary and patient-centred management? This position offers you the opportunity to play a key role in the journey of patients with cognitive disorders and to participate actively in the creation and evolution of the Centre.\n\nYour role\n\nWithin the Memory Centre, you will be asked to:\n\n• perform complete neuropsychological assessments adapted to patients' problems;\n\n• assess and characterize cognitive disorders and their impact on everyday life;\n\n• contribute to diagnostic orientation in close collaboration with neurologists;\n\n• preparing reports and ensuring the return of results to patients and their relatives;\n\n• propose appropriate compensation recommendations and strategies;\n\n• participate in multidisciplinary management meetings and decisions;\n\n• contribute to the follow-up of patients and the evolution of their journey;\n\n• participate in the development of projects, practices and services of the Memory Centre .\n\nYour profile\n\n• Master's degree in psychology, neuropsychology specialization, or equivalent recognized title;\n\n• experience in neuropsychological evaluation, ideally in patients with cognitive, neurological or neurodegenerative disorders;\n\n• excellent capacity for analysis, synthesis and writing;\n\n• relational ease and ability to explain complex results with pedagogy;\n\n• taste for multidisciplinary team work;\n\n• autonomy, rigour, curiosity and initiative.\n\nAn experience in the Centre for Memory, Neurology, Geriatrics or Specialized Consultation is an asset.\n\nWhy join us?\n\nYou will integrate a stimulating, innovative and multidisciplinary environment into an establishment recognized for the quality of its management.\n\nAbove all, you will have the opportunity to participate in a developing project, to contribute to the construction of patient paths and to change practices around cognitive disorders.\n\nParticipation rate: 100%\nLocation: La Tour Hospital – Meyrin, Geneva\nEntry into office: 1 November 2026\n\nWant to participate in this adventure and contribute to the development of the Memorial Centre of the Hospital of La Tour ? We look forward to receiving your application.",
+        "de": "Begleiten Sie uns und beteiligen Sie sich an der Schaffung unseres Erinnerungszentrums!\n\nDas Krankenhaus von La Tour eröffnet ein Gedächtniszentrum und sucht einen Neuropsychologen zu 100%, um sich einem dynamischen multidisziplinären Team anzuschließen und zur Entwicklung dieser Aktivität beizutragen.\n\n100 % Neuropsychologe CDI – Zentrum für Gedächtnis (ref: 2008)\n\nMöchten Sie Ihre Expertise in den Dienst eines personalisierten, multidisziplinären und patientenzentrierten Managements stellen? Diese Position bietet Ihnen die Möglichkeit, eine Schlüsselrolle auf dem Weg von Patienten mit kognitiven Störungen zu spielen und sich aktiv an der Gründung und Entwicklung des Zentrums zu beteiligen.\n\nDeine Rolle\n\nIm Memory Center werden Sie aufgefordert:\n\n• vollständige neuropsychologische Bewertungen durchführen, die an die Probleme der Patienten angepasst sind;\n\n• Bewertung und Charakterisierung kognitiver Störungen und ihrer Auswirkungen auf den Alltag;\n\n• Beitrag zur diagnostischen Ausrichtung in enger Zusammenarbeit mit Neurologen;\n\n• Erstellung von Berichten und Gewährleistung der Rückgabe der Ergebnisse an Patienten und ihre Angehörigen;\n\n• geeignete Vergütungsempfehlungen und -strategien vorzuschlagen;\n\n• an multidisziplinären Managementsitzungen und -entscheidungen teilnehmen;\n\n• Beitrag zur Nachsorge von Patienten und zur Entwicklung ihrer Reise;\n\n• an der Entwicklung von Projekten, Praktiken und Dienstleistungen des Gedächtniszentrums mitwirken.\n\nDein Profil\n\n• Master-Abschluss in Psychologie, Neuropsychologie Spezialisierung oder gleichwertiger anerkannter Titel;\n\n• Erfahrung in der neuropsychologischen Auswertung, idealerweise bei Patienten mit kognitiven, neurologischen oder neurodegenerativen Störungen;\n\n• ausgezeichnete Fähigkeit zur Analyse, Synthese und Schreiben;\n\n• relationale Leichtigkeit und Fähigkeit, komplexe Ergebnisse mit Pädagogik zu erklären;\n\n• Geschmack für multidisziplinäre Teamarbeit;\n\n• Autonomie, Strenge, Neugier und Initiative.\n\nEine Erfahrung im Zentrum für Gedächtnis, Neurologie, Geriatrie oder Fachberatung ist ein Gewinn.\n\nWarum mitmachen?\n\nSie integrieren ein anregendes, innovatives und multidisziplinäres Umfeld in eine Einrichtung, die für die Qualität ihres Managements anerkannt ist.\n\nVor allem haben Sie die Möglichkeit, an einem sich entwickelnden Projekt teilzunehmen, zum Aufbau von Patientenpfaden beizutragen und Praktiken rund um kognitive Störungen zu ändern.\n\nTeilnahmequote: 100%\nLage: La Tour Hospital – Meyrin, Genf\nAmtsantritt: 1. November 2026\n\nMöchten Sie an diesem Abenteuer teilnehmen und zur Entwicklung des Gedenkzentrums des Krankenhauses von La Tour beitragen? Wir freuen uns auf Ihre Bewerbung.",
+        "fr": "Rejoignez-nous et participez à la création de notre Centre de la mémoire !\n\nL’Hôpital de La Tour ouvre un Centre de la mémoire et recherche un(e) Neuropsychologue à 100 % pour rejoindre une équipe pluridisciplinaire dynamique et contribuer au développement de cette activité.\n\nNeuropsychologue à 100 % CDI – Centre de la mémoire (ref : 2008)\n\nVous souhaitez mettre votre expertise au service d’une prise en charge personnalisée, multidisciplinaire et centrée sur le patient ? Ce poste vous offre l’opportunité de jouer un rôle clé dans le parcours des patients présentant des troubles cognitifs et de participer activement à la création et l’évolution du Centre.\n\nVotre rôle\n\nAu sein du Centre de la mémoire, vous serez notamment amené(e) à :\n\n• réaliser des bilans neuropsychologiques complets et adaptés aux problématiques des patients ;\n\n• évaluer et caractériser les troubles cognitifs et leurs répercussions dans la vie quotidienne ;\n\n• contribuer à l’orientation diagnostique en étroite collaboration avec les neurologues ;\n\n• rédiger les comptes rendus et assurer la restitution des résultats aux patients et à leurs proches ;\n\n• proposer des recommandations et stratégies de compensation adaptées ;\n\n• participer aux réunions et décisions de prise en charge pluridisciplinaires ;\n\n• contribuer au suivi des patients et à l’évolution de leur parcours ;\n\n• participer au développement des projets, des pratiques et des prestations du Centre de la mémoire .\n\nVotre profil\n\n• Master en psychologie, spécialisation neuropsychologie , ou titre reconnu équivalent ;\n\n• expérience en évaluation neuropsychologique, idéalement auprès de patients présentant des troubles cognitifs, neurologiques ou neurodégénératifs ;\n\n• excellente capacité d’analyse, de synthèse et de rédaction ;\n\n• aisance relationnelle et capacité à expliquer des résultats complexes avec pédagogie ;\n\n• goût pour le travail en équipe pluridisciplinaire ;\n\n• autonomie, rigueur, curiosité et esprit d’initiative.\n\nUne expérience en Centre de la mémoire, neurologie, gériatrie ou consultation spécialisée est un atout.\n\nPourquoi nous rejoindre ?\n\nVous intégrerez un environnement stimulant, innovant et pluridisciplinaire , au sein d’un établissement reconnu pour la qualité de sa prise en charge.\n\nVous aurez surtout l’opportunité de participer à un projet en développement , de contribuer à la construction des parcours patients et de faire évoluer les pratiques autour des troubles cognitifs.\n\nTaux d’activité : 100 %\nLieu : Hôpital de La Tour – Meyrin, Genève\nEntrée en fonction : 1 er novembre 2026\n\nEnvie de participer à cette aventure et de contribuer au développement du Centre de la mémoire de l’Hôpital de La Tour ? Nous nous réjouissons de recevoir votre candidature."
+      },
+      "needsRetranslation": false,
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T21:48:38.184Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T23:13:01.829Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hopital-la-tour-43b34ace2c10",
       "slug": "midwife-in-cdm-7-mesi-all-80-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -475,7 +475,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/sage-femme-en-cdm-7-mois-a-80-1545",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.374Z",
+      "crawledAt": "2026-10-26T21:48:38.183Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -518,79 +518,6 @@
       }
     },
     {
-      "id": "hopital-la-tour-27d334811186",
-      "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "en": "nurse-at-night-at-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "de": "krankenschwester-in-der-nacht-bei-ucp-cdi-90-hopital-de-la-tour-meyrin",
-        "fr": "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier(-ère) de nuit à l'UCP - CDI 90%",
-      "titleByLocale": {
-        "it": "Infermiera di notte a UCP - CDI 90%",
-        "en": "Nurse at night at UCP - CDI 90%",
-        "de": "Krankenschwester in der Nacht bei UCP - CDI 90%",
-        "fr": "Infirmier(-ère) de nuit à l'UCP - CDI 90%"
-      },
-      "description": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 90%\n Type d'horaires : Horaires de nuit\n Date d'entrée en fonction: 16 novembre 2026",
-      "descriptionByLocale": {
-        "it": "Le unità di assistenza cardiopolmonare e intermedia sono responsabili del trattamento dei pazienti che hanno condizioni mediche o chirurgiche e richiedono un monitoraggio stretto e specifico.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nInfermiera di notte a UCP - CDI 90% (ref: 2019)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia si ha una posizione varia in un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nDovrai accogliere pazienti con patologie complesse come parte di una gestione completa della fase acuta.\n\nCome tale siete responsabili di;\n\n• Installare il paziente e presentare le informazioni amministrative e di cura\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file di assistenza informatizzata\n\n• Fornire e organizzare la pianificazione della cura secondo le priorità e l'urgenza\n\n• Eseguire l'assistenza su prescrizione medica e secondo le procedure unitarie e istituzionali\n\n• Mantenere il record paziente informatizzato\n\n• Valutare costantemente la condizione clinica del paziente e la sua evoluzione in condizioni acute\n\n• Assicurare il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare ingressi e uscite: mutazioni interne, trasferimenti esterni di pazienti in collaborazione con il quadro sanitario\n\n• Partecipa alla formazione necessaria per mantenere e sviluppare le competenze previste per la sua posizione\n\n• Accoglienti, accompagnatori e nuovi collaboratori\n\n• Adattarsi alle situazioni di emergenza.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di infermiera\n\n• In possesso del riconoscimento Croce Rossa\n\n• 2-3 anni di esperienza\n\n• Esperienza in Cardiologia, Pneumologia e Cura Critica\n\n• Significato del contatto e del servizio in uno stabilimento privato\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• atteggiamento positivo all'interno di un team e sono in grado di generare un clima di fiducia\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 90%\nTipo di programma: Ore notturne\nData effettiva: 16 novembre 2026",
-        "en": "The cardiopulmonary and intermediate care units are responsible for treating patients who have medical or surgical conditions and require close and specific monitoring.\n\nIn order to complete our service we are recruiting one:\n\nNurse at night at UCP - CDI 90% (ref: 2019)\n\nYour mission:\n\nIn a state-of-the-art facility you hold a varied position in a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with complex pathologies as part of a comprehensive acute phase management.\n\nAs such you are in charge of;\n\n• Install the patient and present the administrative and care information\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Provide and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its evolution in acute conditions\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external patient transfers in collaboration with the health framework\n\n• Attends the necessary training to maintain and develop the skills expected for his position\n\n• Welcoming, accompanying students and new collaborators\n\n• Adapting to emergency situations.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse\n\n• In possession of Red Cross Recognition\n\n• 2-3 years of experience\n\n• Experience in Cardiology, Pneumology and Critical Care\n\n• Meaning of contact and service in a private establishment\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of confidence\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 90%\nSchedule type : Night hours\nEffective date: 16 November 2026",
-        "de": "Die kardiopulmonalen und Zwischenstationen sind für die Behandlung von Patienten mit medizinischen oder chirurgischen Bedingungen verantwortlich und erfordern eine genaue und spezifische Überwachung.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nKrankenschwester bei Nacht bei UCP - CDI 90% (ref: 2019)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit komplexen Pathologien als Teil eines umfassenden Akutphasenmanagements aufnehmen.\n\nAls solche sind Sie verantwortlich für;\n\n• Installieren Sie den Patienten und präsentieren Sie die Verwaltungs- und Pflegeinformationen\n\n• Sammlung und Übermittlung medizinischer und administrativer Daten und Vervollständigung der elektronischen Pflegeakte\n\n• Bereitstellung und Organisation der Pflegeplanung nach Prioritäten und Dringlichkeit\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den abteilungs- und institutionellen Verfahren\n\n• Pflege der informatisierten Patientenakte\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung unter akuten Bedingungen\n\n• Gewährleistung der dienstübergreifenden Koordination für das Bewegungsmanagement von Patienten\n\n• Koordinieren Sie Inputs und Outputs: interne Mutationen, externe Patiententransfers in Zusammenarbeit mit dem Gesundheitsrahmen\n\n• Besucht die notwendige Ausbildung, um die für seine Position erwarteten Fähigkeiten zu erhalten und zu entwickeln\n\n• Begrüßung, Begleitung von Studierenden und neuen Mitarbeitern\n\n• Anpassung an Notsituationen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester\n\n• Im Besitz der Anerkennung des Roten Kreuzes\n\n• 2-3 Jahre Erfahrung\n\n• Erfahrung in Kardiologie, Pneumologie und Critical Care\n\n• Bedeutung von Kontakt und Service in einer privaten Einrichtung\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Positive Einstellung innerhalb eines Teams und sind in der Lage, ein Klima des Vertrauens zu erzeugen\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 90 %\nZeitplan: Nachtstunden\nDatum des Inkrafttretens: 16. November 2026",
-        "fr": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 90%\nType d'horaires : Horaires de nuit\nDate d'entrée en fonction: 16 novembre 2026"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.373Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:29:59.619Z",
-      "salaryMin": 77900,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77900,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hopital-la-tour-92e650f38526",
       "slug": "assistente-tecnico-specializzato-in-sala-operatoria-atsso-100-hopital-de-la-tour-meyrin",
       "slugByLocale": {
@@ -621,7 +548,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.372Z",
+      "crawledAt": "2026-10-26T21:48:38.182Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -667,6 +594,79 @@
       }
     },
     {
+      "id": "hopital-la-tour-27d334811186",
+      "slug": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "infermiera-di-notte-a-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "en": "nurse-at-night-at-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "de": "krankenschwester-in-der-nacht-bei-ucp-cdi-90-hopital-de-la-tour-meyrin",
+        "fr": "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Infirmier(-ère) de nuit à l'UCP - CDI 90%",
+      "titleByLocale": {
+        "it": "Infermiera di notte a UCP - CDI 90%",
+        "en": "Nurse at night at UCP - CDI 90%",
+        "de": "Krankenschwester in der Nacht bei UCP - CDI 90%",
+        "fr": "Infirmier(-ère) de nuit à l'UCP - CDI 90%"
+      },
+      "description": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\n Pourcentage : 90%\n Type d'horaires : Horaires de nuit\n Date d'entrée en fonction: 16 novembre 2026",
+      "descriptionByLocale": {
+        "it": "Le unità di assistenza cardiopolmonare e intermedia sono responsabili del trattamento dei pazienti che hanno condizioni mediche o chirurgiche e richiedono un monitoraggio stretto e specifico.\n\nPer completare il nostro servizio ne stiamo reclutando uno:\n\nInfermiera di notte a UCP - CDI 90% (ref: 2019)\n\nLa vostra missione:\n\nIn una struttura all'avanguardia si ha una posizione varia in un team multidisciplinare di infermieri, operatori sanitari, medici.\n\nDovrai accogliere pazienti con patologie complesse come parte di una gestione completa della fase acuta.\n\nCome tale siete responsabili di;\n\n• Installare il paziente e presentare le informazioni amministrative e di cura\n\n• Raccogliere e trasmettere dati medici e amministrativi e completare il file di assistenza informatizzata\n\n• Fornire e organizzare la pianificazione della cura secondo le priorità e l'urgenza\n\n• Eseguire l'assistenza su prescrizione medica e secondo le procedure unitarie e istituzionali\n\n• Mantenere il record paziente informatizzato\n\n• Valutare costantemente la condizione clinica del paziente e la sua evoluzione in condizioni acute\n\n• Assicurare il coordinamento interservizi per la gestione del movimento dei pazienti\n\n• Coordinare ingressi e uscite: mutazioni interne, trasferimenti esterni di pazienti in collaborazione con il quadro sanitario\n\n• Partecipa alla formazione necessaria per mantenere e sviluppare le competenze previste per la sua posizione\n\n• Accoglienti, accompagnatori e nuovi collaboratori\n\n• Adattarsi alle situazioni di emergenza.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di infermiera\n\n• In possesso del riconoscimento Croce Rossa\n\n• 2-3 anni di esperienza\n\n• Esperienza in Cardiologia, Pneumologia e Cura Critica\n\n• Significato del contatto e del servizio in uno stabilimento privato\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e messa a fuoco sono qualità essenziali\n\n• atteggiamento positivo all'interno di un team e sono in grado di generare un clima di fiducia\n\nVi offriamo:\n\nTipo di contratto: Contratto con Durata indeterminata\nPercentuale: 90%\nTipo di programma: Ore notturne\nData effettiva: 16 novembre 2026",
+        "en": "The cardiopulmonary and intermediate care units are responsible for treating patients who have medical or surgical conditions and require close and specific monitoring.\n\nIn order to complete our service we are recruiting one:\n\nNurse at night at UCP - CDI 90% (ref: 2019)\n\nYour mission:\n\nIn a state-of-the-art facility you hold a varied position in a multidisciplinary team of nurses, health care workers, doctors.\n\nYou will need to accommodate patients with complex pathologies as part of a comprehensive acute phase management.\n\nAs such you are in charge of;\n\n• Install the patient and present the administrative and care information\n\n• Collect and transmit medical and administrative data and complete the computerized care file\n\n• Provide and organize care planning according to priorities and urgency\n\n• Perform care on medical prescription and in accordance with unit and institutional procedures\n\n• Maintaining the Informatized Patient Record\n\n• Continuously assess the patient's clinical condition and its evolution in acute conditions\n\n• Ensure inter-service coordination for patient movement management\n\n• Coordinate inputs and outputs: internal mutations, external patient transfers in collaboration with the health framework\n\n• Attends the necessary training to maintain and develop the skills expected for his position\n\n• Welcoming, accompanying students and new collaborators\n\n• Adapting to emergency situations.\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Nurse\n\n• In possession of Red Cross Recognition\n\n• 2-3 years of experience\n\n• Experience in Cardiology, Pneumology and Critical Care\n\n• Meaning of contact and service in a private establishment\n\n• Self-governing, benevolence, versatility, adaptability, organization and focus are essential qualities\n\n• Positive attitude within a team and are able to generate a climate of confidence\n\nWe offer you:\n\nType of contract: Contract with Indeterminate Duration\nPercentage: 90%\nSchedule type : Night hours\nEffective date: 16 November 2026",
+        "de": "Die kardiopulmonalen und Zwischenstationen sind für die Behandlung von Patienten mit medizinischen oder chirurgischen Bedingungen verantwortlich und erfordern eine genaue und spezifische Überwachung.\n\nUm unseren Service zu vervollständigen, rekrutieren wir einen:\n\nKrankenschwester bei Nacht bei UCP - CDI 90% (ref: 2019)\n\nIhre Mission:\n\nIn einer hochmodernen Einrichtung haben Sie eine abwechslungsreiche Position in einem multidisziplinären Team von Krankenschwestern, Gesundheitspersonal, Ärzten.\n\nSie müssen Patienten mit komplexen Pathologien als Teil eines umfassenden Akutphasenmanagements aufnehmen.\n\nAls solche sind Sie verantwortlich für;\n\n• Installieren Sie den Patienten und präsentieren Sie die Verwaltungs- und Pflegeinformationen\n\n• Sammlung und Übermittlung medizinischer und administrativer Daten und Vervollständigung der elektronischen Pflegeakte\n\n• Bereitstellung und Organisation der Pflegeplanung nach Prioritäten und Dringlichkeit\n\n• Pflege auf ärztliche Verschreibung und in Übereinstimmung mit den abteilungs- und institutionellen Verfahren\n\n• Pflege der informatisierten Patientenakte\n\n• Kontinuierliche Beurteilung des klinischen Zustands des Patienten und seiner Entwicklung unter akuten Bedingungen\n\n• Gewährleistung der dienstübergreifenden Koordination für das Bewegungsmanagement von Patienten\n\n• Koordinieren Sie Inputs und Outputs: interne Mutationen, externe Patiententransfers in Zusammenarbeit mit dem Gesundheitsrahmen\n\n• Besucht die notwendige Ausbildung, um die für seine Position erwarteten Fähigkeiten zu erhalten und zu entwickeln\n\n• Begrüßung, Begleitung von Studierenden und neuen Mitarbeitern\n\n• Anpassung an Notsituationen.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Krankenschwester\n\n• Im Besitz der Anerkennung des Roten Kreuzes\n\n• 2-3 Jahre Erfahrung\n\n• Erfahrung in Kardiologie, Pneumologie und Critical Care\n\n• Bedeutung von Kontakt und Service in einer privaten Einrichtung\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Fokus sind wesentliche Eigenschaften\n\n• Positive Einstellung innerhalb eines Teams und sind in der Lage, ein Klima des Vertrauens zu erzeugen\n\nWir bieten Ihnen:\n\nArt des Vertrags: Vertrag mit unbestimmter Laufzeit\nProzentsatz: 90 %\nZeitplan: Nachtstunden\nDatum des Inkrafttretens: 16. November 2026",
+        "fr": "L'unité de soins cardio-pulmonaire et les soins intermédiaires ont pour mission de prendre en charge des patients qui présentent des affections médicales ou chirurgicales et ayant besoin d'une surveillance rapprochée et spécifique.\n\nAfin de compléter notre service nous recrutons un(-e) :\n\nInfirmier(-ère) de nuit à l'UCP - CDI 90% (ref : 2019)\n\nVotre mission :\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\n\nVous devrez assurer l’accueil des patients atteints de pathologies complexes, dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Installer le patient et lui présenter les informations d'organisation administrative et de soin\n\n• Recueillir et transmettre les données médicales et administratives et compléter le dossier de soins informatisé\n\n• Assurer et organiser la planification des soins en fonction des priorités et du degré d'urgence\n\n• Effectuer les soins sur prescription médicale et en conformité avec les procédures de l’unité et institutionnelles\n\n• Assurer la tenue du Dossier Patient Informatisé\n\n• Evaluer continuellement l'état clinique du patient et son évolution en situation aigue\n\n• Assurer la coordination inter services pour la gestion des mouvements de patients\n\n• Coordonner les entrées et sorties : les mutations internes, les transferts externes des patients en collaboration avec le cadre de santé\n\n• Assiste aux formations nécessaires afin de maintenir et de développer les compétences attendues pour son poste\n\n• Accueillir, accompagner les étudiants et des nouveaux collaborateurs\n\n• Savoir s’adapter face aux situations d’urgences.\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d'infirmier(-ère)\n\n• En possession de la reconnaissance croix rouge\n\n• 2-3 années d'expériences\n\n• Expérience en cardiologie, pneumologie et soins critiques souhaitée\n\n• Sens du contact et du service dans le cadre d'un établissement privé\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Attitude positive au sein d'une équipe et êtes capable de générer un climat de confiance\n\nNous vous proposons :\n\nType de contrat : Contrat à Durée Indéterminée\nPourcentage : 90%\nType d'horaires : Horaires de nuit\nDate d'entrée en fonction: 16 novembre 2026"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T21:48:38.182Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-a-lucp-cdi-90-1553",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-nuit-a-l-ucp-cdi-90-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T21:29:59.619Z",
+      "salaryMin": 77900,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77900,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hopital-la-tour-448a544bc2da",
       "slug": "business-intelligence-manager-a-100-hopital-la-tour-meyrin",
       "slugByLocale": {
@@ -697,7 +697,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/business-intelligence-manager-a-100-1555",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.371Z",
+      "crawledAt": "2026-10-26T21:48:38.181Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -763,7 +763,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-service-des-urgences-cdm-12-mois-a-85-1558",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.369Z",
+      "crawledAt": "2026-10-26T21:48:38.180Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -843,7 +843,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-aux-urgences-a-70-cdm-6-mois-1557",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.368Z",
+      "crawledAt": "2026-10-26T21:48:38.179Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -923,7 +923,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lunite-de-chirurgie-orthopedique-cdm-4-mois-a-80-1559",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.366Z",
+      "crawledAt": "2026-10-26T21:48:38.178Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1002,7 +1002,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-90-1561",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.365Z",
+      "crawledAt": "2026-10-26T21:48:38.177Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1083,7 +1083,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-a-lucp-cdm-10-mois-80-1560",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:29:25.361Z",
+      "crawledAt": "2026-10-26T21:48:38.175Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
