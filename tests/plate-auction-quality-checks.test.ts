@@ -4,6 +4,7 @@ import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
 } from '../services/plateAuctions/qualityChecks';
+import { recognizeTimedCatalogueTurnover } from '../functions/src/plateAuctionQualityCore.js';
 import type { PlateAuction } from '../services/plateAuctions/types';
 
 /**
@@ -217,5 +218,29 @@ describe('derivePlateAuctionDataConfidence', () => {
       { id: 'x', code: 'incoherent-price', message: 'x' },
     ]);
     expect(confidence).toBe('conflicting');
+  });
+});
+
+describe('recognizeTimedCatalogueTurnover', () => {
+  it('accepts a complete VD board replacement when the new board is not short', () => {
+    expect(recognizeTimedCatalogueTurnover({
+      sourceKey: 'vd',
+      previousCount: 31,
+      fetchedCount: 38,
+      vanishedCount: 31,
+    })).toEqual({ recognized: true, cap: 31, blockedBy: [] });
+  });
+
+  it('still rejects a VD turnover when the fetch is materially short', () => {
+    expect(recognizeTimedCatalogueTurnover({
+      sourceKey: 'vd',
+      previousCount: 100,
+      fetchedCount: 38,
+      vanishedCount: 100,
+    })).toEqual({
+      recognized: false,
+      cap: 100,
+      blockedBy: ['band'],
+    });
   });
 });

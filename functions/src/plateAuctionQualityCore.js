@@ -246,6 +246,10 @@ export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
  * false degradation. Keep a 25% / 75% band for the other card sources, and
  * calibrate TG to 55% / 75% for this measured board replacement; the 75%
  * floor still rejects a feed that comes back materially short.
+ * The 2026-10-26 VD run (#40270409967) returned 38 cards after all 31 cards
+ * from the previous live board rolled out. This is a complete board turnover,
+ * not a partial response: allow up to 100% vanished rows for VD while the
+ * same 75% floor still rejects a truncated fetch.
  *
  * This is deliberately separate from sale recognition. A timed card has no
  * evidence of a sale, so the collectors preserve it with `missingSince` rather
@@ -256,7 +260,7 @@ export const PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE = Object.freeze({
   be: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   sh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   tg: Object.freeze({ maxVanishedRatio: 0.55, minFetchedRatio: 0.75 }),
-  vd: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  vd: Object.freeze({ maxVanishedRatio: 1, minFetchedRatio: 0.75 }),
   zh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
 });
 
