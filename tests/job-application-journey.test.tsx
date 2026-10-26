@@ -24,6 +24,52 @@ describe('application journey cohorts', () => {
   expect(JSON.stringify(events)).not.toMatch(/email=|token=|@|uid/);
  });
 
+ it('discards malformed and future persisted journeys without hiding valid entries', async () => {
+  const now = Date.now();
+  const valid = {
+   id: 'persisted-valid', jobSlug: 'persisted-job', jobId: 'persisted-id', aliases: ['persisted-job'],
+   employerKey: 'persisted-employer', startedAt: now - 1_000, source: 'newsletter', device: 'mobile',
+   entry: 'list', steps: ['detail_view'],
+  };
+  sessionStorage.setItem('ft_job_application_journeys_v1', JSON.stringify([
+   null,
+   { ...valid, id: 42, jobSlug: 'wrong-id' },
+   { ...valid, id: 'future', jobSlug: 'future-job', startedAt: now + 1 },
+   { ...valid, id: 'wrong-step', jobSlug: 'wrong-step', steps: ['not-a-step'] },
+   { ...valid, id: 'wrong-source', jobSlug: 'wrong-source', source: 'paid' },
+   { ...valid, id: 'wrong-alias', jobSlug: 'wrong-alias', aliases: [42] },
+   { ...valid, id: 'wrong-device', jobSlug: 'wrong-device', device: 'phone' },
+   { ...valid, id: 'wrong-entry', jobSlug: 'wrong-entry', entry: 'unknown' },
+   valid,
+  ]));
+
+  const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
+  expect(recordJobJourneyStep({ jobSlug: 'persisted-job', employerKey: 'changed' }, 'apply_click')).toMatchObject({
+   journey_id: 'persisted-valid', journey_source: 'newsletter', journey_device: 'mobile',
+   journey_entry: 'list', employer_key: 'persisted-employer', previous_step: 'detail_view', step_index: 2,
+  });
+  expect(recordJobJourneyStep({ jobSlug: 'future-job' }, 'detail_view')?.journey_id).not.toBe('future');
+  expect(recordJobJourneyStep({ jobSlug: 'wrong-step' }, 'detail_view')?.journey_id).not.toBe('wrong-step');
+  for (const jobSlug of ['wrong-alias', 'wrong-device', 'wrong-entry']) {
+   expect(recordJobJourneyStep({ jobSlug }, 'detail_view')?.journey_id).not.toBe(jobSlug);
+  }
+ });
+
+ it('restores at most the latest 20 valid tab journeys', async () => {
+  const now = Date.now();
+  const stored = Array.from({ length: 21 }, (_, index) => ({
+   id: `persisted-${index}`, jobSlug: `persisted-job-${index}`, aliases: [`persisted-job-${index}`],
+   employerKey: 'persisted-employer', startedAt: now - index * 1_000, source: 'direct', device: 'desktop',
+   entry: 'direct', steps: ['detail_view'],
+  }));
+  sessionStorage.setItem('ft_job_application_journeys_v1', JSON.stringify(stored));
+
+  const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
+  expect(recordJobJourneyStep({ jobSlug: 'persisted-job-0' }, 'apply_click')?.journey_id).not.toBe('persisted-0');
+  expect(recordJobJourneyStep({ jobSlug: 'persisted-job-20' }, 'apply_click')?.journey_id).toBe('persisted-20');
+  expect(JSON.parse(sessionStorage.getItem('ft_job_application_journeys_v1') || '[]')).toHaveLength(20);
+ });
+
  it('preserves list CTA intent through the assisted/rewarded detail host', async () => {
   const { recordJobJourneyStep } = await import('@/services/jobApplicationJourney');
   const job = { jobSlug: 'list-application', employerKey: 'demo', jobId: 'demo-id' };
