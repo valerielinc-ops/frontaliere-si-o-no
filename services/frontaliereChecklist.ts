@@ -121,9 +121,11 @@ function readValidStepRecords<T>(
 ): Record<string, T> {
   if (!isRecord(value)) return {};
 
-  return Object.fromEntries(
-    Object.entries(value).filter(([stepId, entry]) => CHECKLIST_STEP_IDS.has(stepId) && isValid(entry)),
-  );
+  const valid: Record<string, T> = {};
+  for (const [stepId, entry] of Object.entries(value)) {
+    if (CHECKLIST_STEP_IDS.has(stepId) && isValid(entry)) valid[stepId] = entry;
+  }
+  return valid;
 }
 
 export function loadChecklistState(): ChecklistState {
