@@ -64,6 +64,23 @@ describe('source-backed municipal event archives', () => {
     dom.window.close();
   });
 
+  it('keeps the five-inlink floor for municipalities at either sorted edge', () => {
+    const siblingComuni = ['Airolo', 'Bellinzona', 'Cevio', 'Gordola', 'Lamone', 'Locarno', 'Paradiso', 'Riviera'];
+    const page = renderComunePage({
+      locale: 'it', canton: 'TI', comune: 'Airolo', events: [event('airolo', 'Airolo', 3)],
+      dateStamp: BUILD_DATE_STAMP, weekendDays: new Set(), distDir: temporary(), siblingComuni,
+    });
+    const dom = new JSDOM(page.html);
+    const navigation = dom.window.document.querySelector('[data-events-navigation="1"]');
+    const hrefs = [...(navigation?.querySelectorAll('a') ?? [])].map((link) => link.getAttribute('href'));
+    const municipalHrefs = siblingComuni
+      .filter((comune) => comune !== 'Airolo')
+      .map((comune) => pathFor('it', 'TI', comune));
+    expect(municipalHrefs.filter((href) => hrefs.includes(href))).toHaveLength(5);
+    expect(hrefs).not.toContain(pathFor('it', 'TI', 'Airolo'));
+    dom.window.close();
+  });
+
   it.each(['it', 'en', 'de', 'fr'] as const)('keeps the old municipal URL as an explicitly historical, noindex source listing (%s)', (locale) => {
     const options = { locale, entries: entries(2), page: 1, pageCount: 1, distDir: temporary(), municipality: { canton: 'GE', comune: 'Lancy' }, municipalHub: true };
     const page = renderHistoricalEventsArchivePage(options);
