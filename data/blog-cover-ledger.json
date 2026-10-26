@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 859,
+      "5": 860,
       "6": 5056
     },
-    "publishedCovers": 7598,
+    "publishedCovers": 7599,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209108,6 +209108,39 @@
         "provider": "openai-codex",
         "assetId": "article-supporto-imprese-turgovia",
         "imageUrl": "/images/blog/article-supporto-imprese-turgovia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-frontaliere-tasse-dopo-licenziamento": {
+      "cover": "/images/blog/article-frontaliere-tasse-dopo-licenziamento.webp",
+      "hash": "6b7a91b02ed7a857b9123213337b9aea0a775d9cc85c28711b321545af130311",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontaliere-tasse-dopo-licenziamento",
+          "category": "pratico",
+          "date": "2026-10-18T14:15:04.266Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontaliere-tasse-dopo-licenziamento.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-frontaliere-tasse-dopo-licenziamento",
+        "imageUrl": "/images/blog/article-frontaliere-tasse-dopo-licenziamento.webp",
         "evidence": "generated-engine-record"
       }
     }

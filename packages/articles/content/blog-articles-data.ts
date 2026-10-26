@@ -45487,7 +45487,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'frontaliere-tasse-dopo-licenziamento',
  category: 'pratico',
  date: '2026-10-18T14:15:04.266Z',
- image: '/images/blog/article-frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.webp',
+ image: '/images/blog/article-frontaliere-tasse-dopo-licenziamento.webp',
  hasCalculator: true,
  articleType: 'evergreen',
  authorSlug: 'redazione',
