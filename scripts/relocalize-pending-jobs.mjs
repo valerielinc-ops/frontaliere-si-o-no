@@ -71,6 +71,7 @@ import { carryForwardMarks } from './lib/job-mark-persistence.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { isModelMetaAnswer, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './lib/translation-observability-limits.mjs';
+import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 import {
   applyThinkingArm,
   assignThinkingArm,
@@ -1210,6 +1211,36 @@ export function carryForwardMissingSlugBridges(crawlerJob, assembled) {
     );
   }
   return missingBridges.length > 0;
+}
+
+/**
+ * Reconcile previous-slug ownership after translation sync has written all
+ * per-crawler slices. The assembled snapshot can carry a bridge that belongs
+ * to another current job; this writer must run the same target-first,
+ * cross-file ownership pass as the other direct slice writers before the run
+ * is considered complete.
+ *
+ * The second pass is intentional: it is the idempotence proof for this
+ * writer. A residual redirect or empty locale bucket means the persisted
+ * slices are not canonical yet, so the run fails closed instead of publishing
+ * another contaminated snapshot.
+ *
+ * @param {string} directory active per-crawler slice directory
+ * @returns {{applied: object, residual: object}}
+ */
+export function repairPreviousSlugOwnership(directory = BY_CRAWLER_DIR) {
+  const applied = decontaminateSliceDirectory(directory, { apply: true });
+  if (applied.moved > 0 || applied.emptyLocaleBucketsPruned > 0) {
+    console.log(`🧭 prev-slug ownership: redirected ${applied.moved} slug(s), pruned ${applied.emptyLocaleBucketsPruned} empty locale bucket(s) across ${applied.affected.length} slice(s).`);
+  }
+
+  const residual = decontaminateSliceDirectory(directory, { apply: false });
+  if (residual.moved > 0 || residual.emptyLocaleBucketsPruned > 0) {
+    throw new Error(
+      `Previous-slug ownership post-run proof failed: moved=${residual.moved}, emptyLocaleBucketsPruned=${residual.emptyLocaleBucketsPruned}`,
+    );
+  }
+  return { applied, residual };
 }
 
 /**
@@ -2490,6 +2521,11 @@ export async function runRelocalization(phase) {
   } else if (retryBudget <= 0) {
     console.log(`\n⏭️  Retry pass skipped: aggregate 2b budget exhausted (${budgetConsumed}/${effectiveMax} jobs attempted)`);
   }
+
+  // This writer mutates committed slices after the assembly-side ownership
+  // pass. Reconcile only after the normal and retry syncs have both finished;
+  // doing it per company would make the result depend on company order.
+  repairPreviousSlugOwnership();
 
   // Final summary — use saved slug set instead of re-reading data/jobs.json
   // (data/jobs.json is gitignored and gets rewritten by the shared crawler with
