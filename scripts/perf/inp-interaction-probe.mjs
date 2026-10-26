@@ -24,6 +24,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium, devices } from 'playwright';
 import { isValidRun, parseRuns, scenariosWithoutMeasurement, summarizeInteraction } from './lib/inp-probe-summary.mjs';
+import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
 
 const args = process.argv.slice(2);
 const option = (name, fallback) => (args.includes(name) ? args[args.indexOf(name) + 1] : fallback);
@@ -36,7 +37,7 @@ const AFTER_TAP_MS = 4000;
 const SCENARIOS = [
  {
  id: 'jobboard-chip-lugano',
- path: '/cerca-lavoro-ticino/',
+ path: `/${SECTION_LEGACY_TI.it}/`,
  locate: (page) => page.getByRole('button', { name: 'Lugano', exact: true }).first(),
  },
  {

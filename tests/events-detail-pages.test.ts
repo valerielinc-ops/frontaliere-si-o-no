@@ -2048,6 +2048,26 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     }
   });
 
+  it('disambiguates historical bridge titles without changing the recovery heading', () => {
+    const first = renderEventSlugRedirectPage(
+      'it',
+      '/eventi/ticino/lugano/canonico/',
+      undefined,
+      '/eventi/argovia/baden/vecchio-primo/',
+    );
+    const second = renderEventSlugRedirectPage(
+      'it',
+      '/eventi/ticino/lugano/canonico/',
+      undefined,
+      '/eventi/argovia/baden/vecchio-secondo/',
+    );
+    const title = (html: string) => html.match(/<title>([^<]+)<\/title>/i)?.[1];
+    expect(title(first)).toBeDefined();
+    expect(title(first)).not.toBe(title(second));
+    expect(first).toContain('<h1>Pagina evento aggiornata | Frontaliere Ticino</h1>');
+    expect(second).toContain('<h1>Pagina evento aggiornata | Frontaliere Ticino</h1>');
+  });
+
   it('renders all four verified Lüsslingen source-migration bridges to the refreshed owner', () => {
     const seed = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
     const prior = seed.events.find((event: { id: string }) => event.id === 'guidle:An77Y4G');

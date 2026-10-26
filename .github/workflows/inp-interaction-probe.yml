@@ -31,8 +31,10 @@ concurrency:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    # 2 interactions x 3 runs at ~30 s each, plus Chromium install.
-    timeout-minutes: 25
+    # 2 interactions x 3 runs at ~30 s each, plus npm/Chromium installation.
+    # The install includes apt dependencies and can exceed 25 minutes on a
+    # cold shared runner; leave enough headroom for the measurement itself.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -41,6 +43,7 @@ jobs:
           sparse-checkout: |
             scripts/perf/inp-interaction-probe.mjs
             scripts/perf/lib/inp-probe-summary.mjs
+            build-plugins/shared/cantonResolvers.mjs
             package-lock.json
           sparse-checkout-cone-mode: false
 
@@ -58,8 +61,14 @@ jobs:
           # runs months apart must measure with the same browser build.
           version="$(node -p "require('./package-lock.json').packages['node_modules/playwright'].version")"
           mkdir -p "$RUNNER_TEMP/probe/lib"
+          # The probe is copied below the runner temp root, but its source
+          # import remains `../../build-plugins/...`; mirror that path beside
+          # the temp root so the scratch copy resolves it unchanged.
+          scratch_root="$(cd "$RUNNER_TEMP/.." && pwd)"
+          mkdir -p "$scratch_root/build-plugins/shared"
           cp scripts/perf/inp-interaction-probe.mjs "$RUNNER_TEMP/probe/"
           cp scripts/perf/lib/inp-probe-summary.mjs "$RUNNER_TEMP/probe/lib/"
+          cp build-plugins/shared/cantonResolvers.mjs "$scratch_root/build-plugins/shared/"
           cd "$RUNNER_TEMP/probe"
           npm init -y >/dev/null
           npm install --no-audit --no-fund "playwright@${version}"

@@ -35,6 +35,7 @@ import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxo
 import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
+import { renderArticleLocaleVariantNavHtml } from './shared/localeVariantNav.mjs';
 import { ARTICLE_TRANSPARENCY, DISCLOSURE_ROUTE_CONTRACT, disclosureLocale } from './shared/aiDisclosure';
 import {
   resolveArticleProvenance,
@@ -1511,6 +1512,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .map(([l, p]) => ` <link rel="alternate" hreflang="${l}" href="${BASE_URL}${withTrailingSlash(p)}">`)
  .concat([` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
  .join('\n');
+ const articleLocaleNav = renderArticleLocaleVariantNavHtml({
+  baseUrl: BASE_URL,
+  paths: lp,
+  currentLocale: articleLocale,
+ });
 
  // Determine author: a Person or editorial-profile Organization from
  // data/authors.ts via authorSlug (SECTION.registry field), Organization
@@ -2008,7 +2014,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
-${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -2032,7 +2038,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${imageCreditHtml}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };

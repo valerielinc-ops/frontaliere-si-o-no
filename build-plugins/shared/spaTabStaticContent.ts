@@ -25,6 +25,8 @@
  * buildPage). Measured by tests/spa-tab-static-content.test.ts.
  */
 
+import { SECTION_LEGACY_TI_PATH } from './cantonSection';
+
 export type SpaTabStaticId = 'feedback' | 'forum' | 'gamification' | 'dashboard' | 'emailConfirmed' | 'consulting';
 export type SpaTabLocale = 'it' | 'en' | 'de' | 'fr';
 export type SpaTabForeignLocale = Exclude<SpaTabLocale, 'it'>;
@@ -52,7 +54,7 @@ const PATHS: Record<
   Record<SpaTabLocale, string>
 > = {
   calculator: { it: '/calcola-stipendio/', en: '/en/calculate-salary/', de: '/de/gehalt-berechnen/', fr: '/fr/calculer-salaire/' },
-  jobs: { it: '/cerca-lavoro-ticino/', en: '/en/find-jobs-ticino/', de: '/de/jobs-im-tessin/', fr: '/fr/trouver-emploi-tessin/' },
+  jobs: SECTION_LEGACY_TI_PATH,
   articles: { it: '/articoli-frontaliere/', en: '/en/cross-border-articles/', de: '/de/grenzgaenger-artikel/', fr: '/fr/articles-frontalier/' },
   community: { it: '/community/', en: '/en/community/', de: '/de/gemeinschaft/', fr: '/fr/communaute/' },
   consulting: { it: '/consulenza/', en: '/en/consulting/', de: '/de/beratung/', fr: '/fr/consultation/' },

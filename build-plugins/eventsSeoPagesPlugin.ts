@@ -4971,14 +4971,23 @@ export function renderEventSlugRedirectPage(
   locale: Locale,
   canonicalPath: string,
   event?: Pick<SiteEvent, 'title' | 'startDate' | 'venue' | 'comune' | 'sourceName'>,
+  sourcePath?: string,
 ): string {
   const copy = EVENT_SLUG_REDIRECT_COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const body = `${copy.body}${eventSlugRedirectFacts(locale, event)}`;
+  // Historical event bridges are permanent indexable entry points. Their
+  // generic copy used to make every bridge share one <title>/<h1>, so the
+  // duplicate-title gate saw the whole migration archive as one page. Keep
+  // the visible recovery heading stable for readers, but give the document
+  // title a deterministic source-route token. The source path is required:
+  // multiple old slugs can converge on the same canonical event page.
+  const titleBase = copy.title.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '').trim();
+  const bridgeTitle = normalizeShellTitle(`${titleBase} · rif. ${stableTitleToken(sourcePath || canonicalPath)}`);
   const bridge = buildCanonicalBridgePage({
     canonicalUrl,
     pathLabel: canonicalPath,
-    title: copy.title,
+    title: bridgeTitle,
     description: body,
     body,
     ctaLabel: copy.cta,
@@ -4992,7 +5001,10 @@ export function renderEventSlugRedirectPage(
   // adds no information beyond the canonical link and CTA, and SE Ranking
   // reports every such bridge as a redirect error; static hosting cannot turn
   // this dynamic migration into an HTTP 301 here.
-  return bridge;
+  // buildCanonicalBridgePage intentionally uses one title for both surfaces;
+  // this bridge is the exception because its H1 is intentionally generic
+  // while its SERP title must identify the historical source URL.
+  return bridge.replace(`<h1>${bridgeTitle}</h1>`, `<h1>${copy.title}</h1>`);
 }
 
 /**
@@ -5250,7 +5262,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const toPath = pathForEventDetail(locale, migration.comune, migration.toSlug, migration.canton);
         const key = eventSlugRedirectKey(locale, fromPath);
         if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
-        const html = renderEventSlugRedirectPage(locale, toPath, eventById.get(migration.eventId));
+        const html = renderEventSlugRedirectPage(locale, toPath, eventById.get(migration.eventId), fromPath);
         const indexPath = path.join(distDir, fromPath, 'index.html');
         const flatPath = path.join(distDir, fromPath.replace(/\/+$/, '') + '.html');
         expectedSlugRedirectPaths.add(indexPath);

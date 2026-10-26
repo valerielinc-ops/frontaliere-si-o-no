@@ -459,13 +459,15 @@ export const NEW_SHARD_BURIED_RATE_FAIL = 90; // percent of URLs below crawl dep
  * @param {Record<string, { total: number; atDepthGtMax: number; deepest: number }>} args.perSitemap
  * @param {object} args.baseline  parsed baseline JSON ({ mode|version, perSitemap, tolerance })
  * @param {{ relPct: number; absPp: number; minAbsDelta: number; maxDeltaPp: number }} [args.tol]
+ * @param {number} [args.sampleRate=1]  explicit sample scale for CLI reports;
+ *   unit callers stay deterministic even when the process has report sampling env.
  * @returns {{
  *   regressions: Array<{ name: string; prev: number; current: number; deepest: number; prevRate?: number; curRate?: number; rateCap?: number }>,
  *   unbaselined: Array<{ name: string; atDepthGtMax: number; ratePct: number }>,
  *   buriedNewShards: Array<{ name: string; atDepthGtMax: number; total: number; ratePct: number }>
  * }}
  */
-export function evaluateBfsGate({ perSitemap, baseline, tol }) {
+export function evaluateBfsGate({ perSitemap, baseline, tol, sampleRate = 1 }) {
   const isRate = baseline?.mode === 'rate' || Number(baseline?.version) >= 2;
   const resolvedTol = { ...DEFAULT_BFS_TOL, ...(tol ?? baseline?.tolerance ?? {}) };
   const regressions = [];
@@ -519,7 +521,7 @@ export function evaluateBfsGate({ perSitemap, baseline, tol }) {
       // rende gated ciò che prima passava sempre; il floor +minAbsDelta resta
       // in AND, quindi la crescita organica sotto il rumore continua a passare.
       const capSaturated = rateCap >= 100;
-      const countGrew = extrapolateSampledCount(row.atDepthGtMax, SAMPLE_RATE) > prevOff + resolvedTol.minAbsDelta;
+      const countGrew = extrapolateSampledCount(row.atDepthGtMax, sampleRate) > prevOff + resolvedTol.minAbsDelta;
       if (countGrew && (capSaturated || curRate > rateCap)) {
         regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest, prevRate: Number(prevRate.toFixed(3)), curRate: Number(curRate.toFixed(3)), rateCap: Number(rateCap.toFixed(3)) });
       }
@@ -683,7 +685,7 @@ async function main() {
       );
     }
 
-    const { regressions, unbaselined, buriedNewShards } = evaluateBfsGate({ perSitemap, baseline });
+    const { regressions, unbaselined, buriedNewShards } = evaluateBfsGate({ perSitemap, baseline, sampleRate: SAMPLE_RATE });
     if (unbaselined.length > 0) {
       process.stderr.write(`\n[audit-bfs-depth] WARNING (non-gating): ${unbaselined.length} sitemap shard(s) not in baseline ship URLs below crawl depth — rebaseline to register (and floor) them:\n`);
       for (const u of unbaselined.sort((a, b) => b.ratePct - a.ratePct)) {

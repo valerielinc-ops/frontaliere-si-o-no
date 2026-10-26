@@ -14770,11 +14770,10 @@ ${staticAnalyticsHtml}
  for (const ej of expiredJobsData) {
  const slugByLocale = (ej && ej.slugByLocale) as Record<string, string> | undefined;
  if (!slugByLocale || typeof slugByLocale !== 'object') continue;
- // Sibling guard, same rationale as the active-jobs cross-locale bridge
- // below (PR #3052, isCompanyHubNamespaceSlug / issue #2976 recurrence).
- // expired-jobs records carry no `canton` field (only location/addressLocality),
- // so resolve via the shared location→canton lookup like the other 3 call sites
- // — a raw `ej.canton` read always falls back to DEFAULT_CANTON and never fires.
+ // Expired records carry no reliable `canton` field, but the incremental
+ // reuse manifest still needs the resolved scope as part of its cache key.
+ // Namespace ownership is checked independently below, so this value is
+ // metadata for reuse only and cannot re-enable a company-hub collision.
  const ejCantonForCrossLocale = sharedResolveJobCanton(ej as { canton?: string; location?: string });
  for (const baseLocale of localeList) {
  const baseSlug = slugByLocale[baseLocale];
@@ -14809,7 +14808,11 @@ ${staticAnalyticsHtml}
  // rationale as the active-jobs block (jobSectorPagesPlugin owns
  // these paths).
  if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
- if (ejCantonForCrossLocale !== 'TI' && isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
+ // The company namespace is owned by the company-hub emitter regardless of
+ // the job's canton classification. A stale/ambiguous expired location must
+ // not let a job bridge occupy `/azienda-*` and produce a page without the
+ // company-hub canonical contract (issue #2976).
+ if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
  if (isDistPathOverFilesystemLimits(relPath)) {
   skippedFilesystemLimitPaths++;
@@ -15566,7 +15569,10 @@ ${staticAnalyticsHtml}
  // reserved sector/city hub (same rationale as the previousSlugs
  // guard above — protects jobSectorPagesPlugin's curated hubs).
  if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
- if (jobCantonForCrossLocale !== 'TI' && isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
+ // Namespace ownership is independent of the canton resolver: even when a
+ // job's location falls back to TI, a foreign-locale company-shaped slug is a
+ // company-hub URL and must be left to that emitter (issue #2976).
+ if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
  if (isDistPathOverFilesystemLimits(relPath)) {
   skippedFilesystemLimitPaths++;

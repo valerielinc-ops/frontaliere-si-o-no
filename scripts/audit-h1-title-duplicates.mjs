@@ -38,6 +38,22 @@ const NOINDEX_RE = /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noin
 const META_REFRESH_RE = /<meta[^>]+http-equiv=["']?refresh["']?(?=[\s/>])/i;
 const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 const H1_RE = /<h1[^>]*>([\s\S]*?)<\/h1>/i;
+const AUDIT_BASE_URL = 'https://frontaliereticino.ch';
+
+/** Map a generated dist file back to the URL of the document it contains. */
+function documentUrlFromDistPath(rel) {
+  const normalized = String(rel).replaceAll('\\', '/');
+  if (!normalized.startsWith('dist/')) return undefined;
+  const route = normalized.slice('dist/'.length);
+  if (route === 'index.html') return `${AUDIT_BASE_URL}/`;
+  if (route.endsWith('/index.html')) {
+    return `${AUDIT_BASE_URL}/${route.slice(0, -'/index.html'.length)}/`;
+  }
+  if (route.endsWith('.html')) {
+    return `${AUDIT_BASE_URL}/${route.slice(0, -'.html'.length)}`;
+  }
+  return undefined;
+}
 
 function normalizeText(raw) {
   if (!raw) return '';
@@ -56,7 +72,7 @@ function normalizeText(raw) {
 }
 
 /** Matching article headline/title is intentional editorial markup, not a duplicate page. */
-export function hasMatchingArticleHeadline(html, headline) {
+export function hasMatchingArticleHeadline(html, headline, documentUrl) {
   if ([...html.matchAll(/<h1\b[^>]*>/gi)].length !== 1) return false;
   const canonicalTag = [...html.matchAll(/<link\b[^>]*>/gi)]
     .map((match) => match[0]).find((tag) => /\brel=["']?canonical(?:["'\s>])/i.test(tag));
@@ -71,8 +87,26 @@ export function hasMatchingArticleHeadline(html, headline) {
         if (!node || typeof node !== 'object') return false;
         const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
         const ownUrl = node.url || (typeof node.mainEntityOfPage === 'string' ? node.mainEntityOfPage : node.mainEntityOfPage?.['@id']);
+        const nodeId = typeof node['@id'] === 'string' ? node['@id'] : '';
+        const mainEntityUrl = typeof node.mainEntityOfPage === 'string'
+          ? node.mainEntityOfPage
+          : node.mainEntityOfPage?.url || node.mainEntityOfPage?.['@id'];
+        // A live editorial article may intentionally canonicalise to an
+        // authoritative near-duplicate. In that case the Article-family
+        // identity must still point at either the canonical document or the
+        // actual dist document being audited. The latter is what allows a
+        // shadow article to retain its editorial H1 without accepting an
+        // unrelated Article node embedded elsewhere in the page.
+        const documentIdentities = new Set(
+          [pageUrl, documentUrl].filter((value) => typeof value === 'string' && value.length > 0),
+        );
+        const hasOwnDocumentIdentity = typeof ownUrl === 'string' && (
+          documentIdentities.has(ownUrl)
+          || [...documentIdentities].some((identity) => nodeId.startsWith(`${identity}#`))
+          || documentIdentities.has(mainEntityUrl)
+        );
         return types.some((type) => type === 'Article' || type === 'NewsArticle')
-          && ownUrl === pageUrl && typeof node.headline === 'string'
+          && hasOwnDocumentIdentity && typeof node.headline === 'string'
           && normalizeText(node.headline) === headline;
       })) return true;
     } catch { /* Invalid structured data is never evidence for an exemption. */ }
@@ -114,7 +148,7 @@ export function createAuditor(opts = {}) {
       if (!title) { missingTitle++; return; }
       if (!h1) { missingH1++; return; }
       if (title.toLowerCase() !== h1.toLowerCase()) return;
-      if (hasMatchingArticleHeadline(html, h1)) return;
+      if (hasMatchingArticleHeadline(html, h1, documentUrlFromDistPath(rel))) return;
       if (featureFilter && feature !== featureFilter) return;
       const locale = inferLocale(rel);
       // flatString: `title`/`h1` originate as captures into the whole page.

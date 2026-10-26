@@ -30,7 +30,8 @@ import { MID_PLUGINS_FAST } from '../scripts/lib/mid-plugins-flag.mjs';
 import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
-import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildSeoPageHtml, renderLocaleVariantNavHtml } from './shared/seoPageShell';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import {
@@ -1132,6 +1133,13 @@ function buildHtml(args: BuildHtmlArgs): string {
       }">`
     : '';
 
+  const localeVariantNav = page === 1
+    ? renderLocaleVariantNavHtml(`${hreflangs}${xDefault}`, locale)
+    : '';
+  const paginationNoindexMarker = isPaginationNoindex(page)
+    ? `\n    ${PAGINATION_NOINDEX_TARGET_MARKER}`
+    : '';
+
   const prevLink = page > 1 ? `\n    <link rel="prev" href="${BASE_URL}${paginatedPath(basePath, page - 1)}">` : '';
   const nextLink = page < totalPages ? `\n    <link rel="next" href="${BASE_URL}${paginatedPath(basePath, page + 1)}">` : '';
 
@@ -1269,6 +1277,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(emittedPageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta name="robots" content="${isPaginationNoindex(page) ? 'noindex,follow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
+    ${paginationNoindexMarker}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
@@ -1308,6 +1317,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       </section>
       ${pagination}
       ${topicsNavHtml}
+      ${localeVariantNav}
       ${proseAccordionHtml}
     </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
@@ -1465,6 +1475,8 @@ function buildPaginationIndexGuidanceHtml(args: {
         `Questo indice è la mappa di navigazione di «${archiveTitle}». Il gruppo ${rangeLabel} raccoglie i collegamenti a una parte delle ${totalPages} pagine numerate dell’archivio, che contiene ${totalItemsLabel} elementi aggiornati. Ogni collegamento apre la pagina corrispondente nella stessa sezione del sito: la numerazione serve a orientarsi nella sequenza pubblicata e non introduce un filtro diverso da quello dell’archivio.`,
         `Per consultare il contenuto, scegli una pagina dall’elenco e usa poi i collegamenti precedente o successivo per continuare la lettura. Se stai cercando un annuncio, un settore o un’azienda specifica, inizia dall’archivio completo e restringi la ricerca con le pagine e le categorie disponibili; questo indice evita invece di caricare in un’unica pagina tutti i collegamenti della raccolta.`,
         `Gli intervalli restano separati per mantenere stabile il percorso di scoperta anche quando il numero di elementi cambia. Il conteggio e la sequenza mostrati qui riflettono le pagine emesse per questa versione dell’archivio; per tornare al punto di partenza puoi usare il collegamento all’archivio completo o quello alla sezione principale.`,
+        `Le pagine numerate possono contenere annunci, aziende e categorie diverse a seconda della sezione. Il numero della pagina indica solo la posizione nell’ordinamento dell’archivio: non sostituisce la verifica della singola offerta, della sede o dei requisiti, che restano riportati nella scheda collegata.`,
+        `Per una consultazione più mirata, usa prima il cantone o il settore collegato dall’archivio e poi confronta le schede della pagina scelta. Le informazioni cambiano quando le fonti pubblicano nuovi contenuti; il testo introduttivo descrive il metodo dell’archivio, mentre i link sono la lista effettiva generata per questo aggiornamento.`,
       ],
     },
     en: {
@@ -1473,6 +1485,8 @@ function buildPaginationIndexGuidanceHtml(args: {
         `This index is the navigation map for “${archiveTitle}”. The ${rangeLabel} group links to one part of the ${totalPages} numbered archive pages, which contain ${totalItemsLabel} updated entries. Each link opens the matching page in the same site section: the number identifies its position in the published sequence and does not add a different filter to the archive.`,
         `To browse the content, choose a page from the list and then use the previous or next links to continue. If you are looking for a particular job, sector, or company, start from the complete archive and narrow the search with the available pages and categories; this index instead avoids loading every link in the collection on one document.`,
         `The ranges remain separate so the discovery path stays stable when the number of entries changes. The count and sequence shown here reflect the pages emitted for this archive version; use the complete-archive link or the parent-section link to return to the starting point.`,
+        `Numbered pages can contain a changing mix of jobs, companies, and categories depending on the section. A page number only identifies the position in the archive sequence; it does not replace checking the individual listing, location, or requirements shown on the linked page.`,
+        `For a narrower browse, start with the canton or sector link from the archive and then compare the entries on the selected page. The source data changes as publishers add or close listings; the explanatory text describes the archive method, while the links are the actual set generated for this release.`,
       ],
     },
     de: {
@@ -1481,6 +1495,8 @@ function buildPaginationIndexGuidanceHtml(args: {
         `Dieser Index ist die Navigationskarte für «${archiveTitle}». Der Bereich ${rangeLabel} verlinkt auf einen Teil der ${totalPages} nummerierten Archivseiten mit insgesamt ${totalItemsLabel} aktualisierten Einträgen. Jeder Link öffnet die passende Seite im selben Bereich der Website: Die Zahl zeigt die Position in der veröffentlichten Reihenfolge und ist kein zusätzlicher Filter.`,
         `Wählen Sie zum Lesen eine Seite aus der Liste und verwenden Sie danach die Links für die vorherige oder nächste Seite. Wenn Sie eine bestimmte Stelle, Branche oder Firma suchen, beginnen Sie im vollständigen Archiv und grenzen Sie die Suche mit den verfügbaren Seiten und Kategorien ein; dieser Index verhindert, dass alle Links der Sammlung in einem einzigen Dokument geladen werden.`,
         `Die Bereiche bleiben getrennt, damit der Entdeckungspfad auch bei wechselnder Zahl der Einträge stabil bleibt. Die hier angezeigte Anzahl und Reihenfolge entspricht den für diese Archivversion ausgegebenen Seiten; über den Link zum vollständigen Archiv oder zum übergeordneten Bereich gelangen Sie zurück zum Ausgangspunkt.`,
+        `Die nummerierten Seiten können je nach Bereich unterschiedliche Stellen, Unternehmen und Kategorien enthalten. Die Seitenzahl zeigt nur die Position in der Archivfolge; sie ersetzt nicht die Prüfung des einzelnen Angebots, des Arbeitsorts oder der Anforderungen auf der verlinkten Detailseite.`,
+        `Für eine gezieltere Suche beginnen Sie mit dem Kanton oder der Branche im vollständigen Archiv und vergleichen Sie danach die Einträge auf der gewählten Seite. Die Quelldaten ändern sich, wenn neue Stellen veröffentlicht oder geschlossen werden; der Erklärungstext beschreibt die Archivmethode, die Links bilden den tatsächlich erzeugten Stand dieser Version ab.`,
       ],
     },
     fr: {
@@ -1489,6 +1505,8 @@ function buildPaginationIndexGuidanceHtml(args: {
         `Cet index est la carte de navigation de «${archiveTitle}». Le groupe ${rangeLabel} renvoie vers une partie des ${totalPages} pages d’archive numérotées, qui contiennent ${totalItemsLabel} éléments mis à jour. Chaque lien ouvre la page correspondante dans la même section du site : le numéro indique sa position dans la séquence publiée et n’ajoute pas un filtre différent à l’archive.`,
         `Pour parcourir le contenu, choisissez une page dans la liste puis utilisez les liens précédent ou suivant pour continuer. Si vous recherchez une offre, un secteur ou une entreprise précise, commencez par l’archive complète et affinez avec les pages et catégories disponibles ; cet index évite au contraire de charger tous les liens de la collection dans un seul document.`,
         `Les intervalles restent séparés afin de conserver un parcours de découverte stable lorsque le nombre d’éléments évolue. Le nombre et l’ordre affichés ici correspondent aux pages émises pour cette version de l’archive ; utilisez le lien vers l’archive complète ou celui de la section parente pour revenir au point de départ.`,
+        `Les pages numérotées peuvent réunir des offres, des entreprises et des catégories différentes selon la section. Le numéro indique seulement la position dans la séquence de l’archive ; il ne remplace pas la vérification de l’offre, du lieu ou des exigences présentées sur la page liée.`,
+        `Pour affiner la consultation, commencez par le canton ou le secteur proposé dans l’archive complète, puis comparez les entrées de la page choisie. Les données évoluent lorsque les sources publient ou retirent des contenus ; le texte explique la méthode de l’archive et les liens correspondent à l’édition réellement générée.`,
       ],
     },
   }[locale];
@@ -2062,6 +2080,9 @@ export function buildThinCantonHubHtml(args: {
   const nextLink = page < totalPages
     ? `\n    <link rel="next" href="${BASE_URL}${paginatedPath(basePath, page + 1)}">`
     : '';
+  const paginationNoindexMarker = isPaginationNoindex(page)
+    ? `\n    ${PAGINATION_NOINDEX_TARGET_MARKER}`
+    : '';
 
   // Engaging card layout: aziende → entity card with logo, settori → emoji
   // bubble, tutti → compact plain link (unchanged — already dense by design).
@@ -2193,6 +2214,7 @@ export function buildThinCantonHubHtml(args: {
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(emittedPageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(intro, undefined, locale))}">
     <meta name="robots" content="${isPaginationNoindex(page) ? 'noindex,follow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
+    ${paginationNoindexMarker}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">

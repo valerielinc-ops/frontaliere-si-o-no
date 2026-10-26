@@ -111,7 +111,7 @@ const LOCALE_PACKS: Record<SalaryLocale, LocalePack> = {
     ctaPrimary: 'Calculate your net',
     ctaSecondary: 'Open the what-if simulator',
     simulatorHref: '/en/calculate-salary/',
-    whatIfHref: '/en/calculate-salary/what-if/',
+    whatIfHref: '/en/calculate-salary/what-if-scenarios/',
   },
   de: {
     breadcrumbHome: 'Startseite',
@@ -482,7 +482,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'On a CHF 6,000/month gross, social charges alone take ~CHF 380 before source tax: plan cash flow on the real net, not the headline gross.',
       ctaPrimary: { label: 'Open the simulator', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'What-if simulator', href: '/en/calculate-salary/what-if/' },
+      ctaSecondary: { label: 'What-if simulator', href: '/en/calculate-salary/what-if-scenarios/' },
       table: {
         caption: 'Sample payslip: CHF 6,000/month gross (A0N, Lugano)',
         headers: ['Line', 'Rate', 'CHF/month', 'EUR/month'],
@@ -606,7 +606,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         { label: 'Output', value: 'Δ in CHF + EUR', tone: 'success' },
       ],
       advice: 'Going from A0 (single) to C2 (married, 2 kids) can shift annual net by CHF 4,000–6,000 at the same gross: simulate before signing a contract or moving home.',
-      ctaPrimary: { label: 'Open what-if', href: '/en/calculate-salary/what-if/' },
+      ctaPrimary: { label: 'Open what-if', href: '/en/calculate-salary/what-if-scenarios/' },
       ctaSecondary: { label: 'Go to base simulator', href: '/en/calculate-salary/' },
       table: {
         caption: 'Annual net delta examples at CHF 80,000 gross',
@@ -1568,7 +1568,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Net pay depends on income, contributions, family and applicable taxes; status does not automatically change between 2025 and 2026. Use identical inputs in the simulator.',
       ctaPrimary: { label: 'Calculate your 2026 net', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'See what-if scenarios', href: '/en/calculate-salary/what-if/' },
+      ctaSecondary: { label: 'See what-if scenarios', href: '/en/calculate-salary/what-if-scenarios/' },
       table: {
         caption: 'Tax regimes within the 20 km zone',
         headers: ['Item', 'Eligible old workers', 'Eligible new workers'],

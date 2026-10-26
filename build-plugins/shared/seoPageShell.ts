@@ -64,6 +64,8 @@ import { buildTwitterCardMetaTags } from './twitterCardMeta';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
 import { normalizeStructuredData } from '../../services/seo/schema-normalizers';
+import { paginationPageFromPath } from './paginationIndexPolicy';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
 // che l'invariante di round-trip col confronto h1/title di
@@ -148,6 +150,48 @@ function htmlAttribute(tag: string, name: string): string | undefined {
     new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
   );
   return match?.[1] ?? match?.[2] ?? match?.[3];
+}
+
+const LOCALE_VARIANT_CODES = ['it', 'en', 'de', 'fr'] as const;
+const LOCALE_VARIANT_LABELS: Record<string, string> = {
+  it: 'Italiano',
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+};
+const LOCALE_VARIANT_ARIA: Record<string, string> = {
+  it: 'Versioni linguistiche',
+  en: 'Language versions',
+  de: 'Sprachversionen',
+  fr: 'Versions linguistiques',
+};
+
+/**
+ * Turn the canonical hreflang contract into visible body links.
+ *
+ * `<link rel="alternate">` is deliberately head-only and therefore does not
+ * participate in the static BFS crawl. Every generated locale page already
+ * knows its reciprocal alternates; exposing the same finite set in the body
+ * keeps those pages discoverable without a second route table.
+ */
+export function renderLocaleVariantNavHtml(
+  hreflangHtml: string,
+  currentLocale: string,
+): string {
+  const byLocale = new Map<string, string>();
+  for (const tag of hreflangHtml.match(/<link\b[^>]*>/gi) ?? []) {
+    const lang = htmlAttribute(tag, 'hreflang')?.toLowerCase();
+    const href = htmlAttribute(tag, 'href');
+    if (!lang || !href || !LOCALE_VARIANT_CODES.includes(lang as (typeof LOCALE_VARIANT_CODES)[number])) continue;
+    if (!byLocale.has(lang)) byLocale.set(lang, href);
+  }
+  if (byLocale.size < 2) return '';
+  const links = LOCALE_VARIANT_CODES
+    .filter((code) => byLocale.has(code))
+    .map((code) => `<a href="${byLocale.get(code)}">${LOCALE_VARIANT_LABELS[code]}</a>`)
+    .join(' · ');
+  const aria = LOCALE_VARIANT_ARIA[currentLocale] ?? LOCALE_VARIANT_ARIA.it;
+  return `<nav class="seo-locale-variants" aria-label="${aria}">${links}</nav>`;
 }
 
 /**
@@ -364,7 +408,20 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
         innerHtml: bodyHtml,
       })
     : { subnavHtml: '', bodyHtml };
-  const wrappedBody = pruneStaticInfeedAdsToContentRatio(bodyWithChrome);
+  const localeVariantNav = renderLocaleVariantNavHtml(hreflangHtml ?? '', locale);
+  const bodyWithLocaleNav = localeVariantNav
+    ? `${bodyWithChrome}\n${localeVariantNav}`
+    : bodyWithChrome;
+  const wrappedBody = pruneStaticInfeedAdsToContentRatio(bodyWithLocaleNav);
+
+  // Pagination producers intentionally use noindex from the shared policy
+  // floor onward. Emit a producer-owned marker so the deploy validator can
+  // enforce that this is deliberate rather than treating every noindex page
+  // as an exemption.
+  const paginationNoindexMarker = /(?:^|[, ])noindex(?:[, ]|$)/i.test(robots)
+    && paginationPageFromPath(canonicalUrl) >= 11
+    ? `\n${PAGINATION_NOINDEX_TARGET_MARKER}`
+    : '';
 
   const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
   const twitterCardHead = opts.includeTwitterCard !== false
@@ -391,7 +448,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${heroPreload}${twitterCardHead}${extraHeadHtml ? `\n${extraHeadHtml}` : ''}${jobBoardHeadTags(canonicalUrl)}`,
+    extraHeadHtml: `${heroPreload}${twitterCardHead}${paginationNoindexMarker}${extraHeadHtml ? `\n${extraHeadHtml}` : ''}${jobBoardHeadTags(canonicalUrl)}`,
     jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds }),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,

@@ -182,12 +182,33 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
   });
 
   it('the IT homepage exposes the pharmacy hub and every locale plate-auction hub from the static root', () => {
-    const html = injectHomepageSeoContent(SHELL, 'it');
+    const html = injectLocaleMainNav(injectHomepageSeoContent(SHELL, 'it'), 'it');
     expect(html).toContain('id="hp-directory-hubs"');
     expect(html).toContain(`href="${PHARMACY_HUB_PATH.it}"`);
     expect(html).toContain(`href="${PHARMACY_DUTY_HUB_PATH.it}"`);
     for (const locale of ['it', ...NON_IT_LOCALES] as const) {
       expect(html).toContain(`href="${buildPlateAuctionPath({ locale, view: 'hub' })}"`);
+    }
+  });
+
+  it('keeps the IT homepage below the crawler link cap while retaining its discovery hubs', () => {
+    const html = injectHomepageSeoContent(SHELL, 'it');
+    const links = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)]
+      .map((match) => match[1])
+      .filter((href) => href.startsWith('/') || href.startsWith('https://frontaliereticino.ch/'));
+
+    expect(links.length).toBeLessThanOrEqual(100);
+    for (const href of [
+      `${EVENTS_INDEX_PATH.it}/`,
+      '/en/events/',
+      '/de/veranstaltungen/',
+      '/fr/evenements/',
+      '/ricerca/',
+      '/en/search/',
+      '/de/suche/',
+      '/fr/recherche/',
+    ]) {
+      expect(links).toContain(href);
     }
   });
 
@@ -200,13 +221,33 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(discoveryStart).toBeGreaterThan(-1);
     expect(discoveryStart).toBeLessThan(seoStart);
     expect(discovery).toContain('id="hp-lang-switch"');
-    expect(discovery).toContain('id="hp-related-guides"');
+    expect(discovery).not.toContain('id="hp-related-guides"');
     expect(discovery).toContain('id="hp-directory-hubs"');
     expect(discovery).toContain('id="hp-canton-nav"');
     // Il gruppo di hub ha un titolo visibile, come gli altri due rail.
     expect(discovery).toContain('<h2 class="hp-discovery-heading" id="hpCrossHubsTitle">Lavoro e archivi</h2>');
     expect(discovery).toContain('<nav class="hp-cross-hub-links" aria-labelledby="hpCrossHubsTitle">');
     expect(discovery).not.toContain(' style=');
+  });
+
+  it('keeps the IT homepage below the static crawler link cap without a duplicate cross-locale canton rail', () => {
+    const html = injectLocaleMainNav(injectHomepageSeoContent(SHELL, 'it'), 'it');
+    const links = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)]
+      .map((match) => match[1])
+      .filter((href) => href.startsWith('/') || href.startsWith('https://frontaliereticino.ch/'));
+    expect(links.length).toBeLessThanOrEqual(100);
+    expect(html).not.toContain('id="hp-xlocale-cantons"');
+    expect(html).toContain('href="/en/"');
+    expect(html).toContain('href="/de/"');
+    expect(html).toContain('href="/fr/"');
+  });
+
+  it('replaces a stale IT directory rail during incremental homepage repair', () => {
+    const old = '<html><body><section id="homepage-discovery"><aside id="hp-directory-hubs"><a href="/old-directory/">Old directory</a></aside></section><aside id="hp-seo-block">Current prose</aside></body></html>';
+    const repaired = injectHomepageSeoContent(old, 'it');
+    expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
+    expect(repaired).toContain('href="/prezzi-benzina/oggi/"');
+    expect(repaired).not.toContain('/old-directory/');
   });
 
   it('keeps the root rail when the real Vite template has a styled root and visible h1', () => {
@@ -274,6 +315,18 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     const repaired = injectHomepageSeoContent(older, 'it');
     expect(repaired).toContain('id="hp-directory-hubs"');
     expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
+  });
+
+  it('replaces a stale IT directory rail on an incremental artifact', () => {
+    const first = injectHomepageSeoContent(SHELL, 'it');
+    const older = first.replace(
+      /<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i,
+      '<aside class="hp-discovery-block" id="hp-directory-hubs"><p>obsolete rail</p></aside>',
+    );
+    const repaired = injectHomepageSeoContent(older, 'it');
+    expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
+    expect(repaired).toContain('/prezzi-benzina/oggi/');
+    expect(repaired).not.toContain('obsolete rail');
   });
 
   it('strips the IT directory rail before creating a non-IT locale-root mirror', () => {

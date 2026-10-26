@@ -186,6 +186,7 @@ import {
  WITHHOLDING_RATES_HREF,
 } from './shared/pillarGuideHrefs';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
+import { renderLocaleVariantNavHtml } from './shared/seoPageShell';
 import { railGutters } from './shared/railGutters';
 import {
  buildJobBoardSeo,
@@ -213,6 +214,7 @@ import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug,
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, type SectorHubKey } from './jobSectorLanding';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJobsHub';
+import { CAREER_LANDING_ROUTES } from './careerLandingsData';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: keep the source headline in page content; the SERP title is
@@ -1005,17 +1007,37 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  // specific missing sibling before returning instead of treating the marker
  // as proof that the whole homepage contract is current.
  if (html.includes('id="hp-seo-block"')) {
-  if (locale === 'it' && !html.includes('id="hp-directory-hubs"') && html.includes('</body>')) {
+  // The build is incremental in production, so disabling a generator alone
+  // would leave the former cross-locale directory and optional IT guide rail
+  // in an older root artifact. Strip those obsolete rails before repairing
+  // the current directory contract.
+  let repairedHtml = html;
+  if (locale === 'it') {
+   repairedHtml = repairedHtml
+    .replace(/<aside\b[^>]*\bid="hp-xlocale-cantons"[^>]*>[\s\S]*?<\/aside>\s*/i, '')
+    .replace(/<aside\b[^>]*\bid="hp-related-guides"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
+  }
+  if (locale === 'it' && repairedHtml.includes('</body>')) {
    const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
-   if (html.includes('id="homepage-discovery"')) {
-    return html.replace(
+   // Replace the entire old block, not only a missing block. Incremental
+   // builds can carry an earlier directory list that predates the event,
+   // fuel, search, and career discovery links owned by the current source.
+   // Replace the entire old block, not only a missing block. Incremental
+   // builds can carry an earlier directory list that predates the event,
+   // fuel, search, and career discovery links owned by the current source.
+   repairedHtml = repairedHtml.replace(
+    /<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/gi,
+    '',
+   );
+   if (repairedHtml.includes('id="homepage-discovery"')) {
+    return repairedHtml.replace(
      /(<section\b[^>]*\bid="homepage-discovery"[^>]*>[\s\S]*?)(<\/section>)/i,
      `$1${directoryHubs}$2`,
     );
    }
-   return html.replace('</body>', `${directoryHubs}\n</body>`);
+   return repairedHtml.replace('</body>', `${directoryHubs}\n</body>`);
   }
-  return html;
+  return repairedHtml;
  }
  const block = collapsifySeoBlock(canonicalizeBorderWaitLinks(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it));
  // Place the static navigation and SEO block after </body>'s React-owned
@@ -1025,13 +1047,12 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  if (!html.includes('</body>')) return html;
  const cantonNav = buildHomepageCantonNavHtml(locale);
  const langSwitch = buildHomepageLangSwitchHtml(locale);
- // Squirrel reported `/` with 234 internal links (cap 100). Cross-locale
- // canton anchors (~81) added a row per canton × 3 locales just for BFS
- // — but the lang-switcher already exposes /en/, /de/, /fr/ at depth 1
- // and each locale home carries its own full canton nav. Drop the
- // 81-anchor bridge here; the canton hubs remain reachable at depth 2
- // via the language switcher → locale home → canton hub.
- const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
+ // The locale switcher exposes /en/, /de/ and /fr/ at depth 1, and each of
+ // those roots owns its complete localized canton nav. Repeating all 81
+ // non-Italian canton anchors on `/` would exceed the homepage crawl-budget
+ // cap without improving reachability. Keep the optional guide rail on the
+ // localized roots, where it is not competing with the IT directory budget.
+ const relatedGuides = locale === 'it' ? '' : buildHomepageRelatedGuidesBlock(locale);
  const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
  // tests/seo/breadcrumb-coverage.test.ts requires every non-noindex dist/
  // page to carry a BreadcrumbList JSON-LD block. The locale-root mirrors
@@ -1049,54 +1070,6 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
   .join('\n');
  const discoverySection = `<section class="homepage-discovery" id="homepage-discovery" aria-label="${HOMEPAGE_DISCOVERY_LABEL[locale]}">${discoveryNavigation}</section>`;
  return html.replace('</body>', `${discoverySection}\n${block}\n${breadcrumbScript}</body>`);
-}
-
-/**
- * Cross-locale canton-hub directory — ROOT-CAUSE FIX for the bfs-depth
- * regression on sitemap-jobs-{canton}.xml that the user's locale-home
- * injection isn't reaching `/en/`, `/de/`, `/fr/` reliably (later
- * plugins overwrite). Even with PR #185's lang-switcher, the EN/DE/FR
- * homes don't carry the per-locale canton anchors needed to reach
- * `/en/find-jobs-{canton}/` etc.
- *
- * Workaround the per-locale injection gap by emitting anchors to ALL
- * 25 cantons × 4 locales = 100 canton-hub URLs DIRECTLY from `/` (the
- * IT home — the only page guaranteed to have the SEO block). Each
- * canton-hub then becomes depth 1 from `/`, regardless of locale.
- * Chain: `/ → /en/find-jobs-geneva/` (1) → tutti (2) → page-N (3) →
- * job (4). All sitemap-jobs-{canton}.xml URLs reach depth ≤ 4 without
- * relying on cross-locale home injection. Visible-not-collapsed pill
- * row grouped by locale heading.
- */
-// Retained for emergency re-enablement; see injectHomepageSeoContent
-// commentary (2026-05-18 trim to fit Squirrel 100-link cap).
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function buildHomepageCrossLocaleCantonNavHtml(): string {
- const cantonDataAny = (cantonSlugFile as { cantons: Record<string, Record<string, string>>; aggregate?: Record<string, string> });
- const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
- const localesOrder: HpSeoLocale[] = ['en', 'de', 'fr']; // IT is already covered by buildHomepageCantonNavHtml
- const sections: string[] = [];
- const pillStyle = 'display:inline-block;padding:2px 7px;margin:1px;border-radius:5px;background:#f1f5f9;color:#475569;text-decoration:none;font-size:11px;border:1px solid #e2e8f0';
- for (const loc of localesOrder) {
-   const langName = loc === 'en' ? 'English' : loc === 'de' ? 'Deutsch' : 'Français';
-   const rows: string[] = [];
-   for (const code of codes) {
-     const slugForLabel = code === AGGREGATE_KEY
-       ? cantonDataAny.aggregate?.[loc]
-       : cantonDataAny.cantons?.[code]?.[loc] ?? cantonDataAny.cantons?.[code]?.it;
-     if (!slugForLabel) continue;
-     const cantonSection = resolveCantonSection(loc as CantonLocale, code);
-     const cantonHubHref = `/${loc}/${cantonSection}/`.replace(/\/+/g, '/');
-     const displayLabel = slugForLabel
-       .split('-')
-       .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
-       .join(' ');
-     rows.push(`<a href="${cantonHubHref}" hreflang="${loc}" style="${pillStyle}">${displayLabel}</a>`);
-   }
-   if (rows.length > 0) sections.push(`<div><strong class="s-ox6EAg">${langName}</strong> ${rows.join('')}</div>`);
- }
- if (sections.length === 0) return '';
- return `<aside class="s-mnG0tW" id="hp-xlocale-cantons" aria-label="Canton hubs in all languages"><details class="s-B_AjzX"><summary class="s-JzgXFd">Cantons in other languages (${sections.length * 25})</summary><div class="s-TLn90R">${sections.join('')}</div></details></aside>`;
 }
 
 /**
@@ -1508,17 +1481,38 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
 // them. Keep this small, visible directory rail separate from the editorial
 // guides so the root-to-hub links cannot disappear when guide content changes.
 const HOMEPAGE_DIRECTORY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
- { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
- { href: PHARMACY_DUTY_HUB_PATH.it, label: 'Farmacie di turno' },
+ // The two Italian pharmacy hubs already belong to NAV_LABELS.it. Keeping
+ // them out of this second rail avoids duplicate anchors on the root while
+ // the main navigation still exposes both hubs at depth 1.
  { href: buildPlateAuctionPath({ locale: 'it', view: 'hub' }), label: 'Aste targhe' },
  { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
  { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
  { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
+ { href: `${EVENTS_INDEX_PATH.it}/`, label: 'Eventi' },
+ { href: `${EVENTS_INDEX_PATH.en}/`, label: 'Events' },
+ { href: `${EVENTS_INDEX_PATH.de}/`, label: 'Veranstaltungen' },
+ { href: `${EVENTS_INDEX_PATH.fr}/`, label: 'Événements' },
+ { href: '/prezzi-benzina/oggi/', label: 'Prezzi benzina oggi' },
+ { href: '/en/gasoline-price-switzerland/today/', label: 'Today’s gasoline prices' },
+ { href: '/de/benzinpreis-schweiz/heute/', label: 'Benzinpreise heute' },
+ { href: '/fr/prix-essence-suisse/aujourd-hui/', label: 'Prix essence aujourd’hui' },
+ { href: '/prezzi-benzina/stazioni-italia/', label: 'Stazioni italiane benzina' },
+ { href: '/en/gasoline-price-switzerland/italian-stations/', label: 'Italian fuel stations' },
+ { href: '/de/benzinpreis-schweiz/italienische-tankstellen/', label: 'Italienische Tankstellen' },
+ { href: '/fr/prix-essence-suisse/stations-italiennes/', label: 'Stations italiennes' },
+ { href: '/ricerca/', label: 'Ricerche correlate' },
+ { href: '/en/search/', label: 'Related searches' },
+ { href: '/de/suche/', label: 'Verwandte Suchen' },
+ { href: '/fr/recherche/', label: 'Recherches associées' },
+ ...CAREER_LANDING_ROUTES.map((href) => ({
+   href,
+   label: href.split('/').filter(Boolean).join(' ').replace(/-/g, ' '),
+ })),
 ];
 
 function buildHomepageDirectoryHubsBlock(locale: HpSeoLocale): string {
  if (locale !== 'it') return '';
- const heading = 'Farmacie e dati utili';
+ const heading = 'Directory e dati utili';
  const anchors = renderPillAnchors(HOMEPAGE_DIRECTORY_LINKS, 500);
  return `<aside class="hp-discovery-block hp-discovery-block--directory" id="hp-directory-hubs" aria-labelledby="hpDirectoryHubsTitle"><h2 class="hp-discovery-heading" id="hpDirectoryHubsTitle">${heading}</h2><nav class="hp-discovery-links" aria-label="${heading}">${anchors}</nav></aside>`;
 }
@@ -3743,6 +3737,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const hrefTags = validHreflangs
  .map(h => ` <link rel="alternate" hreflang="${h.lang}" href="${BASE_URL}${withTrailingSlash(h.href.replace(BASE_URL, '') || '/')}">`)
  .join('\n');
+ const localeVariantNav = renderLocaleVariantNavHtml(hrefTags, locale);
 
  // Build BreadcrumbList JSON-LD from URL path segments
  // Use human-readable names for known sections instead of slug-derived text
@@ -5981,7 +5976,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  rootHtml = `<div class="s-wWmcGm"><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  }
 
- rootHtml = localizeOfficialSourceRootLinks(rootHtml, locale);
+ rootHtml = localizeOfficialSourceRootLinks(rootHtml, locale) + localeVariantNav;
 
  // ── SpeakableSpecification for all content pages ──
  // Voice assistants and AI readers use SpeakableSpecification to
@@ -6048,7 +6043,7 @@ ${hrefTags}
  <main>
  <h1>${esc(differentiateH1FromTitle((seoData.h1 && seoData.h1.trim().length > 0 ? seoData.h1 : seoData.title).replace(' | Frontaliere Ticino', ''), capTitle70(seoData.title), (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'))}</h1>
  <p class="byline">By <a href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a> · Last updated: <time datetime="2026-04-10">April 10, 2026</time></p>
- <div>${editorialHtml}</div>
+ <div>${editorialHtml}</div>${localeVariantNav}
  </main>
  <nav>
  <a href="/">Home</a>

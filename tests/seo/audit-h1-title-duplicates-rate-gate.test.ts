@@ -20,7 +20,7 @@ import { describe, expect, it, beforeAll, afterAll } from 'vitest';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { createAuditor } from '../../scripts/audit-h1-title-duplicates.mjs';
+import { createAuditor, hasMatchingArticleHeadline } from '../../scripts/audit-h1-title-duplicates.mjs';
 import { ROOT } from '../../scripts/lib/audit-runner.mjs';
 
 interface AuditReport {
@@ -165,5 +165,36 @@ describe('audit-h1-title-duplicates — rate-mode ratchet', () => {
     const r = await auditor.report();
     expect(r.passed).toBe(true);
     rmSync(dirLegacy, { recursive: true, force: true });
+  });
+
+  it('exempts a structured article that intentionally points its canonical at a winner', () => {
+    const html = `<html><head>
+      <title>Shared headline</title>
+      <link rel="canonical" href="https://frontaliereticino.ch/articles/winner/">
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        '@id': 'https://frontaliereticino.ch/articles/shadow/#article',
+        url: 'https://frontaliereticino.ch/articles/shadow/',
+        headline: 'Shared headline',
+        mainEntityOfPage: 'https://frontaliereticino.ch/articles/shadow/',
+      })}</script>
+    </head><body><h1>Shared headline</h1></body></html>`;
+    expect(hasMatchingArticleHeadline(html, 'Shared headline', 'https://frontaliereticino.ch/articles/shadow/')).toBe(true);
+    expect(hasMatchingArticleHeadline(html, 'Shared headline')).toBe(false);
+  });
+
+  it('does not exempt an unrelated structured-data node', () => {
+    const html = `<html><head>
+      <title>Shared headline</title>
+      <link rel="canonical" href="https://frontaliereticino.ch/pages/landing/">
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        url: 'https://frontaliereticino.ch/pages/landing/',
+        name: 'Shared headline',
+      })}</script>
+    </head><body><h1>Shared headline</h1></body></html>`;
+    expect(hasMatchingArticleHeadline(html, 'Shared headline')).toBe(false);
   });
 });
