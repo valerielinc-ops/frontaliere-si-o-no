@@ -11,7 +11,6 @@
 
 import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
-import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import {
@@ -74,15 +73,35 @@ function getToolOfWeek() {
 
 // ─── Component ──────────────────────────────────────────────────────────
 
+const WEEKLY_DIGEST_SUBSCRIBED_KEY = 'weekly_digest_subscribed';
+
+function readWeeklyDigestSubscription(): boolean {
+ try {
+   return typeof window !== 'undefined'
+     && window.localStorage.getItem(WEEKLY_DIGEST_SUBSCRIBED_KEY) === 'true';
+ } catch {
+   // Browser storage is optional; the digest remains usable for this visit.
+   return false;
+ }
+}
+
+function markWeeklyDigestSubscribed(): void {
+ try {
+   if (typeof window !== 'undefined') {
+     window.localStorage.setItem(WEEKLY_DIGEST_SUBSCRIBED_KEY, 'true');
+   }
+ } catch {
+   // Persisting the local marker must never turn a successful subscription into an error.
+ }
+}
+
 const WeeklyDigest: React.FC = () => {
  const { t, locale } = useTranslation();
  const { user, signIn: googleSignIn } = useAuth();
  const [email, setEmail] = useState('');
  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error'>('idle');
  const [showPreview, setShowPreview] = useState(false);
- const [alreadySubscribed] = useState(() =>
- readBestEffortLocalStorage('weekly_digest_subscribed') === 'true'
- );
+ const [alreadySubscribed] = useState(readWeeklyDigestSubscription);
  const linkedInAvailable = useLinkedInSignInAvailable();
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -127,7 +146,7 @@ const WeeklyDigest: React.FC = () => {
    return;
  }
  markNewsletterSubscribedLocally();
- writeBestEffortLocalStorage('weekly_digest_subscribed', 'true');
+ markWeeklyDigestSubscribed();
  setStatus('success');
  unlockAchievement('email_results');
  Analytics.trackUIInteraction('weekly_digest', 'subscribe', 'success', email.split('@')[1]);
