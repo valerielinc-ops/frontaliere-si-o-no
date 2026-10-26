@@ -207,7 +207,9 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).not.toContain(`${basePath}page-41/`);
     expect(html).toContain('"@type":"CollectionPage"');
     expect(html).not.toContain('noindex');
-    expect(html).toContain('data-archive-index-guidance="1"');
+    // `buildSeoPageHtml` minifies static attributes, so the marker may be
+    // emitted either quoted or as the equivalent unquoted value.
+    expect(html).toMatch(/data-archive-index-guidance(?:="1"|=1)(?:\s|>)/);
   });
 
   it('keeps a representative job archive index above the text-to-HTML floor', () => {
