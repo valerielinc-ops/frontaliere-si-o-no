@@ -267,11 +267,38 @@ function sleep(ms) {
 //     <ht:news_item><ht:news_item_title>...</ht:news_item_title>...</ht:news_item>
 //     <pubDate>...</pubDate>
 //   </item>
-function cancelResponseBodyBestEffort(response) {
+function cancelResponseBodyBestEffort(response, reader) {
   try {
-    Promise.resolve(response?.body?.cancel?.()).catch(() => {});
+    // A body is locked while a reader is consuming it, so cancel the retained
+    // reader rather than calling `response.body.cancel()` in that case.
+    const cancelResult = (reader ?? response?.body)?.cancel?.();
+    Promise.resolve(cancelResult).catch(() => {});
   } catch {
     // Minimal fetch doubles and already-consumed bodies may reject cancellation.
+  }
+}
+
+async function readResponseText(response, onReader) {
+  const body = response?.body;
+  if (typeof body?.getReader !== 'function') return response.text();
+
+  const reader = body.getReader();
+  onReader(reader);
+  const decoder = new TextDecoder();
+  let text = '';
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
+  } finally {
+    try {
+      reader.releaseLock();
+    } catch {
+      // Cancellation/error cleanup is best-effort; the timeout still bounds the caller.
+    }
   }
 }
 
@@ -282,6 +309,7 @@ async function fetchTrendsRss(geo, fetchImpl = fetch, timeoutMs = REQUEST_TIMEOU
     ? Math.max(1, Math.floor(timeoutMs))
     : REQUEST_TIMEOUT_MS;
   let response;
+  let readerForCancellation;
   let timedOut = false;
   let rejectTimeout;
   const timeoutPromise = new Promise((_, reject) => {
@@ -294,7 +322,7 @@ async function fetchTrendsRss(geo, fetchImpl = fetch, timeoutMs = REQUEST_TIMEOU
     reason.name = 'TimeoutError';
     ac.abort(reason);
     rejectTimeout(reason);
-    cancelResponseBodyBestEffort(response);
+    cancelResponseBodyBestEffort(response, readerForCancellation);
   }, effectiveTimeoutMs);
   const fetchPromise = Promise.resolve().then(() =>
     fetchImpl(url, {
@@ -318,10 +346,13 @@ async function fetchTrendsRss(geo, fetchImpl = fetch, timeoutMs = REQUEST_TIMEOU
       e.status = response.status;
       throw e;
     }
-    return await Promise.race([
-      Promise.resolve().then(() => response.text()),
-      timeoutPromise,
-    ]);
+    const textPromise = Promise.resolve().then(() => readResponseText(response, (reader) => {
+      readerForCancellation = reader;
+      if (timedOut) cancelResponseBodyBestEffort(response, reader);
+    }));
+    // If timeout wins, the retained reader is cancelled above; suppress a late stream error.
+    textPromise.catch(() => {});
+    return await Promise.race([textPromise, timeoutPromise]);
   } finally {
     clearTimeout(t);
   }

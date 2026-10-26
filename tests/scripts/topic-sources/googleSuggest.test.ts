@@ -115,6 +115,8 @@ describe('fetchSuggestCandidates', () => {
       const cancelBody = vi.fn(async () => {
         throw new Error('body is locked');
       });
+      const bodies: ReadableStream<Uint8Array>[] = [];
+      const responseTexts: ReturnType<typeof vi.fn>[] = [];
       const abortReasons: unknown[] = [];
       const fetchImpl = vi.fn(async (_url: string, init: { signal: AbortSignal }) => {
         init.signal.addEventListener(
@@ -122,11 +124,19 @@ describe('fetchSuggestCandidates', () => {
           () => abortReasons.push(init.signal.reason),
           { once: true },
         );
+        const body = new ReadableStream<Uint8Array>({ cancel: cancelBody });
+        bodies.push(body);
+        const responseText = vi.fn(() => {
+          // Simulate the old response.text() path having already locked the body.
+          body.getReader();
+          return new Promise<string>(() => {});
+        });
+        responseTexts.push(responseText);
         return {
           ok: true,
           status: 200,
-          body: { cancel: cancelBody },
-          text: () => new Promise<string>(() => {}),
+          body,
+          text: responseText,
         };
       });
 
@@ -149,6 +159,8 @@ describe('fetchSuggestCandidates', () => {
       expect(result.perSeed.frontaliere.reason).toMatch(/timed out/i);
       expect(fetchImpl).toHaveBeenCalledTimes(2);
       expect(cancelBody).toHaveBeenCalledTimes(2);
+      expect(responseTexts.every((responseText) => !responseText.mock.calls.length)).toBe(true);
+      expect(bodies.every((body) => !body.locked)).toBe(true);
       expect(abortReasons).toHaveLength(2);
       expect(abortReasons.every((reason) => (reason as DOMException).name === 'TimeoutError')).toBe(true);
     } finally {
