@@ -53,7 +53,7 @@ async function getDoc(db, collection, id) {
 /**
  * Core handler — `db` and `sendEmail` are injectable for unit tests.
  * Returns { status, body }. `sendEmail({ from, to, subject, text, html, unsubUrl })`
- * must resolve to { messageId } or throw.
+ * must resolve to { messageId, provider } or throw.
  *
  * @param {{ companyKey?: string, touch?: number, force?: boolean,
  *           secret?: string, db: any,
@@ -163,7 +163,7 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
       lastSentAt: sentAt,
       pendingTouches: FieldValue.arrayRemove(touchNum),
       touches: FieldValue.arrayUnion({
-        touch: touchNum, sentAt, provider: 'resend', messageId,
+        touch: touchNum, sentAt, provider: result?.provider || 'unknown', messageId,
         subject: message.subject, via: 'web-ui',
       }),
       updatedAt: FieldValue.serverTimestamp(),

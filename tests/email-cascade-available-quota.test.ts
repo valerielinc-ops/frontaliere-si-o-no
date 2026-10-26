@@ -151,6 +151,13 @@ describe('getAvailableCascadeQuota', () => {
 });
 
 describe('PROVIDERS invariant', () => {
+  it('keeps Maileroo first in the automatic cascade', async () => {
+    const { PROVIDERS } = await loadCascade();
+    expect(PROVIDERS.map((p) => p.id)).toEqual([
+      'maileroo', 'mailgun', 'mailjet', 'cloudflare', 'resend',
+    ]);
+  });
+
   // mailtrap was removed from the cascade 2026-07-29: its send stream was
   // suspended, so it accepted every message, returned a message_id, and
   // delivered nothing — while its per-message `suspension` webhook was being

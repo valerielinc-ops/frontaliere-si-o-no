@@ -368,7 +368,7 @@ export async function submitApplication(ctx) {
     }
     const { failed, sent } = await sendCascade(
       [{ payload, recipient: { email: to }, meta: { orderId: String(orderId), key: 'employer_application' } }],
-      { delayMs: 0, forceProvider: 'resend' },
+      { delayMs: 0, forceProvider: 'maileroo' },
     );
     if (failed.length) {
       // An ambiguous delivery must never be retried blindly (career-ops: a

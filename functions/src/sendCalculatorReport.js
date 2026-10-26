@@ -5,10 +5,10 @@
  * address, then:
  *   1. Enriches an already consent-backed `newsletter_subscribers/{email}`
  *      document with the calculator source metadata, when one exists.
- *   2. Sends the PDF as an email attachment via Resend.
+ *   2. Sends the PDF as an email attachment via Maileroo (priority 1).
  *
  * Kept intentionally minimal: the heavy lifting (PDF rendering) is done in the
- * browser, so this endpoint only needs to wrap Resend's attachment API and
+ * browser, so this endpoint only needs to wrap Maileroo's attachment API and
  * optionally record capture metadata in Firestore. It must never create a
  * marketing relationship merely because somebody posted an email address to
  * the PDF endpoint; the client-side gate owns the explicit consent write.
@@ -149,15 +149,13 @@ export async function handleSendCalculatorReport({
   if (approxBytes > MAX_PDF_BYTES) {
     return { status: 413, body: { success: false, error: 'pdf_too_large' } };
   }
-  // Cascade-routed (2026-07-16, was a direct Resend client) — but PDF
-  // attachments are Resend-only in the cascade (no other provider's
-  // sendVia* forwards email.attachments), so this still hard-requires
-  // Resend specifically, not "any provider". Cloud Functions source
-  // secrets async via Remote Config; the cascade reads sync process.env.*,
-  // so the bridge must run first.
+  // Cloud Functions source secrets asynchronously via Remote Config; the
+  // cascade reads sync process.env.*, so the bridge must run first. PDF
+  // attachments are deliberately pinned to Maileroo: it is the priority-1
+  // provider and the overflow providers do not all forward attachments.
   await bridgeEmailCascadeCredentialsToEnv();
-  if (!isProviderConfigured('resend')) {
-    return { status: 500, body: { success: false, error: 'missing_resend_api_key' } };
+  if (!isProviderConfigured('maileroo')) {
+    return { status: 500, body: { success: false, error: 'missing_maileroo_api_key' } };
   }
 
   const normalizedEmail = email.toLowerCase().trim();
@@ -228,10 +226,8 @@ export async function handleSendCalculatorReport({
   const attachmentFilename = isLamal
     ? `frontaliere-ticino-lamal-ssn-${new Date().toISOString().slice(0, 10)}.pdf`
     : `frontaliere-ticino-confronto-${new Date().toISOString().slice(0, 10)}.pdf`;
-  // The cascade's sendViaResend calls Resend's raw REST API (fetch + JSON),
-  // not the SDK — the REST API's attachments[].content wants a base64
-  // STRING (unlike the SDK, which accepts a Buffer and encodes it for you).
-  // pdfBase64 already IS that string, so no decode/re-encode is needed here.
+  // Maileroo's JSON API accepts attachment content as a base64 string;
+  // pdfBase64 already is that string, so no decode/re-encode is needed here.
   const { sent, failed } = await sendEmailCascade([{
     payload: {
       from: FROM_EMAIL,
@@ -253,12 +249,9 @@ export async function handleSendCalculatorReport({
     recipient: { email: normalizedEmail },
     meta: {},
   }], {
-    forceProvider: 'resend',
-    // A no-op while `forceProvider: 'resend'` stands — recordMailerooRef exits
-    // on any provider but Maileroo. It is wired anyway because that flag is the
-    // only thing keeping this sender off Maileroo, and dropping it would
-    // otherwise take this channel's opens and clicks with it, silently. See
-    // functions/src/lib/mailerooRef.js.
+    forceProvider: 'maileroo',
+    // Record the Maileroo reference so its engagement webhooks can be joined
+    // back to this transactional report.
     onSent: makeMailerooRefOnSent(async () => db, {
       defaultCampaignId: src,
       isJobAlert: false,

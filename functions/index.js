@@ -382,9 +382,10 @@ export const adminEmployerInsights = onRequest(
 
 // adminSendColdEmail — admin-gated web-UI cold-email sender. POST { companyKey,
 // touch, force? } with the admin's Firebase ID token. Enforces verified-email,
-// suppression and dedup server-side, sends via Resend (one-click List-Unsubscribe
-// header), and logs the send to employer_outreach_sends so the dashboard tracks
-// it. The send body is the shared buildSequence (byte-identical to the preview).
+// suppression and dedup server-side, sends through the Maileroo-first cascade
+// (one-click List-Unsubscribe header), and logs the send to
+// employer_outreach_sends so the dashboard tracks it. The send body is the
+// shared buildSequence (byte-identical to the preview).
 export const adminSendColdEmail = onRequest(
   {
     region: 'europe-west6',
@@ -404,8 +405,8 @@ export const adminSendColdEmail = onRequest(
         return;
       }
       const { newsletterSecret } = await getNewsletterSecrets();
-      // Cascade-routed (2026-07-16, was a direct Resend client) — pacing +
-      // fallback if Resend alone is exhausted. Cloud Functions source secrets
+      // Cascade-routed (2026-07-16, was a direct provider client) — pacing +
+      // fallback if the priority provider is exhausted. Cloud Functions source secrets
       // async via Remote Config; the cascade reads sync process.env.*, so the
       // bridge must run first.
       await bridgeEmailCascadeCredentialsToEnv();
@@ -433,7 +434,7 @@ export const adminSendColdEmail = onRequest(
           meta: {},
         }]);
         if (failed.length > 0) throw new Error(failed[0].error || 'send_error');
-        return { messageId: sent[0]?.messageId || '' };
+        return { messageId: sent[0]?.messageId || '', provider: sent[0]?.provider || 'unknown' };
       };
       const body = req.body || {};
       const { status, body: out } = await handleAdminSendColdEmail({
