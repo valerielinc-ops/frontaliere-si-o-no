@@ -117,6 +117,34 @@ describe('loadState', () => {
     const state = loadState();
     expect(state.xp).toBe(0);
   });
+
+  it('normalizes valid JSON with malformed field shapes', () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      unlockedAchievements: [],
+      actionCounts: { first_visit: -2, comparator_curious: 2.5, guide_reader: 2 },
+      xp: 'not-a-number',
+      streak: Infinity,
+      lastVisitDay: 20261026,
+    }));
+
+    expect(loadState()).toEqual({
+      unlockedAchievements: {},
+      actionCounts: { guide_reader: 2 },
+      xp: 0,
+      streak: 0,
+      lastVisitDay: '',
+    });
+  });
+
+  it('keeps actions non-throwing when localStorage cannot write', () => {
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+
+    expect(() => unlockAchievement('first_visit')).not.toThrow();
+    expect(() => addXp(10)).not.toThrow();
+    setItem.mockRestore();
+  });
 });
 
 // ─── getLevel ───────────────────────────────────────────────────────────────

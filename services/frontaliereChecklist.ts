@@ -134,7 +134,6 @@ export function loadChecklistState(): ChecklistState {
     if (raw) {
       const parsed: unknown = JSON.parse(raw);
       if (!isRecord(parsed)) return { done: {}, awarded: {} };
-
       return {
         done: readValidStepRecords(parsed.done, isPositiveFiniteTimestamp),
         awarded: readValidStepRecords(parsed.awarded, (entry): entry is true => entry === true),
