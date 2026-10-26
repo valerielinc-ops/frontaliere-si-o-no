@@ -51,6 +51,126 @@ export interface StatsData {
  lastUpdated: string; // ISO string
 }
 
+type StatsCacheData = StatsData & { timestamp: number };
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+ return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isNonEmptyString(value: unknown): value is string {
+ return typeof value === 'string' && value.trim().length > 0;
+}
+
+function isFiniteNumber(value: unknown): value is number {
+ return typeof value === 'number' && Number.isFinite(value);
+}
+
+function isValidLastUpdated(value: unknown): value is string {
+ return isNonEmptyString(value) && Number.isFinite(Date.parse(value));
+}
+
+function normalizeCollection<T>(
+ value: unknown,
+ normalize: (item: unknown) => T | null,
+): T[] | null {
+ if (!Array.isArray(value)) return null;
+ const normalized: T[] = [];
+ for (const item of value) {
+ const safeItem = normalize(item);
+ if (safeItem) normalized.push(safeItem);
+ }
+ return normalized;
+}
+
+function normalizeTrendPoint(value: unknown): TrendPoint | null {
+ if (!isRecord(value) || !isNonEmptyString(value.year) || !isFiniteNumber(value.frontalieri)) {
+ return null;
+ }
+ return { year: value.year, frontalieri: value.frontalieri };
+}
+
+function normalizeAgePoint(value: unknown): AgePoint | null {
+ if (!isRecord(value) || !isNonEmptyString(value.name) || !isFiniteNumber(value.value)) {
+ return null;
+ }
+ return { name: value.name, value: value.value };
+}
+
+function normalizeGenderTrendPoint(value: unknown): GenderTrendPoint | null {
+ if (
+ !isRecord(value)
+ || !isNonEmptyString(value.year)
+ || !isFiniteNumber(value.Uomini)
+ || !isFiniteNumber(value.Donne)
+ ) {
+ return null;
+ }
+ return { year: value.year, Uomini: value.Uomini, Donne: value.Donne };
+}
+
+function normalizeGenderSnapshot(value: unknown): GenderSnapshot | null {
+ if (
+ !isRecord(value)
+ || !isNonEmptyString(value.name)
+ || !isFiniteNumber(value.value)
+ || !isNonEmptyString(value.pct)
+ || !isNonEmptyString(value.color)
+ ) {
+ return null;
+ }
+ return {
+ name: value.name,
+ value: value.value,
+ pct: value.pct,
+ color: value.color,
+ };
+}
+
+/**
+ * Validate and normalize data crossing the localStorage/Firestore boundary.
+ * Invalid points are discarded, but a missing collection invalidates the
+ * envelope so consumers never receive a partially-shaped StatsData object.
+ */
+export function validateStatsData(value: unknown): StatsData | null {
+ if (!isRecord(value) || !isValidLastUpdated(value.lastUpdated)) return null;
+
+ const trend = normalizeCollection(value.trend, normalizeTrendPoint);
+ const ages = normalizeCollection(value.ages, normalizeAgePoint);
+ const genderTrend = normalizeCollection(value.genderTrend, normalizeGenderTrendPoint);
+ const genderSnapshot = normalizeCollection(value.genderSnapshot, normalizeGenderSnapshot);
+
+ if (!trend || !ages || !genderTrend || !genderSnapshot || trend.length === 0) return null;
+
+ return {
+ trend,
+ ages,
+ genderTrend,
+ genderSnapshot,
+ lastUpdated: value.lastUpdated,
+ };
+}
+
+/** Return a numeric cache timestamp, including a Firestore Timestamp value. */
+export function validateStatsCacheTimestamp(value: unknown): number | null {
+ let timestamp = value;
+ try {
+ if (isRecord(value) && typeof value.toMillis === 'function') {
+ timestamp = value.toMillis();
+ }
+ } catch {
+ return null;
+ }
+ return isFiniteNumber(timestamp) && timestamp >= 0 ? timestamp : null;
+}
+
+export function validateStatsCachePayload(value: unknown): StatsCacheData | null {
+ if (!isRecord(value)) return null;
+ const data = validateStatsData(value);
+ const timestamp = validateStatsCacheTimestamp(value.timestamp);
+ if (!data || timestamp === null) return null;
+ return { ...data, timestamp };
+}
+
 // ─── Constants ───────────────────────────────────────────────
 
 export const SOURCE_LINK =
@@ -65,12 +185,11 @@ import { reportCaughtError } from '@/services/errorReporter';
 
 // ─── localStorage (L1 cache) ─────────────────────────────────
 
-function getLocalCache(): (StatsData & { timestamp: number }) | null {
+function getLocalCache(): StatsCacheData | null {
  try {
  const raw = localStorage.getItem(LOCAL_CACHE_KEY);
  if (!raw) return null;
- const data = JSON.parse(raw);
- if (data?.trend?.length > 0) return data;
+ return validateStatsCachePayload(JSON.parse(raw));
  } catch { /* ignore */ }
  return null;
 }
@@ -86,27 +205,15 @@ function setLocalCache(stats: StatsData): void {
 
 // ─── Firestore (L2 cache — shared across all clients) ────────
 
-async function getFirestoreStats(): Promise<(StatsData & { timestamp: number }) | null> {
+async function getFirestoreStats(): Promise<StatsCacheData | null> {
  try {
  const { getFirestore, doc, getDoc } = await import('firebase/firestore');
  const { getApp } = await import('@/services/firebase');
  const db = getFirestore(await getApp());
  const snap = await getDoc(doc(db, FIRESTORE_COLLECTION, FIRESTORE_DOC));
  if (snap.exists()) {
- const data = snap.data();
- if (data?.trend?.length > 0) {
- const ts = typeof data.timestamp?.toMillis === 'function'
- ? data.timestamp.toMillis()
- : (data.timestamp ?? 0);
- return {
- trend: data.trend,
- ages: data.ages,
- genderTrend: data.genderTrend,
- genderSnapshot: data.genderSnapshot,
- lastUpdated: data.lastUpdated,
- timestamp: ts,
- };
- }
+ const data = validateStatsCachePayload(snap.data());
+ if (data) return data;
  }
  } catch (e) {
  reportCaughtError(e, 'stats.firestoreRead', { apiEndpoint: `${FIRESTORE_COLLECTION}/${FIRESTORE_DOC}` });
