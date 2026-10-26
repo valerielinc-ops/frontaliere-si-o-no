@@ -13,6 +13,7 @@
  * one network round-trip runs per cache-miss window.
  */
 import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { DEFAULT_EXCHANGE_RATE } from '@/constants';
 
 const MODULE = '@/services/exchangeRateService';
 
@@ -43,6 +44,25 @@ describe('fetchExchangeRate — fresh localStorage cache', () => {
     const rate = await mod.fetchExchangeRate();
     expect(typeof rate).toBe('number');
     expect(rate).toBeGreaterThan(0);
+    expect(mod.__testing.firestoreRateCalls).toBeGreaterThan(0);
+    expect(mod.__testing.twelveDataCalls).toBeGreaterThan(0);
+  });
+});
+
+describe('fetchExchangeRate — malformed localStorage cache', () => {
+  it.each([
+    ['string rate', { rate: 'bad', timestamp: Date.now() }],
+    ['negative rate', { rate: -0.25, timestamp: Date.now() }],
+    ['zero rate', { rate: 0, timestamp: Date.now() }],
+    ['string timestamp', { rate: 1.07, timestamp: 'not-a-timestamp' }],
+    ['null timestamp', { rate: 1.07, timestamp: null }],
+  ])('ignores %s and follows the normal fallback chain', async (_label, entry) => {
+    localStorage.setItem('exchange_rate_cache', JSON.stringify(entry));
+    const mod = await import(MODULE);
+
+    expect(mod.getCachedExchangeRate()).toBeNull();
+    await expect(mod.fetchExchangeRate()).resolves.toBe(DEFAULT_EXCHANGE_RATE);
+    expect(mod.getRateSource()).toBe('fallback');
     expect(mod.__testing.firestoreRateCalls).toBeGreaterThan(0);
     expect(mod.__testing.twelveDataCalls).toBeGreaterThan(0);
   });
