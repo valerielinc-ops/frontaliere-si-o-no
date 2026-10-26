@@ -18,6 +18,12 @@ export const TIKTOK_CROSSFADE_DURATION_MS = 250;
 export const TIKTOK_CROSSFADE_DURATION_SECONDS = TIKTOK_CROSSFADE_DURATION_MS / 1000;
 export const TIKTOK_MOTION_TRANSITION_MS = 350;
 export const TIKTOK_MOTION_TRANSITION_SECONDS = TIKTOK_MOTION_TRANSITION_MS / 1000;
+export const TIKTOK_HOOK_SLIDE_DURATION_MS = 2_600;
+export const TIKTOK_HOOK_SLIDE_DURATION_SECONDS = TIKTOK_HOOK_SLIDE_DURATION_MS / 1000;
+export const TIKTOK_HOOK_TRANSITION_MS = 150;
+export const TIKTOK_HOOK_TRANSITION_SECONDS = TIKTOK_HOOK_TRANSITION_MS / 1000;
+export const TIKTOK_SPOTLIGHT_SLIDE_DURATION_MS = 5_000;
+export const TIKTOK_SPOTLIGHT_SLIDE_DURATION_SECONDS = TIKTOK_SPOTLIGHT_SLIDE_DURATION_MS / 1000;
 export const BRAND_VIDEO_BACKGROUND = '0x0F2557';
 export const BRAND_VIDEO_ACCENT = '0xFFB300';
 export const BRAND_VIDEO_BLUE = '0x1E3D8F';
@@ -45,19 +51,34 @@ function motionSlideFilter(index) {
   ].join(';');
 }
 
-function inputArgs(inputPaths) {
+/**
+ * Spotlight one ranked card on a clean stage. The input is normally the #1
+ * item slide, so this format is intentionally shorter and more direct than a
+ * full ranking: one useful fact, a visible progress bar and a restrained
+ * camera drift to create a standalone TikTok beat.
+ */
+function spotlightSlideFilter(index) {
+  const phase = (index * 0.63).toFixed(2);
+  return [
+    `[${index}:v]fps=${TIKTOK_VIDEO_FPS},scale=980:980:force_original_aspect_ratio=decrease,format=rgba,pad=980:980:(ow-iw)/2:(oh-ih)/2:color=${BRAND_VIDEO_BACKGROUND}[spotcard${index}]`,
+    `color=c=${BRAND_VIDEO_BACKGROUND}:s=${TIKTOK_VIDEO_WIDTH}x${TIKTOK_VIDEO_HEIGHT}:r=${TIKTOK_VIDEO_FPS}:d=${TIKTOK_SPOTLIGHT_SLIDE_DURATION_SECONDS},format=rgba,drawbox=x=40:y=40:w=1000:h=1840:color=0xFFFFFF@0.16:t=4,drawbox=x=30:y=400:w=1020:h=1120:color=0x000000@0.34:t=fill,drawbox=x='-220+160*t':y='220+90*sin(t*0.9+${phase})':w=320:h=320:color=${BRAND_VIDEO_ACCENT}@0.32:t=fill,drawbox=x='820-120*t':y='1320+70*cos(t*0.8+${phase})':w=360:h=360:color=${BRAND_VIDEO_BLUE}@0.84:t=fill,drawbox=x=72:y=1760:w='max(1,936*t/${TIKTOK_SPOTLIGHT_SLIDE_DURATION_SECONDS})':h=12:color=${BRAND_VIDEO_ACCENT}@0.98:t=fill[spotstage${index}]`,
+    `[spotstage${index}][spotcard${index}]overlay=x='50+14*sin(t*0.9+${phase})':y='470+14*cos(t*0.8+${phase})':eval=frame:shortest=1,format=yuv420p,setrange=tv,settb=1/${TIKTOK_VIDEO_FPS}[v${index}]`,
+  ].join(';');
+}
+
+function inputArgs(inputPaths, slideDuration = TIKTOK_SLIDE_DURATION_SECONDS) {
   const args = [];
   for (const inputPath of inputPaths) {
-    args.push('-loop', '1', '-t', String(TIKTOK_SLIDE_DURATION_SECONDS), '-i', String(inputPath));
+    args.push('-loop', '1', '-t', String(slideDuration), '-i', String(inputPath));
   }
   return args;
 }
 
-function addTransitions(filters, slideCount, { transition, duration }) {
+function addTransitions(filters, slideCount, { transition, duration, slideDuration = TIKTOK_SLIDE_DURATION_SECONDS }) {
   let current = transition === 'wipe' ? 'm0' : 'v0';
   for (let index = 1; index < slideCount; index += 1) {
     const output = `${transition}x${index}`;
-    const offset = (index * (TIKTOK_SLIDE_DURATION_SECONDS - duration)).toFixed(3);
+    const offset = (index * (slideDuration - duration)).toFixed(3);
     filters.push(`[${current}][${transition === 'wipe' ? `m${index}` : `v${index}`}]xfade=transition=${transition === 'wipe' ? 'wipeleft' : 'fade'}:duration=${duration}:offset=${offset}[${output}]`);
     current = output;
   }
@@ -119,6 +140,78 @@ export function buildMotionGraphicVideoFfmpegArgs(inputPaths, outputPath) {
   const current = addTransitions(filters, inputPaths.length, {
     transition: 'wipe',
     duration: TIKTOK_MOTION_TRANSITION_SECONDS,
+  });
+
+  args.push(
+    '-f', 'lavfi', '-i', SILENT_AUDIO_INPUT,
+    '-filter_complex', filters.join(';'),
+    '-map', `[${current}]`,
+    '-map', `${audioIndex}:a:0`,
+    '-c:v', 'libx264',
+    '-preset', 'medium',
+    '-pix_fmt', 'yuv420p',
+    '-r', String(TIKTOK_VIDEO_FPS),
+    '-c:a', 'aac',
+    '-b:a', '96k',
+    '-ar', '44100',
+    '-ac', '2',
+    '-shortest',
+    '-movflags', '+faststart',
+    String(outputPath),
+  );
+  return args;
+}
+
+/** Build the quick three-card hook format without executing ffmpeg. */
+export function buildHookThreeSlidesVideoFfmpegArgs(inputPaths, outputPath) {
+  if (!Array.isArray(inputPaths) || inputPaths.length === 0) throw new Error('a TikTok hook video needs at least one slide');
+  if (!String(outputPath || '').trim()) throw new Error('a TikTok hook video needs an output path');
+
+  const args = ['-hide_banner', '-loglevel', 'error', '-y'];
+  args.push(...inputArgs(inputPaths, TIKTOK_HOOK_SLIDE_DURATION_SECONDS));
+
+  const audioIndex = inputPaths.length;
+  const filters = inputPaths.map((_, index) => slideFilter(index));
+  const current = addTransitions(filters, inputPaths.length, {
+    transition: 'fade',
+    duration: TIKTOK_HOOK_TRANSITION_SECONDS,
+    slideDuration: TIKTOK_HOOK_SLIDE_DURATION_SECONDS,
+  });
+
+  args.push(
+    '-f', 'lavfi', '-i', SILENT_AUDIO_INPUT,
+    '-filter_complex', filters.join(';'),
+    '-map', `[${current}]`,
+    '-map', `${audioIndex}:a:0`,
+    '-c:v', 'libx264',
+    '-preset', 'medium',
+    '-pix_fmt', 'yuv420p',
+    '-r', String(TIKTOK_VIDEO_FPS),
+    '-c:a', 'aac',
+    '-b:a', '96k',
+    '-ar', '44100',
+    '-ac', '2',
+    '-shortest',
+    '-movflags', '+faststart',
+    String(outputPath),
+  );
+  return args;
+}
+
+/** Build the single-stat spotlight format without executing ffmpeg. */
+export function buildSingleStatVideoFfmpegArgs(inputPaths, outputPath) {
+  if (!Array.isArray(inputPaths) || inputPaths.length === 0) throw new Error('a TikTok spotlight video needs at least one slide');
+  if (!String(outputPath || '').trim()) throw new Error('a TikTok spotlight video needs an output path');
+
+  const args = ['-hide_banner', '-loglevel', 'error', '-y'];
+  args.push(...inputArgs(inputPaths, TIKTOK_SPOTLIGHT_SLIDE_DURATION_SECONDS));
+
+  const audioIndex = inputPaths.length;
+  const filters = inputPaths.map((_, index) => spotlightSlideFilter(index));
+  const current = addTransitions(filters, inputPaths.length, {
+    transition: 'fade',
+    duration: TIKTOK_CROSSFADE_DURATION_SECONDS,
+    slideDuration: TIKTOK_SPOTLIGHT_SLIDE_DURATION_SECONDS,
   });
 
   args.push(
@@ -235,4 +328,15 @@ function renderWithBuilder(slideBuffers, builder, { ffmpegPath = 'ffmpeg', ffpro
 /** Render the Firebase-selected motion-graphic TikTok treatment. */
 export function renderMotionGraphicVideo(slideBuffers, opts = {}) {
   return renderWithBuilder(slideBuffers, buildMotionGraphicVideoFfmpegArgs, opts);
+}
+
+/** Render the Firebase-selected quick hook using the cover and first items. */
+export function renderHookThreeSlidesVideo(slideBuffers, opts = {}) {
+  return renderWithBuilder(slideBuffers.slice(0, 3), buildHookThreeSlidesVideoFfmpegArgs, opts);
+}
+
+/** Render the Firebase-selected #1 item as a single-stat spotlight. */
+export function renderSingleStatVideo(slideBuffers, opts = {}) {
+  const spotlight = slideBuffers[1] || slideBuffers[0];
+  return renderWithBuilder([spotlight], buildSingleStatVideoFfmpegArgs, opts);
 }

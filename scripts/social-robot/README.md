@@ -92,15 +92,16 @@ diversa.
 ### Esperimento video TikTok
 
 I video TikTok hanno ora un secondo test indipendente dall'audio nativo. Il
-controllo resta il video composto dalle slide con dissolvenza; il trattamento
-usa le stesse informazioni ma le presenta come motion graphic verticale, con
-card flottante, forme animate, barra di avanzamento e transizioni più rapide.
-Il renderer è deterministico e non scarica filmati o musica esterna.
+controllo resta il video composto dalle slide con dissolvenza; il pool di test
+può usare una motion graphic verticale, un hook rapido di tre slide oppure uno
+spotlight sulla statistica #1. Il renderer è deterministico e non scarica
+filmati o musica esterna.
 
 | Parametro Firebase | Valori | Default locale |
 |---|---|---|
-| `TIKTOK_VIDEO_CREATIVE_MODE` | `off` / `motion` | `off` |
-| `TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT` | `0`–`100` | `0` |
+| `TIKTOK_VIDEO_CREATIVE_MODE` | `off` / `motion` / `experiment` | `off` |
+| `TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT` | `0`–`100` non-control pool | `0` |
+| `TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT` | `0`–`100` share of that pool | `0` |
 
 L'assegnazione usa l'id della coda in uno spazio hash separato da quello
 dell'audio: un retry resta nello stesso braccio e i due esperimenti possono

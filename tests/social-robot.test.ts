@@ -274,6 +274,8 @@ describe('Firebase-configured TikTok video creative experiment', () => {
       .toEqual(['TIKTOK_VIDEO_CREATIVE_MODE']);
     expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT)
       .toEqual(['TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT']);
+    expect((RC_TO_ENV as Record<string, string[]>).TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT)
+      .toEqual(['TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT']);
   });
 
   it('assigns the same queue id to the same arm and respects rollout bounds', () => {
@@ -295,6 +297,30 @@ describe('Firebase-configured TikTok video creative experiment', () => {
       queueId: '',
       env: { ...env, TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '100' },
     })).toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL);
+  });
+
+  it('splits the experiment pool between motion, hook and spotlight arms', () => {
+    const env = {
+      TIKTOK_VIDEO_CREATIVE_MODE: 'experiment',
+      TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '40',
+      TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT: '50',
+    };
+    const variants = new Set(
+      Array.from({ length: 1_000 }, (_, i) => resolveTikTokVideoCreativeVariant({
+        queueId: `article-2026-10-${String(i).padStart(4, '0')}`,
+        env,
+      })),
+    );
+    expect(variants).toEqual(new Set([
+      TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL,
+      TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT,
+      TIKTOK_VIDEO_CREATIVE_VARIANTS.HOOK,
+      TIKTOK_VIDEO_CREATIVE_VARIANTS.SPOTLIGHT,
+    ]));
+    expect(resolveTikTokVideoCreativeVariant({
+      queueId: 'article-2026-10-0001',
+      env: { ...env, TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT: '0' },
+    })).not.toBe(TIKTOK_VIDEO_CREATIVE_VARIANTS.HOOK);
   });
 });
 

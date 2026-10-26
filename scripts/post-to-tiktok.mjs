@@ -90,6 +90,7 @@ import {
 } from './lib/social-post-utils.mjs';
 import {
   tiktokUrl,
+  tiktokContentId,
   TIKTOK_CAMPAIGN_ARTICLE,
   TIKTOK_CAMPAIGN_JOB,
   TIKTOK_CAMPAIGN_BORDER,
@@ -102,7 +103,12 @@ import {
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { renderCarouselSlides } from './lib/social-carousel-image.mjs';
 import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
-import { renderCarouselVideo, renderMotionGraphicVideo } from './lib/social-carousel-video.mjs';
+import {
+  renderCarouselVideo,
+  renderMotionGraphicVideo,
+  renderHookThreeSlidesVideo,
+  renderSingleStatVideo,
+} from './lib/social-carousel-video.mjs';
 import {
   TIKTOK_VIDEO_CREATIVE_VARIANTS,
   resolveTikTokVideoCreativeVariant,
@@ -187,7 +193,7 @@ async function getAccessToken() {
 // the robot has seen TikTok's confirmation (scripts/social-robot/confirm.mjs).
 
 async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, publish }) {
-  const queueLedgerEntries = video?.creativeVariant
+  const creativeLedgerEntries = video?.creativeVariant
     ? ledgerEntries.map((entry) => ({ ...entry, ...tiktokVideoCreativeLedgerFields(video.creativeVariant) }))
     : ledgerEntries;
   await deliverSocialPost({
@@ -199,14 +205,14 @@ async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, 
       const ts = new Date().toISOString();
       appendLedger(
         LEDGER_PATH,
-        ledgerEntries.map((e) => ({ ...e, ts, tiktokPostId: res.postId })),
+        creativeLedgerEntries.map((e) => ({ ...e, ts, tiktokPostId: res.postId })),
         POSTED_TRIM_LIMIT,
       );
     },
     enqueue: () => {
       enqueuePost(
         QUEUE_PATH,
-        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, video, ledgerEntries: queueLedgerEntries }),
+        buildQueueEntry({ channel: 'tiktok', kind, day, caption, imageUrls: urls, video, ledgerEntries: creativeLedgerEntries }),
       );
     },
     // The API covered this kind: an older queued post of it must not reach the robot.
@@ -217,9 +223,13 @@ async function deliver({ route, kind, day, caption, urls, video, ledgerEntries, 
 function prepareTikTokVideo(slides, keyPrefix, queueId) {
   try {
     const creativeVariant = resolveTikTokVideoCreativeVariant({ queueId });
-    const render = creativeVariant === TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT
-      ? renderMotionGraphicVideo
-      : renderCarouselVideo;
+    const renderers = {
+      [TIKTOK_VIDEO_CREATIVE_VARIANTS.CONTROL]: renderCarouselVideo,
+      [TIKTOK_VIDEO_CREATIVE_VARIANTS.TREATMENT]: renderMotionGraphicVideo,
+      [TIKTOK_VIDEO_CREATIVE_VARIANTS.HOOK]: renderHookThreeSlidesVideo,
+      [TIKTOK_VIDEO_CREATIVE_VARIANTS.SPOTLIGHT]: renderSingleStatVideo,
+    };
+    const render = renderers[creativeVariant] || renderCarouselVideo;
     const rendered = render(slides);
     const url = uploadCarouselVideo(rendered.buffer, { channel: 'tiktok', keyPrefix });
     if (!url) return null;
@@ -332,7 +342,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
   const ledgerEntries = picks.map((p) => ({
     id: p.slug,
     kind,
-    url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, p.slug),
+    url: tiktokUrl(`${SITE_URL}${p.path}/`, campaign, tiktokContentId(p.slug, video?.creativeVariant)),
     day,
     views: p.views,
   }));
@@ -423,7 +433,7 @@ async function postBorderCarousel({ dryRun, accessToken, robotMode }) {
     {
       id: weekStart,
       kind: 'border',
-      url: tiktokUrl(buildOggiPath('it', fastest[0].slug), TIKTOK_CAMPAIGN_BORDER, weekStart),
+      url: tiktokUrl(buildOggiPath('it', fastest[0].slug), TIKTOK_CAMPAIGN_BORDER, tiktokContentId(weekStart, video?.creativeVariant)),
       day: weekStart,
     },
   ];
