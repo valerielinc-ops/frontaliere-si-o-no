@@ -12,12 +12,21 @@ import { realpathSync } from 'node:fs';
  *   node scripts/fix-faq-locales.mjs [--dry-run] [--limit N]
  */
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs';
+import {
+  readFileSync,
+  writeFileSync,
+  renameSync,
+  unlinkSync,
+  existsSync,
+  readdirSync,
+} from 'fs';
 import { resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from './lib/free-translate.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
+import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -54,41 +63,105 @@ const BODY_DIR = resolve(ROOT, `services/locales/${SECTION_BODY_SUBDIR}`);
 
 // ── File helpers ────────────────────────────────────────────
 
+const FAQ_KEY_RX = /\.faq['"]\s*:/;
+const FAQ_LITERAL_RX = /\.faq['"]\s*:\s*['"]((?:[^'\\]|\\.)*)['"]\s*[,}]/;
+
+let atomicWriteSequence = 0;
+
+/** Write a locale module as one complete file, never through a truncating write. */
+export function writeFileAtomic(filePath, content) {
+  const tempPath = `${filePath}.tmp-${process.pid}-${atomicWriteSequence++}`;
+  try {
+    writeFileSync(tempPath, content, 'utf-8');
+    renameSync(tempPath, filePath);
+  } catch (error) {
+    try { unlinkSync(tempPath); } catch { /* best-effort cleanup */ }
+    throw error;
+  }
+}
+
+function escapeForSingleQuoteTS(value) {
+  return String(value ?? '')
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/\n/g, '\\n')
+    .replace(/\r/g, '');
+}
+
+/**
+ * Decode both FAQ literal generations that are present in the repository.
+ *
+ * New writes escape the outer TypeScript string symmetrically; older writes
+ * escaped only apostrophes and therefore need the legacy second attempt. The
+ * first decoder is field-aware so JSON escapes such as `\\n` stay available to
+ * JSON.parse instead of becoming raw control characters too early.
+ */
+export function parseFaqLiteral(raw) {
+  const decoders = [
+    (value) => decodeControlEscapesByField(String(value ?? ''), 'faq'),
+    (value) => String(value ?? '').replace(/\\'/g, "'"),
+  ];
+  for (const decode of decoders) {
+    try {
+      const parsed = JSON.parse(decode(raw));
+      if (Array.isArray(parsed)) return parsed;
+    } catch { /* try the compatible legacy representation */ }
+  }
+  return null;
+}
+
+export function extractFaqFromContent(content) {
+  if (typeof content !== 'string') return null;
+  const faqMatch = content.match(FAQ_LITERAL_RX);
+  return faqMatch ? parseFaqLiteral(faqMatch[1]) : null;
+}
+
+/** Keep the engine's readable FAQ floor and reject any dropped/placeholder pair. */
+export function prepareFaqForWrite(faqArray, { minPairs = 2 } = {}) {
+  const { pairs, dropped } = cleanFaqPairs(faqArray, { minPairs });
+  if (!pairs || dropped.length > 0) return null;
+  if (pairs.some((pair) => pair.q.length <= 10 || pair.a.length <= 20)) return null;
+  return pairs;
+}
+
 function extractFaqFromFile(filePath) {
   if (!existsSync(filePath)) return null;
-  const content = readFileSync(filePath, 'utf-8');
-  // Escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
-  const faqMatch = content.match(/\.faq['']\s*:\s*[']((?:[^'\\]|\\.)*)[']\s*[,}]/);
-  if (!faqMatch) return null;
-  try {
-    return JSON.parse(faqMatch[1].replace(/\\'/g, "'"));
-  } catch { return null; }
+  return extractFaqFromContent(readFileSync(filePath, 'utf-8'));
 }
 
 function hasFaqKey(filePath) {
   if (!existsSync(filePath)) return false;
-  return /\.faq['']\s*:/.test(readFileSync(filePath, 'utf-8'));
+  return FAQ_KEY_RX.test(readFileSync(filePath, 'utf-8'));
 }
 
 function replaceFaqInFile(filePath, newFaqArray) {
+  const faqToWrite = prepareFaqForWrite(newFaqArray);
+  if (!faqToWrite) return false;
   let content = readFileSync(filePath, 'utf-8');
-  const jsonStr = JSON.stringify(newFaqArray).replace(/'/g, "\\'");
+  const jsonStr = escapeForSingleQuoteTS(JSON.stringify(faqToWrite));
   // Escape-aware regex + function replacer to avoid $-pattern issues
-  content = content.replace(
-    /(\.faq['']\s*:\s*[''])((?:[^'\\]|\\.)*)(['']\s*[,}])/,
-    (_match, g1, _g2, g3) => g1 + jsonStr + g3
+  const replaced = content.replace(
+    /(\.faq['"]\s*:\s*['"])((?:[^'\\]|\\.)*)(['"]\s*[,}])/,
+    (_match, g1, _g2, g3) => g1 + jsonStr + g3,
   );
-  writeFileSync(filePath, content, 'utf-8');
+  if (replaced === content || JSON.stringify(extractFaqFromContent(replaced)) !== JSON.stringify(faqToWrite)) {
+    return false;
+  }
+  writeFileAtomic(filePath, replaced);
+  return true;
 }
 
 function insertFaqKey(filePath, articleId, faqArray) {
+  const faqToWrite = prepareFaqForWrite(faqArray);
+  if (!faqToWrite) return false;
   let content = readFileSync(filePath, 'utf-8');
-  const jsonStr = JSON.stringify(faqArray).replace(/'/g, "\\'");
+  const jsonStr = escapeForSingleQuoteTS(JSON.stringify(faqToWrite));
   const closingIdx = content.lastIndexOf('};');
   if (closingIdx === -1) return false;
   const faqLine = `    'blog.article.${articleId}.faq': '${jsonStr}',\n`;
   content = content.slice(0, closingIdx) + faqLine + content.slice(closingIdx);
-  writeFileSync(filePath, content, 'utf-8');
+  if (JSON.stringify(extractFaqFromContent(content)) !== JSON.stringify(faqToWrite)) return false;
+  writeFileAtomic(filePath, content);
   return true;
 }
 
@@ -96,6 +169,8 @@ function insertFaqKey(filePath, articleId, faqArray) {
 
 function hasSourcePassthroughField(left, right) {
   return !!left && !!right
+    && typeof left.q === 'string' && typeof left.a === 'string'
+    && typeof right.q === 'string' && typeof right.a === 'string'
     && (isSourcePassthrough(right.q, left.q) || isSourcePassthrough(right.a, left.a));
 }
 
@@ -111,9 +186,16 @@ function hasSourcePassthroughField(left, right) {
  */
 export function wrongLocalePair(faqArray, expectedLocale, sourceFaq = null, sourceLang = 'it') {
   if (expectedLocale === sourceLang) return null;
+  if (!Array.isArray(faqArray)) return { index: 0, detected: 'unknown', via: 'shape' };
+  if (Array.isArray(sourceFaq) && faqArray.length !== sourceFaq.length) {
+    return { index: Math.min(faqArray.length, sourceFaq.length), detected: 'unknown', via: 'pair-count' };
+  }
 
   for (let index = 0; index < faqArray.length; index++) {
     const pair = faqArray[index];
+    if (!pair || typeof pair.q !== 'string' || typeof pair.a !== 'string') {
+      return { index, detected: 'unknown', via: 'shape' };
+    }
     if (hasSourcePassthroughField(pair, sourceFaq?.[index])) {
       return { index, detected: sourceLang, via: 'verbatim' };
     }
@@ -132,19 +214,24 @@ export function wrongLocalePair(faqArray, expectedLocale, sourceFaq = null, sour
 // ── Translation (same cascade as job crawlers) ──────────────
 
 async function translateFaqArray(faqArray, targetLang) {
+  if (!prepareFaqForWrite(faqArray)) return null;
   const results = [];
-  for (const pair of faqArray) {
+  for (let index = 0; index < faqArray.length; index++) {
+    const pair = faqArray[index];
     const [translatedQ, translatedA] = await Promise.all([
       freeTranslateWithRetry({ text: pair.q, sourceLang: 'it', targetLang }),
       freeTranslateWithRetry({ text: pair.a, sourceLang: 'it', targetLang }),
     ]);
-    if (translatedQ && translatedA && translatedQ.length > 10 && translatedA.length > 20) {
-      results.push({ q: translatedQ, a: translatedA });
-    } else {
-      results.push(pair); // Keep Italian pair as fallback
+    if (!translatedQ || !translatedA || translatedQ.length <= 10 || translatedA.length <= 20) {
+      console.error(`❌ ${targetLang.toUpperCase()} FAQ pair ${index + 1} has no usable translation; locale write skipped`);
+      return null;
     }
+    results.push({ q: translatedQ, a: translatedA });
   }
-  return results.length > 0 ? results : null;
+  const faqToWrite = prepareFaqForWrite(results);
+  if (!faqToWrite) return null;
+  const wrong = wrongLocalePair(faqToWrite, targetLang, faqArray);
+  return wrong ? null : faqToWrite;
 }
 
 // ── Main ────────────────────────────────────────────────────
@@ -159,8 +246,16 @@ async function main() {
   for (const file of itFiles) {
     const articleId = basename(file, '.ts');
     const itPath = resolve(BODY_DIR, 'it', file);
+    const itHasFaq = hasFaqKey(itPath);
     const itFaq = extractFaqFromFile(itPath);
-    if (!itFaq || itFaq.length === 0) continue;
+    if (!itFaq || itFaq.length === 0) {
+      if (itHasFaq) console.error(`⚠️  ${articleId}: unreadable or incomplete Italian FAQ; locale repair skipped`);
+      continue;
+    }
+    if (!prepareFaqForWrite(itFaq)) {
+      console.error(`⚠️  ${articleId}: Italian FAQ fails the FAQPage write contract; locale repair skipped`);
+      continue;
+    }
 
     for (const locale of ['en', 'de', 'fr']) {
       const localePath = resolve(BODY_DIR, locale, file);
@@ -170,8 +265,8 @@ async function main() {
         issues.push({ articleId, file, locale, reason: 'missing', itFaq });
       } else {
         const localeFaq = extractFaqFromFile(localePath);
-        if (localeFaq && wrongLocalePair(localeFaq, locale, itFaq)) {
-          issues.push({ articleId, file, locale, reason: 'wrong_locale', itFaq });
+        if (!localeFaq || !prepareFaqForWrite(localeFaq) || wrongLocalePair(localeFaq, locale, itFaq)) {
+          issues.push({ articleId, file, locale, reason: localeFaq ? 'wrong_locale' : 'unreadable', itFaq });
         }
       }
     }
@@ -204,7 +299,7 @@ async function main() {
     try {
       const translated = await translateFaqArray(issue.itFaq, issue.locale);
       if (!translated) {
-        console.error(`${label} ❌ Translation produced no valid FAQ`);
+        console.error(`${label} ❌ Translation produced no valid locale FAQ; file unchanged`);
         failed++;
         continue;
       }
@@ -226,7 +321,11 @@ async function main() {
           continue;
         }
       } else {
-        replaceFaqInFile(localePath, translated);
+        if (!replaceFaqInFile(localePath, translated)) {
+          console.error(`${label} ❌ Could not replace FAQ key`);
+          failed++;
+          continue;
+        }
       }
 
       console.log(`${label} ✅ Fixed (${translated.length} pairs)`);
