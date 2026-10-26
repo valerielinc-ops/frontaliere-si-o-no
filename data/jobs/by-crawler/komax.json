@@ -296,7 +296,7 @@
       "id": "komax-d077cefe54e4",
       "slug": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
       "slugByLocale": {
-        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b6cc1c0330",
+        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
         "en": "development-engineer-electronics-with-emv-lead-komax-ch",
         "de": "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm",
         "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon"
@@ -346,8 +346,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "development-engineer-electronics-with-emv-lead-komax-ch",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+          "development-engineer-electronics-with-emv-lead-komax-ch"
         ],
         "de": [
           "development-engineer-electronics-with-emv-lead-komax-ch"
@@ -355,8 +354,7 @@
       },
       "previousSlugs": [
         "development-engineer-electronics-with-emv-lead-komax-ch",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm"
       ],
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -371,7 +369,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:22:05.166Z"
+      "firstSeenAt": "2026-09-10T23:22:05.166Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "komax-5dc9d2ba6fee",
@@ -692,7 +692,7 @@
       "id": "komax-dba70561829b",
       "slug": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
       "slugByLocale": {
-        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon-b8e9f6dc51",
+        "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
         "en": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
         "de": "development-engineer-electronics-with-emv-lead-komax-ch",
         "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon"
@@ -741,8 +741,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
-        "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm",
         "development-engineer-electronics-with-emv-lead-komax-ch",
         "development-ingenieur-electronics-with-emv-lead-komax-dierikon-9a7f7438",
         "development-ingenieur-electronics-with-emv-lead-komax-dierikon-b181a0b0",
@@ -817,7 +815,8 @@
         "development-ingenieur-electronics-with-emv-lead-komax-dierikon-17d59dc2",
         "development-ingenieur-electronics-with-emv-lead-komax-dierikon-57234d04",
         "development-ingenieur-electronics-with-emv-lead-komax-dierikon-6a8ddbc3",
-        "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+        "development-ingegnere-electronics-with-emv-lead-komax-dierikon-i0zqmm",
+        "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -839,17 +838,15 @@
           "development-ingenieur-electronics-with-emv-lead-komax-dierikon-80a1dec6",
           "development-ingenieur-electronics-with-emv-lead-komax-dierikon-caec251c",
           "development-ingenieur-electronics-with-emv-lead-komax-dierikon-7353dd47",
-          "development-engineer-electronics-with-emv-lead-komax-ch",
-          "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
+          "development-engineer-electronics-with-emv-lead-komax-ch"
         ],
         "de": [
           "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2425,
-      "retranslationAttempts": 7,
+      "retranslationAttempts": 8,
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -864,7 +861,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "komax-401b132730ac",

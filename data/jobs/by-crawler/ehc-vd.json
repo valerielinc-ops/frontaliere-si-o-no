@@ -2561,7 +2561,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:11:56.303Z"
+      "firstSeenAt": "2026-09-29T21:11:56.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ],
+        "en": [
+          "socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ],
+        "de": [
+          "assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ]
     },
     {
       "id": "ehc-vd-4f9eed352e15",
@@ -5797,11 +5813,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-socio-educatif-f-h-ehc-vd-morges"
+        "assistant-socio-educatif-f-h-ehc-vd-morges",
+        "assistant-socio-educatif-f-h-ehc-vd-morges-jvn53g"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-socio-educatif-f-h-ehc-vd-morges"
+        ],
+        "fr": [
+          "assistant-socio-educatif-f-h-ehc-vd-morges-jvn53g"
         ]
       },
       "firstSeenAt": "2026-09-29T21:11:56.303Z",
