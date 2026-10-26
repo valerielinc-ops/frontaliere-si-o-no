@@ -274,8 +274,30 @@ async function resolvePathToDistFile(path) {
 
 // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
 // attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
-const ROBOTS_NOINDEX_RE = /<meta\s+[^>]*name\s*=\s*["']?robots["']?[^>]*content\s*=\s*["']?[^"'>]*\bnoindex\b/i;
-function htmlHasNoindex(html) { return ROBOTS_NOINDEX_RE.test(html); }
+// Attribute order is not stable after minification, therefore both attributes
+// are matched with lookaheads instead of assuming `name` precedes `content`.
+const ROBOTS_META_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots["']?(?:\s|\/?>))(?=[^>]*\bcontent\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))[^>]*>/i;
+
+function robotsDirectives(html) {
+  const match = ROBOTS_META_RE.exec(html);
+  const content = match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
+  return content.toLowerCase().split(/[\s,]+/).filter(Boolean);
+}
+
+function htmlHasNoindex(html) {
+  return robotsDirectives(html).includes('noindex');
+}
+
+/**
+ * `noindex,follow` is deliberately crawlable: pagination pages use it to
+ * leave the index while still carrying the links to their sitemap-listed
+ * items. The BFS must stop only at an explicit `nofollow` barrier; treating
+ * every noindex page as a wall made the 2026-10-24 pagination policy orphan
+ * thousands of otherwise linked events, jobs, fuel pages and locale variants.
+ */
+function htmlHasNofollow(html) {
+  return robotsDirectives(html).includes('nofollow');
+}
 
 function extractAnchorHrefs(html) {
   const out = [];
@@ -322,7 +344,7 @@ async function bfsWithDepth() {
     if (!file) continue;
     let html;
     try { html = await readFile(file, 'utf8'); } catch { continue; }
-    if (htmlHasNoindex(html)) continue; // bridge stops here — equity wouldn't propagate
+    if (htmlHasNofollow(html)) continue; // an explicit nofollow page is a graph barrier
     const hrefs = extractAnchorHrefs(html);
     for (const href of hrefs) {
       const p = normaliseInternalPath(href);
@@ -779,6 +801,7 @@ export const __test = {
   extractAnchorHrefs,
   extractLocs,
   htmlHasNoindex,
+  htmlHasNofollow,
   normaliseInternalPath,
   resolvePathToDistFile,
 };
