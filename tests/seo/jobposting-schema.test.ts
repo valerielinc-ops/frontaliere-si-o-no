@@ -282,7 +282,7 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
     expect(otherCap.jobLocation.address.postalCode).toBe('6900');
   });
 
-  it('drops a stored "street" that is just the locality name', () => {
+  it('drops a stored "street" that is just the locality name and uses the locality tuple', () => {
     const schema = buildJobPostingSchema({
       title: 'Magazziniere',
       description: 'Gestione merci in entrata e in uscita, inventario e preparazione ordini per la logistica regionale.',
@@ -290,7 +290,7 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
       addressLocality: 'Mendrisio',
       streetAddress: 'Mendrisio',
     }, OPTS);
-    expect(schema.jobLocation.address.streetAddress).toBe('Mendrisio centro');
+    expect(schema.jobLocation.address.streetAddress).toBe('Via Luigi Benteler 1');
   });
 });
 

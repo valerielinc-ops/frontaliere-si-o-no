@@ -321,7 +321,7 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
 
     expect(expected).toMatchObject({
       '@type': 'PostalAddress',
-      streetAddress: 'Pully centro',
+      streetAddress: 'Pully centre-ville',
       postalCode: '1009',
       addressLocality: 'Pully',
       addressRegion: 'VD',
