@@ -22,6 +22,9 @@ import {
   resolveItalianFrontierComuni,
   mirrorEventImage as mirrorEventImageImpl,
   resetEventImageManifestCache,
+  loadEventTitleTranslationCache,
+  saveEventTitleTranslationCache,
+  resetEventTitleTranslationCache,
   localesNeedingTranslation,
   enrichEventsWithLocaleFallbackTranslations,
   geocodeVenue,
@@ -599,6 +602,47 @@ describe('mirrorEventImage', () => {
     );
     expect(existsSync(path.join(testImagesDir, 'test-mirror-fixture.jpg'))).toBe(true);
     expect(readFileSync(manifestFile, 'utf8')).toBe('not json at all');
+  });
+});
+
+describe('event title translation cache persistence', () => {
+  let cacheDir: string;
+  let previousCachePath: string | undefined;
+
+  beforeEach(() => {
+    cacheDir = mkdtempSync(path.join(tmpdir(), 'events-translation-cache-'));
+    previousCachePath = process.env.EVENTS_TRANSLATION_CACHE_PATH;
+    process.env.EVENTS_TRANSLATION_CACHE_PATH = path.join(cacheDir, 'events-translation-cache.json');
+    resetEventTitleTranslationCache();
+  });
+
+  afterEach(() => {
+    if (previousCachePath === undefined) delete process.env.EVENTS_TRANSLATION_CACHE_PATH;
+    else process.env.EVENTS_TRANSLATION_CACHE_PATH = previousCachePath;
+    resetEventTitleTranslationCache();
+    rmSync(cacheDir, { recursive: true, force: true });
+  });
+
+  it('creates and reloads a missing cache through the test-isolated path', () => {
+    expect(loadEventTitleTranslationCache()).toEqual({});
+    expect(saveEventTitleTranslationCache({ 'title::it::Concerto': { en: 'Concert' } })).toBe(true);
+    resetEventTitleTranslationCache();
+    expect(loadEventTitleTranslationCache()).toEqual({ 'title::it::Concerto': { en: 'Concert' } });
+  });
+
+  it('does not replace an unreadable cache with the empty fallback', () => {
+    const file = process.env.EVENTS_TRANSLATION_CACHE_PATH!;
+    writeFileSync(file, '{not-json');
+
+    expect(saveEventTitleTranslationCache({ 'title::it::Lost': { en: 'Lost' } })).toBe(false);
+    expect(loadEventTitleTranslationCache()).toEqual({});
+    expect(readFileSync(file, 'utf8')).toBe('{not-json');
+  });
+
+  it('refuses non-object cache payloads before serialization', () => {
+    const file = process.env.EVENTS_TRANSLATION_CACHE_PATH!;
+    expect(saveEventTitleTranslationCache([])).toBe(false);
+    expect(existsSync(file)).toBe(false);
   });
 });
 

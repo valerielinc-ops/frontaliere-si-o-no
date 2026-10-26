@@ -39,12 +39,19 @@ import {
   buildBodyFile,
   assertTranslationsPassFactualityGates,
 } from './create-article.mjs';
-import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
+import {
+  assertEvergreenArticleReadyForWrite,
+  buildEvergreenBodyOutputs,
+  bumpUpdatedAt,
+  bumpDateModified,
+  bumpSitemapLastmod,
+} from './lib/evergreen-article-refresh.mjs';
 import { isTicinoCrossing } from '../build-plugins/borderWaitData.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const RANKING_ARTICLE_ID = 'classifica-dogane-ticino';
 const HISTORY_DIR = path.join(REPO_ROOT, 'data', 'border-wait-history');
 const RANKING_JSON_PATH = path.join(REPO_ROOT, 'public', 'data', 'border-wait-ranking.json');
 
@@ -110,13 +117,21 @@ export function buildData(todayIso, historyDir = HISTORY_DIR) {
 }
 
 /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
+export function assertRankingReadyForWrite(data) {
+  return assertEvergreenArticleReadyForWrite(
+    data,
+    RANKING_ARTICLE_ID,
+    LOCALES,
+    assertTranslationsPassFactualityGates,
+  );
+}
+
 export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
-  assertTranslationsPassFactualityGates(data);
-  for (const locale of LOCALES) {
-    const dir = path.join(repoRoot, 'services', 'locales', 'blog-body', locale);
+  assertRankingReadyForWrite(data);
+  const outputs = buildEvergreenBodyOutputs(data, repoRoot, LOCALES, buildBodyFile);
+  for (const { dir, file, source } of outputs) {
     mkdirSync(dir, { recursive: true });
-    const file = path.join(dir, `${data.id}.ts`);
-    writeFileSync(file, buildBodyFile(data, locale));
+    writeFileSync(file, source);
     log(`  ✅ ${path.relative(repoRoot, file)}`);
   }
 }
@@ -175,6 +190,7 @@ async function main() {
   console.log(`  ✅ ${path.relative(REPO_ROOT, RANKING_JSON_PATH)}`);
 
   if (!exists) {
+    assertRankingReadyForWrite(data);
     console.log('📂 first run — registering the evergreen article across the blog system…');
     await registerArticleFiles(data, { skipNews: true }); // evergreen → not a Google News item
     console.log('✅ registered.');
