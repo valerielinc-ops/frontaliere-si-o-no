@@ -404,10 +404,11 @@ describe('search-landing emitters route every hreflang block through the shared 
   it('uses the shared three-job floor before all three GSC landing emitters', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
     expect(src).toMatch(/const GSC_SEARCH_LANDING_MIN_JOBS = 3;/);
-    expect(src).toMatch(/if \(fallbackMatchingJobs\.length < GSC_SEARCH_LANDING_MIN_JOBS\) continue;/);
+    expect(src).toMatch(/const hasOwnEligibleLocale = hasSearchLandingEligibleLocale\(matchingJobsByLocale\);/);
+    expect(src).toMatch(/if \(!hasOwnEligibleLocale\) continue;/);
     expect(src).toMatch(/if \(matchingJobs\.length < GSC_SEARCH_LANDING_MIN_JOBS\) continue;/);
     expect(src).toMatch(/if \(matchingJobs\.length < GSC_SEARCH_LANDING_MIN_JOBS\) return;/);
-    expect(src).toMatch(/if \(fallbackMatchingJobs\.length >= GSC_SEARCH_LANDING_MIN_JOBS && ssDemandIndexable\)/);
+    expect(src).toMatch(/if \(hasOwnEligibleLocale && ssDemandIndexable\)/);
     expect(src).toMatch(/if \(!_eligibleLocales\.has\(l\)\) continue;/);
   });
 });

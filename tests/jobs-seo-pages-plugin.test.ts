@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   JOB_SEO_LOCALES,
+  hasSearchLandingEligibleLocale,
   buildReservedHubSlugs,
   pickSearchLandingFallbackJobs,
   capSearchStatsLandingTitle,
@@ -17,6 +18,20 @@ import { TITLE_MAX_CHARS, MIN_PEELED_TITLE_CHARS } from '../build-plugins/shared
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe('jobsSeoPagesPlugin search landing fallback', () => {
+  it('keeps a later locale eligible when the first fallback locale is below the floor', () => {
+    const matchingJobsByLocale = {
+      it: [{ slug: 'it-1' }, { slug: 'it-2' }],
+      en: [{ slug: 'en-1' }, { slug: 'en-2' }, { slug: 'en-3' }],
+      de: [],
+      fr: [],
+    };
+
+    expect(hasSearchLandingEligibleLocale(matchingJobsByLocale)).toBe(true);
+    expect(
+      JOB_SEO_LOCALES.filter((locale) => matchingJobsByLocale[locale].length >= 3),
+    ).toEqual(['en']);
+  });
+
   it('falls back to the first locale with matching jobs instead of assuming italian exists', () => {
     const matchingJobsByLocale = {
       it: [],

@@ -32,7 +32,7 @@ describe('GSC search landings — P1 demand gate wiring', () => {
 
   it.each([
     ['keyword-config', 'kwDemandIndexable', /if \(!kwDemandIndexable\) break; \/\/ P1/],
-    ['search-stats', 'ssDemandIndexable', /if \(fallbackMatchingJobs\.length > 0 && ssDemandIndexable\) \{/],
+    ['search-stats', 'ssDemandIndexable', /if \(hasOwnEligibleLocale && ssDemandIndexable\) \{/],
     ['combo', 'cmDemandIndexable', /if \(matchingJobs\.length > 0 && cmDemandIndexable\) \{/],
   ])('%s: robots and sitemap read the same verdict', (_family, verdict, sitemapGate) => {
     expect(SRC).toMatch(new RegExp(`const ${verdict} = isSearchLandingDemandIndexable\\(`));

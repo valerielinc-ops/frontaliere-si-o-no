@@ -376,6 +376,19 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+// Shared anti-doorway floor (AGENTS.md non-negotiable #4 — no thin indexed
+// content): every GSC search-landing family needs at least this many
+// matching jobs before it can emit an HTML page or sitemap entry.
+export const GSC_SEARCH_LANDING_MIN_JOBS = 3;
+
+export function hasSearchLandingEligibleLocale<T>(
+ matchingJobsByLocale: Record<(typeof JOB_SEO_LOCALES)[number], T[]>,
+): boolean {
+ return JOB_SEO_LOCALES.some((locale) =>
+ matchingJobsByLocale[locale].length >= GSC_SEARCH_LANDING_MIN_JOBS,
+ );
+}
+
 /**
  * Build the slug guard shared by expired-job cleanup and page emission.
  * Includes localized canton job hubs as well as sector, city and paginated
@@ -10138,7 +10151,6 @@ ${staticAnalyticsHtml}
  // keyword family applies it per locale; stats landings derive their
  // locale-eligible set from the same floor, and combos apply it to the
  // locale-independent result set.
- const GSC_SEARCH_LANDING_MIN_JOBS = 3;
  // P1 noindex plan (2026-10-24): the three GSC search-landing families below
  // (keyword-config, search-stats leaders, combos) were indexable by
  // construction. They now follow the same demand rule as the related-search
@@ -10543,7 +10555,8 @@ ${staticAnalyticsHtml}
  const matchingJobsByLocale = __searchLeaderMatches.get(key)!;
  if (localeList.every((locale) => matchingJobsByLocale[locale].length === 0)) continue;
  const fallbackMatchingJobs = pickSearchLandingFallbackJobs(matchingJobsByLocale);
- if (fallbackMatchingJobs.length < GSC_SEARCH_LANDING_MIN_JOBS) continue;
+ const hasOwnEligibleLocale = hasSearchLandingEligibleLocale(matchingJobsByLocale);
+ if (!hasOwnEligibleLocale) continue;
 
  // Eligibility, derived from the exact per-locale payload the emit loop will
  // use: a locale with no own matches can use `fallbackMatchingJobs`, but a
@@ -10741,7 +10754,7 @@ ${staticAnalyticsHtml}
  }
 
  // Add indexable search pages (the non-empty set above, plus P1 demand) to sitemap.
- if (fallbackMatchingJobs.length >= GSC_SEARCH_LANDING_MIN_JOBS && ssDemandIndexable) {
+ if (hasOwnEligibleLocale && ssDemandIndexable) {
  const sItSlug = `${searchRoutePrefix.it}-${key}`;
  const sItPath = withSlash(`/${sectionByLocale.it}/${sItSlug}`.replace(/\/+/g, '/'));
  const sItUrl = `${BASE_URL}${sItPath}`;
