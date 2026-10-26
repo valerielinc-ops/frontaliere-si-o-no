@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "7bfdba254a0f4dc410d8da8844eac119a09fe32c",
+  "commit": "a65e270eee9b177592b1f3e72db1276ce10eab02",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -38392,6 +38392,49 @@
         "is_photograph": true,
         "is_topic_relevant": true,
         "notes": "Serene real-world outdoor city-and-lake landscape with natural light; no people, readable text, logos, or event cues."
+      }
+    },
+    "/images/blog/article-tagli-orologeria-locle-lvmh.webp": {
+      "schema": 1,
+      "assetId": "article-tagli-orologeria-locle-lvmh",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "ed7a8ee8e131a93e67f5fcef7868997183a3dbf0a9e8658a4aa8c2d0b1ba1738",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "33dac99f161f2dfa2729b0880cb484dd893a43c86b6b09ef43d2cb65db69c39f",
+      "bytes": 117814,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-26T09:26:59.804Z",
+      "verifiedAt": "2026-10-26T09:27:07.407Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tagli-orologeria-locle-lvmh.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic illustration of a historic Swiss watchmaking factory; no people, text, logos, or event-specific cues."
       }
     },
     "/images/places/lugano-view.webp": {
