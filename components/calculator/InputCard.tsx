@@ -13,6 +13,7 @@ import { SegmentControl as SharedSegmentControl } from '@/components/shared/Segm
 import CalculatorFormBoxAd from '@/components/shared/CalculatorFormBoxAd';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import ProfessionPresetChips from '@/components/calculator/ProfessionPresetChips';
+import { readLocalStorage, writeLocalStorage } from '@/services/storageAvailability';
 // exchangeRateService is lazy-loaded to reduce main bundle size
 
 interface Props {
@@ -212,12 +213,12 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  // Returns true (expanded) if user has previously expanded, else false (compact)
  const [desktopExpanded, setDesktopExpanded] = useState(() => {
  if (typeof window === 'undefined') return false;
- return localStorage.getItem(DESKTOP_EXPANDED_KEY) === '1';
+ return readLocalStorage(DESKTOP_EXPANDED_KEY) === '1';
  });
 
  const expandDesktop = useCallback(() => {
  setDesktopExpanded(true);
- localStorage.setItem(DESKTOP_EXPANDED_KEY, '1');
+ writeLocalStorage(DESKTOP_EXPANDED_KEY, '1');
  Analytics.trackUIInteraction('simulatore', 'input', 'expand_full_form', 'click', undefined, 'calculator.input.expand_full_form');
  }, []);
 
@@ -241,8 +242,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
 
  const showFrontierEasterEgg = useCallback((type: 'NEW' | 'OLD') => {
  const key = `frontaliere_easter_egg_seen_${type.toLowerCase()}`;
- if (localStorage.getItem(key)) return;
- localStorage.setItem(key, '1');
+ if (readLocalStorage(key)) return;
+ writeLocalStorage(key, '1');
  clearTimeout(easterEggTimer.current);
  setEasterEgg(type === 'OLD' ? `😎 ${t('permitCompare.easterEggOld')}` : `💪 ${t('permitCompare.easterEggNew')}`);
  }, [t]);

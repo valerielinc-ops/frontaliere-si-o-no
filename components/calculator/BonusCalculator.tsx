@@ -7,6 +7,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, irpefMarginalRate } from '@/services/calculationService';
+import { clampBonusInteger, clampBonusNumber, parseBonusProfileChildren, BONUS_CHILDREN_MAX, BONUS_RATE_MAX, BONUS_RATE_MIN } from '@/services/bonusCalculatorInput';
 import { FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // Swiss bonus types for frontalieri
@@ -83,8 +84,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  setIsMarried(userProfile.familySituation === 'married');
  }
  if (userProfile.children) {
- const n = parseInt(userProfile.children, 10);
- if (!isNaN(n)) setChildren(n);
+ const n = parseBonusProfileChildren(userProfile.children);
+ if (n !== null) setChildren(n);
  }
  }, [userProfile]);
 
@@ -204,7 +205,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  type="number"
  inputMode="numeric"
  value={monthlyGrossCHF}
- onChange={e => setMonthlyGrossCHF(Number(e.target.value))}
+ onChange={e => setMonthlyGrossCHF(clampBonusNumber(e.target.value, monthlyGrossCHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -217,7 +218,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  type="number"
  inputMode="numeric"
  value={bonusAmountCHF}
- onChange={e => setBonusAmountCHF(Number(e.target.value))}
+ onChange={e => setBonusAmountCHF(clampBonusNumber(e.target.value, bonusAmountCHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -259,9 +260,9 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  type="number"
  inputMode="numeric"
  min={0}
- max={10}
+ max={BONUS_CHILDREN_MAX}
  value={children}
- onChange={e => setChildren(Number(e.target.value))}
+ onChange={e => setChildren(clampBonusInteger(e.target.value, children, 0, BONUS_CHILDREN_MAX))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -275,8 +276,10 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  type="number"
  inputMode="decimal"
  step={0.01}
+ min={BONUS_RATE_MIN}
+ max={BONUS_RATE_MAX}
  value={Number(exchangeRate.toFixed(4))}
- onChange={e => setRateOverride(Number(e.target.value))}
+ onChange={e => setRateOverride(clampBonusNumber(e.target.value, exchangeRate, BONUS_RATE_MIN, BONUS_RATE_MAX))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  <button

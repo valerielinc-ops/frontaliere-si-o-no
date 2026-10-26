@@ -24,6 +24,8 @@ import { searchJobs, type SearchJobsResult, type Locale as ChatbotLocale } from 
 import { requestSlot, releaseSlot, isActive, subscribe, hasActiveSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
+import { readLocalStorage, writeLocalStorage } from '@/services/storageAvailability';
+import { canSendChatbotMessage, incrementChatbotRateLimit, normalizeChatbotRateLimitState } from '@/services/chatbotRateLimit';
 
 /** Last-touch attribution for a login started from this box (see authService). */
 const AI_CHATBOT_AUTH_ATTRIBUTION = { cta: 'ai_chatbot_social', component: 'AiChatbot' } as const;
@@ -264,27 +266,23 @@ async function callChatbotFunction(messages: Message[], systemPrompt: string): P
 // ─── Rate limiting ───────────────────────────────────────────
 
 const RATE_LIMIT_KEY = 'chatbot_msgs';
-const MAX_MESSAGES_PER_DAY = 20;
 
 function checkRateLimit(): boolean {
  try {
- const raw = localStorage.getItem(RATE_LIMIT_KEY);
- if (!raw) return true;
- const data = JSON.parse(raw);
  const today = new Date().toISOString().split('T')[0];
- if (data.date !== today) return true;
- return (data.count || 0) < MAX_MESSAGES_PER_DAY;
+ const raw = readLocalStorage(RATE_LIMIT_KEY);
+ const parsed = raw ? JSON.parse(raw) : null;
+ return canSendChatbotMessage(normalizeChatbotRateLimitState(parsed, today));
  } catch { return true; }
 }
 
 function incrementRateLimit(): void {
  try {
  const today = new Date().toISOString().split('T')[0];
- const raw = localStorage.getItem(RATE_LIMIT_KEY);
- let data = raw ? JSON.parse(raw) : { date: today, count: 0 };
- if (data.date !== today) data = { date: today, count: 0 };
- data.count++;
- localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(data));
+ const raw = readLocalStorage(RATE_LIMIT_KEY);
+ const parsed = raw ? JSON.parse(raw) : null;
+ const next = incrementChatbotRateLimit(normalizeChatbotRateLimitState(parsed, today));
+ writeLocalStorage(RATE_LIMIT_KEY, JSON.stringify(next));
  } catch { /* ignore */ }
 }
 
