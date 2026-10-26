@@ -11,6 +11,7 @@
 
 import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import {
@@ -80,7 +81,7 @@ const WeeklyDigest: React.FC = () => {
  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error'>('idle');
  const [showPreview, setShowPreview] = useState(false);
  const [alreadySubscribed] = useState(() =>
- localStorage.getItem('weekly_digest_subscribed') === 'true'
+ readBestEffortLocalStorage('weekly_digest_subscribed') === 'true'
  );
  const linkedInAvailable = useLinkedInSignInAvailable();
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
@@ -126,7 +127,7 @@ const WeeklyDigest: React.FC = () => {
    return;
  }
  markNewsletterSubscribedLocally();
- localStorage.setItem('weekly_digest_subscribed', 'true');
+ writeBestEffortLocalStorage('weekly_digest_subscribed', 'true');
  setStatus('success');
  unlockAchievement('email_results');
  Analytics.trackUIInteraction('weekly_digest', 'subscribe', 'success', email.split('@')[1]);

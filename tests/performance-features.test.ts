@@ -31,6 +31,17 @@ describe('Consent Service', () => {
     expect(hasConsent()).toBe(false);
   });
 
+  it('treats a valid JSON blob with malformed consent fields as absent', async () => {
+    localStorage.setItem('frontaliere_consent', JSON.stringify({
+      analytics: true,
+      advertising: 'yes',
+      timestamp: 'not-a-timestamp',
+    }));
+    const { getConsent, hasConsent } = await vi.importActual<ConsentModule>('@/services/consentService');
+    expect(getConsent()).toBeNull();
+    expect(hasConsent()).toBe(false);
+  });
+
   it('acceptAll persists consent and returns granted state', async () => {
     const { acceptAll, getConsent, hasConsent } = await vi.importActual<ConsentModule>('@/services/consentService');
     const state = acceptAll();

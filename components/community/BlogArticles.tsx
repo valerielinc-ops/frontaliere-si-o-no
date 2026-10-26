@@ -101,6 +101,7 @@ import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { generateInitialsLogo } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { normalizeTrendingArticleEntries, type TrendingArticleEntry } from '@/services/trendingArticlePayload';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const ConsultingCTA = lazyRetry(() => import('@/components/calculator/ConsultingCTA').then(m => ({ default: m.ConsultingCTA })));
 const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/PreferredSourceCTA'));
@@ -151,7 +152,7 @@ export { trackArticleView };
 
 /* ─── Trending articles (static JSON snapshot → localStorage cache) ─── */
 
-interface TrendingEntry { id: string; views: number; lastViewed: number }
+type TrendingEntry = TrendingArticleEntry;
 
 const TRENDING_CACHE_KEY = 'blog_trending_cache';
 const TRENDING_CACHE_TTL = 60 * 60 * 1000; // 1 hour
@@ -164,9 +165,13 @@ async function fetchTrendingArticles(validIds: Set<string>, section: ArticleSect
  try {
  const cached = localStorage.getItem(cacheKey);
  if (cached) {
- const { ts, data } = JSON.parse(cached);
- if (Date.now() - ts < TRENDING_CACHE_TTL && Array.isArray(data)) {
- return data.filter((e: TrendingEntry) => validIds.has(e.id));
+ const parsed: unknown = JSON.parse(cached);
+ if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+  const { ts, data } = parsed as { ts?: unknown; data?: unknown };
+  if (typeof ts === 'number' && Number.isFinite(ts)
+   && Date.now() - ts < TRENDING_CACHE_TTL) {
+   return normalizeTrendingArticleEntries(data).filter((e) => validIds.has(e.id));
+  }
  }
  }
  } catch { /* corrupt cache — refetch */ }
@@ -182,8 +187,7 @@ async function fetchTrendingArticles(validIds: Set<string>, section: ArticleSect
  const res = await fetch(trendingFile, { cache: 'no-cache' });
  if (!res.ok) return [];
  const payload = await res.json();
- const rawEntries: TrendingEntry[] = Array.isArray(payload?.entries) ? payload.entries : [];
- const top = rawEntries.slice(0, 12);
+ const top = normalizeTrendingArticleEntries(payload?.entries).slice(0, 12);
 
  try {
  localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data: top }));
