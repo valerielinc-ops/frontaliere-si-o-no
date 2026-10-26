@@ -225,6 +225,9 @@ const JSDOM_TS_FILES = [
   'tests/services/posthog.test.ts',
   'tests/services/profileEnrichmentGating.test.ts',
   'tests/services/savedJobsService.test.ts',
+  // Exercises the browser Storage constructor while simulating blocked
+  // localStorage writes/reads; keep it in the jsdom project.
+  'tests/storage-availability.test.ts',
   'tests/soft-landing-seo.test.ts',
   'tests/swisscom-crawler.test.ts',
   'tests/switzerland-unemployment-parser.test.ts',
