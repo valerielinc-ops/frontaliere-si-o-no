@@ -256,7 +256,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={MONTHLY_GROSS_MIN_CHF}
  max={MONTHLY_GROSS_MAX_CHF}
  value={monthlyGrossCHF}
- onChange={e => setMonthlyGrossCHF(clampBonusNumber(e.target.value, monthlyGrossCHF, MONTHLY_GROSS_MIN_CHF, MONTHLY_GROSS_MAX_CHF))}
+ onChange={e => setMonthlyGrossCHF(clampBonusNumber(e.target.value, DEFAULT_MONTHLY_GROSS_CHF, MONTHLY_GROSS_MIN_CHF, MONTHLY_GROSS_MAX_CHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -271,7 +271,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={BONUS_AMOUNT_MIN_CHF}
  max={BONUS_AMOUNT_MAX_CHF}
  value={bonusAmountCHF}
- onChange={e => setBonusAmountCHF(clampBonusNumber(e.target.value, bonusAmountCHF, BONUS_AMOUNT_MIN_CHF, BONUS_AMOUNT_MAX_CHF))}
+ onChange={e => setBonusAmountCHF(clampBonusNumber(e.target.value, DEFAULT_BONUS_AMOUNT_CHF, BONUS_AMOUNT_MIN_CHF, BONUS_AMOUNT_MAX_CHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -315,7 +315,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={CHILDREN_MIN}
  max={CHILDREN_MAX}
  value={children}
- onChange={e => setChildren(clampBonusInteger(e.target.value, children, 0, BONUS_CHILDREN_MAX))}
+ onChange={e => setChildren(clampBonusInteger(e.target.value, DEFAULT_CHILDREN, CHILDREN_MIN, BONUS_CHILDREN_MAX))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>

@@ -17,12 +17,14 @@ export function parseBonusProfileChildren(raw: unknown): number | null {
 }
 
 export function clampBonusNumber(raw: unknown, fallback: number, min = 0, max = BONUS_AMOUNT_MAX): number {
+  if (typeof raw === 'string' && raw.trim() === '') return fallback;
   const value = typeof raw === 'number' ? raw : Number(raw);
   if (!Number.isFinite(value)) return fallback;
   return Math.min(max, Math.max(min, value));
 }
 
 export function clampBonusInteger(raw: unknown, fallback: number, min: number, max: number): number {
+  if (typeof raw === 'string' && raw.trim() === '') return fallback;
   const value = typeof raw === 'number' ? raw : Number(raw);
   if (!Number.isFinite(value)) return fallback;
   return Math.min(max, Math.max(min, Math.trunc(value)));
