@@ -102,6 +102,32 @@ describe('checklist state', () => {
     expect(state.awarded[first]).toBe(true);
   });
 
+  it('filters invalid persisted step records to known, valid values', () => {
+    const [first, second, third] = CHECKLIST_STEPS.map(step => step.id);
+    localStorage.setItem('frontaliere_checklist_v1', JSON.stringify({
+      done: {
+        [first]: 123,
+        [second]: 'bad',
+        [third]: 0,
+        unknown: 456,
+      },
+      awarded: {
+        [first]: true,
+        [second]: 'yes',
+        [third]: false,
+        unknown: true,
+      },
+      completedAt: -1,
+    }));
+
+    const state = loadChecklistState();
+
+    expect(state.done).toEqual({ [first]: 123 });
+    expect(state.awarded).toEqual({ [first]: true });
+    expect(state.completedAt).toBeUndefined();
+    expect(doneCount(state)).toBe(1);
+  });
+
   it('isAllDone is true only when every step is checked', () => {
     const done: Record<string, number> = {};
     for (const step of CHECKLIST_STEPS) done[step.id] = Date.now();

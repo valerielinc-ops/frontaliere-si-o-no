@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stryker",
-  "assembledAt": "2026-10-25T21:34:04.506Z",
-  "runId": "40235076968",
+  "assembledAt": "2026-10-26T21:37:11.137Z",
+  "runId": "40403659513",
   "jobs": [
     {
       "id": "stryker-b91369d6d475",
@@ -34,7 +34,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:33:59.019Z",
+      "crawledAt": "2026-10-26T21:37:05.661Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Instandhaltungsmechaniker--m-w-d--fr-CNC-Anlagen---Medizintechnik_R571498",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:33:58.318Z",
+      "crawledAt": "2026-10-26T21:37:04.898Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:33:57.632Z",
+      "crawledAt": "2026-10-26T21:37:04.080Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R574592",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:33:56.790Z",
+      "crawledAt": "2026-10-26T21:37:03.374Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -349,7 +349,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Apprentice-Manufacturing_R569009",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:33:56.097Z",
+      "crawledAt": "2026-10-26T21:37:02.565Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -433,7 +433,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:33:55.405Z",
+      "crawledAt": "2026-10-26T21:37:01.530Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -472,6 +472,86 @@
         "praktikum-im-bereich-manufacturing-engineering-fertigung-produktion-ab-februar-marz-2027-6"
       ],
       "firstSeenAt": "2026-09-24T00:11:12.153Z",
+      "salaryMin": 53000,
+      "salaryMax": 80500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53000,
+          "maxValue": 80500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2545"
+    },
+    {
+      "id": "stryker-d43528724666",
+      "slug": "r-d-packaging-stage-6-mesi-stryker-selzach",
+      "slugByLocale": {
+        "it": "r-d-packaging-stage-6-mesi-stryker-selzach",
+        "en": "r-d-packaging-internship-6-months-stryker-ch",
+        "de": "r-d-packaging-praktikum-6-monate-stryker-selzach",
+        "fr": "emballage-r-d-stage-6-mois-stryker-selzach"
+      },
+      "company": "Stryker",
+      "companyKey": "stryker",
+      "companyDomain": "stryker.com",
+      "title": "R&D Packaging - Internship (6 months)",
+      "titleByLocale": {
+        "it": "R&D Packaging - Stage (6 mesi)",
+        "en": "R&D Packaging - Internship (6 months)",
+        "de": "R&D Packaging - Praktikum (6 Monate)",
+        "fr": "Emballage R-D - Stage (6 mois)"
+      },
+      "description": "Work Flexibility: Hybrid\n\nYour Mission\nAt Stryker, your work helps make healthcare better. During this Packaging Engineering Internship in Medical Devices, you will support the development, testing and improvement of packaging solutions that protect medical technology products and help ensure they reach healthcare teams safely and reliably. You will gain hands-on experience in a MedTech internship environment, work with experienced engineers and contribute to meaningful projects with real-world impact. This six-month student internship in Switzerland is designed to strengthen your technical skills, build your confidence and support your career development in packaging, product development and medical engineering.\n\nWhat You'll Do\n\n• Support the integration of new products into existing and new packaging systems for medical technology products.\n\n• Contribute to innovative packaging solutions based on user needs and packaging development methods.\n\n• Assist with packaging tests to verify and validate design concepts.\n\n• Support prototype and production part testing, including preparation, setup and documentation.\n\n• Collaborate with cross-functional teams to improve existing packaging concepts and develop new solutions.\n\nWhat You'll Bring\n\n• Currently enrolled in a Master’s degree program, or recently graduated, in Engineering (Mechanical Engineering, Biomedical Engineering, Materials Engineering, Industrial Engineering, etc.), Packaging Technology, Product Design, or a related field.\n\n• Good knowledge of Microsoft Office applications.\n\n• Strong engineering thinking, hands-on mindset and problem solving skills\n\n• Willingness to learn new things in a fast pace environment\n\n• You are confident communicating in English (minimum B2). German language skills (minimum B2) are a plus\n\nStart February 2027\nDuration 6-9 months\nLocation Selzach (SO), CH\n\nWe value diversity and are committed to creating an inclusive workplace. We welcome applications from all qualified individuals, regardless of ethnic, national, or social background, gender, disability, age, or sexual identity.\n\nSwitzerland Pay Ranges:\n\n• Switzerland : CHF36,000 Annual\n\nIf you’d like to learn more about the compensation associated with this opportunity, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
+      "descriptionByLocale": {
+        "it": "Flessibilità del lavoro: ibrido\n\nLa tua missione\nA Stryker, il tuo lavoro aiuta a migliorare la salute. Durante questo Packaging Engineering Internship in Medical Devices, supporterai lo sviluppo, il test e il miglioramento delle soluzioni di imballaggio che proteggono i prodotti di tecnologia medica e ti aiuteranno a raggiungere i team sanitari in modo sicuro e affidabile. Potrai acquisire esperienza pratica in un ambiente di stage MedTech, lavorare con ingegneri esperti e contribuire a progetti significativi con impatto sul mondo reale. Questo tirocinio studentesco di sei mesi in Svizzera è stato progettato per rafforzare le vostre competenze tecniche, costruire la vostra fiducia e sostenere il vostro sviluppo di carriera in packaging, sviluppo del prodotto e ingegneria medica.\n\nCosa farai\n\n• Sostenere l'integrazione di nuovi prodotti nei sistemi di confezionamento esistenti e nuovi per i prodotti medicali.\n\n• Contribuisci a soluzioni di imballaggio innovative basate sulle esigenze degli utenti e sui metodi di sviluppo degli imballaggi.\n\n• Assistere con i test di imballaggio per verificare e convalidare i concetti di progettazione.\n\n• Prototipo di supporto e test dei pezzi di produzione, tra cui preparazione, configurazione e documentazione.\n\n• Collabora con team interfunzionali per migliorare i concetti di packaging esistenti e sviluppare nuove soluzioni.\n\nCosa porterai\n\n• Attualmente iscritta in un corso di laurea magistrale, o recentemente laureata, in Ingegneria (ingegneria meccanica, ingegneria biomedica, ingegneria dei materiali, ingegneria industriale, ecc), tecnologia di imballaggio, progettazione del prodotto, o un campo relativo.\n\n• Buona conoscenza delle applicazioni Microsoft Office.\n\n• Forte pensiero ingegneristico, hands-on mindset e capacità di problem solving\n\n• Volontà di imparare nuove cose in un ambiente di ritmo veloce\n\n• Sei sicuro di comunicare in inglese (minimo B2). Le competenze linguistiche tedesche (minimo B2) sono un plus\n\nInizio febbraio 2027\nDurata 6-9 mesi\nUbicazione Selzach (SO), CH\n\nApprezziamo la diversità e ci impegniamo a creare un posto di lavoro inclusivo. Accogliamo le applicazioni di tutti gli individui qualificati, indipendentemente dal background etnico, nazionale o sociale, genere, disabilità, età o identità sessuale.\n\nSvizzera Gamma di pagamento:\n\n• Svizzera: CHF36,000 Annuale\n\nSe volete saperne di più sulla compensazione associata a questa opportunità, il vostro recruiter sarà felice di camminare attraverso i dettagli mentre si procede attraverso il processo di assunzione.\n\nPercentuale di viaggio: 0%",
+        "en": "Work Flexibility: Hybrid\n\nYour Mission\nAt Stryker, your work helps make healthcare better. During this Packaging Engineering Internship in Medical Devices, you will support the development, testing and improvement of packaging solutions that protect medical technology products and help ensure they reach healthcare teams safely and reliably. You will gain hands-on experience in a MedTech internship environment, work with experienced engineers and contribute to meaningful projects with real-world impact. This six-month student internship in Switzerland is designed to strengthen your technical skills, build your confidence and support your career development in packaging, product development and medical engineering.\n\nWhat You'll Do\n\n• Support the integration of new products into existing and new packaging systems for medical technology products.\n\n• Contribute to innovative packaging solutions based on user needs and packaging development methods.\n\n• Assist with packaging tests to verify and validate design concepts.\n\n• Support prototype and production part testing, including preparation, setup and documentation.\n\n• Collaborate with cross-functional teams to improve existing packaging concepts and develop new solutions.\n\nWhat You'll Bring\n\n• Currently enrolled in a Master’s degree program, or recently graduated, in Engineering (Mechanical Engineering, Biomedical Engineering, Materials Engineering, Industrial Engineering, etc.), Packaging Technology, Product Design, or a related field.\n\n• Good knowledge of Microsoft Office applications.\n\n• Strong engineering thinking, hands-on mindset and problem solving skills\n\n• Willingness to learn new things in a fast pace environment\n\n• You are confident communicating in English (minimum B2). German language skills (minimum B2) are a plus\n\nStart February 2027\nDuration 6-9 months\nLocation Selzach (SO), CH\n\nWe value diversity and are committed to creating an inclusive workplace. We welcome applications from all qualified individuals, regardless of ethnic, national, or social background, gender, disability, age, or sexual identity.\n\nSwitzerland Pay Ranges:\n\n• Switzerland : CHF36,000 Annual\n\nIf you’d like to learn more about the compensation associated with this opportunity, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
+        "de": "Flexibilität bei der Arbeit: Hybrid\n\nDeine Mission\nBei Stryker hilft Ihre Arbeit, das Gesundheitswesen zu verbessern. Während dieses Packaging Engineering Praktikums in Medizinprodukten unterstützen Sie die Entwicklung, das Testen und die Verbesserung von Verpackungslösungen, die Medizintechnikprodukte schützen und dazu beitragen, dass sie die Gesundheitsteams sicher und zuverlässig erreichen. Sie werden praktische Erfahrungen in einer MedTech Praktikumsumgebung sammeln, mit erfahrenen Ingenieuren arbeiten und zu sinnvollen Projekten mit realen Auswirkungen beitragen. Dieses sechsmonatige Studentenpraktikum in der Schweiz soll Ihre technischen Fähigkeiten stärken, Ihr Selbstvertrauen aufbauen und Ihre berufliche Entwicklung in den Bereichen Verpackung, Produktentwicklung und Medizintechnik unterstützen.\n\nWas du tun wirst\n\n• Unterstützung der Integration neuer Produkte in bestehende und neue Verpackungssysteme für Medizintechnikprodukte.\n\n• Tragen Sie zu innovativen Verpackungslösungen bei, die auf den Bedürfnissen der Benutzer und den Methoden der Verpackungsentwicklung basieren.\n\n• Unterstützung bei Verpackungstests zur Überprüfung und Validierung von Designkonzepten.\n\n• Unterstützung der Prototyp- und Produktionsteilprüfung, einschließlich Vorbereitung, Einrichtung und Dokumentation.\n\n• Zusammenarbeit mit funktionsübergreifenden Teams, um bestehende Verpackungskonzepte zu verbessern und neue Lösungen zu entwickeln.\n\nWas du mitbringen wirst\n\n• Derzeit in einem Master-Studiengang eingeschrieben oder kürzlich abgeschlossen, in Engineering (Mechanical Engineering, Biomedical Engineering, Materialtechnik, Industrial Engineering, etc.), Verpackungstechnologie, Produktdesign oder einem verwandten Bereich.\n\n• Gute Kenntnisse von Microsoft Office-Anwendungen.\n\n• Starkes Engineering-Denken, praktische Denkweise und Problemlösungsfähigkeiten\n\n• Bereitschaft, neue Dinge in einer schnellen Umgebung zu lernen\n\n• Sie sind zuversichtlich, in englisch zu kommunizieren (mindestens b2). Deutschkenntnisse (mindestens B2) sind ein Plus\n\nBeginn Februar 2027\nDauer 6-9 Monate\nStandort Selzach (SO), CH\n\nWir schätzen Vielfalt und setzen uns für die Schaffung eines integrativen Arbeitsplatzes ein. Wir begrüßen Bewerbungen von allen qualifizierten Personen, unabhängig von ethnischem, nationalem oder sozialem Hintergrund, Geschlecht, Behinderung, Alter oder sexueller Identität.\n\nSchweiz Pay Ranges:\n\n• Schweiz: 36.000 CHF jährlich\n\nWenn Sie mehr über die mit dieser Gelegenheit verbundene Vergütung erfahren möchten, wird Ihr Personalvermittler Sie gerne durch die Details führen, während Sie den Einstellungsprozess durchlaufen.\n\nReise Prozentsatz: 0%",
+        "fr": "Flexibilité du travail : hybride\n\nVotre mission\nChez Stryker, votre travail contribue à améliorer les soins de santé. Au cours de ce stage en Ingénierie de l'Emballage, vous soutiendrez le développement, l'essai et l'amélioration de solutions d'emballage qui protègent les produits de technologie médicale et aident à assurer qu'ils atteignent les équipes de soins de santé de façon sûre et fiable. Vous allez acquérir une expérience pratique dans un environnement de stage MedTech, travailler avec des ingénieurs expérimentés et contribuer à des projets significatifs avec un impact réel. Ce stage étudiant de six mois en Suisse est conçu pour renforcer vos compétences techniques, renforcer votre confiance et soutenir votre développement professionnel en emballage, développement de produits et en ingénierie médicale.\n\nCe que vous ferez\n\n• Soutenir l'intégration de nouveaux produits dans les systèmes d'emballage existants et nouveaux pour les produits de technologie médicale.\n\n• Contribuer à des solutions d'emballage innovantes basées sur les besoins des utilisateurs et les méthodes de développement de l'emballage.\n\n• Aider aux essais d'emballage pour vérifier et valider les concepts de conception.\n\n• Soutenir les essais de prototype et de pièce de production, y compris la préparation, la configuration et la documentation.\n\n• Collaborer avec des équipes interfonctionnelles pour améliorer les concepts d'emballage existants et développer de nouvelles solutions.\n\nCe que tu vas apporter\n\n• Actuellement inscrit à un programme de maîtrise, ou récemment diplômé, en génie (ingénierie mécanique, génie biomédical, génie des matériaux, génie industriel, etc.), technologie d'emballage, conception de produits, ou un domaine connexe.\n\n• Bonne connaissance des applications Microsoft Office.\n\n• Forte pensée d'ingénierie, état d'esprit pratique et compétences de résolution de problèmes\n\n• Volonté d'apprendre de nouvelles choses dans un environnement à rythme rapide\n\n• Vous êtes confiant en communication en anglais (minimum B2). Les compétences linguistiques en allemand (minimum B2) sont\n\nDébut février 2027\nDurée 6-9 mois\nEmplacement Selzach (SO), CH\n\nNous apprécions la diversité et nous sommes déterminés à créer un milieu de travail inclusif. Nous accueillons favorablement les candidatures de toutes les personnes qualifiées, indépendamment de leur origine ethnique, nationale ou sociale, de leur sexe, de leur handicap, de leur âge ou de leur identité sexuelle.\n\nSuisse Gammes de paye :\n\n• Suisse : 36 000 CHF par an\n\nSi vous souhaitez en savoir plus sur la rémunération associée à cette occasion, votre recruteur sera heureux de vous expliquer les détails au fur et à mesure que vous progresserez dans le processus d'embauche.\n\nPourcentage des voyages : 0%"
+      },
+      "location": "Selzach",
+      "canton": "SO",
+      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/R-D-Packaging---Internship--6-months-_R574827",
+      "source": "Stryker Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-26T21:37:00.684Z",
+      "addressLocality": "Selzach",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Medtech / Dispositivi medici",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23",
+      "postedDate": "2026-10-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/R-D-Packaging---Internship--6-months-_R574827",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "R574827",
+      "previousSlugs": [
+        "r-d-packaging-internship-6-months-stryker-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-packaging-internship-6-months-stryker-ch"
+        ],
+        "de": [
+          "r-d-packaging-internship-6-months-stryker-ch"
+        ],
+        "fr": [
+          "r-d-packaging-internship-6-months-stryker-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:41:33.684Z",
       "salaryMin": 53000,
       "salaryMax": 80500,
       "salarySource": "estimated",
@@ -559,87 +639,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2545"
-    },
-    {
-      "id": "stryker-d43528724666",
-      "slug": "r-d-packaging-stage-6-mesi-stryker-selzach",
-      "slugByLocale": {
-        "it": "r-d-packaging-stage-6-mesi-stryker-selzach",
-        "en": "r-d-packaging-internship-6-months-stryker-ch",
-        "de": "r-d-packaging-praktikum-6-monate-stryker-selzach",
-        "fr": "emballage-r-d-stage-6-mois-stryker-selzach"
-      },
-      "company": "Stryker",
-      "companyKey": "stryker",
-      "companyDomain": "stryker.com",
-      "title": "R&D Packaging - Internship (6 months)",
-      "titleByLocale": {
-        "it": "R&D Packaging - Stage (6 mesi)",
-        "en": "R&D Packaging - Internship (6 months)",
-        "de": "R&D Packaging - Praktikum (6 Monate)",
-        "fr": "Emballage R-D - Stage (6 mois)"
-      },
-      "description": "Work Flexibility: Hybrid\n\nYour Mission\nAt Stryker, your work helps make healthcare better. During this Packaging Engineering Internship in Medical Devices, you will support the development, testing and improvement of packaging solutions that protect medical technology products and help ensure they reach healthcare teams safely and reliably. You will gain hands-on experience in a MedTech internship environment, work with experienced engineers and contribute to meaningful projects with real-world impact. This six-month student internship in Switzerland is designed to strengthen your technical skills, build your confidence and support your career development in packaging, product development and medical engineering.\n\nWhat You'll Do\n\n• Support the integration of new products into existing and new packaging systems for medical technology products.\n\n• Contribute to innovative packaging solutions based on user needs and packaging development methods.\n\n• Assist with packaging tests to verify and validate design concepts.\n\n• Support prototype and production part testing, including preparation, setup and documentation.\n\n• Collaborate with cross-functional teams to improve existing packaging concepts and develop new solutions.\n\nWhat You'll Bring\n\n• Currently enrolled in a Master’s degree program, or recently graduated, in Engineering (Mechanical Engineering, Biomedical Engineering, Materials Engineering, Industrial Engineering, etc.), Packaging Technology, Product Design, or a related field.\n\n• Good knowledge of Microsoft Office applications.\n\n• Strong engineering thinking, hands-on mindset and problem solving skills\n\n• Willingness to learn new things in a fast pace environment\n\n• You are confident communicating in English (minimum B2). German language skills (minimum B2) are a plus\n\nStart February 2027\nDuration 6-9 months\nLocation Selzach (SO), CH\n\nWe value diversity and are committed to creating an inclusive workplace. We welcome applications from all qualified individuals, regardless of ethnic, national, or social background, gender, disability, age, or sexual identity.\n\nSwitzerland Pay Ranges:\n\n• Switzerland : CHF36,000 Annual\n\nIf you’d like to learn more about the compensation associated with this opportunity, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
-      "descriptionByLocale": {
-        "it": "Flessibilità del lavoro: ibrido\n\nLa tua missione\nA Stryker, il tuo lavoro aiuta a migliorare la salute. Durante questo Packaging Engineering Internship in Medical Devices, supporterai lo sviluppo, il test e il miglioramento delle soluzioni di imballaggio che proteggono i prodotti di tecnologia medica e ti aiuteranno a raggiungere i team sanitari in modo sicuro e affidabile. Potrai acquisire esperienza pratica in un ambiente di stage MedTech, lavorare con ingegneri esperti e contribuire a progetti significativi con impatto sul mondo reale. Questo tirocinio studentesco di sei mesi in Svizzera è stato progettato per rafforzare le vostre competenze tecniche, costruire la vostra fiducia e sostenere il vostro sviluppo di carriera in packaging, sviluppo del prodotto e ingegneria medica.\n\nCosa farai\n\n• Sostenere l'integrazione di nuovi prodotti nei sistemi di confezionamento esistenti e nuovi per i prodotti medicali.\n\n• Contribuisci a soluzioni di imballaggio innovative basate sulle esigenze degli utenti e sui metodi di sviluppo degli imballaggi.\n\n• Assistere con i test di imballaggio per verificare e convalidare i concetti di progettazione.\n\n• Prototipo di supporto e test dei pezzi di produzione, tra cui preparazione, configurazione e documentazione.\n\n• Collabora con team interfunzionali per migliorare i concetti di packaging esistenti e sviluppare nuove soluzioni.\n\nCosa porterai\n\n• Attualmente iscritta in un corso di laurea magistrale, o recentemente laureata, in Ingegneria (ingegneria meccanica, ingegneria biomedica, ingegneria dei materiali, ingegneria industriale, ecc), tecnologia di imballaggio, progettazione del prodotto, o un campo relativo.\n\n• Buona conoscenza delle applicazioni Microsoft Office.\n\n• Forte pensiero ingegneristico, hands-on mindset e capacità di problem solving\n\n• Volontà di imparare nuove cose in un ambiente di ritmo veloce\n\n• Sei sicuro di comunicare in inglese (minimo B2). Le competenze linguistiche tedesche (minimo B2) sono un plus\n\nInizio febbraio 2027\nDurata 6-9 mesi\nUbicazione Selzach (SO), CH\n\nApprezziamo la diversità e ci impegniamo a creare un posto di lavoro inclusivo. Accogliamo le applicazioni di tutti gli individui qualificati, indipendentemente dal background etnico, nazionale o sociale, genere, disabilità, età o identità sessuale.\n\nSvizzera Gamma di pagamento:\n\n• Svizzera: CHF36,000 Annuale\n\nSe volete saperne di più sulla compensazione associata a questa opportunità, il vostro recruiter sarà felice di camminare attraverso i dettagli mentre si procede attraverso il processo di assunzione.\n\nPercentuale di viaggio: 0%",
-        "en": "Work Flexibility: Hybrid\n\nYour Mission\nAt Stryker, your work helps make healthcare better. During this Packaging Engineering Internship in Medical Devices, you will support the development, testing and improvement of packaging solutions that protect medical technology products and help ensure they reach healthcare teams safely and reliably. You will gain hands-on experience in a MedTech internship environment, work with experienced engineers and contribute to meaningful projects with real-world impact. This six-month student internship in Switzerland is designed to strengthen your technical skills, build your confidence and support your career development in packaging, product development and medical engineering.\n\nWhat You'll Do\n\n• Support the integration of new products into existing and new packaging systems for medical technology products.\n\n• Contribute to innovative packaging solutions based on user needs and packaging development methods.\n\n• Assist with packaging tests to verify and validate design concepts.\n\n• Support prototype and production part testing, including preparation, setup and documentation.\n\n• Collaborate with cross-functional teams to improve existing packaging concepts and develop new solutions.\n\nWhat You'll Bring\n\n• Currently enrolled in a Master’s degree program, or recently graduated, in Engineering (Mechanical Engineering, Biomedical Engineering, Materials Engineering, Industrial Engineering, etc.), Packaging Technology, Product Design, or a related field.\n\n• Good knowledge of Microsoft Office applications.\n\n• Strong engineering thinking, hands-on mindset and problem solving skills\n\n• Willingness to learn new things in a fast pace environment\n\n• You are confident communicating in English (minimum B2). German language skills (minimum B2) are a plus\n\nStart February 2027\nDuration 6-9 months\nLocation Selzach (SO), CH\n\nWe value diversity and are committed to creating an inclusive workplace. We welcome applications from all qualified individuals, regardless of ethnic, national, or social background, gender, disability, age, or sexual identity.\n\nSwitzerland Pay Ranges:\n\n• Switzerland : CHF36,000 Annual\n\nIf you’d like to learn more about the compensation associated with this opportunity, your recruiter will be happy to walk you through the details as you progress through the hiring process.\n\nTravel Percentage: 0%",
-        "de": "Flexibilität bei der Arbeit: Hybrid\n\nDeine Mission\nBei Stryker hilft Ihre Arbeit, das Gesundheitswesen zu verbessern. Während dieses Packaging Engineering Praktikums in Medizinprodukten unterstützen Sie die Entwicklung, das Testen und die Verbesserung von Verpackungslösungen, die Medizintechnikprodukte schützen und dazu beitragen, dass sie die Gesundheitsteams sicher und zuverlässig erreichen. Sie werden praktische Erfahrungen in einer MedTech Praktikumsumgebung sammeln, mit erfahrenen Ingenieuren arbeiten und zu sinnvollen Projekten mit realen Auswirkungen beitragen. Dieses sechsmonatige Studentenpraktikum in der Schweiz soll Ihre technischen Fähigkeiten stärken, Ihr Selbstvertrauen aufbauen und Ihre berufliche Entwicklung in den Bereichen Verpackung, Produktentwicklung und Medizintechnik unterstützen.\n\nWas du tun wirst\n\n• Unterstützung der Integration neuer Produkte in bestehende und neue Verpackungssysteme für Medizintechnikprodukte.\n\n• Tragen Sie zu innovativen Verpackungslösungen bei, die auf den Bedürfnissen der Benutzer und den Methoden der Verpackungsentwicklung basieren.\n\n• Unterstützung bei Verpackungstests zur Überprüfung und Validierung von Designkonzepten.\n\n• Unterstützung der Prototyp- und Produktionsteilprüfung, einschließlich Vorbereitung, Einrichtung und Dokumentation.\n\n• Zusammenarbeit mit funktionsübergreifenden Teams, um bestehende Verpackungskonzepte zu verbessern und neue Lösungen zu entwickeln.\n\nWas du mitbringen wirst\n\n• Derzeit in einem Master-Studiengang eingeschrieben oder kürzlich abgeschlossen, in Engineering (Mechanical Engineering, Biomedical Engineering, Materialtechnik, Industrial Engineering, etc.), Verpackungstechnologie, Produktdesign oder einem verwandten Bereich.\n\n• Gute Kenntnisse von Microsoft Office-Anwendungen.\n\n• Starkes Engineering-Denken, praktische Denkweise und Problemlösungsfähigkeiten\n\n• Bereitschaft, neue Dinge in einer schnellen Umgebung zu lernen\n\n• Sie sind zuversichtlich, in englisch zu kommunizieren (mindestens b2). Deutschkenntnisse (mindestens B2) sind ein Plus\n\nBeginn Februar 2027\nDauer 6-9 Monate\nStandort Selzach (SO), CH\n\nWir schätzen Vielfalt und setzen uns für die Schaffung eines integrativen Arbeitsplatzes ein. Wir begrüßen Bewerbungen von allen qualifizierten Personen, unabhängig von ethnischem, nationalem oder sozialem Hintergrund, Geschlecht, Behinderung, Alter oder sexueller Identität.\n\nSchweiz Pay Ranges:\n\n• Schweiz: 36.000 CHF jährlich\n\nWenn Sie mehr über die mit dieser Gelegenheit verbundene Vergütung erfahren möchten, wird Ihr Personalvermittler Sie gerne durch die Details führen, während Sie den Einstellungsprozess durchlaufen.\n\nReise Prozentsatz: 0%",
-        "fr": "Flexibilité du travail : hybride\n\nVotre mission\nChez Stryker, votre travail contribue à améliorer les soins de santé. Au cours de ce stage en Ingénierie de l'Emballage, vous soutiendrez le développement, l'essai et l'amélioration de solutions d'emballage qui protègent les produits de technologie médicale et aident à assurer qu'ils atteignent les équipes de soins de santé de façon sûre et fiable. Vous allez acquérir une expérience pratique dans un environnement de stage MedTech, travailler avec des ingénieurs expérimentés et contribuer à des projets significatifs avec un impact réel. Ce stage étudiant de six mois en Suisse est conçu pour renforcer vos compétences techniques, renforcer votre confiance et soutenir votre développement professionnel en emballage, développement de produits et en ingénierie médicale.\n\nCe que vous ferez\n\n• Soutenir l'intégration de nouveaux produits dans les systèmes d'emballage existants et nouveaux pour les produits de technologie médicale.\n\n• Contribuer à des solutions d'emballage innovantes basées sur les besoins des utilisateurs et les méthodes de développement de l'emballage.\n\n• Aider aux essais d'emballage pour vérifier et valider les concepts de conception.\n\n• Soutenir les essais de prototype et de pièce de production, y compris la préparation, la configuration et la documentation.\n\n• Collaborer avec des équipes interfonctionnelles pour améliorer les concepts d'emballage existants et développer de nouvelles solutions.\n\nCe que tu vas apporter\n\n• Actuellement inscrit à un programme de maîtrise, ou récemment diplômé, en génie (ingénierie mécanique, génie biomédical, génie des matériaux, génie industriel, etc.), technologie d'emballage, conception de produits, ou un domaine connexe.\n\n• Bonne connaissance des applications Microsoft Office.\n\n• Forte pensée d'ingénierie, état d'esprit pratique et compétences de résolution de problèmes\n\n• Volonté d'apprendre de nouvelles choses dans un environnement à rythme rapide\n\n• Vous êtes confiant en communication en anglais (minimum B2). Les compétences linguistiques en allemand (minimum B2) sont\n\nDébut février 2027\nDurée 6-9 mois\nEmplacement Selzach (SO), CH\n\nNous apprécions la diversité et nous sommes déterminés à créer un milieu de travail inclusif. Nous accueillons favorablement les candidatures de toutes les personnes qualifiées, indépendamment de leur origine ethnique, nationale ou sociale, de leur sexe, de leur handicap, de leur âge ou de leur identité sexuelle.\n\nSuisse Gammes de paye :\n\n• Suisse : 36 000 CHF par an\n\nSi vous souhaitez en savoir plus sur la rémunération associée à cette occasion, votre recruteur sera heureux de vous expliquer les détails au fur et à mesure que vous progresserez dans le processus d'embauche.\n\nPourcentage des voyages : 0%"
-      },
-      "location": "Selzach",
-      "canton": "SO",
-      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/R-D-Packaging---Internship--6-months-_R574827",
-      "source": "Stryker Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:33:54.057Z",
-      "addressLocality": "Selzach",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Medtech / Dispositivi medici",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23",
-      "postedDate": "2026-10-23",
-      "postingDateSource": "reported",
-      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/R-D-Packaging---Internship--6-months-_R574827",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R574827",
-      "previousSlugs": [
-        "r-d-packaging-internship-6-months-stryker-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "r-d-packaging-internship-6-months-stryker-ch"
-        ],
-        "de": [
-          "r-d-packaging-internship-6-months-stryker-ch"
-        ],
-        "fr": [
-          "r-d-packaging-internship-6-months-stryker-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T09:41:33.684Z",
-      "salaryMin": 53000,
-      "salaryMax": 80500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 53000,
-          "maxValue": 80500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "2545"
+      "postalCode": "2545",
+      "crawlerMissStreak": 1
     }
   ]
 }
