@@ -1,13 +1,13 @@
 {
   "crawlerKey": "groupe-e",
-  "assembledAt": "2026-10-25T21:30:12.098Z",
-  "runId": "40234484185",
+  "assembledAt": "2026-10-26T09:33:21.037Z",
+  "runId": "40297930906",
   "jobs": [
     {
       "id": "groupe-e-6a994f57d91f",
-      "slug": "capo-dei-progetti-industriali-groupe-e-boudry",
+      "slug": "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry",
       "slugByLocale": {
-        "it": "capo-dei-progetti-industriali-groupe-e-boudry",
+        "it": "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry",
         "en": "head-of-industrial-projects-groupe-e-boudry",
         "de": "leiter-industrieprojekte-groupe-e-boudry",
         "fr": "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry"
@@ -35,7 +35,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Cheffe-ou-Chef-de-projets-Industrielles-Neuc/1370004355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:30:02.735Z",
+      "crawledAt": "2026-10-26T09:33:12.825Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -56,12 +56,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "capo-o-responsabile-di-progetti-industriali-groupe-e-boudry",
-        "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry"
+        "capo-dei-progetti-industriali-groupe-e-boudry"
       ],
       "previousSlugsByLocale": {
         "it": [
           "capo-o-responsabile-di-progetti-industriali-groupe-e-boudry",
-          "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry"
+          "capo-dei-progetti-industriali-groupe-e-boudry"
         ]
       },
       "firstSeenAt": "2026-09-30T21:22:28.644Z",
@@ -111,7 +111,7 @@
       "url": "https://job.groupe-e.ch/job/Moutier-Installatrice-ou-installateur-%C3%A9lectricien-80-100-Jura/1370063855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:30:01.974Z",
+      "crawledAt": "2026-10-26T09:33:12.136Z",
       "addressLocality": "Moutier",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
         "it": "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
         "en": "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen-4e9411",
         "de": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
-        "fr": "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
+        "fr": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -186,7 +186,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Sanit%C3%A4r-und-Heizungsinstallateur-%28mw%29-80-100-Frib/1370150755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:30:01.201Z",
+      "crawledAt": "2026-10-26T09:33:11.454Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
+          "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
         ],
         "it": [
           "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
@@ -221,7 +221,8 @@
       "previousSlugs": [
         "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
         "sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen",
-        "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2"
+        "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2",
+        "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
       ],
       "firstSeenAt": "2026-10-01T09:17:45.121Z",
       "salaryMin": 73000,
@@ -270,7 +271,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Sanit%C3%A4r-und-Heizungsinstallateur-%28mw%29-80-100-Frei/1370150855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:30:00.427Z",
+      "crawledAt": "2026-10-26T09:33:10.750Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -354,7 +355,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-Chef-d'%C3%A9quipe-en-infrastructures-industrielle-moyenne-tension-%28MT%29-100-Frib/1362892755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:59.654Z",
+      "crawledAt": "2026-10-26T09:33:10.068Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -427,7 +428,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-HR-Business-Partner-80-100-%28HF%29-Frib/1367014755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:58.878Z",
+      "crawledAt": "2026-10-26T09:33:09.408Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -493,7 +494,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-en-G%C3%A9nie-thermique-et-climatique-80-100-Frib/1367256555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:58.104Z",
+      "crawledAt": "2026-10-26T09:33:08.742Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -568,7 +569,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Technicienne-ou-technicien-de-maintenance-Tableaux-%C3%A9lectriques-Frib/1351513555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:57.350Z",
+      "crawledAt": "2026-10-26T09:33:08.053Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -642,7 +643,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-de-projets-en-ouvrages-Hydro%C3%A9lectriques-80-100-Frib/1370493255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:56.580Z",
+      "crawledAt": "2026-10-26T09:33:07.360Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -686,9 +687,9 @@
     },
     {
       "id": "groupe-e-badebaa9d5c2",
-      "slug": "leader-del-progetto-infrastrutture-di-ufficio-tecnico-groupe-e-matran-mad-4",
+      "slug": "cheffe-ou-chef-de-projet-bureau-technique-infrastructures-groupe-e-matran-mad-4",
       "slugByLocale": {
-        "it": "leader-del-progetto-infrastrutture-di-ufficio-tecnico-groupe-e-matran-mad-4",
+        "it": "cheffe-ou-chef-de-projet-bureau-technique-infrastructures-groupe-e-matran-mad-4",
         "en": "project-leader-technical-office-infrastructures-groupe-e-matran-mad-4",
         "de": "projektleiter-technische-buroinfrastrukturen-groupe-e-matran-mad-4",
         "fr": "cheffe-ou-chef-de-projet-bureau-technique-infrastructures-groupe-e-matran-mad-4"
@@ -715,7 +716,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-Chef-de-Projet-Bureau-Technique-Infrastructures-Frib/1360032755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:55.813Z",
+      "crawledAt": "2026-10-26T09:33:06.675Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -735,11 +736,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cheffe-ou-chef-de-projet-bureau-technique-infrastructures-groupe-e-matran-mad-4"
+        "leader-del-progetto-infrastrutture-di-ufficio-tecnico-groupe-e-matran-mad-4"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cheffe-ou-chef-de-projet-bureau-technique-infrastructures-groupe-e-matran-mad-4"
+          "leader-del-progetto-infrastrutture-di-ufficio-tecnico-groupe-e-matran-mad-4"
         ]
       },
       "firstSeenAt": "2026-09-26T14:03:21.998Z",
@@ -788,7 +789,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-chef%C2%B7fe-de-projet-CVC-100-Frib/1355089455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:55.053Z",
+      "crawledAt": "2026-10-26T09:33:06.003Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -862,7 +863,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Contrema%C3%AEtre-%28HF%29-80-100-Frib/1352594255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:54.277Z",
+      "crawledAt": "2026-10-26T09:33:05.310Z",
       "addressLocality": "Granges-Paccot - Chantemerle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -937,7 +938,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-en-g%C3%A9nie-%C3%A9lectrique-Lot-infrastructure-MTBT-80-100-Frib/1370602555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:53.521Z",
+      "crawledAt": "2026-10-26T09:33:04.653Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1012,7 +1013,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ingenieurin-oder-Projektingenieurin-Wasserkraftanlagen-80-100-Frei/1370781255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:29:52.748Z",
+      "crawledAt": "2026-10-26T09:33:03.969Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1089,7 +1090,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1343768055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:51.978Z",
+      "crawledAt": "2026-10-26T09:33:03.285Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1163,7 +1164,7 @@
       "url": "https://job.groupe-e.ch/job/Sion-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-80-100-Vala/1349278555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:51.224Z",
+      "crawledAt": "2026-10-26T09:33:02.612Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1237,7 +1238,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Responsable-de-projets-hydro%C3%A9lectriques-%28HF%29-80-100-Frib/1368038755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:49.313Z",
+      "crawledAt": "2026-10-26T09:33:01.041Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1334,7 +1335,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Sp%C3%A9cialiste-Donn%C3%A9es-Achats-%28HF%29-80-100-Frib/1359361255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:48.540Z",
+      "crawledAt": "2026-10-26T09:33:00.371Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1409,7 +1410,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Elexpert-SA-Conseill%C3%A8re-ou-conseiller-en-s%C3%A9curit%C3%A9-%C3%A9lectrique-%2880-100%29-Neuc/1364631855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:47.775Z",
+      "crawledAt": "2026-10-26T09:32:59.693Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1483,7 +1484,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Dessinatrice-ou-Dessinateur-sp%C3%A9cialis%C3%A9%C2%B7e-lignes-HT-80-100-Frib/1371279655/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:47.001Z",
+      "crawledAt": "2026-10-26T09:32:59.015Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1564,7 +1565,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-de-maintenance-CVC-100-Frib/1352851555/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:46.223Z",
+      "crawledAt": "2026-10-26T09:32:58.352Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1638,7 +1639,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-6-Technicienne-ou-Technicien-SAV-PAC-100-Frib/1355971955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:45.460Z",
+      "crawledAt": "2026-10-26T09:32:57.686Z",
       "addressLocality": "Matran - Mad 6",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1710,7 +1711,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Dispatcher-collaboratrice-ou-collaborateur-avec-CFC-technique-100-Frib/1372845055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:44.702Z",
+      "crawledAt": "2026-10-26T09:32:57.001Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1791,7 +1792,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Cheffe-ou-Chef-de-projets-en-Installation-%C3%A9lectriques-Neuc/1360629355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:43.933Z",
+      "crawledAt": "2026-10-26T09:32:56.324Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1868,7 +1869,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projets-mobilit%C3%A9-%C3%A9lectrique-%28R%C3%A9gion-Sud%29-Frib/1364900955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:43.142Z",
+      "crawledAt": "2026-10-26T09:32:55.637Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1942,7 +1943,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projets-mobilit%C3%A9-%C3%A9lectrique-%28R%C3%A9gion-Centre%29-Frib/1364901255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:42.377Z",
+      "crawledAt": "2026-10-26T09:32:54.983Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2016,7 +2017,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieure-ou-Ing%C3%A9nieur-Metering-80-100-Frib/1373081755/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:41.608Z",
+      "crawledAt": "2026-10-26T09:32:54.307Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2094,7 +2095,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Technicienne-ou-technicien-en-mobilit%C3%A9-%C3%A9lectrique-80-100-Frib/1356470155/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:40.835Z",
+      "crawledAt": "2026-10-26T09:32:53.619Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2206,7 +2207,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Elektroinstallateurin-oder-Elektroinstallateur-80-100-Frei/1325920855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:29:40.067Z",
+      "crawledAt": "2026-10-26T09:32:52.942Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2279,7 +2280,7 @@
       "url": "https://job.groupe-e.ch/job/Guin-D%C3%BCdingen-Bauleiterin-oder-Bauleiter-Elektroinstallationen-80-100-Frei/1164828455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:29:39.309Z",
+      "crawledAt": "2026-10-26T09:32:52.256Z",
       "addressLocality": "Guin - Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2358,7 +2359,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Conductrice-ou-conducteur-de-travaux-80-100-Frib/1356589355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:38.554Z",
+      "crawledAt": "2026-10-26T09:32:51.566Z",
       "addressLocality": "Granges-Paccot - Chantemerle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2433,7 +2434,7 @@
       "url": "https://job.groupe-e.ch/job/Payerne-A%C3%A9rop%C3%B4le-Electricien%C2%B7ne-de-r%C3%A9seau-Installateur-ou-installatrice-%C3%A9lectricien%C2%B7ne-80-100-Vaud/1350907455/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:37.767Z",
+      "crawledAt": "2026-10-26T09:32:50.889Z",
       "addressLocality": "Payerne - Aéropôle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2520,7 +2521,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Chantemerle-Responsable-de-projets-%28HF%29-80-100-Frib/1374009355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:37.014Z",
+      "crawledAt": "2026-10-26T09:32:50.198Z",
       "addressLocality": "Granges-Paccot - Chantemerle",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2601,7 +2602,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Automaticienne-ou-Automaticien-CFC-80-100-Frib/1369312355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:36.253Z",
+      "crawledAt": "2026-10-26T09:32:49.487Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2676,7 +2677,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Ing%C3%A9nieur-ou-Ing%C3%A9nieure-Chef%C2%B7fe-de-projet-en-Automation-80-100-Frib/1369311355/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:35.456Z",
+      "crawledAt": "2026-10-26T09:32:48.802Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2751,7 +2752,7 @@
       "url": "https://job.groupe-e.ch/job/Boudry-Electricienne-de-montage-Neuc/1369480255/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:34.663Z",
+      "crawledAt": "2026-10-26T09:32:48.128Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -2799,7 +2800,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-telecom-it-80-100-groupe-e-matran-mad-4",
         "en": "telecom-project-manager-it-80-100-groupe-e-matran-mad-4",
-        "de": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
+        "de": "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4",
         "fr": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
       },
       "company": "Groupe E",
@@ -2825,7 +2826,7 @@
       "url": "https://job.groupe-e.ch/job/Matran-Mad-4-Cheffe-ou-chef-de-projet-T%C3%A9l%C3%A9com-IT-80-100-Frib/1365693855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:33.396Z",
+      "crawledAt": "2026-10-26T09:32:47.020Z",
       "addressLocality": "Matran - Mad 4",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2845,15 +2846,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
-        "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
+        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
         ],
         "de": [
-          "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
+          "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
         ]
       },
       "firstSeenAt": "2026-09-26T14:03:08.792Z",
@@ -2902,7 +2902,7 @@
       "url": "https://job.groupe-e.ch/job/Granges-Paccot-Plexus-Responsable-Partenariat-RH-et-Recrutement-%28HF%29-80-100-Frib/1369633955/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:32.611Z",
+      "crawledAt": "2026-10-26T09:32:46.351Z",
       "addressLocality": "Granges-Paccot - Plexus",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2976,7 +2976,7 @@
       "url": "https://job.groupe-e.ch/job/Ch%C3%A2teau-d'Oex-Installatrice-ou-installateur-%C3%A9lectricien%C2%B7ne-CFC-80-100-Frib/1351064855/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:31.830Z",
+      "crawledAt": "2026-10-26T09:32:45.674Z",
       "addressLocality": "Château-d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3050,7 +3050,7 @@
       "url": "https://job.groupe-e.ch/job/Ch%C3%A2teau-d'Oex-Electricienne-ou-%C3%A9lectricien-de-r%C3%A9seau-80-100-Vaud/1332742055/",
       "source": "Groupe E Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:29:30.472Z",
+      "crawledAt": "2026-10-26T09:32:44.522Z",
       "addressLocality": "Château-d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",

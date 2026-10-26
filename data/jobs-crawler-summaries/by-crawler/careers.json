@@ -1,7 +1,7 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-10-25T21:27:26.228Z",
+  "generatedAt": "2026-10-26T09:32:54.772Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5402,
-  "avgDurationMs": 5402,
+  "durationMs": 3596,
+  "avgDurationMs": 3596,
   "durationHistory": [
-    5402
+    3596
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:27:07.219Z",
+      "crawledAt": "2026-10-26T09:32:43.495Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:27:07.218Z",
+      "crawledAt": "2026-10-26T09:32:43.494Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Management-&-QMQS%2C-40-100-BL/1447904133/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:27:07.217Z",
+      "crawledAt": "2026-10-26T09:32:43.493Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -151,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
+  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
 }
