@@ -2,7 +2,7 @@
 /**
  * Maileroo Email Testing CI.
  *
- * The runner sends two representative messages through the same Maileroo
+ * The runner sends representative messages through the same Maileroo
  * Applications used in production, but addresses them to a Maileroo
  * Email-Testing ephemeral inbox. Maileroo captures those messages instead of
  * delivering them to a real recipient, then exposes the provider's analysis
@@ -31,6 +31,11 @@ import {
 } from '../../functions/src/lib/confirmationEmailContent.js';
 import { htmlToText } from '../../functions/src/lib/mimeMessage.js';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../../functions/src/lib/newsletterUrls.js';
+import {
+  buildApplicationIntentReminderEmailHtml,
+  buildApplicationIntentReminderEmailText,
+  getApplicationIntentReminderStrings,
+} from '../lib/applicationIntentReminderEmail.mjs';
 
 const TESTING_BASE_URL = (process.env.MAILEROO_EMAIL_TESTING_BASE_URL || 'https://api.maileroo.com/v1/email-testing').replace(/\/+$/, '');
 const EMAIL_API_URL = (process.env.MAILEROO_EMAIL_API_URL || 'https://smtp.maileroo.com/api/v2/emails').replace(/\/+$/, '');
@@ -53,6 +58,16 @@ const CASE_CONFIG = Object.freeze([
     stream: 'newsletter',
     from: { address: 'newsletter@frontaliereticino.ch', display_name: 'Frontaliere Ticino' },
     subjectContains: 'briefing',
+    requiresUnsubscribe: true,
+  },
+  {
+    name: 'application-intent-reminder',
+    // Production routing maps alerts@ to the newsletter Application; keep the
+    // fixture aligned with resolveMailerooStream in functions/src/emailCascade.js.
+    stream: 'newsletter',
+    from: { address: 'alerts@frontaliereticino.ch', display_name: 'Frontaliere Ticino' },
+    subjectContains: 'Hai cliccato',
+    requiresUnsubscribe: true,
   },
 ]);
 
@@ -224,13 +239,57 @@ function buildNewsletterCase(recipient, runId) {
   };
 }
 
-/** Build both fixtures from the real production renderers, without network access. */
+function buildApplicationIntentReminderCase(recipient, runId) {
+  const strings = getApplicationIntentReminderStrings('it');
+  const unsubUrl = `https://frontaliereticino.ch/disiscrivi-promemoria-candidature/?uid=maileroo-ci&email=${encodeURIComponent(recipient)}&token=${'a'.repeat(64)}`;
+  const entry = {
+    title: 'Analista QA',
+    company: 'Frontaliere Ticino',
+    location: 'Lugano',
+    url: 'https://frontaliereticino.ch/offerte/analista-qa/',
+    postedDate: '2026-10-01',
+    sector: 'Technology',
+    category: 'IT',
+    contract: 'full-time',
+  };
+  const html = buildApplicationIntentReminderEmailHtml({
+    locale: 'it',
+    applicationIntentEntries: [entry],
+    recommendations: [],
+    manageUrl: 'https://frontaliereticino.ch/profilo/',
+    unsubUrl,
+    email: recipient,
+  });
+  return {
+    ...CASE_CONFIG[2],
+    recipient,
+    runId,
+    subject: strings.subject(1),
+    html,
+    text: buildApplicationIntentReminderEmailText({
+      locale: 'it',
+      applicationIntentEntries: [entry],
+      recommendations: [],
+      manageUrl: 'https://frontaliereticino.ch/profilo/',
+      unsubUrl,
+    }),
+    headers: {
+      'X-Frontaliere-CI-Run': `${runId}:application-intent-reminder`,
+      'X-Campaign-Id': 'maileroo-ci-application-intent',
+      'List-Unsubscribe': `<${unsubUrl}>`,
+      'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+    },
+  };
+}
+
+/** Build all fixtures from the real production renderers, without network access. */
 export function buildTestCases({ recipient, runId }) {
   const safeRecipient = assertNonEmpty(recipient, 'recipient');
   const safeId = safeRunId(runId);
   return [
     buildTransactionalCase(safeRecipient, safeId),
     buildNewsletterCase(safeRecipient, safeId),
+    buildApplicationIntentReminderCase(safeRecipient, safeId),
   ];
 }
 
@@ -264,7 +323,9 @@ export function buildAssertions(testCase) {
     { type: 'gmail_clip_eq', value: false },
     { type: 'accessibility_score_gte', value: 70 },
   ];
-  if (testCase.stream === 'newsletter') assertions.push({ type: 'unsubscribe_valid_eq', value: true });
+  if (testCase.stream === 'newsletter' || testCase.requiresUnsubscribe) {
+    assertions.push({ type: 'unsubscribe_valid_eq', value: true });
+  }
   return assertions;
 }
 

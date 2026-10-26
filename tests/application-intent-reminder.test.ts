@@ -200,6 +200,19 @@ describe('application-intent reminder email', () => {
     expect(text).not.toContain('Hai completato la candidatura');
   });
 
+  it('uses the unsubscribe label as the HTML anchor text', () => {
+    const html = buildApplicationIntentReminderEmailHtml({
+      locale: 'it',
+      applicationIntentEntries: [entry],
+      manageUrl: 'https://example.test/profile',
+      unsubUrl: 'https://example.test/unsubscribe',
+      email: 'reader@example.test',
+    });
+    expect(html).toMatch(/<a href="https:\/\/example\.test\/unsubscribe"[^>]*>Disiscriviti da questi promemoria<\/a>/);
+    expect(html).not.toContain('>https://example.test/unsubscribe</a>');
+    expect(html.match(/Disiscriviti da questi promemoria/g)).toHaveLength(1);
+  });
+
   it.each(['it', 'en', 'de', 'fr'])('renders a complete localized shell (%s)', (locale) => {
     const html = buildApplicationIntentReminderEmailHtml({
       locale,

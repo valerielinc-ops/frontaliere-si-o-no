@@ -10,6 +10,8 @@ on:
       - 'functions/src/lib/emailEngagementBanners.js'
       - 'functions/src/lib/mimeMessage.js'
       - 'functions/src/lib/newsletterUrls.js'
+      - 'scripts/lib/applicationIntentReminderEmail.mjs'
+      - 'tests/application-intent-reminder.test.ts'
       - 'services/newsletter-template.mjs'
       - 'scripts/ci/maileroo-email-testing.mjs'
       - 'scripts/load-rc-env.mjs'
@@ -27,7 +29,7 @@ concurrency:
 
 jobs:
   email-testing:
-    name: Maileroo transactional + newsletter
+    name: Maileroo transactional + newsletter + application reminder
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
