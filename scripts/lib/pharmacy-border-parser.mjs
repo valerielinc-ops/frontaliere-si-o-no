@@ -64,6 +64,17 @@ function isTicinoPharmacyPdfUrl(value, baseUrl) {
   return url.href;
 }
 
+function ticinoPharmacyPdfDate(urlValue) {
+  try {
+    const pathname = new URL(urlValue).pathname;
+    const filename = decodeURIComponent(pathname.split('/').at(-1) || '');
+    const match = filename.match(/(?:^|[_-])(\d{8})(?=\.pdf$)/i);
+    return match ? Number(match[1]) : -1;
+  } catch {
+    return -1;
+  }
+}
+
 /**
  * Extracts the current official Ticino pharmacy catalogue PDF from the
  * canton landing page. The canton periodically replaces the dated filename;
@@ -81,6 +92,10 @@ export function discoverTicinoPharmacyPdfUrls(html, baseUrl = TICINO_PHARMACY_DI
   if (candidates.length === 0) {
     throw new Error('Official Ticino pharmacy page did not expose a validated Lista_Farmacie PDF URL');
   }
+  candidates.sort((left, right) => (
+    ticinoPharmacyPdfDate(left) - ticinoPharmacyPdfDate(right)
+    || left.localeCompare(right)
+  ));
   return candidates;
 }
 

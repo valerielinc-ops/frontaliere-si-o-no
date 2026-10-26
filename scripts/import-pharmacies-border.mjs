@@ -332,9 +332,12 @@ export async function fetchTicinoPdfDocument(fetchSource = fetchBuffer, fetchDir
       return { buffer: await fetchSource(sourceUrl), sourceUrl };
     } catch (error) {
       lastError = error;
-      if (!isRetryBudgetExhausted(error)) throw error;
+      const status = Number(error?.status ?? error?.response?.status);
+      const isLegacyPdfMissing = status === 404;
+      if (!isRetryBudgetExhausted(error) && !isLegacyPdfMissing) throw error;
       if (index === TICINO_PHARMACY_PDF_URLS.length - 1) break;
-      console.warn(`[import-pharmacies-border] ${sourceUrl} exhausted its transient retry budget; trying the official Ticino mirror`);
+      const reason = isLegacyPdfMissing ? 'is no longer published' : 'exhausted its transient retry budget';
+      console.warn(`[import-pharmacies-border] ${sourceUrl} ${reason}; trying the official Ticino mirror`);
     }
   }
 

@@ -68,4 +68,26 @@ describe('Ticino pharmacy PDF source fallback', () => {
     expect(calls).toEqual([TICINO_PHARMACY_PDF_URL, TICINO_PHARMACY_PDF_MIRROR_URL, discoveredUrl]);
     expect(fetchDirectory).toHaveBeenCalledWith(TICINO_PHARMACY_DIRECTORY_URL, { accept: 'text/html' });
   });
+
+  it('falls back after both legacy URLs return 404 and chooses the newest dated PDF', async () => {
+    const olderUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20250101.pdf';
+    const newerUrl = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf';
+    const calls: string[] = [];
+    const fetchSource = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (url === TICINO_PHARMACY_PDF_URL || url === TICINO_PHARMACY_PDF_MIRROR_URL) {
+        throw Object.assign(new Error('HTTP 404'), { status: 404 });
+      }
+      return Buffer.from('%PDF');
+    });
+    const fetchDirectory = vi.fn(async () => (
+      `<a href="${newerUrl}">current</a><a href="${olderUrl}">old</a>`
+    ));
+
+    await expect(fetchTicinoPdfDocument(fetchSource, fetchDirectory)).resolves.toEqual({
+      buffer: Buffer.from('%PDF'),
+      sourceUrl: newerUrl,
+    });
+    expect(calls).toEqual([TICINO_PHARMACY_PDF_URL, TICINO_PHARMACY_PDF_MIRROR_URL, newerUrl]);
+  });
 });
