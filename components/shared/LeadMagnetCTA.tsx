@@ -34,7 +34,7 @@ import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput'
 import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, signInWithLinkedIn } from '@/services/authService';
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
-import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 
 /** Last-touch attribution for a login started from this box (see authService). */
@@ -755,10 +755,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  if (typeof window === 'undefined') return false;
  if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return false;
  const dismissed = localStorage.getItem(DISMISSED_KEY);
- if (dismissed) {
- const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
- if (daysSince < DISMISS_DAYS) return false;
- }
+ if (isDismissalActive(dismissed, DISMISS_DAYS)) return false;
  return true;
  });
  const [email, setEmail] = useState('');
@@ -769,10 +766,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  useEffect(() => {
  if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
  const dismissed = localStorage.getItem(DISMISSED_KEY);
- if (dismissed) {
- const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
- if (daysSince < DISMISS_DAYS) return;
- }
+ if (isDismissalActive(dismissed, DISMISS_DAYS)) return;
 
  if (delay > 0) {
  const timer = setTimeout(() => setVisible(true), delay);

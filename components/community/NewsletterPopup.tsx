@@ -21,7 +21,7 @@ import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoo
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
-import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import {
  upsertNewsletterSubscriber,
@@ -123,10 +123,7 @@ const NewsletterPopup: React.FC = () => {
  if (isPendingReminder) {
  // Check dismiss cooldown even for reminders
  const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
- if (dismissed) {
- const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
- if (daysSince < 1) return; // 1-day cooldown for reminders (shorter than normal 7-day)
- }
+ if (isDismissalActive(dismissed, 1)) return; // 1-day cooldown for reminders (shorter than normal 7-day)
  setEmail(pendingInfo.email);
  setStatus('pending');
  // A reminder follows the same reading/scroll timing as the signup prompt.
@@ -140,10 +137,7 @@ const NewsletterPopup: React.FC = () => {
 
  // Don't show if dismissed recently
  const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
- if (dismissed) {
- const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
- if (daysSince < (isPendingReminder ? 1 : DISMISS_DAYS)) return;
- }
+ if (isDismissalActive(dismissed, isPendingReminder ? 1 : DISMISS_DAYS)) return;
 
  const checkAndShow = () => {
  if (userRef.current) return;

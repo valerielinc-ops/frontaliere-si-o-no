@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   NEWSLETTER_CTA_DISMISSED_KEY,
   NEWSLETTER_SUBSCRIBED_KEY,
+  isDismissalActive,
   isNewsletterCtaEligible,
 } from '@/services/newsletterCtaState';
 
@@ -36,5 +37,11 @@ describe('isNewsletterCtaEligible', () => {
     localStorage.setItem(NEWSLETTER_CTA_DISMISSED_KEY, String(NOW - DAY_MS));
 
     expect(isNewsletterCtaEligible()).toBe(false);
+  });
+
+  it('shares the strict cooldown predicate with other promotional surfaces', () => {
+    expect(isDismissalActive(String(NOW - 2 * DAY_MS), 7, NOW)).toBe(true);
+    expect(isDismissalActive(`${NOW - DAY_MS}garbage`, 7, NOW)).toBe(false);
+    expect(isDismissalActive(String(NOW + DAY_MS), 7, NOW)).toBe(false);
   });
 });
