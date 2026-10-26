@@ -118,11 +118,12 @@ const CASES: VisualCase[] = [
 // time/cron data. Each must exist in the rendered DOM before the test takes
 // the screenshot — keep these in sync with the data-testid attributes in
 // the component sources. Missing selectors are silently ignored by mask().
+// The anonymous live visitor cannot show the registered-only achievement
+// toast, so it must not leave a stale masked rectangle in the baseline.
 const DYNAMIC_REGION_SELECTORS = [
   '[data-testid="news-ticker"]',
   '[data-testid="daily-dialect-phrase"]',
   '[data-testid="weekly-fact"]',
-  '[data-testid="gamification-toast"]',
   '[data-testid="whats-new-badge"]',
   '[data-testid="results-advantage-banner"]',
 ];
