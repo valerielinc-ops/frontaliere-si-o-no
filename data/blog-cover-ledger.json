@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 860,
+      "5": 864,
       "6": 5056
     },
-    "publishedCovers": 7599,
+    "publishedCovers": 7603,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209141,6 +209141,138 @@
         "provider": "openai-codex",
         "assetId": "article-frontaliere-tasse-dopo-licenziamento",
         "imageUrl": "/images/blog/article-frontaliere-tasse-dopo-licenziamento.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-indennita-covid-abusi-aziende": {
+      "cover": "/images/blog/article-indennita-covid-abusi-aziende.webp",
+      "hash": "7b015692e80f523bf173cd280cd88fe7c0efb06cfe58cbfaee76671ec84ba8ea",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "indennita-covid-abusi-aziende",
+          "category": "pratico",
+          "date": "2026-10-18T16:04:41.754Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-indennita-covid-abusi-aziende.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-indennita-covid-abusi-aziende",
+        "imageUrl": "/images/blog/article-indennita-covid-abusi-aziende.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-iniziativa-parita-salariale-ag": {
+      "cover": "/images/blog/article-iniziativa-parita-salariale-ag.webp",
+      "hash": "be496dfee8ad3c3be60c2d4ec3f442e814eafd5049bd9f7ab587e5e08c2eb937",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "iniziativa-parita-salariale-ag",
+          "category": "novita",
+          "date": "2026-10-18T17:13:03.661Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-iniziativa-parita-salariale-ag.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-iniziativa-parita-salariale-ag",
+        "imageUrl": "/images/blog/article-iniziativa-parita-salariale-ag.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-italia-rincari-crescita-2027": {
+      "cover": "/images/blog/article-italia-rincari-crescita-2027.webp",
+      "hash": "d7d50dfff1490ba15344bccc21d83d0a4c621b13c279eb7687ec486123f502bc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "italia-rincari-crescita-2027",
+          "category": "novita",
+          "date": "2026-10-19T14:41:27.050Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-italia-rincari-crescita-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-italia-rincari-crescita-2027",
+        "imageUrl": "/images/blog/article-italia-rincari-crescita-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-schianto-auto-moto-appiano-gentile": {
+      "cover": "/images/blog/article-schianto-auto-moto-appiano-gentile.webp",
+      "hash": "7c535fc1d365456af3cb192091f7eaf5de29947466981e9178e8c034dc13f731",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "schianto-auto-moto-appiano-gentile",
+          "category": "novita",
+          "date": "2026-10-20T03:38:16.053Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-schianto-auto-moto-appiano-gentile.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-schianto-auto-moto-appiano-gentile",
+        "imageUrl": "/images/blog/article-schianto-auto-moto-appiano-gentile.webp",
         "evidence": "generated-engine-record"
       }
     }
