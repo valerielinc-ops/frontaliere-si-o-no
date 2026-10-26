@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseProfileChildren } from '@/components/calculator/BonusCalculator';
+import { parseProfileChildren } from '@/components/calculator/bonusProfilePrefill';
 
 describe('BonusCalculator profile children prefill', () => {
  it.each([
