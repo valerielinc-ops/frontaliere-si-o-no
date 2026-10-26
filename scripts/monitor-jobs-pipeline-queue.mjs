@@ -39,6 +39,7 @@ import { join } from 'node:path';
 import { createGithubIssue } from './lib/github-issue-creator.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { withTransientGithubApiRetry } from './ci/lib/github-api-retry.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -54,12 +55,12 @@ function repoPath(suffix) {
   return REPO ? `repos/${REPO}/${suffix}` : `repos/{owner}/{repo}/${suffix}`;
 }
 
-function gh(args, { allowFailure = false } = {}) {
+function gh(args, { allowFailure = false, warnOnFailure = false } = {}) {
   try {
     return execFileSync('gh', args, {
       encoding: 'utf8',
       maxBuffer: 20 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', 'inherit'],
+      stdio: ['ignore', 'pipe', warnOnFailure ? 'pipe' : 'inherit'],
     }).trim();
   } catch (err) {
     if (allowFailure) return null;
@@ -67,8 +68,28 @@ function gh(args, { allowFailure = false } = {}) {
   }
 }
 
+function ghRead(args, { allowFailure = true } = {}) {
+  try {
+    return withTransientGithubApiRetry(
+      () => gh(args, { allowFailure: false, warnOnFailure: true }),
+      {
+        onRetry: ({ attempt, maxRetries, delayMs }) => console.warn(
+          `[monitor-jobs-pipeline-queue] GitHub read transient failure — retry ${attempt}/${maxRetries} in ${delayMs}ms`,
+        ),
+      },
+    );
+  } catch (err) {
+    if (!allowFailure) throw err;
+    console.warn(
+      `[monitor-jobs-pipeline-queue] GitHub read failed after bounded retries: `
+        + `${String(err?.stderr || err?.message || err).trim()}`,
+    );
+    return null;
+  }
+}
+
 function ghJson(path, { allowFailure = true } = {}) {
-  const out = gh(['api', path], { allowFailure });
+  const out = ghRead(['api', path], { allowFailure });
   if (!out) return null;
   try {
     return JSON.parse(out);
