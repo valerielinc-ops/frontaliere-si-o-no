@@ -39,6 +39,9 @@
  *   SOCIAL_ROBOT_MODE               off | dry (default) | live — API or the
  *                                   Playwright robot's queue (data/instagram-queue.json);
  *                                   see scripts/lib/social-publish-queue.mjs
+ *   INSTAGRAM_CAROUSEL_BACKGROUND_AB_* Firebase-controlled four-arm background
+ *                                   test; absent/invalid values keep the navy
+ *                                   control and retries keep the same arm
  *   GA4_PROPERTY_ID                 defaults to properties/524485296
  *   R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY / R2_S3_ENDPOINT / R2_BUCKET
  *                                    required to host the carousel images —
@@ -71,6 +74,10 @@ import {
   instagramCreativeContent,
   instagramCreativeLedgerFields,
 } from './lib/instagram-creative.mjs';
+import {
+  assignInstagramCarouselBackground,
+  instagramCarouselBackgroundLedgerFields,
+} from './lib/instagram-carousel-background.mjs';
 import {
   previousReportDay,
   rankCandidates,
@@ -220,9 +227,10 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
   const dayLabel = formatDayIt(day);
   const creative = chooseInstagramCreative({ kind, day });
+  const background = assignInstagramCarouselBackground({ kind, day });
   const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative });
 
-  console.log(`\n─── ${kind} carousel (${picks.length} slides + CTA, creative: ${creative.id}) ───`);
+  console.log(`\n─── ${kind} carousel (${picks.length} slides + CTA, creative: ${creative.id}, background: ${background.id}) ───`);
   console.log(caption);
   console.log('───');
 
@@ -239,6 +247,7 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     subtitle: dayLabel,
     items: slideItems,
     closing: creative.closing,
+    backgroundVariant: background.id,
   });
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
@@ -253,10 +262,11 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
   const ledgerEntries = picks.map((p) => ({
     id: p.slug,
     kind,
-    url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, instagramCreativeContent(creative, p.slug)),
+    url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, instagramCreativeContent(creative, p.slug, background.id)),
     day,
     views: p.views,
     ...instagramCreativeLedgerFields(creative),
+    ...instagramCarouselBackgroundLedgerFields(background),
   }));
   await deliver({ route, kind, day, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
 }
@@ -296,6 +306,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
   }));
   const dayLabel = `${weekStart} – ${weekEnd}`;
   const creative = chooseInstagramCreative({ kind: 'border', day: weekStart });
+  const background = assignInstagramCarouselBackground({ kind: 'border', day: weekStart });
   const caption = buildInstagramCaption({
     kind: 'border',
     dayLabel,
@@ -303,7 +314,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     creative,
   });
 
-  console.log(`\n─── border carousel (${fastest.length} slides + CTA, creative: ${creative.id}) ───`);
+  console.log(`\n─── border carousel (${fastest.length} slides + CTA, creative: ${creative.id}, background: ${background.id}) ───`);
   console.log(caption);
   console.log('───');
 
@@ -320,6 +331,7 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     subtitle: dayLabel,
     items: slideItems,
     closing: creative.closing,
+    backgroundVariant: background.id,
   });
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
@@ -338,10 +350,11 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
       url: instagramUrl(
         buildOggiPath('it', fastest[0].slug),
         INSTAGRAM_CAMPAIGN_BORDER,
-        instagramCreativeContent(creative, weekStart),
+        instagramCreativeContent(creative, weekStart, background.id),
       ),
       day: weekStart,
       ...instagramCreativeLedgerFields(creative),
+      ...instagramCarouselBackgroundLedgerFields(background),
     },
   ];
   await deliver({ route, kind: 'border', day: weekStart, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
