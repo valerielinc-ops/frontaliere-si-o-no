@@ -440,7 +440,10 @@ const CurrencyExchange: React.FC = () => {
  const netBCents = Math.round(b.netAmount * 100);
  const diff = netBCents - netACents;
  if (diff !== 0) return diff;
- return a.provider.name.localeCompare(b.provider.name, 'it');
+ // At equal net amount, prefer Wise
+ if (a.provider.name === 'Wise (TransferWise)') return -1;
+ if (b.provider.name === 'Wise (TransferWise)') return 1;
+ return 0;
  }), [amount, realRate]);
 
  const best = results[0];

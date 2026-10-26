@@ -82,6 +82,14 @@ describe('referral CTA rendered contract', () => {
   expect(input.compareDocumentPosition(bestOffer) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
  });
 
+ it('keeps Wise first when its displayed net ties Cambiavalute', () => {
+  const view = render(<CurrencyExchange />);
+  const providerNames = Array.from(view.container.querySelectorAll('h3')).map((heading) => heading.textContent);
+
+  expect(providerNames[0]).toBe('Wise (TransferWise)');
+  expect(providerNames).toContain('Cambiavalute.ch');
+ });
+
  it('ranks bank fees without sponsoring Wise into the first row', () => {
   render(<BankComparison />);
   const headings = screen.getAllByRole('heading', { level: 3 });
