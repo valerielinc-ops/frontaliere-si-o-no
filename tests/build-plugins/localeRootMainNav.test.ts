@@ -242,6 +242,14 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(html).toContain('href="/fr/"');
   });
 
+  it('replaces a stale IT directory rail during incremental homepage repair', () => {
+    const old = '<html><body><section id="homepage-discovery"><aside id="hp-directory-hubs"><a href="/old-directory/">Old directory</a></aside></section><aside id="hp-seo-block">Current prose</aside></body></html>';
+    const repaired = injectHomepageSeoContent(old, 'it');
+    expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
+    expect(repaired).toContain('href="/prezzi-benzina/oggi/"');
+    expect(repaired).not.toContain('/old-directory/');
+  });
+
   it('keeps the root rail when the real Vite template has a styled root and visible h1', () => {
     const template = fs.readFileSync(new URL('../../index.html', import.meta.url), 'utf8');
     expect(template).toContain('<div id="root" style="min-height:100vh">');

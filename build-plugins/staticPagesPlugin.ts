@@ -1017,8 +1017,15 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
     .replace(/<aside\b[^>]*\bid="hp-xlocale-cantons"[^>]*>[\s\S]*?<\/aside>\s*/i, '')
     .replace(/<aside\b[^>]*\bid="hp-related-guides"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
   }
-  if (locale === 'it' && !repairedHtml.includes('id="hp-directory-hubs"') && repairedHtml.includes('</body>')) {
+  if (locale === 'it' && repairedHtml.includes('</body>')) {
    const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
+   // Replace the entire old block, not only a missing block. Incremental
+   // builds can carry an earlier directory list that predates the event,
+   // fuel, search, and career discovery links owned by the current source.
+   repairedHtml = repairedHtml.replace(
+    /<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/gi,
+    '',
+   );
    if (repairedHtml.includes('id="homepage-discovery"')) {
     return repairedHtml.replace(
      /(<section\b[^>]*\bid="homepage-discovery"[^>]*>[\s\S]*?)(<\/section>)/i,
