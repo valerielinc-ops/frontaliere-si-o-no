@@ -2375,16 +2375,18 @@ function renderEventsJourney(
   add(pathForDigest(locale, canton, EVENTS_DIGEST_SLUGS.weekend), copy.weekend);
   add(pathForDigest(locale, canton, EVENTS_DIGEST_SLUGS.week), copy.week);
 
-  // The municipal pages form a sorted set. Link each page to up to three
-  // nearest neighbours so every active municipality has multiple distinct
-  // incoming paths without turning the journey block into a full directory.
+  // The municipal pages form a sorted set. Link each page to the five nearest
+  // neighbours on each side. Using a symmetric radius (rather than a capped
+  // slice of the closest offsets) gives even the alphabetic edge pages five
+  // distinct incoming paths, while keeping the block bounded at ten
+  // municipality links instead of turning it into a full directory.
   if (currentComune && siblingComuni?.length) {
     const currentIndex = siblingComuni.indexOf(currentComune);
     if (currentIndex >= 0) {
-      const nearby = [-2, -1, 1, 2]
+      const nearby = Array.from({ length: 11 }, (_, index) => index - 5)
+        .filter((offset) => offset !== 0)
         .map((offset) => siblingComuni[currentIndex + offset])
-        .filter((comune): comune is string => Boolean(comune))
-        .slice(0, 3);
+        .filter((comune): comune is string => Boolean(comune));
       for (const comune of nearby) add(pathFor(locale, canton, comune), copy.municipality(comune));
     }
   }
