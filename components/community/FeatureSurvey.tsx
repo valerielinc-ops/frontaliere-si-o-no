@@ -24,6 +24,8 @@ import { Analytics } from '@/services/analytics';
 import { captureEvent } from '@/services/posthog';
 import { isLikelyBot } from '@/services/botPatterns';
 import { requestSlot, releaseSlot, isActive, subscribe, markSlotShown, POPUP_PRIORITY } from '@/services/popupQueue';
+import { incrementSessionPageViews } from '@/services/sessionPageViewCounter';
+import { isDismissalActive } from '@/services/newsletterCtaState';
 
 const SLOT_ID = 'feature-survey';
 const DISMISSED_KEY = 'feature_survey_dismissed'; // timestamp once dismissed/answered
@@ -65,13 +67,10 @@ const FeatureSurvey: React.FC = () => {
 
     // Respect the 90-day cooldown after a dismiss or an answer.
     const dismissed = localStorage.getItem(DISMISSED_KEY);
-    if (dismissed) {
-      const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
-      if (daysSince < DISMISS_DAYS) return;
-    }
+    if (isDismissalActive(dismissed, DISMISS_DAYS)) return;
 
     // Engagement gate: count page views this session.
-    const pageViews = parseInt(sessionStorage.getItem(PAGE_VIEW_KEY) || '0', 10) + 1;
+    const pageViews = incrementSessionPageViews(sessionStorage.getItem(PAGE_VIEW_KEY));
     sessionStorage.setItem(PAGE_VIEW_KEY, String(pageViews));
 
     const tryRequest = () => {

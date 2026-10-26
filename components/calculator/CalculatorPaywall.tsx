@@ -26,7 +26,7 @@ import {
 } from '@/services/authService';
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { reportCaughtError } from '@/services/errorReporter';
-import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { getFirestoreLazy } from '@/services/firebase';
 import { upsertUnifiedEmailSubscriber } from '@/services/newsletterSubscribers';
@@ -46,23 +46,6 @@ import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
 
 /** Last-touch attribution for a login started from this box (see authService). */
 const CALCULATOR_PAYWALL_AUTH_ATTRIBUTION = { cta: 'calculator_paywall_social', component: 'CalculatorPaywall' } as const;
-
-/**
- * Returns true when the paywall dismissal is still active (ISO timestamp <30 days old).
- * Accepts legacy numeric timestamps too (older builds used Date.now()).
- */
-function isDismissalActive(raw: string | null, now = Date.now()): boolean {
-  if (!raw) return false;
-  // Try ISO string first, fall back to numeric.
-  let ts = Date.parse(raw);
-  if (Number.isNaN(ts)) {
-    const n = parseInt(raw, 10);
-    if (!Number.isFinite(n)) return false;
-    ts = n;
-  }
-  const diffDays = (now - ts) / (1000 * 60 * 60 * 24);
-  return diffDays < PAYWALL_DISMISS_DAYS;
-}
 
 export interface PaywallGateInputs {
   simCompleteCount: number;
@@ -86,7 +69,7 @@ export function shouldShowPaywall(inputs: PaywallGateInputs): boolean {
   const { simCompleteCount, visitCount, dismissedAtRaw, jobEmail, newsletterSubscribed, now } = inputs;
   if (newsletterSubscribed) return false;
   if (jobEmail && jobEmail.length > 0) return false;
-  if (isDismissalActive(dismissedAtRaw, now)) return false;
+  if (isDismissalActive(dismissedAtRaw, PAYWALL_DISMISS_DAYS, now)) return false;
   return simCompleteCount >= 3 || visitCount >= 2;
 }
 

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   CRAWLED_COMPANY_LOGOS,
   formatJobLocation,
+ hostFromExternalUrl,
   isMultiLocation,
   MAX_JOB_SLUG_LENGTH,
   normalizeJobCategory,
@@ -16,6 +17,15 @@ import {
 import { resolveBrandLogoUrl } from '@/build-plugins/shared/seoContentTokens';
 
 describe('jobDataNormalization', () => {
+ it('derives hosts only from web URLs', () => {
+  expect(hostFromExternalUrl('https://jobs.example.com/offer/1')).toBe('example.com');
+  expect(hostFromExternalUrl('HTTP://www.example.com/offer/1')).toBe('example.com');
+  expect(hostFromExternalUrl('ftp://example.com/offer/1')).toBe('');
+  expect(hostFromExternalUrl('mailto:jobs@example.com')).toBe('');
+  expect(hostFromExternalUrl('data:text/plain,example.com')).toBe('');
+  expect(hostFromExternalUrl('not a URL')).toBe('');
+ });
+
   it('normalizes noisy category labels into canonical categories', () => {
     expect(normalizeJobCategory('General Services', 'Manutentore Elettromeccanico')).toBe('engineering');
     expect(normalizeJobCategory('general-services', '')).toBe('admin');
