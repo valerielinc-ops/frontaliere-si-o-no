@@ -1,12 +1,13 @@
 # Cache headers for GitHub Pages
-# ALL bundler assets have STABLE filenames (index-entry.js, App.js, index.css,
-# seo-static.css, ... — see vite.config.ts chunkFileNames/assetFileNames) so the
-# prerendered pages never churn on a bundle rehash and cached HTML never 404s
-# on a rotated name. Stable names mean bytes change UNDER the same URL on every
-# code-deploy -> NOTHING under /assets/ may ever be served `immutable`; the
-# short max-age + revalidation mirrors what GitHub Pages serves live today
-# (max-age=600 + ETag — Pages ignores _headers; this rule is honored once the
-# site moves to a _headers-reading CDN, e.g. Cloudflare Pages).
+# Root compatibility aliases keep stable filenames (index-entry.js, App.js,
+# index.css, seo-static.css, ... — see vite.config.ts): their bytes can change
+# under the same URL on every code deploy. The executable application graph is
+# now copied under the build-scoped /assets/releases/<BUILD_ID>/ namespace, so
+# those URLs can safely be immutable. GitHub Pages currently ignores _headers;
+# this policy is also correct for a future _headers-reading CDN.
+/assets/releases/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/*
   Cache-Control: public, max-age=600, must-revalidate
 

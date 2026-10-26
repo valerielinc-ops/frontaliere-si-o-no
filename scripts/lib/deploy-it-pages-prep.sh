@@ -425,14 +425,14 @@ _publish_cdn_r2() {
   fi
   # assets/ Cache-Control — read this before changing it.
   #
-  # Bundle filenames here are STABLE, never content-hashed
-  # (tests/stable-asset-names.test.ts): the BYTES change under the SAME URL on
-  # every code deploy. The zone rule `cdn-r2-passthrough-cache`
-  # (infra/cloudflare/rules.md) caches this host with
-  # `edge_ttl: {mode: 'respect_origin'}`, so whatever we set here IS the edge
-  # TTL — and `immutable` on a URL whose bytes change is simply false. It also
-  # contradicts public/_headers, which states outright that NOTHING under
-  # /assets/ may ever be served `immutable`.
+  # Root bundle aliases retain STABLE, non-content-hashed names
+  # (tests/stable-asset-names.test.ts): their BYTES can change under the SAME
+  # URL on every code deploy, so _r2_sync publishes those aliases with a short
+  # revalidatable TTL. The versioned application graph is copied separately to
+  # assets/releases/<DEPLOY_BUILD_ID>/ and is safe to serve immutable because
+  # its URL changes with every build. The zone rule
+  # `cdn-r2-passthrough-cache` (infra/cloudflare/rules.md) respects both
+  # origin policies.
   #
   # The previous `max-age=31536000,immutable` made edge freshness depend
   # ENTIRELY on cf-purge-cache.mjs `purge_everything`, which runs only in
@@ -465,9 +465,9 @@ _publish_cdn_r2() {
   # to a per-run group so only real publishes contend, and
   # scripts/ci/unwedge-pages-deploy-queue.mjs (hourly, from
   # pages-publish-lag-watchdog.yml) cancels runs stuck in `waiting`. That
-  # restores the purge chain — it does NOT restore `immutable`: everything below
-  # about why the TTL is a backstop and the purge is targeted stands on its own,
-  # and re-coupling edge freshness to a workflow chain would just re-arm this.
+  # restores the purge chain. Root aliases still retain a bounded TTL, while
+  # release URLs are immutable by construction; neither path depends on a
+  # multi-key purge for module coherence.
   #
   # The TTL is a BACKSTOP, not the freshness mechanism — freshness comes from
   # the targeted purge below, which runs in this same step right after the
@@ -477,13 +477,11 @@ _publish_cdn_r2() {
   # (`originResponseStatus: 0`) Cloudflare surfaces as the 502s in
   # #5034/#5035/#5036/#5052/#5081/#5092/#5093/#5094.
   #
-  # Measured over 23h: the 661 distinct /assets/ keys took 520k requests but
+  # Measured over 23h: the 661 distinct root /assets/ keys took 520k requests but
   # only ~2.9k origin hops (0.57%) — these keys are HOT, so their hop count is
   # driven by TTL expiry per PoP, not by request arrival. Scaling that way,
-  # max-age=600 would be ~100x the hops and max-age=86400 ~3x; 7 days keeps the
-  # increase modest (~+30%) while still turning "stale forever" into "stale for
-  # at most a week". Do NOT raise this back to a year, and do NOT re-add
-  # `immutable`.
+  # max-age=600 would be ~100x the hops and max-age=86400 ~3x; the root alias
+  # policy is now 600s because the executable graph no longer uses those names.
   local _assets_log="$(mktemp -t r2-assets-XXXXXX.jsonl 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/r2-assets.jsonl")"
   local assets_sync_ok=0 assets_sync_status=0
   # ── Purge ledger, read BEFORE the assets sync (NX-SKEW-2b, Refs #9465/#8612)
@@ -532,8 +530,54 @@ _publish_cdn_r2() {
     _ledger_state=present
     echo "::notice::[r2] no usable purge ledger — starting from an empty one: every assets/ key of this build is purged once and recorded as its batch succeeds"
   fi
-  _r2_sync 420 "$stage/assets"    assets    "public,max-age=604800" "$_assets_log"
+  # Root assets retain their stable compatibility aliases, so keep their
+  # backstop short and revalidatable. Build-scoped release assets are copied
+  # separately with immutable caching: their URL includes DEPLOY_BUILD_ID and
+  # therefore never changes bytes under the same cache key.
+  local _release_assets_stage="$stage/.assets-releases"
+  local _release_assets_log="$stage/.assets-releases.jsonl"
+  local _bootstrap_asset_stage="$stage/.asset-bootstrap"
+  local _bootstrap_asset_log="$stage/.asset-bootstrap.jsonl"
+  rm -rf "$_release_assets_stage" "$_release_assets_log" "$_bootstrap_asset_stage" "$_bootstrap_asset_log"
+  if [ -d "$stage/assets/releases" ]; then
+    mv "$stage/assets/releases" "$_release_assets_stage"
+  fi
+  # Do not expose the new stable bootstrap before its immutable release graph
+  # is complete. R2 object PUTs are individually atomic, not a directory-level
+  # transaction: uploading assets/index-entry.js with the root batch would let
+  # a request observe the new bootstrap while releases/<id>/index-entry.js was
+  # still being copied. Keep it aside and publish it last, after root aliases
+  # and the complete release have both synced successfully.
+  if [ -f "$stage/assets/index-entry.js" ]; then
+    mkdir -p "$_bootstrap_asset_stage"
+    mv "$stage/assets/index-entry.js" "$_bootstrap_asset_stage/index-entry.js"
+  fi
+  _r2_sync 420 "$stage/assets" assets "public,max-age=600,must-revalidate" "$_assets_log"
   assets_sync_status=$?
+  if [ -d "$_release_assets_stage" ]; then
+    mkdir -p "$stage/assets"
+    mv "$_release_assets_stage" "$stage/assets/releases"
+    if ! _r2_sync 420 "$stage/assets/releases" assets/releases "public,max-age=31536000,immutable" "$_release_assets_log"; then
+      assets_sync_status=1
+    fi
+    rm -f "$_release_assets_log"
+  fi
+  if [ "$assets_sync_status" -eq 0 ] && [ -d "$_bootstrap_asset_stage" ]; then
+    # The release sync is complete, so this final one-file copy is the commit
+    # point at which new browsers can discover this build. Its upload log is
+    # deliberately kept separate: the stateful purge fingerprints the restored
+    # stage recursively, while treating a nested rclone log as root assets
+    # would produce the wrong `assets/<file>` key instead of
+    # `assets/releases/<build>/<file>`.
+    if ! _r2_sync 120 "$_bootstrap_asset_stage" assets "public,max-age=600,must-revalidate" "$_bootstrap_asset_log"; then
+      assets_sync_status=1
+    fi
+  fi
+  if [ -d "$_bootstrap_asset_stage" ]; then
+    mkdir -p "$stage/assets"
+    mv "$_bootstrap_asset_stage/index-entry.js" "$stage/assets/index-entry.js"
+  fi
+  rm -f "$_bootstrap_asset_log"
   if [ "$assets_sync_status" -eq 0 ]; then
     assets_sync_ok=1
   fi
@@ -666,7 +710,7 @@ _publish_cdn_r2() {
         if [ "$_prc" -eq 0 ]; then
           _purge_ok=1
         else
-          echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — publish marker withheld; edge falls back to the 7d max-age"
+          echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — publish marker withheld; root aliases fall back to the 600s max-age and release URLs remain build-scoped"
         fi
       fi
     elif [ "$assets_sync_ok" = 1 ]; then
@@ -833,7 +877,10 @@ _janitor_cdn_r2() {
   t_obj="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 60)"
 
   local active_list; active_list="$(mktemp)"
-  ( cd "$stage/assets" && ls -1 ) > "$active_list" 2>/dev/null || true
+  # Release assets live below assets/releases/<BUILD_ID>; the active protect
+  # set must be recursive or the R2 janitor would treat every executable in the
+  # current release as an orphan after the first deploy.
+  ( cd "$stage/assets" && find . -type f -print | sed 's#^\./##' | sort ) > "$active_list" 2>/dev/null || true
 
   local listing; listing="$(mktemp)"
   if ! timeout -k 10 "$t_list" "${AWS[@]}" s3api list-objects-v2 --bucket "$R2_BUCKET" --prefix "assets/" \
@@ -978,6 +1025,35 @@ step_push_cdn() {
     echo "::error::CDN asset stage must contain gtag-init.js and the current HTML producer $gtag_versioned_filename" >&2
     return 1
   fi
+  # Preserve the existing non-fatal credential path for the legacy Pages
+  # target. The caller will fail the build-scoped prep because CDN_BASE stays
+  # unset, but this branch must still report the actionable missing secret
+  # instead of masking it with the release-layout guard below.
+  if [ "$cdn_target" = "pages" ] && [ -z "${CDN_DEPLOY_KEY:-}" ]; then
+    echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"
+    return 0
+  fi
+  # A production matrix build must publish the executable graph under the
+  # build-scoped namespace before any CDN target is touched. If this guard is
+  # absent, a plugin/config drift can silently put the old stable graph back on
+  # the CDN and recreate the mixed-import failure that this release layout is
+  # meant to eliminate. Local builds have no DEPLOY_BUILD_ID and retain the
+  # ordinary developer path. The missing-credential return above stays first so
+  # the legacy Pages diagnostic remains compatible when no publish can occur.
+  if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+    case "$DEPLOY_BUILD_ID" in
+      ''|*[!0-9]*)
+        echo "::error::DEPLOY_BUILD_ID must contain digits only for a production CDN release" >&2
+        return 1
+        ;;
+    esac
+    local versioned_release_entry="$stage/assets/releases/$DEPLOY_BUILD_ID/index-entry.js"
+    if [ ! -s "$versioned_release_entry" ] || ! grep -q 'FRONTALIERE_VERSIONED_CDN_BOOTSTRAP' "$stage/assets/index-entry.js"; then
+      echo "::error::CDN asset stage is missing the build-scoped executable release for DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID" >&2
+      echo "::error::expected $versioned_release_entry and a FRONTALIERE_VERSIONED_CDN_BOOTSTRAP stable entry" >&2
+      return 1
+    fi
+  fi
   # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
   # 400 shards): runtime-fetch only (public/404.html + the Worker), no static
   # HTML ref to rewrite, so the offload script just deletes dist/job-canon
@@ -1053,7 +1129,7 @@ step_push_cdn() {
   # Legacy Pages path below (CDN_TARGET=pages or both).
   if [ -z "${CDN_DEPLOY_KEY:-}" ]; then
     echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"
-    cd "$PREP_CWD"
+    cd "${PREP_CWD:-$PWD}"
     return 0
   fi
   keyfile="$RUNNER_TEMP/cdn_deploy_key"

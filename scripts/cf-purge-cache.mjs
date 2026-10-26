@@ -258,9 +258,10 @@ try {
   //   files: [{url, headers:{Origin: <site>}}]  → Origin variant went MISS
   //
   // Not a detail: deploy-it-pages-prep.sh purges exactly these keys after every
-  // R2 sync, so the bundle browsers boot stayed stale up to its `max-age`
-  // (7 days) behind the one CI could see. That shipped an /aziende/<slug>/ page
-  // whose HTML carried a hydration island the served JS knew nothing about —
+  // R2 sync, so the bundle browsers boot stayed stale up to its historical
+  // `max-age` (7 days at the time) behind the one CI could see. That shipped an
+  // /aziende/<slug>/ page whose HTML carried a hydration island the served JS
+  // knew nothing about —
   // 19h of a dead «Segui questa azienda» behind a green pipeline (#5012).
   //
   // Both calls carry the SAME url list, as separate POSTs rather than one

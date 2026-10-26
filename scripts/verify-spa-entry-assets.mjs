@@ -45,6 +45,33 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
+// Production CDN builds use a stable compatibility entry only as a bootstrap;
+// the executable graph must exist under the same build-scoped namespace before
+// the CDN staging step can publish it. Keeping this check here catches a
+// plugin/config drift immediately after Vite, rather than after a large Pages
+// or R2 upload has already started. Some benchmark/equivalence workflows set
+// DEPLOY_BUILD_ID only to make their output deterministic but deliberately do
+// not set ASSET_CDN or publish anything; those builds retain the ordinary
+// single-graph output contract.
+const deployBuildId = (process.env.DEPLOY_BUILD_ID || '').trim();
+const assetCdn = (process.env.ASSET_CDN || '').trim();
+if (deployBuildId && assetCdn) {
+  if (!/^\d+$/.test(deployBuildId)) {
+    console.error(`[verify-spa-entry-assets] DEPLOY_BUILD_ID must contain digits only, got ${JSON.stringify(deployBuildId)}`);
+    process.exit(1);
+  }
+  const releaseEntry = path.join(assetsDir, 'releases', deployBuildId, SPA_ENTRY_JS_FILENAME);
+  const stableEntry = path.join(assetsDir, SPA_ENTRY_JS_FILENAME);
+  const stableSource = fs.readFileSync(stableEntry, 'utf8');
+  if (!fs.existsSync(releaseEntry) || !stableSource.includes('FRONTALIERE_VERSIONED_CDN_BOOTSTRAP')) {
+    console.error(
+      `[verify-spa-entry-assets] build ${deployBuildId} is missing its versioned CDN graph: ` +
+      `expected ${releaseEntry} and a FRONTALIERE_VERSIONED_CDN_BOOTSTRAP stable entry`,
+    );
+    process.exit(1);
+  }
+}
+
 let moduleGraph;
 try {
   moduleGraph = verifyLocalModuleLinks(assetsDir);

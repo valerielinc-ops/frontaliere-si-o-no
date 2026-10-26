@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { planJanitor } from '@/scripts/ci/cdn-prune-plan.mjs';
+import { protectActiveReleaseTrees } from '@/scripts/ci/prune-cdn-assets.mjs';
 
 const DAY = 86_400_000;
 const iso = (ms: number) => new Date(ms).toISOString();
@@ -21,6 +22,23 @@ describe('planJanitor', () => {
   const recent = iso(NOW_MS - 1 * DAY); // within grace
 
   const base = { now, graceCutoffMs, maxPrune: 6000 };
+
+  it('protects every remote JS/CSS file below a live versioned release entry', () => {
+    const active = new Set(['releases/42/index-entry.js']);
+    const allAssets = [
+      'releases/42/index-entry.js',
+      'releases/42/App.js',
+      'releases/42/index.css',
+      'releases/41/App.js',
+      'App.js',
+    ];
+
+    expect([...protectActiveReleaseTrees(active, allAssets)].sort()).toEqual([
+      'releases/42/App.js',
+      'releases/42/index.css',
+      'releases/42/index-entry.js',
+    ].sort());
+  });
 
   it('prunes legacy hashed orphans absent from the active set past grace', () => {
     const active = new Set(['slug.it.js', 'slug.en.js', 'App.js']);

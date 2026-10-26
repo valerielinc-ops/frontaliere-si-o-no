@@ -488,12 +488,15 @@ describe('deploy-it-pages-prep.sh — the purge is driven by state, not gated on
     expect(markerAt, 'success path: purge first, marker after').toBeGreaterThan(lastPurgeAt);
   });
 
-  it('the ledger is written only after the purge, no-store, outside assets/, and nothing is immutable', () => {
+  it('the ledger is written only after the purge, no-store, outside assets/, and only releases are immutable', () => {
     expect(LEDGER_KEY.startsWith('assets/'), 'ledger inside assets/ would be in the janitor\'s scope').toBe(false);
     expect(PREP).toContain(`_ledger_key="${LEDGER_KEY}"`);
     const putAt = body.findIndex((l) => /copyto "\$_pdir\/ledger-out\.json" "\$bkt\/\$_ledger_key"/.test(l));
     expect(putAt).toBeGreaterThan(statefulAt);
     expect(body.slice(putAt, putAt + 4).join(' ')).toMatch(/Cache-Control: no-store/);
-    expect(body.filter((l) => /immutable/.test(l))).toEqual([]);
+    const immutableSyncs = body.filter((l) => /_r2_sync .*immutable/.test(l));
+    expect(immutableSyncs).toHaveLength(1);
+    expect(immutableSyncs[0]).toMatch(/\$stage\/assets\/releases.*assets\/releases/);
+    expect(body.filter((l) => /_r2_sync .*\$stage\/assets[" ]/.test(l) && /immutable/.test(l))).toEqual([]);
   });
 });

@@ -13,6 +13,7 @@ import { buildIdPlugin } from './build-plugins/buildIdPlugin';
 import { seoBlogShardIndexPlugin, RESOLVED_SEO_BLOG_SHARD_INDEX_ID } from './build-plugins/seoBlogShardIndexPlugin';
 import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
+import { versionedCdnAssetsPlugin } from './build-plugins/versionedCdnAssetsPlugin';
 import { assetIntegrityManifestPlugin } from './build-plugins/shared/assetIntegrity';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { minifyCriticalIndexCssPlugin } from './build-plugins/minifyCriticalIndexCss';
@@ -600,6 +601,12 @@ export default defineConfig(({ mode }) => {
  // final cluster dist-truth pass is the last protection against a late
  // closeBundle overwrite reintroducing a noindex URL into a sitemap shard.
  sitemapAliasPlugin(__dirname),
+ // The stable entry URL is replaced after every HTML emitter has finished:
+ // it becomes a build-scoped bootstrap and the complete executable graph is
+ // copied under /assets/releases/<DEPLOY_BUILD_ID>/. This is deliberately the
+ // final output mutation so no static-page producer can reintroduce a direct
+ // stable application entry after the versioned graph is prepared.
+ versionedCdnAssetsPlugin(__dirname),
  // ── Content-hash manifest finalize DISABLED 2026-04-28 ──────
  // Paired with the disabled bootstrap above. Code retained for future
  // revival once a use-case (rollback / hotfix-only chains) emerges.
@@ -796,17 +803,18 @@ export default defineConfig(({ mode }) => {
  //   serves EVERYTHING (hashed or not) with `cache-control: max-age=600` + ETag
  //   (verified live 2026-06-12). Hashed names therefore only rotated URLs
  //   (cold CDN/browser cache on every deploy) without ever being immutable.
- // With stable names every URL persists across deploys: unchanged files
- // revalidate to 304s, changed files re-download — and pages stay byte-identical.
- // Worst case after a deploy is a ≤600s stale window (same as the entry today).
+ // The stable root names now act as compatibility aliases; the executable
+ // graph is copied to /assets/releases/<DEPLOY_BUILD_ID>/ and loaded through
+ // the tiny stable entry bootstrap. Release URLs are unique per build and can
+ // be immutable, while the root aliases remain short-lived/revalidatable.
  // - Chunk discovery in build plugins goes through
  //   build-plugins/shared/chunkFiles.ts (stable name first, legacy hashed
  //   fallback); the entry filename itself is the SPA_ENTRY_JS_FILENAME
  //   constant imported above, shared with build-plugins/spaBundleResolver.ts
  //   and seoPageShell.ts (shared/spaEntryFilenames.ts) so none of them can
  //   drift from what's configured here.
- // - CACHE: see public/_headers — /assets/* revalidates (max-age=600); nothing
- //   may be served immutable now that names are stable.
+ // - CACHE: see public/_headers — root /assets/* revalidates (max-age=600),
+ //   while /assets/releases/* is build-scoped and immutable.
  // - CDN offload (deploy.yml) cp -r's all of dist/assets and the additive merge
  //   (cp -n) never overwrites a freshly-built file → the stable names always
  //   carry the new bytes; prune-cdn-assets GCs the legacy hashed generations.
