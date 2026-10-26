@@ -1100,6 +1100,24 @@ async function reportGA4(token) {
       dateRanges: settledRequest.dateRanges,
       build: process.env.GITHUB_SHA || null,
     });
+    if (!flags.json) {
+      const templateRevenue = result.trafficQuality.raw?.pageViewsByTemplate || [];
+      if (templateRevenue.length > 0) {
+        const currency = result.trafficQuality.raw.pageCoverage?.currency
+          || result.trafficQuality.raw.totalCoverage?.currency
+          || '';
+        log('', '');
+        log('💰', `Revenue ads per template (tutte le pagePath, finestra assestata; valuta ${currency || 'n/d'}):`);
+        log('', '  Template'.padEnd(28) + 'Views'.padStart(10) + 'Revenue'.padStart(14) + 'Revenue/1.000'.padStart(16) + ' Stato'.padStart(12));
+        log('', '  ' + '─'.repeat(78));
+        for (const row of templateRevenue.slice(0, 10)) {
+          const revenue = row.adRevenue == null ? 'n/d' : `${row.adRevenue.toFixed(2)} ${currency}`;
+          const perThousand = row.adRevenuePerThousandViews == null ? 'n/d' : `${row.adRevenuePerThousandViews.toFixed(2)} ${currency}`;
+          log('', `  ${row.pageTemplate.slice(0, 24).padEnd(26)}${String(row.views).padStart(10)}${revenue.padStart(14)}${perThousand.padStart(16)}${row.revenueStatus.padStart(12)}`);
+        }
+        log('', '  Revenue = totalAdRevenue GA4 aggregato da pagePath; non è un parametro page_template nativo.');
+      }
+    }
     try {
       result.runtimeIncidents = await fetchRuntimeIncidentHistory({ startDate: fmtDate(startDate), endDate: settledEnd, recentDays: 7 });
     } catch {
