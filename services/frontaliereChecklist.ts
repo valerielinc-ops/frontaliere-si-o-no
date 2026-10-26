@@ -95,6 +95,31 @@ export const CHECKLIST_COMPLETE_ACHIEVEMENT = 'frontaliere_path';
 
 const STORAGE_KEY = 'frontaliere_checklist_v1';
 
+const CHECKLIST_STEP_IDS = new Set(CHECKLIST_STEPS.map(step => step.id));
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function normalizeDone(value: unknown): Record<string, number> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).filter(([key, timestamp]) => (
+      CHECKLIST_STEP_IDS.has(key)
+      && typeof timestamp === 'number'
+      && Number.isFinite(timestamp)
+      && timestamp > 0
+    )),
+  ) as Record<string, number>;
+}
+
+function normalizeAwarded(value: unknown): Record<string, true> {
+  if (!isRecord(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).filter(([key, awarded]) => CHECKLIST_STEP_IDS.has(key) && awarded === true),
+  ) as Record<string, true>;
+}
+
 // ─── State management ────────────────────────────────────────────────────────
 
 export interface ChecklistState {
@@ -110,11 +135,16 @@ export function loadChecklistState(): ChecklistState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const parsed = JSON.parse(raw);
+      const parsed: unknown = JSON.parse(raw);
+      if (!isRecord(parsed)) return { done: {}, awarded: {} };
       return {
-        done: parsed.done || {},
-        awarded: parsed.awarded || {},
-        completedAt: typeof parsed.completedAt === 'number' ? parsed.completedAt : undefined,
+        done: normalizeDone(parsed.done),
+        awarded: normalizeAwarded(parsed.awarded),
+        completedAt: typeof parsed.completedAt === 'number'
+          && Number.isFinite(parsed.completedAt)
+          && parsed.completedAt > 0
+          ? parsed.completedAt
+          : undefined,
       };
     }
   } catch {
