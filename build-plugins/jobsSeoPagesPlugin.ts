@@ -1048,6 +1048,50 @@ function containsJobPostingType(value: unknown): boolean {
  return Object.entries(record).some(([key, nested]) => key !== '@type' && containsJobPostingType(nested));
 }
 
+function collectJobPostingRecords(value: unknown, records: Array<Record<string, unknown>> = []): Array<Record<string, unknown>> {
+ if (Array.isArray(value)) {
+  for (const entry of value) collectJobPostingRecords(entry, records);
+  return records;
+ }
+ if (!value || typeof value !== 'object') return records;
+ const record = value as Record<string, unknown>;
+ const type = record['@type'];
+ if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) {
+  records.push(record);
+ }
+ for (const [key, nested] of Object.entries(record)) {
+  if (key !== '@type') collectJobPostingRecords(nested, records);
+ }
+ return records;
+}
+
+function hasNonEmptyJobPostingField(value: unknown): boolean {
+ if (Array.isArray(value)) return value.length > 0 && value.some(hasNonEmptyJobPostingField);
+ if (!value || typeof value !== 'object') return String(value ?? '').trim().length > 0;
+ return Object.keys(value).length > 0;
+}
+
+function hasCompleteActiveJobPostingContract(fragment: string): boolean {
+ const scriptPattern = /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
+ for (const match of fragment.matchAll(scriptPattern)) {
+  try {
+   const records = collectJobPostingRecords(JSON.parse(match[2] || ''));
+   if (records.some((record) => {
+    const address = (record.jobLocation && typeof record.jobLocation === 'object'
+     ? (record.jobLocation as Record<string, unknown>).address
+     : null) as Record<string, unknown> | null;
+    return hasNonEmptyJobPostingField(record.baseSalary)
+      && hasNonEmptyJobPostingField(record.employmentType)
+      && hasNonEmptyJobPostingField(address?.streetAddress)
+      && hasNonEmptyJobPostingField(address?.postalCode);
+   })) return true;
+  } catch {
+   // A malformed or incomplete legacy payload must be rebuilt, not reused.
+  }
+ }
+ return false;
+}
+
 export function hasActiveJobPostingJsonLd(fragment: string): boolean {
  const scriptPattern = /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
  for (const match of fragment.matchAll(scriptPattern)) {
@@ -1064,13 +1108,14 @@ export function hasActiveJobPostingJsonLd(fragment: string): boolean {
 }
 
 /**
- * An active job ALWAYS carries JobPosting (owner decision 2026-10-24), whatever
- * the provenance of its date. A cached fragment without one — written by the
- * 2026-10-04..24 builds that withheld the schema for unverified dates — must
- * be re-rendered, never reused with its dates patched.
+ * An active job ALWAYS carries the complete JobPosting contract (owner
+ * decision 2026-10-24), whatever the provenance of its date. A cached
+ * fragment without JobPosting, or with fields added by the complete-contract
+ * migration missing, must be re-rendered rather than reused with only its
+ * dates patched.
  */
 export function shouldInvalidateActiveJobReuseWithoutJobPosting(fragment: string): boolean {
- return !hasActiveJobPostingJsonLd(fragment);
+ return !hasCompleteActiveJobPostingContract(fragment);
 }
 
 export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {

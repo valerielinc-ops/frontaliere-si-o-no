@@ -138,4 +138,20 @@ describe('rich-result eligibility validation', () => {
   expect(result.stdout).toContain('missing:jobLocation.address.streetAddress');
   expect(result.stdout).toContain('missing:jobLocation.address.postalCode');
  });
+ it('rejects an incoherent fallback CAP even when the source CAP is formally valid', () => {
+  const schemaWithWrongFallbackPostal = {
+   ...posting,
+   jobLocation: {
+    address: {
+     addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
+     postalCode: '1000', streetAddress: 'Piazza Riforma 1',
+    },
+   },
+  };
+  const result = validate('reported', schemaWithWrongFallbackPostal, {
+   job: { ...SOURCE_FIELDS, postalCode: '8000', streetAddress: '' },
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain('postalCode:fallback_not_coherent');
+ });
 });

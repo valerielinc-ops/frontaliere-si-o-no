@@ -467,6 +467,7 @@ async function resolveJobSeoBySlug(
  const job = detail ? { ...slim, ...detail } : slim;
  const localizedTitle = normalizeSeoText(jobDisplayTitle(job));
  const localizedDescription = compactSeoDescription(String(job?.descriptionByLocale?.[locale] || job?.description || ''), 360);
+ if (!localizedTitle || !localizedDescription) return null;
  const logoUrl = companyLogoFromJob(job);
  const canonicalUrl = `${BASE_URL}${canonicalLocalePath}`;
  const address = resolveJobAddress(job);

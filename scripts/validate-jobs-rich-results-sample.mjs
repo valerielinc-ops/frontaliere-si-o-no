@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { resolveRolloutSchemaPostingDate } from './lib/job-posting-date-rollout.mjs';
 import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
-import { COMPANY_HQ_ADDRESSES } from '../build-plugins/shared/companyHqAddresses.mjs';
+import { COMPANY_HQ_ADDRESSES, resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveJobEmploymentTypes } from './lib/job-employment-type.mjs';
 import { isSalaryReportedBySource, isSourceStreetAddress } from './lib/jobposting-field-provenance.mjs';
 
@@ -12,6 +13,7 @@ const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BASE_URL = 'https://frontaliereticino.ch';
+const SOURCE_DATA_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 // Derived from the canonical TI legacy section table — see cantonResolvers.mjs.
 const LOCALES = Object.entries(SECTION_LEGACY_TI).map(([code, segment]) => ({
@@ -27,6 +29,93 @@ const LINK_RE = /<link\b[^>]*>/gi;
 
 function readJson(file) {
   return JSON.parse(readFileSync(file, 'utf8'));
+}
+
+function normalizePostalLocality(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+let postalReferenceData;
+function loadPostalReferenceData() {
+  if (postalReferenceData !== undefined) return postalReferenceData;
+  const dataRoots = [path.join(ROOT, 'data'), path.join(SOURCE_DATA_ROOT, 'data')];
+  for (const dataRoot of dataRoots) {
+    const postalFile = path.join(dataRoot, 'swiss-postal-codes.json');
+    const localityFile = path.join(dataRoot, 'swiss-locality-postal-codes.json');
+    if (!existsSync(postalFile) || !existsSync(localityFile)) continue;
+    try {
+      postalReferenceData = {
+        postalCodes: readJson(postalFile),
+        localities: readJson(localityFile),
+      };
+      return postalReferenceData;
+    } catch {
+      // Keep looking for the repository data when a temporary validation root
+      // only contains data/jobs.json.
+    }
+  }
+  postalReferenceData = null;
+  return postalReferenceData;
+}
+
+function resolveKnownLocalityPostalCode(locality, region) {
+  const key = normalizePostalLocality(locality);
+  if (!key) return '';
+  const reference = loadPostalReferenceData();
+  if (!reference) return '';
+
+  const direct = Object.entries(reference.postalCodes || {}).find(([name, postalCode]) => (
+    normalizePostalLocality(name) === key && /^\d{4}$/.test(String(postalCode || '').trim())
+  ));
+
+  const canton = String(region || '').toUpperCase().trim();
+  const entries = reference.localities?.cantons?.[canton] || {};
+  for (const [name, postalCode] of Object.entries(entries)) {
+    const normalizedName = normalizePostalLocality(name)
+      .replace(new RegExp(`\\s+${canton.toLowerCase()}$`), '')
+      .trim();
+    if (normalizedName === key && /^\d{4}$/.test(String(postalCode || '').trim())) {
+      return String(postalCode).trim();
+    }
+  }
+  if (direct) {
+    // A name-only postcode is usable only when the locality is not known in a
+    // different canton. This keeps "Lugano/TI/6900" valid while rejecting a
+    // formally valid CAP paired with an incompatible addressRegion.
+    if (canton) {
+      const knownCantons = Object.entries(reference.localities?.cantons || {})
+        .filter(([, cantonEntries]) => Object.keys(cantonEntries || {}).some((name) => (
+          normalizePostalLocality(name).replace(new RegExp(`\\s+${String(canton).toLowerCase()}$`), '').trim() === key
+        )))
+        .map(([code]) => code);
+      if (knownCantons.length > 0 && !knownCantons.includes(canton)) return '';
+    }
+    return String(direct[1]).trim();
+  }
+  return '';
+}
+
+function resolveCoherentFallbackPostalCode(address, job) {
+  const locality = String(address?.addressLocality || '').trim();
+  const region = String(address?.addressRegion || '').trim();
+  const localityPostalCode = resolveKnownLocalityPostalCode(locality, region);
+  if (localityPostalCode) return localityPostalCode;
+
+  const companySlug = String(job?.companyKey || job?.companySlug || '').trim().toLowerCase();
+  const fallback = resolveFallbackAddress(companySlug, locality, region);
+  if (
+    fallback
+    && normalizePostalLocality(fallback.addressLocality) === normalizePostalLocality(locality)
+    && /^\d{4}$/.test(String(fallback.postalCode || '').trim())
+  ) {
+    return String(fallback.postalCode).trim();
+  }
+  return '';
 }
 
 function pickSample(jobs, size) {
@@ -186,9 +275,17 @@ function validateFieldProvenance(jobPosting, job) {
   if (!/^\d{4,5}$/.test(String(address.postalCode || '').trim())) errors.push('postalCode:missing_or_invalid');
   else if (sourcePostalCanEmit && !fromSourceOrHq(address.postalCode, job?.postalCode, hq?.postalCode)) {
     // A formally valid source CAP can still be rejected by the builder when
-    // it belongs to another locality; a valid fallback is then expected.
+    // it belongs to another locality; only the resolver's coherent fallback
+    // is then accepted. A different four-digit CAP is still a contract error.
     const sourceLooksLikeFallback = String(address.postalCode).trim() !== sourcePostalCode;
-    if (!sourceLooksLikeFallback) errors.push('postalCode:source_value_not_preserved');
+    if (!sourceLooksLikeFallback) {
+      errors.push('postalCode:source_value_not_preserved');
+    } else {
+      const expectedFallbackPostalCode = resolveCoherentFallbackPostalCode(address, job);
+      if (!expectedFallbackPostalCode || String(address.postalCode).trim() !== expectedFallbackPostalCode) {
+        errors.push('postalCode:fallback_not_coherent');
+      }
+    }
   }
   return errors;
 }
