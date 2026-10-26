@@ -159,7 +159,7 @@ import {
 // trasportabile e runnable da solo su entrambi i repo.
 import { redactWorkflowPaths } from '../lib/workflow-scope-detect.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { withTransientGithubApiRetry } from './lib/github-api-retry.mjs';
+import { withTransientGithubApiRetry } from './scan-unreported-failures.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const RESOLVE_MODE = process.argv.includes('--resolve');

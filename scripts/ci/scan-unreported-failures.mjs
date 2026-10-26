@@ -143,26 +143,12 @@ import {
   SIGNATURE_MAX_LEN,
   signatureMarker,
 } from './lib/failure-signature.mjs';
-import {
-  GITHUB_API_TRANSIENT_RETRY_BASE_MS,
-  GITHUB_API_TRANSIENT_RETRIES,
-  GITHUB_API_TRANSIENT_RETRY_STATUSES,
-  isTransientGithubApiError,
-  withTransientGithubApiRetry,
-} from './lib/github-api-retry.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 // Mantieni l'API storica dello scanner: i test e i caller continuano a
 // importare questi simboli da qui, mentre la logica canonica vive nel modulo
 // condiviso col reporter che scrive il marker.
 export { failureSignature, SIGNATURE_MARKER, SIGNATURE_MAX_LEN } from './lib/failure-signature.mjs';
-export {
-  GITHUB_API_TRANSIENT_RETRY_BASE_MS,
-  GITHUB_API_TRANSIENT_RETRIES,
-  GITHUB_API_TRANSIENT_RETRY_STATUSES,
-  isTransientGithubApiError,
-  withTransientGithubApiRetry,
-} from './lib/github-api-retry.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -403,6 +389,72 @@ const IGNORE = new Set(
     .map((s) => s.trim())
     .filter(Boolean),
 );
+
+/**
+ * GitHub's Actions API occasionally returns a gateway/server error for an
+ * otherwise valid read. The scanner must remain fail-closed after the retry
+ * budget, but one transient 502 must not turn a readable job payload into an
+ * undelivered alert (run 39931092128, 2026-10-23).
+ */
+export const GITHUB_API_TRANSIENT_RETRY_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
+export const GITHUB_API_TRANSIENT_RETRIES = 2;
+export const GITHUB_API_TRANSIENT_RETRY_BASE_MS = 1000;
+
+function sleepSync(milliseconds) {
+  if (!Number.isFinite(milliseconds) || milliseconds <= 0) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds);
+}
+
+function errorChainText(error) {
+  const texts = [];
+  const seen = new Set();
+  for (let current = error; current && !seen.has(current); current = current.cause) {
+    seen.add(current);
+    texts.push(String(current?.message ?? ''));
+    texts.push(String(current?.stderr ?? ''));
+  }
+  return texts.join('\n');
+}
+
+/**
+ * Classify only idempotent GitHub API transport/server failures as retryable.
+ * Auth, permission, not-found and malformed-request failures remain terminal
+ * so the caller keeps its fail-closed behaviour.
+ */
+export function isTransientGithubApiError(error) {
+  const status = Number(error?.status ?? error?.statusCode);
+  if (GITHUB_API_TRANSIENT_RETRY_STATUSES.has(status)) return true;
+  const text = errorChainText(error);
+  return /\bHTTP\s+(?:408|425|429|500|502|503|504)\b/i.test(text)
+    || /\b(?:Bad Gateway|Service Unavailable|Gateway Timeout)\b/i.test(text);
+}
+
+/**
+ * Synchronous bounded retry for read-only GitHub API calls.
+ *
+ * `sleep` is injectable so the retry contract is testable without waiting;
+ * production uses a linear 1s/2s backoff and then rethrows the final error.
+ */
+export function withTransientGithubApiRetry(operation, {
+  retries = GITHUB_API_TRANSIENT_RETRIES,
+  baseDelayMs = GITHUB_API_TRANSIENT_RETRY_BASE_MS,
+  sleep = sleepSync,
+  onRetry,
+} = {}) {
+  const maxRetries = Number.isInteger(retries) ? Math.max(0, retries) : GITHUB_API_TRANSIENT_RETRIES;
+  const retryBaseMs = Number.isFinite(baseDelayMs) ? Math.max(0, baseDelayMs) : GITHUB_API_TRANSIENT_RETRY_BASE_MS;
+  for (let attempt = 0; ; attempt += 1) {
+    try {
+      return operation();
+    } catch (error) {
+      if (!isTransientGithubApiError(error) || attempt >= maxRetries) throw error;
+      const retryNumber = attempt + 1;
+      const delayMs = retryBaseMs * retryNumber;
+      onRetry?.({ attempt: retryNumber, maxRetries, delayMs, error });
+      sleep(delayMs);
+    }
+  }
+}
 
 function repoFlag() {
   return REPO ? ['--repo', REPO] : [];
