@@ -80,13 +80,37 @@ describe('translateFieldFreeMt', () => {
     expect(called).toBe(false);
   });
 
-  it('returns "" (fail-closed) when the engine emits a null marker or a non-string', async () => {
+  it('uses the target-locale verdict for null markers and non-strings', async () => {
     const marker = async () => 'null';
     expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: marker })).toBe('');
     const capital = async () => 'Null';
-    expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: capital })).toBe('');
+    expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: capital })).toBe('Null');
+    expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'en', fieldType: 'title', translate: capital })).toBe('');
     const obj = async () => ({ text: 'Hallo' });
     expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: obj as never })).toBe('');
+  });
+
+  it('refuses a null or empty source before calling MT', async () => {
+    let calls = 0;
+    const translate = async () => {
+      calls += 1;
+      return 'Soll nie erscheinen';
+    };
+    expect(await translateFieldFreeMt({ text: '  null  ', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate })).toBe('');
+    expect(await translateFieldFreeMt({ text: '', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate })).toBe('');
+    expect(calls).toBe(0);
+  });
+
+  it('refuses a normalized Italian source passthrough', async () => {
+    const source = 'I frontalieri ricevono informazioni aggiornate sul permesso G.';
+    const out = await translateFieldFreeMt({
+      text: source,
+      sourceLang: 'it',
+      targetLang: 'en',
+      fieldType: 'description',
+      translate: async () => '  I   FRONTALIERI ricevono informazioni aggiornate sul permesso G.  ',
+    });
+    expect(out).toBe('');
   });
 });
 

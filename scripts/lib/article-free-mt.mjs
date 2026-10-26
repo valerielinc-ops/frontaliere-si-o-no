@@ -19,6 +19,29 @@ const NAV_LINK_RE = /\[[^\]]+\]\(nav:[^)]+\)/g;
 const NAV_SENTINEL_RE = /0NAV(\d+)0/g;
 
 /**
+ * This is the site-side field verdict, not a copy of the corpus body verdict:
+ * source/machine text and target-locale translated text have different `null`
+ * semantics. Keep the source echo guard here so this small module remains
+ * dependency-free from the corpus (and from the full MT cascade).
+ */
+function normalizePassthroughText(value) {
+  return String(value ?? '')
+    .normalize('NFKC')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\r\n/g, '\n')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+    .toLowerCase();
+}
+
+function isSourcePassthrough(sourceText, translatedText) {
+  const source = normalizePassthroughText(sourceText);
+  return source.length > 0 && source === normalizePassthroughText(translatedText);
+}
+
+/**
  * Returns the translated field only when the model actually produced a string.
  *
  * A translation call asks for `{"body1": "..."}` but a model is free to answer
@@ -190,8 +213,8 @@ export async function translateFieldFreeMt({
   balanceMarkdown = (s) => s,
   onWarn = () => {},
 }) {
-  const src = String(text ?? '').trim();
-  if (!src) return '';
+  if (!hasUsableContentText(text)) return '';
+  const src = text.trim();
   const { masked, expected, restore } = maskNavLinks(src);
   let out;
   try {
@@ -202,8 +225,14 @@ export async function translateFieldFreeMt({
   }
   // Uscita di un MOTORE, non prosa di un modello: predicato severo, tutte
   // le grafie di `null`. `String(out)` su un oggetto produceva
-  // `[object Object]` truthy e lo pubblicava. Non-stringa e marker → ''.
-  if (!hasUsableContentText(out)) return '';
+  // `[object Object]` truthy e lo pubblicava. Il verdetto è quello del campo
+  // tradotto: `Null` è una parola valida in tedesco, mentre `null` resta un
+  // marker serializzato. Non-stringa e marker → ''.
+  if (!hasUsableTranslatedText(out, targetLang)) return '';
+  if (isSourcePassthrough(masked, out)) {
+    onWarn(`free-MT ${targetLang}:${fieldType} ha restituito la sorgente senza tradurla`);
+    return '';
+  }
   let restored = String(out);
   if (expected > 0) {
     const r = restore(restored);
