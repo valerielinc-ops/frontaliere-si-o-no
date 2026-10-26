@@ -46,28 +46,28 @@ export function parseExpandedEcari(sourceKey, html, { fetchedAt = new Date().toI
 export async function fetchExpandedEcari(sourceKey, { fetchPage = fetchHtml, now = new Date() } = {}) {
   const config = EXPANDED_ECARI_SOURCES[sourceKey];
   if (!config) throw new Error(`Unknown expanded eCari source: ${sourceKey}`);
-  if (sourceKey === 'fr') {
-    // appls.ocn.ch è geo-fenced su IP svizzeri: il 2026-09-25 Zurigo e Ginevra
-    // ricevono eCari 432.10.68 «Plaques aux enchères», ogni sonda non svizzera
-    // (GitHub Actions compreso) un timeout TCP su 443. Dal runner le righe
-    // arrivano quindi dal relay della Cloud Function di Zurigo. Il server non
-    // invia l'intermedio SwissSign: la fetch diretta lo fornisce.
-    return fetchWithPublicApiRelay({
-      sourceKey,
-      plateCode: config.plateCode,
-      officialAuctionUrl: config.officialAuctionUrl,
-      now,
-      logLabel: 'fetchExpandedEcari:fr',
-      direct: async () => {
+  return fetchWithPublicApiRelay({
+    sourceKey,
+    plateCode: config.plateCode,
+    officialAuctionUrl: config.officialAuctionUrl,
+    now,
+    logLabel: `fetchExpandedEcari:${sourceKey}`,
+    direct: async () => {
+      if (sourceKey === 'fr') {
+        // appls.ocn.ch è geo-fenced su IP svizzeri: il 2026-09-25 Zurigo e Ginevra
+        // ricevono eCari 432.10.68 «Plaques aux enchères», ogni sonda non svizzera
+        // (GitHub Actions compreso) un timeout TCP su 443. Dal runner le righe
+        // arrivano quindi dal relay della Cloud Function di Zurigo. Il server non
+        // invia l'intermedio SwissSign: la fetch diretta lo fornisce.
         const html = requireEcariCataloguePage(
           await fetchPage(config.officialAuctionUrl, { ca: SWISSSIGN_RSA_TLS_OV_ICA_2022_1 }),
           config,
         );
         return parseExpandedEcari(sourceKey, html, { fetchedAt: new Date().toISOString() });
-      },
-    });
-  }
-  return fetchEcariCantonAuctions(config);
+      }
+      return fetchEcariCantonAuctions(config, { fetchPage });
+    },
+  });
 }
 
 export function parseExpandedCard(sourceKey, html, { fetchedAt = new Date().toISOString() } = {}) {
