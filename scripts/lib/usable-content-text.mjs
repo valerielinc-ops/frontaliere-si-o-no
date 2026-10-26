@@ -11,8 +11,8 @@
  *   - source / machine sentinel (IT payload, free-MT, CSV/DB feed) →
  *     `hasUsableContentText` — every graph of `null` is unusable;
  *   - model output in a target locale → `hasUsableTranslatedText` — on `de`
- *     only the serialized lowercase form is a marker, because `Null` is the
- *     German word for «zero» (nouns are capitalised). Rejecting it publishes
+ *     the actual word `Null` is valid, while every serialized/case-variant
+ *     null marker remains unusable. Rejecting it publishes
  *     Italian under `/de/`.
  */
 
@@ -53,7 +53,13 @@ export function isSerializedNullString(value) {
 }
 
 export function isNullStringForLocale(value, locale) {
-  return localeHasNullAsWord(locale) ? isSerializedNullString(value) : isLiteralNullString(value);
+  if (!localeHasNullAsWord(locale)) return isLiteralNullString(value);
+  if (typeof value !== 'string') return false;
+  const trimmed = value.trim();
+  // German `Null` is real prose. A quoted or differently-cased spelling is a
+  // serialized null marker and must remain fail-closed.
+  if (trimmed === 'Null') return false;
+  return LITERAL_NULL_STRING_RE.test(stripOneWrappingQuotePair(trimmed));
 }
 
 /** Usable source/machine text: non-empty string that is not a `null` marker. */
@@ -63,8 +69,9 @@ export function hasUsableContentText(value) {
 
 /**
  * Usable translated field. Same as `hasUsableContentText` except on locales
- * where `null` is a word (today: `de`): only the serialized lowercase form
- * counts as a marker. Missing locale → fail closed (severe predicate).
+ * where `null` is a word (today: `de`): only the actual word `Null` is valid;
+ * serialized/case-variant markers remain unusable. Missing locale → fail
+ * closed (severe predicate).
  */
 export function hasUsableTranslatedText(value, locale) {
   return typeof value === 'string' && value.trim().length > 0 && !isNullStringForLocale(value, locale);

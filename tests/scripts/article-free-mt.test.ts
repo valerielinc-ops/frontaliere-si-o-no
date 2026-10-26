@@ -85,6 +85,8 @@ describe('translateFieldFreeMt', () => {
     expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: marker })).toBe('');
     const capital = async () => 'Null';
     expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: capital })).toBe('Null');
+    const allCaps = async () => 'NULL';
+    expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: allCaps })).toBe('');
     expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'en', fieldType: 'title', translate: capital })).toBe('');
     const obj = async () => ({ text: 'Hallo' });
     expect(await translateFieldFreeMt({ text: 'Ciao', sourceLang: 'it', targetLang: 'de', fieldType: 'title', translate: obj as never })).toBe('');
