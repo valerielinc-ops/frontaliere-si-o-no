@@ -28,15 +28,76 @@ const TICINO_ADDRESS_OVERRIDES = new Map([
 export const ITALY_BORDER_PROVINCES = Object.freeze(['CO', 'VA', 'VB']);
 export const TICINO_PHARMACY_PDF_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf';
 // The canton publishes the same official PDF through the m4 host as well. The
-// alternate host is a transport fallback only; the primary URL remains the
-// canonical provenance recorded in the catalogue.
+// alternate host is a transport fallback; a dated URL discovered on the
+// official landing page is retained as the provenance when the filename moves.
 export const TICINO_PHARMACY_PDF_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf';
+export const TICINO_PHARMACY_DIRECTORY_URL = 'https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
 export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
   TICINO_PHARMACY_PDF_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
 ]);
+const TICINO_PHARMACY_PDF_HOSTS = new Set(['www4.ti.ch', 'm4.ti.ch']);
+const TICINO_PHARMACY_PDF_PATH_PREFIX = '/fileadmin/DSS/DSP/UFC/PDF/';
 export const ITALY_PHARMACY_DATASET_PAGE = 'https://www.dati.salute.gov.it/it/dataset/farmacie/';
 export const OSM_BORDER_QUERY_BBOX = '45.3,7.0,46.7,10.8';
+
+function decodeHtmlAttribute(value) {
+  return String(value || '')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/&#x2f;|&#47;/gi, '/');
+}
+
+function isTicinoPharmacyPdfUrl(value, baseUrl) {
+  let url;
+  try {
+    url = new URL(decodeHtmlAttribute(value), baseUrl);
+  } catch {
+    return null;
+  }
+  if (url.protocol !== 'https:' || !TICINO_PHARMACY_PDF_HOSTS.has(url.hostname)) return null;
+  if (!url.pathname.toLowerCase().startsWith(TICINO_PHARMACY_PDF_PATH_PREFIX.toLowerCase())) return null;
+  const filename = decodeURIComponent(url.pathname.split('/').at(-1) || '');
+  if (!/^lista[_-]?farmacie(?:[_-][a-z0-9]+)*\.pdf$/i.test(filename)) return null;
+  if (/convenzionate/i.test(filename)) return null;
+  return url.href;
+}
+
+function ticinoPharmacyPdfDate(urlValue) {
+  try {
+    const pathname = new URL(urlValue).pathname;
+    const filename = decodeURIComponent(pathname.split('/').at(-1) || '');
+    const match = filename.match(/(?:^|[_-])(\d{8})(?=\.pdf$)/i);
+    return match ? Number(match[1]) : -1;
+  } catch {
+    return -1;
+  }
+}
+
+/**
+ * Extracts the current official Ticino pharmacy catalogue PDF from the
+ * canton landing page. The canton periodically replaces the dated filename;
+ * only the two known official hosts and the `Lista_Farmacie*.pdf` filename
+ * family are accepted, so an unrelated PDF cannot become a data source.
+ */
+export function discoverTicinoPharmacyPdfUrls(html, baseUrl = TICINO_PHARMACY_DIRECTORY_URL) {
+  const candidates = [];
+  const linkPattern = /<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1[^>]*>/gi;
+  let match;
+  while ((match = linkPattern.exec(String(html || '')))) {
+    const url = isTicinoPharmacyPdfUrl(match[2], baseUrl);
+    if (url && !candidates.includes(url)) candidates.push(url);
+  }
+  if (candidates.length === 0) {
+    throw new Error('Official Ticino pharmacy page did not expose a validated Lista_Farmacie PDF URL');
+  }
+  candidates.sort((left, right) => (
+    ticinoPharmacyPdfDate(left) - ticinoPharmacyPdfDate(right)
+    || left.localeCompare(right)
+  ));
+  return candidates;
+}
 
 function text(value) {
   let result = String(value ?? '').trim();
@@ -638,7 +699,7 @@ function matchPreviousTicino(row, previous) {
   return sameStreet[0]?.score >= 12 ? sameStreet[0].candidate : undefined;
 }
 
-export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, osmElements = [], requiredIds = [] }) {
+export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, osmElements = [], requiredIds = [], sourceUrl = TICINO_PHARMACY_PDF_URL }) {
   const usedIds = new Set();
   const usedSlugs = new Set();
   const usedOsmElementKeys = new Set();
@@ -674,7 +735,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       canton: 'Ticino',
       country: 'CH',
       ...(previousRecord?.phone ? { phone: previousRecord.phone } : {}),
-      sourceUrl: previousRecord?.sourceUrl || TICINO_PHARMACY_PDF_URL,
+      sourceUrl,
       sourceType: 'official',
       lastVerifiedAt: fetchedAt,
       dataAvailability: {},
