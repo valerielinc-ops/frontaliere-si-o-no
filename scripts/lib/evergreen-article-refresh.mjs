@@ -67,6 +67,33 @@ function writeRefreshFile(file, content) {
   }
 }
 
+/**
+ * Shared preflight for evergreen producers that either register or refresh a
+ * stable article. The caller supplies its own factuality/content gate because
+ * that gate belongs to the article writer, while identity and locale coverage
+ * are the same invariant for every evergreen producer.
+ */
+export function assertEvergreenArticleReadyForWrite(data, expectedId, locales, validateContent) {
+  if (!data || data.id !== expectedId) {
+    throw new Error(`evergreen article: refusing to write unexpected article id "${data?.id || ''}"`);
+  }
+  const missingLocales = locales.filter((locale) => !data.content?.[locale] || typeof data.content[locale] !== 'object');
+  if (missingLocales.length) {
+    throw new Error(`evergreen article: refusing to write without locale payloads: ${missingLocales.join(', ')}`);
+  }
+  validateContent(data);
+  return data;
+}
+
+/** Render all locale body files before any caller starts replacing files. */
+export function buildEvergreenBodyOutputs(data, repoRoot, locales, buildBodyFile) {
+  return locales.map((locale) => ({
+    dir: path.join(repoRoot, 'services', 'locales', 'blog-body', locale),
+    file: path.join(repoRoot, 'services', 'locales', 'blog-body', locale, `${data.id}.ts`),
+    source: buildBodyFile(data, locale),
+  }));
+}
+
 function parseTypeScript(source, file) {
   const parsed = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
   const diagnostics = parsed.parseDiagnostics ?? [];

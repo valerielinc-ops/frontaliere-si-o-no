@@ -30,11 +30,18 @@ import {
   buildBodyFile,
   assertTranslationsPassFactualityGates,
 } from './create-article.mjs';
-import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
+import {
+  assertEvergreenArticleReadyForWrite,
+  buildEvergreenBodyOutputs,
+  bumpUpdatedAt,
+  bumpDateModified,
+  bumpSitemapLastmod,
+} from './lib/evergreen-article-refresh.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DIGEST_ARTICLE_ID = 'eventi-weekend-ticino';
 
 // Evergreen metadata — registered once, NEVER refreshed (no date/count inside).
 const STATIC_META = {
@@ -70,14 +77,34 @@ export function buildData(todayIso) {
   };
 }
 
+/**
+ * Validate the site-owned payload before either producer write path.
+ *
+ * `registerArticleFiles()` repeats the shared article gate, but keeping this
+ * producer-side preflight explicit is important: the refresh path bypasses the
+ * registrar, and a dormant producer must not become a partial writer if it is
+ * re-enabled later with the corpus' stricter payload contract.
+ */
+export function assertDigestReadyForWrite(data) {
+  return assertEvergreenArticleReadyForWrite(
+    data,
+    DIGEST_ARTICLE_ID,
+    LOCALES,
+    assertTranslationsPassFactualityGates,
+  );
+}
+
 /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
 export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
-  assertTranslationsPassFactualityGates(data);
-  for (const locale of LOCALES) {
-    const dir = path.join(repoRoot, 'services', 'locales', 'blog-body', locale);
+  assertDigestReadyForWrite(data);
+
+  // Render every locale before creating a directory or replacing a file. A
+  // malformed later locale must leave the previous refresh intact, not publish
+  // a mixed-locale article.
+  const outputs = buildEvergreenBodyOutputs(data, repoRoot, LOCALES, buildBodyFile);
+  for (const { dir, file, source } of outputs) {
     mkdirSync(dir, { recursive: true });
-    const file = path.join(dir, `${data.id}.ts`);
-    writeFileSync(file, buildBodyFile(data, locale));
+    writeFileSync(file, source);
     log(`  ✅ ${path.relative(repoRoot, file)}`);
   }
 }
@@ -106,6 +133,7 @@ async function main() {
   }
 
   if (!exists) {
+    assertDigestReadyForWrite(data);
     console.log('📂 first run — registering the evergreen article across the blog system…');
     await registerArticleFiles(data, { skipNews: true }); // evergreen → not a Google News item
     console.log('✅ registered.');

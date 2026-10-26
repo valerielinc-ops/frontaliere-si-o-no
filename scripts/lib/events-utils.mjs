@@ -1405,7 +1405,17 @@ export async function enrichEventsWithGeoComune(
 // cache the SAME recurring event title would be re-translated every single
 // day forever. Cached here by normalized Italian title so only genuinely new
 // titles cost a network call.
-const TRANSLATION_CACHE_PATH = path.join(REPO_ROOT, 'data', 'events-translation-cache.json');
+const TRANSLATION_CACHE_REL = path.join('data', 'events-translation-cache.json');
+function eventTranslationCachePath() {
+  const override = process.env.EVENTS_TRANSLATION_CACHE_PATH;
+  return override ? path.resolve(override) : path.join(REPO_ROOT, TRANSLATION_CACHE_REL);
+}
+
+// `null` = not loaded yet; `false` = an existing cache could not be read and
+// must never be replaced with a smaller fallback object on this run.
+let eventTranslationCache = null;
+let eventTranslationCacheFile = null;
+let eventTranslationCacheWritable = true;
 
 /**
  * Load the on-disk title translation cache
@@ -1414,18 +1424,58 @@ const TRANSLATION_CACHE_PATH = path.join(REPO_ROOT, 'data', 'events-translation-
  * identica in quella lingua, quindi non va ripagata (vedi `fillLocaleGaps`).
  */
 export function loadEventTitleTranslationCache() {
+  const file = eventTranslationCachePath();
+  if (eventTranslationCache !== null && eventTranslationCacheFile === file) return eventTranslationCache;
+  eventTranslationCacheFile = file;
+  eventTranslationCacheWritable = true;
   try {
-    if (!existsSync(TRANSLATION_CACHE_PATH)) return {};
-    const raw = JSON.parse(readFileSync(TRANSLATION_CACHE_PATH, 'utf-8'));
-    return raw && typeof raw === 'object' ? raw : {};
-  } catch {
-    return {};
+    if (!existsSync(file)) {
+      eventTranslationCache = {};
+      return eventTranslationCache;
+    }
+    const raw = JSON.parse(readFileSync(file, 'utf-8'));
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new Error('not a JSON object');
+    eventTranslationCache = raw;
+  } catch (err) {
+    eventTranslationCacheWritable = false;
+    eventTranslationCache = {};
+    console.warn(
+      `::warning::[events] translation cache unreadable at ${file} (${err?.message || err}) — ` +
+        'fallback translations remain usable, but the cache will NOT be rewritten',
+    );
   }
+  return eventTranslationCache;
 }
 
-/** Persist the title translation cache back to disk (pretty-printed, stable diffs). */
+/** Test seam: drop the in-process translation-cache state. */
+export function resetEventTitleTranslationCache() {
+  eventTranslationCache = null;
+  eventTranslationCacheFile = null;
+  eventTranslationCacheWritable = true;
+}
+
+/**
+ * Persist the title translation cache back to disk (pretty-printed, stable
+ * diffs). A cache that existed but could not be read is not safe to overwrite:
+ * `{}` is a valid fallback for continuing the crawl, but it is not evidence
+ * that the tracked cache was empty.
+ */
 export function saveEventTitleTranslationCache(cache) {
-  writeFileSync(TRANSLATION_CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
+  const file = eventTranslationCachePath();
+  if (!cache || typeof cache !== 'object' || Array.isArray(cache)) {
+    console.warn(`::warning::[events] refusing to write invalid translation cache at ${file}`);
+    return false;
+  }
+  if (eventTranslationCacheFile === file && eventTranslationCacheWritable === false) {
+    console.warn(`::warning::[events] refusing to overwrite unreadable translation cache at ${file}`);
+    return false;
+  }
+  mkdirSync(path.dirname(file), { recursive: true });
+  writeFileSync(file, `${JSON.stringify(cache, null, 2)}\n`, 'utf-8');
+  eventTranslationCache = cache;
+  eventTranslationCacheFile = file;
+  eventTranslationCacheWritable = true;
+  return true;
 }
 
 // ── Cross-locale fallback translation (issue #3741) ──────────────────────

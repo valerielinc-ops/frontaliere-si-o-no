@@ -19,6 +19,13 @@ const article = buildWeekendDigestArticle({
 const data = { id: article.id, content: article.content };
 
 describe('events digest article generator', () => {
+  it('rejects a non-site digest identity before creating any refresh directory', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-gen-id-'));
+    expect(() => refreshBodyFiles({ ...data, id: 'corpus-only-digest' }, root))
+      .toThrow(/unexpected article id/i);
+    expect(existsSync(path.join(root, 'services'))).toBe(false);
+  });
+
   it('refreshBodyFiles writes a valid body file for every locale', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'digest-gen-'));
     refreshBodyFiles(data, root, () => {});

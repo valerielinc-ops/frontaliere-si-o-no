@@ -57,6 +57,14 @@ function writeDay(dir: string, date: string, perCrossing: Record<string, Array<R
 }
 
 describe('border-wait ranking article generator', () => {
+  it('rejects a non-site ranking identity before creating any refresh directory', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'bwr-gen-id-'));
+    const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2027-01-01' });
+    expect(() => refreshBodyFiles({ id: 'corpus-only-ranking', content: article.content }, root))
+      .toThrow(/unexpected article id/i);
+    expect(existsSync(path.join(root, 'services'))).toBe(false);
+  });
+
   it('refreshBodyFiles writes a valid body file for every locale', () => {
     const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, todayIso: '2027-01-01' });
     const data = { id: article.id, content: article.content };
