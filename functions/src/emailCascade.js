@@ -8,12 +8,11 @@
  * scripts/lib/email-cascade.mjs is now a thin re-export shim pointing here —
  * edit THIS file; the shim never needs touching again.
  *
- * Cascade order: Mailgun → Mailjet → Mailtrap → Maileroo → Cloudflare → Resend
- * (reordered 2026-07-16 — see PROVIDERS[resend] below for why resend moved last).
- * Maileroo's plan is 250000/mo (Pro) — with the
- * three free tiny-cap providers ahead of it (~650/day combined) it now absorbs
- * effectively all newsletter + job-alert volume before cloudflare/resend are
- * ever touched; see PROVIDERS[maileroo] below.
+ * Cascade order: Maileroo → Mailgun → Mailjet → Cloudflare → Resend
+ * (Maileroo is the priority-1 provider; the others remain overflow paths).
+ * Maileroo's plan is 250000/mo (Pro), so it absorbs the normal transactional,
+ * newsletter and job-alert volume before the smaller overflow providers are
+ * touched; see PROVIDERS[maileroo] below.
  * Each provider has a daily quota. When one is exhausted, the next takes over.
  * Tracking (persistDelivery) is provider-agnostic — callers handle Firestore writes.
  *
@@ -135,6 +134,16 @@ function mailerooApiKeyForEmail(email) {
 }
 
 const PROVIDERS = [
+  // Maileroo is the priority-1 provider for every send that uses the normal
+  // cascade. Its Pro plan has the largest available sending capacity, DKIM/
+  // DMARC are verified for the site domain, and its API forwards attachments.
+  // The effective daily cap is read from `_dynamicDailyLimits.maileroo` after
+  // the billing-period usage sync; the static value is the safe fallback.
+  { id: 'maileroo', dailyLimit: MAILEROO_STATIC_DAILY_LIMIT, monthlyLimit: MAILEROO_MONTHLY_LIMIT,
+    // scheduled_at in the JSON body, RFC 3339 (ISO 8601 is valid RFC 3339).
+    // Lookahead undocumented by the provider — clamped to 3 days, same
+    // conservative floor as Mailgun's default-plan cap.
+    scheduledSend: { param: 'scheduled_at', maxLookaheadMs: 3 * DAY_MS } },
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000,
     // o:deliverytime, RFC 2822 with an explicit +0000 offset (NOT toUTCString(),
     // which emits "GMT"). Lookahead clamped to 3 days — confirmed EXACT via a
@@ -159,31 +168,6 @@ const PROVIDERS = [
   // against the REAL billing-cycle boundaries Mailtrap's own API returns.
   // `dailyLimit: 150` was only the pre-sync/unverifiable-usage fallback.
   // { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
-  // maileroo: paid plan is 250000/mo (Pro), activated to remain the primary
-  // channel for newsletter + job-alert
-  // volume). DKIM selector mta._domainkey.frontaliereticino.ch is published and
-  // Maileroo signs DMARC-aligned. Verified 2026-06-30 with a live test send to
-  // Gmail (X-Maileroo-Ref-Id 411800c3...): dkim=pass
-  // header.i=@frontaliereticino.ch s=mta, spf=pass smtp.mailfrom=@frontaliereticino.ch
-  // (return-path on our domain, 85.204.106.x authorized via include:_spf.maileroo.com),
-  // dmarc=pass at p=reject (dis=NONE), delivered to inbox. Placed before cloudflare so
-  // the three free tiny-cap providers are exhausted first at zero extra cost,
-  // then maileroo's much larger paid budget absorbs the rest of the day's volume.
-  //
-  // Like resend (see PROVIDERS[resend] below), its effective daily cap is read
-  // from `_dynamicDailyLimits.maileroo` — recomputed on every
-  // syncQuotasFromAPIs() run by computeMailerooDynamicDailyLimit() as
-  // (live plan limit − period-to-date usage) ÷ days left in the Account API's
-  // current billing period. If the Account API is unavailable, statistics
-  // fallback uses the current UTC calendar month. `dailyLimit: 8064` below
-  // (250000/31, the safe maximum-days fallback) is only the
-  // pre-sync/unverifiable-usage fallback — see
-  // MAILEROO_CYCLE_FALLBACK_DAILY.
-  { id: 'maileroo', dailyLimit: MAILEROO_STATIC_DAILY_LIMIT, monthlyLimit: MAILEROO_MONTHLY_LIMIT,
-    // scheduled_at in the JSON body, RFC 3339 (ISO 8601 is valid RFC 3339).
-    // Lookahead undocumented by the provider — clamped to 3 days, same
-    // conservative floor as Mailgun's default-plan cap.
-    scheduledSend: { param: 'scheduled_at', maxLookaheadMs: 3 * DAY_MS } },
   // Cloudflare Email Service: reverted to the free-tier threshold 2026-07-06
   // (owner request) — dailyLimit=100, monthlyLimit=3000, superseding the
   // 2026-07-03 paid-overage bump (dailyLimit 1000/monthlyLimit 30000). Root

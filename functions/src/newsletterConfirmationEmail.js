@@ -1,7 +1,8 @@
 /**
  * newsletterConfirmationEmail.js — Newsletter double opt-in confirmation email
  *
- * Sends a branded confirmation email to new newsletter subscribers via Resend.
+ * Sends a branded confirmation email to new newsletter subscribers through the
+ * Maileroo-first email cascade.
  * Uses HMAC tokens for secure confirmation link verification.
  * Includes 1-hour cooldown to prevent spam.
  *
@@ -155,8 +156,8 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  if (!email || !email.includes('@')) {
  return { success: false, error: 'invalid_email' };
  }
- // Cascade-routed (2026-07-16, was a direct Resend client) — pacing +
- // fallback if Resend alone is exhausted. Cloud Functions source secrets
+ // Cascade-routed (2026-07-16, was a direct provider client) — Maileroo is
+ // priority 1, with the remaining providers as overflow. Cloud Functions source secrets
  // async via Remote Config; the cascade reads sync process.env.*, so the
  // bridge must run first. Error string kept as-is (no external consumer
  // depends on it meaning "Resend specifically" vs. "no provider at all").

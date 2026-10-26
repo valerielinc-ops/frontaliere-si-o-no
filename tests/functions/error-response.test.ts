@@ -158,7 +158,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
     expect(res.body).toEqual({ success: false, error: 'pdf_too_large' });
   });
 
-  it('returns 500 with stable body when Resend API key is not configured', async () => {
+  it('returns 500 with stable body when Maileroo API key is not configured', async () => {
     const cascade = await import('../../functions/src/emailCascade.js');
     vi.mocked(cascade.isProviderConfigured).mockReturnValue(false);
     const handle = await loadSendCalculatorReport();
@@ -171,7 +171,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       db: makeDbStub(),
     });
     expect(res.status).toBe(500);
-    expect(res.body).toEqual({ success: false, error: 'missing_resend_api_key' });
+    expect(res.body).toEqual({ success: false, error: 'missing_maileroo_api_key' });
   });
 
   it('still sends the PDF and returns 200 when Firestore enrichment fails', async () => {
@@ -200,9 +200,13 @@ describe('handleSendCalculatorReport — structured error responses', () => {
     expect(res.body.success).toBe(true);
     const cascade = await import('../../functions/src/emailCascade.js');
     expect(cascade.sendEmailCascade).toHaveBeenCalledTimes(1);
+    expect(cascade.sendEmailCascade).toHaveBeenCalledWith(
+      expect.any(Array),
+      expect.objectContaining({ forceProvider: 'maileroo' }),
+    );
   });
 
-  it('returns 502 structured error when Resend rejects the email send', async () => {
+  it('returns 502 structured error when Maileroo rejects the email send', async () => {
     const cascade = await import('../../functions/src/emailCascade.js');
     vi.mocked(cascade.sendEmailCascade).mockResolvedValue({ sent: [], failed: [{ error: 'simulated' }] });
     const handle = await loadSendCalculatorReport();

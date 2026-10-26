@@ -501,10 +501,10 @@ describe('submit mode', () => {
     job: { applyUrl: '' },
   };
 
-  it('sends the e-mail application through Resend with both attachments and replies to the candidate', async () => {
+  it('sends the e-mail application through Maileroo with both attachments and replies to the candidate', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
-    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'maileroo', messageId: 'm1' }] }));
     const event = await submitApplication({
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
@@ -513,7 +513,7 @@ describe('submit mode', () => {
     expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email', followup: { to: 'hr@ospedale.ch', subject: 'Candidatura' } });
     expect(event.followup.messageId).toMatch(/^<aa-.+@candidature\.frontaliereticino\.ch>$/);
     const [[items, options]] = sendCascade.mock.calls as any;
-    expect(options).toEqual({ delayMs: 0, forceProvider: 'resend' });
+    expect(options).toEqual({ delayMs: 0, forceProvider: 'maileroo' });
     expect(items[0].payload).toMatchObject({ to: ['hr@ospedale.ch'], replyTo: 'maria.rossi@example.com', from: '"Maria Rossi via Frontaliere Ticino" <valerie@frontaliereticino.ch>' });
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
     // Sent in the candidate's name: no rewritten links, no open pixel.

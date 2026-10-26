@@ -195,7 +195,7 @@ export async function sendColdEmail(
       suppressed: 'Azienda disiscritta (opt-out): invio bloccato.',
       already_sent: `Touch ${touch} già inviata a questa azienda. Usa "forza re-invio" se vuoi rispedirla.`,
       no_insights: 'Nessun dato insights per questa azienda.',
-      resend_key_missing: 'Provider email non configurato (RESEND_API_KEY).',
+      resend_key_missing: 'Provider email non configurato.',
       send_failed: 'Invio email fallito dal provider. Riprova.',
     };
     throw new Error(reasons[data.error] || `Invio non riuscito (${data.error || res.status}).`);
