@@ -96,7 +96,10 @@ export function parseCantonArticlePath(pathname: string): CantonArticlePathMatch
  * prefix-exact so `/articoli-ticino-altro/` is not a section path.
  */
 export function isCantonArticlePath(pathname: string): boolean {
-  const path = pathname.toLowerCase();
+  // Keep the predicate aligned with parseCantonArticlePath: callers that pass
+  // a location-like value may still include the query or fragment, neither of
+  // which changes route ownership.
+  const path = pathname.split(/[?#]/, 1)[0].toLowerCase();
   return CANTON_ARTICLE_PREFIXES.some(
     (prefix) => path === prefix || path === `${prefix}.html` || path.startsWith(`${prefix}/`),
   );
