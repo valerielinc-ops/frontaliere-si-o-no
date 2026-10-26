@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import {
   ACHIEVEMENTS,
   LEVEL_TITLES,
@@ -6,6 +6,7 @@ import {
   getLevel,
   unlockAchievement,
   addXp,
+  subscribeAchievements,
 } from '@/services/gamificationService';
 import { canShowGamificationPopups } from '@/services/gamificationVisibility';
 
@@ -218,5 +219,30 @@ describe('addXp', () => {
     unlockAchievement('first_visit'); // +50 xp
     addXp(30);
     expect(loadState().xp).toBe(80);
+  });
+});
+
+describe('best-effort persistence', () => {
+  it('keeps achievement state, XP, and notifications usable when storage writes fail', () => {
+    const originalSetItem = localStorage.setItem;
+    const listener = vi.fn();
+    const unsubscribe = subscribeAchievements(listener);
+    localStorage.setItem = () => {
+      throw new Error('storage unavailable');
+    };
+
+    try {
+      expect(() => unlockAchievement('first_visit')).not.toThrow();
+      expect(() => addXp(30)).not.toThrow();
+
+      const state = loadState();
+      expect(state.unlockedAchievements.first_visit).toBeDefined();
+      expect(state.xp).toBe(80);
+      expect(listener).toHaveBeenNthCalledWith(1, 'first_visit');
+      expect(listener).toHaveBeenNthCalledWith(2, '_xp');
+    } finally {
+      unsubscribe();
+      localStorage.setItem = originalSetItem;
+    }
   });
 });
