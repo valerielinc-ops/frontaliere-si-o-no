@@ -22,6 +22,7 @@ import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLin
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
 import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { incrementSessionPageViews } from '@/services/sessionPageViewCounter';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import {
  upsertNewsletterSubscriber,
@@ -177,7 +178,7 @@ const NewsletterPopup: React.FC = () => {
  };
 
  // Page-view counter: alternative trigger after 3+ pages visited
- const pageViews = parseInt(sessionStorage.getItem(PAGE_VIEW_KEY) || '0', 10) + 1;
+ const pageViews = incrementSessionPageViews(sessionStorage.getItem(PAGE_VIEW_KEY));
  sessionStorage.setItem(PAGE_VIEW_KEY, String(pageViews));
  if (pageViews >= PAGE_VIEW_THRESHOLD && !scrollReady.current) {
  // After enough page exploration, trigger even without deep scroll
