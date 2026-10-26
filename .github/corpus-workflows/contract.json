@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "e442254323c335885536da323045008b9aaaf3ba",
+  "sourceCommit": "706b0e0d30e1138a6774707f0420d41eb2f7a2c3",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "e442254323c335885536da323045008b9aaaf3ba"
+    "sourceCommit": "706b0e0d30e1138a6774707f0420d41eb2f7a2c3"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 653,
+  "crawlerCount": 655,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:fbb285d0cdd3795a444b9a6cb877668ec258d220f4267246ff08671197f48e7f",
+    "rosterDigest": "sha256:64f65e641c0dd2a65a09f37d938693b22818feb5e6bbe8b6ef3b9a54436f7707",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -561,6 +561,7 @@
     "scripts/update-tecan-jobs.mjs",
     "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
+    "scripts/update-teo-jakob-ag-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
     "scripts/update-therapiezentrum-meggen-jobs.mjs",
@@ -597,6 +598,7 @@
     "scripts/update-vontobel-jobs.mjs",
     "scripts/update-vz-vermoegenszentrum-jobs.mjs",
     "scripts/update-wagerenhof-jobs.mjs",
+    "scripts/update-walter-zoo-ag-gossau-jobs.mjs",
     "scripts/update-weisse-arena-jobs.mjs",
     "scripts/update-wokin-jobs.mjs",
     "scripts/update-wuerth-international-jobs.mjs",
@@ -954,8 +956,8 @@
     {
       "file": "crawler-group-09.yml",
       "sourceLogic": "crawler-group-09-logic.yml",
-      "sourceSha256": "72e105e4612f766d84e8b09aa1d279217084d15fa7ae9ec30fc3534e148b301f",
-      "artifactSha256": "5ecde1495d93b590d9b6d185e0db66d83b659aac269d7bfc88f0757555388ad1",
+      "sourceSha256": "b47254e26a153e57d1ec94ec299e3de4f6a038f8cbfdcf1eb81026745dd4ba99",
+      "artifactSha256": "cc844e84b3f772e8b5d6591e879362741766030430ef6fdfa86b3a6d4878ea98",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "solina",
@@ -986,14 +988,15 @@
         "benu",
         "bitfinex",
         "sunrise",
-        "lwphr"
+        "lwphr",
+        "walter-zoo-ag-gossau"
       ]
     },
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "ffff009242fb2944deeeb834c035d0938e2c237395e81b6385520897a02c889f",
-      "artifactSha256": "f765ac13c6ca54902aaeca5f7a218e06702de3e430301bb414393db6dbe0ea69",
+      "sourceSha256": "576285bfa1bd55fe4c74e0be5471c5a9dc546ced54c7bc6093ac1c38afa84ef4",
+      "artifactSha256": "c6f4e12dd4ab9e2a7e3162c548d9a630d86a8649f1489d821f3012040ee86387",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "jumbo",
@@ -1024,7 +1027,8 @@
         "atec-personal",
         "debiopharm",
         "fondation-domus",
-        "sympajobs-reinach-bl"
+        "sympajobs-reinach-bl",
+        "teo-jakob-ag"
       ]
     },
     {
