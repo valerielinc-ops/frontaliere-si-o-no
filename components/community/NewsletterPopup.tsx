@@ -22,6 +22,7 @@ import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLin
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { readSessionStorageItem, readStorageItem, writeSessionStorageItem, writeStorageItem } from '@/services/storageAvailability';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import {
  upsertNewsletterSubscriber,
@@ -41,7 +42,7 @@ const PAGE_VIEW_THRESHOLD = 3; // show after 3+ page views in session
 const PAGE_VIEW_KEY = 'newsletter_pageviews';
 const SESSION_SHOWN_KEY = 'newsletter_popup_shown';
 function hasSessionImpression(): boolean {
- try { return sessionStorage.getItem(SESSION_SHOWN_KEY) === '1'; } catch { return false; }
+ return readSessionStorageItem(SESSION_SHOWN_KEY) === '1';
 }
 const NEWSLETTER_ONETAP_KEY = 'onetap_prompted_newsletter_popup';
 
@@ -122,7 +123,7 @@ const NewsletterPopup: React.FC = () => {
  const isPendingReminder = !!pendingInfo && Date.now() - pendingInfo.since > ONE_HOUR;
  if (isPendingReminder) {
  // Check dismiss cooldown even for reminders
- const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
+ const dismissed = readStorageItem(POPUP_DISMISSED_KEY);
  if (dismissed) {
  const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
  if (daysSince < 1) return; // 1-day cooldown for reminders (shorter than normal 7-day)
@@ -133,13 +134,13 @@ const NewsletterPopup: React.FC = () => {
  }
 
  // Don't show if already subscribed
- if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
+ if (readStorageItem(SUBSCRIBED_KEY) === 'true') return;
 
  // Don't show a duplicate popup during an authenticated session.
  if (user) return;
 
  // Don't show if dismissed recently
- const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
+ const dismissed = readStorageItem(POPUP_DISMISSED_KEY);
  if (dismissed) {
  const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
  if (daysSince < (isPendingReminder ? 1 : DISMISS_DAYS)) return;
@@ -148,7 +149,7 @@ const NewsletterPopup: React.FC = () => {
  const checkAndShow = () => {
  if (userRef.current) return;
  if (timeReady.current && scrollReady.current && !shownRef.current && canShowPromotionalPrompt()) {
- if (localStorage.getItem(SUBSCRIBED_KEY) !== 'true') {
+ if (readStorageItem(SUBSCRIBED_KEY) !== 'true') {
  setVisible(true);
  }
  }
@@ -175,7 +176,7 @@ const NewsletterPopup: React.FC = () => {
  if (userRef.current) return;
  if (e.clientY <= 0 && timeReady.current && !shownRef.current && canShowPromotionalPrompt()) {
  exitIntentFired.current = true;
- if (localStorage.getItem(SUBSCRIBED_KEY) !== 'true') {
+ if (readStorageItem(SUBSCRIBED_KEY) !== 'true') {
  setTriggerSource('exit_intent');
  setVisible(true);
  }
@@ -183,12 +184,12 @@ const NewsletterPopup: React.FC = () => {
  };
 
  // Page-view counter: alternative trigger after 3+ pages visited
- const pageViews = parseInt(sessionStorage.getItem(PAGE_VIEW_KEY) || '0', 10) + 1;
- sessionStorage.setItem(PAGE_VIEW_KEY, String(pageViews));
+ const pageViews = parseInt(readSessionStorageItem(PAGE_VIEW_KEY) || '0', 10) + 1;
+ writeSessionStorageItem(PAGE_VIEW_KEY, String(pageViews));
  if (pageViews >= PAGE_VIEW_THRESHOLD && !scrollReady.current) {
  // After enough page exploration, trigger even without deep scroll
  const pageViewTimer = setTimeout(() => {
- if (localStorage.getItem(SUBSCRIBED_KEY) !== 'true' && !exitIntentFired.current && !userRef.current) {
+ if (readStorageItem(SUBSCRIBED_KEY) !== 'true' && !exitIntentFired.current && !userRef.current) {
  scrollReady.current = true;
  setTriggerSource('pageviews');
  checkAndShow();
@@ -238,7 +239,7 @@ const NewsletterPopup: React.FC = () => {
    if (!visible || !queueActive || googleOverlayActive || shownRef.current) return;
    if (!canShowPromotionalPrompt()) { setVisible(false); return; }
    shownRef.current = true;
-   try { sessionStorage.setItem(SESSION_SHOWN_KEY, '1'); } catch { /* in-memory cap still applies */ }
+   writeSessionStorageItem(SESSION_SHOWN_KEY, '1');
    markSlotShown('newsletter-popup');
    Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', triggerSource);
  }, [visible, queueActive, googleOverlayActive, triggerSource]);
@@ -247,10 +248,10 @@ const NewsletterPopup: React.FC = () => {
  useEffect(() => {
  if (!visible || !queueActive || googleOverlayActive) return;
  if (user) return;
- if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
- if (sessionStorage.getItem(NEWSLETTER_ONETAP_KEY)) return;
+ if (readStorageItem(SUBSCRIBED_KEY) === 'true') return;
+ if (readSessionStorageItem(NEWSLETTER_ONETAP_KEY)) return;
 
- sessionStorage.setItem(NEWSLETTER_ONETAP_KEY, '1');
+ writeSessionStorageItem(NEWSLETTER_ONETAP_KEY, '1');
  eagerAuth();
  promptOneTap();
 
@@ -294,7 +295,7 @@ const NewsletterPopup: React.FC = () => {
  }, [visible, queueActive, googleOverlayActive, user, locale]);
 
  const handleDismiss = () => {
- localStorage.setItem(POPUP_DISMISSED_KEY, String(Date.now()));
+ writeStorageItem(POPUP_DISMISSED_KEY, String(Date.now()));
  setVisible(false);
  releaseSlot('newsletter-popup');
  cancelOneTap();

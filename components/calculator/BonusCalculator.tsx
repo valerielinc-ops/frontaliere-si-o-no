@@ -8,7 +8,7 @@ const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'))
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, irpefMarginalRate } from '@/services/calculationService';
 import { clampBonusInteger, clampBonusNumber, parseBonusProfileChildren, BONUS_CHILDREN_MAX, BONUS_RATE_MAX, BONUS_RATE_MIN } from '@/services/bonusCalculatorInput';
-import { FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
+import { DEFAULT_EXCHANGE_RATE, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // Swiss bonus types for frontalieri
 const BONUS_TYPES = [
@@ -20,6 +20,44 @@ const BONUS_TYPES = [
  { key: 'transport', inKind: true },
  { key: 'relocation', inKind: false },
 ];
+
+const DEFAULT_MONTHLY_GROSS_CHF = 7692;
+const DEFAULT_BONUS_AMOUNT_CHF = 5000;
+const DEFAULT_CHILDREN = 1;
+const MONTHLY_GROSS_MIN_CHF = 0;
+const MONTHLY_GROSS_MAX_CHF = 1_000_000;
+const BONUS_AMOUNT_MIN_CHF = 0;
+const BONUS_AMOUNT_MAX_CHF = 1_000_000;
+const CHILDREN_MIN = 0;
+const CHILDREN_MAX = 10;
+const EXCHANGE_RATE_MIN = 0.5;
+const EXCHANGE_RATE_MAX = 1.5;
+
+/** Keep every numeric calculator input finite and within its form contract. */
+export const clampBonusNumericInput = (
+ value: number,
+ min: number,
+ max: number,
+ fallback: number,
+): number => {
+ const safeFallback = Number.isFinite(fallback)
+ ? Math.min(max, Math.max(min, fallback))
+ : min;
+ if (!Number.isFinite(value)) return safeFallback;
+ return Math.min(max, Math.max(min, value));
+};
+
+const parseBonusNumericInput = (
+ rawValue: string,
+ min: number,
+ max: number,
+ fallback: number,
+): number => clampBonusNumericInput(
+ rawValue.trim() === '' ? Number.NaN : Number(rawValue),
+ min,
+ max,
+ fallback,
+);
 
 // Swiss social contribution rates (2026)
 const AVS_RATE = 0.053;
@@ -65,11 +103,11 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  const { t } = useTranslation();
  const { rate: liveRate, loading: rateLoading, refresh: refreshRate } = useExchangeRate();
 
- const [monthlyGrossCHF, setMonthlyGrossCHF] = useState(7692);
- const [bonusAmountCHF, setBonusAmountCHF] = useState(5000);
+ const [monthlyGrossCHF, setMonthlyGrossCHF] = useState(DEFAULT_MONTHLY_GROSS_CHF);
+ const [bonusAmountCHF, setBonusAmountCHF] = useState(DEFAULT_BONUS_AMOUNT_CHF);
  const [selectedBonus, setSelectedBonus] = useState('performance');
  const [isMarried, setIsMarried] = useState(false);
- const [children, setChildren] = useState(1);
+ const [children, setChildren] = useState(DEFAULT_CHILDREN);
  const [rateOverride, setRateOverride] = useState<number | null>(null);
  const [expandedSection, setExpandedSection] = useState<string | null>('result');
 
@@ -78,7 +116,14 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  if (!userProfile) return;
  if (userProfile.grossSalary) {
  const salary = parseFloat(userProfile.grossSalary);
- if (!isNaN(salary) && salary > 0) setMonthlyGrossCHF(Math.round(salary / 13));
+ if (Number.isFinite(salary) && salary > 0) {
+ setMonthlyGrossCHF(clampBonusNumericInput(
+ Math.round(salary / 13),
+ MONTHLY_GROSS_MIN_CHF,
+ MONTHLY_GROSS_MAX_CHF,
+ DEFAULT_MONTHLY_GROSS_CHF,
+ ));
+ }
  }
  if (userProfile.familySituation) {
  setIsMarried(userProfile.familySituation === 'married');
@@ -90,7 +135,12 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  }, [userProfile]);
 
  // Use live rate unless user has manually overridden
- const exchangeRate = rateOverride ?? liveRate;
+ const exchangeRate = clampBonusNumericInput(
+ rateOverride ?? liveRate,
+ EXCHANGE_RATE_MIN,
+ EXCHANGE_RATE_MAX,
+ DEFAULT_EXCHANGE_RATE,
+ );
 
  const annualGross = monthlyGrossCHF * 13; // 13th included
 
@@ -204,8 +254,10 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  id="bonus-salary"
  type="number"
  inputMode="numeric"
+ min={MONTHLY_GROSS_MIN_CHF}
+ max={MONTHLY_GROSS_MAX_CHF}
  value={monthlyGrossCHF}
- onChange={e => setMonthlyGrossCHF(clampBonusNumber(e.target.value, monthlyGrossCHF))}
+ onChange={e => setMonthlyGrossCHF(clampBonusNumber(e.target.value, monthlyGrossCHF, MONTHLY_GROSS_MIN_CHF, MONTHLY_GROSS_MAX_CHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -217,8 +269,10 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  id="bonus-amount"
  type="number"
  inputMode="numeric"
+ min={BONUS_AMOUNT_MIN_CHF}
+ max={BONUS_AMOUNT_MAX_CHF}
  value={bonusAmountCHF}
- onChange={e => setBonusAmountCHF(clampBonusNumber(e.target.value, bonusAmountCHF))}
+ onChange={e => setBonusAmountCHF(clampBonusNumber(e.target.value, bonusAmountCHF, BONUS_AMOUNT_MIN_CHF, BONUS_AMOUNT_MAX_CHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -259,8 +313,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  id="bonus-children"
  type="number"
  inputMode="numeric"
- min={0}
- max={BONUS_CHILDREN_MAX}
+ min={CHILDREN_MIN}
+ max={CHILDREN_MAX}
  value={children}
  onChange={e => setChildren(clampBonusInteger(e.target.value, children, 0, BONUS_CHILDREN_MAX))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
@@ -276,10 +330,10 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  type="number"
  inputMode="decimal"
  step={0.01}
- min={BONUS_RATE_MIN}
- max={BONUS_RATE_MAX}
+ min={EXCHANGE_RATE_MIN}
+ max={EXCHANGE_RATE_MAX}
  value={Number(exchangeRate.toFixed(4))}
- onChange={e => setRateOverride(clampBonusNumber(e.target.value, exchangeRate, BONUS_RATE_MIN, BONUS_RATE_MAX))}
+ onChange={e => setRateOverride(clampBonusNumber(e.target.value, exchangeRate, EXCHANGE_RATE_MIN, EXCHANGE_RATE_MAX))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  <button

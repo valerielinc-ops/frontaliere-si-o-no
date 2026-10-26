@@ -13,7 +13,7 @@ import { SegmentControl as SharedSegmentControl } from '@/components/shared/Segm
 import CalculatorFormBoxAd from '@/components/shared/CalculatorFormBoxAd';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import ProfessionPresetChips from '@/components/calculator/ProfessionPresetChips';
-import { readLocalStorage, writeLocalStorage } from '@/services/storageAvailability';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 // exchangeRateService is lazy-loaded to reduce main bundle size
 
 interface Props {
@@ -212,13 +212,12 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
  // Desktop progressive disclosure: compact mode shows only 3 key fields
  // Returns true (expanded) if user has previously expanded, else false (compact)
  const [desktopExpanded, setDesktopExpanded] = useState(() => {
- if (typeof window === 'undefined') return false;
- return readLocalStorage(DESKTOP_EXPANDED_KEY) === '1';
+ return readBestEffortLocalStorage(DESKTOP_EXPANDED_KEY) === '1';
  });
 
  const expandDesktop = useCallback(() => {
  setDesktopExpanded(true);
- writeLocalStorage(DESKTOP_EXPANDED_KEY, '1');
+ writeBestEffortLocalStorage(DESKTOP_EXPANDED_KEY, '1');
  Analytics.trackUIInteraction('simulatore', 'input', 'expand_full_form', 'click', undefined, 'calculator.input.expand_full_form');
  }, []);
 
@@ -242,8 +241,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchan
 
  const showFrontierEasterEgg = useCallback((type: 'NEW' | 'OLD') => {
  const key = `frontaliere_easter_egg_seen_${type.toLowerCase()}`;
- if (readLocalStorage(key)) return;
- writeLocalStorage(key, '1');
+ if (readBestEffortLocalStorage(key)) return;
+ writeBestEffortLocalStorage(key, '1');
  clearTimeout(easterEggTimer.current);
  setEasterEgg(type === 'OLD' ? `😎 ${t('permitCompare.easterEggOld')}` : `💪 ${t('permitCompare.easterEggNew')}`);
  }, [t]);
