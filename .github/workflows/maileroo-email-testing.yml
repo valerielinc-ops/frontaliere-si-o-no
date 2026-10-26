@@ -64,7 +64,7 @@ jobs:
 
       - name: Upload Maileroo test report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: maileroo-email-testing-${{ github.run_id }}
           path: ${{ runner.temp }}/maileroo-email-testing.json
