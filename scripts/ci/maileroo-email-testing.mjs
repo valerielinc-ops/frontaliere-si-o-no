@@ -335,21 +335,41 @@ async function waitForAnalysis(apiKey, fetchImpl, messageId) {
   throw new Error(`analysis did not complete (last status: ${lastStatus})`);
 }
 
+export function validateAssertionsReport(report, expectedAssertions, testCaseName) {
+  const results = Array.isArray(report?.results) ? report.results : null;
+  const expectedTypes = expectedAssertions.map((item) => String(item?.type || '')).sort();
+  const actualTypes = (results || []).map((item) => String(item?.type || '')).sort();
+  const failed = (results || [])
+    .filter((item) => item?.pass !== true)
+    .map((item) => `${item?.type || 'unknown'}: ${item?.message || `actual=${String(item?.actual)}`}`);
+  const problems = [];
+  if (report?.pass !== true) problems.push(`Maileroo returned pass=${String(report?.pass)}`);
+  if (!results) {
+    problems.push('Maileroo returned no assertion results');
+  } else {
+    if (results.length !== expectedAssertions.length) {
+      problems.push(`expected ${expectedAssertions.length} assertion results, received ${results.length}`);
+    }
+    if (JSON.stringify(actualTypes) !== JSON.stringify(expectedTypes)) {
+      problems.push('Maileroo assertion result types do not match the requested assertions');
+    }
+    if (failed.length) problems.push(...failed);
+  }
+  if (problems.length) {
+    throw new Error(`assertions failed for ${testCaseName}: ${problems.join('; ')}`);
+  }
+  return report;
+}
+
 async function runAssertions(apiKey, fetchImpl, testCase, messageId) {
+  const expectedAssertions = buildAssertions(testCase);
   const result = await testingRequest(`/messages/${encodeURIComponent(messageId)}/assertions`, apiKey, {
     fetchImpl,
     method: 'POST',
-    body: JSON.stringify({ assertions: buildAssertions(testCase) }),
+    body: JSON.stringify({ assertions: expectedAssertions }),
     timeoutMs: 60_000,
   });
-  const report = result.body?.data;
-  if (!report || report.pass !== true) {
-    const failed = Array.isArray(report?.results)
-      ? report.results.filter((item) => item?.pass !== true).map((item) => `${item.type}: ${item.message || `actual=${String(item.actual)}`}`)
-      : ['Maileroo returned no assertion report'];
-    throw new Error(`assertions failed for ${testCase.name}: ${failed.join('; ')}`);
-  }
-  return report;
+  return validateAssertionsReport(result.body?.data, expectedAssertions, testCase.name);
 }
 
 function compactAnalysis(analysis) {

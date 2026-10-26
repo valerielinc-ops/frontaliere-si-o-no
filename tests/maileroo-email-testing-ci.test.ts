@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { parseMimeMessage } from '../functions/src/lib/mimeMessage.js';
-import { buildAssertions, buildSendPayload, buildTestCases, resolveTestingApiKey } from '../scripts/ci/maileroo-email-testing.mjs';
+import {
+  buildAssertions,
+  buildSendPayload,
+  buildTestCases,
+  resolveTestingApiKey,
+  validateAssertionsReport,
+} from '../scripts/ci/maileroo-email-testing.mjs';
 
 describe('Maileroo Email Testing CI fixtures', () => {
   const cases = buildTestCases({ recipient: 'frontaliere-ci@example.invalid', runId: 'unit-test' });
@@ -31,6 +37,21 @@ describe('Maileroo Email Testing CI fixtures', () => {
     const newsletter = buildAssertions(cases[1]).map((item) => item.type);
     expect(transactional).toEqual(expect.arrayContaining(['spf_eq', 'dkim_eq', 'dmarc_eq', 'auth_aligned_eq', 'rspamd_score_lte', 'links_rbl_clean', 'ip_rbl_clean', 'gmail_clip_eq', 'accessibility_score_gte']));
     expect(newsletter).toContain('unsubscribe_valid_eq');
+  });
+
+  it('rejects a positive but incomplete Maileroo assertion report', () => {
+    expect(() => validateAssertionsReport({ pass: true }, buildAssertions(cases[0]), cases[0].name))
+      .toThrow('Maileroo returned no assertion results');
+
+    const partial = buildAssertions(cases[0]).slice(0, -1).map(({ type }) => ({ type, pass: true }));
+    expect(() => validateAssertionsReport({ pass: true, results: partial }, buildAssertions(cases[0]), cases[0].name))
+      .toThrow('expected 12 assertion results, received 11');
+  });
+
+  it('accepts only a complete report whose passing results match the request', () => {
+    const expected = buildAssertions(cases[1]);
+    const report = { pass: true, results: expected.map(({ type }) => ({ type, pass: true })) };
+    expect(validateAssertionsReport(report, expected, cases[1].name)).toBe(report);
   });
 
   it('keeps the plain-text alternative aligned with the captured HTML payload', () => {
