@@ -35,7 +35,7 @@ const BACKGROUND_VARIANTS = [
     textPrimary: '#0F2557',
     textMuted: '#415775',
     accent: '#9A3412',
-    accentText: '#0F2557',
+    accentText: '#FFFFFF',
     statSurface: 'rgba(15,37,87,0.10)',
     footerBorder: 'rgba(15,37,87,0.24)',
   },

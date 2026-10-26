@@ -24,6 +24,8 @@ describe('Instagram carousel background experiment', () => {
       'coral-night',
     ]);
     expect(INSTAGRAM_CAROUSEL_BACKGROUND_VARIANTS).toHaveLength(4);
+    expect(INSTAGRAM_CAROUSEL_BACKGROUND_VARIANTS.find((variant) => variant.id === 'paper-amber')?.accentText)
+      .toBe('#FFFFFF');
     expect(INSTAGRAM_CAROUSEL_SAFE_AREA).toMatchObject({
       insetX: 144,
       insetTop: 96,
