@@ -741,6 +741,27 @@ describe('runtime reliability watchdog', () => {
       expect(unique).toContain('/assets/Skeletons.12345678.js');
       expect(unique).not.toContain('/assets/App.js');
     });
+
+    it('fails closed when the live chunk manifest is unavailable instead of probing plain names', async () => {
+      const now = Date.parse('2026-10-18T20:10:00Z');
+      const stable = String(now - 60 * 60_000);
+      const probed: string[] = [];
+      const fetchImpl = vi.fn(async (url: string) => {
+        const path = new URL(url).pathname;
+        if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+        if (path === CDN_PUBLISH_START_ID_PATH || path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(stable);
+        if (path === '/assets/chunk-manifest.json') return response('missing', 404);
+        if (path.startsWith('/assets/')) {
+          probed.push(path);
+          return response(path === '/assets/App.js' ? 'legacy plain asset' : 'missing', path === '/assets/App.js' ? 200 : 404);
+        }
+        return response('1792310390925');
+      });
+      const result = await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date(now), chunkGraph: false });
+      expect(result).toMatchObject({ ok: false, manifestState: 'unavailable', purgeUrls: [] });
+      expect(result.reasons.some((reason: string) => reason.includes('chunk manifest unavailable'))).toBe(true);
+      expect(probed).toEqual([]);
+    });
   });
 
   it('retains the cooldown timestamp when a duplicate purge is skipped', () => {

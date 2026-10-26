@@ -244,18 +244,33 @@ function fail(msg) {
  * (build-plugins/shared/abiChunkNaming.mjs), so `blog-articles-data.js` is only
  * the LOGICAL spelling. The build publishes the logical-name → emitted-file map
  * as assets/chunk-manifest.json; read it the way the app reads everything else
- * (with `Origin`) and fall back to the plain spelling when it is absent — a
- * deploy from before the manifest, where the plain names are the real ones.
+ * (with `Origin`). A missing or malformed manifest must fail closed: guessing
+ * the plain spelling can probe a retained 200 while the hashed file used by
+ * current HTML is missing.
  */
 async function loadChunkManifest() {
+  const r = await getText(`${CDN}/${CHUNK_MANIFEST_FILENAME}?v=${Date.now()}`, BROWSER_HEADERS);
+  let manifest;
   try {
-    const r = await getText(`${CDN}/${CHUNK_MANIFEST_FILENAME}?v=${Date.now()}`, BROWSER_HEADERS);
-    return JSON.parse(r.body);
+    manifest = JSON.parse(r.body);
   } catch {
-    return null;
+    throw new Error('invalid JSON');
   }
+  const chunks = manifest?.chunks;
+  const validChunks = chunks && typeof chunks === 'object' && !Array.isArray(chunks)
+    && Object.values(chunks).every((file) => typeof file === 'string' && file.endsWith('.js'));
+  if (manifest?.v !== 1 || !validChunks) throw new Error('invalid manifest shape');
+  const required = [...new Set([...CLIENT_CHUNKS, ...CODE_CHUNKS])];
+  const missing = required.filter((name) => typeof chunks[name] !== 'string');
+  if (missing.length > 0) throw new Error(`missing chunk entries: ${missing.join(', ')}`);
+  return manifest;
 }
-const CHUNK_MANIFEST = await loadChunkManifest();
+let CHUNK_MANIFEST;
+try {
+  CHUNK_MANIFEST = await loadChunkManifest();
+} catch (error) {
+  fail(`chunk manifest unavailable or invalid — refusing to probe plain asset names: ${error.message}`);
+}
 const chunkUrl = (name) => `${CDN}/assets/${chunkFileFromManifest(CHUNK_MANIFEST, name)}`;
 /** The client surfaces, exactly as the app requests them. */
 const CLIENT_SURFACES = CLIENT_CHUNKS.map(chunkUrl);

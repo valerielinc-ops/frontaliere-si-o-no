@@ -101,6 +101,7 @@ export function runtimeFailureFingerprint(result) {
     // link must reopen the repair path, a healthy chunk must not churn it.
     chunkGraph: chunkGraphSignature(result?.chunkGraph),
     markerState: result?.markerState || 'unknown',
+    manifestState: result?.manifestState || 'unknown',
     publicConfig: result?.publicConfig || null,
     siteBuildId: result?.siteBuildId || null,
     version: 'runtime-reliability/v4',
@@ -465,6 +466,8 @@ export function evaluateProbe({
   publicConfig = null,
   cdnPublish = { state: 'legacy', startId: null, completeId: null },
   deferReason = null,
+  manifestState = 'not_checked',
+  manifestError = null,
 }) {
   // The cache-busted site marker is the authoritative current origin value.
   // Falling back to the normal cached marker would turn an origin/network
@@ -510,12 +513,14 @@ export function evaluateProbe({
   const cdnPublishState = cdnPublish?.state || 'legacy';
   const deferred = Boolean(deferReason);
   const publishAllowsObservation = ['legacy', 'stable'].includes(cdnPublishState);
+  const manifestAvailable = manifestState !== 'unavailable';
   // Critical assets first (they boot every page), then the graph's own order
   // (chunks on a broken link first). Only states a purge can repair — the edge
   // disagrees with an R2 copy that exists — and only while the markers say R2
   // holds the generation the site is moving to (see the docblock).
   const purgeAllowed = !deferred
     && publishAllowsObservation
+    && manifestAvailable
     && (markerState === 'coherent' || markerState === 'rollout_in_progress');
   const purgeUrls = !purgeAllowed ? [] : [...new Set([
     ...assetResults
@@ -539,6 +544,7 @@ export function evaluateProbe({
     && (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
     && blockingAssets.length === 0
+    && manifestAvailable
     && (graph ? graph.ok : true)
     && (publicConfig ? publicConfig.ok : true);
 
@@ -550,6 +556,8 @@ export function evaluateProbe({
     cdnPublishState,
     cdnPublishStartId: cdnPublish?.startId || null,
     cdnPublishCompleteId: cdnPublish?.completeId || null,
+    manifestState,
+    manifestError: manifestError || null,
     deferred,
     deferReason,
     siteBehindMs,
@@ -600,6 +608,9 @@ export function evaluateProbe({
           : cdnPublishState === 'marker_regression'
             ? 'CDN publish-window markers regressed'
             : null,
+      manifestState === 'unavailable'
+        ? `chunk manifest unavailable or invalid${manifestError ? `: ${manifestError}` : ''}`
+        : null,
       ...blockingAssets.map((asset) => `${asset.path}: ${asset.state}`),
       ...['cached', 'fresh'].flatMap((variant) => publicConfig?.[variant]?.state && publicConfig[variant].state !== 'healthy'
         ? [`public config (${variant}): ${publicConfig[variant].state}, HTTP ${publicConfig[variant].status}`]
@@ -613,9 +624,9 @@ export function evaluateProbe({
 
 /**
  * Map the logical critical paths to the filenames the live build emitted.
- * A manifest that is missing or unreadable (a deploy from before the manifest
- * existed, or a CDN hiccup) degrades to the plain `<name>.js` spelling, which
- * is still correct for every chunk without named exports.
+ * Callers that need a runtime verdict must validate the manifest before using
+ * this helper; the low-level helper retains the plain-name fallback for
+ * callers that intentionally inspect a legacy build.
  */
 export function resolveCriticalAssetPaths(manifest, paths = CRITICAL_ASSET_PATHS) {
   return paths.map((path) => {
@@ -629,11 +640,30 @@ export function resolveCriticalAssetPaths(manifest, paths = CRITICAL_ASSET_PATHS
 async function readChunkManifest({ fetchImpl, timeoutMs, nonce }) {
   const url = cacheBust(`${CDN_ORIGIN}/${CHUNK_MANIFEST_FILENAME}`, nonce);
   const response = await readUrl(url, { fetchImpl, timeoutMs });
-  if (!response?.ok) return null;
+  if (!response?.ok) {
+    return {
+      manifest: null,
+      error: `HTTP ${response?.status || 0}`,
+    };
+  }
   try {
-    return JSON.parse(response.body);
+    const manifest = JSON.parse(response.body);
+    const chunks = manifest?.chunks;
+    const validChunks = chunks && typeof chunks === 'object' && !Array.isArray(chunks)
+      && Object.values(chunks).every((file) => typeof file === 'string' && file.endsWith('.js'));
+    if (manifest?.v !== 1 || !validChunks) {
+      return { manifest: null, error: 'invalid manifest shape' };
+    }
+    const required = CRITICAL_ASSET_PATHS
+      .map((path) => /^\/assets\/(.+)\.js$/.exec(path)?.[1])
+      .filter((name) => name && name !== 'index-entry');
+    const missing = required.filter((name) => typeof chunks[name] !== 'string');
+    if (missing.length > 0) {
+      return { manifest: null, error: `missing chunk entries: ${missing.join(', ')}` };
+    }
+    return { manifest, error: null };
   } catch {
-    return null;
+    return { manifest: null, error: 'invalid JSON' };
   }
 }
 
@@ -679,8 +709,13 @@ export async function probeRuntime({
       }),
     };
   }
+  const manifestResult = assetPaths
+    ? { manifest: null, error: null }
+    : await readChunkManifest({ fetchImpl, timeoutMs, nonce });
+  const manifestState = assetPaths ? 'not_checked' : manifestResult.error ? 'unavailable' : 'available';
+  const manifestError = manifestResult.error;
   const probePaths = assetPaths
-    ?? resolveCriticalAssetPaths(await readChunkManifest({ fetchImpl, timeoutMs, nonce }));
+    ?? (manifestResult.manifest ? resolveCriticalAssetPaths(manifestResult.manifest) : []);
   const assets = await Promise.all(probePaths.map(async (path) => {
     const url = `${CDN_ORIGIN}${path}`;
     const [cached, fresh] = await Promise.all([
@@ -741,7 +776,17 @@ export async function probeRuntime({
   }
   return {
     checkedAt: new Date().toISOString(),
-    ...evaluateProbe({ siteCached, siteFresh, cdnMarker: cdnMarkerAfter, assets, chunkGraph: graph, publicConfig, cdnPublish: finalPublish }),
+    ...evaluateProbe({
+      siteCached,
+      siteFresh,
+      cdnMarker: cdnMarkerAfter,
+      assets,
+      chunkGraph: graph,
+      publicConfig,
+      cdnPublish: finalPublish,
+      manifestState,
+      manifestError,
+    }),
   };
 }
 

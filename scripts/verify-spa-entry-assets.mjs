@@ -115,12 +115,11 @@ if (isAbiChunkNamingEnabled()) {
 // The prerendered pages must point at files that exist. A chunk renamed by its
 // interface hash that a preload emitter did not follow would ship as a 404
 // hint, and index.html's resource-error handler answers a 404 with a reload.
-const HTML_SAMPLE_LIMIT = 400;
-function sampleHtmlPages(dir, limit) {
+function collectHtmlPages(dir) {
   const found = new Map();
-  const queue = [{ dir, depth: 0 }];
-  while (queue.length > 0 && found.size < limit) {
-    const { dir: current, depth } = queue.shift();
+  const queue = [dir];
+  while (queue.length > 0) {
+    const current = queue.pop();
     let entries;
     try {
       entries = fs.readdirSync(current, { withFileTypes: true });
@@ -132,9 +131,8 @@ function sampleHtmlPages(dir, limit) {
       const file = path.join(current, index.name);
       found.set(path.relative(dir, file), fs.readFileSync(file, 'utf8'));
     }
-    if (depth >= 3) continue;
     for (const entry of entries) {
-      if (entry.isDirectory() && entry.name !== 'assets') queue.push({ dir: path.join(current, entry.name), depth: depth + 1 });
+      if (entry.isDirectory() && entry.name !== 'assets') queue.push(path.join(current, entry.name));
     }
   }
   return found;
@@ -144,14 +142,14 @@ const servedAssetFiles = new Set(
     ? [...moduleGraph.served].filter(([, present]) => present).map(([url]) => new URL(url).pathname.replace(/^\/assets\//, ''))
     : [],
 );
-const htmlPages = sampleHtmlPages(distDir, HTML_SAMPLE_LIMIT);
+const htmlPages = collectHtmlPages(distDir);
 const missingAssetRefs = checkHtmlAssetReferences(htmlPages, servedAssetFiles);
 if (missingAssetRefs.length > 0) {
   console.error(
-    `[verify-spa-html-assets] ${missingAssetRefs.length} /assets reference(s) in ${htmlPages.size} sampled page(s) point at a chunk file name that was not emitted:\n` +
+    `[verify-spa-html-assets] ${missingAssetRefs.length} /assets reference(s) in ${htmlPages.size} emitted page(s) point at a chunk file name that was not emitted:\n` +
       missingAssetRefs.slice(0, 40).map(({ page, asset, reason }) => `- ${page} → ${asset} (${reason})`).join('\n'),
   );
   process.exit(1);
 }
-console.log(`[verify-spa-html-assets] ok — ${htmlPages.size} sampled page(s) reference only emitted assets`);
+console.log(`[verify-spa-html-assets] ok — ${htmlPages.size} emitted page(s) reference only emitted assets`);
 console.log(`[verify-spa-entry-assets] ok — ${SPA_ENTRY_JS_FILENAME}, ${SPA_ENTRY_CSS_FILENAME} present in ${assetsDir}`);
