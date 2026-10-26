@@ -141,7 +141,7 @@ export const QUIZ_POOL: QuizQuestion[] = [
 
 // ─── Week-based question selection ───────────────────────────
 
-function getWeekNumber(): number {
+export function getWeekNumber(): number {
  const now = new Date();
  const start = new Date(now.getFullYear(), 0, 1);
  const diff = now.getTime() - start.getTime();
@@ -171,7 +171,7 @@ function getWeeklyQuestions(pool: QuizQuestion[], count = 5): QuizQuestion[] {
 
 const QUIZ_STORAGE_KEY = 'frontaliere_weekly_quiz';
 
-interface QuizState {
+export interface QuizState {
  week: number;
  year: number;
  answers: Record<string, number>; // questionId → selected index
@@ -179,16 +179,49 @@ interface QuizState {
  completed: boolean;
 }
 
-function loadQuizState(): QuizState | null {
+function isRecord(value: unknown): value is Record<string, unknown> {
+ return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+export function validateQuizState(state: unknown, questions: QuizQuestion[]): QuizState | null {
+ const currentWeek = getWeekNumber();
+ const currentYear = new Date().getFullYear();
+ if (!isRecord(state) || state.week !== currentWeek || state.year !== currentYear) return null;
+ if (
+ typeof state.score !== 'number' ||
+ !Number.isFinite(state.score) ||
+ typeof state.completed !== 'boolean' ||
+ !isRecord(state.answers)
+ ) return null;
+
+ const answers: Record<string, number> = {};
+ for (const [questionId, answerIndex] of Object.entries(state.answers)) {
+ const question = questions.find(candidate => candidate.id === questionId);
+ if (
+ question &&
+ typeof answerIndex === 'number' &&
+ Number.isInteger(answerIndex) &&
+ answerIndex >= 0 &&
+ answerIndex < question.options.length
+ ) {
+ answers[questionId] = answerIndex;
+ }
+ }
+
+ return {
+ week: state.week,
+ year: state.year,
+ answers,
+ score: state.score,
+ completed: state.completed,
+ };
+}
+
+export function loadQuizState(questions: QuizQuestion[]): QuizState | null {
  try {
  const raw = localStorage.getItem(QUIZ_STORAGE_KEY);
  if (!raw) return null;
- const state: QuizState = JSON.parse(raw);
- // Invalidate if different week
- const currentWeek = getWeekNumber();
- const currentYear = new Date().getFullYear();
- if (state.week !== currentWeek || state.year !== currentYear) return null;
- return state;
+ return validateQuizState(JSON.parse(raw) as unknown, questions);
  } catch {
  return null;
  }
@@ -231,7 +264,7 @@ const WeeklyQuiz: React.FC = () => {
 
  // Load saved state
  useEffect(() => {
- const saved = loadQuizState();
+ const saved = loadQuizState(questions);
  if (saved) {
  setAnswers(saved.answers);
  setScore(saved.score);
