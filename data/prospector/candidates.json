@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-26T13:03:32.239Z",
+  "updatedAt": "2026-10-26T13:04:08.363Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1214162,12 +1214162,12 @@
     },
     "teo-jakob@liebefeld": {
       "key": "teo-jakob@liebefeld",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:05:33.569Z",
-      "updatedAt": "2026-10-26T12:42:51.053Z",
+      "updatedAt": "2026-10-26T13:04:08.283Z",
       "name": "Teo Jakob AG",
       "city": "Liebefeld",
       "zip": "3097",
@@ -1214398,7 +1214398,9 @@
       "validationAnomalyIds": [],
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "promotionPr": "15441",
+      "promotionBranch": "prospector/promote-2026-10-26"
     },
     "teo-jakob@regensdorf": {
       "key": "teo-jakob@regensdorf",
@@ -1304703,12 +1304705,12 @@
     },
     "walter-zoo-gossau@gossau-sg": {
       "key": "walter-zoo-gossau@gossau-sg",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-31T09:55:43.291Z",
-      "updatedAt": "2026-10-26T12:42:40.456Z",
+      "updatedAt": "2026-10-26T13:04:08.283Z",
       "name": "WALTER ZOO AG GOSSAU",
       "city": "Gossau SG",
       "zip": "9200",
@@ -1304947,7 +1304949,9 @@
       "detailEnrichment": false,
       "qualityScore": 1,
       "qualityVerdict": "good",
-      "qualityProblems": []
+      "qualityProblems": [],
+      "promotionPr": "15441",
+      "promotionBranch": "prospector/promote-2026-10-26"
     },
     "walteraulac.ch": {
       "key": "walteraulac.ch",

@@ -24727,3 +24727,5 @@
 {"eventType":"phase_started","at":"2026-10-26T13:03:29.205Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"c8c24ccf9345728d96d33e53"}
 {"eventType":"candidate_transition","key":"alfa-personal.ch","from":"promoting","to":"awaiting_first_crawl","at":"2026-10-26T13:03:32.126Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"4d6bee8de65d1cb17d693ac3"}
 {"eventType":"candidate_transition","key":"alfa-personal.ch","from":"awaiting_first_crawl","to":"production","at":"2026-10-26T13:03:32.160Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"8c996279a62fa1a97d329d67"}
+{"eventType":"candidate_transition","key":"teo-jakob@liebefeld","from":"promoted","to":"promoting","at":"2026-10-26T13:04:08.283Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"796573bb9ada4a30c486ed2b"}
+{"eventType":"candidate_transition","key":"walter-zoo-gossau@gossau-sg","from":"promoted","to":"promoting","at":"2026-10-26T13:04:08.283Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"7dcef4b081859754750de15d"}
