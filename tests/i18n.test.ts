@@ -1,5 +1,5 @@
-import { describe, it, expect, afterAll, beforeAll, beforeEach } from 'vitest';
-import { getLocale, setLocale, t, ensureLocaleLoaded, itReady, loadTabTranslations, loadAllLocaleChunks, initLocale } from '@/services/i18n';
+import { describe, it, expect, afterAll, afterEach, beforeAll, beforeEach, vi } from 'vitest';
+import { getLocale, setLocale, t, ensureLocaleLoaded, itReady, loadTabTranslations, loadAllLocaleChunks, initLocale, onLocaleChange } from '@/services/i18n';
 
 describe('i18n Service', () => {
   // Pre-load all locale data so t() works synchronously in tests
@@ -24,6 +24,10 @@ describe('i18n Service', () => {
     localStorage.clear();
     window.history.replaceState({}, '', '/');
     setLocale('it');
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('defaults to Italian locale', () => {
@@ -91,6 +95,35 @@ describe('i18n Service', () => {
     initLocale();
 
     expect(getLocale()).toBe('en');
+  });
+
+  it('keeps the locale switch usable when storage writes are blocked', () => {
+    const setItem = vi.spyOn(window.localStorage, 'setItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+    const localeListener = vi.fn();
+    const unsubscribe = onLocaleChange(localeListener);
+
+    setLocale('en');
+
+    unsubscribe();
+    expect(setItem).toHaveBeenCalledWith('frontaliere_locale', 'en');
+    expect(getLocale()).toBe('en');
+    expect(document.documentElement.lang).toBe('en');
+    expect(localeListener).toHaveBeenCalledWith('en');
+  });
+
+  it('defaults safely when the stored locale cannot be read', () => {
+    vi.spyOn(window.localStorage, 'getItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+    window.history.replaceState({}, '', '/');
+
+    setLocale('en');
+    initLocale();
+
+    expect(getLocale()).toBe('it');
+    expect(document.documentElement.lang).toBe('it');
   });
 
   afterAll(() => setLocale('it'));

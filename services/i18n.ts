@@ -17,6 +17,26 @@ type Translations = Record<TranslationKey, string>;
 
 let currentLocale: Locale = 'it';
 const listeners: Array<(locale: Locale) => void> = [];
+const LOCALE_STORAGE_KEY = 'frontaliere_locale';
+const VALID_LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
+
+/** Locale persistence is optional: privacy modes can make storage throw. */
+function persistLocale(locale: Locale): void {
+ try {
+  window.localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+ } catch {
+  // A blocked storage must not prevent the in-memory locale switch.
+ }
+}
+
+function readStoredLocale(): Locale | null {
+ try {
+  const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
+  return stored !== null && VALID_LOCALES.includes(stored as Locale) ? stored as Locale : null;
+ } catch {
+  return null;
+ }
+}
 
 // Depth > 0 while listeners are being told that translation DATA arrived (a
 // chunk, an article document, an overlay), as opposed to the visitor switching
@@ -574,7 +594,7 @@ export function getLocaleTick(): number { return localeTick; }
 
 export function setLocale(locale: Locale): void {
  currentLocale = locale;
- localStorage.setItem('frontaliere_locale', locale);
+ persistLocale(locale);
  document.documentElement.lang = locale;
  // Load locale data if needed, then re-notify to trigger re-render with translations
  if (locale !== 'it' && !loadedLocales[locale]) {
@@ -597,11 +617,9 @@ export function onLocaleChange(fn: (locale: Locale) => void): () => void {
 }
 
 export function initLocale(): void {
- const validLocales = ['it', 'en', 'de', 'fr'];
-
  // 1. Check URL path prefix (/en/..., /de/..., /fr/...)
  const pathParts = window.location.pathname.split('/').filter(Boolean);
- if (pathParts.length > 0 && validLocales.includes(pathParts[0])) {
+ if (pathParts.length > 0 && VALID_LOCALES.includes(pathParts[0] as Locale)) {
  setLocale(pathParts[0] as Locale);
  return;
  }
@@ -609,7 +627,7 @@ export function initLocale(): void {
  // 2. Check URL ?lang= parameter (legacy hreflang links)
  const urlParams = new URLSearchParams(window.location.search);
  const urlLang = urlParams.get('lang') as Locale | null;
- if (urlLang && validLocales.includes(urlLang)) {
+ if (urlLang && VALID_LOCALES.includes(urlLang)) {
  setLocale(urlLang);
  return;
  }
@@ -622,8 +640,8 @@ export function initLocale(): void {
  }
 
  // 4. Check localStorage (user's previous choice) on the locale root only
- const stored = localStorage.getItem('frontaliere_locale') as Locale | null;
- if (stored && validLocales.includes(stored)) {
+ const stored = readStoredLocale();
+ if (stored) {
  setLocale(stored);
  return;
  }
