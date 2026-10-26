@@ -119,6 +119,12 @@ import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
 import { GA4_ERROR_EVENTS, isNonProductionTelemetryHost } from './nonProductionHost';
 
+// Keep this named export on the analytics chunk for compatibility with
+// AdSenseBanner assets cached by browsers before the bot gate moved to the
+// shared-services chunk. Stable asset names let those old modules coexist with
+// a newer mx.js during the CDN revalidation window.
+export { isLikelyBot } from './botPatterns';
+
 export interface AffiliateTelemetry {
  surface?: string;
  position?: string;

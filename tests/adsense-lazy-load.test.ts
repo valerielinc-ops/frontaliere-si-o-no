@@ -26,6 +26,8 @@ const adSenseBanner = readFileSync(
   resolve(repoRoot, 'components/shared/AdSenseBanner.tsx'),
   'utf8',
 );
+const analyticsService = readFileSync(resolve(repoRoot, 'services/analytics.ts'), 'utf8');
+const analyticsProxy = readFileSync(resolve(repoRoot, 'services/analyticsProxy.ts'), 'utf8');
 
 describe('AdSense lazy loading — index.html', () => {
   it('does NOT include an eager <script src=".../adsbygoogle.js"> tag in <head>', () => {
@@ -181,6 +183,19 @@ describe('AdSense lazy loading — static SEO shell', () => {
 });
 
 describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
+  it('keeps the bot gate on the analytics chunk for cached CDN compatibility', () => {
+    // Stable asset names allow a browser to combine a cached AdSenseBanner.js
+    // with a freshly published mx.js during the CDN revalidation window. Keep
+    // the old named import resolvable until every cached banner expires.
+    expect(analyticsService).toMatch(
+      /export \{ isLikelyBot \} from ['"]\.\/botPatterns['"];?/,
+    );
+    expect(analyticsProxy).toContain('if (import.meta.env?.PROD) void m.isLikelyBot;');
+    expect(adSenseBanner).toContain(
+      "import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';",
+    );
+  });
+
   it('uses IntersectionObserver to defer script load', () => {
     expect(adSenseBanner).toContain('IntersectionObserver');
     // The margin is no longer a literal here. It governs the SPA banner AND the
