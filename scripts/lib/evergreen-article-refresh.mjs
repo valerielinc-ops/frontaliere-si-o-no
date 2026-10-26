@@ -77,7 +77,10 @@ export function assertEvergreenArticleReadyForWrite(data, expectedId, locales, v
   if (!data || data.id !== expectedId) {
     throw new Error(`evergreen article: refusing to write unexpected article id "${data?.id || ''}"`);
   }
-  const missingLocales = locales.filter((locale) => !data.content?.[locale] || typeof data.content[locale] !== 'object');
+  const missingLocales = locales.filter((locale) => {
+    const content = data.content?.[locale];
+    return !content || typeof content !== 'object' || Array.isArray(content);
+  });
   if (missingLocales.length) {
     throw new Error(`evergreen article: refusing to write without locale payloads: ${missingLocales.join(', ')}`);
   }
