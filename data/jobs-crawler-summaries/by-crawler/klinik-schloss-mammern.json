@@ -1,7 +1,7 @@
 {
   "key": "klinik-schloss-mammern",
   "label": "Klinik Schloss Mammern",
-  "generatedAt": "2026-10-25T21:36:25.665Z",
+  "generatedAt": "2026-10-26T09:38:24.450Z",
   "total": 7,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 16682,
-  "avgDurationMs": 16682,
+  "durationMs": 16590,
+  "avgDurationMs": 16590,
   "durationHistory": [
-    16682
+    16590
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-koechin-koch-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:36:13.524Z",
+      "crawledAt": "2026-10-26T09:38:09.199Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-fachfrau-fachmann-hotellerie-hauswirtschaft-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:36:12.147Z",
+      "crawledAt": "2026-10-26T09:38:07.767Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-als-fachfrau-betreuung-fachrichtung-kinderbetreuung-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:36:10.828Z",
+      "crawledAt": "2026-10-26T09:38:06.233Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "url": "https://ksm-jobs.ch/job/lohnsachbearbeiter-100-befristet-fuer-6-9-monate-try-and-hire/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:36:09.470Z",
+      "crawledAt": "2026-10-26T09:38:04.796Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:36:08.096Z",
+      "crawledAt": "2026-10-26T09:38:03.364Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       "url": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:36:06.705Z",
+      "crawledAt": "2026-10-26T09:38:01.832Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://ksm-jobs.ch/job/schnupperpraktikum/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:36:05.292Z",
+      "crawledAt": "2026-10-26T09:38:00.268Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -318,5 +318,5 @@
       }
     }
   ],
-  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
+  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
 }
