@@ -102,6 +102,41 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+function cancelBodyBestEffort(response, reader) {
+  try {
+    // A body is locked while a reader is consuming it, so cancel the retained
+    // reader rather than calling `response.body.cancel()` in that case.
+    const cancelResult = (reader ?? response?.body)?.cancel?.();
+    Promise.resolve(cancelResult).catch(() => {});
+  } catch {
+    // Minimal fetch doubles and already-consumed bodies may reject cancellation.
+  }
+}
+
+async function readResponseText(response, onReader) {
+  const body = response?.body;
+  if (typeof body?.getReader !== 'function') return response.text();
+
+  const reader = body.getReader();
+  onReader(reader);
+  const decoder = new TextDecoder();
+  let text = '';
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
+  } finally {
+    try {
+      reader.releaseLock();
+    } catch {
+      // Cancellation/error cleanup is best-effort; the timeout still bounds the caller.
+    }
+  }
+}
+
 async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
   const ac = new AbortController();
   const t = setTimeout(() => ac.abort(), timeoutMs);
@@ -127,24 +162,31 @@ async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
 
 async function readTextWithTimeout(response, controller, timeoutMs) {
   let t;
+  let readerForCancellation;
+  let timedOut = false;
+  let rejectTimeout;
   const timeoutPromise = new Promise((_, reject) => {
-    t = setTimeout(() => {
-      const reason = new DOMException('The response body timed out', 'TimeoutError');
-      controller.abort(reason);
-      try {
-        Promise.resolve(response?.body?.cancel?.()).catch(() => {});
-      } catch {
-        // Minimal fetch doubles and locked response bodies may reject cancellation.
-      }
-      reject(reason);
-    }, timeoutMs);
+    rejectTimeout = reject;
   });
+  // The deadline can fire before response.text()/the stream reader attaches its race handler.
+  timeoutPromise.catch(() => {});
+  t = setTimeout(() => {
+    timedOut = true;
+    const reason = new DOMException('The response body timed out', 'TimeoutError');
+    controller?.abort(reason);
+    rejectTimeout(reason);
+    cancelBodyBestEffort(response, readerForCancellation);
+  }, timeoutMs);
+
+  const textPromise = Promise.resolve().then(() => readResponseText(response, (reader) => {
+    readerForCancellation = reader;
+    if (timedOut) cancelBodyBestEffort(response, reader);
+  }));
+  // If timeout wins, the retained reader is cancelled above; suppress a late stream error.
+  textPromise.catch(() => {});
 
   try {
-    return await Promise.race([
-      Promise.resolve().then(() => response.text()),
-      timeoutPromise,
-    ]);
+    return await Promise.race([textPromise, timeoutPromise]);
   } finally {
     clearTimeout(t);
   }
