@@ -4,6 +4,7 @@ import {
   CDN_ORIGIN,
   CDN_PUBLISH_COMPLETE_ID_PATH,
   CDN_PUBLISH_START_ID_PATH,
+  CRITICAL_ASSET_PATHS,
   PUBLIC_CONFIG_URL,
   classifyCdnPublishWindow,
   classifyPublicConfig,
@@ -13,6 +14,7 @@ import {
   purgeFromReport,
   probeRuntime,
   probePublicConfig,
+  resolveCriticalAssetPaths,
   rotationFromEnv,
   runtimeFailureFingerprint,
 } from '../scripts/runtime-reliability-watch.mjs';
@@ -695,6 +697,49 @@ describe('runtime reliability watchdog', () => {
       });
       expect(result.ok).toBe(false);
       expect(result.reasons.some((r: string) => r.startsWith('chunk graph: walk failed'))).toBe(true);
+    });
+  });
+
+  describe('interface-addressed chunk names (build-plugins/shared/abiChunkNaming.mjs)', () => {
+    const manifest = {
+      v: 1,
+      chunks: { App: 'App.0f0f0f0f.js', Skeletons: 'Skeletons.12345678.js', functionsBase: 'functionsBase.js' },
+    };
+
+    it('maps the logical critical paths to the emitted names, leaving the fixed entry and CSS alone', () => {
+      expect(resolveCriticalAssetPaths(manifest)).toEqual([
+        '/assets/App.0f0f0f0f.js',
+        '/assets/index-entry.js',
+        '/assets/functionsBase.js',
+        '/assets/Skeletons.12345678.js',
+        '/assets/index.css',
+      ]);
+    });
+
+    it('degrades to the plain spelling when the manifest is missing (a deploy from before it existed)', () => {
+      expect(resolveCriticalAssetPaths(null)).toEqual(CRITICAL_ASSET_PATHS);
+    });
+
+    it('probes the files named by the live chunk manifest when no explicit paths are given', async () => {
+      const now = Date.parse('2026-10-18T20:10:00Z');
+      const stable = String(now - 60 * 60_000);
+      const probed: string[] = [];
+      const fetchImpl = vi.fn(async (url: string) => {
+        const path = new URL(url).pathname;
+        if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+        if (path === CDN_PUBLISH_START_ID_PATH || path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(stable);
+        if (path === '/assets/chunk-manifest.json') return response(JSON.stringify(manifest));
+        if (path.startsWith('/assets/')) {
+          probed.push(path);
+          return response('same');
+        }
+        return response('1792310390925');
+      });
+      await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date(now), chunkGraph: false });
+      const unique = [...new Set(probed)];
+      expect(unique).toContain('/assets/App.0f0f0f0f.js');
+      expect(unique).toContain('/assets/Skeletons.12345678.js');
+      expect(unique).not.toContain('/assets/App.js');
     });
   });
 

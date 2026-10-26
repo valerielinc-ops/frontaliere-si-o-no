@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { CHUNK_MANIFEST_FILENAME, chunkFileFromManifest } from '../build-plugins/shared/abiChunkNaming.mjs';
 /**
  * Runtime reliability watchdog for the public HTML/CDN build pair.
  *
@@ -46,9 +47,12 @@ export const RUNTIME_CIRCUIT_COOLDOWN_MS = 15 * 60 * 1000;
 // authorizing a purge against a partial origin.
 export const CDN_PUBLISH_STALL_MS = 50 * 60 * 1000;
 
-// These are the stable bundle files involved in the observed version-skew
-// family. Keep the list short: the goal is a cheap liveness/coherence signal,
-// not a second full-site download.
+// These are the bundle files involved in the observed version-skew family.
+// Keep the list short: the goal is a cheap liveness/coherence signal, not a
+// second full-site download. Chunks that export names carry an interface hash
+// in their filename (build-plugins/shared/abiChunkNaming.mjs), so the paths
+// below are the LOGICAL spelling; `resolveCriticalAssetPaths` maps them to the
+// emitted names through the chunk manifest the build publishes.
 export const CRITICAL_ASSET_PATHS = [
   '/assets/App.js',
   '/assets/index-entry.js',
@@ -607,11 +611,38 @@ export function evaluateProbe({
   return result;
 }
 
+/**
+ * Map the logical critical paths to the filenames the live build emitted.
+ * A manifest that is missing or unreadable (a deploy from before the manifest
+ * existed, or a CDN hiccup) degrades to the plain `<name>.js` spelling, which
+ * is still correct for every chunk without named exports.
+ */
+export function resolveCriticalAssetPaths(manifest, paths = CRITICAL_ASSET_PATHS) {
+  return paths.map((path) => {
+    const match = /^\/assets\/(.+)\.js$/.exec(path);
+    // index-entry.js is fixed by entryFileNames; CSS is never interface-hashed.
+    if (!match || match[1] === 'index-entry') return path;
+    return `/assets/${chunkFileFromManifest(manifest, match[1])}`;
+  });
+}
+
+async function readChunkManifest({ fetchImpl, timeoutMs, nonce }) {
+  const url = cacheBust(`${CDN_ORIGIN}/${CHUNK_MANIFEST_FILENAME}`, nonce);
+  const response = await readUrl(url, { fetchImpl, timeoutMs });
+  if (!response?.ok) return null;
+  try {
+    return JSON.parse(response.body);
+  } catch {
+    return null;
+  }
+}
+
 export async function probeRuntime({
   fetchImpl = fetch,
   now = new Date(),
   timeoutMs = DEFAULT_TIMEOUT_MS,
-  assetPaths = CRITICAL_ASSET_PATHS,
+  // `null` = the default critical set, resolved through the live chunk manifest.
+  assetPaths = null,
   // `false` skips the full walk (unit tests of the marker/critical-asset core).
   chunkGraph = true,
   chunkGraphOptions = {},
@@ -648,7 +679,9 @@ export async function probeRuntime({
       }),
     };
   }
-  const assets = await Promise.all(assetPaths.map(async (path) => {
+  const probePaths = assetPaths
+    ?? resolveCriticalAssetPaths(await readChunkManifest({ fetchImpl, timeoutMs, nonce }));
+  const assets = await Promise.all(probePaths.map(async (path) => {
     const url = `${CDN_ORIGIN}${path}`;
     const [cached, fresh] = await Promise.all([
       readUrl(url, { fetchImpl, timeoutMs }),
