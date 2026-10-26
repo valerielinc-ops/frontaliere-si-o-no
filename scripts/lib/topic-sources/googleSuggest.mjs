@@ -93,7 +93,7 @@ const SEEDS_FALLBACK = [
 const REQUEST_TIMEOUT_MS = 5000;
 const RETRY_DELAY_MS = 750;
 const MAX_PER_SEED = 10;
-const RESPONSE_CONTROLLERS = new WeakMap();
+const RESPONSE_STATES = new WeakMap();
 
 const USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
@@ -102,91 +102,97 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function cancelBodyBestEffort(response, reader) {
+function cancelResponseBody(response, state = RESPONSE_STATES.get(response)) {
+  const reader = state?.activeReader;
   try {
-    // A body is locked while a reader is consuming it, so cancel the retained
-    // reader rather than calling `response.body.cancel()` in that case.
-    const cancelResult = (reader ?? response?.body)?.cancel?.();
-    Promise.resolve(cancelResult).catch(() => {});
+    const cancellation = typeof reader?.cancel === 'function'
+      ? reader.cancel()
+      : response?.body?.cancel?.();
+    if (cancellation && typeof cancellation.then === 'function') {
+      cancellation.catch(() => {});
+    }
   } catch {
-    // Minimal fetch doubles and already-consumed bodies may reject cancellation.
+    // Minimal fetch doubles and locked bodies may reject cancellation.
   }
 }
 
-async function readResponseText(response, onReader) {
+async function readResponseText(response, state) {
   const body = response?.body;
   if (typeof body?.getReader !== 'function') return response.text();
 
   const reader = body.getReader();
-  onReader(reader);
+  state.activeReader = reader;
   const decoder = new TextDecoder();
   let text = '';
   try {
     while (true) {
       const { done, value } = await reader.read();
-      if (done) break;
-      text += decoder.decode(value, { stream: true });
+      if (done) return text + decoder.decode();
+      if (value == null) continue;
+      text += typeof value === 'string'
+        ? value
+        : decoder.decode(value, { stream: true });
     }
-    return text + decoder.decode();
   } finally {
-    try {
-      reader.releaseLock();
-    } catch {
-      // Cancellation/error cleanup is best-effort; the timeout still bounds the caller.
-    }
+    if (state.activeReader === reader) state.activeReader = null;
+    try { reader.releaseLock?.(); } catch { /* cleanup stays best effort */ }
   }
 }
 
 async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
   const ac = new AbortController();
-  const t = setTimeout(() => ac.abort(), timeoutMs);
-  if (t && typeof t.unref === 'function') t.unref();
-  try {
-    return await fetchImpl(url, {
-      headers: {
-        'User-Agent': USER_AGENT,
-        Accept: 'application/json, text/javascript, */*; q=0.01',
-        'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
-      },
-      signal: ac.signal,
-    }).then((response) => {
-      if (response && (typeof response === 'object' || typeof response === 'function')) {
-        RESPONSE_CONTROLLERS.set(response, ac);
-      }
-      return response;
-    });
-  } finally {
-    clearTimeout(t);
-  }
-}
-
-async function readTextWithTimeout(response, controller, timeoutMs) {
-  let t;
-  let readerForCancellation;
   let timedOut = false;
   let rejectTimeout;
   const timeoutPromise = new Promise((_, reject) => {
     rejectTimeout = reject;
   });
-  // The deadline can fire before response.text()/the stream reader attaches its race handler.
   timeoutPromise.catch(() => {});
-  t = setTimeout(() => {
+  const t = setTimeout(() => {
     timedOut = true;
-    const reason = new DOMException('The response body timed out', 'TimeoutError');
-    controller?.abort(reason);
+    const reason = new DOMException('The response timed out', 'TimeoutError');
+    ac.abort(reason);
     rejectTimeout(reason);
-    cancelBodyBestEffort(response, readerForCancellation);
   }, timeoutMs);
-
-  const textPromise = Promise.resolve().then(() => readResponseText(response, (reader) => {
-    readerForCancellation = reader;
-    if (timedOut) cancelBodyBestEffort(response, reader);
+  if (t && typeof t.unref === 'function') t.unref();
+  const fetchPromise = Promise.resolve().then(() => fetchImpl(url, {
+    headers: {
+      'User-Agent': USER_AGENT,
+      Accept: 'application/json, text/javascript, */*; q=0.01',
+      'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
+    },
+    signal: ac.signal,
   }));
-  // If timeout wins, the retained reader is cancelled above; suppress a late stream error.
-  textPromise.catch(() => {});
+  fetchPromise.then((lateResponse) => {
+    if (timedOut) void cancelResponseBody(lateResponse);
+  }, () => {});
+  try {
+    const response = await Promise.race([fetchPromise, timeoutPromise]);
+    if (response && (typeof response === 'object' || typeof response === 'function')) {
+      RESPONSE_STATES.set(response, { controller: ac, activeReader: null });
+    }
+    return response;
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function readTextWithTimeout(response, state, timeoutMs) {
+  let t;
+  const timeoutPromise = new Promise((_, reject) => {
+    t = setTimeout(() => {
+      const reason = new DOMException('The response body timed out', 'TimeoutError');
+      state.controller.abort(reason);
+      cancelResponseBody(response, state);
+      reject(reason);
+    }, timeoutMs);
+  });
+  timeoutPromise.catch(() => {});
 
   try {
-    return await Promise.race([textPromise, timeoutPromise]);
+    return await Promise.race([
+      readResponseText(response, state),
+      timeoutPromise,
+    ]);
   } finally {
     clearTimeout(t);
   }
@@ -219,13 +225,17 @@ async function fetchOneSeed(seed, fetchImpl) {
   for (let attempt = 0; attempt <= 1; attempt++) {
     try {
       const res = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
+      const state = (res && RESPONSE_STATES.get(res)) ?? {
+        controller: new AbortController(),
+        activeReader: null,
+      };
       if (!res || typeof res.ok !== 'boolean') {
         lastReason = 'invalid response';
       } else if (!res.ok) {
         lastReason = `HTTP ${res.status}`;
+        cancelResponseBody(res, state);
       } else {
-        const controller = RESPONSE_CONTROLLERS.get(res);
-        const text = await readTextWithTimeout(res, controller, REQUEST_TIMEOUT_MS);
+        const text = await readTextWithTimeout(res, state, REQUEST_TIMEOUT_MS);
         const completions = parseSuggestPayload(text);
         if (!Array.isArray(completions)) {
           lastReason = 'malformed json';
