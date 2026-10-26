@@ -133,7 +133,13 @@ const AI_ASSISTED_FIELD_BLOCK = [
 
 function readSiteOwnedArticleFields() {
   const file = path.join(DEST, 'blog-articles-data.ts');
-  const source = fs.readFileSync(file, 'utf8');
+  let source;
+  try {
+    source = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
   if (!/\baiAssisted\?\s*:\s*boolean\s*;/u.test(source)) {
     throw new Error('site-owned Article provenance field missing before corpus mirror');
   }
