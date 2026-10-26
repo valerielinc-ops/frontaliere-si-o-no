@@ -1484,10 +1484,10 @@
     },
     {
       "id": "srg-ssr-e361d08546f5",
-      "slug": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+      "slug": "esperto-a-di-governance-dei-dati-metadati-srg-ssr-zurich",
       "slugByLocale": {
         "de": "data-governance-expert-meta-data-srg-ssr-zurich",
-        "it": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+        "it": "esperto-a-di-governance-dei-dati-metadati-srg-ssr-zurich",
         "en": "data-governance-expert-meta-data-srg-ssr-zurich-2",
         "fr": "data-governance-expert-meta-data-srg-ssr-zurich-2"
       },
@@ -1573,11 +1573,13 @@
       "firstSeenAt": "2026-10-09T09:15:23.137Z",
       "previousSlugsByLocale": {
         "it": [
-          "data-governance-expert-meta-data-srg-ssr-zurich"
+          "data-governance-expert-meta-data-srg-ssr-zurich",
+          "data-governance-expert-meta-data-srg-ssr-zurich-2"
         ]
       },
       "previousSlugs": [
-        "data-governance-expert-meta-data-srg-ssr-zurich"
+        "data-governance-expert-meta-data-srg-ssr-zurich",
+        "data-governance-expert-meta-data-srg-ssr-zurich-2"
       ]
     },
     {
@@ -1677,12 +1679,12 @@
     },
     {
       "id": "srg-ssr-8f8b1ac9554d",
-      "slug": "data-governance-expert-master-data-srg-ssr-zurich-2",
+      "slug": "esperto-di-governance-dei-dati-dati-master-srg-ssr-zurich-dabd84",
       "slugByLocale": {
         "fr": "data-governance-expert-master-data-srg-ssr-zurich",
-        "it": "data-governance-expert-master-data-srg-ssr-zurich-2",
+        "it": "esperto-di-governance-dei-dati-dati-master-srg-ssr-zurich-dabd84",
         "en": "data-governance-expert-master-data-srg-ssr-zurich-2",
-        "de": "data-governance-expert-master-data-srg-ssr-zurich-2"
+        "de": "experte-fur-data-governance-stammdaten-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -1766,11 +1768,16 @@
       "firstSeenAt": "2026-10-09T21:10:31.036Z",
       "previousSlugsByLocale": {
         "it": [
-          "data-governance-expert-master-data-srg-ssr-zurich"
+          "data-governance-expert-master-data-srg-ssr-zurich",
+          "data-governance-expert-master-data-srg-ssr-zurich-2"
+        ],
+        "de": [
+          "data-governance-expert-master-data-srg-ssr-zurich-2"
         ]
       },
       "previousSlugs": [
-        "data-governance-expert-master-data-srg-ssr-zurich"
+        "data-governance-expert-master-data-srg-ssr-zurich",
+        "data-governance-expert-master-data-srg-ssr-zurich-2"
       ]
     },
     {
@@ -2637,7 +2644,7 @@
         "it": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
         "en": "a-a-specialist-in-research-and-analysis-of-audience-data-srg-ssr-lugano",
         "de": "a-ein-spezialist-fur-forschung-und-analyse-von-publikumsdaten-srg-ssr-lugano",
-        "fr": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano"
+        "fr": "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2695,14 +2702,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-10-22T09:14:31.160Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-      ],
       "salaryMin": 50500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3194,12 +3193,12 @@
     },
     {
       "id": "srg-ssr-39ba58690d02",
-      "slug": "produktmanager-in-digital-workplace-srg-ssr-zurich",
+      "slug": "responsabile-di-prodotto-digital-workplace-srg-ssr-zurich",
       "slugByLocale": {
         "de": "produktmanager-in-digital-workplace-srg-ssr-zurich",
-        "it": "produktmanager-in-digital-workplace-srg-ssr-zurich",
-        "en": "produktmanager-in-digital-workplace-srg-ssr-zurich",
-        "fr": "produktmanager-in-digital-workplace-srg-ssr-zurich"
+        "it": "responsabile-di-prodotto-digital-workplace-srg-ssr-zurich",
+        "en": "product-manager-digital-workplace-srg-ssr-zurich-acaba8",
+        "fr": "responsable-produit-digital-workplace-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3281,7 +3280,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-25T21:22:21.259Z"
+      "firstSeenAt": "2026-10-25T21:22:21.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktmanager-in-digital-workplace-srg-ssr-zurich"
+        ],
+        "en": [
+          "produktmanager-in-digital-workplace-srg-ssr-zurich"
+        ],
+        "fr": [
+          "produktmanager-in-digital-workplace-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "produktmanager-in-digital-workplace-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-1ea7fd152fa9",
@@ -3290,7 +3303,7 @@
         "fr": "product-manager-digital-workplace-srg-ssr-zurich",
         "it": "product-manager-digital-workplace-srg-ssr-zurich-7bf9e7cf5c",
         "en": "product-manager-digital-workplace-srg-ssr-zurich",
-        "de": "product-manager-digital-workplace-srg-ssr-zurich"
+        "de": "produktmanager-digital-workplace-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3379,6 +3392,9 @@
       "previousSlugsByLocale": {
         "it": [
           "product-manager-digital-workplace-srg-ssr-zurich"
+        ],
+        "de": [
+          "product-manager-digital-workplace-srg-ssr-zurich"
         ]
       }
     },
@@ -3388,8 +3404,8 @@
       "slugByLocale": {
         "it": "product-manager-digital-workplace-srg-ssr-zurich-e28b58f300",
         "en": "product-manager-digital-workplace-srg-ssr-zurich",
-        "de": "product-manager-digital-workplace-srg-ssr-zurich",
-        "fr": "product-manager-digital-workplace-srg-ssr-zurich"
+        "de": "produktmanager-digital-workplace-srg-ssr-zurich-9c450c",
+        "fr": "gestionnaire-de-produits-milieu-de-travail-numerique-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3460,6 +3476,12 @@
       "previousSlugsByLocale": {
         "it": [
           "product-manager-digital-workplace-srg-ssr-zurich-2",
+          "product-manager-digital-workplace-srg-ssr-zurich"
+        ],
+        "de": [
+          "product-manager-digital-workplace-srg-ssr-zurich"
+        ],
+        "fr": [
           "product-manager-digital-workplace-srg-ssr-zurich"
         ]
       },

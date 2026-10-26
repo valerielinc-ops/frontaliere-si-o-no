@@ -403,8 +403,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -451,8 +451,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -460,10 +460,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -2323,7 +2323,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -2863,7 +2863,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -7166,7 +7166,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -7215,7 +7215,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7223,7 +7223,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -7619,7 +7619,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -7668,8 +7668,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7678,7 +7677,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -11542,7 +11541,7 @@
         "de": "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
         "it": "posto-di-apprendistato-come-addetto-a-agli-impianti-sanitari-eba-tutti-bkw-saanen",
         "en": "apprenticeship-as-a-sanitary-technician-eba-all-bkw-saanen",
-        "fr": "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-saanen"
+        "fr": "place-d-apprentissage-de-praticien-ne-en-installations-sanitaires-afp-tous-bkw-saanen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -11593,12 +11592,12 @@
           "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch"
         ],
         "fr": [
-          "place-d-apprentissage-de-praticien-ne-en-installations-sanitaires-afp-tous-bkw-saanen"
+          "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-saanen"
         ]
       },
       "previousSlugs": [
         "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
-        "place-d-apprentissage-de-praticien-ne-en-installations-sanitaires-afp-tous-bkw-saanen"
+        "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-saanen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -13409,9 +13408,9 @@
       "slug": "spezialist-in-engineering-alle-bkw-oberkirch",
       "slugByLocale": {
         "de": "spezialist-in-engineering-alle-bkw-ch-06j0xi",
-        "it": "spezialist-in-engineering-alle-bkw-oberkirch",
+        "it": "ingegneria-specialistica-tutti-bkw-oberkirch",
         "en": "specialist-engineering-all-bkw-oberkirch",
-        "fr": "spezialist-in-engineering-alle-bkw-oberkirch"
+        "fr": "specialiste-en-ingenierie-tous-bkw-oberkirch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -13459,20 +13458,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-engineering-alle-bkw-ch",
-          "ingegneria-specialistica-tutti-bkw-oberkirch"
+          "spezialist-in-engineering-alle-bkw-ch"
         ],
         "de": [
           "spezialist-in-engineering-alle-bkw-ch"
-        ],
-        "fr": [
-          "specialiste-en-ingenierie-tous-bkw-oberkirch"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-engineering-alle-bkw-ch",
-        "ingegneria-specialistica-tutti-bkw-oberkirch",
-        "specialiste-en-ingenierie-tous-bkw-oberkirch"
+        "spezialist-in-engineering-alle-bkw-ch"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -21345,7 +21338,7 @@
       "slug": "hr-business-partner-alle-bkw-ch",
       "slugByLocale": {
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "hr-business-partner-alle-bkw-bulle",
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle",
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch"
       },
@@ -21395,11 +21388,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "hr-business-partner-alle-bkw-bulle"
         ]
       },
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "hr-business-partner-alle-bkw-bulle"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -22062,7 +22055,7 @@
         "it": "senior-it-controller-tutti-bkw-bern",
         "en": "senior-it-controller-all-bkw-bern",
         "de": "senior-it-controller-alle-bkw-ch",
-        "fr": "senior-it-controller-alle-bkw-bern"
+        "fr": "controleur-informatique-principal-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22108,7 +22101,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-it-controller-alle-bkw-ch",
-        "controleur-informatique-principal-tous-bkw-bern"
+        "senior-it-controller-alle-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22118,7 +22111,7 @@
           "senior-it-controller-alle-bkw-ch"
         ],
         "fr": [
-          "controleur-informatique-principal-tous-bkw-bern"
+          "senior-it-controller-alle-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-10-19T09:19:12.037Z",

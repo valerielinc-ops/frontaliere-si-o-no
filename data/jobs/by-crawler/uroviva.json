@@ -1015,7 +1015,7 @@
         "it": "finance-business-partner-80-100-uroviva-bulach",
         "en": "finance-business-partner-80-100-uroviva-bulach",
         "de": "finance-business-partner-80-100-uroviva-bulach",
-        "fr": "finance-partenaire-d-affaires-80-100-uroviva-bulach"
+        "fr": "partenaire-financier-uroviva-bulach"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -1071,7 +1071,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "finance-partenaire-d-affaires-80-100-uroviva-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "finance-partenaire-d-affaires-80-100-uroviva-bulach"
+      ]
     },
     {
       "id": "uroviva-6fcaa5657aa5",
@@ -1359,7 +1367,7 @@
         "it": "hr-business-partner-60-80-uroviva-bulach",
         "en": "hr-business-partner-60-80-uroviva-bulach",
         "de": "hr-business-partner-60-80-uroviva-bulach",
-        "fr": "hr-business-partner-uroviva-bulach"
+        "fr": "ressources-humaines-partenaire-d-affaires-uroviva-bulach"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -1404,12 +1412,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "partenaire-rh-60-80-uroviva-bulach",
-        "rh-associe-d-affaires-60-80-uroviva-bulach"
+        "rh-associe-d-affaires-60-80-uroviva-bulach",
+        "hr-business-partner-uroviva-bulach"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "partenaire-rh-60-80-uroviva-bulach",
-          "rh-associe-d-affaires-60-80-uroviva-bulach"
+          "rh-associe-d-affaires-60-80-uroviva-bulach",
+          "hr-business-partner-uroviva-bulach"
         ]
       },
       "firstSeenAt": "2026-10-05T21:27:35.221Z",

@@ -1497,12 +1497,12 @@
     },
     {
       "id": "etat-de-vaud-6025",
-      "slug": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
+      "slug": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c",
       "slugByLocale": {
         "fr": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
-        "it": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
-        "en": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
-        "de": "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        "it": "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c",
+        "en": "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c",
+        "de": "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz-591b6c"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -1564,11 +1564,19 @@
       "firstSeenAt": "2026-10-05T21:35:33.691Z",
       "previousSlugsByLocale": {
         "it": [
-          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz"
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        ],
+        "en": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        ],
+        "de": [
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
         ]
       },
       "previousSlugs": [
-        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz"
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
       ]
     },
     {
@@ -3425,7 +3433,7 @@
       "slugByLocale": {
         "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "de": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "fr": "greffier-ere-etat-de-vaud-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3472,7 +3480,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "greffier-ere-etat-de-vaud-renens-vd",
-        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3483,7 +3491,7 @@
         ],
         "de": [
           "greffier-ere-etat-de-vaud-renens-vd",
-          "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+          "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ]
       },
       "firstSeenAt": "2026-10-08T09:29:34.086Z",
