@@ -37,6 +37,7 @@ const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
   BZ: 4,
 });
 const MIMIT_API_CONCURRENCY = 4;
+const MIMIT_API_TOWN_CONCURRENCY = 4;
 const MIMIT_MAX_AGE_HOURS = 48;
 const MIMIT_PRICES_REQUIRED_COLUMNS = Object.freeze([
   'idImpianto', 'descCarburante', 'prezzo', 'isSelf', 'dtComu',
@@ -87,6 +88,10 @@ function normalizeText(value = '') {
     .replace(/[^A-Za-z0-9]+/g, '')
     .toUpperCase()
     .trim();
+}
+
+function municipalityCoverageKey(municipality) {
+  return `${normalizeText(municipality?.name)}:${normalizeText(municipality?.province)}`;
 }
 
 function parseDelimited(text) {
@@ -430,6 +435,8 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
 
   const stationsById = new Map();
   const pricesByKey = new Map();
+  const targetMunicipalityKeys = new Set(municipalities.map(municipalityCoverageKey));
+  const coveredMunicipalityKeys = new Set();
   let latestObservedAt = null;
   for (const response of responses) {
     const province = String(response?.province || '').trim().toUpperCase();
@@ -479,13 +486,17 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
         }
         pricesByKey.set(key, normalizedPriceRow);
       }
+      if (fuelRows.some((row) => row.descCarburante === 'Benzina')) {
+        coveredMunicipalityKeys.add(municipalityCoverageKey(municipality));
+      }
       if (!latestObservedAt || Date.parse(observationTimestamp) > Date.parse(latestObservedAt)) latestObservedAt = observationTimestamp;
     }
   }
 
   const stationsRows = [...stationsById.values()];
   const pricesRows = [...pricesByKey.values()];
-  if (!stationsRows.length || !pricesRows.some((row) => row.descCarburante === 'Benzina')) {
+  const missingMunicipalities = [...targetMunicipalityKeys].filter((key) => !coveredMunicipalityKeys.has(key));
+  if (!stationsRows.length || !pricesRows.some((row) => row.descCarburante === 'Benzina') || missingMunicipalities.length) {
     throw new Error('MIMIT API returned no valid Benzina rows for target municipalities');
   }
   return {
@@ -496,34 +507,62 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
   };
 }
 
+async function fetchMimitApiArea({ region, province, town, fetchImpl, retries }) {
+  const json = await fetchJsonWithRetry(MIMIT_API_URL, retries, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    // Osservaprezzi accepts a province-wide lookup, but some responses now
+    // return an empty result for `town: null`. Keep that response as a valid
+    // empty page so the caller can retry the same official source per target
+    // municipality instead of carrying a stale snapshot.
+    body: JSON.stringify({ region, province, town, priceOrder: 'asc', fuelType: '1-x' }),
+  }, fetchImpl, (payload) => {
+    const results = Array.isArray(payload?.results) ? payload.results : Array.isArray(payload?.array) ? payload.array : null;
+    if (!results || (payload?.success !== true && results.length > 0)) {
+      throw new Error(`Unexpected response shape from ${MIMIT_API_URL} for province ${province}`);
+    }
+    return payload;
+  });
+  const results = Array.isArray(json?.results) ? json.results : Array.isArray(json?.array) ? json.array : [];
+  return { province, results };
+}
+
 export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, retries = 3 } = {}) {
   const provinces = [...new Set(municipalities.map((municipality) => String(municipality.province || '').trim().toUpperCase()))]
     .filter(Boolean)
     .sort();
   if (!provinces.length) throw new Error('MIMIT API fallback has no target provinces');
-  const responses = await mapWithConcurrency(provinces, MIMIT_API_CONCURRENCY, async (province) => {
+  const municipalitiesByProvince = new Map(provinces.map((province) => [
+    province,
+    municipalities.filter((municipality) => String(municipality.province || '').trim().toUpperCase() === province),
+  ]));
+  const responsesByProvince = await mapWithConcurrency(provinces, MIMIT_API_CONCURRENCY, async (province) => {
     const region = MIMIT_API_REGION_BY_PROVINCE[province];
     if (region == null) throw new Error(`MIMIT API fallback has no region mapping for province ${province}`);
-    const json = await fetchJsonWithRetry(MIMIT_API_URL, retries, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      // Osservaprezzi encodes the fuel and refuelling mode as <fuel>-<mode>;
-      // 1 is Benzina and x means either self-service or served. `0-x` is not
-      // the API's all-fuels selector and returns no usable station rows.
-      body: JSON.stringify({ region, province, town: null, priceOrder: 'asc', fuelType: '1-x' }),
-    }, fetchImpl, (payload) => {
-      const results = Array.isArray(payload?.results) ? payload.results : Array.isArray(payload?.array) ? payload.array : null;
-      if (payload?.success !== true || !results || results.length === 0) {
-        throw new Error(`MIMIT API returned no usable rows for province ${province}`);
-      }
-      return payload;
+    const targetMunicipalities = municipalitiesByProvince.get(province) || [];
+    const provinceResponse = await fetchMimitApiArea({
+      region,
+      province,
+      town: null,
+      fetchImpl,
+      retries,
     });
-    const results = Array.isArray(json?.results) ? json.results : Array.isArray(json?.array) ? json.array : null;
-    if (json?.success !== true || !results) {
-      throw new Error(`Unexpected response shape from ${MIMIT_API_URL} for province ${province}`);
+    try {
+      buildItalyRowsFromMimitApi({ municipalities: targetMunicipalities, responses: [provinceResponse] });
+      return [provinceResponse];
+    } catch (error) {
+      if (!(error instanceof Error) || error.message !== 'MIMIT API returned no valid Benzina rows for target municipalities') throw error;
+      console.warn(`::warning::[fuel] MIMIT area lookup returned no target Benzina rows for ${province}; retrying ${targetMunicipalities.length} target municipalities`);
     }
-    return { province, results };
+    return mapWithConcurrency(targetMunicipalities, MIMIT_API_TOWN_CONCURRENCY, async (municipality) => fetchMimitApiArea({
+      region,
+      province,
+      town: municipality.name,
+      fetchImpl,
+      retries,
+    }));
   });
+  const responses = responsesByProvince.flat();
   const result = { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };
   assertMimitObservationFresh(result.latestObservedAt, new Date());
   return result;
