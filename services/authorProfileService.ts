@@ -27,47 +27,38 @@
 
 import { AUTHORS, getAuthorBySlug, type Author } from '@/data/authors';
 import { resilientImport } from '@/services/resilientImport';
+import {
+  parseLocalMapEnvelope,
+  sanitizeArticleAuthorOverride,
+  sanitizeAuthorProfilePatch,
+} from '@/services/authorProfileCache';
+import type { ArticleAuthorOverride, AuthorProfilePatch } from '@/services/authorProfileCache';
+
+export type { ArticleAuthorOverride, AuthorProfilePatch } from '@/services/authorProfileCache';
+export {
+  AUTHOR_PROFILE_CACHE_TTL_MS,
+  parseLocalMapEnvelope,
+  sanitizeArticleAuthorOverride,
+  sanitizeAuthorProfilePatch,
+} from '@/services/authorProfileCache';
 
 const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
-
-export type AuthorProfilePatch = Partial<Pick<Author, 'name' | 'role' | 'bio' | 'photoPath'>>;
-
-const EDITORIAL_PROFILE_FIELDS = ['name', 'role', 'bio', 'photoPath'] as const;
-
-/** Strip contact/social/auth fields from admin profile documents; preserve the
- * static author's kind, uid, CV and other identity fields when merging. */
-export function sanitizeAuthorProfilePatch(value: unknown): AuthorProfilePatch | undefined {
-  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
-  const source = value as Record<string, unknown>;
-  const patch: AuthorProfilePatch = {};
-  for (const field of EDITORIAL_PROFILE_FIELDS) {
-    if (typeof source[field] === 'string') patch[field] = source[field].trim();
-  }
-  return Object.keys(patch).length > 0 ? patch : undefined;
-}
 
 function mergeAuthorProfile(base: Author, patch: unknown): Author {
   return { ...base, ...sanitizeAuthorProfilePatch(patch) };
 }
 
-export interface ArticleAuthorOverride {
-  authorSlug: string;
-  authorName: string;
-}
-
 const PROFILES_LS_KEY = 'author_profiles_cache';
 const OVERRIDES_LS_KEY = 'article_author_overrides_cache';
-const LS_TTL_MS = 60 * 60 * 1000; // 1 hour — admin changes are visible on the next fetch past TTL
 
-function readLocalMap<T>(key: string): Map<string, T> | null {
+type LocalMapValueSanitizer<T> = (value: unknown) => T | undefined;
+
+function readLocalMap<T>(key: string, sanitizeValue: LocalMapValueSanitizer<T>): Map<string, T> | null {
   if (IS_TEST_ENV) return null;
   try {
     const raw = localStorage.getItem(key);
     if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (!parsed?.data || typeof parsed.timestamp !== 'number') return null;
-    if ((Date.now() - parsed.timestamp) >= LS_TTL_MS) return null;
-    return new Map<string, T>(Object.entries(parsed.data) as [string, T][]);
+    return parseLocalMapEnvelope(JSON.parse(raw), sanitizeValue);
   } catch { return null; }
 }
 
@@ -105,7 +96,7 @@ async function loadProfiles(): Promise<Map<string, AuthorProfilePatch>> {
   if (profilesCache) return profilesCache;
 
   // 2. localStorage cache (skip Firestore on repeat page loads within TTL)
-  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY);
+  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY, sanitizeAuthorProfilePatch);
   if (local) {
     profilesCache = local;
     return local;
@@ -158,7 +149,7 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
     return patch;
   }
 
-  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY);
+  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY, sanitizeAuthorProfilePatch);
   if (local?.has(slug)) {
     const patch = local.get(slug);
     profileBySlugCache.set(slug, patch);
@@ -186,7 +177,8 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
         // Offline / permission edge cases — fall back to the static registry only.
       }
       profileBySlugCache.set(slug, result);
-      const existing = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY) ?? new Map<string, AuthorProfilePatch>();
+      const existing = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY, sanitizeAuthorProfilePatch)
+        ?? new Map<string, AuthorProfilePatch>();
       if (result) existing.set(slug, result);
       writeLocalMap(PROFILES_LS_KEY, existing);
       profileBySlugInFlight.delete(slug);
@@ -208,7 +200,7 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
 async function loadOverride(articleId: string): Promise<ArticleAuthorOverride | undefined> {
   if (overrideByIdCache.has(articleId)) return overrideByIdCache.get(articleId);
 
-  const local = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY);
+  const local = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY, sanitizeArticleAuthorOverride);
   if (local?.has(articleId)) {
     const hit = local.get(articleId);
     overrideByIdCache.set(articleId, hit);
@@ -239,7 +231,8 @@ async function loadOverride(articleId: string): Promise<ArticleAuthorOverride | 
         // Offline / permission edge cases — fall back to static byline only.
       }
       overrideByIdCache.set(articleId, result);
-      const existing = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY) ?? new Map<string, ArticleAuthorOverride>();
+      const existing = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY, sanitizeArticleAuthorOverride)
+        ?? new Map<string, ArticleAuthorOverride>();
       if (result) existing.set(articleId, result);
       writeLocalMap(OVERRIDES_LS_KEY, existing);
       overrideByIdInFlight.delete(articleId);
