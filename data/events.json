@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T13:47:55.879Z",
+  "generatedAt": "2026-10-26T15:43:02.699Z",
   "totalEvents": 15181,
   "events": [
     {
@@ -298786,7 +298786,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Projection; organizzatore: Ville de Genève Agenda; data: 2026-10-25; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Projection; organizzatore: Ville de Genève Agenda; data: 2026-10-25; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Projection; organiser: Ville de Genève Agenda; date: 2026-10-25; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Projection; veranstalter: Ville de Genève Agenda; datum: 2026-10-25; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Projection; organisateur: Ville de Genève Agenda; date: 2026-10-25; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1db6678be4634cb8a1c31eff958c214c",
@@ -367770,7 +367778,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una pratica di Qi Gong in gruppo a Ebikon, con movimenti lenti e fluidi rivolti a stabilità, equilibrio, coordinazione e concentrazione. L’offerta è gratuita ed è destinata alle persone dai 60 anni in su e a tutte le persone interessate; non richiede particolare preparazione sportiva, ma abbigliamento adeguato al tempo e scarpe comode.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una pratica di Qi Gong in gruppo a Ebikon, con movimenti lenti e fluidi rivolti a stabilità, equilibrio, coordinazione e concentrazione. L’offerta è gratuita ed è destinata alle persone dai 60 anni in su e a tutte le persone interessate; non richiede particolare preparazione sportiva, ma abbigliamento adeguato al tempo e scarpe comode.",
+        "en": "This event in Ebikon introduces group Qi Gong with slow, flowing movements that work on steadiness, balance, coordination and concentration. Participation is free for people aged 60 and over as well as anyone interested; no athletic ability is required, but comfortable shoes and weather-appropriate clothing are needed.",
+        "de": "In Ebikon steht eine gemeinsame Qi-Gong-Praxis mit langsamen, fliessenden Bewegungen im Mittelpunkt, die Standfestigkeit, Gleichgewicht, Koordination und Konzentration unterstützt. Das kostenlose Angebot richtet sich an Personen ab 60 Jahren und an alle Interessierten; sportliche Vorkenntnisse sind nicht nötig, bequeme Schuhe und der Witterung entsprechende Kleidung jedoch schon.",
+        "fr": "À Ebikon, cette activité propose une pratique collective du qi gong fondée sur des mouvements lents et souples, avec un travail de la stabilité, de l’équilibre, de la coordination et de la concentration. La participation est gratuite pour les personnes de 60 ans et plus ainsi que pour toute personne intéressée ; aucune aptitude sportive particulière n’est requise, mais des chaussures confortables et des vêtements adaptés aux conditions météorologiques sont nécessaires."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4af2d3eb85574b089016f68388f39faf",
@@ -417741,7 +417757,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il documentario «The Tradwives of America» viene proiettato a Ginevra. L’appuntamento comprende anche una tavola rotonda ed è collegato a una campagna contro la violenza sessista e sessuale. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Il documentario «The Tradwives of America» viene proiettato a Ginevra. L’appuntamento comprende anche una tavola rotonda ed è collegato a una campagna contro la violenza sessista e sessuale. L’ingresso è gratuito.",
+        "en": "The documentary “The Tradwives of America” will be screened in Geneva. The event also includes a panel discussion and is part of a campaign focused on eliminating sexist and sexual violence. Admission is free.",
+        "de": "Der Dokumentarfilm «The Tradwives of America» wird in Genf gezeigt. Die Veranstaltung umfasst ausserdem eine Podiumsdiskussion und gehört zu einer Kampagne gegen sexistische und sexuelle Gewalt. Der Eintritt ist kostenlos.",
+        "fr": "À Genève, le documentaire «The Tradwives of America» est projeté. La rencontre comprend aussi une table ronde et s’inscrit dans une campagne consacrée à la lutte contre les violences sexistes et sexuelles. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AnXtsFW",
@@ -421897,7 +421921,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata al Bar Cervo di Bellinzona propone una storica band romana. Il gruppo unisce blues, rock, swing e rhythm and blues e presenta il suo nuovo album, già recensito da diverse riviste e trasmesso da emittenti radiofoniche in vari Paesi.",
+      "descriptionByLocale": {
+        "it": "La serata al Bar Cervo di Bellinzona propone una storica band romana. Il gruppo unisce blues, rock, swing e rhythm and blues e presenta il suo nuovo album, già recensito da diverse riviste e trasmesso da emittenti radiofoniche in vari Paesi.",
+        "en": "The event at Bar Cervo in Bellinzona features a long-established band from Rome. Its music combines blues, rock, swing and rhythm and blues, while the group presents a new album that has been reviewed by several magazines and is receiving radio play in several countries.",
+        "de": "Bei der Veranstaltung in der Bar Cervo in Bellinzona ist eine lang etablierte Band aus Rom zu hören. Sie verbindet Blues, Rock, Swing und Rhythm and Blues und stellt ihr neues Album vor, das von mehreren Zeitschriften besprochen wurde und in verschiedenen Ländern im Radio läuft.",
+        "fr": "La soirée au Bar Cervo de Bellinzone accueille un groupe romain actif depuis longtemps. Sa musique mêle blues, rock, swing et rhythm and blues, tandis que le groupe présente son nouvel album, recensé par plusieurs revues et diffusé par des radios dans plusieurs pays."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:17e46402cd9d4395aba85373d7d6ec7f",
@@ -428494,7 +428526,15 @@
       },
       "imageSourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
       "imageCopyrightNotice": "© Hugo Sykes",
-      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/"
+      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "description": "Questo monologo teatrale affronta il rapporto tra una madre e un figlio autistico, includendo le difficoltà e i risultati del loro percorso. La rappresentazione propone una riflessione sulla neurodiversità, dura 75 minuti ed è consigliata a partire dai 10 anni.",
+      "descriptionByLocale": {
+        "it": "Questo monologo teatrale affronta il rapporto tra una madre e un figlio autistico, includendo le difficoltà e i risultati del loro percorso. La rappresentazione propone una riflessione sulla neurodiversità, dura 75 minuti ed è consigliata a partire dai 10 anni.",
+        "en": "This theatre monologue examines the relationship between a mother and her autistic son, including the challenges and achievements that shape their experience. It considers neurodiversity and the ideas of difference and normality; the 75-minute performance is intended for audiences aged 10 and over.",
+        "de": "Das Theatermonologstück beleuchtet die Beziehung zwischen einer Mutter und ihrem autistischen Sohn und beschreibt dabei belastende wie auch positive Erfahrungen. Es setzt sich mit Neurodiversität sowie den Vorstellungen von Verschiedenheit und Normalität auseinander; die Aufführung dauert 75 Minuten und richtet sich an Menschen ab zehn Jahren.",
+        "fr": "Ce monologue théâtral s’intéresse à la relation entre une mère et son fils autiste, en évoquant les obstacles rencontrés et les progrès accomplis. Il aborde la neurodiversité ainsi que les notions de différence et de normalité; la représentation dure 75 minutes et convient dès l’âge de 10 ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:99c92694633f440ab2d43718c6caecf1",
@@ -430828,7 +430868,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma prevede la proiezione di Mailin, film di María Silvia Esteve, ai Cinémas du Grütli di Ginevra. L’appuntamento fa parte del Festival FILMAR en América Latina e si svolge con il sostegno del Service Agenda 21.",
+      "descriptionByLocale": {
+        "it": "Il programma prevede la proiezione di Mailin, film di María Silvia Esteve, ai Cinémas du Grütli di Ginevra. L’appuntamento fa parte del Festival FILMAR en América Latina e si svolge con il sostegno del Service Agenda 21.",
+        "en": "The event presents Mailin, a film by María Silvia Esteve, at Cinémas du Grütli in Geneva. It is part of Festival FILMAR en América Latina and is supported by Service Agenda 21.",
+        "de": "Bei der Veranstaltung wird Mailin, ein Film von María Silvia Esteve, im Cinémas du Grütli in Genf gezeigt. Die Vorführung gehört zum Festival FILMAR en América Latina und wird vom Service Agenda 21 unterstützt.",
+        "fr": "Le programme propose le film Mailin, réalisé par María Silvia Esteve, aux Cinémas du Grütli à Genève. La séance s’inscrit dans le Festival FILMAR en América Latina et bénéficie du soutien du Service Agenda 21."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4fXHwE",
@@ -433608,7 +433656,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Mr HOBBS è un appuntamento di clubbing a Ginevra. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Mr HOBBS è un appuntamento di clubbing a Ginevra. L’ingresso è gratuito.",
+        "en": "Mr HOBBS is a clubbing event in Geneva. Admission is free.",
+        "de": "Mr HOBBS ist eine Clubbing-Veranstaltung in Genf. Der Eintritt ist kostenlos.",
+        "fr": "Mr HOBBS est un événement de clubbing à Genève. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b6795cc5a59a40d2a0dcf6f724473981",
@@ -438309,7 +438365,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-11-15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-11-15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; organiser: Ville de Genève Agenda; date: 2026-11-15; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; veranstalter: Ville de Genève Agenda; datum: 2026-11-15; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; organisateur: Ville de Genève Agenda; date: 2026-11-15; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:da2decb02fa14ba7b51037eaac8d56bd",
@@ -438768,7 +438832,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Lac, Sala Teatro, Blade Runner viene proiettato con musica eseguita dal vivo in sincronia con le immagini. The Avex Ensemble interpreta la colonna sonora di Vangelis, mentre il film è presentato nella versione Final Cut.",
+      "descriptionByLocale": {
+        "it": "Al Lac, Sala Teatro, Blade Runner viene proiettato con musica eseguita dal vivo in sincronia con le immagini. The Avex Ensemble interpreta la colonna sonora di Vangelis, mentre il film è presentato nella versione Final Cut.",
+        "en": "At Lac, Sala Teatro, Blade Runner is screened with music performed live in sync with the images. The Avex Ensemble interprets Vangelis’s score, and the film is presented in the Final Cut version.",
+        "de": "Im Lac, Sala Teatro wird Blade Runner mit live gespielter Musik in Abstimmung mit den Bildern gezeigt. The Avex Ensemble interpretiert die Musik von Vangelis, und der Film wird in der Final-Cut-Fassung präsentiert.",
+        "fr": "Au Lac, Sala Teatro, Blade Runner est projeté avec une musique jouée en direct et synchronisée avec les images. The Avex Ensemble interprète la partition de Vangelis, et le film est présenté dans sa version Final Cut."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:22e2f0e8fd0c402c96e2e6420315b274",
@@ -440389,7 +440461,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento per le famiglie è dedicato alla prematurità e si svolge presso l’Ospedale Regionale di Bellinzona e Valli. Il programma comprende una merenda comune e momenti di intrattenimento destinati ai piccoli e ai loro fratelli.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento per le famiglie è dedicato alla prematurità e si svolge presso l’Ospedale Regionale di Bellinzona e Valli. Il programma comprende una merenda comune e momenti di intrattenimento destinati ai piccoli e ai loro fratelli.",
+        "en": "This family event is dedicated to prematurity and is held at the Ospedale Regionale di Bellinzona e Valli. The programme includes a shared snack and entertainment for the children at the centre of the event and their siblings.",
+        "de": "Die Familienveranstaltung widmet sich der Frühgeburtlichkeit und findet im Ospedale Regionale di Bellinzona e Valli statt. Vorgesehen sind ein gemeinsamer Imbiss und Unterhaltung für die Kinder im Mittelpunkt sowie ihre Geschwister.",
+        "fr": "Cet événement familial est consacré à la prématurité et se déroule à l’Ospedale Regionale di Bellinzona e Valli. Le programme comprend un goûter partagé et des animations pour les enfants à l’honneur ainsi que leurs frères et sœurs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZS1kh2",
@@ -441696,7 +441776,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo concerto gratuito a Ginevra riunisce sonorità rétro, latine e jazz. Il programma propone una selezione di brani rétro con ritmi latini e jazz.",
+      "descriptionByLocale": {
+        "it": "Questo concerto gratuito a Ginevra riunisce sonorità rétro, latine e jazz. Il programma propone una selezione di brani rétro con ritmi latini e jazz.",
+        "en": "This free concert in Geneva brings together retro, Latin and jazz styles. Its programme features a selection of retro songs shaped by Latin and jazz rhythms.",
+        "de": "Dieses kostenlose Konzert in Genf verbindet Retro-, lateinamerikanische und Jazzklänge. Auf dem Programm steht eine Auswahl von Retro-Liedern mit lateinischen und jazzigen Rhythmen.",
+        "fr": "Ce concert gratuit à Genève réunit des sonorités rétro, latines et jazz. Le programme propose une sélection de chansons rétro portée par des rythmes latins et jazz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A9iwSad",
@@ -441938,7 +442026,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-11-15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; organizzatore: Ville de Genève Agenda; data: 2026-11-15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; organiser: Ville de Genève Agenda; date: 2026-11-15; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; veranstalter: Ville de Genève Agenda; datum: 2026-11-15; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; organisateur: Ville de Genève Agenda; date: 2026-11-15; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:41b18cd3404d481fb9fd9ab30c1c31bb",
@@ -445726,7 +445822,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; organiser: Ville de Genève Agenda; date: 2026-11-16; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; veranstalter: Ville de Genève Agenda; datum: 2026-11-16; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; organisateur: Ville de Genève Agenda; date: 2026-11-16; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:projection-manas-table-ronde-rendre-visible-invisible-ethique-politique-autour-manas",
@@ -445762,7 +445866,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, l’appuntamento combina la proiezione di Manas con una tavola rotonda sui suoi aspetti etici e politici. FILMAR en América Latina lo propone in collaborazione con il Geneva Graduate Institute, LANI e Feminist Collective; la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, l’appuntamento combina la proiezione di Manas con una tavola rotonda sui suoi aspetti etici e politici. FILMAR en América Latina lo propone in collaborazione con il Geneva Graduate Institute, LANI e Feminist Collective; la partecipazione è gratuita.",
+        "en": "In Geneva, the programme pairs a screening of Manas with a round-table discussion of the work’s ethical and political issues. FILMAR en América Latina presents it with the Geneva Graduate Institute, LANI and Feminist Collective, and admission is free.",
+        "de": "In Genf verbindet die Veranstaltung eine Vorführung von Manas mit einer Gesprächsrunde zu ethischen und politischen Fragen des Werks. FILMAR en América Latina lädt dazu gemeinsam mit dem Geneva Graduate Institute, LANI und Feminist Collective ein; der Eintritt ist frei.",
+        "fr": "À Genève, le programme associe la projection de Manas à une table ronde consacrée à ses enjeux éthiques et politiques. FILMAR en América Latina propose cette rencontre avec le Geneva Graduate Institute, LANI et Feminist Collective; l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4896ee06c5bc43bc83c9004c49460237",
@@ -457497,7 +457609,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento tratta la gestione della pressione del tempo e la preparazione alle crisi. Si tiene a Weinfelden e include Zeitdruck e Krisenvorbereitung am Flughafen Zürich AG.",
+      "descriptionByLocale": {
+        "it": "L’evento tratta la gestione della pressione del tempo e la preparazione alle crisi. Si tiene a Weinfelden e include Zeitdruck e Krisenvorbereitung am Flughafen Zürich AG.",
+        "en": "The event examines the handling of time pressure and crisis preparedness. It takes place in Weinfelden, with Zeitdruck and Krisenvorbereitung am Flughafen Zürich AG listed as performers.",
+        "de": "Die Veranstaltung behandelt den Umgang mit Zeitdruck und die Vorbereitung auf Krisen. Sie findet in Weinfelden statt; als Mitwirkende sind Zeitdruck und Krisenvorbereitung am Flughafen Zürich AG angegeben.",
+        "fr": "L’événement aborde la gestion de la pression temporelle et la préparation aux crises. Il se déroule à Weinfelden, avec Zeitdruck et Krisenvorbereitung am Flughafen Zürich AG indiqués comme intervenants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7556606f5d90423f91ed175495670e3a",
@@ -473097,7 +473217,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una visita guidata dedicata a «Black Flower» e a Ted Joans. L’evento si svolge a Lausanne ed è organizzato da MySwitzerland.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una visita guidata dedicata a «Black Flower» e a Ted Joans. L’evento si svolge a Lausanne ed è organizzato da MySwitzerland.",
+        "en": "The event is a guided visit connected with “Black Flower” and Ted Joans. It takes place in Lausanne and is organized by MySwitzerland.",
+        "de": "Die Veranstaltung ist als Führung zu «Black Flower» und Ted Joans angelegt. Sie findet in Lausanne statt und wird von MySwitzerland organisiert.",
+        "fr": "Le rendez-vous prend la forme d’une visite guidée consacrée à « Black Flower » et à Ted Joans. Il a lieu à Lausanne et est organisé par MySwitzerland."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AaHK3SF",
@@ -515902,7 +516030,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'appuntamento propone una visita guidata dedicata alle persone anziane. Il percorso comprende le esposizioni «Weihnachten & Krippen» e «Die Sammlung» a Zurigo.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento propone una visita guidata dedicata alle persone anziane. Il percorso comprende le esposizioni «Weihnachten & Krippen» e «Die Sammlung» a Zurigo.",
+        "en": "The event offers a guided visit for older adults. The tour covers the “Weihnachten & Krippen” and “Die Sammlung” exhibitions in Zurich.",
+        "de": "Die Veranstaltung umfasst eine Führung für ältere Besucherinnen und Besucher. Dabei werden in Zürich die Ausstellungen «Weihnachten & Krippen» und «Die Sammlung» vorgestellt.",
+        "fr": "Cette manifestation propose une visite guidée destinée aux personnes âgées. Elle porte sur les expositions «Weihnachten & Krippen» et «Die Sammlung» à Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:5c3413b0edfa4f5bbd8cb842adc779de",
@@ -559723,7 +559859,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Baden, Cuento de Navidad propone un racconto dell’Avvento. L’iniziativa è rivolta sia agli adulti sia ai bambini.",
+      "descriptionByLocale": {
+        "it": "A Baden, Cuento de Navidad propone un racconto dell’Avvento. L’iniziativa è rivolta sia agli adulti sia ai bambini.",
+        "en": "In Baden, Cuento de Navidad presents an Advent story. The event is intended for both adults and children.",
+        "de": "Die Veranstaltung Cuento de Navidad in Baden ist eine Geschichte zur Adventszeit. Sie richtet sich an Erwachsene und Kinder.",
+        "fr": "À Baden, Cuento de Navidad propose un conte de l’Avent. L’événement s’adresse aux adultes comme aux enfants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7da1699b266848d78c4913536e16d41d",
@@ -684324,7 +684468,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma presenta Regula Mühlemann come interprete vocale di brani di Schubert, Liszt e altri compositori. L’accompagnamento riunisce pianoforte, clarinetto e corno in un appuntamento musicale a Riehen.",
+      "descriptionByLocale": {
+        "it": "Il programma presenta Regula Mühlemann come interprete vocale di brani di Schubert, Liszt e altri compositori. L’accompagnamento riunisce pianoforte, clarinetto e corno in un appuntamento musicale a Riehen.",
+        "en": "Regula Mühlemann is featured as the vocalist for works by Schubert, Liszt and further composers. Piano, clarinet and horn form the instrumental accompaniment at the Riehen event.",
+        "de": "Regula Mühlemann interpretiert Werke von Schubert, Liszt und weiteren Komponisten. Die musikalische Begleitung übernehmen Klavier, Klarinette und Horn; der Anlass findet in Riehen statt.",
+        "fr": "Regula Mühlemann interprète des œuvres de Schubert, de Liszt et d’autres compositeurs. Cette manifestation à Riehen associe piano, clarinette et cor à la partie vocale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:57bce48a6c4c4eabb4d44268e6199af5",
