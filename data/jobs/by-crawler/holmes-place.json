@@ -1,7 +1,7 @@
 {
   "crawlerKey": "holmes-place",
-  "assembledAt": "2026-10-25T21:38:03.098Z",
-  "runId": "40234822304",
+  "assembledAt": "2026-10-26T09:47:43.718Z",
+  "runId": "40298466971",
   "jobs": [
     {
       "id": "holmes-place-2936eefd975e",
@@ -19,14 +19,14 @@
       "titleByLocale": {
         "it": "Allenatore personale (m/f/d)",
         "en": "Personal Trainer (m/f/d)",
-        "de": "Persönlicher Trainer (m/w/d)",
+        "de": "Personal Trainer (m/f/d)",
         "fr": "Coach sportif (H/F/D)"
       },
       "description": "Werde Teil unseres dynamischen Teams als Personal Trainer*in und unterstütze unsere Mitglieder dabei, ihre Fitnessziele zu erreichen.\n\nVon Personal Trainern bis zu Verkaufsteams, von der Zentrale bis zu SPA-Managern – Ihre Karriere entwickelt sich hier weiter. Als Teil unseres Teams profitieren Sie von exklusiven Vorteilen auf Produkte, Dienstleistungen und Merchandise von Holmes Place – von Merchandising-Artikeln über Services bis hin zu SPA-Behandlungen und Personal Training. Bitte beachten Sie, dass wir nur Bewerbungen berücksichtigen können, die über unser Online-Tool eingehen.",
       "descriptionByLocale": {
         "it": "Descrizione\n\nEntra a far parte del nostro dinamico team come personal trainer e aiuta i nostri membri a raggiungere i loro obiettivi di fitness.\n\nOffriamo\n\n- Dai personal trainer ai team di vendita, dalla sede centrale ai responsabili SPA – qui la vostra carriera continua a svilupparsi.\n- In quanto parte del nostro team, beneficiate di vantaggi esclusivi su prodotti, servizi e merchandising di Holmes Place – dagli articoli di merchandising ai servizi, fino ai trattamenti SPA e al personal training.\n\nCandidatura\n\nSi prega di notare che possiamo prendere in considerazione solo le candidature inviate tramite il nostro strumento online.",
         "en": "Description\n\nJoin our dynamic team as a personal trainer and support our members in achieving their fitness goals.\n\nWhat we offer\n\n- From personal trainers to sales teams, from headquarters to SPA managers – your career continues to grow here.\n- As part of our team, you benefit from exclusive advantages on Holmes Place products, services and merchandise – from merchandising items and services to SPA treatments and personal training.\n\nApplication\n\nPlease note that we can only consider applications submitted through our online tool.",
-        "de": "Beschreibung\n\nWerde Teil unseres dynamischen Teams als Personal Trainer*in und unterstütze unsere Mitglieder dabei, ihre Fitnessziele zu erreichen.\n\nWir bieten\n\n- Von Personal Trainern bis zu Verkaufsteams, von der Zentrale bis zu SPA-Managern – Ihre Karriere entwickelt sich hier weiter.\n- Als Teil unseres Teams profitieren Sie von exklusiven Vorteilen auf Produkte, Dienstleistungen und Merchandise von Holmes Place – von Merchandising-Artikeln über Services bis hin zu SPA-Behandlungen und Personal Training.\n\nBewerbung\n\nBitte beachten Sie, dass wir nur Bewerbungen berücksichtigen können, die über unser Online-Tool eingehen.",
+        "de": "Werde Teil unseres dynamischen Teams als Personal Trainer*in und unterstütze unsere Mitglieder dabei, ihre Fitnessziele zu erreichen.\n\nVon Personal Trainern bis zu Verkaufsteams, von der Zentrale bis zu SPA-Managern – Ihre Karriere entwickelt sich hier weiter. Als Teil unseres Teams profitieren Sie von exklusiven Vorteilen auf Produkte, Dienstleistungen und Merchandise von Holmes Place – von Merchandising-Artikeln über Services bis hin zu SPA-Behandlungen und Personal Training. Bitte beachten Sie, dass wir nur Bewerbungen berücksichtigen können, die über unser Online-Tool eingehen.",
         "fr": "Description\n\nRejoignez notre équipe dynamique en tant que coach sportif·ve et aidez nos membres à atteindre leurs objectifs de fitness.\n\nNous proposons\n\n- Des coachs sportifs aux équipes commerciales, du siège aux responsables de SPA – votre carrière continue de progresser ici.\n- En tant que membre de notre équipe, vous bénéficiez d’avantages exclusifs sur les produits, services et articles promotionnels de Holmes Place – des articles de merchandising aux services, en passant par les soins SPA et l’entraînement personnel.\n\nCandidature\n\nVeuillez noter que nous ne pouvons prendre en compte que les candidatures soumises via notre outil en ligne."
       },
       "location": "Zürich",
@@ -34,7 +34,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:37:57.524Z",
+      "crawledAt": "2026-10-26T09:47:38.403Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T21:22:53.197Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -107,7 +108,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:37:57.523Z",
+      "crawledAt": "2026-10-26T09:47:38.401Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -180,7 +181,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:37:57.519Z",
+      "crawledAt": "2026-10-26T09:47:38.396Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -240,16 +241,16 @@
       "companyDomain": "holmesplace.ch",
       "title": "Fitness Manager (m/f/d)",
       "titleByLocale": {
-        "it": "Responsabile fitness (m/f/d)",
+        "de": "Fitness Manager (m/f/d)",
         "en": "Fitness Manager (m/f/d)",
-        "de": "Fitnessmanager (m/w/d)",
+        "it": "Responsabile fitness (m/f/d)",
         "fr": "Responsable fitness (H/F/D)"
       },
       "description": "Verantworte den Fitnessbereich und führe unser Team aus Trainerinnen und Kursleiterinnen.\n\nVon Personal Trainern bis zu Verkaufsteams, von der Zentrale bis zu SPA-Managern – Ihre Karriere entwickelt sich hier weiter. Als Teil unseres Teams profitieren Sie von exklusiven Vorteilen auf Produkte, Dienstleistungen und Merchandise von Holmes Place – von Merchandising-Artikeln über Services bis hin zu SPA-Behandlungen und Personal Training. Bitte beachten Sie, dass wir nur Bewerbungen berücksichtigen können, die über unser Online-Tool eingehen.",
       "descriptionByLocale": {
         "it": "Mansioni\n\n- Gestisci l'area fitness e guida il nostro team di personal trainer e istruttrici dei corsi.\n\nOffriamo\n\n- Dai Personal Trainer ai team di vendita, dalla sede centrale ai manager SPA – qui la sua carriera continua a crescere.\n- In qualità di membro del nostro team, beneficia di vantaggi esclusivi su prodotti, servizi e merchandising di Holmes Place – dagli articoli di merchandising ai servizi, fino ai trattamenti SPA e al personal training.\n\nCandidatura\n\n- La preghiamo di notare che possiamo prendere in considerazione solo le candidature inviate tramite il nostro strumento online.",
         "en": "Responsibilities\n\n- Take responsibility for the fitness area and lead our team of trainers and group exercise instructors.\n\nWe offer\n\n- From personal trainers to sales teams, from headquarters to SPA managers – your career continues to develop here.\n- As part of our team, you benefit from exclusive advantages on Holmes Place products, services and merchandise – from merchandising items through services to SPA treatments and personal training.\n\nApplication\n\n- Please note that we can only consider applications submitted through our online tool.",
-        "de": "Aufgaben\n\n- Verantworte den Fitnessbereich und führe unser Team aus Trainerinnen und Kursleiterinnen.\n\nWir bieten\n\n- Von Personal Trainern bis zu Verkaufsteams, von der Zentrale bis zu SPA-Managern – Ihre Karriere entwickelt sich hier weiter.\n- Als Teil unseres Teams profitieren Sie von exklusiven Vorteilen auf Produkte, Dienstleistungen und Merchandise von Holmes Place – von Merchandising-Artikeln über Services bis hin zu SPA-Behandlungen und Personal Training.\n\nBewerbung\n\n- Bitte beachten Sie, dass wir nur Bewerbungen berücksichtigen können, die über unser Online-Tool eingehen.",
+        "de": "Verantworte den Fitnessbereich und führe unser Team aus Trainerinnen und Kursleiterinnen.\n\nVon Personal Trainern bis zu Verkaufsteams, von der Zentrale bis zu SPA-Managern – Ihre Karriere entwickelt sich hier weiter. Als Teil unseres Teams profitieren Sie von exklusiven Vorteilen auf Produkte, Dienstleistungen und Merchandise von Holmes Place – von Merchandising-Artikeln über Services bis hin zu SPA-Behandlungen und Personal Training. Bitte beachten Sie, dass wir nur Bewerbungen berücksichtigen können, die über unser Online-Tool eingehen.",
         "fr": "Tâches\n\n- Prenez en charge le secteur fitness et dirigez notre équipe de coachs et d’animatrices de cours.\n\nNous offrons\n\n- Des entraîneurs personnels aux équipes commerciales, du siège aux managers de SPA – votre carrière continue d’évoluer ici.\n- En tant que membre de notre équipe, vous bénéficiez d’avantages exclusifs sur les produits, services et articles dérivés de Holmes Place – des articles de merchandising aux services, en passant par les soins SPA et l’entraînement personnel.\n\nCandidature\n\n- Veuillez noter que nous ne pouvons prendre en compte que les candidatures reçues via notre outil en ligne."
       },
       "location": "Oberrieden",
@@ -257,7 +258,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:37:57.514Z",
+      "crawledAt": "2026-10-26T09:47:38.370Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -276,6 +277,7 @@
       "applyUrl": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
       ],
@@ -330,7 +332,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:37:57.512Z",
+      "crawledAt": "2026-10-26T09:47:38.363Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
