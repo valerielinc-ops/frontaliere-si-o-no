@@ -89,6 +89,20 @@ describe('automation e-mails', () => {
     expect(email.text).not.toContain('partirà automaticamente');
   });
 
+  it('uses a non-automatic preheader while required answers are open, in every language', () => {
+    const expectations: Record<string, RegExp> = {
+      it: /Mancano 2 informazioni o documenti: senza di te la candidatura non parte\./,
+      de: /Es fehlen 2 Angaben oder Unterlagen: Ohne dich geht die Bewerbung nicht raus\./,
+      fr: /Il manque 2 informations ou documents : sans vous, la candidature ne part pas\./,
+      en: /We still need 2 answers or documents from you: the application cannot go out without you\./,
+    };
+    for (const [locale, expected] of Object.entries(expectations)) {
+      const held = buildCandidateAutomationEmail('candidate_review', { ...base, locale, held: true, openQuestions: 2, deadlineAt: null });
+      expect(held.html).toMatch(expected);
+      expect(held.html).not.toMatch(/12 hours|12 ore|12 Stunden|12 heures/);
+    }
+  });
+
   it('reminds a candidate who has not answered, in every language, never promising an automatic send', () => {
     const expectations: Record<string, [RegExp, RegExp]> = {
       it: [/^Promemoria: la tua candidatura per Infermiera aspetta le tue risposte$/, /non può partire finché non mi dai alcune informazioni o documenti/],
