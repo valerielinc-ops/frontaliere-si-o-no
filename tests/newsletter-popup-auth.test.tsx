@@ -60,6 +60,15 @@ const settle = async () => { await act(async () => { await Promise.resolve(); })
 const show = async () => { await act(async () => { vi.advanceTimersByTime(20_000); }); };
 
 describe('newsletter uses shared auth restoration', () => {
+  it('resets a corrupted page-view counter instead of persisting NaN', async () => {
+    sessionStorage.setItem('newsletter_pageviews', 'not-a-number');
+    render(<NewsletterPopup />);
+    await settle();
+    await show();
+    expect(sessionStorage.getItem('newsletter_pageviews')).toBe('1');
+    expect(screen.queryByRole('textbox')).toBeNull();
+  });
+
   it('does not directly import Firebase or eagerly request auth for an invisible anonymous popup', async () => {
     render(<NewsletterPopup />);
     await settle();

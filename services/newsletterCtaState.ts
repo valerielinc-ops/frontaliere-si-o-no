@@ -15,6 +15,36 @@
 export const NEWSLETTER_CTA_DISMISSED_KEY = 'newsletter_cta_dismissed';
 export const NEWSLETTER_SUBSCRIBED_KEY = 'newsletter_subscribed';
 export const NEWSLETTER_CTA_DISMISS_DAYS = 14;
+const NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE = /^\d+$/;
+
+/** Parse trusted millisecond/ISO dismissal storage without accepting prefixes or unsafe values. */
+export function parseDismissalTimestamp(rawTimestamp: string | null): number | null {
+  if (!rawTimestamp) return null;
+  const dismissedAt = NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE.test(rawTimestamp)
+    ? Number(rawTimestamp)
+    : Date.parse(rawTimestamp);
+  return Number.isSafeInteger(dismissedAt) ? dismissedAt : null;
+}
+
+/**
+ * Returns whether a local dismissal timestamp is still inside its cooldown.
+ * The value is untrusted browser state: numeric prefixes, unsafe integers and
+ * future timestamps must never turn into an active dismissal. ISO strings are
+ * accepted for the calculator paywall's legacy storage format.
+ */
+export function isDismissalActive(
+  rawTimestamp: string | null,
+  cooldownDays: number,
+  now = Date.now(),
+): boolean {
+  const dismissedAt = parseDismissalTimestamp(rawTimestamp);
+  if (dismissedAt === null) return false;
+  const ageMs = now - dismissedAt;
+  return Number.isFinite(cooldownDays)
+    && cooldownDays >= 0
+    && ageMs >= 0
+    && ageMs < cooldownDays * 24 * 60 * 60 * 1000;
+}
 
 /** Read the shared subscription marker without making browser storage required. */
 export function isNewsletterSubscribedLocally(): boolean {
@@ -38,10 +68,7 @@ export function isNewsletterCtaEligible(): boolean {
   try {
     if (localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true') return false;
     const dismissed = localStorage.getItem(NEWSLETTER_CTA_DISMISSED_KEY);
-    if (dismissed) {
-      const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
-      if (daysSince < NEWSLETTER_CTA_DISMISS_DAYS) return false;
-    }
+    if (isDismissalActive(dismissed, NEWSLETTER_CTA_DISMISS_DAYS)) return false;
     return true;
   } catch {
     // localStorage unavailable (privacy mode / SSR) — don't reserve space.
