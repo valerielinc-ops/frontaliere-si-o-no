@@ -10,6 +10,7 @@ import {
   MAX_KEYS_PER_RUN,
   PURGE_BATCH_SIZE,
   diffAgainstLedger,
+  expandPurgeKeysForImportDependents,
   fingerprintStageDir,
   listingLooksTruncated,
   mergeLedger,
@@ -19,6 +20,7 @@ import {
   planPurge,
   purgeDeadline,
   purgeInBatches,
+  readStageAssetSources,
   selectPurgeKeys,
 } from '@/scripts/ci/purge-changed-cdn-assets.mjs';
 
@@ -284,6 +286,62 @@ describe('stage fingerprints: the R2 state after a successful copy --checksum', 
       'assets/App.js': md5('export const a = 1;\n'),
       'assets/sub/font.woff2': md5('woff'),
     });
+  });
+});
+
+describe('reverse import closure: purge unchanged importers of changed modules', () => {
+  it('walks static, side-effect, dynamic, absolute, and extensionless local imports', () => {
+    const sources = {
+      'assets/entry.js': 'import { value } from "./shared.js"; import "./side.js"; import("./lazy");',
+      'assets/lazy.js': 'export { value } from "/assets/shared.js";',
+      'assets/side.js': 'export const side = true;',
+      'assets/shared.js': 'export const value = 1;',
+    };
+    expect(expandPurgeKeysForImportDependents(['assets/shared.js'], sources)).toEqual([
+      'assets/shared.js',
+      'assets/entry.js',
+      'assets/lazy.js',
+    ]);
+  });
+
+  it('does not traverse external or computed URLs', () => {
+    const sources = {
+      'assets/entry.js': 'import x from "react"; import(`./${name}.js`);',
+      'assets/shared.js': 'export const value = 1;',
+    };
+    expect(expandPurgeKeysForImportDependents(['assets/shared.js'], sources)).toEqual(['assets/shared.js']);
+  });
+
+  it('reads executable staged assets but skips maps and binary files', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'purge-stage-sources-'));
+    mkdirSync(join(dir, 'nested'), { recursive: true });
+    writeFileSync(join(dir, 'entry.js'), 'import "./nested/shared.js";');
+    writeFileSync(join(dir, 'nested', 'shared.js'), 'export const value = 1;');
+    writeFileSync(join(dir, 'entry.js.map'), '{}');
+    writeFileSync(join(dir, 'font.woff2'), 'woff');
+    try {
+      expect(readStageAssetSources(dir, 'assets')).toEqual({
+        'assets/entry.js': 'import "./nested/shared.js";',
+        'assets/nested/shared.js': 'export const value = 1;',
+      });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps an unchanged dependent dirty when its expanded purge batch fails', () => {
+    const current = stateOf({ 'shared.js': SAME, 'entry.js': SAME });
+    const previous = ledgerOf({ 'assets/shared.js': SAME, 'assets/entry.js': SAME });
+    const next = mergeLedger({
+      previous,
+      current,
+      purgedKeys: [],
+      attemptedKeys: ['assets/entry.js'],
+      buildId: 'b',
+      now: NOW,
+    });
+    expect(next.keys).not.toHaveProperty('assets/entry.js');
+    expect(diffAgainstLedger(current, next)).toEqual(['assets/entry.js']);
   });
 });
 

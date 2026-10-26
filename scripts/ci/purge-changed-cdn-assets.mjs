@@ -105,7 +105,9 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *                        (missing or empty is fine in ledger mode)
  *     <key-prefix>       R2 key prefix the sync targeted, e.g. `assets`
  *     --stage-dir        the local dir that `rclone copy` just synced, with exit
- *                        0. Without it, or without --ledger-in: log-only (the
+ *                        0. It also supplies the emitted module graph so a
+ *                        changed shared asset purges its unchanged importers.
+ *                        Without it, or without --ledger-in: log-only (the
  *                        pre-ledger behaviour) and no ledger is written.
  *     --ledger-in        the ledger as read from R2 (validated), or the empty one
  *                        the caller writes when none exists yet.
@@ -130,7 +132,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { appendFileSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, posix } from 'node:path';
 // The purge cap lives in ONE place (AGENTS.md #6). cf-purge-cache.mjs — which
 // enforces the same cap — cannot be imported for it: that script does its work
 // at module scope and calls process.exit(), so importing it would fire a real
@@ -211,6 +213,119 @@ export function selectPurgeKeys(keys, cap = MAX_KEYS_PER_RUN) {
     droppedOther: other.length - otherKept.length,
     codeOverCap: code.length > cap,
   };
+}
+
+/**
+ * Vite emits stable asset names, so a changed shared module can leave an
+ * unchanged importer at the edge. Purging only the uploaded module then
+ * creates the exact mixed-build graph reported by #9908: the old importer
+ * asks the new module for an export that the new module no longer has (or
+ * vice versa). Keep this parser intentionally limited to local asset edges;
+ * external packages and runtime-computed URLs are not purgeable from this
+ * stage and must not turn into guessed URLs.
+ */
+const ASSET_IMPORT_RE = /\b(?:from|import)\s*(?:\(\s*)?(['"])([^'"]+)\1/g;
+const ASSET_IMPORT_EXTENSIONS = ['.js', '.mjs', '.css'];
+
+function normalizedAssetSpecifier(specifier, fromKey, availableKeys) {
+  const clean = String(specifier || '').split(/[?#]/, 1)[0];
+  if (!clean) return null;
+
+  let candidate;
+  if (clean.startsWith('/assets/')) candidate = `assets/${clean.slice('/assets/'.length)}`;
+  else if (clean.startsWith('assets/')) candidate = clean;
+  else if (clean.startsWith('./') || clean.startsWith('../')) {
+    candidate = posix.normalize(posix.join(posix.dirname(fromKey), clean));
+  } else {
+    return null;
+  }
+
+  if (!candidate.startsWith('assets/')) return null;
+  const variants = [candidate];
+  if (!posix.extname(candidate)) {
+    variants.push(...ASSET_IMPORT_EXTENSIONS.map((ext) => `${candidate}${ext}`));
+  }
+  return variants.find((key) => availableKeys.has(key)) ?? null;
+}
+
+/**
+ * Return local asset keys referenced by one emitted asset.
+ *
+ * @param {string} source emitted JS/CSS source
+ * @param {string} fromKey canonical key, e.g. `assets/entry.js`
+ * @param {Iterable<string>} availableKeys keys present in the staged asset dir
+ */
+export function assetImportTargets(source, fromKey, availableKeys) {
+  const available = availableKeys instanceof Set ? availableKeys : new Set(availableKeys || []);
+  const targets = new Set();
+  ASSET_IMPORT_RE.lastIndex = 0;
+  for (const match of String(source || '').matchAll(ASSET_IMPORT_RE)) {
+    const target = normalizedAssetSpecifier(match[2], fromKey, available);
+    if (target) targets.add(target);
+  }
+  return [...targets].sort();
+}
+
+/**
+ * Expand changed asset keys to the reverse static-import closure.
+ *
+ * The returned order keeps the upload/ledger candidates first and appends
+ * newly discovered importers deterministically. This lets the existing
+ * code-first selection and Cloudflare batching rules remain unchanged.
+ *
+ * @param {Iterable<string>} changedKeys
+ * @param {Record<string,string>} assetSources canonical key → emitted source
+ */
+export function expandPurgeKeysForImportDependents(changedKeys, assetSources) {
+  const initial = [...new Set(changedKeys || [])];
+  const available = new Set(Object.keys(assetSources || {}));
+  const reverse = new Map();
+
+  for (const [fromKey, source] of Object.entries(assetSources || {})) {
+    if (!CODE_KEY_RE.test(fromKey)) continue;
+    for (const target of assetImportTargets(source, fromKey, available)) {
+      const importers = reverse.get(target) || new Set();
+      importers.add(fromKey);
+      reverse.set(target, importers);
+    }
+  }
+
+  const expanded = new Set(initial);
+  const queue = [...initial];
+  while (queue.length > 0) {
+    const importedKey = queue.shift();
+    for (const importer of [...(reverse.get(importedKey) || [])].sort()) {
+      if (expanded.has(importer)) continue;
+      expanded.add(importer);
+      queue.push(importer);
+    }
+  }
+
+  return [...expanded];
+}
+
+/**
+ * Read only executable emitted assets from a staged `assets/` directory.
+ * Source maps and binary assets never participate in the import graph.
+ */
+export function readStageAssetSources(dir, keyPrefix = 'assets') {
+  const prefix = String(keyPrefix || '').replace(/^\/+|\/+$/g, '');
+  /** @type {Record<string,string>} */
+  const out = {};
+  const walk = (abs, rel) => {
+    for (const entry of readdirSync(abs, { withFileTypes: true })) {
+      const childRel = rel ? `${rel}/${entry.name}` : entry.name;
+      const childAbs = join(abs, entry.name);
+      if (entry.isDirectory()) {
+        walk(childAbs, childRel);
+      } else if (entry.isFile() && CODE_KEY_RE.test(childRel)) {
+        const key = prefix ? `${prefix}/${childRel}` : childRel;
+        out[key] = readFileSync(childAbs, 'utf8');
+      }
+    }
+  };
+  walk(dir, '');
+  return out;
 }
 
 export const DEFAULT_CDN_BASE = 'https://cdn.frontaliereticino.ch';
@@ -376,10 +491,12 @@ export function listingLooksTruncated(current, ledger) {
  * bundle) — unless `keepUnlisted`, in which case they keep their entry.
  *
  * @param {{ previous: { keys?: Record<string,string> }|null, current: Record<string,string>,
- *           purgedKeys: Iterable<string>, buildId?: string, now: Date, keepUnlisted?: boolean }} args
+ *           purgedKeys: Iterable<string>, attemptedKeys?: Iterable<string>, buildId?: string,
+ *           now: Date, keepUnlisted?: boolean }} args
  */
-export function mergeLedger({ previous, current, purgedKeys, buildId, now, keepUnlisted = false }) {
+export function mergeLedger({ previous, current, purgedKeys, attemptedKeys = [], buildId, now, keepUnlisted = false }) {
   const purged = new Set(purgedKeys);
+  const attempted = new Set(attemptedKeys);
   const prev = previous?.keys || {};
   const listed = current || {};
   const names = new Set(Object.keys(listed));
@@ -389,6 +506,11 @@ export function mergeLedger({ previous, current, purgedKeys, buildId, now, keepU
   for (const key of [...names].sort()) {
     const inR2 = Object.prototype.hasOwnProperty.call(listed, key);
     if (inR2 && purged.has(key)) keys[key] = listed[key];
+    // A reverse-import dependent may have matched the current fingerprint in
+    // the ledger but still needed a purge because one of its imports changed.
+    // If its batch failed or was not started, omit it so the next deploy keeps
+    // retrying it instead of incorrectly treating the edge as clean.
+    else if (inR2 && attempted.has(key)) { /* leave dirty */ }
     else if (Object.prototype.hasOwnProperty.call(prev, key)) keys[key] = prev[key];
   }
   return {
@@ -522,6 +644,15 @@ function readStage(dir, keyPrefix) {
   }
 }
 
+function readStageSources(dir, keyPrefix) {
+  try {
+    return readStageAssetSources(dir, keyPrefix);
+  } catch (err) {
+    console.log(`::warning::${TAG} could not read emitted asset sources from ${dir} (${err?.code || err?.message}) — skipping reverse-import expansion`);
+    return null;
+  }
+}
+
 function main(argv) {
   const { positional, flags } = parseFlags(argv);
   const requireCodeComplete = flags['require-code-complete'] === true;
@@ -549,7 +680,21 @@ function main(argv) {
     if (!ledger) console.log(`::warning::${TAG} purge ledger at ${flags['ledger-in']} is not a v${LEDGER_VERSION} ledger — purging this run's uploads only, ledger untouched`);
   }
 
-  const { mode, candidates, truncated } = planPurge({ logKeys: transferred, current, ledger });
+  const { mode, candidates: plannedCandidates, truncated } = planPurge({ logKeys: transferred, current, ledger });
+  let candidates = plannedCandidates;
+  let reverseImportDependents = [];
+  if (candidates.length > 0 && typeof flags['stage-dir'] === 'string') {
+    const assetSources = readStageSources(flags['stage-dir'], keyPrefix);
+    if (assetSources) {
+      const expanded = expandPurgeKeysForImportDependents(candidates, assetSources);
+      const dependentCount = expanded.length - candidates.length;
+      reverseImportDependents = expanded.filter((key) => !plannedCandidates.includes(key));
+      candidates = expanded;
+      if (dependentCount > 0) {
+        console.log(`${TAG} reverse-import closure: ${dependentCount} unchanged importer(s) added to the purge set`);
+      }
+    }
+  }
   if (truncated) {
     console.log(
       `::warning::${TAG} the stage names ${Object.keys(current).length} ${keyPrefix}/ key(s) but the ledger knows ${Object.keys(ledger.keys).length} — keys it does not name keep their ledger entry instead of being dropped`,
@@ -561,12 +706,13 @@ function main(argv) {
     console.log(`${TAG} log-only: purging the ${transferred.length} key(s) this run uploaded; the ledger is neither read nor written`);
   }
 
-  const writeLedger = (purgedKeys) => {
+  const writeLedger = (purgedKeys, attemptedKeys = []) => {
     if (mode !== 'ledger' || typeof flags['ledger-out'] !== 'string') return;
     const next = mergeLedger({
       previous: ledger,
       current,
       purgedKeys,
+      attemptedKeys,
       buildId: typeof flags['build-id'] === 'string' ? flags['build-id'] : '',
       now: new Date(),
       keepUnlisted: truncated === true,
@@ -589,7 +735,7 @@ function main(argv) {
 
   if (candidates.length === 0) {
     console.log(`${TAG} no ${keyPrefix}/ object to purge — edge stays warm`);
-    writeLedger([]);
+    writeLedger([], []);
     enforceCodeComplete([], []);
     return;
   }
@@ -608,7 +754,7 @@ function main(argv) {
     );
   }
   if (keys.length === 0) {
-    writeLedger([]);
+    writeLedger([], []);
     enforceCodeComplete([], []);
     return;
   }
@@ -618,7 +764,7 @@ function main(argv) {
   // purged, and the ledger must say so.
   if (!process.env.CF_API_TOKEN) {
     console.log(`::warning::${TAG} CF_API_TOKEN not set — ${keys.length} ${keyPrefix}/ key(s) not purged, left dirty`);
-    writeLedger([]);
+    writeLedger([], reverseImportDependents);
     enforceCodeComplete(keys, []);
     return;
   }
@@ -665,7 +811,7 @@ function main(argv) {
   // "dispatched", not "purged": cf-purge-cache.mjs's own output is the
   // authoritative record of what the edge accepted.
   console.log(`${TAG} dispatched purge for ${purgedKeys.length}/${keys.length} changed ${keyPrefix}/ key(s) in ${batches} batch(es)`);
-  writeLedger(purgedKeys);
+  writeLedger(purgedKeys, reverseImportDependents);
   enforceCodeComplete(keys, purgedKeys);
 }
 
