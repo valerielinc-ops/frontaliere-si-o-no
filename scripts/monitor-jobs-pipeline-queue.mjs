@@ -79,10 +79,16 @@ function ghRead(args, { allowFailure = true } = {}) {
       },
     );
   } catch (err) {
-    if (!allowFailure) throw err;
+    const detail = String(err?.stderr || err?.message || err).trim();
+    if (!allowFailure) {
+      throw new Error(
+        `[monitor-jobs-pipeline-queue] GitHub read failed after bounded retries: ${detail}`,
+        { cause: err },
+      );
+    }
     console.warn(
       `[monitor-jobs-pipeline-queue] GitHub read failed after bounded retries: `
-        + `${String(err?.stderr || err?.message || err).trim()}`,
+        + detail,
     );
     return null;
   }
