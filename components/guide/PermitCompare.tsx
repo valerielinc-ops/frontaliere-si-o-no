@@ -13,6 +13,7 @@ import { Users, TrendingUp, TrendingDown, Minus, AlertTriangle, Download, Info, 
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, getTicinoTaxRate, NEW_FRONTIER_WITHIN_20KM_CH_SHARE } from '@/services/calculationService';
 import { DEFAULT_EXCHANGE_RATE, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
+import { readLocalStorage, writeLocalStorage } from '@/services/storageAvailability';
 
 // ── G permit type ──
 type GPermitType = 'new_within_20km' | 'new_beyond_20km' | 'old';
@@ -288,8 +289,8 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  Analytics.trackPermitView(value, 'select');
  const type = value === 'old' ? 'old' : 'new';
  const key = `frontaliere_easter_egg_seen_${type}`;
- if (localStorage.getItem(key)) return;
- localStorage.setItem(key, '1');
+ if (readLocalStorage(key)) return;
+ writeLocalStorage(key, '1');
  if (value === 'old') {
  setEasterEgg({ message: t('permitCompare.easterEggOld'), emoji: '😎' });
  } else {

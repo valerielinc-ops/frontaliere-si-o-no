@@ -10,6 +10,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { AC_SALARY_CAP_CHF, DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
 import { LPP_COORDINATION_DEDUCTION_CHF, LPP_ENTRY_THRESHOLD_CHF } from '@/services/pensionParameters';
 import type { UserProfileData } from '@/components/pages/UserProfile';
+import { parseBonusProfileChildren } from '@/services/bonusCalculatorInput';
 
 // Swiss social deduction rates from shared constants
 const AVS_RATE = DEFAULT_TECH_PARAMS.avsRate;
@@ -222,8 +223,8 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  setMaritalStatus(userProfile.familySituation === 'married' ? 'married' : 'single');
  }
  if (userProfile.children) {
- const n = parseInt(userProfile.children, 10);
- if (!isNaN(n)) setChildren(n);
+ const n = parseBonusProfileChildren(userProfile.children);
+ if (n !== null) setChildren(n);
  }
  }, [userProfile]);
 
