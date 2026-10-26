@@ -12,6 +12,8 @@ name: GA4 Error Monitor
 # PageSpeed/CrUX, the complete GA4 traffic/funnel/error-health and SEO SERP
 # report, indexing, Bing, Clarity, landing-value and application-funnel
 # measurements, AI-channel history, and their persisted summaries/artifacts.
+# A green run here therefore means only that the recurring GA4 error backlog
+# was reconciled; it is not a replacement health verdict for analytics.yml.
 # The full report's app-error feeder remains separate because it consumes the
 # richer saved report and applies its own recency, chunk-family and live-404
 # reconciliation rules.
