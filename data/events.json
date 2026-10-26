@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T15:43:02.699Z",
+  "generatedAt": "2026-10-26T17:25:01.838Z",
   "totalEvents": 15181,
   "events": [
     {
@@ -491007,7 +491007,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Trubschachen si svolge un evento natalizio legato a Kambly. L'appuntamento ricorre durante il periodo dell'Avvento e si articola su due fine settimana.",
+      "descriptionByLocale": {
+        "it": "A Trubschachen si svolge un evento natalizio legato a Kambly. L'appuntamento ricorre durante il periodo dell'Avvento e si articola su due fine settimana.",
+        "en": "Trubschachen hosts a recurring Christmas event associated with Kambly. It takes place during Advent and is spread across two weekends.",
+        "de": "In Trubschachen findet eine wiederkehrende Weihnachtsveranstaltung mit Bezug zu Kambly statt. Sie gehört zur Adventszeit und erstreckt sich über zwei Wochenenden.",
+        "fr": "Trubschachen accueille un événement de Noël associé à Kambly. Il revient pendant la période de l’Avent et se déroule sur deux week-ends."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXYa6h5",

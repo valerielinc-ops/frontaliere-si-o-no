@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-26T15:41:17.251Z",
+  "generatedAt": "2026-10-26T17:24:01.871Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -115170,6 +115170,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T16:15:12.538Z"
     },
+    "myswitzerland:98b359ff9fc04b9f8b641808dab5a5f1::622a2a5e6e9788c37b9347f3931f87fed4a87edd27dc5c630afa6be9dc0446a9": {
+      "id": "myswitzerland:98b359ff9fc04b9f8b641808dab5a5f1",
+      "sourceDescriptionHash": "622a2a5e6e9788c37b9347f3931f87fed4a87edd27dc5c630afa6be9dc0446a9",
+      "description": "A Trubschachen si svolge un evento natalizio legato a Kambly. L'appuntamento ricorre durante il periodo dell'Avvento e si articola su due fine settimana.",
+      "descriptionByLocale": {
+        "it": "A Trubschachen si svolge un evento natalizio legato a Kambly. L'appuntamento ricorre durante il periodo dell'Avvento e si articola su due fine settimana.",
+        "en": "Trubschachen hosts a recurring Christmas event associated with Kambly. It takes place during Advent and is spread across two weekends.",
+        "de": "In Trubschachen findet eine wiederkehrende Weihnachtsveranstaltung mit Bezug zu Kambly statt. Sie gehört zur Adventszeit und erstreckt sich über zwei Wochenenden.",
+        "fr": "Trubschachen accueille un événement de Noël associé à Kambly. Il revient pendant la période de l’Avent et se déroule sur deux week-ends."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T17:18:30.098Z"
+    },
     "myswitzerland:98b471cf6d9c4235baa13d9421301628::9821f64e7ea57f4aa4348790ebe931e3f91bb7aeeba349e108568d0b71580c77": {
       "id": "myswitzerland:98b471cf6d9c4235baa13d9421301628",
       "sourceDescriptionHash": "9821f64e7ea57f4aa4348790ebe931e3f91bb7aeeba349e108568d0b71580c77",
@@ -171012,8 +171026,8 @@
       "id": "ge-agenda:filmar-2026-chair-male-aride-ruben-barrios-rodriguez",
       "sourceDescriptionHash": "6b9ae00c3555722ffc07d19cf76d0c7c9bb384a70f3b78e5437c230e81e275eb",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-26T15:22:03.509Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-26T17:19:03.498Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171075,8 +171089,8 @@
       "id": "ge-agenda:harmonie-nautique-orchestre-instruments-vent-ville-geneve",
       "sourceDescriptionHash": "7c9dd980fc7c909b05899acf3139cc0bbadba8c2e57a28f0cb67cef5b9d1cde6",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-26T15:18:18.386Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-26T17:19:38.771Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -176678,15 +176692,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:98b359ff9fc04b9f8b641808dab5a5f1::622a2a5e6e9788c37b9347f3931f87fed4a87edd27dc5c630afa6be9dc0446a9": {
-      "id": "myswitzerland:98b359ff9fc04b9f8b641808dab5a5f1",
-      "sourceDescriptionHash": "622a2a5e6e9788c37b9347f3931f87fed4a87edd27dc5c630afa6be9dc0446a9",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-26T15:24:13.515Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:99651dadc6aa450487dbcbbd11691a29::684763f227aab85c3e0444dd9fc12e50e7b653e0ed0376c280d4d5b295467e60": {
       "id": "myswitzerland:99651dadc6aa450487dbcbbd11691a29",
       "sourceDescriptionHash": "684763f227aab85c3e0444dd9fc12e50e7b653e0ed0376c280d4d5b295467e60",
@@ -179760,8 +179765,8 @@
       "id": "tio-agenda:64650",
       "sourceDescriptionHash": "de43a7f4a60bea0882531a5ac7c28130c36c3579b3085a5b493848ff50d71740",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-26T15:19:11.652Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-26T17:20:07.545Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
