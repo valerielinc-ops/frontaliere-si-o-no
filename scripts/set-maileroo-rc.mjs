@@ -17,6 +17,10 @@
  *     GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
  *     node scripts/set-maileroo-rc.mjs
  *
+ *   MAILEROO_TRANSACTIONAL_API_KEY=xxxxx MAILEROO_NEWSLETTER_API_KEY=yyyyy \
+ *     GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
+ *     node scripts/set-maileroo-rc.mjs
+ *
  *   # webhook secret too (after creating the webhook in the Maileroo dashboard):
  *   MAILEROO_API_KEY=xxxxx MAILEROO_WEBHOOK_SECRET=yyyyy ... node scripts/set-maileroo-rc.mjs
  *
@@ -31,7 +35,19 @@ const PROVIDER_KEYS = [
     rcParam: 'MAILEROO_API_KEY',
     envVar: 'MAILEROO_API_KEY',
     shapeHint: /^[0-9a-f]{32,}$/i,
-    description: 'Maileroo sending key for the email cascade (newsletter + job alerts)',
+    description: 'Maileroo legacy sending key fallback for the email cascade',
+  },
+  {
+    rcParam: 'MAILEROO_TRANSACTIONAL_API_KEY',
+    envVar: 'MAILEROO_TRANSACTIONAL_API_KEY',
+    shapeHint: /^[0-9a-f]{32,}$/i,
+    description: 'Maileroo Application sending key for transactional and operational messages',
+  },
+  {
+    rcParam: 'MAILEROO_NEWSLETTER_API_KEY',
+    envVar: 'MAILEROO_NEWSLETTER_API_KEY',
+    shapeHint: /^[0-9a-f]{32,}$/i,
+    description: 'Maileroo Application sending key for newsletters and alerts',
   },
   {
     rcParam: 'MAILEROO_WEBHOOK_SECRET',
