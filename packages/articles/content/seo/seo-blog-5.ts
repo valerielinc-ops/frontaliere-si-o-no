@@ -111197,10 +111197,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Cambio datore per frontalieri nel 2026: procedura del permesso G, preavviso, contributi AVS e LPP, LAMal, imposta alla fonte e documenti da aggiornare in Ticino",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-passaggio-nuovo-impiego-g.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Frontaliere al valico di Brogeda con documenti per il cambio datore"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T05:22:20+00:00",
       "dateModified": "2026-10-18T05:22:20+00:00",
@@ -111231,10 +111236,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Il Nuovo Accordo è in vigore dal 1° gennaio 2024 L'imposta alla fonte è trattenuta solo in Svizzera Vecchi frontalieri: €7'500 nel regime transitorio 2024–2033",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-g-verifica-datore-20km.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Frontaliere al confine ticinese con documenti per il cambio datore"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T05:51:33+00:00",
       "dateModified": "2026-10-18T05:51:33+00:00",

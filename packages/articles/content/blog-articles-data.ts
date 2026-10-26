@@ -65,8 +65,6 @@ export interface Article {
  authorSlug?: string;
  /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
  authorName?: string;
- /** Optional per-article editorial provenance consumed by runtime overlays; omitted legacy entries use the author default. */
- aiAssisted?: boolean;
 }
 
 const RAW_ARTICLES_CHUNK_01: Article[] = [
@@ -45330,7 +45328,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'passaggio-nuovo-impiego-g',
  category: 'pratico',
  date: '2026-10-18T05:22:20.043Z',
- image: '/images/blog/cambio-datore-lavoro-frontaliere-procedura-permesso-2026-single.webp',
+ image: '/images/blog/article-passaggio-nuovo-impiego-g.webp',
  hasCalculator: true,
  articleType: 'evergreen',
  authorSlug: 'redazione',
@@ -45340,7 +45338,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'g-verifica-datore-20km',
  category: 'pratico',
  date: '2026-10-18T05:51:32.704Z',
- image: '/images/blog/frontalieri-regime-fiscale-nuovo-accordo.webp',
+ image: '/images/blog/article-g-verifica-datore-20km.webp',
  hasCalculator: true,
  articleType: 'evergreen',
  authorSlug: 'redazione',

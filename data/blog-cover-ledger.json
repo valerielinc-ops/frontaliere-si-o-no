@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 851,
+      "5": 853,
       "6": 5056
     },
-    "publishedCovers": 7590,
+    "publishedCovers": 7592,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208844,6 +208844,72 @@
         "provider": "openai-codex",
         "assetId": "article-zenith-rischio-posti-svizzera",
         "imageUrl": "/images/blog/article-zenith-rischio-posti-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-g-verifica-datore-20km": {
+      "cover": "/images/blog/article-g-verifica-datore-20km.webp",
+      "hash": "4013a6199b73696b4f43c816a19d6f52a2e241ac1e505ae658414ad4b0f69c68",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "g-verifica-datore-20km",
+          "category": "pratico",
+          "date": "2026-10-18T05:51:32.704Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-g-verifica-datore-20km.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-g-verifica-datore-20km",
+        "imageUrl": "/images/blog/article-g-verifica-datore-20km.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-passaggio-nuovo-impiego-g": {
+      "cover": "/images/blog/article-passaggio-nuovo-impiego-g.webp",
+      "hash": "8cf9177dfc4a71cb086063f2ac03d15a9fbb8298db7bd95a1d0aff22c9d0929a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "passaggio-nuovo-impiego-g",
+          "category": "pratico",
+          "date": "2026-10-18T05:22:20.043Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-passaggio-nuovo-impiego-g.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-passaggio-nuovo-impiego-g",
+        "imageUrl": "/images/blog/article-passaggio-nuovo-impiego-g.webp",
         "evidence": "generated-engine-record"
       }
     }
