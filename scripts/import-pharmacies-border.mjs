@@ -123,10 +123,9 @@ function buildRegionReleaseStatus(region, duties, sourceErrors, preservedRegions
   };
 }
 
-function aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions, cataloguePreserved) {
+function aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions) {
   if (catalogueFreshness === 'unknown' || dutiesFreshness === 'unknown') return 'unknown';
   if (catalogueFreshness === 'stale' || dutiesFreshness === 'stale') return 'stale';
-  if (cataloguePreserved) return 'partial';
   const states = Object.values(regions).map((region) => region.state);
   if (states.includes('conflicting')) return 'conflicting';
   if (states.every((state) => state === 'not_published')) return 'not_published';
@@ -193,7 +192,7 @@ export function buildPharmacyReleaseContract({ catalogue, duties, evaluatedAt })
       regions: TICINO_DUTY_REGIONS.map((region) => region.key),
     },
     timezone: PHARMACY_TIME_ZONE,
-    state: aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions, catalogue?._preserved === true),
+    state: aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions),
     snapshots,
     regions,
   };
@@ -727,13 +726,19 @@ async function main() {
   );
   const enrichmentOutput = buildPharmacyEnrichmentSnapshot(previousEnrichment, enrichmentResult, fetchedAt);
 
-  // A preserved catalogue is a valid fallback for identity continuity, but it
-  // must not be paired with a newer duty snapshot. Publishing that mixed pair
-  // creates a partial release and turns a transient source outage into a
-  // site-wide noindex event. Keep the previous atomic Ticino release intact;
-  // the next successful catalogue fetch can advance all three files together.
-  const publishTicinoRelease = !allDutiesFailed && ticinoOutput._preserved !== true;
+  // A preserved catalogue is a valid fallback for identity continuity. When at
+  // least one duty region succeeds, publish that fresh/partial duty snapshot
+  // with the preserved catalogue under a new release so the duty freshness
+  // signal does not freeze behind an unrelated catalogue outage. The
+  // catalogue keeps its old _fetchedAt and _preserved marker; its own SLA
+  // still decides whether the release is publishable, while the marker and
+  // source error keep the outage observable. An all-region duty failure still
+  // keeps the previous atomic triple intact.
+  const publishTicinoRelease = !allDutiesFailed;
   if (publishTicinoRelease) {
+    if (ticinoOutput._preserved === true) {
+      console.warn('[import-pharmacies-border] Ticino catalogue was preserved; publishing the fresh duty snapshot in a new atomic release while retaining the fallback marker');
+    }
     const atomic = buildAtomicPharmacySnapshots({
       catalogue: ticinoOutput,
       duties: dutiesSnapshot,
@@ -750,8 +755,8 @@ async function main() {
     await writeJson(TICINO_OUTPUT_PATH, atomic.catalogue);
     await writeJson(DUTIES_PATH, atomic.duties);
     await writeJson(DUTIES_STATUS_PATH, atomic.status);
-  } else if (ticinoOutput._preserved === true) {
-    console.warn('[import-pharmacies-border] Ticino catalogue was preserved; retaining the previous atomic catalogue+duties+status release');
+  } else {
+    console.warn('[import-pharmacies-border] all duty regions failed; retaining the previous atomic catalogue+duties+status release');
   }
   await writeJson(ITALY_OUTPUT_PATH, italyOutput);
   await writeJson(ENRICHMENT_OUTPUT_PATH, enrichmentOutput);

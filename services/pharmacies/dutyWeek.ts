@@ -250,8 +250,10 @@ function validateDutyEntriesForWeeklyModel(value: unknown, now: Date): string[] 
  * Builds the dated read model used by both the static page and the SPA.
  * A model is indexable only when catalogue and duty snapshots are the same
  * release, all declared Ticino regions have verified intervals, and the
- * source fetch is fresh. Missing/old/preserved/conflicting data remains
- * inspectable but is explicitly non-indexable.
+ * source fetch is fresh. Missing, stale or conflicting data remains
+ * inspectable but is explicitly non-indexable. A preserved catalogue remains
+ * usable while its unchanged fetch timestamp is still within the catalogue
+ * SLA; `_preserved` and `_errors` keep the source outage observable.
  */
 export function buildDutyWeekModel(
   dataset: PharmacyDutiesDataset,

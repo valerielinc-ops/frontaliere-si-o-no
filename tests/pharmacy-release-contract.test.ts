@@ -123,6 +123,18 @@ describe('pharmacy atomic release contract', () => {
     expect(changedRelease.releaseId).not.toBe(pair.release.releaseId);
   });
 
+  it('keeps a preserved catalogue publishable while its timestamp is within its own SLA', () => {
+    const pair = makePair({
+      _errors: ['catalogue source temporarily unavailable'],
+      _preserved: true,
+    });
+
+    const evaluation = getPharmacyReleaseEvaluation(pair.duties, NOW, pair.catalogue);
+
+    expect(evaluation).toMatchObject({ state: 'fresh', publishable: true });
+    expect(pair.catalogue._preserved).toBe(true);
+  });
+
   it('publishes catalogue, duties, and status atomically across refresh cycles', () => {
     const first = buildAtomicPharmacySnapshots({
       catalogue: makeCatalogue({ _fetchedAt: '2026-09-14T10:00:00.000Z' }),
@@ -260,7 +272,7 @@ describe('pharmacy atomic release contract', () => {
     }
   });
 
-  it('keeps a below-floor PDF fallback on its old timestamp and marks it partial or stale', () => {
+  it('keeps a below-floor PDF fallback on its old timestamp and marks it stale after the SLA', () => {
     const previousPharmacies = Array.from({ length: 200 }, (_, index) => ({ id: `previous-${index}` }));
     const previous = makeCatalogue({
       _fetchedAt: '2026-09-13T10:00:00.000Z',
@@ -281,7 +293,7 @@ describe('pharmacy atomic release contract', () => {
       catalogue: fallback,
       duties: makeDuties(),
       evaluatedAt: '2026-09-14T12:00:00.000Z',
-    }).state).toBe('partial');
+    }).state).toBe('fresh');
 
     const staleFallback = buildTicinoCatalogueSnapshot({
       parsed: { rows: [], warnings: [] },
