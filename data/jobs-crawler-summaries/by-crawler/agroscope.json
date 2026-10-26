@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-25T21:17:52.884Z",
+  "generatedAt": "2026-10-26T09:19:29.000Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 7782,
-  "avgDurationMs": 7782,
+  "durationMs": 8680,
+  "avgDurationMs": 8680,
   "durationHistory": [
-    7782
+    8680
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -57,45 +57,6 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
-      "title": "Lernende/r Pferdefachmann/-frau EFZ, Orientierung Klassiches Reiten",
-      "slug": "apprendista-specialista-del-cavallo-afc-indirizzo-equitazione-classica-agroscope-avenches",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-pferdefachmann-frau-efz-orientierung-klassiches-reiten/5cbbb0c2-8f25-4c40-b284-160557e07c9f",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20717",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Avenches",
-      "addressLocality": "Avenches",
-      "postalCode": "1580",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-15T12:38:34Z",
-      "postedDate": "2026-10-15T12:38:34Z",
-      "postingDateSource": "reported",
-      "validThrough": "2028-10-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-b61c00ff0525",
-      "salaryMin": 55000,
-      "salaryMax": 92000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-15T21:16:03.711Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Lernende als Chemielaborant/-in EFZ",
       "slug": "apprendista-laboratorista-in-chimica-afc-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-als-chemielaborant-in-efz/6c9743ee-85c1-4336-b01c-b65604db4ddf",
@@ -123,6 +84,45 @@
       "id": "agroscope-ec30730dbde1",
       "salaryMin": 60500,
       "salaryMax": 100500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-15T21:16:03.711Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Lernende/r Pferdefachmann/-frau EFZ, Orientierung Klassiches Reiten",
+      "slug": "apprendista-specialista-del-cavallo-afc-indirizzo-equitazione-classica-agroscope-avenches",
+      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-pferdefachmann-frau-efz-orientierung-klassiches-reiten/5cbbb0c2-8f25-4c40-b284-160557e07c9f",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20717",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Avenches",
+      "addressLocality": "Avenches",
+      "postalCode": "1580",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-15T12:38:34Z",
+      "postedDate": "2026-10-15T12:38:34Z",
+      "postingDateSource": "reported",
+      "validThrough": "2028-10-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-b61c00ff0525",
+      "salaryMin": 55000,
+      "salaryMax": 92000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-15T21:16:03.711Z",
@@ -527,5 +527,5 @@
       }
     }
   ],
-  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
+  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
 }
