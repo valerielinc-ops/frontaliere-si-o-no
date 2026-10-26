@@ -14770,6 +14770,11 @@ ${staticAnalyticsHtml}
  for (const ej of expiredJobsData) {
  const slugByLocale = (ej && ej.slugByLocale) as Record<string, string> | undefined;
  if (!slugByLocale || typeof slugByLocale !== 'object') continue;
+ // Expired records carry no reliable `canton` field, but the incremental
+ // reuse manifest still needs the resolved scope as part of its cache key.
+ // Namespace ownership is checked independently below, so this value is
+ // metadata for reuse only and cannot re-enable a company-hub collision.
+ const ejCantonForCrossLocale = sharedResolveJobCanton(ej as { canton?: string; location?: string });
  for (const baseLocale of localeList) {
  const baseSlug = slugByLocale[baseLocale];
  if (!baseSlug) continue;
