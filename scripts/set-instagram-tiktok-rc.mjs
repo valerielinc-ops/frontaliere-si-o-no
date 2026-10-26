@@ -17,10 +17,12 @@ const PARAMS = {
   // TikTok Studio's own "Per te" library; 50% keeps a no-sound control arm.
   TIKTOK_MUSIC_MODE: 'trend',
   TIKTOK_MUSIC_ROLLOUT_PERCENT: '50',
-  // The video experiment keeps the existing slide render as control and
-  // assigns half of new queue ids to the animated motion-graphic treatment.
-  TIKTOK_VIDEO_CREATIVE_MODE: 'motion',
-  TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '50',
+  // The video experiment keeps the existing slide render as control. The
+  // recommended 40% treatment pool yields roughly 60% control, 20% motion
+  // graphic and 10% each for the quick-hook and single-stat formats.
+  TIKTOK_VIDEO_CREATIVE_MODE: 'experiment',
+  TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: '40',
+  TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT: '50',
 };
 
 const rc = await getRemoteConfig();

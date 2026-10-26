@@ -305,10 +305,11 @@ export const RC_TO_ENV = {
   TIKTOK_MUSIC_MODE:                   ['TIKTOK_MUSIC_MODE'],
   TIKTOK_MUSIC_ROLLOUT_PERCENT:        ['TIKTOK_MUSIC_ROLLOUT_PERCENT'],
   // TikTok video creative experiment: `off` keeps the existing slide video;
-  // `motion` assigns a stable percentage of queue ids to the animated
-  // motion-graphic renderer.
+  // `motion` runs the original two-arm test; `experiment` also assigns a
+  // configured share of the treatment pool to the new hook/spotlight formats.
   TIKTOK_VIDEO_CREATIVE_MODE:           ['TIKTOK_VIDEO_CREATIVE_MODE'],
   TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT: ['TIKTOK_VIDEO_CREATIVE_ROLLOUT_PERCENT'],
+  TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT: ['TIKTOK_VIDEO_CREATIVE_NEW_FORMAT_ROLLOUT_PERCENT'],
   SERVER_TIKTOK_CLIENT_KEY:            ['TIKTOK_CLIENT_KEY'],
   SERVER_TIKTOK_CLIENT_SECRET:         ['TIKTOK_CLIENT_SECRET'],
   SERVER_TIKTOK_ACCESS_TOKEN:          ['TIKTOK_ACCESS_TOKEN'],

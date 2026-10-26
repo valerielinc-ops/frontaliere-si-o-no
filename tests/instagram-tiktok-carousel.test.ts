@@ -21,6 +21,8 @@ import {
   TIKTOK_VIDEO_WIDTH,
   buildCarouselVideoFfmpegArgs,
   buildMotionGraphicVideoFfmpegArgs,
+  buildHookThreeSlidesVideoFfmpegArgs,
+  buildSingleStatVideoFfmpegArgs,
   renderCarouselVideo,
   renderMotionGraphicVideo,
 } from '../scripts/lib/social-carousel-video.mjs';
@@ -34,6 +36,7 @@ import {
 } from '../scripts/lib/instagram-links.mjs';
 import {
   tiktokUrl,
+  tiktokContentId,
   TIKTOK_UTM_SOURCE,
   TIKTOK_CAMPAIGN_ARTICLE,
   TIKTOK_CAMPAIGN_JOB,
@@ -209,6 +212,26 @@ describe('TikTok video queue contract', () => {
     expect(args.at(-1)).toBe('motion.mp4');
   });
 
+  it('builds the quick hook format with three short cards', () => {
+    const args = buildHookThreeSlidesVideoFfmpegArgs(['slide-1.jpg', 'slide-2.jpg', 'slide-3.jpg'], 'hook.mp4');
+    const filter = args[args.indexOf('-filter_complex') + 1];
+    expect(args.filter((arg) => arg === '-loop')).toHaveLength(3);
+    expect(args).toContain(String(2.6));
+    expect(filter).toContain('xfade=transition=fade:duration=0.15');
+    expect(args.at(-1)).toBe('hook.mp4');
+  });
+
+  it('builds the single-stat format as one animated spotlight card', () => {
+    const args = buildSingleStatVideoFfmpegArgs(['top-card.jpg'], 'spotlight.mp4');
+    const filter = args[args.indexOf('-filter_complex') + 1];
+    expect(args.filter((arg) => arg === '-loop')).toHaveLength(1);
+    expect(args).toContain(String(5));
+    expect(filter).toContain('spotcard');
+    expect(filter).toContain('overlay=x=');
+    expect(filter).toContain(BRAND_VIDEO_ACCENT);
+    expect(args.at(-1)).toBe('spotlight.mp4');
+  });
+
   it('uploads MP4 with the video MIME type used by the robot download check', () => {
     const uploader = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/upload-cdn-file.sh'), 'utf8');
     expect(uploader).toContain('mp4) printf \'%s\' "video/mp4"');
@@ -259,6 +282,8 @@ describe('TikTok video queue contract', () => {
     expect(TIKTOK_VIDEO_CREATIVE_VARIANTS).toEqual({
       CONTROL: 'carousel-crossfade-v1',
       TREATMENT: 'motion-graphic-v1',
+      HOOK: 'hook-3-slides-v1',
+      SPOTLIGHT: 'single-stat-v1',
     });
   });
 });
@@ -313,6 +338,16 @@ describe('UTM identity — Instagram and TikTok each get one stable GA4 source r
   it('returns an unparseable URL verbatim rather than dropping the link', () => {
     expect(instagramUrl('not a url', INSTAGRAM_CAMPAIGN_JOB, 'x')).toBe('not a url');
     expect(tiktokUrl('not a url', TIKTOK_CAMPAIGN_JOB, 'x')).toBe('not a url');
+  });
+
+  it('joins the creative arm to utm_content without changing the destination', () => {
+    const tagged = new URL(tiktokUrl(
+      'https://frontaliereticino.ch/articoli-frontaliere/x/',
+      TIKTOK_CAMPAIGN_ARTICLE,
+      tiktokContentId('x', TIKTOK_VIDEO_CREATIVE_VARIANTS.HOOK),
+    ));
+    expect(tagged.pathname).toBe('/articoli-frontaliere/x/');
+    expect(tagged.searchParams.get('utm_content')).toBe('hook-3-slides-v1--x');
   });
 });
 

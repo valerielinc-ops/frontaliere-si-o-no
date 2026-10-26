@@ -12,6 +12,8 @@ mostrate come slide statiche in dissolvenza.
 |---|---|---|---|
 | Controllo | `carousel-crossfade-v1` | Video verticale dalle slide esistenti, dissolvenza | ranking, caption, durata nominale, account, cadenza |
 | Trattamento | `motion-graphic-v1` | Card flottante, movimento di sfondo, barra di avanzamento e transizioni wipe | ranking, caption, asset informativi, account, cadenza |
+| Nuovo formato A | `hook-3-slides-v1` | Copertina + primi due risultati, ritmo rapido e dissolvenze brevi | stessi dati, account, cadenza |
+| Nuovo formato B | `single-stat-v1` | Solo il risultato #1 su uno stage verticale con movimento leggero | stesso risultato #1, account, cadenza |
 
 Il trattamento non introduce musica scaricata: l'audio nativo TikTok è un
 esperimento separato. Entrambi gli id sono registrati nel ledger, così il
@@ -19,7 +21,11 @@ risultato può essere segmentato anche per `native-sound=control/treatment`.
 
 ## Assegnazione e sicurezza
 
-- Firebase Remote Config controlla modalità e percentuale.
+- Firebase Remote Config controlla modalità, percentuale del pool non-controllo
+  e quota dei due nuovi formati.
+- La configurazione consigliata è `experiment` + `40` + `50`: circa 60% di
+  controllo, 20% motion graphic, 10% hook rapido e 10% spotlight. Le quote
+  sono attese su molti post, non garantite su una singola settimana.
 - L'assegnazione è deterministica sull'id della coda e non cambia ai retry.
 - Il default locale è sempre il controllo.
 - Se ffmpeg o ffprobe non producono un MP4 verticale verificabile, il post
@@ -37,11 +43,13 @@ Per ogni pubblicazione confrontare, separando anche il tipo `article`/`job`/`bor
 3. like, commenti e condivisioni;
 4. sessioni e pagine viste attribuite ai link UTM TikTok in GA4.
 
-Il ledger contiene `creativeVariant`, `creativeLabel` e `creativeFormat`; il
-journal del Mac conserva anche la variante effettivamente portata al bottone o
-pubblicata. Non si dichiara un vincitore con un solo post: la prima lettura è
-descrittiva, e una decisione richiede almeno tre osservazioni comparabili per
-braccio e una finestra di almeno sette giorni.
+Il ledger contiene `creativeVariant`, `creativeLabel` e `creativeFormat`; anche
+`utm_content` include la variante (`<variante>--<slug>`), così GA4 conserva il
+legame tra sessioni, pagine viste e conversioni. Il journal del Mac conserva
+anche la variante effettivamente portata al bottone o pubblicata. Non si
+dichiara un vincitore con un solo post: la prima lettura è descrittiva, e una
+decisione richiede almeno tre osservazioni comparabili per braccio e una
+finestra di almeno sette giorni.
 
 ## Distribuzione
 

@@ -25,6 +25,16 @@ export const TIKTOK_CAMPAIGN_JOB = 'tiktok_daily_job';
 export const TIKTOK_CAMPAIGN_BORDER = 'tiktok_weekly_border';
 
 /**
+ * Keep the content slot joinable by both the TikTok creative ledger and GA4.
+ * The variant is optional so photo/API posts keep their established identity.
+ */
+export function tiktokContentId(content, creativeVariant) {
+  const base = String(content || '').trim();
+  const variant = String(creativeVariant || '').trim();
+  return variant && base ? `${variant}--${base}` : variant || base;
+}
+
+/**
  * Tag a site URL with this channel's identity.
  *
  * @param {string} url absolute site URL
