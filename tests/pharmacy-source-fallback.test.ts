@@ -27,7 +27,7 @@ describe('Ticino pharmacy PDF source fallback', () => {
   });
 
   it('does not reinterpret a persistent source error as a mirror fallback', async () => {
-    const error = Object.assign(new Error('HTTP 404'), { status: 404 });
+    const error = Object.assign(new Error('HTTP 403'), { status: 403 });
     const fetchSource = vi.fn().mockRejectedValue(error);
 
     await expect(fetchTicinoPdfBuffer(fetchSource)).rejects.toBe(error);
