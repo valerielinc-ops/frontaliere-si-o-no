@@ -1,7 +1,7 @@
 {
   "key": "edmond-de-rothschild",
   "label": "Edmond de Rothschild",
-  "generatedAt": "2026-10-26T09:34:18.159Z",
+  "generatedAt": "2026-10-26T21:45:18.636Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8048,
-  "avgDurationMs": 8048,
+  "durationMs": 9191,
+  "avgDurationMs": 9191,
   "durationHistory": [
-    8048
+    9191
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3056",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:34:05.913Z",
+      "crawledAt": "2026-10-26T21:44:54.364Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -80,7 +80,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3088",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:34:04.409Z",
+      "crawledAt": "2026-10-26T21:44:53.091Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -127,7 +127,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2796",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:34:07.555Z",
+      "crawledAt": "2026-10-26T21:44:55.513Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -171,7 +171,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/2818",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:34:06.728Z",
+      "crawledAt": "2026-10-26T21:44:54.971Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -215,7 +215,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3080",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:34:05.381Z",
+      "crawledAt": "2026-10-26T21:44:53.724Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "",
@@ -247,5 +247,5 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }
