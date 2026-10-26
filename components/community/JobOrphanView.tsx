@@ -40,7 +40,7 @@ import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/co
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
-import { readBestEffortLocalStorage } from '@/services/storageAvailability';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -472,7 +472,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
   jobSlug: slug,
   registrationMethod: 'email',
  });
- localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
+ writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.href = listingPath;
  } catch {
  setEmailError(locale === 'it' ? 'Errore, riprova.' : 'Error, please retry.');

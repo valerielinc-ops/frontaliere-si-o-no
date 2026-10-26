@@ -20,6 +20,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 
 const read = (p: string) => readFileSync(resolve(p), 'utf8');
 
@@ -86,11 +87,40 @@ describe('the three surfaces that DO carry the CTA still carry it', () => {
 });
 
 describe('job access gates tolerate unavailable browser storage', () => {
-  it.each(JOB_GATE_SURFACES)('%s reads access through the shared best-effort helper', (file) => {
+  it.each(JOB_GATE_SURFACES)('%s reads and writes access through the shared best-effort helper', (file) => {
     const src = read(file);
 
-    expect(src).toContain("import { readBestEffortLocalStorage } from '@/services/storageAvailability';");
+    expect(src).toContain("readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';");
     expect(src).toContain('readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY)');
     expect(src).not.toContain('localStorage.getItem(JOB_EMAIL_ACCESS_KEY)');
+    expect(src).toContain('writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase())');
+    expect(src).not.toContain('localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase())');
+  });
+
+  it.each(JOB_GATE_SURFACES)('%s keeps the successful submit path when storage writes throw', (file) => {
+    const src = read(file);
+    const writeCall = src.indexOf('writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase())');
+    const navigationCall = src.indexOf('window.location', writeCall);
+    expect(writeCall).toBeGreaterThanOrEqual(0);
+    expect(navigationCall).toBeGreaterThan(writeCall);
+
+    const originalWindow = (globalThis as { window?: unknown }).window;
+    Object.defineProperty(globalThis, 'window', {
+      configurable: true,
+      value: {
+        localStorage: {
+          getItem: () => { throw new Error('storage blocked'); },
+          setItem: () => { throw new Error('storage blocked'); },
+        },
+      },
+    });
+
+    try {
+      expect(() => writeBestEffortLocalStorage('ft_job_email', 'valid@example.test')).not.toThrow();
+      expect(readBestEffortLocalStorage('ft_job_email')).toBe('valid@example.test');
+    } finally {
+      if (originalWindow === undefined) Reflect.deleteProperty(globalThis, 'window');
+      else Object.defineProperty(globalThis, 'window', { configurable: true, value: originalWindow });
+    }
   });
 });

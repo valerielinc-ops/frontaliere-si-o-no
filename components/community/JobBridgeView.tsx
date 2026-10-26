@@ -39,7 +39,7 @@ import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
-import { readBestEffortLocalStorage } from '@/services/storageAvailability';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 
 interface RelatedJob {
  slug: string;
@@ -413,7 +413,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
   jobSlug: targetSlug,
   registrationMethod: 'email',
  });
- localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
+ writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.href = targetPath;
  } catch {
  setEmailError(locale === 'it' ? 'Errore, riprova.' : 'Error, please retry.');

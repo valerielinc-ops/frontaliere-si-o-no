@@ -47,7 +47,7 @@ import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { jobDescriptionTextToHtml } from '@/build-plugins/shared/jobDescription/toHtml';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
-import { readBestEffortLocalStorage } from '@/services/storageAvailability';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 
 interface RelatedJob {
  slug: string;
@@ -408,7 +408,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
   jobSlug: job.slug,
   registrationMethod: 'email',
  });
- localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
+ writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.reload();
  } catch {
  setEmailError(locale === 'it' ? 'Errore, riprova.' : 'Error, please retry.');
