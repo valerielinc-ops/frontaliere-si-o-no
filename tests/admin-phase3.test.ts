@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { buildTodaySummary, formatTodayDate } from '@/components/admin/lib/adminToday';
-import { csvText, datedExportFilename, downloadCsv } from '@/components/admin/lib/csv';
+import { csvText, datedExportFilename, downloadCsv, InvalidCsvExportDateError } from '@/components/admin/lib/csv';
 import { clampPage, pageCount, pageSlice } from '@/components/admin/lib/pagination';
 import { describeCronForLocalDay, scheduledOccurrencesForLocalDay } from '@/services/adminCron';
 import { adminTodayRunsPath, adminTodayRunsTruncationNotice, failedCrawlerRunCount, loadAdminTodayRuns, type AdminTodayRun } from '@/services/adminTodayRuns';
@@ -242,6 +242,11 @@ describe('admin fase 3 pure contracts', () => {
     } finally {
       vi.unstubAllGlobals();
     }
+  });
+
+  it('segnala con un errore di dominio una data invalida per il filename CSV', () => {
+    expect(() => datedExportFilename('crawler', new Date(Number.NaN))).toThrowError(InvalidCsvExportDateError);
+    expect(() => datedExportFilename('crawler', new Date(Number.NaN))).toThrowError('Invalid CSV export date');
   });
 
   it('nasconde i dettagli sensibili dell’audit', () => {
