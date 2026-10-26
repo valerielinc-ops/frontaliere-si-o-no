@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { GOOGLE_ANCHOR_TAB_ALLOWANCE_PX, observeGoogleAdEdgeInsets, observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
+import { GOOGLE_ANCHOR_TAB_ALLOWANCE_PX, measureGoogleAdEdgeInsets, observeGoogleAdEdgeInsets, observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
 import { APPLICATION_OFFER_AD_INSET_VAR, APPLICATION_OFFER_CARD_ROOM } from '@/components/community/useApplicationOfferAdClearance';
 const cleanups: Array<() => void> = [];
 afterEach(() => { cleanups.splice(0).forEach((f) => f()); document.body.innerHTML = ''; });
@@ -35,11 +35,21 @@ describe('promotions yield to Google overlays without suppressing ads', () => {
   const before = el.getAttribute('style'); const notify = vi.fn();
   cleanups.push(observeGoogleAdEdgeInsets(notify));
   expect(notify).toHaveBeenLastCalledWith({ top: 0, bottom: 118 + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX });
+  expect(measureGoogleAdEdgeInsets()).toEqual({ top: 0, bottom: 118 + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX });
   expect(el.getAttribute('style')).toBe(before);
   // Collapsed or closed: no inset; an unchanged scan reports nothing.
   el.style.display = 'none'; await Promise.resolve(); expect(notify).toHaveBeenLastCalledWith({ top: 0, bottom: 0 });
   const calls = notify.mock.calls.length; el.setAttribute('data-anchor-status', 'dismissed'); await Promise.resolve();
   expect(notify.mock.calls.length).toBe(calls);
+ });
+ it('detects an anchor iframe addressed by name as well as id', () => {
+  const el = ad(true);
+  const iframe = el.querySelector('iframe');
+  iframe?.removeAttribute('id');
+  iframe?.setAttribute('name', 'aswift_named_anchor');
+  el.getBoundingClientRect = () => ({ top: 650, bottom: 768, width: 728, height: 118, left: 0, right: 728 } as DOMRect);
+  const notify = vi.fn(); cleanups.push(observeGoogleAdEdgeInsets(notify));
+  expect(notify).toHaveBeenLastCalledWith({ top: 0, bottom: 118 + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX });
  });
  it('measures a top anchor, and ignores vignettes and fixed ads off the edges', () => {
   const top = ad(true); top.getBoundingClientRect = () => ({ top: 0, bottom: 60, width: 390, height: 60, left: 0, right: 390 } as DOMRect);
