@@ -274,14 +274,26 @@ async function resolvePathToDistFile(path) {
 
 // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
 // attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
-// Attribute order is not stable after minification, therefore both attributes
-// are matched with lookaheads instead of assuming `name` precedes `content`.
-const ROBOTS_META_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?robots["']?(?:\s|\/?>))(?=[^>]*\bcontent\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))[^>]*>/i;
+// Parse one meta tag at a time instead of using a cross-attribute lookahead:
+// that keeps `name` and `content` on the same element, supports either order,
+// and stops an unquoted value before the tag-closing slash.
+const META_TAG_RE = /<meta\b[^>]*>/gi;
+const META_ATTRIBUTE_RE = /([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s/>]+)))?/g;
+
+function robotsContent(html) {
+  for (const match of html.matchAll(META_TAG_RE)) {
+    const attributes = new Map();
+    for (const attribute of match[0].slice(5, -1).matchAll(META_ATTRIBUTE_RE)) {
+      const name = attribute[1].toLowerCase();
+      if (!attributes.has(name)) attributes.set(name, attribute[2] ?? attribute[3] ?? attribute[4] ?? '');
+    }
+    if (attributes.get('name')?.trim().toLowerCase() === 'robots') return attributes.get('content') ?? '';
+  }
+  return '';
+}
 
 function robotsDirectives(html) {
-  const match = ROBOTS_META_RE.exec(html);
-  const content = match?.[1] ?? match?.[2] ?? match?.[3] ?? '';
-  return content.toLowerCase().split(/[\s,]+/).filter(Boolean);
+  return robotsContent(html).toLowerCase().split(/[\s,]+/).filter(Boolean);
 }
 
 function htmlHasNoindex(html) {
