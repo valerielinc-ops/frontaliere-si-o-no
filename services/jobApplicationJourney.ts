@@ -17,7 +17,46 @@ type Journey = {
 };
 const STORAGE_KEY = 'ft_job_application_journeys_v1';
 const TTL = 30 * 60 * 1000;
+const MAX_JOURNEYS = 20;
 const memory = new Map<string, Journey>();
+
+const SUPPORTED_STEPS = new Set<JobJourneyStep>([
+ 'list_select', 'detail_view', 'gate_view', 'auth_start', 'auth_success',
+ 'auth_error', 'gate_dismiss', 'apply_click', 'handoff', 'handoff_error',
+]);
+const JOURNEY_SOURCES = new Set(['job_alert', 'newsletter', 'email', 'search', 'internal', 'referral', 'direct']);
+const JOURNEY_DEVICES = new Set(['mobile', 'tablet', 'desktop', 'unknown']);
+const JOURNEY_ENTRIES = new Set<Journey['entry']>(['list', 'direct']);
+
+function isNonEmptyString(value: unknown): value is string {
+ return typeof value === 'string' && value.trim().length > 0;
+}
+
+function isFreshJourneyTimestamp(value: unknown, now: number): value is number {
+ if (!Number.isSafeInteger(value)) return false;
+ const age = now - value;
+ return age >= 0 && age < TTL;
+}
+
+function isPersistedJourney(value: unknown, now: number): value is Journey {
+ if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+ const item = value as Partial<Journey>;
+ if (!isNonEmptyString(item.id) || !isNonEmptyString(item.jobSlug)
+  || !isNonEmptyString(item.employerKey) || !isNonEmptyString(item.source)
+  || !isNonEmptyString(item.device) || !JOURNEY_ENTRIES.has(item.entry as Journey['entry'])
+  || !JOURNEY_SOURCES.has(item.source) || !JOURNEY_DEVICES.has(item.device)
+  || !isFreshJourneyTimestamp(item.startedAt, now)) return false;
+ if (item.jobId !== undefined && !isNonEmptyString(item.jobId)) return false;
+ if (!Array.isArray(item.aliases) || item.aliases.length === 0
+  || !item.aliases.every(isNonEmptyString) || !item.aliases.includes(item.jobSlug)) return false;
+ if (!Array.isArray(item.steps) || !item.steps.every((step): step is JobJourneyStep => SUPPORTED_STEPS.has(step))
+  || new Set(item.steps).size !== item.steps.length) return false;
+ return true;
+}
+
+function trimJourneys(journeys: Map<string, Journey>): void {
+ while (journeys.size > MAX_JOURNEYS) journeys.delete(journeys.keys().next().value!);
+}
 
 /** Only categorical attribution survives. Arbitrary query values never do. */
 export function classifyJobJourneySource(search: string, referrer: string): string {
@@ -37,18 +76,20 @@ export function classifyJobJourneySource(search: string, referrer: string): stri
 
 function readJourneys(): Map<string, Journey> {
  try {
-  const stored: Journey[] = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
-  for (const item of stored) {
-   if (typeof item.id === 'string' && typeof item.jobSlug === 'string'
-    && Array.isArray(item.steps) && Array.isArray(item.aliases) && Date.now() - item.startedAt < TTL) memory.set(item.jobSlug, item);
+  const stored: unknown = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+  if (Array.isArray(stored)) {
+   const now = Date.now();
+   for (const item of stored) if (isPersistedJourney(item, now)) memory.set(item.jobSlug, item);
   }
  } catch { /* In-memory continuity when storage is refused. */ }
- for (const [key, item] of memory) if (Date.now() - item.startedAt >= TTL) memory.delete(key);
+ const now = Date.now();
+ for (const [key, item] of memory) if (!isFreshJourneyTimestamp(item.startedAt, now)) memory.delete(key);
+ trimJourneys(memory);
  return memory;
 }
 
 function persist(): void {
- while (memory.size > 20) memory.delete(memory.keys().next().value!);
+ trimJourneys(memory);
  try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify([...memory.values()])); } catch { /* Tab memory remains usable. */ }
 }
 
