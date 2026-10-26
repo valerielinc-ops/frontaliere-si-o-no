@@ -27,8 +27,9 @@ export function sanitizeAuthorProfilePatch(value: unknown): AuthorProfilePatch |
 
 export function sanitizeArticleAuthorOverride(value: unknown): ArticleAuthorOverride | undefined {
   if (!isPlainObject(value)) return undefined;
-  const { authorSlug, authorName } = value;
-  if (typeof authorSlug !== 'string' || typeof authorName !== 'string' || !authorSlug || !authorName) {
+  const authorSlug = typeof value.authorSlug === 'string' ? value.authorSlug.trim() : '';
+  const authorName = typeof value.authorName === 'string' ? value.authorName.trim() : '';
+  if (!authorSlug || !authorName) {
     return undefined;
   }
   return { authorSlug, authorName };

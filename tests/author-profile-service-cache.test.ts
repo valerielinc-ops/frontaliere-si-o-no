@@ -56,4 +56,19 @@ describe('author profile local cache envelopes', () => {
       ['valid', { authorSlug: 'laura-bianchi', authorName: 'Laura Bianchi' }],
     ]));
   });
+
+  it('trims override values and rejects whitespace-only identifiers', () => {
+    const result = parseLocalMapEnvelope({
+      data: {
+        valid: { authorSlug: '  laura-bianchi  ', authorName: '  Laura Bianchi  ' },
+        blankSlug: { authorSlug: '   ', authorName: 'Laura Bianchi' },
+        blankName: { authorSlug: 'laura-bianchi', authorName: '\t' },
+      },
+      timestamp: NOW - 1_000,
+    }, sanitizeArticleAuthorOverride, NOW);
+
+    expect(result).toEqual(new Map([
+      ['valid', { authorSlug: 'laura-bianchi', authorName: 'Laura Bianchi' }],
+    ]));
+  });
 });
