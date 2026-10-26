@@ -80,12 +80,19 @@ export function writeFileAtomic(filePath, content) {
   }
 }
 
-export function escapeForSingleQuoteTS(value) {
+export function escapeFaqForDelimiter(value, delimiter = "'") {
+  if (delimiter !== "'" && delimiter !== '"') {
+    throw new TypeError(`unsupported FAQ delimiter: ${String(delimiter)}`);
+  }
   return String(value ?? '')
     .replace(/\\/g, '\\\\')
-    .replace(/'/g, "\\'")
+    .replace(delimiter === '"' ? /"/g : /'/g, delimiter === '"' ? '\\"' : "\\'")
     .replace(/\n/g, '\\n')
     .replace(/\r/g, '');
+}
+
+export function escapeForSingleQuoteTS(value) {
+  return escapeFaqForDelimiter(value, "'");
 }
 
 /**
@@ -164,8 +171,17 @@ export function extractFaqFromContent(content) {
 export function replaceFaqLiteral(content, serializedFaq) {
   const located = locateFaqLiteral(content);
   if (!located) return null;
-  let payload = String(serializedFaq ?? '');
-  if (located.quote === '"') {
+  let payload;
+  if (Array.isArray(serializedFaq)) {
+    // New callers provide the FAQ array so serialization follows the actual
+    // outer delimiter instead of assuming a single-quoted TS literal.
+    payload = escapeFaqForDelimiter(JSON.stringify(serializedFaq), located.quote);
+  } else {
+    // Keep accepting the historical pre-escaped single-quote payload for
+    // direct callers and the compatibility acceptance command below.
+    payload = String(serializedFaq ?? '');
+  }
+  if (!Array.isArray(serializedFaq) && located.quote === '"') {
     // Callers historically serialized for a single-quoted literal.  When the
     // existing locale uses double quotes, protect every JSON quote that is
     // not already protected by an odd run of backslashes.  Even runs are the
@@ -207,9 +223,8 @@ function replaceFaqInFile(filePath, newFaqArray) {
   const faqToWrite = prepareFaqForWrite(newFaqArray);
   if (!faqToWrite) return false;
   let content = readFileSync(filePath, 'utf-8');
-  const jsonStr = escapeForSingleQuoteTS(JSON.stringify(faqToWrite));
-  // Escape-aware regex + function replacer to avoid $-pattern issues
-  const replaced = replaceFaqLiteral(content, jsonStr);
+  // Serialize from the array with the delimiter found in the existing file.
+  const replaced = replaceFaqLiteral(content, faqToWrite);
   if (!replaced || replaced === content || JSON.stringify(extractFaqFromContent(replaced)) !== JSON.stringify(faqToWrite)) {
     return false;
   }

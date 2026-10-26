@@ -826,10 +826,9 @@ function replaceFaqInBodyFile(filePath, faqArray) {
   const faqToWrite = prepareFaqForWrite(faqArray);
   if (!faqToWrite) return false;
   let content = read(filePath);
-  const jsonStr = serializeFaqLiteral(faqToWrite);
   // Use the shared quote-aware locator so apostrophes and JSON quotes inside
   // the payload cannot be mistaken for the outer FAQ delimiter.
-  const replaced = replaceFaqLiteral(content, jsonStr);
+  const replaced = replaceFaqLiteral(content, faqToWrite);
   if (!replaced || replaced === content) return false;
   if (JSON.stringify(extractFaqFromContent(replaced)) !== JSON.stringify(faqToWrite)) return false;
   // Post-write validation: strip TS type annotations before JS syntax check
