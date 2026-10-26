@@ -14,7 +14,7 @@ export function csvText(headers: readonly unknown[], rows: readonly (readonly un
 
 export class InvalidCsvExportDateError extends RangeError {
   constructor() {
-    super('Invalid CSV export date');
+    super('CSV export date is invalid');
     this.name = 'InvalidCsvExportDateError';
   }
 }

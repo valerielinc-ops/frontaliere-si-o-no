@@ -246,7 +246,7 @@ describe('admin fase 3 pure contracts', () => {
 
   it('segnala con un errore di dominio una data invalida per il filename CSV', () => {
     expect(() => datedExportFilename('crawler', new Date(Number.NaN))).toThrowError(InvalidCsvExportDateError);
-    expect(() => datedExportFilename('crawler', new Date(Number.NaN))).toThrowError('Invalid CSV export date');
+    expect(() => datedExportFilename('crawler', new Date(Number.NaN))).toThrowError('CSV export date is invalid');
   });
 
   it('nasconde i dettagli sensibili dell’audit', () => {
