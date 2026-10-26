@@ -7,8 +7,9 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, irpefMarginalRate } from '@/services/calculationService';
+import { clampBonusInteger, clampBonusNumber, BONUS_CHILDREN_MAX } from '@/services/bonusCalculatorInput';
 import { DEFAULT_EXCHANGE_RATE, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
-import { BONUS_CHILDREN_MAX, BONUS_CHILDREN_MIN, parseProfileChildren } from './bonusProfilePrefill';
+import { parseProfileChildren } from './bonusProfilePrefill';
 
 // Swiss bonus types for frontalieri
 const BONUS_TYPES = [
@@ -255,12 +256,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={MONTHLY_GROSS_MIN_CHF}
  max={MONTHLY_GROSS_MAX_CHF}
  value={monthlyGrossCHF}
- onChange={e => setMonthlyGrossCHF(parseBonusNumericInput(
- e.target.value,
- MONTHLY_GROSS_MIN_CHF,
- MONTHLY_GROSS_MAX_CHF,
- DEFAULT_MONTHLY_GROSS_CHF,
- ))}
+ onChange={e => setMonthlyGrossCHF(clampBonusNumber(e.target.value, DEFAULT_MONTHLY_GROSS_CHF, MONTHLY_GROSS_MIN_CHF, MONTHLY_GROSS_MAX_CHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -275,12 +271,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={BONUS_AMOUNT_MIN_CHF}
  max={BONUS_AMOUNT_MAX_CHF}
  value={bonusAmountCHF}
- onChange={e => setBonusAmountCHF(parseBonusNumericInput(
- e.target.value,
- BONUS_AMOUNT_MIN_CHF,
- BONUS_AMOUNT_MAX_CHF,
- DEFAULT_BONUS_AMOUNT_CHF,
- ))}
+ onChange={e => setBonusAmountCHF(clampBonusNumber(e.target.value, DEFAULT_BONUS_AMOUNT_CHF, BONUS_AMOUNT_MIN_CHF, BONUS_AMOUNT_MAX_CHF))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -324,12 +315,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={CHILDREN_MIN}
  max={CHILDREN_MAX}
  value={children}
- onChange={e => setChildren(parseBonusNumericInput(
- e.target.value,
- CHILDREN_MIN,
- CHILDREN_MAX,
- DEFAULT_CHILDREN,
- ))}
+ onChange={e => setChildren(clampBonusInteger(e.target.value, DEFAULT_CHILDREN, CHILDREN_MIN, BONUS_CHILDREN_MAX))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  </div>
@@ -346,12 +332,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={EXCHANGE_RATE_MIN}
  max={EXCHANGE_RATE_MAX}
  value={Number(exchangeRate.toFixed(4))}
- onChange={e => setRateOverride(parseBonusNumericInput(
- e.target.value,
- EXCHANGE_RATE_MIN,
- EXCHANGE_RATE_MAX,
- exchangeRate,
- ))}
+ onChange={e => setRateOverride(clampBonusNumber(e.target.value, exchangeRate, EXCHANGE_RATE_MIN, EXCHANGE_RATE_MAX))}
  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
  />
  <button

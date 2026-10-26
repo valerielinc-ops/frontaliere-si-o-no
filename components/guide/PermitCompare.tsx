@@ -12,8 +12,8 @@ import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 import { Users, TrendingUp, TrendingDown, Minus, AlertTriangle, Download, Info, Sparkles, CheckSquare, ExternalLink, FileText } from 'lucide-react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, getTicinoTaxRate, NEW_FRONTIER_WITHIN_20KM_CH_SHARE } from '@/services/calculationService';
-import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { DEFAULT_EXCHANGE_RATE, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 
 // ── G permit type ──
 type GPermitType = 'new_within_20km' | 'new_beyond_20km' | 'old';
