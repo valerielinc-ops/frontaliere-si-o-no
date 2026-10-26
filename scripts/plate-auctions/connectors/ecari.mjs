@@ -63,8 +63,8 @@ export function requireEcariCataloguePage(html, { plateCode, officialAuctionUrl 
   return html;
 }
 
-export async function fetchEcariCantonAuctions(config) {
-  const html = await fetchHtml(config.officialAuctionUrl, {
+export async function fetchEcariCantonAuctions(config, { fetchPage = fetchHtml } = {}) {
+  const html = await fetchPage(config.officialAuctionUrl, {
     ...(config.userAgent ? { userAgent: config.userAgent } : {}),
   });
   return parseEcariCantonAuctions(html, {

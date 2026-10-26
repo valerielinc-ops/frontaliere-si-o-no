@@ -17,7 +17,7 @@ import { fetchUrFixedPrice } from '../scripts/plate-auctions/connectors/fixed-pr
 import { FIXED_PRICE_SOURCE_CONFIGS } from '../functions/src/plateAuctionsCore.js';
 
 /**
- * Relay condiviso da SZ, FR, SG e TI (2026-09-25). FR e TI sono geo-fenced su
+ * Relay condiviso da SZ, FR, SG, TI e le fonti eCari expanded (2026-10-26). FR e TI sono geo-fenced su
  * IP svizzeri: dal runner GitHub FR va in timeout su 443 e TI risponde 200 con
  * la pagina F5 «Pagina non disponibile»; SG può rifiutare l'egress CI. Le righe
  * arrivano dal relay della Cloud Function di Zurigo quando la fetch ufficiale
@@ -27,6 +27,7 @@ const NOW = new Date('2026-09-25T12:00:00.000Z');
 const FRESH = new Date(NOW.getTime() - 60 * 60 * 1000).toISOString();
 const STALE = new Date(NOW.getTime() - PLATE_AUCTION_API_RELAY_MAX_AGE_MS - 60 * 1000).toISOString();
 const FR_URL = EXPANDED_ECARI_SOURCES.fr.officialAuctionUrl;
+const SO_URL = EXPANDED_ECARI_SOURCES.so.officialAuctionUrl;
 const sourceRelayUrl = (sourceKey: string) => `${PLATE_AUCTION_PUBLIC_API_RELAY_URL}?source=${sourceKey}&fresh=${NOW.getTime()}`;
 // La pagina che ogni sonda non svizzera riceve da www.carieauktion.ti.ch.
 const TI_GEO_BLOCK_PAGE = '<html><head><title>Pagina non disponibile</title></head><body><h1>Pagina non disponibile</h1><p>Support ID: 1234567890</p></body></html>';
@@ -220,6 +221,14 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
     expect(rows).toEqual([expect.objectContaining({ id: 'fr-1768', sourceKey: 'FR', officialAuctionUrl: FR_URL })]);
     // La fetch diretta porta sempre l'intermedio SwissSign che il server omette.
     expect(fetchPage).toHaveBeenCalledWith(FR_URL, expect.objectContaining({ ca: expect.stringContaining('BEGIN CERTIFICATE') }));
+  });
+
+  it('expanded eCari: a SO timeout falls back to a fresh relay snapshot', async () => {
+    serveRelay(relayPayload({ so: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('SO', 'so-1768')]));
+    const fetchPage = vi.fn(async () => { throw new Error('This operation was aborted'); });
+    const rows = await fetchExpandedEcari('so', { fetchPage, now: NOW });
+    expect(rows).toEqual([expect.objectContaining({ id: 'so-1768', sourceKey: 'SO', officialAuctionUrl: SO_URL })]);
+    expect(fetchPage).toHaveBeenCalledWith(SO_URL, expect.any(Object));
   });
 
   it('TI: the 200 "Pagina non disponibile" page is a direct failure, not an empty catalogue', async () => {
