@@ -172,6 +172,17 @@ describe('admin fase 3 pure contracts', () => {
     expect(pageSlice(Array.from({ length: 101 }, (_, index) => index), 3)).toEqual([100]);
   });
 
+  it('normalizza le page size admin non valide al default senza alterare gli interi validi', () => {
+    const items = Array.from({ length: 101 }, (_, index) => index);
+    for (const invalidPageSize of [0, -5, 2.5, Number.NaN, Number.POSITIVE_INFINITY]) {
+      expect(pageCount(items.length, invalidPageSize)).toBe(3);
+      expect(clampPage(99, items.length, invalidPageSize)).toBe(3);
+      expect(pageSlice(items, 3, invalidPageSize)).toEqual([100]);
+    }
+    expect(pageCount(items.length, 25)).toBe(5);
+    expect(pageSlice(items, 3, 25)).toEqual(items.slice(50, 75));
+  });
+
   it('normalizza input non affidabili della paginazione', () => {
     const items = Array.from({ length: 101 }, (_, index) => index);
 
