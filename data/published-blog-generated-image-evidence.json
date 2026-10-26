@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "117d61c82d3e3200c65d0f997291e510a63be793",
+  "commit": "7bfdba254a0f4dc410d8da8844eac119a09fe32c",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -38341,6 +38341,57 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a car–motorcycle crash; no readable text, identifiable logos, people, or specific-event cues."
+      }
+    },
+    "/images/blog/article-mese-salute-mentale-2026.webp": {
+      "schema": 1,
+      "assetId": "article-mese-salute-mentale-2026",
+      "kind": "photo",
+      "provider": "pexels",
+      "model": "Pexels photo search",
+      "executorModel": "Pexels photo search",
+      "license": "Pexels License",
+      "licenseFamily": "pexels",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "credit": "Justyna Sieczka · Pexels",
+      "author": {
+        "name": "Justyna Sieczka",
+        "url": "https://www.pexels.com/@justyna-sieczka-2161487384"
+      },
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-bell-tower-in-ticino-switzerland-38008213/",
+      "sourceImageUrl": "https://images.pexels.com/photos/38008213/pexels-photo-38008213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourceWidth": 6000,
+      "sourceHeight": 4000,
+      "photoTitle": "Charming landscape featuring a historic bell tower and mountains in the picturesque region of Ticino, Switzerland.",
+      "copyrightNotice": "© Justyna Sieczka",
+      "acquireLicensePage": "https://www.pexels.com/photo/scenic-view-of-bell-tower-in-ticino-switzerland-38008213/",
+      "sha256": "769d41f1ea4d9918774f8d25a994e7beb6c439c7cd0fcec2aa5cf2198adb812f",
+      "bytes": 82238,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-26T08:52:41.414Z",
+      "verifiedAt": "2026-10-26T08:52:52.561Z",
+      "restrictions": [
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-mese-salute-mentale-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": true,
+        "is_topic_relevant": true,
+        "notes": "Serene real-world outdoor city-and-lake landscape with natural light; no people, readable text, logos, or event cues."
       }
     },
     "/images/places/lugano-view.webp": {

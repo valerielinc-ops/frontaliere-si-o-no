@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 864,
-      "6": 5056
+      "6": 5057
     },
-    "publishedCovers": 7603,
+    "publishedCovers": 7604,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 133,
     "fallbackRepointed": 0,
-    "inferredRecords": 4970
+    "inferredRecords": 4971
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -209275,6 +209275,33 @@
         "imageUrl": "/images/blog/article-schianto-auto-moto-appiano-gentile.webp",
         "evidence": "generated-engine-record"
       }
+    },
+    "article-mese-salute-mentale-2026": {
+      "cover": "/images/blog/article-mese-salute-mentale-2026.webp",
+      "hash": "769d41f1ea4d9918774f8d25a994e7beb6c439c7cd0fcec2aa5cf2198adb812f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "mese-salute-mentale-2026",
+          "category": "novita",
+          "date": "2026-10-26T08:52:52.668Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
     }
   },
   "repair": {
