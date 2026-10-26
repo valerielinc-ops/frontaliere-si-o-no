@@ -540,7 +540,8 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
     try {
       buildItalyRowsFromMimitApi({ municipalities: targetMunicipalities, responses: [provinceResponse] });
       return [provinceResponse];
-    } catch {
+    } catch (error) {
+      if (!(error instanceof Error) || error.message !== 'MIMIT API returned no valid Benzina rows for target municipalities') throw error;
       console.warn(`::warning::[fuel] MIMIT area lookup returned no target Benzina rows for ${province}; retrying ${targetMunicipalities.length} target municipalities`);
     }
     return mapWithConcurrency(targetMunicipalities, MIMIT_API_TOWN_CONCURRENCY, async (municipality) => fetchMimitApiArea({
