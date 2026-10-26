@@ -96,7 +96,7 @@
         "it": "mutua-80-100-hopital-fribourgeois-hfr-fribourg",
         "en": "midwife-80-100-hopital-fribourgeois-hfr-fribourg",
         "de": "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100",
-        "fr": "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100-unbefristet-hopital"
+        "fr": "sage-femme-ou-infirmier-ere-sage-femme-80-100-sage-femme-ou-infirmier-ere-diplome-e-sage-femme-80-100-a-duree"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -143,7 +143,8 @@
       "previousSlugs": [
         "sage-femme-ou-infirmier-ere-sage-femme-80-100-hfr-hopital-fribourgeois-fribourg",
         "hebamme-80-100-hopital-fribourgeois-hfr-fribourg",
-        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100"
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100",
+        "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100-unbefristet-hopital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -158,7 +159,8 @@
           "hebamme-80-100-hopital-fribourgeois-hfr-fribourg"
         ],
         "fr": [
-          "sage-femme-ou-infirmier-ere-sage-femme-80-100-hfr-hopital-fribourgeois-fribourg"
+          "sage-femme-ou-infirmier-ere-sage-femme-80-100-hfr-hopital-fribourgeois-fribourg",
+          "sage-femme-ou-infirmier-ere-sage-femme-80-100-hebamme-oder-pflegefachperson-hebamme-80-100-unbefristet-hopital"
         ]
       },
       "firstSeenAt": "2026-10-14T21:33:15.721Z",
@@ -914,7 +916,7 @@
         "it": "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50-hopital-fribourgeois-hfr-meyriez-murten",
         "en": "assistant-e-medical-e-50-hfr-hopital-fribourgeois-hfr-meyriez-murten",
         "de": "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50",
-        "fr": "assistant-e-medical-e-50-hfr-hopital-fribourgeois-hfr-meyriez-murten"
+        "fr": "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50-hopital-fribourgeois-hfr-hfr"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -963,8 +965,7 @@
         "assistent-e-medical-e-50-hopital-fribourgeois-hfr-hfr-meyriez-murten",
         "assistant-e-medical-e-50-hfr-hopital-fribourgeois-hfr-meyriez-murten",
         "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50",
-        "assistente-medico-50-hopital-fribourgeois-hfr-hfr-meyriez-murten",
-        "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50-hopital-fribourgeois-hfr-hfr"
+        "assistente-medico-50-hopital-fribourgeois-hfr-hfr-meyriez-murten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -976,7 +977,7 @@
           "assistent-e-medical-e-50-hopital-fribourgeois-hfr-hfr-meyriez-murten"
         ],
         "fr": [
-          "medizinische-praxisassistentin-medizinischen-praxisassistenten-50-assistant-e-medical-e-50-hopital-fribourgeois-hfr-hfr"
+          "assistant-e-medical-e-50-hfr-hopital-fribourgeois-hfr-meyriez-murten"
         ]
       },
       "firstSeenAt": "2026-10-06T21:43:18.800Z",
