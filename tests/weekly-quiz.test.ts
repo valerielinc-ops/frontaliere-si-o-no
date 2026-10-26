@@ -1,6 +1,15 @@
 // @vitest-environment jsdom
 
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+vi.mock('@/services/i18n', () => ({
+ useTranslation: () => ({ t: (key: string) => key }),
+}));
+vi.mock('@/services/gamificationService', () => ({
+ addXp: vi.fn(),
+ unlockAchievement: vi.fn(),
+}));
+
 import {
  getWeekNumber,
  loadQuizState,
