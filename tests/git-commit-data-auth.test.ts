@@ -40,6 +40,10 @@ function findCrawlerBlock(slug: string): string {
 }
 
 describe('git-commit-data.sh GitHub auth hardening', () => {
+  it('keeps the remote ownership proof bounded without using the old five-minute ceiling', () => {
+    expect(GIT_COMMIT_DATA).toContain('GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS:-600}"');
+  });
+
   it('fail-closes on GITHUB_PAT/APP_TOKEN via configure-main-push-auth.sh (ruleset-era)', () => {
     expect(GIT_COMMIT_DATA).toContain('configure-main-push-auth.sh');
     expect(GIT_COMMIT_DATA).not.toContain('local token="${GH_TOKEN:-${GITHUB_TOKEN:-}}"');

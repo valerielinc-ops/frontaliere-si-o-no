@@ -96,7 +96,12 @@ GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT
 # grouped-isolated attempts measured 66.8–169.0 s fetching 56–612 missing
 # slice blobs on demand (2026-10-09). Prepare it before the lease, then bound
 # that one-time materialization independently of the push timeout.
-GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS:-300}"
+# A complete ownership view can legitimately pull hundreds of crawler slices
+# in a blobless checkout.  The previous five-minute ceiling was below the
+# observed tail for the housekeeping lane (run 40180912287), so a healthy
+# ownership proof was reported as a failed commit.  Keep the operation bounded
+# while giving the sparse checkout enough time to materialise the proof.
+GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS:-600}"
 
 run_bounded() {
   local seconds="$1" label="$2"
