@@ -111514,7 +111514,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-rogo-cortivallo-persona-morta.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -111587,10 +111587,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Checklist 2026 in Ticino per il frontaliere con un figlio: anagrafe, assegni e pratiche consolari, imposta alla fonte in Svizzera, quadro CE del 730 e LAMal.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontaliere-nascita-figlio-anagrafe-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-checklist-neonato-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Famiglia frontaliere con neonato e documenti sul tavolo"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T10:50:48+00:00",
       "dateModified": "2026-10-18T10:50:48+00:00",
@@ -111621,10 +111626,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Nascita: anagrafe, assegni familiari e pratiche consolari Accordo frontalieri: in vigore dal 1° gennaio 2024 Vecchi: esenzione €7'500; nuovi: franchigia €10'000",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nuovo-accordo-frontalieri-2024.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-checklist-neonato-confine-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Famiglia frontaliera con passeggino in una strada del Ticino"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T11:33:43+00:00",
       "dateModified": "2026-10-18T11:33:43+00:00",

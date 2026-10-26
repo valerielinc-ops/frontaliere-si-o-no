@@ -73091,6 +73091,228 @@
         }
       }
     },
+    "generated:article-checklist-neonato-confine-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-26T01:20:55.260Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-26",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-checklist-neonato-confine-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "bad5fed075c18995e29fd61f4f13c51cbcd0f6fc07f1a81fc1d114c552fa278c",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "d47762043aeba1e40e323472642a4808b9f707fe8705c04e1fa6a228c425a9ee",
+        "bytes": 137866,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-26T01:20:55.260Z",
+        "verifiedAt": "2026-10-26T01:21:04.578Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-checklist-neonato-confine-2026.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial illustration showing a baby stroller in a home with a train and mountain setting, relevant to birth and cross-border commuting in Ticino."
+        }
+      }
+    },
+    "generated:article-checklist-neonato-ticino": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-26T01:16:09.626Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-26",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-checklist-neonato-ticino",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "37ad5acb72ceec2f245a91bba795214a01ff49e6b1f4f8c7216b909d0564d4c8",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "c89c28b7677de912c252bc47ccd3aeb378523a6726314401d9075eb272bdae90",
+        "bytes": 90734,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-26T01:16:09.626Z",
+        "verifiedAt": "2026-10-26T01:16:18.289Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-checklist-neonato-ticino.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial scene with a baby stroller, travel items, train, and lakeside setting; no text, logos, faces, or identifiable people."
+        }
+      }
+    },
+    "generated:article-disoccupazione-neuchatel-luglio-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-26T01:19:28.416Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-26",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-disoccupazione-neuchatel-luglio-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "34c4d9a0c34629a5bc018c4b97ee07b87bd0382ef7dc96ef1212689dc50ccbf3",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "c1bfad6954d6bdff59b43689e43c8fab6b5ec5f8a912b3ec19e9309d63c0f381",
+        "bytes": 100732,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-26T01:19:28.416Z",
+        "verifiedAt": "2026-10-26T01:19:40.290Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-disoccupazione-neuchatel-luglio-2026.webp",
+        "area": "Canton NE",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original synthetic workshop scene with a generic urban and mountain backdrop, suitable as a broad labor-market illustration for Canton Neuchâtel; no text, logos, faces, people, or event-specific cues."
+        }
+      }
+    },
     "generated:article-g-verifica-datore-20km": {
       "source": "generated-provider",
       "commons": {
@@ -73236,6 +73458,228 @@
           "is_photograph": false,
           "is_topic_relevant": true,
           "notes": "Generic synthetic photorealistic illustration of a regional train at an Alpine station, relevant to Ticino cross-border commuting; no visible text, logos, or people."
+        }
+      }
+    },
+    "generated:article-prodex-40-anni-esericerca-spaziale": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-26T01:16:58.436Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-26",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-prodex-40-anni-esericerca-spaziale",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "82dd8e0af94e7fe0efc39443136d277277034d48267a351f3e7cbd3ec0a97757",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "e3297f02417e8a4c86ee951d07f5a36e23a91eea906ab200de2caf74fb9b49c8",
+        "bytes": 86342,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-26T01:16:58.436Z",
+        "verifiedAt": "2026-10-26T01:17:06.951Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-prodex-40-anni-esericerca-spaziale.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic illustration of a satellite in a laboratory, visually relevant to Swiss space projects; no people, logos, readable text, or event-specific documentation."
+        }
+      }
+    },
+    "generated:article-rogo-cortivallo-persona-morta": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-26T01:14:36.834Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-26",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-rogo-cortivallo-persona-morta",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "005ca29e3838f9ec8f54c7a00a58c4ac3f9c9cae54669199ed99d71dac6c22af",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "af3c7e928e56025e5236b83641e3cda464dc644295f32adfadb010104bd8d2de",
+        "bytes": 127036,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-26T01:14:36.834Z",
+        "verifiedAt": "2026-10-26T01:14:43.670Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-rogo-cortivallo-persona-morta.webp",
+        "area": "Ticino e pendolarismo transfrontaliero",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of an apartment fire in a Lugano-like Ticino setting, with no people, text, logos, or documentary-specific cues."
+        }
+      }
+    },
+    "generated:article-supporto-imprese-turgovia": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-26T01:18:12.161Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-26",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-supporto-imprese-turgovia",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "1c453d1a32437464745aa2aaef867fefc9b08dd50f800a6100b234561974ec5b",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "a6b6159fc6c0ffcf43b4b53fa79043e6d295268eac4735a33d354e8b23cbbf7a",
+        "bytes": 123866,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-26T01:18:12.161Z",
+        "verifiedAt": "2026-10-26T01:18:23.624Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-supporto-imprese-turgovia.webp",
+        "area": "Canton TG",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic editorial illustration of a business/industrial setting in a rural Canton TG-like landscape; no people, text, signage, logos, or identifiable event."
         }
       }
     }
@@ -113531,12 +113975,36 @@
       "file": "generated:article-zenith-rischio-posti-svizzera",
       "modified": "resized"
     },
+    "article-checklist-neonato-confine-2026": {
+      "file": "generated:article-checklist-neonato-confine-2026",
+      "modified": "resized"
+    },
+    "article-checklist-neonato-ticino": {
+      "file": "generated:article-checklist-neonato-ticino",
+      "modified": "resized"
+    },
+    "article-disoccupazione-neuchatel-luglio-2026": {
+      "file": "generated:article-disoccupazione-neuchatel-luglio-2026",
+      "modified": "resized"
+    },
     "article-g-verifica-datore-20km": {
       "file": "generated:article-g-verifica-datore-20km",
       "modified": "resized"
     },
     "article-passaggio-nuovo-impiego-g": {
       "file": "generated:article-passaggio-nuovo-impiego-g",
+      "modified": "resized"
+    },
+    "article-prodex-40-anni-esericerca-spaziale": {
+      "file": "generated:article-prodex-40-anni-esericerca-spaziale",
+      "modified": "resized"
+    },
+    "article-rogo-cortivallo-persona-morta": {
+      "file": "generated:article-rogo-cortivallo-persona-morta",
+      "modified": "resized"
+    },
+    "article-supporto-imprese-turgovia": {
+      "file": "generated:article-supporto-imprese-turgovia",
       "modified": "resized"
     }
   }
