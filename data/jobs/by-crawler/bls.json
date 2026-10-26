@@ -2141,10 +2141,6 @@
           "Sehr gute Deutschkenntnisse; verhandlungssicheres Französisch von Vorteil"
         ]
       },
-      "previousSlugs": [
-        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
-        "jurist-in-bau-raumplanungs-e-umweltrecht-bls-ag-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
@@ -2157,8 +2153,10 @@
           "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-26T09:32:27.496Z",
+      "previousSlugs": [
+        "jurist-in-bau-raumplanungs-und-umweltrecht-bls-ch",
+        "jurist-in-bau-raumplanungs-e-umweltrecht-bls-ag-bern"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2172,7 +2170,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-10-26T09:32:27.496Z"
     },
     {
       "id": "bls-b0524ba6c23f",

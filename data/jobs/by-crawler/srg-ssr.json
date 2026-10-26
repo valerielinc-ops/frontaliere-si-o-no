@@ -2340,7 +2340,6 @@
         ]
       },
       "firstSeenAt": "2026-10-23T21:10:48.079Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2916,7 +2915,7 @@
       "id": "srg-ssr-af341670d01b",
       "slug": "senior-project-manager-data-governance-srg-ssr-zurich-2",
       "slugByLocale": {
-        "fr": "senior-project-manager-data-governance-srg-ssr-zurich",
+        "fr": "senior-project-manager-data-governance-srg-ssr-zurich-ghlpuj",
         "it": "senior-project-manager-data-governance-srg-ssr-zurich-2",
         "en": "senior-project-manager-data-governance-srg-ssr-zurich-2",
         "de": "senior-project-manager-data-governance-srg-ssr-zurich-2"
@@ -3001,6 +3000,9 @@
       "firstSeenAt": "2026-10-26T21:16:19.203Z",
       "previousSlugsByLocale": {
         "it": [
+          "senior-project-manager-data-governance-srg-ssr-zurich"
+        ],
+        "fr": [
           "senior-project-manager-data-governance-srg-ssr-zurich"
         ]
       },

@@ -667,10 +667,9 @@
           "development-ingegnere-electronics-with-emv-lead-komax-dierikon"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2425,
-      "retranslationAttempts": 9,
+      "retranslationAttempts": 10,
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -684,7 +683,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "komax-38b4439706fb",
@@ -863,8 +863,10 @@
       },
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "crawlerMissStreak": 1
+      "retranslationAttempts": 3,
+      "crawlerMissStreak": 1,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2425
     }
   ]
 }
