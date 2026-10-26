@@ -13,11 +13,14 @@ import { fetchTiPlateAuctions, TI_AUCTION_URL } from '../scripts/plate-auctions/
 import { SZ_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sz.mjs';
 import { fetchTgPlateAuctions, TG_AUCTION_URL, TG_AUCTION_URLS } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { fetchZhPlateAuctions, ZH_AUCTION_URL } from '../scripts/plate-auctions/connectors/zh.mjs';
+import { fetchVsPlateAuctions, VS_AUCTION_URL, VS_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/vs.mjs';
+import { fetchGrPlateAuctions, GR_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { fetchUrFixedPrice } from '../scripts/plate-auctions/connectors/fixed-price.mjs';
+import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { FIXED_PRICE_SOURCE_CONFIGS } from '../functions/src/plateAuctionsCore.js';
 
 /**
- * Relay condiviso da SZ, FR, SG, TI e le fonti eCari expanded (2026-10-26). FR e TI sono geo-fenced su
+ * Relay condiviso da SZ, FR, SG, TI, VS, GR e le fonti eCari expanded (2026-10-26). FR e TI sono geo-fenced su
  * IP svizzeri: dal runner GitHub FR va in timeout su 443 e TI risponde 200 con
  * la pagina F5 «Pagina non disponibile»; SG può rifiutare l'egress CI. Le righe
  * arrivano dal relay della Cloud Function di Zurigo quando la fetch ufficiale
@@ -152,6 +155,8 @@ describe('fetchWithPublicApiRelay', () => {
   it('shares one relay URL with the SZ connector', () => {
     expect(SZ_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
     expect(SG_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
+    expect(VS_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
+    expect(GR_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
   });
 
   it('never calls the relay when the direct fetch succeeds', async () => {
@@ -251,6 +256,24 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
       plateCode: 'SG',
       officialAuctionUrl: SG_AUCTION_URL,
     });
+  });
+
+  it('VS: a direct eCari timeout uses a fresh relay snapshot', async () => {
+    serveRelay(relayPayload({ vs: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('VS', 'vs-929')]));
+    const fetchPage = vi.fn(async () => { throw new Error('This operation was aborted'); });
+    const rows = await fetchVsPlateAuctions({ fetchPage, now: NOW });
+    expect(rows).toEqual([expect.objectContaining({ id: 'vs-929', sourceKey: 'VS', officialAuctionUrl: VS_AUCTION_URL })]);
+    expect(fetchPage).toHaveBeenCalledWith(VS_AUCTION_URL);
+    expect(relayCalls).toEqual([sourceRelayUrl('vs')]);
+  });
+
+  it('GR: a direct eCari timeout uses a fresh relay snapshot', async () => {
+    serveRelay(relayPayload({ gr: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('GR', 'gr-2230')]));
+    const fetchPage = vi.fn(async () => { throw new Error('This operation was aborted'); });
+    const rows = await fetchGrPlateAuctions({ fetchPage, now: NOW });
+    expect(rows).toEqual([expect.objectContaining({ id: 'gr-2230', sourceKey: 'GR', officialAuctionUrl: GR_ECARI_CATALOGUE_URL })]);
+    expect(fetchPage).toHaveBeenCalledWith(GR_ECARI_CATALOGUE_URL);
+    expect(relayCalls).toEqual([sourceRelayUrl('gr')]);
   });
 
   it('TG: both official card hosts failing uses a fresh relay snapshot', async () => {

@@ -15,10 +15,12 @@ import {
   parseEcariAuctionRows,
   withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
+import { fetchWithPublicApiRelay, PLATE_AUCTION_PUBLIC_API_RELAY_URL } from './api-relay.mjs';
 
 export const VS_CANTON = 'Vallese';
 export const VS_PLATE_CODE = 'VS';
 export const VS_AUCTION_URL = 'https://ecari.vs.ch/ecari-auction/ui/app/init?locale=fr_CH';
+export const VS_PUBLIC_API_RELAY_URL = PLATE_AUCTION_PUBLIC_API_RELAY_URL;
 
 const VS_TAB_SECTIONS = [
   { tabContentId: 'tabContent1', auctionStatus: 'active', listingType: 'auction', idPrefix: 'vs' },
@@ -46,12 +48,21 @@ export function parseVsAuctionRows(
   });
 }
 
-export async function fetchVsPlateAuctions() {
-  const html = await fetchHtml(VS_AUCTION_URL);
-  const fetchedAt = new Date().toISOString();
-  return withEcariEmptyState(VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
-    parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, listingType, idPrefix }),
-  ), html, VS_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
+export async function fetchVsPlateAuctions({ fetchPage = fetchHtml, now = new Date() } = {}) {
+  return fetchWithPublicApiRelay({
+    sourceKey: 'vs',
+    plateCode: VS_PLATE_CODE,
+    officialAuctionUrl: VS_AUCTION_URL,
+    now,
+    logLabel: 'fetchVsPlateAuctions',
+    direct: async () => {
+      const html = await fetchPage(VS_AUCTION_URL);
+      const fetchedAt = new Date().toISOString();
+      return withEcariEmptyState(VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
+        parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, listingType, idPrefix }),
+      ), html, VS_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
+    },
+  });
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
