@@ -17,8 +17,8 @@ function fixture(overrides: { partial?: boolean; failure?: boolean; metadata?: o
     const dimension = body.dimensions[0]?.name;
     let rows;
     if (dimension === 'date') rows = [makeRow([date.replaceAll('-', '')], [100, 60, 30])];
-    else if (dimension === 'pagePath') rows = body.offset > 0 ? [] : [makeRow(['/prezzi-benzina/oggi/'], [100, 90, 20, 50, 30]), makeRow(['/'], [50, 80, 60, 50, 40])];
-    else if (dimension === 'deviceCategory') rows = [makeRow(['desktop', 'Singapore', '(direct) / (none)'], [1000, 2000, 50, 1500, 2])];
+    else if (dimension === 'pagePath') rows = body.offset > 0 ? [] : [makeRow(['/prezzi-benzina/oggi/'], [100, 90, 20, 50, 30, 4]), makeRow(['/'], [50, 80, 60, 50, 40, 6])];
+    else if (dimension === 'deviceCategory') rows = [makeRow(['desktop', 'Singapore', '(direct) / (none)'], [1000, 2000, 50, 1500, 2, 10])];
     else rows = [makeRow([], [150, 100, 60, 70, 35, 3])];
     return { ok: true, status: 200, json: async () => ({ rows, rowCount: dimension === 'pagePath' && overrides.partial ? 3 : rows.length, metadata: { currencyCode: 'EUR', ...overrides.metadata } }) };
   };
@@ -34,7 +34,16 @@ describe('GA4 traffic quality populations', () => {
     expect(report.raw.summary.sessions).toBe(100); // not the page-session sum of 170
     expect(report.raw.summary.totalUsers).toBe(70); // not the page-user sum of 100
     expect(report.qualified.summary.adRevenuePerSession).toBe(0.03);
-    expect(report.raw.pageViewsByTemplate).toContainEqual({ pageTemplate: 'fuel_detail', views: 100, paths: 1 });
+    expect(report.raw.pageViewsByTemplate).toContainEqual({
+      pageTemplate: 'fuel_detail',
+      views: 100,
+      paths: 1,
+      adRevenue: 4,
+      adRevenuePerThousandViews: 40,
+      revenueStatus: 'complete',
+    });
+    expect(report.raw.top50[0]).toMatchObject({ adRevenue: 4, adRevenuePerThousandViews: 40 });
+    expect(requests.find((body) => body.dimensions[0]?.name === 'pagePath')?.metrics.map(({ name }) => name)).toContain('totalAdRevenue');
     expect(requests.every((body) => JSON.stringify(body.dateRanges) === JSON.stringify(dateRanges))).toBe(true);
     for (const body of requests) {
       expect(body.dimensionFilter).toEqual(body.dimensionFilter.andGroup ? buildTrafficFilter(true) : buildTrafficFilter(false));
@@ -65,6 +74,8 @@ describe('GA4 traffic quality populations', () => {
     expect(restricted.raw.summary.totalAdRevenue).toBeNull();
     expect(restricted.raw.summary.adRevenuePerSession).toBeNull();
     expect(restricted.raw.totalCoverage.reasons).toContain('restricted_metrics');
+    expect(restricted.raw.pageViewsByTemplate[0].adRevenue).toBeNull();
+    expect(restricted.raw.pageViewsByTemplate[0].revenueStatus).toBe('missing');
   });
 
   it.each(['/prezzi-benzina/oggi/', '/en/diesel-price-switzerland/today/', '/fr/primes-assurance-maladie/', '/de/grenzwartezeiten/', '/eventi/'])('matches runtime taxonomy for %s', (path) => {
