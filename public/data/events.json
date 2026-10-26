@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T11:55:15.649Z",
+  "generatedAt": "2026-10-26T13:47:55.879Z",
   "totalEvents": 15181,
   "events": [
     {
@@ -304622,7 +304622,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento di St. Gallen è dedicato alla volpe e alla sua capacità di adattamento. La presenta come un mammifero intelligente ed elegante, ampiamente diffuso in Svizzera e nel mondo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di St. Gallen è dedicato alla volpe e alla sua capacità di adattamento. La presenta come un mammifero intelligente ed elegante, ampiamente diffuso in Svizzera e nel mondo.",
+        "en": "The event in St. Gallen focuses on the fox and its ability to adapt. It presents the animal as an intelligent, elegant mammal that is widespread in Switzerland and around the world.",
+        "de": "Die Veranstaltung in St. Gallen widmet sich dem Fuchs und seiner Anpassungsfähigkeit. Sie stellt ihn als intelligentes und elegantes Säugetier vor, das in der Schweiz und weltweit weit verbreitet ist.",
+        "fr": "Le rendez-vous de St. Gallen est consacré au renard et à sa capacité d’adaptation. Il le présente comme un mammifère intelligent et élégant, largement répandu en Suisse et dans le monde."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A9E2Rmk",
@@ -305270,7 +305278,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, questa visita commentata assume la forma di uno spettacolo storico. Il percorso presenta racconti insoliti ambientati in scenari naturali.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, questa visita commentata assume la forma di uno spettacolo storico. Il percorso presenta racconti insoliti ambientati in scenari naturali.",
+        "en": "In Geneva, this guided visit is presented as a historical performance. It introduces unusual stories in natural surroundings.",
+        "de": "In Genf wird die kommentierte Führung als historisches Schauspiel gestaltet. Sie vermittelt ungewöhnliche Geschichten in natürlichen Umgebungen.",
+        "fr": "À Genève, cette visite commentée prend la forme d’un spectacle historique. Elle présente des récits inhabituels dans des environnements naturels."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "lu-stadt-agenda:7648408",
@@ -305492,11 +305508,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "corpi-in-prestito-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-16"
         },
         {
@@ -305513,6 +305524,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-08-21"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-10-23"
         },
         {
           "canton": "TI",
@@ -305649,7 +305665,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo festival a Ginevra presenta danza, performance, arti visive e immagini in movimento. L’evento è organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questo festival a Ginevra presenta danza, performance, arti visive e immagini in movimento. L’evento è organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+        "en": "This festival in Geneva brings together dance, performance, visual art and moving-image works. It is organized by Ville de Genève Agenda, and admission is free.",
+        "de": "Das Festival in Genf umfasst Tanz, Performance, bildende Kunst und bewegte Bilder. Es wird von Ville de Genève Agenda organisiert und der Eintritt ist kostenlos.",
+        "fr": "Ce festival genevois associe la danse et la performance aux arts visuels ainsi qu’aux images animées. Ville de Genève Agenda en est l’organisateur, et l’accès est gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cccf0ca79b0241f5a5d21fed4d01b84c",
@@ -306363,17 +306387,17 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "fra-roberto-tra-le-mura-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-07-07"
         },
         {
           "canton": "TI",
           "comune": "Bellinzona",
           "slug": "fra-roberto-tra-le-mura-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "fra-roberto-tra-le-mura-2026-10-23"
         },
         {
           "canton": "TI",
@@ -307058,11 +307082,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "isa-hesse-rabinovitch-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "isa-hesse-rabinovitch-2026-09-16"
         },
         {
@@ -307084,6 +307103,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "isa-hesse-rabinovitch-2026-07-03"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "isa-hesse-rabinovitch-2026-10-23"
         },
         {
           "canton": "TI",
@@ -307272,11 +307296,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "ivo-soldini-progetto-castel-grande-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-09-15"
         },
         {
@@ -307298,6 +307317,11 @@
           "canton": "TI",
           "comune": "Bellinzona",
           "slug": "ivo-soldini-progetto-castel-grande-2026-08-23"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "ivo-soldini-progetto-castel-grande-2026-10-23"
         },
         {
           "canton": "TI",
@@ -308309,11 +308333,6 @@
       "previousRoutes": [
         {
           "canton": "TI",
-          "comune": "Savosa",
-          "slug": "popoetic-2026-10-23"
-        },
-        {
-          "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-10"
         },
@@ -308321,6 +308340,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "popoetic-2026-09-04"
+        },
+        {
+          "canton": "TI",
+          "comune": "Savosa",
+          "slug": "popoetic-2026-10-23"
         },
         {
           "canton": "TI",
@@ -308671,7 +308695,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra il SaSA presenta la sua prima esposizione temporanea. Il progetto comprende un intervento artistico di Joana Hadjithomas e Khalil Joreige, sviluppato insieme al MAMCO.",
+      "descriptionByLocale": {
+        "it": "A Ginevra il SaSA presenta la sua prima esposizione temporanea. Il progetto comprende un intervento artistico di Joana Hadjithomas e Khalil Joreige, sviluppato insieme al MAMCO.",
+        "en": "In Geneva, SaSA presents its first temporary exhibition. The project includes an artistic intervention by Joana Hadjithomas and Khalil Joreige, developed in collaboration with MAMCO.",
+        "de": "In Genf zeigt SaSA seine erste temporäre Ausstellung. Zum Projekt gehört eine künstlerische Intervention von Joana Hadjithomas und Khalil Joreige, die in Zusammenarbeit mit dem MAMCO entstanden ist.",
+        "fr": "À Genève, le SaSA présente sa première exposition temporaire. Le projet réunit une intervention artistique de Joana Hadjithomas et Khalil Joreige, menée avec le MAMCO."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:55eeddf1c7014af190184a470f1a9019",
@@ -309326,7 +309358,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale mette in scena una donna, una poltrona da cinema e quattro manifesti della saga di Alien. L’evento si svolge a Ginevra e l’ingresso costa 25 CHF.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale mette in scena una donna, una poltrona da cinema e quattro manifesti della saga di Alien. L’evento si svolge a Ginevra e l’ingresso costa 25 CHF.",
+        "en": "This theatre event features a woman, a cinema seat and four posters from the Alien saga. It takes place in Geneva, and admission costs CHF 25.",
+        "de": "Die Theaterveranstaltung zeigt eine Frau, einen Kinosessel und vier Plakate aus der Alien-Saga. Sie findet in Genf statt; der Eintritt kostet 25 CHF.",
+        "fr": "Ce spectacle théâtral met en présence une femme, un fauteuil de cinéma et quatre affiches de la saga Alien. L’événement a lieu à Genève et l’entrée coûte 25 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63724",
@@ -309367,17 +309407,17 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-10-23"
         },
         {
           "canton": "TI",
@@ -309580,11 +309620,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "uomo-e-ambiente-il-distruttore-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-25"
         },
         {
@@ -309596,6 +309631,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-10-23"
         },
         {
           "canton": "TI",
@@ -309772,17 +309812,17 @@
         {
           "canton": "TI",
           "comune": "Locarno",
-          "slug": "videokunst-ch-palacinema-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Locarno",
           "slug": "videokunst-ch-palacinema-2026-09-26"
         },
         {
           "canton": "TI",
           "comune": "locarno",
           "slug": "videokunst-ch-palacinema-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "videokunst-ch-palacinema-2026-10-23"
         },
         {
           "canton": "TI",
@@ -309955,12 +309995,12 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "visite-guidee-pour-petits-grands-2026-09-29"
+          "slug": "visite-guidee-pour-petits-grands-2026-09-25"
         },
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "visite-guidee-pour-petits-grands-2026-09-25"
+          "slug": "visite-guidee-pour-petits-grands-2026-09-29"
         },
         {
           "canton": "GE",
@@ -311042,11 +311082,6 @@
         {
           "canton": "TI",
           "comune": "Mendrisio",
-          "slug": "bertille-bak-voci-dalla-terra-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
         },
         {
@@ -311063,6 +311098,11 @@
           "canton": "TI",
           "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-10-23"
         },
         {
           "canton": "TI",
@@ -312050,7 +312090,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro di Lugano presso Spazio L’Ove è la terza serata di un ciclo di letture classiche dedicato a un testo di Herbert Marcuse. Ugo Balzaretti esaminerà il rapporto tra eros e logos e la possibilità di una sublimazione non repressiva.",
+      "descriptionByLocale": {
+        "it": "L’incontro di Lugano presso Spazio L’Ove è la terza serata di un ciclo di letture classiche dedicato a un testo di Herbert Marcuse. Ugo Balzaretti esaminerà il rapporto tra eros e logos e la possibilità di una sublimazione non repressiva.",
+        "en": "The Lugano meeting at Spazio L’Ove is the third session in a reading cycle devoted to a text by Herbert Marcuse. Ugo Balzaretti will examine the relationship between eros and logos and the possibility of non-repressive sublimation.",
+        "de": "Die Veranstaltung in Lugano bei Spazio L’Ove gehört zum dritten Abend einer Lesereihe über einen Text von Herbert Marcuse. Ugo Balzaretti untersucht das Verhältnis von Eros und Logos sowie die Möglichkeit einer nicht repressiven Sublimierung.",
+        "fr": "La rencontre à Lugano, à Spazio L’Ove, constitue la troisième soirée d’un cycle de lectures consacré à un texte de Herbert Marcuse. Ugo Balzaretti examinera le rapport entre éros et logos ainsi que la possibilité d’une sublimation non répressive."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:exposition-1602-compagnie",
@@ -312405,11 +312453,6 @@
       "previousRoutes": [
         {
           "canton": "TI",
-          "comune": "Caslano",
-          "slug": "gyotaku-tracce-di-pesci-2026-10-25"
-        },
-        {
-          "canton": "TI",
           "comune": "Lugano",
           "slug": "gyotaku-tracce-di-pesci-2026-09-06"
         },
@@ -312437,6 +312480,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "gyotaku-tracce-di-pesci-2026-07-07"
+        },
+        {
+          "canton": "TI",
+          "comune": "Caslano",
+          "slug": "gyotaku-tracce-di-pesci-2026-10-25"
         },
         {
           "canton": "TI",
@@ -312710,11 +312758,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20"
         },
         {
@@ -312731,6 +312774,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-25-2"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-10-23"
         },
         {
           "canton": "TI",
@@ -314223,17 +314271,17 @@
         {
           "canton": "TI",
           "comune": "__other-events__",
-          "slug": "radici-mostra-temporanea-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "__other-events__",
           "slug": "radici-mostra-temporanea-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "__other-events__",
+          "slug": "radici-mostra-temporanea-2026-10-23"
         },
         {
           "canton": "TI",
@@ -314852,11 +314900,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "sentimento-e-osservazione-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-16"
         },
         {
@@ -314883,6 +314926,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-10-23"
         },
         {
           "canton": "TI",
@@ -315751,11 +315799,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "umberto-boccioni-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "umberto-boccioni-2026-09-15"
         },
         {
@@ -315767,6 +315810,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "umberto-boccioni-2026-08-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-10-23"
         },
         {
           "canton": "TI",
@@ -317248,11 +317296,6 @@
         {
           "canton": "TI",
           "comune": "Riva San Vitale",
-          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
         },
         {
@@ -317264,6 +317307,11 @@
           "canton": "TI",
           "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Riva San Vitale",
+          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-10-23"
         },
         {
           "canton": "TI",
@@ -327928,7 +327976,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; organizzatore: Ville de Genève Agenda; data: 2026-10-29; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; organizzatore: Ville de Genève Agenda; data: 2026-10-29; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Spectacle - Théâtre; organiser: Ville de Genève Agenda; date: 2026-10-29; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Spectacle - Théâtre; veranstalter: Ville de Genève Agenda; datum: 2026-10-29; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Spectacle - Théâtre; organisateur: Ville de Genève Agenda; date: 2026-10-29; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63350",
@@ -334086,7 +334142,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Atelier; organiser: Ville de Genève Agenda; date: 2026-10-30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Atelier; veranstalter: Ville de Genève Agenda; datum: 2026-10-30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Atelier; organisateur: Ville de Genève Agenda; date: 2026-10-30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d041b2704c61498b8b2613bda0fb68ac",
@@ -336207,7 +336271,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento presenta una mostra d’arte di Visarte a Lucerna. L’esposizione si svolge alla Kornschütte e rimane visitabile per diverse settimane.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta una mostra d’arte di Visarte a Lucerna. L’esposizione si svolge alla Kornschütte e rimane visitabile per diverse settimane.",
+        "en": "The event presents a Visarte art exhibition in Lucerne. The exhibition is held at the Kornschütte and remains open for several weeks.",
+        "de": "Die Veranstaltung präsentiert eine Kunstausstellung von Visarte in Luzern. Die Schau ist über mehrere Wochen in der Kornschütte zu sehen.",
+        "fr": "Le rendez-vous présente une exposition artistique de Visarte à Lucerne. Elle se tient à la Kornschütte et reste accessible pendant plusieurs semaines."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:APRXRsc",
@@ -336324,11 +336396,6 @@
         {
           "canton": "TI",
           "comune": "Minusio",
-          "slug": "lepistoliere-2026-10-23"
-        },
-        {
-          "canton": "TI",
-          "comune": "Minusio",
           "slug": "lepistoliere-2026-10-17"
         },
         {
@@ -336370,6 +336437,11 @@
           "canton": "TI",
           "comune": "Minusio",
           "slug": "lepistoliere-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Minusio",
+          "slug": "lepistoliere-2026-10-23"
         },
         {
           "canton": "TI",
@@ -337720,12 +337792,12 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "mirabiblia-2026-10-23"
+          "slug": "mirabiblia-2026-09-18"
         },
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "mirabiblia-2026-09-18"
+          "slug": "mirabiblia-2026-10-23"
         },
         {
           "canton": "TI",
@@ -339744,7 +339816,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale «Sept» è presentato a Ginevra. Interpreti tra i 20 e i 70 anni esplorano gli scambi tra età, gesti e racconti attraverso teatro, danza e cinema.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale «Sept» è presentato a Ginevra. Interpreti tra i 20 e i 70 anni esplorano gli scambi tra età, gesti e racconti attraverso teatro, danza e cinema.",
+        "en": "The theatre production “Sept” is presented in Geneva. Performers aged 20 to 70 explore exchanges between ages, gestures and stories through theatre, dance and cinema.",
+        "de": "Das Theaterstück „Sept“ wird in Genf gezeigt. Mitwirkende im Alter von 20 bis 70 Jahren setzen sich über Theater, Tanz und Film mit dem Austausch von Altersstufen, Gesten und Geschichten auseinander.",
+        "fr": "Le spectacle théâtral « Sept » est présenté à Genève. Des interprètes âgés de 20 à 70 ans explorent les échanges entre les âges, les gestes et les récits en associant théâtre, danse et cinéma."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64183",
@@ -341677,12 +341757,27 @@
         "url": "https://www.myswitzerland.com/en/"
       },
       "sourceDescriptionHash": "bc65975058d586ba365e50f9e97422f75d1092da4879d1e24964e74f42dd695f",
+      "previousRoutes": [
+        {
+          "canton": "NW",
+          "comune": "Stans",
+          "slug": "wieder-zuhause-die-ruckkehr-der-grossen-wildtiere-2026-10-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-generico-alpi-montagna-autunno-inverno.webp",
       "imageAssetId": "event-generico-alpi-montagna-autunno-inverno",
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento a Stans è dedicato al ritorno dei grandi animali selvatici nei boschi e nelle zone alpine. Descrive il loro rientro negli habitat originari e il modo in cui contribuiscono a trasformare questi ambienti.",
+      "descriptionByLocale": {
+        "it": "L’evento a Stans è dedicato al ritorno dei grandi animali selvatici nei boschi e nelle zone alpine. Descrive il loro rientro negli habitat originari e il modo in cui contribuiscono a trasformare questi ambienti.",
+        "en": "The event in Stans focuses on the return of large wild animals to forests and alpine areas. It describes their return to native habitats and how they reshape those environments.",
+        "de": "Die Veranstaltung in Stans behandelt die Rückkehr grosser Wildtiere in Wälder und alpine Landschaften. Sie erläutert, wie die Tiere wieder in ihre ursprünglichen Lebensräume gelangen und deren Gestalt beeinflussen.",
+        "fr": "L’événement de Stans porte sur le retour de grands animaux sauvages dans les forêts et les régions alpines. Il explique leur retour vers leurs habitats d’origine et l’influence qu’ils exercent sur ces milieux."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:APcPwkt",
@@ -352962,11 +353057,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "planetario-2026-10-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "planetario-2026-10-17"
         },
         {
@@ -352993,6 +353083,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "planetario-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "planetario-2026-10-24"
         },
         {
           "canton": "TI",
@@ -353540,12 +353635,12 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "robot-esposizione-interattiva-2026-10-24"
+          "slug": "robot-esposizione-interattiva-2026-09-19"
         },
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "robot-esposizione-interattiva-2026-09-19"
+          "slug": "robot-esposizione-interattiva-2026-10-24"
         },
         {
           "canton": "TI",
@@ -353880,7 +353975,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La manifestazione di Lucerna affronta il tema degli alloggi a prezzi accessibili da diverse prospettive. Il programma comprende conferenze di esperti, visite a insediamenti cooperativi, una matinée cinematografica ed esposizioni; una discussione alla Stadtbibliothek Luzern si concentra sulle possibilità di creare abitazioni a prezzi accessibili.",
+      "descriptionByLocale": {
+        "it": "La manifestazione di Lucerna affronta il tema degli alloggi a prezzi accessibili da diverse prospettive. Il programma comprende conferenze di esperti, visite a insediamenti cooperativi, una matinée cinematografica ed esposizioni; una discussione alla Stadtbibliothek Luzern si concentra sulle possibilità di creare abitazioni a prezzi accessibili.",
+        "en": "The event in Lucerne examines affordable housing from the viewpoints of planning, politics, science and practice. Its programme includes expert talks, tours of cooperative housing estates, a film matinee and exhibitions, while a panel at Stadtbibliothek Luzern considers ways to develop affordable homes.",
+        "de": "Die Veranstaltung in Luzern widmet sich dem preisgünstigen Wohnungsbau aus Sicht von Planung, Politik, Wissenschaft und Praxis. Das Programm umfasst Fachvorträge, Besichtigungen von Genossenschaftssiedlungen, eine Kinomatinée und Ausstellungen; eine Diskussion in der Stadtbibliothek Luzern befasst sich mit Wegen zu bezahlbarem Wohnraum.",
+        "fr": "La manifestation de Lucerne examine le logement abordable sous les angles de l’aménagement, de la politique, de la recherche et de la pratique. Son programme comprend des conférences d’experts, des visites de lotissements coopératifs, une matinée de cinéma et des expositions; une table ronde à la Stadtbibliothek Luzern porte sur les moyens de développer des logements abordables."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:soiree-speciale-revelations-louis-billette-6tet-mohs-feat-fanny-martin-arthur-hnatek",
@@ -355747,17 +355850,17 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "vivi-il-giardino-2026-10-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "vivi-il-giardino-2026-07-11"
         },
         {
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "vivi-il-giardino-2026-07-11"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "vivi-il-giardino-2026-10-24"
         },
         {
           "canton": "TI",
@@ -357055,11 +357158,6 @@
         {
           "canton": "TI",
           "comune": "Locarno",
-          "slug": "arp-cahn-magnelli-taeuber-arp-larte-del-dono-2026-10-25"
-        },
-        {
-          "canton": "TI",
-          "comune": "Locarno",
           "slug": "arp-cahn-magnelli-taeuber-arp-larte-del-dono-2026-07-12"
         },
         {
@@ -357076,6 +357174,11 @@
           "canton": "TI",
           "comune": "Locarno",
           "slug": "arp-cahn-magnelli-taeuber-arp-larte-del-dono-2026-07-05"
+        },
+        {
+          "canton": "TI",
+          "comune": "Locarno",
+          "slug": "arp-cahn-magnelli-taeuber-arp-larte-del-dono-2026-10-25"
         },
         {
           "canton": "TI",
@@ -363394,7 +363497,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone esercizi dolci e consapevoli, svolti da seduti e in piedi, per sostenere la capacità di reagire e migliorare l’allineamento del corpo e la sicurezza nel cammino. Il metodo Feldenkrais è rivolto a persone di ogni età, con o senza esperienza precedente e indipendentemente dalla condizione fisica; può inoltre favorire il benessere, il piacere di muoversi e l’equilibrio.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone esercizi dolci e consapevoli, svolti da seduti e in piedi, per sostenere la capacità di reagire e migliorare l’allineamento del corpo e la sicurezza nel cammino. Il metodo Feldenkrais è rivolto a persone di ogni età, con o senza esperienza precedente e indipendentemente dalla condizione fisica; può inoltre favorire il benessere, il piacere di muoversi e l’equilibrio.",
+        "en": "The event uses gentle, mindful movements performed while sitting and standing to support responsiveness, posture, and confidence when walking. The Feldenkrais method is suitable for people of all ages, regardless of previous experience or physical condition, and can support well-being, enjoyment of movement, and balance.",
+        "de": "Die Veranstaltung arbeitet mit sanften, bewussten Bewegungen im Sitzen und im Stehen, die Reaktionsfähigkeit, Aufrichtung und Sicherheit beim Gehen unterstützen können. Feldenkrais richtet sich an Menschen jeden Alters, unabhängig von Vorkenntnissen oder körperlicher Verfassung, und kann das Wohlbefinden, die Freude an Bewegung sowie das Gleichgewicht fördern.",
+        "fr": "Le rendez-vous propose des mouvements doux et attentifs, réalisés assis ou debout, afin de soutenir la réactivité, la posture et l’assurance dans la marche. La méthode Feldenkrais s’adresse aux personnes de tout âge, quelles que soient leur expérience préalable ou leur condition physique, et peut contribuer au bien-être, au plaisir de bouger et à l’équilibre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64699",
@@ -374745,7 +374856,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Lugano, il Ristorante Hollywood Live Music ospita una jam session musicale. La proposta è aperta a tutti e comprende rock, blues e altri stili.",
+      "descriptionByLocale": {
+        "it": "A Lugano, il Ristorante Hollywood Live Music ospita una jam session musicale. La proposta è aperta a tutti e comprende rock, blues e altri stili.",
+        "en": "Ristorante Hollywood Live Music in Lugano hosts a music jam session. The format is open to everyone and includes rock, blues and other styles.",
+        "de": "Im Ristorante Hollywood Live Music in Lugano findet eine musikalische Jam-Session statt. Sie steht allen offen und umfasst Rock, Blues sowie weitere Stilrichtungen.",
+        "fr": "Le Ristorante Hollywood Live Music de Lugano accueille une jam-session musicale. Ouverte à toutes et tous, elle comprend du rock, du blues et d’autres styles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:session-committee-blues-band-ouverture",
@@ -374781,7 +374900,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra è previsto un concerto della Committee blues band, seguito da una jam session del BAG. L’ingresso costa 5 CHF.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è previsto un concerto della Committee blues band, seguito da una jam session del BAG. L’ingresso costa 5 CHF.",
+        "en": "Geneva hosts a concert by the Committee blues band, followed by a BAG jam session. Admission costs CHF 5.",
+        "de": "In Genf gibt die Committee blues band ein Konzert, an das sich eine Jam-Session des BAG anschliesst. Der Eintritt beträgt 5 CHF.",
+        "fr": "À Genève, la Committee blues band donne un concert suivi d’une jam session du BAG. L’entrée est fixée à 5 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64566",
@@ -381622,7 +381749,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La Hollywood Band si esibisce al Ristorante Hollywood Live Music di Lugano. Il programma comprende rock, blues e altri generi musicali.",
+      "descriptionByLocale": {
+        "it": "La Hollywood Band si esibisce al Ristorante Hollywood Live Music di Lugano. Il programma comprende rock, blues e altri generi musicali.",
+        "en": "The Hollywood Band performs at Ristorante Hollywood Live Music in Lugano. The music programme includes rock, blues and additional styles.",
+        "de": "Die Hollywood Band tritt im Ristorante Hollywood Live Music in Lugano auf. Auf dem Programm stehen Rock, Blues und weitere Musikrichtungen.",
+        "fr": "Le Hollywood Band se produit au Ristorante Hollywood Live Music à Lugano. Le programme comprend du rock, du blues et d’autres styles musicaux."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dd466576df864c67af3be02f9d28e540",
@@ -381947,7 +382082,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La manifestazione fieristica si tiene a Palexpo, a Ginevra. Il programma comprende attività, proposte culinarie, opportunità di acquisto e incontri dedicati a temi specifici.",
+      "descriptionByLocale": {
+        "it": "La manifestazione fieristica si tiene a Palexpo, a Ginevra. Il programma comprende attività, proposte culinarie, opportunità di acquisto e incontri dedicati a temi specifici.",
+        "en": "This trade fair takes place at Palexpo in Geneva. Its programme includes activities, culinary offerings, shopping, deals and thematic meetings.",
+        "de": "Die Messe findet im Palexpo in Genf statt. Zum Programm gehören Aktivitäten, kulinarische Angebote, Einkaufsmöglichkeiten, Sonderangebote und thematische Treffen.",
+        "fr": "Cette manifestation se déroule à Palexpo, à Genève. Elle propose des animations, des offres culinaires, des possibilités de shopping, des offres commerciales et des rencontres thématiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AGJU2tX",
@@ -387022,6 +387165,13 @@
         "@type": "Organization",
         "name": "Nidwaldner Museum Winkelriedhaus, Stans"
       },
+      "previousRoutes": [
+        {
+          "canton": "NW",
+          "comune": "Stans",
+          "slug": "augustina-flueler-klosterfrau-kunstlerin-2026-11-07-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-mostra-museo-alpi-montagna-autunno-inverno-v02.webp",
       "imageAssetId": "event-mostra-museo-alpi-montagna-autunno-inverno-v02",
       "imageLicense": "generated-provider",
@@ -387054,6 +387204,13 @@
         "@type": "Organization",
         "name": "Nidwaldner Museum Winkelriedhaus, Stans"
       },
+      "previousRoutes": [
+        {
+          "canton": "NW",
+          "comune": "Stans",
+          "slug": "augustina-flueler-klosterfrau-kunstlerin-2026-11-07-3"
+        }
+      ],
       "imageUrl": "/images/events/library/event-mostra-museo-alpi-montagna-autunno-inverno.webp",
       "imageAssetId": "event-mostra-museo-alpi-montagna-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -396113,7 +396270,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Lugano, il Ristorante Hollywood Live Music ospita una festa di compleanno aperta a tutti. La serata comprende un concerto a sorpresa con diversi musicisti del Ticino e di altre provenienze.",
+      "descriptionByLocale": {
+        "it": "A Lugano, il Ristorante Hollywood Live Music ospita una festa di compleanno aperta a tutti. La serata comprende un concerto a sorpresa con diversi musicisti del Ticino e di altre provenienze.",
+        "en": "At Ristorante Hollywood Live Music in Lugano, the music event is a birthday party open to everyone. It includes a surprise concert featuring several musicians from Ticino and elsewhere.",
+        "de": "Im Ristorante Hollywood Live Music in Lugano findet eine Geburtstagsfeier statt, die allen offensteht. Zum Programm gehört ein Überraschungskonzert mit mehreren Musikerinnen und Musikern aus dem Tessin und darüber hinaus.",
+        "fr": "Le rendez-vous musical du Ristorante Hollywood Live Music à Lugano est une fête d’anniversaire ouverte à tous. Il comprend un concert surprise avec plusieurs musiciennes et musiciens du Tessin et d’ailleurs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:174f9f7a52b54353a60e524581f0a64d",
@@ -410812,7 +410977,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale segue sei amici che riflettono sull’avanzata delle destre estreme in Europa e sui modi per opporvisi. La messa in scena combina racconto e gioco attorno alla storia di Alice e Mad.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale segue sei amici che riflettono sull’avanzata delle destre estreme in Europa e sui modi per opporvisi. La messa in scena combina racconto e gioco attorno alla storia di Alice e Mad.",
+        "en": "This theatre production follows six friends who consider the rise of far-right forces in Europe and ways to oppose them. The staging combines narration and performance around Alice and Mad’s story.",
+        "de": "Das Theaterstück begleitet sechs Freundinnen und Freunde, die sich mit dem Erstarken rechtsextremer Kräfte in Europa und Möglichkeiten des Widerstands befassen. Die Inszenierung verbindet Erzählen und Spiel mit der Geschichte von Alice und Mad.",
+        "fr": "Cette pièce réunit six ami·e·s qui examinent la progression des extrêmes droites en Europe et les moyens de s’y opposer. Sa forme scénique associe récit et jeu autour de l’histoire d’Alice et Mad."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0870dd86cf5e454ba8424fed32f0bb24",
@@ -413046,7 +413219,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra va in scena uno spettacolo teatrale legato a Guy Cassiers e Valérie Dréville. La rappresentazione alla Maison Saint-Gervais Genève è gratuita.",
+      "descriptionByLocale": {
+        "it": "A Ginevra va in scena uno spettacolo teatrale legato a Guy Cassiers e Valérie Dréville. La rappresentazione alla Maison Saint-Gervais Genève è gratuita.",
+        "en": "This theatre production in Geneva is by Guy Cassiers and Valérie Dréville. It is presented free of charge at Maison Saint-Gervais Genève.",
+        "de": "Die Theateraufführung in Genf ist mit Guy Cassiers und Valérie Dréville verbunden. Sie findet in der Maison Saint-Gervais Genève statt und ist kostenlos.",
+        "fr": "Ce spectacle de théâtre à Genève est associé à Guy Cassiers et Valérie Dréville. Il est proposé gratuitement à la Maison Saint-Gervais Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:563a94485ab941958779bea53aa10c70",
@@ -414143,7 +414324,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "«BABY TEETH» è uno spettacolo di danza proposto a Ginevra, alla Comédie de Genève. Catol Teixeira esplora la bocca, il linguaggio e la trasformazione; il biglietto costa 5 CHF.",
+      "descriptionByLocale": {
+        "it": "«BABY TEETH» è uno spettacolo di danza proposto a Ginevra, alla Comédie de Genève. Catol Teixeira esplora la bocca, il linguaggio e la trasformazione; il biglietto costa 5 CHF.",
+        "en": "BABY TEETH is a dance performance presented in Geneva at the Comédie de Genève. Catol Teixeira explores the mouth, language and transformation; admission costs CHF 5.",
+        "de": "BABY TEETH ist eine Tanzaufführung in Genf, die in der Comédie de Genève gezeigt wird. Catol Teixeira beschäftigt sich mit Mund, Sprache und Verwandlung; der Eintritt kostet 5 CHF.",
+        "fr": "«BABY TEETH» est un spectacle de danse présenté à Genève, à la Comédie de Genève. Catol Teixeira s'intéresse à la bouche, au langage et à la transformation; le billet coûte 5 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:blues-challenge",
@@ -415775,7 +415964,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa jam session musicale si svolge al Ristorante Hollywood Live Music di Lugano. Il palco accoglie musicisti per improvvisazioni legate al rock, al blues e ad altri generi.",
+      "descriptionByLocale": {
+        "it": "Questa jam session musicale si svolge al Ristorante Hollywood Live Music di Lugano. Il palco accoglie musicisti per improvvisazioni legate al rock, al blues e ad altri generi.",
+        "en": "This music jam session takes place at Ristorante Hollywood Live Music in Lugano. Musicians can join the stage for improvisations drawing on rock, blues and other styles.",
+        "de": "Diese musikalische Jam-Session findet im Ristorante Hollywood Live Music in Lugano statt. Musikerinnen und Musiker können sich mit Improvisationen aus Rock, Blues und weiteren Stilrichtungen beteiligen.",
+        "fr": "Cette jam session musicale a lieu au Ristorante Hollywood Live Music de Lugano. Des musiciennes et musiciens peuvent participer à des improvisations inspirées du rock, du blues et d'autres styles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AUKpgk3",
@@ -416925,7 +417122,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza esamina i rapporti tra le Alpi, la scienza e la medicina nel periodo barocco. La Biblioteca cantonale di Lugano ospita l’incontro, che si conclude con un rinfresco.",
+      "descriptionByLocale": {
+        "it": "La conferenza esamina i rapporti tra le Alpi, la scienza e la medicina nel periodo barocco. La Biblioteca cantonale di Lugano ospita l’incontro, che si conclude con un rinfresco.",
+        "en": "The conference explores connections between the Alps, science and medicine during the Baroque period. The cantonal library in Lugano hosts the event, which ends with a reception.",
+        "de": "Die Konferenz beleuchtet die Verbindungen zwischen den Alpen, der Wissenschaft und der Medizin im Barock. Die Kantonsbibliothek in Lugano ist der Veranstaltungsort; im Anschluss gibt es einen Umtrunk.",
+        "fr": "La conférence examine les liens entre les Alpes, les sciences et la médecine à l’époque baroque. La Bibliothèque cantonale de Lugano accueille le rendez-vous, qui se termine par une réception."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A1f9cXw",
@@ -418933,7 +419138,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La seconda finale presenta tre finalisti della direzione d’orchestra, che dirigono l’Orchestre de la Suisse Romande. Il programma di Ginevra include brani firmati da Bartók, Mahler, Prokofiev, Strauss e Stravinsky.",
+      "descriptionByLocale": {
+        "it": "La seconda finale presenta tre finalisti della direzione d’orchestra, che dirigono l’Orchestre de la Suisse Romande. Il programma di Ginevra include brani firmati da Bartók, Mahler, Prokofiev, Strauss e Stravinsky.",
+        "en": "The second final brings together three finalists in conducting, who lead the Orchestre de la Suisse Romande. The Geneva programme includes music by Bartók, Mahler, Prokofiev, Strauss and Stravinsky.",
+        "de": "In der zweiten Finalrunde dirigieren drei Finalisten das Orchestre de la Suisse Romande. Zum Genfer Programm gehören Werke von Bartók, Prokofjew, Strauss und Strawinsky.",
+        "fr": "La deuxième finale présente trois finalistes de la direction d’orchestre, qui dirigent l’Orchestre de la Suisse Romande. Le programme présenté à Genève s’appuie sur des œuvres signées par Bartók, Mahler, Prokofiev, Strauss et Stravinsky."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AhbGaDm",
@@ -419419,7 +419632,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto con Bianca Costa risulta annullato. L’appuntamento musicale era programmato a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il concerto con Bianca Costa risulta annullato. L’appuntamento musicale era programmato a Ginevra.",
+        "en": "The concert featuring Bianca Costa is listed as cancelled. The musical event had been planned in Geneva.",
+        "de": "Das Konzert mit Bianca Costa ist als abgesagt gekennzeichnet. Die musikalische Veranstaltung war in Genf geplant.",
+        "fr": "Le concert avec Bianca Costa est signalé comme annulé. L’événement musical était prévu à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:17357423bf2d49a19308022b07d98241",
@@ -419877,7 +420098,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La serata blues al Ristorante Hollywood Live Music di Lugano riunisce Ellis Hook e Chris Bergson. L'ingresso costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "La serata blues al Ristorante Hollywood Live Music di Lugano riunisce Ellis Hook e Chris Bergson. L'ingresso costa 10 CHF.",
+        "en": "This blues evening at Ristorante Hollywood Live Music in Lugano features Ellis Hook and Chris Bergson. Admission costs CHF 10.",
+        "de": "Der Bluesabend im Ristorante Hollywood Live Music in Lugano bringt Ellis Hook und Chris Bergson zusammen. Der Eintritt kostet 10 CHF.",
+        "fr": "Cette soirée blues au Ristorante Hollywood Live Music de Lugano réunit Ellis Hook et Chris Bergson. L'entrée coûte 10 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AFRu8gJ",
@@ -420152,7 +420381,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lucerne; comune: Luzern; cantone: LU; categoria: Event; organizzatore: MySwitzerland; data: 2026-11-13; ora: 19:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Lucerne; comune: Luzern; cantone: LU; categoria: Event; organizzatore: MySwitzerland; data: 2026-11-13; ora: 19:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Lucerne; municipality: Luzern; canton: LU; category: Event; organiser: MySwitzerland; date: 2026-11-13; time: 19:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Lucerne; gemeinde: Luzern; kanton: LU; kategorie: Event; veranstalter: MySwitzerland; datum: 2026-11-13; uhrzeit: 19:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Lucerne; commune: Luzern; canton: LU; catégorie: Event; organisateur: MySwitzerland; date: 2026-11-13; heure: 19:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:christoph-irniger-marc-perrenoud",
@@ -420188,7 +420425,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto riunisce Christoph Irniger e Marc Perrenoud a Ginevra e rientra nella stagione 2026-2027 dell’AMR. L’ingresso ha un costo di 12 CHF.",
+      "descriptionByLocale": {
+        "it": "Il concerto riunisce Christoph Irniger e Marc Perrenoud a Ginevra e rientra nella stagione 2026-2027 dell’AMR. L’ingresso ha un costo di 12 CHF.",
+        "en": "The concert brings Christoph Irniger and Marc Perrenoud together in Geneva as part of the AMR’s 2026–2027 season. Admission costs CHF 12.",
+        "de": "In Genf treten Christoph Irniger und Marc Perrenoud im Rahmen der Saison 2026–2027 der AMR gemeinsam auf. Der Eintritt kostet 12 CHF.",
+        "fr": "À Genève, Christoph Irniger et Marc Perrenoud se produisent dans le cadre de la saison 2026-2027 de l’AMR. Le prix d’entrée est de 12 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64697",
@@ -420277,7 +420522,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un’animazione per famiglie a Ginevra, dedicata alle voci del futuro e articolata attorno ai racconti. Il programma comprende un’esposizione temporanea e una biblioteca; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un’animazione per famiglie a Ginevra, dedicata alle voci del futuro e articolata attorno ai racconti. Il programma comprende un’esposizione temporanea e una biblioteca; l’ingresso è gratuito.",
+        "en": "This family event in Geneva focuses on future voices through a storytelling programme. It also features a temporary exhibition and a library, with free admission.",
+        "de": "Die Familienveranstaltung in Genf widmet sich dem Thema der Stimmen der Zukunft und verbindet dies mit einer Erzählveranstaltung. Vorgesehen sind zudem eine temporäre Ausstellung und eine Bibliothek; der Eintritt ist kostenlos.",
+        "fr": "À Genève, cette animation familiale met en avant le thème des voix du futur au moyen de récits. Elle comprend également une exposition temporaire et une bibliothèque, avec une entrée gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:creatures-terre-nuit-conte",
@@ -420768,7 +421021,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "DJ ARIAS · LATINO è un evento di clubbing in programma a Ginevra. L’evento è organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "DJ ARIAS · LATINO è un evento di clubbing in programma a Ginevra. L’evento è organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+        "en": "DJ ARIAS · LATINO is a clubbing event in Geneva. It is organised by Ville de Genève Agenda, and admission is free.",
+        "de": "DJ ARIAS · LATINO ist eine Clubbing-Veranstaltung in Genf. Sie wird von Ville de Genève Agenda organisiert; der Eintritt ist kostenlos.",
+        "fr": "DJ ARIAS · LATINO est un événement de clubbing à Genève. Il est organisé par Ville de Genève Agenda et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AArMFrw",
@@ -421577,7 +421838,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Fleurs du mal si esibisce dal vivo al Bar Cervo di Bellinzona. Il concerto propone un repertorio che unisce blues, rock, rhythm and blues, swing e funk, con ingresso gratuito.",
+      "descriptionByLocale": {
+        "it": "Fleurs du mal si esibisce dal vivo al Bar Cervo di Bellinzona. Il concerto propone un repertorio che unisce blues, rock, rhythm and blues, swing e funk, con ingresso gratuito.",
+        "en": "Fleurs du mal performs live at Bar Cervo in Bellinzona. The concert features a repertoire combining blues, rock, rhythm and blues, swing and funk, with free admission.",
+        "de": "Fleurs du mal tritt live in der Bar Cervo in Bellinzona auf. Das Konzert bietet ein Repertoire aus Blues, Rock, Rhythm and Blues, Swing und Funk bei freiem Eintritt.",
+        "fr": "Fleurs du mal se produit en concert au Bar Cervo, à Bellinzona. Le répertoire du groupe associe blues, rock, rhythm and blues, swing et funk, avec une entrée libre."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63977",
@@ -422053,7 +422322,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il workshop di due giorni a Ginevra esamina come l’intelligenza artificiale possa sostenere l’abbandono delle energie fossili nel territorio ginevrino. La partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "Il workshop di due giorni a Ginevra esamina come l’intelligenza artificiale possa sostenere l’abbandono delle energie fossili nel territorio ginevrino. La partecipazione è gratuita.",
+        "en": "This two-day workshop in Geneva examines how artificial intelligence can support the transition away from fossil fuels in the canton. Admission is free.",
+        "de": "Der zweitägige Workshop in Genf untersucht, wie künstliche Intelligenz den Ausstieg aus fossilen Energien im Kanton Genf unterstützen kann. Die Teilnahme ist kostenlos.",
+        "fr": "Cet atelier de deux jours à Genève examine comment l’intelligence artificielle peut contribuer à abandonner les énergies fossiles dans le canton. La participation est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AD7n6r3",
@@ -422333,7 +422610,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto propone un omaggio a Hans Zimmer associato a Interstellar, eseguito da Mystery Ensemble. L’evento è previsto a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il concerto propone un omaggio a Hans Zimmer associato a Interstellar, eseguito da Mystery Ensemble. L’evento è previsto a Ginevra.",
+        "en": "The concert presents a tribute to Hans Zimmer associated with Interstellar, performed by Mystery Ensemble. The event is scheduled in Geneva.",
+        "de": "Das Konzert verbindet Interstellar mit einer Würdigung von Hans Zimmer und wird von Mystery Ensemble aufgeführt. Die Veranstaltung ist in Genf vorgesehen.",
+        "fr": "Ce concert associe Interstellar à un hommage à Hans Zimmer, interprété par Mystery Ensemble. Il est prévu à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:51adf962ddde43178613d614ba511f13",
@@ -422791,7 +423076,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza esamina la trasformazione digitale dell’amministrazione cantonale ticinese, considerando opportunità, cambiamenti e aspetti giuridici. L’incontro è ospitato da Palexpo FEVI a Locarno e rientra nel programma di EspoVerbano 2026.",
+      "descriptionByLocale": {
+        "it": "La conferenza esamina la trasformazione digitale dell’amministrazione cantonale ticinese, considerando opportunità, cambiamenti e aspetti giuridici. L’incontro è ospitato da Palexpo FEVI a Locarno e rientra nel programma di EspoVerbano 2026.",
+        "en": "The conference examines digital transformation within Ticino’s cantonal administration, with attention to opportunities, organisational change and the applicable legal framework. It is held at Palexpo FEVI in Locarno within the EspoVerbano 2026 programme.",
+        "de": "Die Konferenz behandelt die digitale Entwicklung der kantonalen Verwaltung im Tessin und deren Chancen, Veränderungen sowie rechtlichen Rahmenbedingungen. Sie findet im Palexpo FEVI in Locarno im Rahmen des Programms von EspoVerbano 2026 statt.",
+        "fr": "Cette conférence porte sur la transformation numérique de l’administration cantonale tessinoise et aborde ses possibilités, ses évolutions ainsi que son cadre juridique. Elle se tient au Palexpo FEVI de Locarno dans le cadre du programme d’EspoVerbano 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:df1586bc21f84611bc8612663b0ee11f",
@@ -422906,7 +423199,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Lecture; organizzatore: Ville de Genève Agenda; data: 2026-11-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Lecture; organizzatore: Ville de Genève Agenda; data: 2026-11-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Lecture; organiser: Ville de Genève Agenda; date: 2026-11-13; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Lecture; veranstalter: Ville de Genève Agenda; datum: 2026-11-13; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Lecture; organisateur: Ville de Genève Agenda; date: 2026-11-13; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:89087",
@@ -423074,7 +423375,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di danza è legato a Lenio Kaklea. Si svolge a Ginevra, è organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’evento di danza è legato a Lenio Kaklea. Si svolge a Ginevra, è organizzato da Ville de Genève Agenda e l’ingresso è gratuito.",
+        "en": "This dance event is associated with Lenio Kaklea. It takes place in Geneva, is organized by Ville de Genève Agenda, and is free of charge.",
+        "de": "Die Tanzveranstaltung steht in Verbindung mit Lenio Kaklea. Sie findet in Genf statt, wird von Ville de Genève Agenda organisiert und ist kostenlos.",
+        "fr": "Ce rendez-vous de danse est lié à Lenio Kaklea. Il a lieu à Genève, est organisé par Ville de Genève Agenda et son accès est gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AL5WeA6",
@@ -424276,7 +424585,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si tiene presso la Biblioteca cantonale di Lugano ed è dedicato al racconto. Al termine delle narrazioni è previsto uno spuntino offerto.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si tiene presso la Biblioteca cantonale di Lugano ed è dedicato al racconto. Al termine delle narrazioni è previsto uno spuntino offerto.",
+        "en": "The event takes place at the Biblioteca cantonale in Lugano and focuses on storytelling. An offered snack is planned after the stories.",
+        "de": "Die Veranstaltung findet in der Biblioteca cantonale in Lugano statt und widmet sich dem Erzählen. Nach den Geschichten ist ein angebotener Imbiss vorgesehen.",
+        "fr": "Le rendez-vous a lieu à la Biblioteca cantonale de Lugano et est consacré au récit. Un goûter offert est prévu à l’issue des histoires."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AJugDN4",
@@ -425840,7 +426157,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza presenta alcuni aspetti della storia del nostro pianeta e della formazione delle Alpi. Giorgio Valenti del CAS Locarno conduce l’incontro nella Sala 2 di Palexpo FEVI a Locarno, inserito nel programma di EspoVerbano 2026; l’ingresso alla conferenza e alla fiera è gratuito.",
+      "descriptionByLocale": {
+        "it": "La conferenza presenta alcuni aspetti della storia del nostro pianeta e della formazione delle Alpi. Giorgio Valenti del CAS Locarno conduce l’incontro nella Sala 2 di Palexpo FEVI a Locarno, inserito nel programma di EspoVerbano 2026; l’ingresso alla conferenza e alla fiera è gratuito.",
+        "en": "The talk offers selected perspectives on our planet’s history and on the formation of the Alps. Giorgio Valenti of CAS Locarno presents the subject in Room 2 at Palexpo FEVI in Locarno as part of EspoVerbano 2026; admission to the conference and fair is free.",
+        "de": "Im Mittelpunkt stehen ausgewählte Aspekte der Erdgeschichte und der Entstehung der Alpen. Giorgio Valenti vom CAS Locarno präsentiert den Beitrag im Saal 2 des Palexpo FEVI in Locarno als Teil der EspoVerbano 2026; der Eintritt zur Konferenz und zur Messe ist frei.",
+        "fr": "La rencontre aborde certains éléments de l’histoire de notre planète et les processus qui ont conduit à la formation des Alpes. Giorgio Valenti du CAS Locarno présente le sujet dans la salle 2 de Palexpo FEVI à Locarno, dans le cadre d’EspoVerbano 2026; l’accès à la conférence et à la foire est gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ALqk5r3",
@@ -426919,7 +427244,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; organiser: Ville de Genève Agenda; date: 2026-11-14; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; veranstalter: Ville de Genève Agenda; datum: 2026-11-14; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; organisateur: Ville de Genève Agenda; date: 2026-11-14; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A1CbkFZ",
@@ -427197,7 +427530,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone una rassegna di minerali e fossili, con materiali di diversa provenienza e la partecipazione di espositori ticinesi, svizzeri e internazionali. Sono inoltre previste presentazioni tematiche di esemplari minerali e reperti fossili da collezioni speciali, insieme a creazioni in pietra dura e gioielli.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una rassegna di minerali e fossili, con materiali di diversa provenienza e la partecipazione di espositori ticinesi, svizzeri e internazionali. Sono inoltre previste presentazioni tematiche di esemplari minerali e reperti fossili da collezioni speciali, insieme a creazioni in pietra dura e gioielli.",
+        "en": "The event presents minerals and fossils from different parts of the world, with contributions from exhibitors based in Ticino, Switzerland and other countries. It also includes themed displays of mineral specimens and fossil finds from special collections, as well as works made with hard stone and jewellery.",
+        "de": "Die Veranstaltung vereint eine Präsentation von Mineralien und Fossilien aus verschiedenen Teilen der Welt mit Beiträgen von Ausstellenden aus dem Tessin, der Schweiz und dem Ausland. Ergänzend werden thematische Bereiche mit Mineral- und Fossilfunden aus besonderen Sammlungen sowie Arbeiten aus Hartstein und Schmuck gezeigt.",
+        "fr": "Le rendez-vous réunit des minéraux et des fossiles provenant de différentes régions du monde, présentés par des exposants tessinois, suisses et internationaux. Il comprend aussi des espaces thématiques consacrés à des spécimens minéraux et à des fossiles issus de collections particulières, ainsi que des créations en pierre dure et des bijoux."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:bourse-mineraux-fossiles-gemmes-geneve",
@@ -427233,7 +427574,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento di Ginevra presenta minerali, fossili, gemme e gioielli realizzati con pietre naturali. Il salone riunisce diversi espositori in uno spazio al coperto.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di Ginevra presenta minerali, fossili, gemme e gioielli realizzati con pietre naturali. Il salone riunisce diversi espositori in uno spazio al coperto.",
+        "en": "The Geneva event presents minerals, fossils, gemstones and jewellery made from natural stones. This salon brings together exhibitors in an indoor exhibition space.",
+        "de": "Die Veranstaltung in Genf zeigt Mineralien, Fossilien, Edelsteine und Schmuck aus Natursteinen. Der Salon bringt Aussteller in einem Innenraum zusammen.",
+        "fr": "La manifestation genevoise porte sur les minéraux, les fossiles, les gemmes et les bijoux fabriqués à partir de pierres naturelles. Des exposants y présentent ces articles dans un espace intérieur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1386274f22814f59809c7c263b9ea7c5",
@@ -427900,7 +428249,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto di GUY2BEZBAR a Ginevra risulta annullato. L’evento era presentato all’Alhambra da Soldout Productions e TCO Prod.",
+      "descriptionByLocale": {
+        "it": "Il concerto di GUY2BEZBAR a Ginevra risulta annullato. L’evento era presentato all’Alhambra da Soldout Productions e TCO Prod.",
+        "en": "The GUY2BEZBAR concert in Geneva is listed as cancelled. The event was presented at the Alhambra by Soldout Productions and TCO Prod.",
+        "de": "Das Konzert von GUY2BEZBAR in Genf ist als abgesagt gekennzeichnet. Die Veranstaltung wurde im Alhambra von Soldout Productions und TCO Prod präsentiert.",
+        "fr": "Le concert de GUY2BEZBAR à Genève est signalé comme annulé. L’événement était présenté à l’Alhambra par Soldout Productions et TCO Prod."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64593",
@@ -428028,7 +428385,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il laboratorio riguarda l’autodifesa femminista e l’antirazzismo. Si rivolge a donne razzializzate e minoranze di genere razzializzate ed è condotto da persone direttamente coinvolte. L’attività si svolge a Ginevra e costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio riguarda l’autodifesa femminista e l’antirazzismo. Si rivolge a donne razzializzate e minoranze di genere razzializzate ed è condotto da persone direttamente coinvolte. L’attività si svolge a Ginevra e costa 15 CHF.",
+        "en": "This workshop focuses on feminist self-defence and anti-racism. It is intended for racialized women and racialized gender minorities, and is led by people directly concerned. The event takes place in Geneva and costs CHF 15.",
+        "de": "Der Workshop befasst sich mit feministischer antirassistischer Selbstverteidigung. Er richtet sich an rassifizierte Frauen und rassifizierte Geschlechtsminderheiten und wird von betroffenen Personen geleitet. Die Veranstaltung findet in Genf statt und kostet 15 CHF.",
+        "fr": "Cet atelier porte sur l’autodéfense féministe et l’antiracisme. Il s’adresse aux femmes racisées et aux minorités de genre racisées, et il est animé par des personnes concernées. L’activité est proposée à Genève au tarif de 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:atelier-ecriture-mondes-imaginaires",
@@ -428063,7 +428428,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra, il laboratorio di scrittura con Mondes Imaginaires accoglie partecipanti dagli 11 anni in su. L’attività comprende anche un’esposizione temporanea ed è gratuita.",
+      "descriptionByLocale": {
+        "it": "A Ginevra, il laboratorio di scrittura con Mondes Imaginaires accoglie partecipanti dagli 11 anni in su. L’attività comprende anche un’esposizione temporanea ed è gratuita.",
+        "en": "In Geneva, the writing workshop with Mondes Imaginaires is open to participants aged eleven and over. The programme also includes a temporary exhibition and is free to attend.",
+        "de": "In Genf richtet sich der Schreibworkshop mit Mondes Imaginaires an Personen ab elf Jahren. Zur Veranstaltung gehört außerdem eine temporäre Ausstellung; der Eintritt ist frei.",
+        "fr": "À Genève, cet atelier d’écriture avec Mondes Imaginaires accueille les personnes dès 11 ans. L’activité comprend également une exposition temporaire et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63798",
@@ -428162,7 +428535,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Schaffhausen, l’evento segna i tredici anni di Baila Conmigo. Il programma unisce esibizioni musicali dal vivo, danza e atmosfera latinoamericana.",
+      "descriptionByLocale": {
+        "it": "A Schaffhausen, l’evento segna i tredici anni di Baila Conmigo. Il programma unisce esibizioni musicali dal vivo, danza e atmosfera latinoamericana.",
+        "en": "Held in Schaffhausen, the event marks thirteen years of Baila Conmigo. It combines live musical performances, dancing and a Latin American atmosphere.",
+        "de": "Die Veranstaltung in Schaffhausen markiert das dreizehnjährige Bestehen von Baila Conmigo. Zum Programm gehören Live-Musik, Tanz und lateinamerikanische Lebensfreude.",
+        "fr": "À Schaffhausen, le rendez-vous marque les treize ans de Baila Conmigo. Il associe musique jouée en direct, danse et atmosphère latino-américaine."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:52e35d39bd20439e9020c6d2e539c545",
@@ -428349,7 +428730,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento unisce la visione di Blade Runner all’esecuzione dal vivo della musica del film da parte di The Avex Ensemble. La proiezione si svolge al LAC, Sala Teatro, a Lugano e rientra nella proposta cinematografica del luogo.",
+      "descriptionByLocale": {
+        "it": "L’evento unisce la visione di Blade Runner all’esecuzione dal vivo della musica del film da parte di The Avex Ensemble. La proiezione si svolge al LAC, Sala Teatro, a Lugano e rientra nella proposta cinematografica del luogo.",
+        "en": "The event combines a screening of Blade Runner with a live performance of the film’s music by The Avex Ensemble. It takes place at Lac, Sala Teatro, in Lugano and belongs to the venue’s cinema programme with live music.",
+        "de": "Bei der Veranstaltung wird Blade Runner gezeigt, während The Avex Ensemble die Filmmusik live aufführt. Der Anlass findet im Lac, Sala Teatro, in Lugano statt und verbindet eine Filmvorführung mit Live-Musik.",
+        "fr": "Le rendez-vous associe la projection de Blade Runner à une interprétation en direct de la musique du film par The Avex Ensemble. Il se tient au Lac, Sala Teatro, à Lugano et s’inscrit dans la programmation de cinéma avec musique live du lieu."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:blind-test-musical-hobbs-0",
@@ -428396,7 +428785,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento propone un gioco musicale da svolgere a squadre. Mr. HOBBS ne cura l’animazione ed è indicato come specialista dei quiz musicali.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un gioco musicale da svolgere a squadre. Mr. HOBBS ne cura l’animazione ed è indicato come specialista dei quiz musicali.",
+        "en": "This event offers a music-based team game. Mr. HOBBS hosts it and is presented as a specialist in music quizzes.",
+        "de": "Die Veranstaltung ist als Teamspiel mit musikalischen Fragen angelegt. Mr. HOBBS übernimmt die Moderation und wird als Spezialist für Musikquizze vorgestellt.",
+        "fr": "Cette animation propose un jeu musical à réaliser en équipe. Mr. HOBBS en assure l’animation et est présenté comme spécialiste des quiz musicaux."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6c62579425cb4b32bb7d52be0633a78d",
@@ -428520,7 +428917,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Conférence - Rencontre; organiser: Ville de Genève Agenda; date: 2026-11-14; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Conférence - Rencontre; veranstalter: Ville de Genève Agenda; datum: 2026-11-14; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Conférence - Rencontre; organisateur: Ville de Genève Agenda; date: 2026-11-14; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0c8fb9354196436ca3843af65f57223c",
@@ -429102,7 +429507,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio offre un approccio sensoriale alla scoperta del museo. L’attività è legata a un’esposizione temporanea a Ginevra e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio offre un approccio sensoriale alla scoperta del museo. L’attività è legata a un’esposizione temporanea a Ginevra e l’ingresso è gratuito.",
+        "en": "This workshop presents a sensory way to discover the museum. It is connected with a temporary exhibition in Geneva and is free of charge.",
+        "de": "Im Mittelpunkt dieses Workshops steht die Erkundung des Museums über die Sinne. Die Veranstaltung findet in Genf im Zusammenhang mit einer temporären Ausstellung statt und ist kostenlos.",
+        "fr": "Cet atelier propose de découvrir le musée grâce à une approche sensorielle. Il est associé à une exposition temporaire à Genève et l’accès est gratuit."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXP237G",
@@ -429185,7 +429598,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; organiser: Ville de Genève Agenda; date: 2026-11-14; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; veranstalter: Ville de Genève Agenda; datum: 2026-11-14; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; organisateur: Ville de Genève Agenda; date: 2026-11-14; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:94348",
@@ -431224,7 +431645,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'incontro si svolge presso Palexpo FEVI, Sala 2, a Locarno. La conferenza illustra, con dimostrazioni dal vivo, possibili impieghi dell'intelligenza artificiale per attività personali e professionali, inclusi la ricerca di informazioni, la redazione di testi e l'organizzazione delle idee; è pensata anche per chi muove i primi passi e prevede uno spazio per le domande.",
+      "descriptionByLocale": {
+        "it": "L'incontro si svolge presso Palexpo FEVI, Sala 2, a Locarno. La conferenza illustra, con dimostrazioni dal vivo, possibili impieghi dell'intelligenza artificiale per attività personali e professionali, inclusi la ricerca di informazioni, la redazione di testi e l'organizzazione delle idee; è pensata anche per chi muove i primi passi e prevede uno spazio per le domande.",
+        "en": "The meeting takes place at Palexpo FEVI, Room 2, in Locarno. Through live demonstrations, the conference presents ways to use artificial intelligence for personal and professional tasks, including finding information, drafting texts and organising ideas; it is also intended for people taking their first steps with these tools and includes time for questions.",
+        "de": "Die Veranstaltung findet im Palexpo FEVI, Saal 2, in Locarno statt. Anhand von Live-Demonstrationen zeigt die Konferenz mögliche Anwendungen künstlicher Intelligenz für private und berufliche Aufgaben, etwa bei der Informationssuche, beim Verfassen von Texten und beim Ordnen von Ideen; sie richtet sich auch an Personen, die sich erstmals mit diesen Werkzeugen befassen, und bietet Raum für Fragen.",
+        "fr": "La rencontre a lieu au Palexpo FEVI, salle 2, à Locarno. La conférence présente, au moyen de démonstrations en direct, des usages possibles de l’intelligence artificielle dans les activités privées et professionnelles, notamment pour rechercher des informations, rédiger des textes et structurer des idées ; elle s’adresse aussi aux personnes qui découvrent ces outils et prévoit un temps pour les questions."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b1702eab2ad3418b803d726dac571fd8",
@@ -432035,7 +432464,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un laboratorio dedicato alla scrittura, con Typhaine Marc. L’incontro si tiene presso la Bibliothèque des Minoteries di Ginevra ed è aperto a tutte le persone a partire dai 10 anni. La partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un laboratorio dedicato alla scrittura, con Typhaine Marc. L’incontro si tiene presso la Bibliothèque des Minoteries di Ginevra ed è aperto a tutte le persone a partire dai 10 anni. La partecipazione è gratuita.",
+        "en": "This writing workshop takes place with Typhaine Marc. It is held at the Bibliothèque des Minoteries in Geneva and is open to everyone aged 10 and over. Admission is free.",
+        "de": "Der Schreibworkshop findet mit Typhaine Marc statt. Veranstaltungsort ist die Bibliothèque des Minoteries in Genf; teilnehmen können alle ab 10 Jahren. Der Eintritt ist kostenlos.",
+        "fr": "Cet atelier propose un temps de création écrite avec Typhaine Marc. La rencontre se déroule à la Bibliothèque des Minoteries à Genève et s’adresse à tous les publics dès 10 ans. La participation est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64591",
@@ -432078,7 +432515,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La conferenza presenta una guida dedicata a un itinerario lungo i corsi d’acqua tra Locarno e Venezia. L’appuntamento si svolge nella Sala 5, al secondo piano del Palexpo FEVI di Locarno, nell’ambito del programma di EspoVerbano 2026.",
+      "descriptionByLocale": {
+        "it": "La conferenza presenta una guida dedicata a un itinerario lungo i corsi d’acqua tra Locarno e Venezia. L’appuntamento si svolge nella Sala 5, al secondo piano del Palexpo FEVI di Locarno, nell’ambito del programma di EspoVerbano 2026.",
+        "en": "The conference presents a guide dedicated to a waterway route between Locarno and Venice. The event takes place in Sala 5 on the second floor of Palexpo FEVI in Locarno, as part of the EspoVerbano 2026 programme.",
+        "de": "Die Konferenz stellt einen Leitfaden über die Wasserwege zwischen Locarno und Venedig vor. Die Veranstaltung findet in Saal 5 im zweiten Stock des Palexpo FEVI in Locarno statt und ist Teil des Programms von EspoVerbano 2026.",
+        "fr": "Cette conférence présente un guide consacré à un itinéraire fluvial reliant Locarno à Venise. Le rendez-vous se déroule dans la salle 5, au deuxième étage du Palexpo FEVI à Locarno, dans le cadre d’EspoVerbano 2026."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e26000a1a72c4823a9b2a2122395d21d",
@@ -434072,7 +434517,15 @@
       },
       "imageSourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
       "imageCopyrightNotice": "© Hugo Sykes",
-      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/"
+      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "description": "Lo spettacolo teatrale è presentato al Teatro Paravento di Locarno. È una produzione del Teatro d’Emergenza, ideata e interpretata da Luca Spadaro.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale è presentato al Teatro Paravento di Locarno. È una produzione del Teatro d’Emergenza, ideata e interpretata da Luca Spadaro.",
+        "en": "This theatre production is presented at Teatro Paravento in Locarno. It is a Teatro d’Emergenza work created and performed by Luca Spadaro.",
+        "de": "Die Theateraufführung findet im Teatro Paravento in Locarno statt. Es handelt sich um eine Arbeit des Teatro d’Emergenza, die von Luca Spadaro entwickelt und gespielt wird.",
+        "fr": "Ce spectacle de théâtre est présenté au Teatro Paravento de Locarno. Il s’agit d’une création du Teatro d’Emergenza, conçue et interprétée par Luca Spadaro."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AmtdCqs",
@@ -434220,7 +434673,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Plan-les-Ouates, il percorso guidato presenta il passaggio dal villaggio agricolo al polo dell’orologeria. L’attività è condotta da un abitante e da una guida specializzata in orologeria nell’ambito dei 175 anni del comune.",
+      "descriptionByLocale": {
+        "it": "A Plan-les-Ouates, il percorso guidato presenta il passaggio dal villaggio agricolo al polo dell’orologeria. L’attività è condotta da un abitante e da una guida specializzata in orologeria nell’ambito dei 175 anni del comune.",
+        "en": "In Plan-les-Ouates, the guided route explores the area’s agricultural village and watchmaking centre. A local resident and a watchmaking guide lead the visit as part of the municipality’s 175th anniversary.",
+        "de": "In Plan-les-Ouates führt eine kommentierte Führung vom landwirtschaftlich geprägten Dorf zum Zentrum der Uhrenindustrie. Begleitet wird sie von einer ortsansässigen Person und einer Führerin aus dem Uhrmacherbereich; Anlass ist das 175-jährige Bestehen der Gemeinde.",
+        "fr": "À Plan-les-Ouates, une visite commentée suit le lien entre le village agricole et le pôle horloger. Le parcours est animé par une personne habitant la commune et une guide spécialisée dans l’horlogerie pour marquer les 175 ans de celle-ci."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXh2B2E",
@@ -434479,7 +434940,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il concerto riunisce musicisti dell’AMR e di Porta Jazz, club di Porto, nell’ambito del loro scambio annuale. L’appuntamento si svolge a Ginevra, all’AMR.",
+      "descriptionByLocale": {
+        "it": "Il concerto riunisce musicisti dell’AMR e di Porta Jazz, club di Porto, nell’ambito del loro scambio annuale. L’appuntamento si svolge a Ginevra, all’AMR.",
+        "en": "The concert brings together musicians from AMR and Porta Jazz in Porto through the annual exchange between the two jazz clubs. It takes place in Geneva at AMR.",
+        "de": "Das Konzert bringt Musiker der AMR und von Porta Jazz aus Porto bei einem jährlichen Austausch der beiden Jazzclubs zusammen. Die Veranstaltung findet in Genf im AMR statt.",
+        "fr": "La soirée rassemble des musiciens de l’AMR et de Porta Jazz, club de jazz de Porto. Elle s’inscrit dans le rendez-vous annuel d’échange entre ces deux clubs de jazz et se tient à Genève, à l’AMR."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e2066a5d56bf4bc4a55c2c61e20fe9f4",
@@ -434739,7 +435208,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento al MASI, sede LAC, di Lugano segna l’apertura di una mostra di Mai-Thu Perret e Una Szeemann. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento al MASI, sede LAC, di Lugano segna l’apertura di una mostra di Mai-Thu Perret e Una Szeemann. L’ingresso è gratuito.",
+        "en": "The event at MASI, sede LAC, in Lugano marks the opening of an exhibition by Mai-Thu Perret and Una Szeemann. Admission is free.",
+        "de": "Die Veranstaltung im MASI, sede LAC, in Lugano eröffnet eine Ausstellung von Mai-Thu Perret und Una Szeemann. Der Eintritt ist frei.",
+        "fr": "Le rendez-vous au MASI, sede LAC, à Lugano marque l’ouverture d’une exposition de Mai-Thu Perret et Una Szeemann. L’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:97cb88f70b08446abf0291f17b426287",
@@ -435740,7 +436217,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo laboratorio di autodifesa femminista si svolge nell’arco di due giornate a Ginevra. Propone metodi fisici, mentali e verbali per rafforzare l’autostima e la fiducia in sé.",
+      "descriptionByLocale": {
+        "it": "Questo laboratorio di autodifesa femminista si svolge nell’arco di due giornate a Ginevra. Propone metodi fisici, mentali e verbali per rafforzare l’autostima e la fiducia in sé.",
+        "en": "This feminist self-defence workshop takes place over two days in Geneva. It covers physical, mental and verbal methods intended to strengthen self-esteem and self-confidence.",
+        "de": "Der feministische Selbstverteidigungsworkshop findet an zwei Tagen in Genf statt. Behandelt werden körperliche, mentale und verbale Methoden, die Selbstwertgefühl und Selbstvertrauen stärken sollen.",
+        "fr": "Cet atelier d’autodéfense féministe se déroule sur deux journées à Genève. Il aborde des méthodes physiques, mentales et verbales destinées à renforcer l’estime de soi et la confiance en soi."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:stage-initiation-mouvement-somatique",
@@ -436054,7 +436539,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; organizzatore: Ville de Genève Agenda; data: 2026-11-14; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Spectacle - Théâtre; organiser: Ville de Genève Agenda; date: 2026-11-14; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Spectacle - Théâtre; veranstalter: Ville de Genève Agenda; datum: 2026-11-14; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Spectacle - Théâtre; organisateur: Ville de Genève Agenda; date: 2026-11-14; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0a6ffaffb5d948ce8c8f04530dee92c8",
@@ -436441,7 +436934,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "I Donkeys Forever è una band italiana tributo che interpreta brani dei Rolling Stones. Il concerto si tiene al Ristorante Hollywood Live Music di Lugano e riprende il repertorio del gruppo guidato da Mick Jagger e Keith Richards.",
+      "descriptionByLocale": {
+        "it": "I Donkeys Forever è una band italiana tributo che interpreta brani dei Rolling Stones. Il concerto si tiene al Ristorante Hollywood Live Music di Lugano e riprende il repertorio del gruppo guidato da Mick Jagger e Keith Richards.",
+        "en": "I Donkeys Forever is an Italian tribute band that performs songs by the Rolling Stones. The concert takes place at Ristorante Hollywood Live Music in Lugano and draws on the repertoire of the group led by Mick Jagger and Keith Richards.",
+        "de": "I Donkeys Forever ist eine italienische Tribute-Band, die Stücke der Rolling Stones spielt. Der Auftritt findet im Ristorante Hollywood Live Music in Lugano statt und greift das Repertoire der von Mick Jagger und Keith Richards angeführten Gruppe auf.",
+        "fr": "I Donkeys Forever est un groupe italien qui rend hommage aux Rolling Stones en interprétant leurs chansons. Le concert a lieu au Ristorante Hollywood Live Music de Lugano et reprend le répertoire du groupe mené par Mick Jagger et Keith Richards."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f1f48bb6bd2841aea83410cffb76aaac",
@@ -437908,7 +438409,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale al Palazzo dei Congressi di Lugano propone un tributo a Stranger Things e porta l’universo della serie sul palco. Unisce musica, recitazione e immagini sceniche per richiamare Hawkins, alcuni momenti noti e le canzoni della serie.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale al Palazzo dei Congressi di Lugano propone un tributo a Stranger Things e porta l’universo della serie sul palco. Unisce musica, recitazione e immagini sceniche per richiamare Hawkins, alcuni momenti noti e le canzoni della serie.",
+        "en": "The theatre production at Palazzo dei Congressi in Lugano is a Stranger Things tribute that brings the series’ universe to the stage. It combines music, acting and stage imagery to evoke Hawkins, notable moments and songs from the series.",
+        "de": "Die Theaterproduktion im Palazzo dei Congressi in Lugano ist eine Hommage an Stranger Things und bringt die Welt der Serie auf die Bühne. Sie verbindet Musik, Schauspiel und visuelle Elemente, um Hawkins sowie bekannte Momente und Lieder der Serie aufzugreifen.",
+        "fr": "Ce spectacle théâtral au Palazzo dei Congressi de Lugano rend hommage à Stranger Things en transposant l’univers de la série sur scène. Il associe musique, jeu scénique et éléments visuels pour évoquer Hawkins, des moments marquants et les chansons de la série."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AkZ8hj3",
@@ -438153,7 +438662,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Bi-2 è annunciato per un concerto a Ginevra. L’agenda della Città di Ginevra indica l’Alhambra come sede dell’evento.",
+      "descriptionByLocale": {
+        "it": "Bi-2 è annunciato per un concerto a Ginevra. L’agenda della Città di Ginevra indica l’Alhambra come sede dell’evento.",
+        "en": "Bi-2 is scheduled to perform in Geneva. The Geneva agenda lists the Alhambra as the event venue.",
+        "de": "Bi-2 ist in Genf für ein Konzert angekündigt. Die Genfer Agenda nennt das Alhambra als Veranstaltungsort.",
+        "fr": "Bi-2 est annoncé en concert à Genève. L’agenda de la Ville de Genève indique l’Alhambra comme lieu de l’événement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AnRqiFc",
@@ -440997,7 +441514,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La rappresentazione teatrale propone una versione contemporanea di una fiaba italiana e ne affida la narrazione a un attore. La trama segue un servo che sfida un orco per salvare il re, con un robot inserito nella vicenda; l’evento si svolge all’Ideatorio USI di Cadro, nel Luganese, e costa 7 CHF.",
+      "descriptionByLocale": {
+        "it": "La rappresentazione teatrale propone una versione contemporanea di una fiaba italiana e ne affida la narrazione a un attore. La trama segue un servo che sfida un orco per salvare il re, con un robot inserito nella vicenda; l’evento si svolge all’Ideatorio USI di Cadro, nel Luganese, e costa 7 CHF.",
+        "en": "The theatre presentation offers a contemporary version of an Italian fairy tale, narrated by an actor. Its story follows a servant who challenges an ogre to save a king, with a robot also included in the plot; the event takes place at L’ideatorio USI in Cadro, in the Luganese area, and costs CHF 7.",
+        "de": "Die Theateraufführung bietet eine zeitgenössische Bearbeitung eines italienischen Märchens, das von einem Schauspieler erzählt wird. Im Mittelpunkt steht ein Diener, der einen Oger herausfordert, um den König zu retten, während auch ein Roboter in die Handlung einbezogen wird; die Veranstaltung findet im L’ideatorio USI in Cadro im Luganese statt und kostet 7 CHF.",
+        "fr": "Cette représentation théâtrale propose une version contemporaine d’un conte italien, racontée par un acteur. L’intrigue suit un serviteur qui affronte un ogre pour sauver un roi, tandis qu’un robot est également intégré à l’histoire; le rendez-vous a lieu à L’ideatorio USI, à Cadro dans la région de Lugano, au prix de 7 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:laboratoire-soiree-plus-sure-formation-participative-atelier",
@@ -441032,7 +441557,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "INVOLVE propone a FOOUND, a Ginevra, una formazione sulla progettazione di una serata più sicura, seguita da un laboratorio. L’incontro riguarda il contrasto alle violenze di genere ed è gratuito, senza iscrizione.",
+      "descriptionByLocale": {
+        "it": "INVOLVE propone a FOOUND, a Ginevra, una formazione sulla progettazione di una serata più sicura, seguita da un laboratorio. L’incontro riguarda il contrasto alle violenze di genere ed è gratuito, senza iscrizione.",
+        "en": "INVOLVE holds a training session at FOOUND in Geneva on designing a safer evening, followed by a workshop. The meeting addresses gender-based violence and is free to attend without registration.",
+        "de": "INVOLVE bietet im FOOUND in Genf eine Schulung zur Gestaltung eines sichereren Abends mit anschliessendem Workshop an. Das Treffen befasst sich mit der Bekämpfung geschlechtsspezifischer Gewalt und ist kostenlos sowie ohne Anmeldung zugänglich.",
+        "fr": "INVOLVE organise à FOOUND, à Genève, une formation consacrée à la conception d’une soirée plus sûre, suivie d’un atelier. La rencontre porte sur la lutte contre les violences de genre et la participation est gratuite, sans inscription."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b08c90d47fb14e398aca48623c78e95e",
@@ -441267,7 +441800,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lugano BeWine propone al Grand Hotel Villa Castagnola un appuntamento dedicato al vino, con degustazioni, incontri con i produttori e proposte gastronomiche italiane e ticinesi. Le masterclass approfondiscono i territori e le loro peculiarità, mentre l’enoteca offre bottiglie scelte tra quelle presentate nelle degustazioni.",
+      "descriptionByLocale": {
+        "it": "Lugano BeWine propone al Grand Hotel Villa Castagnola un appuntamento dedicato al vino, con degustazioni, incontri con i produttori e proposte gastronomiche italiane e ticinesi. Le masterclass approfondiscono i territori e le loro peculiarità, mentre l’enoteca offre bottiglie scelte tra quelle presentate nelle degustazioni.",
+        "en": "Lugano BeWine at Grand Hotel Villa Castagnola combines wine tastings with encounters with producers and Italian and Ticinese gastronomy. Masterclasses examine wine regions and their characteristics, while the event’s enoteca offers bottles selected from those tasted.",
+        "de": "Lugano BeWine widmet sich im Grand Hotel Villa Castagnola dem Wein und verbindet Verkostungen mit Begegnungen mit Produzenten sowie italienischer und tessinischer Gastronomie. Masterclasses vertiefen die Besonderheiten der Weinregionen, während die Enoteca ausgewählte Weine aus den Degustationen zum Kauf anbietet.",
+        "fr": "Au Grand Hotel Villa Castagnola, Lugano BeWine associe dégustations de vin, rencontres avec des producteurs et gastronomie italienne et tessinoise. Des masterclasses présentent les particularités des régions viticoles, tandis que l’Enoteca propose à l’achat des bouteilles choisies parmi celles dégustées."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:madame-shakeapeare-femme-stradford",
@@ -441303,7 +441844,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; organizzatore: Ville de Genève Agenda; data: 2026-11-15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Spectacle - Théâtre; organizzatore: Ville de Genève Agenda; data: 2026-11-15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Spectacle - Théâtre; organiser: Ville de Genève Agenda; date: 2026-11-15; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Spectacle - Théâtre; veranstalter: Ville de Genève Agenda; datum: 2026-11-15; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Spectacle - Théâtre; organisateur: Ville de Genève Agenda; date: 2026-11-15; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVQFArx",
@@ -441886,7 +442435,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La proposta musicale si svolge nella chiesa parrocchiale di Sorengo, nel Luganese. Il programma accosta sassofono e chitarra, con brani di Astor Piazzolla e Máximo Diego Pujol.",
+      "descriptionByLocale": {
+        "it": "La proposta musicale si svolge nella chiesa parrocchiale di Sorengo, nel Luganese. Il programma accosta sassofono e chitarra, con brani di Astor Piazzolla e Máximo Diego Pujol.",
+        "en": "This musical event takes place at the parish church in Sorengo, in the Luganese area. Its programme brings saxophone and guitar together with works by Astor Piazzolla and Máximo Diego Pujol.",
+        "de": "Die musikalische Veranstaltung findet in der Pfarrkirche von Sorengo im Luganese statt. Auf dem Programm stehen Werke von Astor Piazzolla und Máximo Diego Pujol für Saxofon und Gitarre.",
+        "fr": "Ce rendez-vous musical a lieu dans l’église paroissiale de Sorengo, dans le Luganese. Le programme réunit saxophone et guitare autour d’œuvres d’Astor Piazzolla et de Máximo Diego Pujol."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:424f21cc7e1844a2935e554e6b21c79c",
@@ -442092,7 +442649,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’animazione si svolge a Ginevra e propone un momento dedicato al canto di brani della tradizione francese. Il repertorio è accompagnato al pianoforte da Olivier Grimm e la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "L’animazione si svolge a Ginevra e propone un momento dedicato al canto di brani della tradizione francese. Il repertorio è accompagnato al pianoforte da Olivier Grimm e la partecipazione è gratuita.",
+        "en": "This free event in Geneva offers a communal singing session featuring well-known French songs. Olivier Grimm provides the piano accompaniment.",
+        "de": "Die kostenlose Veranstaltung in Genf umfasst gemeinsames Singen französischer Lieder. Olivier Grimm übernimmt die Begleitung am Klavier.",
+        "fr": "Cette animation gratuite à Genève est consacrée au chant collectif de chansons françaises connues. Olivier Grimm assure l’accompagnement au piano."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A5uEd1C",
@@ -442262,7 +442827,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il MASI propone una giornata di porte aperte dedicata all’arte e all’intrattenimento, con attività pensate per adulti e bambini. Il programma unisce attività proposte al LAC e a Palazzo Reali, mentre UBS figura come partner principale del museo.",
+      "descriptionByLocale": {
+        "it": "Il MASI propone una giornata di porte aperte dedicata all’arte e all’intrattenimento, con attività pensate per adulti e bambini. Il programma unisce attività proposte al LAC e a Palazzo Reali, mentre UBS figura come partner principale del museo.",
+        "en": "MASI holds an open day centred on art and entertainment, with activities for adults and children. The programme brings together activities at the LAC and Palazzo Reali, with UBS identified as the museum’s main partner.",
+        "de": "Das MASI veranstaltet einen Tag der offenen Türen mit Kunst und Unterhaltung für Erwachsene und Kinder. Das Programm verbindet Angebote im LAC und im Palazzo Reali, und UBS wird als Hauptpartner des Museums genannt.",
+        "fr": "Le MASI organise une journée portes ouvertes consacrée à l’art et au divertissement, avec des activités pour les adultes et les enfants. Le programme réunit des activités au LAC et au Palazzo Reali, UBS étant mentionnée comme partenaire principal du musée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b84e79ccd7e34502aa9c3a5567b205da",
@@ -443719,7 +444292,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Ginevra è prevista una visita guidata dell’esposizione temporanea. La partecipazione costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "A Ginevra è prevista una visita guidata dell’esposizione temporanea. La partecipazione costa 8 CHF.",
+        "en": "A guided tour of the temporary exhibition is offered in Geneva. Admission costs CHF 8.",
+        "de": "In Genf findet eine Führung durch die temporäre Ausstellung statt. Die Teilnahme kostet 8 CHF.",
+        "fr": "Une visite commentée de l’exposition temporaire est proposée à Genève. Le tarif s’élève à 8 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dcaca207c51a4c9a8baa549c86696a88",
@@ -444252,7 +444833,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; organizzatore: Ville de Genève Agenda; data: 2026-11-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; organizzatore: Ville de Genève Agenda; data: 2026-11-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Conférence - Rencontre; organiser: Ville de Genève Agenda; date: 2026-11-16; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Conférence - Rencontre; veranstalter: Ville de Genève Agenda; datum: 2026-11-16; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Conférence - Rencontre; organisateur: Ville de Genève Agenda; date: 2026-11-16; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:hoenig-trio",
@@ -444288,7 +444877,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-16; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; organiser: Ville de Genève Agenda; date: 2026-11-16; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; veranstalter: Ville de Genève Agenda; datum: 2026-11-16; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; organisateur: Ville de Genève Agenda; date: 2026-11-16; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AaBUiW3",
@@ -444481,7 +445078,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo incontro a Ginevra riguarda l’impegno volontario di uomini interessati a formarsi sul tema delle mascolinità. L’iniziativa si inserisce nella lotta contro la violenza di genere e la partecipazione è gratuita.",
+      "descriptionByLocale": {
+        "it": "Questo incontro a Ginevra riguarda l’impegno volontario di uomini interessati a formarsi sul tema delle mascolinità. L’iniziativa si inserisce nella lotta contro la violenza di genere e la partecipazione è gratuita.",
+        "en": "This meeting in Geneva concerns volunteer involvement for men who wish to learn about masculinities. It is part of work to address gender-based violence, and participation is free.",
+        "de": "Bei diesem Treffen in Genf geht es um ein freiwilliges Engagement für Männer, die sich mit Männlichkeiten auseinandersetzen und dazu weiterbilden möchten. Die Veranstaltung steht im Zusammenhang mit dem Einsatz gegen geschlechtsspezifische Gewalt und ist kostenlos.",
+        "fr": "Cette rencontre à Genève porte sur un engagement bénévole destiné aux hommes qui souhaitent se former aux masculinités. Elle s’inscrit dans la lutte contre les violences de genre et la participation est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ADGYb7A",
@@ -447430,7 +448035,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Sport; organizzatore: Ville de Genève Agenda; data: 2026-11-17; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Sport; organizzatore: Ville de Genève Agenda; data: 2026-11-17; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Sport; organiser: Ville de Genève Agenda; date: 2026-11-17; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Sport; veranstalter: Ville de Genève Agenda; datum: 2026-11-17; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Sport; organisateur: Ville de Genève Agenda; date: 2026-11-17; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:70d89862356643be84aaa364924465d6",
@@ -447672,7 +448285,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è dedicato alla Terramation e al tema del ritorno alla terra. Si svolge a Glarus, nel Glarnerland.",
+      "descriptionByLocale": {
+        "it": "L’evento è dedicato alla Terramation e al tema del ritorno alla terra. Si svolge a Glarus, nel Glarnerland.",
+        "en": "The event focuses on Terramation and the idea of returning to the earth. It takes place in Glarus, in the Glarnerland.",
+        "de": "Die Veranstaltung widmet sich der Terramation und einer Rückkehr zur Erde. Sie findet in Glarus im Glarnerland statt.",
+        "fr": "La manifestation est consacrée à la Terramation et à l’idée d’un retour vers la terre. Elle se déroule à Glarus, dans le Glarnerland."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "fr-agenda:the-librarians-projection",
@@ -459478,7 +460099,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo appuntamento ricorrente si svolge a Basilea e propone spettacoli di varietà insieme a intrattenimento internazionale. L’esperienza comprende un menu di quattro portate servito in un tendone a specchi dal carattere nostalgico.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento ricorrente si svolge a Basilea e propone spettacoli di varietà insieme a intrattenimento internazionale. L’esperienza comprende un menu di quattro portate servito in un tendone a specchi dal carattere nostalgico.",
+        "en": "This recurring event in Basel combines variety performances with international entertainment. A four-course meal is served in a nostalgic mirror tent.",
+        "de": "Die wiederkehrende Veranstaltung in Basel verbindet Varietévorführungen mit internationaler Unterhaltung. Dazu wird ein Vier-Gänge-Menü in einem nostalgisch gestalteten Spiegelzelt serviert.",
+        "fr": "Ce rendez-vous récurrent à Bâle associe des numéros de variétés à des divertissements internationaux. Un repas de quatre plats est proposé sous un chapiteau à miroirs d’inspiration nostalgique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A7NYjEM",
@@ -480504,7 +481133,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Vevey si svolge un incontro dedicato all’amore in un’epoca caratterizzata da molte possibilità di scelta. L’evento, ospitato dall’Hôtel des Trois Couronnes, invita a riflettere sulle aspettative e sui modi di amare nel presente.",
+      "descriptionByLocale": {
+        "it": "A Vevey si svolge un incontro dedicato all’amore in un’epoca caratterizzata da molte possibilità di scelta. L’evento, ospitato dall’Hôtel des Trois Couronnes, invita a riflettere sulle aspettative e sui modi di amare nel presente.",
+        "en": "Vevey hosts an evening discussion about love in a period shaped by many possible choices. At the Hôtel des Trois Couronnes, the event invites reflection on whether current expectations of love have become too demanding.",
+        "de": "In Vevey widmet sich eine Abendveranstaltung der Liebe in einer Zeit mit zahlreichen Wahlmöglichkeiten. Im Hôtel des Trois Couronnes geht sie der Frage nach, ob heutige Erwartungen zu anspruchsvoll geworden sind.",
+        "fr": "À Vevey, une rencontre en soirée examine l’amour à une époque marquée par de nombreux choix. À l’Hôtel des Trois Couronnes, elle invite à se demander si les attentes actuelles sont devenues trop élevées et à réfléchir aux façons d’aimer aujourd’hui."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:aec1fd6ec6174832beca13a575fe5f1b",
@@ -484579,7 +485216,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Weinfelden; cantone: TG; categoria: Event; organizzatore: MySwitzerland; data: 2026-11-26; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Weinfelden; cantone: TG; categoria: Event; organizzatore: MySwitzerland; data: 2026-11-26; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Weinfelden; canton: TG; category: Event; organiser: MySwitzerland; date: 2026-11-26; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Weinfelden; kanton: TG; kategorie: Event; veranstalter: MySwitzerland; datum: 2026-11-26; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Weinfelden; canton: TG; catégorie: Event; organisateur: MySwitzerland; date: 2026-11-26; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:93db0d69293c46bbae6166da5bddfd23",
@@ -527145,7 +527790,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Burgdorf, il castello e il centro storico ospitano un mercato artigianale durante l’Avvento. L’evento propone diverse esperienze nell’area storica della città.",
+      "descriptionByLocale": {
+        "it": "A Burgdorf, il castello e il centro storico ospitano un mercato artigianale durante l’Avvento. L’evento propone diverse esperienze nell’area storica della città.",
+        "en": "In Burgdorf, the castle and old town host a craft market during Advent. The event includes a range of experiences in the historic centre.",
+        "de": "Im Schloss Burgdorf und in der Altstadt findet während der Adventszeit ein Handwerksmarkt statt. Die Veranstaltung umfasst verschiedene Erlebnisse im historischen Stadtkern.",
+        "fr": "À Burgdorf, le château et la vieille ville accueillent un marché d’artisanat pendant l’Avent. La manifestation comprend différentes expériences dans le centre historique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3fbe56bcf1984a6caf48bb67453e1afb",
@@ -569850,7 +570503,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento circense a Basilea propone numeri acrobatici, esibizioni di clown e altri momenti di circo. Si svolge nel periodo natalizio ed è rivolto alle famiglie.",
+      "descriptionByLocale": {
+        "it": "L’evento circense a Basilea propone numeri acrobatici, esibizioni di clown e altri momenti di circo. Si svolge nel periodo natalizio ed è rivolto alle famiglie.",
+        "en": "This circus event in Basel features acrobatic acts, clown performances and other circus moments. It takes place during the Christmas season and is intended for families.",
+        "de": "Die Zirkusveranstaltung in Basel umfasst Akrobatik, Clownauftritte und weitere Zirkusmomente. Sie findet in der Weihnachtszeit statt und richtet sich an Familien.",
+        "fr": "Ce rendez-vous circassien à Bâle comprend des numéros d’acrobatie, des prestations de clowns et d’autres moments de cirque. Il se déroule pendant la période de Noël et s’adresse aux familles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AyWH7g9",
@@ -621175,7 +621836,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Isenthal; cantone: UR; categoria: Event; organizzatore: MySwitzerland; data: 2027-02-07; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Isenthal; cantone: UR; categoria: Event; organizzatore: MySwitzerland; data: 2027-02-07; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Isenthal; canton: UR; category: Event; organiser: MySwitzerland; date: 2027-02-07; time: 00:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Isenthal; kanton: UR; kategorie: Event; veranstalter: MySwitzerland; datum: 2027-02-07; uhrzeit: 00:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Isenthal; canton: UR; catégorie: Event; organisateur: MySwitzerland; date: 2027-02-07; heure: 00:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AaKAvpc",
