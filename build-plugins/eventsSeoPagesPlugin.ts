@@ -3392,13 +3392,11 @@ function buildLadderAlternates(canton: string, comune: string | undefined, page:
  * the rows it carries (rows past
  * `OVERFLOW_ROWS_PER_PAGE` moved off the base page), and both reachability
  * auditors treat a noindex page as a bridge that stops the walk:
- * `scripts/audit-orphan-pages-in-sitemaps.mjs` (`if (htmlHasNoindex(html)) {
- * noindexCount += 1; continue; }`) and `scripts/audit-bfs-depth.mjs`
- * (`if (htmlHasNoindex(html)) continue;`) both skip link extraction. A noindex
- * ladder would therefore re-orphan every row it transports — precisely the
- * #5434 regression this overflow block exists to prevent. For the same reason
- * only indexable ladder URLs are listed in `sitemap-eventi.xml` (see
- * `buildSitemap`).
+ * Both reachability auditors follow `noindex,follow` pages and stop only at an
+ * explicit `nofollow` barrier, so a crawlable noindex ladder keeps every row it
+ * transports reachable. Only indexable ladder URLs are listed in
+ * `sitemap-eventi.xml` (see `buildSitemap`); indexability and crawlability are
+ * deliberately separate contracts.
  *
  * BFS: linked from the CANTON HUB (`renderHubLadderIndex`), not only from the
  * base page, so a ladder page sits at the same depth as the base page and its
