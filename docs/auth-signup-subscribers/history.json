@@ -445,6 +445,21 @@
       },
       "subscribedWithoutCreatedAt": 0,
       "findings": []
+    },
+    {
+      "date": "2026-10-26",
+      "windowHours": 24,
+      "subscribersCreated": 86,
+      "authSubscribers": 66,
+      "accountsTotal": 88,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 86,
+        "stub": 0,
+        "missing": 2
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
     }
   ]
 }
