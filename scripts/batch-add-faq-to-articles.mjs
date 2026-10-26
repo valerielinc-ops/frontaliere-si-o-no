@@ -39,6 +39,7 @@ import {
   writeFileAtomic,
   prepareFaqForWrite,
   escapeForSingleQuoteTS,
+  replaceFaqLiteral,
 } from './fix-faq-locales.mjs';
 import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
@@ -826,13 +827,10 @@ function replaceFaqInBodyFile(filePath, faqArray) {
   if (!faqToWrite) return false;
   let content = read(filePath);
   const jsonStr = serializeFaqLiteral(faqToWrite);
-  // Use escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
-  // and function replacer avoids $ interpretation in replacement string
-  const replaced = content.replace(
-    /(\.faq'\s*:\s*')((?:[^'\\]|\\.)*)('\s*,)/,
-    (_match, g1, _g2, g3) => g1 + jsonStr + g3
-  );
-  if (replaced === content) return false;
+  // Use the shared quote-aware locator so apostrophes and JSON quotes inside
+  // the payload cannot be mistaken for the outer FAQ delimiter.
+  const replaced = replaceFaqLiteral(content, jsonStr);
+  if (!replaced || replaced === content) return false;
   if (JSON.stringify(extractFaqFromContent(replaced)) !== JSON.stringify(faqToWrite)) return false;
   // Post-write validation: strip TS type annotations before JS syntax check
   try {

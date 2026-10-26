@@ -310,6 +310,16 @@ const FAQ_OSTILE = [
 ];
 
 describe('nanako#394 — round-trip write→read', () => {
+  it('legge un FAQ con delimitatore esterno doppio e apostrofo nel testo', () => {
+    const pairs = [
+      { q: "L'immigrazione?", a: 'Risposta sufficientemente lunga per il controllo.' },
+      { q: 'Quali documenti servono per la pratica?', a: 'Servono i documenti indicati dall’autorità competente e una domanda completa.' },
+    ];
+    const encoded = JSON.stringify(pairs).replaceAll('\\', '\\\\').replaceAll('"', '\\"');
+    const src = `"blog.article.${ALPHA}.faq": "${encoded}",`;
+    expect(extractFaqFromContent(src)).toEqual(pairs);
+  });
+
   it('cio che insertFaqIntoBodyFile scrive, extractFaqFromContent rilegge', () => {
     const p = fileTemporaneo(`${ALPHA}.ts`, bodyFile(bodyLine(ALPHA, 1, 'Corpo di alpha.')));
     expect(insertFaqIntoBodyFile(p, ALPHA, FAQ_OSTILE)).toBe(true);

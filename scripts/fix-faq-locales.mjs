@@ -63,8 +63,8 @@ const BODY_DIR = resolve(ROOT, `services/locales/${SECTION_BODY_SUBDIR}`);
 
 // ── File helpers ────────────────────────────────────────────
 
-const FAQ_KEY_RX = /\.faq['"]\s*:/;
-const FAQ_LITERAL_RX = /\.faq['"]\s*:\s*['"]((?:[^'\\]|\\.)*)['"]\s*[,}]/;
+const FAQ_KEY_RX = /\.faq\\?['"]\s*:/;
+const FAQ_LITERAL_RX = /\.faq\\?['"]\s*:\s*/;
 
 let atomicWriteSequence = 0;
 
@@ -110,10 +110,62 @@ export function parseFaqLiteral(raw) {
   return null;
 }
 
-export function extractFaqFromContent(content) {
+/**
+ * Locate and decode the FAQ literal without assuming that its outer quote is
+ * an apostrophe.  The JSON inside a TypeScript string legitimately contains
+ * many quote characters of its own, so a fixed `[^'\"]*` capture either
+ * truncates a double-quoted value at `L'immigrazione` or stops at an inner
+ * JSON quote.  Try each delimiter candidate and accept the first one whose
+ * payload is a valid FAQ array; this also handles legacy escaped delimiters.
+ */
+function locateFaqLiteral(content) {
   if (typeof content !== 'string') return null;
-  const faqMatch = content.match(FAQ_LITERAL_RX);
-  return faqMatch ? parseFaqLiteral(faqMatch[1]) : null;
+  const keyMatch = FAQ_LITERAL_RX.exec(content);
+  if (!keyMatch) return null;
+
+  const valueOffset = keyMatch.index + keyMatch[0].length;
+  const openerMatch = /^\s*(\\?)(['"])/.exec(content.slice(valueOffset));
+  if (!openerMatch) return null;
+
+  const openerIndex = valueOffset + openerMatch[0].length - 1;
+  const quote = openerMatch[2];
+  for (let index = openerIndex + 1; index < content.length; index++) {
+    if (content[index] !== quote) continue;
+    if (!/^\s*(?:[,}]|$)/.test(content.slice(index + 1))) continue;
+
+    // Some generated fixtures retain an escape before the outer delimiter.
+    // Exclude that one escape from the payload while preserving it in the
+    // replacement boundary below.
+    let payloadEnd = index;
+    let slashCount = 0;
+    for (let cursor = index - 1; cursor >= openerIndex + 1 && content[cursor] === '\\'; cursor--) {
+      slashCount += 1;
+    }
+    if (slashCount % 2 === 1) payloadEnd -= 1;
+
+    const parsed = parseFaqLiteral(content.slice(openerIndex + 1, payloadEnd));
+    if (Array.isArray(parsed)) {
+      return {
+        parsed,
+        openerIndex,
+        closingIndex: payloadEnd,
+      };
+    }
+  }
+  return null;
+}
+
+export function extractFaqFromContent(content) {
+  return locateFaqLiteral(content)?.parsed ?? null;
+}
+
+/** Replace the payload while preserving the source's outer quote style. */
+export function replaceFaqLiteral(content, serializedFaq) {
+  const located = locateFaqLiteral(content);
+  if (!located) return null;
+  return content.slice(0, located.openerIndex + 1)
+    + serializedFaq
+    + content.slice(located.closingIndex);
 }
 
 /** Keep the engine's readable FAQ floor and reject any dropped/placeholder pair. */
@@ -140,11 +192,8 @@ function replaceFaqInFile(filePath, newFaqArray) {
   let content = readFileSync(filePath, 'utf-8');
   const jsonStr = escapeForSingleQuoteTS(JSON.stringify(faqToWrite));
   // Escape-aware regex + function replacer to avoid $-pattern issues
-  const replaced = content.replace(
-    /(\.faq['"]\s*:\s*['"])((?:[^'\\]|\\.)*)(['"]\s*[,}])/,
-    (_match, g1, _g2, g3) => g1 + jsonStr + g3,
-  );
-  if (replaced === content || JSON.stringify(extractFaqFromContent(replaced)) !== JSON.stringify(faqToWrite)) {
+  const replaced = replaceFaqLiteral(content, jsonStr);
+  if (!replaced || replaced === content || JSON.stringify(extractFaqFromContent(replaced)) !== JSON.stringify(faqToWrite)) {
     return false;
   }
   writeFileAtomic(filePath, replaced);
