@@ -6,6 +6,7 @@ import { Building2, Users, Search, SlidersHorizontal, ArrowUpDown, MapPin, Exter
 import { useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildPath } from '@/services/router';
+import { companyWebsiteDomain } from '@/services/companyWebsite';
 import { resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { reportCaughtError } from '@/services/errorReporter';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -14,10 +15,6 @@ import extraCompaniesData from '@/data/ticino-companies-extra.json';
 import crawlerCompaniesData from '@/data/crawler-companies-auto.json';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
-
-const companyDomain = (website: string) =>
- website ? new URL(website).hostname.replace(/^www\./, '') : '';
-
 
 interface Company {
  name: string;
@@ -854,7 +851,7 @@ const TicinoCompanies: React.FC = () => {
  <div className="flex items-start gap-3 mb-2">
  {company.website ? (
  <div className="w-9 h-9 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden flex-shrink-0 border border-edge">
- <ProviderLogo domain={companyDomain(company.website)} name={company.name} size={22} className="w-[22px] h-[22px] object-contain" />
+ <ProviderLogo domain={companyWebsiteDomain(company.website)} name={company.name} size={22} className="w-[22px] h-[22px] object-contain" />
  </div>
  ) : (
  <div className="text-xl flex-shrink-0">{SECTOR_ICONS[company.sector] || '🏢'}</div>
@@ -913,7 +910,7 @@ const TicinoCompanies: React.FC = () => {
  <div className="p-1">
  <div className="flex items-center gap-2 mb-2">
  {company.website ? (
- <ProviderLogo domain={companyDomain(company.website)} name={company.name} size={28} />
+ <ProviderLogo domain={companyWebsiteDomain(company.website)} name={company.name} size={28} />
  ) : (
  <span className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</span>
  )}
