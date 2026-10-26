@@ -45,6 +45,21 @@ describe('jobDataNormalization', () => {
     expect(sameOrg('jobs.example.ch', 'careers.example.ch')).toBe(true);
   });
 
+  it('only resolves registrable hosts from HTTP and HTTPS job URLs', () => {
+    for (const value of [
+      'ftp://jobs.example.co.uk/opening',
+      'file://jobs.example.co.uk/opening',
+      'mailto:jobs@example.co.uk',
+      'data:text/plain,jobs.example.co.uk',
+      'not a URL',
+    ]) {
+      expect(hostFromExternalUrl(value), value).toBe('');
+    }
+
+    expect(hostFromExternalUrl('https://jobs.example.co.uk/opening')).toBe('example.co.uk');
+    expect(hostFromExternalUrl('http://jobs.example.co.uk/opening')).toBe('example.co.uk');
+  });
+
   it('does not misclassify full-time roles whose description merely contains "intern"/"stage" as a substring (issue: UBS M&A Business Strategist flagged as internship)', () => {
     expect(
       normalizeJobContract(
