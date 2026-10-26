@@ -318,7 +318,49 @@ export async function fetchGa4ErrorEntries({
         sessions: Number(row.metricValues?.[1]?.value || 0),
         sampleExceptionList: [],
       }));
-      if (rows.length) return rows;
+      if (rows.length) {
+        // `error_stack` is a registered custom dimension for `app_error` and
+        // is the most useful extra evidence for the fixer. Keep it as a
+        // best-effort enrichment: a missing registration or a partial GA4
+        // response must not suppress an otherwise valid error issue.
+        if (eventName === 'app_error') {
+          try {
+            const stackData = await runGa4Report({
+              token,
+              fetchImpl,
+              body: {
+                dateRanges: [{ startDate, endDate }],
+                dimensions: [
+                  { name: 'customEvent:error_type' },
+                  { name: 'customEvent:error_message' },
+                  { name: 'customEvent:error_stack' },
+                ],
+                metrics: [{ name: 'eventCount' }],
+                dimensionFilter: productionAppErrorFilter(eventName),
+                orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
+                limit: Math.max(Number(limit) || 30, 100),
+              },
+            });
+            const stacks = new Map();
+            for (const stackRow of stackData.rows || []) {
+              const type = stackRow.dimensionValues?.[0]?.value || eventName;
+              const message = stackRow.dimensionValues?.[1]?.value || '';
+              const stack = stackRow.dimensionValues?.[2]?.value || '';
+              if (!stack || stack === '(not set)') continue;
+              const key = `${type}\u0000${message}`;
+              if (!stacks.has(key)) stacks.set(key, stack);
+            }
+            return rows.map((row) => ({
+              ...row,
+              sampleStack: stacks.get(`${row.type}\u0000${row.message}`) || '',
+            }));
+          } catch {
+            // The issue still contains the signature, counts and URL when the
+            // optional stack dimension is unavailable.
+          }
+        }
+        return rows;
+      }
     } catch (error) {
       lastError = error;
     }

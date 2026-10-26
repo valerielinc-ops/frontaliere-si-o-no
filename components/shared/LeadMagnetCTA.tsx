@@ -35,6 +35,7 @@ import { useAuth, getAuthEmail, renderGoogleButtonWithReadiness, signInWithLinke
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { readStorageItem, writeStorageItem } from '@/services/storageAvailability';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 
 /** Last-touch attribution for a login started from this box (see authService). */
@@ -753,8 +754,8 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  const [visible, setVisible] = useState(() => {
  if (delay > 0) return false;
  if (typeof window === 'undefined') return false;
- if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return false;
- const dismissed = localStorage.getItem(DISMISSED_KEY);
+ if (readStorageItem(SUBSCRIBED_KEY) === 'true') return false;
+ const dismissed = readStorageItem(DISMISSED_KEY);
  if (isDismissalActive(dismissed, DISMISS_DAYS)) return false;
  return true;
  });
@@ -764,8 +765,8 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
  // Show after delay
  useEffect(() => {
- if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
- const dismissed = localStorage.getItem(DISMISSED_KEY);
+ if (readStorageItem(SUBSCRIBED_KEY) === 'true') return;
+ const dismissed = readStorageItem(DISMISSED_KEY);
  if (isDismissalActive(dismissed, DISMISS_DAYS)) return;
 
  if (delay > 0) {
@@ -816,7 +817,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  });
 
  const handleDismiss = useCallback(() => {
- localStorage.setItem(DISMISSED_KEY, String(Date.now()));
+ writeStorageItem(DISMISSED_KEY, String(Date.now()));
  setVisible(false);
  Analytics.trackUIInteraction('lead_magnet', 'banner', 'dismiss', variant);
  }, [variant]);
@@ -883,7 +884,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  }
  }, [email, locale, variant, t]);
 
- if (!visible || user || localStorage.getItem(SUBSCRIBED_KEY) === 'true') return null;
+ if (!visible || user || readStorageItem(SUBSCRIBED_KEY) === 'true') return null;
 
  const colors = VARIANT_COLORS[variant];
  const IconComponent = VARIANT_ICONS[variant];

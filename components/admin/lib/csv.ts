@@ -3,8 +3,12 @@ export function escapeCsvCell(value: unknown): string {
   return /[",\n\r]/u.test(text) ? `"${text.replace(/"/gu, '""')}"` : text;
 }
 
+function csvRowText(row: unknown): string {
+  return (Array.isArray(row) ? row : []).map(escapeCsvCell).join(',');
+}
+
 export function csvText(headers: readonly unknown[], rows: readonly (readonly unknown[])[]): string {
-  return [headers, ...rows].map((row) => row.map(escapeCsvCell).join(',')).join('\r\n');
+  return [headers, ...rows].map(csvRowText).join('\r\n');
 }
 
 export function datedExportFilename(prefix: string, date = new Date()): string {
