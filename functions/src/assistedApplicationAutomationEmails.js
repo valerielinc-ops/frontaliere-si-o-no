@@ -68,6 +68,7 @@ const CANDIDATE_COPY = {
       subject: 'Controlla la tua candidatura per {job} prima dell’invio',
       hero: 'La tua candidatura è pronta',
       preheader: 'Approvala o chiedi modifiche: se non rispondi entro 12 ore parte da sola.',
+      heldPreheader: 'Mancano {count} informazioni o documenti: senza di te la candidatura non parte.',
       lead: 'ho preparato la tua candidatura per {job} presso {company}: la lettera di presentazione, i testi per l’azienda e i documenti da allegare. Rivedila e approvala con un clic, oppure dimmi cosa cambiare.',
       auto: 'Se non rispondi entro {deadline}, la candidatura partirà automaticamente così com’è.',
       held: 'Prima dell’invio mi servono alcune informazioni o documenti che solo tu puoi darmi ({count}). Finché non rispondi, la candidatura non parte.',
@@ -142,6 +143,7 @@ const CANDIDATE_COPY = {
       subject: 'Prüfe deine Bewerbung für {job} vor dem Versand',
       hero: 'Deine Bewerbung ist bereit',
       preheader: 'Freigeben oder Änderungen wünschen: ohne Antwort geht sie nach 12 Stunden raus.',
+      heldPreheader: 'Es fehlen {count} Angaben oder Unterlagen: Ohne dich geht die Bewerbung nicht raus.',
       lead: 'ich habe deine Bewerbung für {job} bei {company} vorbereitet: Motivationsschreiben, Texte für das Unternehmen und die Unterlagen. Prüfe sie und gib sie mit einem Klick frei, oder sag mir, was ich ändern soll.',
       auto: 'Antwortest du nicht bis {deadline}, wird die Bewerbung automatisch so versendet.',
       held: 'Vor dem Versand brauche ich noch Angaben oder Unterlagen, die nur du mir geben kannst ({count}). Solange du nicht antwortest, geht die Bewerbung nicht raus.',
@@ -214,6 +216,7 @@ const CANDIDATE_COPY = {
       subject: 'Relisez votre candidature pour {job} avant l’envoi',
       hero: 'Votre candidature est prête',
       preheader: 'Approuvez-la ou demandez des modifications : sans réponse, elle part après 12 heures.',
+      heldPreheader: 'Il manque {count} informations ou documents : sans vous, la candidature ne part pas.',
       lead: 'j’ai préparé votre candidature pour {job} chez {company} : la lettre de motivation, les textes pour l’entreprise et les documents à joindre. Relisez-la et approuvez-la d’un clic, ou dites-moi quoi modifier.',
       auto: 'Sans réponse de votre part d’ici {deadline}, la candidature partira automatiquement telle quelle.',
       held: 'Avant l’envoi, j’ai besoin d’informations ou de documents que vous seul pouvez me donner ({count}). Tant que vous n’avez pas répondu, la candidature ne part pas.',
@@ -286,6 +289,7 @@ const CANDIDATE_COPY = {
       subject: 'Check your application for {job} before it is sent',
       hero: 'Your application is ready',
       preheader: 'Approve it or ask for changes: without a reply it goes out after 12 hours.',
+      heldPreheader: 'We still need {count} answers or documents from you: the application cannot go out without you.',
       lead: 'I have prepared your application for {job} at {company}: the cover letter, the texts for the company and the documents to attach. Review it and approve it with one click, or tell me what to change.',
       auto: 'If you do not reply by {deadline}, the application will be sent automatically as it is.',
       held: 'Before sending I need some information or documents only you can give me ({count}). Until you reply, the application does not go out.',
@@ -520,11 +524,14 @@ export function buildCandidateAutomationEmail(kind, vars) {
   }
   html.push(brandSignature(copy.signature, copy.signatureRole));
   text.push(copy.signature);
+  const preheader = kind === 'candidate_review' && vars.held
+    ? fill(section.heldPreheader, values)
+    : fill(section.preheader, values);
   return {
     subject: clean(fill(section.subject, values), 180),
     html: renderBrandedEmail({
       locale,
-      preheader: section.preheader,
+      preheader,
       badge: copy.badge,
       heroTitle: section.hero,
       heroSubtitle: `${values.job} — ${values.company}`,
