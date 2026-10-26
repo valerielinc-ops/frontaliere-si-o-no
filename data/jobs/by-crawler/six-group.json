@@ -1,7 +1,7 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-10-26T09:48:42.693Z",
-  "runId": "40299015284",
+  "assembledAt": "2026-10-26T21:58:12.668Z",
+  "runId": "40403805668",
   "jobs": [
     {
       "id": "six-group-6383d5dc71c2",
@@ -34,7 +34,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Test-Engineer-%2880-100%29/1443323233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:48:32.911Z",
+      "crawledAt": "2026-10-26T21:58:04.761Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Settlement-%2880%29/1391925233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:48:32.293Z",
+      "crawledAt": "2026-10-26T21:58:04.171Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Payment-Specialist-%2880-100%29/1422930133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:48:30.760Z",
+      "crawledAt": "2026-10-26T21:58:02.780Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -215,6 +215,82 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "six-group-c0ba01d30946",
+      "slug": "responsabile-integrazione-tecnica-80-100-six-group-zurich",
+      "slugByLocale": {
+        "it": "responsabile-integrazione-tecnica-80-100-six-group-zurich",
+        "en": "technical-integration-manager-80-100-six-group-zurich",
+        "de": "technical-integration-manager-80-100-six-group-zurich",
+        "fr": "gestionnaire-de-l-integration-technique-80-100-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Technical Integration Manager (80 - 100%)",
+      "titleByLocale": {
+        "it": "Responsabile Integrazione Tecnica (80 - 100%)",
+        "en": "Technical Integration Manager (80 - 100%)",
+        "de": "Technische Integration Manager (80 - 100%)",
+        "fr": "Gestionnaire de l'intégration technique (80 - 100%)"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nTechnical Integration Manager (80 - 100%)\n\nZurich |  80-100% (Working from home up 40%) | Reference 8294\n\nDo you want to work at the intersection of banking services, technology and customer integration? Are you motivated to help banks, partners and internal teams bring secure and stable services into production? Then our SIX BBS team wants to hear from you. We are responsible for onboarding, technical integration and operational support for services such as debiX API, eBill, LSV, Debit and bLink. In this role, you will work closely with banks, customers, software partners, vendors and internal teams across Product, IT, Security, Compliance and Operations. Your focus will be on technical integrations, customer onboarding, testing, go-live preparation, second-level support and a structured handover into regular operations. This is a central interface role between customers, technology and operations, rather than a pure project management, product owner or software engineering role.\n\nWhat You Will Do\n\n• Coordinate technical integration projects for debiX API and other BBS services such as eBill, Debit and ATM, from initial alignment through go-live and handover to operations.\n\n• Act as the central contact for banks, customers, software partners, vendors, IT partners and internal teams during onboarding, testing, acceptance and production preparation.\n\n• Clarify business, technical and operational requirements for API-based integrations, customer connections, certificates, environments and support processes.\n\n• Support test preparation and execution, issue analysis, customer acceptance, go-live activities, hypercare and the transition into regular operations.\n\n• Provide second-level support for customer requests, interface topics, certificates, integration issues and production-related incidents.\n\nWhat You Bring\n\n• Experience in technical customer integration, API integration, partner onboarding, service integration or technical project coordination, ideally in banking, payments or another regulated environment.\n\n• Good understanding of REST APIs, XML, JSON, authentication, certificates, mutual TLS, OAuth or comparable security and interface topics.\n\n• Experience with testing, acceptance, go-live preparation, incident handling, second-level support, service management and operational handover.\n\n• Strong communication skills and the ability to explain technical topics clearly to banks, customers, business teams, IT partners and vendors.\n\n• Structured, pragmatic and reliable working style with a strong customer focus; fluent German and English, French or Italian is an advantage.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nResponsabile Integrazione Tecnica (80 - 100%)\n\nZurigo | 80-100% (Lavorare da casa fino al 40%) | Riferimento 8294\n\nVuoi lavorare all'intersezione dei servizi bancari, della tecnologia e dell'integrazione dei clienti? Sei motivato ad aiutare banche, partner e team interni a portare in produzione servizi sicuri e stabili? Allora il nostro team di SIX BBS vuole sentirti. Siamo responsabili dell'integrazione tecnica e del supporto operativo per servizi quali debiX API, eBill, LSV, Debit e bLink. In questo ruolo, lavorerai a stretto contatto con banche, clienti, partner software, fornitori e team interni di prodotto, IT, sicurezza, conformità e operazioni. Il vostro focus sarà sulle integrazioni tecniche, l'accensione del cliente, il test, la preparazione del go-live, il supporto di secondo livello e una consegna strutturata in operazioni regolari. Questo è un ruolo di interfaccia centrale tra clienti, tecnologia e operazioni, piuttosto che un puro ruolo di gestione del progetto, proprietario del prodotto o ingegneria del software.\n\nCosa farai\n\n• Coordinate i progetti di integrazione tecnica per debiX API e altri servizi BBS come eBill, Debit e ATM, dall'allineamento iniziale attraverso il go-live e il passaggio alle operazioni.\n\n• Agire come contatto centrale per banche, clienti, partner software, fornitori, partner IT e team interni durante la preparazione di bordo, test, accettazione e produzione.\n\n• Verificare i requisiti aziendali, tecnici e operativi per integrazioni basate su API, connessioni ai clienti, certificati, ambienti e processi di supporto.\n\n• Preparazione e esecuzione del test di supporto, analisi dei problemi, accettazione del cliente, attività di go-live, ipercare e la transizione in operazioni regolari.\n\n• Fornire supporto di secondo livello per le richieste dei clienti, argomenti di interfaccia, certificati, problemi di integrazione e incidenti legati alla produzione.\n\nChe cosa porta\n\n• Esperienza nell'integrazione tecnica dei clienti, integrazione API, integrazione dei partner, integrazione dei servizi o coordinamento tecnico dei progetti, idealmente nel settore bancario, dei pagamenti o di un altro ambiente regolamentato.\n\n• Buona comprensione delle API REST, XML, JSON, autenticazione, certificati, TLS reciproci, OAuth o simili argomenti di sicurezza e interfaccia.\n\n• Esperienza con test, accettazione, preparazione go-live, gestione degli incidenti, supporto di secondo livello, gestione dei servizi e consegna operativa.\n\n• Forte capacità di comunicazione e la capacità di spiegare chiaramente argomenti tecnici a banche, clienti, team aziendali, partner IT e fornitori.\n\n• Stile di lavoro strutturato, pragmatico e affidabile con un forte focus del cliente; fluente tedesco e inglese, francese o italiano è un vantaggio.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nTechnical Integration Manager (80 - 100%)\n\nZurich | 80-100% (Working from home up 40%) | Reference 8294\n\nDo you want to work at the intersection of banking services, technology and customer integration? Are you motivated to help banks, partners and internal teams bring secure and stable services into production? Then our SIX BBS team wants to hear from you. We are responsible for onboarding, technical integration and operational support for services such as debiX API, eBill, LSV, Debit and bLink. In this role, you will work closely with banks, customers, software partners, vendors and internal teams across Product, IT, Security, Compliance and Operations. Your focus will be on technical integrations, customer onboarding, testing, go-live preparation, second-level support and a structured handover into regular operations. This is a central interface role between customers, technology and operations, rather than a pure project management, product owner or software engineering role.\n\nWhat You Will Do\n\n• Coordinate technical integration projects for debiX API and other BBS services such as eBill, Debit and ATM, from initial alignment through go-live and handover to operations.\n\n• Act as the central contact for banks, customers, software partners, vendors, IT partners and internal teams during onboarding, testing, acceptance and production preparation.\n\n• Clarify business, technical and operational requirements for API-based integrations, customer connections, certificates, environments and support processes.\n\n• Support test preparation and execution, issue analysis, customer acceptance, go-live activities, hypercare and the transition into regular operations.\n\n• Provide second-level support for customer requests, interface topics, certificates, integration issues and production-related incidents.\n\nWhat You Bring\n\n• Experience in technical customer integration, API integration, partner onboarding, service integration or technical project coordination, ideally in banking, payments or another regulated environment.\n\n• Good understanding of REST APIs, XML, JSON, authentication, certificates, mutual TLS, OAuth or comparable security and interface topics.\n\n• Experience with testing, acceptance, go-live preparation, incident handling, second-level support, service management and operational handover.\n\n• Strong communication skills and the ability to explain technical topics clearly to banks, customers, business teams, IT partners and vendors.\n\n• Structured, pragmatic and reliable working style with a strong customer focus; fluent German and English, French or Italian is an advantage.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nTechnical Integration Manager (80 - 100%)\n\nZürich | 80-100% (Arbeiten von zu Hause bis 40%) | Referenz 8294\n\nMöchten Sie an der Schnittstelle von Bankdienstleistungen, Technologie und Kundenintegration arbeiten? Sind Sie motiviert, Banken, Partnern und internen Teams zu helfen, sichere und stabile Dienstleistungen in die Produktion zu bringen? Dann möchte unser SIX BBS Team von Ihnen hören. Wir sind verantwortlich für Onboarding, technische Integration und operativen Support für Dienste wie debiX API, eBill, LSV, Debit und bLink. In dieser Funktion arbeiten Sie eng mit Banken, Kunden, Softwarepartnern, Anbietern und internen Teams in den Bereichen Produkt, IT, Sicherheit, Compliance und Betrieb zusammen. Ihr Fokus liegt auf technischen Integrationen, Kunden-Onboarding, Testen, Go-Live-Vorbereitung, Second-Level-Support und einer strukturierten Übergabe in den regulären Betrieb. Dabei handelt es sich um eine zentrale Schnittstelle zwischen Kunden, Technologie und Betrieb und nicht um eine reine Projektmanagement-, Product Owner- oder Software Engineering-Rolle.\n\nWas Sie tun werden\n\n• Koordinieren Sie technische Integrationsprojekte für debiX API und andere BBS-Dienste wie eBill, Debit und ATM, von der anfänglichen Ausrichtung über Go-Live und Übergabe an den Betrieb.\n\n• Handeln Sie als zentraler Ansprechpartner für Banken, Kunden, Softwarepartner, Anbieter, IT-Partner und interne Teams bei Onboarding, Test, Abnahme und Produktionsvorbereitung.\n\n• Klären Sie geschäftliche, technische und operative Anforderungen für API-basierte Integrationen, Kundenverbindungen, Zertifikate, Umgebungen und Supportprozesse.\n\n• Unterstützung bei der Vorbereitung und Durchführung von Tests, Problemanalyse, Kundenakzeptanz, Go-Live-Aktivitäten, Hypercare und dem Übergang in den regulären Betrieb.\n\n• Bereitstellung von Second-Level-Support für Kundenanfragen, Schnittstellenthemen, Zertifikate, Integrationsprobleme und produktionsbezogene Vorfälle.\n\nWas du mitbringst\n\n• Erfahrung in technischer Kundenintegration, API-Integration, Partner-Onboarding, Service-Integration oder technischer Projektkoordination, idealerweise im Banking, Payment oder einem anderen regulierten Umfeld.\n\n• Gutes Verständnis von REST APIs, XML, JSON, Authentifizierung, Zertifikaten, gegenseitigem TLS, OAuth oder vergleichbaren Sicherheits- und Schnittstellenthemen.\n\n• Erfahrung mit Tests, Akzeptanz, Go-Live-Vorbereitung, Incident Handling, Second-Level-Support, Service Management und operativer Übergabe.\n\n• Starke Kommunikationsfähigkeiten und die Fähigkeit, technische Themen Banken, Kunden, Geschäftsteams, IT-Partnern und Anbietern klar zu erklären.\n\n• Strukturierte, pragmatische und zuverlässige Arbeitsweise mit starker Kundenorientierung; fließend Deutsch und Englisch, Französisch oder Italienisch ist von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nTechnical Integration Manager (80 - 100%)\n\nZurich : 80-100% (Travailler chez soi en hausse de 40%)\n\nVoulez-vous travailler à l'intersection des services bancaires, de la technologie et de l'intégration des clients? Êtes-vous motivé à aider les banques, les partenaires et les équipes internes à mettre en production des services sûrs et stables? Alors notre équipe SIX BBS veut avoir des nouvelles de vous. Nous sommes responsables de l'embarquement, de l'intégration technique et du soutien opérationnel pour des services tels que l'API debiX, eBill, LSV, Debit et bLink. Dans ce rôle, vous travaillerez en étroite collaboration avec les banques, les clients, les partenaires logiciels, les fournisseurs et les équipes internes à travers les produits, les TI, la sécurité, la conformité et les opérations. Vous vous concentrerez sur les intégrations techniques, l'embarquement des clients, les essais, la préparation en cours, l'assistance de deuxième niveau et la transition structurée vers des opérations régulières. Il s'agit d'un rôle central d'interface entre les clients, la technologie et les opérations, plutôt qu'un simple rôle de gestion de projet, de propriétaire de produits ou d'ingénierie de logiciels.\n\nCe que vous ferez\n\n• Coordonner les projets d'intégration technique pour l'API debiX et d'autres services BBS tels que eBill, Debit et ATM, depuis l'alignement initial jusqu'au passage et au transfert aux opérations.\n\n• Agir en tant que contact central pour les banques, les clients, les partenaires logiciels, les fournisseurs, les partenaires informatiques et les équipes internes pendant l'embarquement, les essais, l'acceptation et la préparation de la production.\n\n• Clarifier les exigences opérationnelles, techniques et opérationnelles pour les intégrations basées sur l'API, les connexions client, les certificats, les environnements et les processus de soutien.\n\n• Soutenir la préparation et l'exécution des tests, l'analyse des problèmes, l'acceptation des clients, les activités de lancement, l'hypersoins et la transition vers des opérations régulières.\n\n• Fournir un soutien de deuxième niveau pour les demandes des clients, les sujets d'interface, les certificats, les problèmes d'intégration et les incidents liés à la production.\n\nCe que vous apportez\n\n• Expérience dans l'intégration technique client, l'intégration API, l'intégration partenaire, l'intégration de services ou la coordination technique de projets, idéalement dans les banques, les paiements ou un autre environnement réglementé.\n\n• Bonne compréhension des API REST, XML, JSON, authentification, certificats, TLS mutuels, OAuth ou des sujets de sécurité et d'interface comparables.\n\n• Expérience des tests, de l'acceptation, de la préparation, du traitement des incidents, du soutien de deuxième niveau, de la gestion des services et du transfert opérationnel.\n\n• De solides compétences en communication et la capacité d'expliquer clairement les sujets techniques aux banques, aux clients, aux équipes d'affaires, aux partenaires informatiques et aux fournisseurs.\n\n• Un style de travail structuré, pragmatique et fiable avec une forte orientation client ; parler couramment allemand et anglais, français ou italien est un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Technical-Integration-Manager-%2880-100%29/1444014133/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-26T21:58:02.142Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T00:00:00Z",
+      "postedDate": "2026-10-02T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1444014133/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-integration-manager-80-100-six-group-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-integration-manager-80-100-six-group-zurich"
+        ],
+        "fr": [
+          "technical-integration-manager-80-100-six-group-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-16T09:37:46.306Z",
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
           "unitText": "YEAR"
         }
       }
@@ -251,7 +327,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-Data/1443824333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:29.821Z",
+      "crawledAt": "2026-10-26T21:58:01.159Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -317,7 +393,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Requirements-Engineer-%2880-100%29/1443871133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:29.194Z",
+      "crawledAt": "2026-10-26T21:58:00.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -347,82 +423,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "six-group-c0ba01d30946",
-      "slug": "responsabile-integrazione-tecnica-80-100-six-group-zurich",
-      "slugByLocale": {
-        "it": "responsabile-integrazione-tecnica-80-100-six-group-zurich",
-        "en": "technical-integration-manager-80-100-six-group-zurich",
-        "de": "technical-integration-manager-80-100-six-group-zurich",
-        "fr": "gestionnaire-de-l-integration-technique-80-100-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Technical Integration Manager (80 - 100%)",
-      "titleByLocale": {
-        "it": "Responsabile Integrazione Tecnica (80 - 100%)",
-        "en": "Technical Integration Manager (80 - 100%)",
-        "de": "Technische Integration Manager (80 - 100%)",
-        "fr": "Gestionnaire de l'intégration technique (80 - 100%)"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nTechnical Integration Manager (80 - 100%)\n\nZurich |  80-100% (Working from home up 40%) | Reference 8294\n\nDo you want to work at the intersection of banking services, technology and customer integration? Are you motivated to help banks, partners and internal teams bring secure and stable services into production? Then our SIX BBS team wants to hear from you. We are responsible for onboarding, technical integration and operational support for services such as debiX API, eBill, LSV, Debit and bLink. In this role, you will work closely with banks, customers, software partners, vendors and internal teams across Product, IT, Security, Compliance and Operations. Your focus will be on technical integrations, customer onboarding, testing, go-live preparation, second-level support and a structured handover into regular operations. This is a central interface role between customers, technology and operations, rather than a pure project management, product owner or software engineering role.\n\nWhat You Will Do\n\n• Coordinate technical integration projects for debiX API and other BBS services such as eBill, Debit and ATM, from initial alignment through go-live and handover to operations.\n\n• Act as the central contact for banks, customers, software partners, vendors, IT partners and internal teams during onboarding, testing, acceptance and production preparation.\n\n• Clarify business, technical and operational requirements for API-based integrations, customer connections, certificates, environments and support processes.\n\n• Support test preparation and execution, issue analysis, customer acceptance, go-live activities, hypercare and the transition into regular operations.\n\n• Provide second-level support for customer requests, interface topics, certificates, integration issues and production-related incidents.\n\nWhat You Bring\n\n• Experience in technical customer integration, API integration, partner onboarding, service integration or technical project coordination, ideally in banking, payments or another regulated environment.\n\n• Good understanding of REST APIs, XML, JSON, authentication, certificates, mutual TLS, OAuth or comparable security and interface topics.\n\n• Experience with testing, acceptance, go-live preparation, incident handling, second-level support, service management and operational handover.\n\n• Strong communication skills and the ability to explain technical topics clearly to banks, customers, business teams, IT partners and vendors.\n\n• Structured, pragmatic and reliable working style with a strong customer focus; fluent German and English, French or Italian is an advantage.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nResponsabile Integrazione Tecnica (80 - 100%)\n\nZurigo | 80-100% (Lavorare da casa fino al 40%) | Riferimento 8294\n\nVuoi lavorare all'intersezione dei servizi bancari, della tecnologia e dell'integrazione dei clienti? Sei motivato ad aiutare banche, partner e team interni a portare in produzione servizi sicuri e stabili? Allora il nostro team di SIX BBS vuole sentirti. Siamo responsabili dell'integrazione tecnica e del supporto operativo per servizi quali debiX API, eBill, LSV, Debit e bLink. In questo ruolo, lavorerai a stretto contatto con banche, clienti, partner software, fornitori e team interni di prodotto, IT, sicurezza, conformità e operazioni. Il vostro focus sarà sulle integrazioni tecniche, l'accensione del cliente, il test, la preparazione del go-live, il supporto di secondo livello e una consegna strutturata in operazioni regolari. Questo è un ruolo di interfaccia centrale tra clienti, tecnologia e operazioni, piuttosto che un puro ruolo di gestione del progetto, proprietario del prodotto o ingegneria del software.\n\nCosa farai\n\n• Coordinate i progetti di integrazione tecnica per debiX API e altri servizi BBS come eBill, Debit e ATM, dall'allineamento iniziale attraverso il go-live e il passaggio alle operazioni.\n\n• Agire come contatto centrale per banche, clienti, partner software, fornitori, partner IT e team interni durante la preparazione di bordo, test, accettazione e produzione.\n\n• Verificare i requisiti aziendali, tecnici e operativi per integrazioni basate su API, connessioni ai clienti, certificati, ambienti e processi di supporto.\n\n• Preparazione e esecuzione del test di supporto, analisi dei problemi, accettazione del cliente, attività di go-live, ipercare e la transizione in operazioni regolari.\n\n• Fornire supporto di secondo livello per le richieste dei clienti, argomenti di interfaccia, certificati, problemi di integrazione e incidenti legati alla produzione.\n\nChe cosa porta\n\n• Esperienza nell'integrazione tecnica dei clienti, integrazione API, integrazione dei partner, integrazione dei servizi o coordinamento tecnico dei progetti, idealmente nel settore bancario, dei pagamenti o di un altro ambiente regolamentato.\n\n• Buona comprensione delle API REST, XML, JSON, autenticazione, certificati, TLS reciproci, OAuth o simili argomenti di sicurezza e interfaccia.\n\n• Esperienza con test, accettazione, preparazione go-live, gestione degli incidenti, supporto di secondo livello, gestione dei servizi e consegna operativa.\n\n• Forte capacità di comunicazione e la capacità di spiegare chiaramente argomenti tecnici a banche, clienti, team aziendali, partner IT e fornitori.\n\n• Stile di lavoro strutturato, pragmatico e affidabile con un forte focus del cliente; fluente tedesco e inglese, francese o italiano è un vantaggio.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nTechnical Integration Manager (80 - 100%)\n\nZurich | 80-100% (Working from home up 40%) | Reference 8294\n\nDo you want to work at the intersection of banking services, technology and customer integration? Are you motivated to help banks, partners and internal teams bring secure and stable services into production? Then our SIX BBS team wants to hear from you. We are responsible for onboarding, technical integration and operational support for services such as debiX API, eBill, LSV, Debit and bLink. In this role, you will work closely with banks, customers, software partners, vendors and internal teams across Product, IT, Security, Compliance and Operations. Your focus will be on technical integrations, customer onboarding, testing, go-live preparation, second-level support and a structured handover into regular operations. This is a central interface role between customers, technology and operations, rather than a pure project management, product owner or software engineering role.\n\nWhat You Will Do\n\n• Coordinate technical integration projects for debiX API and other BBS services such as eBill, Debit and ATM, from initial alignment through go-live and handover to operations.\n\n• Act as the central contact for banks, customers, software partners, vendors, IT partners and internal teams during onboarding, testing, acceptance and production preparation.\n\n• Clarify business, technical and operational requirements for API-based integrations, customer connections, certificates, environments and support processes.\n\n• Support test preparation and execution, issue analysis, customer acceptance, go-live activities, hypercare and the transition into regular operations.\n\n• Provide second-level support for customer requests, interface topics, certificates, integration issues and production-related incidents.\n\nWhat You Bring\n\n• Experience in technical customer integration, API integration, partner onboarding, service integration or technical project coordination, ideally in banking, payments or another regulated environment.\n\n• Good understanding of REST APIs, XML, JSON, authentication, certificates, mutual TLS, OAuth or comparable security and interface topics.\n\n• Experience with testing, acceptance, go-live preparation, incident handling, second-level support, service management and operational handover.\n\n• Strong communication skills and the ability to explain technical topics clearly to banks, customers, business teams, IT partners and vendors.\n\n• Structured, pragmatic and reliable working style with a strong customer focus; fluent German and English, French or Italian is an advantage.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nTechnical Integration Manager (80 - 100%)\n\nZürich | 80-100% (Arbeiten von zu Hause bis 40%) | Referenz 8294\n\nMöchten Sie an der Schnittstelle von Bankdienstleistungen, Technologie und Kundenintegration arbeiten? Sind Sie motiviert, Banken, Partnern und internen Teams zu helfen, sichere und stabile Dienstleistungen in die Produktion zu bringen? Dann möchte unser SIX BBS Team von Ihnen hören. Wir sind verantwortlich für Onboarding, technische Integration und operativen Support für Dienste wie debiX API, eBill, LSV, Debit und bLink. In dieser Funktion arbeiten Sie eng mit Banken, Kunden, Softwarepartnern, Anbietern und internen Teams in den Bereichen Produkt, IT, Sicherheit, Compliance und Betrieb zusammen. Ihr Fokus liegt auf technischen Integrationen, Kunden-Onboarding, Testen, Go-Live-Vorbereitung, Second-Level-Support und einer strukturierten Übergabe in den regulären Betrieb. Dabei handelt es sich um eine zentrale Schnittstelle zwischen Kunden, Technologie und Betrieb und nicht um eine reine Projektmanagement-, Product Owner- oder Software Engineering-Rolle.\n\nWas Sie tun werden\n\n• Koordinieren Sie technische Integrationsprojekte für debiX API und andere BBS-Dienste wie eBill, Debit und ATM, von der anfänglichen Ausrichtung über Go-Live und Übergabe an den Betrieb.\n\n• Handeln Sie als zentraler Ansprechpartner für Banken, Kunden, Softwarepartner, Anbieter, IT-Partner und interne Teams bei Onboarding, Test, Abnahme und Produktionsvorbereitung.\n\n• Klären Sie geschäftliche, technische und operative Anforderungen für API-basierte Integrationen, Kundenverbindungen, Zertifikate, Umgebungen und Supportprozesse.\n\n• Unterstützung bei der Vorbereitung und Durchführung von Tests, Problemanalyse, Kundenakzeptanz, Go-Live-Aktivitäten, Hypercare und dem Übergang in den regulären Betrieb.\n\n• Bereitstellung von Second-Level-Support für Kundenanfragen, Schnittstellenthemen, Zertifikate, Integrationsprobleme und produktionsbezogene Vorfälle.\n\nWas du mitbringst\n\n• Erfahrung in technischer Kundenintegration, API-Integration, Partner-Onboarding, Service-Integration oder technischer Projektkoordination, idealerweise im Banking, Payment oder einem anderen regulierten Umfeld.\n\n• Gutes Verständnis von REST APIs, XML, JSON, Authentifizierung, Zertifikaten, gegenseitigem TLS, OAuth oder vergleichbaren Sicherheits- und Schnittstellenthemen.\n\n• Erfahrung mit Tests, Akzeptanz, Go-Live-Vorbereitung, Incident Handling, Second-Level-Support, Service Management und operativer Übergabe.\n\n• Starke Kommunikationsfähigkeiten und die Fähigkeit, technische Themen Banken, Kunden, Geschäftsteams, IT-Partnern und Anbietern klar zu erklären.\n\n• Strukturierte, pragmatische und zuverlässige Arbeitsweise mit starker Kundenorientierung; fließend Deutsch und Englisch, Französisch oder Italienisch ist von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nTechnical Integration Manager (80 - 100%)\n\nZurich : 80-100% (Travailler chez soi en hausse de 40%)\n\nVoulez-vous travailler à l'intersection des services bancaires, de la technologie et de l'intégration des clients? Êtes-vous motivé à aider les banques, les partenaires et les équipes internes à mettre en production des services sûrs et stables? Alors notre équipe SIX BBS veut avoir des nouvelles de vous. Nous sommes responsables de l'embarquement, de l'intégration technique et du soutien opérationnel pour des services tels que l'API debiX, eBill, LSV, Debit et bLink. Dans ce rôle, vous travaillerez en étroite collaboration avec les banques, les clients, les partenaires logiciels, les fournisseurs et les équipes internes à travers les produits, les TI, la sécurité, la conformité et les opérations. Vous vous concentrerez sur les intégrations techniques, l'embarquement des clients, les essais, la préparation en cours, l'assistance de deuxième niveau et la transition structurée vers des opérations régulières. Il s'agit d'un rôle central d'interface entre les clients, la technologie et les opérations, plutôt qu'un simple rôle de gestion de projet, de propriétaire de produits ou d'ingénierie de logiciels.\n\nCe que vous ferez\n\n• Coordonner les projets d'intégration technique pour l'API debiX et d'autres services BBS tels que eBill, Debit et ATM, depuis l'alignement initial jusqu'au passage et au transfert aux opérations.\n\n• Agir en tant que contact central pour les banques, les clients, les partenaires logiciels, les fournisseurs, les partenaires informatiques et les équipes internes pendant l'embarquement, les essais, l'acceptation et la préparation de la production.\n\n• Clarifier les exigences opérationnelles, techniques et opérationnelles pour les intégrations basées sur l'API, les connexions client, les certificats, les environnements et les processus de soutien.\n\n• Soutenir la préparation et l'exécution des tests, l'analyse des problèmes, l'acceptation des clients, les activités de lancement, l'hypersoins et la transition vers des opérations régulières.\n\n• Fournir un soutien de deuxième niveau pour les demandes des clients, les sujets d'interface, les certificats, les problèmes d'intégration et les incidents liés à la production.\n\nCe que vous apportez\n\n• Expérience dans l'intégration technique client, l'intégration API, l'intégration partenaire, l'intégration de services ou la coordination technique de projets, idéalement dans les banques, les paiements ou un autre environnement réglementé.\n\n• Bonne compréhension des API REST, XML, JSON, authentification, certificats, TLS mutuels, OAuth ou des sujets de sécurité et d'interface comparables.\n\n• Expérience des tests, de l'acceptation, de la préparation, du traitement des incidents, du soutien de deuxième niveau, de la gestion des services et du transfert opérationnel.\n\n• De solides compétences en communication et la capacité d'expliquer clairement les sujets techniques aux banques, aux clients, aux équipes d'affaires, aux partenaires informatiques et aux fournisseurs.\n\n• Un style de travail structuré, pragmatique et fiable avec une forte orientation client ; parler couramment allemand et anglais, français ou italien est un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Technical-Integration-Manager-%2880-100%29/1444014133/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:28.379Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T00:00:00Z",
-      "postedDate": "2026-10-02T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1444014133/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-integration-manager-80-100-six-group-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-integration-manager-80-100-six-group-zurich"
-        ],
-        "fr": [
-          "technical-integration-manager-80-100-six-group-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-16T09:37:46.306Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
           "unitText": "YEAR"
         }
       }
@@ -458,7 +458,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Observability-Engineer/1293318201/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:27.778Z",
+      "crawledAt": "2026-10-26T21:57:59.887Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -531,7 +531,7 @@
       "url": "https://jobs.six-group.com/job/Geneva-Senior-Sales-&-Account-Managerin-Banking-Romandie-%2880-100%29/1433979833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:48:24.937Z",
+      "crawledAt": "2026-10-26T21:57:58.077Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -613,7 +613,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-PAM-&-Secrets-Management-Engineer/1445127533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:21.201Z",
+      "crawledAt": "2026-10-26T21:57:54.786Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -678,7 +678,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Client-Service-Manager-%2880-100%29/1425295333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:48:18.729Z",
+      "crawledAt": "2026-10-26T21:57:52.731Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -751,7 +751,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-AI-Software-Architect/1435758133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:16.554Z",
+      "crawledAt": "2026-10-26T21:57:50.640Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -831,7 +831,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-IAM-Business-Analyst-%2880-100%29/1436066033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:15.539Z",
+      "crawledAt": "2026-10-26T21:57:49.675Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -915,7 +915,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Regulatory-Data-Analyst-%2880-100%29/1446600433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:13.060Z",
+      "crawledAt": "2026-10-26T21:57:47.921Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -981,7 +981,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-CMC-Measurement-&-Insights-Lead/1447481733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:12.454Z",
+      "crawledAt": "2026-10-26T21:57:47.339Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1061,7 +1061,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Data-Licensing-Specialist-%28100%29/1448061833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:09.476Z",
+      "crawledAt": "2026-10-26T21:57:44.872Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1126,7 +1126,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1437516233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:48:07.399Z",
+      "crawledAt": "2026-10-26T21:57:43.206Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1211,7 +1211,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-IT-Manager-%28Focus-IT-Strategy-and-Operating-Model%29-CIO-Office-%2880-100%29/1448418433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:06.756Z",
+      "crawledAt": "2026-10-26T21:57:42.558Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1290,7 +1290,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Business-&-Application-Support-%28100%29/1438283433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:04.493Z",
+      "crawledAt": "2026-10-26T21:57:40.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1370,7 +1370,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Project-&-Portfolio-Management-and-Project-Controlling-80-100/1449730833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:48:00.465Z",
+      "crawledAt": "2026-10-26T21:57:37.338Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1450,7 +1450,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Kubernetes-Platform-Engineer-%2880-100%29/1450290133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:47:57.989Z",
+      "crawledAt": "2026-10-26T21:57:35.144Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1516,7 +1516,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Data-Acquisition-Manager-%2880-100%29/1450317433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:47:57.383Z",
+      "crawledAt": "2026-10-26T21:57:34.503Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1595,7 +1595,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:47:56.668Z",
+      "crawledAt": "2026-10-26T21:57:33.851Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1660,7 +1660,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Web-Access-Management-Engineer-80-100/1429528333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:47:55.606Z",
+      "crawledAt": "2026-10-26T21:57:32.937Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1725,7 +1725,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Fraud-Services-%28100%29/1440523333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:47:54.922Z",
+      "crawledAt": "2026-10-26T21:57:32.311Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1804,7 +1804,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Application-Engineer/1440812533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:47:53.458Z",
+      "crawledAt": "2026-10-26T21:57:30.875Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1869,7 +1869,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Chargeback-Specialist-%2880-100%29/1440913133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:47:52.776Z",
+      "crawledAt": "2026-10-26T21:57:30.276Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1902,6 +1902,151 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "six-group-2203cc791722",
+      "slug": "responsabile-di-incidenti-e-problemi-80-100-six-group-zurich",
+      "slugByLocale": {
+        "it": "responsabile-di-incidenti-e-problemi-80-100-six-group-zurich",
+        "en": "incident-problem-manager-80-100-six-group-zurich",
+        "de": "vorfall-und-problemmanager-80-100-six-group-zurich",
+        "fr": "gestionnaire-d-incidents-et-de-problemes-80-100-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Incident & Problem Manager (80 - 100%)",
+      "titleByLocale": {
+        "it": "Responsabile della gestione degli incidenti e dei problemi (80 - 100%)",
+        "en": "Incident & Problem Manager (80 - 100%)",
+        "de": "Manager für Störungs- und Problemmanagement (80 - 100 %)",
+        "fr": "Responsable de la gestion des incidents et des problèmes (80 - 100 %)"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich |  up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo una combinazione unica di tradizione e futuro, di solide fondamenta e crescita. Valorizziamo le menti brillanti e le ispiriamo a crescere con le loro idee. Vieni a plasmare con noi il futuro della finanza.\n\nResponsabile della gestione degli incidenti e dei problemi (80 - 100%)\n\nZurigo | Possibilità di lavorare da casa fino al 40% | Riferimento 8293\n\nDesideri lavorare in un ambiente altamente dinamico? Ti motiva garantire servizi affidabili e una comunicazione di cui le banche svizzere possano fidarsi durante situazioni critiche? Cerchiamo un responsabile degli incidenti aziendali da inserire nel nostro team BBS Operations a Zurigo, responsabile della gestione degli incidenti dal punto di vista aziendale, garantendo una comunicazione chiara e supportando il miglioramento continuo. Entra a far parte di un team che valorizza l'affidabilità, la collaborazione e il senso di responsabilità nella fornitura di servizi stabili e orientati al cliente.\n\nCosa farai\n\n- valutare gli incidenti dal punto di vista dell'impatto sul business e sui clienti, integrando la gestione tecnica da parte dei team del centro di controllo\n- garantire una comunicazione chiara e tempestiva, preparando aggiornamenti sugli incidenti e report per i clienti e gli stakeholder interni\n- coordinare le azioni successive e supportare la transizione alla gestione dei problemi, garantendo un'adeguata documentazione e la chiusura\n- fungere da interfaccia tra le operations, i team IT e i fornitori esterni durante gli incidenti, per allineare priorità e azioni\n- partecipare al servizio di reperibilità 7×24, supportando gli incidenti critici per il business al di fuori del normale orario di lavoro\n\nCosa porti\n\n- esperienza con framework di gestione dei servizi IT come ITIL o processi strutturati di gestione degli incidenti analoghi\n- solida comprensione delle operazioni di servizio e dei processi aziendali; un'ulteriore esperienza in contesti di pagamenti o di elaborazione delle transazioni costituisce un vantaggio\n- capacità di strutturare informazioni complesse e comunicare chiaramente con diversi gruppi di stakeholder\n- elevato senso di responsabilità e affidabilità nella gestione di situazioni critiche e incidenti urgenti\n- Competenze linguistiche richieste: inglese e tedesco (parlati e scritti)\n\nSe hai domande, consulta la nostra pagina delle FAQ oppure chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa posizione accettiamo esclusivamente candidature dirette.\n\nLa diversità è importante per noi. Pertanto, desideriamo ricevere candidature indipendentemente dal background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich | up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Bedeutung sind wir eine einzigartige Verbindung von Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie zu uns und gestalten Sie mit uns die Zukunft des Finanzwesens.\n\nIncident- und Problem Manager (80 - 100%)\n\nZürich | bis zu 40% Homeoffice möglich | Referenz 8293\n\nMöchten Sie in einem äußerst dynamischen Umfeld arbeiten? Sind Sie motiviert, in kritischen Situationen zuverlässige Services und vertrauenswürdige Kommunikation für Schweizer Banken sicherzustellen? Wir suchen eine Person als Business Incident Manager für unser BBS Operations Team in Zürich. Sie sind verantwortlich für das Management von Incidents aus Geschäftsperspektive, stellen eine klare Kommunikation sicher und unterstützen kontinuierliche Verbesserungen. Werden Sie Teil eines Teams, das bei der Bereitstellung stabiler und kundenorientierter Services Wert auf Zuverlässigkeit, Zusammenarbeit und Eigenverantwortung legt.\n\nIhre Aufgaben\n\n- Incidents aus geschäftlicher Sicht und im Hinblick auf ihre Auswirkungen auf Kunden beurteilen und damit die technische Bearbeitung durch die Control-Center-Teams ergänzen\n- für klare und zeitnahe Kommunikation sorgen, Incident-Updates und Berichte für Kunden und interne Stakeholder vorbereiten\n- Folgeaktionen koordinieren und den Übergang zum Problemmanagement unterstützen, wobei eine ordnungsgemäße Dokumentation und der Abschluss sichergestellt werden\n- während Incidents als Schnittstelle zwischen Operations, IT-Teams und externen Anbietern agieren, um Prioritäten und Maßnahmen abzustimmen\n- am 7×24-Bereitschaftsdienst teilnehmen und geschäftskritische Incidents außerhalb der üblichen Arbeitszeiten unterstützen\n\nWas Sie mitbringen\n\n- Erfahrung mit IT-Service-Management-Frameworks wie ITIL oder ähnlichen strukturierten Incident-Prozessen\n- ausgeprägtes Verständnis von Servicebetrieb und Geschäftsprozessen; zusätzliche Erfahrung in Zahlungsverkehrs- oder Transaktionsverarbeitungsumgebungen ist von Vorteil\n- Fähigkeit, komplexe Informationen zu strukturieren und klar an verschiedene Stakeholdergruppen zu kommunizieren\n- Hohes Maß an Eigenverantwortung und Verantwortungsbewusstsein beim Umgang mit kritischen Situationen und zeitkritischen Vorfällen\n- Benötigte Sprachkenntnisse: Englisch und Deutsch (in Wort und Schrift)\n\nWenn Sie Fragen haben, sehen Sie auf unserer FAQ-Seite nach oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Stellenausschreibung akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher möchten wir Bewerbungen unabhängig von jeglichem persönlichen Hintergrund erhalten.",
+        "fr": "SIX est le moteur de la transformation des marchés financiers.\n\nCe qui nous distingue nous fait avancer : entre ancrage local et portée mondiale, nous sommes un mélange unique de tradition et d’avenir, de fondations et de croissance. Nous valorisons les esprits brillants et les encourageons à grandir avec leurs idées. Venez façonner avec nous l’avenir de la finance.\n\nResponsable de la gestion des incidents et des problèmes (80 - 100%)\n\nZurich | télétravail possible jusqu’à 40% | Référence 8293\n\nSouhaitez-vous travailler dans un environnement très dynamique ? Êtes-vous motivé par l’idée de garantir des services fiables et une communication digne de confiance pour les banques suisses dans des situations critiques ? Nous recherchons un responsable des incidents métier pour rejoindre notre équipe BBS Operations à Zurich, chargé de gérer les incidents du point de vue métier, de garantir une communication claire et de soutenir l’amélioration continue. Rejoignez une équipe qui valorise la fiabilité, la collaboration et le sens des responsabilités dans la fourniture de services stables et axés sur le client.\n\nCe que vous ferez\n\n- évaluer les incidents du point de vue de leur impact sur l’activité et les clients, en complément de leur traitement technique par les équipes du centre de contrôle\n- garantir une communication claire et en temps utile, en préparant des mises à jour et des rapports sur les incidents pour les clients et les parties prenantes internes\n- coordonner les actions de suivi et soutenir la transition vers la gestion des problèmes, en veillant à une documentation et à une clôture appropriées\n- faire office d’interface entre les opérations, les équipes informatiques et les prestataires externes pendant les incidents afin d’aligner les priorités et les actions\n- participer à l’astreinte 7×24, en apportant un soutien lors d’incidents critiques pour l’activité en dehors des heures de travail habituelles\n\nCe que vous apportez\n\n- expérience des cadres de gestion des services informatiques tels qu’ITIL ou de processus structurés similaires de gestion des incidents\n- solide compréhension de l’exploitation des services et des processus métier ; une expérience supplémentaire dans des environnements de paiements ou de traitement des transactions constitue un atout\n- capacité à structurer des informations complexes et à communiquer clairement avec différents groupes de parties prenantes\n- fort sens des responsabilités et de l’engagement dans la gestion de situations critiques et d’incidents urgents\n- compétences linguistiques requises : anglais et allemand (à l’oral et à l’écrit)\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour ce poste, nous n’acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. C’est pourquoi nous souhaitons recevoir des candidatures, quels que soient les parcours personnels."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-26T21:57:28.877Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25T00:00:00Z",
+      "postedDate": "2026-09-25T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1441446133/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "incident-problem-manager-80-100-six-group-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "incident-problem-manager-80-100-six-group-zurich"
+        ],
+        "de": [
+          "incident-problem-manager-80-100-six-group-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:31:11.411Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "six-group-ee3c4a6b816b",
+      "slug": "devops-engineer-six-group-zurich",
+      "slugByLocale": {
+        "en": "devops-engineer-six-group-zurich",
+        "it": "devops-engineer-six-group-zurich",
+        "de": "devops-engineer-six-group-zurich",
+        "fr": "devops-engineer-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "DevOps Engineer",
+      "titleByLocale": {
+        "en": "DevOps Engineer",
+        "it": "DevOps Ingegnere",
+        "de": "DevOps Ingenieur",
+        "fr": "DevOps Ingénieur"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nDevOps Engineer\n\nZurich |  Working from home up to 40% | Reference 8333\n\nAre you excited by the opportunity to shape reliable, high-performing application platforms in a modern DevOps environment? Do you enjoy combining automation, operations, and innovation to build resilient services that are ready for production at scale? We are looking for an Application DevOps Engineer to help drive automated deployments, GitOps-based delivery, and infrastructure-as-code across cloud and on-premise environments. In this role, you will work closely with application development teams to ensure stable, low-latency, and secure operations while continuously improving deployment workflows, monitoring, and platform resilience.\n\nWhat You Will Do\n\n• Design, implement, and maintain automated deployment workflows using Ansible and GitLab CI/CD.\n\n• Define and continuously improve monitoring, alerting, dashboards, and runbooks to strengthen operational stability and incident response.\n\n• Develop automation and integration scripts in PowerShell, Python, Perl, Bash, and CMD, and work with structured formats such as XML, JSON, and XSL where required.\n\n• Operate and support monitoring and job scheduling platforms such as Patrol, Elastic, Grafana, and Airflow.\n\n• Take operational ownership of production services throughout their lifecycle, including deployment, monitoring, troubleshooting, maintenance, recovery, and continuous improvement.\n\n• Participate in a regular on-call rotation for business-critical production systems, responding to incidents outside regular business hours when required, and taking ownership of troubleshooting, mitigation, escalation, and service restoration.\n\n• Lead or actively contribute to incident response, root-cause analysis and post-incident reviews, turning lessons learned into monitoring, automation and reliability improvements.\n\nWhat You Bring\n\n• Strong DevOps mindset with experience across the software delivery lifecycle and operating production systems.\n\n• Strong scripting skills in Python and shell, along with practical experience using GitLab CI/CD; experience with Ansible and infrastructure-as-code is highly valued.\n\n• Solid understanding of Linux, networking fundamentals\n\n• Hands-on experience operating production systems and containerized application platforms such as Kubernetes or OpenShift, including deployment, monitoring and troubleshooting.\n\n• Experience with monitoring, alerting, and logging solutions such as Prometheus, Grafana, ELK/EFK, Splunk, or similar tools in containerized environments.\n\n• Clear communication skills with the ability to explain technical topics to both technical and non-technical audiences.\n\n• Strong hands-on troubleshooting skills across applications, Linux/Windows, TCP/IP networking, DNS, firewalls, TLS and containerized platforms.\n\n• Fluent English; German and/or Spanish are an advantage.\n\nIf you have any questions, check out our FAQ page or call Yuliya Stoyko  at +34 917095993 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nDevOps Engineer\n\nZurich |  Working from home up to 40% | Reference 8333\n\nAre you excited by the opportunity to shape reliable, high-performing application platforms in a modern DevOps environment? Do you enjoy combining automation, operations, and innovation to build resilient services that are ready for production at scale? We are looking for an Application DevOps Engineer to help drive automated deployments, GitOps-based delivery, and infrastructure-as-code across cloud and on-premise environments. In this role, you will work closely with application development teams to ensure stable, low-latency, and secure operations while continuously improving deployment workflows, monitoring, and platform resilience.\n\nWhat You Will Do\n\n• Design, implement, and maintain automated deployment workflows using Ansible and GitLab CI/CD.\n\n• Define and continuously improve monitoring, alerting, dashboards, and runbooks to strengthen operational stability and incident response.\n\n• Develop automation and integration scripts in PowerShell, Python, Perl, Bash, and CMD, and work with structured formats such as XML, JSON, and XSL where required.\n\n• Operate and support monitoring and job scheduling platforms such as Patrol, Elastic, Grafana, and Airflow.\n\n• Take operational ownership of production services throughout their lifecycle, including deployment, monitoring, troubleshooting, maintenance, recovery, and continuous improvement.\n\n• Participate in a regular on-call rotation for business-critical production systems, responding to incidents outside regular business hours when required, and taking ownership of troubleshooting, mitigation, escalation, and service restoration.\n\n• Lead or actively contribute to incident response, root-cause analysis and post-incident reviews, turning lessons learned into monitoring, automation and reliability improvements.\n\nWhat You Bring\n\n• Strong DevOps mindset with experience across the software delivery lifecycle and operating production systems.\n\n• Strong scripting skills in Python and shell, along with practical experience using GitLab CI/CD; experience with Ansible and infrastructure-as-code is highly valued.\n\n• Solid understanding of Linux, networking fundamentals\n\n• Hands-on experience operating production systems and containerized application platforms such as Kubernetes or OpenShift, including deployment, monitoring and troubleshooting.\n\n• Experience with monitoring, alerting, and logging solutions such as Prometheus, Grafana, ELK/EFK, Splunk, or similar tools in containerized environments.\n\n• Clear communication skills with the ability to explain technical topics to both technical and non-technical audiences.\n\n• Strong hands-on troubleshooting skills across applications, Linux/Windows, TCP/IP networking, DNS, firewalls, TLS and containerized platforms.\n\n• Fluent English; German and/or Spanish are an advantage.\n\nIf you have any questions, check out our FAQ page or call Yuliya Stoyko  at +34 917095993 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "it": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nDevOps Engineer\n\nZurich |  Working from home up to 40% | Reference 8333\n\nAre you excited by the opportunity to shape reliable, high-performing application platforms in a modern DevOps environment? Do you enjoy combining automation, operations, and innovation to build resilient services that are ready for production at scale? We are looking for an Application DevOps Engineer to help drive automated deployments, GitOps-based delivery, and infrastructure-as-code across cloud and on-premise environments. In this role, you will work closely with application development teams to ensure stable, low-latency, and secure operations while continuously improving deployment workflows, monitoring, and platform resilience.\n\nWhat You Will Do\n\n• Design, implement, and maintain automated deployment workflows using Ansible and GitLab CI/CD.\n\n• Define and continuously improve monitoring, alerting, dashboards, and runbooks to strengthen operational stability and incident response.\n\n• Develop automation and integration scripts in PowerShell, Python, Perl, Bash, and CMD, and work with structured formats such as XML, JSON, and XSL where required.\n\n• Operate and support monitoring and job scheduling platforms such as Patrol, Elastic, Grafana, and Airflow.\n\n• Take operational ownership of production services throughout their lifecycle, including deployment, monitoring, troubleshooting, maintenance, recovery, and continuous improvement.\n\n• Participate in a regular on-call rotation for business-critical production systems, responding to incidents outside regular business hours when required, and taking ownership of troubleshooting, mitigation, escalation, and service restoration.\n\n• Lead or actively contribute to incident response, root-cause analysis and post-incident reviews, turning lessons learned into monitoring, automation and reliability improvements.\n\nWhat You Bring\n\n• Strong DevOps mindset with experience across the software delivery lifecycle and operating production systems.\n\n• Strong scripting skills in Python and shell, along with practical experience using GitLab CI/CD; experience with Ansible and infrastructure-as-code is highly valued.\n\n• Solid understanding of Linux, networking fundamentals\n\n• Hands-on experience operating production systems and containerized application platforms such as Kubernetes or OpenShift, including deployment, monitoring and troubleshooting.\n\n• Experience with monitoring, alerting, and logging solutions such as Prometheus, Grafana, ELK/EFK, Splunk, or similar tools in containerized environments.\n\n• Clear communication skills with the ability to explain technical topics to both technical and non-technical audiences.\n\n• Strong hands-on troubleshooting skills across applications, Linux/Windows, TCP/IP networking, DNS, firewalls, TLS and containerized platforms.\n\n• Fluent English; German and/or Spanish are an advantage.\n\nIf you have any questions, check out our FAQ page or call Yuliya Stoyko  at +34 917095993 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nDevOps Engineer\n\nZurich |  Working from home up to 40% | Reference 8333\n\nAre you excited by the opportunity to shape reliable, high-performing application platforms in a modern DevOps environment? Do you enjoy combining automation, operations, and innovation to build resilient services that are ready for production at scale? We are looking for an Application DevOps Engineer to help drive automated deployments, GitOps-based delivery, and infrastructure-as-code across cloud and on-premise environments. In this role, you will work closely with application development teams to ensure stable, low-latency, and secure operations while continuously improving deployment workflows, monitoring, and platform resilience.\n\nWhat You Will Do\n\n• Design, implement, and maintain automated deployment workflows using Ansible and GitLab CI/CD.\n\n• Define and continuously improve monitoring, alerting, dashboards, and runbooks to strengthen operational stability and incident response.\n\n• Develop automation and integration scripts in PowerShell, Python, Perl, Bash, and CMD, and work with structured formats such as XML, JSON, and XSL where required.\n\n• Operate and support monitoring and job scheduling platforms such as Patrol, Elastic, Grafana, and Airflow.\n\n• Take operational ownership of production services throughout their lifecycle, including deployment, monitoring, troubleshooting, maintenance, recovery, and continuous improvement.\n\n• Participate in a regular on-call rotation for business-critical production systems, responding to incidents outside regular business hours when required, and taking ownership of troubleshooting, mitigation, escalation, and service restoration.\n\n• Lead or actively contribute to incident response, root-cause analysis and post-incident reviews, turning lessons learned into monitoring, automation and reliability improvements.\n\nWhat You Bring\n\n• Strong DevOps mindset with experience across the software delivery lifecycle and operating production systems.\n\n• Strong scripting skills in Python and shell, along with practical experience using GitLab CI/CD; experience with Ansible and infrastructure-as-code is highly valued.\n\n• Solid understanding of Linux, networking fundamentals\n\n• Hands-on experience operating production systems and containerized application platforms such as Kubernetes or OpenShift, including deployment, monitoring and troubleshooting.\n\n• Experience with monitoring, alerting, and logging solutions such as Prometheus, Grafana, ELK/EFK, Splunk, or similar tools in containerized environments.\n\n• Clear communication skills with the ability to explain technical topics to both technical and non-technical audiences.\n\n• Strong hands-on troubleshooting skills across applications, Linux/Windows, TCP/IP networking, DNS, firewalls, TLS and containerized platforms.\n\n• Fluent English; German and/or Spanish are an advantage.\n\nIf you have any questions, check out our FAQ page or call Yuliya Stoyko  at +34 917095993 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "fr": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nDevOps Engineer\n\nZurich |  Working from home up to 40% | Reference 8333\n\nAre you excited by the opportunity to shape reliable, high-performing application platforms in a modern DevOps environment? Do you enjoy combining automation, operations, and innovation to build resilient services that are ready for production at scale? We are looking for an Application DevOps Engineer to help drive automated deployments, GitOps-based delivery, and infrastructure-as-code across cloud and on-premise environments. In this role, you will work closely with application development teams to ensure stable, low-latency, and secure operations while continuously improving deployment workflows, monitoring, and platform resilience.\n\nWhat You Will Do\n\n• Design, implement, and maintain automated deployment workflows using Ansible and GitLab CI/CD.\n\n• Define and continuously improve monitoring, alerting, dashboards, and runbooks to strengthen operational stability and incident response.\n\n• Develop automation and integration scripts in PowerShell, Python, Perl, Bash, and CMD, and work with structured formats such as XML, JSON, and XSL where required.\n\n• Operate and support monitoring and job scheduling platforms such as Patrol, Elastic, Grafana, and Airflow.\n\n• Take operational ownership of production services throughout their lifecycle, including deployment, monitoring, troubleshooting, maintenance, recovery, and continuous improvement.\n\n• Participate in a regular on-call rotation for business-critical production systems, responding to incidents outside regular business hours when required, and taking ownership of troubleshooting, mitigation, escalation, and service restoration.\n\n• Lead or actively contribute to incident response, root-cause analysis and post-incident reviews, turning lessons learned into monitoring, automation and reliability improvements.\n\nWhat You Bring\n\n• Strong DevOps mindset with experience across the software delivery lifecycle and operating production systems.\n\n• Strong scripting skills in Python and shell, along with practical experience using GitLab CI/CD; experience with Ansible and infrastructure-as-code is highly valued.\n\n• Solid understanding of Linux, networking fundamentals\n\n• Hands-on experience operating production systems and containerized application platforms such as Kubernetes or OpenShift, including deployment, monitoring and troubleshooting.\n\n• Experience with monitoring, alerting, and logging solutions such as Prometheus, Grafana, ELK/EFK, Splunk, or similar tools in containerized environments.\n\n• Clear communication skills with the ability to explain technical topics to both technical and non-technical audiences.\n\n• Strong hands-on troubleshooting skills across applications, Linux/Windows, TCP/IP networking, DNS, firewalls, TLS and containerized platforms.\n\n• Fluent English; German and/or Spanish are an advantage.\n\nIf you have any questions, check out our FAQ page or call Yuliya Stoyko  at +34 917095993 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-DevOps-Engineer/1451213733/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-26T21:57:27.454Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-26T00:00:00Z",
+      "postedDate": "2026-10-26T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1451213733/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-26T21:57:27.454Z"
     },
     {
       "id": "six-group-b80b9c13934c",
@@ -1979,84 +2124,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "six-group-2203cc791722",
-      "slug": "responsabile-di-incidenti-e-problemi-80-100-six-group-zurich",
-      "slugByLocale": {
-        "it": "responsabile-di-incidenti-e-problemi-80-100-six-group-zurich",
-        "en": "incident-problem-manager-80-100-six-group-zurich",
-        "de": "vorfall-und-problemmanager-80-100-six-group-zurich",
-        "fr": "gestionnaire-d-incidents-et-de-problemes-80-100-six-group-zurich"
       },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Incident & Problem Manager (80 - 100%)",
-      "titleByLocale": {
-        "it": "Responsabile della gestione degli incidenti e dei problemi (80 - 100%)",
-        "en": "Incident & Problem Manager (80 - 100%)",
-        "de": "Manager für Störungs- und Problemmanagement (80 - 100 %)",
-        "fr": "Responsable de la gestion des incidents et des problèmes (80 - 100 %)"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich |  up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo una combinazione unica di tradizione e futuro, di solide fondamenta e crescita. Valorizziamo le menti brillanti e le ispiriamo a crescere con le loro idee. Vieni a plasmare con noi il futuro della finanza.\n\nResponsabile della gestione degli incidenti e dei problemi (80 - 100%)\n\nZurigo | Possibilità di lavorare da casa fino al 40% | Riferimento 8293\n\nDesideri lavorare in un ambiente altamente dinamico? Ti motiva garantire servizi affidabili e una comunicazione di cui le banche svizzere possano fidarsi durante situazioni critiche? Cerchiamo un responsabile degli incidenti aziendali da inserire nel nostro team BBS Operations a Zurigo, responsabile della gestione degli incidenti dal punto di vista aziendale, garantendo una comunicazione chiara e supportando il miglioramento continuo. Entra a far parte di un team che valorizza l'affidabilità, la collaborazione e il senso di responsabilità nella fornitura di servizi stabili e orientati al cliente.\n\nCosa farai\n\n- valutare gli incidenti dal punto di vista dell'impatto sul business e sui clienti, integrando la gestione tecnica da parte dei team del centro di controllo\n- garantire una comunicazione chiara e tempestiva, preparando aggiornamenti sugli incidenti e report per i clienti e gli stakeholder interni\n- coordinare le azioni successive e supportare la transizione alla gestione dei problemi, garantendo un'adeguata documentazione e la chiusura\n- fungere da interfaccia tra le operations, i team IT e i fornitori esterni durante gli incidenti, per allineare priorità e azioni\n- partecipare al servizio di reperibilità 7×24, supportando gli incidenti critici per il business al di fuori del normale orario di lavoro\n\nCosa porti\n\n- esperienza con framework di gestione dei servizi IT come ITIL o processi strutturati di gestione degli incidenti analoghi\n- solida comprensione delle operazioni di servizio e dei processi aziendali; un'ulteriore esperienza in contesti di pagamenti o di elaborazione delle transazioni costituisce un vantaggio\n- capacità di strutturare informazioni complesse e comunicare chiaramente con diversi gruppi di stakeholder\n- elevato senso di responsabilità e affidabilità nella gestione di situazioni critiche e incidenti urgenti\n- Competenze linguistiche richieste: inglese e tedesco (parlati e scritti)\n\nSe hai domande, consulta la nostra pagina delle FAQ oppure chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa posizione accettiamo esclusivamente candidature dirette.\n\nLa diversità è importante per noi. Pertanto, desideriamo ricevere candidature indipendentemente dal background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nIncident & Problem Manager (80 - 100%)\n\nZurich | up to 40% Home office possible | Reference 8293\n\nDo you want to work in a highly dynamic environment? Are you motivated to ensure reliable services and trusted communication for Swiss banks during critical situations? We are looking for a Business Incident Manager to join our BBS Operations team in Zurich, responsible for managing incidents from a business perspective, ensuring clear communication, and supporting continuous improvement. Be part of a team that values reliability, collaboration, and ownership in delivering stable and customer-oriented services.\n\nWhat You Will Do\n\n• assess incidents from a business and client impact view, complementing technical handling by control center teams\n\n• ensure clear and timely communication, preparing incident updates and reports for clients and internal stakeholders\n\n• coordinate follow-up actions and support transition to problem management, ensuring proper documentation and closure\n\n• act as interface between operations, IT teams and external providers during incidents to align priorities and actions\n\n• participate in 7×24 on-call duty, supporting business-critical incidents outside standard working hours\n\nWhat You Bring\n\n• experience with IT service management frameworks such as ITIL or similar structured incident processes\n\n• strong understanding of service operations and business processes; additional experience in payments or transaction processing environments is a plus\n\n• ability to structure complex information and communicate clearly to different stakeholder groups\n\n• high level of ownership and accountability when handling critical situations and time-sensitive incidents\n\n• needed Language Skills: English and German (spoken and written)\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Bedeutung sind wir eine einzigartige Verbindung von Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie zu uns und gestalten Sie mit uns die Zukunft des Finanzwesens.\n\nIncident- und Problem Manager (80 - 100%)\n\nZürich | bis zu 40% Homeoffice möglich | Referenz 8293\n\nMöchten Sie in einem äußerst dynamischen Umfeld arbeiten? Sind Sie motiviert, in kritischen Situationen zuverlässige Services und vertrauenswürdige Kommunikation für Schweizer Banken sicherzustellen? Wir suchen eine Person als Business Incident Manager für unser BBS Operations Team in Zürich. Sie sind verantwortlich für das Management von Incidents aus Geschäftsperspektive, stellen eine klare Kommunikation sicher und unterstützen kontinuierliche Verbesserungen. Werden Sie Teil eines Teams, das bei der Bereitstellung stabiler und kundenorientierter Services Wert auf Zuverlässigkeit, Zusammenarbeit und Eigenverantwortung legt.\n\nIhre Aufgaben\n\n- Incidents aus geschäftlicher Sicht und im Hinblick auf ihre Auswirkungen auf Kunden beurteilen und damit die technische Bearbeitung durch die Control-Center-Teams ergänzen\n- für klare und zeitnahe Kommunikation sorgen, Incident-Updates und Berichte für Kunden und interne Stakeholder vorbereiten\n- Folgeaktionen koordinieren und den Übergang zum Problemmanagement unterstützen, wobei eine ordnungsgemäße Dokumentation und der Abschluss sichergestellt werden\n- während Incidents als Schnittstelle zwischen Operations, IT-Teams und externen Anbietern agieren, um Prioritäten und Maßnahmen abzustimmen\n- am 7×24-Bereitschaftsdienst teilnehmen und geschäftskritische Incidents außerhalb der üblichen Arbeitszeiten unterstützen\n\nWas Sie mitbringen\n\n- Erfahrung mit IT-Service-Management-Frameworks wie ITIL oder ähnlichen strukturierten Incident-Prozessen\n- ausgeprägtes Verständnis von Servicebetrieb und Geschäftsprozessen; zusätzliche Erfahrung in Zahlungsverkehrs- oder Transaktionsverarbeitungsumgebungen ist von Vorteil\n- Fähigkeit, komplexe Informationen zu strukturieren und klar an verschiedene Stakeholdergruppen zu kommunizieren\n- Hohes Maß an Eigenverantwortung und Verantwortungsbewusstsein beim Umgang mit kritischen Situationen und zeitkritischen Vorfällen\n- Benötigte Sprachkenntnisse: Englisch und Deutsch (in Wort und Schrift)\n\nWenn Sie Fragen haben, sehen Sie auf unserer FAQ-Seite nach oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Stellenausschreibung akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher möchten wir Bewerbungen unabhängig von jeglichem persönlichen Hintergrund erhalten.",
-        "fr": "SIX est le moteur de la transformation des marchés financiers.\n\nCe qui nous distingue nous fait avancer : entre ancrage local et portée mondiale, nous sommes un mélange unique de tradition et d’avenir, de fondations et de croissance. Nous valorisons les esprits brillants et les encourageons à grandir avec leurs idées. Venez façonner avec nous l’avenir de la finance.\n\nResponsable de la gestion des incidents et des problèmes (80 - 100%)\n\nZurich | télétravail possible jusqu’à 40% | Référence 8293\n\nSouhaitez-vous travailler dans un environnement très dynamique ? Êtes-vous motivé par l’idée de garantir des services fiables et une communication digne de confiance pour les banques suisses dans des situations critiques ? Nous recherchons un responsable des incidents métier pour rejoindre notre équipe BBS Operations à Zurich, chargé de gérer les incidents du point de vue métier, de garantir une communication claire et de soutenir l’amélioration continue. Rejoignez une équipe qui valorise la fiabilité, la collaboration et le sens des responsabilités dans la fourniture de services stables et axés sur le client.\n\nCe que vous ferez\n\n- évaluer les incidents du point de vue de leur impact sur l’activité et les clients, en complément de leur traitement technique par les équipes du centre de contrôle\n- garantir une communication claire et en temps utile, en préparant des mises à jour et des rapports sur les incidents pour les clients et les parties prenantes internes\n- coordonner les actions de suivi et soutenir la transition vers la gestion des problèmes, en veillant à une documentation et à une clôture appropriées\n- faire office d’interface entre les opérations, les équipes informatiques et les prestataires externes pendant les incidents afin d’aligner les priorités et les actions\n- participer à l’astreinte 7×24, en apportant un soutien lors d’incidents critiques pour l’activité en dehors des heures de travail habituelles\n\nCe que vous apportez\n\n- expérience des cadres de gestion des services informatiques tels qu’ITIL ou de processus structurés similaires de gestion des incidents\n- solide compréhension de l’exploitation des services et des processus métier ; une expérience supplémentaire dans des environnements de paiements ou de traitement des transactions constitue un atout\n- capacité à structurer des informations complexes et à communiquer clairement avec différents groupes de parties prenantes\n- fort sens des responsabilités et de l’engagement dans la gestion de situations critiques et d’incidents urgents\n- compétences linguistiques requises : anglais et allemand (à l’oral et à l’écrit)\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour ce poste, nous n’acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. C’est pourquoi nous souhaitons recevoir des candidatures, quels que soient les parcours personnels."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-26T09:47:50.661Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T00:00:00Z",
-      "postedDate": "2026-09-25T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1441446133/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "incident-problem-manager-80-100-six-group-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "incident-problem-manager-80-100-six-group-zurich"
-        ],
-        "de": [
-          "incident-problem-manager-80-100-six-group-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:31:11.411Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     },
     {
       "id": "six-group-d30e137579d4",
@@ -2130,7 +2199,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "six-group-32e50bc78f8d",
@@ -2207,7 +2276,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,30 +1,29 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-10-26T09:45:11.641Z",
-  "total": 2,
-  "discovered": null,
-  "parsed": 2,
+  "generatedAt": "2026-10-26T21:57:24.586Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8647,
-  "avgDurationMs": 8647,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 4384,
+  "avgDurationMs": 4384,
   "durationHistory": [
-    8647
+    4384
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "galderma-021a2c7b2f00",
       "slug": "collegamento-medico-scientifico-romandie-ticino-galderma-lausanne",
@@ -111,5 +110,6 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "unchangedJobs": [],
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }
