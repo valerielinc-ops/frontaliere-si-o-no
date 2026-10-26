@@ -75,11 +75,15 @@ describe('hasUsableTranslatedText (model output, per locale)', () => {
     }
   });
 
-  it('keeps German Null/NULL as the word for zero, and only there', () => {
-    for (const v of ['Null', 'NULL', '"Null"']) {
-      expect(hasUsableTranslatedText(v, 'de')).toBe(true);
-      expect(hasUsableTranslatedText(v, 'DE')).toBe(true);
-      expect(isNullStringForLocale(v, 'de')).toBe(false);
+  it('keeps only the German word Null, and rejects null marker variants', () => {
+    expect(hasUsableTranslatedText('Null', 'de')).toBe(true);
+    expect(hasUsableTranslatedText('Null', 'DE')).toBe(true);
+    expect(isNullStringForLocale('Null', 'de')).toBe(false);
+    expect(hasUsableContentText('Null')).toBe(false);
+
+    for (const v of ['NULL', 'null', '"Null"', "'Null'"]) {
+      expect(hasUsableTranslatedText(v, 'de'), `${JSON.stringify(v)}/de`).toBe(false);
+      expect(isNullStringForLocale(v, 'de')).toBe(true);
       for (const loc of ['en', 'fr', 'it', undefined]) {
         expect(hasUsableTranslatedText(v, loc), `${JSON.stringify(v)}/${loc}`).toBe(false);
       }
