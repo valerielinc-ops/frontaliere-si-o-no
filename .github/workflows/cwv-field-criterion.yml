@@ -37,7 +37,7 @@ on:
     # Weekly, Thursday 07:55 UTC. CrUX refreshes daily but each reading is a
     # trailing 28-day window, so a daily run would mostly re-report the same
     # number. Placed clear of the other 07:xx crons (cwv-monitor Wednesday
-    # 07:40, posthog-error-monitor Tuesday 07:25).
+    # 07:40, ga4-error-monitor Tuesday 07:25).
     - cron: '55 7 * * 4'
   workflow_dispatch:
 

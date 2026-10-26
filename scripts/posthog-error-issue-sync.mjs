@@ -112,7 +112,7 @@ export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', m
           'Vuole il service account GA4 (sola lettura) — dalla root del workspace, `source bin/rc-env.sh`.',
         ],
         osservatore: [
-          '`.github/workflows/posthog-error-monitor.yml`, che rigira la misura e riconcilia',
+          '`.github/workflows/ga4-error-monitor.yml`, che rigira la misura e riconcilia',
           "la issue canonica finche' la firma resta sopra soglia. Una misura completa",
           "sotto soglia la chiude; una sorgente GA4 non misurabile non produce una chiusura.",
         ],
