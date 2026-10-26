@@ -48,6 +48,22 @@ describe('source-backed municipal event archives', () => {
     dom.window.close();
   });
 
+  it('links active municipal hubs to nearby siblings for distinct discovery paths', () => {
+    const page = renderComunePage({
+      locale: 'it', canton: 'TI', comune: 'Lamone', events: [event('lamone', 'Lamone', 3)],
+      dateStamp: BUILD_DATE_STAMP, weekendDays: new Set(), distDir: temporary(),
+      siblingComuni: ['Cevio', 'Gordola', 'Lamone', 'Paradiso'],
+    });
+    const dom = new JSDOM(page.html);
+    const navigation = dom.window.document.querySelector('[data-events-navigation="1"]');
+    const hrefs = [...(navigation?.querySelectorAll('a') ?? [])].map((link) => link.getAttribute('href'));
+    expect(hrefs).toContain(pathFor('it', 'TI', 'Cevio'));
+    expect(hrefs).toContain(pathFor('it', 'TI', 'Gordola'));
+    expect(hrefs).toContain(pathFor('it', 'TI', 'Paradiso'));
+    expect(hrefs).not.toContain(pathFor('it', 'TI', 'Lamone'));
+    dom.window.close();
+  });
+
   it.each(['it', 'en', 'de', 'fr'] as const)('keeps the old municipal URL as an explicitly historical, noindex source listing (%s)', (locale) => {
     const options = { locale, entries: entries(2), page: 1, pageCount: 1, distDir: temporary(), municipality: { canton: 'GE', comune: 'Lancy' }, municipalHub: true };
     const page = renderHistoricalEventsArchivePage(options);

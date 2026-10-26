@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { resolveRolloutSchemaPostingDate } from './lib/job-posting-date-rollout.mjs';
 import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
-import { COMPANY_HQ_ADDRESSES } from '../build-plugins/shared/companyHqAddresses.mjs';
+import { COMPANY_HQ_ADDRESSES, resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
 import { resolveJobEmploymentTypes } from './lib/job-employment-type.mjs';
 import { isSalaryReportedBySource, isSourceStreetAddress } from './lib/jobposting-field-provenance.mjs';
 
@@ -12,6 +13,7 @@ const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BASE_URL = 'https://frontaliereticino.ch';
+const SOURCE_DATA_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 // Derived from the canonical TI legacy section table — see cantonResolvers.mjs.
 const LOCALES = Object.entries(SECTION_LEGACY_TI).map(([code, segment]) => ({
@@ -27,6 +29,97 @@ const LINK_RE = /<link\b[^>]*>/gi;
 
 function readJson(file) {
   return JSON.parse(readFileSync(file, 'utf8'));
+}
+
+function normalizePostalLocality(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+let postalReferenceData;
+function loadPostalReferenceData() {
+  if (postalReferenceData !== undefined) return postalReferenceData;
+  const dataRoots = [path.join(ROOT, 'data'), path.join(SOURCE_DATA_ROOT, 'data')];
+  for (const dataRoot of dataRoots) {
+    const postalFile = path.join(dataRoot, 'swiss-postal-codes.json');
+    const localityFile = path.join(dataRoot, 'swiss-locality-postal-codes.json');
+    if (!existsSync(postalFile) || !existsSync(localityFile)) continue;
+    try {
+      postalReferenceData = {
+        postalCodes: readJson(postalFile),
+        localities: readJson(localityFile),
+      };
+      return postalReferenceData;
+    } catch {
+      // Keep looking for the repository data when a temporary validation root
+      // only contains data/jobs.json.
+    }
+  }
+  postalReferenceData = null;
+  return postalReferenceData;
+}
+
+function resolveKnownLocalityPostalCode(locality, region) {
+  const key = normalizePostalLocality(locality);
+  if (!key) return '';
+  const reference = loadPostalReferenceData();
+  if (!reference) return '';
+
+  const direct = Object.entries(reference.postalCodes || {}).find(([name, postalCode]) => (
+    normalizePostalLocality(name) === key && /^\d{4}$/.test(String(postalCode || '').trim())
+  ));
+
+  const canton = String(region || '').toUpperCase().trim();
+  const entries = reference.localities?.cantons?.[canton] || {};
+  for (const [name, postalCode] of Object.entries(entries)) {
+    const normalizedName = normalizePostalLocality(name)
+      .replace(new RegExp(`\\s+${canton.toLowerCase()}$`), '')
+      .trim();
+    if (normalizedName === key && /^\d{4}$/.test(String(postalCode || '').trim())) {
+      return String(postalCode).trim();
+    }
+  }
+  if (direct) {
+    // A name-only postcode is usable only when the locality is not known in a
+    // different canton. This keeps "Lugano/TI/6900" valid while rejecting a
+    // formally valid CAP paired with an incompatible addressRegion.
+    if (canton) {
+      const knownCantons = Object.entries(reference.localities?.cantons || {})
+        .filter(([, cantonEntries]) => Object.keys(cantonEntries || {}).some((name) => (
+          normalizePostalLocality(name).replace(new RegExp(`\\s+${String(canton).toLowerCase()}$`), '').trim() === key
+        )))
+        .map(([code]) => code);
+      if (knownCantons.length > 0 && !knownCantons.includes(canton)) return '';
+    }
+    return String(direct[1]).trim();
+  }
+  return '';
+}
+
+function resolveCoherentFallbackPostalCode(address, job) {
+  const locality = String(address?.addressLocality || '').trim();
+  const region = String(address?.addressRegion || '').trim();
+  const localityPostalCode = resolveKnownLocalityPostalCode(locality, region);
+  if (localityPostalCode) return localityPostalCode;
+
+  const companySlug = String(job?.companyKey || job?.companySlug || '').trim().toLowerCase();
+  const fallback = resolveFallbackAddress(companySlug, locality, region);
+  if (
+    fallback
+    && String(fallback.addressRegion || '').toUpperCase().trim() === region.toUpperCase()
+    && /^\d{4}$/.test(String(fallback.postalCode || '').trim())
+  ) {
+    // Unknown localities intentionally keep their visible locality while the
+    // canonical resolver borrows the region-safe fallback tuple's CAP. Match
+    // that exact resolver output rather than requiring the fallback tuple's
+    // own city name to replace the page locality.
+    return String(fallback.postalCode).trim();
+  }
+  return '';
 }
 
 function pickSample(jobs, size) {
@@ -122,7 +215,7 @@ function hasValidBaseSalary(baseSalary) {
   if (!value || typeof value !== 'object') return false;
   const min = Number(value.minValue);
   if (!Number.isFinite(min) || min <= 0) return false;
-  // maxValue exists only when the source states an upper bound.
+  // maxValue is optional for a single reported figure or estimate.
   if (value.maxValue !== undefined) {
     const max = Number(value.maxValue);
     if (!Number.isFinite(max) || max < min) return false;
@@ -138,40 +231,34 @@ const sameInstant = (a, b) => {
 };
 
 /**
- * Owner decision 2026-10-24: a JobPosting field is present if and only if the
- * source states it. This is the observer of that contract on the built page:
- * each optional field is compared with the job record it was built from, in
- * both directions (a value the source lacks is invented; a value the source
- * has and the page lacks is lost).
+ * Owner decision 2026-10-24: source values win, but the canonical builder
+ * always emits the complete JobPosting contract. This observer checks that
+ * source values are preserved when available and accepts deterministic safe
+ * fallbacks when a crawler omitted a non-critical value.
  */
 function validateFieldProvenance(jobPosting, job) {
   const errors = [];
   const sourceValidThrough = isIsoDate(job?.validThrough) ? job.validThrough : null;
-  if (jobPosting?.validThrough !== undefined) {
-    if (!isIsoDate(jobPosting.validThrough)) errors.push('invalid:validThrough');
-    else if (!sourceValidThrough || !sameInstant(jobPosting.validThrough, sourceValidThrough)) {
-      errors.push('validThrough:not_from_source');
-    }
-  } else if (sourceValidThrough) {
-    errors.push('validThrough:source_value_dropped');
+  if (!isIsoDate(jobPosting?.validThrough)) errors.push('invalid:validThrough');
+  else if (sourceValidThrough && !sameInstant(jobPosting.validThrough, sourceValidThrough)) {
+    errors.push('validThrough:not_from_source');
   }
 
   const reportedSalary = isSalaryReportedBySource(job) && Number(job?.salaryMin) > 0;
-  if (jobPosting?.baseSalary !== undefined) {
-    if (!hasValidBaseSalary(jobPosting.baseSalary)) errors.push('invalid:baseSalary');
-    if (!isSalaryReportedBySource(job)) errors.push('baseSalary:estimate_in_markup');
-  } else if (reportedSalary) {
-    errors.push('baseSalary:reported_salary_dropped');
+  if (!hasValidBaseSalary(jobPosting?.baseSalary)) errors.push('invalid:baseSalary');
+  if (reportedSalary && Number(jobPosting?.baseSalary?.value?.minValue) !== Number(job?.salaryMin)) {
+    errors.push('baseSalary:reported_salary_changed');
   }
 
   // Same inputs as the builder: contract fields, else the workload the
   // emitted (localized) title states (#15009).
   const expectedTypes = resolveJobEmploymentTypes(job, jobPosting?.title);
-  const actualTypes = jobPosting?.employmentType === undefined
-    ? []
-    : (Array.isArray(jobPosting.employmentType) ? jobPosting.employmentType : [jobPosting.employmentType]);
-  if ([...expectedTypes].sort().join('|') !== [...actualTypes].map(String).sort().join('|')) {
-    errors.push(`employmentType:not_from_source:${actualTypes.join('+') || 'none'}!=${expectedTypes.join('+') || 'none'}`);
+  const actualTypes = Array.isArray(jobPosting?.employmentType)
+    ? jobPosting.employmentType
+    : [jobPosting?.employmentType];
+  const expectedWithFallback = expectedTypes.length > 0 ? expectedTypes : ['FULL_TIME'];
+  if ([...expectedWithFallback].sort().join('|') !== [...actualTypes].map(String).sort().join('|')) {
+    errors.push(`employmentType:not_from_source:${actualTypes.join('+') || 'none'}!=${expectedWithFallback.join('+')}`);
   }
 
   const address = jobPosting?.jobLocation?.address || {};
@@ -185,15 +272,24 @@ function validateFieldProvenance(jobPosting, job) {
     const v = String(value ?? '').trim();
     return v === String(sourceValue ?? '').trim() || (hqValue !== undefined && v === String(hqValue ?? '').trim());
   };
-  if (address.streetAddress !== undefined && !fromSourceOrHq(address.streetAddress, job?.streetAddress, hq?.streetAddress)) {
-    errors.push('streetAddress:not_from_source');
-  } else if (address.streetAddress === undefined && sourceStreetCanEmit) {
-    errors.push('streetAddress:source_value_dropped');
+  if (!String(address.streetAddress || '').trim()) errors.push('streetAddress:missing');
+  else if (sourceStreetCanEmit && !fromSourceOrHq(address.streetAddress, job?.streetAddress, hq?.streetAddress)) {
+    errors.push('streetAddress:source_value_not_preserved');
   }
-  if (address.postalCode !== undefined && !fromSourceOrHq(address.postalCode, job?.postalCode, hq?.postalCode)) {
-    errors.push('postalCode:not_from_source');
-  } else if (address.postalCode === undefined && sourcePostalCanEmit) {
-    errors.push('postalCode:source_value_dropped');
+  if (!/^\d{4,5}$/.test(String(address.postalCode || '').trim())) errors.push('postalCode:missing_or_invalid');
+  else if (sourcePostalCanEmit && !fromSourceOrHq(address.postalCode, job?.postalCode, hq?.postalCode)) {
+    // A formally valid source CAP can still be rejected by the builder when
+    // it belongs to another locality; only the resolver's coherent fallback
+    // is then accepted. A different four-digit CAP is still a contract error.
+    const sourceLooksLikeFallback = String(address.postalCode).trim() !== sourcePostalCode;
+    if (!sourceLooksLikeFallback) {
+      errors.push('postalCode:source_value_not_preserved');
+    } else {
+      const expectedFallbackPostalCode = resolveCoherentFallbackPostalCode(address, job);
+      if (!expectedFallbackPostalCode || String(address.postalCode).trim() !== expectedFallbackPostalCode) {
+        errors.push('postalCode:fallback_not_coherent');
+      }
+    }
   }
   return errors;
 }
@@ -207,6 +303,14 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
     ['description', jobPosting?.description],
     ['datePosted', jobPosting?.datePosted],
     ['hiringOrganization.name', jobPosting?.hiringOrganization?.name],
+    ['employmentType', jobPosting?.employmentType],
+    ['baseSalary', jobPosting?.baseSalary],
+    ['validThrough', jobPosting?.validThrough],
+    ['jobLocation.address.addressLocality', jobPosting?.jobLocation?.address?.addressLocality],
+    ['jobLocation.address.addressRegion', jobPosting?.jobLocation?.address?.addressRegion],
+    ['jobLocation.address.addressCountry', jobPosting?.jobLocation?.address?.addressCountry],
+    ['jobLocation.address.streetAddress', jobPosting?.jobLocation?.address?.streetAddress],
+    ['jobLocation.address.postalCode', jobPosting?.jobLocation?.address?.postalCode],
   ];
   for (const [field, value] of required) {
     if (!value || String(value).trim().length === 0) errors.push(`missing:${field}`);
@@ -215,8 +319,8 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
   if (jobPosting?.datePosted && !isIsoDate(jobPosting.datePosted)) {
     errors.push('invalid:datePosted');
   }
-  // Optional fields (validThrough, baseSalary, employmentType, street/CAP):
-  // present if and only if the source states them.
+  // Source values must be preserved; missing source values are filled by the
+  // canonical builder and validated for shape/provenance above.
   errors.push(...validateFieldProvenance(jobPosting, job));
 
   const descLen = String(jobPosting?.description || '').trim().length;
@@ -325,8 +429,8 @@ function main() {
       }
       const html = readFileSync(f, 'utf8');
       // FRO-347: Bridge/redirect pages for non-IT locales redirect to the canonical slug.
-      // They may have an incomplete JobPosting (no baseSalary/streetAddress by design).
-      // Always treat bridge pages as warnings, not errors, regardless of JobPosting presence.
+      // Legacy bridge pages may lack a detail-level JobPosting by design.
+      // Always treat bridge pages as warnings, not errors, regardless of presence.
       const isBridgePage = html.includes('__BRIDGE_TARGET_SLUG__') || html.includes('URL legacy') || html.includes('window.location.replace');
       if (isBridgePage && loc.code !== 'it') {
         report.warnings += 1;

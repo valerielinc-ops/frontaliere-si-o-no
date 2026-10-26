@@ -15,8 +15,8 @@
  * each with its own slug/url). Every record gets a page in all 4 locales.
  *
  * Contract: apply:'build', emit in closeBundle(), pass distDir. JSON-LD via the
- * shared buildJobPostingSchema (Google's required fields always; salary,
- * address details and employmentType only as the employer entered them).
+ * shared buildJobPostingSchema (Google's required fields plus the complete
+ * site contract; source values win and deterministic fallbacks cover omissions).
  * Sitemap is written as
  * `dist/sitemap-publisher-ads.xml`; sitemapAliasPlugin auto-discovers it.
  *

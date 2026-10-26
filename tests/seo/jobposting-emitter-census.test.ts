@@ -50,8 +50,15 @@ describe('public JobPosting emitter census', () => {
     const staticAddress = buildJobPostingSchema(job, opts).jobLocation.address;
 
     expect(hydrated).toEqual(staticAddress);
-    // 8600 is Dübendorf's CAP: the stamped HQ tuple is dropped as a pair, and
-    // no Chur street/CAP is invented in its place.
-    expect(hydrated).toEqual({ '@type': 'PostalAddress', addressLocality: 'Chur', addressRegion: 'GR', addressCountry: 'CH' });
+    // 8600 is Dübendorf's CAP: the stamped HQ tuple is dropped as a pair and
+    // replaced by the coherent Chur canton-capital tuple.
+    expect(hydrated).toEqual({
+      '@type': 'PostalAddress',
+      addressLocality: 'Chur',
+      addressRegion: 'GR',
+      addressCountry: 'CH',
+      postalCode: '7000',
+      streetAddress: 'Poststrasse 33',
+    });
   });
 });

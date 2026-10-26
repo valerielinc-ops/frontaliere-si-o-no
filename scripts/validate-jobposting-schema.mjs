@@ -7,12 +7,11 @@
  * scripts/lib/jobposting-mandatory-fields.mjs (owner decision 2026-10-24):
  *
  *   required, non-empty: title, description (≥ 50 chars), datePosted
- *   (parseable ISO 8601), hiringOrganization.name, jobLocation with
- *   addressLocality and addressCountry;
- *   optional, well-formed when present: employmentType (schema.org enum,
- *   one token or an array), postalCode, streetAddress, baseSalary
+ *   (parseable ISO 8601), hiringOrganization.name, jobLocation with a
+ *   complete PostalAddress, employmentType (schema.org enum), baseSalary
  *   (currency + value.minValue>0 + value.maxValue>=min when present +
- *   value.unitText). They exist only when the source states them.
+ *   value.unitText), and validThrough (parseable ISO 8601). The canonical
+ *   builder supplies safe defaults when the source omits non-critical values.
  *
  * Exits with code 1 and prints a summary of failing URLs when any
  * violation is found — blocks deploy.
@@ -149,7 +148,7 @@ function flattenBlocks(blocks) {
 }
 
 // ── Consumer-specific validation ───────────────────────────────────────────
-// The required/optional fields are validated by the shared contract. These
+// The complete mandatory field set is validated by the shared contract. These
 // address details are stricter quality checks owned by this standalone gate.
 function checkJobPostingAddressDetails(schema) {
   const errors = [];
@@ -208,7 +207,7 @@ async function main() {
   );
 
   if (failures.length === 0) {
-    console.log('[validate-jobposting-schema] OK — every JobPosting has all 9 mandatory fields.');
+    console.log('[validate-jobposting-schema] OK — every JobPosting has the complete mandatory field contract.');
     process.exit(0);
   }
 

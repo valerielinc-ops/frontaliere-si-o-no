@@ -4,8 +4,6 @@
  *
  * Checks:
  *   1. Italian description length (error if < 100 chars)
- *   2. Untranslated Italian slugs (warning — German/French words in IT slug)
- *   (baseSalary is NOT required: it exists only for a reported salary, owner decision 2026-10-24)
  *   2. Untranslated Italian slugs (German/French words in the IT slug). Split
  *      in two by what the IT TITLE says today (see classifySourceSlug):
  *      warning when the IT title is still in the source language; otherwise

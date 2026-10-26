@@ -212,6 +212,14 @@ describe('eventLd canonical', () => {
     expect(ld.url).toBe(EVENT.url);
     expect(ld.sameAs).toBeUndefined();
   });
+  it('keeps an expired source detail out of Event JSON-LD', () => {
+    const stale = { ...EVENT, id: 'nw-agenda:94123', sourceKey: 'nw-agenda', url: 'https://www.nw.ch/anlaesseaktuelles/94123' };
+    const canonical = 'https://frontaliereticino.ch/eventi/nidvaldo/wolfenschiessen/alplerchilbi-2026-10-25/';
+    const ld = eventLd(stale as never, 'it', canonical) as Record<string, any>;
+    expect(ld.sameAs).toEqual(['https://www.nw.ch/']);
+    expect(ld.url).toBe(canonical);
+    expect(ld.offers.url).toBe(canonical);
+  });
   it('declares the schema.org context so Google recognizes the Event block', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, unknown>;
     expect(ld['@context']).toBe('https://schema.org');

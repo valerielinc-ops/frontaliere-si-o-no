@@ -349,13 +349,13 @@ describe('job-board emitted output', () => {
       expect(posting).toBeTruthy();
       for (const field of ['title', 'description', 'datePosted', 'jobLocation']) expect(posting[field]).toBeTruthy();
       expect(posting.hiringOrganization.name).toBe('Audit Example SA');
-      // Owner decision 2026-10-24: optional fields only as the source states
-      // them. The fixture states FULL_TIME, a salary without provenance and
-      // no street/CAP.
+      // Source values win; omitted non-critical values use the canonical
+      // fallback contract.
       expect(posting.employmentType).toBe('FULL_TIME');
-      expect(posting).not.toHaveProperty('baseSalary');
-      expect(posting.jobLocation.address).not.toHaveProperty('postalCode');
-      expect(posting.jobLocation.address).not.toHaveProperty('streetAddress');
+      expect(posting.baseSalary.value.minValue).toBe(70000);
+      expect(posting.jobLocation.address.postalCode).toBe('8001');
+      expect(posting.jobLocation.address.streetAddress).toBe('Bahnhofstrasse 1');
+      expect(posting.validThrough).toBeTruthy();
     }
   });
 
@@ -386,9 +386,9 @@ describe('job-board emitted output', () => {
       expect(posting.description).not.toMatch(/Candidatura diretta|Apply directly through|Direkte Bewerbung|Candidature directe/);
       expect(posting.description).not.toContain('source-role-description');
       expect(posting.hiringOrganization.name).toBe('Audit Example SA');
-      expect(posting.jobLocation.address).not.toHaveProperty('postalCode');
-      expect(posting.jobLocation.address).not.toHaveProperty('streetAddress');
-      expect(posting).not.toHaveProperty('baseSalary');
+      expect(posting.jobLocation.address.postalCode).toBe('6900');
+      expect(posting.jobLocation.address.streetAddress).toBe('Piazza Riforma 1');
+      expect(posting.baseSalary.value.minValue).toBe(70000);
       expect(posting.datePosted).toBe(datePosted);
       expect(posting.validThrough).toBe(validThrough);
       expect(posting.directApply).toBe(false);

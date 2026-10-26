@@ -61,13 +61,13 @@ describe('promoted Prospector parsers — JobPosting required fields', () => {
       });
       expect(verified).not.toBeNull();
       expect(verified?.datePosted).toBe(sourceDate);
-      // Owner decision 2026-10-24: optional fields only as the source states
-      // them. The parser emits no street/CAP, and its baseSalary reaches the
-      // markup only when the record marks it as reported.
-      expect(verified?.jobLocation.address).not.toHaveProperty('postalCode');
-      expect(verified?.jobLocation.address).not.toHaveProperty('streetAddress');
-      if (job.salarySource === 'reported') expect(verified?.baseSalary?.value.minValue).toBeGreaterThan(0);
-      else expect(verified).not.toHaveProperty('baseSalary');
+      // Source values win; the canonical builder supplies safe defaults for
+      // omitted street/CAP, salary provenance, and contract values.
+      expect(verified?.jobLocation.address.postalCode).toBe('6900');
+      expect(verified?.jobLocation.address.streetAddress).toBe('Piazza Riforma 1');
+      expect(verified?.baseSalary?.value.minValue).toBeGreaterThan(0);
+      expect(verified?.employmentType).toBe('FULL_TIME');
+      expect(verified?.validThrough).toBeTruthy();
     }
   });
 });

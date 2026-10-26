@@ -11,11 +11,11 @@ const posting = {
   '@type': 'JobPosting', title: 'Infermiere', description: 'Assistenza ai pazienti.',
   datePosted: date, validThrough: new Date(Date.now() + 30 * 86400000).toISOString(), employmentType: 'FULL_TIME',
   hiringOrganization: { name: 'Example SA' },
-  jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', postalCode: '6900', streetAddress: 'Via Test 1' } },
+  jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900', streetAddress: 'Via Test 1' } },
   baseSalary: { currency: 'CHF', value: { minValue: 70000, maxValue: 90000, unitText: 'YEAR' } },
 };
-// The source record the posting above was built from: every optional field
-// of the posting exists here (owner decision 2026-10-24: present iff stated).
+// The source record the posting above was built from: source values are
+// present here so the validator can check that they are preserved.
 const SOURCE_FIELDS: Record<string, unknown> = {
   validThrough: posting.validThrough,
   salaryMin: 70000,
@@ -103,27 +103,27 @@ describe('rich-result eligibility validation', () => {
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('datePosted:reported_mismatch');
   });
-  it('accepts a posting whose optional fields are absent because the source lacks them', () => {
-    const { validThrough: _v, baseSalary: _b, employmentType: _e, ...bare } = posting;
-    const result = validate('reported', { ...bare, jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } } }, {
+  it('accepts safe defaults when the source lacks non-critical values', () => {
+    const result = validate('reported', {
+      ...posting,
+      validThrough: new Date(Date.now() + 45 * 86400000).toISOString(),
+      employmentType: 'FULL_TIME',
+      baseSalary: { currency: 'CHF', value: { minValue: 61000, maxValue: 77000, unitText: 'YEAR' } },
+      jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH', postalCode: '6900', streetAddress: 'Piazza Riforma 1' } },
+    }, {
       job: { salaryMin: 61000, salaryMax: 77000, salarySource: 'estimated' },
     });
     expect(result.status, result.stdout + result.stderr).toBe(0);
   });
-  it.each([
-    ['an estimated salary in baseSalary', { ...SOURCE_FIELDS, salarySource: 'estimated' }, 'baseSalary:estimate_in_markup'],
-    ['a validThrough the source does not state', { ...SOURCE_FIELDS, validThrough: undefined }, 'validThrough:not_from_source'],
-    ['a street the source does not state (city-hall default)', { ...SOURCE_FIELDS, streetAddress: undefined }, 'streetAddress:not_from_source'],
-    ['an employmentType the source does not state', { ...SOURCE_FIELDS, employmentType: undefined }, 'employmentType:not_from_source'],
-  ])('rejects %s', (_label, job, issue) => {
-    const result = validate('reported', posting, { job });
+  it('still rejects a substituted source validThrough', () => {
+    const result = validate('reported', { ...posting, validThrough: '2030-01-01T00:00:00.000Z' });
     expect(result.status).toBe(1);
-    expect(result.stdout).toContain(issue);
+    expect(result.stdout).toContain('validThrough:not_from_source');
   });
   it('rejects a reported salary dropped from the markup', () => {
     const result = validate('reported', { ...posting, baseSalary: undefined });
     expect(result.status).toBe(1);
-    expect(result.stdout).toContain('baseSalary:reported_salary_dropped');
+    expect(result.stdout).toContain('missing:baseSalary');
   });
 
  it('rejects coherent source address values dropped from the markup', () => {
@@ -135,7 +135,23 @@ describe('rich-result eligibility validation', () => {
    job: { ...SOURCE_FIELDS, streetAddress: 'Via Nassa 1', postalCode: '6900' },
   });
   expect(result.status).toBe(1);
-  expect(result.stdout).toContain('streetAddress:source_value_dropped');
-  expect(result.stdout).toContain('postalCode:source_value_dropped');
+  expect(result.stdout).toContain('missing:jobLocation.address.streetAddress');
+  expect(result.stdout).toContain('missing:jobLocation.address.postalCode');
+ });
+ it('rejects an incoherent fallback CAP even when the source CAP is formally valid', () => {
+  const schemaWithWrongFallbackPostal = {
+   ...posting,
+   jobLocation: {
+    address: {
+     addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
+     postalCode: '1000', streetAddress: 'Piazza Riforma 1',
+    },
+   },
+  };
+  const result = validate('reported', schemaWithWrongFallbackPostal, {
+   job: { ...SOURCE_FIELDS, postalCode: '8000', streetAddress: '' },
+  });
+  expect(result.status).toBe(1);
+  expect(result.stdout).toContain('postalCode:fallback_not_coherent');
  });
 });

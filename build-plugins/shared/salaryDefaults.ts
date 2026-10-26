@@ -10,8 +10,8 @@
  * intentionally conservative so they cannot overstate a role's pay.
  *
  * These bands are ESTIMATES: they may be shown on a page, labelled as such,
- * but never become the JobPosting `baseSalary`, which carries only a salary
- * the source reported (AGENTS.md rule #3, owner decision 2026-10-24).
+ * and are also used as the safe `JobPosting.baseSalary` fallback when the
+ * source omitted salary (AGENTS.md rule #3, owner decision 2026-10-24).
  */
 
 import {

@@ -157,6 +157,22 @@ export const EVENT_SOURCES = {
   },
 };
 
+// A source event can outlive the official agenda detail page. Keep the
+// replacement source-backed and explicit: silently guessing a different URL
+// would be worse than preserving the evidence. The Nidwalden event 94123 was
+// verified as expired (404) on 2026-10-26; its official canton homepage is the
+// only live fallback for the rendered CTA and structured data.
+const STALE_EVENT_SOURCE_URLS = new Map([
+  ['nw-agenda|https://www.nw.ch/anlaesseaktuelles/94123', 'https://www.nw.ch/'],
+]);
+
+/** Return a live, source-backed URL for rendered event links. */
+export function eventSourceUrl(rawUrl, event) {
+  if (!rawUrl || typeof rawUrl !== 'string') return rawUrl;
+  const key = `${String(event?.sourceKey || '').trim()}|${rawUrl.trim()}`;
+  return STALE_EVENT_SOURCE_URLS.get(key) || rawUrl;
+}
+
 // ── Event-image licence policy ───────────────────────────────
 // Event facts may be aggregated from many public agendas, but a public URL is
 // not an image licence. Keep the allowlist as a single registry so crawlers,
@@ -1123,21 +1139,22 @@ export async function mirrorEventImage(sourceUrl, stableId, sourceKey) {
  * Outbound "official site" CTA URL with UTM referral tagging — same shape as
  * `build-plugins/jobsSeoPagesPlugin.ts`'s `referralUrl()` for job postings
  * (§6: one UTM-tagging convention, not a copy per feature), campaign renamed
- * for events. Never fabricates a URL: on a malformed `rawUrl` it is returned
- * unchanged rather than dropped, so a broken source URL never silently loses
- * its outbound link.
+ * for events. A verified expired source detail may resolve to its official
+ * source homepage via `eventSourceUrl`; all other URLs are preserved. On a
+ * malformed `rawUrl` it is returned unchanged rather than dropped.
  */
 export function eventReferralUrl(rawUrl, event) {
   if (!rawUrl || typeof rawUrl !== 'string') return rawUrl;
+  const sourceUrl = eventSourceUrl(rawUrl, event);
   try {
-    const u = new URL(rawUrl);
+    const u = new URL(sourceUrl);
     u.searchParams.set('utm_source', 'frontaliereticino');
     u.searchParams.set('utm_medium', 'referral');
     u.searchParams.set('utm_campaign', 'events');
     u.searchParams.set('utm_content', String(event?.id || event?.sourceKey || '').trim());
     return u.toString();
   } catch {
-    return rawUrl;
+    return sourceUrl;
   }
 }
 
