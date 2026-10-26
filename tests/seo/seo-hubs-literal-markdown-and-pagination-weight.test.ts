@@ -38,6 +38,21 @@ const JOB_BOARD_PATH = `${ROOT}/dist/cerca-lavoro-zurigo/tutti/index.html`;
 
 const DIRTY_TITLE = 'Assistenzärzt*in Medizinische Onkologie___Ärzte-DIM-Onkologie';
 
+function visibleTextBytes(html: string): number {
+  const text = html
+    .replace(/<!--[^]*?-->|<!doctype[^>]*>|<(script|style|noscript|template|svg)\b[^]*?<\/\1>|<[^>]+>/gi, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+  return Buffer.byteLength(text, 'utf8');
+}
+
 describe('seoHubs — no literal markdown leaks into hub listings', () => {
   it('strips separator runs / bold tokens from tutti-hub item titles', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const html = buildThinCantonHubHtml({
@@ -192,6 +207,26 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).not.toContain(`${basePath}page-41/`);
     expect(html).toContain('"@type":"CollectionPage"');
     expect(html).not.toContain('noindex');
+    expect(html).toContain('data-archive-index-guidance="1"');
+  });
+
+  it('keeps a representative job archive index above the text-to-HTML floor', () => {
+    const html = buildPaginationIndexHtml({
+      locale: 'en',
+      basePath: '/en/find-jobs-ticino/all/',
+      indexPage: 1,
+      totalPages: 2500,
+      totalItems: 25000,
+      archiveTitle: 'All cross-border job listings',
+      archiveDescription: 'Complete archive of cross-border job listings.',
+      parentPath: '/en/find-jobs-ticino/',
+      parentLabel: 'Find jobs in Ticino',
+      dateStamp: '2026-10-26',
+    });
+
+    const htmlBytes = Buffer.byteLength(html, 'utf8');
+    expect(html).toContain('How to use this archive index');
+    expect((visibleTextBytes(html) / htmlBytes) * 100).toBeGreaterThan(10);
   });
 
   it('keeps the pagination-index H1 distinct when the archive title is over the brand budget', () => {
