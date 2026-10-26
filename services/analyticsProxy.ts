@@ -29,7 +29,7 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  // Keep the named bot-gate export in the analytics chunk for AdSenseBanner
  // assets cached before the gate moved to shared-services.js. Production-only
  // keeps partial Vitest module doubles from needing the compatibility export.
- if (import.meta.env.PROD) void m.isLikelyBot;
+ if (import.meta.env?.PROD) void m.isLikelyBot;
  const fn = (m.Analytics as any)?.[method];
  if (typeof fn === 'function') fn(...args);
  })

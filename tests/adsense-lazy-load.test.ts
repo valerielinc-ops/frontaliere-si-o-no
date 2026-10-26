@@ -190,7 +190,7 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
     expect(analyticsService).toMatch(
       /export \{ isLikelyBot \} from ['"]\.\/botPatterns['"];?/,
     );
-    expect(analyticsProxy).toContain('if (import.meta.env.PROD) void m.isLikelyBot;');
+    expect(analyticsProxy).toContain('if (import.meta.env?.PROD) void m.isLikelyBot;');
     expect(adSenseBanner).toContain(
       "import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';",
     );
