@@ -15,6 +15,7 @@ import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
 import { useCaptureImpression } from '@/hooks/useCaptureImpression';
+import { isNewsletterSubscribedLocally } from '@/services/newsletterCtaState';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
@@ -59,8 +60,6 @@ interface NewsletterProps {
  impressionPlacement?: 'compact' | 'page' | 'island';
 }
 
-const SUBSCRIBED_KEY = 'newsletter_subscribed';
-
 /**
  * The shared upsert is deliberately fail-closed for a recorded opt-out or
  * suppression state. Callers must not turn that no-op into a local success:
@@ -76,7 +75,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  const { user, signIn: googleSignIn } = useAuth();
  const [email, setEmail] = useState('');
  const [name, setName] = useState('');
- const [alreadySubscribed] = useState(() => localStorage.getItem(SUBSCRIBED_KEY) === 'true');
+ const [alreadySubscribed] = useState(isNewsletterSubscribedLocally);
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
  const linkedInAvailable = useLinkedInSignInAvailable();
  const googleButtonRef = useRef<HTMLDivElement>(null);

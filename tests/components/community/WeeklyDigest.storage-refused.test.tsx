@@ -72,6 +72,7 @@ vi.mock('@/components/shared/EmailConsentCheckbox', () => ({
 }));
 
 import WeeklyDigest from '@/components/community/WeeklyDigest';
+import { isNewsletterSubscribedLocally } from '@/services/newsletterCtaState';
 
 const originalStorage = window.localStorage;
 
@@ -139,5 +140,11 @@ describe('WeeklyDigest browser storage fallback', () => {
     });
     expect(screen.queryByText('newsletter.subscribeError')).toBeNull();
     expect(mocks.upsertNewsletterSubscriber).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps the shared newsletter reader fail-closed when storage cannot be read', () => {
+    useStorage(throwingStorage());
+
+    expect(isNewsletterSubscribedLocally()).toBe(false);
   });
 });
