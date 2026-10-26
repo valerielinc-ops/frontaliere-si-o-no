@@ -32,7 +32,11 @@ import {
   loadSpec,
 } from './prospector/spec-crawler.mjs';
 import { DATA_ROOT } from './prospector/config.mjs';
-import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import {
+  detectJinaErrorBody,
+  fetchHtmlViaJinaWithRetry,
+  looksLikeAntiBotChallenge,
+} from './jina-proxy.mjs';
 import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -131,6 +135,23 @@ function raceWithSignal(promise, signal, message) {
 
 function throwIfAborted(signal, message) {
   if (signal?.aborted) throw signal.reason || abortError(message);
+}
+
+function rescueBodyRejectionReason(body, label, { source = 'browser' } = {}) {
+  // The short-body/error-envelope heuristic belongs to Jina's 200 response
+  // contract. Browser rendering can legitimately return a compact detail page
+  // (especially when the page is mostly structured data), so applying this
+  // check to browser output turns a valid detail rescue into a false failure.
+  if (source === 'jina') {
+    const jinaReason = detectJinaErrorBody(body);
+    if (jinaReason) return jinaReason;
+  }
+  if (looksLikeAntiBotChallenge(body)) return 'anti-bot challenge marker';
+  if (/^listing(?: page \d+)?$/u.test(label)
+    && !/<li\b[^>]*\bclass\s*=\s*["'][^"']*\bff-job-entry\b[^"']*["']/iu.test(String(body))) {
+    return 'listing has no ff-job-entry cards';
+  }
+  return null;
 }
 
 function combineSignals(...signals) {
@@ -359,7 +380,7 @@ function freshDetailListing(row, page) {
   };
 }
 
-async function fetchFachkraftPage(
+export async function fetchFachkraftPage(
   url,
   transport,
   urlPolicy,
@@ -408,7 +429,12 @@ async function fetchFachkraftPage(
       console.warn(`⚠️ fachkraft ${label} returned ${reason} — trying Jina egress rescue`);
       const rescued = await fetchJinaImpl(url, jinaOptions);
       throwIfAborted(signal, `fachkraft ${label} Jina rescue aborted`);
-      return rescued != null && !looksLikeAntiBotChallenge(rescued) ? rescued : null;
+      const rejectionReason = rescueBodyRejectionReason(rescued, label, { source: 'jina' });
+      if (rejectionReason) {
+        console.warn(`⚠️ fachkraft ${label} Jina rescue unusable (${rejectionReason}); trying browser rescue`);
+        return null;
+      }
+      return rescued;
     } catch (error) {
       if (signal?.aborted) throw signal.reason || error;
       console.warn(`⚠️ fachkraft ${label} Jina rescue failed: ${error?.message || error}`);
@@ -461,8 +487,12 @@ async function fetchFachkraftPage(
         `fachkraft ${label} browser rescue aborted`,
       );
       throwIfAborted(signal, `fachkraft ${label} browser rescue aborted`);
-      if (typeof rendered === 'string' && rendered.trim() && !looksLikeAntiBotChallenge(rendered)) {
+      const rejectionReason = rescueBodyRejectionReason(rendered, label, { source: 'browser' });
+      if (typeof rendered === 'string' && rendered.trim() && !rejectionReason) {
         return { ...result, ok: true, body: rendered, status: 200, proxiedBy: 'browser' };
+      }
+      if (rejectionReason) {
+        console.warn(`⚠️ fachkraft ${label} browser rescue unusable (${rejectionReason})`);
       }
     } catch (error) {
       if (signal?.aborted) throw signal.reason || error;

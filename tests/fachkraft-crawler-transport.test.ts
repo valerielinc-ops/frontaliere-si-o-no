@@ -1,8 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
+  fetchFachkraftPage,
   fetchFachkraftSnapshot,
   validateFachkraftAuthoritativeSnapshot,
 } from '../scripts/lib/fachkraft-job-parser.mjs';
+import { createSpecUrlPolicy } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 
@@ -106,6 +108,69 @@ describe('fachkraft crawler transport recovery', () => {
     }));
     expect(snapshot).toHaveLength(1);
     expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+  });
+
+  it('rejects a short Jina error body before falling through to browser rescue', async () => {
+    const fetchImpl = vi.fn(async (target: string) => {
+      if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      if (target === LISTING_URL) return new Response('blocked by WAF', { status: 403 });
+      if (target === DETAIL_URL) return new Response(detailHtml(), { status: 200 });
+      throw new Error(`unexpected fetch target: ${target}`);
+    });
+    const fetchJinaImpl = vi.fn().mockResolvedValue('temporary upstream response '.repeat(4));
+    const fetchBrowserImpl = vi.fn().mockResolvedValue(listingHtml());
+
+    const snapshot = await fetchFachkraftSnapshot({
+      ...runtimeOptions,
+      fetchImpl,
+      fetchJinaImpl,
+      fetchBrowserImpl,
+    });
+
+    expect(fetchJinaImpl).toHaveBeenCalledOnce();
+    expect(fetchBrowserImpl).toHaveBeenCalledWith(LISTING_URL, expect.objectContaining({
+      timeoutMs: runtimeOptions.requestTimeoutMs,
+      signal: expect.any(AbortSignal),
+    }));
+    expect(snapshot).toHaveLength(1);
+    expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+  });
+
+  it('keeps a compact browser detail rescue while rejecting the same body from Jina', async () => {
+    const fetchImpl = vi.fn(async (target: string) => {
+      if (target === DETAIL_URL) return new Response('blocked by WAF', { status: 403 });
+      throw new Error(`unexpected fetch target: ${target}`);
+    });
+    const shortBrowserDetail = `<html><body>${'compact detail '.repeat(11)}</body></html>`;
+    const fetchJinaImpl = vi.fn().mockResolvedValue(shortBrowserDetail);
+    const fetchBrowserImpl = vi.fn().mockResolvedValue(shortBrowserDetail);
+    const urlPolicy = createSpecUrlPolicy(runtimeOptions.spec, { lookupImpl: runtimeOptions.lookupImpl });
+
+    try {
+      expect(shortBrowserDetail.length).toBeLessThan(200);
+      const page = await fetchFachkraftPage(
+        DETAIL_URL,
+        {
+          fetchImpl,
+          lookupImpl: runtimeOptions.lookupImpl,
+          sleepImpl: runtimeOptions.sleepImpl,
+          retries: runtimeOptions.retries,
+          retryBaseMs: runtimeOptions.retryBaseMs,
+          requestTimeoutMs: runtimeOptions.requestTimeoutMs,
+        },
+        urlPolicy,
+        new AbortController().signal,
+        'detail 1/1',
+        fetchJinaImpl,
+        fetchBrowserImpl,
+      );
+
+      expect(page).toMatchObject({ body: shortBrowserDetail, status: 200, proxiedBy: 'browser' });
+      expect(fetchJinaImpl).toHaveBeenCalledOnce();
+      expect(fetchBrowserImpl).toHaveBeenCalledOnce();
+    } finally {
+      await urlPolicy.dispatcher.close();
+    }
   });
 
   it('cancels a pending browser rescue on sibling detail abort and preserves its reason', async () => {
