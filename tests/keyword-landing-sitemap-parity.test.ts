@@ -56,10 +56,10 @@ import { resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const PLUGIN_SRC = readFileSync(resolve(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
 
-/** The GSC keyword-landing region: floor constant → config-load catch. */
+/** The GSC keyword-landing region: shared floor → config-load catch. */
 function keywordRegion(): string {
-  const start = PLUGIN_SRC.indexOf('const KEYWORD_LANDING_MIN_JOBS');
-  expect(start, 'KEYWORD_LANDING_MIN_JOBS anchor not found — the keyword-landing block was renamed or moved').toBeGreaterThan(-1);
+  const start = PLUGIN_SRC.indexOf('const GSC_SEARCH_LANDING_MIN_JOBS');
+  expect(start, 'GSC_SEARCH_LANDING_MIN_JOBS anchor not found — the keyword-landing block was renamed or moved').toBeGreaterThan(-1);
   const end = PLUGIN_SRC.indexOf('Failed to load keyword pages config', start);
   expect(end, 'keyword-pages-config catch anchor not found — re-anchor this test').toBeGreaterThan(start);
   return PLUGIN_SRC.slice(start, end);
