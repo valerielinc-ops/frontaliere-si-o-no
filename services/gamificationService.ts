@@ -56,6 +56,18 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 const STORAGE_KEY = 'frontaliere_achievements';
 
+const createEmptyState = (): GamificationState => ({
+ unlockedAchievements: {},
+ actionCounts: {},
+ xp: 0,
+ streak: 0,
+ lastVisitDay: '',
+});
+
+// Keep state usable for the current session when browser storage is blocked or
+// full. Once a write succeeds, storage becomes authoritative again.
+let unsavedState: GamificationState | null = null;
+
 export interface GamificationState {
  unlockedAchievements: Record<string, number>;
  actionCounts: Record<string, number>;
@@ -65,6 +77,7 @@ export interface GamificationState {
 }
 
 export function loadState(): GamificationState {
+ if (unsavedState) return unsavedState;
  try {
  const raw = localStorage.getItem(STORAGE_KEY);
  if (raw) {
@@ -78,11 +91,17 @@ export function loadState(): GamificationState {
  };
  }
  } catch {}
- return { unlockedAchievements: {}, actionCounts: {}, xp: 0, streak: 0, lastVisitDay: '' };
+ return createEmptyState();
 }
 
 export function saveState(state: GamificationState) {
+ try {
  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+ unsavedState = null;
+ } catch {
+ // Storage is a cache; keep the current session's state and notifications usable.
+ unsavedState = state;
+ }
 }
 
 export function getLevel(xp: number): { level: number; currentXp: number; nextLevelXp: number } {
