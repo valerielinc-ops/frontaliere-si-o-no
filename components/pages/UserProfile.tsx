@@ -1130,15 +1130,20 @@ const UserProfile: React.FC = () => {
  locale: getLocale(),
  },
  };
+ if (typeof Blob === 'undefined' || typeof URL === 'undefined' || typeof URL.createObjectURL !== 'function' || typeof URL.revokeObjectURL !== 'function' || typeof document === 'undefined') return;
  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
  const url = URL.createObjectURL(blob);
- const a = document.createElement('a');
+ let a: HTMLAnchorElement | null = null;
+ try {
+ a = document.createElement('a');
  a.href = url;
  a.download = `frontaliere-dati-personali-${new Date().toISOString().slice(0, 10)}.json`;
  document.body.appendChild(a);
  a.click();
- document.body.removeChild(a);
+ } finally {
+ a?.remove();
  URL.revokeObjectURL(url);
+ }
  Analytics.trackUIInteraction('profile', 'gdpr', 'export_data', 'click');
  };
 

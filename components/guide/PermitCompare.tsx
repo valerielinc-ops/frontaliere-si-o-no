@@ -363,15 +363,20 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  grossSalary,
  gType: wizardState.profile,
  });
+ if (typeof Blob === 'undefined' || typeof URL === 'undefined' || typeof URL.createObjectURL !== 'function' || typeof URL.revokeObjectURL !== 'function' || typeof document === 'undefined') return;
  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
  const url = URL.createObjectURL(blob);
- const a = document.createElement('a');
+ let a: HTMLAnchorElement | null = null;
+ try {
+ a = document.createElement('a');
  a.href = url;
  a.download = `${templateId}-${new Date().toISOString().slice(0, 10)}.txt`;
  document.body.appendChild(a);
  a.click();
- a.remove();
+ } finally {
+ a?.remove();
  URL.revokeObjectURL(url);
+ }
  },
  [grossSalary, muni, swissCity.name, wizardState.profile]
  );
