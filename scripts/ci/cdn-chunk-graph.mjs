@@ -239,6 +239,11 @@ const IMPORT_DECL_RX = new RegExp(
   String.raw`import\s*(?:(?:([A-Za-z_$][\w$]*)\s*(?:,\s*)?)?(?:\{([^}]*)\}|\*\s*as\s*[A-Za-z_$][\w$]*)?\s*from\s*)?(?:${STRING})\s*;?`,
   'y',
 );
+// The stable /assets/index-entry.js is a tiny compatibility bootstrap. Its
+// literal comment is intentionally machine-readable so local verification and
+// the live watchdog follow the build-scoped entry instead of stopping at the
+// bootstrap and missing the real import/export graph.
+const VERSIONED_ENTRY_HINT_RX = /FRONTALIERE_VERSIONED_ENTRY:\s*(https:\/\/cdn\.frontaliereticino\.ch\/assets\/[A-Za-z0-9_./-]+\.m?js)(?![A-Za-z0-9_.-])/;
 
 function skipTrivia(source, start) {
   let p = start;
@@ -268,7 +273,7 @@ function skipTrivia(source, start) {
  * false "missing export".
  *
  * @returns {{
- *   imports: Array<{ url: string, spec: string, names: string[], kind: 'static' | 'dynamic' | 'reexport' | 'reexport-all' | 'preload' | 'loose' }>,
+ *   imports: Array<{ url: string, spec: string, names: string[], kind: 'static' | 'dynamic' | 'reexport' | 'reexport-all' | 'preload' | 'bootstrap' | 'loose' }>,
  *   exports: string[],
  *   exportAll: string[],
  * }}
@@ -285,6 +290,9 @@ export function parseModuleLinks(source, moduleUrl) {
     imports.push({ url, spec, names, kind });
     seenRefs.add(url);
   };
+
+  const versionedEntry = text.match(VERSIONED_ENTRY_HINT_RX)?.[1];
+  if (versionedEntry) addRef(versionedEntry, 'bootstrap');
 
   // Prologue: static import declarations.
   let p = skipTrivia(text, 0);
@@ -352,7 +360,7 @@ export function parseModuleLinks(source, moduleUrl) {
 }
 
 /** Reference kinds whose target MUST exist for the page to work. */
-export const STRONG_REF_KINDS = new Set(['static', 'reexport', 'reexport-all', 'dynamic', 'preload']);
+export const STRONG_REF_KINDS = new Set(['static', 'reexport', 'reexport-all', 'dynamic', 'preload', 'bootstrap']);
 
 // ── Validators ─────────────────────────────────────────────────────────────
 

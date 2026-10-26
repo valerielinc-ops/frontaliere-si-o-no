@@ -231,9 +231,14 @@ async function fetchActiveHashes() {
     const res = await fetch(LIVE_ENTRY_URL, { signal: AbortSignal.timeout(15_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
-    // Extract all CDN asset filenames referenced in the entry HTML
+    // Extract all CDN asset paths referenced in the entry HTML. Versioned
+    // releases intentionally contain slashes (`releases/<build>/App.js`), so
+    // the old basename-only matcher would fail to protect the live release.
     const escapedHost = CDN_ASSETS_HOST.replace(/\./g, '\\.');
-    const rx = new RegExp(`${escapedHost}([a-zA-Z0-9._-]+)`, 'g');
+    const rx = new RegExp(
+      `${escapedHost}([A-Za-z0-9._/-]+\\.(?:m?js|css)(?:\\.map)?)(?![A-Za-z0-9_.-])`,
+      'g',
+    );
     const active = new Set();
     for (const m of html.matchAll(rx)) active.add(m[1]);
     console.log(`[janitor] active hashes in live HTML: ${active.size}`);
@@ -254,12 +259,23 @@ async function fetchActiveHashes() {
  */
 function readDistAssetHashes() {
   if (!existsSync(DIST_ASSETS_DIR)) return null;
-  // EVERY file in dist/assets/ is active — stable names (App.js, index.css,
-  // seo-static.css, … — vite.config.ts stable-name policy) as much as any
-  // legacy hashed name. The set is a PROTECT list, so broader is safer.
-  const set = new Set(readdirSync(DIST_ASSETS_DIR));
+  // EVERY file in dist/assets/ is active — stable aliases, the current
+  // release namespace and any legacy hashed name. The set is a PROTECT list,
+  // so broader is safer. It must be recursive now that releases are nested.
+  const set = new Set(walkRelativeFiles(DIST_ASSETS_DIR));
   console.log(`[janitor] dist/assets/ active filenames: ${set.size} (from ${DIST_ASSETS_DIR})`);
   return set;
+}
+
+function walkRelativeFiles(dir, prefix = '') {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...walkRelativeFiles(full, relative));
+    else if (entry.isFile()) out.push(relative.replaceAll('\\', '/'));
+  }
+  return out;
 }
 
 
@@ -307,9 +323,9 @@ async function main() {
     // deploy.yml's additive `cp -rn` carries it forward on every deploy).
     // `.hash-age.json`, images, fonts and `logo.svg` are not JS/CSS(.map) and
     // are never touched here.
-    const allDirFiles = readdirSync(assetsDir);
+    const allDirFiles = walkRelativeFiles(assetsDir);
     const allAssets = allDirFiles.filter(f => /\.(js|css)(\.map)?$/.test(f));
-    const hashedCount = allAssets.filter(f => VITE_ASSET_RX.test(f.replace(/\.map$/, ''))).length;
+    const hashedCount = allAssets.filter(f => VITE_ASSET_RX.test(f.split('/').pop().replace(/\.map$/, ''))).length;
     console.log(`[janitor] ${allAssets.length} JS/CSS(.map) file(s) in CDN assets/ (${hashedCount} legacy-hashed, ${allAssets.length - hashedCount} stable)`);
     if (allAssets.length === 0) {
       console.log('[janitor] nothing to do');

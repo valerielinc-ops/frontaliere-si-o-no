@@ -58,6 +58,13 @@ describe('parseModuleLinks — the linking surface of a Rollup chunk', () => {
     const parsed = parseModuleLinks(src, A('pdf.js'));
     expect(parsed.imports).toEqual([{ url: A('pdf.worker.mjs'), spec: './pdf.worker.mjs', names: [], kind: 'loose' }]);
   });
+
+  it('follows the build-scoped entry from the stable CDN bootstrap', () => {
+    const release = A('releases/1793012345678/index-entry.js');
+    const src = `/* FRONTALIERE_VERSIONED_ENTRY: ${release} */\nconst id = 1793012345678;`;
+    const parsed = parseModuleLinks(src, A('index-entry.js'));
+    expect(parsed.imports).toEqual([{ url: release, spec: release, names: [], kind: 'bootstrap' }]);
+  });
 });
 
 describe('HTML extraction', () => {

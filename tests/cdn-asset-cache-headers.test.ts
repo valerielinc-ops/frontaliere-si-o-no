@@ -24,10 +24,9 @@ import {
  * Cache-Control that `_r2_sync` stamps on each object IS the Cloudflare edge
  * TTL. Bundle filenames are STABLE, not content-hashed
  * (tests/stable-asset-names.test.ts), so those bytes change under the same URL
- * on every deploy. Therefore `/assets/*` may never be published `immutable`,
- * and its TTL must stay bounded — otherwise the edge serves one build's chunk
- * against another build's HTML, which is precisely the cross-chunk skew
- * services/resilientImport.ts exists to recover from.
+ * on every deploy. Root `/assets/*` compatibility aliases therefore keep a
+ * bounded TTL. The executable graph is now under `/assets/releases/<BUILD_ID>/`
+ * and may be immutable because its URL is build-scoped.
  */
 const ROOT = resolve(import.meta.dirname, '..');
 const PREP = readFileSync(resolve(ROOT, 'scripts/lib/deploy-it-pages-prep.sh'), 'utf-8');
@@ -46,7 +45,7 @@ function joinContinuations(source: string): string {
 /** The `_r2_sync <src> <prefix> <cache-control> [log]` line for a given prefix. */
 function r2SyncLine(prefix: string): string {
   const line = PREP.split('\n').find(
-    (l) => l.trim().startsWith('_r2_sync') && new RegExp(`\\s${prefix}\\s`).test(l),
+    (l) => (l.trim().startsWith('_r2_sync') || l.trim().startsWith('if ! _r2_sync')) && new RegExp(`\\s${prefix}\\s`).test(l),
   );
   expect(line, `_r2_sync line for "${prefix}" not found in deploy-it-pages-prep.sh`).toBeTruthy();
   return line as string;
@@ -93,8 +92,55 @@ describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
     }
   });
 
+  it('fails closed when a production build has no versioned executable release', () => {
+    const root = mkdtempSync(join(tmpdir(), 'cdn-versioned-release-contract-'));
+    const assets = join(root, 'dist', 'assets');
+    mkdirSync(assets, { recursive: true });
+    writeFileSync(join(root, 'dist', 'index.html'), '<script src="/assets/gtag-init-aaaaaaaaaaaa.js"></script>');
+    writeFileSync(join(assets, 'index-entry.js'), 'import "./App.js";');
+    writeFileSync(join(assets, 'gtag-init.js'), 'legacy alias');
+    writeFileSync(join(assets, 'gtag-init-aaaaaaaaaaaa.js'), 'current producer');
+    try {
+      let status: number | undefined;
+      try {
+        execFileSync('bash', ['-c', `source ${PREP_SH} && step_push_cdn`], {
+          cwd: root,
+          env: {
+            PATH: process.env.PATH ?? '',
+            RUNNER_TEMP: root,
+            CDN_STAGE_DIR: join(root, 'cdn-stage'),
+            CDN_TARGET: 'pages',
+            DEPLOY_BUILD_ID: '1793012345678',
+            CDN_DEPLOY_KEY: 'test-key',
+          },
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'pipe'],
+        });
+      } catch (error: unknown) {
+        status = (error as { status?: number }).status;
+      }
+      expect(status, 'the production CDN push must require the build-scoped release').toBe(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('never publishes /assets/ as immutable (filenames are stable, bytes are not)', () => {
     expect(r2SyncLine('assets')).not.toMatch(/immutable/);
+  });
+
+  it('publishes build-scoped releases with immutable caching', () => {
+    const line = r2SyncLine('assets/releases');
+    expect(line).toMatch(/public,max-age=31536000,immutable/);
+  });
+
+  it('uploads the stable bootstrap only after the release graph is complete', () => {
+    const releaseAt = PREP.indexOf('_r2_sync 420 "$stage/assets/releases"');
+    const bootstrapAt = PREP.indexOf('_r2_sync 120 "$_bootstrap_asset_stage" assets');
+    expect(releaseAt).toBeGreaterThan(-1);
+    expect(bootstrapAt).toBeGreaterThan(releaseAt);
+    expect(PREP).toContain('mv "$stage/assets/index-entry.js" "$_bootstrap_asset_stage/index-entry.js"');
+    expect(PREP).toContain('mv "$_bootstrap_asset_stage/index-entry.js" "$stage/assets/index-entry.js"');
   });
 
   it('keeps the /assets/ edge TTL bounded (a missed purge must not be permanent)', () => {

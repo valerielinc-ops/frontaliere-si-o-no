@@ -359,12 +359,13 @@ const CACHE_ACTION_PARAMETERS = {
 // with no positive Cache-Control (e.g. /cdn-build-id.txt's `no-store`, or an
 // R2 404) is never cached, without needing per-status overrides here.
 //
-// Because this is respect_origin, the object's Cache-Control IS the edge TTL —
-// which is why /assets/ must never be uploaded `immutable` under this site's
-// stable (non-content-hashed) filenames. Freshness for those keys comes from
-// the targeted per-key purge deploy-it-pages-prep.sh runs right after the R2
-// sync (scripts/ci/purge-changed-cdn-assets.mjs); their 7d max-age is only the
-// backstop if that purge is missed.
+// Because this is respect_origin, the object's Cache-Control IS the edge TTL.
+// Root /assets/ compatibility aliases keep stable (non-content-hashed) names
+// and therefore use a short revalidatable TTL. The executable application
+// graph lives under /assets/releases/<BUILD_ID>/, whose URL is build-scoped and
+// may safely be immutable. The targeted per-key purge remains useful for root
+// aliases and for fast convergence, but module coherence no longer depends on
+// a purge completing atomically across generations.
 // `serve_stale` IS set here, and the precondition the previous revision of this
 // comment demanded has now been met.
 //
