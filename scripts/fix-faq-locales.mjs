@@ -149,6 +149,7 @@ function locateFaqLiteral(content) {
         parsed,
         openerIndex,
         closingIndex: payloadEnd,
+        quote,
       };
     }
   }
@@ -163,8 +164,24 @@ export function extractFaqFromContent(content) {
 export function replaceFaqLiteral(content, serializedFaq) {
   const located = locateFaqLiteral(content);
   if (!located) return null;
+  let payload = String(serializedFaq ?? '');
+  if (located.quote === '"') {
+    // Callers historically serialized for a single-quoted literal.  When the
+    // existing locale uses double quotes, protect every JSON quote that is
+    // not already protected by an odd run of backslashes.  Even runs are the
+    // escaped JSON payload (after the TS backslash doubling) and still need
+    // one more slash for the outer TypeScript delimiter.
+    let escaped = '';
+    let slashCount = 0;
+    for (const character of payload) {
+      if (character === '"' && slashCount % 2 === 0) escaped += '\\';
+      escaped += character;
+      slashCount = character === '\\' ? slashCount + 1 : 0;
+    }
+    payload = escaped;
+  }
   return content.slice(0, located.openerIndex + 1)
-    + serializedFaq
+    + payload
     + content.slice(located.closingIndex);
 }
 

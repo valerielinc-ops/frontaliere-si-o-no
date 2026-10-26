@@ -48,6 +48,7 @@ import {
   insertFaqIntoBodyFile,
   parseFaqLiteral,
 } from '../scripts/batch-add-faq-to-articles.mjs';
+import { escapeForSingleQuoteTS, replaceFaqLiteral } from '../scripts/fix-faq-locales.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT_PATH = path.join(ROOT, 'scripts', 'batch-add-faq-to-articles.mjs');
@@ -318,6 +319,17 @@ describe('nanako#394 — round-trip write→read', () => {
     const encoded = JSON.stringify(pairs).replaceAll('\\', '\\\\').replaceAll('"', '\\"');
     const src = `"blog.article.${ALPHA}.faq": "${encoded}",`;
     expect(extractFaqFromContent(src)).toEqual(pairs);
+  });
+
+  it('adatta al delimitatore doppio il serializer storico per apici singoli', () => {
+    const pairs = [
+      { q: 'L"immigrazione?', a: 'Risposta sufficientemente lunga per il controllo.' },
+      { q: 'Seconda domanda?', a: 'Seconda risposta sufficientemente lunga per il controllo.' },
+    ];
+    const src = '.faq": \\"' + JSON.stringify(pairs) + '\\",';
+    const replaced = replaceFaqLiteral(src, escapeForSingleQuoteTS(JSON.stringify(pairs)));
+    expect(replaced).toContain('\\\\\\"');
+    expect(extractFaqFromContent(replaced!)).toEqual(pairs);
   });
 
   it('cio che insertFaqIntoBodyFile scrive, extractFaqFromContent rilegge', () => {
