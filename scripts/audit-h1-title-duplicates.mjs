@@ -76,16 +76,14 @@ export function hasMatchingArticleHeadline(html, headline) {
           ? node.mainEntityOfPage
           : node.mainEntityOfPage?.url || node.mainEntityOfPage?.['@id'];
         // A live editorial article may intentionally canonicalise to an
-        // authoritative near-duplicate. In that case `url`/`@id` identify
-        // this document while the canonical link identifies the winner. The
-        // old ownUrl === pageUrl check mistook that valid article template
-        // for a generic title/H1 collision. Keep the exemption structural:
-        // the document must expose an Article-family node whose headline
-        // matches and whose own identity is internally consistent.
+        // authoritative near-duplicate. Even then, at least one structured
+        // identity must point at this document's canonical URL; an unrelated
+        // Article node with the same headline must never suppress the audit.
         const hasOwnDocumentIdentity = typeof ownUrl === 'string' && (
           ownUrl === pageUrl
-          || (nodeId.length > 0 && nodeId.startsWith(`${ownUrl}#`))
-          || mainEntityUrl === ownUrl
+          || nodeId === pageUrl
+          || nodeId.startsWith(`${pageUrl}#`)
+          || mainEntityUrl === pageUrl
         );
         return types.some((type) => type === 'Article' || type === 'NewsArticle')
           && hasOwnDocumentIdentity && typeof node.headline === 'string'

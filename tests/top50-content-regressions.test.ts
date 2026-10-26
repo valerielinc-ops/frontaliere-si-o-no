@@ -30,6 +30,19 @@ describe('editorial headline semantics', () => {
     expect(hasMatchingArticleHeadline(article(undefined, undefined, 'https://example.com/'), 'Titolo della notizia')).toBe(false);
     expect(hasMatchingArticleHeadline(article() + '<h1>Secondo titolo</h1>', 'Titolo della notizia')).toBe(false);
   });
+  it('does not exempt an unrelated Article node that merely repeats the H1', () => {
+    const html = '<link rel="canonical" href="https://frontaliereticino.ch/a/"><h1>Titolo della notizia</h1>'
+      + '<script type="application/ld+json">'
+      + JSON.stringify({
+        '@type': 'NewsArticle',
+        headline: 'Titolo della notizia',
+        url: 'https://frontaliereticino.ch/other/',
+        '@id': 'https://frontaliereticino.ch/other/#article',
+        mainEntityOfPage: 'https://frontaliereticino.ch/other/',
+      })
+      + '</script>';
+    expect(hasMatchingArticleHeadline(html, 'Titolo della notizia')).toBe(false);
+  });
   it('emits the original article H1 without the generic guide suffix', () => {
     const source = readFileSync(new URL('../packages/articles/engine/ogPagesPlugin.ts', import.meta.url), 'utf8');
     expect(source.replace(/\s+/g, ' ')).toContain('const h1Display = isEvent ? differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale) : localizedTitle;');

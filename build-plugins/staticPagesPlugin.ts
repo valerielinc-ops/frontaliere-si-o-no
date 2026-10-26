@@ -1027,14 +1027,12 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  if (!html.includes('</body>')) return html;
  const cantonNav = buildHomepageCantonNavHtml(locale);
  const langSwitch = buildHomepageLangSwitchHtml(locale);
- // Keep the cross-locale canton directory on the IT root. The language
- // switcher alone leaves every non-IT canton hub one hop too deep for the
- // job-detail BFS contract (home → locale home → canton → archive index →
- // archive page → detail). The directory is generated from the same canton
- // slug registry as the locale-home nav, so it cannot drift or link a 404.
+ // Locale roots receive their own complete canton directory through
+ // `renderLocaleRootShell` below. Repeating all three locale directories on
+ // `/` would exceed the crawler's 100-link homepage budget once the required
+ // discovery rails are included, so keep the root focused on its own locale.
  const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
  const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
- const crossLocaleCantons = locale === 'it' ? buildHomepageCrossLocaleCantonNavHtml() : '';
  // tests/seo/breadcrumb-coverage.test.ts requires every non-noindex dist/
  // page to carry a BreadcrumbList JSON-LD block. The locale-root mirrors
  // (/en/, /de/, /fr/) are NOT in that test's exempt list (only bare
@@ -1046,57 +1044,11 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  const breadcrumbScript = html.includes('id="hp-breadcrumb-ld"')
   ? ''
   : `<script type="application/ld+json" id="hp-breadcrumb-ld">${buildHomepageBreadcrumbJsonLd(locale)}</script>\n`;
- const discoveryNavigation = [langSwitch, relatedGuides, directoryHubs, crossLocaleCantons, cantonNav]
+ const discoveryNavigation = [langSwitch, relatedGuides, directoryHubs, cantonNav]
   .filter(Boolean)
   .join('\n');
  const discoverySection = `<section class="homepage-discovery" id="homepage-discovery" aria-label="${HOMEPAGE_DISCOVERY_LABEL[locale]}">${discoveryNavigation}</section>`;
  return html.replace('</body>', `${discoverySection}\n${block}\n${breadcrumbScript}</body>`);
-}
-
-/**
- * Cross-locale canton-hub directory — ROOT-CAUSE FIX for the bfs-depth
- * regression on sitemap-jobs-{canton}.xml that the user's locale-home
- * injection isn't reaching `/en/`, `/de/`, `/fr/` reliably (later
- * plugins overwrite). Even with PR #185's lang-switcher, the EN/DE/FR
- * homes don't carry the per-locale canton anchors needed to reach
- * `/en/find-jobs-{canton}/` etc.
- *
- * Workaround the per-locale injection gap by emitting anchors to ALL
- * 25 cantons × 4 locales = 100 canton-hub URLs DIRECTLY from `/` (the
- * IT home — the only page guaranteed to have the SEO block). Each
- * canton-hub then becomes depth 1 from `/`, regardless of locale.
- * Chain: `/ → /en/find-jobs-geneva/` (1) → tutti (2) → page-N (3) →
- * job (4). All sitemap-jobs-{canton}.xml URLs reach depth ≤ 4 without
- * relying on cross-locale home injection. Visible-not-collapsed pill
- * row grouped by locale heading.
- */
-// Kept as a separate directory so the root can expose non-IT canton hubs
-// without duplicating the locale-home navigation implementation.
-function buildHomepageCrossLocaleCantonNavHtml(): string {
- const cantonDataAny = (cantonSlugFile as { cantons: Record<string, Record<string, string>>; aggregate?: Record<string, string> });
- const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
- const localesOrder: HpSeoLocale[] = ['en', 'de', 'fr']; // IT is already covered by buildHomepageCantonNavHtml
- const sections: string[] = [];
- for (const loc of localesOrder) {
-   const langName = loc === 'en' ? 'English' : loc === 'de' ? 'Deutsch' : 'Français';
-   const rows: string[] = [];
-   for (const code of codes) {
-     const slugForLabel = code === AGGREGATE_KEY
-       ? cantonDataAny.aggregate?.[loc]
-       : cantonDataAny.cantons?.[code]?.[loc] ?? cantonDataAny.cantons?.[code]?.it;
-     if (!slugForLabel) continue;
-     const cantonSection = resolveCantonSection(loc as CantonLocale, code);
-     const cantonHubHref = `/${loc}/${cantonSection}/`.replace(/\/+/g, '/');
-     const displayLabel = slugForLabel
-       .split('-')
-       .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
-       .join(' ');
-     rows.push(`<a class="hp-cross-locale-canton-link" href="${cantonHubHref}" hreflang="${loc}">${displayLabel}</a>`);
-   }
-   if (rows.length > 0) sections.push(`<div><strong class="s-ox6EAg">${langName}</strong> ${rows.join('')}</div>`);
- }
- if (sections.length === 0) return '';
- return `<aside class="s-mnG0tW" id="hp-xlocale-cantons" aria-label="Canton hubs in all languages"><details class="s-B_AjzX"><summary class="s-JzgXFd">Cantons in other languages (${sections.length * 25})</summary><div class="s-TLn90R">${sections.join('')}</div></details></aside>`;
 }
 
 /**
