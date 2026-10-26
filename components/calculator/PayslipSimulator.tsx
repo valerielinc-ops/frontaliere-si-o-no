@@ -223,7 +223,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  }
  if (userProfile.children) {
  const n = parseInt(userProfile.children, 10);
- if (!isNaN(n)) setChildren(n);
+ if (Number.isFinite(n)) setChildren(Math.min(10, Math.max(0, n)));
  }
  }, [userProfile]);
 

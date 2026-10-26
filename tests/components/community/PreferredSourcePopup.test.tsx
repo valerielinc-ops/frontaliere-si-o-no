@@ -90,6 +90,14 @@ describe('PreferredSourcePopup', () => {
     expect(screen.queryByTestId('bottom-prompt')).toBeNull();
   });
 
+  it('ignora una deadline localStorage corrotta e mostra il prompt', () => {
+    localStorage.setItem(DISMISS_KEY, '1700000000000junk');
+    render(<PreferredSourcePopup articleId="article-1" />);
+    act(() => { vi.advanceTimersByTime(1200); });
+
+    expect(screen.getByTestId('bottom-prompt')).toBeTruthy();
+  });
+
   it('non si ripropone su un altro articolo nella stessa sessione dopo essere apparso', () => {
     sessionStorage.setItem(SEEN_KEY, 'true');
     render(<PreferredSourcePopup articleId="article-2" />);

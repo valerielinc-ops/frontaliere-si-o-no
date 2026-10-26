@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import MobileCalcLayout from '@/components/calculator/MobileCalcLayout';
 
@@ -33,6 +33,22 @@ vi.mock('@/services/i18n', () => ({
 
 vi.mock('@/services/analytics', () => ({
   Analytics: { trackEvent: vi.fn() },
+}));
+
+vi.mock('@/services/authService', () => ({
+  useAuth: () => ({ user: null, signIn: vi.fn() }),
+  renderGoogleButtonWithReadiness: vi.fn().mockResolvedValue(false),
+  signInWithLinkedIn: vi.fn(),
+}));
+
+vi.mock('@/hooks/useLinkedInSignInAvailable', () => ({
+  useLinkedInSignInAvailable: () => false,
+  linkedInPendingClass: () => '',
+}));
+
+vi.mock('@/services/newsletterSubscribers', () => ({
+  upsertNewsletterSubscriber: vi.fn(),
+  markNewsletterSubscribedLocally: vi.fn(),
 }));
 
 vi.mock('@/services/lazyRetry', () => ({
@@ -104,5 +120,40 @@ describe('MobileCalcLayout net delta badge', () => {
 
     expect(screen.getByText('+CHF 300')).toBeInTheDocument();
     expect(screen.getByText('+CHF 200')).toBeInTheDocument();
+  });
+});
+
+describe('MobileCalcLayout analysis gate', () => {
+  it('keeps the gate usable when localStorage reads and writes are blocked', () => {
+    const realStorage = window.localStorage;
+    const blockedStorage: Storage = {
+      getItem: () => { throw new DOMException('storage blocked', 'SecurityError'); },
+      setItem: () => { throw new DOMException('storage blocked', 'SecurityError'); },
+      removeItem: () => { throw new DOMException('storage blocked', 'SecurityError'); },
+      clear: () => { throw new DOMException('storage blocked', 'SecurityError'); },
+      key: () => null,
+      get length() { return 0; },
+    };
+    Object.defineProperty(window, 'localStorage', { value: blockedStorage, configurable: true });
+
+    try {
+      expect(() => {
+        render(
+          <MobileCalcLayout
+            inputs={baseInputs as any}
+            setInputs={vi.fn()}
+            onCalculate={vi.fn()}
+            result={buildResult(5000, 4700)}
+          />,
+        );
+        fireEvent.click(screen.getByRole('button', { name: 'Analisi completa (Vivo in CH)' }));
+      }).not.toThrow();
+
+      expect(screen.getByRole('dialog')).toBeInTheDocument();
+      expect(() => fireEvent.click(screen.getByRole('button', { name: 'newsletterGate.skip' }))).not.toThrow();
+      expect(screen.queryByRole('dialog')).toBeNull();
+    } finally {
+      Object.defineProperty(window, 'localStorage', { value: realStorage, configurable: true });
+    }
   });
 });

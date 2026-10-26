@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
- * posthog-error-issue-sync.mjs — weekly "top recurring client errors" feeder:
+ * posthog-error-issue-sync.mjs — daily "top recurring client errors" feeder:
  * reads GA4 `app_error` (with the standard `exception` mirror) for the
  * production host and opens/dedupes GitHub backlog issues for the ones above
  * threshold.
@@ -80,15 +80,20 @@ export function posthogReconcile(entries, { windowDays = 7, minCount = 5 } = {})
 /** Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami. */
 export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', minCount = intFromEnv('POSTHOG_ERROR_MIN_COUNT', 5)) {
     const origins = extractStackFrameOrigins(e.sampleExceptionList);
+    const rawSampleStack = String(sanitizeTrackedDiagnosticValue(e.sampleStack || '') || '').trim();
+    const sampleStack = rawSampleStack
+      ? `\n\`\`\`text\n${rawSampleStack.slice(0, 4000).replaceAll('```', '')}\n\`\`\``
+      : 'not available in GA4 for this signature';
     const originsText = origins.length
       ? origins.map((o) => sanitizeTrackedDiagnosticValue(o)).join(', ')
-      : 'unresolved (0 frames)';
+      : rawSampleStack ? 'see the GA4 sample stack below' : 'unresolved (0 frames)';
     return [
       `**Type:** ${sanitizeTrackedDiagnosticValue(e.type)}`,
       `**Message:** ${sanitizeTrackedDiagnosticValue(e.message)}`,
       `**Occurrences (last ${windowDays}d):** ${e.count} | **Distinct sessions:** ${e.sessions}`,
       `**Sample URL:** ${sanitizeTrackedDiagnosticValue(e.sampleUrl)}`,
       `**Resolved stack origins (sample):** ${originsText}`,
+      `**Sample stack (GA4):**${sampleStack}`,
       '',
       `_Source: ${e.sourceLabel || SOURCE_LABEL}._`,
       '',
