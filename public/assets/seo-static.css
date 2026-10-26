@@ -2436,6 +2436,63 @@ main.seo-static-content.company-hub-page {
 }
 .company-hub-page > .s-7uP4UM p,
 .company-hub-page > .s-7uP4UM li { line-height: 1.65; }
+.company-hub-crosslink-section .company-hub-crosslink-intro {
+  max-width: 64ch;
+  margin: 8px 0 14px;
+  color: var(--color-subtle);
+}
+.company-hub-crosslink-section .company-hub-crosslink-list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.company-hub-crosslink-section .company-hub-crosslink-list li { margin: 0; }
+.company-hub-crosslink-section .company-hub-crosslink {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-edge);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-heading);
+  text-decoration: none;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+.company-hub-crosslink-section .company-hub-crosslink:hover {
+  border-color: var(--color-accent-border);
+  background: var(--color-accent-subtle);
+}
+.company-hub-crosslink-section .company-hub-crosslink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.company-hub-crosslink-section .company-hub-crosslink-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.company-hub-crosslink-section .company-hub-crosslink-label {
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.35;
+}
+.company-hub-crosslink-section .company-hub-crosslink-count {
+  color: var(--color-subtle);
+  font-size: .9rem;
+  line-height: 1.4;
+}
+.company-hub-crosslink-section .company-hub-crosslink-action {
+  flex: 0 0 auto;
+  color: var(--color-link);
+  font-size: .875rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
 @media (max-width:639px){
   main.seo-static-content.company-hub-page { padding-top: 8px; }
   .company-hub-page .company-hub-breadcrumb { margin-bottom: 12px; font-size: .78rem; }
@@ -2454,9 +2511,12 @@ main.seo-static-content.company-hub-page {
   .company-hub-page .company-hub-openings-title { font-size: 1.45rem; }
   .company-hub-page .company-hub-results { margin-top: 1px; }
   .company-hub-page > .s-7uP4UM { margin-top: 26px; padding-top: 22px; }
+  .company-hub-crosslink-section .company-hub-crosslink { align-items: flex-start; }
+  .company-hub-crosslink-section .company-hub-crosslink-action { margin-top: 2px; }
 }
 @media (prefers-reduced-motion: reduce){
-  .company-hub-primary-action { transition: none; }
+  .company-hub-primary-action,
+  .company-hub-crosslink { transition: none; }
 }
 
 /* staticPagesPlugin: job-board landing deep navigators (canton explore pills +
