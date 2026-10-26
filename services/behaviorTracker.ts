@@ -88,55 +88,6 @@ function emptyBehavior(): BehaviorData {
  };
 }
 
-function isRecord(value: unknown): value is Record<string, unknown> {
- return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-
-function finiteTimestamp(value: unknown): value is number {
- return typeof value === 'number' && Number.isFinite(value) && value >= 0;
-}
-
-function finiteCount(value: unknown): value is number {
- return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
-}
-
-function normalizeViewedJobs(value: unknown): ViewedJob[] {
- if (!Array.isArray(value)) return [];
- return value.flatMap((entry): ViewedJob[] => {
-  if (!isRecord(entry)
-   || typeof entry.slug !== 'string' || !entry.slug.trim()
-   || typeof entry.category !== 'string'
-   || typeof entry.company !== 'string'
-   || typeof entry.location !== 'string'
-   || !finiteTimestamp(entry.ts)) return [];
-  return [{
-   slug: entry.slug,
-   category: entry.category,
-   company: entry.company,
-   location: entry.location,
-   ts: entry.ts,
-  }];
- });
-}
-
-function normalizeSearches(value: unknown): SearchEntry[] {
- if (!Array.isArray(value)) return [];
- return value.flatMap((entry): SearchEntry[] => {
-  if (!isRecord(entry)
-   || typeof entry.query !== 'string' || !entry.query.trim()
-   || !finiteTimestamp(entry.ts)
-   || !finiteCount(entry.resultCount)) return [];
-  return [{ query: entry.query, ts: entry.ts, resultCount: entry.resultCount }];
- });
-}
-
-function normalizeCounterMap(value: unknown): Record<string, number> {
- if (!isRecord(value)) return {};
- return Object.fromEntries(
-  Object.entries(value).filter(([key, entry]) => key.trim() && finiteCount(entry)),
- );
-}
-
 function readRaw(): BehaviorData {
  try {
  const raw = localStorage.getItem(STORAGE_KEY);
