@@ -1,0 +1,57 @@
+import { describe, expect, it } from 'vitest';
+import { parseMimeMessage } from '../functions/src/lib/mimeMessage.js';
+import { buildAssertions, buildSendPayload, buildTestCases } from '../scripts/ci/maileroo-email-testing.mjs';
+
+describe('Maileroo Email Testing CI fixtures', () => {
+  const cases = buildTestCases({ recipient: 'frontaliere-ci@example.invalid', runId: 'unit-test' });
+
+  it('renders the production transactional and newsletter builders', () => {
+    expect(cases.map((testCase) => testCase.name)).toEqual(['transactional-confirmation', 'newsletter-weekly']);
+    for (const testCase of cases) {
+      expect(testCase.html).toContain('frontaliereticino.ch');
+      expect(testCase.text).not.toMatch(/<\/?[a-z][^>]*>/i);
+      expect(testCase.headers['X-Frontaliere-CI-Run']).toContain('unit-test');
+    }
+  });
+
+  it('routes each fixture to its stream Application without embedding credentials', () => {
+    expect(buildSendPayload(cases[0])).toMatchObject({ from: { address: 'confirmation@frontaliereticino.ch' }, to: [{ address: 'frontaliere-ci@example.invalid' }], tracking: false });
+    expect(buildSendPayload(cases[1])).toMatchObject({ from: { address: 'newsletter@frontaliereticino.ch' }, to: [{ address: 'frontaliere-ci@example.invalid' }], tracking: false });
+    expect(JSON.stringify(buildSendPayload(cases[0]))).not.toContain('API_KEY');
+  });
+
+  it('covers authentication, reputation, rendering and newsletter opt-out checks', () => {
+    const transactional = buildAssertions(cases[0]).map((item) => item.type);
+    const newsletter = buildAssertions(cases[1]).map((item) => item.type);
+    expect(transactional).toEqual(expect.arrayContaining(['spf_eq', 'dkim_eq', 'dmarc_eq', 'auth_aligned_eq', 'rspamd_score_lte', 'links_rbl_clean', 'ip_rbl_clean', 'gmail_clip_eq', 'accessibility_score_gte']));
+    expect(newsletter).toContain('unsubscribe_valid_eq');
+  });
+
+  it('keeps the plain-text alternative aligned with the captured HTML payload', () => {
+    const testCase = cases[1];
+    const payload = buildSendPayload(testCase);
+    const boundary = 'frontaliere-unit-boundary';
+    const raw = [
+      `From: ${testCase.from.display_name} <${testCase.from.address}>`,
+      `To: ${testCase.recipient}`,
+      `Subject: ${testCase.subject}`,
+      'MIME-Version: 1.0',
+      `Content-Type: multipart/alternative; boundary="${boundary}"`,
+      '',
+      `--${boundary}`,
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      payload.plain,
+      `--${boundary}`,
+      'Content-Type: text/html; charset=utf-8',
+      '',
+      payload.html,
+      `--${boundary}--`,
+      '',
+    ].join('\r\n');
+    const parsed = parseMimeMessage(raw);
+    expect(parsed.from).toContain(testCase.from.address);
+    expect(parsed.subject).toBe(testCase.subject);
+    expect(parsed.text).toContain('Parliamoci chiaro.');
+  });
+});
