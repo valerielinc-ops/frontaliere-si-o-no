@@ -11,8 +11,8 @@ import {
 describe('Maileroo Email Testing CI fixtures', () => {
   const cases = buildTestCases({ recipient: 'frontaliere-ci@example.invalid', runId: 'unit-test' });
 
-  it('renders the production transactional and newsletter builders', () => {
-    expect(cases.map((testCase) => testCase.name)).toEqual(['transactional-confirmation', 'newsletter-weekly']);
+  it('renders the production transactional, newsletter and application-reminder builders', () => {
+    expect(cases.map((testCase) => testCase.name)).toEqual(['transactional-confirmation', 'newsletter-weekly', 'application-intent-reminder']);
     for (const testCase of cases) {
       expect(testCase.html).toContain('frontaliereticino.ch');
       expect(testCase.text).not.toMatch(/<\/?[a-z][^>]*>/i);
@@ -23,6 +23,7 @@ describe('Maileroo Email Testing CI fixtures', () => {
   it('routes each fixture to its stream Application without embedding credentials', () => {
     expect(buildSendPayload(cases[0])).toMatchObject({ from: { address: 'confirmation@frontaliereticino.ch' }, to: [{ address: 'frontaliere-ci@example.invalid' }], tracking: false });
     expect(buildSendPayload(cases[1])).toMatchObject({ from: { address: 'newsletter@frontaliereticino.ch' }, to: [{ address: 'frontaliere-ci@example.invalid' }], tracking: false });
+    expect(buildSendPayload(cases[2])).toMatchObject({ from: { address: 'alerts@frontaliereticino.ch' }, to: [{ address: 'frontaliere-ci@example.invalid' }], tracking: false });
     expect(JSON.stringify(buildSendPayload(cases[0]))).not.toContain('API_KEY');
   });
 
@@ -35,8 +36,16 @@ describe('Maileroo Email Testing CI fixtures', () => {
   it('covers authentication, reputation, rendering and newsletter opt-out checks', () => {
     const transactional = buildAssertions(cases[0]).map((item) => item.type);
     const newsletter = buildAssertions(cases[1]).map((item) => item.type);
+    const applicationIntent = buildAssertions(cases[2]).map((item) => item.type);
     expect(transactional).toEqual(expect.arrayContaining(['spf_eq', 'dkim_eq', 'dmarc_eq', 'auth_aligned_eq', 'rspamd_score_lte', 'links_rbl_clean', 'ip_rbl_clean', 'gmail_clip_eq', 'accessibility_score_gte']));
     expect(newsletter).toContain('unsubscribe_valid_eq');
+    expect(applicationIntent).toContain('unsubscribe_valid_eq');
+  });
+
+  it('keeps the application reminder unsubscribe label separate from its URL', () => {
+    const applicationIntent = cases[2];
+    expect(applicationIntent.html).toMatch(/<a href="https:\/\/frontaliereticino\.ch\/disiscrivi-promemoria-candidature\/[^"]*"[^>]*>Disiscriviti da questi promemoria<\/a>/);
+    expect(applicationIntent.html).not.toMatch(/>https:\/\/frontaliereticino\.ch\/disiscrivi-promemoria-candidature\/[^<]*<\/a>/);
   });
 
   it('rejects a positive but incomplete Maileroo assertion report', () => {
