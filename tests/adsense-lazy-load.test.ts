@@ -27,6 +27,7 @@ const adSenseBanner = readFileSync(
   'utf8',
 );
 const analyticsService = readFileSync(resolve(repoRoot, 'services/analytics.ts'), 'utf8');
+const analyticsProxy = readFileSync(resolve(repoRoot, 'services/analyticsProxy.ts'), 'utf8');
 
 describe('AdSense lazy loading — index.html', () => {
   it('does NOT include an eager <script src=".../adsbygoogle.js"> tag in <head>', () => {
@@ -189,6 +190,7 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
     expect(analyticsService).toMatch(
       /export \{ isLikelyBot \} from ['"]\.\/botPatterns['"];?/,
     );
+    expect(analyticsProxy).toContain('void m.isLikelyBot;');
     expect(adSenseBanner).toContain(
       "import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';",
     );
