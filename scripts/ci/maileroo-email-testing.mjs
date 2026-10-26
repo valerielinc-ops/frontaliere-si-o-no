@@ -18,9 +18,10 @@
  *   MAILEROO_EMAIL_TESTING_REPORT    JSON report path
  */
 
+import { realpathSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { pathToFileURL } from 'node:url';
 
 import { buildNewsletter } from '../../services/newsletter-template.mjs';
 import {
@@ -458,7 +459,13 @@ async function main() {
   await runMailerooEmailTesting({ reportPath });
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})()) {
   main().catch((error) => {
     console.error(`❌ ${errorMessage(error)}`);
     process.exitCode = 1;
