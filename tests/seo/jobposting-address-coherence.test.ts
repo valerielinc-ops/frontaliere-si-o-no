@@ -9,10 +9,9 @@ import { buildReportedJobPostingFixture as buildJobPostingSchema } from '../help
  *  - Coop job: Ticino HQ street on a Winterthur (ZH) posting
  *  - UBS job: region name "Ticino" emitted as addressLocality
  *
- * Owner decision 2026-10-24 (Non-Negotiable #3): locality, region and country
- * are always present; street and CAP only when the source (or the curated HQ
- * in the job's own city) states them. A coherent ABSENCE is the expected
- * outcome when the source has no street/CAP — never a town-hall default.
+ * Owner decision 2026-10-24 (Non-Negotiable #3): locality, region, country,
+ * street and CAP are always present. Source values and curated HQ tuples win;
+ * missing values use a coherent locality-safe fallback.
  */
 import { describe, it, expect } from 'vitest';
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
@@ -73,9 +72,9 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     );
     const addr = s.jobLocation.address;
     expect(addr.addressLocality).toBe('Lugano');
-    // Neither the Bellinzona HQ tuple nor an invented Lugano street/CAP.
-    expect(addr).not.toHaveProperty('postalCode');
-    expect(addr).not.toHaveProperty('streetAddress');
+    // The Bellinzona HQ tuple is rejected; Lugano receives its own fallback.
+    expect(addr.postalCode).toBe('6900');
+    expect(addr.streetAddress).toBe('Piazza Riforma 1');
   });
 
   it('job in the HQ city keeps the curated HQ street/CAP', () => {
@@ -114,8 +113,8 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     const addr = s.jobLocation.address;
     expect(addr.addressLocality).toBe('Zürich');
     expect(addr.addressRegion).toBe('ZH');
-    expect(addr).not.toHaveProperty('postalCode');
-    expect(addr).not.toHaveProperty('streetAddress');
+    expect(addr.postalCode).toBe('8001');
+    expect(addr.streetAddress).toBe('Bahnhofstrasse 1');
   });
 
   it('region name shipped as locality ("Ticino") normalizes to a coherent capital locality', () => {
@@ -126,7 +125,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     const addr = s.jobLocation.address;
     expect(addr.addressLocality).toBe('Bellinzona'); // never a region as locality
     expect(addr.postalCode).toBe('6500'); // the source CAP, coherent with Bellinzona
-    expect(addr).not.toHaveProperty('streetAddress'); // not the Lugano HQ street, none invented
+    expect(addr.streetAddress).toBe('Piazza Governo');
   });
 
   it('explicit source street+CAP always win over defaults', () => {
@@ -152,9 +151,9 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     const addr = s.jobLocation.address;
     expect(addr.addressLocality).toBe('Lugano');
     expect(addr.addressRegion).toBe('TI');
-    // The incoherent pair is dropped whole; nothing is invented in its place.
-    expect(addr).not.toHaveProperty('postalCode');
-    expect(addr).not.toHaveProperty('streetAddress');
+    // The incoherent pair is dropped whole; Lugano receives its own tuple.
+    expect(addr.postalCode).toBe('6900');
+    expect(addr.streetAddress).toBe('Piazza Riforma 1');
   });
 
   it('uses the complete postal snapshot for a municipality outside the curated aliases', () => {
@@ -171,8 +170,8 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     const addr = s.jobLocation.address;
     expect(addr.addressLocality).toBe('Novaggio');
     expect(addr.addressRegion).toBe('TI');
-    expect(addr).not.toHaveProperty('postalCode');
-    expect(addr).not.toHaveProperty('streetAddress');
+    expect(addr.postalCode).toBe('6986');
+    expect(addr.streetAddress).toBe('Novaggio centro');
   });
 
   it('garbage/leaked free-text locality (Hirslanden Arbeitsort leak) never survives into the schema', () => {
@@ -190,7 +189,7 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).not.toBe('Bern - Futsal Minerva Besetzung per: 1');
     expect(addr.addressLocality).toBe('Bern'); // BE canton-capital fallback, no HQ/city match
     expect(addr.addressRegion).toBe('BE');
-    expect(addr).not.toHaveProperty('streetAddress');
+    expect(addr.streetAddress).toBe('Bundesplatz 3');
   });
 
   it('real city from the WRONG canton (Bellinzona/TI text with addressRegion BE) never pairs mismatched', () => {
@@ -208,14 +207,15 @@ describe('buildJobPostingSchema — address coherence (#3513)', () => {
     expect(addr.addressLocality).not.toBe('Bellinzona');
     expect(addr.addressLocality).toBe('Bern'); // coherent with the authoritative BE region
     expect(addr.addressRegion).toBe('BE');
-    expect(addr).not.toHaveProperty('postalCode');
+    expect(addr.postalCode).toBe('3001');
+    expect(addr.streetAddress).toBe('Bundesplatz 3');
   });
 });
 
 /**
  * Issue 9852: the canton capital's street/CAP never completes the address of a
- * DIFFERENT locality. The capital tuple stays legal only as a whole (locality
- * included), e.g. when the source locality is unknown.
+ * DIFFERENT locality. Such a locality gets its own postal snapshot and a
+ * localized deterministic street fallback.
  */
 function expectNoCapitalTupleBesideAnotherLocality(address: {
   addressLocality: string;
@@ -234,10 +234,12 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     ['Pully', 'VD'],
     ['Aubonne', 'VD'],
     ['Weinfelden', 'TG'],
-  ])('%s %s keeps its locality and borrows no street/CAP', (locality, region) => {
+  ])('%s %s keeps its locality and receives a local fallback tuple', (locality, region) => {
     const addr = buildJobPostingSchema({ ...baseJob, addressLocality: locality, addressRegion: region }, OPTS)
       .jobLocation.address;
-    expect(addr).toEqual({ '@type': 'PostalAddress', addressLocality: locality, addressRegion: region, addressCountry: 'CH' });
+    expect(addr).toMatchObject({ '@type': 'PostalAddress', addressLocality: locality, addressRegion: region, addressCountry: 'CH' });
+    expect(addr.streetAddress).toBe(`${locality} centro`);
+    expect(/^\d{4}$/.test(addr.postalCode)).toBe(true);
     expectNoCapitalTupleBesideAnotherLocality(addr);
   });
 
@@ -248,8 +250,10 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
       { ...baseJob, addressLocality: 'Villars-sur-Ollon', addressRegion: 'VD' },
       OPTS,
     ).jobLocation.address;
-    expect(addr).toEqual({
+    expect(addr).toMatchObject({
       '@type': 'PostalAddress',
+      streetAddress: 'Villars-sur-Ollon centro',
+      postalCode: '1884',
       addressLocality: 'Villars-sur-Ollon',
       addressRegion: 'VD',
       addressCountry: 'CH',
@@ -263,8 +267,7 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
       OPTS,
     ).jobLocation.address;
     expect(arisdorf).toMatchObject({ addressLocality: 'Arisdorf' });
-    expect(arisdorf).not.toHaveProperty('postalCode');
-    expect(arisdorf).not.toHaveProperty('streetAddress');
+    expect(arisdorf).toMatchObject({ postalCode: '4422', streetAddress: 'Arisdorf centro' });
     expectNoCapitalTupleBesideAnotherLocality(arisdorf);
 
     const liestal = buildJobPostingSchema(
@@ -279,7 +282,7 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
       OPTS,
     ).jobLocation.address;
     expect(brutten).toMatchObject({ addressLocality: 'Brütten' });
-    expect(brutten).not.toHaveProperty('postalCode');
+    expect(brutten).toMatchObject({ postalCode: '8311', streetAddress: 'Brütten centro' });
     // A default CAP that IS the locality's own stays (Massagno shares 6900).
     const massagno = buildJobPostingSchema(
       { ...baseJob, addressLocality: 'Massagno', addressRegion: 'TI', postalCode: '6900' },
@@ -290,20 +293,20 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
 
   it('a known locality without any CAP of its own keeps the locality the page shows (review of #9870)', () => {
     // "Oerlikon" is a curated ZH alias that the official directory does not
-    // list. The page shows Oerlikon, so the JSON-LD must too, with no street
-    // or CAP borrowed from the canton (owner decision 2026-10-24).
+    // list. The page shows Oerlikon, so the JSON-LD must too, with a complete
+    // deterministic tuple (owner decision 2026-10-24).
     const addr = resolveJobPostingAddress({ addressLocality: 'Oerlikon', addressRegion: 'ZH' }, 'it');
     expect(addr.addressLocality).toBe('Oerlikon');
     expect(addr.addressRegion).toBe('ZH');
-    expect(addr).not.toHaveProperty('postalCode');
-    expect(addr).not.toHaveProperty('streetAddress');
+    expect(addr.postalCode).toBe('8001');
+    expect(addr.streetAddress).toBe('Oerlikon centro');
     expect(buildJobPostingSchema({ ...baseJob, addressLocality: 'Oerlikon', addressRegion: 'ZH' }, OPTS)
       .jobLocation.address.addressLocality).toBe('Oerlikon');
   });
 
   it('the SPA JobBoard JobPosting gets every address from the same resolver', () => {
-    // JobBoard replaces the static JSON-LD at runtime; its own fallback CAP
-    // (deriveJobPostalCode → Lugano's 6900) must not survive beside Pully.
+    // JobBoard replaces the static JSON-LD at runtime; its source hints must
+    // still resolve to Pully's own complete tuple.
     const input = {
       ...baseJob,
       location: 'Pully',
@@ -316,8 +319,10 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     const expected = resolveJobPostingAddress(input, 'fr');
     const jobBoardAddress = buildJobPostingSchema(input, { ...OPTS, locale: 'fr' }).jobLocation.address;
 
-    expect(expected).toEqual({
+    expect(expected).toMatchObject({
       '@type': 'PostalAddress',
+      streetAddress: 'Pully centro',
+      postalCode: '1009',
       addressLocality: 'Pully',
       addressRegion: 'VD',
       addressCountry: 'CH',
@@ -351,7 +356,7 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     expect(remote.applicantLocationRequirements).toEqual({ '@type': 'Country', name: 'CH' });
 
     // A multi-location label is not a locality: the canton capital stands in
-    // as the required locality, without the capital's street/CAP.
+    // as the required locality, with the complete capital tuple.
     const multi = buildJobBoardPosting({
       addressLocality: 'Lugano · Bellinzona · Mendrisio',
       location: 'Lugano · Bellinzona · Mendrisio',
@@ -359,6 +364,8 @@ describe('buildJobPostingSchema — no canton-capital street/CAP beside another 
     }, false, 'it');
     expect(multi.jobLocation.address).toEqual({
       '@type': 'PostalAddress',
+      streetAddress: CANTON_CAPITAL_ADDRESSES.TI.streetAddress,
+      postalCode: CANTON_CAPITAL_ADDRESSES.TI.postalCode,
       addressLocality: CANTON_CAPITAL_ADDRESSES.TI.addressLocality,
       addressRegion: 'TI',
       addressCountry: 'CH',
@@ -423,9 +430,12 @@ describe('shared locality helpers (#3513)', () => {
 
     for (const [canton, expected] of Object.entries(CANTON_CAPITALS)) {
       const cantonData = MUNICIPALITY_DATA.cantons[canton as keyof typeof MUNICIPALITY_DATA.cantons];
+      const aliases = cantonData && 'aliases' in cantonData && Array.isArray(cantonData.aliases)
+        ? cantonData.aliases
+        : [];
       const municipalities = [
         ...(cantonData?.municipalities || []),
-        ...(cantonData?.aliases || []),
+        ...aliases,
       ];
       const hasCapital = municipalities.some((municipality) => municipality === expected.city
         || municipality.replace(/\s*\([A-Z]{2}\)$/i, '') === expected.city);
@@ -633,7 +643,7 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
     expect(posting.applicantLocationRequirements).toEqual({ '@type': 'Country', name: 'CH' });
   });
 
-  it('multi-location posting: the canton capital as locality, no street/CAP borrowed', () => {
+  it('multi-location posting: the canton capital as a complete locality tuple', () => {
     const posting = buildJobBoardPosting({
       addressLocality: 'Lugano · Bellinzona · Mendrisio',
       location: 'Lugano · Bellinzona · Mendrisio',
@@ -644,6 +654,8 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
     expect(address.addressRegion).not.toBe('CH');
     expect(address).toEqual({
       '@type': 'PostalAddress',
+      streetAddress: CANTON_CAPITAL_ADDRESSES.TI.streetAddress,
+      postalCode: CANTON_CAPITAL_ADDRESSES.TI.postalCode,
       addressLocality: CANTON_CAPITAL_ADDRESSES.TI.addressLocality,
       addressRegion: 'TI',
       addressCountry: 'CH',
@@ -658,7 +670,14 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
       location: 'Pully',
       canton: 'VD',
     }, false);
-    expect(posting.jobLocation.address).toEqual({ '@type': 'PostalAddress', addressLocality: 'Pully', addressRegion: 'VD', addressCountry: 'CH' });
+    expect(posting.jobLocation.address).toEqual({
+      '@type': 'PostalAddress',
+      streetAddress: 'Pully centro',
+      postalCode: '1009',
+      addressLocality: 'Pully',
+      addressRegion: 'VD',
+      addressCountry: 'CH',
+    });
     expect(COUNTRY_LEVEL.test(posting.jobLocation.address.addressLocality)).toBe(false);
   });
 });

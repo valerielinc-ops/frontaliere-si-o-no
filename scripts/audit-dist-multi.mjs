@@ -12,7 +12,7 @@
  *   5. audit-page-weight                  (260 KB HTML budget + <img> attrs)
  *   6. audit-hreflang                     (hreflang completeness/host/target)
  *   7. audit-title-uniqueness             (within-locale unique <title>s)
- *   8. validate-jobposting-schema         (9 mandatory JobPosting fields)
+ *   8. validate-jobposting-schema         (complete mandatory JobPosting fields)
  *   9. validate-structured-data-completeness (Dataset/JobPosting/Event/Product)
  *
  * The nine original scripts remain unchanged and continue to be the source of
@@ -658,7 +658,7 @@ class TitleUniqAudit {
 // ───── validate-jobposting-schema helpers ────────────────────────────────────
 
 /**
- * The required/optional fields come from the shared contract. This audit keeps
+ * The complete mandatory field set comes from the shared contract. This audit keeps
  * only the standalone validator's additional address-quality checks here.
  */
 function checkJobPostingSchemaAddressDetails(schema) {
@@ -773,19 +773,11 @@ function sdValidateDataset(schema, filePath) {
 
 /**
  * Structured-data completeness checks beyond the shared JobPosting contract.
- * `validThrough` and address-region quality are consumer-specific; the shared
- * contract is added by StructuredDataAudit below.
+ * Address-region quality is consumer-specific; the shared contract is added
+ * by StructuredDataAudit below.
  */
 function validateStructuredDataJobPostingExtras(schema, filePath) {
   const errors = [];
-  // validThrough exists only when the source states a deadline (owner
-  // decision 2026-10-24): validated when present, never required.
-  if (sdIsNonEmpty(schema.validThrough)) {
-    const vt = new Date(String(schema.validThrough));
-    if (Number.isNaN(vt.getTime())) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: `JobPosting validThrough "${schema.validThrough}" is not a valid ISO date` });
-    }
-  }
   const address = schema.jobLocation?.address;
   if (address && typeof address === 'object') {
     // addressLocality is part of the shared contract (validateMandatoryJobPostingFields).
@@ -1880,7 +1872,7 @@ function runJobPosting(audit) {
     `${audit.pagesWithJobPosting} pages carry ${audit.schemaCount} JobPosting schemas.`,
   );
   if (audit.failures.length === 0) {
-    console.log('[validate-jobposting-schema] OK — every JobPosting has all 9 mandatory fields.');
+    console.log('[validate-jobposting-schema] OK — every JobPosting has the complete mandatory field contract.');
     return { passed: true };
   }
   console.error(`[validate-jobposting-schema] FAIL — ${audit.failures.length} schemas have missing/invalid mandatory fields:`);
@@ -1963,7 +1955,7 @@ async function main() {
   //   ratio  — only text-html-ratio (the slowest single check)
   //   heavy  — h1 + dup + jobposting (medium-heavy checks)
   //   light  — title + pageweight + hreflang + titleuniq + sd (lighter checks)
-  //   unset/all — all 9 checks (default)
+  //   unset/all — all JobPosting checks (default)
   const group = process.env.AUDIT_DIST_MULTI_GROUP || 'all';
   const want = (name) => {
     if (group === 'all') return true;

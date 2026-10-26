@@ -9,7 +9,7 @@ import {
 
 const ROOT = resolve(__dirname, '..', '..');
 
-// Google's required set: missing or empty is an error.
+// The complete site contract: missing or empty is an error.
 const FIELD_CASES = [
   ['title', 'title'],
   ['description', 'description'],
@@ -17,16 +17,13 @@ const FIELD_CASES = [
   ['hiringOrganization.name', 'hiringOrganization.name'],
   ['jobLocation', 'jobLocation'],
   ['jobLocation.address.addressLocality', 'jobLocation.address.addressLocality'],
+  ['jobLocation.address.addressRegion', 'jobLocation.address.addressRegion'],
   ['jobLocation.address.addressCountry', 'jobLocation.address.addressCountry'],
-] as const;
-
-// Owner decision 2026-10-24: present only when the source states them.
-// Absent is the contract; present-but-empty is an error.
-const OPTIONAL_CASES = [
-  ['employmentType', 'employmentType'],
   ['jobLocation.address.postalCode', 'jobLocation.address.postalCode'],
   ['jobLocation.address.streetAddress', 'jobLocation.address.streetAddress'],
+  ['employmentType', 'employmentType'],
   ['baseSalary', 'baseSalary'],
+  ['validThrough', 'validThrough'],
 ] as const;
 
 type MutableJsonObject = Record<string, unknown>;
@@ -52,6 +49,7 @@ function validJobPosting(): MutableJsonObject {
       currency: 'CHF',
       value: { minValue: 72000, maxValue: 96000, unitText: 'YEAR' },
     },
+    validThrough: '2026-12-31T00:00:00.000Z',
   };
 }
 
@@ -72,21 +70,9 @@ function deletePath(target: MutableJsonObject, path: string) {
 }
 
 describe('JobPosting mandatory-field contract (#10499)', () => {
-  it('requires exactly Google\'s required JobPosting field paths', () => {
+  it('requires exactly the complete JobPosting field paths', () => {
     expect(MANDATORY_JOBPOSTING_FIELDS).toEqual(FIELD_CASES.map(([, field]) => field));
-    expect(OPTIONAL_JOBPOSTING_FIELDS).toEqual(expect.arrayContaining(OPTIONAL_CASES.map(([, field]) => field)));
-  });
-
-  it.each(OPTIONAL_CASES)('accepts a JobPosting without the optional %s field', (_label, field) => {
-    const schema = validJobPosting();
-    deletePath(schema, field);
-    expect(validateMandatoryJobPostingFields(schema)).toEqual([]);
-  });
-
-  it.each(OPTIONAL_CASES)('rejects an empty optional %s field', (_label, field) => {
-    const schema = validJobPosting();
-    setPath(schema, field, '');
-    expect(validateMandatoryJobPostingFields(schema).map((error) => error.field).join(' ')).toContain(field);
+    expect(OPTIONAL_JOBPOSTING_FIELDS).toEqual([]);
   });
 
   it('accepts several stated employment types and a salary without an upper bound', () => {

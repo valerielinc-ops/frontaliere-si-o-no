@@ -291,6 +291,7 @@ import {
   buildCompanyOrganization,
   buildJobPostingFacts,
   buildJobPostingSchema,
+  resolveJobPostingValidThrough,
   sanitizeLocalityForRegion,
   type JobInput,
 } from './shared/jobPostingSchema';
@@ -903,11 +904,9 @@ export function deriveJobAddressLocality(job: Record<string, unknown>, region: s
  * The job's own streetAddress, when it reads as a street of the emitted
  * locality (`isSourceStreetAddress`), else ''. Nothing else: the curated
  * city-hall street of each city ("Piazza Riforma 1" for every Lugano job) and
- * the canton capital's street were addresses no listing stated, and owner
- * decision 2026-10-24 keeps a JobPosting field present only when the source
- * states it. The employer's curated HQ, when it sits in the job's city, is
- * applied by the canonical builder (`resolveAddress` in
- * ./shared/jobPostingSchema) together with its own CAP.
+ * the canton capital's street are not source evidence. The canonical builder
+ * now uses those curated tuples only as safe fallbacks when the source omits
+ * the field, while preserving coherent source values and employer HQ tuples.
  */
 export function deriveJobStreetAddress(job: any, locality: string): string {
  const raw = String(job?.streetAddress || '').trim();
@@ -924,8 +923,8 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string;
  jobPostingDateProvenance: JobPostingDateProvenance;
- /** The source deadline, or null: a JobPosting without one carries no validThrough. */
- jobPostingValidThrough: string | null;
+ /** The resolved deadline; active pages always carry validThrough. */
+ jobPostingValidThrough: string;
  jobPostingCrawledAt: string | null;
  heroBadges: string;
  mobileAction: string;
@@ -978,27 +977,15 @@ function replaceActiveJobReuseFragment(
 }
 
 /**
- * The active page's `validThrough`: the source deadline as ISO, or null. The
- * synthetic window this replaced (crawledAt+60d / postedDate+90d, floored to
- * now+30d by #3505) is gone with it: Google asks to omit the property when
- * the expiry is unknown, and the expired contract uses the real past
- * timestamps of the archive, not this value.
+ * Read the explicit source deadline for legacy provenance callers. Active
+ * fragments use `resolveJobPostingValidThrough` below so the cache and fresh
+ * render paths share the complete-contract fallback.
  */
 export function activeJobSourceValidThrough(job: unknown): string | null {
  const raw = job && typeof job === 'object' ? (job as Record<string, unknown>).validThrough : null;
  if (!raw) return null;
  const parsed = new Date(String(raw));
  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
-}
-
-function omitJsonLdStringField(script: string, field: string): string {
- const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
- const value = '(?:"(?:\\\\.|[^"\\\\])*"|null)';
- const nonFirst = new RegExp(`,\\s*"${escapedField}"\\s*:\\s*${value}`);
- const withoutNonFirst = script.replace(nonFirst, '');
- if (withoutNonFirst !== script) return withoutNonFirst;
- const first = new RegExp(`\\{(\\s*)"${escapedField}"\\s*:\\s*${value}\\s*(?:,)?`);
- return script.replace(first, '{$1');
 }
 
 export function replaceActiveJobPostingDates(
@@ -1015,24 +1002,36 @@ export function replaceActiveJobPostingDates(
  );
  if (!scriptMatch) throw new Error('missing JobPosting JSON-LD fragment');
  let script = scriptMatch[0];
- const fields: Array<[string, string]> = [['datePosted', datePosted]];
- // validThrough comes from the source only. When the current source has no
- // deadline, remove any legacy synthetic deadline from the cached fragment;
- // otherwise a cache hit can resurrect a value the source never stated.
- if (validThrough) fields.push(['validThrough', validThrough]);
- else script = omitJsonLdStringField(script, 'validThrough');
+ const fields: Array<[string, string]> = [
+  ['datePosted', datePosted],
+  ['validThrough', validThrough || resolveJobPostingValidThrough({}, datePosted)],
+ ];
  // Keep the third field optional for legacy callers/tests. The production
- // active-page rewrite supplies null when the current source has no heartbeat;
- // fail closed instead of manufacturing an empty field or serving a stale one.
+ // active-page rewrite supplies the current crawler heartbeat when available.
  if (crawledAt !== undefined) {
   if (!crawledAt) throw new Error('current JobPosting crawledAt unavailable');
   fields.push(['crawledAt', crawledAt]);
  }
  for (const [field, value] of fields) {
-  const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)"[^"]*"`);
-  if (!fieldPattern.test(script)) throw new Error(`missing JobPosting JSON-LD field: ${field}`);
-  const next = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
-  script = next;
+  const fieldPattern = new RegExp(`("${field}"\\s*:\\s*)(?:"[^"]*"|null)`);
+  if (fieldPattern.test(script)) {
+   script = script.replace(fieldPattern, `$1${JSON.stringify(value)}`);
+   continue;
+  }
+  // Older cache entries may contain a valid JobPosting but predate the
+  // complete contract. Repair the newly mandatory deadline in place so the
+  // cache hit remains usable; other missing fields still fail closed.
+  if (field === 'validThrough') {
+   const datePostedPattern = /("datePosted"\s*:\s*)(?:"[^"]*"|null)/;
+   if (datePostedPattern.test(script)) {
+    script = script.replace(
+     datePostedPattern,
+     `$1${JSON.stringify(datePosted)},"validThrough":${JSON.stringify(value)}`,
+    );
+    continue;
+   }
+  }
+  throw new Error(`missing JobPosting JSON-LD field: ${field}`);
  }
  const scriptStart = scriptMatch.index ?? 0;
  return `${fragment.slice(0, scriptStart)}${script}${fragment.slice(
@@ -1134,8 +1133,8 @@ export function rewriteActiveBridgeHtml(bridgeHtml: string, canonicalHtml: strin
  * right rail). A figure the listing did not report carries the same
  * provenance label as the job cards — "(stima)" for the pipeline's sector
  * estimate, "(fonte non verificata)" for a structured salary of unknown
- * origin — because only a reported salary reaches the JobPosting markup
- * (owner decision 2026-10-24).
+ * origin). Estimated bands also reach the complete JobPosting contract, but
+ * remain visibly labelled as estimates (owner decision 2026-10-24).
  */
 export function formatActiveJobSalaryText(
  locale: 'it' | 'en' | 'de' | 'fr',
@@ -3678,11 +3677,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_addressRegion = deriveCanton(job);
  const perJob_addressLocality = deriveJobAddressLocality(job, perJob_addressRegion);
  const perJob_addressCountry = String(job.addressCountry || 'CH');
- // Keep the locality-derived CAP for visible page metadata, but pass only
- // the crawler's own source CAP to the canonical JobPosting builder. The
- // builder treats every value it receives as source evidence; feeding it the
- // derived Zurich/Ticino fallback would therefore publish an invented
- // postalCode in JSON-LD (owner decision 2026-10-24).
+ // Keep source hints separate from visible metadata. The canonical builder
+ // preserves coherent source values and owns the fallback tuple when the
+ // crawler omitted or contradicted a postal code/street.
  const perJob_sourcePostalCode = String(job.postalCode || '').trim();
  const perJob_postalCode = deriveJobPostalCode(job);
  const perJob_streetAddress = deriveJobStreetAddress(job, perJob_addressLocality);
@@ -3785,7 +3782,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    jobPostingDatePosted: resolvedJobPostingDate.value,
    jobPostingDateProvenance: resolvedJobPostingDate.provenance,
    jobPostingCrawledAt: job?.crawledAt ? String(job.crawledAt) : null,
-   jobPostingValidThrough: activeJobSourceValidThrough(job),
+   jobPostingValidThrough: resolveJobPostingValidThrough(
+    job as JobInput,
+    resolvedJobPostingDate.value,
+    jobsSeoReuseBuildNow,
+   ),
    heroBadges: renderHeroBadges({
     job,
     locale,
@@ -4151,10 +4152,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const finalJobPostingDescription = hasValidJobPostingDescription
  ? jobPostingDescription
  : buildJobDescriptionFallback(job, localizedTitle, addressLocality, addressRegion, locale);
- // Build the canonical JobPosting schema via the shared builder — Google's
- // required fields always, every other field only as the source states it
- // (AGENTS.md rule #3, owner decision 2026-10-24). Extra editorial fields
- // (responsibilities, skills, etc.) are merged on top of the canonical output.
+ // Build the canonical JobPosting schema via the shared builder — required
+ // fields and the site's complete non-critical contract always. Extra
+ // editorial fields (responsibilities, skills, etc.) are merged on top.
  const canonicalJobInput: JobInput = {
  id: job.id,
  slug: job.slug,
@@ -4224,12 +4224,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   baseUrl: BASE_URL,
   knownSlugs: knownEmployerProfileSlugs,
  }), faqOpts);
- // Merge editorial-only fields that sit outside the 9-mandatory core.
+ // Merge editorial-only fields that sit outside the mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
  const jobLd = inlineScriptJson({
  ...canonicalSchema,
- // validThrough: the builder's own, i.e. the source deadline or nothing.
+ // validThrough: the builder's source-first value or deterministic fallback.
  // industry / occupationalCategory / applicantLocationRequirements (the
  // last one scoped to isRemote, never unconditional — see #applicant
  // LocationRequirements hardcode fix) are already present on
@@ -12334,7 +12334,7 @@ ${staticAnalyticsHtml}
      // landing carries a CollectionPage wrapping an ItemList of its most-recent
      // jobs whenever the live inventory has jobs. Items
      // are ListItem→url (not nested JobPosting): a partial JobPosting would
-     // violate NON-NEGOTIABLE #3 (all 9 mandatory fields), and the listing
+     // violate NON-NEGOTIABLE #3 (the complete mandatory field contract), and the listing
      // page's correct primary type is CollectionPage, exactly as TI. The list
      // is rebuilt every deploy so the linked job URLs stay fresh (same jHref
      // formula as the visible listing grid above).

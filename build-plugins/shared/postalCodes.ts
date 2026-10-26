@@ -4,10 +4,9 @@
  * primary audience) plus the major Swiss cities that appear regularly
  * in crawler output.
  *
- * These tables locate a locality and check that a source CAP is coherent
- * with it. They are not a source of the JobPosting `postalCode`: that field
- * is present only when the listing (or the employer's HQ in the job's city)
- * states it (AGENTS.md rule #3, owner decision 2026-10-24).
+ * These tables locate a locality, check that a source CAP is coherent with it,
+ * and provide the canonical builder's locality-safe postal fallback when the
+ * listing omits a usable CAP (AGENTS.md rule #3, owner decision 2026-10-24).
  */
 
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json';

@@ -2092,7 +2092,8 @@ export function buildThinCantonHubHtml(args: {
   // carries 100 items × ~2.8k pages, and the full list would breach the
   // ~200 KB page-weight cap + add build-memory pressure on the OOM-prone SSG.
   // Items are ListItem→url (not nested JobPosting): a partial JobPosting would
-  // violate NON-NEGOTIABLE #3 (all 9 mandatory fields). Empty pages emit no
+     // violate NON-NEGOTIABLE #3 (the complete mandatory JobPosting contract).
+     // Empty pages emit no
   // CollectionPage (breadcrumb-only), matching the thin-content guard.
   const collectionLd = items.length === 0
     ? ''

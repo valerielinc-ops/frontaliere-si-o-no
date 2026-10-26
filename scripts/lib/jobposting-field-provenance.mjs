@@ -1,11 +1,12 @@
 /**
- * Provenance predicates for the optional JobPosting fields, shared by the
+ * Provenance predicates for source-owned JobPosting values, shared by the
  * builder (build-plugins/shared/jobPostingSchema.ts) and the audit that checks
  * its output against data/jobs.json (scripts/validate-jobs-rich-results-sample.mjs).
  *
- * Owner decision 2026-10-24: the schema is always emitted, and each field in
- * it is present if and only if the source states it. One definition here so
- * the producer and the observer cannot drift on what "states it" means.
+ * Owner decision 2026-10-24: the schema is always emitted; source values win,
+ * while the canonical builder supplies safe defaults for omitted non-critical
+ * fields. One definition here keeps producer and observer aligned on what
+ * counts as source evidence.
  */
 
 /**

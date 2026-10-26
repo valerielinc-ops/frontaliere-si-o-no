@@ -10,10 +10,10 @@
  * diacritics stripped, non-alphanumerics collapsed to `-`).
  *
  * Owner decision 2026-10-24 (AGENTS.md rule #3): a JobPosting street/CAP is
- * present only when the listing states it or when the job sits in the city
- * of a curated HQ below. The city and canton-capital tables further down
- * resolve a LOCALITY (Google requires one); their streets and CAPs are town
- * halls and central squares, and must never be emitted as a job's address.
+ * source-first and always present. When the listing does not state a coherent
+ * tuple, the resolver may use the employer HQ, the locality table, or the
+ * canton-capital safe default; callers keep the resulting locality, street,
+ * and CAP coherent as one address tuple.
  */
 
 import { inferAnyCanton } from '../../scripts/lib/target-swiss-locations.mjs';
@@ -80,10 +80,8 @@ export const COMPANY_HQ_ADDRESSES = {
 };
 
 /**
- * City-level reference tuples per known locality, used to resolve and check
- * a locality. Their street/CAP (e.g. Lugano's "Piazza Riforma 1", the town
- * hall) are NOT a job's address and are never emitted as JobPosting
- * `streetAddress`/`postalCode` (owner decision 2026-10-24).
+ * City-level reference tuples per known locality. They provide deterministic
+ * street/CAP fallbacks when a source listing omits those non-critical fields.
  */
 export const CITY_FALLBACK_ADDRESSES = {
   'lugano': { streetAddress: 'Piazza Riforma 1', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },

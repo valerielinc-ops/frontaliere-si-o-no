@@ -79,9 +79,12 @@ describe('employer publication date provenance', () => {
     expect(schema?.datePosted).toBe(yesterday);
     expect(schema?.['@type']).toBe('JobPosting');
     expect(schema?.jobLocation.address.addressLocality).toBe('Lugano');
-    // Owner decision 2026-10-24: the fixture states no CAP and no salary.
-    expect(schema?.jobLocation.address).not.toHaveProperty('postalCode');
-    expect(schema).not.toHaveProperty('baseSalary');
+    // Missing non-critical values are filled by the canonical contract.
+    expect(schema?.jobLocation.address.postalCode).toBe('6900');
+    expect(schema?.jobLocation.address.streetAddress).toBe('Piazza Riforma 1');
+    expect(schema?.baseSalary?.value.minValue).toBeGreaterThan(0);
+    expect(schema?.employmentType).toBe('FULL_TIME');
+    expect(schema?.validThrough).toBeTruthy();
   });
   it('keeps presentation FAQ facts separate from the JobPosting date', () => {
     const facts = buildJobPostingFacts(job, 'it');

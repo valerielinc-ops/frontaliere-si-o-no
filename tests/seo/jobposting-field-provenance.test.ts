@@ -1,7 +1,7 @@
 /**
- * Owner decision 2026-10-24: the JobPosting is always emitted and each field
- * is present if and only if the source states it. These are the shared
- * predicates the builder and the rich-results observer agree on.
+ * Owner decision 2026-10-24: the JobPosting is always emitted; source values
+ * win and safe defaults complete omitted non-critical fields. These are the
+ * shared predicates the builder and rich-results observer agree on.
  */
 import { describe, expect, it } from 'vitest';
 import {

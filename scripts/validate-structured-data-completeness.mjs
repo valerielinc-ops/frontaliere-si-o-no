@@ -128,21 +128,9 @@ function validateJobPosting(schema, filePath) {
   const errors = validateMandatoryJobPostingFields(schema)
     .map((violation) => toStructuredDataJobPostingError(violation, filePath));
 
-  // validThrough is present only when the source states a deadline (owner
-  // decision 2026-10-24; Google: omit it when the expiry is unknown). When
-  // present it must parse to a valid date. Past dates are allowed —
-  // expired soft-landing pages legitimately use a past validThrough to
-  // signal closure to Google.
-  if (isNonEmpty(schema.validThrough)) {
-    const vt = new Date(String(schema.validThrough));
-    if (Number.isNaN(vt.getTime())) {
-      errors.push({ file: filePath, type: 'JobPosting', field: 'validThrough', message: `JobPosting validThrough "${schema.validThrough}" is not a valid ISO date` });
-    }
-  }
-
   // Consumer-specific address quality checks. The shared contract already
-  // reports a missing jobLocation/address/addressLocality/addressCountry and a
-  // malformed postalCode/streetAddress.
+  // reports a missing jobLocation/address/addressLocality/addressCountry,
+  // malformed postalCode/streetAddress, and invalid validThrough.
   const address = schema.jobLocation?.address;
   if (address && typeof address === 'object') {
     // GSC quality issue: missing addressRegion flagged as non-critical but

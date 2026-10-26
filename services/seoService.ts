@@ -461,12 +461,12 @@ async function resolveJobSeoBySlug(
  if (!slim) return null;
  // The slim index lacks description + structured-data fields (postalCode,
  // streetAddress, baseSalary). Lazy-fetch the per-job detail and merge so the
- // JobPosting builder sees every field the source states (AGENTS.md rule #3).
+ // JobPosting builder receives every available source hint before filling its
+ // complete contract (AGENTS.md rule #3).
  const detail = await loadJobDetail(slim?.id);
  const job = detail ? { ...slim, ...detail } : slim;
  const localizedTitle = normalizeSeoText(jobDisplayTitle(job));
  const localizedDescription = compactSeoDescription(String(job?.descriptionByLocale?.[locale] || job?.description || ''), 360);
- if (!localizedTitle || !localizedDescription) return null;
  const logoUrl = companyLogoFromJob(job);
  const canonicalUrl = `${BASE_URL}${canonicalLocalePath}`;
  const address = resolveJobAddress(job);
@@ -482,13 +482,13 @@ async function resolveJobSeoBySlug(
  );
  // Delegate to the canonical builder — see
  // build-plugins/shared/jobPostingSchema.ts. It guarantees Google's required
- // JobPosting fields and emits every other field only when the source states
- // it (owner decision 2026-10-24), plus industry/occupationalCategory/
+ // JobPosting fields and fills the site's complete non-critical contract with
+ // deterministic fallbacks, plus industry/occupationalCategory/
  // applicantLocationRequirements when the source data supports them.
  const canonicalInput: JobInput = {
  id: job?.id,
  slug: job?.slug || cleanSlug,
- title: localizedTitle,
+ title: localizedTitle || undefined,
  description: String(job?.descriptionByLocale?.[locale] || job?.description || localizedDescription),
  company: job?.company,
  companyKey: job?.companyKey,
@@ -571,9 +571,9 @@ async function resolveJobSeoBySlug(
  // dilutes the keyword. Mirrors the JobBoard.tsx SPA guard.
  const titleCity = isMultiLocation(job?.location) ? '' : String(job?.location || '');
  return {
- title: buildJobTitleWithLocation(localizedTitle, String(job?.company || ''), titleCity, locale),
- description: localizedDescription,
- keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
+ title: buildJobTitleWithLocation(canonicalSchema.title, String(job?.company || ''), titleCity, locale),
+ description: canonicalSchema.description,
+ keywords: localizedJobKeywords(locale, canonicalSchema.title, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
  structuredData: [canonicalSchema, faqPageSchema].filter((schema) => schema !== null),
  };
