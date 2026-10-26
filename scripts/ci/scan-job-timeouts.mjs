@@ -159,6 +159,7 @@ import {
 // trasportabile e runnable da solo su entrambi i repo.
 import { redactWorkflowPaths } from '../lib/workflow-scope-detect.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { withTransientGithubApiRetry } from './lib/github-api-retry.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const RESOLVE_MODE = process.argv.includes('--resolve');
@@ -361,11 +362,20 @@ function repoPath(suffix) {
 
 function gh(args, { allowFailure = false, warnOnFailure = false } = {}) {
   try {
-    return execFileSync('gh', args, {
-      encoding: 'utf8',
-      maxBuffer: 50 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', warnOnFailure ? 'pipe' : 'inherit'],
-    }).trim();
+    return withTransientGithubApiRetry(
+      () => execFileSync('gh', args, {
+        encoding: 'utf8',
+        maxBuffer: 50 * 1024 * 1024,
+        // All direct gh calls in this scanner are read-only. Capture stderr so
+        // a transient HTTP 5xx can be classified before the fail-closed path.
+        stdio: ['ignore', 'pipe', 'pipe'],
+      }).trim(),
+      {
+        onRetry: ({ attempt, maxRetries, delayMs }) => console.warn(
+          `[scan-job-timeouts] GitHub read transient failure — retry ${attempt}/${maxRetries} in ${delayMs}ms`,
+        ),
+      },
+    );
   } catch (err) {
     if (allowFailure) {
       if (warnOnFailure) {
