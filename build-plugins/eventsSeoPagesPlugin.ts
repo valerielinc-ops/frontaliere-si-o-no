@@ -91,6 +91,7 @@ import {
   OTHER_EVENTS_SEGMENT,
   OTHER_EVENTS_COMUNE_KEY,
   eventReferralUrl,
+  eventSourceUrl,
   resolveCantonUrlKey,
   UNRESOLVED_CANTON_KEY,
   UNRESOLVED_CANTON_LABEL,
@@ -1708,6 +1709,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const description = rewriteDescription && rewriteDescription.length >= 30
     ? rewriteDescription
     : factualDescription;
+  const sourceUrl = eventSourceUrl(event.url, event);
   const eventWithDefaults = fillEventPeopleDefaults({ ...event, title, venue: venueName || undefined }, eventSourceRecord(event.sourceKey)) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
@@ -1727,7 +1729,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
       priceCurrency: event.price?.currency || 'CHF',
       availability: event.price?.availability || 'https://schema.org/InStock',
       validFrom: event.price?.validFrom || event.startDate,
-      url: event.price?.url || canonicalUrl || event.url,
+      url: event.price?.url || canonicalUrl || sourceUrl,
     }
     : {
       '@type': 'Offer',
@@ -1735,7 +1737,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
       priceCurrency: event.price?.currency || 'CHF',
       availability: 'https://schema.org/InStock',
       validFrom: event.startDate,
-      url: canonicalUrl || event.url,
+      url: canonicalUrl || sourceUrl,
     };
   return {
     '@context': 'https://schema.org',
@@ -1762,13 +1764,13 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     },
     ...(description ? { description } : {}),
     image: eventImage,
-    organizer: normalizeEventPeople(eventWithDefaults.organizer, event.url, event.url),
+    organizer: normalizeEventPeople(eventWithDefaults.organizer, sourceUrl, sourceUrl),
     performer: eventWithDefaults.performer,
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
-    url: canonicalUrl || event.url,
-    ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
+    url: canonicalUrl || sourceUrl,
+    ...(canonicalUrl && sourceUrl ? { sameAs: [sourceUrl] } : {}),
     // Only a confident source field may assert free admission. The
     // zero-price fallback deliberately carries no free-access claim.
     ...(confidentPrice && event.price?.isFree ? { isAccessibleForFree: true } : {}),
@@ -2006,7 +2008,7 @@ type HistoricalDetailEntry = {
  * focused on one event; the detail page owns the full Event JSON-LD.
  */
 function eventListItemLd(event: SiteEvent, locale: Locale, position: number, detailHref?: DetailHref): Record<string, unknown> {
-  const href = detailHref?.(event) || event.url;
+  const href = detailHref?.(event) || eventSourceUrl(event.url, event);
   const itemUrl = /^https?:\/\//i.test(href) ? href : `${BASE_URL}${href.startsWith('/') ? href : `/${href}`}`;
   return {
     '@type': 'ListItem',
@@ -2316,7 +2318,7 @@ function renderCrosslinks(locale: Locale): string {
 
 const EVENTS_JOURNEY_COPY: Record<
   Locale,
-  { title: string; lede: string; national: string; weekend: string; week: string }
+  { title: string; lede: string; national: string; weekend: string; week: string; municipality: (name: string) => string }
 > = {
   it: {
     title: 'Esplora l’agenda eventi',
@@ -2324,6 +2326,7 @@ const EVENTS_JOURNEY_COPY: Record<
     national: 'Tutti gli eventi in Svizzera',
     weekend: 'Eventi questo weekend',
     week: 'Eventi questa settimana',
+    municipality: (name) => `Eventi a ${name}`,
   },
   en: {
     title: 'Explore the events agenda',
@@ -2331,6 +2334,7 @@ const EVENTS_JOURNEY_COPY: Record<
     national: 'All events in Switzerland',
     weekend: 'Events this weekend',
     week: 'Events this week',
+    municipality: (name) => `Events in ${name}`,
   },
   de: {
     title: 'Veranstaltungsagenda entdecken',
@@ -2338,6 +2342,7 @@ const EVENTS_JOURNEY_COPY: Record<
     national: 'Alle Veranstaltungen in der Schweiz',
     weekend: 'Veranstaltungen dieses Wochenende',
     week: 'Veranstaltungen diese Woche',
+    municipality: (name) => `Veranstaltungen in ${name}`,
   },
   fr: {
     title: 'Explorer l’agenda des événements',
@@ -2345,13 +2350,20 @@ const EVENTS_JOURNEY_COPY: Record<
     national: 'Tous les événements en Suisse',
     weekend: 'Événements ce week-end',
     week: 'Événements cette semaine',
+    municipality: (name) => `Événements à ${name}`,
   },
 };
 
 /** Purposeful, localized links between the high-volume detail pages and the
  * lower-volume hubs/digests. `currentPath` prevents self-links while keeping
  * the same compact navigation block reusable on every event template. */
-function renderEventsJourney(locale: Locale, canton: string, currentPath: string): string {
+function renderEventsJourney(
+  locale: Locale,
+  canton: string,
+  currentPath: string,
+  currentComune?: string,
+  siblingComuni?: readonly string[],
+): string {
   const copy = EVENTS_JOURNEY_COPY[locale];
   const links: Array<{ href: string; label: string }> = [];
   const add = (href: string, label: string) => {
@@ -2362,6 +2374,20 @@ function renderEventsJourney(locale: Locale, canton: string, currentPath: string
   add(pathFor(locale, canton), copyFor(canton, locale).hubLabel);
   add(pathForDigest(locale, canton, EVENTS_DIGEST_SLUGS.weekend), copy.weekend);
   add(pathForDigest(locale, canton, EVENTS_DIGEST_SLUGS.week), copy.week);
+
+  // The municipal pages form a sorted set. Link each page to up to three
+  // nearest neighbours so every active municipality has multiple distinct
+  // incoming paths without turning the journey block into a full directory.
+  if (currentComune && siblingComuni?.length) {
+    const currentIndex = siblingComuni.indexOf(currentComune);
+    if (currentIndex >= 0) {
+      const nearby = [-2, -1, 1, 2]
+        .map((offset) => siblingComuni[currentIndex + offset])
+        .filter((comune): comune is string => Boolean(comune))
+        .slice(0, 3);
+      for (const comune of nearby) add(pathFor(locale, canton, comune), copy.municipality(comune));
+    }
+  }
 
   return `<section class="ev-panel" data-events-navigation="1">
     <h2 class="ev-h2">${esc(copy.title)}</h2>
@@ -2959,6 +2985,7 @@ export function renderComunePage(params: {
   distDir: string;
   detailHref?: DetailHref;
   archivePath?: string;
+  siblingComuni?: readonly string[];
 }): { urlPath: string; html: string; wordCount: number } {
   const { locale, canton, comune, events, dateStamp, weekendDays, distDir, detailHref } = params;
   const copy = copyFor(canton, locale);
@@ -2992,7 +3019,7 @@ export function renderComunePage(params: {
       <p class="relative mt-3 text-sm text-muted">${renderSourceAttribution(events, copy, dateStamp)}</p>
     </header>
 
-    ${renderEventsJourney(locale, canton, canonicalPath)}
+    ${renderEventsJourney(locale, canton, canonicalPath, comune, params.siblingComuni)}
 
     <dl class="mt-5 grid gap-3 sm:grid-cols-3">
       ${renderMetric(copy.statEvents, String(events.length))}
@@ -5338,7 +5365,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             const list = byComune.get(comune)!;
             const archivePath = pastComuniByCanton.get(canton)?.has(comune)
               ? historicalComuneArchivePath(locale, canton, comune) : undefined;
-            emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref, archivePath }));
+            emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref, archivePath, siblingComuni: comuni }));
             // Overflow index past page 1 (issue #7329) — same rows, bounded
             // pages. Sitemapped alongside the bucket (see `perCantonSitemap`
             // below): the ladder is the only inbound of the rows it carries.
