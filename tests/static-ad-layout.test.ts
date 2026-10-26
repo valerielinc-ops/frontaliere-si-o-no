@@ -17,6 +17,21 @@ describe('static AdSense layout recovery', () => {
     expect(html).toContain('min-height:1100px');
   });
 
+  it('marks the article near-ATF slot with its measured experiment metadata', () => {
+    const html = adSlotHtml('ARTICLE_INLINE_MOBILE', {
+      collapseWhenUnfilled: true,
+      placement: 'article-atf',
+      experimentId: 'article-detail-atf-ad-v1',
+      experimentVariant: 'atf',
+    });
+
+    expect(html).toContain('data-ad-placement="article-atf"');
+    expect(html).toContain('data-ft-static-ad="true"');
+    expect(html).toContain('data-ad-experiment="article-detail-atf-ad-v1"');
+    expect(html).toContain('data-ad-variant="atf"');
+    expect(html).toContain('data-ad-layout="in-article"');
+  });
+
   it('collapses a static slot only after no-fill or the shared fill budget', () => {
     expect(ADSENSE_LOADER_CONTENT).toContain('data-ft-static-ad-collapsed');
     expect(ADSENSE_LOADER_CONTENT).toContain('observeManualAd');

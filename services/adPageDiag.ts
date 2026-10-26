@@ -40,6 +40,7 @@ import {
 } from './adsConsent';
 import { classifyAdPageTemplate, documentHasJobPosting, type AdPageTemplate } from './adPageTemplate';
 import { AD_BANNER_STATE_ATTR } from './adsenseSlots';
+import { ARTICLE_DETAIL_ATF_EXPERIMENT_ID } from '@/packages/articles/engine/shared/articleAtfAdExperiment';
 import { isManualSlot } from './adSlotKinds';
 import { isLikelyBot } from './botPatterns';
 import { READER_NOADS_ACTIVE_KEY } from './readerEntitlementKey';
@@ -52,9 +53,11 @@ export const FC_CONSENT_ROOT_SELECTOR = '.fc-consent-root';
 export type AdPathReason = 'loaded' | 'bot_gated' | 'noads_entitlement' | 'waiting_consent';
 export type AdDiagConsentState = 'granted' | 'denied' | 'none';
 export type AdDiagGateStatus = 'held' | 'released' | 'suppressed' | 'off_board' | 'absent';
+export type ArticleAtfDiagVariant = 'control' | 'atf';
+export type AdPageDiagTemplate = AdPageTemplate | `article_detail_${ArticleAtfDiagVariant}`;
 
 export interface AdPageDiagParams {
-  page_template: AdPageTemplate;
+  page_template: AdPageDiagTemplate;
   consent_state: AdDiagConsentState;
   ad_path: AdPathReason;
   adsbygoogle_loaded: 0 | 1;
@@ -103,6 +106,20 @@ function readStorage(win: DiagWindow, key: string): string | null {
   } catch {
     return null;
   }
+}
+
+function readArticleAtfVariant(doc: Document, path: string): ArticleAtfDiagVariant | null {
+  const marker = doc.querySelector(`[data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}"][data-ad-variant]`);
+  const value = marker?.getAttribute('data-ad-variant');
+  if (value === 'control' || value === 'atf') return value;
+  return classifyAdPageTemplate(path, documentHasJobPosting(doc)) === 'article_detail' ? 'control' : null;
+}
+
+function pageTemplateForDiag(doc: Document, path: string): AdPageDiagTemplate {
+  const pageTemplate = classifyAdPageTemplate(path, documentHasJobPosting(doc));
+  if (pageTemplate !== 'article_detail') return pageTemplate;
+  const variant = readArticleAtfVariant(doc, path);
+  return variant ? `article_detail_${variant}` : 'article_detail_control';
 }
 
 
@@ -188,7 +205,7 @@ export function collectAdPageDiag(
   const cmp: 0 | 1 = state.cmp || doc.querySelector(FC_CONSENT_ROOT_SELECTOR) ? 1 : 0;
 
   return {
-    page_template: classifyAdPageTemplate(state.path, documentHasJobPosting(doc)),
+    page_template: pageTemplateForDiag(doc, state.path),
     consent_state: consent,
     ad_path: adPath,
     adsbygoogle_loaded: adsLoaded ? 1 : 0,

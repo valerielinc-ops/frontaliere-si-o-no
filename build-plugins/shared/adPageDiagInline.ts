@@ -31,6 +31,7 @@ import {
 import { AD_BANNER_STATE_ATTR } from '../../services/adsenseSlots';
 import { AD_PAGE_TEMPLATE_INLINE_FN } from '../../services/adPageTemplate';
 import { READER_NOADS_ACTIVE_KEY } from '../../services/readerEntitlementKey';
+import { ARTICLE_DETAIL_ATF_EXPERIMENT_ID } from '../../packages/articles/engine/shared/articleAtfAdExperiment';
 
 const COLLECT_JS =
   `function collect(hidden){var ls=function(k){try{return w.localStorage.getItem(k);}catch(e){return null;}};` +
@@ -41,7 +42,8 @@ const COLLECT_JS =
   `var ins=d.querySelectorAll('ins[data-ad-slot]'),tot=0,fil=0,unf=0,col=0;` +
   `for(var i=0;i<ins.length;i++){var el=ins[i];if(!man(el))continue;tot++;var st=el.getAttribute('data-ad-status');if(st==='filled')fil++;else if(st==='unfilled')unf++;if(el.hasAttribute('data-ft-static-ad-collapsed')||el.closest('[${AD_BANNER_STATE_ATTR}="collapsed"]'))col++;}` +
   `var an=d.querySelector('ins[data-anchor-status]');` +
-  `return{page_template:(${AD_PAGE_TEMPLATE_INLINE_FN})(h.path,d),consent_state:consent,ad_path:path,` +
+  `var pt=(${AD_PAGE_TEMPLATE_INLINE_FN})(h.path,d),av='none',am=d.querySelector('[data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}"][data-ad-variant]');if(am){var ax=am.getAttribute('data-ad-variant');if(ax==='control'||ax==='atf')av=ax;}else if(pt==='article_detail')av='control';if(pt==='article_detail')pt=pt+'_'+av;` +
+  `return{page_template:pt,consent_state:consent,ad_path:path,` +
   `adsbygoogle_loaded:a&&(a.loaded===true||(typeof a.push==='function'&&a.push!==Array.prototype.push))?1:0,` +
   `fc_loaded:g&&(typeof g.getAdBlockerStatus==='function'||typeof g.showRevocationMessage==='function'||g.MessageTypeEnum!=null)?1:0,` +
   `gate_status:gate,slots_total:tot,slots_filled:fil,slots_unfilled:unf,slots_collapsed:col,` +

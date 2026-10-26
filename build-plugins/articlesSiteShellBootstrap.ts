@@ -67,6 +67,7 @@ import {
   type SiteShellContract,
   type ArticleLocale,
   type StaticAdSlotKey,
+  type StaticAdSlotHtmlOptions,
 } from '../packages/articles/engine/siteShell';
 
 const blogIndexSlugs: Record<ArticleLocale, string> = {
@@ -88,10 +89,13 @@ const CANTON_HUB_AD_SLOT: Record<StaticAdSlotKey, Parameters<typeof adSlotHtml>[
   'canton-hub-inline-1': 'ARTICLE_INLINE_MOBILE',
   'canton-hub-inline-2': 'ARTICLE_INLINE_MOBILE_2',
   'canton-hub-end': 'SSG_END_MULTIPLEX',
+  'article-atf': 'ARTICLE_INLINE_MOBILE',
 };
 
-const staticAdSlotHtml: NonNullable<SiteShellContract['staticAdSlotHtml']> = (slot: StaticAdSlotKey) =>
-  adSlotHtml(CANTON_HUB_AD_SLOT[slot]);
+const staticAdSlotHtml: NonNullable<SiteShellContract['staticAdSlotHtml']> = (
+  slot: StaticAdSlotKey,
+  options?: StaticAdSlotHtmlOptions,
+) => adSlotHtml(CANTON_HUB_AD_SLOT[slot], options);
 
 const contract: SiteShellContract = {
   baseUrl: BASE_URL,

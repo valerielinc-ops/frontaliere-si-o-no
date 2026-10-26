@@ -52,6 +52,9 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // Config (the key is allowlisted in functions/src/publicConfigKeys.js).
  ASSISTED_APPLICATION_OFFERWALL_FALLBACK: 'false',
  AUTHGATE_HEADLINE_VARIANT: 'control',
+ // Near-first-content article ad test. The safe default keeps the existing
+ // article layout until the owner explicitly enables the treatment.
+ ARTICLE_DETAIL_ATF_AD_TEST_VARIANT: 'control',
  // Admin shell v2 stays off unless Remote Config explicitly activates it.
  admin_shell_v2: 'false',
  // Legacy v4 keys remain available for cached clients, which Remote Config

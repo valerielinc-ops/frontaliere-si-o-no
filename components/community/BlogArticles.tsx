@@ -96,6 +96,11 @@ const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 import { RAIL_GRID_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
+import {
+ ARTICLE_DETAIL_ATF_EXPERIMENT_ID,
+ ARTICLE_DETAIL_ATF_TREATMENT_VARIANT,
+ resolveArticleDetailAtfAdVariant,
+} from '@/packages/articles/engine/shared/articleAtfAdExperiment';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { generateInitialsLogo } from '@/services/logoService';
@@ -2440,6 +2445,16 @@ function BlogArticlesContent({
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= AD_ELIGIBLE_MIN_WORDS && bodyCharCount >= AD_ELIGIBLE_MIN_CHARS;
  const adEligibleRail = adEligible && (isDesktopXl || isCompactRail);
  const adEligibleInline = adEligible;
+ const articleAtfVariant = resolveArticleDetailAtfAdVariant(
+  import.meta.env.VITE_ARTICLE_DETAIL_ATF_AD_TEST_VARIANT,
+ );
+ const articleAtfTreatment = articleAtfVariant === ARTICLE_DETAIL_ATF_TREATMENT_VARIANT;
+ // Direct SSG article loads already contain the experiment slot outside #root.
+ // Keep the hydration handoff single-request; SPA navigations have no static
+ // marker and render the same treatment inside React.
+ const staticArticleAtfHandoff = deferUntilArticleReady
+  && typeof document !== 'undefined'
+  && Boolean(document.querySelector('main.seo-static-content [data-ft-article-atf-slot="true"]'));
  // Number of stacked side-rail ad panels, scaled to body length so the chain
  // fills (but doesn't overcrowd) the gutter: ~1 panel per 700 words, 1–4.
  const railAdCount = Math.min(4, Math.max(1, Math.round(bodyWordCount / 700)));
@@ -2790,6 +2805,32 @@ function BlogArticlesContent({
  {normalizeArticleExcerptPlain(t(`blog.article.${article.id}.excerpt`))}
  </p>
  </Callout>
+
+ {articleAtfTreatment && !staticArticleAtfHandoff && adEligibleInline && (
+ <div
+  className="ft-article-atf-ad"
+  data-ft-article-atf-slot="true"
+  data-ad-experiment={ARTICLE_DETAIL_ATF_EXPERIMENT_ID}
+  data-ad-variant={articleAtfVariant}
+  aria-label="Pubblicità"
+ >
+  <Suspense
+   fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}px` } as CSSProperties} className="my-4 min-h-[var(--ad-mh)] [contain:content]" />}
+  >
+   <AdSenseBanner
+    adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
+    adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+    adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
+    fullWidthResponsive={false}
+    placement="article-atf"
+    experimentId={ARTICLE_DETAIL_ATF_EXPERIMENT_ID}
+    experimentVariant={articleAtfVariant}
+    enabled={adEligibleInline}
+    className="my-4"
+   />
+  </Suspense>
+ </div>
+ )}
 
  {/* Mobile TOC — collapsible (hidden on xl where it shows in right rail) */}
  {showToc && (

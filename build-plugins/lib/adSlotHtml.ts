@@ -33,7 +33,18 @@ export const STATIC_AD_UNIQUE_PLACEMENTS: Record<string, string> = Object.fromEn
   placementEntries.filter(([signature]) => placementEntries.filter(([other]) => other === signature).length === 1),
 );
 
-export function adSlotHtml(slotKey: AdSlotKey, opts?: { collapseWhenUnfilled?: boolean }): string {
+export interface StaticAdSlotHtmlOptions {
+  collapseWhenUnfilled?: boolean;
+  placement?: string;
+  experimentId?: string;
+  experimentVariant?: string;
+}
+
+function safeDataValue(value: string): string {
+  return String(value).replace(/[^a-zA-Z0-9_.:-]/g, '-').slice(0, 80);
+}
+
+export function adSlotHtml(slotKey: AdSlotKey, opts?: StaticAdSlotHtmlOptions): string {
   const cfg = AD_SLOTS[slotKey];
   const attrs = [
     `class="adsbygoogle"`,
@@ -43,8 +54,11 @@ export function adSlotHtml(slotKey: AdSlotKey, opts?: { collapseWhenUnfilled?: b
     `data-ad-format="${cfg.format}"`,
   ];
   const signature = JSON.stringify([cfg.slot, cfg.format, 'layout' in cfg ? cfg.layout : '']);
-  if (!STATIC_AD_UNIQUE_PLACEMENTS[signature]) attrs.push(`data-ad-placement="${slotKey.toLowerCase()}"`);
+  if (opts?.placement) attrs.push(`data-ad-placement="${safeDataValue(opts.placement)}"`);
+  else if (!STATIC_AD_UNIQUE_PLACEMENTS[signature]) attrs.push(`data-ad-placement="${slotKey.toLowerCase()}"`);
   if (opts?.collapseWhenUnfilled) attrs.push(`data-ft-static-ad="true"`);
+  if (opts?.experimentId) attrs.push(`data-ad-experiment="${safeDataValue(opts.experimentId)}"`);
+  if (opts?.experimentVariant) attrs.push(`data-ad-variant="${safeDataValue(opts.experimentVariant)}"`);
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
   if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
   if (cfg.fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);

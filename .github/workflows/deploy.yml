@@ -694,6 +694,24 @@ jobs:
           echo "EMPLOYER_PROFILE_MID_AD_TEST_VARIANT=$employer_profile_mid_ad_variant" >> "$GITHUB_ENV"
           echo "Employer-profile ad SSG input: $employer_profile_mid_ad_variant"
 
+      # The article-detail near-ATF experiment is consumed by both the static
+      # article renderer and the Vite SPA bundle. Unknown/missing values stay
+      # on control so an incomplete Remote Config rollout cannot add a slot.
+      - name: Freeze article-detail ATF ad input before SSG
+        shell: bash
+        run: |
+          article_detail_atf_variant="${ARTICLE_DETAIL_ATF_AD_TEST_VARIANT:-control}"
+          case "$article_detail_atf_variant" in
+            control|atf) ;;
+            *)
+              echo "::warning::Unknown ARTICLE_DETAIL_ATF_AD_TEST_VARIANT; using control."
+              article_detail_atf_variant=control
+              ;;
+          esac
+          echo "ARTICLE_DETAIL_ATF_AD_TEST_VARIANT=$article_detail_atf_variant" >> "$GITHUB_ENV"
+          echo "VITE_ARTICLE_DETAIL_ATF_AD_TEST_VARIANT=$article_detail_atf_variant" >> "$GITHUB_ENV"
+          echo "Article-detail ATF ad SSG input: $article_detail_atf_variant"
+
       # Eventfrog ephemeral pages (owner decision D5, AGB §17): copy the PRIVATE
       # snapshot to the git-ignored .cache/private-events/ for the events page
       # builder. Never an artifact (public-repo artifacts are downloadable) and

@@ -80,8 +80,20 @@ describe('deriveAnalyticsPageContext', () => {
   });
 
   it('classifies article and stats pages', () => {
+    expect(deriveAnalyticsPageContext('/articoli-frontaliere/')).toMatchObject({
+      contentGroup: 'articles',
+      pageTemplate: 'article_index',
+      contentLocale: 'it',
+    });
+
+    expect(deriveAnalyticsPageContext('/en/swiss-articles/swiss-tax-guide')).toMatchObject({
+      contentGroup: 'articles',
+      pageTemplate: 'article_detail',
+      contentLocale: 'en',
+    });
+
     expect(
-      deriveAnalyticsPageContext('/fr/articles-frontaliers/imposition-frontaliers-2026'),
+      deriveAnalyticsPageContext('/fr/articles-frontalier/imposition-frontaliers-2026'),
     ).toMatchObject({
       contentGroup: 'articles',
       pageTemplate: 'article_detail',
