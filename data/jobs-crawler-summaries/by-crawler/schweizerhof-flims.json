@@ -1,10 +1,10 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-10-26T09:19:58.416Z",
+  "generatedAt": "2026-10-26T21:19:58.296Z",
   "total": 3,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 34639,
-  "avgDurationMs": 34639,
+  "durationMs": 34842,
+  "avgDurationMs": 34842,
   "durationHistory": [
-    34639
+    34842
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -57,6 +57,7 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -69,6 +70,48 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "schweizerhof-flims-f2f02441a96d",
+      "slug": "housekeeping-collaboratore-trice-m-w-d-schweizerhof-flims",
+      "company": "Schweizerhof",
+      "companyKey": "schweizerhof-flims",
+      "companyDomain": "romantikhotels.hcm4all.de",
+      "title": "Housekeeping-Mitarbeiter/in (m/w/d)",
+      "location": "Flims, Graubünden",
+      "canton": "GR",
+      "url": "https://romantikhotels.hcm4all.de/list/18877",
+      "source": "Schweizerhof Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-26T21:19:44.254Z",
+      "addressLocality": "Flims",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7017",
+      "streetAddress": "Rudi Dadens 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-20",
+      "postedDate": "2026-08-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://romantikhotels.hcm4all.de/list/18877",
+      "firstSeenAt": "2026-09-29T21:15:02.870Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "schweizerhof-flims-08e34e38abe6",
       "slug": "chef-de-rang-m-w-d-flims-graubunden-schweizerhof-flims-ch",
@@ -103,48 +146,7 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "schweizerhof-flims-f2f02441a96d",
-      "slug": "housekeeping-collaboratore-trice-m-w-d-schweizerhof-flims",
-      "company": "Schweizerhof",
-      "companyKey": "schweizerhof-flims",
-      "companyDomain": "romantikhotels.hcm4all.de",
-      "title": "Housekeeping-Mitarbeiter/in (m/w/d)",
-      "location": "Flims, Graubünden",
-      "canton": "GR",
-      "url": "https://romantikhotels.hcm4all.de/list/18877",
-      "source": "Schweizerhof Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:19:45.475Z",
-      "addressLocality": "Flims",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7017",
-      "streetAddress": "Rudi Dadens 1",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://romantikhotels.hcm4all.de/list/18877",
-      "firstSeenAt": "2026-09-29T21:15:02.870Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -154,5 +156,5 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }

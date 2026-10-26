@@ -1,13 +1,13 @@
 {
   "crawlerKey": "clinique-la-source",
-  "assembledAt": "2026-10-26T09:21:03.842Z",
-  "runId": "40296880272",
+  "assembledAt": "2026-10-26T21:20:17.401Z",
+  "runId": "40401368681",
   "jobs": [
     {
       "id": "clinique-la-source-71b89c53db19",
       "slug": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne",
+        "it": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
         "en": "medical-device-technologist-clinique-de-la-source-lausanne",
         "de": "medizintechniker-clinique-de-la-source-lausanne",
         "fr": "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -35,7 +35,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:57.408Z",
+      "crawledAt": "2026-10-26T21:20:12.009Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -56,11 +56,13 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
+        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
+        "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
+          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
+          "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
         ],
         "en": [
           "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -93,7 +95,7 @@
       "slugByLocale": {
         "it": "mutua-clinique-de-la-source-lausanne",
         "en": "midwife-clinique-de-la-source-lausanne",
-        "de": "hebamme-clinique-de-la-source-lausanne",
+        "de": "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne",
         "fr": "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne"
       },
       "company": "Clinique de La Source",
@@ -119,7 +121,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=791",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:56.860Z",
+      "crawledAt": "2026-10-26T21:20:11.415Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,14 +143,14 @@
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
         "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne",
-        "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne"
+        "hebamme-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne"
         ],
         "de": [
-          "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne"
+          "hebamme-clinique-de-la-source-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-06T21:14:04.729Z",
@@ -198,7 +200,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=783",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:56.325Z",
+      "crawledAt": "2026-10-26T21:20:10.834Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -272,7 +274,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=779",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:55.796Z",
+      "crawledAt": "2026-10-26T21:20:10.261Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -346,7 +348,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=789",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:55.276Z",
+      "crawledAt": "2026-10-26T21:20:09.703Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,7 +423,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=790",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:54.738Z",
+      "crawledAt": "2026-10-26T21:20:09.146Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -465,6 +467,75 @@
       }
     },
     {
+      "id": "clinique-la-source-926973f96298",
+      "slug": "responsable-de-la-physiotherapie-clinique-la-source-lausanne",
+      "slugByLocale": {
+        "fr": "responsable-de-la-physiotherapie-clinique-la-source-lausanne",
+        "it": "responsable-de-la-physiotherapie-clinique-la-source-lausanne",
+        "en": "responsable-de-la-physiotherapie-clinique-la-source-lausanne",
+        "de": "responsable-de-la-physiotherapie-clinique-la-source-lausanne"
+      },
+      "company": "Clinique de La Source",
+      "companyKey": "clinique-la-source",
+      "companyDomain": "lasource.ch",
+      "title": "Responsable de la physiothérapie",
+      "titleByLocale": {
+        "fr": "Responsable de la physiothérapie",
+        "it": "Responsable de la physiothérapie",
+        "en": "Responsable de la physiothérapie",
+        "de": "Responsable de la physiothérapie"
+      },
+      "description": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\n Nous recherchons un·e\nResponsable de la physiothérapie de 80 à 100%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.793 / Type de contrat : Contrat à Durée Indéterminée de 80 à 100% /  Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nDans le cadre du remplacement du titulaire actuel, nous recherchons notre futur·e Responsable de la physiothérapie.\n\nCe poste vous permet de conjuguer pratique clinique et responsabilités managériales, avec une activité principalement consacrée à la prise en charge physiothérapeutique des patient·es. Vous assurez également la coordination et la gestion du service (environ 30% de l’activité), contribuez à son développement et veillez à la qualité des prestations, en collaboration avec les différents interlocuteur·trices médicaux et institutionnels.\n\nQue serez-vous amené·e à faire ?\n\n• Assurer la prise en charge physiothérapeutique des patient·es et adapter les traitements à leur évolution\n\n• Collaborer avec les médecins et les autres professionnel·les de santé dans le suivi des patient·es\n\n• Organiser et coordonner les activités du service\n\n• Encadrer les collaborateur·trices (près de 7 EPT), gérer les plannings et conduire les entretiens annuels\n\n• Superviser les aspects administratifs et budgétaires du service\n\n• Développer les activités du service en proposant des offres de prestations et des partenariats innovants\n\n• Contribuer au développement des pratiques et à l’amélioration continue de la qualité des prestations\n\n• Représenter le service auprès des instances professionnelles et maintenir ses connaissances dans le domaine de la physiothérapie\n\nAvec qui allez-vous travailler ?\n\nNous sommes une équipe de 11 physiothérapeutes qui apprécient autant le travail en équipe que les échanges et les moments de convivialité. Chacun·e apporte sa personnalité et ses compétences, dans une ambiance dynamique et chaleureuse. Nous avons hâte d’accueillir notre futur·e responsable pour partager de nouvelles idées et faire évoluer le service ensemble.\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• Être titulaire d’un Bachelor en physiothérapie ou d’un titre jugé équivalent\n\n• Disposer d’une expérience professionnelle confirmée en physiothérapie et faire preuve d’autonomie dans sa pratique\n\n• Démontrer de bonnes capacités d’organisation et de coordination\n\n• Posséder une première expérience dans l’encadrement ou la gestion d’une équipe\n\n• Faire preuve de leadership, de communication et d’aisance relationnelle\n\nVos atouts :\n\n• Disposer d’une expérience dans une fonction de responsable ou de physiothérapeute référent·e\n\n• Être au bénéfice d’une formation complémentaire en management ou en gestion d’équipe\n\n• Connaître le fonctionnement d’un environnement hospitalier\n\n• S’intéresser au développement des pratiques et à l’amélioration continue de la qualité\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud et évoluer dans un environnement dynamique, reconnu pour son expertise et son savoir-faire\n\n• Profiter d’un cadre de travail à taille humaine, tout en bénéficiant de la richesse et de la diversité des activités d’une institution de santé tournée vers l’avenir\n\n• Bénéficier de conditions d’engagement attractives et de prestations sociales avantageuses (accueil et intégration, participation LaMal, LPP avantageuse, rabais, etc.)\n\n• Concilier vie professionnelle et vie privée, grâce à des possibilités de travail à temps partiel, jusqu’à plus de 7 semaines de vacances, des congés non payés, des jours fériés compensés et la valorisation du temps de change\n\n• Partager des valeurs qui nous ressemblent : une clinique Unique, Respectueuse, Innovatrice et Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nPour des raisons de protection des données, les candidatures sont exclusivement traitées via notre plateforme en ligne . Les dossiers transmis par e-mail ou par courrier ne pourront pas être pris en considération. Vous rencontrez une difficulté technique ? Appelez-nous au 021 641 35 74 : notre équipe se fera un plaisir de vous accompagner.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne.",
+      "descriptionByLocale": {
+        "fr": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\n Nous recherchons un·e\nResponsable de la physiothérapie de 80 à 100%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.793 / Type de contrat : Contrat à Durée Indéterminée de 80 à 100% /  Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nDans le cadre du remplacement du titulaire actuel, nous recherchons notre futur·e Responsable de la physiothérapie.\n\nCe poste vous permet de conjuguer pratique clinique et responsabilités managériales, avec une activité principalement consacrée à la prise en charge physiothérapeutique des patient·es. Vous assurez également la coordination et la gestion du service (environ 30% de l’activité), contribuez à son développement et veillez à la qualité des prestations, en collaboration avec les différents interlocuteur·trices médicaux et institutionnels.\n\nQue serez-vous amené·e à faire ?\n\n• Assurer la prise en charge physiothérapeutique des patient·es et adapter les traitements à leur évolution\n\n• Collaborer avec les médecins et les autres professionnel·les de santé dans le suivi des patient·es\n\n• Organiser et coordonner les activités du service\n\n• Encadrer les collaborateur·trices (près de 7 EPT), gérer les plannings et conduire les entretiens annuels\n\n• Superviser les aspects administratifs et budgétaires du service\n\n• Développer les activités du service en proposant des offres de prestations et des partenariats innovants\n\n• Contribuer au développement des pratiques et à l’amélioration continue de la qualité des prestations\n\n• Représenter le service auprès des instances professionnelles et maintenir ses connaissances dans le domaine de la physiothérapie\n\nAvec qui allez-vous travailler ?\n\nNous sommes une équipe de 11 physiothérapeutes qui apprécient autant le travail en équipe que les échanges et les moments de convivialité. Chacun·e apporte sa personnalité et ses compétences, dans une ambiance dynamique et chaleureuse. Nous avons hâte d’accueillir notre futur·e responsable pour partager de nouvelles idées et faire évoluer le service ensemble.\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• Être titulaire d’un Bachelor en physiothérapie ou d’un titre jugé équivalent\n\n• Disposer d’une expérience professionnelle confirmée en physiothérapie et faire preuve d’autonomie dans sa pratique\n\n• Démontrer de bonnes capacités d’organisation et de coordination\n\n• Posséder une première expérience dans l’encadrement ou la gestion d’une équipe\n\n• Faire preuve de leadership, de communication et d’aisance relationnelle\n\nVos atouts :\n\n• Disposer d’une expérience dans une fonction de responsable ou de physiothérapeute référent·e\n\n• Être au bénéfice d’une formation complémentaire en management ou en gestion d’équipe\n\n• Connaître le fonctionnement d’un environnement hospitalier\n\n• S’intéresser au développement des pratiques et à l’amélioration continue de la qualité\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud et évoluer dans un environnement dynamique, reconnu pour son expertise et son savoir-faire\n\n• Profiter d’un cadre de travail à taille humaine, tout en bénéficiant de la richesse et de la diversité des activités d’une institution de santé tournée vers l’avenir\n\n• Bénéficier de conditions d’engagement attractives et de prestations sociales avantageuses (accueil et intégration, participation LaMal, LPP avantageuse, rabais, etc.)\n\n• Concilier vie professionnelle et vie privée, grâce à des possibilités de travail à temps partiel, jusqu’à plus de 7 semaines de vacances, des congés non payés, des jours fériés compensés et la valorisation du temps de change\n\n• Partager des valeurs qui nous ressemblent : une clinique Unique, Respectueuse, Innovatrice et Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nPour des raisons de protection des données, les candidatures sont exclusivement traitées via notre plateforme en ligne . Les dossiers transmis par e-mail ou par courrier ne pourront pas être pris en considération. Vous rencontrez une difficulté technique ? Appelez-nous au 021 641 35 74 : notre équipe se fera un plaisir de vous accompagner.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne.",
+        "it": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\n Nous recherchons un·e\nResponsable de la physiothérapie de 80 à 100%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.793 / Type de contrat : Contrat à Durée Indéterminée de 80 à 100% /  Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nDans le cadre du remplacement du titulaire actuel, nous recherchons notre futur·e Responsable de la physiothérapie.\n\nCe poste vous permet de conjuguer pratique clinique et responsabilités managériales, avec une activité principalement consacrée à la prise en charge physiothérapeutique des patient·es. Vous assurez également la coordination et la gestion du service (environ 30% de l’activité), contribuez à son développement et veillez à la qualité des prestations, en collaboration avec les différents interlocuteur·trices médicaux et institutionnels.\n\nQue serez-vous amené·e à faire ?\n\n• Assurer la prise en charge physiothérapeutique des patient·es et adapter les traitements à leur évolution\n\n• Collaborer avec les médecins et les autres professionnel·les de santé dans le suivi des patient·es\n\n• Organiser et coordonner les activités du service\n\n• Encadrer les collaborateur·trices (près de 7 EPT), gérer les plannings et conduire les entretiens annuels\n\n• Superviser les aspects administratifs et budgétaires du service\n\n• Développer les activités du service en proposant des offres de prestations et des partenariats innovants\n\n• Contribuer au développement des pratiques et à l’amélioration continue de la qualité des prestations\n\n• Représenter le service auprès des instances professionnelles et maintenir ses connaissances dans le domaine de la physiothérapie\n\nAvec qui allez-vous travailler ?\n\nNous sommes une équipe de 11 physiothérapeutes qui apprécient autant le travail en équipe que les échanges et les moments de convivialité. Chacun·e apporte sa personnalité et ses compétences, dans une ambiance dynamique et chaleureuse. Nous avons hâte d’accueillir notre futur·e responsable pour partager de nouvelles idées et faire évoluer le service ensemble.\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• Être titulaire d’un Bachelor en physiothérapie ou d’un titre jugé équivalent\n\n• Disposer d’une expérience professionnelle confirmée en physiothérapie et faire preuve d’autonomie dans sa pratique\n\n• Démontrer de bonnes capacités d’organisation et de coordination\n\n• Posséder une première expérience dans l’encadrement ou la gestion d’une équipe\n\n• Faire preuve de leadership, de communication et d’aisance relationnelle\n\nVos atouts :\n\n• Disposer d’une expérience dans une fonction de responsable ou de physiothérapeute référent·e\n\n• Être au bénéfice d’une formation complémentaire en management ou en gestion d’équipe\n\n• Connaître le fonctionnement d’un environnement hospitalier\n\n• S’intéresser au développement des pratiques et à l’amélioration continue de la qualité\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud et évoluer dans un environnement dynamique, reconnu pour son expertise et son savoir-faire\n\n• Profiter d’un cadre de travail à taille humaine, tout en bénéficiant de la richesse et de la diversité des activités d’une institution de santé tournée vers l’avenir\n\n• Bénéficier de conditions d’engagement attractives et de prestations sociales avantageuses (accueil et intégration, participation LaMal, LPP avantageuse, rabais, etc.)\n\n• Concilier vie professionnelle et vie privée, grâce à des possibilités de travail à temps partiel, jusqu’à plus de 7 semaines de vacances, des congés non payés, des jours fériés compensés et la valorisation du temps de change\n\n• Partager des valeurs qui nous ressemblent : une clinique Unique, Respectueuse, Innovatrice et Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nPour des raisons de protection des données, les candidatures sont exclusivement traitées via notre plateforme en ligne . Les dossiers transmis par e-mail ou par courrier ne pourront pas être pris en considération. Vous rencontrez une difficulté technique ? Appelez-nous au 021 641 35 74 : notre équipe se fera un plaisir de vous accompagner.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne.",
+        "en": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\n Nous recherchons un·e\nResponsable de la physiothérapie de 80 à 100%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.793 / Type de contrat : Contrat à Durée Indéterminée de 80 à 100% /  Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nDans le cadre du remplacement du titulaire actuel, nous recherchons notre futur·e Responsable de la physiothérapie.\n\nCe poste vous permet de conjuguer pratique clinique et responsabilités managériales, avec une activité principalement consacrée à la prise en charge physiothérapeutique des patient·es. Vous assurez également la coordination et la gestion du service (environ 30% de l’activité), contribuez à son développement et veillez à la qualité des prestations, en collaboration avec les différents interlocuteur·trices médicaux et institutionnels.\n\nQue serez-vous amené·e à faire ?\n\n• Assurer la prise en charge physiothérapeutique des patient·es et adapter les traitements à leur évolution\n\n• Collaborer avec les médecins et les autres professionnel·les de santé dans le suivi des patient·es\n\n• Organiser et coordonner les activités du service\n\n• Encadrer les collaborateur·trices (près de 7 EPT), gérer les plannings et conduire les entretiens annuels\n\n• Superviser les aspects administratifs et budgétaires du service\n\n• Développer les activités du service en proposant des offres de prestations et des partenariats innovants\n\n• Contribuer au développement des pratiques et à l’amélioration continue de la qualité des prestations\n\n• Représenter le service auprès des instances professionnelles et maintenir ses connaissances dans le domaine de la physiothérapie\n\nAvec qui allez-vous travailler ?\n\nNous sommes une équipe de 11 physiothérapeutes qui apprécient autant le travail en équipe que les échanges et les moments de convivialité. Chacun·e apporte sa personnalité et ses compétences, dans une ambiance dynamique et chaleureuse. Nous avons hâte d’accueillir notre futur·e responsable pour partager de nouvelles idées et faire évoluer le service ensemble.\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• Être titulaire d’un Bachelor en physiothérapie ou d’un titre jugé équivalent\n\n• Disposer d’une expérience professionnelle confirmée en physiothérapie et faire preuve d’autonomie dans sa pratique\n\n• Démontrer de bonnes capacités d’organisation et de coordination\n\n• Posséder une première expérience dans l’encadrement ou la gestion d’une équipe\n\n• Faire preuve de leadership, de communication et d’aisance relationnelle\n\nVos atouts :\n\n• Disposer d’une expérience dans une fonction de responsable ou de physiothérapeute référent·e\n\n• Être au bénéfice d’une formation complémentaire en management ou en gestion d’équipe\n\n• Connaître le fonctionnement d’un environnement hospitalier\n\n• S’intéresser au développement des pratiques et à l’amélioration continue de la qualité\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud et évoluer dans un environnement dynamique, reconnu pour son expertise et son savoir-faire\n\n• Profiter d’un cadre de travail à taille humaine, tout en bénéficiant de la richesse et de la diversité des activités d’une institution de santé tournée vers l’avenir\n\n• Bénéficier de conditions d’engagement attractives et de prestations sociales avantageuses (accueil et intégration, participation LaMal, LPP avantageuse, rabais, etc.)\n\n• Concilier vie professionnelle et vie privée, grâce à des possibilités de travail à temps partiel, jusqu’à plus de 7 semaines de vacances, des congés non payés, des jours fériés compensés et la valorisation du temps de change\n\n• Partager des valeurs qui nous ressemblent : une clinique Unique, Respectueuse, Innovatrice et Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nPour des raisons de protection des données, les candidatures sont exclusivement traitées via notre plateforme en ligne . Les dossiers transmis par e-mail ou par courrier ne pourront pas être pris en considération. Vous rencontrez une difficulté technique ? Appelez-nous au 021 641 35 74 : notre équipe se fera un plaisir de vous accompagner.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne.",
+        "de": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\n Nous recherchons un·e\nResponsable de la physiothérapie de 80 à 100%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.793 / Type de contrat : Contrat à Durée Indéterminée de 80 à 100% /  Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nDans le cadre du remplacement du titulaire actuel, nous recherchons notre futur·e Responsable de la physiothérapie.\n\nCe poste vous permet de conjuguer pratique clinique et responsabilités managériales, avec une activité principalement consacrée à la prise en charge physiothérapeutique des patient·es. Vous assurez également la coordination et la gestion du service (environ 30% de l’activité), contribuez à son développement et veillez à la qualité des prestations, en collaboration avec les différents interlocuteur·trices médicaux et institutionnels.\n\nQue serez-vous amené·e à faire ?\n\n• Assurer la prise en charge physiothérapeutique des patient·es et adapter les traitements à leur évolution\n\n• Collaborer avec les médecins et les autres professionnel·les de santé dans le suivi des patient·es\n\n• Organiser et coordonner les activités du service\n\n• Encadrer les collaborateur·trices (près de 7 EPT), gérer les plannings et conduire les entretiens annuels\n\n• Superviser les aspects administratifs et budgétaires du service\n\n• Développer les activités du service en proposant des offres de prestations et des partenariats innovants\n\n• Contribuer au développement des pratiques et à l’amélioration continue de la qualité des prestations\n\n• Représenter le service auprès des instances professionnelles et maintenir ses connaissances dans le domaine de la physiothérapie\n\nAvec qui allez-vous travailler ?\n\nNous sommes une équipe de 11 physiothérapeutes qui apprécient autant le travail en équipe que les échanges et les moments de convivialité. Chacun·e apporte sa personnalité et ses compétences, dans une ambiance dynamique et chaleureuse. Nous avons hâte d’accueillir notre futur·e responsable pour partager de nouvelles idées et faire évoluer le service ensemble.\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• Être titulaire d’un Bachelor en physiothérapie ou d’un titre jugé équivalent\n\n• Disposer d’une expérience professionnelle confirmée en physiothérapie et faire preuve d’autonomie dans sa pratique\n\n• Démontrer de bonnes capacités d’organisation et de coordination\n\n• Posséder une première expérience dans l’encadrement ou la gestion d’une équipe\n\n• Faire preuve de leadership, de communication et d’aisance relationnelle\n\nVos atouts :\n\n• Disposer d’une expérience dans une fonction de responsable ou de physiothérapeute référent·e\n\n• Être au bénéfice d’une formation complémentaire en management ou en gestion d’équipe\n\n• Connaître le fonctionnement d’un environnement hospitalier\n\n• S’intéresser au développement des pratiques et à l’amélioration continue de la qualité\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud et évoluer dans un environnement dynamique, reconnu pour son expertise et son savoir-faire\n\n• Profiter d’un cadre de travail à taille humaine, tout en bénéficiant de la richesse et de la diversité des activités d’une institution de santé tournée vers l’avenir\n\n• Bénéficier de conditions d’engagement attractives et de prestations sociales avantageuses (accueil et intégration, participation LaMal, LPP avantageuse, rabais, etc.)\n\n• Concilier vie professionnelle et vie privée, grâce à des possibilités de travail à temps partiel, jusqu’à plus de 7 semaines de vacances, des congés non payés, des jours fériés compensés et la valorisation du temps de change\n\n• Partager des valeurs qui nous ressemblent : une clinique Unique, Respectueuse, Innovatrice et Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nPour des raisons de protection des données, les candidatures sont exclusivement traitées via notre plateforme en ligne . Les dossiers transmis par e-mail ou par courrier ne pourront pas être pris en considération. Vous rencontrez une difficulté technique ? Appelez-nous au 021 641 35 74 : notre équipe se fera un plaisir de vous accompagner.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://emploi.lasource.ch/?page=advertisement_display&id=793",
+      "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T21:20:08.564Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://emploi.lasource.ch/?page=advertisement_display&id=793",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "careerSiteUrl": "https://emploi.lasource.ch/",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-26T21:20:08.564Z"
+    },
+    {
       "id": "clinique-la-source-f23d76030166",
       "slug": "cucina-alimentare-clinique-de-la-source-lausanne",
       "slugByLocale": {
@@ -496,7 +567,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=781",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:54.221Z",
+      "crawledAt": "2026-10-26T21:20:07.955Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -571,7 +642,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:53.697Z",
+      "crawledAt": "2026-10-26T21:20:07.369Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -677,7 +748,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:53.171Z",
+      "crawledAt": "2026-10-26T21:20:06.765Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -751,7 +822,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=782",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:52.619Z",
+      "crawledAt": "2026-10-26T21:20:06.177Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -826,7 +897,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=788",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:52.076Z",
+      "crawledAt": "2026-10-26T21:20:05.559Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -900,7 +971,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=792",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:20:51.538Z",
+      "crawledAt": "2026-10-26T21:20:04.965Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",

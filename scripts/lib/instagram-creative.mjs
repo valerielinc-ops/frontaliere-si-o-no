@@ -428,11 +428,13 @@ export function buildInstagramCaption({ kind, dayLabel, picks, creative } = {}) 
     : `${caption.slice(0, INSTAGRAM_MAX_CAPTION_LENGTH - 1).trimEnd()}…`;
 }
 
-/** Stable UTM content value that identifies both treatment and ranked item. */
-export function instagramCreativeContent(creative, itemId) {
+/** Stable UTM content value that identifies treatment, visual arm and item. */
+export function instagramCreativeContent(creative, itemId, backgroundVariant = '') {
   const creativeId = String(creative?.id || 'proof').trim() || 'proof';
   const id = String(itemId || '').trim();
-  return id ? `${creativeId}-${id}` : creativeId;
+  const background = String(backgroundVariant || '').trim();
+  if (!id) return background ? `${creativeId}-${background}` : creativeId;
+  return background ? `${creativeId}-${background}-${id}` : `${creativeId}-${id}`;
 }
 
 /** Fields persisted next to each post so Insights can be joined to the idea. */

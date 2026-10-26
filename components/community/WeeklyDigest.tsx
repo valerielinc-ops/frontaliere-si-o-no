@@ -161,6 +161,7 @@ const WeeklyDigest: React.FC = () => {
        if (!cancelled) {
          setPendingSocialMethod(null);
          markNewsletterSubscribedLocally();
+         markWeeklyDigestSubscribed();
          setStatus('success');
        }
      } catch {

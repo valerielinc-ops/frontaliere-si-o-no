@@ -73,6 +73,7 @@ const MAX_VIEWED_JOBS = 100;
 const MAX_SEARCHES = 50;
 const EXPIRY_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
 const SYNC_DEBOUNCE_MS = 5 * 60 * 1000; // 5 minutes
+const FILTER_USAGE_TYPES = ['category', 'location', 'contract'] as const;
 
 // ─── Internal helpers ───────────────────────────────────────────
 
@@ -91,9 +92,7 @@ function readRaw(): BehaviorData {
  try {
  const raw = localStorage.getItem(STORAGE_KEY);
  if (!raw) return emptyBehavior();
- const parsed = JSON.parse(raw);
- if (!parsed || parsed.version !== 1) return emptyBehavior();
- return parsed as BehaviorData;
+ return normalizeBehaviorData(JSON.parse(raw));
  } catch {
  // Corrupt data — reset
  try { localStorage.removeItem(STORAGE_KEY); } catch { /* noop */ }
@@ -143,8 +142,92 @@ function epochMs(value: unknown): number {
  return NaN;
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+ return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function normalizeText(value: unknown): string {
+ return typeof value === 'string' ? value.trim() : '';
+}
+
+function normalizeTimestamp(value: unknown): number | null {
+ const timestamp = epochMs(value);
+ return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function normalizeCounter(value: unknown): number | null {
+ return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 ? value : null;
+}
+
+function normalizeViewedJob(value: unknown): ViewedJob | null {
+ if (!isRecord(value)) return null;
+ const slug = normalizeText(value.slug);
+ const timestamp = normalizeTimestamp(value.ts);
+ if (!slug || timestamp === null) return null;
+ return {
+  slug,
+  category: normalizeText(value.category),
+  company: normalizeText(value.company),
+  location: normalizeText(value.location),
+  ts: timestamp,
+ };
+}
+
+function normalizeViewedJobs(value: unknown): ViewedJob[] {
+ if (!Array.isArray(value)) return [];
+ return value.flatMap((entry) => {
+  const normalized = normalizeViewedJob(entry);
+  return normalized ? [normalized] : [];
+ });
+}
+
+function normalizeSearchEntry(value: unknown): SearchEntry | null {
+ if (!isRecord(value)) return null;
+ const query = normalizeText(value.query);
+ const timestamp = normalizeTimestamp(value.ts);
+ const resultCount = normalizeCounter(value.resultCount);
+ if (!query || timestamp === null || resultCount === null) return null;
+ return { query, ts: timestamp, resultCount };
+}
+
+function normalizeSearches(value: unknown): SearchEntry[] {
+ if (!Array.isArray(value)) return [];
+ return value.flatMap((entry) => {
+  const normalized = normalizeSearchEntry(entry);
+  return normalized ? [normalized] : [];
+ });
+}
+
+function normalizeCounterMap(value: unknown): Record<string, number> {
+ if (!isRecord(value)) return {};
+ const counts = new Map<string, number>();
+ for (const [rawKey, rawCount] of Object.entries(value)) {
+  const key = rawKey.trim();
+  const count = normalizeCounter(rawCount);
+  if (!key || count === null) continue;
+  counts.set(key, Math.max(counts.get(key) ?? 0, count));
+ }
+ return Object.fromEntries(counts);
+}
+
+function normalizeFilterUsage(value: unknown): BehaviorData['filterUsage'] {
+ const source = isRecord(value) ? value : {};
+ return {
+  category: normalizeCounterMap(source.category),
+  location: normalizeCounterMap(source.location),
+  contract: normalizeCounterMap(source.contract),
+ };
+}
+
+function normalizeLastVisit(value: unknown): string | null {
+ const timestamp = normalizeTimestamp(value);
+ if (timestamp === null) return null;
+ const date = new Date(timestamp);
+ return Number.isFinite(date.getTime()) ? date.toISOString() : null;
+}
+
 function normalizeApplicationIntentProfile(value: unknown): ApplicationIntentProfile | undefined {
- if (!value || typeof value !== 'object') return undefined;
+ if (!isRecord(value)) return undefined;
  const source = value as Record<string, unknown>;
  const applicationIntent = {
  optedOut: source.optedOut === true,
@@ -178,6 +261,22 @@ function normalizeApplicationIntentProfile(value: unknown): ApplicationIntentPro
  if (source.optedOut === true) result.optedOut = true;
  else if (source.optedOut === false) result.optedOut = false;
  return result;
+}
+
+function normalizeBehaviorData(value: unknown): BehaviorData {
+ if (!isRecord(value) || value.version !== 1) return emptyBehavior();
+ const applicationIntent = normalizeApplicationIntentProfile(value.applicationIntent);
+ const applicationIntentAuthUid = normalizeText(value.applicationIntentAuthUid);
+ return {
+  version: 1,
+  lastVisit: normalizeLastVisit(value.lastVisit),
+  viewedJobs: normalizeViewedJobs(value.viewedJobs),
+  searches: normalizeSearches(value.searches),
+  ...(applicationIntent ? { applicationIntent } : {}),
+  filterUsage: normalizeFilterUsage(value.filterUsage),
+  syncedAt: normalizeTimestamp(value.syncedAt),
+  ...(applicationIntentAuthUid ? { applicationIntentAuthUid } : {}),
+ };
 }
 
 function pruneSize(data: BehaviorData): BehaviorData {
@@ -343,14 +442,16 @@ export function trackJobViewBehavior(job: {
  company: string;
  location: string;
 }): void {
- if (!available() || !job.slug) return;
+ if (!available()) return;
+ const viewedJob = normalizeViewedJob({ ...job, ts: Date.now() });
+ if (!viewedJob) return;
  const data = readRaw();
  // Dedupe by slug
- const existing = data.viewedJobs.findIndex((v) => v.slug === job.slug);
+ const existing = data.viewedJobs.findIndex((v) => v.slug === viewedJob.slug);
  if (existing >= 0) {
- data.viewedJobs[existing] = { ...job, ts: Date.now() };
+ data.viewedJobs[existing] = viewedJob;
  } else {
- data.viewedJobs.push({ ...job, ts: Date.now() });
+ data.viewedJobs.push(viewedJob);
  }
  writeRaw(pruneSize(data));
 }
@@ -358,20 +459,23 @@ export function trackJobViewBehavior(job: {
 /** Track a search query. */
 export function trackSearch(query: string, resultCount: number): void {
  if (!available()) return;
- const clean = String(query || '').trim();
- if (!clean) return;
+ const search = normalizeSearchEntry({ query, ts: Date.now(), resultCount });
+ if (!search) return;
  const data = readRaw();
- data.searches.push({ query: clean, ts: Date.now(), resultCount });
+ data.searches.push(search);
  writeRaw(pruneSize(data));
 }
 
 /** Track filter usage (category, location, contract). */
 export function trackFilterUsage(filterType: 'category' | 'location' | 'contract', value: string): void {
- if (!available() || !value) return;
+ if (!available()) return;
+ const clean = normalizeText(value);
+ if (!clean) return;
  const data = readRaw();
  const bucket = data.filterUsage[filterType];
  if (bucket) {
- bucket[value] = (bucket[value] || 0) + 1;
+  const current = normalizeCounter(bucket[clean]) ?? 0;
+  if (current < Number.MAX_SAFE_INTEGER) bucket[clean] = current + 1;
  }
  writeRaw(data);
 }
@@ -567,9 +671,11 @@ export async function hydrateFromFirestore(email: string, accountUid?: string | 
 
 /** Union merge: combine local + cloud, dedupe by slug/query, keep most recent. */
 export function mergeBehavior(local: BehaviorData, cloud: BehaviorData): BehaviorData {
+ const normalizedLocal = normalizeBehaviorData(local);
+ const normalizedCloud = normalizeBehaviorData(cloud);
  // Merge viewed jobs: union by slug, keep most recent timestamp
  const jobMap = new Map<string, ViewedJob>();
- for (const job of [...cloud.viewedJobs, ...local.viewedJobs]) {
+ for (const job of [...normalizedCloud.viewedJobs, ...normalizedLocal.viewedJobs]) {
  const existing = jobMap.get(job.slug);
  if (!existing || job.ts > existing.ts) {
  jobMap.set(job.slug, job);
@@ -579,7 +685,7 @@ export function mergeBehavior(local: BehaviorData, cloud: BehaviorData): Behavio
  // Merge searches: concat and dedupe by query+ts
  const searchSet = new Set<string>();
  const mergedSearches: SearchEntry[] = [];
- for (const s of [...local.searches, ...cloud.searches]) {
+ for (const s of [...normalizedLocal.searches, ...normalizedCloud.searches]) {
  const key = `${s.query}|${s.ts}`;
  if (!searchSet.has(key)) {
  searchSet.add(key);
@@ -589,9 +695,9 @@ export function mergeBehavior(local: BehaviorData, cloud: BehaviorData): Behavio
 
  // Merge filter usage: sum counters
  const mergedFilters = { ...emptyBehavior().filterUsage };
- for (const type of ['category', 'location', 'contract'] as const) {
- const localBucket = local.filterUsage[type] || {};
- const cloudBucket = cloud.filterUsage[type] || {};
+ for (const type of FILTER_USAGE_TYPES) {
+ const localBucket = normalizedLocal.filterUsage[type];
+ const cloudBucket = normalizedCloud.filterUsage[type];
  const merged: Record<string, number> = {};
  for (const key of new Set([...Object.keys(localBucket), ...Object.keys(cloudBucket)])) {
  merged[key] = Math.max(localBucket[key] || 0, cloudBucket[key] || 0);
@@ -599,7 +705,7 @@ export function mergeBehavior(local: BehaviorData, cloud: BehaviorData): Behavio
  mergedFilters[type] = merged;
  }
 
- const ownerCandidates = [local.applicationIntentAuthUid, cloud.applicationIntentAuthUid]
+ const ownerCandidates = [normalizedLocal.applicationIntentAuthUid, normalizedCloud.applicationIntentAuthUid]
   .filter((uid): uid is string => Boolean(uid));
  const applicationIntentAuthUid = ownerCandidates.length > 0
   && ownerCandidates.every((uid) => uid === ownerCandidates[0])
@@ -608,10 +714,10 @@ export function mergeBehavior(local: BehaviorData, cloud: BehaviorData): Behavio
 
  return pruneSize(pruneExpired({
  version: 1,
- lastVisit: local.lastVisit || cloud.lastVisit,
+ lastVisit: normalizedLocal.lastVisit || normalizedCloud.lastVisit,
  viewedJobs: Array.from(jobMap.values()).sort((a, b) => a.ts - b.ts),
  searches: mergedSearches.sort((a, b) => a.ts - b.ts),
- applicationIntent: mergeApplicationIntentProfiles(local.applicationIntent, cloud.applicationIntent),
+ applicationIntent: mergeApplicationIntentProfiles(normalizedLocal.applicationIntent, normalizedCloud.applicationIntent),
  filterUsage: mergedFilters,
  syncedAt: null,
   applicationIntentAuthUid,

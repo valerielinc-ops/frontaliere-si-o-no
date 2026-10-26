@@ -16,6 +16,17 @@ export const NEWSLETTER_CTA_DISMISSED_KEY = 'newsletter_cta_dismissed';
 export const NEWSLETTER_SUBSCRIBED_KEY = 'newsletter_subscribed';
 export const NEWSLETTER_CTA_DISMISS_DAYS = 14;
 
+/** Read the shared subscription marker without making browser storage required. */
+export function isNewsletterSubscribedLocally(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return window.localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true';
+  } catch {
+    // localStorage unavailable (privacy mode / SSR) — show the form for this visit.
+    return false;
+  }
+}
+
 /**
  * True when the inline newsletter CTA would be shown to this visitor:
  * not already subscribed and not dismissed within the last 14 days.

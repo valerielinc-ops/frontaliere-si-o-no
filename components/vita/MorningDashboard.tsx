@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { reportCaughtError } from '@/services/errorReporter';
-import { useExchangeRate } from '@/services/exchangeRateService';
+import { getCachedExchangeRate, useExchangeRate } from '@/services/exchangeRateService';
 import {
  trafficService,
  effectiveTrafficWaitMinutes,
@@ -302,14 +302,7 @@ const MorningDashboard: React.FC = () => {
 
  // Previous close rate for trend indicator
  const prevRate = useMemo(() => {
- try {
- const cached = localStorage.getItem('exchange_rate_cache');
- if (cached) {
- const { rate: r } = JSON.parse(cached);
- return r;
- }
- } catch { /* ignore */ }
- return null;
+ return getCachedExchangeRate();
  }, []);
 
  return (

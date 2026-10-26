@@ -45,3 +45,41 @@ export function writeBestEffortLocalStorage(key: string, value: string): void {
   // Keep the in-memory value when privacy mode or quota blocks persistence.
  }
 }
+
+/** Read an optional localStorage value without making storage a UI dependency. */
+export function readStorageItem(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+/** Persist an optional localStorage value; callers continue when storage is blocked. */
+export function writeStorageItem(key: string, value: string): boolean {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Read an optional sessionStorage value without making a UI flow brittle. */
+export function readSessionStorageItem(key: string): string | null {
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+/** Persist an optional sessionStorage value; callers continue when it is blocked. */
+export function writeSessionStorageItem(key: string, value: string): boolean {
+  try {
+    sessionStorage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
+  }
+}

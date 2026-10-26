@@ -78,6 +78,21 @@ describe('Instagram Insights snapshot collector', () => {
     expect(selected.skipped).toContainEqual({ reason: 'conflicting-creative-metadata' });
   });
 
+  it('does not pool cards when their background arm conflicts inside one carousel', () => {
+    const selected = selectSnapshotCandidates(
+      {
+        posted: [
+          ledgerEntry({ backgroundVariant: 'navy-gradient' }),
+          ledgerEntry({ id: 'item-2', backgroundVariant: 'paper-amber' }),
+        ],
+      },
+      null,
+      { asOf: AS_OF, windowHours: 72 },
+    );
+    expect(selected.candidates).toHaveLength(0);
+    expect(selected.skipped).toContainEqual({ reason: 'conflicting-creative-metadata' });
+  });
+
   it('matches a timestamp only when one media candidate is clearly closest', () => {
     const group = { identity: 'article-1', publishedAtMs: Date.parse(PUBLISHED), mediaId: null };
     const result = matchLedgerToMedia(

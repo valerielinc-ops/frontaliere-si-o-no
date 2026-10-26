@@ -12,6 +12,12 @@ import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } fro
 const PARAMS = {
   INSTAGRAM_USERNAME: 'frontaliereticino',
   INSTAGRAM_BUSINESS_ACCOUNT_ID: '17841439417386982',
+  // Four-arm test: control plus three high-contrast surfaces. Assignment is
+  // deterministic per scheduled kind/period and the renderer keeps the same
+  // safe-area layout across all arms.
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED: 'true',
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT: '100',
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS: '["navy-gradient","paper-amber","mint-ink","coral-night"]',
   TIKTOK_USERNAME: 'frontaliereticino',
   // Firebase controls the native TikTok sound experiment. `trend` selects
   // TikTok Studio's own "Per te" library; 50% keeps a no-sound control arm.

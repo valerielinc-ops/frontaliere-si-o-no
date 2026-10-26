@@ -11,7 +11,7 @@
     "https://jobs.thelivingcircle.ch/#jobs"
   ],
   "notes": "Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and keeps vacancies anywhere in Switzerland.",
-  "updatedAt": "2026-10-26T09:14:58.304Z",
+  "updatedAt": "2026-10-26T21:18:52.021Z",
   "seedMetaByUrl": {
     "https://jobs.thelivingcircle.ch/jobs/66045703/Lehrstelle-als-Fachfrau--mann-Hotellerie-Hauswirtschaft-EFZ/": {
       "location": "Zürich",
@@ -243,6 +243,14 @@
       "company": "The Living Circle",
       "datePosted": "2026-10-20T20:02:34.939+02:00",
       "postedDate": "2026-10-20T20:02:34.939+02:00",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/68333443/Front-Office-und-Revenue-Manager-100%25-all-genders-/": {
+      "location": "Ascona",
+      "canton": "TI",
+      "company": "The Living Circle",
+      "datePosted": "2026-10-26T16:55:04.654+01:00",
+      "postedDate": "2026-10-26T16:55:04.654+01:00",
       "postingDateSource": "reported"
     }
   }
