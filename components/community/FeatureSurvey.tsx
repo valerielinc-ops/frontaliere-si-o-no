@@ -24,6 +24,7 @@ import { Analytics } from '@/services/analytics';
 import { captureEvent } from '@/services/posthog';
 import { isLikelyBot } from '@/services/botPatterns';
 import { requestSlot, releaseSlot, isActive, subscribe, markSlotShown, POPUP_PRIORITY } from '@/services/popupQueue';
+import { incrementSessionPageViews } from '@/services/sessionPageViewCounter';
 import { isDismissalActive } from '@/services/newsletterCtaState';
 
 const SLOT_ID = 'feature-survey';
@@ -69,7 +70,7 @@ const FeatureSurvey: React.FC = () => {
     if (isDismissalActive(dismissed, DISMISS_DAYS)) return;
 
     // Engagement gate: count page views this session.
-    const pageViews = parseInt(sessionStorage.getItem(PAGE_VIEW_KEY) || '0', 10) + 1;
+    const pageViews = incrementSessionPageViews(sessionStorage.getItem(PAGE_VIEW_KEY));
     sessionStorage.setItem(PAGE_VIEW_KEY, String(pageViews));
 
     const tryRequest = () => {
