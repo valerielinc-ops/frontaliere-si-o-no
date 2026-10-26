@@ -42,6 +42,15 @@ describe('promotions yield to Google overlays without suppressing ads', () => {
   const calls = notify.mock.calls.length; el.setAttribute('data-anchor-status', 'dismissed'); await Promise.resolve();
   expect(notify.mock.calls.length).toBe(calls);
  });
+ it('detects an anchor iframe addressed by name as well as id', () => {
+  const el = ad(true);
+  const iframe = el.querySelector('iframe');
+  iframe?.removeAttribute('id');
+  iframe?.setAttribute('name', 'aswift_named_anchor');
+  el.getBoundingClientRect = () => ({ top: 650, bottom: 768, width: 728, height: 118, left: 0, right: 728 } as DOMRect);
+  const notify = vi.fn(); cleanups.push(observeGoogleAdEdgeInsets(notify));
+  expect(notify).toHaveBeenLastCalledWith({ top: 0, bottom: 118 + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX });
+ });
  it('measures a top anchor, and ignores vignettes and fixed ads off the edges', () => {
   const top = ad(true); top.getBoundingClientRect = () => ({ top: 0, bottom: 60, width: 390, height: 60, left: 0, right: 390 } as DOMRect);
   const vignette = ad(true); vignette.getBoundingClientRect = () => ({ top: 0, bottom: 768, width: 1024, height: 768, left: 0, right: 1024 } as DOMRect);
