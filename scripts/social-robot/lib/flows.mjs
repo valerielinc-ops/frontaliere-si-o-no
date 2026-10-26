@@ -81,6 +81,10 @@ export const RX = Object.freeze({
   // keeps "Manage your posts" in its navigation on every page, so neither that
   // phrase nor a page-wide text search can prove a press was published.
   ttConfirm: /your (?:video|post|photos?) (?:has|have) been (?:uploaded|posted|published)|(?:video|post) published|il tuo (?:video|post) è stato pubblicato|dein beitrag wurde veröffentlicht|votre publication a été publiée/i,
+  // The current TikTok Studio upload flow can confirm a post with a modal on
+  // the upload URL instead of a toast or redirect. Keep this scoped to a
+  // dialog below so the title cannot be mistaken for ordinary page text.
+  ttUploadConfirmDialog: /your (?:video|post) (?:has been|was) uploaded|(?:il )?(?:tuo )?video è stato caricato|(?:das |dein )?video wurde hochgeladen|(?:votre |la )?vidéo a été (?:mise en ligne|téléchargée)/i,
   ttConfirmUrl: /\/tiktokstudio\/content|\/creator-center\/content/,
   igChallengeText: /confirm it'?s you|help us confirm|suspicious login|conferma che sei tu|conferma la tua identità|attività sospetta|bestätige, dass du es bist|confirmez qu'il s'agit bien de vous/i,
   ttChallengeText: /verify to continue|drag the slider|trascina il cursore|verifica per continuare|schieberegler|faites glisser/i,
@@ -1506,7 +1510,10 @@ export async function tiktokFlow({ page, files, caption, video, dryRun, human, s
         await snap('confirmed');
         return { status: 'published', evidence: `redirected to ${new URL(page.url()).pathname}; ${videoCreativeEvidence(video)}; ${musicEvidence(music)}`, music, creativeVariant: video?.creativeVariant || 'legacy' };
       }
-      const text = await findFirst([page.locator(TT_SUCCESS_TOAST).filter({ hasText: RX.ttConfirm })], { timeout: 1_000 });
+      const text = await findFirst([
+        page.getByRole('dialog').filter({ hasText: RX.ttUploadConfirmDialog }),
+        page.locator(TT_SUCCESS_TOAST).filter({ hasText: RX.ttConfirm }),
+      ], { timeout: 1_000 });
       if (text) {
         const evidence = normalize(await text.innerText().catch(() => 'confirmation visible'));
         await snap('confirmed');
