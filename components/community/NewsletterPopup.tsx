@@ -23,7 +23,7 @@ import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
 import { isDismissalActive, NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { incrementSessionPageViews } from '@/services/sessionPageViewCounter';
-import { readSessionStorageItem, readStorageItem, writeSessionStorageItem } from '@/services/storageAvailability';
+import { readSessionStorageItem, readStorageItem, writeSessionStorageItem, writeStorageItem } from '@/services/storageAvailability';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import {
  upsertNewsletterSubscriber,
