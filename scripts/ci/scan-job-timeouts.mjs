@@ -362,20 +362,11 @@ function repoPath(suffix) {
 
 function gh(args, { allowFailure = false, warnOnFailure = false } = {}) {
   try {
-    return withTransientGithubApiRetry(
-      () => execFileSync('gh', args, {
-        encoding: 'utf8',
-        maxBuffer: 50 * 1024 * 1024,
-        // All direct gh calls in this scanner are read-only. Capture stderr so
-        // a transient HTTP 5xx can be classified before the fail-closed path.
-        stdio: ['ignore', 'pipe', 'pipe'],
-      }).trim(),
-      {
-        onRetry: ({ attempt, maxRetries, delayMs }) => console.warn(
-          `[scan-job-timeouts] GitHub read transient failure — retry ${attempt}/${maxRetries} in ${delayMs}ms`,
-        ),
-      },
-    );
+    return execFileSync('gh', args, {
+      encoding: 'utf8',
+      maxBuffer: 50 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', warnOnFailure ? 'pipe' : 'inherit'],
+    }).trim();
   } catch (err) {
     if (allowFailure) {
       if (warnOnFailure) {
@@ -391,8 +382,31 @@ function gh(args, { allowFailure = false, warnOnFailure = false } = {}) {
   }
 }
 
+function ghRead(args, { allowFailure = true, warnOnFailure = false } = {}) {
+  try {
+    return withTransientGithubApiRetry(
+      () => gh(args, { allowFailure: false, warnOnFailure: true }),
+      {
+        onRetry: ({ attempt, maxRetries, delayMs }) => console.warn(
+          `[scan-job-timeouts] GitHub read transient failure — retry ${attempt}/${maxRetries} in ${delayMs}ms`,
+        ),
+      },
+    );
+  } catch (err) {
+    if (!allowFailure) throw err;
+    if (warnOnFailure) {
+      const stderr = String(err?.stderr ?? '').trim();
+      const detail = stderr || `exit status ${err?.status ?? 'sconosciuto'}`;
+      console.warn(
+        `::warning::[scan-job-timeouts] lettura annotazioni fallita con gh api --paginate --slurp: ${detail}`,
+      );
+    }
+    return null;
+  }
+}
+
 function ghJson(path, { allowFailure = true } = {}) {
-  const out = gh(['api', path], { allowFailure });
+  const out = ghRead(['api', path], { allowFailure });
   if (!out) return null;
   try {
     return JSON.parse(out);
@@ -520,7 +534,7 @@ export function checkRunAnnotationsPath(job) {
 function readPaginatedAnnotations(job) {
   const endpoint = checkRunAnnotationsPath(job);
   if (!endpoint) return null;
-  const out = gh([
+  const out = ghRead([
     'api',
     endpoint,
     '--paginate',
