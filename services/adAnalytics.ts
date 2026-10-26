@@ -18,22 +18,12 @@
  */
 
 import { captureEvent as posthogCapture } from './posthog';
-import * as AnalyticsService from './analytics';
-import { isLikelyBot as detectLikelyBot } from './botPatterns';
 
 // `isLikelyBot()` lives in services/botPatterns.ts (the shared, dependency-free
 // home alongside BOT_UA_PATTERNS) so services/posthog.ts can gate its init on it
 // without a circular import through this module. Re-exported here to preserve the
 // historical `@/services/adAnalytics` import path used by <AdSenseBanner> + tests.
-// The forwarding binding is intentional: it keeps the named export reachable
-// from the shared analytics chunk for cached AdSense bundles. Namespace access
-// is deliberate: individual Vitest suites partially mock analytics and may not
-// expose this compatibility export; production falls back to the shared bot
-// predicate in that case without changing the verdict.
-export const isLikelyBot =
- typeof AnalyticsService.isLikelyBot === 'function'
-  ? AnalyticsService.isLikelyBot
-  : detectLikelyBot;
+export { isLikelyBot } from './botPatterns';
 
 export type AdEvent =
   | 'ad_request'
