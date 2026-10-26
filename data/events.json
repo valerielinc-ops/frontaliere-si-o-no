@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T02:21:57.627Z",
+  "generatedAt": "2026-10-26T03:21:36.207Z",
   "totalEvents": 15047,
   "events": [
     {
@@ -670951,7 +670951,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Winterthur; cantone: ZH; categoria: Event; data: 2027-04-21; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Winterthur; cantone: ZH; categoria: Event; data: 2027-04-21; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Winterthur; canton: ZH; category: Event; date: 2027-04-21; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Winterthur; kanton: ZH; kategorie: Event; datum: 2027-04-21; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Winterthur; canton: ZH; catégorie: Event; date: 2027-04-21; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:67f11216abed42aa92aaa19e0a62cddd",
@@ -671343,7 +671351,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Obere Mühle; comune: Dübendorf; cantone: ZH; categoria: Theater; organizzatore: Obere Mühle KulturBar Nachtessen und Barbetrieb; partecipante: Fehlerfrei präsentiert der junge Routinier bereits; data: 2027-04-22; ora: 20:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Obere Mühle; comune: Dübendorf; cantone: ZH; categoria: Theater; organizzatore: Obere Mühle KulturBar Nachtessen und Barbetrieb; partecipante: Fehlerfrei präsentiert der junge Routinier bereits; data: 2027-04-22; ora: 20:00; prezzo: http://schema.org/InStock. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Obere Mühle; municipality: Dübendorf; canton: ZH; category: Theater; organiser: Obere Mühle KulturBar Nachtessen und Barbetrieb; participant: Fehlerfrei präsentiert der junge Routinier bereits; date: 2027-04-22; time: 20:00; price: http://schema.org/InStock. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Obere Mühle; gemeinde: Dübendorf; kanton: ZH; kategorie: Theater; veranstalter: Obere Mühle KulturBar Nachtessen und Barbetrieb; mitwirkender: Fehlerfrei präsentiert der junge Routinier bereits; datum: 2027-04-22; uhrzeit: 20:00; preis: http://schema.org/InStock. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Obere Mühle; commune: Dübendorf; canton: ZH; catégorie: Theater; organisateur: Obere Mühle KulturBar Nachtessen und Barbetrieb; participant: Fehlerfrei präsentiert der junge Routinier bereits; date: 2027-04-22; heure: 20:00; prix: http://schema.org/InStock. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:244379cf5a6e4afd84ff08965d800379",
