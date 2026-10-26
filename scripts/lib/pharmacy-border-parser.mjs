@@ -37,6 +37,7 @@ export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
   TICINO_PHARMACY_PDF_MIRROR_URL,
 ]);
 const TICINO_PHARMACY_PDF_HOSTS = new Set(['www4.ti.ch', 'm4.ti.ch']);
+const TICINO_PHARMACY_PDF_PATH_PREFIX = '/fileadmin/DSS/DSP/UFC/PDF/';
 export const ITALY_PHARMACY_DATASET_PAGE = 'https://www.dati.salute.gov.it/it/dataset/farmacie/';
 export const OSM_BORDER_QUERY_BBOX = '45.3,7.0,46.7,10.8';
 
@@ -56,6 +57,7 @@ function isTicinoPharmacyPdfUrl(value, baseUrl) {
     return null;
   }
   if (url.protocol !== 'https:' || !TICINO_PHARMACY_PDF_HOSTS.has(url.hostname)) return null;
+  if (!url.pathname.toLowerCase().startsWith(TICINO_PHARMACY_PDF_PATH_PREFIX.toLowerCase())) return null;
   const filename = decodeURIComponent(url.pathname.split('/').at(-1) || '');
   if (!/^lista[_-]?farmacie(?:[_-][a-z0-9]+)*\.pdf$/i.test(filename)) return null;
   if (/convenzionate/i.test(filename)) return null;

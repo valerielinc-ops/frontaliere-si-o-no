@@ -38,6 +38,7 @@ describe('Ticino pharmacy PDF source fallback', () => {
   it('discovers the dated catalogue PDF only on the official Ticino hosts', () => {
     const html = `
       <a href="https://example.invalid/Lista_Farmacie_sito_web_stato_20261026.pdf">fake</a>
+      <a href="https://www4.ti.ch/not-allowlisted/Lista_Farmacie_sito_web_stato_20261026.pdf">wrong path</a>
       <a href="/fileadmin/DSS/DSP/UFC/PDF/Lista_Farmacie_Convenzionate.pdf">convenzionate</a>
       <a href="/fileadmin/DSS/DSP/UFC/PDF/Lista_farmacie_sito_web_stato_20260713.pdf">Farmacie</a>
     `;
