@@ -240449,6 +240449,406 @@
       "attempts": 1,
       "lastAttemptAt": "2026-10-26T06:52:26.466Z",
       "source": "d9386ead3562"
+    },
+    "denner-7b2564a41e66|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:49.233Z",
+      "source": "ed705cbf67ea"
+    },
+    "denner-ac1a869c570a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:49.233Z",
+      "source": "ed705cbf67ea"
+    },
+    "belimo-a721fa813559|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:49.233Z",
+      "source": "cd3896fe7986"
+    },
+    "bkw-3d592dc12499|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:49.233Z",
+      "source": "ace423071e9f"
+    },
+    "globus-14a325f6ed00|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:49.234Z",
+      "source": "9fb376ffdd6d"
+    },
+    "interdiscount-47e1fb90-b85|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:49.234Z",
+      "source": "a7c1bbd1bcaa"
+    },
+    "spital-emmental-9581b245ca4d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:49.235Z",
+      "source": "ab022767e0cd"
+    },
+    "denner-7b2564a41e66|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:53.640Z",
+      "source": "ed705cbf67ea"
+    },
+    "denner-ac1a869c570a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:53.640Z",
+      "source": "ed705cbf67ea"
+    },
+    "belimo-a721fa813559|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:53.641Z",
+      "source": "cd3896fe7986"
+    },
+    "bkw-3d592dc12499|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:53.641Z",
+      "source": "ace423071e9f"
+    },
+    "globus-14a325f6ed00|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:53.641Z",
+      "source": "9fb376ffdd6d"
+    },
+    "interdiscount-47e1fb90-b85|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:55.559Z",
+      "source": "a7c1bbd1bcaa"
+    },
+    "spital-emmental-9581b245ca4d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:55.560Z",
+      "source": "ab022767e0cd"
+    },
+    "spital-emmental-d78874fc3e36|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:55.560Z",
+      "source": "83db3ca84407"
+    },
+    "denner-7b2564a41e66|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.716Z",
+      "source": "ed705cbf67ea"
+    },
+    "denner-ac1a869c570a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.716Z",
+      "source": "ed705cbf67ea"
+    },
+    "belimo-a721fa813559|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.716Z",
+      "source": "cd3896fe7986"
+    },
+    "bkw-3d592dc12499|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.717Z",
+      "source": "ace423071e9f"
+    },
+    "globus-14a325f6ed00|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.717Z",
+      "source": "9fb376ffdd6d"
+    },
+    "interdiscount-47e1fb90-b85|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.718Z",
+      "source": "a7c1bbd1bcaa"
+    },
+    "spital-emmental-9581b245ca4d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.718Z",
+      "source": "ab022767e0cd"
+    },
+    "spital-emmental-d78874fc3e36|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.718Z",
+      "source": "83db3ca84407"
+    },
+    "stadt-bern-3c2718ab50e7|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:11:56.718Z",
+      "source": "acd67bc131d6"
+    },
+    "roche-11f46cba9b9f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:00.570Z",
+      "source": "c6374c3289a3"
+    },
+    "spital-emmental-d78874fc3e36|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.084Z",
+      "source": "83db3ca84407"
+    },
+    "stadt-bern-3c2718ab50e7|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.084Z",
+      "source": "acd67bc131d6"
+    },
+    "stadt-bern-5cb152f41d1a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.084Z",
+      "source": "331a703313d9"
+    },
+    "uzh-6673cf68e955|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.084Z",
+      "source": "b2a9ea6b08a1"
+    },
+    "stadt-bern-5cb152f41d1a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.104Z",
+      "source": "331a703313d9"
+    },
+    "uzh-6673cf68e955|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.104Z",
+      "source": "b2a9ea6b08a1"
+    },
+    "suva-c9536ee70d04|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.342Z",
+      "source": "55ac40287042"
+    },
+    "suva-5c3825d9271e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:03.738Z",
+      "source": "3b7084a41593"
+    },
+    "stadt-bern-3c2718ab50e7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:08.899Z",
+      "source": "acd67bc131d6"
+    },
+    "stadt-bern-5cb152f41d1a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:08.899Z",
+      "source": "331a703313d9"
+    },
+    "uzh-6673cf68e955|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:08.900Z",
+      "source": "b2a9ea6b08a1"
+    },
+    "mobiliar-ad2881016a5c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:08.900Z",
+      "source": "18347b5ebe43"
+    },
+    "mobiliar-e3c95965ff9d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:08.900Z",
+      "source": "18347b5ebe43"
+    },
+    "ipersonal-bb112c2297e1|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:09.402Z",
+      "source": "cbeff60bf7ba"
+    },
+    "ipersonal-47ced479e346|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:09.403Z",
+      "source": "cbeff60bf7ba"
+    },
+    "ipersonal-34eec0a87889|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:09.403Z",
+      "source": "d6a782602661"
+    },
+    "ipersonal-dfe3d3456ec0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:09.403Z",
+      "source": "a78b70da495f"
+    },
+    "ipersonal-4aed1a64b240|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:09.403Z",
+      "source": "585e7fa09523"
+    },
+    "ipersonal-0969e278e003|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:09.404Z",
+      "source": "de6ae3320dff"
+    },
+    "ipersonal-bb112c2297e1|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:15.157Z",
+      "source": "cbeff60bf7ba"
+    },
+    "ipersonal-47ced479e346|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:15.157Z",
+      "source": "cbeff60bf7ba"
+    },
+    "ipersonal-34eec0a87889|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:15.157Z",
+      "source": "d6a782602661"
+    },
+    "ipersonal-dfe3d3456ec0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:15.158Z",
+      "source": "a78b70da495f"
+    },
+    "ipersonal-4aed1a64b240|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:15.158Z",
+      "source": "585e7fa09523"
+    },
+    "ipersonal-4aed1a64b240|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:17.648Z",
+      "source": "585e7fa09523"
+    },
+    "ipersonal-0969e278e003|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:17.648Z",
+      "source": "de6ae3320dff"
+    },
+    "ipersonal-090a5fbf214b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:17.649Z",
+      "source": "b083d06050d1"
+    },
+    "ipersonal-4318a2f6b0e0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:17.649Z",
+      "source": "c17cf74885b8"
+    },
+    "ipersonal-8ed1d69dbe01|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:17.649Z",
+      "source": "5a6ffed8caec"
+    },
+    "ipersonal-0969e278e003|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:20.971Z",
+      "source": "de6ae3320dff"
+    },
+    "ipersonal-4318a2f6b0e0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:20.971Z",
+      "source": "c17cf74885b8"
+    },
+    "ipersonal-8ed1d69dbe01|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:20.971Z",
+      "source": "5a6ffed8caec"
+    },
+    "zkb-7928411711e5|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:20.971Z",
+      "source": "3d51b34253e0"
+    },
+    "zkb-642ba4e62d6a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:20.973Z",
+      "source": "b1250bfc43ff"
+    },
+    "ipersonal-4318a2f6b0e0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:23.520Z",
+      "source": "c17cf74885b8"
+    },
+    "ipersonal-8ed1d69dbe01|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:23.521Z",
+      "source": "5a6ffed8caec"
+    },
+    "zkb-7928411711e5|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:23.521Z",
+      "source": "3d51b34253e0"
+    },
+    "zkb-642ba4e62d6a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:23.521Z",
+      "source": "b1250bfc43ff"
+    },
+    "company-7uc34b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:23.521Z",
+      "source": "3a5d71c66bf6"
+    },
+    "zkb-7928411711e5|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:27.587Z",
+      "source": "3d51b34253e0"
+    },
+    "zkb-642ba4e62d6a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:27.587Z",
+      "source": "b1250bfc43ff"
+    },
+    "senevita-0e00238a55ea|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:27.587Z",
+      "source": "848f5894d141"
+    },
+    "recruitingapp-1154-651d33174530|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:27.588Z",
+      "source": "885c407b2080"
+    },
+    "company-7uc34b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:29.134Z",
+      "source": "3a5d71c66bf6"
+    },
+    "senevita-0e00238a55ea|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:29.134Z",
+      "source": "848f5894d141"
+    },
+    "senevita-0e00238a55ea|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:30.953Z",
+      "source": "848f5894d141"
+    },
+    "recruitingapp-1154-651d33174530|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:30.954Z",
+      "source": "885c407b2080"
+    },
+    "recruitingapp-1154-651d33174530|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:34.073Z",
+      "source": "885c407b2080"
+    },
+    "swisscom-sede-ticino-b830b84404cf|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:41.853Z",
+      "source": "31505b8aa670"
+    },
+    "ipersonal-a9f3d6d2dbd6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:45.499Z",
+      "source": "eeabe5d8be1d"
+    },
+    "ipersonal-bb112c2297e1|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:45.500Z",
+      "source": "cbeff60bf7ba"
+    },
+    "ipersonal-47ced479e346|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:45.500Z",
+      "source": "cbeff60bf7ba"
+    },
+    "ipersonal-34eec0a87889|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:45.500Z",
+      "source": "d6a782602661"
+    },
+    "ipersonal-dfe3d3456ec0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:45.500Z",
+      "source": "a78b70da495f"
+    },
+    "ipersonal-689a2b27db40|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-10-26T10:12:45.500Z",
+      "source": "3a4183d1cff3"
     }
   }
 }
