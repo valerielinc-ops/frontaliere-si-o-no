@@ -88,6 +88,43 @@ describe('ledger', () => {
     expect(sent().map((s) => s.name)).toEqual(['rewarded_receipt_none']);
   });
 
+  it('discards malformed persisted receipts before updating or flushing', () => {
+    const now = Date.now();
+    const valid = {
+      id: 'valid-receipt',
+      at: now - HANDOFF_RECEIPT_MIN_AGE_MS,
+      jobId: 'job-1',
+      companyId: 'company-1',
+      path: 'offerwall',
+      route: 'none',
+      opened: 0,
+    };
+    const malformed = [
+      { ...valid, id: 42 },
+      { ...valid, at: now + 1 },
+      { ...valid, jobId: 42 },
+      { ...valid, companyId: ['company-1'] },
+      { ...valid, path: 'unknown' },
+      { ...valid, route: 'unknown' },
+      { ...valid, opened: true },
+      { ...valid, jobId: 'x'.repeat(257) },
+    ];
+    window.localStorage.setItem(
+      KEY,
+      `[${JSON.stringify(valid)},${malformed.map((entry) => JSON.stringify(entry)).join(',')},`+
+      '{"id":"non-finite","at":1e309,"jobId":"job-1","companyId":"company-1","path":"offerwall","route":"none","opened":0}]',
+    );
+
+    expect(() => markHandoffRoute('non-finite', 'auto')).not.toThrow();
+    markHandoffRoute('valid-receipt', 'auto');
+    expect(flushHandoffReceipts()).toBe(1);
+    expect(sent()).toEqual([{
+      name: 'rewarded_receipt_auto_left',
+      params: expect.objectContaining({ jobId: 'job-1', companyId: 'company-1', grant_path: 'offerwall' }),
+    }]);
+    expect(window.localStorage.getItem(KEY)).toBeNull();
+  });
+
   it('keeps blocked over the card that follows it, and records the click', () => {
     const id = grant(Date.now());
     markHandoffRoute(id, 'auto');
