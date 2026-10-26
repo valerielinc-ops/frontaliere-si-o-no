@@ -747,8 +747,8 @@
       "slugByLocale": {
         "de": "logistiker-efz-m-w-d-planzer-seewen",
         "it": "logistiker-cfc-m-w-d-planzer-seewen",
-        "en": "logistiker-efz-m-w-d-planzer-seewen",
-        "fr": "logistiker-efz-m-w-d-planzer-seewen"
+        "en": "logistician-efz-m-f-d-planzer-seewen",
+        "fr": "logisticien-efz-h-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -797,6 +797,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-efz-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "logistiker-efz-m-w-d-planzer-seewen"
+        ],
+        "fr": [
           "logistiker-efz-m-w-d-planzer-seewen"
         ]
       },

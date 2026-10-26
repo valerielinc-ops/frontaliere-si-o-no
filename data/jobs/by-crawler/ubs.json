@@ -11685,7 +11685,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -11738,11 +11738,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -11763,12 +11767,12 @@
     },
     {
       "id": "ubs-3b7cc11d1c80",
-      "slug": "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande",
+      "slug": "adviser-ere-clientele-enterprises-losanna-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande",
-        "it": "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande",
-        "en": "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande",
-        "de": "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande"
+        "it": "adviser-ere-clientele-enterprises-losanna-ubs-suisse-romande",
+        "en": "adviser-ere-clientele-enterprises-lausanne-ubs-suisse-romande",
+        "de": "berater-ere-clientele-enterprises-lausanne-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11835,7 +11839,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-26T09:17:13.236Z"
+      "firstSeenAt": "2026-10-26T09:17:13.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande"
+        ],
+        "en": [
+          "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande"
+        ],
+        "de": [
+          "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-entreprises-lausanne-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-8777fcc18826",

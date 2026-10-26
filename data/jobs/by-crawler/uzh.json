@@ -8010,12 +8010,12 @@
     },
     {
       "id": "uzh-f163dfb68a83",
-      "slug": "phd-candidate-in-sociology-uzh-zurich-oerlikon",
+      "slug": "dottorato-di-ricerca-in-sociologia-universitat-zurich-zurich-oerlikon",
       "slugByLocale": {
         "en": "phd-candidate-in-sociology-uzh-zurich-oerlikon",
-        "it": "phd-candidate-in-sociology-uzh-zurich-oerlikon",
-        "de": "phd-candidate-in-sociology-uzh-zurich-oerlikon",
-        "fr": "phd-candidate-in-sociology-uzh-zurich-oerlikon"
+        "it": "dottorato-di-ricerca-in-sociologia-universitat-zurich-zurich-oerlikon",
+        "de": "phd-kandidat-in-soziologie-universitat-zurich-zurich-oerlikon",
+        "fr": "candidat-au-doctorat-en-sociologie-universitat-zurich-zurich-oerlikon"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8074,16 +8074,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:15:01.931Z"
+      "firstSeenAt": "2026-10-26T09:15:01.931Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-candidate-in-sociology-uzh-zurich-oerlikon"
+        ],
+        "de": [
+          "phd-candidate-in-sociology-uzh-zurich-oerlikon"
+        ],
+        "fr": [
+          "phd-candidate-in-sociology-uzh-zurich-oerlikon"
+        ]
+      },
+      "previousSlugs": [
+        "phd-candidate-in-sociology-uzh-zurich-oerlikon"
+      ]
     },
     {
       "id": "uzh-6673cf68e955",
-      "slug": "doktorand-in-phd-soziologie-uzh-zurich-oerlikon",
+      "slug": "dottorando-a-phd-in-sociologia-universitat-zurich-zurich-oerlikon",
       "slugByLocale": {
         "de": "doktorand-in-phd-soziologie-uzh-zurich-oerlikon",
-        "it": "doktorand-in-phd-soziologie-uzh-zurich-oerlikon",
-        "en": "doktorand-in-phd-soziologie-uzh-zurich-oerlikon",
-        "fr": "doktorand-in-phd-soziologie-uzh-zurich-oerlikon"
+        "it": "dottorando-a-phd-in-sociologia-universitat-zurich-zurich-oerlikon",
+        "en": "doctoral-candidate-phd-in-sociology-universitat-zurich-zurich-oerlikon",
+        "fr": "doctorant-e-phd-en-sociologie-universitat-zurich-zurich-oerlikon"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8142,16 +8156,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:15:01.926Z"
+      "firstSeenAt": "2026-10-26T09:15:01.926Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-phd-soziologie-uzh-zurich-oerlikon"
+        ],
+        "en": [
+          "doktorand-in-phd-soziologie-uzh-zurich-oerlikon"
+        ],
+        "fr": [
+          "doktorand-in-phd-soziologie-uzh-zurich-oerlikon"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-phd-soziologie-uzh-zurich-oerlikon"
+      ]
     },
     {
       "id": "uzh-509f062c6aff",
-      "slug": "cultural-history-of-india-uzh-zurich",
+      "slug": "storia-culturale-dell-india-universitat-zurich-zurich",
       "slugByLocale": {
         "en": "cultural-history-of-india-uzh-zurich",
-        "it": "cultural-history-of-india-uzh-zurich",
-        "de": "cultural-history-of-india-uzh-zurich",
-        "fr": "cultural-history-of-india-uzh-zurich"
+        "it": "storia-culturale-dell-india-universitat-zurich-zurich",
+        "de": "kulturgeschichte-indiens-universitat-zurich-zurich",
+        "fr": "histoire-culturelle-de-l-inde-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8210,7 +8238,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:15:01.921Z"
+      "firstSeenAt": "2026-10-26T09:15:01.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cultural-history-of-india-uzh-zurich"
+        ],
+        "de": [
+          "cultural-history-of-india-uzh-zurich"
+        ],
+        "fr": [
+          "cultural-history-of-india-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cultural-history-of-india-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-221c47db9923",
