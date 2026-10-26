@@ -88,7 +88,7 @@ describe('mergeUrlKey Sozjobs EasyPublish requisition rule (#15459)', () => {
 
   it('does not re-key the same-looking path on another host', () => {
     const otherHost = first.replace('www.sozjobs.ch', 'example.com');
-    expect(mergeUrlKey(otherHost)).toBe('uuid:c340f41d-f9b5-4321-9e415fe28675d925');
+    expect(mergeUrlKey(otherHost)).toBe('hex:9e415fe28675d925');
   });
 });
 
