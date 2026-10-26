@@ -43,6 +43,7 @@ jobs:
           sparse-checkout: |
             scripts/perf/inp-interaction-probe.mjs
             scripts/perf/lib/inp-probe-summary.mjs
+            build-plugins/shared/cantonResolvers.mjs
             package-lock.json
           sparse-checkout-cone-mode: false
 
@@ -60,8 +61,10 @@ jobs:
           # runs months apart must measure with the same browser build.
           version="$(node -p "require('./package-lock.json').packages['node_modules/playwright'].version")"
           mkdir -p "$RUNNER_TEMP/probe/lib"
+          mkdir -p "$RUNNER_TEMP/build-plugins/shared"
           cp scripts/perf/inp-interaction-probe.mjs "$RUNNER_TEMP/probe/"
           cp scripts/perf/lib/inp-probe-summary.mjs "$RUNNER_TEMP/probe/lib/"
+          cp build-plugins/shared/cantonResolvers.mjs "$RUNNER_TEMP/build-plugins/shared/"
           cd "$RUNNER_TEMP/probe"
           npm init -y >/dev/null
           npm install --no-audit --no-fund "playwright@${version}"
