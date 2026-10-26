@@ -71,6 +71,37 @@ describe('profileEnrichmentGating', () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ dismissDay: 42, dismissesToday: 'oops' }));
       expect(loadGatingState()).toEqual(emptyState());
     });
+
+    it.each([
+      '2026-1-01',
+      '2026-02-30',
+      '2026-13-01',
+      '2026-01-01T00:00:00.000Z',
+    ])('rejects malformed day key %s', (dismissDay) => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ dismissDay, dismissesToday: 2 }));
+      expect(loadGatingState()).toEqual(emptyState());
+    });
+
+    it.each([
+      [-3, 0],
+      [1.9, 1],
+      [99, __testing.DAILY_DISMISS_CAP],
+    ])('clamps persisted counter %s to %s', (dismissesToday, expected) => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ dismissDay: todayKey, dismissesToday }));
+      expect(loadGatingState()).toEqual({ dismissDay: todayKey, dismissesToday: expected });
+    });
+
+    it('falls back to defaults for a non-numeric persisted counter', () => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ dismissDay: todayKey, dismissesToday: 'oops' }));
+      expect(loadGatingState()).toEqual(emptyState());
+    });
+
+    it('cannot bypass the daily cap after an oversized persisted counter', () => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ dismissDay: todayKey, dismissesToday: 99 }));
+      const state = loadGatingState();
+      expect(state.dismissesToday).toBe(__testing.DAILY_DISMISS_CAP);
+      expect(pickNextQuestion(emptyProfile(), null, state, today)).toBeNull();
+    });
   });
 
   describe('saveGatingState', () => {
