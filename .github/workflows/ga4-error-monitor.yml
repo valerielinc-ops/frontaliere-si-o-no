@@ -1,12 +1,22 @@
-name: PostHog Error Monitor
+name: GA4 Error Monitor
 
-# Weekly watchdog for real-user JS errors. The name is historical: since
-# decision H9 of the owner (2026-10-05, «rimpiazza PostHog con GA4»)
-# scripts/posthog-error-issue-sync.mjs reads GA4 `app_error`/`exception`
-# (production host), guarded by the GA4 vitality probe; PostHog is under quota
-# by choice and is no longer read. Same "top-N over threshold → backlog issue"
-# pattern as the GA4 app_error sync inside analytics.yml
-# (scripts/app-error-issue-sync.mjs, scripts/lib/error-issue-sync.mjs).
+# Weekly watchdog for real-user JS errors from GA4. The implementation script
+# keeps its historical `posthog-error-issue-sync.mjs` path for compatibility
+# with existing monitor issue bodies and source-liveness checks, but it reads
+# only GA4 `app_error`/`exception` events from the production host. PostHog is
+# intentionally not queried.
+#
+# Scope boundary: this workflow only measures recurring GA4 error signatures
+# and opens/reconciles backlog issues. It does not replace the full analytics
+# report, which still owns Search Console and its top-50 snippet measurement,
+# PageSpeed/CrUX, the complete GA4 traffic/funnel/error-health and SEO SERP
+# report, indexing, Bing, Clarity, landing-value and application-funnel
+# measurements, AI-channel history, and their persisted summaries/artifacts.
+# A green run here therefore means only that the recurring GA4 error backlog
+# was reconciled; it is not a replacement health verdict for analytics.yml.
+# The full report's app-error feeder remains separate because it consumes the
+# richer saved report and applies its own recency, chunk-family and live-404
+# reconciliation rules.
 #
 # Zero-Claude by design (pure node + the existing gh issue-creator) per the
 # frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
@@ -18,9 +28,9 @@ name: PostHog Error Monitor
 
 on:
   schedule:
-    # Weekly, Tuesday 07:25 UTC — offset from the GA4 sync (Monday 07:00,
-    # inside analytics.yml) so the two error-tracking passes don't land on
-    # the same weekly slot, and clear of every other 07:xx Monday cron
+    # Weekly, Tuesday 07:25 UTC — offset from the full analytics report
+    # (Monday 07:00, inside analytics.yml), and clear of every other 07:xx
+    # Monday cron
     # (dmarc-monitor, app-auth-health-monitor, funnel-metrics-snapshot,
     # gsc-frontaliere-monitor all run Monday).
     - cron: '25 7 * * 2'
@@ -33,7 +43,7 @@ on:
         default: '7'
 
 concurrency:
-  group: posthog-error-monitor
+  group: ga4-error-monitor
   cancel-in-progress: false
 
 permissions:

@@ -160,7 +160,7 @@ describe('admin fase 3 pure contracts', () => {
     const payload = buildAdminWorkflowSchedulePayload(process.cwd(), new Date('2026-10-23T08:00:00.000Z'));
     const ids = payload.workflows.map((workflow) => workflow.id);
     expect(ids).toEqual(expect.arrayContaining(['analytics.yml', 'send-newsletter.yml', 'orchestrate-crawlers.yml']));
-    expect(ids).not.toContain('posthog-error-monitor.yml');
+    expect(ids).not.toContain('ga4-error-monitor.yml');
     expect(payload.timezone).toBe('Europe/Zurich');
   });
 

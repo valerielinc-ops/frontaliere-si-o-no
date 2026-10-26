@@ -20,7 +20,7 @@ name: CWV Monitor
 on:
   schedule:
     # Weekly, Wednesday 07:40 UTC — clear of the other 07:xx crons
-    # (posthog-error-monitor Tuesday 07:25, GA4 app-error sync Monday
+    # (ga4-error-monitor Tuesday 07:25, GA4 app-error sync Monday
     # 07:00 inside analytics.yml, dmarc-monitor/app-auth-health-monitor/
     # funnel-metrics-snapshot/gsc-frontaliere-monitor Monday).
     - cron: '40 7 * * 3'
