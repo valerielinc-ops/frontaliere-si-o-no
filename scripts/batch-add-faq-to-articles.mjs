@@ -20,7 +20,7 @@ import { realpathSync } from 'node:fs';
  * Progress is saved to data/batch-faq-progress.json for resumability.
  */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
+import { readFileSync, readdirSync, existsSync } from 'fs';
 import { resolve, basename, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execFileSync, execSync } from 'child_process';
@@ -32,8 +32,16 @@ import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, flushScoresBeforeExit, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from './lib/free-translate.mjs';
 import { repairLlmJsonArray, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
-import { wrongLocalePair } from './fix-faq-locales.mjs';
-import { decodeControlEscapesByField, unescapeTsString } from './lib/unescape-ts-string.mjs';
+import {
+  wrongLocalePair,
+  parseFaqLiteral,
+  extractFaqFromContent,
+  writeFileAtomic,
+  prepareFaqForWrite,
+  escapeForSingleQuoteTS,
+  replaceFaqLiteral,
+} from './fix-faq-locales.mjs';
+import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
 import { assertOldHistorySafe, isOldHistoryBlockedError } from './lib/old-history-guard.mjs';
 
@@ -130,12 +138,11 @@ function read(filePath) {
 }
 
 function write(filePath, content) {
-  writeFileSync(resolve(filePath), content, 'utf-8');
+  writeFileAtomic(resolve(filePath), content);
 }
 
-/** Same escaping as create-article.mjs buildBodyFile() */
-function escapeForSingleQuoteTS(s) {
-  return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
+function serializeFaqLiteral(faqArray) {
+  return escapeForSingleQuoteTS(JSON.stringify(faqArray));
 }
 
 /** Extract FAQ array from various LLM response shapes:
@@ -421,32 +428,14 @@ export function extractBodyContent(fileContent, articleId) {
  * @param {string} raw - il testo catturato TRA le virgolette.
  * @returns {Array|null} le coppie, o `null` se nessuna decodifica da' un array.
  */
-export function parseFaqLiteral(raw) {
-  const decoders = [
-    (s) => unescapeTsString(String(s ?? ''), { '\\': '\\', "'": "'" }),
-    (s) => String(s ?? '').replace(/\\'/g, "'"),
-  ];
-  for (const decode of decoders) {
-    try {
-      const parsed = JSON.parse(decode(raw));
-      if (Array.isArray(parsed)) return parsed;
-    } catch { /* prova la decodifica successiva */ }
-  }
-  return null;
-}
-
-export function extractFaqFromContent(fileContent) {
-  // Use escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
-  const faqMatch = fileContent.match(/\.faq['']\s*:\s*[']((?:[^'\\]|\\.)*)[']\s*[,}]/);
-  if (!faqMatch) return null;
-  return parseFaqLiteral(faqMatch[1]);
-}
+export { parseFaqLiteral, extractFaqFromContent };
 
 const MIN_FAQ_PAIRS = 3;
 
 export function localeNeedsFaqRepair(localeFaq, expectedLocale, sourceFaq) {
   return !Array.isArray(localeFaq)
-    || localeFaq.length < sourceFaq.length
+    || !prepareFaqForWrite(localeFaq)
+    || localeFaq.length !== sourceFaq.length
     || !!wrongLocalePair(localeFaq, expectedLocale, sourceFaq);
 }
 
@@ -763,8 +752,6 @@ export async function generateTopUpFaqIT(articleId, bodyText, existingFaq) {
 
 export async function translateFaq(faqArray, targetLang) {
   const results = [];
-  const fallbackIndexes = new Set();
-  const sourceEchoIndexes = new Set();
 
   for (let index = 0; index < faqArray.length; index++) {
     const pair = faqArray[index];
@@ -776,43 +763,26 @@ export async function translateFaq(faqArray, targetLang) {
     const sourceEcho = isSourcePassthrough(pair.q, translatedQ)
       || isSourcePassthrough(pair.a, translatedA);
     const usable = translatedQ && translatedA && translatedQ.length > 10 && translatedA.length > 20;
-    if (usable && !sourceEcho) {
-      results.push({ q: translatedQ, a: translatedA });
-    } else {
-      results.push(pair); // Keep Italian pair as fallback
-      fallbackIndexes.add(index);
-      if (sourceEcho) sourceEchoIndexes.add(index);
+    if (!usable || sourceEcho) {
+      console.error(`   ⚠️  translateFaq ${targetLang}: pair ${index + 1} has no valid translation — skipping FAQ write`);
+      return { faq: null, rejected: true };
     }
+    results.push({ q: translatedQ, a: translatedA });
   }
 
   if (!results.length) return { faq: null, rejected: false };
 
-  // A source echo is a language rejection, not a recoverable engine miss:
-  // callers must skip the locale write instead of publishing the Italian pair.
-  // Keep the pre-existing Italian fallback only for an unclassified engine
-  // failure, so this fix does not silently change that separate policy.
-  let wrong = null;
-  for (let index = 0; index < results.length; index++) {
-    if (fallbackIndexes.has(index)) continue;
-    const pairWrong = wrongLocalePair([results[index]], targetLang, [faqArray[index]]);
-    if (pairWrong) {
-      wrong = { ...pairWrong, index };
-      break;
-    }
-  }
-  if (sourceEchoIndexes.size > 0 || (wrong && !fallbackIndexes.has(wrong.index))) {
-    const rejectedIndex = sourceEchoIndexes.size > 0 ? [...sourceEchoIndexes][0] : wrong.index;
-    const rejected = wrong?.index === rejectedIndex ? wrong : {
-      index: rejectedIndex,
-      detected: 'it',
-      via: 'verbatim',
-    };
-    console.error(`   ⚠️  translateFaq ${targetLang}: pair ${rejected.index + 1} remains in `
-      + `${rejected.detected} (${rejected.via}) — skipping FAQ write`);
+  // Translation remains a one-pair-capable intermediate; the locale writer
+  // applies the two-pair readability floor before touching the file.
+  const faqToWrite = prepareFaqForWrite(results, { minPairs: 1 });
+  const wrong = wrongLocalePair(faqToWrite, targetLang, faqArray);
+  if (!faqToWrite || wrong) {
+    const detail = wrong ? `pair ${wrong.index + 1} (${wrong.detected}, ${wrong.via})` : 'invalid FAQ content';
+    console.error(`   ⚠️  translateFaq ${targetLang}: ${detail} — skipping FAQ write`);
     return { faq: null, rejected: true };
   }
 
-  return { faq: results, rejected: false };
+  return { faq: faqToWrite, rejected: false };
 }
 
 /**
@@ -853,15 +823,14 @@ function validateFaq(faq) {
 
 /** Replace existing FAQ value in a body file */
 function replaceFaqInBodyFile(filePath, faqArray) {
+  const faqToWrite = prepareFaqForWrite(faqArray);
+  if (!faqToWrite) return false;
   let content = read(filePath);
-  const jsonStr = JSON.stringify(faqArray).replace(/'/g, "\\'");
-  // Use escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
-  // and function replacer avoids $ interpretation in replacement string
-  const replaced = content.replace(
-    /(\.faq'\s*:\s*')((?:[^'\\]|\\.)*)('\s*,)/,
-    (_match, g1, _g2, g3) => g1 + jsonStr + g3
-  );
-  if (replaced === content) return false;
+  // Use the shared quote-aware locator so apostrophes and JSON quotes inside
+  // the payload cannot be mistaken for the outer FAQ delimiter.
+  const replaced = replaceFaqLiteral(content, faqToWrite);
+  if (!replaced || replaced === content) return false;
+  if (JSON.stringify(extractFaqFromContent(replaced)) !== JSON.stringify(faqToWrite)) return false;
   // Post-write validation: strip TS type annotations before JS syntax check
   try {
     new Function(replaced.replace(/:\s*Record<[^>]+>\s*=/g, ' =').replace(/^export default .+$/m, ''));
@@ -878,15 +847,16 @@ function replaceFaqInBodyFile(filePath, faqArray) {
  * Finds the last body key line and appends the FAQ key after it, before `};`
  */
 export function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
+  const faqToWrite = prepareFaqForWrite(faqArray);
+  if (!faqToWrite) return false;
   let content = read(filePath);
 
   // Already has FAQ? Replace instead of insert.
   if (hasFaqKey(content)) {
-    return replaceFaqInBodyFile(filePath, faqArray);
+    return replaceFaqInBodyFile(filePath, faqToWrite);
   }
 
-  const faqJsonStr = JSON.stringify(faqArray);
-  const escapedFaq = escapeForSingleQuoteTS(faqJsonStr);
+  const escapedFaq = serializeFaqLiteral(faqToWrite);
   const faqLine = `    'blog.article.${articleId}.faq': '${escapedFaq}',`;
 
   // Strategy: insert before the closing `};`
@@ -927,6 +897,8 @@ export function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
       (_m, ultimoBody, chiusura) => `${ultimoBody}\n${faqLine}\n${chiusura}`,
     );
   }
+
+  if (JSON.stringify(extractFaqFromContent(content)) !== JSON.stringify(faqToWrite)) return false;
 
   if (!hasFaqKey(content)) {
     console.error(`  ❌ Failed to insert FAQ into ${filePath}`);
@@ -1044,11 +1016,13 @@ async function processArticle(articleId, file, itBodyContent) {
         console.error(`${label} ✅ ${locale.toUpperCase()} translated (${faqForLocale.length} pairs)`);
       } else {
         const reason = translations[i].status === 'rejected' ? translations[i].reason?.message : 'null result';
-        console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed: ${reason}, using Italian fallback`);
-        faqForLocale = validFaq;
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed: ${reason}, FAQ not written`);
+        continue;
       }
 
-      insertFaqIntoBodyFile(localePath, articleId, faqForLocale);
+      if (!insertFaqIntoBodyFile(localePath, articleId, faqForLocale)) {
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} FAQ write rejected; file unchanged`);
+      }
     }
   }
 
@@ -1126,12 +1100,10 @@ async function processTopUp(articleId, file, itContent, existingFaq) {
         } else if (res?.rejected) {
           console.error(`${label} ⚠️  ${locale.toUpperCase()} translation rejected: FAQ not written`);
         } else {
-          insertFaqIntoBodyFile(localePath, articleId, validMerged);
-          console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed, using Italian`);
+          console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed, FAQ not written`);
         }
       } catch (err) {
-        insertFaqIntoBodyFile(localePath, articleId, validMerged);
-        console.error(`${label} ⚠️  ${locale.toUpperCase()} error: ${err.message}, using Italian`);
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} error: ${err.message}, FAQ not written`);
       }
     }
   }
