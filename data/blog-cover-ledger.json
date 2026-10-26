@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 872,
+      "5": 873,
       "6": 5057
     },
-    "publishedCovers": 7612,
+    "publishedCovers": 7613,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209564,6 +209564,39 @@
         "provider": "openai-codex",
         "assetId": "article-zurigo-crisi-alloggi-giovani",
         "imageUrl": "/images/blog/article-zurigo-crisi-alloggi-giovani.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-unfall-a13-sevelen-2026": {
+      "cover": "/images/blog/article-unfall-a13-sevelen-2026.webp",
+      "hash": "83527e16b3d4f3ccd7c4f6ba642a70b74947ecbfcd0e78cce197a0a38f089494",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "unfall-a13-sevelen-2026",
+          "category": "pratico",
+          "date": "2026-10-26T16:46:48.908Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-unfall-a13-sevelen-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-unfall-a13-sevelen-2026",
+        "imageUrl": "/images/blog/article-unfall-a13-sevelen-2026.webp",
         "evidence": "generated-engine-record"
       }
     }

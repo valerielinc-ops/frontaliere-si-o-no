@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "fa8c6af6717a80e27dbe0c0e357789ce55142b82",
+  "commit": "b4219767fdaefd9909de3b561f3c85a4cf7219a0",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -38736,6 +38736,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a civic administrative building; no visible text, logos, recognizable faces, or specific real event."
+      }
+    },
+    "/images/blog/article-unfall-a13-sevelen-2026.webp": {
+      "schema": 1,
+      "assetId": "article-unfall-a13-sevelen-2026",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "2d3eb30b97b83f17a102cc97d0fcb2c7988120f8c233b5d52e8e276cf6794ff1",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "83527e16b3d4f3ccd7c4f6ba642a70b74947ecbfcd0e78cce197a0a38f089494",
+      "bytes": 143032,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-26T16:46:41.006Z",
+      "verifiedAt": "2026-10-26T16:46:48.853Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-unfall-a13-sevelen-2026.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic illustration of a mountain highway and road infrastructure; no readable text, logos, recognizable people, or depiction of a specific real event."
       }
     },
     "/images/places/lugano-view.webp": {
