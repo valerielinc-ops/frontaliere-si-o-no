@@ -495,6 +495,29 @@ describe('issue-fix F1/F7 policy gate', () => {
   });
 });
 
+describe('issue-fix resume checkout integrity', () => {
+  it('materializza il checkpoint WIP prima di Codex e ripristina il tree su lazy-fetch fallito', () => {
+    const start = workflow.indexOf('- name: Check for resumable WIP branch (zero-Claude)');
+    const end = workflow.indexOf('- name: Configure git identity', start);
+    const resume = workflow.slice(start, end);
+
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(resume).toContain('git fetch --no-tags origin "$REF"');
+    expect(resume).toContain('git checkout -B "$BRANCH" "origin/$BRANCH"');
+    expect(resume).toContain('GIT_NO_LAZY_FETCH=1 git reset --hard "$BASE_COMMIT"');
+    expect(resume).toContain('rm -f "$INDEX_LOCK"');
+    expect(resume).toContain('Checkpoint $BRANCH materializzato');
+    expect(resume).toContain('il fixer non viene avviato');
+    expect(workflow.indexOf('- name: Run Codex Luna Max fix')).toBeGreaterThan(end);
+  });
+
+  it('non ripete fetch/checkout del branch già verificato dal preflight', () => {
+    expect(workflow).toContain('NON ripetere `git fetch`/`git checkout`');
+    expect(workflow).toContain('workspace incompleto, manca il file fidato');
+  });
+});
+
 describe('issue-fix FIX_OUTCOME backstop', () => {
   it('non lascia che un marker storico sopprima il run corrente', () => {
     expect(workflow).toMatch(/permissions:\n(?:  .*\n)*  actions: read\n/);

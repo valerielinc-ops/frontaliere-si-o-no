@@ -346,6 +346,14 @@ jobs:
     # fix: portato al vero max runner-hosted (360) per non uccidere più a metà
     # turno lavoro Claude già fatto. Costo: minuti effettivi usati, non il tetto.
     timeout-minutes: 360
+    env:
+      # Questi entry point sono importati dai gate dopo Codex: una sparse
+      # checkout parzialmente mutata non deve farli sparire in silenzio.
+      ISSUE_FIX_TRUSTED_PATHS: >-
+        scripts/ci/lib/automation-risk-policy.mjs
+        scripts/ci/lib/pr-delivery-evidence.mjs
+        scripts/ci/claim-issue-in-flight.mjs
+        .github/actions/claude-codex-fallback/action.yml
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -1321,13 +1329,94 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           set -uo pipefail
-          if git ls-remote --exit-code --heads origin "fix/issue-${ISSUE_NUMBER}" >/dev/null 2>&1; then
-            echo "resume=true" >> "$GITHUB_OUTPUT"
-            echo "Branch fix/issue-${ISSUE_NUMBER} già presente su origin → resume da checkpoint WIP."
-          else
+          BRANCH="fix/issue-${ISSUE_NUMBER}"
+          REF="refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"
+          BASE_COMMIT=$(git rev-parse HEAD)
+          GIT_DIR=$(git rev-parse --git-dir)
+          INDEX_LOCK="$GIT_DIR/index.lock"
+
+          write_resume_false() {
             echo "resume=false" >> "$GITHUB_OUTPUT"
-            echo "Nessun branch fix/issue-${ISSUE_NUMBER} su origin → fresh start."
+          }
+
+          required_paths_readable() {
+            local path
+            for path in $ISSUE_FIX_TRUSTED_PATHS; do
+              if [ ! -r "$path" ]; then
+                echo "::error::issue-fix workspace incompleto: manca il file fidato $path" >&2
+                return 1
+              fi
+            done
+          }
+
+          restore_base_checkout() {
+            # A failed sparse checkout can leave an index.lock behind. At this
+            # point the checkout command has returned; do not remove a lock
+            # while another Git process is still alive.
+            if [ -e "$INDEX_LOCK" ]; then
+              if pgrep -x git >/dev/null 2>&1 || pgrep -f 'git-(remote-https|fetch-pack|index-pack|unpack-objects)' >/dev/null 2>&1; then
+                echo "::error::impossibile ripristinare issue-fix: un processo Git è ancora attivo mentre esiste $INDEX_LOCK" >&2
+                return 1
+              fi
+              rm -f "$INDEX_LOCK"
+            fi
+            if ! GIT_NO_LAZY_FETCH=1 git reset --hard "$BASE_COMMIT" >/dev/null; then
+              echo "::error::impossibile ripristinare il checkout issue-fix a $BASE_COMMIT senza lazy-fetch" >&2
+              return 1
+            fi
+            if ! GIT_NO_LAZY_FETCH=1 git checkout --detach "$BASE_COMMIT" >/dev/null; then
+              echo "::error::impossibile riportare issue-fix su $BASE_COMMIT dopo un checkout WIP fallito" >&2
+              return 1
+            fi
+            if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
+              git branch -D "$BRANCH" >/dev/null
+            fi
+            required_paths_readable
+          }
+
+          fetch_wip_branch() {
+            local attempt
+            for attempt in 1 2; do
+              if timeout --kill-after=10s 180s env GIT_TERMINAL_PROMPT=0 git fetch --no-tags origin "$REF"; then
+                return 0
+              fi
+              echo "::warning::fetch del checkpoint $BRANCH fallito (tentativo $attempt/2); riprovo." >&2
+              [ "$attempt" -eq 2 ] || sleep 5
+            done
+            return 1
+          }
+
+          checkout_wip_branch() {
+            timeout --kill-after=10s 180s env GIT_TERMINAL_PROMPT=0 git checkout -B "$BRANCH" "origin/$BRANCH"
+          }
+
+          if ! git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+            write_resume_false
+            echo "Nessun branch $BRANCH su origin → fresh start."
+            exit 0
           fi
+
+          echo "Branch $BRANCH presente su origin → materializzo il checkpoint prima di avviare Codex."
+          if ! fetch_wip_branch || ! checkout_wip_branch; then
+            echo "::warning::materializzazione del checkpoint $BRANCH fallita; ripristino il checkout iniziale e provo una seconda volta." >&2
+            if ! restore_base_checkout; then
+              exit 1
+            fi
+            if ! fetch_wip_branch || ! checkout_wip_branch; then
+              restore_base_checkout || true
+              echo "::error::checkpoint $BRANCH non materializzabile in modo sicuro: il fixer non viene avviato." >&2
+              exit 1
+            fi
+          fi
+
+          if [ "$(git branch --show-current)" != "$BRANCH" ] || ! required_paths_readable; then
+            restore_base_checkout || true
+            echo "::error::checkpoint $BRANCH ha lasciato un workspace non verificabile: il fixer non viene avviato." >&2
+            exit 1
+          fi
+
+          echo "resume=true" >> "$GITHUB_OUTPUT"
+          echo "Checkpoint $BRANCH materializzato e workspace fidato verificato → resume da checkpoint WIP."
 
       - name: Configure git identity
         if: steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
@@ -1507,7 +1596,7 @@ jobs:
             **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }}:** con `is_aggregate=true`, contiene più item; tentarli tutti in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi. **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (in una issue *sweep/batch*, item = un singolo target/file: es. "~30 crawlers" → 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret senza abortire l'intera issue; (b) scegli il PRIMO item in-capability a massimo valore funnel; (c) implementa SOLO quello; (d) appena la PR per quell'unico item è aperta → **STOP IMMEDIATO**, non iniziare un secondo item anche con turni residui; (e) elenca TUTTI gli altri item in `## Non implementato (ancora)`, ciascuno con lo STATO LETTERALE del passo 9 (per un item deferito a un ciclo successivo: `blocked: <causa>` se sospeso su una causa esterna, altrimenti `PR concatenata #N` quando il numero esiste). **Stati:** se uno stato CHIUDENTE della PR d'origine copre l'item saltato, ri-elencalo con quello stato (`per scelta` / `by construction` / `blocked: decisione del proprietario`), non come `blocked: <causa tecnica>`: altrimenti `followup-has-candidates.mjs` lo riapre a ogni ciclo; viceversa non usare uno stato chiudente per un rinvio, perché l'item si perde. `post-merge-followup` li ri-accoda come follow-up (re-queue esistente); ogni ciclo chiude ≥1 item. Se `is_aggregate=false`, issue singola e comportamento invariato (capability guard whole-issue). Il budget copre 1 item; 2+ lo bruciano.
 
             **Fix flow (vedi ISSUES.md):**
-            1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
+            1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true`, lo step zero-Claude precedente ha già fetchato, materializzato e verificato `fix/issue-$ISSUE_NUMBER`: se `git branch --show-current` è già quel branch, NON ripetere `git fetch`/`git checkout`, perché un secondo lazy-fetch può corrompere il working tree se la rete cade. Solo se non sei già sul branch atteso esegui `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER`; se fallisce, interrompi il run senza procedere su un workspace parziale. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
                **Questo container CI è GIÀ un checkout isolato monouso** (step `Checkout` in cima al workflow, `actions/checkout@v7` fresh a ogni run). **NON creare un worktree interno `.claude/worktrees/**` qui**: la regola "worktree-first" di `AGENTS.md`/`CLAUDE.md` esiste per sessioni interattive locali con un `main` condiviso — non si applica in un container CI già isolato, e crearne uno dentro non aggiunge isolamento, brucia solo turni rifacendo la meccanica del checkout (osservato #4263: ~6 turni finali sprecati su un ciclo `git diff` → patch → fetch → `.claude/worktrees/... add` → apply mai completato, 0 PR). Lavora direttamente nella root del checkout.
                **Sparse:** prima di usare un path assente esegui `git sparse-checkout add --no-cone <path>` e verifica che sia leggibile.
             2. Diagnosi root cause della issue (NON sintomo). **Scorciatoia scheda (issue da decomposizione):** se il body o un commento contiene una sezione `## Scheda` (issue nata dallo stadio `issue-decompose`, tipicamente label `from-decompose`), la scheda È la diagnosi già fatta — verifica la CAUSA in ≤3 turni col COMANDO della METRICA; se regge, salta direttamente al passo 3 e usa la METRICA come criterio di verifica del fix e l’OSSERVATORE come test da aggiungere. Se la verifica smentisce la CAUSA, prosegui con la diagnosi normale e dichiaralo nel commento finale. **Scorciatoia segnali (issue da reporter zero-Claude, ISSUES.md → "Contratto minimo"):** se il body contiene `## Segnali (raccolti automaticamente)`, NON è una diagnosi (nessuna CAUSA) — ma il `Comando di riproduzione` verifica lo stato attuale in un turno invece di ricostruirlo, `Metrica` dà osservato/atteso come criterio di successo, `Evidenza` punta a dove guardare. Usali per saltare la scoperta iniziale, poi diagnostica la CAUSA normalmente. Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l’edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l’outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
@@ -1549,6 +1638,13 @@ jobs:
           EVENT_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
+          for trusted_path in \
+            $ISSUE_FIX_TRUSTED_PATHS; do
+            if [ ! -r "$trusted_path" ]; then
+              echo "::error::F1/F7 diff gate: workspace incompleto, manca il file fidato $trusted_path."
+              exit 1
+            fi
+          done
           # Il clone e' blobless: se l'agente ha scritto oggetti locali che
           # puntano a oggetti mai scaricati, l'index-pack del fetch muore
           # ripacchettando i «local links» (run 36286839919 e 36286841846:
