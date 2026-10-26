@@ -21,6 +21,7 @@
  */
 
 import { normalizeKeyword } from './jobAlertKeyword';
+import { clampPersistedPromptCounter, isValidLocalDayKey } from './promptGatingState';
 
 export const STORAGE_KEY = 'jobDetailAlertPromptState';
 
@@ -68,14 +69,11 @@ export function loadGatingState(): JobDetailAlertPromptState {
     if (!raw) return cloneDefault();
     const parsed: unknown = JSON.parse(raw);
     if (!isPlainObject(parsed)) return cloneDefault();
-    const dismissDay =
-      typeof parsed.dismissDay === 'string' && parsed.dismissDay.length > 0
-        ? parsed.dismissDay
-        : null;
-    const dismissesToday =
-      typeof parsed.dismissesToday === 'number' && Number.isFinite(parsed.dismissesToday)
-        ? parsed.dismissesToday
-        : 0;
+    if (parsed.dismissDay === null && parsed.dismissesToday === 0) return cloneDefault();
+    const dismissDay = parsed.dismissDay;
+    if (!isValidLocalDayKey(dismissDay)) return cloneDefault();
+    const dismissesToday = clampPersistedPromptCounter(parsed.dismissesToday, DAILY_DISMISS_CAP);
+    if (dismissesToday === null) return cloneDefault();
     return { dismissDay, dismissesToday };
   } catch {
     return cloneDefault();
