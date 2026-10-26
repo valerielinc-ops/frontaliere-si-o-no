@@ -1,8 +1,8 @@
-import { isDismissalActive } from './newsletterCtaState';
+import { isDismissalActive, parseDismissalTimestamp } from './newsletterCtaState';
 
 /** Shared company/category prompt cap, including storage-refused sessions. */
 const SEEN_KEY = 'ft_job_alert_prompt_seen';
-const DISMISSED_KEY = 'ft_job_alert_prompt_dismissed';
+export const DISMISSED_KEY = 'ft_job_alert_prompt_dismissed';
 const COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
 let shown = false;
 let dismissedAt = 0;
@@ -11,8 +11,10 @@ export function canShowJobAlertPrompt(now = Date.now()): boolean {
  try {
   shown ||= sessionStorage.getItem(SEEN_KEY) === '1';
   const rawDismissedAt = localStorage.getItem(DISMISSED_KEY);
-  if (isDismissalActive(rawDismissedAt, COOLDOWN_MS / (24 * 60 * 60 * 1000), now)) {
-   dismissedAt = Math.max(dismissedAt, Number(rawDismissedAt));
+  const parsedDismissedAt = parseDismissalTimestamp(rawDismissedAt);
+  if (parsedDismissedAt !== null
+    && isDismissalActive(rawDismissedAt, COOLDOWN_MS / (24 * 60 * 60 * 1000), now)) {
+   dismissedAt = Math.max(dismissedAt, parsedDismissedAt);
   }
  } catch { /* Memory preserves the cap when browser storage is refused. */ }
  return !shown && (!dismissedAt || now - dismissedAt >= COOLDOWN_MS);

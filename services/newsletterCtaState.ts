@@ -17,6 +17,15 @@ export const NEWSLETTER_SUBSCRIBED_KEY = 'newsletter_subscribed';
 export const NEWSLETTER_CTA_DISMISS_DAYS = 14;
 const NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE = /^\d+$/;
 
+/** Parse trusted millisecond/ISO dismissal storage without accepting prefixes or unsafe values. */
+export function parseDismissalTimestamp(rawTimestamp: string | null): number | null {
+  if (!rawTimestamp) return null;
+  const dismissedAt = NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE.test(rawTimestamp)
+    ? Number(rawTimestamp)
+    : Date.parse(rawTimestamp);
+  return Number.isSafeInteger(dismissedAt) ? dismissedAt : null;
+}
+
 /**
  * Returns whether a local dismissal timestamp is still inside its cooldown.
  * The value is untrusted browser state: numeric prefixes, unsafe integers and
@@ -28,13 +37,10 @@ export function isDismissalActive(
   cooldownDays: number,
   now = Date.now(),
 ): boolean {
-  if (!rawTimestamp) return false;
-  const dismissedAt = NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE.test(rawTimestamp)
-    ? Number(rawTimestamp)
-    : Date.parse(rawTimestamp);
+  const dismissedAt = parseDismissalTimestamp(rawTimestamp);
+  if (dismissedAt === null) return false;
   const ageMs = now - dismissedAt;
-  return Number.isSafeInteger(dismissedAt)
-    && Number.isFinite(cooldownDays)
+  return Number.isFinite(cooldownDays)
     && cooldownDays >= 0
     && ageMs >= 0
     && ageMs < cooldownDays * 24 * 60 * 60 * 1000;
