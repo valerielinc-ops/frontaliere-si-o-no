@@ -166,6 +166,7 @@ describe('admin fase 3 pure contracts', () => {
 
   it('mantiene escaping CSV, CRLF, BOM filename e paginazione da 50', () => {
     expect(csvText(['Nome', 'Nota'], [['A, "uno"', 'riga 1\nriga 2']])).toBe('Nome,Nota\r\n"A, ""uno""","riga 1\nriga 2"');
+    expect(csvText(null as unknown as readonly unknown[], [['valida'], null, { malformed: true }] as unknown as readonly (readonly unknown[])[])).toBe('\r\nvalida\r\n\r\n');
     expect(datedExportFilename('crawler', new Date('2026-10-22T23:30:00.000Z'))).toBe('crawler-2026-10-23.csv');
     expect(pageCount(101)).toBe(3);
     expect(pageSlice(Array.from({ length: 101 }, (_, index) => index), 3)).toEqual([100]);
