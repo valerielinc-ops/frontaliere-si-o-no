@@ -69,6 +69,29 @@ describe('mergeUrlKey PageExecutive requisition rule (#6785)', () => {
   });
 });
 
+describe('mergeUrlKey sozjobs.ch requisition rule (#15459)', () => {
+  const first = 'https://www.sozjobs.ch/job/lernende-r-fachfrau-fachmann-gesundheit-efz/J993250/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925';
+  const sibling = 'https://www.sozjobs.ch/job/lernende-r-assistent-in-gesundheit-soziales-eba/J993249/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925';
+
+  it('keys siblings by their Jxxx requisition, not the shared widget UUID', () => {
+    expect(mergeUrlKey(first)).toBe('req:sozjobs.ch:j993250');
+    expect(mergeUrlKey(sibling)).toBe('req:sozjobs.ch:j993249');
+    expect(mergeUrlKey(first)).not.toBe(mergeUrlKey(sibling));
+  });
+
+  it('survives a title rename while preserving the vendor id', () => {
+    const renamed = first.replace('lernende-r-fachfrau-fachmann-gesundheit-efz', 'fachfrau-fachmann-gesundheit-efz-neu');
+    expect(mergeUrlKey(renamed)).toBe(mergeUrlKey(first));
+  });
+
+  it('does not apply the rule to other hosts or non-detail paths', () => {
+    expect(mergeUrlKey(first.replace('www.sozjobs.ch', 'example.com')))
+      .toBe('hex:9e415fe28675d925');
+    expect(mergeUrlKey('https://www.sozjobs.ch/job/stellenangebote'))
+      .toBe('url:https://www.sozjobs.ch/job/stellenangebote');
+  });
+});
+
 describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', () => {
   // Workday URLs are `…/job/<Location>/<Title>_<req>`; the title is freely
   // re-slugged by the vendor, so the requisition (everything after the first

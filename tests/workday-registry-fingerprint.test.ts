@@ -82,6 +82,23 @@ describe('extractJobIdentityFromUrl — Umantis per-tenant vacancy fingerprint',
   });
 });
 
+describe('extractJobIdentityFromUrl — sozjobs.ch per-job requisition fingerprint', () => {
+  const first = 'https://www.sozjobs.ch/job/lernende-r-fachfrau-fachmann-gesundheit-efz/J993250/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925';
+  const renamed = 'https://www.sozjobs.ch/job/fachfrau-fachmann-gesundheit-efz-neu/J993250/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925';
+  const sibling = 'https://www.sozjobs.ch/job/lernende-r-assistent-in-gesundheit-soziales-eba/J993249/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925';
+
+  it('keeps a renamed title on the same registry fingerprint', () => {
+    expect(extractJobIdentityFromUrl(first)).toBe('sozjobs.ch|j993250');
+    expect(extractJobIdentityFromUrl(first)).toBe(extractJobIdentityFromUrl(renamed));
+    expect(fingerprintJob({ url: first })).toBe(fingerprintJob({ url: renamed }));
+  });
+
+  it('keeps sibling postings with one shared widget apart', () => {
+    expect(extractJobIdentityFromUrl(first)).not.toBe(extractJobIdentityFromUrl(sibling));
+    expect(fingerprintJob({ url: first })).not.toBe(fingerprintJob({ url: sibling }));
+  });
+});
+
 describe('extractJobIdentityFromUrl — text-fragment identity', () => {
   it('keeps a trailing hyphen in the text start', () => {
     const trailingHyphen = 'https://example.ch/list#:~:text=Ruolo%20-';

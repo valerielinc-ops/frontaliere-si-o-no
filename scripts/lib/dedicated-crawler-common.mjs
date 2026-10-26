@@ -54,6 +54,9 @@ import {
   workdayReqFromLeaf,
   UMANTIS_HOST_RE,
   UMANTIS_VACANCY_PATH_RE,
+  SOZJOBS_HOST_RE,
+  sozjobsJobIdFromPath,
+  sozjobsWidgetIdFromPath,
   trailingDigitRunFromLeaf,
 } from './job-url-key.mjs';
 import { recordSlugMutation, capSlugArray } from './slug-history-journal.mjs';
@@ -6024,6 +6027,15 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (req) return `${host}|${req}`;
   }
 
+  // sozjobs.ch detail urls carry the per-job Jxxx requisition before a
+  // publisher-wide widget UUID. Mirrors mergeUrlKey Rule S so the persisted
+  // slug-registry fingerprint and crawl-time merge key cannot disagree and
+  // sibling postings cannot share one identity.
+  if (SOZJOBS_HOST_RE.test(host)) {
+    const jobId = sozjobsJobIdFromPath(u.pathname);
+    if (jobId) return `sozjobs.ch|${jobId}`;
+  }
+
   // Umantis (`recruitingapp-<tenantId>.umantis.com`): key on the FULL host, not
   // registrableDomain(host). registrableDomain collapses every tenant onto
   // `umantis.com`, so vacancy ids — PER-TENANT sequences — collided across
@@ -6370,10 +6382,124 @@ export function saveSlugRegistry(registry) {
   writeJson(resolveSlugRegistryPath(), registry);
 }
 
+function addSlugEvidence(values, value) {
+  const normalized = normalizeSpace(String(value || '')).toLowerCase();
+  if (normalized) values.add(normalized);
+}
+
+function jobSlugEvidence(job = {}) {
+  const values = new Set();
+  addSlugEvidence(values, job.slug);
+  for (const value of Object.values(job.slugByLocale || {})) addSlugEvidence(values, value);
+  for (const value of Array.isArray(job.previousSlugs) ? job.previousSlugs : []) {
+    addSlugEvidence(values, value);
+  }
+  for (const bucket of Object.values(job.previousSlugsByLocale || {})) {
+    for (const value of Array.isArray(bucket) ? bucket : []) addSlugEvidence(values, value);
+  }
+  return values;
+}
+
+function registrySlugEvidence(entry = {}) {
+  const values = new Set();
+  addSlugEvidence(values, entry.canonicalSlug);
+  for (const value of Object.values(entry.slugByLocale || {})) addSlugEvidence(values, value);
+  for (const value of Array.isArray(entry.previousSlugs) ? entry.previousSlugs : []) {
+    addSlugEvidence(values, value);
+  }
+  for (const bucket of Object.values(entry.previousSlugsByLocale || {})) {
+    for (const value of Array.isArray(bucket) ? bucket : []) addSlugEvidence(values, value);
+  }
+  return values;
+}
+
+/**
+ * Return the historical registry keys produced when Sozjobs was keyed by its
+ * publisher-wide widget token. The current J requisition key is deliberately
+ * not included: this helper is only a compatibility path for old snapshots.
+ */
+function legacySozjobsRegistryKeys(job = {}) {
+  let parsed;
+  try {
+    parsed = new URL(job?.url || '');
+  } catch {
+    return [];
+  }
+  if (!SOZJOBS_HOST_RE.test(parsed.hostname)) return [];
+  const widgetId = sozjobsWidgetIdFromPath(parsed.pathname);
+  if (!widgetId) return [];
+  const identity = `sozjobs.ch|${widgetId}`;
+  // Both forms have existed in registry snapshots: the normal fingerprint
+  // prefix and the raw identity used by an early migration script.
+  return [`id|${identity}`, identity];
+}
+
+/**
+ * Re-key one unambiguous legacy Sozjobs registry entry to the current
+ * per-vacancy fingerprint. A shared widget entry cannot be assigned by URL
+ * alone because it represents multiple J requisitions, so the incoming job's
+ * current or historical slug must witness the mapping. Once that witness is
+ * unique, remove the old alias so the next sibling cannot inherit it.
+ */
+function migrateLegacySozjobsRegistryEntry(job, fp, registry) {
+  const legacyKeys = legacySozjobsRegistryKeys(job);
+  if (legacyKeys.length === 0) return null;
+
+  const entries = [];
+  const seenValues = new Set();
+  for (const key of legacyKeys) {
+    const entry = registry[key];
+    if (!entry || typeof entry !== 'object') continue;
+    const valueKey = JSON.stringify(entry);
+    if (seenValues.has(valueKey)) continue;
+    seenValues.add(valueKey);
+    entries.push({ key, entry });
+  }
+  if (entries.length === 0) return null;
+
+  const jobSlugs = jobSlugEvidence(job);
+  const matches = entries.filter(({ entry }) => {
+    const entrySlugs = registrySlugEvidence(entry);
+    return [...jobSlugs].some((slug) => entrySlugs.has(slug));
+  });
+  // No slug witness or more than one candidate means the old shared key is
+  // ambiguous. Leaving it untouched is safer than pinning one sibling's URL
+  // onto another posting.
+  if (matches.length !== 1) return null;
+
+  const { entry } = matches[0];
+  const legacyPrevious = Array.isArray(entry.previousSlugs) ? entry.previousSlugs : [];
+  if (legacyPrevious.length > 0) {
+    job.previousSlugs = [...new Set([
+      ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
+      ...legacyPrevious,
+    ])];
+  }
+  if (entry.previousSlugsByLocale && typeof entry.previousSlugsByLocale === 'object') {
+    const mergedByLocale = { ...(job.previousSlugsByLocale || {}) };
+    for (const [locale, values] of Object.entries(entry.previousSlugsByLocale)) {
+      if (!Array.isArray(values) || values.length === 0) continue;
+      mergedByLocale[locale] = [...new Set([
+        ...(Array.isArray(mergedByLocale[locale]) ? mergedByLocale[locale] : []),
+        ...values,
+      ])];
+    }
+    if (Object.keys(mergedByLocale).length > 0) job.previousSlugsByLocale = mergedByLocale;
+  }
+  registry[fp] = entry;
+  for (const key of legacyKeys) {
+    if (registry[key] && JSON.stringify(registry[key]) === JSON.stringify(entry)) {
+      delete registry[key];
+    }
+  }
+  return entry;
+}
+
 export function getRegisteredSlug(job, registry) {
   const fp = fingerprintJob(job);
-  if (!fp || !registry[fp]) return null;
-  return registry[fp];
+  if (!fp) return null;
+  if (registry[fp]) return registry[fp];
+  return migrateLegacySozjobsRegistryEntry(job, fp, registry);
 }
 
 /**

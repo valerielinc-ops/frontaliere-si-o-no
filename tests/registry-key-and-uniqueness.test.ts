@@ -11,9 +11,14 @@
  *  3. registryPinnedLocaleSlug's source-copy decision is fully governed by the
  *     passed sourceLang — a mislabeled source flips the over/under-pin outcome.
  */
-import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { afterEach, describe, expect, it } from 'vitest';
 import {
   fingerprintJob,
+  getRegisteredSlug,
+  mergeAndDeduplicate,
   registerJobSlug,
   registryPinnedLocaleSlug,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -208,5 +213,88 @@ describe('registryPinnedLocaleSlug — sourceLang sensitivity', () => {
     // cannot fire → the EN source-copy is wrongly treated as a real translation.
     // Documents why correct titleSourceLang detection matters for the guard.
     expect(registryPinnedLocaleSlug(sourceCopyReg, 'en', 'it')).toBe('pflegefachperson-spital');
+  });
+});
+
+describe('legacy Sozjobs widget registry migration (#15459)', () => {
+  const widgetId = 'C340F41D-F9B5-4321-9E415FE28675D925';
+  const j1Url = `https://www.sozjobs.ch/job/role-one/J993250/partnerDetail/easypublish/widgetid/${widgetId}`;
+  const j2Url = `https://www.sozjobs.ch/job/role-two/J993249/partnerDetail/easypublish/widgetid/${widgetId}`;
+  const legacyKey = `id|sozjobs.ch|${widgetId.toLowerCase()}`;
+  const registryPaths: string[] = [];
+
+  afterEach(() => {
+    delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    for (const file of registryPaths.splice(0)) {
+      try { fs.unlinkSync(file); } catch { /* test cleanup */ }
+    }
+  });
+
+  it('re-keys only the slug-matching sibling and preserves its history', () => {
+    const registry = {
+      [legacyKey]: {
+        canonicalSlug: 'historical-j1',
+        slugByLocale: { it: 'historical-j1' },
+        previousSlugs: ['legacy-previous-j1'],
+        previousSlugsByLocale: { it: ['legacy-previous-it-j1'] },
+        createdAt: '2026-10-20',
+        canton: 'SZ',
+      },
+    };
+    const registryPath = path.join(os.tmpdir(), `sozjobs-registry-${process.pid}-${Date.now()}.json`);
+    fs.writeFileSync(registryPath, JSON.stringify(registry), 'utf8');
+    registryPaths.push(registryPath);
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryPath;
+
+    const sibling = {
+      id: 'sozjobs-j2',
+      url: j2Url,
+      title: 'Role two',
+      company: 'Seniorenzentrum Engelhof',
+      location: 'Altendorf',
+      canton: 'SZ',
+      sourceLang: 'de',
+      description: 'B'.repeat(200),
+      slug: 'fresh-j2',
+      slugByLocale: { it: 'fresh-j2' },
+    };
+    const mapped = {
+      id: 'sozjobs-j1',
+      url: j1Url,
+      title: 'Role one',
+      company: 'Seniorenzentrum Engelhof',
+      location: 'Altendorf',
+      canton: 'SZ',
+      sourceLang: 'de',
+      description: 'A'.repeat(200),
+      slug: 'fresh-j1',
+      slugByLocale: { it: 'fresh-j1' },
+      previousSlugs: ['historical-j1', 'previous-j1'],
+    };
+
+    const matched = getRegisteredSlug(mapped, registry);
+    expect(matched?.canonicalSlug).toBe('historical-j1');
+    expect(mapped.previousSlugs).toEqual(expect.arrayContaining(['legacy-previous-j1']));
+    expect(mapped.previousSlugsByLocale?.it).toEqual(expect.arrayContaining(['legacy-previous-it-j1']));
+    expect(registry[legacyKey]).toBeUndefined();
+    expect(registry[fingerprintJob(mapped)]).toBe(matched);
+    // The sibling cannot consume the one-to-many legacy alias after migration.
+    expect(getRegisteredSlug(sibling, registry)).toBeNull();
+
+    registerJobSlug(sibling, registry);
+    expect(Object.keys(registry)).toEqual(expect.arrayContaining([
+      fingerprintJob(mapped),
+      fingerprintJob(sibling),
+    ]));
+    expect(fingerprintJob(mapped)).not.toBe(fingerprintJob(sibling));
+
+    const result = mergeAndDeduplicate([], [sibling, mapped], {
+      minQualityScore: 0,
+      minDescriptionChars: 0,
+    });
+    const mergedMapped = result.merged.find((job) => job.url === j1Url);
+    expect(mergedMapped?.slug).toBe('historical-j1');
+    expect(mergedMapped?.previousSlugs).toEqual(expect.arrayContaining(['previous-j1']));
+    expect(result.merged.find((job) => job.url === j2Url)?.slug).not.toBe('historical-j1');
   });
 });
