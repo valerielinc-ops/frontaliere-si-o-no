@@ -164,12 +164,30 @@ jobs:
           run_head_sha=$(printf '%s' "$run" | jq -r '.head_sha // empty')
           run_status=$(printf '%s' "$run" | jq -r '.status // empty')
           run_conclusion=$(printf '%s' "$run" | jq -r '.conclusion // empty')
+          if [ -z "$run_path" ] || [ -z "$run_head_sha" ] \
+            || [ -z "$run_status" ] || [ -z "$run_conclusion" ]; then
+            echo "::error::Metadati della run tests $RUN_ID incompleti: impossibile legare il rosso alla HEAD corrente di #$PR."
+            exit 1
+          fi
+
+          # Il producer trusted puo' aver dispatchato il fixer subito prima di
+          # un nuovo push o della chiusura della PR. In quel caso la run resta
+          # una risposta valida dell'API, ma non autorizza piu' alcun fixer:
+          # il suo SHA appartiene a una generazione precedente. Trattarla come
+          # errore renderebbe rosso il check del fixer proprio quando non c'e'
+          # lavoro sicuro da eseguire (ricorrenza #7310).
+          if [ "$run_head_sha" != "$head_sha" ]; then
+            skip "Run $RUN_ID stantia ($run_head_sha) rispetto alla HEAD corrente $head_sha di #$PR → nessun fixer (no-op)."
+          fi
+
+          # Anche una run leggibile ma non piu' fallita/completata, o emessa da
+          # un workflow diverso in un dispatch manuale, non è un segnale
+          # azionabile. Gli errori di lettura restano fail-closed sopra; uno
+          # stato valido ma non pertinente è invece un no-op sicuro.
           if [ "$run_path" != ".github/workflows/tests.yml" ] \
-            || [ "$run_head_sha" != "$head_sha" ] \
             || [ "$run_status" != "completed" ] \
             || [ "$run_conclusion" != "failure" ]; then
-            echo "::error::Run $RUN_ID non e' un failure tests completato sulla HEAD corrente di #$PR ($run_path $run_head_sha $run_status/$run_conclusion)."
-            exit 1
+            skip "Run $RUN_ID non è un failure tests completato sulla HEAD corrente di #$PR ($run_path $run_status/$run_conclusion) → nessun fixer (no-op)."
           fi
 
           # La run esatta deve appartenere alla HEAD corrente risolta dalla PR:
