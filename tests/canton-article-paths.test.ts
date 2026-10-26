@@ -51,7 +51,10 @@ describe('isCantonArticlePath', () => {
 
   it('is case-insensitive like parsePath and prefix-exact', () => {
     expect(isCantonArticlePath('/Articoli-Ticino/')).toBe(true);
+    expect(isCantonArticlePath('/articoli-ticino/?utm_source=mail#articolo')).toBe(true);
+    expect(isCantonArticlePath('/articoli-ticino.html?utm_source=mail')).toBe(true);
     expect(isCantonArticlePath('/articoli-ticino-altro/')).toBe(false);
+    expect(isCantonArticlePath('/articoli-ticino-altro/?utm_source=mail')).toBe(false);
     expect(isCantonArticlePath('/articoli-frontaliere/')).toBe(false);
     expect(isCantonArticlePath('/articoli-svizzera/x/')).toBe(false);
     expect(isCantonArticlePath('/cerca-lavoro-ticino/')).toBe(false);
