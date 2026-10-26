@@ -73,12 +73,28 @@ describe('GA4 come sorgente dei monitor (fallback da #6948, primaria da H9)', ()
   });
 
   it('mantiene la firma degli errori e usa totalUsers come distinti', async () => {
-    const fetchImpl = vi.fn(async () => response({
-      rows: [{
-        dimensionValues: [{ value: 'TypeError' }, { value: 'Boom' }, { value: '/pagina/' }],
-        metricValues: [{ value: '12' }, { value: '7' }],
-      }],
-    }));
+    let calls = 0;
+    const fetchImpl = vi.fn(async () => {
+      calls += 1;
+      if (calls === 1) {
+        return response({
+          rows: [{
+            dimensionValues: [{ value: 'TypeError' }, { value: 'Boom' }, { value: '/pagina/' }],
+            metricValues: [{ value: '12' }, { value: '7' }],
+          }],
+        });
+      }
+      return response({
+        rows: [{
+          dimensionValues: [
+            { value: 'TypeError' },
+            { value: 'Boom' },
+            { value: 'Error: Boom\\n    at handle (https://frontaliereticino.ch/assets/app.js:1:2)' },
+          ],
+          metricValues: [{ value: '12' }],
+        }],
+      });
+    });
 
     const rows = await fetchGa4ErrorFallback({
       windowDays: 7,
@@ -88,8 +104,9 @@ describe('GA4 come sorgente dei monitor (fallback da #6948, primaria da H9)', ()
 
     expect(rows).toEqual([expect.objectContaining({
       type: 'TypeError', message: 'Boom', count: 12, sessions: 7,
+      sampleStack: expect.stringContaining('handle'),
     })]);
-    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
   it('ricostruisce il p75 CWV dalle osservazioni GA4 pesate', async () => {

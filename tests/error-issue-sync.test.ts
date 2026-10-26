@@ -464,6 +464,33 @@ describe('posthog-error-issue-sync.mjs (GA4 source since decision H9, 2026-10-05
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  it('creates an actionable issue body with evidence and a runnable re-check', async () => {
+    issueListEmptyThenCreate(208);
+    await run([{
+      ...row('Cannot read properties of null', 'TypeError', 12, 7, 'https://frontaliereticino.ch/it/lavoro/'),
+      sampleStack: 'TypeError: Cannot read properties of null\n    at renderJob (https://frontaliereticino.ch/assets/app.js:10:20)',
+    }]);
+
+    const body = createCalls()[0][createCalls()[0].indexOf('--body') + 1];
+    for (const fragment of [
+      '**Type:** TypeError',
+      '**Message:** Cannot read properties of null',
+      '**Occurrences (last 7d):** 12 | **Distinct sessions:** 7',
+      '**Sample URL:** https://frontaliereticino.ch/it/lavoro/',
+      '**Resolved stack origins (sample):** see the GA4 sample stack below',
+      '**Sample stack (GA4):**',
+      'at renderJob (https://frontaliereticino.ch/assets/app.js:10:20)',
+      '**1-CAUSA.**',
+      '**2-FIX.**',
+      '**3-METRICA.** prima=12 occorrenze in 7d atteso=<5',
+      '**COMANDO**: `node scripts/posthog-error-issue-sync.mjs --dry-run`',
+      '**4-OSSERVATORE.**',
+      '**5-FALLIMENTO.**',
+    ]) {
+      expect(body).toContain(fragment);
+    }
+  });
+
   it('reconciles a disappeared signature after one complete live report', async () => {
     issueListEmptyThenCreate(207);
     const issue = { title: posthogSync.titleFor(row('Boom', 'TypeError', 900, 400, 'https://frontaliereticino.ch/')) };
