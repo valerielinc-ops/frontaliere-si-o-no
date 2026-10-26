@@ -69,6 +69,22 @@ describe('calculator input storage', () => {
    });
   }
  });
+
+ it('handles browsers that throw while resolving window.localStorage', () => {
+  const descriptor = Object.getOwnPropertyDescriptor(window, 'localStorage');
+
+  Object.defineProperty(window, 'localStorage', {
+   configurable: true,
+   get: () => { throw new Error('private browsing storage access denied'); },
+  });
+
+  try {
+   expect(readBestEffortLocalStorage('calculator-input-storage-getter')).toBeNull();
+   expect(() => writeBestEffortLocalStorage('calculator-input-storage-getter', '1')).not.toThrow();
+  } finally {
+   if (descriptor) Object.defineProperty(window, 'localStorage', descriptor);
+  }
+ });
 });
 
 describe('InputCard with unavailable browser storage', () => {
