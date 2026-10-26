@@ -246,7 +246,7 @@ export class WriteCollector {
  this._postWalkDerivedKind = opts?.postWalkDerivedKind;
  }
 
- private flushOrderedWrites(batch: PendingWrite[], concurrency: number): Promise<number> {
+ private async flushOrderedWrites(batch: PendingWrite[], concurrency: number): Promise<number> {
   prepareWriteBatch(batch);
   const scheduled = batch.map((write) => {
    const previous = this._pathFlushChains.get(write.filePath) ?? Promise.resolve();
