@@ -106,6 +106,10 @@ import {
   DESCRIPTION_POPULATION,
   MIN_SERVED_SHARE,
 } from './lib/job-locale-population.mjs';
+import {
+  translationQueueAgeMs,
+  TRANSLATION_QUEUE_STALE_DAYS,
+} from './lib/translation-queue-age.mjs';
 
 // L'allarme sulla coda vive in `./lib/queue-alarm.mjs`, un modulo SENZA import:
 // lo carica anche lo script inline di job-description-locale-audit.yml, che non
@@ -140,23 +144,10 @@ export const DEFAULT_MIN_HEADROOM_PP = 0.05;
  * been passed over ~35 times. Below 7 the number would mostly count normal
  * churn (1,401 jobs entered the queue in the last day alone).
  */
-export const QUEUE_STALE_DAYS = 7;
+export const QUEUE_STALE_DAYS = TRANSLATION_QUEUE_STALE_DAYS;
 
-/**
- * Age (ms) at which a queued job counts as stale. `firstSeenAt` is the age
- * signal with full coverage on the queue and is the SAME field
- * `jobQueuedAtMs()` sorts the oldest-first reserve by, so this number and the
- * reserve cannot disagree about which jobs are old. `postedDate` is present on
- * ~2% of the queue and carries values as absurd as 4,915 days, so it is used
- * only as a fallback and never alone.
- */
-function queuedForMs(job, now) {
-  const raw = job?.firstSeenAt || job?.crawledAt || null;
-  if (!raw) return null;
-  const t = Date.parse(String(raw));
-  return Number.isFinite(t) ? now - t : null;
-}
-
+// `translationQueueAgeMs()` owns the field order and invalid-date behavior so
+// the audit and the repair lane cannot drift at the stale boundary.
 /**
  * Count the jobs the site is serving in the wrong language RIGHT NOW because
  * their translation never happened, grouped by how long they have waited and
@@ -214,7 +205,7 @@ export function measureTranslationQueue(
     if (!copied.length) continue;
     sourceCopyJobs += 1;
 
-    const waitedMs = queuedForMs(job, now);
+    const waitedMs = translationQueueAgeMs(job, now);
     const waitedDays = waitedMs === null ? null : Math.floor(waitedMs / 86_400_000);
     const bucket = waitedDays === null ? 'unknown'
       : waitedDays <= 7 ? '0-7d'

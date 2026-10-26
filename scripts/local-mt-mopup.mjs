@@ -82,6 +82,7 @@ import {
 } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
 import { isModelMetaAnswer, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { isTranslationQueueStale } from './lib/translation-queue-age.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
 import {
   DEFAULT_LOCAL_MT_SEMANTIC_CACHE_MAX,
@@ -323,6 +324,25 @@ function isSourceCopyDescriptionSlot(job, { locale, field }) {
   const existing = String((job.descriptionByLocale || {})[locale] || '').trim();
   return sourceLocaleTextCandidates(job, 'description').some((source) =>
     source.length >= MIN_DESC_CHARS && isDescriptionSourceCopy(existing, source));
+}
+
+/**
+ * Keep the negative cache's cap protection for normal retries, but let a
+ * source-copy description that has stayed in the translation queue past the
+ * audit's stale threshold reach the source-copy priority lane again. The
+ * shared age predicate is deliberate: a slot cannot be called stale by the
+ * audit while remaining permanently invisible to the repair lane.
+ */
+function negativeCacheBlocksMopupSlot(cache, key, { job, locale, field }, now) {
+  if (!negativeCacheHas(cache, key, now)) return false;
+  if (
+    field === 'description'
+    && isSourceCopyDescriptionSlot(job, { locale, field })
+    && isTranslationQueueStale(job, now)
+  ) {
+    return false;
+  }
+  return true;
 }
 
 /**
@@ -775,9 +795,11 @@ export function shouldQueueArgosSlot(job, { locale, field }) {
 
 /**
  * Apply the request-level admission filters before assigning a job to the
- * source-copy priority lane. A cached or title-lane handoff slot is still a
- * `missingSlot()`, but it cannot produce an Argos request and must not make
- * its job consume the bounded selection cap.
+ * source-copy priority lane. A recent cached or title-lane handoff slot is
+ * still a `missingSlot()`, but it cannot produce an Argos request and must not
+ * make its job consume the bounded selection cap. The sole cache exception is
+ * a queue-stale source-copy description, which the shared predicate admits for
+ * a bounded retry.
  */
 export function queueableMopupSlots(job, slots, negativeCache, now = Date.now()) {
   if (!Array.isArray(slots)) return [];
@@ -805,7 +827,7 @@ export function queueableMopupSlots(job, slots, negativeCache, now = Date.now())
       field,
       existing,
     });
-    if (negativeCacheHas(cache, negativeCacheKey, now)) return false;
+    if (negativeCacheBlocksMopupSlot(cache, negativeCacheKey, { job, locale, field }, now)) return false;
     return shouldQueueArgosSlot(job, { locale, field });
   });
 }
@@ -1470,6 +1492,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
 
   const sliceFiles = listSliceFileNames(BY_CRAWLER_DIR);
   const negativeCache = readNegativeCache();
+  const negativeCacheNow = Date.now();
   let negativeCacheHits = 0;
   let negativeCacheChanged = false;
 
@@ -1523,7 +1546,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
       freshMeter.observe(job, { inScope: true, slotCount: slots.length });
       if (slots.length === 0) continue;
 
-      const queueableSlots = queueableMopupSlots(job, slots, negativeCache);
+      const queueableSlots = queueableMopupSlots(job, slots, negativeCache, negativeCacheNow);
       if (queueableSlots.length === 0) continue;
       const sourceCopyDescription = queueableSlots.some((slot) => isSourceCopyDescriptionSlot(job, slot));
       candidates.push({ file, jobIdx, job, slots, sourceCopyDescription });
@@ -1594,7 +1617,12 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
         field,
         existing,
       });
-      if (negativeCacheHas(negativeCache, negativeCacheKey)) {
+      if (negativeCacheBlocksMopupSlot(
+        negativeCache,
+        negativeCacheKey,
+        { job, locale, field },
+        negativeCacheNow,
+      )) {
         negativeCacheHits++;
         continue;
       }
