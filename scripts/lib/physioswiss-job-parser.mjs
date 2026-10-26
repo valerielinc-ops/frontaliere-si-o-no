@@ -16,7 +16,9 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { extractLinks } from './prospector/careers-trail.mjs';
 import { normalizePhysioswissListingTitle } from './prospector/detail-extract.mjs';
+import { isGenericVacancyTitle } from './prospector/production-title.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -29,6 +31,7 @@ export const PHYSIOSWISS_COMPANY_NAME = 'Physio swiss';
 export const PHYSIOSWISS_COMPANY_DOMAIN = 'physioswiss.ch';
 
 const CAREER_URL = 'https://physioswiss.ch/stelleninserate/';
+const PHYSIOSWISS_DETAIL_PATH_RX = /^\/stelleninserate\/[^/]+\/[^/]+\/?$/iu;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -41,6 +44,33 @@ function normalizeSpace(s = '') {
 }
 
 export { normalizePhysioswissListingTitle };
+
+/**
+ * Physioswiss's listing page also emits generic JobPosting JSON-LD with the
+ * title "Header". The accessible link label is the source-owned vacancy
+ * identity, so prefer those links over the generic JSON-LD cascade. Returning
+ * an empty array when the known listing shape has no usable titles keeps a
+ * source mutation fail-closed instead of publishing the JSON-LD chrome.
+ *
+ * @param {string} html
+ * @param {string} [pageUrl]
+ * @returns {Array<{ title: string, url: string, via: string }>}
+ */
+export function extractPhysioswissListingCandidates(html = '', pageUrl = CAREER_URL) {
+  const candidates = [];
+  const seen = new Set();
+  for (const link of extractLinks(html, pageUrl)) {
+    let parsed;
+    try { parsed = new URL(link.url); } catch { continue; }
+    if (!isTrustedDomain(parsed.href) || !PHYSIOSWISS_DETAIL_PATH_RX.test(parsed.pathname)) continue;
+    const title = normalizePhysioswissListingTitle(link.text);
+    if (!title || title.length < 3 || isGenericVacancyTitle(title)) continue;
+    if (seen.has(parsed.href)) continue;
+    seen.add(parsed.href);
+    candidates.push({ title, url: parsed.href, via: 'physioswiss-listing-link' });
+  }
+  return candidates;
+}
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -115,9 +145,12 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(PHYSIOSWISS_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    ...runtime,
+    listingExtractor: extractPhysioswissListingCandidates,
+  });
 }
 
 /**

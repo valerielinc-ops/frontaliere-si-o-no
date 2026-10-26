@@ -20,6 +20,7 @@ import {
   fetchAllRecruitingapp2677Jobs,
   isRecruitingapp2677ExpectedDetailFilter,
 } from '../recruitingapp-2677-job-parser.mjs';
+import { extractPhysioswissListingCandidates } from '../physioswiss-job-parser.mjs';
 import { extractRuntimeDetailFields } from './detail-extract.mjs';
 import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES, normalizeDetailDrop } from '../crawler-detail-drop.mjs';
@@ -76,6 +77,7 @@ export function sourceCrawlerAdapterFor(spec) {
 }
 
 const PRODUCTION_RUNTIME_OPTIONS = Object.freeze({
+  physioswiss: Object.freeze({ listingExtractor: extractPhysioswissListingCandidates }),
   'apleona-schweiz-ag': Object.freeze({ detailExtractor: extractApleonaDetailFields }),
   gmo: Object.freeze({ isExpectedDetailFilter: isGmoExpectedDetailFilter }),
   medimeo: Object.freeze({ isExpectedDetailFilter: isMedimeoExpectedDetailFilter }),
