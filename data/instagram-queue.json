@@ -37,6 +37,49 @@
       ],
       "createdAt": "2026-10-26T14:06:41.069Z",
       "expiresAt": "2026-11-02T14:06:41.069Z"
+    },
+    {
+      "id": "reel-2026-10-25",
+      "channel": "instagram",
+      "kind": "reel",
+      "day": "2026-10-25",
+      "caption": "Un solo riferimento da tenere a portata di mano quando torna il dubbio.\n\n📌 Lavora come farmacista in Ticino da frontaliere: riconoscimento, stipendio e iter di abilitazione — 33 visualizzazioni ieri.\n\n💾 Salva il Reel per quando dovrai ricostruire la risposta.\n👉 Approfondisci dal link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/reel-article-2026-10-25-reel-save-0.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/instagram/reel-article-2026-10-25-reel-save.mp4",
+        "bytes": 279513,
+        "sha256": "14ae920fecb8257a1d93f1373fd272f8b574691b5452236b18633dcd5a426efa",
+        "durationMs": 11500,
+        "width": 1080,
+        "height": 1920
+      },
+      "ledgerEntries": [
+        {
+          "id": "article:frontaliere-farmacista-ticino-stipendio-requisiti",
+          "kind": "reel",
+          "sourceKind": "article",
+          "sourceId": "frontaliere-farmacista-ticino-stipendio-requisiti",
+          "url": "https://frontaliereticino.ch/articoli-svizzera/frontaliere-farmacista-ticino-stipendio-requisiti/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_reel_experiment&utm_content=reel-save-frontaliere-farmacista-ticino-stipendio-requisiti",
+          "day": "2026-10-25",
+          "views": 33,
+          "creativeId": "reel-save",
+          "creativeBaseId": "reel",
+          "creativeVariant": "reel-save",
+          "creativeLabel": "Promemoria pratico",
+          "creativeObjective": "save",
+          "primaryMetric": "saves",
+          "engagementMechanic": "save-reminder",
+          "hookType": "problem-solution",
+          "attentionMechanic": "one-problem-one-reference",
+          "engagementLoop": "save-then-return",
+          "followUpFormat": "carousel-checklist",
+          "creativeFormat": "reel"
+        }
+      ],
+      "createdAt": "2026-10-26T14:31:23.063Z",
+      "expiresAt": "2026-10-28T14:31:23.063Z"
     }
   ]
 }
