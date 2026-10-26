@@ -28,8 +28,8 @@ const TICINO_ADDRESS_OVERRIDES = new Map([
 export const ITALY_BORDER_PROVINCES = Object.freeze(['CO', 'VA', 'VB']);
 export const TICINO_PHARMACY_PDF_URL = 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf';
 // The canton publishes the same official PDF through the m4 host as well. The
-// alternate host is a transport fallback only; the primary URL remains the
-// canonical provenance recorded in the catalogue.
+// alternate host is a transport fallback; a dated URL discovered on the
+// official landing page is retained as the provenance when the filename moves.
 export const TICINO_PHARMACY_PDF_MIRROR_URL = 'https://m4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf';
 export const TICINO_PHARMACY_DIRECTORY_URL = 'https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/';
 export const TICINO_PHARMACY_PDF_URLS = Object.freeze([
