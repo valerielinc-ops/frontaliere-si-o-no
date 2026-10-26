@@ -582,24 +582,36 @@ async function main() {
       `[rearm] ${localeRecovery.reason}: retrying only ${localeRecovery.job?.name || 'the failed locale leg'} `
         + `(${jobId}) from the original run and prepared snapshot`,
     );
+    let recoveryRequested = false;
     try {
       gh(['api', '-X', 'POST', `repos/${repo}/actions/jobs/${jobId}/rerun`]);
+      recoveryRequested = true;
+    } catch (err) {
+      // A job rerun can be rejected while this workflow run is still open: the
+      // recovery decision runs in the terminal run's own `rearm` job, before
+      // GitHub has marked that run completed. That rejection is itself
+      // recoverable; the bounded whole-run re-arm below is the safe fallback.
+      console.warn(`::warning::targeted build-locale recovery request failed: ${err?.message?.split('\n')[0]}`);
+      console.warn('::warning::falling back to the bounded whole-run re-arm for the same main tip');
+    }
+    if (recoveryRequested) {
       const summary = process.env.GITHUB_STEP_SUMMARY;
       if (summary) {
-        const { appendFileSync } = await import('node:fs');
-        appendFileSync(
-          summary,
-          `🔁 **Targeted build-locale recovery**: reran ${localeRecovery.job.name} `
-            + `for ${localeRecovery.reason} on the same SHA/snapshot; no other matrix leg was dispatched.\n`,
-        );
+        try {
+          const { appendFileSync } = await import('node:fs');
+          appendFileSync(
+            summary,
+            `🔁 **Targeted build-locale recovery**: reran ${localeRecovery.job.name} `
+              + `for ${localeRecovery.reason} on the same SHA/snapshot; no other matrix leg was dispatched.\n`,
+          );
+        } catch (err) {
+          // The summary is diagnostic only. A successful recovery request must
+          // not be turned into a second build because the summary file failed.
+          console.warn(`::warning::could not write targeted recovery summary: ${err?.message?.split('\n')[0]}`);
+        }
       }
-    } catch (err) {
-      // Do not reinterpret a failed recovery request as a broad host-loss
-      // match. The ordinary re-arm below remains the existing backstop only
-      // when no targeted candidate was admitted.
-      console.warn(`::warning::targeted build-locale recovery request failed: ${err?.message?.split('\n')[0]}`);
+      return 0;
     }
-    return 0;
   }
   if (localeRecovery.reason === 'recovery-api-unreadable') {
     console.warn(`::warning::${localeRecovery.detail} — falling back to the existing whole-run re-arm decision`);
