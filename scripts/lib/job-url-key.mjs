@@ -99,7 +99,11 @@ const PAGEEXECUTIVE_DETAIL_REF_RE = /\/job-detail\/[^/?#]+\/ref\/jn-(?:0[1-9]|1[
 // generic leaf rule below would otherwise treat that widget token as the job
 // identity and merge distinct vacancies from the same widget (#15459).
 const SOZJOBS_HOST_RE = /(?:^|\/\/)(?:www\.)?sozjobs\.ch(?:[:/]|$)/;
-const SOZJOBS_DETAIL_PATH_RE = /\/job\/[^/?#]+\/(j\d{6,7})\/partnerdetail\/easypublish\/widgetid\/[^/?#]+$/i;
+// Keep the reference grammar open-ended: Sozjobs currently emits six/seven
+// digits, but the per-job `J` token is the identity regardless of its future
+// width. Restricting the capture to today's width would silently fall back to
+// the shared widget id when the vendor expands the sequence.
+const SOZJOBS_DETAIL_PATH_RE = /\/job\/[^/?#]+\/(j\d+)\/partnerdetail\/easypublish\/widgetid\/[^/?#]+$/i;
 
 // Bank Cler job urls: cler.ch/…/<any-path>/offene-stellen/<title-slug>-<reqId>.
 // Cler's own requisition id is only 3-4 digits — below the generic
@@ -353,7 +357,9 @@ export function mergeUrlKey(url) {
   // embedded board, not the vacancy; use the J-number before it instead of the
   // shared UUID/hex token in the leaf (#15459).
   if (SOZJOBS_HOST_RE.test(u)) {
-    const pathOnly = u.split(/[?#]/)[0];
+    // A slash may precede the query/fragment (`.../<widgetid>/?utm=...`),
+    // while the matcher is intentionally anchored to the detail path leaf.
+    const pathOnly = u.split(/[?#]/)[0].replace(/\/+$/, '');
     const ref = pathOnly.match(SOZJOBS_DETAIL_PATH_RE);
     if (ref) return `req:sozjobs.ch:${ref[1]}`;
   }

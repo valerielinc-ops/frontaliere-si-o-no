@@ -86,6 +86,13 @@ describe('mergeUrlKey Sozjobs EasyPublish requisition rule (#15459)', () => {
     expect(mergeUrlKey(`${renamed}?utm_source=feed`)).toBe(mergeUrlKey(first));
   });
 
+  it('keeps the J reference across future widths and a slash before tracking params', () => {
+    const shortFutureRef = first.replace('J993249', 'J123456789');
+    const siblingWithSlash = sibling.replace('J993250', 'J123457') + '/?utm_source=feed#job';
+    expect(mergeUrlKey(shortFutureRef)).toBe('req:sozjobs.ch:j123456789');
+    expect(mergeUrlKey(siblingWithSlash)).toBe('req:sozjobs.ch:j123457');
+  });
+
   it('does not re-key the same-looking path on another host', () => {
     const otherHost = first.replace('www.sozjobs.ch', 'example.com');
     expect(mergeUrlKey(otherHost)).toBe('hex:9e415fe28675d925');
