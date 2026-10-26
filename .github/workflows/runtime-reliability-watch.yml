@@ -112,6 +112,8 @@ jobs:
             infra/cloudflare-worker/**
             build-plugins/shared/cantonResolvers.mjs
             build-plugins/shared/articleSectionCore.mjs
+            build-plugins/shared/abiChunkNaming.mjs
+            build-plugins/shared/plainNameChunks.mjs
             packages/articles/engine/shared/articleSectionCore.mjs
             packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs
           sparse-checkout-cone-mode: false

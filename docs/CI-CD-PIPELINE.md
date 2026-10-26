@@ -371,7 +371,7 @@ Source: `scripts/lib/trigger-self.sh`, tests at `tests/lib/trigger-self.test.ts`
 |---|---|
 | `articolifrontaliere` / `articolisvizzera` are already live section shards | `ARTICOLIFRONTALIERE_SHARD_LIVE` / `ARTICOLISVIZZERA_SHARD_LIVE` repo vars |
 | Shard GitHub Pages publish is ~30s | push `09:14:01Z` → `last-modified: 09:14:31 GMT` on `frontaliere-articolifrontaliere-it` |
-| Shard HTML references assets CDN-absolute with **stable** (non-hashed) filenames | `https://cdn.frontaliereticino.ch/assets/index-entry.js`; `vite.config.ts` stable-name rationale |
+| Shard HTML references assets CDN-absolute with **stable** (no content hash) filenames; a chunk that exports names also carries an interface hash `<name>.<8 hex>.js` that moves only when its export names do | `https://cdn.frontaliereticino.ch/assets/index-entry.js` (fixed); `vite.config.ts` stable-name rationale; `build-plugins/shared/abiChunkNaming.mjs`; live map `assets/chunk-manifest.json` |
 | `CDN_TARGET=r2` | single S3 PUT for hero + thumbnail, no Pages publish lag |
 | `ogPagesPlugin.ts` has zero runtime npm deps (only `import type { Plugin }`) | renderer runs under `npx -y tsx` with **no `npm ci`** |
 

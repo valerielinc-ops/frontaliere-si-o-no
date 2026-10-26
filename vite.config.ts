@@ -37,6 +37,8 @@ import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { adFilterSafeChunkName } from './build-plugins/shared/adFilterSafeChunkName';
 import { matchBlogBodyChunkLocale, buildBlogBodyChunkFileName } from './build-plugins/shared/blogBodyChunkNaming';
 import { SPA_ENTRY_JS_FILENAME } from './build-plugins/shared/spaEntryFilenames';
+import { abiChunkFileName, isAbiChunkNamingEnabled } from './build-plugins/shared/abiChunkNaming';
+import { chunkFileRegistryPlugin } from './build-plugins/chunkFileRegistryPlugin';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
 import { legacyAliasPlugin } from './build-plugins/legacyAliasPlugin';
@@ -171,6 +173,9 @@ export default defineConfig(({ mode }) => {
  ...react(),
  minifyCriticalIndexCssPlugin(),
  prepareOutDirPlugin(__dirname),
+ // Registers the real (interface-addressed) chunk filenames before any
+ // closeBundle hook asks for one, and publishes assets/chunk-manifest.json.
+ chunkFileRegistryPlugin(),
  // Emits `virtual:seo-blog-shard-index` (blog-<id> → seo-blog shard ordinal).
  // Core, not SEO-gated: services/seoService.ts imports the virtual module, so
  // a FAST_BUILD that skipped this plugin would fail to resolve it. Costs one
@@ -769,6 +774,9 @@ export default defineConfig(({ mode }) => {
  // different locale after a reorder"). `false` emits the real semantic export
  // name (`export { loadArticleBody }` ↔ `import { loadArticleBody as ls }`), so
  // the binding stays correct no matter how the minifier re-letters locals.
+ // ALSO LOAD-BEARING for the interface-addressed chunk names below: the hash
+ // is computed from these export names, so with `true` it would rotate on
+ // every build. tests/abi-chunk-naming.test.ts pins this value.
  // Cost: marginally larger chunks (export identifiers no longer shortened) —
  // acceptable vs. white-screen crashes during the ~600s post-deploy skew window.
  // REVERT TRIGGER: build:ci OOMs only on the SSG walk, not on this Rollup output
@@ -776,7 +784,16 @@ export default defineConfig(({ mode }) => {
  // pre-merge (full local build OOMs). If the next deploy's build fails or the
  // CDN bundle size regresses materially, revert this single line.
  minifyInternalExports: false,
- // STABLE filenames (no content-hash) for EVERY JS chunk and CSS sheet.
+ // STABLE filenames (no content-hash) for EVERY JS chunk and CSS sheet —
+ // with ONE addition: a JS chunk that exports names also carries an
+ // INTERFACE hash (`<name>.<8 hex>.js`, see `chunkFileNames` below and
+ // build-plugins/shared/abiChunkNaming.mjs). Everything this comment says
+ // about content hashes still holds: the hash moves only when the chunk's
+ // export NAMES change, never when its body does. The mass pages (jobs,
+ // articles) reference only default-only chunks and vendor-react, which keep
+ // their plain filename (build-plugins/shared/plainNameChunks.mjs,
+ // GRANDFATHERED_ABI_HASHES), so they stay byte-identical across deploys;
+ // the pages this build itself emits follow a rename through the registry.
  //
  // History: the entry was stabilized first (index-entry.js, #1615 — Vite chunk
  // hashes are circularly interconnected entry→App→leaf→App, so ANY bundled-module
@@ -830,7 +847,20 @@ export default defineConfig(({ mode }) => {
  // #2971). No-op for names without a tracker keyword; Rollup rewrites every
  // internal import reference to the emitted name, so the rename is consistent.
  const safe = adFilterSafeChunkName(chunk.name ?? '');
- return buildBlogBodyChunkFileName(safe, m);
+ const base = buildBlogBodyChunkFileName(safe, m);
+ // INTERFACE-ADDRESSED names: a chunk that exports names carries a hash of
+ // those names (`mx.3fa9c0de.js`), so a module-link `SyntaxError: Importing
+ // binding name 'x' is not found` between two deploy generations cannot
+ // happen — see build-plugins/shared/abiChunkNaming.mjs for the full
+ // rationale. Default-only chunks (it-core, blog-meta-it, …), the
+ // locale-keyed blog bodies and vendor-react (while it keeps its baseline
+ // interface) keep their plain name — the chunks the article publisher also
+ // spells outside this build. Rollup passes the chunk's export names here
+ // BEFORE rendering, and `minifyInternalExports: false` (above) keeps them
+ // semantic, so the hash only moves when the interface does.
+ // Kill switch for one build: SPA_ABI_CHUNK_NAMES=0.
+ if (m || !isAbiChunkNamingEnabled()) return base;
+ return abiChunkFileName(base, chunk.name ?? '', chunk.exports);
  },
  assetFileNames: (assetInfo) => {
  const n = assetInfo.name || (assetInfo.names && assetInfo.names[0]) || '';
@@ -882,6 +912,16 @@ export default defineConfig(({ mode }) => {
  if (id.includes('leaflet') || id.includes('react-leaflet')) return 'vendor-maps';
  if (id.includes('jspdf') || id.includes('jspdf-autotable')) return 'vendor-pdf';
  }
+ // The static-head authority (canonical/robots/hreflang the document was
+ // served with) is defined once and used by the entry AND by lazy chunks
+ // (seoService, JobBoard). Left to Rollup it lands in the entry chunk and the
+ // lazy chunks import its names from `index-entry.js` — a file with a FIXED
+ // name, so those four cross-chunk bindings had no interface-addressed name
+ // to protect them (build-plugins/shared/abiChunkNaming.mjs requires the
+ // entry to export nothing; verify-spa-entry-assets enforces it). The module
+ // has no imports and the entry already statically imports the `i18n` chunk,
+ // so homing it there costs no extra request.
+ if (id.includes('services/seo/staticHeadAuthority')) return 'i18n';
  // Split i18n translations into a parallel-loaded chunk
  if (id.includes('services/i18n')) return 'i18n';
  // Consolidate small shared services into one chunk to reduce HTTP requests.

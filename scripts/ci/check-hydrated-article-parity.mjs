@@ -103,6 +103,7 @@ import {
   missingFromClient, divergentSurfaces,
   divergenceVerdict,
 } from '../lib/hydratedParity.mjs';
+import { CHUNK_MANIFEST_FILENAME, chunkFileFromManifest } from '../../build-plugins/shared/abiChunkNaming.mjs';
 
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
@@ -150,18 +151,10 @@ if (!slug) {
 const DEFAULT_HUB = LOCALE === 'it' ? `/${slug}/` : `/${LOCALE}/${slug}/`;
 const HUB = flag('hub', DEFAULT_HUB);
 
-/** The client surfaces, exactly as the app requests them. */
-const CLIENT_SURFACES = SECTION === 'svizzera'
-  ? [
-      `${CDN}/assets/swiss-articles-data.js`,
-      `${CDN}/assets/routerSwissData.js`,
-      `${CDN}/assets/blog-meta-ch-${LOCALE}.js`,
-    ]
-  : [
-      `${CDN}/assets/blog-articles-data.js`,
-      `${CDN}/assets/routerBlogData.js`,
-      `${CDN}/assets/blog-meta-${LOCALE}.js`,
-    ];
+/** Logical names of the chunks the client reads (resolved to files below). */
+const CLIENT_CHUNKS = SECTION === 'svizzera'
+  ? ['swiss-articles-data', 'routerSwissData', `blog-meta-ch-${LOCALE}`]
+  : ['blog-articles-data', 'routerBlogData', `blog-meta-${LOCALE}`];
 
 /**
  * The chunks that carry the overlay MECHANISM rather than article data.
@@ -181,10 +174,7 @@ const CLIENT_SURFACES = SECTION === 'svizzera'
  * BARE url. So production was running a client this gate did not model, and
  * every surface it did read was current.
  */
-const CODE_SURFACES = [
-  `${CDN}/assets/runtimeArticleResolution.js`,
-  `${CDN}/assets/BlogArticles.js`,
-];
+const CODE_CHUNKS = ['runtimeArticleResolution', 'BlogArticles'];
 
 /**
  * The runtime overlay index, read at BOTH urls it is reachable by.
@@ -248,6 +238,28 @@ function fail(msg) {
   console.error(`[hydrated-parity] ${msg}`);
   process.exit(1);
 }
+
+/**
+ * Chunks that export names carry an interface hash in their filename
+ * (build-plugins/shared/abiChunkNaming.mjs), so `blog-articles-data.js` is only
+ * the LOGICAL spelling. The build publishes the logical-name → emitted-file map
+ * as assets/chunk-manifest.json; read it the way the app reads everything else
+ * (with `Origin`) and fall back to the plain spelling when it is absent — a
+ * deploy from before the manifest, where the plain names are the real ones.
+ */
+async function loadChunkManifest() {
+  try {
+    const r = await getText(`${CDN}/${CHUNK_MANIFEST_FILENAME}?v=${Date.now()}`, BROWSER_HEADERS);
+    return JSON.parse(r.body);
+  } catch {
+    return null;
+  }
+}
+const CHUNK_MANIFEST = await loadChunkManifest();
+const chunkUrl = (name) => `${CDN}/assets/${chunkFileFromManifest(CHUNK_MANIFEST, name)}`;
+/** The client surfaces, exactly as the app requests them. */
+const CLIENT_SURFACES = CLIENT_CHUNKS.map(chunkUrl);
+const CODE_SURFACES = CODE_CHUNKS.map(chunkUrl);
 
 const report = {
   section: SECTION,

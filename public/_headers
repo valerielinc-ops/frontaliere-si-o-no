@@ -7,6 +7,10 @@
 # short max-age + revalidation mirrors what GitHub Pages serves live today
 # (max-age=600 + ETag — Pages ignores _headers; this rule is honored once the
 # site moves to a _headers-reading CDN, e.g. Cloudflare Pages).
+# A chunk that exports names also carries `.<8 hex>.js` (build-plugins/shared/
+# abiChunkNaming.mjs). That hash covers the export NAMES, not the bytes — the
+# same URL still serves new bytes after a deploy — so those files are not
+# immutable either.
 /assets/*
   Cache-Control: public, max-age=600, must-revalidate
 

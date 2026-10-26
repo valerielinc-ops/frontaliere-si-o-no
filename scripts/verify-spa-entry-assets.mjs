@@ -26,6 +26,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames.ts';
 import { formatBrokenLinks, verifyLocalModuleLinks } from './verify-spa-module-links.mjs';
+import {
+  checkChunkInterfaceNames,
+  checkHtmlAssetReferences,
+  formatInterfaceProblems,
+} from './lib/spa-chunk-interface-check.mjs';
+import { isAbiChunkNamingEnabled } from '../build-plugins/shared/abiChunkNaming.mjs';
 
 const distDir = path.resolve(process.cwd(), 'dist');
 const assetsDir = path.join(distDir, 'assets');
@@ -62,4 +68,63 @@ if (moduleGraph.broken.length > 0) {
 }
 
 console.log(`[verify-spa-module-links] ok — ${moduleGraph.files.length} JavaScript asset(s) linked`);
+
+// Interface-addressed chunk names (build-plugins/shared/abiChunkNaming.mjs):
+// the filename of every chunk must agree with the export names it actually
+// ships, and the fixed-name entry must export nothing. Skipped only when the
+// build itself opted out with SPA_ABI_CHUNK_NAMES=0 (the documented kill switch).
+if (isAbiChunkNamingEnabled()) {
+  const interfaceProblems = checkChunkInterfaceNames(moduleGraph.modules, { entryFile: SPA_ENTRY_JS_FILENAME });
+  if (interfaceProblems.length > 0) {
+    console.error(
+      `[verify-spa-chunk-interface] ${interfaceProblems.length} chunk(s) whose filename does not match their interface in ${assetsDir}:\n` +
+        formatInterfaceProblems(interfaceProblems).slice(0, 60).join('\n'),
+    );
+    process.exit(1);
+  }
+  console.log('[verify-spa-chunk-interface] ok — every chunk filename matches its export names');
+}
+
+// The prerendered pages must point at files that exist. A chunk renamed by its
+// interface hash that a preload emitter did not follow would ship as a 404
+// hint, and index.html's resource-error handler answers a 404 with a reload.
+const HTML_SAMPLE_LIMIT = 400;
+function sampleHtmlPages(dir, limit) {
+  const found = new Map();
+  const queue = [{ dir, depth: 0 }];
+  while (queue.length > 0 && found.size < limit) {
+    const { dir: current, depth } = queue.shift();
+    let entries;
+    try {
+      entries = fs.readdirSync(current, { withFileTypes: true });
+    } catch {
+      continue;
+    }
+    const index = entries.find((entry) => entry.isFile() && entry.name === 'index.html');
+    if (index) {
+      const file = path.join(current, index.name);
+      found.set(path.relative(dir, file), fs.readFileSync(file, 'utf8'));
+    }
+    if (depth >= 3) continue;
+    for (const entry of entries) {
+      if (entry.isDirectory() && entry.name !== 'assets') queue.push({ dir: path.join(current, entry.name), depth: depth + 1 });
+    }
+  }
+  return found;
+}
+const servedAssetFiles = new Set(
+  moduleGraph.served
+    ? [...moduleGraph.served].filter(([, present]) => present).map(([url]) => new URL(url).pathname.replace(/^\/assets\//, ''))
+    : [],
+);
+const htmlPages = sampleHtmlPages(distDir, HTML_SAMPLE_LIMIT);
+const missingAssetRefs = checkHtmlAssetReferences(htmlPages, servedAssetFiles);
+if (missingAssetRefs.length > 0) {
+  console.error(
+    `[verify-spa-html-assets] ${missingAssetRefs.length} /assets reference(s) in ${htmlPages.size} sampled page(s) point at a chunk file name that was not emitted:\n` +
+      missingAssetRefs.slice(0, 40).map(({ page, asset, reason }) => `- ${page} → ${asset} (${reason})`).join('\n'),
+  );
+  process.exit(1);
+}
+console.log(`[verify-spa-html-assets] ok — ${htmlPages.size} sampled page(s) reference only emitted assets`);
 console.log(`[verify-spa-entry-assets] ok — ${SPA_ENTRY_JS_FILENAME}, ${SPA_ENTRY_CSS_FILENAME} present in ${assetsDir}`);

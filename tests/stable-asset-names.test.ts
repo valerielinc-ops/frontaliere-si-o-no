@@ -28,6 +28,12 @@ import { SPA_ENTRY_JS_FILENAME } from '@/build-plugins/shared/spaEntryFilenames'
  * from HTML still cached under the previous name once the CDN janitor prunes
  * it — the two failure classes the stabilization removed. If a filename below
  * ever grows a hash again, this fails the moment the constant changes.
+ *
+ * Since the interface-addressed chunk names (build-plugins/shared/abiChunkNaming.mjs)
+ * the policy reads "no CONTENT hash": a chunk that exports names also carries
+ * `.<8 hex>.js` computed from those names, which moves only when the export set
+ * does. The files pinned below are classic scripts and stylesheets, which are
+ * not Rollup chunks and keep their plain names.
  */
 describe('stable asset filenames', () => {
   it.each([
@@ -92,7 +98,12 @@ describe('stable asset filenames', () => {
       "import { matchBlogBodyChunkLocale, buildBlogBodyChunkFileName } from './build-plugins/shared/blogBodyChunkNaming'",
     );
     expect(src).toContain('const m = matchBlogBodyChunkLocale(chunk.facadeModuleId)');
-    expect(src).toContain('return buildBlogBodyChunkFileName(safe, m)');
+    expect(src).toContain('const base = buildBlogBodyChunkFileName(safe, m)');
+    // The one addition to the "no content hash" policy: a chunk that exports
+    // names carries an INTERFACE hash (tests/abi-chunk-naming.test.ts), never a
+    // content hash — blog bodies stay locale-keyed and unsuffixed.
+    expect(src).toContain('if (m || !isAbiChunkNamingEnabled()) return base;');
+    expect(src).toContain("return abiChunkFileName(base, chunk.name ?? '', chunk.exports);");
     // All stylesheets stable; only non-CSS bundler assets keep the hash.
     expect(src).toContain("if (n.endsWith('.css')) return 'assets/[name][extname]'");
   });
@@ -123,6 +134,20 @@ describe('findChunkFile / findChunkFiles', () => {
 
   it('falls back to the legacy hashed name', () => {
     expect(findChunkFile(files, 'blog-meta-it')).toBe('blog-meta-it-aB3_x9Yz.js');
+  });
+
+  it('resolves an interface-addressed name (<name>.<abi-hash>.js) after the exact name', () => {
+    const abiFiles = [...files, 'mx.3fa9c0de.js', 'shared-services.0123abcd.js', 'App.js'];
+    expect(findChunkFile(abiFiles, 'mx')).toBe('mx.3fa9c0de.js');
+    expect(findChunkFile(abiFiles, 'shared-services')).toBe('shared-services.0123abcd.js');
+    // the exact stable spelling still wins when both exist
+    expect(findChunkFile([...abiFiles, 'mx.js'], 'mx')).toBe('mx.js');
+  });
+
+  it('does not take a locale-keyed blog body or a longer name for an interface-hashed one', () => {
+    const abiFiles = ['mx.3fa9c0de.js', 'slug.it.js', 'mx-extra.3fa9c0de.js'];
+    expect(findChunkFile(abiFiles, 'slug')).toBeUndefined();
+    expect(findChunkFile(abiFiles, 'mx-ext')).toBeUndefined();
   });
 
   it('never matches sourcemaps and returns undefined for absent chunks', () => {
