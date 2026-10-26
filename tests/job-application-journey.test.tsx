@@ -37,6 +37,9 @@ describe('application journey cohorts', () => {
    { ...valid, id: 'future', jobSlug: 'future-job', startedAt: now + 1 },
    { ...valid, id: 'wrong-step', jobSlug: 'wrong-step', steps: ['not-a-step'] },
    { ...valid, id: 'wrong-source', jobSlug: 'wrong-source', source: 'paid' },
+   { ...valid, id: 'wrong-alias', jobSlug: 'wrong-alias', aliases: [42] },
+   { ...valid, id: 'wrong-device', jobSlug: 'wrong-device', device: 'phone' },
+   { ...valid, id: 'wrong-entry', jobSlug: 'wrong-entry', entry: 'unknown' },
    valid,
   ]));
 
@@ -47,6 +50,9 @@ describe('application journey cohorts', () => {
   });
   expect(recordJobJourneyStep({ jobSlug: 'future-job' }, 'detail_view')?.journey_id).not.toBe('future');
   expect(recordJobJourneyStep({ jobSlug: 'wrong-step' }, 'detail_view')?.journey_id).not.toBe('wrong-step');
+  for (const jobSlug of ['wrong-alias', 'wrong-device', 'wrong-entry']) {
+   expect(recordJobJourneyStep({ jobSlug }, 'detail_view')?.journey_id).not.toBe(jobSlug);
+  }
  });
 
  it('restores at most the latest 20 valid tab journeys', async () => {
