@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-23T10:54:46.304Z",
+  "assembledAt": "2026-10-26T11:41:14.934Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -173599,6 +173599,15 @@
         "lng": 7.6750774
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Spiez"
+      },
       "sourceDescriptionHash": "efc301bae52123b8243f240ef4a1938eb297e8e9ea6cda481771aa03b504b2ec"
     },
     {
@@ -239070,33 +239079,18 @@
       "startDate": "2027-05-09",
       "endDate": "2027-05-09",
       "startTime": "12:00",
-      "category": "Food",
-      "venue": "Hotel Eden Spiez",
+      "category": "Event",
+      "venue": "Spiez",
       "comune": "Spiez",
       "canton": "BE",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/muttertagsbrunch-1/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/muttertagsbrunch-1/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "price": {
-        "amount": 6,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Seestrasse 58",
-        "postalCode": "3700",
-        "locality": "Spiez"
-      },
       "geo": {
         "lat": 46.6894751,
         "lng": 7.6820491
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Hotel Eden Spiez",
-        "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/muttertagsbrunch-1/"
-      },
       "performer": [
         {
           "name": "SchokoladenbrunnenProsecco"
@@ -239105,6 +239099,11 @@
           "name": "FruchtsäfteKaffeespezialitäten, Tee-AuswahlReservation erforderlich"
         }
       ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
       "sourceDescriptionHash": "526774a7ed2bf274127b3ff033e683b506aa011d9bd170232c9748dbc0ec54ea"
     },
     {
@@ -270355,6 +270354,609 @@
         "name": "Bivio"
       },
       "sourceDescriptionHash": "2b7cd5c60c1f99a6f82a7a892ab3d7eccee0a3965f8783c70af19fb231d053ab"
+    },
+    {
+      "id": "myswitzerland:a05d12a89516452ebb58de0d28697597",
+      "title": "Wieder zuhause – Die Rückkehr der grossen Wildtiere",
+      "titleByLocale": {
+        "it": "Wieder zuhause – Die Rückkehr der grossen Wildtiere",
+        "en": "Wieder zuhause – Die Rückkehr der grossen Wildtiere",
+        "de": "Wieder zuhause – Die Rückkehr der grossen Wildtiere",
+        "fr": "Wieder zuhause – Die Rückkehr der grossen Wildtiere"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "14:30",
+      "category": "Event",
+      "venue": "Stans",
+      "comune": "Stans",
+      "canton": "NW",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wieder-zuhause-die-rueckkehr-der-grossen-wildtiere/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.955549,
+        "lng": 8.3691502
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Lebensmitteln sowie zu Herkunft, Reifung"
+        },
+        {
+          "name": "Verarbeitung von Wildfleisch"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "bc65975058d586ba365e50f9e97422f75d1092da4879d1e24964e74f42dd695f"
+    },
+    {
+      "id": "myswitzerland:a039d8c51cf94dd0a81a480bdc6f422d",
+      "title": "Flughafen Zürich im Fokus der Öffentlichkeit",
+      "titleByLocale": {
+        "it": "Flughafen Zürich im Fokus der Öffentlichkeit",
+        "en": "Flughafen Zürich im Fokus der Öffentlichkeit",
+        "de": "Flughafen Zürich im Fokus der Öffentlichkeit",
+        "fr": "Flughafen Zürich im Fokus der Öffentlichkeit"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/flughafen-zuerich-im-fokus-der-oeffentlichkeit/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5653684,
+        "lng": 9.1055569
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Zeitdruck"
+        },
+        {
+          "name": "Krisenvorbereitung am Flughafen Zürich AG"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "11e57054239e4e979ce97f0cc9519a49bb583ba5373c0d76e281ec6809a7936c"
+    },
+    {
+      "id": "myswitzerland:9fb177a1fe3c4a41b7888eb660069bab",
+      "title": "Weihnachtsgeschichten",
+      "titleByLocale": {
+        "it": "Weihnachtsgeschichten",
+        "en": "Weihnachtsgeschichten",
+        "de": "Weihnachtsgeschichten",
+        "fr": "Weihnachtsgeschichten"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-03",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsgeschichten-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3796064,
+        "lng": 8.5393516
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "16c69bd87c1c3e8a01dbbb352cee1aa9922b4b2e96ee24d063876bdd82702b96"
+    },
+    {
+      "id": "myswitzerland:9fa3f76f40424939a9166fc454ab0775",
+      "title": "Terramation - Eine sanfte Rückkehr zur Erde",
+      "titleByLocale": {
+        "it": "Terramation - Eine sanfte Rückkehr zur Erde",
+        "en": "Terramation - Eine sanfte Rückkehr zur Erde",
+        "de": "Terramation - Eine sanfte Rückkehr zur Erde",
+        "fr": "Terramation - Eine sanfte Rückkehr zur Erde"
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-11-17",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/terramation-eine-sanfte-rueckkehr-zur-erde/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0397165,
+        "lng": 9.0705997
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Glarus"
+      },
+      "sourceDescriptionHash": "b2658375b0594aa003039818c98306c8a48893c2cc431739c18aab43e84e251e"
+    },
+    {
+      "id": "myswitzerland:9f1451e5c1ae485b8648a8e4cdf59064",
+      "title": "«Der Fuchs – Meister der Anpassung»",
+      "titleByLocale": {
+        "it": "«Der Fuchs – Meister der Anpassung»",
+        "en": "«Der Fuchs – Meister der Anpassung»",
+        "de": "«Der Fuchs – Meister der Anpassung»",
+        "fr": "«Der Fuchs – Meister der Anpassung»"
+      },
+      "startDate": "2026-10-26",
+      "endDate": "2027-02-28",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "St. Gallen",
+      "comune": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/der-fuchs-meister-der-anpassung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4395795,
+        "lng": 9.4088197
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St. Gallen"
+      },
+      "sourceDescriptionHash": "d68879df2e026f567d8b0c074a48836192063632af12e4b04a9a4dbf61b2d87a"
+    },
+    {
+      "id": "myswitzerland:9d10259d1367473b93a0acd03b62ccd1",
+      "title": "Love in the Age of Choice",
+      "titleByLocale": {
+        "it": "Love in the Age of Choice",
+        "en": "Love in the Age of Choice",
+        "de": "Liebe im Zeitalter der Wahlmöglichkeiten",
+        "fr": "L'amour à l'ère du choix - Conférence participative"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Vevey",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/love-in-the-age-of-choice/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.458433,
+        "lng": 6.8478344
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Vevey"
+      },
+      "sourceDescriptionHash": "70b5454d23b3f79307a00015098b21dfb3f475707c1afa1c4c299fbfd0885376"
+    },
+    {
+      "id": "myswitzerland:9cc6a8ad3a404b038fe5cafd6e4f3ee9",
+      "title": "Chormusik von ukrainischen und europäischen Komponisten",
+      "titleByLocale": {
+        "it": "Chormusik von ukrainischen und europäischen Komponisten",
+        "en": "Chormusik von ukrainischen und europäischen Komponisten",
+        "de": "Chormusik von ukrainischen und europäischen Komponisten",
+        "fr": "Chormusik von ukrainischen und europäischen Komponisten"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/chormusik-von-ukrainischen-und-europaeischen-komponisten/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0548835,
+        "lng": 8.3080433
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lucerne"
+      },
+      "sourceDescriptionHash": "ddaa268015a2152a6c4e392db29f86a102a89b1e5edc0ffdf9169c8057db304b"
+    },
+    {
+      "id": "myswitzerland:9cbde7066bfa4014a7294ad3e556d3a1",
+      "title": "Cuento de Navidad",
+      "titleByLocale": {
+        "it": "Cuento de Navidad",
+        "en": "Cuento de Navidad",
+        "de": "Cuento de Navidad",
+        "fr": "Cuento de Navidad"
+      },
+      "startDate": "2026-12-17",
+      "endDate": "2026-12-17",
+      "startTime": "15:30",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/cuento-de-navidad/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4707982,
+        "lng": 8.3044193
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "ff0b59b5e3f61e2dbc17e533ff2303f74b7d87ddce9236dabd2151f829cd47f1"
+    },
+    {
+      "id": "myswitzerland:9c4b90b79a5649009ea6e6cecc61a538",
+      "title": "Clubrennen Sc Isenthal",
+      "titleByLocale": {
+        "it": "Clubrennen Sc Isenthal",
+        "en": "Clubrennen Sc Isenthal",
+        "de": "Clubrennen Sc Isenthal",
+        "fr": "Clubrennen Sc Isenthal"
+      },
+      "startDate": "2027-02-07",
+      "endDate": "2027-02-07",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Isenthal",
+      "comune": "Isenthal",
+      "canton": "UR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/clubrennen-sc-isenthal/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8780507,
+        "lng": 8.5142076
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Isenthal"
+      },
+      "sourceDescriptionHash": "f279c79b0bc6080d6d3a9196e847a8664fdda60e96e7a32a047900db3a490b43"
+    },
+    {
+      "id": "myswitzerland:9c1901f9f0984117aba78db0b3dc4e85",
+      "title": "Regula Mühlemann: Patria",
+      "titleByLocale": {
+        "it": "Regula Mühlemann: Patria",
+        "en": "Regula Mühlemann: Heimat",
+        "de": "Regula Mühlemann: Heimat",
+        "fr": "Regula Mühlemann : Heimat"
+      },
+      "startDate": "2027-05-09",
+      "endDate": "2027-05-09",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/regula-muehlemann-patria-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5842519,
+        "lng": 7.649869
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Riehen"
+      },
+      "sourceDescriptionHash": "93a3e808154daa4b027def5264a8681017bcb7fb479cc5b1a821080db6379daf"
+    },
+    {
+      "id": "myswitzerland:9c0718e5a2584962b5fde22c77580e10",
+      "title": "Guided Tour – Ted Joans. Black Flower",
+      "titleByLocale": {
+        "it": "Guided Tour – Ted Joans. Black Flower",
+        "en": "Guided Tour – Ted Joans. Black Flower",
+        "de": "Guided Tour – Ted Joans. Black Flower",
+        "fr": "Guided Tour – Ted Joans. Black Flower"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/guided-tour-ted-joans-black-flower/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5184198,
+        "lng": 6.624533
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "b6c0238a362f182f6695d75d3ab7d17bb87e3ffe69425648698e42b48501b0f3"
+    },
+    {
+      "id": "myswitzerland:9b484c0dfe724674b3e231d9f21c8987",
+      "title": "Mythos Mittelalter – populäre Irrtümer über das «Finstere Zeitalter»",
+      "titleByLocale": {
+        "it": "Mythos Mittelalter – populäre Irrtümer über das «Finstere Zeitalter»",
+        "en": "Mythos Mittelalter – populäre Irrtümer über das «Finstere Zeitalter»",
+        "de": "Mythos Mittelalter – populäre Irrtümer über das «Finstere Zeitalter»",
+        "fr": "Mythos Mittelalter – populäre Irrtümer über das «Finstere Zeitalter»"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mythos-mittelalter-populaere-irrtuemer-ueber-das-finstere-zeitalter/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5653684,
+        "lng": 9.1055569
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Weinfelden"
+      },
+      "sourceDescriptionHash": "e419437f7ea4fb08e49bc4cba27e07cad6a4ca25ea66e7b38d1022ef1ce99d74"
+    },
+    {
+      "id": "myswitzerland:99c92694633f440ab2d43718c6caecf1",
+      "title": "BAILARENA – 13 Years of Baila Conmigo",
+      "titleByLocale": {
+        "it": "BAILARENA – 13 Years of Baila Conmigo",
+        "en": "BAILARENA – 13 Years of Baila Conmigo",
+        "de": "BAILARENA – 13 Jahre Baila Conmigo",
+        "fr": "BAILARENA – Les 13 ans de « Baila Conmigo »"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Schaffhausen",
+      "comune": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bailarena-13-years-of-baila-conmigo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.717081,
+        "lng": 8.665845
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schaffhausen"
+      },
+      "sourceDescriptionHash": "0968a1a800839702ff810f919fb5644381a8794bc2c6bb137106bb5fc1ce1aa6"
+    },
+    {
+      "id": "myswitzerland:98d6dd75b81f4c869d9e377c81adfee3",
+      "title": "Adventsschloss mit Handwerksmarkt",
+      "titleByLocale": {
+        "it": "Adventsschloss mit Handwerksmarkt",
+        "en": "Adventsschloss mit Handwerksmarkt",
+        "de": "Adventsschloss mit Handwerksmarkt",
+        "fr": "Adventsschloss mit Handwerksmarkt"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "11:00",
+      "category": "Event",
+      "venue": "Burgdorf",
+      "comune": "Burgdorf",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventsschloss-mit-handwerksmarkt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0548955,
+        "lng": 7.6289227
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Burgdorf"
+      },
+      "sourceDescriptionHash": "0964882ade43335184b901ffcf74705e8fca6664b66c51963b772fa49640e7f2"
+    },
+    {
+      "id": "myswitzerland:98b359ff9fc04b9f8b641808dab5a5f1",
+      "title": "Mercatino di Natale di Kambly",
+      "titleByLocale": {
+        "it": "Mercatino di Natale di Kambly",
+        "en": "Kambly Christmas market",
+        "de": "Kambly Weihnachtsmarkt",
+        "fr": "Marché de Noël de Kambly"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-12-06",
+      "startTime": "11:00",
+      "category": "Event",
+      "venue": "Trubschachen",
+      "comune": "Trubschachen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/mercatino-di-natale-di-kambly/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9203056,
+        "lng": 7.8496488
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Trubschachen"
+      },
+      "sourceDescriptionHash": "622a2a5e6e9788c37b9347f3931f87fed4a87edd27dc5c630afa6be9dc0446a9"
+    },
+    {
+      "id": "myswitzerland:98577207140b484faa58ef943d1fb613",
+      "title": "Palazzo Colombino Basel",
+      "titleByLocale": {
+        "it": "Palazzo Colombino Basel",
+        "en": "Palazzo Colombino Basel",
+        "de": "Palazzo Colombino Basel",
+        "fr": "Palazzo Colombino Basel"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2027-01-10",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Basilea",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/palazzo-colombino-basel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.565603,
+        "lng": 7.611773
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Basilea"
+      },
+      "sourceDescriptionHash": "9a31308f5a30d0174ed22e2bee2a40867b322f595c40465d22f82cd1733c9766"
+    },
+    {
+      "id": "myswitzerland:9833887060ac48fbb57c21440e976f55",
+      "title": "Cirque Noël de Bâle 2026",
+      "titleByLocale": {
+        "it": "Cirque Noël de Bâle 2026",
+        "en": "Cirque Noël de Bâle 2026",
+        "de": "Cirque Noël de Bâle 2026",
+        "fr": "Cirque Noël de Bâle 2026"
+      },
+      "startDate": "2026-12-21",
+      "endDate": "2026-12-29",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Basilea",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/cirque-noel-de-bale-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.563795,
+        "lng": 7.602574
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Basilea"
+      },
+      "sourceDescriptionHash": "770872f88069910532abf80b63c49538b652a71b7f9d17aa98e2fd2249294bee"
     }
   ]
 }
