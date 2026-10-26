@@ -6468,6 +6468,24 @@ function migrateLegacySozjobsRegistryEntry(job, fp, registry) {
   if (matches.length !== 1) return null;
 
   const { entry } = matches[0];
+  const legacyPrevious = Array.isArray(entry.previousSlugs) ? entry.previousSlugs : [];
+  if (legacyPrevious.length > 0) {
+    job.previousSlugs = [...new Set([
+      ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
+      ...legacyPrevious,
+    ])];
+  }
+  if (entry.previousSlugsByLocale && typeof entry.previousSlugsByLocale === 'object') {
+    const mergedByLocale = { ...(job.previousSlugsByLocale || {}) };
+    for (const [locale, values] of Object.entries(entry.previousSlugsByLocale)) {
+      if (!Array.isArray(values) || values.length === 0) continue;
+      mergedByLocale[locale] = [...new Set([
+        ...(Array.isArray(mergedByLocale[locale]) ? mergedByLocale[locale] : []),
+        ...values,
+      ])];
+    }
+    if (Object.keys(mergedByLocale).length > 0) job.previousSlugsByLocale = mergedByLocale;
+  }
   registry[fp] = entry;
   for (const key of legacyKeys) {
     if (registry[key] && JSON.stringify(registry[key]) === JSON.stringify(entry)) {

@@ -235,6 +235,8 @@ describe('legacy Sozjobs widget registry migration (#15459)', () => {
       [legacyKey]: {
         canonicalSlug: 'historical-j1',
         slugByLocale: { it: 'historical-j1' },
+        previousSlugs: ['legacy-previous-j1'],
+        previousSlugsByLocale: { it: ['legacy-previous-it-j1'] },
         createdAt: '2026-10-20',
         canton: 'SZ',
       },
@@ -272,6 +274,8 @@ describe('legacy Sozjobs widget registry migration (#15459)', () => {
 
     const matched = getRegisteredSlug(mapped, registry);
     expect(matched?.canonicalSlug).toBe('historical-j1');
+    expect(mapped.previousSlugs).toEqual(expect.arrayContaining(['legacy-previous-j1']));
+    expect(mapped.previousSlugsByLocale?.it).toEqual(expect.arrayContaining(['legacy-previous-it-j1']));
     expect(registry[legacyKey]).toBeUndefined();
     expect(registry[fingerprintJob(mapped)]).toBe(matched);
     // The sibling cannot consume the one-to-many legacy alias after migration.
