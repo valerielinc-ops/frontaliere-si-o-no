@@ -250,6 +250,30 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(result.pricesRows).toHaveLength(2);
   });
 
+  it('retries an empty province lookup with the target municipality', async () => {
+    const observedAt = daysAgo(0.5);
+    const requests: Array<{ url: string; init: RequestInit }> = [];
+    const result = await fetchMimitApiSource([COMO], {
+      retries: 1,
+      fetchImpl: async (url: string, init: RequestInit) => {
+        requests.push({ url, init });
+        const body = JSON.parse(String(init.body));
+        return {
+          ok: true,
+          json: async () => body.town == null
+            ? { success: true, array: [] }
+            : { success: true, results: [apiStation(observedAt)] },
+        } as Response;
+      },
+    });
+
+    expect(requests).toHaveLength(2);
+    expect(JSON.parse(String(requests[0].init.body))).toMatchObject({ province: 'CO', town: null, fuelType: '1-x' });
+    expect(JSON.parse(String(requests[1].init.body))).toMatchObject({ province: 'CO', town: 'Como', fuelType: '1-x' });
+    expect(result.extractedAt).toBe(day(observedAt));
+    expect(result.pricesRows).toHaveLength(2);
+  });
+
   it('routes a live API result through the same source resolver as the CSV', () => {
     const apiRows = buildItalyRowsFromMimitApi({
       municipalities: [COMO],
