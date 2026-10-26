@@ -167,7 +167,7 @@ export function emailEngagementCopy(locale = 'it') {
 
 function socialLogoHtml(profile, size = 20) {
   const iconUrl = SOCIAL_ICON_URLS[profile.key] || '';
-  return `<img data-email-logo="${escapeHtml(profile.key)}" src="${escapeHtml(iconUrl)}" alt="" width="${size}" height="${size}" style="display:inline-block;width:${size}px;height:${size}px;border:0;vertical-align:middle;">`;
+  return `<img data-email-logo="${escapeHtml(profile.key)}" src="${escapeHtml(iconUrl)}" alt="${escapeHtml(profile.label)}" width="${size}" height="${size}" style="display:inline-block;width:${size}px;height:${size}px;border:0;vertical-align:middle;">`;
 }
 
 function socialLinkHtml(profile) {

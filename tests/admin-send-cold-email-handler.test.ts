@@ -42,7 +42,7 @@ function fakeDb({ insights, contact, suppression, sends } = {} as any, setThrows
 
 function fakeSender() {
   const sent: any[] = [];
-  const sendEmail = async (msg: any) => { sent.push(msg); return { messageId: 'msg_123' }; };
+  const sendEmail = async (msg: any) => { sent.push(msg); return { messageId: 'msg_123', provider: 'maileroo' }; };
   return { sent, sendEmail };
 }
 

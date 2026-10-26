@@ -10259,6 +10259,8 @@
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "streetAddress": "Caserne DCA",
+      "salaryMin": 57000,
+      "salaryMax": 97000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10272,15 +10274,17 @@
       },
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "lernende-r-elektroniker-in-efz-confederazione-payerne"
+        "lernende-r-elektroniker-in-efz-confederazione-payerne",
+        "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-a8596868c9",
+        "apprendista-elettronico-a-afc-confederazione-svizzera-payerne-cbaf4e9b14"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-elektroniker-in-efz-confederazione-payerne"
+          "lernende-r-elektroniker-in-efz-confederazione-payerne",
+          "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-a8596868c9",
+          "apprendista-elettronico-a-afc-confederazione-svizzera-payerne-cbaf4e9b14"
         ]
-      },
-      "salaryMin": 57000,
-      "salaryMax": 97000
+      }
     },
     {
       "id": "company-r2ylxp",
