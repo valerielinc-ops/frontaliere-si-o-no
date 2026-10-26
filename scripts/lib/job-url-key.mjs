@@ -94,6 +94,13 @@ export const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
 const PAGEEXECUTIVE_HOST_RE = /^https?:\/\/(?:www\.)?pageexecutive\.com(?:[:/]|$)/;
 const PAGEEXECUTIVE_DETAIL_REF_RE = /\/job-detail\/[^/?#]+\/ref\/jn-(?:0[1-9]|1[0-2])\d{4}-(\d{6,})\/?$/;
 
+// Sozjobs EasyPublish detail URLs put the per-job reference in the ancestor
+// `/job/<slug>/J<id>/` segment, but end with a shared `widgetid` token. The
+// generic leaf rule below would otherwise treat that widget token as the job
+// identity and merge distinct vacancies from the same widget (#15459).
+const SOZJOBS_HOST_RE = /(?:^|\/\/)(?:www\.)?sozjobs\.ch(?:[:/]|$)/;
+const SOZJOBS_DETAIL_PATH_RE = /\/job\/[^/?#]+\/(j\d{6,7})\/partnerdetail\/easypublish\/widgetid\/[^/?#]+$/i;
+
 // Bank Cler job urls: cler.ch/…/<any-path>/offene-stellen/<title-slug>-<reqId>.
 // Cler's own requisition id is only 3-4 digits — below the generic
 // \b\d{6,}\b threshold — so the leaf carries no extractable token and every
@@ -340,6 +347,15 @@ export function mergeUrlKey(url) {
     const pathOnly = u.split(/[?#]/)[0];
     const ref = pathOnly.match(PAGEEXECUTIVE_DETAIL_REF_RE);
     if (ref) return `num:${ref[1]}`;
+  }
+
+  // Rule S — Sozjobs EasyPublish per-job reference. `widgetid` identifies the
+  // embedded board, not the vacancy; use the J-number before it instead of the
+  // shared UUID/hex token in the leaf (#15459).
+  if (SOZJOBS_HOST_RE.test(u)) {
+    const pathOnly = u.split(/[?#]/)[0];
+    const ref = pathOnly.match(SOZJOBS_DETAIL_PATH_RE);
+    if (ref) return `req:sozjobs.ch:${ref[1]}`;
   }
 
   // Rule A — generic-page / document-file leaf whose only PATH token is a shared

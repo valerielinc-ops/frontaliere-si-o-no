@@ -69,6 +69,29 @@ describe('mergeUrlKey PageExecutive requisition rule (#6785)', () => {
   });
 });
 
+describe('mergeUrlKey Sozjobs EasyPublish requisition rule (#15459)', () => {
+  const widgetId = 'C340F41D-F9B5-4321-9E415FE28675D925';
+  const first = `https://www.sozjobs.ch/job/lernende-r-assistent-in-gesundheit-soziales-eba/J993249/partnerDetail/easypublish/widgetid/${widgetId}`;
+  const renamed = `https://www.sozjobs.ch/job/lernende-r-assistent-in-gesundheit-soziales-eba-2027/J993249/partnerDetail/easypublish/widgetid/${widgetId}`;
+  const sibling = `https://www.sozjobs.ch/job/lernende-r-fachfrau-fachmann-gesundheit-efz/J993250/partnerDetail/easypublish/widgetid/${widgetId}`;
+
+  it('uses the per-job J reference, not the shared widget token', () => {
+    expect(mergeUrlKey(first)).toBe('req:sozjobs.ch:j993249');
+    expect(mergeUrlKey(sibling)).toBe('req:sozjobs.ch:j993250');
+    expect(mergeUrlKey(first)).not.toBe(mergeUrlKey(sibling));
+  });
+
+  it('survives a Sozjobs title-slug rename and ignores tracking parameters', () => {
+    expect(mergeUrlKey(first)).toBe(mergeUrlKey(renamed));
+    expect(mergeUrlKey(`${renamed}?utm_source=feed`)).toBe(mergeUrlKey(first));
+  });
+
+  it('does not re-key the same-looking path on another host', () => {
+    const otherHost = first.replace('www.sozjobs.ch', 'example.com');
+    expect(mergeUrlKey(otherHost)).toBe('uuid:c340f41d-f9b5-4321-9e415fe28675d925');
+  });
+});
+
 describe('mergeUrlKey Workday requisition rule (Rule W — slug-drift class)', () => {
   // Workday URLs are `…/job/<Location>/<Title>_<req>`; the title is freely
   // re-slugged by the vendor, so the requisition (everything after the first
