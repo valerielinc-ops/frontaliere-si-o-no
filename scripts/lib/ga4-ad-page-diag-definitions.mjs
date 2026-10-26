@@ -6,12 +6,14 @@
  * collector emits, so a new parameter cannot ship unregistered (GA4 does not
  * backfill: a parameter registered late loses every event sent before).
  *
- * Event-scoped dimensions are scarce (50 per property, 46 in use on
- * 2026-09-28), so the event reuses three that already exist instead of
+ * Event-scoped dimensions are scarce (50 per property; this property is
+ * currently full), so the event reuses three that already exist instead of
  * registering look-alikes:
  *   - page_template: registered for page_view; `ad_page_diag` sends its own
  *     ad-oriented taxonomy (services/adPageTemplate.ts), so filter on the
- *     event name when reading it;
+ *     event name when reading it. Article-detail experiment arms reuse this
+ *     existing dimension as `article_detail_control` / `article_detail_atf`
+ *     because the property is already at the 50 event-dimension limit;
  *   - consent_state, gate_status: registered by the Offerwall work (#10230),
  *     same values (granted|denied|none, held|released|suppressed|off_board|absent).
  * Every 0/1 flag is a metric, not a dimension: summed it is a count of page

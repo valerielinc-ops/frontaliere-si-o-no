@@ -143,8 +143,14 @@ describe('page-template classifier parity (TS ≡ inline)', () => {
     ['/aziende/migros/', false, 'company'],
     ['/en/aziende/migros/', false, 'company'],
     ['/aziende-svizzera-italiana/', false, 'company'],
-    ['/articoli-frontaliere/permesso-g-2026/', false, 'article'],
-    ['/en/cross-border-articles/g-permit/', false, 'article'],
+    ['/articoli-frontaliere/', false, 'article'],
+    ['/articoli-frontaliere/permesso-g-2026/', false, 'article_detail'],
+    ['/articoli-frontaliere/page-2/', false, 'article'],
+    ['/en/cross-border-articles/', false, 'article'],
+    ['/en/cross-border-articles/g-permit/', false, 'article_detail'],
+    ['/en/cross-border-articles/page-2/', false, 'article'],
+    ['/en/events/ticino/lugano/concerto-2026-07-04/', false, 'event_detail'],
+    ['/eventi/ticino/lugano/page-2/', false, 'other'],
     ['/prezzi-diesel/oggi/', false, 'fuel'],
     ['/de/dieselpreis-schweiz/heute/', false, 'fuel'],
     ['/prezzi-benzina-confine/', false, 'fuel'],
@@ -214,6 +220,24 @@ describe('collector parity (TS ≡ inline)', () => {
     now.mockRestore();
     expect(ts).toEqual(expected);
     expect(inline).toEqual(expected);
+  });
+
+  it('labels an article without the treatment marker as the control arm', () => {
+    setPath('/articoli-frontaliere/permesso-g-2026/');
+    document.body.innerHTML = '<ins class="adsbygoogle" data-ad-slot="1982411173"></ins>';
+    const ts = runTs().collect(0);
+    const inline = runInline().collect(0);
+    expect(ts.page_template).toBe('article_detail_control');
+    expect(inline).toEqual(ts);
+
+    document.body.innerHTML = '<div data-ad-experiment="article-detail-atf-ad-v1" data-ad-variant="atf"></div>';
+    expect(runTs().collect(0).page_template).toBe('article_detail_atf');
+    expect(runInline().collect(0).page_template).toBe('article_detail_atf');
+
+    document.head.innerHTML = '<meta data-ad-experiment="article-detail-atf-ad-v1" data-ad-variant="atf">';
+    document.body.innerHTML = '<ins data-ad-slot="1982411173"></ins>';
+    expect(runTs().collect(0).page_template).toBe('article_detail_atf');
+    expect(runInline().collect(0).page_template).toBe('article_detail_atf');
   });
 
   const states: ReadonlyArray<readonly [string, () => void, boolean, Partial<AdPageDiagParams>]> = [

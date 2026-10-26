@@ -31,7 +31,7 @@ describe('static job-list AdSense ratio guard', () => {
   it('wires the guard at the shared completed-page shell boundary', () => {
     const source = readFileSync(resolve(ROOT, 'build-plugins/shared/seoPageShell.ts'), 'utf8');
 
-    expect(source).toContain('const wrappedBody = pruneStaticInfeedAdsToContentRatio(bodyWithChrome);');
+    expect(source).toContain('const wrappedBody = pruneStaticInfeedAdsToContentRatio(bodyWithLocaleNav);');
     expect(source).toContain('innerHtml: bodyHtml');
   });
 });

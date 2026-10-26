@@ -4,6 +4,7 @@ import { classifyEmployerLandingFeature } from '../scripts/lib/employerLandingSe
 import { isHealthFacilitiesSectionPath } from '../scripts/lib/healthFacilitiesSections.mjs';
 import { isPharmacySectionPath } from '../scripts/lib/pharmacySections.mjs';
 import { isPlateAuctionSectionPath } from '../scripts/lib/plateAuctionSections.mjs';
+import { SLUG_TABLES } from './routeSlugs.data';
 
 export type AnalyticsPageContext = {
  contentGroup: string;
@@ -124,7 +125,8 @@ export function deriveAnalyticsPageContext(inputPath: string): AnalyticsPageCont
 
  const jobBoardRoots = ['/cerca-lavoro-ticino', '/find-jobs-ticino', '/jobs-im-tessin', '/trouver-emploi-tessin'];
  const isCantonJobBoardPath = /^\/(?:cerca-lavoro|find-jobs|jobs-(?:im|in)|trouver-emploi)-[a-z-]+(?:\/|$)/i.test(localPath);
- const articleRoots = ['/articoli-frontaliere', '/cross-border-articles', '/artikel-grenzgaenger', '/articles-frontaliers'];
+ const articleRoots = [...new Set(Object.values(SLUG_TABLES).flatMap((slugs) => [slugs.blog, slugs.blogCh]))]
+  .map((slug) => `/${slug}`);
  const statsRoots = ['/statistiche', '/statistics', '/statistiken', '/statistiques'];
  const fuelRoots = ['/prezzi-benzina', '/prezzi-diesel', '/fuel-prices', '/diesel-price-switzerland', '/benzinpreise', '/dieselpreise', '/prix-essence', '/prix-diesel'];
  const healthRoots = ['/premi-cassa-malati', '/health-insurance-premiums', '/krankenkassenpraemien', '/primes-assurance-maladie'];
