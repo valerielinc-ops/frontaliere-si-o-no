@@ -1,6 +1,6 @@
 name: GA4 Error Monitor
 
-# Weekly watchdog for real-user JS errors from GA4. The implementation script
+# Daily watchdog for real-user JS errors from GA4. The implementation script
 # keeps its historical `posthog-error-issue-sync.mjs` path for compatibility
 # with existing monitor issue bodies and source-liveness checks, but it reads
 # only GA4 `app_error`/`exception` events from the production host. PostHog is
@@ -28,12 +28,12 @@ name: GA4 Error Monitor
 
 on:
   schedule:
-    # Weekly, Tuesday 07:25 UTC — offset from the full analytics report
-    # (Monday 07:00, inside analytics.yml), and clear of every other 07:xx
-    # Monday cron
+    # Daily, 07:25 UTC — on Monday this follows the full analytics report
+    # (07:00 inside analytics.yml); on the other days it provides a daily
+    # refresh, clear of the other 07:xx Monday crons
     # (dmarc-monitor, app-auth-health-monitor, funnel-metrics-snapshot,
     # gsc-frontaliere-monitor all run Monday).
-    - cron: '25 7 * * 2'
+    - cron: '25 7 * * *'
   workflow_dispatch:
     inputs:
       windowDays:
