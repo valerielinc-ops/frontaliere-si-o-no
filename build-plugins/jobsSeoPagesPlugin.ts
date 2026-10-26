@@ -9285,7 +9285,7 @@ ${staticAnalyticsHtml}
  : locale === 'en' ? `${count} role${count === 1 ? '' : 's'}`
  : locale === 'de' ? `${count} Stelle${count === 1 ? '' : 'n'}`
  : `${count} poste${count === 1 ? '' : 's'}`;
- return `<li><a class="company-hub-crosslink" href="${href}"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">${esc(linkLabel)}</span><span class="company-hub-crosslink-count">${esc(countLabel)}</span></span><span class="company-hub-crosslink-action">${esc(companyCityLinkActionLabel(locale))}</span></a></li>`;
+ return `<li><a class="company-hub-crosslink" href="${href}"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">${esc(linkLabel)}</span><span class="company-hub-crosslink-count"> — ${esc(countLabel)}</span></span><span class="company-hub-crosslink-action"> — ${esc(companyCityLinkActionLabel(locale))}</span></a></li>`;
  }).join('');
  return `<section class="s-7uP4UM company-hub-crosslink-section"><h2>${esc(companyHubAlsoHiringHeading(companyName, locale))}</h2><p class="company-hub-crosslink-intro">${esc(companyHubAlsoHiringIntro(companyName, locale))}</p><ul class="company-hub-crosslink-list">${items}</ul></section>`;
  };

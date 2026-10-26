@@ -276,7 +276,7 @@ export function renderCompanyCityLinks(
 ): string {
   if (links.length === 0) return '';
   const items = links
-    .map((link) => `<li><a class="company-hub-crosslink" href="${escHtml(hrefOf(link))}"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">${escHtml(labelOf(link))}</span><span class="company-hub-crosslink-count">${escHtml(jobsCountLabel(locale, link.count))}</span></span><span class="company-hub-crosslink-action">${escHtml(companyCityLinkActionLabel(locale))}</span></a></li>`)
+    .map((link) => `<li><a class="company-hub-crosslink" href="${escHtml(hrefOf(link))}"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">${escHtml(labelOf(link))}</span><span class="company-hub-crosslink-count"> — ${escHtml(jobsCountLabel(locale, link.count))}</span></span><span class="company-hub-crosslink-action"> — ${escHtml(companyCityLinkActionLabel(locale))}</span></a></li>`)
     .join('');
   const introHtml = intro ? `<p class="company-hub-crosslink-intro">${escHtml(intro)}</p>` : '';
   return `<section class="s-7uP4UM company-hub-crosslink-section"><h2>${escHtml(heading)}</h2>${introHtml}<ul class="company-hub-crosslink-list">${items}</ul></section>`;

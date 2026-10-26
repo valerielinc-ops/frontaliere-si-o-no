@@ -158,8 +158,8 @@ describe('renderCompanyCityLinks', () => {
     expect(html).toBe(
       '<section class="s-7uP4UM company-hub-crosslink-section"><h2>Sedi di Coop Genossenschaft con offerte attive</h2>'
       + '<p class="company-hub-crosslink-intro">Apri una località per vedere le offerte attive di Coop Genossenschaft.</p><ul class="company-hub-crosslink-list">'
-      + '<li><a class="company-hub-crosslink" href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-winterthur/"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">Offerte di Coop Genossenschaft a Winterthur</span><span class="company-hub-crosslink-count">3 offerte</span></span><span class="company-hub-crosslink-action">Vedi offerte</span></a></li>'
-      + '<li><a class="company-hub-crosslink" href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-zurich/"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">Offerte di Coop Genossenschaft a Zürich</span><span class="company-hub-crosslink-count">2 offerte</span></span><span class="company-hub-crosslink-action">Vedi offerte</span></a></li>'
+      + '<li><a class="company-hub-crosslink" href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-winterthur/"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">Offerte di Coop Genossenschaft a Winterthur</span><span class="company-hub-crosslink-count"> — 3 offerte</span></span><span class="company-hub-crosslink-action"> — Vedi offerte</span></a></li>'
+      + '<li><a class="company-hub-crosslink" href="https://frontaliereticino.ch/cerca-lavoro-zurigo/azienda-coop-genossenschaft-zurich/"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">Offerte di Coop Genossenschaft a Zürich</span><span class="company-hub-crosslink-count"> — 2 offerte</span></span><span class="company-hub-crosslink-action"> — Vedi offerte</span></a></li>'
       + '</ul></section>',
     );
   });
@@ -208,6 +208,8 @@ describe('cablaggio in jobsSeoPagesPlugin', () => {
     const phase33 = src.slice(at('/* ── Per-canton company hubs (Phase 3.3)'), at('/* ── Per-canton company × city hubs (Phase 3.4)'));
     expect(phase33).toContain('companyCityLinksForCompany(companyCityPlan, canton, cSlug)');
     expect(phase33).toContain('companyCityLinkLabel(locale, companyName, l.cityDisplay)');
+    expect(phase33).toContain('<span class="company-hub-crosslink-count"> — ${esc(countLabel)}</span>');
+    expect(phase33).toContain('<span class="company-hub-crosslink-action"> — ${esc(companyCityLinkActionLabel(locale))}</span>');
     expect(phase33).toContain('${companyLocationsHtml}');
     expect(src).toContain('company-hub-crosslink-section');
     expect(src).toContain('companyHubAlsoHiringHeading(companyName, locale)');
