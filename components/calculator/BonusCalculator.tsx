@@ -46,6 +46,18 @@ export const clampBonusNumericInput = (
  return Math.min(max, Math.max(min, value));
 };
 
+const parseBonusNumericInput = (
+ rawValue: string,
+ min: number,
+ max: number,
+ fallback: number,
+): number => clampBonusNumericInput(
+ rawValue.trim() === '' ? Number.NaN : Number(rawValue),
+ min,
+ max,
+ fallback,
+);
+
 // Swiss social contribution rates (2026)
 const AVS_RATE = 0.053;
 const AC_RATE = 0.011;
@@ -246,8 +258,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={MONTHLY_GROSS_MIN_CHF}
  max={MONTHLY_GROSS_MAX_CHF}
  value={monthlyGrossCHF}
- onChange={e => setMonthlyGrossCHF(clampBonusNumericInput(
- Number(e.target.value),
+ onChange={e => setMonthlyGrossCHF(parseBonusNumericInput(
+ e.target.value,
  MONTHLY_GROSS_MIN_CHF,
  MONTHLY_GROSS_MAX_CHF,
  DEFAULT_MONTHLY_GROSS_CHF,
@@ -266,8 +278,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={BONUS_AMOUNT_MIN_CHF}
  max={BONUS_AMOUNT_MAX_CHF}
  value={bonusAmountCHF}
- onChange={e => setBonusAmountCHF(clampBonusNumericInput(
- Number(e.target.value),
+ onChange={e => setBonusAmountCHF(parseBonusNumericInput(
+ e.target.value,
  BONUS_AMOUNT_MIN_CHF,
  BONUS_AMOUNT_MAX_CHF,
  DEFAULT_BONUS_AMOUNT_CHF,
@@ -315,8 +327,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={CHILDREN_MIN}
  max={CHILDREN_MAX}
  value={children}
- onChange={e => setChildren(clampBonusNumericInput(
- Number(e.target.value),
+ onChange={e => setChildren(parseBonusNumericInput(
+ e.target.value,
  CHILDREN_MIN,
  CHILDREN_MAX,
  DEFAULT_CHILDREN,
@@ -337,8 +349,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  min={EXCHANGE_RATE_MIN}
  max={EXCHANGE_RATE_MAX}
  value={Number(exchangeRate.toFixed(4))}
- onChange={e => setRateOverride(clampBonusNumericInput(
- Number(e.target.value),
+ onChange={e => setRateOverride(parseBonusNumericInput(
+ e.target.value,
  EXCHANGE_RATE_MIN,
  EXCHANGE_RATE_MAX,
  exchangeRate,
