@@ -10,7 +10,7 @@ describe('isFutureEpochMillis', () => {
  });
 
  it('fails open for corrupted, non-decimal, infinite, or unsafe values', () => {
-  for (const raw of [null, '', '123abc', '1e20', 'Infinity', String(Number.MAX_SAFE_INTEGER + 1)]) {
+  for (const raw of [null, '', ' ', '123abc', '1e20', 'Infinity', String(Number.MAX_SAFE_INTEGER + 1)]) {
    expect(isFutureEpochMillis(raw, now)).toBe(false);
   }
  });
