@@ -1565,7 +1565,7 @@ jobs:
             **Raggruppamento B19:** `group=${{ steps.group.outputs.is_group }}`, membri `${{ steps.group.outputs.group_numbers }}`. Se `group=true`, carica `${{ runner.temp }}/issue-fix-ctx/group.json`: contiene tutte le issue della stessa PR, già verificate dal drainer con una firma e un punto di riparazione comuni, entro il tetto numerico definito da `ISSUE_GROUP_MAX_SIZE`. Diagnostica ogni membro e risolvi tutti i membri nella stessa PR; non prendere lavoro esterno al gruppo. Nel body della PR usa una riga di chiusura per ogni membro, una keyword per riga, usando le righe pre-calcolate dallo step `closing`. Se un membro non è confermabile o non è riparabile con certezza, non forzarlo: lascialo senza keyword di chiusura e dichiaralo in `## Non implementato (ancora)` con uno stato letterale. Se `group=false`, il flusso resta quello della issue singola.
 
             **Contratto vincolante di `AGENTS.md` (prefetch zero-Claude):**
-            Il workflow ha già iniettato qui sotto le sezioni `Non-Negotiables` e `Privacy` dal checkout corrente. Sono la fonte vincolante per questo run: non spendere un turno per rileggerle e TERMINA se il blocco manca o appare incompleto.
+            Il workflow ha iniettato le sezioni `Non-Negotiables` e `Privacy`: usale come contratto, non rileggerle e TERMINA se mancano o sono incomplete.
             ${{ steps.tier.outputs.agents_contract }}
 
             **Bootstrap (in quest'ordine):**
