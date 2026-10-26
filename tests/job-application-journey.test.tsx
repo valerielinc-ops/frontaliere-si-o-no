@@ -9,6 +9,21 @@ beforeEach(() => { vi.resetModules(); sessionStorage.clear(); localStorage.clear
 afterEach(() => { cleanup(); vi.useRealTimers(); vi.restoreAllMocks(); });
 
 describe('application journey cohorts', () => {
+ it('ignores malformed, future, and unsupported persisted journeys', async () => {
+  const { parseStoredJobJourneys } = await import('@/services/jobApplicationJourney');
+  const valid = {
+   id: 'journey-1', jobSlug: 'job-1', aliases: ['job-1'], employerKey: 'employer',
+   startedAt: 9_000, source: 'direct', device: 'desktop', entry: 'direct', steps: ['detail_view'],
+  };
+  const raw = JSON.stringify([
+   valid,
+   { ...valid, id: 'future', startedAt: 10_001 },
+   { ...valid, id: 'bad-step', steps: ['not-a-step'] },
+   { ...valid, id: 'bad-alias', aliases: ['other-job'] },
+  ]);
+  expect(parseStoredJobJourneys(raw, 10_000)).toEqual([valid]);
+ });
+
  it('preserves one ID across list, detail, failed auth, reload, success and handoff; deduplicates stages', async () => {
   const job = { jobSlug: 'infermiere-demo-lugano', employerKey: 'demo-hospital' };
   const first = await import('@/services/jobApplicationJourney');

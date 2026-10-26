@@ -28,8 +28,8 @@ const JOURNEY_SOURCES = new Set(['job_alert', 'newsletter', 'email', 'search', '
 const JOURNEY_DEVICES = new Set(['mobile', 'tablet', 'desktop', 'unknown']);
 const JOURNEY_ENTRIES = new Set<Journey['entry']>(['list', 'direct']);
 
-function isNonEmptyString(value: unknown): value is string {
- return typeof value === 'string' && value.trim().length > 0;
+function isNonEmptyString(value: unknown, maxLength = 200): value is string {
+ return typeof value === 'string' && value.trim().length > 0 && value.length <= maxLength;
 }
 
 function isFreshJourneyTimestamp(value: unknown, now: number): value is number {
@@ -48,7 +48,7 @@ function isPersistedJourney(value: unknown, now: number): value is Journey {
   || !isFreshJourneyTimestamp(item.startedAt, now)) return false;
  if (item.jobId !== undefined && !isNonEmptyString(item.jobId)) return false;
  if (!Array.isArray(item.aliases) || item.aliases.length === 0
-  || !item.aliases.every(isNonEmptyString) || !item.aliases.includes(item.jobSlug)) return false;
+  || !item.aliases.every((alias) => isNonEmptyString(alias)) || !item.aliases.includes(item.jobSlug)) return false;
  if (!Array.isArray(item.steps) || !item.steps.every((step): step is JobJourneyStep => SUPPORTED_STEPS.has(step))
   || new Set(item.steps).size !== item.steps.length) return false;
  return true;
@@ -74,13 +74,20 @@ export function classifyJobJourneySource(search: string, referrer: string): stri
  } catch { return 'direct'; }
 }
 
+export function parseStoredJobJourneys(raw: string | null, now = Date.now()): Journey[] {
+ if (!raw || !Number.isFinite(now) || now <= 0) return [];
+ try {
+  const parsed: unknown = JSON.parse(raw);
+  return Array.isArray(parsed) ? parsed.filter((item): item is Journey => isPersistedJourney(item, now)) : [];
+ } catch {
+  return [];
+ }
+}
+
 function readJourneys(): Map<string, Journey> {
  try {
-  const stored: unknown = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
-  if (Array.isArray(stored)) {
-   const now = Date.now();
-   for (const item of stored) if (isPersistedJourney(item, now)) memory.set(item.jobSlug, item);
-  }
+  const stored = parseStoredJobJourneys(sessionStorage.getItem(STORAGE_KEY));
+  for (const item of stored) memory.set(item.jobSlug, item);
  } catch { /* In-memory continuity when storage is refused. */ }
  const now = Date.now();
  for (const [key, item] of memory) if (!isFreshJourneyTimestamp(item.startedAt, now)) memory.delete(key);

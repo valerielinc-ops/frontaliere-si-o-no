@@ -7,6 +7,10 @@ export interface TaxChecklistPreferences {
   reminderEnabled: boolean;
 }
 
+/** Compatibility aliases for the shared persisted-state parser API. */
+export type TaxCalendarProfile = TaxChecklistProfile;
+export type TaxCalendarPreferences = TaxChecklistPreferences;
+
 const DEFAULT_TAX_CHECKLIST_PREFERENCES: TaxChecklistPreferences = {
   profile: 'tutti',
   reminderEnabled: false,
@@ -33,6 +37,13 @@ export function normalizeTaxChecklistCompletedIds(
     normalized.push(id);
   }
   return normalized;
+}
+
+export function normalizeTaxChecklistIds(
+  value: unknown,
+  deadlineIds: ReadonlySet<string>,
+): string[] {
+  return normalizeTaxChecklistCompletedIds(value, deadlineIds);
 }
 
 export function parseTaxChecklistCompletedIds(
@@ -62,6 +73,10 @@ export function normalizeTaxChecklistPreferences(value: unknown): TaxChecklistPr
       ? record.reminderEnabled
       : DEFAULT_TAX_CHECKLIST_PREFERENCES.reminderEnabled,
   };
+}
+
+export function normalizeTaxCalendarPreferences(value: unknown): TaxCalendarPreferences {
+  return normalizeTaxChecklistPreferences(value);
 }
 
 export function parseTaxChecklistPreferences(raw: string | null): TaxChecklistPreferences {

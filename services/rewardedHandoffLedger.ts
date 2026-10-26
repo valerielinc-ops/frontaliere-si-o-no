@@ -65,8 +65,8 @@ function isBoundedString(value: unknown): value is string {
 
 function isValidReceiptTimestamp(value: unknown, now: number): value is number {
   return typeof value === 'number'
-    && Number.isFinite(value)
-    && value >= 0
+    && Number.isSafeInteger(value)
+    && value > 0
     && value <= now;
 }
 
@@ -82,11 +82,21 @@ function isLedgerEntry(value: unknown, now: number): value is LedgerEntry {
     && (entry.opened === 0 || entry.opened === 1);
 }
 
+export function parseHandoffLedger(raw: string | null, now: number = Date.now()): LedgerEntry[] {
+  if (!raw || !Number.isFinite(now)) return [];
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed)
+      ? parsed.filter((entry): entry is LedgerEntry => isLedgerEntry(entry, now) && now - entry.at < MAX_AGE_MS)
+      : [];
+  } catch {
+    return [];
+  }
+}
+
 function read(now: number = Date.now()): LedgerEntry[] {
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    const list = raw ? JSON.parse(raw) : [];
-    return Array.isArray(list) ? list.filter((entry) => isLedgerEntry(entry, now)) : [];
+    return parseHandoffLedger(window.localStorage.getItem(STORAGE_KEY), now);
   } catch {
     return [];
   }
