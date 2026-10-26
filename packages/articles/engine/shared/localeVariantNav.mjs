@@ -33,7 +33,7 @@ export function renderArticleLocaleVariantNavHtml({ baseUrl, paths, currentLocal
       const href = /^https?:\/\//i.test(rawPath)
         ? withTrailingSlash(rawPath)
         : `${baseUrl}${withTrailingSlash(rawPath)}`;
-      return `<a href="${href}" hreflang="${locale}">${LOCALE_LABELS[locale]}</a>`;
+      return `<a href="${href}">${LOCALE_LABELS[locale]}</a>`;
     });
   if (entries.length < 2) return '';
   const aria = LOCALE_ARIA_LABELS[currentLocale] ?? LOCALE_ARIA_LABELS.it;
