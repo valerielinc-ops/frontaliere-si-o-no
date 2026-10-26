@@ -1,42 +1,93 @@
-export type CacheValueNormalizer<T> = (value: unknown) => T | undefined;
+export type AuthorProfilePatch = Partial<Record<'name' | 'role' | 'bio' | 'photoPath', string>>;
 
-function isPlainRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
+export interface ArticleAuthorOverride {
+  authorSlug: string;
+  authorName: string;
 }
 
-/**
- * Parse the small localStorage envelopes used by the author override caches.
- * A malformed cache must be treated as a miss so Firestore can rebuild it.
- */
+export const AUTHOR_PROFILE_CACHE_TTL_MS = 60 * 60 * 1000;
+
+const EDITORIAL_PROFILE_FIELDS = ['name', 'role', 'bio', 'photoPath'] as const;
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+}
+
+/** Strip contact/social/auth fields from admin profile documents. */
+export function sanitizeAuthorProfilePatch(value: unknown): AuthorProfilePatch | undefined {
+  if (!isPlainObject(value)) return undefined;
+  const patch: AuthorProfilePatch = {};
+  for (const field of EDITORIAL_PROFILE_FIELDS) {
+    if (typeof value[field] === 'string') patch[field] = value[field].trim();
+  }
+  return Object.keys(patch).length > 0 ? patch : undefined;
+}
+
+export function sanitizeArticleAuthorOverride(value: unknown): ArticleAuthorOverride | undefined {
+  if (!isPlainObject(value)) return undefined;
+  const authorSlug = typeof value.authorSlug === 'string' ? value.authorSlug.trim() : '';
+  const authorName = typeof value.authorName === 'string' ? value.authorName.trim() : '';
+  if (!authorSlug || !authorName) {
+    return undefined;
+  }
+  return { authorSlug, authorName };
+}
+
+type LocalMapValueSanitizer<T> = (value: unknown) => T | undefined;
+
+function parseMapEnvelope<T>(
+  envelope: unknown,
+  ttlMs: number,
+  sanitizeValue: LocalMapValueSanitizer<T>,
+  now: number,
+): Map<string, T> | null {
+  if (!Number.isFinite(ttlMs) || ttlMs <= 0 || !isPlainObject(envelope) || !isPlainObject(envelope.data)) {
+    return null;
+  }
+
+  const { timestamp } = envelope;
+  if (
+    typeof timestamp !== 'number'
+    || !Number.isFinite(timestamp)
+    || timestamp < 0
+    || timestamp > now
+    || now - timestamp >= ttlMs
+  ) return null;
+
+  const map = new Map<string, T>();
+  const entries = Object.entries(envelope.data);
+  for (const [key, rawValue] of entries) {
+    const value = sanitizeValue(rawValue);
+    if (value !== undefined) map.set(key, value);
+  }
+
+  // A non-empty envelope with no valid entries is a cache miss, so Firestore
+  // can rebuild it instead of treating malformed data as an authoritative hit.
+  return entries.length > 0 && map.size === 0 ? null : map;
+}
+
+export function parseLocalMapEnvelope<T>(
+  envelope: unknown,
+  sanitizeValue: LocalMapValueSanitizer<T>,
+  now = Date.now(),
+): Map<string, T> | null {
+  return parseMapEnvelope(envelope, AUTHOR_PROFILE_CACHE_TTL_MS, sanitizeValue, now);
+}
+
+/** Compatibility parser for the original raw localStorage cache API. */
+export type CacheValueNormalizer<T> = LocalMapValueSanitizer<T>;
+
 export function parseAuthorCacheMap<T>(
   raw: string | null,
   ttlMs: number,
   normalize: CacheValueNormalizer<T>,
   now = Date.now(),
 ): Map<string, T> | null {
-  if (!raw || !Number.isFinite(ttlMs) || ttlMs <= 0) return null;
-
+  if (!raw) return null;
   try {
-    const parsed: unknown = JSON.parse(raw);
-    if (!isPlainRecord(parsed) || !isPlainRecord(parsed.data)) return null;
-    if (
-      typeof parsed.timestamp !== 'number' ||
-      !Number.isFinite(parsed.timestamp) ||
-      parsed.timestamp < 0 ||
-      parsed.timestamp > now ||
-      (now - parsed.timestamp) >= ttlMs
-    ) return null;
-
-    const entries = Object.entries(parsed.data);
-    const result = new Map<string, T>();
-    for (const [key, value] of entries) {
-      const normalized = normalize(value);
-      if (normalized !== undefined) result.set(key, normalized);
-    }
-
-    // A non-empty envelope whose every value is malformed is a cache miss,
-    // rather than a valid empty cache that would suppress Firestore recovery.
-    return entries.length > 0 && result.size === 0 ? null : result;
+    return parseMapEnvelope(JSON.parse(raw), ttlMs, normalize, now);
   } catch {
     return null;
   }
