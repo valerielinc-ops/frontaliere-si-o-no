@@ -723,7 +723,9 @@ function toBaseDomain(host: string): string {
 
 export function hostFromExternalUrl(raw?: string): string {
  try {
- return toBaseDomain(new URL(String(raw || '')).hostname);
+ const parsed = new URL(String(raw || ''));
+ if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return '';
+ return toBaseDomain(parsed.hostname);
  } catch {
  return '';
  }
