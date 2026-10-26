@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 869,
+      "5": 870,
       "6": 5057
     },
-    "publishedCovers": 7609,
+    "publishedCovers": 7610,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209465,6 +209465,39 @@
         "provider": "openai-codex",
         "assetId": "article-esecutivo-zugo-mandato-2030",
         "imageUrl": "/images/blog/article-esecutivo-zugo-mandato-2030.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-friburgo-no-linea-diretta": {
+      "cover": "/images/blog/article-friburgo-no-linea-diretta.webp",
+      "hash": "558f9b8d6889d55a5d9cfd70455e876ee307ce4fedc28843ccc80bbed6af07b6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "friburgo-no-linea-diretta",
+          "category": "novita",
+          "date": "2026-10-26T15:03:53.947Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-friburgo-no-linea-diretta.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-friburgo-no-linea-diretta",
+        "imageUrl": "/images/blog/article-friburgo-no-linea-diretta.webp",
         "evidence": "generated-engine-record"
       }
     }
