@@ -634,8 +634,8 @@ describe('event title translation cache persistence', () => {
     const file = process.env.EVENTS_TRANSLATION_CACHE_PATH!;
     writeFileSync(file, '{not-json');
 
-    expect(loadEventTitleTranslationCache()).toEqual({});
     expect(saveEventTitleTranslationCache({ 'title::it::Lost': { en: 'Lost' } })).toBe(false);
+    expect(loadEventTitleTranslationCache()).toEqual({});
     expect(readFileSync(file, 'utf8')).toBe('{not-json');
   });
 

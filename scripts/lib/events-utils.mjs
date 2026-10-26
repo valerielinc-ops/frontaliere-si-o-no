@@ -1466,6 +1466,11 @@ export function saveEventTitleTranslationCache(cache) {
     console.warn(`::warning::[events] refusing to write invalid translation cache at ${file}`);
     return false;
   }
+  // Do not rely on callers having loaded first: a direct save must also
+  // preserve an existing malformed/truncated file instead of replacing it.
+  if (eventTranslationCache === null || eventTranslationCacheFile !== file) {
+    loadEventTitleTranslationCache();
+  }
   if (eventTranslationCacheFile === file && eventTranslationCacheWritable === false) {
     console.warn(`::warning::[events] refusing to overwrite unreadable translation cache at ${file}`);
     return false;
