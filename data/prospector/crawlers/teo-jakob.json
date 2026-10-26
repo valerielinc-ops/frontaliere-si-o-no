@@ -1,0 +1,21 @@
+{
+  "companyKey": "teo-jakob",
+  "companyName": "Teo Jakob",
+  "companyHost": "my.jobalino.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/public/job/607e9bf886583eaee25ea4db60baad92/teo-jakob-ag/mitarbeiter-fuer-auslieferung-und-montage-100"
+  ],
+  "detailTemplate": "/job/607e9bf886583eaee25ea4db60baad92/mitarbeiter-fuer-auslieferung-und-montage-80-100",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Mitarbeiter für Auslieferung und Montage 80% - 100% / 100%"
+  ],
+  "canton": "GE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:18:13.360Z",
+  "candidateKey": "teojakob.ch"
+}

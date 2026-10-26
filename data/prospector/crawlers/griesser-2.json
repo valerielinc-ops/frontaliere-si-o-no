@@ -1,0 +1,24 @@
+{
+  "companyKey": "griesser-2",
+  "companyName": "Griesser",
+  "companyHost": "recruitingapp-2690.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2690.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 24,
+  "sampleTitles": [
+    "Verkaufsberater:in Home Projects (all genders) Region Winterthur / Weinland / Frauenfeld",
+    "HR Business Partner (all genders)",
+    "Servicemonteur:in (all genders)",
+    "Storenmonteur:in (all genders)",
+    "Senior Projektleiter:in (all genders)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:13:36.441Z",
+  "candidateKey": "tenant-host-recruitingapp-2690-umantis-com"
+}

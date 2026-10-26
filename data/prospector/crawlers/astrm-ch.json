@@ -1,0 +1,22 @@
+{
+  "companyKey": "astrm-ch",
+  "companyName": "astrm",
+  "companyHost": "novartis.com",
+  "platform": "novartis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.novartis.com/ch-de/"
+  ],
+  "detailTemplate": "/ch-de/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Diversity, Equity, Inclusion & Culture",
+    "Studierende und Hochschulabsolventen",
+    "Lernen und Weiterbildung bei Novartis"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:13:45.753Z",
+  "candidateKey": "astrm.ch"
+}

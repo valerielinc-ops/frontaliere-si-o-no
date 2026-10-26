@@ -1,0 +1,25 @@
+{
+  "companyKey": "rohrmax-ch",
+  "companyName": "Rohr Max AG",
+  "companyHost": "rohrmax.ch",
+  "platform": "tuyaumax.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://rohrmax.ch/ueber-uns/offene-stellen/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Betriebsmechaniker (w/m/d) - 100% Grüningen, Hauptsitz",
+    "Betriebsmechaniker (w/m/d) - 100% Zweigniederlassung, Münsingen BE",
+    "Hilfsoperateur auf TV-Fahrzeug (w/m/d) - 100% Region Solothurn",
+    "Junior-Serviceleiter Rohr-Reinigung (w/m/d) - 100% Grüningen, Hauptsitz",
+    "Quereinsteiger Monteur Rohr-Reinigung auf Kleinspüler (w/m/d) - 100% Basel"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:21:08.405Z",
+  "candidateKey": "rohr-max@gruningen"
+}

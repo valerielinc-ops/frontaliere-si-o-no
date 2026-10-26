@@ -1,0 +1,25 @@
+{
+  "companyKey": "binelli-group",
+  "companyName": "binelli-group",
+  "companyHost": "recruitingapp-2871.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2871.umantis.com/Jobs/All"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Fahrzeugaufbereiter:in Neuwagen und Occasionen",
+    "Carrosserieberater:in Schadenabwicklung / Stv. Leiter:in Aufbereitung",
+    "Product Genius BMW (m/w/d)",
+    "Service-Assistenz / Telefon / Empfang",
+    "Fahrzeugaufbereiter:in Neuwagen und Occasionen"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-26T12:13:38.267Z",
+  "candidateKey": "binelli-group.ch"
+}
