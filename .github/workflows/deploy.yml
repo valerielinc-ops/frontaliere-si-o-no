@@ -1219,6 +1219,24 @@ jobs:
               echo "✓ complete same-run hreflang manifest set is available"
               break
             fi
+            # A sibling that has already terminated cannot publish its
+            # manifest. Do not make the healthy legs burn the full one-hour
+            # barrier in that case: surface the first failed locale now so
+            # the rearm job can classify a host loss or ordinary build error
+            # from the actual failed leg instead of three misleading barrier
+            # timeouts.
+            failed_locale_job="$(
+              gh api -X GET "repos/${GH_REPO}/actions/runs/${HREFlANG_RUN_ID}/jobs?filter=latest&per_page=100" \
+                --jq '.jobs[]
+                  | select(.name | startswith("build-locale ("))
+                  | select(.conclusion == "failure" or .conclusion == "cancelled" or .conclusion == "timed_out")
+                  | .name' \
+                | sed -n '1p'
+            )"
+            if [ -n "$failed_locale_job" ]; then
+              echo "::error::same-run hreflang manifest barrier aborted: ${failed_locale_job} terminated before publishing its manifest"
+              exit 1
+            fi
             if [ "$SECONDS" -ge "$deadline" ]; then
               echo "::error::same-run hreflang manifest barrier timed out"
               exit 1

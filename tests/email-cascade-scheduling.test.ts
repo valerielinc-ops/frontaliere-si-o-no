@@ -266,10 +266,16 @@ describe('sendEmailCascade — mailgun scheduled send', () => {
 describe('sendEmailCascade — maileroo scheduled send', () => {
   const realFetch = globalThis.fetch;
 
-  beforeEach(() => { process.env.MAILEROO_API_KEY = 'test-key'; });
+  beforeEach(() => {
+    process.env.MAILEROO_API_KEY = 'test-key';
+    delete process.env.MAILEROO_TRANSACTIONAL_API_KEY;
+    delete process.env.MAILEROO_NEWSLETTER_API_KEY;
+  });
   afterEach(() => {
     globalThis.fetch = realFetch;
     delete process.env.MAILEROO_API_KEY;
+    delete process.env.MAILEROO_TRANSACTIONAL_API_KEY;
+    delete process.env.MAILEROO_NEWSLETTER_API_KEY;
   });
 
   it('sends scheduled_at (RFC 3339 / ISO) in the JSON body', async () => {
@@ -379,6 +385,82 @@ describe('sendEmailCascade — maileroo scheduled send', () => {
     expect(sentBody.cc).toEqual([{ address: 'hr@example.com', display_name: 'HR' }]);
     expect(sentBody.bcc).toEqual([{ address: 'audit@example.com', display_name: 'Audit' }]);
     expect(sentBody.reference_id).toBe('0123456789abcdef01234567');
+  });
+
+  it('routes newsletter and transactional senders to their separate Application keys', async () => {
+    const sentHeaders: string[] = [];
+    process.env.MAILEROO_TRANSACTIONAL_API_KEY = 'transactional-key';
+    process.env.MAILEROO_NEWSLETTER_API_KEY = 'newsletter-key';
+    globalThis.fetch = (async (url: string, opts?: any) => {
+      if (String(url).includes('smtp.maileroo.com') && opts?.method === 'POST') {
+        sentHeaders.push(opts.headers['X-Api-Key']);
+        return {
+          ok: true, status: 200,
+          json: async () => ({ success: true, data: { reference_id: 'maileroo-ref-routing' } }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent, failed } = await sendEmailCascade([
+      {
+        payload: {
+          from: 'Frontaliere Ticino <newsletter@frontaliereticino.ch>',
+          to: ['subscriber@example.com'],
+          subject: 'Weekly newsletter',
+          html: '<p>News</p>',
+        },
+        recipient: { email: 'subscriber@example.com' },
+        meta: {},
+      },
+      {
+        payload: {
+          from: 'Frontaliere Ticino <confirmation@frontaliereticino.ch>',
+          to: ['customer@example.com'],
+          subject: 'Confirmation',
+          html: '<p>Confirmed</p>',
+        },
+        recipient: { email: 'customer@example.com' },
+        meta: {},
+      },
+    ], { forceProvider: 'maileroo', delayMs: 0 });
+
+    expect(failed).toHaveLength(0);
+    expect(sent).toHaveLength(2);
+    expect(sentHeaders).toEqual(['newsletter-key', 'transactional-key']);
+  });
+
+  it('allows an explicit stream for a newly allowlisted sender', async () => {
+    let sentKey = '';
+    process.env.MAILEROO_TRANSACTIONAL_API_KEY = 'transactional-key';
+    process.env.MAILEROO_NEWSLETTER_API_KEY = 'newsletter-key';
+    globalThis.fetch = (async (url: string, opts?: any) => {
+      if (String(url).includes('smtp.maileroo.com') && opts?.method === 'POST') {
+        sentKey = opts.headers['X-Api-Key'];
+        return {
+          ok: true, status: 200,
+          json: async () => ({ success: true, data: { reference_id: 'maileroo-ref-explicit-stream' } }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { failed } = await sendEmailCascade([{
+      payload: {
+        from: 'Frontaliere Ticino <campaign@frontaliereticino.ch>',
+        mailerooStream: 'newsletter',
+        to: ['subscriber@example.com'],
+        subject: 'Campaign',
+        html: '<p>Campaign</p>',
+      },
+      recipient: { email: 'subscriber@example.com' },
+      meta: {},
+    }], { forceProvider: 'maileroo', delayMs: 0 });
+
+    expect(failed).toHaveLength(0);
+    expect(sentKey).toBe('newsletter-key');
   });
 });
 

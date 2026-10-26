@@ -32,10 +32,47 @@ export function observeGoogleAdOverlays(onChange: (visible: boolean) => void, do
  */
 export const GOOGLE_ANCHOR_TAB_ALLOWANCE_PX = 40;
 const EDGE_SLACK_PX = 2;
+const GOOGLE_AD_IFRAME_SELECTOR = 'iframe[id^="aswift_"], iframe[name^="aswift_"], iframe[id^="google_ads_iframe"]';
 
 export interface GoogleAdEdgeInsets {
   top: number;
   bottom: number;
+}
+
+/**
+ * Synchronously measures the edge clearance required by a visible Google
+ * anchor, including the collapse tab that Google places just outside the
+ * creative. Callers use this for the first paint; the observer below keeps it
+ * current when the ad is filled, resized, or dismissed.
+ */
+export function measureGoogleAdEdgeInsets(doc: Document = document): GoogleAdEdgeInsets {
+  const view = doc.defaultView;
+  if (!view) return { top: 0, bottom: 0 };
+
+  const height = view.innerHeight;
+  let top = 0;
+  let bottom = 0;
+  for (const iframe of Array.from(doc.querySelectorAll(GOOGLE_AD_IFRAME_SELECTOR))) {
+    let el = iframe.parentElement;
+    while (el && el !== doc.body) {
+      const style = view.getComputedStyle(el);
+      if (style.position === 'fixed') {
+        const rect = el.getBoundingClientRect();
+        const shown = style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
+          && rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < height;
+        if (shown && rect.height < height / 2) {
+          if (rect.bottom >= height - EDGE_SLACK_PX) {
+            bottom = Math.max(bottom, Math.ceil(height - rect.top) + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX);
+          } else if (rect.top <= EDGE_SLACK_PX) {
+            top = Math.max(top, Math.ceil(rect.bottom) + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX);
+          }
+        }
+        break;
+      }
+      el = el.parentElement;
+    }
+  }
+  return { top, bottom };
 }
 
 /**
@@ -55,29 +92,7 @@ export function observeGoogleAdEdgeInsets(
   if (!view) return () => {};
   let last = '';
   const scan = () => {
-    const height = view.innerHeight;
-    let top = 0;
-    let bottom = 0;
-    for (const iframe of Array.from(doc.querySelectorAll('iframe[id^="aswift_"], iframe[id^="google_ads_iframe"]'))) {
-      let el = iframe.parentElement;
-      while (el && el !== doc.body) {
-        const style = view.getComputedStyle(el);
-        if (style.position === 'fixed') {
-          const rect = el.getBoundingClientRect();
-          const shown = style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
-            && rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < height;
-          if (shown && rect.height < height / 2) {
-            if (rect.bottom >= height - EDGE_SLACK_PX) {
-              bottom = Math.max(bottom, Math.ceil(height - rect.top) + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX);
-            } else if (rect.top <= EDGE_SLACK_PX) {
-              top = Math.max(top, Math.ceil(rect.bottom) + GOOGLE_ANCHOR_TAB_ALLOWANCE_PX);
-            }
-          }
-          break;
-        }
-        el = el.parentElement;
-      }
-    }
+    const { top, bottom } = measureGoogleAdEdgeInsets(doc);
     const key = `${top}:${bottom}`;
     if (key === last) return;
     last = key;
