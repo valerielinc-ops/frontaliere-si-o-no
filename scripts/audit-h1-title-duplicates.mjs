@@ -71,8 +71,24 @@ export function hasMatchingArticleHeadline(html, headline) {
         if (!node || typeof node !== 'object') return false;
         const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
         const ownUrl = node.url || (typeof node.mainEntityOfPage === 'string' ? node.mainEntityOfPage : node.mainEntityOfPage?.['@id']);
+        const nodeId = typeof node['@id'] === 'string' ? node['@id'] : '';
+        const mainEntityUrl = typeof node.mainEntityOfPage === 'string'
+          ? node.mainEntityOfPage
+          : node.mainEntityOfPage?.url || node.mainEntityOfPage?.['@id'];
+        // A live editorial article may intentionally canonicalise to an
+        // authoritative near-duplicate. In that case `url`/`@id` identify
+        // this document while the canonical link identifies the winner. The
+        // old ownUrl === pageUrl check mistook that valid article template
+        // for a generic title/H1 collision. Keep the exemption structural:
+        // the document must expose an Article-family node whose headline
+        // matches and whose own identity is internally consistent.
+        const hasOwnDocumentIdentity = typeof ownUrl === 'string' && (
+          ownUrl === pageUrl
+          || (nodeId.length > 0 && nodeId.startsWith(`${ownUrl}#`))
+          || mainEntityUrl === ownUrl
+        );
         return types.some((type) => type === 'Article' || type === 'NewsArticle')
-          && ownUrl === pageUrl && typeof node.headline === 'string'
+          && hasOwnDocumentIdentity && typeof node.headline === 'string'
           && normalizeText(node.headline) === headline;
       })) return true;
     } catch { /* Invalid structured data is never evidence for an exemption. */ }

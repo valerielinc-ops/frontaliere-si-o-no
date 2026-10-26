@@ -7,6 +7,7 @@ import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/jobBoardNoindexTargetMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { classifyCanonicalMismatch, isOwnerArticleConsolidation } from './lib/canonicalExemptions.mjs';
 // eslint-disable-next-line import/no-relative-parent-imports
 import { lookupRetired } from '../infra/cloudflare-worker/locale-router.js';
@@ -418,6 +419,14 @@ function isIntentionalEventArchiveNoindexPage(html) {
     && hasNoindex(html);
 }
 
+// Deep-pagination producers declare their intentional noindex with the shared
+// marker. Require the actual directive as well: a copied marker on an
+// indexable page must never hide a missing-indexability defect.
+function isIntentionalPaginationNoindexPage(html) {
+  return String(html || '').includes(PAGINATION_NOINDEX_TARGET_MARKER)
+    && hasNoindex(html);
+}
+
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
@@ -630,7 +639,7 @@ function main() {
   let warningCount = 0;
   let errorCount = 0;
   // Noindex pages whose producer declared the noindex (printed, never silent).
-  const declaredNoindex = { jobBoard: 0, pharmacy: 0, eventArchive: 0 };
+  const declaredNoindex = { jobBoard: 0, pharmacy: 0, eventArchive: 0, pagination: 0 };
   const declaredCanonical = {};
   // Pages the edge answers 301/410 (EDGE_RETIRED_PATHS): the reassembled dist
   // still holds their bytes because article shards are append-only
@@ -704,9 +713,11 @@ function main() {
     const isIntentionalJobBoardNoindex = isIntentionalJobBoardNoindexPage(html);
     const isIntentionalPharmacyNoindex = isIntentionalPharmacyNoindexPage(page.pagePath, html);
     const isIntentionalEventArchiveNoindex = isIntentionalEventArchiveNoindexPage(html);
+    const isIntentionalPaginationNoindex = isIntentionalPaginationNoindexPage(html);
     const declaredNoindexKind = isIntentionalJobBoardNoindex ? 'jobBoard'
       : isIntentionalPharmacyNoindex ? 'pharmacy'
-        : isIntentionalEventArchiveNoindex ? 'eventArchive' : null;
+        : isIntentionalEventArchiveNoindex ? 'eventArchive'
+          : isIntentionalPaginationNoindex ? 'pagination' : null;
     if (page.pagePath !== '404.html' && !isSearchPage && !declaredNoindexKind && hasNoindex(html)) {
       errors.hasNoindex.push(page.pagePath || '/');
       errorCount++;
@@ -755,7 +766,7 @@ function main() {
   console.log(`  WITH ERRORS: ${pagesToCheck.length - passedCount}`);
   console.log(`  TOTAL ISSUES: ${errorCount}`);
   console.log(`  ADVISORY WARNINGS: ${warningCount}`);
-  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}, event archive ${declaredNoindex.eventArchive}`);
+  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}, event archive ${declaredNoindex.eventArchive}, pagination ${declaredNoindex.pagination}`);
   console.log(`  DECLARED CROSS-URL CANONICAL (classified, not warnings): ${Object.entries(declaredCanonical).map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}`);
   console.log(`  EDGE-RETIRED (301/410 at the Worker, not served): ${edgeRetired}`);
   console.log('='.repeat(60));
@@ -937,6 +948,7 @@ export {
   isPharmacyRoutePage,
   isIntentionalPharmacyNoindexPage,
   isIntentionalEventArchiveNoindexPage,
+  isIntentionalPaginationNoindexPage,
 };
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

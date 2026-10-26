@@ -71,6 +71,7 @@ import {
 } from './shared/articleReaders';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { isPaginationNoindex, isPaginationSitemapEligible } from './shared/paginationIndexPolicy';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from './shared/paginationNoindexMarker.mjs';
 import {
   TOPIC_CLUSTERS,
   TOPIC_HUB_MIN_ARTICLES,
@@ -86,6 +87,7 @@ import {
 } from './shared/cantonSectionCopy.mjs';
 import { CANTON_HUB_TOPIC_KEYS } from './shared/cantonArticleSectionCore.generated.mjs';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
+import { renderArticleLocaleVariantNavHtml } from './shared/localeVariantNav.mjs';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
 type HubLocale = ArticleLocale;
@@ -812,6 +814,7 @@ function buildHtml(args: BuildHtmlArgs): string {
   // so the extracted body below is unchanged from the full build's.
   const {
     baseUrl: BASE_URL,
+    faviconLinks: FAVICON_LINKS,
     adsenseSnippet: ADSENSE_SNIPPET,
     // `?? ''`: campo opzionale del contratto, il repo pubblicatore puo' non
     // passarlo ancora — vedi SiteShellContract.partnerizeTagSnippet.
@@ -873,8 +876,19 @@ function buildHtml(args: BuildHtmlArgs): string {
       }">`
     : '';
 
+  const localeVariantNav = page === 1
+    ? renderArticleLocaleVariantNavHtml({
+        baseUrl: BASE_URL,
+        paths: sectionOverride ? sectionOverride.hreflangBases : articlesAllPaths,
+        currentLocale: locale,
+      })
+    : '';
+
   const prevLink = page > 1 ? `\n    <link rel="prev" href="${BASE_URL}${paginatedPath(basePath, page - 1)}">` : '';
   const nextLink = page < totalPages ? `\n    <link rel="next" href="${BASE_URL}${paginatedPath(basePath, page + 1)}">` : '';
+  const paginationNoindexMarker = isPaginationNoindex(page)
+    ? `\n    ${PAGINATION_NOINDEX_TARGET_MARKER}`
+    : '';
 
   // BreadcrumbList JSON-LD
   const sectionLabel = sectionOverride
@@ -985,9 +999,11 @@ function buildHtml(args: BuildHtmlArgs): string {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta name="robots" content="${isPaginationNoindex(page) ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">
+    ${paginationNoindexMarker}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
@@ -1027,6 +1043,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       </section>
       ${pagination}
       ${topicsNavHtml}
+      ${localeVariantNav}
       ${proseAccordionHtml}
     </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}

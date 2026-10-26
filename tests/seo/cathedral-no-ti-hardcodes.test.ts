@@ -169,6 +169,9 @@ const ALLOWLIST = [
   // inline non e' esprimibile. Qui il literal E' il dato canonico del
   // meccanismo di shard per sezione, non un hardcode che scappa.
   'scripts/lib/section-shard-slugs.json',
+  // Generated Worker redirect data is a serialized route map, not executable
+  // section-selection logic; its source of truth is scanned separately.
+  'infra/cloudflare-worker/legacy-stub-redirects.generated.mjs',
   // I test citano i literal per verificarli.
   'tests/',
 ];

@@ -8,6 +8,7 @@ import {
   isIntentionalJobBoardNoindexPage,
   isIntentionalPharmacyNoindexPage,
   isIntentionalEventArchiveNoindexPage,
+  isIntentionalPaginationNoindexPage,
   maskHtmlCommentsOutsideRawText,
   validateBestPracticeSeo,
   validateSchemas,
@@ -17,6 +18,7 @@ import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobB
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
+import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 
 const GOOD_PAGE = `
   <html>
@@ -195,6 +197,14 @@ describe('blocking page checks', () => {
     expect(isDeclared(noindex)).toBe(false);
     expect(isDeclared(`${marker}<meta name=robots content=index,follow>`)).toBe(false);
     expect(isDeclared(`${JOB_BOARD_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(false);
+  });
+
+  it('recognizes only marked deep-pagination noindex pages', () => {
+    const noindex = '<meta name=robots content=noindex,follow>';
+    expect(isIntentionalPaginationNoindexPage(`${PAGINATION_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(true);
+    expect(isIntentionalPaginationNoindexPage(noindex)).toBe(false);
+    expect(isIntentionalPaginationNoindexPage(`${PAGINATION_NOINDEX_TARGET_MARKER}<meta name=robots content=index,follow>`)).toBe(false);
+    expect(isIntentionalPaginationNoindexPage(`${JOB_BOARD_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(false);
   });
 
   it('classifies an owner article consolidation apart, and still flags a canonical to the section hub', () => {

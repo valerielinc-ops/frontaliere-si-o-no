@@ -69,6 +69,16 @@ const EDGE_HTTP_REDIRECT_PATHS = new Set([
  '/fisco-frontalieri/',
 ]);
 
+// These aliases were emitted by older salary landing templates and can still
+// exist in an incremental dist. They must be replaced even when an older
+// static page already occupies the directory: leaving that file in place
+// makes the alias self-canonical and fails the salary landing contract.
+const FORCE_CANONICAL_BRIDGE_PATHS = new Set([
+ '/calcola-stipendio/confronta-permesso-g-vs-b/',
+ '/en/calculate-salary/compare-salaries/',
+ '/en/calculate-salary/what-if/',
+]);
+
 function addLegacyBridgeHead(html: string, from: string, to: string, extraHead = ''): string {
  const normalizedFrom = from === '/' ? from : `${from.replace(/\/+$/, '')}/`;
  const refresh = EDGE_HTTP_REDIRECT_PATHS.has(normalizedFrom)
@@ -338,6 +348,8 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  '/statistiche/traffico-dogane/': '/traffico-dogane/',
  '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
  '/calcola-stipendio/confronta-permesso-g-vs-b/': '/guida-frontaliere/confronta-permesso-g-vs-b/',
+ '/en/calculate-salary/compare-salaries/': '/en/statistics/compare-salaries/',
+ '/en/calculate-salary/what-if/': '/en/calculate-salary/what-if-scenarios/',
  // EN: old slugs
  '/en/salary-calculator/': '/en/calculate-salary/',
  '/en/job-search-ticino/': '/en/find-jobs-ticino/',
@@ -683,7 +695,10 @@ function buildLegacyRedirectsPlugin(rootDir: string): Plugin {
  const outDir = safeTargets.directoryPath;
  // Normal redirects preserve already emitted pages. These four historical
  // directory headings were never vacancies and must replace their stale detail HTML.
- if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from] && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)) continue;
+ if (fs.existsSync(path.join(outDir, 'index.html'))
+   && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from]
+   && !BORDER_WAIT_LEGACY_REDIRECTS.has(from)
+   && !FORCE_CANONICAL_BRIDGE_PATHS.has(from)) continue;
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
  const redirectLd = inlineScriptJson({

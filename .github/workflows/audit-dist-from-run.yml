@@ -523,7 +523,10 @@ jobs:
                 ;;
               gate:seo-source)
                 ensure_seo_source_mirror_reports
-                (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
+                # This gate runs source-level Vitest fixtures, not the sampled
+                # dist ratchets. Do not let report-only sampling inputs change
+                # the meaning of its synthetic count floors.
+                (env -u AUDIT_SAMPLE_RATE -u AUDIT_SAMPLE_SALT NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
                 ;;
               *)
                 (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
