@@ -76,18 +76,47 @@ export interface GamificationState {
  lastVisitDay: string;
 }
 
+const EMPTY_STATE: GamificationState = {
+ unlockedAchievements: {},
+ actionCounts: {},
+ xp: 0,
+ streak: 0,
+ lastVisitDay: '',
+};
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+ return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function readNonNegativeNumber(value: unknown, integerOnly = false): number {
+ if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) return 0;
+ if (integerOnly && !Number.isSafeInteger(value)) return 0;
+ return value;
+}
+
+function readNumberMap(value: unknown, integerOnly = false): Record<string, number> {
+ if (!isRecord(value)) return {};
+ const result: Record<string, number> = {};
+ for (const [key, entry] of Object.entries(value)) {
+  const number = readNonNegativeNumber(entry, integerOnly);
+  if (number > 0 || entry === 0) result[key] = number;
+ }
+ return result;
+}
+
 export function loadState(): GamificationState {
  if (unsavedState) return unsavedState;
  try {
  const raw = localStorage.getItem(STORAGE_KEY);
  if (raw) {
- const parsed = JSON.parse(raw);
+ const parsed: unknown = JSON.parse(raw);
+ if (!isRecord(parsed)) return { ...EMPTY_STATE, unlockedAchievements: {}, actionCounts: {} };
  return {
- unlockedAchievements: parsed.unlockedAchievements || {},
- actionCounts: parsed.actionCounts || {},
- xp: parsed.xp || 0,
- streak: parsed.streak || 0,
- lastVisitDay: parsed.lastVisitDay || '',
+ unlockedAchievements: readNumberMap(parsed.unlockedAchievements),
+ actionCounts: readNumberMap(parsed.actionCounts, true),
+ xp: readNonNegativeNumber(parsed.xp),
+ streak: readNonNegativeNumber(parsed.streak, true),
+ lastVisitDay: typeof parsed.lastVisitDay === 'string' ? parsed.lastVisitDay : '',
  };
  }
  } catch {}

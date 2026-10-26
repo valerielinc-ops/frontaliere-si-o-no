@@ -145,4 +145,18 @@ describe('checklist state', () => {
   it('grants a positive XP amount per step', () => {
     expect(XP_PER_STEP).toBeGreaterThan(0);
   });
+
+  it('filters unknown steps and invalid persisted values', () => {
+    localStorage.setItem('frontaliere_checklist_v1', JSON.stringify({
+      done: { unknown: Date.now(), [CHECKLIST_STEPS[0].id]: 'yes', [CHECKLIST_STEPS[1].id]: Date.now() },
+      awarded: { unknown: true, [CHECKLIST_STEPS[0].id]: 'true', [CHECKLIST_STEPS[1].id]: true },
+      completedAt: Number.POSITIVE_INFINITY,
+    }));
+
+    const state = loadChecklistState();
+    expect(state.done).toEqual({ [CHECKLIST_STEPS[1].id]: expect.any(Number) });
+    expect(state.awarded).toEqual({ [CHECKLIST_STEPS[1].id]: true });
+    expect(state.completedAt).toBeUndefined();
+    expect(doneCount(state)).toBe(1);
+  });
 });

@@ -46,6 +46,15 @@ describe('fetchExchangeRate — fresh localStorage cache', () => {
     expect(rate).toBeGreaterThan(0);
     expect(mod.__testing.firestoreRateCalls).toBeGreaterThan(0);
     expect(mod.__testing.twelveDataCalls).toBeGreaterThan(0);
+    expect(Number.isFinite(rate)).toBe(true);
+  });
+
+  it('ignores a malformed local cache entry', async () => {
+    localStorage.setItem('exchange_rate_cache', JSON.stringify({ rate: 'bad', timestamp: Date.now() }));
+    const mod = await import(MODULE);
+    const rate = await mod.fetchExchangeRate();
+    expect(rate).toBeGreaterThan(0);
+    expect(Number.isFinite(rate)).toBe(true);
   });
 });
 

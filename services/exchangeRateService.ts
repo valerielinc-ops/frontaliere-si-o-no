@@ -65,16 +65,19 @@ interface CacheEntry {
  source?: RateSource;
 }
 
-function isValidExchangeRate(value: unknown): value is number {
+function isUsableRate(value: unknown): value is number {
  return typeof value === 'number' && Number.isFinite(value) && value > 0;
 }
 
-function isValidCacheEntry(value: unknown): value is CacheEntry {
+function isUsableTimestamp(value: unknown): value is number {
+ return typeof value === 'number' && Number.isFinite(value) && value >= 0;
+}
+
+function isCacheEntry(value: unknown): value is CacheEntry {
  if (typeof value !== 'object' || value === null || Array.isArray(value)) return false;
- const entry = value as { rate?: unknown; timestamp?: unknown };
- return isValidExchangeRate(entry.rate)
-  && typeof entry.timestamp === 'number'
-  && Number.isFinite(entry.timestamp);
+ const entry = value as Record<string, unknown>;
+ return isUsableRate(entry.rate) && isUsableTimestamp(entry.timestamp)
+  && (entry.source === undefined || entry.source === 'twelvedata' || entry.source === 'firestore' || entry.source === 'cache' || entry.source === 'fallback');
 }
 
 // Track the last source for diagnostics
@@ -98,7 +101,7 @@ function getLocalCache(): CacheEntry | null {
  const cached = localStorage.getItem(CACHE_KEY);
  if (!cached) return null;
  const parsed: unknown = JSON.parse(cached);
- return isValidCacheEntry(parsed) ? parsed : null;
+ return isCacheEntry(parsed) ? parsed : null;
  } catch {
  return null;
  }
@@ -134,15 +137,16 @@ async function getFirestoreRate(): Promise<CacheEntry | null> {
  const snap = await getDoc(doc(db, 'config', 'exchange_rate'));
  if (snap.exists()) {
  const data = snap.data();
- const entry = {
- rate: data?.rate,
- timestamp: typeof data?.timestamp?.toMillis === 'function'
+ const timestamp = typeof data?.timestamp?.toMillis === 'function'
  ? data.timestamp.toMillis()
- : data?.timestamp,
- };
- if (isValidCacheEntry(entry)) {
- return { ...entry, source: 'firestore' };
- }
+ : data?.timestamp;
+ if (isUsableRate(data?.rate) && isUsableTimestamp(timestamp)) {
+ return {
+ rate: data.rate,
+ timestamp,
+ source: 'firestore',
+  };
+  }
  }
  } catch (e) {
  // Permission errors are expected for anonymous users — don't inflate error metrics
@@ -219,7 +223,7 @@ async function fetchFromTwelveData(): Promise<number | null> {
    const res = await fetcher(EXCHANGE_RATE_ENDPOINT, { signal: controller.signal });
    if (!res.ok) return null;
    const data = await res.json();
-   return data?.ok && isValidExchangeRate(data.rate) ? data.rate : null;
+   return data?.ok && isUsableRate(data.rate) ? data.rate : null;
   } catch (error) {
    lastError = error;
    const isAbort = (error instanceof Error && error.name === 'AbortError')
