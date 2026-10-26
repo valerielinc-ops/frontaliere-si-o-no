@@ -40,7 +40,7 @@ import {
 } from './adsConsent';
 import { classifyAdPageTemplate, documentHasJobPosting, type AdPageTemplate } from './adPageTemplate';
 import { AD_BANNER_STATE_ATTR } from './adsenseSlots';
-import { ARTICLE_DETAIL_ATF_EXPERIMENT_ID } from '@/packages/articles/engine/shared/articleAtfAdExperiment';
+import { ARTICLE_DETAIL_ATF_EXPERIMENT_ID } from '../packages/articles/engine/shared/articleAtfAdExperiment';
 import { isManualSlot } from './adSlotKinds';
 import { isLikelyBot } from './botPatterns';
 import { READER_NOADS_ACTIVE_KEY } from './readerEntitlementKey';
