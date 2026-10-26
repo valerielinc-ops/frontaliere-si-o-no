@@ -165,7 +165,8 @@ jobs:
           run_status=$(printf '%s' "$run" | jq -r '.status // empty')
           run_conclusion=$(printf '%s' "$run" | jq -r '.conclusion // empty')
           if [ -z "$run_path" ] || [ -z "$run_head_sha" ] \
-            || [ -z "$run_status" ] || [ -z "$run_conclusion" ]; then
+            || [ -z "$run_status" ] \
+            || { [ "$run_status" = "completed" ] && [ -z "$run_conclusion" ]; }; then
             echo "::error::Metadati della run tests $RUN_ID incompleti: impossibile legare il rosso alla HEAD corrente di #$PR."
             exit 1
           fi
