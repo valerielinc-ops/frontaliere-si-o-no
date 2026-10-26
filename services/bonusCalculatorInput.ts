@@ -8,7 +8,7 @@ export const BONUS_RATE_MAX = 10;
 
 export function parseBonusProfileChildren(raw: unknown): number | null {
   if (typeof raw !== 'string') return null;
-  const value = raw.trim();
+  const value = raw === '4+' ? '4' : raw;
   if (!WHOLE_NUMBER_RE.test(value)) return null;
   const children = Number(value);
   return Number.isSafeInteger(children) && children >= BONUS_CHILDREN_MIN && children <= BONUS_CHILDREN_MAX

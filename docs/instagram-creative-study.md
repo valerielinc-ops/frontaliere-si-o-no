@@ -17,6 +17,10 @@ La pipeline ha già una base utile:
 - matrice di 9 trattamenti (`proof`, `save`, `question`, con due varianti oltre
   alla baseline) e 3 trattamenti Reel;
 - ledger che collega ogni card al post e al relativo `creativeId`;
+- safe area orizzontale da 144px per tenere il testo fuori dai crop delle
+  anteprime Explore/profilo;
+- test Firebase a 4 sfondi, con assegnazione stabile per `kind + day` e
+  tracciamento di `backgroundVariant` nel ledger;
 - raccolta separata a 24 ore e 72 ore, senza mescolare le finestre.
 
 Lo stato del ledger su `origin/main` è 41 righe distribuite su 9 post. I primi
@@ -122,9 +126,22 @@ Il sistema registra ora quattro dimensioni oltre alla CTA:
   `comment-reply-reel`, `carousel-checklist`…).
 
 Questi ID sono stabili e vanno nel ledger, nella coda, negli snapshot e nei
-report. La pipeline varia hook, promessa, CTA e loop, mantenendo il layout del
-carousel controllato: è una scelta metodologica per non confondere il test del
-messaggio con quello della grafica. I Reel restano un formato/coorte separato.
+report. La pipeline varia hook, promessa, CTA e loop, mantenendo fissa la
+posizione del testo; il solo asse grafico in test è lo sfondo. Le quattro
+varianti sono:
+
+| ID | Ruolo | Caratteristica |
+|---|---|---|
+| `navy-gradient` | controllo | blu notte già usato dal brand |
+| `paper-amber` | trattamento | superficie chiara calda |
+| `mint-ink` | trattamento | superficie menta con testo scuro |
+| `coral-night` | trattamento | fondo scuro corallo ad alto contrasto |
+
+L'assegnazione arriva da Firebase Remote Config, è deterministica per
+`kind + day` e resta in controllo se il flag è assente o malformato. Il
+renderer usa sempre 144px di margine laterale, 96px sopra e 72px sotto: così
+il test misura lo sfondo senza reintrodurre il testo nella zona che può essere
+tagliata. I Reel restano un formato/coorte separato.
 
 La ripartizione editoriale resta 60/30/10:
 
@@ -170,13 +187,15 @@ errori, nella riga `🤖 Instagram community automation`.
 ## 6. Disegno del test nel tempo
 
 Ogni coorte è confrontata solo con la stessa combinazione di:
-`creativeId + content kind + measurement window`.
+`creativeId + backgroundVariant + content kind + measurement window`.
 
 - 24h è diagnostica: segnala se hook e cover fermano l’attenzione;
 - 72h è la finestra decisionale;
 - `shares/reach`, `saves/reach` e `comments/reach` restano obiettivi diversi;
 - servono almeno 3 osservazioni indipendenti per variante prima di parlare di
   leader;
+- per il test sfondi, non si dichiara un vincitore prima di avere almeno 3
+  post per ciascuno dei 4 arm, nello stesso obiettivo e formato;
 - non si sommano carousel e Reel, né finestre 24h e 72h;
 - un risultato negativo porta a cambiare una sola variabile dominante nel giro
   successivo: hook, CTA, loop oppure formato.
@@ -212,7 +231,7 @@ eventuale item più recente dello stesso tipo resta intatto.
 
 | Periodo | Esecuzione | Decisione |
 |---|---|---|
-| Giorni 1–9 | completare il primo giro dei 9 carousel ID per articoli e lavoro; pubblicare il Reel in coda; usare il piano 24/48/72h | nessun vincitore; controllare qualità del loop e risposta entro SLA |
+| Giorni 1–9 | completare il primo giro dei 9 carousel ID per articoli e lavoro; distribuire i 4 sfondi; pubblicare il Reel in coda; usare il piano 24/48/72h | nessun vincitore; controllare qualità del loop e risposta entro SLA |
 | Giorni 10–14 | ripetere le promesse con lo stesso obiettivo su articoli e lavoro; mantenere separata la rotazione settimanale dei valichi | accumulare la seconda osservazione senza dichiarare vincitori |
 | Giorni 15–21 | inserire un comment-reply e un Trial Reel se l'account lo consente | confrontare non-follower, reach e metrica primaria, separando il formato |
 | Giorni 22–27 | completare la terza osservazione delle coorti quotidiane e continuare il loop commento → risposta | arrivare a 3 osservazioni comparabili per ogni ID quotidiano; eliminare solo hook che non genera il gesto previsto |

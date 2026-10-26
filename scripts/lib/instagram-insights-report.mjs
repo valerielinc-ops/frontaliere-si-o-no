@@ -50,6 +50,10 @@ const CSV_FIELD_ALIASES = Object.freeze({
   creativeVariant: ['creativevariant', 'variant'],
   creativeLabel: ['creativelabel'],
   creativeObjective: ['creativeobjective', 'objective'],
+  backgroundExperimentId: ['backgroundexperimentid', 'visualexperimentid'],
+  backgroundVariant: ['backgroundvariant', 'visualvariant', 'background'],
+  backgroundLabel: ['backgroundlabel', 'visuallabel'],
+  safeAreaVersion: ['safeareaversion', 'layoutversion'],
   primaryMetric: ['primarymetric'],
   engagementMechanic: ['engagementmechanic'],
   hookType: ['hooktype', 'hook'],
@@ -227,6 +231,10 @@ function buildLedgerLookup(ledger) {
       creativeBaseId: firstString(entry.creativeBaseId, entry.creative_base_id),
       creativeVariant: firstString(entry.creativeVariant, entry.creative_variant),
       creativeLabel: firstString(entry.creativeLabel, entry.creative_label),
+      backgroundExperimentId: firstString(entry.backgroundExperimentId, entry.background_experiment_id),
+      backgroundVariant: firstString(entry.backgroundVariant, entry.background_variant),
+      backgroundLabel: firstString(entry.backgroundLabel, entry.background_label),
+      safeAreaVersion: firstString(entry.safeAreaVersion, entry.safe_area_version),
       engagementMechanic: firstString(entry.engagementMechanic, entry.engagement_mechanic),
       hookType: firstString(entry.hookType, entry.hook_type),
       attentionMechanic: firstString(entry.attentionMechanic, entry.attention_mechanic),
@@ -323,6 +331,36 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       raw.creative?.label,
       ledgerMetadata?.creativeLabel,
     );
+    const backgroundExperimentId = firstString(
+      raw.backgroundExperimentId,
+      raw.background_experiment_id,
+      raw.visualExperimentId,
+      raw.visual_experiment_id,
+      ledgerMetadata?.backgroundExperimentId,
+    );
+    const backgroundVariant = firstString(
+      raw.backgroundVariant,
+      raw.background_variant,
+      raw.visualVariant,
+      raw.visual_variant,
+      raw.background,
+      raw.creative?.backgroundVariant,
+      ledgerMetadata?.backgroundVariant,
+    );
+    const backgroundLabel = firstString(
+      raw.backgroundLabel,
+      raw.background_label,
+      raw.visualLabel,
+      raw.visual_label,
+      ledgerMetadata?.backgroundLabel,
+    );
+    const safeAreaVersion = firstString(
+      raw.safeAreaVersion,
+      raw.safe_area_version,
+      raw.layoutVersion,
+      raw.layout_version,
+      ledgerMetadata?.safeAreaVersion,
+    );
     const hookType = firstString(
       raw.hookType,
       raw.hook_type,
@@ -382,6 +420,10 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       creativeBaseId,
       creativeVariant,
       creativeLabel,
+      backgroundExperimentId,
+      backgroundVariant,
+      backgroundLabel,
+      safeAreaVersion,
       kind: firstString(raw.kind, raw.contentKind, raw.content_kind, ledgerMetadata?.kind) || 'unknown',
       objective,
       primaryMetric,
@@ -410,8 +452,13 @@ function rate(value, reach) {
   return reach > 0 ? value / reach : 0;
 }
 
+function treatmentId(treatment) {
+  const background = firstString(treatment.backgroundVariant);
+  return background ? `${treatment.creativeId}--bg-${background}` : treatment.creativeId;
+}
+
 /**
- * Aggregate comparable rows by creative, content kind and measurement
+ * Aggregate comparable rows by creative, background, content kind and measurement
  * window. The common interaction rate is only an
  * exploratory guardrail; the treatment's primary rate remains the decision
  * metric. This prevents comparing shares and saves as if they were the same
@@ -426,9 +473,14 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
   const groups = new Map();
   for (const row of rows) {
     const kind = firstString(row.kind) || 'unknown';
-    const key = `${row.creativeId}\u0000${kind}\u0000${row.windowHours}`;
+    const backgroundVariant = firstString(row.backgroundVariant) || 'legacy';
+    const key = `${row.creativeId}\u0000${backgroundVariant}\u0000${kind}\u0000${row.windowHours}`;
     const group = groups.get(key) || {
       creativeId: row.creativeId,
+      backgroundExperimentId: row.backgroundExperimentId || null,
+      backgroundVariant,
+      backgroundLabel: row.backgroundLabel || null,
+      safeAreaVersion: row.safeAreaVersion || null,
       creativeBaseId: row.creativeBaseId || null,
       creativeVariant: row.creativeVariant || null,
       creativeLabel: row.creativeLabel || null,
@@ -455,6 +507,9 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     group.observations += 1;
     group.kinds.add(kind);
     group.engagementMechanic ||= row.engagementMechanic || null;
+    group.backgroundExperimentId ||= row.backgroundExperimentId || null;
+    group.backgroundLabel ||= row.backgroundLabel || null;
+    group.safeAreaVersion ||= row.safeAreaVersion || null;
     group.creativeBaseId ||= row.creativeBaseId || null;
     group.creativeVariant ||= row.creativeVariant || null;
     group.creativeLabel ||= row.creativeLabel || null;
@@ -476,6 +531,10 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     const eligible = group.observations >= minimumObservations;
     return {
       creativeId: group.creativeId,
+      backgroundExperimentId: group.backgroundExperimentId,
+      backgroundVariant: group.backgroundVariant === 'legacy' ? null : group.backgroundVariant,
+      backgroundLabel: group.backgroundLabel,
+      safeAreaVersion: group.safeAreaVersion,
       creativeBaseId: group.creativeBaseId,
       creativeVariant: group.creativeVariant,
       creativeLabel: group.creativeLabel,
@@ -510,6 +569,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
 
   const sortedTreatments = treatments.sort(
     (a, b) => a.creativeId.localeCompare(b.creativeId)
+      || (a.backgroundVariant || 'legacy').localeCompare(b.backgroundVariant || 'legacy')
       || a.kind.localeCompare(b.kind)
       || a.windowHours - b.windowHours,
   );
@@ -528,7 +588,9 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     group.sort((a, b) => b.interactionRate - a.interactionRate || b.primaryRate - a.primaryRate || a.creativeId.localeCompare(b.creativeId));
     const winner = group[0];
     exploratoryWinners.push({
+      treatmentId: treatmentId(winner),
       creativeId: winner.creativeId,
+      backgroundVariant: winner.backgroundVariant,
       objective: winner.objective,
       kind: winner.kind,
       windowHours: winner.windowHours,
@@ -537,7 +599,9 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     });
     group.forEach((treatment, index) => {
       exploratoryRanking.push({
+        treatmentId: treatmentId(treatment),
         creativeId: treatment.creativeId,
+        backgroundVariant: treatment.backgroundVariant,
         objective: treatment.objective,
         kind: treatment.kind,
         windowHours: treatment.windowHours,
@@ -552,9 +616,9 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     treatments: sortedTreatments,
     exploratoryRanking,
     exploratoryWinners,
-    exploratoryWinner: exploratoryWinners.length === 1 ? exploratoryWinners[0].creativeId : null,
+    exploratoryWinner: exploratoryWinners.length === 1 ? exploratoryWinners[0].treatmentId : null,
     methodology: {
-      comparisonUnit: 'creativeId + content kind + measurement window',
+      comparisonUnit: 'creativeId + background variant + content kind + measurement window',
       primaryRate: 'primary metric / audience base (reach or views)',
       interactionRate: '(shares + saves + comments) / audience base (reach or views)',
       rankingWarning: 'exploratoryRanking is a within-objective guardrail, not a replacement for each treatment primary metric or a cross-objective winner',
@@ -583,12 +647,13 @@ export function formatCreativeReport(report) {
     lines.push('   No valid treatment rows yet.');
   } else {
     for (const treatment of report.treatments) {
+      const background = treatment.backgroundVariant ? ` · bg ${treatment.backgroundVariant}` : '';
       const mechanic = treatment.engagementMechanic ? ` · CTA ${treatment.engagementMechanic}` : '';
       const hook = treatment.hookType ? ` · hook ${treatment.hookType}` : '';
       const loop = treatment.engagementLoop ? ` · loop ${treatment.engagementLoop}` : '';
       lines.push(
         `   ${treatment.creativeId.padEnd(18)} ${treatment.kind.padEnd(8)} ${treatment.windowHours}h · ${treatment.observations} obs · `
-        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${mechanic}${hook}${loop}`,
+        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${background}${mechanic}${hook}${loop}`,
       );
     }
   }
@@ -597,10 +662,11 @@ export function formatCreativeReport(report) {
     lines.push('   No exploratory leader: collect more comparable observations.');
   } else if (report.exploratoryWinners.length === 1) {
     const winner = report.exploratoryWinners[0];
-    lines.push(`   Exploratory leader (${winner.kind}, ${winner.windowHours}h): ${winner.creativeId}`);
+    const background = winner.backgroundVariant ? `, ${winner.backgroundVariant}` : '';
+    lines.push(`   Exploratory leader (${winner.kind}, ${winner.windowHours}h${background}): ${winner.creativeId}`);
   } else {
     lines.push(`   Exploratory leaders: ${report.exploratoryWinners
-      .map((winner) => `${winner.creativeId} (${winner.kind}, ${winner.windowHours}h)`)
+      .map((winner) => `${winner.creativeId} (${winner.kind}, ${winner.windowHours}h${winner.backgroundVariant ? `, ${winner.backgroundVariant}` : ''})`)
       .join('; ')}`);
   }
   if (report.rejectedRows.length) {

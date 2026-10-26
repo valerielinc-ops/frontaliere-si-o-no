@@ -4,9 +4,11 @@ import { clampBonusInteger, clampBonusNumber, parseBonusProfileChildren } from '
 describe('bonus calculator input normalization', () => {
   it('accepts only complete child counts in the UI range', () => {
     expect(parseBonusProfileChildren('2')).toBe(2);
-    expect(parseBonusProfileChildren(' 10 ')).toBe(10);
+    expect(parseBonusProfileChildren('10')).toBe(10);
+    expect(parseBonusProfileChildren('4+')).toBe(4);
     expect(parseBonusProfileChildren('2abc')).toBeNull();
     expect(parseBonusProfileChildren('3.5')).toBeNull();
+    expect(parseBonusProfileChildren(' 10 ')).toBeNull();
     expect(parseBonusProfileChildren('11')).toBeNull();
   });
 

@@ -114,6 +114,10 @@ export function groupPostedLedger(ledger) {
       creativeVariant: firstText(entry.creativeVariant, entry.creative_variant),
       creativeLabel: firstText(entry.creativeLabel, entry.creative_label),
       creativeObjective: firstText(entry.creativeObjective, entry.creative_objective),
+      backgroundExperimentId: firstText(entry.backgroundExperimentId, entry.background_experiment_id),
+      backgroundVariant: firstText(entry.backgroundVariant, entry.background_variant),
+      backgroundLabel: firstText(entry.backgroundLabel, entry.background_label),
+      safeAreaVersion: firstText(entry.safeAreaVersion, entry.safe_area_version),
       primaryMetric: firstText(entry.primaryMetric, entry.primary_metric),
       engagementMechanic: firstText(entry.engagementMechanic, entry.engagement_mechanic),
       hookType: firstText(entry.hookType, entry.hook_type),
@@ -123,8 +127,13 @@ export function groupPostedLedger(ledger) {
       publishedAtMs: entryTs,
       entries: 0,
       conflictingCreativeId: false,
+      conflictingBackgroundVariant: false,
     };
     if (group.creativeId !== creativeId) group.conflictingCreativeId = true;
+    const backgroundVariant = firstText(entry.backgroundVariant, entry.background_variant);
+    if (group.backgroundVariant && backgroundVariant && group.backgroundVariant !== backgroundVariant) {
+      group.conflictingBackgroundVariant = true;
+    }
     group.mediaId ||= mediaId;
     group.queueId ||= queueId;
     group.sourceKind ||= firstText(entry.sourceKind, entry.source_kind);
@@ -134,6 +143,10 @@ export function groupPostedLedger(ledger) {
     group.creativeVariant ||= firstText(entry.creativeVariant, entry.creative_variant);
     group.creativeLabel ||= firstText(entry.creativeLabel, entry.creative_label);
     group.creativeObjective ||= firstText(entry.creativeObjective, entry.creative_objective);
+    group.backgroundExperimentId ||= firstText(entry.backgroundExperimentId, entry.background_experiment_id);
+    group.backgroundVariant ||= backgroundVariant;
+    group.backgroundLabel ||= firstText(entry.backgroundLabel, entry.background_label);
+    group.safeAreaVersion ||= firstText(entry.safeAreaVersion, entry.safe_area_version);
     group.primaryMetric ||= firstText(entry.primaryMetric, entry.primary_metric);
     group.engagementMechanic ||= firstText(entry.engagementMechanic, entry.engagement_mechanic);
     group.hookType ||= firstText(entry.hookType, entry.hook_type);
@@ -171,7 +184,7 @@ export function selectSnapshotCandidates(
   const skipped = [];
   for (const group of groupPostedLedger(ledger)) {
     const key = snapshotIdentity(group, targetHours);
-    if (group.conflictingCreativeId) {
+    if (group.conflictingCreativeId || group.conflictingBackgroundVariant) {
       skipped.push({ reason: 'conflicting-creative-metadata' });
     } else if (!group.publishedAtMs) {
       skipped.push({ reason: 'published-at-missing' });
@@ -353,6 +366,10 @@ export async function collectSnapshots({
         creativeVariant: group.creativeVariant || undefined,
         creativeLabel: group.creativeLabel || undefined,
         creativeObjective: group.creativeObjective || undefined,
+        backgroundExperimentId: group.backgroundExperimentId || undefined,
+        backgroundVariant: group.backgroundVariant || undefined,
+        backgroundLabel: group.backgroundLabel || undefined,
+        safeAreaVersion: group.safeAreaVersion || undefined,
         primaryMetric: group.primaryMetric || undefined,
         engagementMechanic: group.engagementMechanic || undefined,
         hookType: group.hookType || undefined,

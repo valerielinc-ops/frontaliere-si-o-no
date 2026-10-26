@@ -235,4 +235,49 @@ describe('Instagram Insights creative scorecard', () => {
     ]);
     expect(report.exploratoryWinner).toBeNull();
   });
+
+  it('keeps the four-arm background test separate from the message treatment', () => {
+    const normalized = normalizeInsightRows([
+      ...Array.from({ length: 3 }, (_, index) => ({
+        id: `navy-${index}`,
+        creativeId: 'proof',
+        backgroundExperimentId: 'instagram-carousel-background-v1',
+        backgroundVariant: 'navy-gradient',
+        backgroundLabel: 'Blu notte · controllo',
+        kind: 'article',
+        reach: 100,
+        shares: 10,
+      })),
+      ...Array.from({ length: 3 }, (_, index) => ({
+        id: `paper-${index}`,
+        creativeId: 'proof',
+        backgroundExperimentId: 'instagram-carousel-background-v1',
+        backgroundVariant: 'paper-amber',
+        backgroundLabel: 'Carta calda',
+        kind: 'article',
+        reach: 100,
+        shares: 4,
+      })),
+    ]).rows;
+    const report = aggregateCreativePerformance(normalized);
+
+    expect(report.treatments).toEqual([
+      expect.objectContaining({
+        creativeId: 'proof',
+        backgroundVariant: 'navy-gradient',
+        backgroundLabel: 'Blu notte · controllo',
+        observations: 3,
+        eligible: true,
+      }),
+      expect.objectContaining({
+        creativeId: 'proof',
+        backgroundVariant: 'paper-amber',
+        backgroundLabel: 'Carta calda',
+        observations: 3,
+        eligible: true,
+      }),
+    ]);
+    expect(report.methodology.comparisonUnit).toContain('background variant');
+    expect(report.exploratoryWinner).toBe('proof--bg-navy-gradient');
+  });
 });

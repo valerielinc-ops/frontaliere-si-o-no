@@ -21,7 +21,7 @@ function usage() {
     '  node scripts/instagram-insights-report.mjs --input insights.json --ledger data/instagram-posted.json --json',
     '',
     'The input is a JSON array/object or a comma/semicolon-separated Dashboard CSV.',
-    'Use one row per post; comparisons stay within objective, content kind and measurement window (72h by default).',
+    'Use one row per post; comparisons stay within objective, background arm, content kind and measurement window (72h by default).',
     'CSV rows can use a media id or queue id; --ledger supplies the creative metadata.',
     'No Meta API call or credential is made by this command.',
   ].join('\n');

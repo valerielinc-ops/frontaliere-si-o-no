@@ -1,56 +1,20 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-26T09:16:21.545Z",
+  "generatedAt": "2026-10-26T21:22:17.653Z",
   "total": 18,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 13,
-  "durationMs": 6837,
-  "avgDurationMs": 6837,
+  "unchangedCount": 14,
+  "durationMs": 4736,
+  "avgDurationMs": 4736,
   "durationHistory": [
-    6837
+    4736
   ],
-  "newJobs": [
-    {
-      "title": "gruppi di capacità.",
-      "slug": "gruppi-di-capacita-lwp-ledermann-wieting-partners-switzerland",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_controller_and_coo_deputy.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "id": "lwphr-3de39366c9c0",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-26T09:16:08.886Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 13
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Mansioni principali:",
@@ -203,6 +167,40 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "gruppi di capacità.",
+      "slug": "gruppi-di-capacita-lwp-ledermann-wieting-partners-switzerland",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_controller_and_coo_deputy.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-3de39366c9c0",
+      "firstSeenAt": "2026-10-26T09:16:08.886Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 13
+      }
+    },
     {
       "title": "(preferibile) o Architettura;",
       "slug": "preferibile-o-architettura-lwp-ledermann-wieting-partners-switzerland",
@@ -653,5 +651,5 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }

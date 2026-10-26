@@ -143,7 +143,7 @@ export function buildInstagramEngagementPlan({ kind = DEFAULT_KIND, sourceKind =
       decisionWindowHours: 72,
       primaryMetric: creative.primaryMetric,
       minimumComparableObservations: 3,
-      comparisonUnit: 'creativeId + content kind + measurement window',
+      comparisonUnit: 'creativeId + background variant + content kind + measurement window',
     },
   };
 }

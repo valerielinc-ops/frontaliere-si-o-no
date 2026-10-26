@@ -65,6 +65,18 @@ interface CacheEntry {
  source?: RateSource;
 }
 
+function isValidExchangeRate(value: unknown): value is number {
+ return typeof value === 'number' && Number.isFinite(value) && value > 0;
+}
+
+function isValidCacheEntry(value: unknown): value is CacheEntry {
+ if (typeof value !== 'object' || value === null || Array.isArray(value)) return false;
+ const entry = value as { rate?: unknown; timestamp?: unknown };
+ return isValidExchangeRate(entry.rate)
+  && typeof entry.timestamp === 'number'
+  && Number.isFinite(entry.timestamp);
+}
+
 // Track the last source for diagnostics
 let lastSource: RateSource = 'fallback';
 
@@ -85,10 +97,16 @@ function getLocalCache(): CacheEntry | null {
  try {
  const cached = localStorage.getItem(CACHE_KEY);
  if (!cached) return null;
- return JSON.parse(cached) as CacheEntry;
+ const parsed: unknown = JSON.parse(cached);
+ return isValidCacheEntry(parsed) ? parsed : null;
  } catch {
  return null;
  }
+}
+
+/** Return the validated local rate without bypassing the cache contract. */
+export function getCachedExchangeRate(): number | null {
+ return getLocalCache()?.rate ?? null;
 }
 
 function setLocalCache(rate: number, source: RateSource): void {
@@ -116,14 +134,14 @@ async function getFirestoreRate(): Promise<CacheEntry | null> {
  const snap = await getDoc(doc(db, 'config', 'exchange_rate'));
  if (snap.exists()) {
  const data = snap.data();
- if (data?.rate && data?.timestamp) {
- return {
- rate: data.rate,
- timestamp: typeof data.timestamp?.toMillis === 'function'
+ const entry = {
+ rate: data?.rate,
+ timestamp: typeof data?.timestamp?.toMillis === 'function'
  ? data.timestamp.toMillis()
- : data.timestamp,
- source: 'firestore',
+ : data?.timestamp,
  };
+ if (isValidCacheEntry(entry)) {
+ return { ...entry, source: 'firestore' };
  }
  }
  } catch (e) {
@@ -201,7 +219,7 @@ async function fetchFromTwelveData(): Promise<number | null> {
    const res = await fetcher(EXCHANGE_RATE_ENDPOINT, { signal: controller.signal });
    if (!res.ok) return null;
    const data = await res.json();
-   return data?.ok && typeof data.rate === 'number' ? data.rate : null;
+   return data?.ok && isValidExchangeRate(data.rate) ? data.rate : null;
   } catch (error) {
    lastError = error;
    const isAbort = (error instanceof Error && error.name === 'AbortError')
@@ -331,7 +349,7 @@ export function useExchangeRate(): {
 } {
  const [rate, setRate] = useState<number>(() => {
  if (memoryRate !== null) return memoryRate;
- return getLocalCache()?.rate || DEFAULT_RATE;
+ return getCachedExchangeRate() ?? DEFAULT_RATE;
  });
  const [loading, setLoading] = useState(false);
  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);

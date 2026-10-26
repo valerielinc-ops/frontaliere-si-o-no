@@ -156,6 +156,8 @@ describe('Instagram creative system', () => {
   it('identifies the treatment in UTM content and the ledger', () => {
     const creative = chooseInstagramCreative({ kind: 'job', day: '2026-10-09' });
     expect(instagramCreativeContent(creative, 'job-123')).toBe(`${creative.id}-job-123`);
+    expect(instagramCreativeContent(creative, 'job-123', 'paper-amber'))
+      .toBe(`${creative.id}-paper-amber-job-123`);
     expect(instagramCreativeLedgerFields(creative)).toEqual({
       creativeId: creative.id,
       creativeBaseId: creative.baseId,

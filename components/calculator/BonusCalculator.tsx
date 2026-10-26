@@ -7,8 +7,9 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, irpefMarginalRate } from '@/services/calculationService';
-import { clampBonusInteger, clampBonusNumber, parseBonusProfileChildren, BONUS_CHILDREN_MAX, BONUS_RATE_MAX, BONUS_RATE_MIN } from '@/services/bonusCalculatorInput';
+import { clampBonusInteger, clampBonusNumber, BONUS_CHILDREN_MAX } from '@/services/bonusCalculatorInput';
 import { DEFAULT_EXCHANGE_RATE, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
+import { parseProfileChildren } from './bonusProfilePrefill';
 
 // Swiss bonus types for frontalieri
 const BONUS_TYPES = [
@@ -128,10 +129,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  if (userProfile.familySituation) {
  setIsMarried(userProfile.familySituation === 'married');
  }
- if (userProfile.children) {
- const n = parseBonusProfileChildren(userProfile.children);
- if (n !== null) setChildren(n);
- }
+ const profileChildren = parseProfileChildren(userProfile.children);
+ if (profileChildren !== null) setChildren(profileChildren);
  }, [userProfile]);
 
  // Use live rate unless user has manually overridden
