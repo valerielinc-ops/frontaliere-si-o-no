@@ -361,6 +361,76 @@ export function decideDispatchAfterFreshQueue(initialVerdict, freshVerdict) {
   };
 }
 
+const TERMINAL_TARGETED_JOB_CONCLUSIONS = new Set(['failure', 'cancelled', 'timed_out']);
+
+/**
+ * Turn a failed targeted-rerun POST into a safe next action.
+ *
+ * A non-zero `gh api` exit is ambiguous: GitHub may have accepted the POST
+ * and the client may have lost the response. A broad workflow dispatch in
+ * that case would race the targeted rerun. Only an explicit 4xx rejection,
+ * corroborated by an unchanged terminal target job and run attempt, admits
+ * the bounded whole-run fallback. Every other observation is fail-closed.
+ *
+ * @returns {{action: 'fallback'|'skip', reason: string, detail: string}}
+ */
+export function decideTargetedRerunFallback({
+  requestStatus,
+  originalAttempt,
+  observedRunAttempt,
+  originalJobId,
+  originalJobName,
+  observedJobs,
+} = {}) {
+  const expectedAttempt = Number(originalAttempt);
+  const runAttempt = Number(observedRunAttempt);
+  const status = Number(requestStatus);
+  const jobs = Array.isArray(observedJobs) ? observedJobs : [];
+  const matchingJobs = jobs.filter((job) => (
+    String(job?.id ?? '') === String(originalJobId ?? '')
+      || (String(job?.run_id ?? '') && String(job?.name ?? '') === String(originalJobName ?? ''))
+  ));
+
+  const admitted = runAttempt > expectedAttempt
+    || matchingJobs.some((job) => Number(job?.run_attempt) > expectedAttempt)
+    || matchingJobs.some((job) => (
+      Number(job?.run_attempt) === expectedAttempt
+        && String(job?.id ?? '') !== String(originalJobId ?? '')
+        && LIVE_STATUSES.has(String(job?.status ?? ''))
+    ));
+  if (admitted) {
+    return {
+      action: 'skip',
+      reason: 'targeted-rerun-admitted',
+      detail: 'the post failed after the targeted job/run moved to a newer or live attempt; broad dispatch is suppressed',
+    };
+  }
+
+  const unchangedTerminalJob = matchingJobs.some((job) => (
+    String(job?.id ?? '') === String(originalJobId ?? '')
+      && Number(job?.run_attempt) === expectedAttempt
+      && job?.status === 'completed'
+      && TERMINAL_TARGETED_JOB_CONCLUSIONS.has(String(job?.conclusion ?? ''))
+  ));
+  const explicitRejection = Number.isSafeInteger(status) && status >= 400 && status < 500;
+  if (explicitRejection
+      && Number.isSafeInteger(expectedAttempt)
+      && runAttempt === expectedAttempt
+      && unchangedTerminalJob) {
+    return {
+      action: 'fallback',
+      reason: 'targeted-rerun-rejected',
+      detail: `GitHub rejected the targeted rerun with HTTP ${status} and the target remained on attempt ${expectedAttempt}`,
+    };
+  }
+
+  return {
+    action: 'skip',
+    reason: 'targeted-rerun-admission-ambiguous',
+    detail: 'could not prove both an explicit rejection and an unchanged target; no broad re-arm is dispatched',
+  };
+}
+
 /* c8 ignore start — I/O shell around the pure core above */
 
 const REARM_LISTING_WINDOW_DAYS = 7;
@@ -385,6 +455,43 @@ function ghJson(args) {
     return JSON.parse(raw);
   } catch {
     throw new Error(`invalid JSON from GitHub API for ${args.join(' ')}`);
+  }
+}
+
+function githubHttpStatus(error) {
+  const text = [error?.stderr, error?.stdout, error?.message]
+    .filter((value) => value != null)
+    .map((value) => String(value))
+    .join('\n');
+  const match = text.match(/\b(?:HTTP|status(?:\s+code)?)\s*[:=]?\s*([45]\d{2})\b/i);
+  return match ? Number(match[1]) : null;
+}
+
+function inspectTargetedRerunPostFailure({
+  repo,
+  runId,
+  jobId,
+  jobName,
+  originalAttempt,
+  requestStatus,
+} = {}) {
+  try {
+    const run = ghJson(['api', `repos/${repo}/actions/runs/${runId}`]);
+    const jobsPayload = ghJson(['api', `repos/${repo}/actions/runs/${runId}/jobs?filter=all&per_page=100`]);
+    return decideTargetedRerunFallback({
+      requestStatus,
+      originalAttempt,
+      observedRunAttempt: run?.run_attempt,
+      originalJobId: jobId,
+      originalJobName: jobName,
+      observedJobs: jobsPayload?.jobs,
+    });
+  } catch (probeError) {
+    return {
+      action: 'skip',
+      reason: 'targeted-rerun-admission-unreadable',
+      detail: `could not verify targeted rerun admission: ${String(probeError?.message || probeError).split('\n')[0]}`,
+    };
   }
 }
 
@@ -582,24 +689,50 @@ async function main() {
       `[rearm] ${localeRecovery.reason}: retrying only ${localeRecovery.job?.name || 'the failed locale leg'} `
         + `(${jobId}) from the original run and prepared snapshot`,
     );
+    let recoveryRequested = false;
     try {
       gh(['api', '-X', 'POST', `repos/${repo}/actions/jobs/${jobId}/rerun`]);
+      recoveryRequested = true;
+    } catch (err) {
+      // A job rerun can be rejected while this workflow run is still open: the
+      // recovery decision runs in the terminal run's own `rearm` job, before
+      // GitHub has marked that run completed. A non-zero client exit is also
+      // ambiguous, though: the POST may have been accepted and the response
+      // lost. Probe the run/job attempt before allowing the broad fallback.
+      const admission = inspectTargetedRerunPostFailure({
+        repo,
+        runId: process.env.GITHUB_RUN_ID,
+        jobId,
+        jobName: localeRecovery.job?.name,
+        originalAttempt: localeRecovery.job?.run_attempt || process.env.GITHUB_RUN_ATTEMPT,
+        requestStatus: githubHttpStatus(err),
+      });
+      if (admission.action !== 'fallback') {
+        console.warn(`::warning::targeted build-locale recovery request outcome is ${admission.reason}: ${admission.detail}`);
+        console.warn('::warning::skipping whole-run re-arm because a second recovery could race an admitted targeted rerun');
+        return 0;
+      }
+      console.warn(`::warning::targeted build-locale recovery request rejected: ${admission.detail}`);
+      console.warn('::warning::falling back to the bounded whole-run re-arm for the same main tip');
+    }
+    if (recoveryRequested) {
       const summary = process.env.GITHUB_STEP_SUMMARY;
       if (summary) {
-        const { appendFileSync } = await import('node:fs');
-        appendFileSync(
-          summary,
-          `🔁 **Targeted build-locale recovery**: reran ${localeRecovery.job.name} `
-            + `for ${localeRecovery.reason} on the same SHA/snapshot; no other matrix leg was dispatched.\n`,
-        );
+        try {
+          const { appendFileSync } = await import('node:fs');
+          appendFileSync(
+            summary,
+            `🔁 **Targeted build-locale recovery**: reran ${localeRecovery.job.name} `
+              + `for ${localeRecovery.reason} on the same SHA/snapshot; no other matrix leg was dispatched.\n`,
+          );
+        } catch (err) {
+          // The summary is diagnostic only. A successful recovery request must
+          // not be turned into a second build because the summary file failed.
+          console.warn(`::warning::could not write targeted recovery summary: ${err?.message?.split('\n')[0]}`);
+        }
       }
-    } catch (err) {
-      // Do not reinterpret a failed recovery request as a broad host-loss
-      // match. The ordinary re-arm below remains the existing backstop only
-      // when no targeted candidate was admitted.
-      console.warn(`::warning::targeted build-locale recovery request failed: ${err?.message?.split('\n')[0]}`);
+      return 0;
     }
-    return 0;
   }
   if (localeRecovery.reason === 'recovery-api-unreadable') {
     console.warn(`::warning::${localeRecovery.detail} — falling back to the existing whole-run re-arm decision`);
