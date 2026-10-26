@@ -795,9 +795,11 @@ export function shouldQueueArgosSlot(job, { locale, field }) {
 
 /**
  * Apply the request-level admission filters before assigning a job to the
- * source-copy priority lane. A cached or title-lane handoff slot is still a
- * `missingSlot()`, but it cannot produce an Argos request and must not make
- * its job consume the bounded selection cap.
+ * source-copy priority lane. A recent cached or title-lane handoff slot is
+ * still a `missingSlot()`, but it cannot produce an Argos request and must not
+ * make its job consume the bounded selection cap. The sole cache exception is
+ * a queue-stale source-copy description, which the shared predicate admits for
+ * a bounded retry.
  */
 export function queueableMopupSlots(job, slots, negativeCache, now = Date.now()) {
   if (!Array.isArray(slots)) return [];

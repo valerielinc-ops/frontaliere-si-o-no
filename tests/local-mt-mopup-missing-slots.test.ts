@@ -137,6 +137,7 @@ describe('local-mt-mopup missingSlots()', () => {
   });
 
   it('does not let a negative-cached source-copy job consume the mopup cap', () => {
+    const now = Date.parse('2026-10-26T00:00:00Z');
     const source = 'The authoritative source description contains enough operational detail for this translation repair. '.repeat(3);
     const translated = 'La descrizione tradotta contiene dettagli operativi sufficienti per questa riparazione della traduzione. '.repeat(3);
     const base = {
@@ -156,6 +157,7 @@ describe('local-mt-mopup missingSlots()', () => {
     const stale = {
       ...base,
       slug: 'stale',
+      firstSeenAt: new Date(now - 3 * 86_400_000).toISOString(),
       descriptionByLocale: { ...base.descriptionByLocale, it: source },
     };
     const actionable = {
@@ -174,19 +176,19 @@ describe('local-mt-mopup missingSlots()', () => {
       entries: {
         [staleKey]: {
           decision: 'skip:source-copy',
-          expiresAt: new Date(Date.now() + 60_000).toISOString(),
+          expiresAt: new Date(now + 60_000).toISOString(),
         },
       },
     };
     const staleSlots = missingSlots(stale);
     const actionableSlots = missingSlots(actionable);
 
-    expect(queueableMopupSlots(stale, staleSlots, negativeCache)).toEqual([]);
-    expect(queueableMopupSlots(actionable, actionableSlots, negativeCache))
+    expect(queueableMopupSlots(stale, staleSlots, negativeCache, now)).toEqual([]);
+    expect(queueableMopupSlots(actionable, actionableSlots, negativeCache, now))
       .toContainEqual({ locale: 'it', field: 'description' });
 
     const candidates = [stale, actionable].filter((job) =>
-      queueableMopupSlots(job, missingSlots(job), negativeCache).length > 0);
+      queueableMopupSlots(job, missingSlots(job), negativeCache, now).length > 0);
     const { selected } = orderMopupJobsByTraffic(
       candidates,
       { stale: 1, actionable: 500 },
