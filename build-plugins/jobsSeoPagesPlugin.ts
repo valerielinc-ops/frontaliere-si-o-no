@@ -1071,6 +1071,21 @@ function hasNonEmptyJobPostingField(value: unknown): boolean {
  return Object.keys(value).length > 0;
 }
 
+function hasCompleteCachedBaseSalary(value: unknown): boolean {
+ if (!value || typeof value !== 'object') return false;
+ const salary = value as Record<string, unknown>;
+ const quantitativeValue = salary.value;
+ if (!quantitativeValue || typeof quantitativeValue !== 'object') return false;
+ const amount = quantitativeValue as Record<string, unknown>;
+ const minValue = Number(amount.minValue);
+ const maxValue = amount.maxValue === undefined ? undefined : Number(amount.maxValue);
+ return String(salary.currency || '').trim().length > 0
+  && Number.isFinite(minValue)
+  && minValue > 0
+  && (maxValue === undefined || (Number.isFinite(maxValue) && maxValue >= minValue))
+  && String(amount.unitText || '').trim().length > 0;
+}
+
 function hasCompleteActiveJobPostingContract(fragment: string): boolean {
  const scriptPattern = /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
  for (const match of fragment.matchAll(scriptPattern)) {
@@ -1080,7 +1095,7 @@ function hasCompleteActiveJobPostingContract(fragment: string): boolean {
     const address = (record.jobLocation && typeof record.jobLocation === 'object'
      ? (record.jobLocation as Record<string, unknown>).address
      : null) as Record<string, unknown> | null;
-    return hasNonEmptyJobPostingField(record.baseSalary)
+    return hasCompleteCachedBaseSalary(record.baseSalary)
       && hasNonEmptyJobPostingField(record.employmentType)
       && hasNonEmptyJobPostingField(address?.streetAddress)
       && hasNonEmptyJobPostingField(address?.postalCode);

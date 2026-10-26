@@ -110,9 +110,13 @@ function resolveCoherentFallbackPostalCode(address, job) {
   const fallback = resolveFallbackAddress(companySlug, locality, region);
   if (
     fallback
-    && normalizePostalLocality(fallback.addressLocality) === normalizePostalLocality(locality)
+    && String(fallback.addressRegion || '').toUpperCase().trim() === region.toUpperCase()
     && /^\d{4}$/.test(String(fallback.postalCode || '').trim())
   ) {
+    // Unknown localities intentionally keep their visible locality while the
+    // canonical resolver borrows the region-safe fallback tuple's CAP. Match
+    // that exact resolver output rather than requiring the fallback tuple's
+    // own city name to replace the page locality.
     return String(fallback.postalCode).trim();
   }
   return '';

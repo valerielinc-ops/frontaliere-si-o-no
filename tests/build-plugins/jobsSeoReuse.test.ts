@@ -202,12 +202,18 @@ describe('jobs SEO disk HTML reuse', () => {
       + '<!-- jobs-seo-reuse:job-posting:end -->';
     const jobPosting = '<script type="application/ld+json">'
       + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
-      + '"validThrough":"2026-12-31","baseSalary":{"currency":"CHF"},'
+      + '"validThrough":"2026-12-31","baseSalary":{"currency":"CHF",'
+      + '"value":{"minValue":60000,"unitText":"YEAR"}},'
       + '"employmentType":"FULL_TIME","jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}}}'
       + '</script>';
     const incompleteLegacyJobPosting = '<script type="application/ld+json">'
       + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
       + '"validThrough":"2026-12-31"}'
+      + '</script>';
+    const malformedSalaryJobPosting = '<script type="application/ld+json">'
+      + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
+      + '"validThrough":"2026-12-31","baseSalary":{"currency":"CHF"},'
+      + '"employmentType":"FULL_TIME","jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}}}'
       + '</script>';
 
     expect(hasActiveJobPostingJsonLd(missing)).toBe(false);
@@ -215,6 +221,7 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(missing)).toBe(true);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(jobPosting)).toBe(false);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(incompleteLegacyJobPosting)).toBe(true);
+    expect(shouldInvalidateActiveJobReuseWithoutJobPosting(malformedSalaryJobPosting)).toBe(true);
   });
 
   it('forces lookup to persist a fresh JobPosting after a cache entry written without one', async () => {
@@ -301,14 +308,14 @@ describe('jobs SEO disk HTML reuse', () => {
     const oldPosting = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-20T08:00:00.000Z",'
-      + '"baseSalary":{"currency":"CHF"},"employmentType":"FULL_TIME",'
+      + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
       + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
       + '</script>';
     const currentPosting = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-21T08:00:00.000Z",'
-      + '"baseSalary":{"currency":"CHF"},"employmentType":"FULL_TIME",'
+      + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
       + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-24T08:00:00.000Z"}'
       + '</script>';
