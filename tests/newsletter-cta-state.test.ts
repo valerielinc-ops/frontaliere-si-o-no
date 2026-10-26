@@ -43,5 +43,6 @@ describe('isNewsletterCtaEligible', () => {
     expect(isDismissalActive(String(NOW - 2 * DAY_MS), 7, NOW)).toBe(true);
     expect(isDismissalActive(`${NOW - DAY_MS}garbage`, 7, NOW)).toBe(false);
     expect(isDismissalActive(String(NOW + DAY_MS), 7, NOW)).toBe(false);
+    expect(isDismissalActive(new Date(NOW - 2 * DAY_MS).toISOString(), 30, NOW)).toBe(true);
   });
 });

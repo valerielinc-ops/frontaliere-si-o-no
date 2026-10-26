@@ -20,15 +20,18 @@ const NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE = /^\d+$/;
 /**
  * Returns whether a local dismissal timestamp is still inside its cooldown.
  * The value is untrusted browser state: numeric prefixes, unsafe integers and
- * future timestamps must never turn into an active dismissal.
+ * future timestamps must never turn into an active dismissal. ISO strings are
+ * accepted for the calculator paywall's legacy storage format.
  */
 export function isDismissalActive(
   rawTimestamp: string | null,
   cooldownDays: number,
   now = Date.now(),
 ): boolean {
-  if (!rawTimestamp || !NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE.test(rawTimestamp)) return false;
-  const dismissedAt = Number(rawTimestamp);
+  if (!rawTimestamp) return false;
+  const dismissedAt = NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE.test(rawTimestamp)
+    ? Number(rawTimestamp)
+    : Date.parse(rawTimestamp);
   const ageMs = now - dismissedAt;
   return Number.isSafeInteger(dismissedAt)
     && Number.isFinite(cooldownDays)
