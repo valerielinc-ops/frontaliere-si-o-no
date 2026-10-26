@@ -367,7 +367,13 @@ describe('buildBaseline', () => {
     const b = buildBaseline({
       gateView: 1000,
       authSuccess: 90,
-      ctas: ['job_board_email_unlock', 'job_board_social_unlock', 'job_expired_email_unlock'],
+      ctas: [
+        'job_board_email_unlock',
+        'job_board_social_unlock',
+        'job_expired_email_unlock',
+        'job_orphan_email_unlock',
+        'job_bridge_email_unlock',
+      ],
       ctaSubs: {
         job_board_email_unlock: { newSubscribers: 10, confirmed: 3, matured: 9, confirmedWithin72hMatured: 3, active: 3 },
         job_board_social_unlock: { newSubscribers: 15, confirmed: 12, matured: 15, confirmedWithin72hMatured: 12, active: 11 },
@@ -377,6 +383,8 @@ describe('buildBaseline', () => {
     expect(b.primary.rate).toBeCloseTo(0.025, 12);
     expect(b.total.confirmRate.rate).toBeCloseTo(0.6, 12);
     expect(b.perCta.job_expired_email_unlock.newSubscribers).toBe(0);
+    expect(b.perCta.job_orphan_email_unlock.newSubscribers).toBe(0);
+    expect(b.perCta.job_bridge_email_unlock.newSubscribers).toBe(0);
     const md = renderBaselineMarkdown(b, { since: '2026-09-09', until: '2026-09-22' });
     expect(md).toContain('Persone gate_view');
     expect(md).toContain('`job_board_social_unlock`');
@@ -490,7 +498,7 @@ describe('traffico automatico escluso (GA4)', () => {
 });
 
 describe('attributionCoverage', () => {
-  it('conta gli iscritti dal gate con e senza braccio; esclude altre superfici e altre pagine', () => {
+  it('conta tutte le superfici auth-gate con e senza braccio; esclude altre superfici e altre pagine', () => {
     const job = '/cerca-lavoro-ticino/impiegato-lugano-abc123/';
     const res = attributionCoverage([
       { variant: 'jobgate-v3:email_first', sourcePage: job, sourceComponent: 'JobBoard' },
@@ -499,10 +507,23 @@ describe('attributionCoverage', () => {
       { variant: '', sourcePage: `/en${job.replace('cerca-lavoro-ticino', 'find-jobs-ticino')}`, sourceComponent: 'authService' },
       { variant: '', sourcePage: job, sourceComponent: 'JobBoard' },
       { variant: '', sourcePage: job, sourceComponent: 'JobExpiredView' },
+      { variant: '', sourcePage: job, sourceComponent: 'JobOrphanView' },
+      { variant: '', sourcePage: job, sourceComponent: 'JobBridgeView' },
       { variant: '', sourcePage: '/calcolatore/', sourceComponent: 'authService' },
       { variant: 'authgate-model-v1:value_first', sourcePage: job, sourceComponent: 'CompanyFollowButton' },
     ], { experimentId: 'jobgate-v3' });
-    expect(res).toEqual({ tagged: 2, untaggedFromGate: 3, coverage: 0.4, untaggedByComponent: { authService: 2, JobBoard: 1 } });
+    expect(res).toEqual({
+      tagged: 2,
+      untaggedFromGate: 6,
+      coverage: 2 / 8,
+      untaggedByComponent: {
+        authService: 2,
+        JobBoard: 1,
+        JobExpiredView: 1,
+        JobOrphanView: 1,
+        JobBridgeView: 1,
+      },
+    });
     expect(attributionCoverage([], { experimentId: 'jobgate-v3' }).coverage).toBeNull();
   });
 });

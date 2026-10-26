@@ -514,11 +514,18 @@ export function aggregateSubscribers(classified, { keyOf, startMs, endMs, nowMs 
 }
 
 /**
- * Componenti che creano l'iscritto quando si passa dal job gate inline
- * (sblocco email o login social). NON JobExpiredView/JobOrphanView: sono
- * altre superfici, fuori dall'esperimento per contratto (#9725).
+ * Componenti che creano l'iscritto quando si passa da una superficie auth-gate
+ * del job. Il contratto comprende il gate inline e le superfici per annunci
+ * expired, orphan e bridge; `authService` copre i login social dal dettaglio
+ * quando il componente non conserva il contesto del CTA.
  */
-const JOB_GATE_SUBSCRIBER_COMPONENTS = new Set(['JobBoard', 'authService']);
+const JOB_GATE_SUBSCRIBER_COMPONENTS = new Set([
+  'JobBoard',
+  'JobExpiredView',
+  'JobOrphanView',
+  'JobBridgeView',
+  'authService',
+]);
 
 /**
  * Copertura dell'attribuzione dell'esperimento: quanti nuovi iscritti partiti

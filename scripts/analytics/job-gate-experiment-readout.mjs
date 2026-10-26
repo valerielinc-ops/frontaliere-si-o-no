@@ -67,7 +67,13 @@ import {
 import { JOBGATE_RC_KEYS, JOBGATE_STARTED_AT_KEY } from '../../services/jobGateExperimentCore.mjs';
 import { JOBGATE_PLAN } from '../experiments/jobgate-plan.mjs';
 
-const JOB_GATE_CTAS = ['job_board_email_unlock', 'job_board_social_unlock', 'job_expired_email_unlock'];
+const JOB_GATE_CTAS = [
+  'job_board_email_unlock',
+  'job_board_social_unlock',
+  'job_expired_email_unlock',
+  'job_orphan_email_unlock',
+  'job_bridge_email_unlock',
+];
 const SUBSCRIBER_FIELDS = [
   'variant', 'status', 'isActive', 'active',
   'confirmed_at', 'confirmedAt',
@@ -366,7 +372,7 @@ async function main() {
     { experimentId },
   );
   if (attribution.untaggedFromGate) {
-    notes.push(`Attribuzione: ${attribution.untaggedFromGate} nuovi iscritti partiti da una pagina annuncio (JobBoard o login social) SENZA tag \`${prefix}*\` contro ${attribution.tagged} con tag (copertura ${attribution.coverage == null ? '—' : `${Math.round(attribution.coverage * 100)}%`}; per componente: ${Object.entries(attribution.untaggedByComponent).map(([k, v]) => `${k} ${v}`).join(', ')}). Il numeratore della CR primaria è parziale.`);
+    notes.push(`Attribuzione: ${attribution.untaggedFromGate} nuovi iscritti partiti da una superficie auth-gate (active/expired/orphan/bridge o login social) SENZA tag \`${prefix}*\` contro ${attribution.tagged} con tag (copertura ${attribution.coverage == null ? '—' : `${Math.round(attribution.coverage * 100)}%`}; per componente: ${Object.entries(attribution.untaggedByComponent).map(([k, v]) => `${k} ${v}`).join(', ')}). Il numeratore della CR primaria è parziale.`);
   }
 
   const { weights, source: weightsSource } = await loadWeights(notes, rcTemplate);
