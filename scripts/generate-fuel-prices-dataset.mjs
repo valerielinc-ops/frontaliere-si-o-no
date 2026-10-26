@@ -90,6 +90,10 @@ function normalizeText(value = '') {
     .trim();
 }
 
+function municipalityCoverageKey(municipality) {
+  return `${normalizeText(municipality?.name)}:${normalizeText(municipality?.province)}`;
+}
+
 function parseDelimited(text) {
   const lines = String(text || '').trim().split(/\r?\n/);
   const extractedAtLine = lines.shift() || '';
@@ -431,6 +435,8 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
 
   const stationsById = new Map();
   const pricesByKey = new Map();
+  const targetMunicipalityKeys = new Set(municipalities.map(municipalityCoverageKey));
+  const coveredMunicipalityKeys = new Set();
   let latestObservedAt = null;
   for (const response of responses) {
     const province = String(response?.province || '').trim().toUpperCase();
@@ -480,13 +486,17 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
         }
         pricesByKey.set(key, normalizedPriceRow);
       }
+      if (fuelRows.some((row) => row.descCarburante === 'Benzina')) {
+        coveredMunicipalityKeys.add(municipalityCoverageKey(municipality));
+      }
       if (!latestObservedAt || Date.parse(observationTimestamp) > Date.parse(latestObservedAt)) latestObservedAt = observationTimestamp;
     }
   }
 
   const stationsRows = [...stationsById.values()];
   const pricesRows = [...pricesByKey.values()];
-  if (!stationsRows.length || !pricesRows.some((row) => row.descCarburante === 'Benzina')) {
+  const missingMunicipalities = [...targetMunicipalityKeys].filter((key) => !coveredMunicipalityKeys.has(key));
+  if (!stationsRows.length || !pricesRows.some((row) => row.descCarburante === 'Benzina') || missingMunicipalities.length) {
     throw new Error('MIMIT API returned no valid Benzina rows for target municipalities');
   }
   return {

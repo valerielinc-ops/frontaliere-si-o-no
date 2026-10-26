@@ -34,6 +34,7 @@ const daysAgo = (n: number) => new Date(NOW.getTime() - n * 86_400_000);
 const day = (d: Date) => d.toISOString().slice(0, 10);
 
 const COMO = { name: 'Como', province: 'CO', lat: 45.81, lng: 9.08, distanceKm: 0, fascia: '0-10' };
+const CANTU = { name: 'Cantù', province: 'CO', lat: 45.74, lng: 9.13, distanceKm: 0, fascia: '0-10' };
 
 function previousDataset(snapshotDay: string) {
   return {
@@ -272,6 +273,26 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(JSON.parse(String(requests[1].init.body))).toMatchObject({ province: 'CO', town: 'Como', fuelType: '1-x' });
     expect(result.extractedAt).toBe(day(observedAt));
     expect(result.pricesRows).toHaveLength(2);
+  });
+
+  it('fails closed when a target municipality remains uncovered after the town retries', async () => {
+    const observedAt = daysAgo(0.5);
+    const requests: Array<{ url: string; init: RequestInit }> = [];
+    await expect(fetchMimitApiSource([COMO, CANTU], {
+      retries: 1,
+      fetchImpl: async (url: string, init: RequestInit) => {
+        requests.push({ url, init });
+        const body = JSON.parse(String(init.body));
+        return {
+          ok: true,
+          json: async () => body.town === 'Como'
+            ? { success: true, results: [apiStation(observedAt)] }
+            : { success: true, array: [] },
+        } as Response;
+      },
+    })).rejects.toThrow('MIMIT API returned no valid Benzina rows for target municipalities');
+
+    expect(requests.map(({ init }) => JSON.parse(String(init.body)).town).sort()).toEqual([null, 'Cantù', 'Como'].sort());
   });
 
   it('routes a live API result through the same source resolver as the CSV', () => {
