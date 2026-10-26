@@ -520,6 +520,13 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'for-employers-en',
       'for-employers-de',
       'for-employers-fr',
+      // The 2026/27 school-calendar page has one Italian SPA route plus
+      // locale-specific metadata entries consumed by staticPagesPlugin for
+      // the generated EN/DE/FR shells. These keys are intentionally absent
+      // from the locale-agnostic getSeoSection(route) result.
+      'schoolHolidays2026En',
+      'schoolHolidays2026De',
+      'schoolHolidays2026Fr',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {
