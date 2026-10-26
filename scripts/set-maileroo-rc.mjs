@@ -21,6 +21,12 @@
  *     GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
  *     node scripts/set-maileroo-rc.mjs
  *
+ *   # Email Testing key: create it in Maileroo Profile → API Management with
+ *   # only email_testing.inboxes.write and email_testing.messages.read scopes.
+ *   MAILEROO_EMAIL_TESTING_API_KEY=roo_xxxxx \
+ *     GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
+ *     node scripts/set-maileroo-rc.mjs
+ *
  *   # webhook secret too (after creating the webhook in the Maileroo dashboard):
  *   MAILEROO_API_KEY=xxxxx MAILEROO_WEBHOOK_SECRET=yyyyy ... node scripts/set-maileroo-rc.mjs
  *
@@ -54,6 +60,12 @@ const PROVIDER_KEYS = [
     envVar: 'MAILEROO_WEBHOOK_SECRET',
     shapeHint: null,
     description: 'Maileroo webhook HMAC-SHA256 shared secret (delivery event tracking)',
+  },
+  {
+    rcParam: 'MAILEROO_EMAIL_TESTING_API_KEY',
+    envVar: 'MAILEROO_EMAIL_TESTING_API_KEY',
+    shapeHint: /^roo_[A-Za-z0-9_-]{16,}$/,
+    description: 'Restricted Maileroo Email Testing API key for CI mailbox capture and assertions',
   },
   {
     rcParam: 'MAILEROO_ACCOUNT_API_KEY',

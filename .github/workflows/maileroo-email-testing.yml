@@ -1,0 +1,70 @@
+name: Maileroo Email Testing CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'functions/src/lib/confirmationEmailContent.js'
+      - 'functions/src/lib/dataControllerIdentity.js'
+      - 'functions/src/lib/emailEngagementBanners.js'
+      - 'functions/src/lib/mimeMessage.js'
+      - 'functions/src/lib/newsletterUrls.js'
+      - 'services/newsletter-template.mjs'
+      - 'scripts/ci/maileroo-email-testing.mjs'
+      - 'scripts/load-rc-env.mjs'
+      - 'scripts/set-maileroo-rc.mjs'
+      - 'tests/maileroo-email-testing-ci.test.ts'
+      - '.github/workflows/maileroo-email-testing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: maileroo-email-testing-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  email-testing:
+    name: Maileroo transactional + newsletter
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load Maileroo Applications and scoped Email Testing key
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run Maileroo Email Testing CI
+        env:
+          MAILEROO_EMAIL_TESTING_REPORT: ${{ runner.temp }}/maileroo-email-testing.json
+        run: node scripts/ci/maileroo-email-testing.mjs
+
+      - name: Upload Maileroo test report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: maileroo-email-testing-${{ github.run_id }}
+          path: ${{ runner.temp }}/maileroo-email-testing.json
+          if-no-files-found: warn

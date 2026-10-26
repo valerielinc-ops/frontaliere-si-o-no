@@ -181,6 +181,10 @@ export const RC_TO_ENV = {
   MAILEROO_TRANSACTIONAL_API_KEY: ['MAILEROO_TRANSACTIONAL_API_KEY'],
   MAILEROO_NEWSLETTER_API_KEY:    ['MAILEROO_NEWSLETTER_API_KEY'],
   MAILEROO_WEBHOOK_SECRET:        ['MAILEROO_WEBHOOK_SECRET'],
+  // Restricted Maileroo Email Testing API key. It is used only by the
+  // maileroo-email-testing workflow to create ephemeral inboxes, wait for
+  // captured messages and run assertions; it must not be reused for sending.
+  MAILEROO_EMAIL_TESTING_API_KEY: ['MAILEROO_EMAIL_TESTING_API_KEY'],
   // Separate Account API key (Maileroo dashboard "Applications" section) —
   // distinct from MAILEROO_API_KEY (a per-domain Sending Key), needed for
   // account-level endpoints like /v1/account (see fetchMailerooCycleUsage in
