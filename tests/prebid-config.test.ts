@@ -1,19 +1,9 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
-
-async function loadPrebidConfig(raw: string) {
-  vi.resetModules();
-  vi.stubEnv('VITE_PREBID_CONFIG', raw);
-  return import('@/services/prebidConfig');
-}
-
-afterEach(() => {
-  vi.unstubAllEnvs();
-  vi.resetModules();
-});
+import { describe, expect, it } from 'vitest';
+import { parsePrebidConfig } from '@/services/prebidConfig';
 
 describe('prebidConfig', () => {
-  it('keeps valid neighboring bids while filtering malformed entries', async () => {
-    const { bidsForAdUnit, hasConfiguredBidders } = await loadPrebidConfig(
+  it('keeps valid neighboring bids while filtering malformed entries', () => {
+    const config = parsePrebidConfig(
       JSON.stringify({
         '   ': [{ bidder: 'criteo', params: {} }],
         ' /valid-ad-unit ': [
@@ -26,16 +16,16 @@ describe('prebidConfig', () => {
       }),
     );
 
-    expect(bidsForAdUnit('/valid-ad-unit')).toEqual([
+    expect(config['/valid-ad-unit']).toEqual([
       { bidder: 'criteo', params: { networkId: 12345 } },
       { bidder: 'yieldlab', params: { tagid: '998877' } },
     ]);
-    expect(bidsForAdUnit('')).toEqual([]);
-    expect(hasConfiguredBidders()).toBe(true);
+    expect(config['']).toBeUndefined();
+    expect(Object.keys(config)).toEqual(['/valid-ad-unit']);
   });
 
-  it('does not throw or expose invalid bidder arrays', async () => {
-    const { bidsForAdUnit, hasConfiguredBidders } = await loadPrebidConfig(
+  it('does not throw or expose invalid bidder arrays', () => {
+    const config = parsePrebidConfig(
       JSON.stringify({
         '/invalid-only': [
           null,
@@ -47,8 +37,6 @@ describe('prebidConfig', () => {
       }),
     );
 
-    expect(bidsForAdUnit('/invalid-only')).toEqual([]);
-    expect(bidsForAdUnit('/not-an-array')).toEqual([]);
-    expect(hasConfiguredBidders()).toBe(false);
+    expect(config).toEqual({});
   });
 });
