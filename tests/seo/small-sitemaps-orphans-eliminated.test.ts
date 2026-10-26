@@ -281,7 +281,7 @@ describe('mappa-del-sito source contains the small-sitemap hub-link arrays', () 
     }
   });
 
-  it('source declares reciprocal links for the translated comparison and guide leaves', () => {
+  it('source declares reciprocal links for translated leaves and tax clusters', () => {
     for (const path of [
       '/en/service-comparison/compare-banks/',
       '/en/service-comparison/cost-of-living/',
@@ -298,6 +298,18 @@ describe('mappa-del-sito source contains the small-sitemap hub-link arrays', () 
       '/de/grenzgaenger-ratgeber/bewilligung-g-vs-b/',
       '/fr/guide-frontalier/premier-jour-travail/',
       '/fr/guide-frontalier/comparer-permis-g-vs-b/',
+      '/en/cross-border-guide/work-permits-guide/',
+      '/de/grenzgaenger-ratgeber/arbeitsbewilligungen/',
+      '/fr/guide-frontalier/permis-de-travail/',
+      '/en/taxes-and-pension/calculate-retirement/',
+      '/en/taxes-and-pension/tax-return-guide/',
+      '/en/taxes-and-pension/tax-deadlines/',
+      '/de/steuern-und-vorsorge/',
+      '/de/steuern-und-vorsorge/rente-berechnen/',
+      '/de/steuern-und-vorsorge/steuererklaerung/',
+      '/fr/impots-et-retraite/calculer-pension/',
+      '/fr/impots-et-retraite/declaration-revenus/',
+      '/fr/impots-et-retraite/echeances-fiscales/',
     ]) {
       expect(src.includes(path), `single-inbound contextual link missing: ${path}`).toBe(true);
     }

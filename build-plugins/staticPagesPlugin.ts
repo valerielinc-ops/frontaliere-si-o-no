@@ -1409,9 +1409,9 @@ const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; l
  ],
 };
 
-// The 2026-10 crawl still found the translated comparison and guide leaves
-// with only the locale-root rail as an incoming edge. Keep these two small
-// clusters mutually connected so every leaf has a second discovery path;
+// The 2026-10 crawl still found translated comparison, guide and tax leaves
+// with only the locale-root rail as an incoming edge. Keep these focused
+// clusters mutually connected so every leaf has multiple discovery paths;
 // the links are rendered only on the cluster members and therefore do not
 // inflate unrelated pages.
 const LOCALIZED_SINGLE_INBOUND_GROUPS: ReadonlyArray<ReadonlyArray<{ href: string; label: string }>> = [
@@ -1433,14 +1433,32 @@ const LOCALIZED_SINGLE_INBOUND_GROUPS: ReadonlyArray<ReadonlyArray<{ href: strin
   [
     { href: '/en/cross-border-guide/first-day-at-work/', label: 'First day at work' },
     { href: '/en/cross-border-guide/compare-permit-g-vs-b/', label: 'Compare Permit G vs B' },
+    { href: '/en/cross-border-guide/work-permits-guide/', label: 'Work permits guide' },
   ],
   [
     { href: '/de/grenzgaenger-ratgeber/erster-arbeitstag/', label: 'Erster Arbeitstag' },
     { href: '/de/grenzgaenger-ratgeber/bewilligung-g-vs-b/', label: 'Bewilligung G vs. B' },
+    { href: '/de/grenzgaenger-ratgeber/arbeitsbewilligungen/', label: 'Arbeitsbewilligungen' },
   ],
   [
     { href: '/fr/guide-frontalier/premier-jour-travail/', label: 'Premier jour de travail' },
     { href: '/fr/guide-frontalier/comparer-permis-g-vs-b/', label: 'Comparer les permis G et B' },
+    { href: '/fr/guide-frontalier/permis-de-travail/', label: 'Permis de travail' },
+  ],
+  [
+    { href: '/en/taxes-and-pension/calculate-retirement/', label: 'Calculate retirement benefits' },
+    { href: '/en/taxes-and-pension/tax-return-guide/', label: 'Cross-border tax return guide' },
+    { href: '/en/taxes-and-pension/tax-deadlines/', label: 'Swiss tax deadlines' },
+  ],
+  [
+    { href: '/de/steuern-und-vorsorge/', label: 'Steuern und Vorsorge' },
+    { href: '/de/steuern-und-vorsorge/rente-berechnen/', label: 'Rente berechnen' },
+    { href: '/de/steuern-und-vorsorge/steuererklaerung/', label: 'Leitfaden zur Steuererklärung' },
+  ],
+  [
+    { href: '/fr/impots-et-retraite/calculer-pension/', label: 'Calculer la pension' },
+    { href: '/fr/impots-et-retraite/declaration-revenus/', label: 'Guide de déclaration fiscale' },
+    { href: '/fr/impots-et-retraite/echeances-fiscales/', label: 'Échéances fiscales' },
   ],
 ];
 
