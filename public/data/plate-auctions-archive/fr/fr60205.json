@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "fr-7298",
+      "sourceKey": "FR",
+      "sourceRecordId": "7298",
+      "canton": "Friburgo",
+      "platePrefix": "FR",
+      "plateNumber": "60205",
+      "normalizedPlate": "FR60205",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 225,
+      "startingPriceChf": 175,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-10-26T11:00:00.000Z",
+      "closedAt": "2026-10-26T11:00:00.000Z",
+      "officialAuctionUrl": "https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch",
+      "officialDetailUrl": "https://appls.ocn.ch/ecari-auction/ui/app/details/app?id=7298&locale=fr_ch",
+      "sourceFetchedAt": "2026-10-26T05:47:05.221Z",
+      "lastVerifiedAt": "2026-10-26T05:47:05.221Z",
+      "firstSeenAt": "2026-10-19T11:47:06.136Z",
+      "lastSeenAt": "2026-10-26T05:47:05.221Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "5174e6a62a38"
+    }
+  ]
+}
