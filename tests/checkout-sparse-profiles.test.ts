@@ -464,8 +464,13 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
   it('boccia la allow-list del watchdog arrivata su main con #9835, e accetta quella corretta', () => {
     // The core now also imports its generated sibling (canton sections), which
     // the #9835 list misses for the same reason: both targets are reported.
+    // The watchdog also reads the interface-addressed chunk-name helpers
+    // (build-plugins/shared/abiChunkNaming.mjs → plainNameChunks.mjs), which a
+    // list frozen before they existed cannot name either.
     expect(uncoveredAllowListCode(OLD_WATCHDOG_LIST, WATCHDOG_ENTRIES, { cone: false }))
       .toEqual([
+        'build-plugins/shared/abiChunkNaming.mjs',
+        'build-plugins/shared/plainNameChunks.mjs',
         'packages/articles/engine/shared/articleSectionCore.mjs',
         'packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs',
       ]);
