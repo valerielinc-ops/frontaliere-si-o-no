@@ -8497,7 +8497,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aiuti-sociali-rifugiati-ucraini.imageAlt': 'Fonctionnaire cantonal distribuant l\'aide sociale aux réfugiés ukrainiens en Suisse',
     'blog.article.prodex-40-anni-esericerca-spaziale.title': 'Prodex fête ses 40 ans : 130 projets spatiaux financés en Suisse',
     'blog.article.prodex-40-anni-esericerca-spaziale.excerpt': 'L’ESA célèbre les 40 premières années de Prodex Les délégations suisse et belge ont lancé Prodex en 1986 Zurich a accueilli la conférence et la cérémonie En Suisse',
-    'blog.article.prodex-40-anni-esericerca-spaziale.imageAlt': 'Laboratoire de recherche suisse avec instruments spatiaux',
+    'blog.article.prodex-40-anni-esericerca-spaziale.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.ffs-binari-deformazioni-canicola-2024.title': 'FFS : 97 déformations rails par chaleur, task force été 2026',
     'blog.article.ffs-binari-deformazioni-canicola-2024.excerpt': 'Les FFS ont enregistré 97 déformations et écrasements.',
     'blog.article.ffs-binari-deformazioni-canicola-2024.imageAlt': 'Voies ferroviaires CFF sous le soleil d\'été avec brume de chaleur visible',

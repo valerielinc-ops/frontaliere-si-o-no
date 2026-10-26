@@ -107334,10 +107334,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-prodex-40-anni-esericerca-spaziale.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Laboratorio di ricerca svizzero con strumenti per missioni spaziali"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T11:05:16+00:00",
       "dateModified": "2026-10-18T11:05:16+00:00",

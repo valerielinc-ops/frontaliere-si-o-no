@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 851,
+      "5": 859,
       "6": 5056
     },
-    "publishedCovers": 7590,
+    "publishedCovers": 7598,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -208844,6 +208844,270 @@
         "provider": "openai-codex",
         "assetId": "article-zenith-rischio-posti-svizzera",
         "imageUrl": "/images/blog/article-zenith-rischio-posti-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-checklist-neonato-confine-2026": {
+      "cover": "/images/blog/article-checklist-neonato-confine-2026.webp",
+      "hash": "d47762043aeba1e40e323472642a4808b9f707fe8705c04e1fa6a228c425a9ee",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "checklist-neonato-confine-2026",
+          "category": "pratico",
+          "date": "2026-10-18T11:33:43.066Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-checklist-neonato-confine-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-checklist-neonato-confine-2026",
+        "imageUrl": "/images/blog/article-checklist-neonato-confine-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-checklist-neonato-ticino": {
+      "cover": "/images/blog/article-checklist-neonato-ticino.webp",
+      "hash": "c89c28b7677de912c252bc47ccd3aeb378523a6726314401d9075eb272bdae90",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "checklist-neonato-ticino",
+          "category": "pratico",
+          "date": "2026-10-18T10:50:48.137Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-checklist-neonato-ticino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-checklist-neonato-ticino",
+        "imageUrl": "/images/blog/article-checklist-neonato-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-disoccupazione-neuchatel-luglio-2026": {
+      "cover": "/images/blog/article-disoccupazione-neuchatel-luglio-2026.webp",
+      "hash": "c1bfad6954d6bdff59b43689e43c8fab6b5ec5f8a912b3ec19e9309d63c0f381",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "disoccupazione-neuchatel-luglio-2026",
+          "category": "pratico",
+          "date": "2026-10-18T11:17:54.444Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-disoccupazione-neuchatel-luglio-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-disoccupazione-neuchatel-luglio-2026",
+        "imageUrl": "/images/blog/article-disoccupazione-neuchatel-luglio-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-g-verifica-datore-20km": {
+      "cover": "/images/blog/article-g-verifica-datore-20km.webp",
+      "hash": "4013a6199b73696b4f43c816a19d6f52a2e241ac1e505ae658414ad4b0f69c68",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "g-verifica-datore-20km",
+          "category": "pratico",
+          "date": "2026-10-18T05:51:32.704Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-g-verifica-datore-20km.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-g-verifica-datore-20km",
+        "imageUrl": "/images/blog/article-g-verifica-datore-20km.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-passaggio-nuovo-impiego-g": {
+      "cover": "/images/blog/article-passaggio-nuovo-impiego-g.webp",
+      "hash": "8cf9177dfc4a71cb086063f2ac03d15a9fbb8298db7bd95a1d0aff22c9d0929a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "passaggio-nuovo-impiego-g",
+          "category": "pratico",
+          "date": "2026-10-18T05:22:20.043Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-passaggio-nuovo-impiego-g.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-passaggio-nuovo-impiego-g",
+        "imageUrl": "/images/blog/article-passaggio-nuovo-impiego-g.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-prodex-40-anni-esericerca-spaziale": {
+      "cover": "/images/blog/article-prodex-40-anni-esericerca-spaziale.webp",
+      "hash": "e3297f02417e8a4c86ee951d07f5a36e23a91eea906ab200de2caf74fb9b49c8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "prodex-40-anni-esericerca-spaziale",
+          "category": "novita",
+          "date": "2026-10-18T11:05:15.951Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-prodex-40-anni-esericerca-spaziale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-prodex-40-anni-esericerca-spaziale",
+        "imageUrl": "/images/blog/article-prodex-40-anni-esericerca-spaziale.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rogo-cortivallo-persona-morta": {
+      "cover": "/images/blog/article-rogo-cortivallo-persona-morta.webp",
+      "hash": "af3c7e928e56025e5236b83641e3cda464dc644295f32adfadb010104bd8d2de",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "rogo-cortivallo-persona-morta",
+          "category": "novita",
+          "date": "2026-10-18T09:43:01.165Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rogo-cortivallo-persona-morta.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rogo-cortivallo-persona-morta",
+        "imageUrl": "/images/blog/article-rogo-cortivallo-persona-morta.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-supporto-imprese-turgovia": {
+      "cover": "/images/blog/article-supporto-imprese-turgovia.webp",
+      "hash": "a6b6159fc6c0ffcf43b4b53fa79043e6d295268eac4735a33d354e8b23cbbf7a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-tg",
+          "id": "supporto-imprese-turgovia",
+          "category": "pratico",
+          "date": "2026-10-18T11:06:15.235Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-supporto-imprese-turgovia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-supporto-imprese-turgovia",
+        "imageUrl": "/images/blog/article-supporto-imprese-turgovia.webp",
         "evidence": "generated-engine-record"
       }
     }

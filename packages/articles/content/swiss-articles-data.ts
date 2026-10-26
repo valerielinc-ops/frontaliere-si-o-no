@@ -28420,7 +28420,7 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     id: 'prodex-40-anni-esericerca-spaziale',
     category: 'novita',
     date: '2026-10-18T11:05:15.951Z',
-    image: '/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp',
+    image: '/images/blog/article-prodex-40-anni-esericerca-spaziale.webp',
     hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',

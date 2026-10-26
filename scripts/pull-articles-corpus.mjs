@@ -118,6 +118,51 @@ const DEST = path.join(ROOT, 'packages', 'articles', 'content');
 const CHECK_ONLY = process.argv.includes('--check');
 const ARTICLE_REGISTRY_CHUNK_SIZE = 250;
 
+// The corpus owns the article rows, while the site owns a small part of the
+// TypeScript contract around those rows.  Keep that site-owned declaration
+// when mirroring a fresh corpus snapshot: otherwise every sync removes the
+// provenance field and the generated tree immediately fails the site's
+// typecheck (components/community/BlogArticles.tsx and services/articlesOverlay.ts).
+const AI_ASSISTED_FIELD_BLOCK = [
+  ' /**',
+  '  * Whether the article was drafted with AI assistance, as declared by the',
+  '  * publisher. Optional for backward compatibility with older corpus entries.',
+  '  */',
+  ' aiAssisted?: boolean;',
+].join('\n');
+
+function readSiteOwnedArticleFields() {
+  const file = path.join(DEST, 'blog-articles-data.ts');
+  let source;
+  try {
+    source = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw error;
+  }
+  if (!/\baiAssisted\?\s*:\s*boolean\s*;/u.test(source)) {
+    throw new Error('site-owned Article provenance field missing before corpus mirror');
+  }
+  return AI_ASSISTED_FIELD_BLOCK;
+}
+
+function restoreSiteOwnedArticleFields(block) {
+  if (!block) return;
+  const file = path.join(DEST, 'blog-articles-data.ts');
+  const source = fs.readFileSync(file, 'utf8');
+  if (/\baiAssisted\?\s*:\s*boolean\s*;/u.test(source)) return;
+
+  const interfaceStart = source.indexOf('export interface Article {');
+  const interfaceEnd = interfaceStart < 0 ? -1 : source.indexOf('\n}', interfaceStart);
+  if (interfaceStart < 0 || interfaceEnd < 0) {
+    throw new Error('site-owned Article interface disappeared during corpus mirror');
+  }
+  fs.writeFileSync(
+    file,
+    `${source.slice(0, interfaceEnd)}\n${block}${source.slice(interfaceEnd)}`,
+  );
+}
+
 /** Body files below this count mean something went wrong upstream, not a real shrink. */
 const MIN_BODY_FILES = 5000;
 
@@ -539,10 +584,12 @@ try {
     }
 
 
+  const siteOwnedArticleFields = readSiteOwnedArticleFields();
   mirrorTree(src, DEST, {
     ...TREE_OPTS,
     preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles),
   });
+  restoreSiteOwnedArticleFields(siteOwnedArticleFields);
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 
     // ── Put the local-only entries back ──────────────────────────────────
