@@ -376,6 +376,19 @@ const COMPANY_JOB_PAYLOAD_CAP = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+// Shared anti-doorway floor (AGENTS.md non-negotiable #4 — no thin indexed
+// content): every GSC search-landing family needs at least this many
+// matching jobs before it can emit an HTML page or sitemap entry.
+export const GSC_SEARCH_LANDING_MIN_JOBS = 3;
+
+export function hasSearchLandingEligibleLocale<T>(
+ matchingJobsByLocale: Record<(typeof JOB_SEO_LOCALES)[number], T[]>,
+): boolean {
+ return JOB_SEO_LOCALES.some((locale) =>
+ matchingJobsByLocale[locale].length >= GSC_SEARCH_LANDING_MIN_JOBS,
+ );
+}
+
 /**
  * Build the slug guard shared by expired-job cleanup and page emission.
  * Includes localized canton job hubs as well as sector, city and paginated
@@ -10132,11 +10145,12 @@ ${staticAnalyticsHtml}
  });
 
  /* ── GSC-driven keyword landing pages ──────────────────────── */
- // Anti-doorway floor (CLAUDE.md non-negotiable #4 — no thin indexed
- // content): a keyword landing needs at least this many matching jobs in a
- // locale before that locale gets a page. Named because it now ALSO decides
- // the hreflang alternate set (issue #5114) — the two must never drift.
- const KEYWORD_LANDING_MIN_JOBS = 3;
+ // Shared anti-doorway floor (AGENTS.md non-negotiable #4 — no thin indexed
+ // content): every GSC search-landing family needs at least this many
+ // matching jobs before it can emit an HTML page or sitemap entry. The
+ // keyword family applies it per locale; stats landings derive their
+ // locale-eligible set from the same floor, and combos apply it to the
+ // locale-independent result set.
  // P1 noindex plan (2026-10-24): the three GSC search-landing families below
  // (keyword-config, search-stats leaders, combos) were indexable by
  // construction. They now follow the same demand rule as the related-search
@@ -10210,20 +10224,20 @@ ${staticAnalyticsHtml}
  // exactly this filter per locale in the default all-locale build.
  const arr = sortedForPagination.filter((j: any) => kwMatchesLocale(j, l)).slice(0, 30);
  kwJobsByLocale.set(l, arr);
- if (arr.length >= KEYWORD_LANDING_MIN_JOBS) kwEligibleLocales.add(l);
+ if (arr.length >= GSC_SEARCH_LANDING_MIN_JOBS) kwEligibleLocales.add(l);
  } else {
  // Another shard renders `l`: we only need the floor verdict, so stop
  // counting at the floor instead of materialising up to 30 matches.
  let n = 0;
  for (const j of sortedForPagination) {
- if (kwMatchesLocale(j, l) && ++n >= KEYWORD_LANDING_MIN_JOBS) break;
+ if (kwMatchesLocale(j, l) && ++n >= GSC_SEARCH_LANDING_MIN_JOBS) break;
  }
- if (n >= KEYWORD_LANDING_MIN_JOBS) kwEligibleLocales.add(l);
+ if (n >= GSC_SEARCH_LANDING_MIN_JOBS) kwEligibleLocales.add(l);
  }
  }
  // P1: one verdict for the whole keyword group (robots of every locale page
  // AND the sitemap block below). Every eligible locale already cleared
- // KEYWORD_LANDING_MIN_JOBS above.
+ // GSC_SEARCH_LANDING_MIN_JOBS above.
  const kwDemandIndexable = isSearchLandingDemandIndexable(
  kwSlug,
  searchLandingGroupPaths(kwSlug),
@@ -10541,18 +10555,21 @@ ${staticAnalyticsHtml}
  const matchingJobsByLocale = __searchLeaderMatches.get(key)!;
  if (localeList.every((locale) => matchingJobsByLocale[locale].length === 0)) continue;
  const fallbackMatchingJobs = pickSearchLandingFallbackJobs(matchingJobsByLocale);
- if (fallbackMatchingJobs.length === 0) continue;
+ const hasOwnEligibleLocale = hasSearchLandingEligibleLocale(matchingJobsByLocale);
+ if (!hasOwnEligibleLocale) continue;
 
- // Eligibility, derived the same way the emit loop below decides: a locale
- // with no own matches still gets a page from `fallbackMatchingJobs`, which
- // is non-empty by the guard above — so this set is normally all four.
- // Derived rather than hardcoded so that if a future floor lands here the
- // alternates follow it automatically instead of drifting into the #5114
- // failure mode.
+ // Eligibility, derived from the exact per-locale payload the emit loop will
+ // use: a locale with no own matches can use `fallbackMatchingJobs`, but a
+ // locale with only one or two own matches stays out even when another
+ // locale has enough jobs. This keeps the common floor and hreflang set
+ // aligned instead of letting a thin localized page through.
  const _eligibleLocales = new Set<string>(
- localeList.filter(
- (l) => matchingJobsByLocale[l].length > 0 || fallbackMatchingJobs.length > 0,
- ),
+ localeList.filter((l) => {
+ const jobs = matchingJobsByLocale[l].length > 0
+ ? matchingJobsByLocale[l]
+ : fallbackMatchingJobs;
+ return jobs.length >= GSC_SEARCH_LANDING_MIN_JOBS;
+ }),
  );
  // P1: one verdict per leader key — robots of every locale page and the
  // sitemap gate below.
@@ -10561,10 +10578,11 @@ ${staticAnalyticsHtml}
 
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
+ if (!_eligibleLocales.has(locale)) continue;
  const matchingJobs = matchingJobsByLocale[locale].length > 0
  ? matchingJobsByLocale[locale]
  : fallbackMatchingJobs;
- if (matchingJobs.length === 0) continue;
+ if (matchingJobs.length < GSC_SEARCH_LANDING_MIN_JOBS) continue;
  const __tSearchStats = startTimer();
 
  const fullSlug = `${searchRoutePrefix[locale]}-${key}`;
@@ -10736,7 +10754,7 @@ ${staticAnalyticsHtml}
  }
 
  // Add indexable search pages (the non-empty set above, plus P1 demand) to sitemap.
- if (fallbackMatchingJobs.length > 0 && ssDemandIndexable) {
+ if (hasOwnEligibleLocale && ssDemandIndexable) {
  const sItSlug = `${searchRoutePrefix.it}-${key}`;
  const sItPath = withSlash(`/${sectionByLocale.it}/${sItSlug}`.replace(/\/+/g, '/'));
  const sItUrl = `${BASE_URL}${sItPath}`;
@@ -10748,8 +10766,13 @@ ${staticAnalyticsHtml}
  const lp = withSlash(`${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/'));
  sLocalePaths.set(l, lp);
  }
- const sAlternates = localeList.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${sLocalePaths.get(l)}" />`).join('\n');
- const sXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${sItUrl}" />`;
+ const sAlternates = buildSitemapAlternateBlock({
+ eligibleLocales: _eligibleLocales,
+ hrefFor: (l) => `${BASE_URL}${sLocalePaths.get(l)}`,
+ });
+ const sXDefault = _eligibleLocales.has('it')
+ ? ` <xhtml:link rel="alternate" hreflang="x-default" href="${sItUrl}" />`
+ : '';
  // SEO: skip -- page self-canonicalizes elsewhere (Semrush gate).
  // (a) Editorial geo-hub cities (Lugano/Bellinzona/Mendrisio/Locarno/Chiasso)
  // canonicalize their `ricerca-<city>` page to the clean `/{city}/` hub,
@@ -10760,6 +10783,7 @@ ${staticAnalyticsHtml}
  // per-locale (#3499) -- en/de/fr can independently self-canonicalize even
  // when the IT slug doesn't.
  for (const l of localeList) {
+ if (!_eligibleLocales.has(l)) continue;
  const lSlug = sLocaleSlugs.get(l)!;
  const lp = sLocalePaths.get(l)!;
  const lUrl = `${BASE_URL}${lp}`;
@@ -10783,7 +10807,7 @@ ${staticAnalyticsHtml}
  filterFn: (job: any) => boolean,
  ): void => {
  const matchingJobs = validJobs.filter(filterFn).slice(0, 20);
- if (matchingJobs.length === 0) return;
+ if (matchingJobs.length < GSC_SEARCH_LANDING_MIN_JOBS) return;
 
  // `filterFn` is locale-agnostic and `matchingJobs` is non-empty here, so
  // every locale gets a page and the set is all four. Derived, not

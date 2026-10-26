@@ -393,11 +393,22 @@ describe('search-landing emitters route every hreflang block through the shared 
     // One named floor, consumed by the eligibility set that gates the
     // `continue` AND feeds the hreflang block. A bare `< 3` reintroduces the
     // split-brain the issue was about.
-    expect(src).toMatch(/const KEYWORD_LANDING_MIN_JOBS = 3;/);
+    expect(src).toMatch(/const GSC_SEARCH_LANDING_MIN_JOBS = 3;/);
     expect(src).toMatch(/kwEligibleLocales/);
     expect(
       src,
       'the emit loop must consult the same eligibility set the alternates use',
     ).toMatch(/if \(!kwEligibleLocales\.has\(locale\)\) continue;/);
+  });
+
+  it('uses the shared three-job floor before all three GSC landing emitters', () => {
+    const src = read('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(src).toMatch(/const GSC_SEARCH_LANDING_MIN_JOBS = 3;/);
+    expect(src).toMatch(/const hasOwnEligibleLocale = hasSearchLandingEligibleLocale\(matchingJobsByLocale\);/);
+    expect(src).toMatch(/if \(!hasOwnEligibleLocale\) continue;/);
+    expect(src).toMatch(/if \(matchingJobs\.length < GSC_SEARCH_LANDING_MIN_JOBS\) continue;/);
+    expect(src).toMatch(/if \(matchingJobs\.length < GSC_SEARCH_LANDING_MIN_JOBS\) return;/);
+    expect(src).toMatch(/if \(hasOwnEligibleLocale && ssDemandIndexable\)/);
+    expect(src).toMatch(/if \(!_eligibleLocales\.has\(l\)\) continue;/);
   });
 });
