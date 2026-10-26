@@ -137,9 +137,11 @@ function throwIfAborted(signal, message) {
   if (signal?.aborted) throw signal.reason || abortError(message);
 }
 
-function rescueBodyRejectionReason(body, label) {
-  const jinaReason = detectJinaErrorBody(body);
-  if (jinaReason) return jinaReason;
+function rescueBodyRejectionReason(body, label, { source = 'browser' } = {}) {
+  if (source === 'jina') {
+    const jinaReason = detectJinaErrorBody(body);
+    if (jinaReason) return jinaReason;
+  }
   if (looksLikeAntiBotChallenge(body)) return 'anti-bot challenge marker';
   if (/^listing(?: page \d+)?$/u.test(label)
     && !/<li\b[^>]*\bclass\s*=\s*["'][^"']*\bff-job-entry\b[^"']*["']/iu.test(String(body))) {
@@ -423,7 +425,7 @@ async function fetchFachkraftPage(
       console.warn(`⚠️ fachkraft ${label} returned ${reason} — trying Jina egress rescue`);
       const rescued = await fetchJinaImpl(url, jinaOptions);
       throwIfAborted(signal, `fachkraft ${label} Jina rescue aborted`);
-      const rejectionReason = rescueBodyRejectionReason(rescued, label);
+      const rejectionReason = rescueBodyRejectionReason(rescued, label, { source: 'jina' });
       if (rejectionReason) {
         console.warn(`⚠️ fachkraft ${label} Jina rescue unusable (${rejectionReason}); trying browser rescue`);
         return null;

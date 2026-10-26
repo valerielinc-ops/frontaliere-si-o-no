@@ -21,6 +21,8 @@ const listingHtml = (detailUrls = [DETAIL_URL]) => `
     </li>`).join('')}
   </ul></div></body></html>`;
 
+const compactListingHtml = () => `<li class="ff-job-entry"><a href="${DETAIL_URL}">${TITLE}</a></li>`;
+
 const detailHtml = () => `<html><head><script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'JobPosting',
@@ -130,6 +132,28 @@ describe('fachkraft crawler transport recovery', () => {
       timeoutMs: runtimeOptions.requestTimeoutMs,
       signal: expect.any(AbortSignal),
     }));
+    expect(snapshot).toHaveLength(1);
+    expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+  });
+
+  it('accepts a valid compact browser rescue body without applying the Jina length floor', async () => {
+    const fetchImpl = vi.fn(async (target: string) => {
+      if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+      if (target === LISTING_URL) return new Response('blocked by WAF', { status: 403 });
+      if (target === DETAIL_URL) return new Response(detailHtml(), { status: 200 });
+      throw new Error(`unexpected fetch target: ${target}`);
+    });
+    const fetchJinaImpl = vi.fn().mockResolvedValue(null);
+    const fetchBrowserImpl = vi.fn().mockResolvedValue(compactListingHtml());
+
+    const snapshot = await fetchFachkraftSnapshot({
+      ...runtimeOptions,
+      fetchImpl,
+      fetchJinaImpl,
+      fetchBrowserImpl,
+    });
+
+    expect(compactListingHtml().length).toBeLessThan(200);
     expect(snapshot).toHaveLength(1);
     expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
   });
