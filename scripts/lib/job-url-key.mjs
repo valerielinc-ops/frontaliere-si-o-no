@@ -92,6 +92,7 @@ export const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
 // Host-gated so no other crawler's URL shape changes.
 export const SOZJOBS_HOST_RE = /(?:^|\/\/)(?:www\.)?sozjobs\.ch(?:[:/]|$)/;
 export const SOZJOBS_JOB_PATH_RE = /\/job\/[^/?#]+\/(j\d+)(?:\/|$)/i;
+export const SOZJOBS_WIDGET_PATH_RE = /\/widgetid\/([^/?#]+)/i;
 
 /**
  * Extract the per-job requisition from a sozjobs.ch detail pathname.
@@ -101,6 +102,19 @@ export const SOZJOBS_JOB_PATH_RE = /\/job\/[^/?#]+\/(j\d+)(?:\/|$)/i;
  */
 export function sozjobsJobIdFromPath(pathname) {
   const match = String(pathname || '').match(SOZJOBS_JOB_PATH_RE);
+  return match?.[1]?.toLowerCase() || '';
+}
+
+/**
+ * Extract the publisher-wide EasyPublish widget token from a Sozjobs detail
+ * pathname. This is intentionally separate from sozjobsJobIdFromPath(): the
+ * widget token is a legacy shared identity, not the per-vacancy identity.
+ *
+ * @param {string} pathname
+ * @returns {string}
+ */
+export function sozjobsWidgetIdFromPath(pathname) {
+  const match = String(pathname || '').match(SOZJOBS_WIDGET_PATH_RE);
   return match?.[1]?.toLowerCase() || '';
 }
 
