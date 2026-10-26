@@ -2380,7 +2380,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -2429,7 +2429,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2438,7 +2438,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -2789,7 +2789,7 @@
         "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
-        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
+        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2836,7 +2836,7 @@
       "previousSlugs": [
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine",
-        "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2848,7 +2848,7 @@
         "fr": [
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine",
-          "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-20T09:31:08.059Z",
@@ -3203,7 +3203,7 @@
         "it": "assistente-di-direzione-universitat-bern-bern",
         "en": "executive-assistant-universitat-bern-bern",
         "de": "direktionsassistent-in-unibe-bern",
-        "fr": "direktionsassistent-in-universitat-bern"
+        "fr": "assistant-e-de-direction-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3250,7 +3250,7 @@
       "previousSlugs": [
         "direktionsassistent-in-unibe-bern",
         "direktionsassistent-in-universitat-bern-bern",
-        "assistant-e-de-direction-universitat-bern-bern"
+        "direktionsassistent-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3262,7 +3262,7 @@
         ],
         "fr": [
           "direktionsassistent-in-universitat-bern-bern",
-          "assistant-e-de-direction-universitat-bern-bern"
+          "direktionsassistent-in-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-21T09:52:54.503Z",
@@ -4275,12 +4275,12 @@
     },
     {
       "id": "unibe-645a5ff0321a",
-      "slug": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
+      "slug": "sem-laboratorio-manager-con-competenze-didattiche-universitat-bern-bern",
       "slugByLocale": {
         "en": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
-        "it": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
-        "de": "sem-lab-manager-with-teaching-responsibilities-unibe-bern",
-        "fr": "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
+        "it": "sem-laboratorio-manager-con-competenze-didattiche-universitat-bern-bern",
+        "de": "sem-lab-manager-mit-lehraufgaben-universitat-bern-bern",
+        "fr": "gestionnaire-de-laboratoire-sem-avec-responsabilites-pedagogiques-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4339,16 +4339,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:37:30.954Z"
+      "firstSeenAt": "2026-10-26T09:37:30.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
+        ],
+        "de": [
+          "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
+        ],
+        "fr": [
+          "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sem-lab-manager-with-teaching-responsibilities-unibe-bern"
+      ]
     },
     {
       "id": "unibe-e03bd16c82bb",
-      "slug": "technology-transfer-manager-physical-sciences-m-w-d-universitat-bern-basel-bern-und-oder-zurich",
+      "slug": "gestione-del-trasferimento-tecnologico-scienze-fisiche-m-f-d-universitat-bern-basel-bern-und-oder-zurich",
       "slugByLocale": {
         "de": "technology-transfer-manager-physical-sciences-w-m-d-unibe-basel-bern-und-oder-zurich",
-        "it": "technology-transfer-manager-physical-sciences-m-w-d-universitat-bern-basel-bern-und-oder-zurich",
+        "it": "gestione-del-trasferimento-tecnologico-scienze-fisiche-m-f-d-universitat-bern-basel-bern-und-oder-zurich",
         "en": "technology-transfer-manager-physical-sciences-w-m-d-unibe-basel-bern-und-oder-zurich",
-        "fr": "technology-transfer-manager-physical-sciences-w-m-d-unibe-basel-bern-und-oder-zurich"
+        "fr": "gestionnaire-du-transfert-de-technologie-sciences-physiques-h-f-d-universitat-bern-basel-bern-und-oder-zurich"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4397,11 +4411,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technology-transfer-manager-physical-sciences-w-m-d-unibe-basel-bern-und-oder-zurich",
+          "technology-transfer-manager-physical-sciences-m-w-d-universitat-bern-basel-bern-und-oder-zurich"
+        ],
+        "fr": [
           "technology-transfer-manager-physical-sciences-w-m-d-unibe-basel-bern-und-oder-zurich"
         ]
       },
       "previousSlugs": [
-        "technology-transfer-manager-physical-sciences-w-m-d-unibe-basel-bern-und-oder-zurich"
+        "technology-transfer-manager-physical-sciences-w-m-d-unibe-basel-bern-und-oder-zurich",
+        "technology-transfer-manager-physical-sciences-m-w-d-universitat-bern-basel-bern-und-oder-zurich"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

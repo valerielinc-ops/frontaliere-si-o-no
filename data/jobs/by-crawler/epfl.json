@@ -5861,11 +5861,11 @@
     },
     {
       "id": "epfl-47237d4bbcfe",
-      "slug": "responsable-hypervision-epfl-lausanne",
+      "slug": "manager-di-hypervision-epfl-lausanne",
       "slugByLocale": {
         "fr": "responsable-hypervision-epfl-lausanne",
-        "it": "responsable-hypervision-epfl-lausanne",
-        "en": "responsable-hypervision-epfl-lausanne",
+        "it": "manager-di-hypervision-epfl-lausanne",
+        "en": "hypervision-manager-epfl-lausanne",
         "de": "responsable-hypervision-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5927,16 +5927,27 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-26T09:41:07.514Z"
+      "firstSeenAt": "2026-10-26T09:41:07.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-hypervision-epfl-lausanne"
+        ],
+        "en": [
+          "responsable-hypervision-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-hypervision-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-7c6ebf74201c",
-      "slug": "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth",
+      "slug": "phd-position-in-magnetismo-quantistico-sperimentale-microonde-spectroscopia-di-magneti-rari-terra-epfl-lausanne",
       "slugByLocale": {
         "en": "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth",
-        "it": "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth",
-        "de": "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth",
-        "fr": "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth"
+        "it": "phd-position-in-magnetismo-quantistico-sperimentale-microonde-spectroscopia-di-magneti-rari-terra-epfl-lausanne",
+        "de": "phd-position-im-experimentellen-quantenmagnetismus-mikrowellenspektroskopie-von-seltenerdmagneten-epfl-lausanne",
+        "fr": "doctorat-en-magnetisme-quantique-experimental-spectroscopie-par-micro-ondes-d-aimants-de-terres-rares-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5997,16 +6008,30 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-26T09:41:06.865Z"
+      "firstSeenAt": "2026-10-26T09:41:06.865Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth"
+        ],
+        "de": [
+          "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth"
+        ],
+        "fr": [
+          "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-experimental-quantum-magnetism-microwave-spectroscopy-of-rare-earth"
+      ]
     },
     {
       "id": "epfl-0990e2aa563c",
-      "slug": "polymecanicien-ne-epfl-lausanne",
+      "slug": "polimeccanica-epfl-lausanne",
       "slugByLocale": {
         "fr": "polymecanicien-ne-epfl-lausanne",
-        "it": "polymecanicien-ne-epfl-lausanne",
-        "en": "polymecanicien-ne-epfl-lausanne",
-        "de": "polymecanicien-ne-epfl-lausanne"
+        "it": "polimeccanica-epfl-lausanne",
+        "en": "polymechanical-epfl-lausanne",
+        "de": "polymechanisch-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6067,7 +6092,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-26T09:41:06.240Z"
+      "firstSeenAt": "2026-10-26T09:41:06.240Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymecanicien-ne-epfl-lausanne"
+        ],
+        "en": [
+          "polymecanicien-ne-epfl-lausanne"
+        ],
+        "de": [
+          "polymecanicien-ne-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "polymecanicien-ne-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-25d14b737daf",

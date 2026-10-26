@@ -5,7 +5,7 @@
   "jobs": [
     {
       "id": "company-olvgab",
-      "slug": "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab",
+      "slug": "architetto-a-ict-senior-sicurezza-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "ICT-Architekt/-in Senior (Safety)",
       "location": "Bern",
@@ -45,7 +45,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab",
+        "it": "architetto-a-ict-senior-sicurezza-swiss-armed-forces-vtg-bern",
         "en": "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab",
         "de": "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab",
         "fr": "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab"
@@ -57,11 +57,13 @@
       "streetAddress": "Stauffacherstrasse 65",
       "previousSlugsByLocale": {
         "it": [
-          "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern"
+          "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern",
+          "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab"
         ]
       },
       "previousSlugs": [
-        "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern"
+        "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern",
+        "ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -121,9 +123,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-alpnach",
-        "en": "logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej",
+        "en": "logistics-specialist-swiss-armed-forces-vtg-alpnach",
         "de": "logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej",
-        "fr": "logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej"
+        "fr": "logisticien-ne-swiss-armed-forces-vtg-alpnach"
       },
       "sourceLang": "de",
       "postalCode": "6055",
@@ -133,6 +135,12 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-swiss-armed-forces-vtg-alpnach",
+          "logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej"
+        ],
+        "en": [
+          "logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej"
+        ],
+        "fr": [
           "logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej"
         ]
       },
@@ -11244,7 +11252,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -11252,8 +11260,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -11263,8 +11270,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
       ],
       "salarySource": "estimated",
       "baseSalary": {

@@ -10677,7 +10677,7 @@
       "slug": "gruppo-leader-lavoro-notte-crew-m-f-x-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "gruppo-leader-lavoro-notte-crew-m-f-x-cartier-manufacture-villars-sur-glane",
-        "en": "group-leader-machining-night-crew-m-f-x-cartier-manufacture-villars-sur-glane",
+        "en": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
         "de": "gruppenleiter-bearbeitung-nacht-crew-m-w-x-cartier-manufacture-villars-sur-glane",
         "fr": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
       },
@@ -10726,7 +10726,8 @@
         "capolavoro-di-gruppo-di-notte-m-f-x-cartier-manufacture-villars-sur-glane",
         "chef-de-gruppe-usinage-equipe-de-nuit-m-w-x-cartier-manufacture-villars-sur-glane",
         "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane",
-        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
+        "group-leader-machining-night-crew-m-f-x-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10736,7 +10737,7 @@
           "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
         ],
         "en": [
-          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+          "group-leader-machining-night-crew-m-f-x-cartier-manufacture-villars-sur-glane"
         ],
         "de": [
           "chef-de-gruppe-usinage-equipe-de-nuit-m-w-x-cartier-manufacture-villars-sur-glane",
@@ -11887,7 +11888,7 @@
       "slug": "apprendista-operatore-in-orologeria-cfp-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
         "it": "apprendista-operatore-in-orologeria-cfp-cartier-manufacture-villars-sur-glane",
-        "en": "watchmaking-operator-apprentice-afp-cartier-manufacture-villars-sur-glane",
+        "en": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
         "de": "auszubildender-betreiber-in-der-uhrmacherei-afp-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
       },
@@ -11936,7 +11937,8 @@
         "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
         "anwendende-operateur-en-horlogerie-afp-cartier-manufacture-villars-sur-glane",
         "apprentice-watch-operator-afp-cartier-manufacture-villars-sur-glane",
-        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+        "watchmaking-operator-apprentice-afp-cartier-manufacture-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11946,7 +11948,7 @@
           "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
         ],
         "en": [
-          "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+          "watchmaking-operator-apprentice-afp-cartier-manufacture-villars-sur-glane"
         ],
         "de": [
           "anwendende-operateur-en-horlogerie-afp-cartier-manufacture-villars-sur-glane",
@@ -15910,12 +15912,12 @@
     },
     {
       "id": "richemont-e3c6a91bce26",
-      "slug": "responsable-developpement-mouvements-richemont-le-brassus",
+      "slug": "sviluppo-responsabile-vacheron-constantin-le-brassus",
       "slugByLocale": {
         "fr": "responsable-developpement-mouvements-richemont-le-brassus",
-        "it": "responsable-developpement-mouvements-richemont-le-brassus",
-        "en": "responsable-developpement-mouvements-richemont-le-brassus",
-        "de": "responsable-developpement-mouvements-richemont-le-brassus"
+        "it": "sviluppo-responsabile-vacheron-constantin-le-brassus",
+        "en": "responsible-development-vacheron-constantin-le-brassus",
+        "de": "verantwortungsbewusste-entwicklung-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15973,16 +15975,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-30T21:23:38.531Z"
+      "firstSeenAt": "2026-09-30T21:23:38.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-developpement-mouvements-richemont-le-brassus"
+        ],
+        "en": [
+          "responsable-developpement-mouvements-richemont-le-brassus"
+        ],
+        "de": [
+          "responsable-developpement-mouvements-richemont-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-developpement-mouvements-richemont-le-brassus"
+      ]
     },
     {
       "id": "richemont-92f81747f7fd",
-      "slug": "horloger-vintage-richemont-plan-les-ouates",
+      "slug": "orologio-vintage-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "fr": "horloger-vintage-richemont-plan-les-ouates",
-        "it": "horloger-vintage-richemont-plan-les-ouates",
-        "en": "horloger-vintage-richemont-plan-les-ouates",
-        "de": "horloger-vintage-richemont-plan-les-ouates"
+        "it": "orologio-vintage-vacheron-constantin-plan-les-ouates",
+        "en": "vintage-clock-vacheron-constantin-plan-les-ouates",
+        "de": "vintage-uhr-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -16041,16 +16057,30 @@
         }
       },
       "postalCode": "1228",
-      "firstSeenAt": "2026-10-26T09:31:20.713Z"
+      "firstSeenAt": "2026-10-26T09:31:20.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "horloger-vintage-richemont-plan-les-ouates"
+        ],
+        "en": [
+          "horloger-vintage-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "horloger-vintage-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "horloger-vintage-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-b984dfcfe025",
-      "slug": "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les",
+      "slug": "coordinatore-del-progetto-di-collaborazione-con-i-fornitori-contratto-a-tempo-determinato-di-6-mesi-richemont-plan-les",
       "slugByLocale": {
         "en": "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les",
-        "it": "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les",
-        "de": "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les",
-        "fr": "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les"
+        "it": "coordinatore-del-progetto-di-collaborazione-con-i-fornitori-contratto-a-tempo-determinato-di-6-mesi-richemont-plan-les",
+        "de": "projektkoordinator-fur-die-zusammenarbeit-mit-lieferanten-befristeter-vertrag-uber-6-monate-richemont-plan-les-ouates",
+        "fr": "coordinateur-de-projet-de-collaboration-avec-les-fournisseurs-contrat-a-duree-determinee-de-6-mois-richemont-plan-les"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -16109,7 +16139,21 @@
         }
       },
       "postalCode": "1228",
-      "firstSeenAt": "2026-10-26T09:31:20.709Z"
+      "firstSeenAt": "2026-10-26T09:31:20.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les"
+        ],
+        "de": [
+          "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les"
+        ],
+        "fr": [
+          "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les"
+        ]
+      },
+      "previousSlugs": [
+        "supplier-collaboration-project-coordinator-6-month-fixed-term-contract-richemont-plan-les"
+      ]
     }
   ]
 }

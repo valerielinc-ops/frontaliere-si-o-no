@@ -260,12 +260,12 @@
     },
     {
       "id": "fisba-620893ee7450",
-      "slug": "betriebsmechaniker-m-w-fisba-ag-st-gallen",
+      "slug": "meccanica-operativa-m-f-fisba-ag-st-gallen",
       "slugByLocale": {
         "de": "betriebsmechaniker-m-w-st-gallen-fisba-ch",
-        "it": "betriebsmechaniker-m-w-fisba-ag-st-gallen",
-        "en": "betriebsmechaniker-m-w-fisba-ag-st-gallen",
-        "fr": "betriebsmechaniker-m-w-fisba-ag-st-gallen"
+        "it": "meccanica-operativa-m-f-fisba-ag-st-gallen",
+        "en": "operational-mechanics-m-f-fisba-ag-st-gallen",
+        "fr": "mecanique-operationnelle-h-f-fisba-ag-st-gallen"
       },
       "company": "FISBA AG",
       "companyKey": "fisba",
@@ -312,11 +312,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-m-w-st-gallen-fisba-ch"
+          "betriebsmechaniker-m-w-st-gallen-fisba-ch",
+          "betriebsmechaniker-m-w-fisba-ag-st-gallen"
+        ],
+        "en": [
+          "betriebsmechaniker-m-w-fisba-ag-st-gallen"
+        ],
+        "fr": [
+          "betriebsmechaniker-m-w-fisba-ag-st-gallen"
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-m-w-st-gallen-fisba-ch"
+        "betriebsmechaniker-m-w-st-gallen-fisba-ch",
+        "betriebsmechaniker-m-w-fisba-ag-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

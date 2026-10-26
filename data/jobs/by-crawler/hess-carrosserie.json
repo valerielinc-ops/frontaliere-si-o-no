@@ -2158,7 +2158,7 @@
       "slug": "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "it": "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach",
-        "en": "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach",
+        "en": "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach",
         "de": "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
         "fr": "traitement-des-vehicules-tout-terrain-h-f-d-carrosserie-hess-ag-bellach"
       },
@@ -2212,7 +2212,7 @@
         "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach",
         "voyageur-tout-terrain-80-100-m-f-d-carrosserie-hess-ag-bellach",
         "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
-        "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach"
+        "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2225,7 +2225,7 @@
         "en": [
           "traveling-all-rounder-80-100-m-f-d-carrosserie-hess-ag-bellach",
           "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
-          "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach"
+          "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "de": [
           "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach"
@@ -2743,12 +2743,12 @@
     },
     {
       "id": "hess-carrosserie-51b2f95e043f",
-      "slug": "schlosser-retrofit-m-w-d-hess-bellach",
+      "slug": "retrofit-del-fabbro-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "de": "schlosser-retrofit-m-w-d-hess-bellach",
-        "it": "schlosser-retrofit-m-w-d-hess-bellach",
-        "en": "schlosser-retrofit-m-w-d-hess-bellach",
-        "fr": "schlosser-retrofit-m-w-d-hess-bellach"
+        "it": "retrofit-del-fabbro-m-f-d-carrosserie-hess-ag-bellach",
+        "en": "locksmith-retrofit-m-f-d-carrosserie-hess-ag-bellach",
+        "fr": "serrurier-renovation-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2809,7 +2809,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:32:12.921Z"
+      "firstSeenAt": "2026-10-26T09:32:12.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schlosser-retrofit-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "schlosser-retrofit-m-w-d-hess-bellach"
+        ],
+        "fr": [
+          "schlosser-retrofit-m-w-d-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "schlosser-retrofit-m-w-d-hess-bellach"
+      ]
     },
     {
       "id": "hess-carrosserie-2d18813098b3",

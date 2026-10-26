@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1375790557",
-      "slug": "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557",
+      "slug": "esperto-di-assicurazione-pmi-e-vita-m-f-d-zurich-insurance-zurich-1375790557",
       "slugByLocale": {
         "de": "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557",
-        "en": "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557",
-        "fr": "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557"
+        "it": "esperto-di-assicurazione-pmi-e-vita-m-f-d-zurich-insurance-zurich-1375790557",
+        "en": "insurance-expert-sme-life-m-f-d-zurich-insurance-zurich-1375790557",
+        "fr": "expert-en-assurance-pme-vie-h-f-d-zurich-insurance-zurich-1375790557"
       },
       "slugDisambiguator": "1375790557",
       "company": "Zurich Insurance",
@@ -59,11 +59,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-sede-ticino-zurich"
+          "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557"
+        ],
+        "en": [
+          "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557"
+        ],
+        "fr": [
+          "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557"
         ]
       },
       "previousSlugs": [
-        "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "versicherungsexperte-kmu-leben-m-w-d-zurich-insurance-zurich-1375790557"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1610,7 +1618,7 @@
       "slug": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
-        "en": "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757",
+        "en": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "de": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
       },
@@ -1658,14 +1666,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+        "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "en": [
-          "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+          "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
         ]
       },
       "slugDisambiguator": "1373916757",

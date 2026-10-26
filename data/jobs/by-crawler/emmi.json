@@ -8314,12 +8314,12 @@
     },
     {
       "id": "emmi-70fc674d059c",
-      "slug": "health-safety-lead-region-zentralschweiz-emmi-ch",
+      "slug": "regione-di-piombo-per-la-salute-e-la-sicurezza-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "health-safety-lead-region-zentralschweiz-emmi-ch",
-        "it": "health-safety-lead-region-zentralschweiz-emmi-ch",
+        "it": "regione-di-piombo-per-la-salute-e-la-sicurezza-emmi-emmen-luzern",
         "en": "health-safety-lead-region-zentralschweiz-emmi-ch",
-        "fr": "health-safety-lead-region-zentralschweiz-emmi-ch"
+        "fr": "sante-et-securite-region-chef-de-file-suisse-centrale-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8393,16 +8393,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:21:32.208Z"
+      "firstSeenAt": "2026-10-26T09:21:32.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "health-safety-lead-region-zentralschweiz-emmi-ch"
+        ],
+        "fr": [
+          "health-safety-lead-region-zentralschweiz-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "health-safety-lead-region-zentralschweiz-emmi-ch"
+      ]
     },
     {
       "id": "emmi-9268a57efc37",
-      "slug": "health-safety-lead-region-ostschweiz-emmi-ch",
+      "slug": "salute-e-sicurezza-lead-regione-svizzera-orientale-emmi-bischofszell-thurgau",
       "slugByLocale": {
         "de": "health-safety-lead-region-ostschweiz-emmi-ch",
-        "it": "health-safety-lead-region-ostschweiz-emmi-ch",
+        "it": "salute-e-sicurezza-lead-regione-svizzera-orientale-emmi-bischofszell-thurgau",
         "en": "health-safety-lead-region-ostschweiz-emmi-ch",
-        "fr": "health-safety-lead-region-ostschweiz-emmi-ch"
+        "fr": "sante-et-securite-region-chef-de-file-suisse-orientale-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8476,16 +8487,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:21:32.206Z"
+      "firstSeenAt": "2026-10-26T09:21:32.206Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "health-safety-lead-region-ostschweiz-emmi-ch"
+        ],
+        "fr": [
+          "health-safety-lead-region-ostschweiz-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "health-safety-lead-region-ostschweiz-emmi-ch"
+      ]
     },
     {
       "id": "emmi-4faad2e2e6fc",
-      "slug": "health-safety-lead-region-mittelland-emmi-ch",
+      "slug": "salute-e-sicurezza-lead-region-mittelland-emmi-suhr-aargau",
       "slugByLocale": {
         "de": "health-safety-lead-region-mittelland-emmi-ch",
-        "it": "health-safety-lead-region-mittelland-emmi-ch",
+        "it": "salute-e-sicurezza-lead-region-mittelland-emmi-suhr-aargau",
         "en": "health-safety-lead-region-mittelland-emmi-ch",
-        "fr": "health-safety-lead-region-mittelland-emmi-ch"
+        "fr": "sante-et-securite-region-responsable-mittelland-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8559,7 +8581,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:21:32.204Z"
+      "firstSeenAt": "2026-10-26T09:21:32.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "health-safety-lead-region-mittelland-emmi-ch"
+        ],
+        "fr": [
+          "health-safety-lead-region-mittelland-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "health-safety-lead-region-mittelland-emmi-ch"
+      ]
     }
   ]
 }

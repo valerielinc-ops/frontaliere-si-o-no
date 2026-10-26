@@ -10826,12 +10826,12 @@
     },
     {
       "id": "medbase-327f7041c7b2",
-      "slug": "collaboratore-trice-a-im-reformbereich-50-80-medbase-reinach",
+      "slug": "collaboratore-trice-a-nel-settore-dei-prodotti-naturali-50-80-medbase-reinach",
       "slugByLocale": {
         "de": "mitarbeiter-in-a-im-reformbereich-50-80-medbase-ch",
-        "it": "collaboratore-trice-a-im-reformbereich-50-80-medbase-reinach",
-        "en": "mitarbeiter-in-a-im-reformbereich-50-80-medbase-reinach",
-        "fr": "mitarbeiter-in-a-im-reformbereich-50-80-medbase-reinach"
+        "it": "collaboratore-trice-a-nel-settore-dei-prodotti-naturali-50-80-medbase-reinach",
+        "en": "employee-a-in-the-health-food-department-50-80-medbase-reinach",
+        "fr": "collaborateur-rice-a-dans-le-secteur-des-produits-dietetiques-50-80-medbase-reinach"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -10878,11 +10878,20 @@
       "jobReqId": "JR07899",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-a-im-reformbereich-50-80-medbase-ch"
+          "mitarbeiter-in-a-im-reformbereich-50-80-medbase-ch",
+          "collaboratore-trice-a-im-reformbereich-50-80-medbase-reinach"
+        ],
+        "en": [
+          "mitarbeiter-in-a-im-reformbereich-50-80-medbase-reinach"
+        ],
+        "fr": [
+          "mitarbeiter-in-a-im-reformbereich-50-80-medbase-reinach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-a-im-reformbereich-50-80-medbase-ch"
+        "mitarbeiter-in-a-im-reformbereich-50-80-medbase-ch",
+        "collaboratore-trice-a-im-reformbereich-50-80-medbase-reinach",
+        "mitarbeiter-in-a-im-reformbereich-50-80-medbase-reinach"
       ],
       "salaryMin": 49600,
       "salaryMax": 75200,
@@ -10902,12 +10911,12 @@
     },
     {
       "id": "medbase-fa8b56b42d2e",
-      "slug": "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch",
+      "slug": "staff-reception-a-60-100-basel-toujours-medbase-basel",
       "slugByLocale": {
         "de": "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch",
-        "it": "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch",
+        "it": "staff-reception-a-60-100-basel-toujours-medbase-basel",
         "en": "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch",
-        "fr": "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch"
+        "fr": "reception-du-personnel-a-60-100-bale-toujours-medbase-basel"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -10966,7 +10975,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-26T09:19:48.659Z"
+      "firstSeenAt": "2026-10-26T09:19:48.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch"
+        ],
+        "fr": [
+          "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-empfang-a-60-100-basel-toujours-medbase-ch"
+      ]
     }
   ]
 }

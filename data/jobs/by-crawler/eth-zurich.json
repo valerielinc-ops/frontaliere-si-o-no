@@ -9968,12 +9968,12 @@
     },
     {
       "id": "eth-zurich-dfe9156860b5",
-      "slug": "doctoral-position-in-environmental-microbiology-eth-zurich-ch",
+      "slug": "posizione-dottorale-in-microbiologia-ambientale-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-environmental-microbiology-eth-zurich-ch",
-        "it": "doctoral-position-in-environmental-microbiology-eth-zurich-ch",
-        "de": "doctoral-position-in-environmental-microbiology-eth-zurich-ch",
-        "fr": "doctoral-position-in-environmental-microbiology-eth-zurich-ch"
+        "it": "posizione-dottorale-in-microbiologia-ambientale-eth-zurich-zurich",
+        "de": "doktoratsstelle-in-umweltmikrobiologie-eth-zurich-zurich",
+        "fr": "position-au-doctorat-en-microbiologie-environnementale-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -10031,7 +10031,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-26T09:34:51.151Z"
+      "firstSeenAt": "2026-10-26T09:34:51.151Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-environmental-microbiology-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-position-in-environmental-microbiology-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-position-in-environmental-microbiology-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-environmental-microbiology-eth-zurich-ch"
+      ]
     }
   ]
 }

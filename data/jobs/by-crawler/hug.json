@@ -3990,12 +3990,12 @@
     },
     {
       "id": "hug-1c2154702085",
-      "slug": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon",
+      "slug": "host-o-hostess-delle-terme-di-cressy-50-hug-1232-confignon",
       "slugByLocale": {
         "fr": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon",
-        "it": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon",
-        "en": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon",
-        "de": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon"
+        "it": "host-o-hostess-delle-terme-di-cressy-50-hug-1232-confignon",
+        "en": "host-or-hostess-of-the-baths-of-cressy-50-hug-1232-confignon",
+        "de": "gastgeberin-oder-gastgeberin-der-bader-von-cressy-50-hug-1232-confignon"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4054,7 +4054,21 @@
         }
       },
       "postalCode": "1232",
-      "firstSeenAt": "2026-10-26T09:20:38.121Z"
+      "firstSeenAt": "2026-10-26T09:20:38.121Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon"
+        ],
+        "en": [
+          "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon"
+        ],
+        "de": [
+          "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon"
+        ]
+      },
+      "previousSlugs": [
+        "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-1232-confignon"
+      ]
     }
   ]
 }

@@ -713,12 +713,12 @@
     },
     {
       "id": "apleona-schweiz-ag-bed593f7a6cb",
-      "slug": "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach",
+      "slug": "addetto-alla-manutenzione-degli-edifici-m-f-d-apleona-schweiz-ag-spreitenbach",
       "slugByLocale": {
         "de": "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach",
-        "it": "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach",
-        "en": "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach",
-        "fr": "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach"
+        "it": "addetto-alla-manutenzione-degli-edifici-m-f-d-apleona-schweiz-ag-spreitenbach",
+        "en": "employee-home-maintenance-m-f-d-apleona-schweiz-ag-spreitenbach",
+        "fr": "maintenance-a-domicile-des-employes-h-f-d-apleona-schweiz-ag-spreitenbach"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -764,11 +764,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach",
+          "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach"
+        ],
+        "en": [
+          "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach"
+        ],
+        "fr": [
           "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach"
+        "mitarbeiter-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach",
+        "collaboratore-trice-hauswartung-m-w-d-apleona-schweiz-ag-spreitenbach"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
