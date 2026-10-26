@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "montatore-di-ascensori-modernizzazione-m-f-d-otis-sa-oberburen",
         "en": "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-        "de": "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen",
+        "de": "smonteurmodern-m-w-d-otis-sa-oberburen",
         "fr": "monteur-d-ascenseurs-modernisation-h-f-d-otis-sa-oberburen"
       },
       "company": "Otis SA",
@@ -51,7 +51,7 @@
       "crawledAt": "2026-10-25T21:46:27.133Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-        "smonteurmodern-m-w-d-otis-sa-oberburen"
+        "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -59,7 +59,7 @@
         ],
         "de": [
           "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-          "smonteurmodern-m-w-d-otis-sa-oberburen"
+          "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen"
         ],
         "fr": [
           "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen"
@@ -294,7 +294,6 @@
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169288",
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-25T21:46:26.274Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-m-w-d-otis-reinach"
@@ -917,7 +916,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "otis-8e8eeb0235ce",
@@ -1382,7 +1382,7 @@
         "it": "servicetechniker-m-w-d-otis-sa-wallisellen",
         "en": "servicetechniker-m-w-d-otis-wallisellen",
         "de": "wartungstechniker-m-w-d-otis-sa-wallisellen",
-        "fr": "servicetechniker-m-w-d-otis-sa-wallisellen"
+        "fr": "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -1421,10 +1421,8 @@
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Servicetechniker--m-w-d-_20171012",
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-25T21:46:22.024Z",
-      "needsRetranslation": true,
       "previousSlugs": [
-        "servicetechniker-m-w-d-otis-wallisellen",
-        "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
+        "servicetechniker-m-w-d-otis-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1434,8 +1432,7 @@
           "servicetechniker-m-w-d-otis-wallisellen"
         ],
         "fr": [
-          "servicetechniker-m-w-d-otis-wallisellen",
-          "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
+          "servicetechniker-m-w-d-otis-wallisellen"
         ]
       },
       "firstSeenAt": "2026-10-19T09:31:33.158Z",

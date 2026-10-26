@@ -1133,7 +1133,6 @@
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
         "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
-        "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
@@ -1142,7 +1141,6 @@
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
           "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
-          "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
@@ -1299,7 +1297,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51136",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
@@ -1983,13 +1980,11 @@
         ],
         "it": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
           "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
         "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
       ],
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
@@ -7860,7 +7855,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51263",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-stadt-zuerich-zurigo-51263"
@@ -11951,7 +11945,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "51887",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schulsozialarbeiter-in-stadt-zuerich-zurigo-51887"
@@ -12292,7 +12285,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51886",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886"
@@ -13038,7 +13030,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "50937",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagog-in-schule-nordstern-stadt-zuerich-zurigo-50937"
@@ -17663,7 +17654,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Sportamt",
       "referenceNumber": "51948",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "badeangestellte-r-stadt-zuerich-zurigo-51948"
@@ -21482,7 +21472,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "51659",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659"
@@ -23301,7 +23290,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51345",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-stadt-zuerich-zurigo-51345",
@@ -24248,8 +24236,8 @@
       "slugByLocale": {
         "de": "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688",
         "it": "schulsozialarbeiter-in-stadt-zurich-zurich-cf0a22087e",
-        "en": "schulsozialarbeiter-in-stadt-zurich-zurich",
-        "fr": "schulsozialarbeiter-in-stadt-zurich-zurich"
+        "en": "schulsozialarbeiter-in-stadt-zurich-zurich-cvgnwx",
+        "fr": "schulsozialarbeiter-in-stadt-zurich-zurich-cvgnwx"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -24298,14 +24286,20 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "51688",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "schulsozialarbeiter-in-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688"
+        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688",
+        "schulsozialarbeiter-in-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -24462,7 +24456,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "51691",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691"
@@ -24884,7 +24877,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "52000",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -26335,7 +26327,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "50694",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-50694"
@@ -28672,7 +28663,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "51661",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -28827,7 +28817,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51726",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-stadt-zuerich-zurigo-51726",
@@ -29006,7 +28995,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "51553",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hortleiter-in-stadt-zuerich-zurigo-51553"
@@ -29086,7 +29074,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "51550",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hortleiter-in-stadt-zuerich-zurigo-51550"
@@ -29953,7 +29940,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51721",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "vorarbeiter-in-stadt-zuerich-zurigo-51721",
@@ -30043,7 +30029,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51724",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-stadt-zuerich-zurigo-51724",
@@ -30222,7 +30207,6 @@
       "department": "Departement der Industriellen Betriebe",
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51056",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
@@ -31149,7 +31133,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "52046",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -31221,7 +31204,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "52044",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -33120,7 +33102,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51457",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
