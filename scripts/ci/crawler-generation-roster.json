@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 653,
+  "crawlerCount": 655,
   "groups": {
     "10": [
       "atec-personal",
@@ -30,6 +30,7 @@
       "stellentreff",
       "swiss-medical-network",
       "sympajobs-reinach-bl",
+      "teo-jakob-ag",
       "triaplus",
       "viva-luzern",
       "vz-vermoegenszentrum"
@@ -702,6 +703,7 @@
       "sunrise-sede-ticino",
       "suva",
       "the-living-circle",
+      "walter-zoo-ag-gossau",
       "weisse-arena"
     ]
   },
@@ -1300,6 +1302,7 @@
     "tecan": "data/jobs/by-crawler/tecan.json",
     "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
+    "teo-jakob-ag": "data/jobs/by-crawler/teo-jakob-ag.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
     "the-living-circle": "data/jobs/by-crawler/the-living-circle.json",
@@ -1346,6 +1349,7 @@
     "vtg": "data/jobs/by-crawler/vtg.json",
     "vz-vermoegenszentrum": "data/jobs/by-crawler/vz-vermoegenszentrum.json",
     "wagerenhof": "data/jobs/by-crawler/wagerenhof.json",
+    "walter-zoo-ag-gossau": "data/jobs/by-crawler/walter-zoo-ag-gossau.json",
     "weisse-arena": "data/jobs/by-crawler/weisse-arena.json",
     "wokin": "data/jobs/by-crawler/wokin.json",
     "wuerth-international": "data/jobs/by-crawler/wuerth-international.json",
@@ -1360,5 +1364,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:fbb285d0cdd3795a444b9a6cb877668ec258d220f4267246ff08671197f48e7f"
+  "digest": "sha256:64f65e641c0dd2a65a09f37d938693b22818feb5e6bbe8b6ef3b9a54436f7707"
 }

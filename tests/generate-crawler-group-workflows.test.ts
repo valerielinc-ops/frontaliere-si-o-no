@@ -2117,7 +2117,13 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     // 14 different ones in, and rewrote all 24 files (~5000 lines) — i.e. it
     // silently changed which crawler runs in which window in production.
     const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
-    const victim = manifest[Math.floor(manifest.length / 2)].slug;
+    // Retired crawlers remain in the manifest as historical records but are
+    // deliberately absent from generated workflow files. Choose a live
+    // crawler so this regression exercises the one-group rewrite invariant.
+    const retired = new Set(Object.keys(JSON.parse(fs.readFileSync(QUARANTINE_PATH, 'utf8')).retired ?? {}));
+    const victimEntry = manifest.find((crawler: any) => !retired.has(crawler.slug));
+    expect(victimEntry, 'fixture must contain at least one scheduled crawler').toBeDefined();
+    const victim = victimEntry!.slug;
 
     const { outDir } = regenerate((doc) => {
       doc.manifest = doc.manifest.filter((c: any) => c.slug !== victim);
