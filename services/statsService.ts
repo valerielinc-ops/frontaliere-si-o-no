@@ -63,14 +63,62 @@ export const STATS_CACHE_DURATION_MS = 60 * 60 * 1000;
 
 import { reportCaughtError } from '@/services/errorReporter';
 
+function isPlainRecord(value: unknown): value is Record<string, unknown> {
+ return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isNonNegativeFinite(value: unknown): value is number {
+ return typeof value === 'number' && Number.isFinite(value) && value >= 0;
+}
+
+function isNonEmptyString(value: unknown): value is string {
+ return typeof value === 'string' && value.trim().length > 0;
+}
+
+/** Normalize an untrusted BFS payload while retaining valid points. */
+export function normalizeStatsData(value: unknown): StatsData | null {
+ if (!isPlainRecord(value)) return null;
+ if (!Array.isArray(value.trend) || !Array.isArray(value.ages) || !Array.isArray(value.genderTrend) || !Array.isArray(value.genderSnapshot)) {
+ return null;
+ }
+ if (!isNonEmptyString(value.lastUpdated)) return null;
+
+ const trend = value.trend.flatMap((point): TrendPoint[] => {
+  if (!isPlainRecord(point) || !isNonEmptyString(point.year) || !isNonNegativeFinite(point.frontalieri)) return [];
+  return [{ year: point.year, frontalieri: point.frontalieri }];
+ });
+ if (trend.length === 0) return null;
+
+ const ages = value.ages.flatMap((point): AgePoint[] => {
+  if (!isPlainRecord(point) || !isNonEmptyString(point.name) || !isNonNegativeFinite(point.value)) return [];
+  return [{ name: point.name, value: point.value }];
+ });
+ const genderTrend = value.genderTrend.flatMap((point): GenderTrendPoint[] => {
+  if (!isPlainRecord(point) || !isNonEmptyString(point.year) || !isNonNegativeFinite(point.Uomini) || !isNonNegativeFinite(point.Donne)) return [];
+  return [{ year: point.year, Uomini: point.Uomini, Donne: point.Donne }];
+ });
+ const genderSnapshot = value.genderSnapshot.flatMap((point): GenderSnapshot[] => {
+  if (!isPlainRecord(point) || !isNonEmptyString(point.name) || !isNonNegativeFinite(point.value) || !isNonEmptyString(point.pct) || !isNonEmptyString(point.color)) return [];
+  return [{ name: point.name, value: point.value, pct: point.pct, color: point.color }];
+ });
+
+ return { trend, ages, genderTrend, genderSnapshot, lastUpdated: value.lastUpdated };
+}
+
+/** Validate the persisted cache envelope, including freshness metadata. */
+export function normalizeStatsCacheEntry(value: unknown, now = Date.now()): (StatsData & { timestamp: number }) | null {
+ if (!isPlainRecord(value) || !isNonNegativeFinite(value.timestamp) || value.timestamp > now) return null;
+ const stats = normalizeStatsData(value);
+ return stats ? { ...stats, timestamp: value.timestamp } : null;
+}
+
 // ─── localStorage (L1 cache) ─────────────────────────────────
 
 function getLocalCache(): (StatsData & { timestamp: number }) | null {
  try {
  const raw = localStorage.getItem(LOCAL_CACHE_KEY);
  if (!raw) return null;
- const data = JSON.parse(raw);
- if (data?.trend?.length > 0) return data;
+ return normalizeStatsCacheEntry(JSON.parse(raw));
  } catch { /* ignore */ }
  return null;
 }
@@ -94,19 +142,11 @@ async function getFirestoreStats(): Promise<(StatsData & { timestamp: number }) 
  const snap = await getDoc(doc(db, FIRESTORE_COLLECTION, FIRESTORE_DOC));
  if (snap.exists()) {
  const data = snap.data();
- if (data?.trend?.length > 0) {
  const ts = typeof data.timestamp?.toMillis === 'function'
  ? data.timestamp.toMillis()
  : (data.timestamp ?? 0);
- return {
- trend: data.trend,
- ages: data.ages,
- genderTrend: data.genderTrend,
- genderSnapshot: data.genderSnapshot,
- lastUpdated: data.lastUpdated,
- timestamp: ts,
- };
- }
+ const normalized = normalizeStatsCacheEntry({ ...data, timestamp: ts });
+ if (normalized) return normalized;
  }
  } catch (e) {
  reportCaughtError(e, 'stats.firestoreRead', { apiEndpoint: `${FIRESTORE_COLLECTION}/${FIRESTORE_DOC}` });

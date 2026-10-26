@@ -27,15 +27,30 @@ export interface JobMatchProfileData {
   updatedAt: number;
 }
 
+function isNullableString(value: unknown): value is string | null {
+  return value === null || typeof value === 'string';
+}
+
+function isValidJobMatchProfile(value: unknown): value is JobMatchProfileData {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  const profile = value as Record<string, unknown>;
+  return profile.version === 1 &&
+    isNullableString(profile.sector) &&
+    isNullableString(profile.experienceLevel) &&
+    isNullableString(profile.canton) &&
+    typeof profile.updatedAt === 'number' &&
+    Number.isFinite(profile.updatedAt) &&
+    profile.updatedAt >= 0;
+}
+
 /** Read persisted job-match profile, or null when never saved / unavailable. */
 export function loadJobMatchProfile(): JobMatchProfileData | null {
   if (!isStorageAvailable()) return null;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    const parsed = JSON.parse(raw) as JobMatchProfileData;
-    if (!parsed || parsed.version !== 1) return null;
-    return parsed;
+    const parsed: unknown = JSON.parse(raw);
+    return isValidJobMatchProfile(parsed) ? parsed : null;
   } catch {
     return null;
   }

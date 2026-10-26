@@ -23,6 +23,16 @@ describe('loadJobMatchProfile', () => {
     localStorage.setItem('frontaliere_job_match_profile', JSON.stringify({ version: 99, sector: 'it_software' }));
     expect(loadJobMatchProfile()).toBeNull();
   });
+
+  it.each([
+    { version: 1, sector: { bad: true }, experienceLevel: null, canton: null, updatedAt: 1 },
+    { version: 1, sector: null, experienceLevel: null, canton: ['TI'], updatedAt: 1 },
+    { version: 1, sector: null, experienceLevel: null, canton: null, updatedAt: -1 },
+    { version: 1, sector: null, experienceLevel: null, canton: null, updatedAt: 'now' },
+  ])('rejects malformed persisted profile %#', (profile) => {
+    localStorage.setItem('frontaliere_job_match_profile', JSON.stringify(profile));
+    expect(loadJobMatchProfile()).toBeNull();
+  });
 });
 
 describe('saveJobMatchProfile', () => {
