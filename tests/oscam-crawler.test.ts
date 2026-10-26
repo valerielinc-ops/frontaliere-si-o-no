@@ -4,7 +4,11 @@ import { officialPostalCodeForLocation } from '../scripts/lib/swiss-locality-dir
 import { OSCAM_CASTELROTTO_ADDRESS } from '../scripts/lib/oscam-castelrotto-job-parser.mjs';
 import { getCantonPostalFallback } from '../scripts/lib/canton-postal-fallback.mjs';
 import { normalizePdfJobText, buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
-import { extractOscamApplicationUrlFromPdfText } from '../scripts/update-oscam-jobs.mjs';
+import {
+  extractOscamApplicationUrlFromCareerPage,
+  extractOscamApplicationUrlFromPdfText,
+  restoreOscamArchivedJobs,
+} from '../scripts/update-oscam-jobs.mjs';
 import {
   oscamCastelrottoMatchKey,
   parseOscamCastelrottoListing,
@@ -38,6 +42,69 @@ describe('OSCAM source-backed application handoff', () => {
     )).toBeNull();
     expect(extractOscamApplicationUrlFromPdfText(FIXTURE_VICE_PDF)).toBeNull();
     expect(extractOscamApplicationUrlFromPdfText(FIXTURE_GENERALE_PDF)).toBeNull();
+  });
+});
+
+describe('OSCAM career-page application fallback', () => {
+  it('accepts the exact OSCAM form only inside the CANDIDATURE section', () => {
+    const html = `
+      <h2>LINK</h2>
+      <a href="https://evil.example/candidature/">Unrelated link</a>
+      <h2>CANDIDATURE</h2>
+      <p>Le candidature spontanee sono raccolte tramite il modulo online.</p>
+      <a href='/candidature/'>Candidature Spontanee</a>
+      <h2>NORMATIVA INTERNE</h2>
+      <a href="/candidature/">Not an application link</a>`;
+
+    expect(extractOscamApplicationUrlFromCareerPage(html)).toBe(
+      'https://www.oscam.ch/candidature/',
+    );
+  });
+
+  it('fails closed when the contextual route is missing and normalizes duplicate canonical links', () => {
+    expect(extractOscamApplicationUrlFromCareerPage(`
+      <h2>CANDIDATURE</h2>
+      <a href="https://example.org/candidature/">External form</a>
+      <h2>NORMATIVA INTERNE</h2>`)).toBeNull();
+    expect(extractOscamApplicationUrlFromCareerPage(`
+      <h2>CANDIDATURE</h2>
+      <a href="/candidature/">Form one</a>
+      <a href="https://www.oscam.ch/candidature/?channel=cam">Form two</a>
+      <h2>NORMATIVA INTERNE</h2>`)).toBe(
+      'https://www.oscam.ch/candidature/',
+    );
+  });
+});
+
+describe('OSCAM expired-source recovery', () => {
+  const sourceBody = Array.from({ length: 60 }, (_, index) => `contenuto${index}`).join(' ');
+  const currentRow = {
+    companyKey: 'oscam',
+    title: 'Concorso generale 2026',
+    slug: 'concorso-generale-2026-oscam',
+    description: '',
+    descriptionByLocale: { it: '' },
+    sourceLang: 'it',
+  };
+  const archivedRow = {
+    companyKey: 'oscam',
+    title: 'Concorso generale 2026',
+    slug: 'concorso-generale-2026-oscam',
+    descriptionByLocale: { it: sourceBody },
+  };
+
+  it('restores the explicit Italian source body for one exact current listing', () => {
+    const [restored] = restoreOscamArchivedJobs([currentRow], [archivedRow]);
+
+    expect(restored.description).toBe(sourceBody);
+    expect(restored.descriptionByLocale.it).toBe(sourceBody);
+    expect(restored.sourceLang).toBe('it');
+  });
+
+  it('does not guess when the archive identity is ambiguous', () => {
+    const duplicate = { ...archivedRow, descriptionByLocale: { it: `${sourceBody} altro` } };
+
+    expect(restoreOscamArchivedJobs([currentRow], [archivedRow, duplicate])).toEqual([currentRow]);
   });
 });
 

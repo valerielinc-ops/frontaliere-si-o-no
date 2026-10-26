@@ -3,7 +3,7 @@
   "totals": {
     "R3": 23,
     "R4": 18,
-    "R5": 137
+    "R5": 135
   },
   "files": {
     "scripts/lib/a-plus-plus-job-parser.mjs": {
@@ -303,9 +303,6 @@
     },
     "scripts/update-mendrisio-jobs.mjs": {
       "R5": 3
-    },
-    "scripts/update-oscam-jobs.mjs": {
-      "R5": 2
     },
     "scripts/update-pemsa-jobs.mjs": {
       "R3": 1

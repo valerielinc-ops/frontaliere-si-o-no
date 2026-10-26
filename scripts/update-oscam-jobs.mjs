@@ -58,10 +58,12 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
-import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { archiveRemovedJobsToSlice, readExpiredSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { keepStoredSourceBodiesByKey, sourceBodyForJob } from './lib/stored-source-body.mjs';
 import {
   buildObservedHttpsApplyUrlHousekeepingProof,
   partitionByHttpsApplyUrl,
@@ -87,6 +89,10 @@ const CAREERS_URLS = [
   'https://www.oscam.ch/lavoraconnoi-cam/',
 ];
 const LOCALES = ['it', 'en', 'de', 'fr'];
+// The archived OSCAM body is the Italian text extracted from the official
+// bando. The archive writer does not persist the original source-language
+// marker, so never choose a locale by array order or by longest text.
+const ARCHIVE_SOURCE_LOCALE = 'it';
 const OSCAM_HOSPITAL_ADDRESS = Object.freeze({
   streetAddress: 'Nucleo 30',
   addressLocality: 'Castelrotto',
@@ -136,6 +142,48 @@ export function extractOscamApplicationUrlFromPdfText(text = '') {
     return `https://www.oscam.ch/${match[2].toLowerCase()}/`;
   }
   return null;
+}
+
+/**
+ * Resolve the official application form from the career page's CANDIDATURE
+ * section. This is the source-level fallback when a listed PDF is temporarily
+ * unavailable, not a generic first-link fallback: the heading boundary, exact
+ * OSCAM host and exact `/candidature/` path are all required.
+ */
+export function extractOscamApplicationUrlFromCareerPage(
+  html = '',
+  careerPageUrl = CAREERS_URLS[0],
+) {
+  const source = String(html || '');
+  const headings = [...source.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi)];
+  const candidatureHeading = headings.find((heading) =>
+    /^CANDIDATURE(?:\s|$)/i.test(normalizeSpace(stripHtml(heading[1]))));
+  if (!candidatureHeading || candidatureHeading.index === undefined) return null;
+
+  const sectionStart = candidatureHeading.index + candidatureHeading[0].length;
+  const nextHeading = headings.find((heading) => heading.index > sectionStart);
+  const section = source.slice(sectionStart, nextHeading?.index ?? source.length);
+  const candidates = new Set();
+  const anchorPattern = /<a\b[^>]*\bhref\s*=\s*(['"])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi;
+
+  for (const anchor of section.matchAll(anchorPattern)) {
+    const href = decodeHtmlEntities(anchor[2]).trim();
+    if (!href) continue;
+
+    let resolved;
+    try {
+      resolved = new URL(href, careerPageUrl || CAREERS_URLS[0]);
+    } catch {
+      continue;
+    }
+    if (resolved.protocol !== 'https:' || !isTrustedDomain(resolved.href)) continue;
+
+    const pathname = resolved.pathname.replace(/\/+$/, '/').toLowerCase();
+    if (pathname !== '/candidature/') continue;
+    candidates.add('https://www.oscam.ch/candidature/');
+  }
+
+  return candidates.size === 1 ? [...candidates][0] : null;
 }
 
 function slugify(text = '', suffix = '') {
@@ -206,6 +254,94 @@ function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+function oscamArchiveMatchKey(job = {}) {
+  const companyKey = normalize(job?.companyKey || '');
+  const slug = String(job?.slug || '').trim().toLowerCase();
+  const title = normalizeSpace(job?.title || '').toLowerCase();
+  if (companyKey !== COMPANY_KEY || !slug || !title) return '';
+  return `${companyKey}\u0000${slug}\u0000${title}`;
+}
+
+function buildOscamArchiveFallback(row, archivedEntry) {
+  const archivedDescriptions = archivedEntry?.descriptionByLocale;
+  if (
+    !archivedDescriptions
+    || typeof archivedDescriptions !== 'object'
+    || Array.isArray(archivedDescriptions)
+  ) return null;
+
+  const sourceBody = String(archivedDescriptions[ARCHIVE_SOURCE_LOCALE] || '').trim();
+  if (!meetsSourceBodyFloor(sourceBody)) return null;
+
+  const descriptionByLocale = Object.fromEntries(
+    Object.entries(archivedDescriptions)
+      .filter(([locale, text]) => LOCALES.includes(locale) && meetsSourceBodyFloor(text))
+      .map(([locale, text]) => [locale, String(text).trim()]),
+  );
+  descriptionByLocale[ARCHIVE_SOURCE_LOCALE] = sourceBody;
+
+  return {
+    ...row,
+    description: sourceBody,
+    descriptionByLocale: {
+      ...(row.descriptionByLocale || {}),
+      ...descriptionByLocale,
+    },
+    sourceLang: ARCHIVE_SOURCE_LOCALE,
+    titleByLocale: {
+      ...(archivedEntry.titleByLocale || {}),
+      ...(row.titleByLocale || {}),
+    },
+    slugByLocale: {
+      ...(archivedEntry.slugByLocale || {}),
+      ...(row.slugByLocale || {}),
+    },
+    ...(Array.isArray(archivedEntry.previousSlugs)
+      ? { previousSlugs: [...archivedEntry.previousSlugs] }
+      : {}),
+    ...(archivedEntry.previousSlugsByLocale && typeof archivedEntry.previousSlugsByLocale === 'object'
+      ? { previousSlugsByLocale: structuredClone(archivedEntry.previousSlugsByLocale) }
+      : {}),
+    ...(archivedEntry.firstSeenAt ? { firstSeenAt: archivedEntry.firstSeenAt } : {}),
+  };
+}
+
+/**
+ * Recover an unreadable OSCAM bando only when the current listing has the same
+ * exact company, slug and title as one unique expired source record. The
+ * archive has no stable PDF URL, so weaker title-only or first-match recovery
+ * would risk attaching an old vacancy to a new posting and is deliberately
+ * rejected.
+ */
+export function restoreOscamArchivedJobs(rows = [], archivedJobs = []) {
+  const archivedByKey = new Map();
+  const ambiguousKeys = new Set();
+  for (const entry of Array.isArray(archivedJobs) ? archivedJobs : []) {
+    const key = oscamArchiveMatchKey(entry);
+    if (!key) continue;
+    if (archivedByKey.has(key)) {
+      ambiguousKeys.add(key);
+      archivedByKey.delete(key);
+      continue;
+    }
+    archivedByKey.set(key, entry);
+  }
+
+  return (Array.isArray(rows) ? rows : []).map((row) => {
+    if (meetsSourceBodyFloor(sourceBodyForJob(row))) return row;
+    const key = oscamArchiveMatchKey(row);
+    if (!key || ambiguousKeys.has(key)) return row;
+    const restored = buildOscamArchiveFallback(row, archivedByKey.get(key));
+    if (!restored) return row;
+    console.warn(`    ♻️ Restored archived source body for OSCAM: ${row.title}`);
+    return restored;
+  });
+}
+
+function readOscamExpiredJobs() {
+  return readExpiredSlice(COMPANY_KEY);
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -436,6 +572,11 @@ export async function fetchOscamJobs() {
       continue;
     }
 
+    const careerPageApplyUrl = extractOscamApplicationUrlFromCareerPage(html, url);
+    if (careerPageApplyUrl) {
+      console.log(`  📨 Official application form: ${careerPageApplyUrl}`);
+    }
+
     const listings = parseListingPage(html, url);
     console.log(`📋 Found ${listings.length} concorso(i) on ${url}`);
 
@@ -486,7 +627,10 @@ export async function fetchOscamJobs() {
         country: 'CH',
         ...address,
         url: listing.pdfUrl,
-        applyUrl: extractOscamApplicationUrlFromPdfText(pdfText),
+        // The PDF is the preferred handoff, but the official career page also
+        // exposes the current application form. Keep that source-backed route
+        // when the listed PDF is unavailable or omits the handoff paragraph.
+        applyUrl: extractOscamApplicationUrlFromPdfText(pdfText) || careerPageApplyUrl,
         description,
         category: detectCategory(listing.title),
         sector: 'Sanità pubblica / Assistenza anziani',
@@ -506,7 +650,7 @@ export async function fetchOscamJobs() {
     }
   }
 
-  return allJobs;
+  return restoreOscamArchivedJobs(allJobs, readOscamExpiredJobs());
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -518,12 +662,6 @@ function jobMatchKey(job) {
 }
 
 async function mergeJobs(discoveredJobs) {
-  const { publishable, quarantined } = partitionByHttpsApplyUrl(discoveredJobs);
-  if (quarantined.length > 0) {
-    console.warn(
-      `  ⛔ OSCAM: quarantining ${quarantined.length} job(s) without a verified HTTPS application route in the official PDF.`,
-    );
-  }
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
@@ -535,6 +673,28 @@ async function mergeJobs(discoveredJobs) {
     OSCAM_FABRICATED_DESCRIPTION_RE,
     COMPANY_NAME,
   );
+
+  // Keep a previously verified source body when the current PDF fetch is
+  // unreadable. The archive fallback runs before this for the 2026 bando; the
+  // shared stored-body helper covers later transient failures without ever
+  // publishing a thin or crawler-invented description.
+  const sourceBackedJobs = keepStoredSourceBodiesByKey(
+    discoveredJobs,
+    existingTargetJobs,
+    jobMatchKey,
+  );
+  if (sourceBackedJobs.length < discoveredJobs.length) {
+    console.warn(
+      `  ⛔ OSCAM: quarantining ${discoveredJobs.length - sourceBackedJobs.length} job(s) without a source body of at least 50 words.`,
+    );
+  }
+
+  const { publishable, quarantined } = partitionByHttpsApplyUrl(sourceBackedJobs);
+  if (quarantined.length > 0) {
+    console.warn(
+      `  ⛔ OSCAM: quarantining ${quarantined.length} job(s) without a verified HTTPS application route from the official source.`,
+    );
+  }
 
   const existingByKey = new Map();
   for (const job of existingTargetJobs) {
@@ -843,9 +1003,15 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw)
-    ? partitionByHttpsApplyUrl(_sliceRaw.filter(isTargetJob)).publishable
+    ? partitionByHttpsApplyUrl(
+      _sliceRaw
+        .filter(isTargetJob)
+        .filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job))),
+    ).publishable
     : [];
-  const observedPublishableJobs = partitionByHttpsApplyUrl(discoveredJobs).publishable;
+  const observedPublishableJobs = partitionByHttpsApplyUrl(
+    discoveredJobs.filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job))),
+  ).publishable;
   const applyUrlHousekeepingProof = buildObservedHttpsApplyUrlHousekeepingProof({
     priorJobs,
     observedJobs: discoveredJobs,
