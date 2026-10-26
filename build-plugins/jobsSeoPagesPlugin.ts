@@ -322,6 +322,9 @@ import {
  buildCompanyCityPlan,
  companyCityCityHubHeading,
  companyCityCompanyHubHeading,
+ companyCityCompanyHubIntro,
+ companyCityLinkActionLabel,
+ companyCityLinkLabel,
  companyCityLinksForCompany,
  companyCityLinksForJobs,
  releaseCompanyCityPlan,
@@ -8280,7 +8283,7 @@ ${staticAnalyticsHtml}
    : locale === 'de' ? `Stellenangebote in ${cityDisplay}`
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
- const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(generationDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(generationDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => companyCityLinkLabel(locale, l.companyName, l.cityDisplay), (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  const cityHubIndexable = true;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
@@ -9246,17 +9249,24 @@ ${staticAnalyticsHtml}
  if (entry) entry.count++;
  else byCanton.set(jc, { name: job.company, count: 1 });
  }
- const companyHubAlsoHiringLabel: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'Altre sedi che assumono',
- en: 'Also hiring in',
- de: 'Weitere Standorte mit offenen Stellen',
- fr: 'Recrute aussi à',
+ const companyHubAlsoHiringHeading = (companyName: string, locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ if (locale === 'it') return `Altre sedi di ${companyName} con offerte attive`;
+ if (locale === 'en') return `More ${companyName} jobs by canton`;
+ if (locale === 'de') return `Weitere offene Stellen bei ${companyName} nach Kanton`;
+ return `Autres offres actives chez ${companyName}, par canton`;
+ };
+ const companyHubAlsoHiringIntro = (companyName: string, locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ if (locale === 'it') return `Apri un cantone per vedere le posizioni attive di ${companyName}.`;
+ if (locale === 'en') return `Open a canton page to see ${companyName}'s active roles there.`;
+ if (locale === 'de') return `Öffnen Sie einen Kanton, um die aktiven Stellen von ${companyName} dort zu sehen.`;
+ return `Ouvrez un canton pour voir les postes actifs de ${companyName}.`;
  };
  /** Cross-canton "also hiring in" links — only to cantons with a real (non-bridge) hub. */
  const renderCompanyHubAlsoHiringHtml = (
  slug: string,
  currentCanton: string,
  locale: 'it' | 'en' | 'de' | 'fr',
+ companyName: string,
  ): string => {
  const byCanton = companyCantonDistribution.get(slug);
  if (!byCanton) return '';
@@ -9266,17 +9276,18 @@ ${staticAnalyticsHtml}
  .slice(0, 4);
  if (others.length === 0) return '';
  const prefix = companyRoutePrefix[locale];
- const items = others.map(([canton, { count }]) => {
+ const items = others.map(([canton, { name, count }]) => {
  const cLabel = getCantonDisplayLabel(canton, locale);
  const section = sharedResolveCantonSection(locale, canton);
  const href = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${section}/${prefix}-${slug}`.replace(/\/+/g, '/'))}`;
+ const linkLabel = companyCityLinkLabel(locale, name, cLabel);
  const countLabel = locale === 'it' ? `${count} posizion${count === 1 ? 'e' : 'i'}`
  : locale === 'en' ? `${count} role${count === 1 ? '' : 's'}`
  : locale === 'de' ? `${count} Stelle${count === 1 ? '' : 'n'}`
  : `${count} poste${count === 1 ? '' : 's'}`;
- return `<li><a href="${href}">${esc(cLabel)} — ${esc(countLabel)}</a></li>`;
+ return `<li><a class="company-hub-crosslink" href="${href}"><span class="company-hub-crosslink-copy"><span class="company-hub-crosslink-label">${esc(linkLabel)}</span><span class="company-hub-crosslink-count"> — ${esc(countLabel)}</span></span><span class="company-hub-crosslink-action"> — ${esc(companyCityLinkActionLabel(locale))}</span></a></li>`;
  }).join('');
- return `<section class="s-7uP4UM"><h2>${esc(companyHubAlsoHiringLabel[locale])}</h2><ul>${items}</ul></section>`;
+ return `<section class="s-7uP4UM company-hub-crosslink-section"><h2>${esc(companyHubAlsoHiringHeading(companyName, locale))}</h2><p class="company-hub-crosslink-intro">${esc(companyHubAlsoHiringIntro(companyName, locale))}</p><ul class="company-hub-crosslink-list">${items}</ul></section>`;
  };
  /** Salary-range block — real job.salaryMin/salaryMax aggregate, omitted when no data exists. */
  const renderCompanyHubSalaryRangeHtml = (
@@ -9668,7 +9679,7 @@ ${staticAnalyticsHtml}
  // prose sections, per AGENTS.md SEO landing order (data area before
  // "prose lunga").
  const salaryBlockHtml = renderCompanyHubSalaryRangeHtml(cappedJobs, locale);
- const alsoHiringHtml = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale);
+ const alsoHiringHtml = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale, companyName);
  const faqItems = buildCompanyHubFaqItems(companyName, cDisplay, cappedJobs, locale);
  const { html: faqHtml, ld: faqLd } = renderCompanyHubFaqHtml(faqItems, locale);
  const companyHubLogoKey = String(cappedJobs.find((job: any) => job?.companyKey)?.companyKey || cSlug);
@@ -9686,8 +9697,9 @@ ${staticAnalyticsHtml}
  companyCityLinksForCompany(companyCityPlan, canton, cSlug),
  locale,
  companyCityCompanyHubHeading(locale, companyName),
- (l) => l.cityDisplay,
+ (l) => companyCityLinkLabel(locale, companyName, l.cityDisplay),
  (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`,
+ companyCityCompanyHubIntro(locale, companyName),
  );
  const homeHref = locale === 'it' ? '/' : `/${locale}/`;
  const openingsHeading = locale === 'it' ? `Offerte aperte presso ${companyName}`
@@ -9967,7 +9979,7 @@ ${staticAnalyticsHtml}
  // Company hub v2 data blocks (issue #4306) — same shared helpers as
  // Phase 3.3, scoped to this canton×city bucket's job set.
  const salaryBlockHtmlCC = renderCompanyHubSalaryRangeHtml(cappedJobs, locale);
- const alsoHiringHtmlCC = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale);
+ const alsoHiringHtmlCC = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale, companyName);
  const faqItemsCC = buildCompanyHubFaqItems(companyName, cityDisplay, cappedJobs, locale);
  const { html: faqHtmlCC, ld: faqLdCC } = renderCompanyHubFaqHtml(faqItemsCC, locale);
  const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtmlCC}\n${alsoHiringHtmlCC}\n${faqHtmlCC}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: `${companyName} — ${cityDisplay}` }))}`;

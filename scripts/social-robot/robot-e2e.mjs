@@ -17,7 +17,7 @@
  *     received by the fake platform;
  *   - a press with no confirmation: `confirmation-missing`, pressed = true —
  *     on TikTok also with the persistent "Manage your posts" navigation on the
- *     page, which is not a confirmation; the success toast is;
+ *     page, which is not a confirmation; the success toast and upload modal are;
  *   - a challenge (Instagram) or a captcha (TikTok) right after the press:
  *     keeps its class, pressed = true — the post may be online;
  *   - login wall, challenge, and a video-only upload field with processing;
@@ -181,6 +181,9 @@ function tiktokPage({
     // composer. The flow must inspect all matching surfaces, not only the
     // first DOM match.
     'stale-toast': "document.body.insertAdjacentHTML('beforeend', '<div role=\"alert\" hidden><span>Your post has been published</span></div><div class=\"TUXTopToast\" role=\"alert\"><span>Your post has been published</span></div>');",
+    // TikTok Studio's upload confirmation is a dialog on the upload URL in
+    // some locales, not a toast and not a redirect to Manage your posts.
+    'upload-modal': "document.body.insertAdjacentHTML('beforeend', '<div class=\"common-modal-confirm-modal\" role=\"dialog\" title=\"Il video è stato caricato\"><div>Il video è stato caricato</div><div>Puoi gestire i post o caricare un altro video.</div><button>Gestisci i post</button><button>Carica</button></div>');",
   }[afterPost];
   return page('TikTok Studio', `
 <nav><a href="/tiktokstudio/content">Manage your posts</a><a href="/tiktokstudio/upload">Upload</a></nav>
@@ -351,6 +354,7 @@ function fakePlatforms() {
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
       case '/tt-stale-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stale-toast' }));
+      case '/tt-upload-modal/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'upload-modal' }));
       case '/tt-cookie-config-no-action/tiktokstudio/upload': return send(200, tiktokPage({ cookieConfig: true, unrelatedBanner: true }));
       case '/tt-unsaved-draft/tiktokstudio/upload': return send(200, tiktokPage({ unsavedDraft: true }));
       case '/tt-late-cookie/tiktokstudio/upload': return send(200, tiktokPage({ lateCookieBanner: true }));
@@ -547,6 +551,9 @@ async function main() {
 
     r = await run('tiktok', `${base}/tt-stale-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-stale-toast' });
     check(r.result?.status === 'published' && /has been published/i.test(r.result.evidence), `a visible success toast is found after a stale hidden alert (${r.result?.evidence || r.error?.message})`);
+
+    r = await run('tiktok', `${base}/tt-upload-modal/tiktokstudio/upload`, { dryRun: false, label: 'tt-upload-modal' });
+    check(r.result?.status === 'published' && /Il video è stato caricato/i.test(r.result.evidence), `the upload confirmation dialog confirms without a redirect or toast (${r.result?.evidence || r.error?.message})`);
 
     r = await run('tiktok', `${base}/tt-late-cookie/tiktokstudio/upload`, { dryRun: false, label: 'tt-late-cookie' });
     check(r.result?.status === 'published', `a cookie banner shown at publish is dismissed and the retry publishes (${r.result?.evidence || r.error?.message})`);
