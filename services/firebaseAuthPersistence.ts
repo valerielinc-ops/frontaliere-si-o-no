@@ -8,16 +8,27 @@
  * project-independent marker written by authService after a successful sign-in.
  */
 
-const DEFAULT_FIREBASE_APP_NAME = '[DEFAULT]';
-const FIREBASE_AUTH_STORAGE_PREFIX = 'firebase:authUser:';
+export const DEFAULT_FIREBASE_APP_NAME = '[DEFAULT]';
+export const FIREBASE_AUTH_STORAGE_PREFIX = 'firebase:authUser:';
 export const FIREBASE_AUTH_SESSION_MARKER_KEY = 'frontaliere:auth-session';
 
 let activeFirebaseApiKey = '';
 
+/**
+ * Derive Firebase Auth's exact localStorage key from the runtime Web API key.
+ * An absent key is intentionally not replaced with a project-wide fallback:
+ * before runtime configuration arrives, only the explicit site marker is
+ * authoritative.
+ */
+export function deriveFirebaseAuthPersistenceKey(apiKey: string | null | undefined): string {
+  const normalized = typeof apiKey === 'string' ? apiKey.trim() : '';
+  if (!normalized) return '';
+  return `${FIREBASE_AUTH_STORAGE_PREFIX}${normalized}:${DEFAULT_FIREBASE_APP_NAME}`;
+}
+
 /** Set the key received from runtime configuration without persisting it. */
 export function setFirebaseApiKey(apiKey: string): void {
-  const normalized = apiKey.trim();
-  activeFirebaseApiKey = normalized;
+  activeFirebaseApiKey = typeof apiKey === 'string' ? apiKey.trim() : '';
 }
 
 /** Return the key currently received from runtime configuration, if any. */
@@ -27,8 +38,7 @@ export function getFirebaseApiKey(): string {
 
 /** Firebase Auth's browser persistence key for the default app. */
 export function getFirebaseAuthPersistenceKey(): string {
-  if (!activeFirebaseApiKey) return '';
-  return `${FIREBASE_AUTH_STORAGE_PREFIX}${activeFirebaseApiKey}:${DEFAULT_FIREBASE_APP_NAME}`;
+  return deriveFirebaseAuthPersistenceKey(activeFirebaseApiKey);
 }
 
 type FirebaseAuthStorage = Pick<Storage, 'length' | 'key' | 'getItem'>;
