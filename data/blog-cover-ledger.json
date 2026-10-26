@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 865,
+      "5": 868,
       "6": 5057
     },
-    "publishedCovers": 7605,
+    "publishedCovers": 7608,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209333,6 +209333,105 @@
         "provider": "openai-codex",
         "assetId": "article-tagli-orologeria-locle-lvmh",
         "imageUrl": "/images/blog/article-tagli-orologeria-locle-lvmh.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-fluhli-tassa-seconde-case": {
+      "cover": "/images/blog/article-fluhli-tassa-seconde-case.webp",
+      "hash": "345c532009ade61ee69ce9ed6f2dadd325727d4461265f15761c67118a19eea5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "fluhli-tassa-seconde-case",
+          "category": "fiscale",
+          "date": "2026-10-26T11:23:57.392Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fluhli-tassa-seconde-case.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fluhli-tassa-seconde-case",
+        "imageUrl": "/images/blog/article-fluhli-tassa-seconde-case.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-furti-cantone-ginevra-2025": {
+      "cover": "/images/blog/article-furti-cantone-ginevra-2025.webp",
+      "hash": "9ffb21e5663da625fbbf5b95b17ab5c3cc7c2040b63d5afd19f34b553ccee1e1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ge",
+          "id": "furti-cantone-ginevra-2025",
+          "category": "pratico",
+          "date": "2026-10-26T11:28:00.433Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-furti-cantone-ginevra-2025.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-furti-cantone-ginevra-2025",
+        "imageUrl": "/images/blog/article-furti-cantone-ginevra-2025.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-salario-minimo-basilea-2027": {
+      "cover": "/images/blog/article-salario-minimo-basilea-2027.webp",
+      "hash": "bc5c940e241cff9da3a04828d4eef0991fd2c540565830a8b6bed1df3f4aa654",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "salario-minimo-basilea-2027",
+          "category": "novita",
+          "date": "2026-10-26T11:06:00.747Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-salario-minimo-basilea-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-salario-minimo-basilea-2027",
+        "imageUrl": "/images/blog/article-salario-minimo-basilea-2027.webp",
         "evidence": "generated-engine-record"
       }
     }

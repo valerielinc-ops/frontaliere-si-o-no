@@ -46825,7 +46825,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Traffico in coda a una dogana del Canton Ticino"
       },
       "datePublished": "2026-07-03T13:13:04+02:00",
-      "dateModified": "2026-10-19T00:00:00+02:00",
+      "dateModified": "2026-10-26T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
