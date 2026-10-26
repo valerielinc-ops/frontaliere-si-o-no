@@ -17,12 +17,21 @@ export function datedExportFilename(prefix: string, date = new Date()): string {
 }
 
 export function downloadCsv(filename: string, headers: readonly unknown[], rows: readonly (readonly unknown[])[]): void {
-  if (typeof document === 'undefined') return;
+  if (
+    typeof document === 'undefined'
+    || typeof Blob === 'undefined'
+    || typeof URL === 'undefined'
+    || typeof URL.createObjectURL !== 'function'
+    || typeof URL.revokeObjectURL !== 'function'
+  ) return;
   const blob = new Blob([`\uFEFF${csvText(headers, rows)}`], { type: 'text/csv;charset=utf-8' });
   const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 0);
+  try {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+  } finally {
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+  }
 }
