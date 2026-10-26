@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-26T17:24:01.871Z",
+  "generatedAt": "2026-10-26T18:29:46.817Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -5158,6 +5158,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T05:03:38.003Z"
     },
+    "ge-agenda:conference-utiliser-intelligence-artificielle-permanence-numerique-rive-gauche::ac22fc7d75eacfbd74c402786c0f43d47915d16189d8ab3059a4c4bed810bcd8": {
+      "id": "ge-agenda:conference-utiliser-intelligence-artificielle-permanence-numerique-rive-gauche",
+      "sourceDescriptionHash": "ac22fc7d75eacfbd74c402786c0f43d47915d16189d8ab3059a4c4bed810bcd8",
+      "description": "È una conferenza gratuita dedicata all’uso dell’intelligenza artificiale. L’incontro si svolge a Ginevra nell’ambito delle permanenze digitali e non richiede iscrizione.",
+      "descriptionByLocale": {
+        "it": "È una conferenza gratuita dedicata all’uso dell’intelligenza artificiale. L’incontro si svolge a Ginevra nell’ambito delle permanenze digitali e non richiede iscrizione.",
+        "en": "This free conference focuses on the use of artificial intelligence. It takes place in Geneva as part of the digital drop-in sessions and does not require registration.",
+        "de": "Die kostenlose Konferenz widmet sich der Nutzung künstlicher Intelligenz. Sie findet in Genf im Rahmen der digitalen Sprechstunden statt und erfordert keine Anmeldung.",
+        "fr": "Cette conférence gratuite porte sur l’utilisation de l’intelligence artificielle. Elle se déroule à Genève dans le cadre des permanences numériques et ne nécessite aucune inscription."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:25:27.929Z"
+    },
     "ge-agenda:connexion-mouvement-session-decouverte::444200fa5cc6440685905769bf0584d768ce4fcc24c917e6810bfef9c5c74f56": {
       "id": "ge-agenda:connexion-mouvement-session-decouverte",
       "sourceDescriptionHash": "444200fa5cc6440685905769bf0584d768ce4fcc24c917e6810bfef9c5c74f56",
@@ -9805,6 +9819,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-07T23:37:13.011Z"
+    },
+    "ge-agenda:marguerite-roesgen-champion::51a7eba12c4ca2bdaeebab148bdf615c3f59a3aa5d6658ec516f61654e38f478": {
+      "id": "ge-agenda:marguerite-roesgen-champion",
+      "sourceDescriptionHash": "51a7eba12c4ca2bdaeebab148bdf615c3f59a3aa5d6658ec516f61654e38f478",
+      "description": "La mostra dedicata a Marguerite Roesgen-Champion presenta una compositrice ginevrina e il clavicembalo nella sua dimensione moderna. L’esposizione si svolge a Ginevra e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "La mostra dedicata a Marguerite Roesgen-Champion presenta una compositrice ginevrina e il clavicembalo nella sua dimensione moderna. L’esposizione si svolge a Ginevra e l’ingresso è gratuito.",
+        "en": "The exhibition dedicated to Marguerite Roesgen-Champion focuses on a composer from Geneva and the modern harpsichord. It takes place in Geneva and admission is free.",
+        "de": "Die Ausstellung zu Marguerite Roesgen-Champion widmet sich einer Komponistin aus Genf und dem modernen Cembalo. Sie findet in Genf statt und ist kostenlos.",
+        "fr": "Cette exposition consacrée à Marguerite Roesgen-Champion présente une compositrice genevoise et le clavecin dans sa forme moderne. Elle se tient à Genève et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:25:46.931Z"
     },
     "ge-agenda:maria-suarez-chachi-inescalables-alpes-buscando-currito::b1a86d403ff3ef195fcd6a01c7f460e8ab7dfb5726bd7b9125a746e9874237bd": {
       "id": "ge-agenda:maria-suarez-chachi-inescalables-alpes-buscando-currito",
@@ -51189,6 +51217,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T12:22:56.871Z"
+    },
+    "lu-stadt-agenda:7694299::b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0": {
+      "id": "lu-stadt-agenda:7694299",
+      "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0",
+      "description": "A Sursee, l’incontro di Qi Gong guidato da Barbara Burger propone movimenti lenti e fluidi per lavorare su stabilità, equilibrio, coordinazione e concentrazione. L’offerta gratuita è aperta alle persone dai 60 anni in su e a tutti gli interessati, senza richiedere particolari capacità sportive.",
+      "descriptionByLocale": {
+        "it": "A Sursee, l’incontro di Qi Gong guidato da Barbara Burger propone movimenti lenti e fluidi per lavorare su stabilità, equilibrio, coordinazione e concentrazione. L’offerta gratuita è aperta alle persone dai 60 anni in su e a tutti gli interessati, senza richiedere particolari capacità sportive.",
+        "en": "Led by Barbara Burger, this Qi Gong session in Sursee uses slow, fluid movements to work on stability, balance, coordination and concentration. The free activity is open to people aged 60 and over as well as anyone interested, and it requires no particular sporting ability.",
+        "de": "Die von Barbara Burger geleitete Qi-Gong-Einheit in Sursee arbeitet mit langsamen, fliessenden Bewegungen für Standfestigkeit, Gleichgewicht, Koordination und Konzentration. Das kostenlose Angebot steht Personen ab 60 Jahren und weiteren Interessierten offen; besondere sportliche Fähigkeiten sind nicht erforderlich.",
+        "fr": "Cette séance de qi gong à Sursee, dirigée par Barbara Burger, utilise des mouvements lents et souples pour travailler la stabilité, l’équilibre, la coordination et la concentration. L’offre gratuite s’adresse aux personnes de 60 ans et plus ainsi qu’à toute personne intéressée, sans demander de compétence sportive particulière."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:17:27.109Z"
     },
     "lu-stadt-agenda:7723786::0dd322ce64875aebb2f97f6df01a19efe2faef9c28d1bbf062d8fda0e367fd11": {
       "id": "lu-stadt-agenda:7723786",
@@ -163974,6 +164016,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T14:47:47.836Z"
     },
+    "tio-agenda:63575::9e77f85dec9f535fbf6febc40aaa5df232c1bbb3c69fa3bd132784495d61cd0f": {
+      "id": "tio-agenda:63575",
+      "sourceDescriptionHash": "9e77f85dec9f535fbf6febc40aaa5df232c1bbb3c69fa3bd132784495d61cd0f",
+      "description": "Il progetto espositivo al MASI, sede LAC di Lugano, mette in relazione le ricerche di Mai-Thu Perret e Una Szeemann con opere selezionate dalla collezione del museo. Le due artiste affrontano, con approcci differenti, temi legati alla temporalità, alla materia e all’immaginario femminile, creando un confronto tra mito, natura e narrazione.",
+      "descriptionByLocale": {
+        "it": "Il progetto espositivo al MASI, sede LAC di Lugano, mette in relazione le ricerche di Mai-Thu Perret e Una Szeemann con opere selezionate dalla collezione del museo. Le due artiste affrontano, con approcci differenti, temi legati alla temporalità, alla materia e all’immaginario femminile, creando un confronto tra mito, natura e narrazione.",
+        "en": "At MASI, sede LAC in Lugano, the exhibition places works by Mai-Thu Perret and Una Szeemann alongside selected pieces from the museum collection. Their distinct practices examine time, materiality and the female imaginary, with links to myth, nature and storytelling.",
+        "de": "Die Ausstellung im MASI, sede LAC, in Lugano verbindet Arbeiten von Mai-Thu Perret und Una Szeemann mit ausgewählten Werken aus der Museumssammlung. Die unterschiedlichen künstlerischen Ansätze kreisen um Zeitlichkeit, Materialität und weibliche Vorstellungswelten und beziehen dabei Mythos, Natur und Erzählung ein.",
+        "fr": "Au MASI, sede LAC, à Lugano, l’exposition met en regard les recherches de Mai-Thu Perret et d’Una Szeemann avec des œuvres choisies dans la collection du musée. Leurs démarches distinctes abordent la temporalité, la matière et l’imaginaire féminin à travers des liens avec le mythe, la nature et le récit."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:25:26.016Z"
+    },
     "tio-agenda:63581::24433ba4832bfce9ada08241f837654ec4ec70aea730d2a90828c93e2a81d6a5": {
       "id": "tio-agenda:63581",
       "sourceDescriptionHash": "24433ba4832bfce9ada08241f837654ec4ec70aea730d2a90828c93e2a81d6a5",
@@ -169686,6 +169742,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-26T13:29:13.866Z"
     },
+    "tio-agenda:64590::c5530fa21469e4f39b042c6e769021294084c8f77ed2f5cbf12eca7ea17e2030": {
+      "id": "tio-agenda:64590",
+      "sourceDescriptionHash": "c5530fa21469e4f39b042c6e769021294084c8f77ed2f5cbf12eca7ea17e2030",
+      "description": "Questa conferenza esamina due secoli di navigazione sul Verbano e considera le prospettive future. Antonio Leucci e Niccolò Salvioni partecipano al programma di EspoVerbano 2026 nella Sala 4 del Palexpo FEVI di Locarno, dove è presente anche un’esposizione dedicata all’anniversario.",
+      "descriptionByLocale": {
+        "it": "Questa conferenza esamina due secoli di navigazione sul Verbano e considera le prospettive future. Antonio Leucci e Niccolò Salvioni partecipano al programma di EspoVerbano 2026 nella Sala 4 del Palexpo FEVI di Locarno, dove è presente anche un’esposizione dedicata all’anniversario.",
+        "en": "This conference examines two centuries of navigation on the Verbano and considers its future development. Antonio Leucci and Niccolò Salvioni take part in the EspoVerbano 2026 programme in Sala 4 of Palexpo FEVI in Locarno, where an exhibition marks the anniversary.",
+        "de": "Die Konferenz beleuchtet zwei Jahrhunderte der Schifffahrt auf dem Verbano und richtet den Blick auf ihre weitere Entwicklung. Antonio Leucci und Niccolò Salvioni wirken im Rahmen von EspoVerbano 2026 in Saal 4 des Palexpo FEVI in Locarno mit; dort ist zudem eine Ausstellung zum Jubiläum eingerichtet.",
+        "fr": "Cette conférence revient sur deux siècles de navigation sur le Verbano et aborde les perspectives de cette activité. Antonio Leucci et Niccolò Salvioni participent au programme d’EspoVerbano 2026 dans la salle 4 du Palexpo FEVI à Locarno, où une exposition est également consacrée à l’anniversaire."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:22:28.572Z"
+    },
     "tio-agenda:64591::ef3e4ae56ea5a2f0b39a7db137f6b670f0a87036468f385823464544ee7212e0": {
       "id": "tio-agenda:64591",
       "sourceDescriptionHash": "ef3e4ae56ea5a2f0b39a7db137f6b670f0a87036468f385823464544ee7212e0",
@@ -169755,6 +169825,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T19:17:29.737Z"
+    },
+    "tio-agenda:64599::884b7619d38ae8e79eb428aa2a47b1650cee427285db52eb24f682f763a2e4c1": {
+      "id": "tio-agenda:64599",
+      "sourceDescriptionHash": "884b7619d38ae8e79eb428aa2a47b1650cee427285db52eb24f682f763a2e4c1",
+      "description": "Il laboratorio per famiglie al Museo in erba mette in dialogo l’arte di Yves Klein con le neuroscienze e la creatività. È rivolto a genitori e bambini dai sei anni e propone attività sensoriali e creative; la partecipazione è gratuita, con una merenda offerta da BancaStato.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio per famiglie al Museo in erba mette in dialogo l’arte di Yves Klein con le neuroscienze e la creatività. È rivolto a genitori e bambini dai sei anni e propone attività sensoriali e creative; la partecipazione è gratuita, con una merenda offerta da BancaStato.",
+        "en": "At Museo in erba, this family workshop brings together the art of Yves Klein, neuroscience and creative activities. Parents and children aged six and over can take part in sensory exercises; admission is free and BancaStato provides a snack.",
+        "de": "Der Familienworkshop im Museo in erba verbindet die Kunst von Yves Klein mit Neurowissenschaften und kreativen Tätigkeiten. Eltern und Kinder ab sechs Jahren können an sensorischen Übungen teilnehmen; der Besuch ist kostenlos, und BancaStato stellt eine Zwischenverpflegung bereit.",
+        "fr": "Au Museo in erba, cet atelier familial associe l’art de Yves Klein aux neurosciences et à des activités créatives. Les parents et les enfants dès six ans peuvent participer à des expériences sensorielles ; l’entrée est gratuite et BancaStato offre un goûter."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:20:24.555Z"
     },
     "tio-agenda:64600::292a2009ebe91fb22d713c81769c127bc649a6dc1e7b8f45d1c563e7bec7d632": {
       "id": "tio-agenda:64600",
@@ -170540,6 +170624,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-26T13:26:59.171Z"
     },
+    "tio-agenda:64699::b544f8a9c3244b8568ebb732c550b0adbceb77a1de58d438bfcbb1c450f5b413": {
+      "id": "tio-agenda:64699",
+      "sourceDescriptionHash": "b544f8a9c3244b8568ebb732c550b0adbceb77a1de58d438bfcbb1c450f5b413",
+      "description": "La conferenza alla Bibliomedia di Biasca esamina quattro criticità legate alle grandi aziende tecnologiche e presenta dieci possibili soluzioni. Mario Sgarrella illustra i meccanismi che possono trattenere a lungo le persone davanti agli schermi, le loro conseguenze e alcuni modi per mantenere il controllo sull’uso della tecnologia e sul proprio tempo.",
+      "descriptionByLocale": {
+        "it": "La conferenza alla Bibliomedia di Biasca esamina quattro criticità legate alle grandi aziende tecnologiche e presenta dieci possibili soluzioni. Mario Sgarrella illustra i meccanismi che possono trattenere a lungo le persone davanti agli schermi, le loro conseguenze e alcuni modi per mantenere il controllo sull’uso della tecnologia e sul proprio tempo.",
+        "en": "The conference at Bibliomedia in Biasca examines four pitfalls associated with large technology companies and presents ten possible solutions. Mario Sgarrella discusses mechanisms that can keep people attached to screens, their consequences, and ways to retain control over personal technology use and time.",
+        "de": "Die Veranstaltung in der Bibliomedia in Biasca behandelt vier Problembereiche im Zusammenhang mit grossen Technologieunternehmen und zehn mögliche Lösungen. Mario Sgarrella erläutert Mechanismen, die Menschen lange an Bildschirme binden können, deren Folgen sowie Ansätze für einen selbstbestimmteren Umgang mit Technik und Zeit.",
+        "fr": "À la Bibliomedia de Biasca, la conférence aborde quatre pièges liés aux grandes entreprises technologiques et présente dix pistes de solution. Mario Sgarrella décrit des mécanismes susceptibles de retenir longtemps l’attention devant les écrans, leurs conséquences et des moyens de garder la maîtrise de l’usage de la technologie et du temps personnel."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:21:09.281Z"
+    },
     "tio-agenda:64720::e65a79fa4cdcfddea060a1296754b839ac94f3b15d1564d96fca4bfc355a7ffe": {
       "id": "tio-agenda:64720",
       "sourceDescriptionHash": "e65a79fa4cdcfddea060a1296754b839ac94f3b15d1564d96fca4bfc355a7ffe",
@@ -170609,6 +170707,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-26T13:20:02.036Z"
+    },
+    "tio-agenda:64729::b8f7e5db1d634d564c215efa0448eebca7edf3fa7d6e13de3129145030e7375e": {
+      "id": "tio-agenda:64729",
+      "sourceDescriptionHash": "b8f7e5db1d634d564c215efa0448eebca7edf3fa7d6e13de3129145030e7375e",
+      "description": "L’evento si svolge nella Chiesa evangelica di Ascona ed è dedicato a una raccolta fondi per due organi. Il programma comprende una presentazione dei registri degli strumenti e brani interpretati da più organisti, inclusi pezzi per due organi. L’ingresso è libero.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge nella Chiesa evangelica di Ascona ed è dedicato a una raccolta fondi per due organi. Il programma comprende una presentazione dei registri degli strumenti e brani interpretati da più organisti, inclusi pezzi per due organi. L’ingresso è libero.",
+        "en": "The Evangelical Church in Ascona hosts a benefit event in support of two organs. The programme includes an introduction to the instruments and performances by several organists, with pieces written for two organs. Admission is free.",
+        "de": "Die evangelische Kirche in Ascona ist Schauplatz einer Benefizveranstaltung zugunsten von zwei Orgeln. Zum Programm gehören eine Vorstellung der Instrumente und Beiträge mehrerer Organistinnen und Organisten, darunter Werke für zwei Orgeln. Der Eintritt ist frei.",
+        "fr": "À Ascona, l’église évangélique accueille un événement caritatif consacré à deux orgues. Le programme comprend une présentation des instruments et des interprétations par plusieurs organistes, avec aussi des œuvres prévues pour deux orgues. L’entrée est libre."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-26T18:19:13.226Z"
     },
     "tio-agenda:64730::d7f25d17e83312b43c397e408dc2c87f1afff10bc21203e463973646ccca4b4d": {
       "id": "tio-agenda:64730",
@@ -170854,9 +170966,9 @@
     "ge-agenda:cafes-genevois-vie::ddb133f7a40ab692cb813905208a5319e352fb11f5f152b2f7bbe7f794397b92": {
       "id": "ge-agenda:cafes-genevois-vie",
       "sourceDescriptionHash": "ddb133f7a40ab692cb813905208a5319e352fb11f5f152b2f7bbe7f794397b92",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:29:15.849Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:21:21.450Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170905,21 +171017,12 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:conference-utiliser-intelligence-artificielle-permanence-numerique-rive-gauche::ac22fc7d75eacfbd74c402786c0f43d47915d16189d8ab3059a4c4bed810bcd8": {
-      "id": "ge-agenda:conference-utiliser-intelligence-artificielle-permanence-numerique-rive-gauche",
-      "sourceDescriptionHash": "ac22fc7d75eacfbd74c402786c0f43d47915d16189d8ab3059a4c4bed810bcd8",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:33:41.941Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:crash-testcrash-68-nadan-rojnic::8df2e305d5ecc51b428958a81950acde3ef3152dcea4ef156ea5afedeaaed269": {
       "id": "ge-agenda:crash-testcrash-68-nadan-rojnic",
       "sourceDescriptionHash": "8df2e305d5ecc51b428958a81950acde3ef3152dcea4ef156ea5afedeaaed269",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:21:16.796Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:20:40.414Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170927,8 +171030,8 @@
       "id": "ge-agenda:creatures-terre-nuit-conte",
       "sourceDescriptionHash": "f52d62296d86f77b109d7ba31d75fa68fd4d8a300559bc8302531157a59c1f25",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:18:55.415Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:18:09.642Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170945,8 +171048,8 @@
       "id": "ge-agenda:desirs-brutes-ruben-barrios-rodriguez-exposition",
       "sourceDescriptionHash": "c7e3aa0e1413630cc7e465d19762cd16003660b7b641c40ba84bcf4e7293a337",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:19:24.355Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:18:38.427Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171017,8 +171120,8 @@
       "id": "ge-agenda:film-festival-celtiques-projection-film-ecosse-terres-legendes-cadre-festival-celtiques-organise-adem",
       "sourceDescriptionHash": "c6d2b894708b673bc3a6a1933472bb7d1a5051fa1c9eb9df4652ca0673196ede",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:28:03.567Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:19:13.796Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171034,9 +171137,9 @@
     "ge-agenda:filmar-2026-projection-ninas-escarlata::f8266b97d2e5b7b9e14d4bc3e13514d8fed0f1e347d7ebb8ccd9080f26a4962d": {
       "id": "ge-agenda:filmar-2026-projection-ninas-escarlata",
       "sourceDescriptionHash": "f8266b97d2e5b7b9e14d4bc3e13514d8fed0f1e347d7ebb8ccd9080f26a4962d",
-      "code": "sentence-count",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:30:38.466Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:23:15.236Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171196,18 +171299,9 @@
     "ge-agenda:marche-temps-profond-geneve-edition-23kms::cde5246e5c012b29e38d14eff41f267894e1ff3041f89ace3e99b410afa7a148": {
       "id": "ge-agenda:marche-temps-profond-geneve-edition-23kms",
       "sourceDescriptionHash": "cde5246e5c012b29e38d14eff41f267894e1ff3041f89ace3e99b410afa7a148",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:32:01.449Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:marguerite-roesgen-champion::51a7eba12c4ca2bdaeebab148bdf615c3f59a3aa5d6658ec516f61654e38f478": {
-      "id": "ge-agenda:marguerite-roesgen-champion",
-      "sourceDescriptionHash": "51a7eba12c4ca2bdaeebab148bdf615c3f59a3aa5d6658ec516f61654e38f478",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:33:07.145Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:23:45.832Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171305,8 +171399,8 @@
       "id": "ge-agenda:poulpe-fiction-nuit-conte",
       "sourceDescriptionHash": "2242c5ec960c0aa3a7a6762ed5a3ce5e3b5e22d57532cae5736ff8985d2bf5b4",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:23:37.105Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:21:33.888Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171377,8 +171471,8 @@
       "id": "ge-agenda:scenes-croisees",
       "sourceDescriptionHash": "d5663a6115a85792123b8f23ac03f3cb01911bdb196dad0bc4d71f691b4061ba",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:23:07.172Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:21:01.404Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171404,8 +171498,8 @@
       "id": "ge-agenda:short-attention-span-3",
       "sourceDescriptionHash": "dfb8e2d0d94db144b7bbd1e125d9b5f547592ddc8e13d61a712dd80d07180a3a",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:28:29.437Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:20:31.197Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171431,8 +171525,8 @@
       "id": "ge-agenda:spectacle-familles-festival-celtiques-donald-macinley-sorciere-caisteal-abhail-conte-musique-ecosse-spectacle-familles",
       "sourceDescriptionHash": "2a8b21406b6540bd8ec00b360aa4b23bd581833df98cc174df3f1448268f4d05",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:36:40.412Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:23:47.576Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -171458,8 +171552,8 @@
       "id": "ge-agenda:stage-initiation-mouvement-somatique",
       "sourceDescriptionHash": "4cb73cd607486f3dd96e331eb5b0d59e88f24d2838b44230077ffcef671edd05",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:35:53.696Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:23:06.249Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173789,8 +173883,8 @@
       "id": "lu-stadt-agenda:7463713",
       "sourceDescriptionHash": "13007d88c9069effc593ca00a46085fbd56218bcc5388863bee81616314a030d",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:21:01.293Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:19:22.731Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173798,8 +173892,8 @@
       "id": "lu-stadt-agenda:7629670",
       "sourceDescriptionHash": "96dfde197beab1ccfcf708cd7b3f7a28b49217121b948c5874ca05972448cc2d",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:27:52.467Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:20:02.143Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173809,15 +173903,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-13T18:19:26.397Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "lu-stadt-agenda:7694299::b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0": {
-      "id": "lu-stadt-agenda:7694299",
-      "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:19:58.837Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179014,15 +179099,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:63575::9e77f85dec9f535fbf6febc40aaa5df232c1bbb3c69fa3bd132784495d61cd0f": {
-      "id": "tio-agenda:63575",
-      "sourceDescriptionHash": "9e77f85dec9f535fbf6febc40aaa5df232c1bbb3c69fa3bd132784495d61cd0f",
-      "code": "promotional-language",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:35:19.607Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:63584::4cfcf534c58234b0881ec15f1881141e371b69a7a61780e033f6f133cfe8fad3": {
       "id": "tio-agenda:63584",
       "sourceDescriptionHash": "4cfcf534c58234b0881ec15f1881141e371b69a7a61780e033f6f133cfe8fad3",
@@ -179045,8 +179121,8 @@
       "id": "tio-agenda:63592",
       "sourceDescriptionHash": "8e4259385cb3422d9ce2fc2920409a400f75205f18e7ef5d91eceb4fb9dfcdd5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:31:39.697Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:24:21.432Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179216,8 +179292,8 @@
       "id": "tio-agenda:63959",
       "sourceDescriptionHash": "d259759e61f18f48230eb0a8adc186395d39b48a99832d64dd686e48d7c1bd08",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:24:41.282Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:25:04.349Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179734,30 +179810,12 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:64590::c5530fa21469e4f39b042c6e769021294084c8f77ed2f5cbf12eca7ea17e2030": {
-      "id": "tio-agenda:64590",
-      "sourceDescriptionHash": "c5530fa21469e4f39b042c6e769021294084c8f77ed2f5cbf12eca7ea17e2030",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:32:16.263Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:64593::39cc0ce618496a9754feb225bef7461bb3e7a1970c3560432fa41113966ef904": {
       "id": "tio-agenda:64593",
       "sourceDescriptionHash": "39cc0ce618496a9754feb225bef7461bb3e7a1970c3560432fa41113966ef904",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:24:08.893Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64599::884b7619d38ae8e79eb428aa2a47b1650cee427285db52eb24f682f763a2e4c1": {
-      "id": "tio-agenda:64599",
-      "sourceDescriptionHash": "884b7619d38ae8e79eb428aa2a47b1650cee427285db52eb24f682f763a2e4c1",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:22:28.403Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:24:27.856Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179773,27 +179831,9 @@
     "tio-agenda:64697::67291ced90cd2ff8514081d0b8122e4c9cfbe1c0baa102cced1afe3bfef7d8d7": {
       "id": "tio-agenda:64697",
       "sourceDescriptionHash": "67291ced90cd2ff8514081d0b8122e4c9cfbe1c0baa102cced1afe3bfef7d8d7",
-      "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:19:48.391Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64699::b544f8a9c3244b8568ebb732c550b0adbceb77a1de58d438bfcbb1c450f5b413": {
-      "id": "tio-agenda:64699",
-      "sourceDescriptionHash": "b544f8a9c3244b8568ebb732c550b0adbceb77a1de58d438bfcbb1c450f5b413",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:21:51.622Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64729::b8f7e5db1d634d564c215efa0448eebca7edf3fa7d6e13de3129145030e7375e": {
-      "id": "tio-agenda:64729",
-      "sourceDescriptionHash": "b8f7e5db1d634d564c215efa0448eebca7edf3fa7d6e13de3129145030e7375e",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-26T15:27:05.064Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-26T18:19:53.041Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
