@@ -6,6 +6,7 @@ vi.unmock('@/services/authService');
 
 const {
   FIREBASE_AUTH_SESSION_MARKER_KEY,
+  deriveFirebaseAuthPersistenceKey,
   getFirebaseAuthPersistenceKey,
   setFirebaseApiKey,
   setFirebaseAuthSessionMarker,
@@ -18,6 +19,14 @@ describe('persisted Firebase auth session detection', () => {
  beforeEach(() => {
   setFirebaseApiKey('runtime-api-key');
   window.localStorage.clear();
+ });
+
+ it('derives only the exact runtime Firebase key and has no generic fallback', () => {
+  expect(deriveFirebaseAuthPersistenceKey(' runtime-api-key ')).toBe(
+   'firebase:authUser:runtime-api-key:[DEFAULT]',
+  );
+  expect(deriveFirebaseAuthPersistenceKey('')).toBe('');
+  expect(deriveFirebaseAuthPersistenceKey(undefined)).toBe('');
  });
 
  it('checks only the active Firebase persistence key', () => {

@@ -29,6 +29,23 @@ import { realpathSync } from 'node:fs';
  *     so workflows that don't have Firebase configured still work.
  */
 
+// Parameters owned by the site/callable surface, not by the article corpus.
+// Keep these in the site loader when an adapted twin is reconciled: the corpus
+// must not receive newsletter credentials or Eventfrog data/configuration.
+export const SITE_ONLY_RC_KEYS = new Set([
+  'NEWSLETTER_SECRET',
+  'NEWSLETTER_FROM',
+  'NEWSLETTER_AC_SCHEME',
+  'NEWSLETTER_AC_TTL_DAYS',
+  'NEWSLETTER_AC_LEGACY_SUNSET',
+  'NEWSLETTER_TOKEN_SCHEME',
+  'NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS',
+  'NEWSLETTER_TOKEN_LEGACY_SUNSET',
+  'EVENTFROG_ENABLED',
+  'EVENTFROG_PUBLIC_API_KEY',
+  'EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT',
+]);
+
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
 // Maps Remote Config parameter names to the environment variable names
 // that scripts expect.  One RC param may map to multiple env vars.

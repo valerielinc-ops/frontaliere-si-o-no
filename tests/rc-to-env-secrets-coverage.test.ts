@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
+import { RC_TO_ENV, SITE_ONLY_RC_KEYS } from '../scripts/load-rc-env.mjs';
 import { INPLACE_KEY } from '../functions/src/assistedApplicationDocxInPlace.js';
 import { RENDERER_KEY } from '../functions/src/assistedApplicationPdfRenderer.js';
 import { DOSSIER_KEY } from '../scripts/assisted-application/lib/dossier.mjs';
@@ -187,5 +187,28 @@ describe('RC_TO_ENV keeps the switches the assisted-application runner reads fro
     ['in-place DOCX', INPLACE_KEY],
   ])('%s: %s is exported under the name its reader uses', (_switch, key) => {
     expect((RC_TO_ENV as Record<string, string[]>)[key]).toContain(key);
+  });
+});
+
+describe('RC_TO_ENV keeps site-only Remote Config parameters on the site side', () => {
+  it('maps every newsletter/Eventfrog key without introducing a client alias', () => {
+    expect([...SITE_ONLY_RC_KEYS]).toEqual([
+      'NEWSLETTER_SECRET',
+      'NEWSLETTER_FROM',
+      'NEWSLETTER_AC_SCHEME',
+      'NEWSLETTER_AC_TTL_DAYS',
+      'NEWSLETTER_AC_LEGACY_SUNSET',
+      'NEWSLETTER_TOKEN_SCHEME',
+      'NEWSLETTER_TOKEN_CONFIRM_TTL_DAYS',
+      'NEWSLETTER_TOKEN_LEGACY_SUNSET',
+      'EVENTFROG_ENABLED',
+      'EVENTFROG_PUBLIC_API_KEY',
+      'EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT',
+    ]);
+
+    for (const key of SITE_ONLY_RC_KEYS) {
+      expect(RC_TO_ENV[key], key).toEqual([key]);
+      expect(RC_TO_ENV[key].some((envKey) => envKey.startsWith('VITE_')), key).toBe(false);
+    }
   });
 });
