@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 869,
+      "5": 872,
       "6": 5057
     },
-    "publishedCovers": 7609,
+    "publishedCovers": 7612,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209465,6 +209465,105 @@
         "provider": "openai-codex",
         "assetId": "article-esecutivo-zugo-mandato-2030",
         "imageUrl": "/images/blog/article-esecutivo-zugo-mandato-2030.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-friburgo-no-linea-diretta": {
+      "cover": "/images/blog/article-friburgo-no-linea-diretta.webp",
+      "hash": "558f9b8d6889d55a5d9cfd70455e876ee307ce4fedc28843ccc80bbed6af07b6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "friburgo-no-linea-diretta",
+          "category": "novita",
+          "date": "2026-10-26T15:03:53.947Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-friburgo-no-linea-diretta.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-friburgo-no-linea-diretta",
+        "imageUrl": "/images/blog/article-friburgo-no-linea-diretta.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-elezioni-friburgo-8-novembre": {
+      "cover": "/images/blog/article-elezioni-friburgo-8-novembre.webp",
+      "hash": "31c99e9cfa3b2f029116b35884512c3895b616ab3cf5590d17e1e09afefc0993",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "elezioni-friburgo-8-novembre",
+          "category": "pratico",
+          "date": "2026-10-26T15:40:18.151Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-elezioni-friburgo-8-novembre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-elezioni-friburgo-8-novembre",
+        "imageUrl": "/images/blog/article-elezioni-friburgo-8-novembre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zurigo-crisi-alloggi-giovani": {
+      "cover": "/images/blog/article-zurigo-crisi-alloggi-giovani.webp",
+      "hash": "8d5b98f14de63a1432be2294efaf435c6863ff5454ab4c1f166213beefb83189",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "zurigo-crisi-alloggi-giovani",
+          "category": "pratico",
+          "date": "2026-10-26T15:23:22.166Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zurigo-crisi-alloggi-giovani.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zurigo-crisi-alloggi-giovani",
+        "imageUrl": "/images/blog/article-zurigo-crisi-alloggi-giovani.webp",
         "evidence": "generated-engine-record"
       }
     }

@@ -42,10 +42,14 @@ describe('prospector source-crawler adapters', () => {
 
   it('reuses source-specific extraction and expected-filter policies during spec observation', () => {
     for (const companyKey of [
-      'gmo', 'medimeo', 'medimeo-ch', 'proman-fleurier',
+      'gmo', 'medimeo', 'medimeo-ch', 'proman-fleurier', 'physioswiss',
     ]) {
-      expect(productionRuntimeOptionsFor({ companyKey })?.isExpectedDetailFilter)
-        .toBeTypeOf('function');
+      const options = productionRuntimeOptionsFor({ companyKey });
+      if (companyKey === 'physioswiss') {
+        expect(options?.listingExtractor).toBeTypeOf('function');
+      } else {
+        expect(options?.isExpectedDetailFilter).toBeTypeOf('function');
+      }
     }
     expect(productionRuntimeOptionsFor({ companyKey: 'proman-fleurier' }))
       .toMatchObject({ listingExtractor: expect.any(Function), detailExtractor: expect.any(Function) });

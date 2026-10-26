@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medimeo-ch-eabd83a2fe0b",
-      "slug": "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo",
+      "slug": "anestesia-specialistica-20-80-concentrarsi-sulla-medicina-del-dolore-intervento-medimeo-ag-valais",
       "slugByLocale": {
         "de": "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo",
-        "it": "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo",
-        "en": "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo",
-        "fr": "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo"
+        "it": "anestesia-specialistica-20-80-concentrarsi-sulla-medicina-del-dolore-intervento-medimeo-ag-valais",
+        "en": "specialist-anesthesia-20-80-focus-on-interventional-pain-medicine-medimeo-ag-valais",
+        "fr": "anesthesie-specialisee-20-80-accent-sur-la-medecine-interventionnelle-de-la-douleur-medimeo-ag-valais"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -68,16 +68,30 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-10-26T09:48:51.960Z"
+      "firstSeenAt": "2026-10-26T09:48:51.960Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo"
+        ],
+        "en": [
+          "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo"
+        ],
+        "fr": [
+          "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-anasthesie-20-80-fokus-interventionelle-schmerzmedizin-valais-medimeo"
+      ]
     },
     {
       "id": "medimeo-ch-4fbd26753071",
-      "slug": "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern",
+      "slug": "medica-capoclinica-medico-capoclinico-di-radiologia-80-100-primo-passo-verso-un-ruolo-dirigenziale-medimeo-ag-region",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern",
-        "it": "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern",
-        "en": "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern",
-        "fr": "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern"
+        "it": "medica-capoclinica-medico-capoclinico-di-radiologia-80-100-primo-passo-verso-un-ruolo-dirigenziale-medimeo-ag-region",
+        "en": "senior-physician-senior-physician-radiology-80-100-first-step-into-cadre-function-medimeo-ag-region-bern-berner-oberland",
+        "fr": "medecin-superieur-radiologie-medecin-senior-80-100-premiere-etape-dans-la-fonction-de-cadre-medimeo-ag-region-bern"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -121,7 +135,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -136,16 +149,30 @@
         }
       },
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-26T09:48:51.957Z"
+      "firstSeenAt": "2026-10-26T09:48:51.957Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-80-100-erster-schritt-in-die-kaderfunktion-region-bern"
+      ]
     },
     {
       "id": "medimeo-ch-bce398f090db",
-      "slug": "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive",
+      "slug": "medica-capoclinica-medico-capoclinico-di-anestesiologia-80-100-medicina-interventistica-del-dolore-con-prospettive",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive",
-        "it": "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive",
-        "en": "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive",
-        "fr": "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive"
+        "it": "medica-capoclinica-medico-capoclinico-di-anestesiologia-80-100-medicina-interventistica-del-dolore-con-prospettive",
+        "en": "senior-physician-anesthesiology-80-100-interventional-pain-medicine-with-perspective-medimeo-ag-winterthur-schaffhausen",
+        "fr": "anesthesiologie-medecin-senior-80-100-medecine-interventionnelle-de-la-douleur-avec-perspective-medimeo-ag-winterthur"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -204,16 +231,30 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-26T09:48:51.955Z"
+      "firstSeenAt": "2026-10-26T09:48:51.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive"
+        ],
+        "en": [
+          "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-anasthesiologie-80-100-interventionelle-schmerzmedizin-mit-perspektive"
+      ]
     },
     {
       "id": "medimeo-ch-45efd9573539",
-      "slug": "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region",
+      "slug": "medico-senior-anestesia-medico-senior-50-100-ampia-area-di-responsabilita-direttamente-sul-lago-di-zurigo-medimeo-ag",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region",
-        "it": "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region",
-        "en": "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region",
-        "fr": "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region"
+        "it": "medico-senior-anestesia-medico-senior-50-100-ampia-area-di-responsabilita-direttamente-sul-lago-di-zurigo-medimeo-ag",
+        "en": "senior-physician-senior-physician-anesthesia-50-100-broad-area-of-responsibility-directly-on-lake-zurich-medimeo-ag",
+        "fr": "anesthesie-medecin-senior-medecin-senior-50-100-vaste-zone-de-responsabilite-directement-sur-le-lac-zurich-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -271,16 +312,30 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-26T09:48:51.953Z"
+      "firstSeenAt": "2026-10-26T09:48:51.953Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region"
+        ],
+        "en": [
+          "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-anasthesie-50-100-breites-aufgabengebiet-direkt-am-zurichsee-region"
+      ]
     },
     {
       "id": "medimeo-ch-82020e769cc7",
-      "slug": "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich",
+      "slug": "medico-pratico-situato-in-posizione-centrale-in-svizzera-stipendio-attraente-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich",
-        "it": "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich",
-        "en": "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich",
-        "fr": "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich"
+        "it": "medico-pratico-situato-in-posizione-centrale-in-svizzera-stipendio-attraente-medimeo-ag-region-zurich",
+        "en": "practical-doctor-centrally-located-in-switzerland-attractive-salary-medimeo-ag-region-zurich",
+        "fr": "medecin-pratique-situe-en-suisse-salaire-attractif-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -338,7 +393,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-26T09:48:51.951Z"
+      "firstSeenAt": "2026-10-26T09:48:51.951Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich"
+        ],
+        "en": [
+          "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich"
+        ],
+        "fr": [
+          "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktischer-arzt-praktische-arztin-zentral-in-der-schweiz-attraktives-gehalt-region-zurich"
+      ]
     },
     {
       "id": "medimeo-ch-d7ee5bf88116",

@@ -66720,12 +66720,12 @@
     },
     {
       "id": "stellentreff-d5e09501b47f",
-      "slug": "montage-elektriker-in-per-sicherheitssysteme-e-serviceeinsatze-stellentreff-ag-willisau",
+      "slug": "elettricista-per-il-montaggio-di-sistemi-di-sicurezza-e-interventi-di-assistenza-stellentreff-ag-willisau-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-stellentreff-ag-willisau",
-        "it": "montage-elektriker-in-per-sicherheitssysteme-e-serviceeinsatze-stellentreff-ag-willisau",
-        "en": "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-stellentreff-ag-willisau",
-        "fr": "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-stellentreff-ag-willisau"
+        "it": "elettricista-per-il-montaggio-di-sistemi-di-sicurezza-e-interventi-di-assistenza-stellentreff-ag-willisau-luzern",
+        "en": "installation-electrician-for-security-systems-and-service-assignments-stellentreff-ag-willisau-luzern",
+        "fr": "electricien-ne-de-montage-pour-systemes-de-securite-et-interventions-de-service-stellentreff-ag-willisau-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -66769,17 +66769,25 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-willisau-luzern"
+          "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-willisau-luzern",
+          "montage-elektriker-in-per-sicherheitssysteme-e-serviceeinsatze-stellentreff-ag-willisau"
         ],
         "de": [
           "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-willisau-luzern"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-stellentreff-ag-willisau"
+        ],
+        "fr": [
+          "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-stellentreff-ag-willisau"
         ]
       },
       "previousSlugs": [
-        "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-willisau-luzern"
+        "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-willisau-luzern",
+        "montage-elektriker-in-per-sicherheitssysteme-e-serviceeinsatze-stellentreff-ag-willisau",
+        "montage-elektriker-in-fur-sicherheitssysteme-und-serviceeinsatze-stellentreff-ag-willisau"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -66796,16 +66804,16 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-10-26T09:39:54.208Z",
-      "translationHoldSince": "2026-10-26T09:40:14.102Z"
+      "translationHoldReleasedAt": "2026-10-26T16:28:29.100Z"
     },
     {
       "id": "stellentreff-247b0a82b01e",
-      "slug": "metallbauer-in-per-instandhaltung-grosser-metallteile-stellentreff-ag-sursee",
+      "slug": "costruttore-trice-metallico-a-per-la-manutenzione-di-grandi-componenti-metallici-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
         "de": "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch",
-        "it": "metallbauer-in-per-instandhaltung-grosser-metallteile-stellentreff-ag-sursee",
-        "en": "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch",
-        "fr": "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch"
+        "it": "costruttore-trice-metallico-a-per-la-manutenzione-di-grandi-componenti-metallici-stellentreff-ag-sursee-luzern",
+        "en": "metalworker-for-the-maintenance-of-large-metal-components-stellentreff-ag-sursee-luzern",
+        "fr": "constructeur-trice-metallique-pour-la-maintenance-de-grandes-pieces-metalliques-stellentreff-ag-sursee-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -66849,14 +66857,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch",
+          "metallbauer-in-per-instandhaltung-grosser-metallteile-stellentreff-ag-sursee"
+        ],
+        "en": [
+          "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch"
+        "metallbauer-in-fur-instandhaltung-grosser-metallteile-sursee-luzern-stellentreff-ch",
+        "metallbauer-in-per-instandhaltung-grosser-metallteile-stellentreff-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -66873,16 +66888,16 @@
       },
       "postalCode": "6210",
       "firstSeenAt": "2026-10-26T09:39:54.194Z",
-      "translationHoldSince": "2026-10-26T09:40:14.102Z"
+      "translationHoldReleasedAt": "2026-10-26T16:28:29.100Z"
     },
     {
       "id": "stellentreff-c05550f7167b",
-      "slug": "industrielackierer-in-per-serviceeinsatze-stellentreff-ag-willisau",
+      "slug": "verniciatore-trice-industriale-per-interventi-di-assistenza-stellentreff-ag-willisau-luzern",
       "slugByLocale": {
         "de": "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch",
-        "it": "industrielackierer-in-per-serviceeinsatze-stellentreff-ag-willisau",
-        "en": "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch",
-        "fr": "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch"
+        "it": "verniciatore-trice-industriale-per-interventi-di-assistenza-stellentreff-ag-willisau-luzern",
+        "en": "industrial-painter-for-service-assignments-stellentreff-ag-willisau-luzern",
+        "fr": "peintre-industriel-le-pour-des-interventions-de-service-stellentreff-ag-willisau-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -66926,14 +66941,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch",
+          "industrielackierer-in-per-serviceeinsatze-stellentreff-ag-willisau"
+        ],
+        "en": [
+          "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch"
+        "industrielackierer-in-fur-serviceeinsatze-willisau-luzern-stellentreff-ch",
+        "industrielackierer-in-per-serviceeinsatze-stellentreff-ag-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -66950,16 +66972,16 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-10-26T09:39:54.168Z",
-      "translationHoldSince": "2026-10-26T09:40:14.102Z"
+      "translationHoldReleasedAt": "2026-10-26T16:28:29.100Z"
     },
     {
       "id": "stellentreff-8c60628cf843",
-      "slug": "installatore-trice-elettrico-a-in-con-kundenservice-e-mobileinsatz-stellentreff-ag-willisau",
+      "slug": "installatore-trice-elettrico-a-con-esperienza-nell-assistenza-clienti-e-negli-interventi-mobili-stellentreff-ag-willisau",
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch",
-        "it": "installatore-trice-elettrico-a-in-con-kundenservice-e-mobileinsatz-stellentreff-ag-willisau",
-        "en": "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch",
-        "fr": "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch"
+        "it": "installatore-trice-elettrico-a-con-esperienza-nell-assistenza-clienti-e-negli-interventi-mobili-stellentreff-ag-willisau",
+        "en": "electrical-installer-with-customer-service-and-mobile-assignment-experience-stellentreff-ag-willisau-luzern",
+        "fr": "installateur-trice-electricien-ne-avec-experience-du-service-a-la-clientele-et-des-interventions-mobiles-stellentreff-ag"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -67003,14 +67025,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch",
+          "installatore-trice-elettrico-a-in-con-kundenservice-e-mobileinsatz-stellentreff-ag-willisau"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch"
+        "elektroinstallateur-in-mit-kundenservice-und-mobileinsatz-willisau-luzern-stellentreff-ch",
+        "installatore-trice-elettrico-a-in-con-kundenservice-e-mobileinsatz-stellentreff-ag-willisau"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -67030,12 +67059,12 @@
     },
     {
       "id": "stellentreff-78e1774bae4d",
-      "slug": "automatiker-in-con-service-e-aussendiensterfahrung-stellentreff-ag-willisau",
+      "slug": "tecnico-a-di-automazione-con-esperienza-nell-assistenza-e-negli-interventi-sul-campo-stellentreff-ag-willisau-luzern",
       "slugByLocale": {
         "de": "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch",
-        "it": "automatiker-in-con-service-e-aussendiensterfahrung-stellentreff-ag-willisau",
-        "en": "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch",
-        "fr": "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch"
+        "it": "tecnico-a-di-automazione-con-esperienza-nell-assistenza-e-negli-interventi-sul-campo-stellentreff-ag-willisau-luzern",
+        "en": "automation-technician-with-service-and-field-service-experience-stellentreff-ag-willisau-luzern",
+        "fr": "automaticien-ne-avec-experience-en-service-et-sur-le-terrain-stellentreff-ag-willisau-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -67079,14 +67108,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch",
+          "automatiker-in-con-service-e-aussendiensterfahrung-stellentreff-ag-willisau"
+        ],
+        "en": [
+          "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch"
+        "automatiker-in-mit-service-und-aussendiensterfahrung-willisau-luzern-stellentreff-ch",
+        "automatiker-in-con-service-e-aussendiensterfahrung-stellentreff-ag-willisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -67103,16 +67139,16 @@
       },
       "postalCode": "6130",
       "firstSeenAt": "2026-10-26T09:39:54.130Z",
-      "translationHoldSince": "2026-10-26T09:40:14.102Z"
+      "translationHoldReleasedAt": "2026-10-26T16:28:29.100Z"
     },
     {
       "id": "stellentreff-c2b58479cd76",
-      "slug": "maler-in-per-neu-e-umbauarbeiten-stellentreff-ag-luzern",
+      "slug": "pittore-trice-per-lavori-di-nuova-costruzione-e-ristrutturazione-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "de": "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch",
-        "it": "maler-in-per-neu-e-umbauarbeiten-stellentreff-ag-luzern",
-        "en": "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch",
-        "fr": "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch"
+        "it": "pittore-trice-per-lavori-di-nuova-costruzione-e-ristrutturazione-stellentreff-ag-luzern-luzern",
+        "en": "painter-for-new-construction-and-renovation-work-stellentreff-ag-luzern-luzern",
+        "fr": "peintre-pour-travaux-de-construction-neuve-et-de-renovation-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -67156,7 +67192,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "pittore-per-lavori-di-costruzione-e-ristrutturazione-stellentreff-ag-luzern",
         "painter-for-new-construction-and-renovation-work-stellentreff-ag-luzern",
@@ -67166,23 +67201,27 @@
         "imbianchino-a-per-lavori-di-nuova-costruzione-e-ristrutturazione-stellentreff-ag-luzern-luzern",
         "painter-for-new-build-and-renovation-work-stellentreff-ag-luzern-luzern",
         "peintre-pour-travaux-de-construction-et-de-transformation-stellentreff-ag-luzern-luzern",
-        "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch"
+        "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch",
+        "maler-in-per-neu-e-umbauarbeiten-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pittore-per-lavori-di-costruzione-e-ristrutturazione-stellentreff-ag-luzern",
           "pittore-pittrice-per-lavori-di-nuova-costruzione-e-ristrutturazione-stellentreff-ag-luzern-luzern",
           "imbianchino-a-per-lavori-di-nuova-costruzione-e-ristrutturazione-stellentreff-ag-luzern-luzern",
-          "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch"
+          "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch",
+          "maler-in-per-neu-e-umbauarbeiten-stellentreff-ag-luzern"
         ],
         "en": [
           "painter-for-new-construction-and-renovation-work-stellentreff-ag-luzern",
           "painter-for-new-construction-and-remodeling-work-stellentreff-ag-luzern-luzern",
-          "painter-for-new-build-and-renovation-work-stellentreff-ag-luzern-luzern"
+          "painter-for-new-build-and-renovation-work-stellentreff-ag-luzern-luzern",
+          "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch"
         ],
         "fr": [
           "peintre-pour-travaux-de-construction-et-de-transformation-stellentreff-ag-luzern",
-          "peintre-pour-travaux-de-construction-et-de-transformation-stellentreff-ag-luzern-luzern"
+          "peintre-pour-travaux-de-construction-et-de-transformation-stellentreff-ag-luzern-luzern",
+          "maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch"
         ]
       },
       "salaryMin": 69500,

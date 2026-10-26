@@ -63,8 +63,6 @@
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "apprentissage-spontane-corner-banca-switzerland",
-        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "unsolicited-application-apprenticeship-corner-banca-switzerland",
         "candidatura-spontanea-apprendistato-corner-banca-switzerland"
       ],
       "previousSlugsByLocale": {
@@ -1151,7 +1149,7 @@
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland-4dda4a9d82",
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland-4dda4a9d82",
-        "en": "commercial-apprenticeship-corner-banca-switzerland",
+        "en": "spontaneous-apprenticeship-application-corner-banca-switzerland",
         "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "fr": "apprentissage-spontane-corner-banca-switzerland"
       },
@@ -1202,7 +1200,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
       "crawledAt": "2026-10-26T09:32:52.763Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "initiativbewerbung-lehre-corner-banca-switzerland"
@@ -1212,6 +1209,9 @@
         ],
         "it": [
           "candidatura-spontanea-apprendistato-corner-banca-switzerland"
+        ],
+        "en": [
+          "commercial-apprenticeship-corner-banca-switzerland"
         ]
       },
       "previousSlugs": [

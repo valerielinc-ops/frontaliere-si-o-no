@@ -2498,10 +2498,10 @@
     },
     {
       "id": "ehc-vd-0777d981e701",
-      "slug": "assistant-socio-educatif-f-h-ehc-vd-morges",
+      "slug": "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-e6a880",
       "slugByLocale": {
         "fr": "assistant-socio-educatif-f-h-ehc-vd-morges",
-        "it": "assistant-socio-educatif-f-h-ehc-vd-morges",
+        "it": "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges-e6a880",
         "en": "assistant-socio-educatif-f-h-ehc-vd-morges",
         "de": "assistant-socio-educatif-f-h-ehc-vd-morges"
       },
@@ -2561,7 +2561,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:11:56.303Z"
+      "firstSeenAt": "2026-09-29T21:11:56.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistant-socio-educatif-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ],
+        "de": [
+          "assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistant-socio-educatif-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-4f9eed352e15",
@@ -5797,11 +5815,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-socio-educatif-f-h-ehc-vd-morges"
+        "assistant-socio-educatif-f-h-ehc-vd-morges",
+        "assistant-socio-educatif-f-h-ehc-vd-morges-jvn53g"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-socio-educatif-f-h-ehc-vd-morges"
+        ],
+        "fr": [
+          "assistant-socio-educatif-f-h-ehc-vd-morges-jvn53g"
         ]
       },
       "firstSeenAt": "2026-09-29T21:11:56.303Z",

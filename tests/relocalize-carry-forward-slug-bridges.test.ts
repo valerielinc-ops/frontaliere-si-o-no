@@ -23,8 +23,15 @@
  * carryForwardMissingSlugBridges wrapper, instead of a second hand-rolled
  * flat-only implementation.
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { carryForwardMissingSlugBridges } from '../scripts/relocalize-pending-jobs.mjs';
+import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  carryForwardMissingSlugBridges,
+  repairPreviousSlugOwnership,
+} from '../scripts/relocalize-pending-jobs.mjs';
 
 describe('carryForwardMissingSlugBridges (relocalize sibling of the scatter carry-forward fix)', () => {
   it('carries forward a legitimate per-locale bridge captured on the assembled side but missing from the slice', () => {
@@ -109,5 +116,47 @@ describe('carryForwardMissingSlugBridges (relocalize sibling of the scatter carr
     // Calling it again with the now-updated crawlerJob is idempotent.
     const addedAgain = carryForwardMissingSlugBridges(crawlerJob, assembled);
     expect(addedAgain).toBe(false);
+  });
+
+  it('repairs cross-file previous-slug ownership and proves the second pass is a no-op', () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'relocalize-ownership-'));
+    try {
+      const owner = {
+        id: 'owner-job',
+        url: 'https://jobs.example.test/owner-job',
+        slug: 'owner-current',
+        slugByLocale: { it: 'owner-current' },
+        previousSlugs: [],
+        previousSlugsByLocale: {},
+      };
+      const claimant = {
+        id: 'claimant-job',
+        url: 'https://jobs.example.test/claimant-job',
+        slug: 'claimant-current',
+        slugByLocale: { it: 'claimant-current' },
+        previousSlugs: [`owner-old-${stableSlugHash(owner)}`],
+        previousSlugsByLocale: {
+          en: [`owner-old-${stableSlugHash(owner)}`],
+        },
+      };
+      fs.writeFileSync(path.join(directory, 'owner.json'), JSON.stringify({ jobs: [owner] }));
+      fs.writeFileSync(path.join(directory, 'claimant.json'), JSON.stringify({ jobs: [claimant] }));
+
+      const first = repairPreviousSlugOwnership(directory);
+      expect(first.applied.moved).toBe(2);
+      expect(first.residual.moved).toBe(0);
+      expect(JSON.parse(fs.readFileSync(path.join(directory, 'owner.json'), 'utf8')).jobs[0].previousSlugs)
+        .toContain(`owner-old-${stableSlugHash(owner)}`);
+      expect(JSON.parse(fs.readFileSync(path.join(directory, 'claimant.json'), 'utf8')).jobs[0].previousSlugs)
+        .not.toContain(`owner-old-${stableSlugHash(owner)}`);
+
+      const second = repairPreviousSlugOwnership(directory);
+      expect(second.applied.moved).toBe(0);
+      expect(second.applied.emptyLocaleBucketsPruned).toBe(0);
+      expect(second.residual.moved).toBe(0);
+      expect(second.residual.emptyLocaleBucketsPruned).toBe(0);
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
   });
 });

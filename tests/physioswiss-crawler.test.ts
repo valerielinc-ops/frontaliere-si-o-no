@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
+  extractPhysioswissListingCandidates,
   PHYSIOSWISS_KEY,
   PHYSIOSWISS_COMPANY_NAME,
   isPhysioswissJob,
@@ -8,6 +9,23 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Physio swiss crawler parser', () => {
+  it('uses source-owned accessible listing titles instead of generic JSON-LD chrome', () => {
+    const firstUrl = 'https://physioswiss.ch/stelleninserate/158533/dipl-physiotherapeutin-20-60/';
+    const secondUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Header',
+      url: firstUrl,
+    })}</script>
+      <a href="${firstUrl}" aria-label="Stellenanzeige dipl. Physiotherapeut*in 20-60% öffnen."></a>
+      <a href="${secondUrl}" aria-label="Stellenanzeige Dipl. Physiotherapeut/-in (40-100%) öffnen."></a>`;
+
+    expect(extractPhysioswissListingCandidates(html)).toEqual([
+      { title: 'dipl. Physiotherapeut*in 20-60%', url: firstUrl, via: 'physioswiss-listing-link' },
+      { title: 'Dipl. Physiotherapeut/-in (40-100%)', url: secondUrl, via: 'physioswiss-listing-link' },
+    ]);
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(PHYSIOSWISS_KEY).toBe('physioswiss');
