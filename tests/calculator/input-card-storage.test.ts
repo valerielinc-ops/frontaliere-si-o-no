@@ -1,11 +1,26 @@
 // @vitest-environment jsdom
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { afterEach, describe, expect, it } from 'vitest';
+import React from 'react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { DEFAULT_INPUTS } from '@/constants';
+import { InputCard } from '@/components/calculator/InputCard';
 import {
  readCalculatorInputStorage,
  writeCalculatorInputStorage,
 } from '@/services/calculatorInputStorage';
+
+vi.mock('@/services/i18n', () => ({
+ useTranslation: () => ({
+  t: (key: string) => key,
+  locale: 'it',
+ }),
+}));
+vi.mock('@/hooks/useMediaQuery', () => ({ useMediaQuery: () => false }));
+vi.mock('@/services/NavigationContext', () => ({ useNavigationOptional: () => ({ isFocusMode: false }) }));
+vi.mock('@/components/calculator/ProfessionPresetChips', () => ({ default: () => null }));
+vi.mock('@/components/shared/CalculatorFormBoxAd', () => ({ default: () => null }));
 
 const INPUT_CARD_SOURCE = readFileSync(
  resolve(__dirname, '..', '..', 'components/calculator/InputCard.tsx'),
@@ -13,6 +28,7 @@ const INPUT_CARD_SOURCE = readFileSync(
 );
 
 afterEach(() => {
+ cleanup();
  window.localStorage.clear();
 });
 
@@ -42,6 +58,40 @@ describe('calculator input storage', () => {
    expect(readCalculatorInputStorage('calculator-input-storage-unavailable-before-write')).toBeNull();
    expect(() => writeCalculatorInputStorage('calculator-input-storage-unavailable', '1')).not.toThrow();
    expect(readCalculatorInputStorage('calculator-input-storage-unavailable')).toBe('1');
+  } finally {
+   Object.defineProperty(window, 'localStorage', {
+    configurable: true,
+    value: originalStorage,
+   });
+  }
+ });
+});
+
+describe('InputCard with unavailable browser storage', () => {
+ it('renders and keeps the desktop expansion interaction usable when storage throws', () => {
+  const originalStorage = window.localStorage;
+  const getItem = vi.fn(() => { throw new Error('storage unavailable'); });
+  const setItem = vi.fn(() => { throw new Error('quota exceeded'); });
+  const unavailableStorage = { getItem, setItem } as unknown as Storage;
+
+  Object.defineProperty(window, 'localStorage', {
+   configurable: true,
+   value: unavailableStorage,
+  });
+
+  try {
+   expect(() => render(React.createElement(InputCard, {
+    inputs: DEFAULT_INPUTS,
+    setInputs: vi.fn(),
+    onCalculate: vi.fn(),
+    exchangeRate: { fetchRate: vi.fn(), loadingRate: false, lastRateUpdate: null } as never,
+   }))).not.toThrow();
+
+   const expand = screen.getByRole('button', { name: 'input.compact.expandCta' });
+   fireEvent.click(expand);
+
+   expect(screen.queryByRole('button', { name: 'input.compact.expandCta' })).toBeNull();
+   expect(setItem).toHaveBeenCalledWith('calc_desktop_expanded', '1');
   } finally {
    Object.defineProperty(window, 'localStorage', {
     configurable: true,
