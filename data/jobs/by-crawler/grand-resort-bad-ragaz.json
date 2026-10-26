@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grand-resort-bad-ragaz",
-  "assembledAt": "2026-10-26T09:15:22.696Z",
-  "runId": "40297010246",
+  "assembledAt": "2026-10-26T21:23:01.564Z",
+  "runId": "40401523117",
   "jobs": [
     {
       "id": "grand-resort-bad-ragaz-e25a2af29058",
@@ -35,7 +35,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/officemitarbeiter-innerer-dienst-m-w-i/55409fe6-bb9d-41ef-a5ac-9fcd382c1a6e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.562Z",
+      "crawledAt": "2026-10-26T21:22:41.046Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "id": "grand-resort-bad-ragaz-38035a9ac01c",
       "slug": "masseur-20-40-m-w-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "masseur-20-40-m-w-i-grand-resort-bad-ragaz",
         "en": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -110,7 +110,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/masseur-m-w-i/79ce869d-7144-4337-93d7-916b564d956e",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.560Z",
+      "crawledAt": "2026-10-26T21:22:41.045Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -132,12 +132,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -189,7 +191,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/bartender-supervisor-the-bar-w-m-i/11092d9d-c8f9-461d-a109-4cb0ac384777",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.558Z",
+      "crawledAt": "2026-10-26T21:22:41.043Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -263,7 +265,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-pop-up-restaurant-w-m-i/b5c36ba8-6f79-4aca-b010-52afef4139e9",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.556Z",
+      "crawledAt": "2026-10-26T21:22:41.042Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -302,7 +304,7 @@
       "id": "grand-resort-bad-ragaz-d4c96e15445e",
       "slug": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
         "en": "head-green-3-00-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "chef-greenkeeper-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -330,7 +332,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/stv-head-greenkeeper-m-w-i/69818b79-fbf2-45fb-8a22-3ed7469321d4",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.552Z",
+      "crawledAt": "2026-10-26T21:22:41.040Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -351,11 +353,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+        "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
+          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
+          "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "en": [
           "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -408,7 +412,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/diaetkoechin-diaetkoch-fuer-gesundheitskulinarik-in-den-grand-hotels/2dfd5096-1c5d-4545-9b12-a2a2450e968b",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.549Z",
+      "crawledAt": "2026-10-26T21:22:41.038Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -484,7 +488,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-januar-2027/732e733d-a7f0-4b22-aa6b-7caa4ba33ff8",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.545Z",
+      "crawledAt": "2026-10-26T21:22:41.037Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -563,7 +567,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/f-b-management-trainee-restaurants-w-m-i-ab-juli-2027/2d5cfb53-0bf3-4152-bdd6-b8461c304673",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.543Z",
+      "crawledAt": "2026-10-26T21:22:41.035Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -644,7 +648,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-innere-dienste-w-m-i/6b37c49d-c50e-4aea-82a3-b371a4ee17b5",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.541Z",
+      "crawledAt": "2026-10-26T21:22:41.033Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -720,7 +724,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-restaurants-grand-resort-bad-ragaz/b82d6688-800c-4291-8dba-a13d6d257296",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.537Z",
+      "crawledAt": "2026-10-26T21:22:41.031Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -786,7 +790,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/gaestebetreuer-oder-gaestebetreuerin-inklusive-bar-im-casino-bad-ragaz-w-m-i/37e86522-da44-449a-ae16-521464f469c3",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.535Z",
+      "crawledAt": "2026-10-26T21:22:41.030Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -862,7 +866,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/ernaehrungsberatung-w-m-i/73d453b5-8c9b-46f9-b067-913204c5cbf7",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.531Z",
+      "crawledAt": "2026-10-26T21:22:41.025Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -936,7 +940,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/projektmanagement-gesundheitsrestaurant-pre-opening-operations/8c85f975-51ba-473d-a5e0-5ed42393d726",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.527Z",
+      "crawledAt": "2026-10-26T21:22:41.024Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1024,7 +1028,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/fachfrau-fachmann-gesundheit/42a90669-cb8d-4293-9572-b150b08deffb",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.522Z",
+      "crawledAt": "2026-10-26T21:22:41.022Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1098,7 +1102,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/floor-supervisor-housekeeping-w-m-i/19a1c77b-b21f-4bd6-9327-f6d29aaa3ca5",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.519Z",
+      "crawledAt": "2026-10-26T21:22:41.020Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1172,7 +1176,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/fachaerztinnen-und-fachaertze-tamina-health-center/2582ca4b-460f-4b41-8cc5-7cafbcb93cc2",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.516Z",
+      "crawledAt": "2026-10-26T21:22:41.018Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1248,7 +1252,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/leiter-in-hr-services/9806ecf4-94f3-4a40-9b55-e2489227312a",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.513Z",
+      "crawledAt": "2026-10-26T21:22:41.016Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1325,7 +1329,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/chef-de-rang-autentica-ospitalita-italiana-nesso/adea1a18-4ba1-4f78-8295-76beac63c164",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-26T09:15:15.511Z",
+      "crawledAt": "2026-10-26T21:22:41.014Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1355,72 +1359,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "grand-resort-bad-ragaz-2d31a3861e0f",
-      "slug": "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-      "slugByLocale": {
-        "it": "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "de": "brand-manager-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "directeur-de-marque-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
-      },
-      "company": "Grand Resort Bad Ragaz",
-      "companyKey": "grand-resort-bad-ragaz",
-      "companyDomain": "resortragaz.ch",
-      "title": "Brand Manager 100% (w/m/i)",
-      "titleByLocale": {
-        "it": "Brand Manager 100% (f/m/i)",
-        "en": "Brand Manager 100% (f/m/i)",
-        "de": "Brand Manager 100% (w/m/i)",
-        "fr": "Directeur de marque 100% (f/m/i)"
-      },
-      "description": "Aufgaben:\n• Entwicklung und Umsetzung einer exklusiven, wachstumsorientierten Marketingstrategie für nationale und internationale Märkte\n\n• Unterstützung bei der Weiterentwicklung der Markenpositionierung, Überwachung der Markenintegrität und Funktion als zentrale Ansprechperson für markenrelevante Themen innerhalb des Resorts\n\n• Führungsaufgaben sowie Stellvertretung des Chief of Marketing Grand Hotels & Group PR\n\n• Leitung von Image-, Verkaufs- und Neukundenkampagnen mit Erfolgskontrolle\n\n• Planung, Steuerung und Erfolgskontrolle von Marketing- und Kommunikationskampagnen (on-/offline) in enger Abstimmung mit der Leitung zur Neukundengewinnung und Verkaufsförderung\n\n• Aktive Mitgestaltung von Produkten und Angeboten\n\n• Aufbau und Pflege von hochwertigen Kooperationen\n\n• Verantwortung für Budgetierung und Controlling\n\nAnforderungen:\n• Abgeschlossenes Studium oder vergleichbare Ausbildung im Bereich Marketing, Kommunikation oder Medien\n\n• Mehrjährige Erfahrung im Branding und strategischen Marketing in der Luxusbranche oder gehobenen Hotellerie\n\n• Fundierte Kenntnisse in Online-Marketing, Social Media und Markenkommunikation\n\n• Führungsstärke sowie Erfahrung im Management von Teams\n\n• Exzellente Kommunikationsfähigkeiten in Deutsch und Englisch, weitere Sprachen von Vorteil\n\n• Kreativität, Gespür für Trends und innovative Denkweise\n\n• Strukturierte, lösungsorientierte Arbeitsweise mit hoher Eigeninitiative\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Sviluppo e attuazione di una strategia di marketing esclusiva e orientata alla crescita per i mercati nazionali e internazionali\n\n• Supporto per l'ulteriore sviluppo del posizionamento del marchio, il monitoraggio dell'integrità del marchio e l'azione come punto centrale di contatto per le questioni rilevanti del marchio all'interno del resort\n\n• Responsabilità di gestione e vice capo Marketing Grand Hotels & Group PR\n\n• Gestione di immagini, vendite e nuove campagne clienti con controllo di successo\n\n• Pianificazione, gestione e controllo di successo delle campagne di marketing e comunicazione (on/offline) in stretto coordinamento con la gestione di nuove acquisizioni e promozione delle vendite\n\n• Co-design attivo di prodotti e offerte\n\n• Istituzione e mantenimento di una cooperazione di alta qualità\n\n• Responsabilità per il bilancio e il controllo\n\nRequisiti\n• Studi completi o formazione comparabile in marketing, comunicazione o media\n\n• Diversi anni di esperienza nel branding e nel marketing strategico nel settore del lusso o nel settore alberghiero di lusso\n\n• Conoscenza approfondita del marketing online, dei social media e della comunicazione del marchio\n\n• Leadership ed esperienza nella gestione dei team\n\n• Eccellente capacità di comunicazione in tedesco e inglese, altre lingue benefiche\n\n• Creatività, senso di tendenze e pensiero innovativo\n\n• Metodo di lavoro strutturato e orientato alla soluzione con un alto livello di iniziativa\n\nOffriamo:\n• Serate di degustazione e perchi presso Thermal Spa\n\n• Biglietti gratuiti Tamina Gorge\n\n• Prova il sonno dopo aver superato il periodo di prova\n\n• Fino al 50% di sconto nei ristoranti\n\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme\n\nIl Grand Resort Bad Ragaz ha le sue origini nell'acqua termale curativa della sorgente Tamina. Dal 1242 questo luogo è sinonimo di rigenerazione, nuova energia e qualità della vita. Su questa base, continuiamo a sviluppare costantemente il resort – con l'obiettivo di diventare il leader Wellbeing & Healthy Living Resort in Europa e creare un luogo di forza per le generazioni.\n\nCirca 800 dipendenti plasmano l'esperienza dei nostri ospiti ogni giorno. Diversi talenti, culture e personalità lavorano insieme su un unico obiettivo: creare esperienze uniche. Ciò che ci unisce è l’aspirazione comune a rendere questo posto speciale un po’ meglio ogni giorno – One Resort – One Team.",
-        "en": "Tasks:\n• Development and implementation of an exclusive, growth-oriented marketing strategy for national and international markets\n\n• Support in the further development of brand positioning, monitoring brand integrity and acting as a central point of contact for brand-relevant issues within the resort\n\n• Management responsibilities and deputy Chief of Marketing Grand Hotels & Group PR\n\n• Management of image, sales and new customer campaigns with success control\n\n• Planning, management and success control of marketing and communication campaigns (on/offline) in close coordination with the management for new customer acquisition and sales promotion\n\n• Active co-design of products and offers\n\n• Establishment and maintenance of high-quality cooperation\n\n• Responsibility for budgeting and controlling\n\nRequirements\n• Completed studies or comparable training in marketing, communication or media\n\n• Several years of experience in branding and strategic marketing in the luxury industry or upscale hotel industry\n\n• In-depth knowledge of online marketing, social media and brand communication\n\n• Leadership and experience in managing teams\n\n• Excellent communication skills in German and English, other languages beneficial\n\n• Creativity, a sense of trends and innovative thinking\n\n• Structured, solution-oriented working method with a high level of initiative\n\nWe offer:\n• Tasting evenings and perks at Thermal Spa\n\n• Free Tickets Tamina Gorge\n\n• Test sleep after passing the test period\n\n• Up to 50% discount in restaurants\n\n• Up to 50% discount in the Fitness Center and Tamina Therme\n\nThe Grand Resort Bad Ragaz has its origins in the healing thermal water of the Tamina spring. Since 1242 this place stands for regeneration, new energy and quality of life. On this basis, we continue to develop the resort consistently – with the aim of becoming the leading Wellbeing & Healthy Living Resort in Europe and creating a place of strength for generations.\n\nAround 800 employees shape the experience of our guests every day. Different talents, cultures and personalities work together on one goal: to create unique experiences. What unites us is the common aspiration to make this special place a bit better every day – One Resort – One Team.",
-        "de": "Aufgaben:\n• Entwicklung und Umsetzung einer exklusiven, wachstumsorientierten Marketingstrategie für nationale und internationale Märkte\n\n• Unterstützung bei der Weiterentwicklung der Markenpositionierung, Überwachung der Markenintegrität und Funktion als zentrale Ansprechperson für markenrelevante Themen innerhalb des Resorts\n\n• Führungsaufgaben sowie Stellvertretung des Chief of Marketing Grand Hotels & Group PR\n\n• Leitung von Image-, Verkaufs- und Neukundenkampagnen mit Erfolgskontrolle\n\n• Planung, Steuerung und Erfolgskontrolle von Marketing- und Kommunikationskampagnen (on-/offline) in enger Abstimmung mit der Leitung zur Neukundengewinnung und Verkaufsförderung\n\n• Aktive Mitgestaltung von Produkten und Angeboten\n\n• Aufbau und Pflege von hochwertigen Kooperationen\n\n• Verantwortung für Budgetierung und Controlling\n\nAnforderungen:\n• Abgeschlossenes Studium oder vergleichbare Ausbildung im Bereich Marketing, Kommunikation oder Medien\n\n• Mehrjährige Erfahrung im Branding und strategischen Marketing in der Luxusbranche oder gehobenen Hotellerie\n\n• Fundierte Kenntnisse in Online-Marketing, Social Media und Markenkommunikation\n\n• Führungsstärke sowie Erfahrung im Management von Teams\n\n• Exzellente Kommunikationsfähigkeiten in Deutsch und Englisch, weitere Sprachen von Vorteil\n\n• Kreativität, Gespür für Trends und innovative Denkweise\n\n• Strukturierte, lösungsorientierte Arbeitsweise mit hoher Eigeninitiative\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Gratis Tickets Tamina Schlucht\n\n• Probeschlafen nach bestandener Probezeit\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz hat seinen Ursprung im heilenden Thermalwasser der Taminaquelle. Seit 1242 steht dieser Ort für Regeneration, neue Energie und Lebensqualität. Auf diesem Fundament entwickeln wir das Resort konsequent weiter – mit dem Anspruch, das führende Wellbeing & Healthy Living Resort Europas zu werden und einen Kraftort für Generationen zu schaffen.\n\nRund 800 Mitarbeitende prägen täglich das Erlebnis unserer Gäste. Unterschiedliche Talente, Kulturen und Persönlichkeiten arbeiten hier gemeinsam an einem Ziel: einzigartige Erlebnisse zu schaffen. Was uns verbindet, ist der gemeinsame Anspruch, diesen besonderen Ort jeden Tag ein Stück besser zu machen – One Resort – One Team.",
-        "fr": "Tâches :\n• Élaboration et mise en œuvre d ' une stratégie de commercialisation exclusive axée sur la croissance pour les marchés nationaux et internationaux\n\n• Soutien à la poursuite du développement du positionnement de la marque, de la surveillance de l'intégrité de la marque et de l'action en tant que point de contact central pour les questions relatives à la marque dans le resort\n\n• Responsabilités de gestion et vice-chef du marketing Grand Hotels & Group PR\n\n• Gestion de l'image, des ventes et des nouvelles campagnes clientes avec contrôle de réussite\n\n• Planification, gestion et contrôle du succès des campagnes de marketing et de communication (on/offline) en étroite coordination avec la direction pour l'acquisition de nouveaux clients et la promotion des ventes\n\n• Co-conception active des produits et des offres\n\n• Mise en place et maintien d ' une coopération de qualité\n\n• Responsabilité en matière de budgétisation et de contrôle\n\nExigences\n• Études terminées ou formation comparable en marketing, communication ou médias\n\n• Plusieurs années d'expérience dans l'image de marque et le marketing stratégique dans l'industrie du luxe ou l'hôtellerie haut de gamme\n\n• Connaissance approfondie du marketing en ligne, des médias sociaux et de la communication de marque\n\n• Leadership et expérience dans la gestion des équipes\n\n• Excellentes compétences en communication en allemand et en anglais, autres langues bénéfiques\n\n• Créativité, sens des tendances et pensée innovante\n\n• Méthode de travail structurée et axée sur la solution, avec un haut niveau d'initiative\n\nNous offrons:\n• Dégustation des soirées et des avantages au Thermal Spa\n\n• Billets gratuits Tamina Gorge\n\n• Sommeil d ' essai après avoir passé la période d ' essai\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nLe Grand Resort Bad Ragaz a ses origines dans l'eau thermale curative du printemps Tamina. Depuis 1242 ce lieu représente la régénération, la nouvelle énergie et la qualité de vie. Sur cette base, nous continuons à développer la station de manière cohérente – dans le but de devenir le premier centre de bien-être et de vie saine en Europe et de créer un lieu de force pour des générations.\n\nEnviron 800 employés façonnent l'expérience de nos invités chaque jour. Différents talents, cultures et personnalités travaillent ensemble sur un seul objectif : créer des expériences uniques. Ce qui nous unit est l'aspiration commune à rendre cet endroit spécial un peu meilleur chaque jour – One Resort – One Team."
-      },
-      "location": "Bad Ragaz",
-      "canton": "SG",
-      "url": "https://jobs.resortragaz.ch/offene-stellen/brand-manager-w-m-i/93d01e09-cda8-4ca9-94a4-f9540c260044",
-      "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.507Z",
-      "addressLocality": "Bad Ragaz",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7310",
-      "streetAddress": "Bernhard-Simonstrasse 20",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/brand-manager-w-m-i/93d01e09-cda8-4ca9-94a4-f9540c260044",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:15:01.537Z",
-      "salaryMin": 83500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 105000,
           "unitText": "YEAR"
         }
       }
@@ -1456,7 +1394,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/assistant-head-concierge-w-m-i/1f9c9e30-9dd5-443f-8fa4-d5efb26388fb",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.504Z",
+      "crawledAt": "2026-10-26T21:22:41.013Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1531,7 +1469,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/badefachangestellte-helenabad/7d05801b-4a35-4928-87a2-a10d209c3217",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.501Z",
+      "crawledAt": "2026-10-26T21:22:41.011Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1611,7 +1549,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/vip-guest-services-executive-w-m-i/de1fd819-64ee-49fa-9c9a-871f46d3f44f",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.498Z",
+      "crawledAt": "2026-10-26T21:22:41.009Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1648,9 +1586,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-4e3081f22b5d",
-      "slug": "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz",
         "en": "data-protection-employee-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "employe-de-protection-des-donnees-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1677,7 +1615,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/datenschutzmitarbeiter-w-d-i/187caeec-7c67-4832-8fb3-6c6f2fa691d6",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.494Z",
+      "crawledAt": "2026-10-26T21:22:41.007Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1699,12 +1637,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
-        "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz"
+        "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz-bad-ragaz",
-          "datenschutzmitarbeiter-50-w-d-i-grand-resort-bad-ragaz"
+          "dipendente-della-protezione-dei-dati-50-f-d-i-grand-resort-bad-ragaz-bad-ragaz"
         ]
       },
       "firstSeenAt": "2026-10-20T21:17:10.526Z",
@@ -1753,7 +1691,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/servicemitarbeiter-w-m-i-15-11-bis-31-12-2026/16f3d174-c13d-4f3a-8a3b-8ad85535135d",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.489Z",
+      "crawledAt": "2026-10-26T21:22:41.005Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1835,7 +1773,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/medizinische-praxisassistentin-medizinischer-praxisassistent/58e42d33-3212-45d9-b349-ac166374d7ab",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.485Z",
+      "crawledAt": "2026-10-26T21:22:41.003Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1909,7 +1847,7 @@
       "url": "https://jobs.resortragaz.ch/offene-stellen/hairstylist-m-w-d/80a018c9-e217-4765-be00-2fbffd7fb517",
       "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:15:15.477Z",
+      "crawledAt": "2026-10-26T21:22:40.997Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1961,82 +1899,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "grand-resort-bad-ragaz-6a666960b8ea",
-      "slug": "servizio-ristorante-gioie-part-time-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
-      "slugByLocale": {
-        "it": "servizio-ristorante-gioie-part-time-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "service-restaurant-gladys-part-time-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
-        "de": "aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "service-restaurant-gladys-a-temps-partiel-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
-      },
-      "company": "Grand Resort Bad Ragaz",
-      "companyKey": "grand-resort-bad-ragaz",
-      "companyDomain": "resortragaz.ch",
-      "title": "Aushilfe Service Restaurant gladys in Teilzeit (m/w/i)",
-      "titleByLocale": {
-        "it": "Servizio Ristorante gioie part-time (m/f/i)",
-        "en": "Service Restaurant gladys part-time (m/f/i)",
-        "de": "Aushilfe Service Restaurant gladys in Teilzeit (m/w/i)",
-        "fr": "Service Restaurant gladys à temps partiel (m/f/i)"
-      },
-      "description": "Aufgaben:\n• Freundlicher und fachgerechter Speise- und Getränkeservice\n\n• Betreuen der Gäste vom Empfang bis zur Verabschiedung inkl. Bestellaufnahme\n\n• Vorbereitung der erforderlichen Mise en place für einen reibungslosen Serviceablauf\n\n• Mithilfe beim Bankettservice inkl. Vor- und Nachbereitungsaufgaben\n\n• Verantwortlich für die korrekte Verrechnung\n\n• Betreuungen der Verpflegungsstationen auf dem Golfplatz\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur/zum Restaurationsfachfrau/-mann und entsprechende Berufserfahrung\n\n• Fröhliche, offene und begeisterungsfähige Person\n\n• Freude an einem lebhaften Betrieb\n\n• Belastbarkeit\n\n• Freude am Umgang mit regionalen und internationalen Gästen\n\n• Gute Deutsch- und Englischkenntnisse\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz ist das einzige Resort der Schweiz mit zwei eigenen Golfplätzen. Der 18-Loch Championship Course des Golf Club Bad Ragaz zählt zu den besten Plätzen des Landes und gehört zu den \"Leading Golf Courses\". Das Restaurant gladys, mehrfach als \"bestes Schweizer Golf Restaurant\" ausgezeichnet, verwöhnt Sie kulinarisch. Zudem erwartet Sie im Clubhaus ein umfangreiches Golf Shop-Angebot an Golf- und Freizeitmode.\n\nDer Golf Club Heidiland bietet mit seinem 9-Loch Executive Course und einem Übungscenter mit 20 überdachten sowie 50 Rasenabschlagsplätzen optimale Trainingsmöglichkeiten und hat sich als Einsteigerclub der Region etabliert. Ein Bistro und ein Golf Shop komplettieren das breite Angebot.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Servizio di cibi e bevande amichevole e professionale\n\n• Cura per gli ospiti dalla reception ad addio incl. Ordinazione\n\n• Preparazione dell'uso improprio necessario per un flusso di servizio regolare\n\n• Assistenza con il servizio di banchetto incl. Preparazione e attività di follow-up\n\n• Responsabile della corretta contabilità\n\n• Cura di stazioni di cibo sul campo da golf\n\nRequisiti\n• Formazione completa per specialisti del restauro o esperienza professionale equivalente\n\n• Persona felice, aperta ed entusiasta\n\n• Divertimento di un business vivace\n\n• Capacità di carico\n\n• Godimento di trattare con gli ospiti regionali e internazionali\n\n• Buona conoscenza della lingua tedesca e inglese\n\nOffriamo:\n• Serate e pergamene al Thermal Spa\n\n• Fino al 50% di sconto nei ristoranti\n\n• Fino al 50% di sconto nel Fitness Center e Tamina Therme\n\nGrand Resort Bad Ragaz è l'unico resort in Svizzera con due campi da golf. Il 18 buche Championship Course of Golf Club Bad Ragaz è uno dei migliori corsi del paese e appartiene ai \"Leading Golf Courses\". Il ristorante Gladys, premiato più volte come \"Best Swiss Golf Restaurant\", vi vizia la cucina. Inoltre, la clubhouse offre una vasta gamma di golf shop di moda golf e tempo libero.\n\nIl Golf Club Heidiland offre con il suo 9 buche Executive Course e un centro di esercizio con 20 aree coperte e 50 prato teeing opportunità di formazione ottimali e si è affermata come un club principiante della regione. Un bistrot e un negozio di golf completano l'ampia offerta.",
-        "en": "Tasks:\n• Friendly and professional food and drink service\n\n• Caring for the guests from reception to farewell incl. Ordering\n\n• Preparation of the necessary misuse en place for a smooth service flow\n\n• Assistance with the banquet service incl. Preparation and follow-up tasks\n\n• Responsible for correct accounting\n\n• Care of food stations on the golf course\n\nRequirements\n• Completed training for restoration specialist or equivalent professional experience\n\n• Happy, open and enthusiastic person\n\n• Enjoyment of a lively business\n\n• Load capacity\n\n• Enjoyment of dealing with regional and international guests\n\n• Good knowledge of German and English\n\nWe offer:\n• Taster evenings and perks at Thermal Spa\n\n• Up to 50% discount in restaurants\n\n• Up to 50% discount in the Fitness Center and Tamina Therme\n\nGrand Resort Bad Ragaz is the only resort in Switzerland with two golf courses. The 18-hole Championship Course of Golf Club Bad Ragaz is one of the best courses in the country and belongs to the \"Leading Golf Courses\". The restaurant gladys, awarded several times as \"Best Swiss Golf Restaurant\", spoils you culinary. In addition, the clubhouse offers an extensive golf shop range of golf and leisure fashion.\n\nThe Golf Club Heidiland offers with its 9-hole Executive Course and an exercise center with 20 covered and 50 lawn teeing areas optimal training opportunities and has established itself as a beginner club of the region. A bistro and a golf shop complete the wide offer.",
-        "de": "Aufgaben:\n• Freundlicher und fachgerechter Speise- und Getränkeservice\n\n• Betreuen der Gäste vom Empfang bis zur Verabschiedung inkl. Bestellaufnahme\n\n• Vorbereitung der erforderlichen Mise en place für einen reibungslosen Serviceablauf\n\n• Mithilfe beim Bankettservice inkl. Vor- und Nachbereitungsaufgaben\n\n• Verantwortlich für die korrekte Verrechnung\n\n• Betreuungen der Verpflegungsstationen auf dem Golfplatz\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur/zum Restaurationsfachfrau/-mann und entsprechende Berufserfahrung\n\n• Fröhliche, offene und begeisterungsfähige Person\n\n• Freude an einem lebhaften Betrieb\n\n• Belastbarkeit\n\n• Freude am Umgang mit regionalen und internationalen Gästen\n\n• Gute Deutsch- und Englischkenntnisse\n\nWir bieten:\n• Schnupperabende und Vergünstigungen im Thermal Spa\n\n• Bis 50% Rabatt in den Restaurants\n\n• Bis 50% Rabatt im Fitness Center und Tamina Therme\n\nDas Grand Resort Bad Ragaz ist das einzige Resort der Schweiz mit zwei eigenen Golfplätzen. Der 18-Loch Championship Course des Golf Club Bad Ragaz zählt zu den besten Plätzen des Landes und gehört zu den \"Leading Golf Courses\". Das Restaurant gladys, mehrfach als \"bestes Schweizer Golf Restaurant\" ausgezeichnet, verwöhnt Sie kulinarisch. Zudem erwartet Sie im Clubhaus ein umfangreiches Golf Shop-Angebot an Golf- und Freizeitmode.\n\nDer Golf Club Heidiland bietet mit seinem 9-Loch Executive Course und einem Übungscenter mit 20 überdachten sowie 50 Rasenabschlagsplätzen optimale Trainingsmöglichkeiten und hat sich als Einsteigerclub der Region etabliert. Ein Bistro und ein Golf Shop komplettieren das breite Angebot.",
-        "fr": "Tâches :\n• Service de restauration amical et professionnel\n\n• Prendre soin des invités de la réception aux adieux incl. Commande\n\n• Préparation de la mauvaise utilisation nécessaire en place pour un flux de service en douceur\n\n• Assistance au service de banquet incl. Travaux de préparation et de suivi\n\n• Responsable de la comptabilité correcte\n\n• Soins des stations-service sur le terrain de golf\n\nExigences\n• Formation de spécialiste en restauration ou expérience professionnelle équivalente\n\n• Heureuse, ouverte et enthousiaste\n\n• Profitez d'une entreprise animée\n\n• Capacité de charge\n\n• Amusement à traiter avec des invités régionaux et internationaux\n\n• Bonne connaissance de l'allemand et de l'anglais\n\nNous offrons:\n• Soirées taster et avantages au Thermal Spa\n\n• Jusqu'à 50% de réduction dans les restaurants\n\n• Jusqu'à 50% de réduction dans le centre de fitness et Tamina Therme\n\nGrand Resort Bad Ragaz est le seul complexe en Suisse avec deux terrains de golf. Le parcours de championnat de 18 trous du Golf Club Bad Ragaz est l'un des meilleurs parcours du pays et appartient au \"Leading Golf Courses\". Le restaurant gladys, décerné plusieurs fois comme \"Best Swiss Golf Restaurant\", vous gâte culinairement. En outre, le clubhouse offre une vaste gamme de golf et de mode de loisirs.\n\nLe Golf Club Heidiland offre avec son 9 trous Executive Course et un centre d'exercices avec 20 zones couvertes et 50 pelouses d'entraînement optimales et s'est établi comme un club débutant de la région. Un bistrot et une boutique de golf complètent la large offre."
-      },
-      "needsRetranslation": false,
-      "location": "Bad Ragaz",
-      "canton": "SG",
-      "url": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i/93aa4783-502f-4efb-aa6e-70ca8b5f5626",
-      "source": "Grand Resort Bad Ragaz Dedicated Parser (Prospective medium 1004484)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:26:08.509Z",
-      "addressLocality": "Bad Ragaz",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7310",
-      "streetAddress": "Bernhard-Simonstrasse 20",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.resortragaz.ch/offene-stellen/aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i/93aa4783-502f-4efb-aa6e-70ca8b5f5626",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aushilfe-service-restaurant-gladys-in-teilzeit-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:36:28.018Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }
