@@ -10,6 +10,7 @@
  *
  * Required environment:
  *   MAILEROO_EMAIL_TESTING_API_KEY   restricted to email_testing.* scopes
+ *   or MAILEROO_ACCOUNT_API_KEY      existing RC account key with those scopes
  *   MAILEROO_TRANSACTIONAL_API_KEY   Frontaliere transactional Application key
  *   MAILEROO_NEWSLETTER_API_KEY      Frontaliere newsletter Application key
  *
@@ -64,6 +65,15 @@ function assertNonEmpty(value, label) {
   return normalized;
 }
 
+export function resolveTestingApiKey(env = process.env) {
+  const dedicatedKey = String(env.MAILEROO_EMAIL_TESTING_API_KEY || '').trim();
+  if (dedicatedKey) return dedicatedKey;
+  return assertNonEmpty(
+    env.MAILEROO_ACCOUNT_API_KEY,
+    'MAILEROO_EMAIL_TESTING_API_KEY or MAILEROO_ACCOUNT_API_KEY',
+  );
+}
+
 function safeRunId(raw) {
   const value = String(raw || '').trim().replace(/[^a-zA-Z0-9_.:-]+/g, '-');
   return (value || `local-${Date.now().toString(36)}`).slice(0, 80);
@@ -80,7 +90,7 @@ function errorMessage(error) {
 
 function bodyMessage(body) {
   const candidate = body?.message
-    || body?.error
+    || (typeof body?.error === 'string' ? body.error : body?.error?.message)
     || body?.errors?.[0]?.message
     || body?.data?.message;
   return String(candidate || 'request failed').replace(/[\r\n]+/g, ' ').slice(0, 240);
@@ -127,7 +137,8 @@ async function testingRequest(path, apiKey, options = {}) {
       ...(options.headers || {}),
     },
   });
-  if (!result.response.ok) {
+  const allowedStatuses = Array.isArray(options.allowStatuses) ? options.allowStatuses : [];
+  if (!result.response.ok && !allowedStatuses.includes(result.response.status)) {
     throw new Error(`Email Testing API ${result.response.status}: ${bodyMessage(result.body)}`);
   }
   return result;
@@ -294,7 +305,6 @@ async function waitForMessage(apiKey, fetchImpl, testCase, inbox, receivedAfter)
     body: JSON.stringify({
       mailbox_id: inbox.id,
       recipient: inbox.address,
-      sender: testCase.from.address,
       subject_contains: testCase.subjectContains,
       header_name: 'X-Frontaliere-CI-Run',
       header_value: testCase.headers['X-Frontaliere-CI-Run'],
@@ -312,10 +322,11 @@ async function waitForAnalysis(apiKey, fetchImpl, messageId) {
   for (let attempt = 0; attempt < ANALYSIS_POLL_ATTEMPTS; attempt += 1) {
     const result = await testingRequest(`/messages/${encodeURIComponent(messageId)}/analysis`, apiKey, {
       fetchImpl,
+      allowStatuses: [404],
       timeoutMs: 30_000,
     });
     const analysis = result.body?.data;
-    lastStatus = String(analysis?.status || 'unknown');
+    lastStatus = result.response.status === 404 ? 'pending' : String(analysis?.status || 'unknown');
     if (lastStatus === 'complete' || lastStatus === 'ok') return analysis;
     if (['failed', 'error'].includes(lastStatus)) throw new Error(`analysis failed for ${messageId}`);
     await sleep(ANALYSIS_POLL_INTERVAL_MS);
@@ -387,7 +398,7 @@ async function writeReport(report, reportPath) {
 export async function runMailerooEmailTesting({ fetchImpl = fetch, runId = process.env.GITHUB_RUN_ID || `local-${Date.now()}`, reportPath = process.env.MAILEROO_EMAIL_TESTING_REPORT } = {}) {
   const startedAt = new Date().toISOString();
   const safeId = safeRunId(`${runId}-${process.env.GITHUB_RUN_ATTEMPT || '1'}`);
-  const apiKey = assertNonEmpty(process.env.MAILEROO_EMAIL_TESTING_API_KEY, 'MAILEROO_EMAIL_TESTING_API_KEY');
+  const apiKey = resolveTestingApiKey();
   const report = {
     version: REPORT_VERSION,
     startedAt,

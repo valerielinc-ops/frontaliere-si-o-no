@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { parseMimeMessage } from '../functions/src/lib/mimeMessage.js';
-import { buildAssertions, buildSendPayload, buildTestCases } from '../scripts/ci/maileroo-email-testing.mjs';
+import { buildAssertions, buildSendPayload, buildTestCases, resolveTestingApiKey } from '../scripts/ci/maileroo-email-testing.mjs';
 
 describe('Maileroo Email Testing CI fixtures', () => {
   const cases = buildTestCases({ recipient: 'frontaliere-ci@example.invalid', runId: 'unit-test' });
@@ -18,6 +18,12 @@ describe('Maileroo Email Testing CI fixtures', () => {
     expect(buildSendPayload(cases[0])).toMatchObject({ from: { address: 'confirmation@frontaliereticino.ch' }, to: [{ address: 'frontaliere-ci@example.invalid' }], tracking: false });
     expect(buildSendPayload(cases[1])).toMatchObject({ from: { address: 'newsletter@frontaliereticino.ch' }, to: [{ address: 'frontaliere-ci@example.invalid' }], tracking: false });
     expect(JSON.stringify(buildSendPayload(cases[0]))).not.toContain('API_KEY');
+  });
+
+  it('prefers a dedicated testing key and accepts the scoped account key from RC', () => {
+    expect(resolveTestingApiKey({ MAILEROO_EMAIL_TESTING_API_KEY: 'dedicated', MAILEROO_ACCOUNT_API_KEY: 'account' })).toBe('dedicated');
+    expect(resolveTestingApiKey({ MAILEROO_ACCOUNT_API_KEY: 'account' })).toBe('account');
+    expect(() => resolveTestingApiKey({})).toThrow('MAILEROO_EMAIL_TESTING_API_KEY or MAILEROO_ACCOUNT_API_KEY');
   });
 
   it('covers authentication, reputation, rendering and newsletter opt-out checks', () => {
