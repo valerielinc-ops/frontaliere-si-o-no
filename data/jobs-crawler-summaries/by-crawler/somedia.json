@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-25T21:27:51.572Z",
+  "generatedAt": "2026-10-26T09:33:14.659Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8026,
-  "avgDurationMs": 8026,
+  "durationMs": 9761,
+  "avgDurationMs": 9761,
   "durationHistory": [
-    8026
+    9761
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:27:35.049Z",
+      "crawledAt": "2026-10-26T09:32:47.345Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,7 +87,7 @@
       "url": "https://jobs.somedia.ch/Data-Engineer-100-de-j428.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:27:37.123Z",
+      "crawledAt": "2026-10-26T09:32:49.256Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -135,7 +135,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:27:36.044Z",
+      "crawledAt": "2026-10-26T09:32:48.260Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -183,7 +183,7 @@
       "url": "https://jobs.somedia.ch/Senior-Subscription-Digital-Marketing-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:27:33.973Z",
+      "crawledAt": "2026-10-26T09:32:46.339Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,5 +221,5 @@
       }
     }
   ],
-  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
+  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
 }

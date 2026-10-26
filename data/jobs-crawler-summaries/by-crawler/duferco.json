@@ -1,7 +1,7 @@
 {
   "key": "duferco",
   "label": "Duferco",
-  "generatedAt": "2026-10-25T21:28:10.547Z",
+  "generatedAt": "2026-10-26T09:33:25.119Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2464,
-  "avgDurationMs": 2464,
+  "durationMs": 5098,
+  "avgDurationMs": 5098,
   "durationHistory": [
-    2464
+    5098
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:28:01.815Z",
+      "crawledAt": "2026-10-26T09:33:06.036Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:28:01.812Z",
+      "crawledAt": "2026-10-26T09:33:06.030Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:28:01.809Z",
+      "crawledAt": "2026-10-26T09:33:06.017Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:28:01.792Z",
+      "crawledAt": "2026-10-26T09:33:05.968Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
+  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
 }
