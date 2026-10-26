@@ -13,8 +13,7 @@
     "https://apply.workable.com/debiopharm/j/0C581CCBA8/",
     "https://apply.workable.com/debiopharm/j/59653399E4/",
     "https://apply.workable.com/debiopharm/j/D4AF57DF23/",
-    "https://apply.workable.com/debiopharm/j/2EBAF3007D/",
-    "https://apply.workable.com/debiopharm/j/6024013BC6/"
+    "https://apply.workable.com/debiopharm/j/2EBAF3007D/"
   ],
   "seedMetaByUrl": {
     "https://apply.workable.com/debiopharm/j/0C581CCBA8/": {
@@ -48,16 +47,8 @@
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postedDate": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported"
-    },
-    "https://apply.workable.com/debiopharm/j/6024013BC6/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "Debiopharm",
-      "datePosted": "2026-09-07T00:00:00.000Z",
-      "postedDate": "2026-09-07T00:00:00.000Z",
-      "postingDateSource": "reported"
     }
   },
   "notes": "Dedicated Debiopharm crawler reads the SSR careers source and Workable v2 detail API, keeping source-backed openings across Switzerland (all 26 cantons).",
-  "updatedAt": "2026-10-25T21:33:38.330Z"
+  "updatedAt": "2026-10-26T09:22:50.403Z"
 }

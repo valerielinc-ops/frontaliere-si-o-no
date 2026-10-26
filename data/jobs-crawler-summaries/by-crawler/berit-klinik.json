@@ -1,7 +1,7 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-10-25T21:32:34.195Z",
+  "generatedAt": "2026-10-26T09:22:45.934Z",
   "total": 9,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 15222,
-  "avgDurationMs": 15222,
+  "durationMs": 3353,
+  "avgDurationMs": 3353,
   "durationHistory": [
-    15222
+    3353
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -400,5 +400,5 @@
       }
     }
   ],
-  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
+  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
 }
