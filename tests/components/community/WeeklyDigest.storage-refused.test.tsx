@@ -48,6 +48,7 @@ vi.mock('@/services/authService', () => ({
 }));
 
 vi.mock('@/components/shared/EmailInput', () => ({
+  validateEmailStrict: (email: string) => ({ valid: email.includes('@') }),
   default: ({
     value,
     onChange,
