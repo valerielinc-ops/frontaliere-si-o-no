@@ -8503,7 +8503,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ffs-binari-deformazioni-canicola-2024.imageAlt': 'Voies ferroviaires CFF sous le soleil d\'été avec brume de chaleur visible',
     'blog.article.indennita-covid-abusi-aziende.title': 'Indemnités Covid : abus dans des centaines d’entreprises',
     'blog.article.indennita-covid-abusi-aziende.excerpt': '7\'200 entreprises vérifiées sur plus de 167\'000 bénéficiaires La SECO a réclamé 243,53 millions d’ILR Lastminute a remboursé 28,9 millions au Tessin À fin',
-    'blog.article.indennita-covid-abusi-aziende.imageAlt': 'Bureau suisse avec des employés qui vérifient des documents financiers liés aux subventions Covid',
+    'blog.article.indennita-covid-abusi-aziende.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.title': 'Le PS soutient trois initiatives et un document sur le travail décent',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.excerpt': 'À Thun, le PS a soutenu trois initiatives populaires Baume-Schneider a parlé du financement de la 13e AVS Le PS demande des horaires plus courts et des salaires plus élevés',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.imageAlt': 'Image éditoriale relative à: PS sostiene tre iniziative e documento lavoro dignitoso',

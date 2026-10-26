@@ -8503,7 +8503,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ffs-binari-deformazioni-canicola-2024.imageAlt': 'FFS railway tracks under summer sun with visible heat haze',
     'blog.article.indennita-covid-abusi-aziende.title': 'Covid allowance abuses hit hundreds of firms',
     'blog.article.indennita-covid-abusi-aziende.excerpt': '7\'200 companies verified out of more than 167\'000 beneficiaries SECO reclaimed 243,53 million in ILR Lastminute returned 28,9 million in Ticino At the end',
-    'blog.article.indennita-covid-abusi-aziende.imageAlt': 'Swiss office with employees reviewing financial documents related to Covid subsidies',
+    'blog.article.indennita-covid-abusi-aziende.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.title': 'PS supports three initiatives and a document on decent work',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.excerpt': 'In Thun, the PS supported three popular initiatives Baume-Schneider spoke about funding the 13th AHV pension The PS is calling for shorter working hours and higher wages',
     'blog.article.ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.imageAlt': 'Editorial image related to: PS sostiene tre iniziative e documento lavoro dignitoso',
