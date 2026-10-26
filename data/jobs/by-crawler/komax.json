@@ -371,7 +371,7 @@
       },
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "komax-5dc9d2ba6fee",
@@ -844,10 +844,9 @@
           "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2425,
-      "retranslationAttempts": 8,
+      "retranslationAttempts": 9,
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -862,7 +861,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "komax-401b132730ac",
