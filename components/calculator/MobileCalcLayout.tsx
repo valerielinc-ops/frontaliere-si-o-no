@@ -20,6 +20,23 @@ const SubscriptionCTA = lazyRetry(() => import('@/components/shared/Subscription
 
 const NEWSLETTER_GATE_DISMISSED_KEY = 'newsletter_gate_dismissed';
 
+function isMobileAnalysisGateFlagSet(key: string): boolean {
+ try {
+  return localStorage.getItem(key) === 'true';
+ } catch {
+  // Storage is optional: an unavailable flag must not block the gate flow.
+  return false;
+ }
+}
+
+function rememberMobileAnalysisGateDismissal(): void {
+ try {
+  localStorage.setItem(NEWSLETTER_GATE_DISMISSED_KEY, 'true');
+ } catch {
+  // The dismissal remains in memory for this flow when storage is blocked.
+ }
+}
+
 interface Props {
  inputs: SimulationInputs;
  setInputs: React.Dispatch<React.SetStateAction<SimulationInputs>>;
@@ -136,8 +153,8 @@ const MobileCalcLayout: React.FC<Props> = ({
 
  const shouldShowGate = useCallback(() => {
  if (typeof window === 'undefined') return false;
- if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return false;
- if (localStorage.getItem(NEWSLETTER_GATE_DISMISSED_KEY) === 'true') return false;
+ if (isMobileAnalysisGateFlagSet(SUBSCRIBED_KEY)) return false;
+ if (isMobileAnalysisGateFlagSet(NEWSLETTER_GATE_DISMISSED_KEY)) return false;
  if (fullResultsEverShown) return false;
  if (authUser) return false;
  return true;
@@ -155,7 +172,7 @@ const MobileCalcLayout: React.FC<Props> = ({
 
  const dismissGate = useCallback(() => {
  setShowNewsletterGate(false);
- localStorage.setItem(NEWSLETTER_GATE_DISMISSED_KEY, 'true');
+ rememberMobileAnalysisGateDismissal();
  Analytics.trackEvent('newsletter_gate_dismissed', { source: 'full_analysis' });
  pendingAnalysisAction.current?.();
  pendingAnalysisAction.current = null;
