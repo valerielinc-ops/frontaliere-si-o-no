@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-10-25T21:31:54.191Z",
-  "runId": "40234063635",
+  "assembledAt": "2026-10-26T09:33:22.553Z",
+  "runId": "40297270570",
   "jobs": [
     {
       "id": "caritas-schweiz-6b39cbcf8a7a",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:31:49.161Z",
+      "crawledAt": "2026-10-26T09:33:17.898Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:31:48.715Z",
+      "crawledAt": "2026-10-26T09:33:17.410Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "url": "https://apply.refline.ch/126757/2383/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:31:48.266Z",
+      "crawledAt": "2026-10-26T09:33:16.923Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -284,7 +284,7 @@
       "url": "https://apply.refline.ch/126757/2371/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:31:47.820Z",
+      "crawledAt": "2026-10-26T09:33:16.435Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -366,7 +366,7 @@
       "url": "https://apply.refline.ch/126757/2380/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:31:47.370Z",
+      "crawledAt": "2026-10-26T09:33:15.940Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -447,7 +447,7 @@
       "url": "https://apply.refline.ch/126757/2381/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:31:46.922Z",
+      "crawledAt": "2026-10-26T09:33:15.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -530,7 +530,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:31:46.476Z",
+      "crawledAt": "2026-10-26T09:33:13.846Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -571,6 +571,89 @@
           "@type": "QuantitativeValue",
           "minValue": 59500,
           "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "caritas-schweiz-12934f3eb02e",
+      "slug": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
+      "slugByLocale": {
+        "it": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
+        "en": "apprenti-business-employee-swc-start-learning-2027-in-fribourg-h-f-d-caritas-schweiz-fribourg",
+        "de": "lehrling-business-mitarbeiter-swc-beginnen-zu-lernen-2027-in-freiburg-h-w-d-caritas-schweiz-fribourg",
+        "fr": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)",
+      "titleByLocale": {
+        "it": "Apprendista Impiegato di commercio AFC inizio apprendistato 2027 a Friburgo (m/f/d)",
+        "en": "Apprentice Commercial employee CFC start of apprenticeship 2027 in Fribourg (m/f/d)",
+        "de": "Ansprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)",
+        "fr": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)"
+      },
+      "description": "Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\nVos tâches\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\nNos exigences\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information\nLe lieu de travail est Fribourg.\nEntrée en fonction: 01.08.2027\nCaritas offre des conditions d'emploi attractives et une ambiance de travail ouverte, au cœur des enjeux de société. Afin de mener à bien notre transition vers un mode de travail axé sur les rôles, nous comptons sur des collaborateurs dotés d’un état d’esprit numérique et agile, qui apprécient de participer aux processus de changement et d’assumer des responsabilités.\nPour en savoir plus sur le poste, adressez-vous à Mme Claire Broillet, Responsable comptabilité & apprentis EC, tél. +41 26 425 81 44.\nNous vous remercions de votre intérêt et attendons votre dossier d’ici au 31.10.2026. par le biais du portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
+      "descriptionByLocale": {
+        "it": "• Basta agire. In Svizzera e in quasi 20 paesi in quattro continenti. Get coinvolto con noi per realizzare la visione di una società solidale, come una società che è\n\nApprenti Impiegato di business CFC inizio di, apprendimento 2027 in Friburgo (m/f/d)\n\nNel corso dei tre anni di formazione come impiegato commerciale, avrete la possibilità di lavorare nei vari servizi della Caritas Svizzera. Oltre ai classici campi come l'amministrazione, l'accoglienza o la contabilità, scoprirete anche il nostro impegno verso un mondo libero dalla povertà, in particolare con i rifugiati.\n\nI tuoi compiti\n\n• Auto-esecuzione di compiti amministrativi e organizzativi\n• Consulenza, supporto ed esecuzione di mandati per clienti interni ed esterni, fornitori e altri gruppi di interesse\n• Elaborazione di file specifici per ciascun servizio\n• Scrittura di testi in lingua francese e straniera sulla base di modelli\n• Praticalizzazione delle conoscenze professionali acquisite\n• Completamento della scuola secondaria con buoni risultati\n• Hai talento nella comunicazione nella tua prima lingua nazionale e godi di testi scritti in francese e francese\n\n• Ti piace imparare e approfondire le lingue straniere (inglese e/o tedesco)\n• Hai una buona comprensione delle moderne tecnologie di comunicazione e informazione e dei canali",
+        "en": "• Just act. In Switzerland and in almost 20 countries on four continents. Get involved with us to realize the vision of a solidarity society, as a society that is\n\nApprenti Business employee CFC start of, learning 2027 in Fribourg (m/f/d)\n\nIn the course of three years of your training as a business employee, you will have the opportunity to work in the various services of Caritas Switzerland. In addition to the classic fields such as administration, reception or accounting, you will also discover our commitment to a world free of poverty, particularly with refugees.\n\nYour tasks\n\n• Self-executing administrative and organisational tasks\n• Advice, support and execution of mandates for internal and external clients, suppliers and other interest groups\n• Processing of specific files for each service\n• Writing texts in French and foreign languages on the basis of models\n• Practicalization of professional knowledge acquired\n• Secondary school completion with good to very good results\n• You are talented in communication in your first national language and enjoy writing texts in French and French\n\n• You like to learn and deepen foreign languages (English and/or German)\n• You have a good understanding of modern communication and information technologies and channels",
+        "de": "• Nur handeln. In der Schweiz und in fast 20 Ländern auf vier Kontinenten. Machen Sie sich mit uns ein, um die Vision einer Solidaritätsgesellschaft als Gesellschaft, die\n\nAnsprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)\n\nIn drei Jahren Ihrer Ausbildung zum Business-Mitarbeiter haben Sie die Möglichkeit, in den verschiedenen Dienstleistungen der Caritas Schweiz zu arbeiten. Neben den klassischen Bereichen Verwaltung, Rezeption oder Buchhaltung entdecken Sie auch unser Engagement für eine armutsfreie Welt, insbesondere bei Flüchtlingen.\n\nIhre Aufgaben\n\n• Selbsterledigung administrativer und organisatorischer Aufgaben\n• Beratung, Unterstützung und Ausführung von Mandaten für interne und externe Kunden, Lieferanten und andere Interessengruppen\n• Bearbeitung von spezifischen Dateien für jeden Dienst\n• Texterstellung in Französisch und Fremdsprachen auf der Grundlage von Modellen\n• Praxis der erworbenen beruflichen Kenntnisse\n• Abschluss der Sekundarstufe mit guten bis sehr guten Ergebnissen\n• Sie sind talentiert in der Kommunikation in Ihrer ersten Landessprache und genießen es, Texte auf Französisch und Französisch zu schreiben\n\n• Sie lernen und vertiefen gerne Fremdsprachen (Englisch und/oder Deutsch)\n• Sie haben ein gutes Verständnis für moderne Kommunikations- und Informationstechnologien und Kanäle",
+        "fr": "Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\nVos tâches\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\nNos exigences\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information\nLe lieu de travail est Fribourg.\nEntrée en fonction: 01.08.2027\nCaritas offre des conditions d'emploi attractives et une ambiance de travail ouverte, au cœur des enjeux de société. Afin de mener à bien notre transition vers un mode de travail axé sur les rôles, nous comptons sur des collaborateurs dotés d’un état d’esprit numérique et agile, qui apprécient de participer aux processus de changement et d’assumer des responsabilités.\nPour en savoir plus sur le poste, adressez-vous à Mme Claire Broillet, Responsable comptabilité & apprentis EC, tél. +41 26 425 81 44.\nNous vous remercions de votre intérêt et attendons votre dossier d’ici au 31.10.2026. par le biais du portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
+      },
+      "needsRetranslation": false,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T09:33:13.359Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1700",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-06T07:42:56.140617+00:00",
+      "postedDate": "2026-08-06T07:42:56.140617+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/126757/2345/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+        ],
+        "de": [
+          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
+        ]
+      },
+      "firstSeenAt": "2026-08-06T11:59:20.254Z",
+      "salaryMin": 49500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -650,90 +733,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "caritas-schweiz-12934f3eb02e",
-      "slug": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
-      "slugByLocale": {
-        "it": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-m-w-d-caritas-schweiz-fribourg",
-        "en": "apprenti-business-employee-swc-start-learning-2027-in-fribourg-h-f-d-caritas-schweiz-fribourg",
-        "de": "lehrling-business-mitarbeiter-swc-beginnen-zu-lernen-2027-in-freiburg-h-w-d-caritas-schweiz-fribourg",
-        "fr": "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
       },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)",
-      "titleByLocale": {
-        "it": "Apprendista Impiegato di commercio AFC inizio apprendistato 2027 a Friburgo (m/f/d)",
-        "en": "Apprentice Commercial employee CFC start of apprenticeship 2027 in Fribourg (m/f/d)",
-        "de": "Ansprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)",
-        "fr": "Apprenti Employé de commerce CFC début d’apprentissage 2027 à Fribourg (h/f/d)"
-      },
-      "description": "Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\nVos tâches\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\nNos exigences\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information\nLe lieu de travail est Fribourg.\nEntrée en fonction: 01.08.2027\nCaritas offre des conditions d'emploi attractives et une ambiance de travail ouverte, au cœur des enjeux de société. Afin de mener à bien notre transition vers un mode de travail axé sur les rôles, nous comptons sur des collaborateurs dotés d’un état d’esprit numérique et agile, qui apprécient de participer aux processus de changement et d’assumer des responsabilités.\nPour en savoir plus sur le poste, adressez-vous à Mme Claire Broillet, Responsable comptabilité & apprentis EC, tél. +41 26 425 81 44.\nNous vous remercions de votre intérêt et attendons votre dossier d’ici au 31.10.2026. par le biais du portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch",
-      "descriptionByLocale": {
-        "it": "• Basta agire. In Svizzera e in quasi 20 paesi in quattro continenti. Get coinvolto con noi per realizzare la visione di una società solidale, come una società che è\n\nApprenti Impiegato di business CFC inizio di, apprendimento 2027 in Friburgo (m/f/d)\n\nNel corso dei tre anni di formazione come impiegato commerciale, avrete la possibilità di lavorare nei vari servizi della Caritas Svizzera. Oltre ai classici campi come l'amministrazione, l'accoglienza o la contabilità, scoprirete anche il nostro impegno verso un mondo libero dalla povertà, in particolare con i rifugiati.\n\nI tuoi compiti\n\n• Auto-esecuzione di compiti amministrativi e organizzativi\n• Consulenza, supporto ed esecuzione di mandati per clienti interni ed esterni, fornitori e altri gruppi di interesse\n• Elaborazione di file specifici per ciascun servizio\n• Scrittura di testi in lingua francese e straniera sulla base di modelli\n• Praticalizzazione delle conoscenze professionali acquisite\n• Completamento della scuola secondaria con buoni risultati\n• Hai talento nella comunicazione nella tua prima lingua nazionale e godi di testi scritti in francese e francese\n\n• Ti piace imparare e approfondire le lingue straniere (inglese e/o tedesco)\n• Hai una buona comprensione delle moderne tecnologie di comunicazione e informazione e dei canali",
-        "en": "• Just act. In Switzerland and in almost 20 countries on four continents. Get involved with us to realize the vision of a solidarity society, as a society that is\n\nApprenti Business employee CFC start of, learning 2027 in Fribourg (m/f/d)\n\nIn the course of three years of your training as a business employee, you will have the opportunity to work in the various services of Caritas Switzerland. In addition to the classic fields such as administration, reception or accounting, you will also discover our commitment to a world free of poverty, particularly with refugees.\n\nYour tasks\n\n• Self-executing administrative and organisational tasks\n• Advice, support and execution of mandates for internal and external clients, suppliers and other interest groups\n• Processing of specific files for each service\n• Writing texts in French and foreign languages on the basis of models\n• Practicalization of professional knowledge acquired\n• Secondary school completion with good to very good results\n• You are talented in communication in your first national language and enjoy writing texts in French and French\n\n• You like to learn and deepen foreign languages (English and/or German)\n• You have a good understanding of modern communication and information technologies and channels",
-        "de": "• Nur handeln. In der Schweiz und in fast 20 Ländern auf vier Kontinenten. Machen Sie sich mit uns ein, um die Vision einer Solidaritätsgesellschaft als Gesellschaft, die\n\nAnsprechende Mitarbeiter CFC Beginn, Lernen 2027 in Freiburg (m/w/d)\n\nIn drei Jahren Ihrer Ausbildung zum Business-Mitarbeiter haben Sie die Möglichkeit, in den verschiedenen Dienstleistungen der Caritas Schweiz zu arbeiten. Neben den klassischen Bereichen Verwaltung, Rezeption oder Buchhaltung entdecken Sie auch unser Engagement für eine armutsfreie Welt, insbesondere bei Flüchtlingen.\n\nIhre Aufgaben\n\n• Selbsterledigung administrativer und organisatorischer Aufgaben\n• Beratung, Unterstützung und Ausführung von Mandaten für interne und externe Kunden, Lieferanten und andere Interessengruppen\n• Bearbeitung von spezifischen Dateien für jeden Dienst\n• Texterstellung in Französisch und Fremdsprachen auf der Grundlage von Modellen\n• Praxis der erworbenen beruflichen Kenntnisse\n• Abschluss der Sekundarstufe mit guten bis sehr guten Ergebnissen\n• Sie sind talentiert in der Kommunikation in Ihrer ersten Landessprache und genießen es, Texte auf Französisch und Französisch zu schreiben\n\n• Sie lernen und vertiefen gerne Fremdsprachen (Englisch und/oder Deutsch)\n• Sie haben ein gutes Verständnis für moderne Kommunikations- und Informationstechnologien und Kanäle",
-        "fr": "Agir, tout simplement. En Suisse et dans près de 20 pays répartis sur quatre continents. Engagez-vous avec nous pour concrétiser la vision d’une société solidaire, en tant que\nau sein de Caritas Suisse est exactement ce qu’il vous faut. Au cours des trois années de votre formation d’employé·e de commerce, vous aurez l’opportunité de travailler dans les différents services de Caritas Suisse. En plus des domaines classiques tels que l’administration, la réception ou la comptabilité, vous découvrirez également notre engagement en faveur d’un monde sans pauvreté, particulièrement auprès des réfugié·e·s statutaires.\nVos tâches\n• Exécution autonome de tâches administratives et organisationnelles\n• Conseil, prise en charge et exécution de mandats pour les clients internes et externes, les fournisseurs et d’autres groupes d’intérêt\n• Traitement de dossiers spécifiques à chaque service\n• Rédaction de textes en français et en langues étrangères sur la base de modèles\n• Mise en pratique des connaissances professionnelles acquises\nNos exigences\n• Scolarité secondaire terminée avec de bons à très bons résultats\n• Vous êtes talentueux·se en communication dans votre première langue nationale et appréciez rédiger des textes en français et en langues étrangères sur la base de modèles\n• Vous aimez apprendre et approfondir les langues étrangères (anglais et/ou allemand)\n• Vous disposez d’une bonne compréhension des technologies et des canaux modernes de communication et d’information\nLe lieu de travail est Fribourg.\nEntrée en fonction: 01.08.2027\nCaritas offre des conditions d'emploi attractives et une ambiance de travail ouverte, au cœur des enjeux de société. Afin de mener à bien notre transition vers un mode de travail axé sur les rôles, nous comptons sur des collaborateurs dotés d’un état d’esprit numérique et agile, qui apprécient de participer aux processus de changement et d’assumer des responsabilités.\nPour en savoir plus sur le poste, adressez-vous à Mme Claire Broillet, Responsable comptabilité & apprentis EC, tél. +41 26 425 81 44.\nNous vous remercions de votre intérêt et attendons votre dossier d’ici au 31.10.2026. par le biais du portail en ligne.\nCaritas Suisse, Adligenswilerstrasse 15, 6002 Lucerne\nwww.caritas.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:31:45.581Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1700",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-06T07:42:56.140617+00:00",
-      "postedDate": "2026-08-06T07:42:56.140617+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/126757/2345/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-        ],
-        "en": [
-          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-        ],
-        "de": [
-          "apprenti-employe-de-commerce-cfc-debut-d-apprentissage-2027-a-fribourg-h-f-d-caritas"
-        ]
-      },
-      "firstSeenAt": "2026-08-06T11:59:20.254Z",
-      "salaryMin": 49500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
