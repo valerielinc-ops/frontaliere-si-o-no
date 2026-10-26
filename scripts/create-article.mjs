@@ -90,6 +90,7 @@ import {
 // Routing article translation through it instead of the generation LLM frees
 // ~60% of per-article LLM calls for actual generation (the quota bottleneck).
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
+import { wrongLocalePair, prepareFaqForWrite } from './fix-faq-locales.mjs';
 import { sanitizeBodyText } from './lib/sanitize-body-braces.mjs';
 import { translateFieldFreeMt, translatedStringOrNull, joinTranslatedChunks } from './lib/article-free-mt.mjs';
 import { hasUsableContentText, hasUsableTranslatedText } from './lib/usable-content-text.mjs';
@@ -6593,6 +6594,20 @@ function freeMtField(text, sourceLang, targetLang, fieldType) {
   });
 }
 
+function prepareTranslatedFaqForLocale(faq, targetLang, sourceFaq) {
+  const prepared = prepareFaqForWrite(faq);
+  if (!prepared) {
+    console.error(`  ⚠️  FAQ ${targetLang}: contenuto non leggibile o sotto il floor — FAQ omessa`);
+    return null;
+  }
+  const wrong = wrongLocalePair(prepared, targetLang, sourceFaq);
+  if (wrong) {
+    console.error(`  ⚠️  FAQ ${targetLang}: coppia ${wrong.index + 1} non tradotta (${wrong.detected}, ${wrong.via}) — FAQ omessa`);
+    return null;
+  }
+  return prepared;
+}
+
 // Free-MT replacement for translateContent: same return shape ({title, excerpt,
 // body1..3, faq?}) but each field via the quota-free cascade. Missing/failed
 // fields are simply omitted → the existing missing-field recovery loop in
@@ -6610,14 +6625,14 @@ async function translateContentFreeMt(sourceLang, targetLang, targetLabel, sourc
   let faq;
   if (Array.isArray(sourceContent.faq) && sourceContent.faq.length > 0) {
     try {
-      faq = await Promise.all(sourceContent.faq.map(async (item) => {
+      const translatedFaq = await Promise.all(sourceContent.faq.map(async (item) => {
         const q = await freeMtField(item?.q, sourceLang, targetLang, 'title');
         const a = await freeMtField(item?.a, sourceLang, targetLang, 'description');
         return { q: q || item?.q || '', a: a || item?.a || '' };
       }));
+      faq = prepareTranslatedFaqForLocale(translatedFaq, targetLang, sourceContent.faq);
     } catch (err) {
-      console.error(`  ⚠️  free-MT ${targetLang}:faq fallita (${err?.message || err}) — fallback IT`);
-      faq = sourceContent.faq;
+      console.error(`  ⚠️  free-MT ${targetLang}:faq fallita (${err?.message || err}) — FAQ omessa`);
     }
   }
 
@@ -6816,9 +6831,12 @@ ${terminologyByLang[targetLang] || ''}`;
       ? callWithRetry(makePrompt(
           `CONTENUTO ITALIANO DA TRADURRE:\n- faq: ${JSON.stringify(sourceContent.faq)}`,
           '{"faq": [{"q": "...", "a": "..."}]}',
-        ), 1500, `${targetLang}:faq`).catch(err => {
+        ), 1500, `${targetLang}:faq`).then(result => {
+          const faq = prepareTranslatedFaqForLocale(result?.faq, targetLang, sourceContent.faq);
+          return faq ? { faq } : {};
+        }).catch(err => {
           console.error(`  ⚠️  FAQ translation failed for ${targetLang}: ${err.message}`);
-          return { faq: sourceContent.faq }; // Fallback to Italian
+          return {};
         })
       : Promise.resolve({});
 
@@ -7495,16 +7513,16 @@ function validate(data, opts = {}) {
     }
     // Validate FAQ structure if present (keep as array, don't coerce to string)
     if (data.content[locale].faq) {
-      const faq = data.content[locale].faq;
-      if (typeof faq === 'string') {
-        try { data.content[locale].faq = JSON.parse(faq); } catch { delete data.content[locale].faq; }
+      if (typeof data.content[locale].faq === 'string') {
+        try { data.content[locale].faq = JSON.parse(data.content[locale].faq); } catch { delete data.content[locale].faq; }
       }
-      if (Array.isArray(data.content[locale].faq)) {
-        data.content[locale].faq = data.content[locale].faq.filter(pair =>
-          pair && typeof pair.q === 'string' && typeof pair.a === 'string' &&
-          pair.q.length > 10 && pair.a.length > 20
-        ).slice(0, 7);
-        if (data.content[locale].faq.length < 2) delete data.content[locale].faq;
+      const preparedFaq = prepareTranslatedFaqForLocale(
+        data.content[locale].faq,
+        locale,
+        itContent.faq,
+      );
+      if (preparedFaq) {
+        data.content[locale].faq = preparedFaq.slice(0, 7);
       } else {
         delete data.content[locale].faq;
       }

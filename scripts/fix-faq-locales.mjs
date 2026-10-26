@@ -80,7 +80,7 @@ export function writeFileAtomic(filePath, content) {
   }
 }
 
-function escapeForSingleQuoteTS(value) {
+export function escapeForSingleQuoteTS(value) {
   return String(value ?? '')
     .replace(/\\/g, '\\\\')
     .replace(/'/g, "\\'")

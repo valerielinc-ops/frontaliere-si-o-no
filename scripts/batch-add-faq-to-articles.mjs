@@ -38,6 +38,7 @@ import {
   extractFaqFromContent,
   writeFileAtomic,
   prepareFaqForWrite,
+  escapeForSingleQuoteTS,
 } from './fix-faq-locales.mjs';
 import { decodeControlEscapesByField } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
@@ -139,9 +140,8 @@ function write(filePath, content) {
   writeFileAtomic(resolve(filePath), content);
 }
 
-/** Same escaping as create-article.mjs buildBodyFile() */
-function escapeForSingleQuoteTS(s) {
-  return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
+function serializeFaqLiteral(faqArray) {
+  return escapeForSingleQuoteTS(JSON.stringify(faqArray));
 }
 
 /** Extract FAQ array from various LLM response shapes:
@@ -825,7 +825,7 @@ function replaceFaqInBodyFile(filePath, faqArray) {
   const faqToWrite = prepareFaqForWrite(faqArray);
   if (!faqToWrite) return false;
   let content = read(filePath);
-  const jsonStr = escapeForSingleQuoteTS(JSON.stringify(faqToWrite));
+  const jsonStr = serializeFaqLiteral(faqToWrite);
   // Use escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
   // and function replacer avoids $ interpretation in replacement string
   const replaced = content.replace(
@@ -859,8 +859,7 @@ export function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
     return replaceFaqInBodyFile(filePath, faqToWrite);
   }
 
-  const faqJsonStr = JSON.stringify(faqToWrite);
-  const escapedFaq = escapeForSingleQuoteTS(faqJsonStr);
+  const escapedFaq = serializeFaqLiteral(faqToWrite);
   const faqLine = `    'blog.article.${articleId}.faq': '${escapedFaq}',`;
 
   // Strategy: insert before the closing `};`
