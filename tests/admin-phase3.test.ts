@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { buildTodaySummary, formatTodayDate } from '@/components/admin/lib/adminToday';
 import { csvText, datedExportFilename } from '@/components/admin/lib/csv';
-import { pageCount, pageSlice } from '@/components/admin/lib/pagination';
+import { clampPage, pageCount, pageSlice } from '@/components/admin/lib/pagination';
 import { describeCronForLocalDay, scheduledOccurrencesForLocalDay } from '@/services/adminCron';
 import { adminTodayRunsPath, adminTodayRunsTruncationNotice, failedCrawlerRunCount, loadAdminTodayRuns, type AdminTodayRun } from '@/services/adminTodayRuns';
 import { buildAdminPaletteIndex, filterAdminPaletteIndex, type AdminPaletteItem } from '@/components/admin/lib/adminPalette';
@@ -169,6 +169,23 @@ describe('admin fase 3 pure contracts', () => {
     expect(datedExportFilename('crawler', new Date('2026-10-22T23:30:00.000Z'))).toBe('crawler-2026-10-23.csv');
     expect(pageCount(101)).toBe(3);
     expect(pageSlice(Array.from({ length: 101 }, (_, index) => index), 3)).toEqual([100]);
+  });
+
+  it('normalizza input non affidabili della paginazione', () => {
+    const items = Array.from({ length: 101 }, (_, index) => index);
+
+    expect(pageCount(Number.NaN)).toBe(1);
+    expect(pageCount(Number.POSITIVE_INFINITY)).toBe(1);
+    expect(pageCount(-10)).toBe(1);
+    expect(clampPage(Number.NaN, 101)).toBe(1);
+    expect(clampPage(Number.POSITIVE_INFINITY, 101)).toBe(1);
+    expect(clampPage(1.5, 101)).toBe(1);
+    expect(clampPage(2, Number.NaN)).toBe(1);
+    expect(clampPage(2, Number.POSITIVE_INFINITY)).toBe(1);
+    expect(clampPage(2, -10)).toBe(1);
+    expect(pageSlice(items, Number.NaN)).toEqual(items.slice(0, 50));
+    expect(pageSlice(items, Number.POSITIVE_INFINITY)).toEqual(items.slice(0, 50));
+    expect(pageSlice(items, 1.5)).toEqual(items.slice(0, 50));
   });
 
   it('nasconde i dettagli sensibili dell’audit', () => {
