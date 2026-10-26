@@ -129,4 +129,13 @@ describe('alert reading and frequency controls', () => {
   expect(nextSession.canShowJobAlertPrompt()).toBe(false);
   expect(nextSession.canShowJobAlertPrompt(Date.now() + 8 * 86400_000)).toBe(true);
  });
+
+ it('expires an ISO dismissal after the cooldown instead of poisoning the in-memory timestamp', async () => {
+  const policy = await import('@/services/jobAlertPromptPolicy');
+  const dismissedAt = Date.parse('2026-10-20T00:00:00.000Z');
+  localStorage.setItem('ft_job_alert_prompt_dismissed', new Date(dismissedAt).toISOString());
+
+  expect(policy.canShowJobAlertPrompt(Date.parse('2026-10-21T00:00:00.000Z'))).toBe(false);
+  expect(policy.canShowJobAlertPrompt(Date.parse('2026-10-28T00:00:00.000Z'))).toBe(true);
+ });
 });

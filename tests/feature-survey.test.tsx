@@ -105,6 +105,18 @@ describe('FeatureSurvey engagement gate', () => {
     expect(screen.queryByRole('dialog')).toBeNull();
   });
 
+  it('recovers from a corrupted session page-view counter', async () => {
+    sessionStorage.setItem('feature_survey_pageviews', 'not-a-number');
+    await act(async () => {
+      render(<FeatureSurvey />);
+    });
+    await act(async () => {
+      vi.advanceTimersByTime(25_000);
+    });
+    expect(sessionStorage.getItem('feature_survey_pageviews')).toBe('1');
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
   it('respects the 90-day dismiss cooldown', async () => {
     localStorage.setItem('feature_survey_dismissed', String(Date.now()));
     sessionStorage.setItem('feature_survey_pageviews', '5');

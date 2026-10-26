@@ -94,6 +94,7 @@ export const XP_PER_STEP = 15;
 export const CHECKLIST_COMPLETE_ACHIEVEMENT = 'frontaliere_path';
 
 const STORAGE_KEY = 'frontaliere_checklist_v1';
+const CHECKLIST_STEP_IDS = new Set(CHECKLIST_STEPS.map(step => step.id));
 
 // ─── State management ────────────────────────────────────────────────────────
 
@@ -106,15 +107,38 @@ export interface ChecklistState {
   completedAt?: number;
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isPositiveFiniteTimestamp(value: unknown): value is number {
+  return typeof value === 'number' && Number.isFinite(value) && value > 0;
+}
+
+function readValidStepRecords<T>(
+  value: unknown,
+  isValid: (entry: unknown) => entry is T,
+): Record<string, T> {
+  if (!isRecord(value)) return {};
+
+  const valid: Record<string, T> = {};
+  for (const [stepId, entry] of Object.entries(value)) {
+    if (CHECKLIST_STEP_IDS.has(stepId) && isValid(entry)) valid[stepId] = entry;
+  }
+  return valid;
+}
+
 export function loadChecklistState(): ChecklistState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const parsed = JSON.parse(raw);
+      const parsed: unknown = JSON.parse(raw);
+      if (!isRecord(parsed)) return { done: {}, awarded: {} };
+
       return {
-        done: parsed.done || {},
-        awarded: parsed.awarded || {},
-        completedAt: typeof parsed.completedAt === 'number' ? parsed.completedAt : undefined,
+        done: readValidStepRecords(parsed.done, isPositiveFiniteTimestamp),
+        awarded: readValidStepRecords(parsed.awarded, (entry): entry is true => entry === true),
+        completedAt: isPositiveFiniteTimestamp(parsed.completedAt) ? parsed.completedAt : undefined,
       };
     }
   } catch {
