@@ -40,6 +40,7 @@ import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 
 interface RelatedJob {
  slug: string;

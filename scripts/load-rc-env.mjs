@@ -419,6 +419,10 @@ export const RC_TO_ENV = {
   // Site-owned static employer-profile ad test. Absent/control keeps the
   // extra unit off; the owner opts into the EOC treatment with `eoc_mid`.
   EMPLOYER_PROFILE_MID_AD_TEST_VARIANT: ['EMPLOYER_PROFILE_MID_AD_TEST_VARIANT'],
+  // Site-owned article-detail near-ATF ad test. Absent/control keeps the
+  // extra unit off; the deploy workflow freezes the validated arm for both
+  // static SSG and the hydrated SPA bundle.
+  ARTICLE_DETAIL_ATF_AD_TEST_VARIANT: ['ARTICLE_DETAIL_ATF_AD_TEST_VARIANT', 'VITE_ARTICLE_DETAIL_ATF_AD_TEST_VARIANT'],
   // Eventfrog Public API, Ticino ephemeral event pages (owner decision D5,
   // 2026-10-05). EVENTFROG_ENABLED is the switch of the whole source — the
   // daily sync (crawl-events.yml), the snapshot download (deploy.yml) and the

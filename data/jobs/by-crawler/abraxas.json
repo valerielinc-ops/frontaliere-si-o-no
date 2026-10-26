@@ -1,7 +1,7 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-10-26T09:31:08.548Z",
-  "runId": "40297930906",
+  "assembledAt": "2026-10-26T21:47:59.961Z",
+  "runId": "40402597218",
   "jobs": [
     {
       "id": "abraxas-a11a2b656e85",
@@ -34,7 +34,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-mit-projekterfahrung-80-100-8712",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:31:02.366Z",
+      "crawledAt": "2026-10-26T21:47:53.407Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-abacus-80-100-5978",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:31:01.912Z",
+      "crawledAt": "2026-10-26T21:47:52.915Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-7856",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:31:01.462Z",
+      "crawledAt": "2026-10-26T21:47:52.424Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -272,7 +272,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:31:01.015Z",
+      "crawledAt": "2026-10-26T21:47:51.931Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-6610",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:31:00.563Z",
+      "crawledAt": "2026-10-26T21:47:51.439Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -399,7 +399,7 @@
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
         "it": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "en": "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8",
+        "en": "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen",
         "de": "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
         "fr": "servicenow-ki-solutions-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       },
@@ -425,7 +425,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:31:00.114Z",
+      "crawledAt": "2026-10-26T21:47:50.948Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -451,14 +451,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-        "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
         ],
         "en": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "service-8-5-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8-service-8-8"
         ]
       },
       "firstSeenAt": "2026-08-18T09:46:24.423Z",
@@ -475,6 +475,79 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "abraxas-a43ffbc16e67",
+      "slug": "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+      "slugByLocale": {
+        "de": "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+        "it": "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+        "en": "senior-software-engineer-80-100-abraxas-zurich-flughafen",
+        "fr": "senior-software-engineer-80-100-abraxas-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Senior Software-Engineer 80–100 %",
+      "titleByLocale": {
+        "de": "Senior Software-Ingenieur 80–100 %",
+        "en": "Senior Software-Engineer 80–100 %",
+        "it": "Senior Software-Ingegnere 80–100 %",
+        "fr": "Senior Software-Ingénieur 80–100 %"
+      },
+      "description": "Du willst Software entwickeln, die wirklich etwas bewegt?\nBei uns gestaltest du die nächste Generation der Steuerlösungen mit – technologisch anspruchsvoll, fachlich relevant und mit spürbarem Impact für die öffentliche Verwaltung. Du arbeitest mit modernen Technologien, trägst Verantwortung für Architektur und Qualität und bringst deine Ideen direkt ins Produkt ein. Werde Teil eines Teams, das Innovation lebt und gemeinsam etwas Nachhaltiges schafft.\nDeine Rolle\n• Du entwickelst unsere neue Steuerlösung auf Basis einer modernen Microservices-Architektur und gestaltest den Technologie-Stack aktiv mit.\n• Du designst, implementierst und testest neue Features in einem agilen Team und sorgst gemeinsam für eine hohe Softwarequalität.\n• Du analysierst komplexe technische Fragestellungen und bringst Verbesserungsvorschläge ein.\n• Du arbeitest eng mit Product Ownern, Designern und anderen Entwicklern, sowie Nearshoring-Partnern zusammen und trägst zu einem effizienten Wissensaustausch bei um die Software kontinuierlich zu verbessern.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Du bringst ein Informatikstudium oder eine gleichwertige Berufserfahrung mit und verfügst über mindestens fünf Jahre Erfahrung als Java-Software-Engineer\n• Deine Erfahrung in den folgenden Technologien zeichnet dich aus: Java, Spring Boot, Micro-Services, Maven und SQL (Oracle, Hibernate, Liquibase)\n• Dir sind Cloud-Technologien, serviceorientierte Architekturen, Containerisierung und moderne Plattformen und Tools wie GitLab, Docker und Kubernetes vertraut\n• Du zeichnest dich durch Kommunikationsstärke, Teamfähigkeit und eine hohe Lern- und Weiterentwicklungsbereitschaft aus\n• Du kommunizierst sicher auf Deutsch (mind. C1) und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+      "descriptionByLocale": {
+        "de": "Du willst Software entwickeln, die wirklich etwas bewegt?\nBei uns gestaltest du die nächste Generation der Steuerlösungen mit – technologisch anspruchsvoll, fachlich relevant und mit spürbarem Impact für die öffentliche Verwaltung. Du arbeitest mit modernen Technologien, trägst Verantwortung für Architektur und Qualität und bringst deine Ideen direkt ins Produkt ein. Werde Teil eines Teams, das Innovation lebt und gemeinsam etwas Nachhaltiges schafft.\nDeine Rolle\n• Du entwickelst unsere neue Steuerlösung auf Basis einer modernen Microservices-Architektur und gestaltest den Technologie-Stack aktiv mit.\n• Du designst, implementierst und testest neue Features in einem agilen Team und sorgst gemeinsam für eine hohe Softwarequalität.\n• Du analysierst komplexe technische Fragestellungen und bringst Verbesserungsvorschläge ein.\n• Du arbeitest eng mit Product Ownern, Designern und anderen Entwicklern, sowie Nearshoring-Partnern zusammen und trägst zu einem effizienten Wissensaustausch bei um die Software kontinuierlich zu verbessern.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Du bringst ein Informatikstudium oder eine gleichwertige Berufserfahrung mit und verfügst über mindestens fünf Jahre Erfahrung als Java-Software-Engineer\n• Deine Erfahrung in den folgenden Technologien zeichnet dich aus: Java, Spring Boot, Micro-Services, Maven und SQL (Oracle, Hibernate, Liquibase)\n• Dir sind Cloud-Technologien, serviceorientierte Architekturen, Containerisierung und moderne Plattformen und Tools wie GitLab, Docker und Kubernetes vertraut\n• Du zeichnest dich durch Kommunikationsstärke, Teamfähigkeit und eine hohe Lern- und Weiterentwicklungsbereitschaft aus\n• Du kommunizierst sicher auf Deutsch (mind. C1) und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+        "it": "Du willst Software entwickeln, die wirklich etwas bewegt?\nBei uns gestaltest du die nächste Generation der Steuerlösungen mit – technologisch anspruchsvoll, fachlich relevant und mit spürbarem Impact für die öffentliche Verwaltung. Du arbeitest mit modernen Technologien, trägst Verantwortung für Architektur und Qualität und bringst deine Ideen direkt ins Produkt ein. Werde Teil eines Teams, das Innovation lebt und gemeinsam etwas Nachhaltiges schafft.\nDeine Rolle\n• Du entwickelst unsere neue Steuerlösung auf Basis einer modernen Microservices-Architektur und gestaltest den Technologie-Stack aktiv mit.\n• Du designst, implementierst und testest neue Features in einem agilen Team und sorgst gemeinsam für eine hohe Softwarequalität.\n• Du analysierst komplexe technische Fragestellungen und bringst Verbesserungsvorschläge ein.\n• Du arbeitest eng mit Product Ownern, Designern und anderen Entwicklern, sowie Nearshoring-Partnern zusammen und trägst zu einem effizienten Wissensaustausch bei um die Software kontinuierlich zu verbessern.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Du bringst ein Informatikstudium oder eine gleichwertige Berufserfahrung mit und verfügst über mindestens fünf Jahre Erfahrung als Java-Software-Engineer\n• Deine Erfahrung in den folgenden Technologien zeichnet dich aus: Java, Spring Boot, Micro-Services, Maven und SQL (Oracle, Hibernate, Liquibase)\n• Dir sind Cloud-Technologien, serviceorientierte Architekturen, Containerisierung und moderne Plattformen und Tools wie GitLab, Docker und Kubernetes vertraut\n• Du zeichnest dich durch Kommunikationsstärke, Teamfähigkeit und eine hohe Lern- und Weiterentwicklungsbereitschaft aus\n• Du kommunizierst sicher auf Deutsch (mind. C1) und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+        "en": "Du willst Software entwickeln, die wirklich etwas bewegt?\nBei uns gestaltest du die nächste Generation der Steuerlösungen mit – technologisch anspruchsvoll, fachlich relevant und mit spürbarem Impact für die öffentliche Verwaltung. Du arbeitest mit modernen Technologien, trägst Verantwortung für Architektur und Qualität und bringst deine Ideen direkt ins Produkt ein. Werde Teil eines Teams, das Innovation lebt und gemeinsam etwas Nachhaltiges schafft.\nDeine Rolle\n• Du entwickelst unsere neue Steuerlösung auf Basis einer modernen Microservices-Architektur und gestaltest den Technologie-Stack aktiv mit.\n• Du designst, implementierst und testest neue Features in einem agilen Team und sorgst gemeinsam für eine hohe Softwarequalität.\n• Du analysierst komplexe technische Fragestellungen und bringst Verbesserungsvorschläge ein.\n• Du arbeitest eng mit Product Ownern, Designern und anderen Entwicklern, sowie Nearshoring-Partnern zusammen und trägst zu einem effizienten Wissensaustausch bei um die Software kontinuierlich zu verbessern.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Du bringst ein Informatikstudium oder eine gleichwertige Berufserfahrung mit und verfügst über mindestens fünf Jahre Erfahrung als Java-Software-Engineer\n• Deine Erfahrung in den folgenden Technologien zeichnet dich aus: Java, Spring Boot, Micro-Services, Maven und SQL (Oracle, Hibernate, Liquibase)\n• Dir sind Cloud-Technologien, serviceorientierte Architekturen, Containerisierung und moderne Plattformen und Tools wie GitLab, Docker und Kubernetes vertraut\n• Du zeichnest dich durch Kommunikationsstärke, Teamfähigkeit und eine hohe Lern- und Weiterentwicklungsbereitschaft aus\n• Du kommunizierst sicher auf Deutsch (mind. C1) und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+        "fr": "Du willst Software entwickeln, die wirklich etwas bewegt?\nBei uns gestaltest du die nächste Generation der Steuerlösungen mit – technologisch anspruchsvoll, fachlich relevant und mit spürbarem Impact für die öffentliche Verwaltung. Du arbeitest mit modernen Technologien, trägst Verantwortung für Architektur und Qualität und bringst deine Ideen direkt ins Produkt ein. Werde Teil eines Teams, das Innovation lebt und gemeinsam etwas Nachhaltiges schafft.\nDeine Rolle\n• Du entwickelst unsere neue Steuerlösung auf Basis einer modernen Microservices-Architektur und gestaltest den Technologie-Stack aktiv mit.\n• Du designst, implementierst und testest neue Features in einem agilen Team und sorgst gemeinsam für eine hohe Softwarequalität.\n• Du analysierst komplexe technische Fragestellungen und bringst Verbesserungsvorschläge ein.\n• Du arbeitest eng mit Product Ownern, Designern und anderen Entwicklern, sowie Nearshoring-Partnern zusammen und trägst zu einem effizienten Wissensaustausch bei um die Software kontinuierlich zu verbessern.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Du bringst ein Informatikstudium oder eine gleichwertige Berufserfahrung mit und verfügst über mindestens fünf Jahre Erfahrung als Java-Software-Engineer\n• Deine Erfahrung in den folgenden Technologien zeichnet dich aus: Java, Spring Boot, Micro-Services, Maven und SQL (Oracle, Hibernate, Liquibase)\n• Dir sind Cloud-Technologien, serviceorientierte Architekturen, Containerisierung und moderne Plattformen und Tools wie GitLab, Docker und Kubernetes vertraut\n• Du zeichnest dich durch Kommunikationsstärke, Teamfähigkeit und eine hohe Lern- und Weiterentwicklungsbereitschaft aus\n• Du kommunizierst sicher auf Deutsch (mind. C1) und Englisch\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken"
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-3002",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-26T21:47:50.455Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://apply.refline.ch/215876/2502/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2502",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-26T21:47:50.455Z"
     },
     {
       "id": "abraxas-43ec8fa61322",
@@ -507,7 +580,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-4387",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:59.663Z",
+      "crawledAt": "2026-10-26T21:47:49.962Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -588,7 +661,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:59.213Z",
+      "crawledAt": "2026-10-26T21:47:49.467Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -667,7 +740,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/linux-engineer-mit-aws-und-kubernetes-erfahrung-80-100-2438",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:58.766Z",
+      "crawledAt": "2026-10-26T21:47:48.976Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -750,7 +823,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ki-consultant-80-100-5197",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:58.317Z",
+      "crawledAt": "2026-10-26T21:47:48.484Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -828,7 +901,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-4522",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:57.866Z",
+      "crawledAt": "2026-10-26T21:47:47.991Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -907,7 +980,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operations-engineer-engineer-staedte-gemeinden-80-100-7612",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:57.419Z",
+      "crawledAt": "2026-10-26T21:47:47.499Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -994,7 +1067,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-operation-engineer-kmu-kunden-80-100-6989",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:56.970Z",
+      "crawledAt": "2026-10-26T21:47:47.007Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1078,7 +1151,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:56.518Z",
+      "crawledAt": "2026-10-26T21:47:46.515Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1148,7 +1221,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/hr-fachspezialistin-60-80-6-monate-befristet-ab-januar-2027-8918",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:56.065Z",
+      "crawledAt": "2026-10-26T21:47:46.021Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1233,7 +1306,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:55.616Z",
+      "crawledAt": "2026-10-26T21:47:45.372Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1312,7 +1385,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-abareport-80-100-6167",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:30:55.163Z",
+      "crawledAt": "2026-10-26T21:47:44.721Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",

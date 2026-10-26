@@ -30,22 +30,26 @@ export interface PrebidBid {
 
 export type PrebidConfigMap = Readonly<Record<string, readonly PrebidBid[]>>;
 
-function parsePrebidConfig(raw: string | undefined): PrebidConfigMap {
+function isPlainRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+export function parsePrebidConfig(raw: string | undefined): PrebidConfigMap {
   if (!raw || !raw.trim()) return {};
   try {
     const parsed: unknown = JSON.parse(raw);
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
     const out: Record<string, PrebidBid[]> = {};
-    for (const [adUnitPath, bids] of Object.entries(parsed as Record<string, unknown>)) {
+    for (const [rawAdUnitPath, bids] of Object.entries(parsed as Record<string, unknown>)) {
+      const adUnitPath = rawAdUnitPath.trim();
+      if (!adUnitPath) continue;
       if (!Array.isArray(bids)) continue;
-      const valid = bids.filter(
-        (b): b is PrebidBid =>
-          !!b &&
-          typeof b === 'object' &&
-          typeof (b as { bidder?: unknown }).bidder === 'string' &&
-          !!(b as { params?: unknown }).params &&
-          typeof (b as { params?: unknown }).params === 'object',
-      );
+      const valid = bids.flatMap((bid): PrebidBid[] => {
+        if (!isPlainRecord(bid)) return [];
+        const bidder = typeof bid.bidder === 'string' ? bid.bidder.trim() : '';
+        if (!bidder || !isPlainRecord(bid.params)) return [];
+        return [{ bidder, params: bid.params }];
+      });
       if (valid.length) out[adUnitPath] = valid;
     }
     return out;

@@ -29,6 +29,12 @@ import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
 export { parseStaticBlogBodySource };
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
+import {
+ ARTICLE_DETAIL_ATF_AD_TEST_VARIANT_RC_KEY,
+ ARTICLE_DETAIL_ATF_EXPERIMENT_ID,
+ ARTICLE_DETAIL_ATF_TREATMENT_VARIANT,
+ resolveArticleDetailAtfAdVariant,
+} from './shared/articleAtfAdExperiment';
 import { createImageCreditReader, imageObjectCreditFields, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
@@ -407,6 +413,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  truncateCodeUnits,
  stableChunkFile,
  stableChunkFiles,
+ staticAdSlotHtml,
  inlineScriptJson,
  differentiateH1FromTitle,
  criticalCssLink: CRITICAL_CSS_LINK,
@@ -1994,10 +2001,36 @@ ${href}
  // Duplicate generic headings (bodyN, n>=3 all map to the third label)
  // collapse to a single visible <h2>; repeats keep content + aria-label (#3521).
  const articleBodyHtml = renderArticleDerivedSectionsHtml(sectionSource);
+ const staticBodyHtml = sectionSource.map((section) => section.html).join(' ');
+ const staticBodyText = decodeHtmlText(staticBodyHtml.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+ const articleAtfVariant = resolveArticleDetailAtfAdVariant(
+  process.env[ARTICLE_DETAIL_ATF_AD_TEST_VARIANT_RC_KEY],
+ );
+ const articleAtfAdHtml = !isEvent
+  && articleAtfVariant === ARTICLE_DETAIL_ATF_TREATMENT_VARIANT
+  && !articleBodyHasPromptPlaceholder
+  && sectionSource.length >= 3
+  && countWords(staticBodyHtml) >= 220
+  && staticBodyText.length >= 1400
+  && staticAdSlotHtml
+  ? staticAdSlotHtml('article-atf', {
+   collapseWhenUnfilled: true,
+   placement: 'article-atf',
+   experimentId: ARTICLE_DETAIL_ATF_EXPERIMENT_ID,
+   experimentVariant: articleAtfVariant,
+  })
+  : '';
+ const articleAtfMarkup = articleAtfAdHtml
+  ? `<div class="ft-article-atf-ad" data-ft-article-atf-slot="true" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}" aria-label="advertisement">${articleAtfAdHtml}</div>`
+  : '';
+ const articleAtfDiagMarker = !isEvent && articleAtfVariant === ARTICLE_DETAIL_ATF_TREATMENT_VARIANT
+  ? `<meta name="ft-article-atf-variant" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}">`
+  : '';
  return `<!DOCTYPE html>
 <html lang="${locale}">
  <head>
 ${headTags}
+ ${articleAtfDiagMarker}
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${blogPreloads}
  <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${inlineScriptJson(localizedTitle)}</script>
  ${CRITICAL_CSS_LINK}
@@ -2014,7 +2047,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
-${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleAtfMarkup}${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildArticleTransparencyAside(locale, articleTransparencyAuthorName, articleProvenance)}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}${articleLocaleNav}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

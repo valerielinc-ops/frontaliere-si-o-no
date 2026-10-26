@@ -53,20 +53,50 @@ const STORAGE_KEY = 'ft_rewarded_handoff_ledger_v1';
 export const HANDOFF_RECEIPT_MIN_AGE_MS = 5000;
 const MAX_ENTRIES = 20;
 const MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000;
+const MAX_RECEIPT_STRING_LENGTH = 256;
+const HANDOFF_PATHS = new Set(['offerwall', 'gpt']);
+const HANDOFF_ROUTES = new Set<HandoffRoute>(['none', 'auto', 'card', 'blocked']);
 
-function read(): LedgerEntry[] {
+function isBoundedString(value: unknown): value is string {
+  return typeof value === 'string'
+    && value.trim().length > 0
+    && value.length <= MAX_RECEIPT_STRING_LENGTH;
+}
+
+function isValidReceiptTimestamp(value: unknown, now: number): value is number {
+  return typeof value === 'number'
+    && Number.isFinite(value)
+    && value >= 0
+    && value <= now;
+}
+
+function isLedgerEntry(value: unknown, now: number): value is LedgerEntry {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) return false;
+  const entry = value as Partial<LedgerEntry>;
+  return isBoundedString(entry.id)
+    && isValidReceiptTimestamp(entry.at, now)
+    && isBoundedString(entry.jobId)
+    && isBoundedString(entry.companyId)
+    && HANDOFF_PATHS.has(entry.path ?? '')
+    && HANDOFF_ROUTES.has(entry.route as HandoffRoute)
+    && (entry.opened === 0 || entry.opened === 1);
+}
+
+function read(now: number = Date.now()): LedgerEntry[] {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     const list = raw ? JSON.parse(raw) : [];
-    return Array.isArray(list) ? list.filter((e) => e && typeof e.id === 'string' && typeof e.at === 'number') : [];
+    return Array.isArray(list) ? list.filter((entry) => isLedgerEntry(entry, now)) : [];
   } catch {
     return [];
   }
 }
 
-function write(list: LedgerEntry[]): void {
+function write(list: LedgerEntry[], now: number = Date.now()): void {
   try {
-    const fresh = list.filter((e) => Date.now() - e.at < MAX_AGE_MS).slice(-MAX_ENTRIES);
+    const fresh = list
+      .filter((entry) => isLedgerEntry(entry, now) && now - entry.at < MAX_AGE_MS)
+      .slice(-MAX_ENTRIES);
     if (fresh.length) window.localStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
     else window.localStorage.removeItem(STORAGE_KEY);
   } catch {
@@ -76,11 +106,12 @@ function write(list: LedgerEntry[]): void {
 
 function update(id: string | null, change: (entry: LedgerEntry) => void): void {
   if (!id) return;
-  const list = read();
+  const now = Date.now();
+  const list = read(now);
   const entry = list.find((e) => e.id === id);
   if (!entry) return;
   change(entry);
-  write(list);
+  write(list, now);
 }
 
 /** Records a grant; returns its id for the later marks (null without storage). */
@@ -89,11 +120,14 @@ export function recordHandoffGrant(
   now: number = Date.now(),
 ): string | null {
   if (typeof window === 'undefined') return null;
+  const currentTime = Date.now();
   const id = `${now}-${Math.random().toString(36).slice(2, 8)}`;
-  const list = read();
-  list.push({ id, at: now, jobId: info.jobId, companyId: info.companyId, path: info.path, route: 'none', opened: 0 });
-  write(list);
-  return read().some((e) => e.id === id) ? id : null;
+  const entry = { id, at: now, jobId: info.jobId, companyId: info.companyId, path: info.path, route: 'none' as const, opened: 0 as const };
+  if (!isLedgerEntry(entry, currentTime)) return null;
+  const list = read(currentTime);
+  list.push(entry);
+  write(list, currentTime);
+  return read(currentTime).some((e) => e.id === id) ? id : null;
 }
 
 /** The hand-off took this route; `blocked` wins over the `auto` it follows. */
@@ -122,10 +156,10 @@ export function receiptEventName(entry: Pick<LedgerEntry, 'route' | 'opened'>): 
  */
 export function flushHandoffReceipts(now: number = Date.now()): number {
   if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return 0;
-  const list = read();
+  const list = read(now);
   const due = list.filter((e) => now - e.at >= HANDOFF_RECEIPT_MIN_AGE_MS);
   if (!due.length) return 0;
-  write(list.filter((e) => now - e.at < HANDOFF_RECEIPT_MIN_AGE_MS));
+  write(list.filter((e) => now - e.at < HANDOFF_RECEIPT_MIN_AGE_MS), now);
   for (const entry of due) {
     trackAssistedApplicationEvent(receiptEventName(entry), {
       variant: 'rewarded_ad',

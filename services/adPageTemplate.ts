@@ -28,6 +28,7 @@ import {
   JOB_BOARD_SECTION_PREFIX_SOURCE,
   PROFESSION_CITY_SLUG_SOURCE,
 } from '../scripts/lib/jobBoardSections.mjs';
+import { EVENTS_ROOT_SEGMENTS } from '../scripts/lib/eventsSections.mjs';
 import { FUEL_SECTION_SLUG } from '../build-plugins/fuelDailyData';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
 
@@ -40,6 +41,8 @@ export type AdPageTemplate =
   | 'job_detail'
   | 'role_landing'
   | 'company'
+  | 'event_detail'
+  | 'article_detail'
   | 'article'
   | 'fuel'
   | 'tool'
@@ -66,6 +69,8 @@ function topLevel(slugs: readonly string[]): string {
 }
 
 const ARTICLE_SLUGS = slugsFor(['blog', 'blogCh']);
+const ARTICLE_DETAIL = `^${OPTIONAL_LOCALE}/(?:${ARTICLE_SLUGS.join('|')})/(?!page-[0-9]+(?:/|$))[^/]+(?:/|$)`;
+const EVENT_DETAIL = `^${OPTIONAL_LOCALE}/(?:${EVENTS_ROOT_SEGMENTS.join('|')})/[^/]+/[^/]+/(?!page-[0-9]+(?:/|$))[^/]+(?:/|$)`;
 const FUEL_SLUGS = [
   ...new Set([
     ...LOCALES.flatMap((locale) => Object.values(FUEL_SECTION_SLUG[locale])),
@@ -89,6 +94,8 @@ export const AD_PAGE_TEMPLATE_RULES: readonly AdPageTemplateRule[] = [
   ['jobboard_canton_it', `^${OPTIONAL_BOARD_LOCALE}${BOARD_SECTION}(?:/|$)`, 0],
   ['role_landing', `^${OPTIONAL_LOCALE}/(?:lavoro|jobs|arbeit|travail)-(?:ticino|tessin|${PROFESSION_CITY_SLUG_SOURCE})-[a-z0-9]`, 0],
   ['company', `^${OPTIONAL_LOCALE}/aziende`, 0],
+  ['event_detail', EVENT_DETAIL, 0],
+  ['article_detail', ARTICLE_DETAIL, 0],
   ['article', topLevel(ARTICLE_SLUGS), 0],
   ['fuel', topLevel(FUEL_SLUGS), 0],
   ['tool', topLevel(TOOL_SLUGS), 0],

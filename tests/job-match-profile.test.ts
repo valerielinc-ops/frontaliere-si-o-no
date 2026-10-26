@@ -10,6 +10,18 @@ beforeEach(() => {
 });
 
 describe('loadJobMatchProfile', () => {
+  it('loads a valid profile with nullable fields and a non-negative timestamp', () => {
+    const profile = {
+      version: 1,
+      sector: null,
+      experienceLevel: 'senior_6_10',
+      canton: null,
+      updatedAt: 0,
+    };
+    localStorage.setItem('frontaliere_job_match_profile', JSON.stringify(profile));
+    expect(loadJobMatchProfile()).toEqual(profile);
+  });
+
   it('returns null when nothing has been saved', () => {
     expect(loadJobMatchProfile()).toBeNull();
   });
@@ -21,6 +33,33 @@ describe('loadJobMatchProfile', () => {
 
   it('resets when version mismatches', () => {
     localStorage.setItem('frontaliere_job_match_profile', JSON.stringify({ version: 99, sector: 'it_software' }));
+    expect(loadJobMatchProfile()).toBeNull();
+  });
+
+  it.each([
+    ['sector', { sector: 42 }],
+    ['experienceLevel', { experienceLevel: { level: 'senior' } }],
+    ['canton', { canton: ['TI'] }],
+    ['updatedAt as a string', { updatedAt: '1700000000000' }],
+    ['updatedAt as null', { updatedAt: null }],
+    ['negative updatedAt', { updatedAt: -1 }],
+  ])('rejects malformed persisted %s', (_field, override) => {
+    localStorage.setItem('frontaliere_job_match_profile', JSON.stringify({
+      version: 1,
+      sector: 'it_software',
+      experienceLevel: 'senior_6_10',
+      canton: 'TI',
+      updatedAt: 1_700_000_000_000,
+      ...override,
+    }));
+    expect(loadJobMatchProfile()).toBeNull();
+  });
+
+  it('rejects a non-finite persisted updatedAt', () => {
+    localStorage.setItem(
+      'frontaliere_job_match_profile',
+      '{"version":1,"sector":"it_software","experienceLevel":null,"canton":"TI","updatedAt":1e309}',
+    );
     expect(loadJobMatchProfile()).toBeNull();
   });
 });

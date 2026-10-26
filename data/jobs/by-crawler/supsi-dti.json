@@ -1,7 +1,7 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-10-25T21:37:25.360Z",
-  "runId": "40235076968",
+  "assembledAt": "2026-10-26T21:42:17.392Z",
+  "runId": "40403659513",
   "jobs": [
     {
       "id": "company-7dvau3",
@@ -33,7 +33,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-25T21:37:09.603Z",
+      "crawledAt": "2026-10-26T21:41:57.634Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "titleByLocale": {
         "fr": "PhD / PhD en informatique (Interaction homme-ordinateur), avec l'accent sur la validité et la facilité d'utilisation des outils d'annotation semi-automatisés pour les contextes cliniques et thérapeutiques",
@@ -166,7 +166,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-25T21:37:09.603Z",
+      "crawledAt": "2026-10-26T21:41:57.634Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "titleByLocale": {
         "it": "Videomaker e Content creator",
@@ -307,7 +307,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-25T21:37:09.603Z",
+      "crawledAt": "2026-10-26T21:41:57.634Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -442,7 +442,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-25T21:37:09.603Z",
+      "crawledAt": "2026-10-26T21:41:57.634Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "titleByLocale": {
         "it": "Stagista 52 settimane",
@@ -458,9 +458,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagist-52-weeks-supsi-dti-manno",
-        "de": "stagist-52-wochen-supsi-dti-manno",
-        "fr": "stagiaire-52-semaines-supsi-dti-manno"
+        "en": "stagista-52-settimane-supsi-dti-manno",
+        "de": "stagista-52-settimane-supsi-dti-manno",
+        "fr": "stagista-52-settimane-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -503,7 +503,23 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "stagist-52-weeks-supsi-dti-manno"
+        ],
+        "de": [
+          "stagist-52-wochen-supsi-dti-manno"
+        ],
+        "fr": [
+          "stagiaire-52-semaines-supsi-dti-manno"
+        ]
+      },
+      "previousSlugs": [
+        "stagist-52-weeks-supsi-dti-manno",
+        "stagist-52-wochen-supsi-dti-manno",
+        "stagiaire-52-semaines-supsi-dti-manno"
+      ]
     },
     {
       "id": "company-l4u562",
@@ -542,7 +558,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-25T21:37:09.603Z",
+      "crawledAt": "2026-10-26T21:41:57.634Z",
       "firstSeenAt": "2026-10-20T09:36:21.726Z",
       "titleByLocale": {
         "it": "Collaboratrice scientifica / Collaboratore scientifico nell’ambito dell’automazione e della robotica collaborativa applicate a sistemi di produzione human-centred”",
@@ -660,6 +676,261 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true
+    },
+    {
+      "id": "company-l4rl5e",
+      "slug": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
+      "company": "SUPSI / DTI",
+      "title": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva",
+      "location": "Manno",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "# Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD) con sede al Campus di Mendrisio, una posizione di\n, con un grado di occupazione dal 80% al 100%. Entrata in funzione il 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nL’assistente accompagna gli studenti nei tre anni di studio in Comunicazione visiva nelle loro attività pratiche. Collabora con i docenti dell’area professionale e li affianca nella preparazione e nello svolgimento delle attività didattiche, e nel tutoring (revisioni) e nella supervisione di progetti (controllo qualità). Il suo contributo è centrale nel coordinare risorse e strumenti per ogni genere di attività didattica.\nLa funzione di Assistente con Bachelor è un percorso formativo: il 20% del grado di occupazione è dedicato alla formazione personale, secondo un piano di formazione e di lavoro definito annualmente con il superiore diretto.\n\n## Responsabilità e attività\nNel campo dell’assistenza didattica disciplinare presso il Corso di laurea in Comunicazione visiva, la persona selezionata:\n- Collabora con proattività con i docenti nella preparazione e nello svolgimento delle attività didattiche;\n- assiste, sostiene e accompagna gli studenti durante le esercitazioni, workshop e progetti;\n- è figura di riferimento operativa e autonoma per la didattica disciplinare;\n- sa essere una persona con grande spirito di iniziativa, precisa, puntuale e orientata a lavorare per obiettivi;\n- gestisce in autonomia la pianificazione di risorse, strumenti e spazi necessari alla didattica;\n- fa parte del gruppo di lavoro del Bachelor e contribuisce all'innovazione di contenuti e processi didattici.\n\n## Requisiti\n- Bachelor in Comunicazione visiva o equivalente.\n- Meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.\n- Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.\n- Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor.\n\n## Offriamo\n- Contratto a tempo determinato della durata massima di 3 anni.\n- Un percorso formativo strutturato, con il 20% del grado di occupazione dedicato alla formazione personale.\n- Possibilità di contribuire allo sviluppo e alla crescita del corso di laurea in Comunicazione visiva.\n- Inserimento in un contesto giovane, dinamico e in continua evoluzione.\n- Contatto diretto con professionisti del territorio.\n\n## Informazioni per la candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 13 novembre 2026\ntramite il formulario di candidatura dedicato, corredate da:\n- curriculum vitae;\n- lettera di motivazione, con una breve descrizione dell'esperienza;\n- copia dei diplomi e dei certificati di studio;\n- eventuali certificati di lavoro.\n\nPer ulteriori informazioni è possibile rivolgersi a\nLaura Morandi\n. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.\nLa SUPSI promuove le pari opportunità e un linguaggio inclusivo; l'annuncio si rivolge a tutte le persone indipendentemente dalla loro identità di genere.",
+      "requirements": [
+        "Bachelor in Comunicazione visiva o equivalente.",
+        "Meno di 3 anni di esperienza professionale dopo la fine degli studi.",
+        "Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.",
+        "Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.",
+        "Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;",
+        "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
+        "Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor."
+      ],
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.supsi.ch/bando26_1016",
+      "applyUrl": "https://www.supsi.ch/bando26_1016",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Mendrisio",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-10-26T21:41:57.634Z",
+      "firstSeenAt": "2026-10-26T21:41:57.634Z",
+      "titleByLocale": {
+        "it": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva",
+        "en": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva",
+        "de": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva",
+        "fr": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva"
+      },
+      "descriptionByLocale": {
+        "it": "# Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD) con sede al Campus di Mendrisio, una posizione di\n, con un grado di occupazione dal 80% al 100%. Entrata in funzione il 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nL’assistente accompagna gli studenti nei tre anni di studio in Comunicazione visiva nelle loro attività pratiche. Collabora con i docenti dell’area professionale e li affianca nella preparazione e nello svolgimento delle attività didattiche, e nel tutoring (revisioni) e nella supervisione di progetti (controllo qualità). Il suo contributo è centrale nel coordinare risorse e strumenti per ogni genere di attività didattica.\nLa funzione di Assistente con Bachelor è un percorso formativo: il 20% del grado di occupazione è dedicato alla formazione personale, secondo un piano di formazione e di lavoro definito annualmente con il superiore diretto.\n\n## Responsabilità e attività\nNel campo dell’assistenza didattica disciplinare presso il Corso di laurea in Comunicazione visiva, la persona selezionata:\n- Collabora con proattività con i docenti nella preparazione e nello svolgimento delle attività didattiche;\n- assiste, sostiene e accompagna gli studenti durante le esercitazioni, workshop e progetti;\n- è figura di riferimento operativa e autonoma per la didattica disciplinare;\n- sa essere una persona con grande spirito di iniziativa, precisa, puntuale e orientata a lavorare per obiettivi;\n- gestisce in autonomia la pianificazione di risorse, strumenti e spazi necessari alla didattica;\n- fa parte del gruppo di lavoro del Bachelor e contribuisce all'innovazione di contenuti e processi didattici.\n\n## Requisiti\n- Bachelor in Comunicazione visiva o equivalente.\n- Meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.\n- Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.\n- Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor.\n\n## Offriamo\n- Contratto a tempo determinato della durata massima di 3 anni.\n- Un percorso formativo strutturato, con il 20% del grado di occupazione dedicato alla formazione personale.\n- Possibilità di contribuire allo sviluppo e alla crescita del corso di laurea in Comunicazione visiva.\n- Inserimento in un contesto giovane, dinamico e in continua evoluzione.\n- Contatto diretto con professionisti del territorio.\n\n## Informazioni per la candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 13 novembre 2026\ntramite il formulario di candidatura dedicato, corredate da:\n- curriculum vitae;\n- lettera di motivazione, con una breve descrizione dell'esperienza;\n- copia dei diplomi e dei certificati di studio;\n- eventuali certificati di lavoro.\n\nPer ulteriori informazioni è possibile rivolgersi a\nLaura Morandi\n. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.\nLa SUPSI promuove le pari opportunità e un linguaggio inclusivo; l'annuncio si rivolge a tutte le persone indipendentemente dalla loro identità di genere.",
+        "en": "# Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD) con sede al Campus di Mendrisio, una posizione di\n, con un grado di occupazione dal 80% al 100%. Entrata in funzione il 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nL’assistente accompagna gli studenti nei tre anni di studio in Comunicazione visiva nelle loro attività pratiche. Collabora con i docenti dell’area professionale e li affianca nella preparazione e nello svolgimento delle attività didattiche, e nel tutoring (revisioni) e nella supervisione di progetti (controllo qualità). Il suo contributo è centrale nel coordinare risorse e strumenti per ogni genere di attività didattica.\nLa funzione di Assistente con Bachelor è un percorso formativo: il 20% del grado di occupazione è dedicato alla formazione personale, secondo un piano di formazione e di lavoro definito annualmente con il superiore diretto.\n\n## Responsabilità e attività\nNel campo dell’assistenza didattica disciplinare presso il Corso di laurea in Comunicazione visiva, la persona selezionata:\n- Collabora con proattività con i docenti nella preparazione e nello svolgimento delle attività didattiche;\n- assiste, sostiene e accompagna gli studenti durante le esercitazioni, workshop e progetti;\n- è figura di riferimento operativa e autonoma per la didattica disciplinare;\n- sa essere una persona con grande spirito di iniziativa, precisa, puntuale e orientata a lavorare per obiettivi;\n- gestisce in autonomia la pianificazione di risorse, strumenti e spazi necessari alla didattica;\n- fa parte del gruppo di lavoro del Bachelor e contribuisce all'innovazione di contenuti e processi didattici.\n\n## Requisiti\n- Bachelor in Comunicazione visiva o equivalente.\n- Meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.\n- Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.\n- Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor.\n\n## Offriamo\n- Contratto a tempo determinato della durata massima di 3 anni.\n- Un percorso formativo strutturato, con il 20% del grado di occupazione dedicato alla formazione personale.\n- Possibilità di contribuire allo sviluppo e alla crescita del corso di laurea in Comunicazione visiva.\n- Inserimento in un contesto giovane, dinamico e in continua evoluzione.\n- Contatto diretto con professionisti del territorio.\n\n## Informazioni per la candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 13 novembre 2026\ntramite il formulario di candidatura dedicato, corredate da:\n- curriculum vitae;\n- lettera di motivazione, con una breve descrizione dell'esperienza;\n- copia dei diplomi e dei certificati di studio;\n- eventuali certificati di lavoro.\n\nPer ulteriori informazioni è possibile rivolgersi a\nLaura Morandi\n. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.\nLa SUPSI promuove le pari opportunità e un linguaggio inclusivo; l'annuncio si rivolge a tutte le persone indipendentemente dalla loro identità di genere.",
+        "de": "# Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD) con sede al Campus di Mendrisio, una posizione di\n, con un grado di occupazione dal 80% al 100%. Entrata in funzione il 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nL’assistente accompagna gli studenti nei tre anni di studio in Comunicazione visiva nelle loro attività pratiche. Collabora con i docenti dell’area professionale e li affianca nella preparazione e nello svolgimento delle attività didattiche, e nel tutoring (revisioni) e nella supervisione di progetti (controllo qualità). Il suo contributo è centrale nel coordinare risorse e strumenti per ogni genere di attività didattica.\nLa funzione di Assistente con Bachelor è un percorso formativo: il 20% del grado di occupazione è dedicato alla formazione personale, secondo un piano di formazione e di lavoro definito annualmente con il superiore diretto.\n\n## Responsabilità e attività\nNel campo dell’assistenza didattica disciplinare presso il Corso di laurea in Comunicazione visiva, la persona selezionata:\n- Collabora con proattività con i docenti nella preparazione e nello svolgimento delle attività didattiche;\n- assiste, sostiene e accompagna gli studenti durante le esercitazioni, workshop e progetti;\n- è figura di riferimento operativa e autonoma per la didattica disciplinare;\n- sa essere una persona con grande spirito di iniziativa, precisa, puntuale e orientata a lavorare per obiettivi;\n- gestisce in autonomia la pianificazione di risorse, strumenti e spazi necessari alla didattica;\n- fa parte del gruppo di lavoro del Bachelor e contribuisce all'innovazione di contenuti e processi didattici.\n\n## Requisiti\n- Bachelor in Comunicazione visiva o equivalente.\n- Meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.\n- Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.\n- Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor.\n\n## Offriamo\n- Contratto a tempo determinato della durata massima di 3 anni.\n- Un percorso formativo strutturato, con il 20% del grado di occupazione dedicato alla formazione personale.\n- Possibilità di contribuire allo sviluppo e alla crescita del corso di laurea in Comunicazione visiva.\n- Inserimento in un contesto giovane, dinamico e in continua evoluzione.\n- Contatto diretto con professionisti del territorio.\n\n## Informazioni per la candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 13 novembre 2026\ntramite il formulario di candidatura dedicato, corredate da:\n- curriculum vitae;\n- lettera di motivazione, con una breve descrizione dell'esperienza;\n- copia dei diplomi e dei certificati di studio;\n- eventuali certificati di lavoro.\n\nPer ulteriori informazioni è possibile rivolgersi a\nLaura Morandi\n. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.\nLa SUPSI promuove le pari opportunità e un linguaggio inclusivo; l'annuncio si rivolge a tutte le persone indipendentemente dalla loro identità di genere.",
+        "fr": "# Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI), mette a concorso presso il Dipartimento ambiente costruzioni e design (DACD) con sede al Campus di Mendrisio, una posizione di\n, con un grado di occupazione dal 80% al 100%. Entrata in funzione il 1° febbraio 2027.\n\n## Ambito e scopo della posizione\nL’assistente accompagna gli studenti nei tre anni di studio in Comunicazione visiva nelle loro attività pratiche. Collabora con i docenti dell’area professionale e li affianca nella preparazione e nello svolgimento delle attività didattiche, e nel tutoring (revisioni) e nella supervisione di progetti (controllo qualità). Il suo contributo è centrale nel coordinare risorse e strumenti per ogni genere di attività didattica.\nLa funzione di Assistente con Bachelor è un percorso formativo: il 20% del grado di occupazione è dedicato alla formazione personale, secondo un piano di formazione e di lavoro definito annualmente con il superiore diretto.\n\n## Responsabilità e attività\nNel campo dell’assistenza didattica disciplinare presso il Corso di laurea in Comunicazione visiva, la persona selezionata:\n- Collabora con proattività con i docenti nella preparazione e nello svolgimento delle attività didattiche;\n- assiste, sostiene e accompagna gli studenti durante le esercitazioni, workshop e progetti;\n- è figura di riferimento operativa e autonoma per la didattica disciplinare;\n- sa essere una persona con grande spirito di iniziativa, precisa, puntuale e orientata a lavorare per obiettivi;\n- gestisce in autonomia la pianificazione di risorse, strumenti e spazi necessari alla didattica;\n- fa parte del gruppo di lavoro del Bachelor e contribuisce all'innovazione di contenuti e processi didattici.\n\n## Requisiti\n- Bachelor in Comunicazione visiva o equivalente.\n- Meno di 3 anni di esperienza professionale dopo la fine degli studi.\n- Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.\n- Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.\n- Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor.\n\n## Offriamo\n- Contratto a tempo determinato della durata massima di 3 anni.\n- Un percorso formativo strutturato, con il 20% del grado di occupazione dedicato alla formazione personale.\n- Possibilità di contribuire allo sviluppo e alla crescita del corso di laurea in Comunicazione visiva.\n- Inserimento in un contesto giovane, dinamico e in continua evoluzione.\n- Contatto diretto con professionisti del territorio.\n\n## Informazioni per la candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 13 novembre 2026\ntramite il formulario di candidatura dedicato, corredate da:\n- curriculum vitae;\n- lettera di motivazione, con una breve descrizione dell'esperienza;\n- copia dei diplomi e dei certificati di studio;\n- eventuali certificati di lavoro.\n\nPer ulteriori informazioni è possibile rivolgersi a\nLaura Morandi\n. Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.\nLa SUPSI promuove le pari opportunità e un linguaggio inclusivo; l'annuncio si rivolge a tutte le persone indipendentemente dalla loro identità di genere."
+      },
+      "needsRetranslation": true,
+      "slugByLocale": {
+        "it": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
+        "en": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
+        "de": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
+        "fr": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
+      },
+      "requirementsByLocale": {
+        "it": [
+          "Bachelor in Comunicazione visiva o equivalente.",
+          "Meno di 3 anni di esperienza professionale dopo la fine degli studi.",
+          "Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.",
+          "Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.",
+          "Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
+          "Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor."
+        ],
+        "en": [
+          "Bachelor in Comunicazione visiva o equivalente.",
+          "Meno di 3 anni di esperienza professionale dopo la fine degli studi.",
+          "Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.",
+          "Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.",
+          "Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
+          "Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor."
+        ],
+        "de": [
+          "Bachelor in Comunicazione visiva o equivalente.",
+          "Meno di 3 anni di esperienza professionale dopo la fine degli studi.",
+          "Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.",
+          "Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.",
+          "Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
+          "Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor."
+        ],
+        "fr": [
+          "Bachelor in Comunicazione visiva o equivalente.",
+          "Meno di 3 anni di esperienza professionale dopo la fine degli studi.",
+          "Ottime conoscenze dei programmi informatici professionali (suite Adobe), dei programmi di prototipizzazione digitale, delle attrezzature audiovisive e fotografiche.",
+          "Ottime conoscenze della lingua italiana e buone in inglese. La conoscenza di una seconda lingua nazionale è auspicata.",
+          "Capacità comunicative e organizzative e di lavorare in autonomia rispettando le scadenze stabilite;",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
+          "Capacità di confrontarsi con situazioni persone e attività diverse, adattandosi con apertura e flessibilità alle esigenze del bachelor."
+        ]
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "company-l4u563",
+      "slug": "responsabile-della-formazione-di-base-per-il-dipartimento-tecnologie-innovative-dti-supsi-lugano-l4u563",
+      "company": "SUPSI / DTI",
+      "title": "Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "# Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\n\n## Responsabile della Formazione di base\npresso il\n\n## Dipartimento tecnologie innovative (DTI)\ncon sede a Lugano. La persona selezionata sarà membro della Direzione dipartimentale e assumerà la responsabilità strategica, organizzativa e amministrativa della Formazione di base del Dipartimento.\nL'inquadramento professionale è previsto nella funzione di\n\n## Professore/Professoressa associato/a o ordinario/a\n,\n\n## Docente o Docente-ricercatore/Docente-ricercatrice\n, in funzione del profilo, delle qualifiche e del grado di maturità accademica della persona selezionata. Grado d’occupazione 80–100%. Entrata in servizio 1° settembre 2027 o data da convenire.\n\n## Mansioni\n- Partecipare, in qualità di membro della Direzione del DTI, alla definizione e all'attuazione degli indirizzi strategici e delle decisioni dipartimentali.\n- Definire e attuare la strategia di sviluppo della Formazione di base, in coerenza con gli indirizzi dipartimentali e istituzionali.\n- Coordinare l'offerta formativa Bachelor e Master, garantendone la qualità, l'attrattività e l'innovazione didattica.\n- Assicurare la conduzione e lo sviluppo dei responsabili dei Corsi di laurea e del Segretariato della Formazione di base del DTI, promuovendo la valorizzazione delle competenze e una cultura di collaborazione.\n- Assicurare la gestione e il miglioramento continuo dei processi amministrativi della Formazione di base.\n- Garantire la pianificazione e il coordinamento delle attività formative e delle risorse assegnate.\n- Collaborare con la Direzione della Formazione di base della SUPSI nella pianificazione delle attività e nell'attuazione degli indirizzi istituzionali.\n- Rappresentare il Dipartimento nella Commissione Formazione di base della SUPSI e collaborare a progetti trasversali\n- Partecipare a gruppi di lavoro dipartimentali e interdipartimentali, contribuendo all'armonizzazione e al miglioramento dei processi formativi e amministrativi.\n- Promuovere le relazioni con il mondo professionale e le sinergie tra formazione, ricerca applicata e innovazione.\n\n## Requisiti\n- Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.\n- Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.\n- Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.\n- Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.\n- Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.\n- Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.\n- Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.\n- Orientamento alla qualità, all'innovazione e al miglioramento continuo.\n- Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.\n- Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.\n- Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio.\n\n## Cosa offriamo\n- L’incarico di Responsabile della Formazione di base del DTI ha una durata quadriennale ed è rinnovabile.\n- Funzione di responsabilità quale membro della Direzione dipartimentale, con un ruolo attivo nella definizione e nell'attuazione delle strategie di sviluppo della formazione universitaria professionale, in un contesto dinamico e innovativo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza del/della candidato/a.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità. Maggiori informazioni su diversità e inclusione sono disponibili a questo\nlink\n.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 febbraio 2027\ntramite il formulario dedicato, corredate dai seguenti documenti:\n- Lettera di motivazione.\n- Curriculum vitae aggiornato secondo apposito formulario.\n- Copia dei titoli di studio e dei certificati di lavoro.\n- Breve documento (massimo due pagine) contenente una visione per lo sviluppo della Formazione di base del DTI.\n\nPer ulteriori informazioni è possibile rivolgersi a Prof. Dr. Milena Properzi, Direttrice Dipartimento tecnologie innovative, all'indirizzo mail seguente:\ndti.concorsi@supsi.ch\n.\nNon saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
+      "requirements": [
+        "Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.",
+        "Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.",
+        "Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.",
+        "Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.",
+        "Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.",
+        "Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.",
+        "Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.",
+        "Orientamento alla qualità, all'innovazione e al miglioramento continuo.",
+        "Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.",
+        "Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.",
+        "Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio."
+      ],
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.supsi.ch/bando26_5046",
+      "applyUrl": "https://www.supsi.ch/bando26_5046",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-10-26T21:41:57.634Z",
+      "firstSeenAt": "2026-10-26T21:41:57.634Z",
+      "titleByLocale": {
+        "it": "Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)",
+        "en": "Manager della Formazione di base per il Dipartimento tecnologie innovative (DTI)",
+        "de": "Verantwortlicher della Formazione di base per il Dipartimento tecnologie innovative (DTI)",
+        "fr": "Responsable della Formazione di base per il Dipartimento tecnologie innovative (DTI)"
+      },
+      "descriptionByLocale": {
+        "it": "# Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\n\n## Responsabile della Formazione di base\npresso il\n\n## Dipartimento tecnologie innovative (DTI)\ncon sede a Lugano. La persona selezionata sarà membro della Direzione dipartimentale e assumerà la responsabilità strategica, organizzativa e amministrativa della Formazione di base del Dipartimento.\nL'inquadramento professionale è previsto nella funzione di\n\n## Professore/Professoressa associato/a o ordinario/a\n,\n\n## Docente o Docente-ricercatore/Docente-ricercatrice\n, in funzione del profilo, delle qualifiche e del grado di maturità accademica della persona selezionata. Grado d’occupazione 80–100%. Entrata in servizio 1° settembre 2027 o data da convenire.\n\n## Mansioni\n- Partecipare, in qualità di membro della Direzione del DTI, alla definizione e all'attuazione degli indirizzi strategici e delle decisioni dipartimentali.\n- Definire e attuare la strategia di sviluppo della Formazione di base, in coerenza con gli indirizzi dipartimentali e istituzionali.\n- Coordinare l'offerta formativa Bachelor e Master, garantendone la qualità, l'attrattività e l'innovazione didattica.\n- Assicurare la conduzione e lo sviluppo dei responsabili dei Corsi di laurea e del Segretariato della Formazione di base del DTI, promuovendo la valorizzazione delle competenze e una cultura di collaborazione.\n- Assicurare la gestione e il miglioramento continuo dei processi amministrativi della Formazione di base.\n- Garantire la pianificazione e il coordinamento delle attività formative e delle risorse assegnate.\n- Collaborare con la Direzione della Formazione di base della SUPSI nella pianificazione delle attività e nell'attuazione degli indirizzi istituzionali.\n- Rappresentare il Dipartimento nella Commissione Formazione di base della SUPSI e collaborare a progetti trasversali\n- Partecipare a gruppi di lavoro dipartimentali e interdipartimentali, contribuendo all'armonizzazione e al miglioramento dei processi formativi e amministrativi.\n- Promuovere le relazioni con il mondo professionale e le sinergie tra formazione, ricerca applicata e innovazione.\n\n## Requisiti\n- Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.\n- Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.\n- Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.\n- Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.\n- Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.\n- Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.\n- Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.\n- Orientamento alla qualità, all'innovazione e al miglioramento continuo.\n- Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.\n- Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.\n- Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio.\n\n## Cosa offriamo\n- L’incarico di Responsabile della Formazione di base del DTI ha una durata quadriennale ed è rinnovabile.\n- Funzione di responsabilità quale membro della Direzione dipartimentale, con un ruolo attivo nella definizione e nell'attuazione delle strategie di sviluppo della formazione universitaria professionale, in un contesto dinamico e innovativo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza del/della candidato/a.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità. Maggiori informazioni su diversità e inclusione sono disponibili a questo\nlink\n.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 febbraio 2027\ntramite il formulario dedicato, corredate dai seguenti documenti:\n- Lettera di motivazione.\n- Curriculum vitae aggiornato secondo apposito formulario.\n- Copia dei titoli di studio e dei certificati di lavoro.\n- Breve documento (massimo due pagine) contenente una visione per lo sviluppo della Formazione di base del DTI.\n\nPer ulteriori informazioni è possibile rivolgersi a Prof. Dr. Milena Properzi, Direttrice Dipartimento tecnologie innovative, all'indirizzo mail seguente:\ndti.concorsi@supsi.ch\n.\nNon saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
+        "en": "# Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\n\n## Responsabile della Formazione di base\npresso il\n\n## Dipartimento tecnologie innovative (DTI)\ncon sede a Lugano. La persona selezionata sarà membro della Direzione dipartimentale e assumerà la responsabilità strategica, organizzativa e amministrativa della Formazione di base del Dipartimento.\nL'inquadramento professionale è previsto nella funzione di\n\n## Professore/Professoressa associato/a o ordinario/a\n,\n\n## Docente o Docente-ricercatore/Docente-ricercatrice\n, in funzione del profilo, delle qualifiche e del grado di maturità accademica della persona selezionata. Grado d’occupazione 80–100%. Entrata in servizio 1° settembre 2027 o data da convenire.\n\n## Mansioni\n- Partecipare, in qualità di membro della Direzione del DTI, alla definizione e all'attuazione degli indirizzi strategici e delle decisioni dipartimentali.\n- Definire e attuare la strategia di sviluppo della Formazione di base, in coerenza con gli indirizzi dipartimentali e istituzionali.\n- Coordinare l'offerta formativa Bachelor e Master, garantendone la qualità, l'attrattività e l'innovazione didattica.\n- Assicurare la conduzione e lo sviluppo dei responsabili dei Corsi di laurea e del Segretariato della Formazione di base del DTI, promuovendo la valorizzazione delle competenze e una cultura di collaborazione.\n- Assicurare la gestione e il miglioramento continuo dei processi amministrativi della Formazione di base.\n- Garantire la pianificazione e il coordinamento delle attività formative e delle risorse assegnate.\n- Collaborare con la Direzione della Formazione di base della SUPSI nella pianificazione delle attività e nell'attuazione degli indirizzi istituzionali.\n- Rappresentare il Dipartimento nella Commissione Formazione di base della SUPSI e collaborare a progetti trasversali\n- Partecipare a gruppi di lavoro dipartimentali e interdipartimentali, contribuendo all'armonizzazione e al miglioramento dei processi formativi e amministrativi.\n- Promuovere le relazioni con il mondo professionale e le sinergie tra formazione, ricerca applicata e innovazione.\n\n## Requisiti\n- Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.\n- Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.\n- Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.\n- Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.\n- Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.\n- Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.\n- Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.\n- Orientamento alla qualità, all'innovazione e al miglioramento continuo.\n- Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.\n- Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.\n- Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio.\n\n## Cosa offriamo\n- L’incarico di Responsabile della Formazione di base del DTI ha una durata quadriennale ed è rinnovabile.\n- Funzione di responsabilità quale membro della Direzione dipartimentale, con un ruolo attivo nella definizione e nell'attuazione delle strategie di sviluppo della formazione universitaria professionale, in un contesto dinamico e innovativo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza del/della candidato/a.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità. Maggiori informazioni su diversità e inclusione sono disponibili a questo\nlink\n.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 febbraio 2027\ntramite il formulario dedicato, corredate dai seguenti documenti:\n- Lettera di motivazione.\n- Curriculum vitae aggiornato secondo apposito formulario.\n- Copia dei titoli di studio e dei certificati di lavoro.\n- Breve documento (massimo due pagine) contenente una visione per lo sviluppo della Formazione di base del DTI.\n\nPer ulteriori informazioni è possibile rivolgersi a Prof. Dr. Milena Properzi, Direttrice Dipartimento tecnologie innovative, all'indirizzo mail seguente:\ndti.concorsi@supsi.ch\n.\nNon saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
+        "de": "# Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\n\n## Responsabile della Formazione di base\npresso il\n\n## Dipartimento tecnologie innovative (DTI)\ncon sede a Lugano. La persona selezionata sarà membro della Direzione dipartimentale e assumerà la responsabilità strategica, organizzativa e amministrativa della Formazione di base del Dipartimento.\nL'inquadramento professionale è previsto nella funzione di\n\n## Professore/Professoressa associato/a o ordinario/a\n,\n\n## Docente o Docente-ricercatore/Docente-ricercatrice\n, in funzione del profilo, delle qualifiche e del grado di maturità accademica della persona selezionata. Grado d’occupazione 80–100%. Entrata in servizio 1° settembre 2027 o data da convenire.\n\n## Mansioni\n- Partecipare, in qualità di membro della Direzione del DTI, alla definizione e all'attuazione degli indirizzi strategici e delle decisioni dipartimentali.\n- Definire e attuare la strategia di sviluppo della Formazione di base, in coerenza con gli indirizzi dipartimentali e istituzionali.\n- Coordinare l'offerta formativa Bachelor e Master, garantendone la qualità, l'attrattività e l'innovazione didattica.\n- Assicurare la conduzione e lo sviluppo dei responsabili dei Corsi di laurea e del Segretariato della Formazione di base del DTI, promuovendo la valorizzazione delle competenze e una cultura di collaborazione.\n- Assicurare la gestione e il miglioramento continuo dei processi amministrativi della Formazione di base.\n- Garantire la pianificazione e il coordinamento delle attività formative e delle risorse assegnate.\n- Collaborare con la Direzione della Formazione di base della SUPSI nella pianificazione delle attività e nell'attuazione degli indirizzi istituzionali.\n- Rappresentare il Dipartimento nella Commissione Formazione di base della SUPSI e collaborare a progetti trasversali\n- Partecipare a gruppi di lavoro dipartimentali e interdipartimentali, contribuendo all'armonizzazione e al miglioramento dei processi formativi e amministrativi.\n- Promuovere le relazioni con il mondo professionale e le sinergie tra formazione, ricerca applicata e innovazione.\n\n## Requisiti\n- Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.\n- Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.\n- Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.\n- Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.\n- Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.\n- Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.\n- Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.\n- Orientamento alla qualità, all'innovazione e al miglioramento continuo.\n- Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.\n- Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.\n- Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio.\n\n## Cosa offriamo\n- L’incarico di Responsabile della Formazione di base del DTI ha una durata quadriennale ed è rinnovabile.\n- Funzione di responsabilità quale membro della Direzione dipartimentale, con un ruolo attivo nella definizione e nell'attuazione delle strategie di sviluppo della formazione universitaria professionale, in un contesto dinamico e innovativo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza del/della candidato/a.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità. Maggiori informazioni su diversità e inclusione sono disponibili a questo\nlink\n.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 febbraio 2027\ntramite il formulario dedicato, corredate dai seguenti documenti:\n- Lettera di motivazione.\n- Curriculum vitae aggiornato secondo apposito formulario.\n- Copia dei titoli di studio e dei certificati di lavoro.\n- Breve documento (massimo due pagine) contenente una visione per lo sviluppo della Formazione di base del DTI.\n\nPer ulteriori informazioni è possibile rivolgersi a Prof. Dr. Milena Properzi, Direttrice Dipartimento tecnologie innovative, all'indirizzo mail seguente:\ndti.concorsi@supsi.ch\n.\nNon saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità.",
+        "fr": "# Responsabile della Formazione di base per il Dipartimento tecnologie innovative (DTI)\n\nLa Scuola universitaria professionale della Svizzera italiana (SUPSI) mette a concorso una posizione di\n\n## Responsabile della Formazione di base\npresso il\n\n## Dipartimento tecnologie innovative (DTI)\ncon sede a Lugano. La persona selezionata sarà membro della Direzione dipartimentale e assumerà la responsabilità strategica, organizzativa e amministrativa della Formazione di base del Dipartimento.\nL'inquadramento professionale è previsto nella funzione di\n\n## Professore/Professoressa associato/a o ordinario/a\n,\n\n## Docente o Docente-ricercatore/Docente-ricercatrice\n, in funzione del profilo, delle qualifiche e del grado di maturità accademica della persona selezionata. Grado d’occupazione 80–100%. Entrata in servizio 1° settembre 2027 o data da convenire.\n\n## Mansioni\n- Partecipare, in qualità di membro della Direzione del DTI, alla definizione e all'attuazione degli indirizzi strategici e delle decisioni dipartimentali.\n- Definire e attuare la strategia di sviluppo della Formazione di base, in coerenza con gli indirizzi dipartimentali e istituzionali.\n- Coordinare l'offerta formativa Bachelor e Master, garantendone la qualità, l'attrattività e l'innovazione didattica.\n- Assicurare la conduzione e lo sviluppo dei responsabili dei Corsi di laurea e del Segretariato della Formazione di base del DTI, promuovendo la valorizzazione delle competenze e una cultura di collaborazione.\n- Assicurare la gestione e il miglioramento continuo dei processi amministrativi della Formazione di base.\n- Garantire la pianificazione e il coordinamento delle attività formative e delle risorse assegnate.\n- Collaborare con la Direzione della Formazione di base della SUPSI nella pianificazione delle attività e nell'attuazione degli indirizzi istituzionali.\n- Rappresentare il Dipartimento nella Commissione Formazione di base della SUPSI e collaborare a progetti trasversali\n- Partecipare a gruppi di lavoro dipartimentali e interdipartimentali, contribuendo all'armonizzazione e al miglioramento dei processi formativi e amministrativi.\n- Promuovere le relazioni con il mondo professionale e le sinergie tra formazione, ricerca applicata e innovazione.\n\n## Requisiti\n- Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.\n- Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.\n- Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.\n- Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.\n- Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.\n- Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.\n- Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.\n- Orientamento alla qualità, all'innovazione e al miglioramento continuo.\n- Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.\n- Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.\n- Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio.\n\n## Cosa offriamo\n- L’incarico di Responsabile della Formazione di base del DTI ha una durata quadriennale ed è rinnovabile.\n- Funzione di responsabilità quale membro della Direzione dipartimentale, con un ruolo attivo nella definizione e nell'attuazione delle strategie di sviluppo della formazione universitaria professionale, in un contesto dinamico e innovativo.\n- Salario competitivo, in linea con gli standard svizzeri e l’esperienza del/della candidato/a.\n\n## Valorizziamo la diversità\nIn tutte le sue attività, SUPSI garantisce un ambiente di studio e di lavoro inclusivo, accessibile e rispettoso di ogni diversità, con l’obiettivo di offrire a tutti una formazione universitaria di alta qualità. Maggiori informazioni su diversità e inclusione sono disponibili a questo\nlink\n.\n\n## Candidatura\nSaranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 15 febbraio 2027\ntramite il formulario dedicato, corredate dai seguenti documenti:\n- Lettera di motivazione.\n- Curriculum vitae aggiornato secondo apposito formulario.\n- Copia dei titoli di studio e dei certificati di lavoro.\n- Breve documento (massimo due pagine) contenente una visione per lo sviluppo della Formazione di base del DTI.\n\nPer ulteriori informazioni è possibile rivolgersi a Prof. Dr. Milena Properzi, Direttrice Dipartimento tecnologie innovative, all'indirizzo mail seguente:\ndti.concorsi@supsi.ch\n.\nNon saranno accettate candidature incomplete, inviate a indirizzi diversi o oltre il termine stabilito. Oltre ai documenti richiesti per la candidatura online, potrebbe essere necessaria l’integrazione con ulteriore documentazione, come il casellario giudiziale o una copia di un documento d’identità."
+      },
+      "needsRetranslation": true,
+      "slugByLocale": {
+        "it": "responsabile-della-formazione-di-base-per-il-dipartimento-tecnologie-innovative-dti-supsi-lugano-l4u563",
+        "en": "responsabile-della-formazione-di-base-per-il-dipartimento-tecnologie-innovative-dti-supsi-dti-lugano",
+        "de": "responsabile-della-formazione-di-base-per-il-dipartimento-tecnologie-innovative-dti-supsi-dti-lugano",
+        "fr": "responsabile-della-formazione-di-base-per-il-dipartimento-tecnologie-innovative-dti-supsi-dti-lugano"
+      },
+      "requirementsByLocale": {
+        "it": [
+          "Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.",
+          "Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.",
+          "Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.",
+          "Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.",
+          "Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.",
+          "Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.",
+          "Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.",
+          "Orientamento alla qualità, all'innovazione e al miglioramento continuo.",
+          "Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.",
+          "Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.",
+          "Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio."
+        ],
+        "en": [
+          "Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.",
+          "Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.",
+          "Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.",
+          "Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.",
+          "Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.",
+          "Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.",
+          "Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.",
+          "Orientamento alla qualità, all'innovazione e al miglioramento continuo.",
+          "Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.",
+          "Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.",
+          "Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio."
+        ],
+        "de": [
+          "Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.",
+          "Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.",
+          "Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.",
+          "Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.",
+          "Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.",
+          "Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.",
+          "Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.",
+          "Orientamento alla qualità, all'innovazione e al miglioramento continuo.",
+          "Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.",
+          "Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.",
+          "Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio."
+        ],
+        "fr": [
+          "Titolo universitario Master o equivalente in un ambito pertinente alle attività del Dipartimento; il dottorato costituisce titolo preferenziale.",
+          "Comprovata esperienza nell’insegnamento universitario e nella gestione di attività formative, preferibilmente affiancata da esperienze professionali recenti maturate in altri contesti universitari o aziendali.",
+          "Solido curriculum accademico, con comprovata esperienza nella ricerca e nello sviluppo in contesto universitario.",
+          "Esperienza nella gestione di personale accademico e/o amministrativo, nella guida di team e nel coordinamento di processi organizzativi complessi.",
+          "Buona conoscenza del sistema universitario svizzero, preferibilmente delle Scuole universitarie professionali.",
+          "Capacità di leadership, visione strategica, pianificazione e gestione del cambiamento.",
+          "Spiccate competenze relazionali, organizzative e attitudine alla collaborazione interdisciplinare e interdipartimentale.",
+          "Orientamento alla qualità, all'innovazione e al miglioramento continuo.",
+          "Qualifica didattica o disponibilità a conseguirla, ai sensi della Direttiva 6C delle Direttive interne del personale a contratto SUPSI.",
+          "Ottima conoscenza dell'italiano e dell'inglese; la conoscenza di un'altra lingua nazionale costituisce titolo preferenziale.",
+          "Residenza nel Canton Ticino o disponibilità a trasferirvi il proprio domicilio entro un termine concordato dall'assunzione della funzione, in considerazione delle responsabilità direttive e della necessità di garantire un'adeguata presenza sul territorio."
+        ]
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-della-formazione-di-base-per-il-dipartimento-tecnologie-innovative-dti-supsi-dti-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-della-formazione-di-base-per-il-dipartimento-tecnologie-innovative-dti-supsi-dti-lugano"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "postalCode": "6900"
     }
   ]
 }

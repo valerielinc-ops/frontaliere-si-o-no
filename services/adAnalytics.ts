@@ -18,6 +18,7 @@
  */
 
 import { captureEvent as posthogCapture } from './posthog';
+import { classifyAdPageTemplate, documentHasJobPosting } from './adPageTemplate';
 
 // `isLikelyBot()` lives in services/botPatterns.ts (the shared, dependency-free
 // home alongside BOT_UA_PATTERNS) so services/posthog.ts can gate its init on it
@@ -89,18 +90,8 @@ function getPagePath(): string {
 }
 
 function classifyTemplate(path: string): string {
-  if (path === '/' || path === '') return 'home';
-  if (path.startsWith('/blog/') || path.startsWith('/articolo/')) return 'blog';
-  if (path.includes('/cerca-lavoro') || path.startsWith('/lavoro/') || path.startsWith('/job/'))
-    return 'jobs';
-  if (path.startsWith('/calcolatore') || path.includes('/simulatore')) return 'calculator';
-  if (path.startsWith('/comparatori/') || path.startsWith('/confronti/')) return 'comparators';
-  if (path.startsWith('/fisco/') || path.startsWith('/tasse/')) return 'fisco';
-  if (path.startsWith('/guida/') || path.startsWith('/guide/')) return 'guida';
-  if (path.startsWith('/vita/') || path.startsWith('/vivere/')) return 'vita';
-  if (path.startsWith('/statistiche/') || path.startsWith('/stats/')) return 'statistiche';
-  if (path.startsWith('/glossario/')) return 'glossario';
-  return 'other';
+  const hasJobPosting = typeof document !== 'undefined' && documentHasJobPosting(document);
+  return classifyAdPageTemplate(path, hasJobPosting);
 }
 
 /**

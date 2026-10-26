@@ -39,6 +39,8 @@ declare global {
 
 interface AdSenseBannerProps {
  placement?: string;
+ experimentId?: string;
+ experimentVariant?: string;
  adSlot?: string;
  adFormat?: string;
  fullWidthResponsive?: boolean;
@@ -138,6 +140,8 @@ export default function AdSenseBanner(props: AdSenseBannerProps) {
 
 function AdSenseBannerInstance({
  placement,
+ experimentId,
+ experimentVariant,
  adSlot,
  adFormat = 'auto',
  fullWidthResponsive = true,
@@ -535,6 +539,8 @@ function AdSenseBannerInstance({
  className={className}
  {...{ [AD_BANNER_STATE_ATTR]: state }}
  data-ad-placement={placement || adSlot}
+ data-ad-experiment={experimentId}
+ data-ad-variant={experimentVariant}
  style={{
  contain: 'content',
  ...(isCollapsed ? { margin: 0, padding: 0 } : {}),

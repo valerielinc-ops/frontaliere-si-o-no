@@ -105,7 +105,15 @@ export type StaticAdSlotKey =
   | 'canton-hub-top'
   | 'canton-hub-inline-1'
   | 'canton-hub-inline-2'
-  | 'canton-hub-end';
+  | 'canton-hub-end'
+  | 'article-atf';
+
+export interface StaticAdSlotHtmlOptions {
+  collapseWhenUnfilled?: boolean;
+  placement?: string;
+  experimentId?: string;
+  experimentVariant?: string;
+}
 
 export interface SiteShellContract {
   // build-plugins/constants.ts
@@ -142,7 +150,7 @@ export interface SiteShellContract {
    * returns one reserved raw `<ins class="adsbygoogle">` for a semantic
    * static-page placement; the engine wraps it in accessible page markup.
    */
-  staticAdSlotHtml?: (slot: StaticAdSlotKey) => string;
+  staticAdSlotHtml?: (slot: StaticAdSlotKey, options?: StaticAdSlotHtmlOptions) => string;
 
   // build-plugins/shared/buildDayStamp.ts — day-granularity build stamp. Must
   // come from the host: `dateModified` has to agree with what the full build

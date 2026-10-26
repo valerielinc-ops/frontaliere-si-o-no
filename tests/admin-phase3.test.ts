@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { buildTodaySummary, formatTodayDate } from '@/components/admin/lib/adminToday';
-import { csvText, datedExportFilename } from '@/components/admin/lib/csv';
+import { csvText, datedExportFilename, downloadCsv } from '@/components/admin/lib/csv';
 import { clampPage, pageCount, pageSlice } from '@/components/admin/lib/pagination';
 import { describeCronForLocalDay, scheduledOccurrencesForLocalDay } from '@/services/adminCron';
 import { adminTodayRunsPath, adminTodayRunsTruncationNotice, failedCrawlerRunCount, loadAdminTodayRuns, type AdminTodayRun } from '@/services/adminTodayRuns';
@@ -172,6 +172,17 @@ describe('admin fase 3 pure contracts', () => {
     expect(pageSlice(Array.from({ length: 101 }, (_, index) => index), 3)).toEqual([100]);
   });
 
+  it('normalizza le page size admin non valide al default senza alterare gli interi validi', () => {
+    const items = Array.from({ length: 101 }, (_, index) => index);
+    for (const invalidPageSize of [0, -5, 2.5, Number.NaN, Number.POSITIVE_INFINITY]) {
+      expect(pageCount(items.length, invalidPageSize)).toBe(3);
+      expect(clampPage(99, items.length, invalidPageSize)).toBe(3);
+      expect(pageSlice(items, 3, invalidPageSize)).toEqual([100]);
+    }
+    expect(pageCount(items.length, 25)).toBe(5);
+    expect(pageSlice(items, 3, 25)).toEqual(items.slice(50, 75));
+  });
+
   it('normalizza input non affidabili della paginazione', () => {
     const items = Array.from({ length: 101 }, (_, index) => index);
 
@@ -187,6 +198,50 @@ describe('admin fase 3 pure contracts', () => {
     expect(pageSlice(items, Number.NaN)).toEqual(items.slice(0, 50));
     expect(pageSlice(items, Number.POSITIVE_INFINITY)).toEqual(items.slice(0, 50));
     expect(pageSlice(items, 1.5)).toEqual(items.slice(0, 50));
+  });
+
+  it.each([
+    ['link creation', true],
+    ['download activation', false],
+  ])('revoca l’object URL quando fallisce la fase di %s', (_phase, failCreatingLink) => {
+    const createObjectURL = vi.fn(() => 'blob:admin-csv');
+    const revokeObjectURL = vi.fn();
+    const setTimeout = vi.fn((callback: () => void) => {
+      callback();
+      return 0;
+    });
+    const click = vi.fn(() => {
+      throw new Error('download setup failed');
+    });
+    const link = { click };
+    const createElement = vi.fn(() => {
+      if (failCreatingLink) throw new Error('link creation failed');
+      return link;
+    });
+
+    vi.stubGlobal('URL', { createObjectURL, revokeObjectURL });
+    vi.stubGlobal('document', { createElement });
+    vi.stubGlobal('window', { setTimeout });
+    try {
+      expect(() => downloadCsv('admin.csv', ['Name'], [['value']])).toThrow();
+      expect(createObjectURL).toHaveBeenCalledOnce();
+      expect(setTimeout).toHaveBeenCalledOnce();
+      expect(revokeObjectURL).toHaveBeenCalledWith('blob:admin-csv');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('ignora in modo sicuro un ambiente senza API Blob URL', () => {
+    const createElement = vi.fn();
+    vi.stubGlobal('URL', { revokeObjectURL: vi.fn() });
+    vi.stubGlobal('document', { createElement });
+    try {
+      expect(() => downloadCsv('admin.csv', ['Name'], [['value']])).not.toThrow();
+      expect(createElement).not.toHaveBeenCalled();
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   it('nasconde i dettagli sensibili dell’audit', () => {

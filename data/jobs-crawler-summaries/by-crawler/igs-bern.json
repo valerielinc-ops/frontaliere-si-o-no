@@ -1,7 +1,7 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-10-26T09:35:05.326Z",
+  "generatedAt": "2026-10-26T21:53:27.990Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 4555,
-  "avgDurationMs": 4555,
+  "unchangedCount": 0,
+  "durationMs": 4392,
+  "avgDurationMs": 4392,
   "durationHistory": [
-    4555
+    4392
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "igs-bern-f5747d81c7ce",
       "slug": "assistenza-professionale-fabe-salute-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
@@ -37,7 +35,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:34:53.162Z",
+      "crawledAt": "2026-10-26T21:53:16.353Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3302",
       "addressCountry": "CH",
@@ -82,7 +80,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:34:52.639Z",
+      "crawledAt": "2026-10-26T21:53:15.795Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -124,7 +122,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:34:52.105Z",
+      "crawledAt": "2026-10-26T21:53:15.229Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -154,5 +152,7 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }

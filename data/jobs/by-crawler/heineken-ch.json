@@ -1,14 +1,14 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-10-26T09:34:04.912Z",
-  "runId": "40299149290",
+  "assembledAt": "2026-10-26T21:46:03.329Z",
+  "runId": "40403952606",
   "jobs": [
     {
       "id": "heineken-ch-a716028f91b3",
       "jobReqId": "149312",
       "slug": "autista-c-e-heineken-switzerland-fahrweid",
       "slugByLocale": {
-        "it": "chauffeur-c-e-heineken-switzerland-fahrweid",
+        "it": "autista-c-e-heineken-switzerland-fahrweid",
         "en": "driver-c-e-heineken-switzerland-fahrweid",
         "de": "chauffeur-c-e-heineken-ch-fahrweid",
         "fr": "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid"
@@ -51,15 +51,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:33:57.997Z",
+      "crawledAt": "2026-10-26T21:45:54.880Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
-        "c-c-e-heineken-switzerland-fahrweid"
+        "c-c-e-heineken-switzerland-fahrweid",
+        "chauffeur-c-e-heineken-switzerland-fahrweid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-e-heineken-ch-fahrweid",
-          "c-c-e-heineken-switzerland-fahrweid"
+          "c-c-e-heineken-switzerland-fahrweid",
+          "chauffeur-c-e-heineken-switzerland-fahrweid"
         ],
         "en": [
           "c-c-e-heineken-switzerland-fahrweid"
@@ -131,7 +133,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:33:50.338Z",
+      "crawledAt": "2026-10-26T21:45:47.364Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "chauffeur-kat-c-e-heineken-switzerland-luzern"
@@ -206,7 +208,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:33:41.973Z",
+      "crawledAt": "2026-10-26T21:45:38.770Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern"
       ],
@@ -279,7 +281,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:33:33.632Z",
+      "crawledAt": "2026-10-26T21:45:30.538Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp"
@@ -363,7 +365,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:33:26.361Z",
+      "crawledAt": "2026-10-26T21:45:22.415Z",
       "previousSlugs": [
         "specialist-business-applications-operations-m-w-d-heineken-ch-luzern"
       ],
@@ -390,80 +392,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "heineken-ch-420d6c1cd516",
-      "jobReqId": "162606",
-      "slug": "chauffeur-c-e-m-f-davos-heineken-switzerland-davos",
-      "slugByLocale": {
-        "it": "chauffeur-c-e-m-f-davos-heineken-switzerland-davos",
-        "en": "chauffeur-c-e-m-f-davos-heineken-switzerland-davos",
-        "de": "chauffeur-c-e-m-w-davos-heineken-ch-davos",
-        "fr": "chauffeur-c-e-h-f-davos-heineken-switzerland-davos"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Chauffeur C/E (m/w) Davos",
-      "titleByLocale": {
-        "it": "Chauffeur C/E (m/f) Davos",
-        "en": "Chauffeur C/E (m/f) Davos",
-        "de": "Chauffeur C/E (m/w) Davos",
-        "fr": "Chauffeur C/E (h/f) Davos"
-      },
-      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Davos in Festanstellung eine selbständige und motivierte Person. Du belieferst unsere Gastronomiekunden mit unseren Bieren und anderen Getränken und folgst dabei einem bewährten Tourenplan. Daneben hilfst Du auch im Lager beim Rüsten der Bestellungen oder im Festservice aus. Neben der Fahrbewilligung C, idealerweise auch Kat. E für Anhänger, bringst Du einige Berufserfahrung als Chauffeur mit und arbeitest gerne selbständig. Als Mann/Frau an vorderster Front bist Du erste Ansprechperson für unsere Kunden. Dies verlangt nach einwandfreien Umgangsformen, hoher Zuverlässigkeit, Verbindlichkeit gegenüber unseren Kunden sowie sehr guten Deutschkenntnissen. Auch in hektischen Zeiten behältst Du stets den Überblick und triffst den richtigen Ton. Dein Wohnort liegt idealerweise in der Region, damit auch Pikett-Einsätze für Dich möglich sind. Du bist körperlich fit und gesund. Für die Tätigkeit im Lager setzen wir Erfahrung in der Kommissionierung und Umgang mit Elektroameisen voraus. Interessiert? Deine Bewerbungsunterlagen erwartet gerne Claudia Tschuor. Für Fragen steht Dir Javier Senande Tel. 079 898 30 09 zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Il rispetto, il godimento e la qualità basati sulla passione sono tra i nostri valori fondamentali. In qualità di produttore di birra con sedi di birreria a Chur e Lucerna, nonché il nostro commercio di bevande con 15 sedi in tutta la Svizzera, siamo una società di importanza nazionale. Ci affidiamo a un mix di tradizione, innovazione e prossimità del cliente. Con le nostre birre di marca, contribuiamo alla diversificata cultura della birra svizzera. Diamo la gioia della vera unita' per ispirare un mondo migliore. Un giorno, una birra, un formaggio dopo l'altro. Per la nostra affiliata Stardrinks AG, stiamo cercando una persona indipendente e motivata nell'occupazione permanente presso la sede di Davos. Fornire i nostri clienti di catering con le nostre birre e altre bevande e seguire un programma di tour collaudato. Inoltre, si aiuta anche nel magazzino quando si impostano gli ordini o nel servizio fisso. Oltre all'autorizzazione di guida C, idealmente anche Cat. E per i rimorchi, si porta un'esperienza professionale come autista e piace lavorare indipendentemente. Come uomo/donna in prima linea, sei il primo punto di contatto per i nostri clienti. Ciò richiede maniere perfette, alta affidabilità, impegno per i nostri clienti e una buona conoscenza del tedesco. Anche in tempi frenetici, si mantiene sempre una panoramica e colpire il tono giusto. Il vostro luogo di residenza è idealmente situato nella regione, in modo che gli incarichi di piketting sono anche possibili per voi. Sei fisicamente in forma e sano. Per lavorare nel magazzino, abbiamo bisogno di esperienza nel raccogliere e gestire formiche elettriche. Interessante? I documenti di richiesta attendono Claudia Tschuor. Per domande, Javier Senande Tel. 079 898 30 09 è disponibile.",
-        "en": "Respect, enjoyment and quality based on passion are among our core values. As a beer producer with brewery locations in Chur and Lucerne as well as our own beverage trade with 15 locations throughout Switzerland, we are a company of national importance. We rely on a mix of tradition, innovation and customer proximity. With our brand beers, we contribute to the diverse Swiss beer culture. We brew the joy of true togetherness to inspire a better world. One day, one beer, one cheese after another. For our subsidiary Stardrinks AG, we are looking for an independent and motivated person in permanent employment at the Davos location. You supply our catering customers with our beers and other drinks and follow a proven tour plan. In addition, you also help in the warehouse when setting up orders or in the fixed service. In addition to driving authorization C, ideally also Cat. E for trailers, you bring some professional experience as a chauffeur and like to work independently. As a man/woman at the forefront, you are the first point of contact for our customers. This requires perfect manners, high reliability, commitment to our customers and very good knowledge of German. Even in hectic times, you always keep an overview and hit the right tone. Your place of residence is ideally located in the region, so that piketting assignments are also possible for you. You are physically fit and healthy. To work in the warehouse, we require experience in picking and handling electric ants. Interested? Your application documents await Claudia Tschuor. For questions, Javier Senande Tel. 079 898 30 09 is available.",
-        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Davos in Festanstellung eine selbständige und motivierte Person. Du belieferst unsere Gastronomiekunden mit unseren Bieren und anderen Getränken und folgst dabei einem bewährten Tourenplan. Daneben hilfst Du auch im Lager beim Rüsten der Bestellungen oder im Festservice aus. Neben der Fahrbewilligung C, idealerweise auch Kat. E für Anhänger, bringst Du einige Berufserfahrung als Chauffeur mit und arbeitest gerne selbständig. Als Mann/Frau an vorderster Front bist Du erste Ansprechperson für unsere Kunden. Dies verlangt nach einwandfreien Umgangsformen, hoher Zuverlässigkeit, Verbindlichkeit gegenüber unseren Kunden sowie sehr guten Deutschkenntnissen. Auch in hektischen Zeiten behältst Du stets den Überblick und triffst den richtigen Ton. Dein Wohnort liegt idealerweise in der Region, damit auch Pikett-Einsätze für Dich möglich sind. Du bist körperlich fit und gesund. Für die Tätigkeit im Lager setzen wir Erfahrung in der Kommissionierung und Umgang mit Elektroameisen voraus. Interessiert? Deine Bewerbungsunterlagen erwartet gerne Claudia Tschuor. Für Fragen steht Dir Javier Senande Tel. 079 898 30 09 zur Verfügung.",
-        "fr": "Le respect, la jouissance et la qualité basées sur la passion font partie de nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne ainsi que notre propre commerce de boissons avec 15 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. Nous comptons sur un mélange de tradition, d'innovation et de proximité client. Avec nos bières de marque, nous contribuons à la diversité de la culture de la bière suisse. Nous brassons la joie de la vraie union pour inspirer un monde meilleur. Un jour, une bière, un fromage après l'autre. Pour notre filiale Stardrinks AG, nous recherchons une personne indépendante et motivée qui occupe un emploi permanent à Davos. Vous fournissez nos clients de restauration avec nos bières et autres boissons et suivez un plan de visite éprouvé. En outre, vous aidez également dans l'entrepôt lors de la mise en place des commandes ou dans le service fixe. En plus de l'autorisation de conduire C, idéalement aussi Cat. E pour les remorques, vous apportez une expérience professionnelle en tant que chauffeur et aimez travailler indépendamment. En tant qu'homme/femme à l'avant-garde, vous êtes le premier point de contact pour nos clients. Cela nécessite des manières parfaites, une fiabilité élevée, un engagement envers nos clients et une très bonne connaissance de l'allemand. Même dans les périodes agitées, vous gardez toujours une vue d'ensemble et appuyez sur le bon ton. Votre lieu de résidence est idéalement situé dans la région, de sorte que des missions de piquetage sont également possibles pour vous. Vous êtes physiquement en bonne santé. Pour travailler dans l'entrepôt, nous avons besoin d'expérience dans la cueillette et la manipulation des fourmis électriques. Intéressé ? Vos documents de candidature attendent Claudia Tschuor. Pour toute question, Javier Senade Tél. 079 898 30 09 est disponible."
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7270",
-      "streetAddress": "Davos, Graubünden",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-mw-davos?jobid=162606",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162606&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:45:56.273Z",
-      "previousSlugs": [
-        "chauffeur-c-e-m-w-davos-heineken-ch-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-c-e-m-w-davos-heineken-ch-davos"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:54:58.498Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     },
     {
       "id": "heineken-ch-3ed8481a3b74",
@@ -513,7 +441,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:33:18.188Z",
+      "crawledAt": "2026-10-26T21:45:14.454Z",
       "previousSlugs": [
         "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
         "autista-c-e-heineken-switzerland-luzern",
@@ -642,7 +570,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:33:10.159Z",
+      "crawledAt": "2026-10-26T21:45:06.373Z",
       "previousSlugs": [
         "technician-dbo-m-w-d-heineken-ch-denges"
       ],
@@ -715,7 +643,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:33:02.082Z",
+      "crawledAt": "2026-10-26T21:44:58.422Z",
       "previousSlugs": [
         "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
       ],
@@ -745,9 +673,9 @@
       "jobReqId": "164139",
       "slug": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
       "slugByLocale": {
-        "de": "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
         "it": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
         "en": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
+        "de": "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
         "fr": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
       },
       "company": "Heineken Switzerland",
@@ -755,16 +683,16 @@
       "companyDomain": "theheinekencompany.com",
       "title": "Chauffeur C oder C1 (m/w) Arosa",
       "titleByLocale": {
-        "de": "Chauffeur C oder C1 (m/w) Arosa",
         "it": "Chauffeur C o C1 (m/w) Arosa",
         "en": "Chauffeur C or C1 (m/f) Arosa",
+        "de": "Chauffeur C oder C1 (m/w) Arosa",
         "fr": "Chauffeur C ou C1 (h/f) Arosa"
       },
       "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Arosa für die Wintersaison 2026/27 zwei selbständige und motivierte Personen. Du belieferst unsere Gastronomiekunden mit unseren Bieren und anderen Getränken und folgst dabei einem bewährten Tourenplan. Daneben hilfst Du auch im Lager beim Rüsten der Bestellungen oder im Festservice aus. Neben der Fahrbewilligung C1 oder C, bringst Du einige Berufserfahrung als Chauffeur mit und arbeitest gerne selbständig. Als Mann/Frau an vorderster Front bist Du erste Ansprechperson für unsere Kunden. Dies verlangt nach einwandfreien Umgangsformen, hoher Zuverlässigkeit, Verbindlichkeit gegenüber unseren Kunden sowie sehr guten Deutschkenntnissen. Auch in hektischen Zeiten behältst Du stets den Überblick und triffst den richtigen Ton. Dein Wohnort liegt idealerweise in der Region, damit auch Pikett-Einsätze für Dich möglich sind. Du bist körperlich fit und gesund. Für die Tätigkeit im Lager setzen wir Erfahrung in der Kommissionierung und Umgang mit Elektroameisen voraus. Interessiert? Deine Bewerbungsunterlagen erwartet gerne Claudia Tschuor. Für Fragen steht Dir Javier Senande Tel. 079 593 11 59 zur Verfügung.",
       "descriptionByLocale": {
-        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Arosa für die Wintersaison 2026/27 zwei selbständige und motivierte Personen. Du belieferst unsere Gastronomiekunden mit unseren Bieren und anderen Getränken und folgst dabei einem bewährten Tourenplan. Daneben hilfst Du auch im Lager beim Rüsten der Bestellungen oder im Festservice aus. Neben der Fahrbewilligung C1 oder C, bringst Du einige Berufserfahrung als Chauffeur mit und arbeitest gerne selbständig. Als Mann/Frau an vorderster Front bist Du erste Ansprechperson für unsere Kunden. Dies verlangt nach einwandfreien Umgangsformen, hoher Zuverlässigkeit, Verbindlichkeit gegenüber unseren Kunden sowie sehr guten Deutschkenntnissen. Auch in hektischen Zeiten behältst Du stets den Überblick und triffst den richtigen Ton. Dein Wohnort liegt idealerweise in der Region, damit auch Pikett-Einsätze für Dich möglich sind. Du bist körperlich fit und gesund. Für die Tätigkeit im Lager setzen wir Erfahrung in der Kommissionierung und Umgang mit Elektroameisen voraus. Interessiert? Deine Bewerbungsunterlagen erwartet gerne Claudia Tschuor. Für Fragen steht Dir Javier Senande Tel. 079 593 11 59 zur Verfügung.",
         "it": "Il rispetto, il godimento e la qualità basati sulla passione sono tra i nostri valori fondamentali. In qualità di produttore di birra con sedi di birreria a Chur e Lucerne, nonché il nostro commercio di bevande con 15 sedi in tutta la Svizzera, siamo una società di importanza nazionale. Ci concentriamo su un mix di tradizione, innovazione e prossimità del cliente. Con le nostre birre di marca, contribuiamo alla diversificata cultura della birra svizzera. Diamo la gioia della vera unita' per ispirare un mondo migliore. Un giorno, una birra, un formaggio dopo l'altro. Per la nostra affiliata Stardrinks AG cerchiamo due persone indipendenti e motivate nella posizione Arosa per la stagione invernale 2026/27. Fornire i nostri clienti di catering con le nostre birre e altre bevande e seguire un programma di tour collaudato. Inoltre, si aiuta anche nel magazzino quando si impostano ordini o nel servizio fisso. Oltre alla patente di guida C1 o C, si porta un'esperienza professionale come autista e piace lavorare indipendentemente. Come uomo/donna in prima linea, sei il primo punto di contatto per i nostri clienti. Ciò richiede maniere perfette, alta affidabilità, impegno per i nostri clienti e una buona conoscenza del tedesco. Anche in tempi frenetici, si mantiene sempre una panoramica e colpire il tono giusto. Il vostro luogo di residenza è idealmente situato nella regione, in modo che gli incarichi di piketting sono anche possibili per voi. Sei fisicamente in forma e sano. Per lavorare nel magazzino, abbiamo bisogno di esperienza nel raccogliere e gestire formiche elettriche. Interessante? I documenti di richiesta attendono Claudia Tschuor. Per domande, Javier Senande Tel. 079 593 11 59 è disponibile.",
         "en": "Respect, enjoyment and quality based on passion are among our core values. As a beer producer with brewery locations in Chur and Lucerne as well as our own beverage trade with 15 locations throughout Switzerland, we are a company of national importance. We focus on a mix of tradition, innovation and customer proximity. With our brand beers, we contribute to the diverse Swiss beer culture. We brew the joy of true togetherness to inspire a better world. One day, one beer, one cheese after another. For our subsidiary Stardrinks AG we are looking for two independent and motivated people at the Arosa location for the winter season 2026/27. You supply our catering customers with our beers and other drinks and follow a proven tour plan. In addition, you also help in the warehouse when setting up orders or in the fixed service. In addition to driving license C1 or C, you bring some professional experience as a chauffeur and like to work independently. As a man/woman at the forefront, you are the first point of contact for our customers. This requires perfect manners, high reliability, commitment to our customers and very good knowledge of German. Even in hectic times, you always keep an overview and hit the right tone. Your place of residence is ideally located in the region, so that piketting assignments are also possible for you. You are physically fit and healthy. To work in the warehouse, we require experience in picking and handling electric ants. Interested? Your application documents await Claudia Tschuor. For questions, Javier Senande Tel. 079 593 11 59 is available.",
+        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Arosa für die Wintersaison 2026/27 zwei selbständige und motivierte Personen. Du belieferst unsere Gastronomiekunden mit unseren Bieren und anderen Getränken und folgst dabei einem bewährten Tourenplan. Daneben hilfst Du auch im Lager beim Rüsten der Bestellungen oder im Festservice aus. Neben der Fahrbewilligung C1 oder C, bringst Du einige Berufserfahrung als Chauffeur mit und arbeitest gerne selbständig. Als Mann/Frau an vorderster Front bist Du erste Ansprechperson für unsere Kunden. Dies verlangt nach einwandfreien Umgangsformen, hoher Zuverlässigkeit, Verbindlichkeit gegenüber unseren Kunden sowie sehr guten Deutschkenntnissen. Auch in hektischen Zeiten behältst Du stets den Überblick und triffst den richtigen Ton. Dein Wohnort liegt idealerweise in der Region, damit auch Pikett-Einsätze für Dich möglich sind. Du bist körperlich fit und gesund. Für die Tätigkeit im Lager setzen wir Erfahrung in der Kommissionierung und Umgang mit Elektroameisen voraus. Interessiert? Deine Bewerbungsunterlagen erwartet gerne Claudia Tschuor. Für Fragen steht Dir Javier Senande Tel. 079 593 11 59 zur Verfügung.",
         "fr": "Le respect, la jouissance et la qualité basées sur la passion font partie de nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne ainsi que notre propre commerce de boissons avec 15 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. Nous nous concentrons sur un mélange de tradition, d'innovation et de proximité client. Avec nos bières de marque, nous contribuons à la diversité de la culture de la bière suisse. Nous brassons la joie de la vraie union pour inspirer un monde meilleur. Un jour, une bière, un fromage après l'autre. Pour notre filiale Stardrinks AG, nous recherchons deux personnes indépendantes et motivées à Arosa pour la saison d'hiver 2026/27. Vous fournissez nos clients de restauration avec nos bières et autres boissons et suivez un plan de visite éprouvé. En outre, vous aidez également dans l'entrepôt lors de la mise en place des commandes ou dans le service fixe. En plus du permis de conduire C1 ou C, vous apportez une certaine expérience professionnelle en tant que chauffeur et aimez travailler indépendamment. En tant qu'homme/femme à l'avant-garde, vous êtes le premier point de contact pour nos clients. Cela nécessite des manières parfaites, une fiabilité élevée, un engagement envers nos clients et une très bonne connaissance de l'allemand. Même dans les temps agités, vous gardez toujours une vue d'ensemble et appuyez sur le bon ton. Votre lieu de résidence est idéalement situé dans la région, de sorte que des missions de piquetage sont également possibles pour vous. Vous êtes physiquement en bonne santé. Pour travailler dans l'entrepôt, nous avons besoin d'expérience dans la cueillette et la manipulation des fourmis électriques. Intéressé ? Vos documents de candidature attendent Claudia Tschuor. Pour toute question, Javier Senade Tél. 079 593 11 59 est disponible."
       },
       "location": "Arosa",
@@ -788,7 +716,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:32:54.640Z",
+      "crawledAt": "2026-10-26T21:44:51.259Z",
+      "previousSlugs": [
+        "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
@@ -797,9 +728,80 @@
           "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
         ]
       },
+      "firstSeenAt": "2026-08-25T10:08:51.921Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-420d6c1cd516",
+      "jobReqId": "162606",
+      "slug": "chauffeur-c-e-m-f-davos-heineken-switzerland-davos",
+      "slugByLocale": {
+        "it": "chauffeur-c-e-m-f-davos-heineken-switzerland-davos",
+        "en": "chauffeur-c-e-m-f-davos-heineken-switzerland-davos",
+        "de": "chauffeur-c-e-m-w-davos-heineken-ch-davos",
+        "fr": "chauffeur-c-e-h-f-davos-heineken-switzerland-davos"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Chauffeur C/E (m/w) Davos",
+      "titleByLocale": {
+        "it": "Chauffeur C/E (m/f) Davos",
+        "en": "Chauffeur C/E (m/f) Davos",
+        "de": "Chauffeur C/E (m/w) Davos",
+        "fr": "Chauffeur C/E (h/f) Davos"
+      },
+      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Davos in Festanstellung eine selbständige und motivierte Person. Du belieferst unsere Gastronomiekunden mit unseren Bieren und anderen Getränken und folgst dabei einem bewährten Tourenplan. Daneben hilfst Du auch im Lager beim Rüsten der Bestellungen oder im Festservice aus. Neben der Fahrbewilligung C, idealerweise auch Kat. E für Anhänger, bringst Du einige Berufserfahrung als Chauffeur mit und arbeitest gerne selbständig. Als Mann/Frau an vorderster Front bist Du erste Ansprechperson für unsere Kunden. Dies verlangt nach einwandfreien Umgangsformen, hoher Zuverlässigkeit, Verbindlichkeit gegenüber unseren Kunden sowie sehr guten Deutschkenntnissen. Auch in hektischen Zeiten behältst Du stets den Überblick und triffst den richtigen Ton. Dein Wohnort liegt idealerweise in der Region, damit auch Pikett-Einsätze für Dich möglich sind. Du bist körperlich fit und gesund. Für die Tätigkeit im Lager setzen wir Erfahrung in der Kommissionierung und Umgang mit Elektroameisen voraus. Interessiert? Deine Bewerbungsunterlagen erwartet gerne Claudia Tschuor. Für Fragen steht Dir Javier Senande Tel. 079 898 30 09 zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Il rispetto, il godimento e la qualità basati sulla passione sono tra i nostri valori fondamentali. In qualità di produttore di birra con sedi di birreria a Chur e Lucerna, nonché il nostro commercio di bevande con 15 sedi in tutta la Svizzera, siamo una società di importanza nazionale. Ci affidiamo a un mix di tradizione, innovazione e prossimità del cliente. Con le nostre birre di marca, contribuiamo alla diversificata cultura della birra svizzera. Diamo la gioia della vera unita' per ispirare un mondo migliore. Un giorno, una birra, un formaggio dopo l'altro. Per la nostra affiliata Stardrinks AG, stiamo cercando una persona indipendente e motivata nell'occupazione permanente presso la sede di Davos. Fornire i nostri clienti di catering con le nostre birre e altre bevande e seguire un programma di tour collaudato. Inoltre, si aiuta anche nel magazzino quando si impostano gli ordini o nel servizio fisso. Oltre all'autorizzazione di guida C, idealmente anche Cat. E per i rimorchi, si porta un'esperienza professionale come autista e piace lavorare indipendentemente. Come uomo/donna in prima linea, sei il primo punto di contatto per i nostri clienti. Ciò richiede maniere perfette, alta affidabilità, impegno per i nostri clienti e una buona conoscenza del tedesco. Anche in tempi frenetici, si mantiene sempre una panoramica e colpire il tono giusto. Il vostro luogo di residenza è idealmente situato nella regione, in modo che gli incarichi di piketting sono anche possibili per voi. Sei fisicamente in forma e sano. Per lavorare nel magazzino, abbiamo bisogno di esperienza nel raccogliere e gestire formiche elettriche. Interessante? I documenti di richiesta attendono Claudia Tschuor. Per domande, Javier Senande Tel. 079 898 30 09 è disponibile.",
+        "en": "Respect, enjoyment and quality based on passion are among our core values. As a beer producer with brewery locations in Chur and Lucerne as well as our own beverage trade with 15 locations throughout Switzerland, we are a company of national importance. We rely on a mix of tradition, innovation and customer proximity. With our brand beers, we contribute to the diverse Swiss beer culture. We brew the joy of true togetherness to inspire a better world. One day, one beer, one cheese after another. For our subsidiary Stardrinks AG, we are looking for an independent and motivated person in permanent employment at the Davos location. You supply our catering customers with our beers and other drinks and follow a proven tour plan. In addition, you also help in the warehouse when setting up orders or in the fixed service. In addition to driving authorization C, ideally also Cat. E for trailers, you bring some professional experience as a chauffeur and like to work independently. As a man/woman at the forefront, you are the first point of contact for our customers. This requires perfect manners, high reliability, commitment to our customers and very good knowledge of German. Even in hectic times, you always keep an overview and hit the right tone. Your place of residence is ideally located in the region, so that piketting assignments are also possible for you. You are physically fit and healthy. To work in the warehouse, we require experience in picking and handling electric ants. Interested? Your application documents await Claudia Tschuor. For questions, Javier Senande Tel. 079 898 30 09 is available.",
+        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 15 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Wir brauen die Freude des wahren Miteinanders, um eine bessere Welt zu inspirieren. Ein Tag, ein Bier, ein Prost nach dem anderen. Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Davos in Festanstellung eine selbständige und motivierte Person. Du belieferst unsere Gastronomiekunden mit unseren Bieren und anderen Getränken und folgst dabei einem bewährten Tourenplan. Daneben hilfst Du auch im Lager beim Rüsten der Bestellungen oder im Festservice aus. Neben der Fahrbewilligung C, idealerweise auch Kat. E für Anhänger, bringst Du einige Berufserfahrung als Chauffeur mit und arbeitest gerne selbständig. Als Mann/Frau an vorderster Front bist Du erste Ansprechperson für unsere Kunden. Dies verlangt nach einwandfreien Umgangsformen, hoher Zuverlässigkeit, Verbindlichkeit gegenüber unseren Kunden sowie sehr guten Deutschkenntnissen. Auch in hektischen Zeiten behältst Du stets den Überblick und triffst den richtigen Ton. Dein Wohnort liegt idealerweise in der Region, damit auch Pikett-Einsätze für Dich möglich sind. Du bist körperlich fit und gesund. Für die Tätigkeit im Lager setzen wir Erfahrung in der Kommissionierung und Umgang mit Elektroameisen voraus. Interessiert? Deine Bewerbungsunterlagen erwartet gerne Claudia Tschuor. Für Fragen steht Dir Javier Senande Tel. 079 898 30 09 zur Verfügung.",
+        "fr": "Le respect, la jouissance et la qualité basées sur la passion font partie de nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne ainsi que notre propre commerce de boissons avec 15 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. Nous comptons sur un mélange de tradition, d'innovation et de proximité client. Avec nos bières de marque, nous contribuons à la diversité de la culture de la bière suisse. Nous brassons la joie de la vraie union pour inspirer un monde meilleur. Un jour, une bière, un fromage après l'autre. Pour notre filiale Stardrinks AG, nous recherchons une personne indépendante et motivée qui occupe un emploi permanent à Davos. Vous fournissez nos clients de restauration avec nos bières et autres boissons et suivez un plan de visite éprouvé. En outre, vous aidez également dans l'entrepôt lors de la mise en place des commandes ou dans le service fixe. En plus de l'autorisation de conduire C, idéalement aussi Cat. E pour les remorques, vous apportez une expérience professionnelle en tant que chauffeur et aimez travailler indépendamment. En tant qu'homme/femme à l'avant-garde, vous êtes le premier point de contact pour nos clients. Cela nécessite des manières parfaites, une fiabilité élevée, un engagement envers nos clients et une très bonne connaissance de l'allemand. Même dans les périodes agitées, vous gardez toujours une vue d'ensemble et appuyez sur le bon ton. Votre lieu de résidence est idéalement situé dans la région, de sorte que des missions de piquetage sont également possibles pour vous. Vous êtes physiquement en bonne santé. Pour travailler dans l'entrepôt, nous avons besoin d'expérience dans la cueillette et la manipulation des fourmis électriques. Intéressé ? Vos documents de candidature attendent Claudia Tschuor. Pour toute question, Javier Senade Tél. 079 898 30 09 est disponible."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7270",
+      "streetAddress": "Davos, Graubünden",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-ce-mw-davos?jobid=162606",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162606&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-25T21:45:56.273Z",
       "previousSlugs": [
-        "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
+        "chauffeur-c-e-m-w-davos-heineken-ch-davos"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-c-e-m-w-davos-heineken-ch-davos"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:54:58.498Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -814,7 +816,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-25T10:08:51.921Z"
+      "crawlerMissStreak": 2
     }
   ]
 }

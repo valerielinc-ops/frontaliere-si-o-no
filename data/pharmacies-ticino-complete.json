@@ -4715,8 +4715,8 @@
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "1de6ed0b34ac744db850c7361b616c75048acdc99615c34f5f15c33d198df04d",
-        "fetchedAt": "2026-10-26T17:13:06.336Z"
+        "sha256": "950671a07e51f6ee46891125e8084a160af620031f29937f2cf22de12ef291bb",
+        "fetchedAt": "2026-10-26T21:44:40.617Z"
       }
     },
     "regions": {
@@ -4724,7 +4724,7 @@
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
         "dutyCount": 14,
-        "fetchedAt": "2026-10-26T17:13:06.336Z",
+        "fetchedAt": "2026-10-26T21:44:40.617Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4734,7 +4734,7 @@
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-26T17:13:06.336Z",
+        "fetchedAt": "2026-10-26T21:44:40.617Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4743,8 +4743,8 @@
       "bellinzonese": {
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
-        "dutyCount": 13,
-        "fetchedAt": "2026-10-26T17:13:06.336Z",
+        "dutyCount": 12,
+        "fetchedAt": "2026-10-26T21:44:40.617Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4754,7 +4754,7 @@
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-26T17:13:06.336Z",
+        "fetchedAt": "2026-10-26T21:44:40.617Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4764,13 +4764,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-26T17:13:06.336Z",
+        "fetchedAt": "2026-10-26T21:44:40.617Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-b0fff055cbb84cb60bce5aa7d88e8fb4be56a1aa15e2995d62f797e4dad379f8"
+    "releaseId": "pharmacy-v1-cf5b1a964919a2f507c3f460f57470f3872f01f8f2ef6992c594a8f9be1d4754"
   }
 }
