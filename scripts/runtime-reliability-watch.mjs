@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
-import { CHUNK_MANIFEST_FILENAME, chunkFileFromManifest } from '../build-plugins/shared/abiChunkNaming.mjs';
+import {
+  CHUNK_MANIFEST_FILENAME,
+  chunkFileInManifest,
+  isChunkManifest,
+  usesInterfaceAddressedNames,
+} from '../build-plugins/shared/abiChunkNaming.mjs';
 /**
  * Runtime reliability watchdog for the public HTML/CDN build pair.
  *
@@ -612,18 +617,26 @@ export function evaluateProbe({
 }
 
 /**
- * Map the logical critical paths to the filenames the live build emitted.
- * A manifest that is missing or unreadable (a deploy from before the manifest
- * existed, or a CDN hiccup) degrades to the plain `<name>.js` spelling, which
- * is still correct for every chunk without named exports.
+ * Map the logical critical paths to the filenames the live build emitted,
+ * according to a VALID manifest. A chunk the manifest does not list is not a
+ * separate chunk of that build, so it is not probed: guessing its plain
+ * spelling would hit an older generation's retained file (a 200) and could
+ * report a broken deploy as healthy, or fail forever on a chunk that no longer
+ * exists. The fixed-name entry and the stylesheet are always probed.
  */
 export function resolveCriticalAssetPaths(manifest, paths = CRITICAL_ASSET_PATHS) {
-  return paths.map((path) => {
+  const resolved = [];
+  for (const path of paths) {
     const match = /^\/assets\/(.+)\.js$/.exec(path);
     // index-entry.js is fixed by entryFileNames; CSS is never interface-hashed.
-    if (!match || match[1] === 'index-entry') return path;
-    return `/assets/${chunkFileFromManifest(manifest, match[1])}`;
-  });
+    if (!match || match[1] === 'index-entry') {
+      resolved.push(path);
+      continue;
+    }
+    const file = chunkFileInManifest(manifest, match[1]);
+    if (file) resolved.push(`/assets/${file}`);
+  }
+  return resolved;
 }
 
 async function readChunkManifest({ fetchImpl, timeoutMs, nonce }) {
@@ -631,10 +644,32 @@ async function readChunkManifest({ fetchImpl, timeoutMs, nonce }) {
   const response = await readUrl(url, { fetchImpl, timeoutMs });
   if (!response?.ok) return null;
   try {
-    return JSON.parse(response.body);
+    const parsed = JSON.parse(response.body);
+    return isChunkManifest(parsed) ? parsed : null;
   } catch {
     return null;
   }
+}
+
+/**
+ * The critical set the probe uses when the caller gives none.
+ *
+ *  - A valid manifest names the real files.
+ *  - No usable manifest on a generation published BEFORE interface-addressed
+ *    names (its entry imports no hashed file): the plain spellings are the real
+ *    names, which is what the probe always used.
+ *  - No usable manifest on an interface-addressed generation, or an unreadable
+ *    entry: the names cannot be known, so the plain spelling must NOT be probed.
+ *    The manifest itself joins the probe, so its 404 / garbage is a failing
+ *    asset (non-green, and not purgeable unless the edge alone disagrees with a
+ *    healthy origin) instead of a quiet fallback to green.
+ */
+export async function resolveDefaultAssetPaths({ fetchImpl, timeoutMs, nonce }) {
+  const manifest = await readChunkManifest({ fetchImpl, timeoutMs, nonce });
+  if (manifest) return resolveCriticalAssetPaths(manifest);
+  const entry = await readUrl(cacheBust(`${CDN_ORIGIN}/assets/index-entry.js`, nonce), { fetchImpl, timeoutMs });
+  if (entry?.ok && !usesInterfaceAddressedNames(entry.body)) return [...CRITICAL_ASSET_PATHS];
+  return ['/assets/index-entry.js', '/assets/index.css', `/${CHUNK_MANIFEST_FILENAME}`];
 }
 
 export async function probeRuntime({
@@ -679,8 +714,7 @@ export async function probeRuntime({
       }),
     };
   }
-  const probePaths = assetPaths
-    ?? resolveCriticalAssetPaths(await readChunkManifest({ fetchImpl, timeoutMs, nonce }));
+  const probePaths = assetPaths ?? await resolveDefaultAssetPaths({ fetchImpl, timeoutMs, nonce });
   const assets = await Promise.all(probePaths.map(async (path) => {
     const url = `${CDN_ORIGIN}${path}`;
     const [cached, fresh] = await Promise.all([

@@ -212,14 +212,45 @@ export function parseAbiSuffix(fileName) {
 }
 
 /**
- * Resolve a logical chunk name to its emitted file using the published
- * manifest, falling back to the stable `<name>.js` spelling (a manifest from
- * an older deploy, or a chunk the manifest deliberately omits).
+ * True for a parsed `assets/chunk-manifest.json` of the shape this build
+ * publishes. Anything else (a 404 body, an HTML error page, a truncated
+ * download) is NOT a manifest and must never be read as "no chunk is renamed".
  *
- * @param {{ chunks?: Record<string, string> } | null | undefined} manifest
- * @param {string} name
- * @returns {string}
+ * @param {unknown} value
+ * @returns {boolean}
  */
-export function chunkFileFromManifest(manifest, name) {
-  return manifest?.chunks?.[name] ?? `${name}.js`;
+export function isChunkManifest(value) {
+  const m = /** @type {{ v?: unknown, chunks?: unknown } | null} */ (value);
+  return Boolean(m) && typeof m === 'object' && m.v === 1
+    && Boolean(m.chunks) && typeof m.chunks === 'object' && !Array.isArray(m.chunks);
+}
+
+/**
+ * The emitted file of a logical chunk name according to a VALID manifest, or
+ * undefined when the manifest does not list it. Deliberately has no
+ * `<name>.js` fallback: once chunks are renamed by interface, the plain
+ * spelling of a renamed chunk is an older generation's file that the CDN still
+ * serves with a 200 — probing it would report a broken deploy as healthy.
+ *
+ * @param {{ chunks: Record<string, string> }} manifest  a manifest that passed `isChunkManifest`
+ * @param {string} name
+ * @returns {string | undefined}
+ */
+export function chunkFileInManifest(manifest, name) {
+  const file = manifest.chunks[name];
+  return typeof file === 'string' && file ? file : undefined;
+}
+
+/**
+ * Does this entry chunk import interface-hashed files (`./i18n.a56b3675.js`)?
+ * That is how a consumer outside the build tells a generation published by the
+ * interface-addressed build from an older one, whose plain `<name>.js` spellings
+ * are still the real names. The entry always imports the `i18n` hub, which
+ * exports many names and is therefore always hashed.
+ *
+ * @param {string | null | undefined} entrySource  text of `index-entry.js`
+ * @returns {boolean}
+ */
+export function usesInterfaceAddressedNames(entrySource) {
+  return new RegExp(`["']\\./[^"']*\\.[0-9a-f]{${ABI_HASH_LENGTH}}\\.js["']`).test(String(entrySource ?? ''));
 }

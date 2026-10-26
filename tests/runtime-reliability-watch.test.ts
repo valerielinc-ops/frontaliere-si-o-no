@@ -15,6 +15,7 @@ import {
   probeRuntime,
   probePublicConfig,
   resolveCriticalAssetPaths,
+  resolveDefaultAssetPaths,
   rotationFromEnv,
   runtimeFailureFingerprint,
 } from '../scripts/runtime-reliability-watch.mjs';
@@ -716,30 +717,111 @@ describe('runtime reliability watchdog', () => {
       ]);
     });
 
-    it('degrades to the plain spelling when the manifest is missing (a deploy from before it existed)', () => {
-      expect(resolveCriticalAssetPaths(null)).toEqual(CRITICAL_ASSET_PATHS);
+    it('does not probe a guessed plain spelling for a chunk the manifest does not list', () => {
+      // `functionsBase` and `Skeletons` are not in this manifest: not separate chunks of that build.
+      expect(resolveCriticalAssetPaths({ v: 1, chunks: { App: 'App.0f0f0f0f.js' } })).toEqual([
+        '/assets/App.0f0f0f0f.js',
+        '/assets/index-entry.js',
+        '/assets/index.css',
+      ]);
     });
 
-    it('probes the files named by the live chunk manifest when no explicit paths are given', async () => {
-      const now = Date.parse('2026-10-18T20:10:00Z');
-      const stable = String(now - 60 * 60_000);
-      const probed: string[] = [];
-      const fetchImpl = vi.fn(async (url: string) => {
+    const NOW = Date.parse('2026-10-18T20:10:00Z');
+    const STABLE = String(NOW - 60 * 60_000);
+    const HASHED_ENTRY = 'import{__vitePreload as m}from"./i18n.a56b3675.js";';
+    const LEGACY_ENTRY = 'import{__vitePreload as m}from"./i18n.js";';
+
+    /** A CDN whose manifest answers `manifestResponse` and whose entry is `entryBody`; records every /assets probe. */
+    function cdnWith(manifestResponse: ReturnType<typeof response>, entryBody: string, probed: string[]) {
+      return vi.fn(async (url: string) => {
         const path = new URL(url).pathname;
         if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
-        if (path === CDN_PUBLISH_START_ID_PATH || path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(stable);
-        if (path === '/assets/chunk-manifest.json') return response(JSON.stringify(manifest));
+        if (path === CDN_PUBLISH_START_ID_PATH || path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(STABLE);
+        if (path === '/assets/chunk-manifest.json') {
+          probed.push(path);
+          return manifestResponse;
+        }
+        if (path === '/assets/index-entry.js') {
+          probed.push(path);
+          return response(entryBody);
+        }
         if (path.startsWith('/assets/')) {
           probed.push(path);
           return response('same');
         }
         return response('1792310390925');
       });
-      await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date(now), chunkGraph: false });
+    }
+
+    it('probes the files named by the live chunk manifest when no explicit paths are given', async () => {
+      const probed: string[] = [];
+      const fetchImpl = cdnWith(response(JSON.stringify(manifest)), HASHED_ENTRY, probed);
+      await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date(NOW), chunkGraph: false });
       const unique = [...new Set(probed)];
       expect(unique).toContain('/assets/App.0f0f0f0f.js');
       expect(unique).toContain('/assets/Skeletons.12345678.js');
       expect(unique).not.toContain('/assets/App.js');
+    });
+
+    it('resolveDefaultAssetPaths: a valid manifest wins, a legacy generation keeps the plain names', async () => {
+      const resolve = (manifestResponse: ReturnType<typeof response>, entryBody: string) =>
+        resolveDefaultAssetPaths({
+          fetchImpl: cdnWith(manifestResponse, entryBody, []) as any,
+          timeoutMs: 1000,
+          nonce: 'n',
+        });
+      expect(await resolve(response(JSON.stringify(manifest)), HASHED_ENTRY)).toContain('/assets/App.0f0f0f0f.js');
+      // No manifest, and the live entry imports no hashed file: published before the scheme, plain names are the real ones.
+      expect(await resolve(response('', 404), LEGACY_ENTRY)).toEqual(CRITICAL_ASSET_PATHS);
+    });
+
+    it('fails closed on an interface-addressed generation whose manifest is missing or invalid', async () => {
+      const resolve = (manifestResponse: ReturnType<typeof response>) =>
+        resolveDefaultAssetPaths({
+          fetchImpl: cdnWith(manifestResponse, HASHED_ENTRY, []) as any,
+          timeoutMs: 1000,
+          nonce: 'n',
+        });
+      const expected = ['/assets/index-entry.js', '/assets/index.css', '/assets/chunk-manifest.json'];
+      expect(await resolve(response('', 404))).toEqual(expected);
+      expect(await resolve(response('<html>Not Found</html>'))).toEqual(expected);
+      expect(await resolve(response(JSON.stringify({ v: 2, chunks: {} })))).toEqual(expected);
+      expect(await resolve(response('{"v":1,"chunks":'))).toEqual(expected);
+    });
+
+    it('is non-green and authorises no repair when the manifest 404s while the plain asset still answers 200', async () => {
+      // The review scenario: manifest 404, /assets/App.js 200 (an older generation's retained file),
+      // /assets/App.<hash>.js 404. Probing the plain spelling would call this healthy.
+      const probed: string[] = [];
+      const fetchImpl = vi.fn(async (url: string) => {
+        const path = new URL(url).pathname;
+        if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
+        if (path === CDN_PUBLISH_START_ID_PATH || path === CDN_PUBLISH_COMPLETE_ID_PATH) return response(STABLE);
+        if (path === '/assets/chunk-manifest.json') {
+          probed.push(path);
+          return response('', 404);
+        }
+        if (path === '/assets/App.js') {
+          probed.push(path);
+          return response('old generation');
+        }
+        if (/^\/assets\/App\.[0-9a-f]{8}\.js$/.test(path)) return response('', 404);
+        if (path === '/assets/index-entry.js') {
+          probed.push(path);
+          return response(HASHED_ENTRY);
+        }
+        if (path.startsWith('/assets/')) {
+          probed.push(path);
+          return response('same');
+        }
+        return response('1792310390925');
+      });
+      const result = await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date(NOW), chunkGraph: false });
+      expect(result.ok).toBe(false);
+      expect(result.purgeUrls).toEqual([]);
+      expect(evaluateRepairPolicy({ probe: result })).not.toMatchObject({ action: 'purge' });
+      expect(result.reasons.join('\n')).toContain('/assets/chunk-manifest.json');
+      expect(probed).not.toContain('/assets/App.js');
     });
   });
 

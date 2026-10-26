@@ -13,10 +13,12 @@ export {
   GRANDFATHERED_ABI_HASHES,
   abiChunkFileName,
   chunkAbiHash,
-  chunkFileFromManifest,
+  chunkFileInManifest,
   expectedAbiHash,
   isAbiChunkNamingEnabled,
+  isChunkManifest,
   namedChunkExports,
   parseAbiSuffix,
+  usesInterfaceAddressedNames,
   withAbiSuffix,
 } from './abiChunkNaming.mjs';

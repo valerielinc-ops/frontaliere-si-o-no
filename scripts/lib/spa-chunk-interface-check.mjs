@@ -24,6 +24,8 @@
  * build; verify-spa-entry-assets.mjs does the disk I/O.
  */
 
+import fs from 'node:fs';
+import path from 'node:path';
 import { expectedAbiHash, parseAbiSuffix } from '../../build-plugins/shared/abiChunkNaming.mjs';
 import { isPlainNameChunk } from '../../build-plugins/shared/plainNameChunks.mjs';
 
@@ -119,13 +121,27 @@ const ASSET_REF_RX = /(?:src|href)=["'](?:https?:\/\/[^"'/]+)?\/assets\/([^"'?#\
  * @returns {{ page: string, asset: string, reason: string }[]}
  */
 export function checkHtmlAssetReferences(htmlByPath, assetFiles) {
+  const check = createHtmlAssetReferenceChecker(assetFiles);
+  const missing = [];
+  for (const [page, html] of htmlByPath) missing.push(...check(page, html));
+  return missing;
+}
+
+/**
+ * The per-page form of `checkHtmlAssetReferences`, so a caller that walks a
+ * very large tree can feed it one page at a time without holding them all.
+ *
+ * @param {ReadonlySet<string>} assetFiles  files present in dist/assets (relative to it)
+ * @returns {(page: string, html: string) => { page: string, asset: string, reason: string }[]}
+ */
+export function createHtmlAssetReferenceChecker(assetFiles) {
   const renamedBases = new Set();
   for (const file of assetFiles) {
     const parsed = parseAbiSuffix(file);
     if (parsed) renamedBases.add(parsed.base);
   }
-  const missing = [];
-  for (const [page, html] of htmlByPath) {
+  return (page, html) => {
+    const missing = [];
     for (const match of html.matchAll(ASSET_REF_RX)) {
       const asset = match[1];
       if (assetFiles.has(asset)) continue;
@@ -135,8 +151,70 @@ export function checkHtmlAssetReferences(htmlByPath, assetFiles) {
         missing.push({ page, asset, reason: 'chunk is emitted only under its interface-hashed name' });
       }
     }
+    return missing;
+  };
+}
+
+/**
+ * Check EVERY emitted `.html` file under `distDir`, however deep and however
+ * many: a renamed chunk that one emitter failed to follow can hide in a single
+ * locale or section, so a sample proves nothing about the pages it skips. Pages
+ * are read one at a time through a bounded pool and dropped after the check, so
+ * memory stays flat on a dist with a million files. `dist/assets` holds no HTML
+ * and is skipped.
+ *
+ * @param {string} distDir
+ * @param {ReadonlySet<string>} assetFiles
+ * @param {{ concurrency?: number, maxProblems?: number }} [opts]
+ * @returns {Promise<{ scanned: number, problems: { page: string, asset: string, reason: string }[], truncated: boolean }>}
+ */
+export async function scanHtmlAssetReferences(distDir, assetFiles, { concurrency = 64, maxProblems = 200 } = {}) {
+  const check = createHtmlAssetReferenceChecker(assetFiles);
+  const problems = [];
+  let scanned = 0;
+  let truncated = false;
+  const pending = new Set();
+  const assetsDir = path.join(distDir, 'assets');
+
+  const visit = async (file) => {
+    let html;
+    try {
+      html = await fs.promises.readFile(file, 'utf8');
+    } catch {
+      return;
+    }
+    scanned += 1;
+    for (const problem of check(path.relative(distDir, file), html)) {
+      if (problems.length >= maxProblems) {
+        truncated = true;
+        break;
+      }
+      problems.push(problem);
+    }
+  };
+
+  const dirs = [distDir];
+  while (dirs.length > 0) {
+    const dir = dirs.pop();
+    let handle;
+    try {
+      handle = await fs.promises.opendir(dir);
+    } catch {
+      continue;
+    }
+    for await (const entry of handle) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (full !== assetsDir) dirs.push(full);
+      } else if (entry.isFile() && entry.name.endsWith('.html')) {
+        if (pending.size >= concurrency) await Promise.race(pending);
+        const task = visit(full).finally(() => pending.delete(task));
+        pending.add(task);
+      }
+    }
   }
-  return missing;
+  await Promise.all(pending);
+  return { scanned, problems, truncated };
 }
 
 /** @param {{ file: string, kind: string, detail: string }[]} problems */

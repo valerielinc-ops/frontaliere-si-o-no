@@ -10,11 +10,13 @@ import {
   GRANDFATHERED_ABI_HASHES,
   abiChunkFileName,
   chunkAbiHash,
-  chunkFileFromManifest,
+  chunkFileInManifest,
   expectedAbiHash,
   isAbiChunkNamingEnabled,
+  isChunkManifest,
   namedChunkExports,
   parseAbiSuffix,
+  usesInterfaceAddressedNames,
   withAbiSuffix,
 } from '@/build-plugins/shared/abiChunkNaming';
 
@@ -132,12 +134,37 @@ describe('isAbiChunkNamingEnabled — build kill switch', () => {
   });
 });
 
-describe('chunkFileFromManifest', () => {
-  it('maps a logical name to the emitted file and falls back to <name>.js', () => {
-    const manifest = { chunks: { mx: 'mx.3fa9c0de.js' } };
-    expect(chunkFileFromManifest(manifest, 'mx')).toBe('mx.3fa9c0de.js');
-    expect(chunkFileFromManifest(manifest, 'it-core')).toBe('it-core.js');
-    expect(chunkFileFromManifest(null, 'App')).toBe('App.js');
+describe('isChunkManifest / chunkFileInManifest', () => {
+  const manifest = { v: 1, chunks: { mx: 'mx.3fa9c0de.js' } };
+
+  it('accepts the shape the build publishes and nothing else', () => {
+    expect(isChunkManifest(manifest)).toBe(true);
+    expect(isChunkManifest({ v: 1, chunks: {} })).toBe(true);
+    for (const bad of [null, undefined, 'x', 42, [], {}, { chunks: {} }, { v: 2, chunks: {} }, { v: 1 }, { v: 1, chunks: [] }, { v: 1, chunks: null }]) {
+      expect(isChunkManifest(bad), JSON.stringify(bad)).toBe(false);
+    }
+  });
+
+  it('answers with the emitted file, and with undefined — never a guessed <name>.js — for an unlisted chunk', () => {
+    // The plain spelling of a renamed chunk is an older generation's retained file (a 200):
+    // guessing it would let a probe pass on a deploy whose real file is missing.
+    expect(chunkFileInManifest(manifest, 'mx')).toBe('mx.3fa9c0de.js');
+    expect(chunkFileInManifest(manifest, 'App')).toBeUndefined();
+    expect(chunkFileInManifest({ v: 1, chunks: { App: '' } }, 'App')).toBeUndefined();
+  });
+});
+
+describe('usesInterfaceAddressedNames — telling the generation apart from its entry', () => {
+  it('recognises an entry that imports interface-hashed files', () => {
+    expect(usesInterfaceAddressedNames('import{__vitePreload as m}from"./i18n.a56b3675.js";')).toBe(true);
+    expect(usesInterfaceAddressedNames("import('./App.e821447c.js')")).toBe(true);
+  });
+
+  it('treats an entry from before the scheme (plain names only) as legacy', () => {
+    expect(usesInterfaceAddressedNames('import{__vitePreload as m}from"./i18n.js";')).toBe(false);
+    expect(usesInterfaceAddressedNames('import("./slug.it.js")')).toBe(false);
+    expect(usesInterfaceAddressedNames('')).toBe(false);
+    expect(usesInterfaceAddressedNames(null)).toBe(false);
   });
 });
 

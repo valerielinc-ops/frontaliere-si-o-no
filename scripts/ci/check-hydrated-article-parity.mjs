@@ -103,7 +103,12 @@ import {
   missingFromClient, divergentSurfaces,
   divergenceVerdict,
 } from '../lib/hydratedParity.mjs';
-import { CHUNK_MANIFEST_FILENAME, chunkFileFromManifest } from '../../build-plugins/shared/abiChunkNaming.mjs';
+import {
+  CHUNK_MANIFEST_FILENAME,
+  chunkFileInManifest,
+  isChunkManifest,
+  usesInterfaceAddressedNames,
+} from '../../build-plugins/shared/abiChunkNaming.mjs';
 
 const args = process.argv.slice(2);
 const flag = (name, fallback) => {
@@ -244,19 +249,49 @@ function fail(msg) {
  * (build-plugins/shared/abiChunkNaming.mjs), so `blog-articles-data.js` is only
  * the LOGICAL spelling. The build publishes the logical-name → emitted-file map
  * as assets/chunk-manifest.json; read it the way the app reads everything else
- * (with `Origin`) and fall back to the plain spelling when it is absent — a
- * deploy from before the manifest, where the plain names are the real ones.
+ * (with `Origin`).
+ *
+ * A missing or invalid manifest is NOT read as "nothing was renamed". The
+ * plain `<name>.js` of a renamed chunk is an older generation's file that the
+ * CDN keeps serving with a 200, so reading it would measure data no visitor is
+ * served and could pass this gate on a deploy that is actually broken. This gate
+ * exists to be believed, so it only falls back to the plain names when the live
+ * entry proves the generation predates interface-addressed names (it imports
+ * no hashed file); on any other generation it fails.
  */
 async function loadChunkManifest() {
   try {
     const r = await getText(`${CDN}/${CHUNK_MANIFEST_FILENAME}?v=${Date.now()}`, BROWSER_HEADERS);
-    return JSON.parse(r.body);
+    const parsed = JSON.parse(r.body);
+    return isChunkManifest(parsed) ? parsed : null;
   } catch {
     return null;
   }
 }
+
+async function livePredatesInterfaceNames() {
+  try {
+    const entry = await getText(`${CDN}/assets/index-entry.js?v=${Date.now()}`, BROWSER_HEADERS);
+    return !usesInterfaceAddressedNames(entry.body);
+  } catch {
+    return false;
+  }
+}
+
 const CHUNK_MANIFEST = await loadChunkManifest();
-const chunkUrl = (name) => `${CDN}/assets/${chunkFileFromManifest(CHUNK_MANIFEST, name)}`;
+const PLAIN_CHUNK_NAMES = CHUNK_MANIFEST ? false : await livePredatesInterfaceNames();
+if (!CHUNK_MANIFEST && !PLAIN_CHUNK_NAMES) {
+  fail(
+    `${CDN}/${CHUNK_MANIFEST_FILENAME} is missing or invalid and the live entry is interface-addressed (or unreadable): `
+    + 'chunk names cannot be resolved, and reading their plain spelling would measure a retained older generation',
+  );
+}
+const chunkUrl = (name) => {
+  if (PLAIN_CHUNK_NAMES) return `${CDN}/assets/${name}.js`;
+  const file = chunkFileInManifest(CHUNK_MANIFEST, name);
+  if (!file) fail(`chunk ${name} is not listed in the published chunk manifest — the client surface cannot be located`);
+  return `${CDN}/assets/${file}`;
+};
 /** The client surfaces, exactly as the app requests them. */
 const CLIENT_SURFACES = CLIENT_CHUNKS.map(chunkUrl);
 const CODE_SURFACES = CODE_CHUNKS.map(chunkUrl);
