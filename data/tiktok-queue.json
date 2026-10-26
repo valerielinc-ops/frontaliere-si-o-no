@@ -88,6 +88,45 @@
       ],
       "createdAt": "2026-10-25T13:22:46.119Z",
       "expiresAt": "2026-10-27T01:22:46.119Z"
+    },
+    {
+      "id": "border-2026-10-19",
+      "channel": "tiktok",
+      "kind": "border",
+      "day": "2026-10-19",
+      "caption": "🛂 Dogane Ticino: attese e traffico al confine\n\nLa classifica delle dogane più veloci del Ticino nella settimana 2026-10-19 – 2026-10-25.\n\n1. Biegno Indemini — 0 min\n2. Bizzarone Novazzano — 0 min\n3. Camedo (Re-Centovalli) — 0 min\n4. Clivio Ligornetto — 0 min\n5. Cremenaga Ponte Cremenaga — 0 min\n\n👉 Link in bio: frontaliereticino.ch\n\n#frontalieri #ticino #dogane #confine #svizzera #traffico",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-19-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-19-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-19-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-19-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-19-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-19-5.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-10-19.mp4",
+        "bytes": 511675,
+        "sha256": "90515d18361c1a173b67783506b8d9ebca1741136887ee633bc6215f3b08db7e",
+        "durationMs": 22267,
+        "width": 1080,
+        "height": 1920,
+        "creativeVariant": "motion-graphic-v1"
+      },
+      "ledgerEntries": [
+        {
+          "id": "2026-10-19",
+          "kind": "border",
+          "url": "/traffico-dogane/biegno-indemini/oggi/",
+          "day": "2026-10-19",
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "motion-graphic-v1",
+          "creativeLabel": "Motion graphic",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
+        }
+      ],
+      "createdAt": "2026-10-26T14:13:25.524Z",
+      "expiresAt": "2026-11-02T14:13:25.524Z"
     }
   ]
 }
