@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 868,
+      "5": 869,
       "6": 5057
     },
-    "publishedCovers": 7608,
+    "publishedCovers": 7609,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -209432,6 +209432,39 @@
         "provider": "openai-codex",
         "assetId": "article-salario-minimo-basilea-2027",
         "imageUrl": "/images/blog/article-salario-minimo-basilea-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-esecutivo-zugo-mandato-2030": {
+      "cover": "/images/blog/article-esecutivo-zugo-mandato-2030.webp",
+      "hash": "925c90f247c3ee1fa219a1a4896989a2e86c84c13230a3572df394428c0ac8dd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "esecutivo-zugo-mandato-2030",
+          "category": "novita",
+          "date": "2026-10-26T12:22:22.628Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-esecutivo-zugo-mandato-2030.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-esecutivo-zugo-mandato-2030",
+        "imageUrl": "/images/blog/article-esecutivo-zugo-mandato-2030.webp",
         "evidence": "generated-engine-record"
       }
     }
