@@ -890,6 +890,18 @@ export default defineConfig(({ mode }) => {
  if (id.includes('leaflet') || id.includes('react-leaflet')) return 'vendor-maps';
  if (id.includes('jspdf') || id.includes('jspdf-autotable')) return 'vendor-pdf';
  }
+ // The static-head authority (canonical/robots/hreflang the document was
+ // served with) is defined once and used by the entry AND by lazy chunks
+ // (seoService, JobBoard). Left to Rollup it lands in the entry chunk and those
+ // chunks import its four names from `index-entry.js`. Since the entry became a
+ // build-scoped bootstrap (versionedCdnAssetsPlugin) the stable root
+ // `index-entry.js` exports nothing, so the root aliases `JobBoard.js` /
+ // `seoService.js` fail verify-spa-module-links with `missing_export` and the
+ // whole deploy stops (run 40311562227, all four locales). Home the module in
+ // the `i18n` chunk instead: it has no imports and the entry already imports
+ // that chunk statically, so there is no extra request and the entry exports
+ // nothing — the same shape in the release copy and in the root aliases.
+ if (id.includes('services/seo/staticHeadAuthority')) return 'i18n';
  // Split i18n translations into a parallel-loaded chunk
  if (id.includes('services/i18n')) return 'i18n';
  // Consolidate small shared services into one chunk to reduce HTTP requests.
