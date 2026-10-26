@@ -209468,39 +209468,6 @@
         "evidence": "generated-engine-record"
       }
     },
-    "article-elezioni-friburgo-8-novembre": {
-      "cover": "/images/blog/article-elezioni-friburgo-8-novembre.webp",
-      "hash": "31c99e9cfa3b2f029116b35884512c3895b616ab3cf5590d17e1e09afefc0993",
-      "published": true,
-      "historicalPublished": true,
-      "references": [
-        {
-          "section": "canton-fr",
-          "id": "elezioni-friburgo-8-novembre",
-          "category": "pratico",
-          "date": "2026-10-26T15:40:18.151Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "proofLevel": 5,
-      "evidence": "generated-engine-record",
-      "recordFile": "packages/articles/content/image-credits/blog/article-elezioni-friburgo-8-novembre.json",
-      "inheritedFrom": null,
-      "action": "generated",
-      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
-      "priority": 1793,
-      "verifiedAt": "2026-10-26",
-      "provider": "openai-codex",
-      "currentlyPublished": true,
-      "status": "generated",
-      "generated": {
-        "provider": "openai-codex",
-        "assetId": "article-elezioni-friburgo-8-novembre",
-        "imageUrl": "/images/blog/article-elezioni-friburgo-8-novembre.webp",
-        "evidence": "generated-engine-record"
-      }
-    },
     "article-friburgo-no-linea-diretta": {
       "cover": "/images/blog/article-friburgo-no-linea-diretta.webp",
       "hash": "558f9b8d6889d55a5d9cfd70455e876ee307ce4fedc28843ccc80bbed6af07b6",
@@ -209531,6 +209498,39 @@
         "provider": "openai-codex",
         "assetId": "article-friburgo-no-linea-diretta",
         "imageUrl": "/images/blog/article-friburgo-no-linea-diretta.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-elezioni-friburgo-8-novembre": {
+      "cover": "/images/blog/article-elezioni-friburgo-8-novembre.webp",
+      "hash": "31c99e9cfa3b2f029116b35884512c3895b616ab3cf5590d17e1e09afefc0993",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "elezioni-friburgo-8-novembre",
+          "category": "pratico",
+          "date": "2026-10-26T15:40:18.151Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-elezioni-friburgo-8-novembre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-elezioni-friburgo-8-novembre",
+        "imageUrl": "/images/blog/article-elezioni-friburgo-8-novembre.webp",
         "evidence": "generated-engine-record"
       }
     },
