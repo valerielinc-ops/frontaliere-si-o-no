@@ -33,7 +33,7 @@ function isNonEmptyString(value: unknown): value is string {
 }
 
 function isFreshJourneyTimestamp(value: unknown, now: number): value is number {
- if (!Number.isSafeInteger(value)) return false;
+ if (typeof value !== 'number' || !Number.isSafeInteger(value)) return false;
  const age = now - value;
  return age >= 0 && age < TTL;
 }
