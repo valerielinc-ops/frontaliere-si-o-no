@@ -61,10 +61,14 @@ jobs:
           # runs months apart must measure with the same browser build.
           version="$(node -p "require('./package-lock.json').packages['node_modules/playwright'].version")"
           mkdir -p "$RUNNER_TEMP/probe/lib"
-          mkdir -p "$RUNNER_TEMP/build-plugins/shared"
+          # The probe is copied below the runner temp root, but its source
+          # import remains `../../build-plugins/...`; mirror that path beside
+          # the temp root so the scratch copy resolves it unchanged.
+          scratch_root="$(cd "$RUNNER_TEMP/.." && pwd)"
+          mkdir -p "$scratch_root/build-plugins/shared"
           cp scripts/perf/inp-interaction-probe.mjs "$RUNNER_TEMP/probe/"
           cp scripts/perf/lib/inp-probe-summary.mjs "$RUNNER_TEMP/probe/lib/"
-          cp build-plugins/shared/cantonResolvers.mjs "$RUNNER_TEMP/build-plugins/shared/"
+          cp build-plugins/shared/cantonResolvers.mjs "$scratch_root/build-plugins/shared/"
           cd "$RUNNER_TEMP/probe"
           npm init -y >/dev/null
           npm install --no-audit --no-fund "playwright@${version}"
