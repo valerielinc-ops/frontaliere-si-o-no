@@ -30,6 +30,8 @@ describe('sendEmailCascade adaptive throttle', () => {
     vi.useRealTimers();
     globalThis.fetch = realFetch;
     delete process.env.MAILEROO_API_KEY;
+    delete process.env.MAILEROO_TRANSACTIONAL_API_KEY;
+    delete process.env.MAILEROO_NEWSLETTER_API_KEY;
   });
 
   it('parte da 100ms e sale di 100ms sui 429 fino al primo successo', async () => {

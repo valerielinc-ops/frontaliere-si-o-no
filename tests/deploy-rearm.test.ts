@@ -23,6 +23,7 @@ import {
   decideDispatchAfterFreshQueue,
   decideRearm,
   decideRearmAdmission,
+  decideTargetedRerunFallback,
   DEFAULT_MAX_BUILDS_PER_SHA,
   DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
 } from '../scripts/ci/rearm-deploy-build.mjs';
@@ -194,6 +195,56 @@ describe('targeted build-locale recovery — host loss/timeout only', () => {
 
     expect(decision.action).toBe('skip');
     expect(decision.reason).toBe('ambiguous-retryable-locale-legs');
+  });
+});
+
+describe('targeted rerun POST recovery — never race an admitted retry', () => {
+  const target = {
+    id: 100,
+    run_id: RECOVERY_RUN.id,
+    run_attempt: 1,
+    name: 'build-locale (de)',
+    status: 'completed',
+    conclusion: 'failure',
+  };
+
+  it('allows the whole-run fallback only after an explicit rejection and unchanged target', () => {
+    const decision = decideTargetedRerunFallback({
+      requestStatus: 422,
+      originalAttempt: 1,
+      observedRunAttempt: 1,
+      originalJobId: target.id,
+      originalJobName: target.name,
+      observedJobs: [target],
+    });
+
+    expect(decision).toMatchObject({ action: 'fallback', reason: 'targeted-rerun-rejected' });
+  });
+
+  it('suppresses the broad fallback when the failed POST may have been accepted', () => {
+    const decision = decideTargetedRerunFallback({
+      requestStatus: null,
+      originalAttempt: 1,
+      observedRunAttempt: 1,
+      originalJobId: target.id,
+      originalJobName: target.name,
+      observedJobs: [target],
+    });
+
+    expect(decision).toMatchObject({ action: 'skip', reason: 'targeted-rerun-admission-ambiguous' });
+  });
+
+  it('suppresses the broad fallback when the target moved to a newer attempt', () => {
+    const decision = decideTargetedRerunFallback({
+      requestStatus: 502,
+      originalAttempt: 1,
+      observedRunAttempt: 2,
+      originalJobId: target.id,
+      originalJobName: target.name,
+      observedJobs: [{ ...target, run_attempt: 2, status: 'queued', conclusion: null }],
+    });
+
+    expect(decision).toMatchObject({ action: 'skip', reason: 'targeted-rerun-admitted' });
   });
 });
 

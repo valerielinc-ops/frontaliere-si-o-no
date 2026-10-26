@@ -784,6 +784,8 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
       'MAILGUN_DOMAIN',
       'MAILTRAP_API_TOKEN',
       'MAILEROO_API_KEY',
+      'MAILEROO_TRANSACTIONAL_API_KEY',
+      'MAILEROO_NEWSLETTER_API_KEY',
       'MAILEROO_ACCOUNT_API_KEY',
       'RESEND_API_KEY',
       'CF_API_TOKEN',

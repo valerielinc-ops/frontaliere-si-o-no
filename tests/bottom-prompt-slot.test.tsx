@@ -173,6 +173,32 @@ describe('the shell renders one prompt at a time', () => {
     expect(getActiveSlotId()).toBe('a');
   });
 
+  it('keeps the prompt above the anchor and its collapse tab', () => {
+    const anchor = document.createElement('div');
+    anchor.className = 'google-auto-placed';
+    anchor.style.position = 'fixed';
+    anchor.getBoundingClientRect = () => ({
+      top: 650, bottom: 768, left: 0, right: 390, width: 390, height: 118,
+    } as DOMRect);
+    const iframe = document.createElement('iframe');
+    iframe.id = 'aswift_bottom_prompt_test';
+    anchor.appendChild(iframe);
+    document.body.appendChild(anchor);
+
+    render(
+      <BottomPromptShell slotId="a" priority={POPUP_PRIORITY.JOB_DETAIL_PROMPT}>
+        <span>prompt A</span>
+      </BottomPromptShell>,
+    );
+
+    try {
+      expect(screen.getByRole('dialog').getAttribute('style'))
+        .toContain('--bottom-prompt-ad-clearance: 158px');
+    } finally {
+      anchor.remove();
+    }
+  });
+
   it('promotes the waiting prompt once the winner goes away', () => {
     const { rerender } = render(<Pair />);
     expect(screen.getByText('prompt A')).toBeTruthy();

@@ -304,6 +304,8 @@ describe('sendEmailCascade burst mitigation', () => {
   afterEach(() => {
     globalThis.fetch = realFetch;
     delete process.env.MAILEROO_API_KEY;
+    delete process.env.MAILEROO_TRANSACTIONAL_API_KEY;
+    delete process.env.MAILEROO_NEWSLETTER_API_KEY;
   });
 
   it('hits the Maileroo send endpoint only once for a 50-email batch', async () => {

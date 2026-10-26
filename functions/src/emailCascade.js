@@ -27,7 +27,7 @@
  *   const { accepted, ambiguous, failed } = await sendEmailCascade(emails);
  *
  * Email format (same as Resend):
- *   { from, to: [string], subject, html, text?, cc?, bcc?, headers?, tags?: [{name, value}], replyTo?: string, referenceId?: string, attachments?: [{filename, content}], scheduledAt?: string }
+ *   { from, to: [string], subject, html, text?, cc?, bcc?, headers?, tags?: [{name, value}], replyTo?: string, referenceId?: string, attachments?: [{filename, content}], scheduledAt?: string, mailerooStream?: 'transactional'|'newsletter' }
  *
  * scheduledAt (optional) — ISO 8601 UTC timestamp (e.g. "2026-07-12T08:00:00.000Z")
  *   requesting a provider-side delayed send. Only resend/mailgun/maileroo support
@@ -50,17 +50,27 @@
  *                                Dynamically paced against real billing-cycle
  *                                usage (computeMailtrapDynamicDailyLimit), same
  *                                shape as resend/maileroo — see PROVIDERS[mailtrap].
- *   MAILEROO_API_KEY         — Maileroo sending key (250000/mo Pro plan). Primary
- *                                bulk workhorse
- *                                of the cascade now — dynamically capped to pace
- *                                the 250k/mo budget, see PROVIDERS[maileroo] below.
+ *   MAILEROO_TRANSACTIONAL_API_KEY — Maileroo Application sending key for
+ *                                transactional/operational messages. Used for
+ *                                senders such as confirmation@, report@ and
+ *                                valerie@. Falls back to MAILEROO_API_KEY during
+ *                                a gradual rollout.
+ *   MAILEROO_NEWSLETTER_API_KEY — Maileroo Application sending key for
+ *                                newsletter and alert messages. Used for
+ *                                newsletter@, alerts@ and preview senders.
+ *                                Falls back to MAILEROO_API_KEY during a gradual
+ *                                rollout.
+ *   MAILEROO_API_KEY         — legacy Maileroo sending key (250000/mo Pro plan),
+ *                                retained as a safe fallback while the two
+ *                                Application keys are rolled out.
  *   MAILEROO_ACCOUNT_API_KEY — Maileroo Account API key (dashboard "Applications"
- *                                section — a DIFFERENT credential from the sending
- *                                key above). Powers real billing-period usage via
- *                                the Account API for the dynamic pace; optional
- *                                — falls back to a conservative static pace when
- *                                unset (verified live 2026-07-20: the sending key
- *                                itself gets 401 against this endpoint).
+ *                                section — a DIFFERENT credential from the
+ *                                Application sending keys above). Powers real
+ *                                billing-period usage via the Account API for
+ *                                the dynamic pace; optional — falls back to a
+ *                                conservative static pace when unset (the
+ *                                sending key itself gets 401 against this
+ *                                endpoint).
  *   RESEND_API_KEY           — Resend API key (free plan: 100/day, 3000/mo).
  *                                Last in cascade order since 2026-07-16 — now the
  *                                overflow valve once maileroo's much larger budget
@@ -97,6 +107,32 @@ const MAILEROO_STATIC_DAILY_LIMIT = Math.floor(MAILEROO_MONTHLY_LIMIT / 31);
 // of truth for diagnostics and future plan changes.
 const MAILEROO_HOURLY_LIMIT = 10_000;
 const MAILEROO_BULK_MIN_INTERVAL_MS = Math.ceil(60 * 60 * 1000 / MAILEROO_HOURLY_LIMIT);
+
+// These local parts mirror the two Maileroo Applications configured for the
+// verified frontaliereticino.ch domain. The sender address is the safe default
+// routing signal, while `mailerooStream` provides an explicit escape hatch for
+// a newly introduced sender that has first been allowlisted in Maileroo.
+const MAILEROO_NEWSLETTER_LOCAL_PARTS = new Set([
+  'newsletter', 'alerts', 'preview', 'qa-preview',
+]);
+
+function resolveMailerooStream(email) {
+  const explicit = String(email?.mailerooStream || '').trim().toLowerCase();
+  if (explicit === 'newsletter' || explicit === 'transactional') return explicit;
+
+  const from = parseEmailAddress(email?.from);
+  const address = String(from?.email || from?.address || '').trim().toLowerCase();
+  const localPart = address.split('@', 1)[0];
+  return MAILEROO_NEWSLETTER_LOCAL_PARTS.has(localPart) ? 'newsletter' : 'transactional';
+}
+
+function mailerooApiKeyForEmail(email) {
+  const stream = resolveMailerooStream(email);
+  if (stream === 'newsletter') {
+    return process.env.MAILEROO_NEWSLETTER_API_KEY || process.env.MAILEROO_API_KEY;
+  }
+  return process.env.MAILEROO_TRANSACTIONAL_API_KEY || process.env.MAILEROO_API_KEY;
+}
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000,
@@ -846,7 +882,11 @@ function isProviderConfigured(providerId) {
     case 'mailjet':    return !!(process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY);
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
     case 'mailtrap':   return !!process.env.MAILTRAP_API_TOKEN;
-    case 'maileroo':   return !!process.env.MAILEROO_API_KEY;
+    case 'maileroo':   return !!(
+      process.env.MAILEROO_TRANSACTIONAL_API_KEY
+      || process.env.MAILEROO_NEWSLETTER_API_KEY
+      || process.env.MAILEROO_API_KEY
+    );
     case 'resend':     return !!process.env.RESEND_API_KEY;
     case 'cloudflare': return !!(cloudflareToken() && cloudflareAccountId());
     default: return false;
@@ -1173,7 +1213,9 @@ async function sendViaMailtrap(email, _scheduledAt, signal) {
 // hexadecimal reference_id, which is echoed by Maileroo webhooks.
 
 async function sendViaMaileroo(email, scheduledAt, signal) {
-  const apiKey = process.env.MAILEROO_API_KEY;
+  const stream = resolveMailerooStream(email);
+  const apiKey = mailerooApiKeyForEmail(email);
+  if (!apiKey) throw new Error(`Maileroo ${stream} Application key is not configured`);
   const fromParsed = parseEmailAddress(email.from);
 
   const body = {

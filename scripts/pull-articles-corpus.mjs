@@ -78,6 +78,7 @@ import {
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
+import { fetchWithRefTimeout } from './lib/fetch-with-ref-timeout.mjs';
 import {
   collectPreserveSnapshots,
   destinationOnlyPaths,
@@ -236,7 +237,7 @@ async function fetchManifest(attempts = 3) {
   let lastErr;
   for (let i = 1; i <= attempts; i++) {
     try {
-      const res = await fetch(url, { redirect: 'follow' });
+      const res = await fetchWithRefTimeout(url, { redirect: 'follow' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const body = await res.json();
       if (body && typeof body === 'object') return body;

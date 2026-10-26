@@ -55,6 +55,8 @@ describe('sendEmailCascade bulk throughput', () => {
     vi.useRealTimers();
     globalThis.fetch = realFetch;
     delete process.env.MAILEROO_API_KEY;
+    delete process.env.MAILEROO_TRANSACTIONAL_API_KEY;
+    delete process.env.MAILEROO_NEWSLETTER_API_KEY;
   });
 
   it('un 429 da quota giornaliera esaurita ritira subito il provider, senza scalino adattivo', async () => {
