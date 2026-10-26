@@ -8,6 +8,7 @@ import { POPUP_PRIORITY } from '@/services/popupQueue';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
 import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
+import { isFutureEpochMillis } from '@/services/promptCooldown';
 
 const DISMISS_KEY = 'jobAlertStickyBanner:dismissedUntil';
 const DISMISS_DAYS = 7;
@@ -44,8 +45,7 @@ export default function JobAlertStickyBanner({
  setVisible(false);
  return;
  }
- const dismissedUntil = Number(localStorage.getItem(DISMISS_KEY) || 0);
- if (dismissedUntil > Date.now()) return;
+ if (isFutureEpochMillis(localStorage.getItem(DISMISS_KEY))) return;
 
  let ticking = false;
  const onScroll = () => {
