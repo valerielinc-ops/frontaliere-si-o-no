@@ -188,7 +188,7 @@ export function renderLocaleVariantNavHtml(
   if (byLocale.size < 2) return '';
   const links = LOCALE_VARIANT_CODES
     .filter((code) => byLocale.has(code))
-    .map((code) => `<a href="${byLocale.get(code)}" hreflang="${code}">${LOCALE_VARIANT_LABELS[code]}</a>`)
+    .map((code) => `<a href="${byLocale.get(code)}">${LOCALE_VARIANT_LABELS[code]}</a>`)
     .join(' · ');
   const aria = LOCALE_VARIANT_ARIA[currentLocale] ?? LOCALE_VARIANT_ARIA.it;
   return `<nav class="seo-locale-variants" aria-label="${aria}">${links}</nav>`;
