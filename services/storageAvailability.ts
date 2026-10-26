@@ -34,3 +34,22 @@ export function writeStorageItem(key: string, value: string): boolean {
     return false;
   }
 }
+
+/** Read an optional sessionStorage value without making a UI flow brittle. */
+export function readSessionStorageItem(key: string): string | null {
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+/** Persist an optional sessionStorage value; callers continue when it is blocked. */
+export function writeSessionStorageItem(key: string, value: string): boolean {
+  try {
+    sessionStorage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
+  }
+}
