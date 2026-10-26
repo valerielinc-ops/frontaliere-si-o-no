@@ -118,9 +118,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
-        "en": "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
+        "en": "logistics-apprenticeship-2027-rado-watch-co-ltd-lengnau-be",
         "de": "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
-        "fr": "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be-7uc34b"
+        "fr": "place-d-apprentissage-de-logisticien-ne-2027-rado-watch-co-ltd-lengnau-be"
       },
       "requirementsByLocale": {
         "it": [],
@@ -134,10 +134,17 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be"
+        ],
+        "en": [
+          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be-7uc34b"
+        ],
+        "fr": [
+          "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be-7uc34b"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be"
+        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be",
+        "logistiker-in-lehrstelle-2027-rado-watch-co-ltd-lengnau-be-7uc34b"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

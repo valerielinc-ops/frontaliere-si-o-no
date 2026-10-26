@@ -14618,12 +14618,12 @@
     },
     {
       "id": "lonza-82396d9298ad",
-      "slug": "internship-mammalian-analytical-development-80-100-lonza-ch",
+      "slug": "internship-mammalian-sviluppo-analitico-80-100-lonza-visp",
       "slugByLocale": {
         "en": "internship-mammalian-analytical-development-80-100-lonza-ch",
-        "it": "internship-mammalian-analytical-development-80-100-lonza-ch",
-        "de": "internship-mammalian-analytical-development-80-100-lonza-ch",
-        "fr": "internship-mammalian-analytical-development-80-100-lonza-ch"
+        "it": "internship-mammalian-sviluppo-analitico-80-100-lonza-visp",
+        "de": "praktikum-saugeranalytische-entwicklung-80-100-lonza-visp",
+        "fr": "stage-mammalien-developpement-analytique-80-100-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14682,7 +14682,21 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-26T09:17:18.258Z"
+      "firstSeenAt": "2026-10-26T09:17:18.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-mammalian-analytical-development-80-100-lonza-ch"
+        ],
+        "de": [
+          "internship-mammalian-analytical-development-80-100-lonza-ch"
+        ],
+        "fr": [
+          "internship-mammalian-analytical-development-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-mammalian-analytical-development-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3ce89e51a610",

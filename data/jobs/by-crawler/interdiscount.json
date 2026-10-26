@@ -24342,12 +24342,12 @@
     },
     {
       "id": "interdiscount-47e1fb90-b85",
-      "slug": "weihnachtsaushilfe-vendita-interdiscount-freienbach",
+      "slug": "addetto-a-alle-vendite-per-il-periodo-natalizio-interdiscount-freienbach",
       "slugByLocale": {
         "de": "weihnachtsaushilfe-verkauf-interdiscount-freienbach",
-        "it": "weihnachtsaushilfe-vendita-interdiscount-freienbach",
-        "en": "weihnachtsaushilfe-verkauf-interdiscount-freienbach",
-        "fr": "weihnachtsaushilfe-verkauf-interdiscount-freienbach"
+        "it": "addetto-a-alle-vendite-per-il-periodo-natalizio-interdiscount-freienbach",
+        "en": "christmas-sales-assistant-interdiscount-freienbach",
+        "fr": "auxiliaire-de-vente-pour-la-periode-de-noel-interdiscount-freienbach"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24403,11 +24403,19 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
+          "weihnachtsaushilfe-verkauf-interdiscount-freienbach",
+          "weihnachtsaushilfe-vendita-interdiscount-freienbach"
+        ],
+        "en": [
+          "weihnachtsaushilfe-verkauf-interdiscount-freienbach"
+        ],
+        "fr": [
           "weihnachtsaushilfe-verkauf-interdiscount-freienbach"
         ]
       },
       "previousSlugs": [
-        "weihnachtsaushilfe-verkauf-interdiscount-freienbach"
+        "weihnachtsaushilfe-verkauf-interdiscount-freienbach",
+        "weihnachtsaushilfe-vendita-interdiscount-freienbach"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,

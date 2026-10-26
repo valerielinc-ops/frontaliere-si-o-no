@@ -2681,7 +2681,7 @@
       },
       "slug": "devops-ingegnere-openshift-platform-managed-services-swisscom-zurich-8543c3d6b1",
       "slugByLocale": {
-        "it": "devops-ingegnere-openshift-platform-managed-services-swisscom-zurich-8543c3d6b1",
+        "it": "devops-ingegnere-openshift-platform-managed-services-swisscom-zurich",
         "en": "devops-engineer-openshift-platform-managed-services-swisscom-zurich-drxbfc",
         "de": "devops-engineer-openshift-platform-managed-services-swisscom-zurich-drxbfc",
         "fr": "devops-ingenieur-openshift-platform-managed-services-swisscom-zurich"
@@ -2703,13 +2703,11 @@
       "jobReqId": "R-0006863",
       "id": "swisscom-sede-ticino-175703e5a140",
       "previousSlugs": [
-        "devops-engineer-openshift-platform-managed-services-swisscom-zurich-drxbfc",
-        "devops-ingegnere-openshift-platform-managed-services-swisscom-zurich"
+        "devops-engineer-openshift-platform-managed-services-swisscom-zurich-drxbfc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-openshift-platform-managed-services-swisscom-zurich-drxbfc",
-          "devops-ingegnere-openshift-platform-managed-services-swisscom-zurich"
+          "devops-engineer-openshift-platform-managed-services-swisscom-zurich-drxbfc"
         ],
         "fr": [
           "devops-engineer-openshift-platform-managed-services-swisscom-zurich-drxbfc"
@@ -3224,12 +3222,12 @@
         "de": "Business Controller",
         "en": "Business controllers"
       },
-      "slug": "business-controller-swisscom-bern-drxcuy",
+      "slug": "controllore-di-affari-swisscom-bern",
       "slugByLocale": {
-        "it": "business-controller-swisscom-bern-drxcuy",
-        "en": "business-controller-swisscom-bern-drxcuy",
+        "it": "controllore-di-affari-swisscom-bern",
+        "en": "business-controllers-swisscom-bern",
         "de": "business-controller-swisscom-bern-drxcuy",
-        "fr": "business-controller-swisscom-bern-drxcuy"
+        "fr": "controleur-d-entreprise-swisscom-bern"
       },
       "category": "finance",
       "datePosted": "2026-10-26",
@@ -3263,7 +3261,21 @@
       },
       "addressRegion": "BE",
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-26T09:33:22.134Z"
+      "firstSeenAt": "2026-10-26T09:33:22.134Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-controller-swisscom-bern-drxcuy"
+        ],
+        "en": [
+          "business-controller-swisscom-bern-drxcuy"
+        ],
+        "fr": [
+          "business-controller-swisscom-bern-drxcuy"
+        ]
+      },
+      "previousSlugs": [
+        "business-controller-swisscom-bern-drxcuy"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Linux-Server_R-0006737",

@@ -1449,12 +1449,12 @@
     },
     {
       "id": "sonova-af287de181ae",
-      "slug": "senior-product-manager-hearing-aids-m-f-d-sonova-ch",
+      "slug": "senior-product-manager-apparecchi-acustici-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "senior-product-manager-hearing-aids-m-f-d-sonova-ch",
-        "it": "senior-product-manager-hearing-aids-m-f-d-sonova-ch",
+        "it": "senior-product-manager-apparecchi-acustici-m-f-d-sonova-staefa-switzerland",
         "de": "senior-product-manager-hearing-aids-m-f-d-sonova-ch",
-        "fr": "senior-product-manager-hearing-aids-m-f-d-sonova-ch"
+        "fr": "gestionnaire-principal-de-produits-aides-auditives-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1511,7 +1511,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-26T09:16:37.019Z"
+      "firstSeenAt": "2026-10-26T09:16:37.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-hearing-aids-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "senior-product-manager-hearing-aids-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-manager-hearing-aids-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-088c8bab41fe",

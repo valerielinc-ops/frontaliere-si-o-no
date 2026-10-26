@@ -1109,7 +1109,7 @@
         "it": "manutenzione-testa-siegfried-zofingen",
         "en": "head-maintenance-siegfried-zofingen",
         "de": "head-maintenance-siegfried-ch",
-        "fr": "responsable-de-la-maintenance-de-production-siegfried-zofingen"
+        "fr": "entretien-de-la-tete-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1162,14 +1162,14 @@
         "fr": [
           "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
           "production-maintenance-manager-siegfried-zofingen",
-          "entretien-de-la-tete-siegfried-zofingen"
+          "responsable-de-la-maintenance-de-production-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "production-maintenance-manager-siegfried-ch",
         "directeur-de-la-maintenance-de-la-production-siegfried-zofingen",
         "production-maintenance-manager-siegfried-zofingen",
-        "entretien-de-la-tete-siegfried-zofingen"
+        "responsable-de-la-maintenance-de-production-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-09-09T14:06:01.758Z",
       "salaryMin": 85500,
@@ -1662,12 +1662,12 @@
     },
     {
       "id": "siegfried-c5133cc75e5e",
-      "slug": "analytical-project-manager-siegfried-ch",
+      "slug": "responsabile-del-progetto-analitico-siegfried-zofingen",
       "slugByLocale": {
         "en": "analytical-project-manager-siegfried-ch",
-        "it": "analytical-project-manager-siegfried-ch",
-        "de": "analytical-project-manager-siegfried-ch",
-        "fr": "analytical-project-manager-siegfried-ch"
+        "it": "responsabile-del-progetto-analitico-siegfried-zofingen",
+        "de": "analytischer-projektmanager-siegfried-zofingen",
+        "fr": "gestionnaire-de-projet-analytique-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1727,7 +1727,21 @@
       },
       "postalCode": "4800",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-10-26T09:19:27.533Z"
+      "firstSeenAt": "2026-10-26T09:19:27.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analytical-project-manager-siegfried-ch"
+        ],
+        "de": [
+          "analytical-project-manager-siegfried-ch"
+        ],
+        "fr": [
+          "analytical-project-manager-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "analytical-project-manager-siegfried-ch"
+      ]
     }
   ]
 }

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zkb-642ba4e62d6a",
-      "slug": "spezialist-in-business-development-asset-management-zkb-zurich",
+      "slug": "specialista-in-sviluppo-commerciale-gestione-patrimoniale-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "spezialist-in-business-development-asset-management-zkb-zurich",
-        "it": "spezialist-in-business-development-asset-management-zkb-zurich",
+        "it": "specialista-in-sviluppo-commerciale-gestione-patrimoniale-zurcher-kantonalbank-zurich",
         "en": "spezialist-in-business-development-asset-management-zkb-zurich",
-        "fr": "spezialist-in-business-development-asset-management-zkb-zurich"
+        "fr": "specialiste-en-developpement-commercial-gestion-d-actifs-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -72,16 +72,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T09:20:06.818Z"
+      "firstSeenAt": "2026-10-26T09:20:06.818Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-business-development-asset-management-zkb-zurich"
+        ],
+        "fr": [
+          "spezialist-in-business-development-asset-management-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-business-development-asset-management-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-7928411711e5",
-      "slug": "projektmanager-in-transformation-e-strategie-m-w-d-zurcher-kantonalbank-zurich",
+      "slug": "responsabile-di-progetto-per-la-trasformazione-e-la-strategia-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich",
-        "it": "projektmanager-in-transformation-e-strategie-m-w-d-zurcher-kantonalbank-zurich",
-        "en": "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich",
-        "fr": "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich"
+        "it": "responsabile-di-progetto-per-la-trasformazione-e-la-strategia-m-f-d-zurcher-kantonalbank-zurich",
+        "en": "project-manager-transformation-and-strategy-m-f-d-zurcher-kantonalbank-zurich",
+        "fr": "chef-fe-de-projet-transformation-et-strategie-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -132,11 +143,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich",
+          "projektmanager-in-transformation-e-strategie-m-w-d-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich"
+        ],
+        "fr": [
           "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich"
         ]
       },
       "previousSlugs": [
-        "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich"
+        "projektmanager-in-transformation-und-strategie-m-w-d-zkb-zurich",
+        "projektmanager-in-transformation-e-strategie-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5811,7 +5830,7 @@
         "it": "ufficiale-di-conformita-m-f-d-zurcher-kantonalbank-zurich",
         "en": "compliance-officer-m-w-d-zkb-zurich",
         "de": "compliance-officer-m-w-d-zkb-zurich",
-        "fr": "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -5860,14 +5879,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "compliance-officer-m-w-d-zkb-zurich",
-        "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+        "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-m-w-d-zkb-zurich"
         ],
         "fr": [
-          "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+          "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-10-19T09:16:47.839Z",
