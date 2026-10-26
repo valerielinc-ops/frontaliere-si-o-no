@@ -10,6 +10,8 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { AC_SALARY_CAP_CHF, DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
 import { LPP_COORDINATION_DEDUCTION_CHF, LPP_ENTRY_THRESHOLD_CHF } from '@/services/pensionParameters';
 import type { UserProfileData } from '@/components/pages/UserProfile';
+import { parseProfileChildren } from './bonusProfilePrefill';
+import { BONUS_CHILDREN_MAX, BONUS_CHILDREN_MIN, parseProfileChildren } from './bonusProfilePrefill';
 
 // Swiss social deduction rates from shared constants
 const AVS_RATE = DEFAULT_TECH_PARAMS.avsRate;
@@ -221,10 +223,8 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  if (userProfile.familySituation) {
  setMaritalStatus(userProfile.familySituation === 'married' ? 'married' : 'single');
  }
- if (userProfile.children) {
- const n = parseInt(userProfile.children, 10);
- if (Number.isFinite(n)) setChildren(Math.min(10, Math.max(0, n)));
- }
+ const profileChildren = parseProfileChildren(userProfile.children);
+ if (profileChildren !== null) setChildren(profileChildren);
  }, [userProfile]);
 
  const result = useMemo(() => calculatePayslip(grossAnnual, age, maritalStatus, children), [grossAnnual, age, maritalStatus, children]);
@@ -384,8 +384,8 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  ariaLabel={t('input.dependentChildren')}
  value={children}
  onChange={setChildren}
- min={0}
- max={10}
+ min={BONUS_CHILDREN_MIN}
+ max={BONUS_CHILDREN_MAX}
  icon={Baby}
  iconColor="text-danger"
  />
