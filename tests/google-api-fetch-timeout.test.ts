@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { normalizeGoogleApiFetchTimeout } from '../scripts/lib/google-api-fetch.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATHS = [
@@ -16,6 +17,14 @@ const SCRIPT_PATHS = [
 ];
 
 describe('Google API helper adoption', () => {
+  it('normalizes invalid and fractional configured deadlines safely', () => {
+    expect(normalizeGoogleApiFetchTimeout('-1')).toBe(30_000);
+    expect(normalizeGoogleApiFetchTimeout('0.5')).toBe(30_000);
+    expect(normalizeGoogleApiFetchTimeout('Infinity')).toBe(30_000);
+    expect(normalizeGoogleApiFetchTimeout('300000')).toBe(120_000);
+    expect(normalizeGoogleApiFetchTimeout('45000')).toBe(45_000);
+  });
+
   it('bounds every direct Google request in the audited tools', () => {
     const helper = readFileSync(resolve(ROOT, 'scripts/lib/google-api-fetch.mjs'), 'utf8');
     expect(helper).toContain('AbortSignal.timeout(GOOGLE_API_FETCH_TIMEOUT_MS)');
@@ -25,5 +34,12 @@ describe('Google API helper adoption', () => {
       expect(source, relativePath).toContain('fetchGoogleApi(');
       expect(source.match(/await fetch\(/g) || [], relativePath).toHaveLength(0);
     }
+  });
+
+  it('bounds the pinned corpus manifest read as well', () => {
+    const source = readFileSync(resolve(ROOT, 'scripts/pull-articles-corpus.mjs'), 'utf8');
+    expect(source).toContain("import { fetchWithRefTimeout } from './lib/fetch-with-ref-timeout.mjs';");
+    expect(source).toContain("fetchWithRefTimeout(url, { redirect: 'follow' })");
+    expect(source.match(/await fetch\(/g) || []).toHaveLength(0);
   });
 });
