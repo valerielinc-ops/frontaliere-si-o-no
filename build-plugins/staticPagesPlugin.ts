@@ -1022,6 +1022,9 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
    // Replace the entire old block, not only a missing block. Incremental
    // builds can carry an earlier directory list that predates the event,
    // fuel, search, and career discovery links owned by the current source.
+   // Replace the entire old block, not only a missing block. Incremental
+   // builds can carry an earlier directory list that predates the event,
+   // fuel, search, and career discovery links owned by the current source.
    repairedHtml = repairedHtml.replace(
     /<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/gi,
     '',

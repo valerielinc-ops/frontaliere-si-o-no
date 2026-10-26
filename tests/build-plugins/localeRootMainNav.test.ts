@@ -317,6 +317,18 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
   });
 
+  it('replaces a stale IT directory rail on an incremental artifact', () => {
+    const first = injectHomepageSeoContent(SHELL, 'it');
+    const older = first.replace(
+      /<aside\b[^>]*\bid="hp-directory-hubs"[^>]*>[\s\S]*?<\/aside>\s*/i,
+      '<aside class="hp-discovery-block" id="hp-directory-hubs"><p>obsolete rail</p></aside>',
+    );
+    const repaired = injectHomepageSeoContent(older, 'it');
+    expect(repaired.match(/id="hp-directory-hubs"/g)).toHaveLength(1);
+    expect(repaired).toContain('/prezzi-benzina/oggi/');
+    expect(repaired).not.toContain('obsolete rail');
+  });
+
   it('strips the IT directory rail before creating a non-IT locale-root mirror', () => {
     const italian = injectHomepageSeoContent(SHELL, 'it');
     const localized = renderLocaleRootShell(italian, 'de');
