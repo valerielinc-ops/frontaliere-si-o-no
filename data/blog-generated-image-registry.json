@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 866,
-  "generatedAt": "2026-10-26T07:35:01.496Z",
+  "assetCount": 867,
+  "generatedAt": "2026-10-26T11:29:17.731Z",
   "assets": [
     {
       "schema": 1,
@@ -37000,6 +37000,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a car–motorcycle crash; no readable text, identifiable logos, people, or specific-event cues."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-tagli-orologeria-locle-lvmh",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "ed7a8ee8e131a93e67f5fcef7868997183a3dbf0a9e8658a4aa8c2d0b1ba1738",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "33dac99f161f2dfa2729b0880cb484dd893a43c86b6b09ef43d2cb65db69c39f",
+      "bytes": 117814,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-26T09:26:59.804Z",
+      "verifiedAt": "2026-10-26T09:27:07.407Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tagli-orologeria-locle-lvmh.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic illustration of a historic Swiss watchmaking factory; no people, text, logos, or event-specific cues."
       }
     }
   ]
