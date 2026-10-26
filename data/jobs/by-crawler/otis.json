@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "montatore-di-ascensori-modernizzazione-m-f-d-otis-sa-oberburen",
         "en": "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-        "de": "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen",
+        "de": "smonteurmodern-m-w-d-otis-sa-oberburen",
         "fr": "monteur-d-ascenseurs-modernisation-h-f-d-otis-sa-oberburen"
       },
       "company": "Otis SA",
@@ -51,7 +51,7 @@
       "crawledAt": "2026-10-26T09:32:33.880Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-        "smonteurmodern-m-w-d-otis-sa-oberburen"
+        "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -59,7 +59,7 @@
         ],
         "de": [
           "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen",
-          "smonteurmodern-m-w-d-otis-sa-oberburen"
+          "aufzugsmonteur-modernisierung-m-w-d-otis-sa-oberburen"
         ],
         "fr": [
           "aufzugsmonteur-modernisierung-m-w-d-otis-oberburen"
@@ -1379,7 +1379,7 @@
         "it": "servicetechniker-m-w-d-otis-sa-wallisellen",
         "en": "servicetechniker-m-w-d-otis-wallisellen",
         "de": "wartungstechniker-m-w-d-otis-sa-wallisellen",
-        "fr": "servicetechniker-m-w-d-otis-sa-wallisellen"
+        "fr": "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -1419,8 +1419,7 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-26T09:32:28.261Z",
       "previousSlugs": [
-        "servicetechniker-m-w-d-otis-wallisellen",
-        "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
+        "servicetechniker-m-w-d-otis-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1430,8 +1429,7 @@
           "servicetechniker-m-w-d-otis-wallisellen"
         ],
         "fr": [
-          "servicetechniker-m-w-d-otis-wallisellen",
-          "technicien-de-maintenance-h-f-d-otis-sa-wallisellen"
+          "servicetechniker-m-w-d-otis-wallisellen"
         ]
       },
       "firstSeenAt": "2026-10-19T09:31:33.158Z",

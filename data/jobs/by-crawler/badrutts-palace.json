@@ -335,7 +335,7 @@
           "assistant-responsable-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-01T11:18:35.714Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -350,7 +350,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 0
     },
     {
       "id": "badrutts-palace-f6389a361791",
