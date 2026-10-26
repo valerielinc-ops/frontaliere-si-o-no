@@ -216,4 +216,28 @@ describe('WriteCollector collision visibility', () => {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
     }
   });
+
+  it('captures ordered auto-flush preparation errors for the next flush()', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-stream-prepare-error-'));
+    const distDir = path.join(tmpRoot, 'dist');
+    const blockedParent = path.join(distDir, 'blocked');
+    const blockedPath = path.join(blockedParent, 'index.html');
+    const healthyPath = path.join(distDir, 'healthy.html');
+    fs.mkdirSync(distDir, { recursive: true });
+    fs.writeFileSync(blockedParent, 'not a directory', 'utf-8');
+    const collector = new WriteCollector({
+      distDir,
+      autoFlushThreshold: 1,
+      pluginName: 'prepare-error-fixture',
+    });
+
+    try {
+      collector.add(blockedPath, '<html>blocked</html>');
+      expect(() => collector.add(healthyPath, '<html>healthy</html>')).not.toThrow();
+      await expect(collector.flush()).rejects.toThrow();
+      expect(fs.readFileSync(blockedParent, 'utf-8')).toBe('not a directory');
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
 });
