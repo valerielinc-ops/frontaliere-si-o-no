@@ -5,6 +5,7 @@ import { Analytics } from '@/services/analytics';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { PREFERRED_SOURCE_URL } from '@/components/shared/PreferredSourceCTA';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
+import { isFutureEpochMillis } from '@/services/promptCooldown';
 
 const DISMISS_KEY = 'preferredSourcePopup:dismissedUntil';
 const ACCEPTED_KEY = 'preferredSourcePopup:accepted';
@@ -21,8 +22,7 @@ export interface PreferredSourcePopupProps {
 function isSuppressed(): boolean {
   try {
     if (localStorage.getItem(ACCEPTED_KEY) === 'true') return true;
-    const dismissedUntil = Number(localStorage.getItem(DISMISS_KEY) || 0);
-    if (dismissedUntil > Date.now()) return true;
+    if (isFutureEpochMillis(localStorage.getItem(DISMISS_KEY))) return true;
     return sessionStorage.getItem(SEEN_KEY) === 'true';
   } catch {
     return false;
