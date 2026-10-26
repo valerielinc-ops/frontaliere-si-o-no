@@ -16,11 +16,12 @@ describe('pharmacy atomic refresh workflow', () => {
     expect(source).toContain('preserving the previous snapshot');
   });
 
-  it('does not publish fresh duties beside a preserved Ticino catalogue', () => {
+  it('publishes fresh duties beside a preserved Ticino catalogue in a new release', () => {
     const source = readFileSync(BORDER_IMPORTER, 'utf8');
-    expect(source).toContain('const publishTicinoRelease = !allDutiesFailed && ticinoOutput._preserved !== true;');
+    expect(source).toContain('const publishTicinoRelease = !allDutiesFailed;');
     expect(source).toContain('if (publishTicinoRelease) {');
-    expect(source).toContain('retaining the previous atomic catalogue+duties+status release');
+    expect(source).toContain('publishing the fresh duty snapshot in a new atomic release while retaining the fallback marker');
+    expect(source).toContain('all duty regions failed; retaining the previous atomic catalogue+duties+status release');
   });
 
   it('keeps the duty alias free of a release-less main writer', () => {

@@ -352,7 +352,6 @@ export function getPharmacyReleaseEvaluation(
   if (!contractsMatch) state = 'conflicting';
   else if (catalogueFreshness === 'unknown' || dutyFreshness === 'unknown') state = 'unknown';
   else if (catalogueFreshness === 'stale' || dutyFreshness === 'stale') state = 'stale';
-  else if (catalogue._preserved === true) state = 'partial';
   else {
     const states = Object.values(regions).map((region) => region.state);
     if (states.includes('conflicting')) state = 'conflicting';
@@ -364,7 +363,7 @@ export function getPharmacyReleaseEvaluation(
   return {
     state,
     releaseId: dutyRelease.releaseId,
-    publishable: contractsMatch && catalogueFreshness === 'fresh' && dutyFreshness === 'fresh' && catalogue._preserved !== true,
+    publishable: contractsMatch && catalogueFreshness === 'fresh' && dutyFreshness === 'fresh',
     reasons,
     regions,
   };
