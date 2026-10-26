@@ -24,8 +24,11 @@ describe('WALTER ZOO AG GOSSAU crawler parser', () => {
       expect(isWalterZooAgGossauJob({ company: 'WALTER ZOO AG GOSSAU' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isWalterZooAgGossauJob({ url: 'https://link.ostendis.com/jobs/123' })).toBe(true);
+    it('does not match an unrelated company hosted on the ATS domain', () => {
+      expect(isWalterZooAgGossauJob({
+        company: 'Other AG',
+        url: 'https://link.ostendis.com/publication/123',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

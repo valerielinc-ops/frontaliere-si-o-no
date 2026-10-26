@@ -52,13 +52,11 @@ export function isTeoJakobAgJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === TEO_JAKOB_AG_KEY ||
     key.startsWith('teo-jakob-ag-') ||
-    company.includes('teo jakob ag') ||
-    url.includes('my.jobalino.ch')
+    company.includes('teo jakob ag')
   );
 }
 

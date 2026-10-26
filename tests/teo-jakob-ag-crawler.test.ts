@@ -24,8 +24,11 @@ describe('Teo Jakob AG crawler parser', () => {
       expect(isTeoJakobAgJob({ company: 'Teo Jakob AG' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isTeoJakobAgJob({ url: 'https://my.jobalino.ch/jobs/123' })).toBe(true);
+    it('does not match an unrelated company hosted on the ATS domain', () => {
+      expect(isTeoJakobAgJob({
+        company: 'Other AG',
+        url: 'https://my.jobalino.ch/public/job/123',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

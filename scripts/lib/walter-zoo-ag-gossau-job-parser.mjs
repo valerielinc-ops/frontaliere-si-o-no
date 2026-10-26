@@ -52,13 +52,11 @@ export function isWalterZooAgGossauJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === WALTER_ZOO_AG_GOSSAU_KEY ||
     key.startsWith('walter-zoo-ag-gossau-') ||
-    company.includes('walter zoo ag gossau') ||
-    url.includes('link.ostendis.com')
+    company.includes('walter zoo ag gossau')
   );
 }
 
