@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-generale-beaulieu",
-  "assembledAt": "2026-10-26T09:48:43.005Z",
-  "runId": "40298466971",
+  "assembledAt": "2026-10-26T21:50:19.315Z",
+  "runId": "40403211553",
   "jobs": [
     {
       "id": "clinique-generale-beaulieu-68278b541382",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154961499-sage-femme",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:48:37.928Z",
+      "crawledAt": "2026-10-26T21:50:12.991Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "etat-de-fribourg",
-  "assembledAt": "2026-10-26T09:40:59.590Z",
-  "runId": "40298601397",
+  "assembledAt": "2026-10-26T21:45:07.173Z",
+  "runId": "40403356863",
   "jobs": [
     {
       "id": "etat-de-fribourg-08ae7c71e0f1",
@@ -34,7 +34,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspektorin-der-Arbeitsmarkt%C3%BCberwachung-Saan/1373601057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:50.105Z",
+      "crawledAt": "2026-10-26T21:44:58.500Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspecteur-trice-de-la-surveillance-du-march%C3%A9-du-travail-Sari/1373600957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:49.419Z",
+      "crawledAt": "2026-10-26T21:44:57.848Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wissenschaftl_-Mitarbeiterin-Saan/1373581257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:48.728Z",
+      "crawledAt": "2026-10-26T21:44:57.160Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-scientifique-Sari/1373581157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:47.962Z",
+      "crawledAt": "2026-10-26T21:44:56.517Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -374,7 +374,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Academic-Associate-UAS-Mechanochemical-Process-Development-Sari/1373598257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:47.241Z",
+      "crawledAt": "2026-10-26T21:44:55.862Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -455,7 +455,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Aspirant%C2%B7e-de-police-Sari/1370891057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:46.539Z",
+      "crawledAt": "2026-10-26T21:44:55.183Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -511,7 +511,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -535,7 +535,7 @@
       "url": "https://jobs.fr.ch/Police_Cantonale/job/Granges-Paccot%2C-CH-Polizeiaspirant%C2%B7in-Saan/1370891157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:45.844Z",
+      "crawledAt": "2026-10-26T21:44:54.528Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressCountry": "CH",
@@ -558,11 +558,15 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch"
+        "polizeiaspirant-in-etat-de-fribourg-ch",
+        "aspirant-policier-etat-de-fribourg-granges-paccot"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:20.010Z",
@@ -612,7 +616,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspektorin-der-regionalen-Sozialdienste-Saan/1373679257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:45.140Z",
+      "crawledAt": "2026-10-26T21:44:53.867Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -696,7 +700,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Inspecteur-trice-des-services-sociaux-r%C3%A9gionaux-Sari/1373679157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:44.439Z",
+      "crawledAt": "2026-10-26T21:44:53.222Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -799,7 +803,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juristische-r-Post-Master-Praktikant-in-Saan/1373685657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:43.748Z",
+      "crawledAt": "2026-10-26T21:44:52.576Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -883,7 +887,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-post-master-juriste-Sari/1373685557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:43.020Z",
+      "crawledAt": "2026-10-26T21:44:51.902Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -967,7 +971,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Juge-de-paix-aupr%C3%A8s-de-la-Justice-de-paix-du-Lac-Lac/1373676657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:42.310Z",
+      "crawledAt": "2026-10-26T21:44:51.232Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -1050,7 +1054,7 @@
       "url": "https://jobs.fr.ch/job/Morat%2C-CH-Friedensrichterin-des-Seebezirks-See/1373676757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:41.571Z",
+      "crawledAt": "2026-10-26T21:44:50.585Z",
       "addressLocality": "Morat",
       "postalCode": "3280",
       "addressCountry": "CH",
@@ -1133,7 +1137,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-employ%C3%A9-e-de-commerce-Sari/1371037857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:40.864Z",
+      "crawledAt": "2026-10-26T21:44:49.915Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1187,91 +1191,6 @@
       "addressRegion": "FR"
     },
     {
-      "id": "etat-de-fribourg-580fd9d156ff",
-      "slug": "tirocinante-come-cancelliere-del-tribunale-etat-de-fribourg-tafers",
-      "slugByLocale": {
-        "it": "tirocinante-come-cancelliere-del-tribunale-etat-de-fribourg-tafers",
-        "en": "court-clerk-trainee-etat-de-fribourg-tafers",
-        "de": "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
-        "fr": "stagiaire-greffier-judiciaire-etat-de-fribourg-tafers"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Gerichtsschreiberpraktikant/in",
-      "titleByLocale": {
-        "it": "Tirocinante come cancelliere del tribunale",
-        "en": "Court Clerk Trainee",
-        "de": "Gerichtsschreiberpraktikant/in",
-        "fr": "Stagiaire greffier judiciaire"
-      },
-      "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nEin juristisches Praktikum beim Friedensgericht des Sensebezirks bietet Ihnen die Möglichkeit, ein breit gefächertes Spektrum spannender Bereiche des Kindes- und Erwachsenenschutzes, der freiwilligen Gerichtsbarkeit in Erbangelegenheiten und in Park- und Betretungsverboten auf privaten Liegenschaften zu sammeln. Das Praktikum kann für die Anwaltsprüfung angerechnet werden.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Redaktion von Entscheiden\n\n• Protokollführung\n\n• Juristische Abklärungen und Auskünfte\n\n• Allgemeine Unterstützung der Gerichtsschreiberei\n\nGewünschtes Profil\n\n• Master in Rechtswissenschaften\n\n• Selbständige Arbeitsweise\n\n• Teamfähig und aufgeschlossen\n\n• Beherrschung der deutsche Sprache und gute redaktionelle Fähigkeiten\n\nAngaben der Kontaktpersonen\n\nPetra Pürro, Chefgerichtsschreiberin, fgsense@fr.ch, T+ 41 26 305 86 70",
-      "descriptionByLocale": {
-        "it": "Autorità di nomina / unità amministrativa / istituzione\n\nUn tirocinio legale presso il Sense District Peace Court vi offre l'opportunità di raccogliere una vasta gamma di aree emozionanti di protezione dei bambini e degli adulti, giurisdizione volontaria in materia di eredità e nei divieti di parcheggio e accesso alle proprietà private. Il tirocinio può essere accreditato per l'esame a barre.\n\nEntrate nella nostra squadra!\n\nCi concentriamo sulla complementarità delle competenze e sulla diversità delle prospettive, perché è la vasta gamma di carriere e profili che costituiscono la forza dello stato di Friburgo. Promuoviamo la riconciliazione della vita professionale e privata e le condizioni di lavoro flessibili. Per saperne di più, segui questo link.\n\nI loro compiti\n\n• redazione delle decisioni\n\n• Conservazione dei record\n\n• Chiari e informazioni legali\n\n• Supporto generale per chierici di corte\n\nProfilo desiderato\n\n• Master in Diritto\n\n• Lavoro autonomo\n\n• Squadra pronta e aperta\n\n• Masterizzazione della lingua tedesca e buone competenze editoriali\n\nInformazioni di contatto\n\nPetra Pürro, impiegato del Tribunale, fgsense@fr.ch, T+ 41 26 305 86 70",
-        "en": "Appointing authority / administrative unit / institution\n\nA legal internship at the Sense District Peace Court offers you the opportunity to collect a wide range of exciting areas of child and adult protection, voluntary jurisdiction in inheritance matters and in parking and access prohibitions on private properties. The traineeship can be credited for the bar examination.\n\nBecome part of our team!\n\nWe focus on the complementarity of competences and the diversity of perspectives, because it is the wide range of careers and profiles that makes up the strength of the state of Freiburg. We promote the reconciliation of professional and private life as well as flexible working conditions. To learn more, follow this link.\n\nTheir tasks\n\n• editing of decisions\n\n• Record keeping\n\n• Legal clarifications and information\n\n• General support for court clerics\n\nDesired profile\n\n• Master in Law\n\n• Self-employed work\n\n• Team-ready and open-minded\n\n• Mastery of the German language and good editorial skills\n\nContact details\n\nPetra Pürro, Chief Court clerk, fgsense@fr.ch, T+ 41 26 305 86 70",
-        "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nEin juristisches Praktikum beim Friedensgericht des Sensebezirks bietet Ihnen die Möglichkeit, ein breit gefächertes Spektrum spannender Bereiche des Kindes- und Erwachsenenschutzes, der freiwilligen Gerichtsbarkeit in Erbangelegenheiten und in Park- und Betretungsverboten auf privaten Liegenschaften zu sammeln. Das Praktikum kann für die Anwaltsprüfung angerechnet werden.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Redaktion von Entscheiden\n\n• Protokollführung\n\n• Juristische Abklärungen und Auskünfte\n\n• Allgemeine Unterstützung der Gerichtsschreiberei\n\nGewünschtes Profil\n\n• Master in Rechtswissenschaften\n\n• Selbständige Arbeitsweise\n\n• Teamfähig und aufgeschlossen\n\n• Beherrschung der deutsche Sprache und gute redaktionelle Fähigkeiten\n\nAngaben der Kontaktpersonen\n\nPetra Pürro, Chefgerichtsschreiberin, fgsense@fr.ch, T+ 41 26 305 86 70",
-        "fr": "Pouvoir de nomination / unité administrative / institution\n\nUn stage juridique au tribunal de paix du district de Sense vous offre la possibilité de recueillir un large éventail de domaines passionnants de la protection des enfants et des adultes, de la compétence volontaire en matière d'héritage et des interdictions de stationnement et d'accès sur les propriétés privées. Le stage peut être crédité pour l'examen du barreau.\n\nFaites partie de notre équipe !\n\nNous nous concentrons sur la complémentarité des compétences et la diversité des perspectives, car c'est le large éventail de carrières et de profils qui constitue la force de l'état de Fribourg. Nous favorisons la conciliation de la vie professionnelle et privée ainsi que des conditions de travail flexibles. Pour en savoir plus, suivez ce lien.\n\nLeurs tâches\n\n• édition des décisions\n\n• Tenue des dossiers\n\n• Précisions et informations juridiques\n\n• Soutien général aux clercs\n\nProfil désiré\n\n• Maîtrise en droit\n\n• Travail indépendant\n\n• Prête et ouverte d'esprit\n\n• Maîtrise de la langue allemande et bonnes compétences rédactionnelles\n\nCoordonnées\n\nPetra Pürro, greffier en chef, fgsense@fr.ch, T+ 41 26 305 86 70"
-      },
-      "location": "Tafers",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Tafers%2C-CH-Gerichtsschreiberpraktikantin-Sens/1374080057/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:40.158Z",
-      "addressLocality": "Tafers",
-      "postalCode": "1712",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06T00:00:00Z",
-      "postedDate": "2026-10-06T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374080057/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Friedensgericht des Sensebezirks",
-      "pensumMin": 90,
-      "pensumMax": 100,
-      "pensum": "90-100%",
-      "previousSlugs": [
-        "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
-        "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
-          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
-        ],
-        "en": [
-          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
-        ],
-        "fr": [
-          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:46:11.594Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR"
-    },
-    {
       "id": "etat-de-fribourg-2368c87bee04",
       "slug": "assistente-sociale-assistenza-extrafamiliare-etat-de-fribourg-fribourg",
       "slugByLocale": {
@@ -1302,7 +1221,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sozialarbeiterin-Familienexterne-Betreuung-Saan/1374094657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:39.448Z",
+      "crawledAt": "2026-10-26T21:44:49.252Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1358,90 +1277,6 @@
       "addressRegion": "FR"
     },
     {
-      "id": "etat-de-fribourg-bb74ae9d2bb8",
-      "slug": "postmaster-legal-internship-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "postmaster-legal-internship-etat-de-fribourg-fribourg",
-        "en": "postmaster-legal-internship-etat-de-fribourg-fribourg",
-        "de": "postmaster-legal-internship-etat-de-fribourg-fribourg",
-        "fr": "stagiaire-juriste-post-master-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Stagiaire juriste post-master",
-      "titleByLocale": {
-        "it": "Postmaster Legal Internship",
-        "en": "Postmaster Legal Internship",
-        "de": "Postmaster Legal Internship",
-        "fr": "Stagiaire juriste post-master"
-      },
-      "description": "Qui sommes-nous?\n\nLe Service des constructions et de l’aménagement SeCA est l’instance compétente en matière d’aménagement du territoire. Il contrôle le respect des normes légales et établit des préavis à l’intention des préfectures.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Vous êtes chargé-e du traitement de la partie juridique des dossiers en relation avec l'aménagement du territoire et les constructions. En particulier, vous assurez l'instruction de recours et proposez des projets de décision.\n\n• Vous gérez également des dossiers de rétablissement de l’état conforme au droit des constructions illégales situées hors zone à bâtir et soutenez la section dans l’élaboration d’avis de droit, en assurant en outre la veille juridique.\n\n• Vous êtes appelé-e à traiter avec les autres services de l'Etat, les Préfectures, les communes et les particuliers.\n\nProfil souhaité\n\n• Master en droit\n\n• Bonnes connaissances informatiques et des possibilités de recherches juridiques sur internet\n\n• Excellent niveau rédactionnel\n\n• Esprit d'équipe et d'initiative\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nPatrick Ramuz, Chef de service adjoint, patrick.ramuz@fr.ch, T +41 26 305 36 11",
-      "descriptionByLocale": {
-        "it": "Chi siamo?\n\nIl SeCA Construction and Planning Service è l'organo competente per la pianificazione territoriale. Controlla il rispetto degli standard legali e stabilisce un avviso per le prefetture.\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarietà delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\n• Lei è responsabile del trattamento della parte legale dei file in relazione alla pianificazione territoriale e alla costruzione. In particolare, si assicura che gli appelli siano ascoltati e propongano una bozza di decisioni.\n\n• Gestisci anche documenti di restauro dello stato in conformità con la legge di costruzioni illegali situate al di fuori della zona da costruire e sostenere la sezione nella preparazione di un avviso di diritto, oltre a garantire la supervisione legale.\n\n• Siete chiamati a trattare con altri dipartimenti governativi, prefetture, comuni e individui.\n\nProfilo desiderato\n\n• Master in Diritto\n\n• Buone conoscenze e opportunità di ricerca legale su Internet\n\n• Ottimo livello editoriale\n\n• Team e iniziativa\n\n• Masterizzazione della lingua francese con buona conoscenza della lingua tedesca\n\nInformazioni di contatto\n\nPatrick Ramuz, vice capo del servizio, patrick.ramuz@fr.ch, T +41 26 305 36 11",
-        "en": "Who are we?\n\nThe SeCA Construction and Planning Service is the competent body for spatial planning. It monitors compliance with legal standards and establishes notice for prefectures.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• You are in charge of processing the legal part of the files in relation to spatial planning and construction. In particular, you ensure that appeals are heard and propose draft decisions.\n\n• You also manage records of restoration of the state in accordance with the law of illegal constructions located outside the area to be built and support the section in the preparation of a notice of law, in addition to ensuring legal oversight.\n\n• You are called upon to deal with other government departments, Prefectures, municipalities and individuals.\n\nProfile desired\n\n• Master in Law\n\n• Good IT knowledge and opportunities for Internet legal research\n\n• Excellent editorial level\n\n• Team and initiative\n\n• Mastery of the French language with good knowledge of the German language\n\nContact details\n\nPatrick Ramuz, Deputy Chief of Service, patrick.ramuz@fr.ch, T +41 26 305 36 11",
-        "de": "Wer sind wir?\n\nDer Bau- und Planungsdienst SeCA ist die zuständige Stelle für die Raumplanung. Sie überwacht die Einhaltung gesetzlicher Standards und erstellt eine Bekanntmachung für Präfekturen.\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Zustand Freiburgs zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Sie sind für die Bearbeitung des rechtlichen Teils der Dateien in Bezug auf Raumplanung und Bau zuständig. Insbesondere stellen Sie sicher, dass Berufungen gehört werden, und schlagen Entscheidungsentwürfe vor.\n\n• Sie verwalten auch Aufzeichnungen über die Wiederherstellung des Staates in Übereinstimmung mit dem Gesetz über illegale Bauten, die sich außerhalb des zu errichtenden Gebiets befinden, und unterstützen den Abschnitt bei der Vorbereitung einer Gesetzesmitteilung, zusätzlich zur Gewährleistung der rechtlichen Aufsicht.\n\n• Sie sind aufgerufen, sich mit anderen Regierungsabteilungen, Präfekturen, Gemeinden und Einzelpersonen zu befassen.\n\nProfil gewünscht\n\n• Master in Law\n\n• Gute IT-Kenntnisse und Möglichkeiten für die Internet-Rechtsforschung\n\n• Hervorragende redaktionelle Ebene\n\n• Team und Initiative\n\n• Beherrschung der französischen Sprache mit guten Kenntnissen der deutschen Sprache\n\nKontaktdaten\n\nPatrick Ramuz, Stellvertretender Dienstleiter, patrick.ramuz@fr.ch, T +41 26 305 36 11",
-        "fr": "Qui sommes-nous?\n\nLe Service des constructions et de l’aménagement SeCA est l’instance compétente en matière d’aménagement du territoire. Il contrôle le respect des normes légales et établit des préavis à l’intention des préfectures.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Vous êtes chargé-e du traitement de la partie juridique des dossiers en relation avec l'aménagement du territoire et les constructions. En particulier, vous assurez l'instruction de recours et proposez des projets de décision.\n\n• Vous gérez également des dossiers de rétablissement de l’état conforme au droit des constructions illégales situées hors zone à bâtir et soutenez la section dans l’élaboration d’avis de droit, en assurant en outre la veille juridique.\n\n• Vous êtes appelé-e à traiter avec les autres services de l'Etat, les Préfectures, les communes et les particuliers.\n\nProfil souhaité\n\n• Master en droit\n\n• Bonnes connaissances informatiques et des possibilités de recherches juridiques sur internet\n\n• Excellent niveau rédactionnel\n\n• Esprit d'équipe et d'initiative\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nPatrick Ramuz, Chef de service adjoint, patrick.ramuz@fr.ch, T +41 26 305 36 11"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-juriste-post-master-Sari/1374088457/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:38.756Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Giuridico",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06T00:00:00Z",
-      "postedDate": "2026-10-06T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374088457/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Service des constructions et de l'aménagement",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "stagiaire-juriste-post-master-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-juriste-post-master-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "stagiaire-juriste-post-master-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "stagiaire-juriste-post-master-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:46:12.307Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
-    },
-    {
       "id": "etat-de-fribourg-727011a199cc",
       "slug": "assistente-sociale-per-l-assistenza-extrafamiliare-etat-de-fribourg-fribourg",
       "slugByLocale": {
@@ -1472,7 +1307,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Sozialarbeiterin-familienexterne-Betreuung-Saan/1374086857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:38.055Z",
+      "crawledAt": "2026-10-26T21:44:48.591Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1528,6 +1363,175 @@
       "addressRegion": "FR"
     },
     {
+      "id": "etat-de-fribourg-580fd9d156ff",
+      "slug": "tirocinante-come-cancelliere-del-tribunale-etat-de-fribourg-tafers",
+      "slugByLocale": {
+        "it": "tirocinante-come-cancelliere-del-tribunale-etat-de-fribourg-tafers",
+        "en": "court-clerk-trainee-etat-de-fribourg-tafers",
+        "de": "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
+        "fr": "stagiaire-greffier-judiciaire-etat-de-fribourg-tafers"
+      },
+      "company": "Etat de Fribourg",
+      "companyKey": "etat-de-fribourg",
+      "companyDomain": "fr.ch",
+      "title": "Gerichtsschreiberpraktikant/in",
+      "titleByLocale": {
+        "it": "Tirocinante come cancelliere del tribunale",
+        "en": "Court Clerk Trainee",
+        "de": "Gerichtsschreiberpraktikant/in",
+        "fr": "Stagiaire greffier judiciaire"
+      },
+      "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nEin juristisches Praktikum beim Friedensgericht des Sensebezirks bietet Ihnen die Möglichkeit, ein breit gefächertes Spektrum spannender Bereiche des Kindes- und Erwachsenenschutzes, der freiwilligen Gerichtsbarkeit in Erbangelegenheiten und in Park- und Betretungsverboten auf privaten Liegenschaften zu sammeln. Das Praktikum kann für die Anwaltsprüfung angerechnet werden.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Redaktion von Entscheiden\n\n• Protokollführung\n\n• Juristische Abklärungen und Auskünfte\n\n• Allgemeine Unterstützung der Gerichtsschreiberei\n\nGewünschtes Profil\n\n• Master in Rechtswissenschaften\n\n• Selbständige Arbeitsweise\n\n• Teamfähig und aufgeschlossen\n\n• Beherrschung der deutsche Sprache und gute redaktionelle Fähigkeiten\n\nAngaben der Kontaktpersonen\n\nPetra Pürro, Chefgerichtsschreiberin, fgsense@fr.ch, T+ 41 26 305 86 70",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / unità amministrativa / istituzione\n\nUn tirocinio legale presso il Sense District Peace Court vi offre l'opportunità di raccogliere una vasta gamma di aree emozionanti di protezione dei bambini e degli adulti, giurisdizione volontaria in materia di eredità e nei divieti di parcheggio e accesso alle proprietà private. Il tirocinio può essere accreditato per l'esame a barre.\n\nEntrate nella nostra squadra!\n\nCi concentriamo sulla complementarità delle competenze e sulla diversità delle prospettive, perché è la vasta gamma di carriere e profili che costituiscono la forza dello stato di Friburgo. Promuoviamo la riconciliazione della vita professionale e privata e le condizioni di lavoro flessibili. Per saperne di più, segui questo link.\n\nI loro compiti\n\n• redazione delle decisioni\n\n• Conservazione dei record\n\n• Chiari e informazioni legali\n\n• Supporto generale per chierici di corte\n\nProfilo desiderato\n\n• Master in Diritto\n\n• Lavoro autonomo\n\n• Squadra pronta e aperta\n\n• Masterizzazione della lingua tedesca e buone competenze editoriali\n\nInformazioni di contatto\n\nPetra Pürro, impiegato del Tribunale, fgsense@fr.ch, T+ 41 26 305 86 70",
+        "en": "Appointing authority / administrative unit / institution\n\nA legal internship at the Sense District Peace Court offers you the opportunity to collect a wide range of exciting areas of child and adult protection, voluntary jurisdiction in inheritance matters and in parking and access prohibitions on private properties. The traineeship can be credited for the bar examination.\n\nBecome part of our team!\n\nWe focus on the complementarity of competences and the diversity of perspectives, because it is the wide range of careers and profiles that makes up the strength of the state of Freiburg. We promote the reconciliation of professional and private life as well as flexible working conditions. To learn more, follow this link.\n\nTheir tasks\n\n• editing of decisions\n\n• Record keeping\n\n• Legal clarifications and information\n\n• General support for court clerics\n\nDesired profile\n\n• Master in Law\n\n• Self-employed work\n\n• Team-ready and open-minded\n\n• Mastery of the German language and good editorial skills\n\nContact details\n\nPetra Pürro, Chief Court clerk, fgsense@fr.ch, T+ 41 26 305 86 70",
+        "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nEin juristisches Praktikum beim Friedensgericht des Sensebezirks bietet Ihnen die Möglichkeit, ein breit gefächertes Spektrum spannender Bereiche des Kindes- und Erwachsenenschutzes, der freiwilligen Gerichtsbarkeit in Erbangelegenheiten und in Park- und Betretungsverboten auf privaten Liegenschaften zu sammeln. Das Praktikum kann für die Anwaltsprüfung angerechnet werden.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nIhre Aufgaben\n\n• Redaktion von Entscheiden\n\n• Protokollführung\n\n• Juristische Abklärungen und Auskünfte\n\n• Allgemeine Unterstützung der Gerichtsschreiberei\n\nGewünschtes Profil\n\n• Master in Rechtswissenschaften\n\n• Selbständige Arbeitsweise\n\n• Teamfähig und aufgeschlossen\n\n• Beherrschung der deutsche Sprache und gute redaktionelle Fähigkeiten\n\nAngaben der Kontaktpersonen\n\nPetra Pürro, Chefgerichtsschreiberin, fgsense@fr.ch, T+ 41 26 305 86 70",
+        "fr": "Pouvoir de nomination / unité administrative / institution\n\nUn stage juridique au tribunal de paix du district de Sense vous offre la possibilité de recueillir un large éventail de domaines passionnants de la protection des enfants et des adultes, de la compétence volontaire en matière d'héritage et des interdictions de stationnement et d'accès sur les propriétés privées. Le stage peut être crédité pour l'examen du barreau.\n\nFaites partie de notre équipe !\n\nNous nous concentrons sur la complémentarité des compétences et la diversité des perspectives, car c'est le large éventail de carrières et de profils qui constitue la force de l'état de Fribourg. Nous favorisons la conciliation de la vie professionnelle et privée ainsi que des conditions de travail flexibles. Pour en savoir plus, suivez ce lien.\n\nLeurs tâches\n\n• édition des décisions\n\n• Tenue des dossiers\n\n• Précisions et informations juridiques\n\n• Soutien général aux clercs\n\nProfil désiré\n\n• Maîtrise en droit\n\n• Travail indépendant\n\n• Prête et ouverte d'esprit\n\n• Maîtrise de la langue allemande et bonnes compétences rédactionnelles\n\nCoordonnées\n\nPetra Pürro, greffier en chef, fgsense@fr.ch, T+ 41 26 305 86 70"
+      },
+      "location": "Tafers",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Tafers%2C-CH-Gerichtsschreiberpraktikantin-Sens/1374080057/",
+      "source": "Etat de Fribourg Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-26T21:44:47.941Z",
+      "addressLocality": "Tafers",
+      "postalCode": "1712",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06T00:00:00Z",
+      "postedDate": "2026-10-06T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374080057/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Friedensgericht des Sensebezirks",
+      "pensumMin": 90,
+      "pensumMax": 100,
+      "pensum": "90-100%",
+      "previousSlugs": [
+        "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
+        "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
+        ],
+        "en": [
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
+        ],
+        "fr": [
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T21:46:11.594Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-bb74ae9d2bb8",
+      "slug": "postmaster-legal-internship-etat-de-fribourg-fribourg",
+      "slugByLocale": {
+        "it": "postmaster-legal-internship-etat-de-fribourg-fribourg",
+        "en": "postmaster-legal-internship-etat-de-fribourg-fribourg",
+        "de": "postmaster-legal-internship-etat-de-fribourg-fribourg",
+        "fr": "stagiaire-juriste-post-master-etat-de-fribourg-ch"
+      },
+      "company": "Etat de Fribourg",
+      "companyKey": "etat-de-fribourg",
+      "companyDomain": "fr.ch",
+      "title": "Stagiaire juriste post-master",
+      "titleByLocale": {
+        "it": "Postmaster Legal Internship",
+        "en": "Postmaster Legal Internship",
+        "de": "Postmaster Legal Internship",
+        "fr": "Stagiaire juriste post-master"
+      },
+      "description": "Qui sommes-nous?\n\nLe Service des constructions et de l’aménagement SeCA est l’instance compétente en matière d’aménagement du territoire. Il contrôle le respect des normes légales et établit des préavis à l’intention des préfectures.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Vous êtes chargé-e du traitement de la partie juridique des dossiers en relation avec l'aménagement du territoire et les constructions. En particulier, vous assurez l'instruction de recours et proposez des projets de décision.\n\n• Vous gérez également des dossiers de rétablissement de l’état conforme au droit des constructions illégales situées hors zone à bâtir et soutenez la section dans l’élaboration d’avis de droit, en assurant en outre la veille juridique.\n\n• Vous êtes appelé-e à traiter avec les autres services de l'Etat, les Préfectures, les communes et les particuliers.\n\nProfil souhaité\n\n• Master en droit\n\n• Bonnes connaissances informatiques et des possibilités de recherches juridiques sur internet\n\n• Excellent niveau rédactionnel\n\n• Esprit d'équipe et d'initiative\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nPatrick Ramuz, Chef de service adjoint, patrick.ramuz@fr.ch, T +41 26 305 36 11",
+      "descriptionByLocale": {
+        "it": "Chi siamo?\n\nIl SeCA Construction and Planning Service è l'organo competente per la pianificazione territoriale. Controlla il rispetto degli standard legali e stabilisce un avviso per le prefetture.\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarietà delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\n• Lei è responsabile del trattamento della parte legale dei file in relazione alla pianificazione territoriale e alla costruzione. In particolare, si assicura che gli appelli siano ascoltati e propongano una bozza di decisioni.\n\n• Gestisci anche documenti di restauro dello stato in conformità con la legge di costruzioni illegali situate al di fuori della zona da costruire e sostenere la sezione nella preparazione di un avviso di diritto, oltre a garantire la supervisione legale.\n\n• Siete chiamati a trattare con altri dipartimenti governativi, prefetture, comuni e individui.\n\nProfilo desiderato\n\n• Master in Diritto\n\n• Buone conoscenze e opportunità di ricerca legale su Internet\n\n• Ottimo livello editoriale\n\n• Team e iniziativa\n\n• Masterizzazione della lingua francese con buona conoscenza della lingua tedesca\n\nInformazioni di contatto\n\nPatrick Ramuz, vice capo del servizio, patrick.ramuz@fr.ch, T +41 26 305 36 11",
+        "en": "Who are we?\n\nThe SeCA Construction and Planning Service is the competent body for spatial planning. It monitors compliance with legal standards and establishes notice for prefectures.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• You are in charge of processing the legal part of the files in relation to spatial planning and construction. In particular, you ensure that appeals are heard and propose draft decisions.\n\n• You also manage records of restoration of the state in accordance with the law of illegal constructions located outside the area to be built and support the section in the preparation of a notice of law, in addition to ensuring legal oversight.\n\n• You are called upon to deal with other government departments, Prefectures, municipalities and individuals.\n\nProfile desired\n\n• Master in Law\n\n• Good IT knowledge and opportunities for Internet legal research\n\n• Excellent editorial level\n\n• Team and initiative\n\n• Mastery of the French language with good knowledge of the German language\n\nContact details\n\nPatrick Ramuz, Deputy Chief of Service, patrick.ramuz@fr.ch, T +41 26 305 36 11",
+        "de": "Wer sind wir?\n\nDer Bau- und Planungsdienst SeCA ist die zuständige Stelle für die Raumplanung. Sie überwacht die Einhaltung gesetzlicher Standards und erstellt eine Bekanntmachung für Präfekturen.\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Zustand Freiburgs zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Sie sind für die Bearbeitung des rechtlichen Teils der Dateien in Bezug auf Raumplanung und Bau zuständig. Insbesondere stellen Sie sicher, dass Berufungen gehört werden, und schlagen Entscheidungsentwürfe vor.\n\n• Sie verwalten auch Aufzeichnungen über die Wiederherstellung des Staates in Übereinstimmung mit dem Gesetz über illegale Bauten, die sich außerhalb des zu errichtenden Gebiets befinden, und unterstützen den Abschnitt bei der Vorbereitung einer Gesetzesmitteilung, zusätzlich zur Gewährleistung der rechtlichen Aufsicht.\n\n• Sie sind aufgerufen, sich mit anderen Regierungsabteilungen, Präfekturen, Gemeinden und Einzelpersonen zu befassen.\n\nProfil gewünscht\n\n• Master in Law\n\n• Gute IT-Kenntnisse und Möglichkeiten für die Internet-Rechtsforschung\n\n• Hervorragende redaktionelle Ebene\n\n• Team und Initiative\n\n• Beherrschung der französischen Sprache mit guten Kenntnissen der deutschen Sprache\n\nKontaktdaten\n\nPatrick Ramuz, Stellvertretender Dienstleiter, patrick.ramuz@fr.ch, T +41 26 305 36 11",
+        "fr": "Qui sommes-nous?\n\nLe Service des constructions et de l’aménagement SeCA est l’instance compétente en matière d’aménagement du territoire. Il contrôle le respect des normes légales et établit des préavis à l’intention des préfectures.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Vous êtes chargé-e du traitement de la partie juridique des dossiers en relation avec l'aménagement du territoire et les constructions. En particulier, vous assurez l'instruction de recours et proposez des projets de décision.\n\n• Vous gérez également des dossiers de rétablissement de l’état conforme au droit des constructions illégales situées hors zone à bâtir et soutenez la section dans l’élaboration d’avis de droit, en assurant en outre la veille juridique.\n\n• Vous êtes appelé-e à traiter avec les autres services de l'Etat, les Préfectures, les communes et les particuliers.\n\nProfil souhaité\n\n• Master en droit\n\n• Bonnes connaissances informatiques et des possibilités de recherches juridiques sur internet\n\n• Excellent niveau rédactionnel\n\n• Esprit d'équipe et d'initiative\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nPatrick Ramuz, Chef de service adjoint, patrick.ramuz@fr.ch, T +41 26 305 36 11"
+      },
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-juriste-post-master-Sari/1374088457/",
+      "source": "Etat de Fribourg Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T21:44:47.294Z",
+      "addressLocality": "Fribourg",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Giuridico",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06T00:00:00Z",
+      "postedDate": "2026-10-06T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374088457/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Service des constructions et de l'aménagement",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "previousSlugs": [
+        "stagiaire-juriste-post-master-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-juriste-post-master-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "stagiaire-juriste-post-master-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "stagiaire-juriste-post-master-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-06T21:46:12.307Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rue des Chanoines 17",
+      "addressRegion": "FR"
+    },
+    {
       "id": "etat-de-fribourg-c63c069f360b",
       "slug": "assistente-diplomato-a-etat-de-fribourg-fribourg",
       "slugByLocale": {
@@ -1558,7 +1562,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Diplomassistentin-Saan/1374089257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:37.351Z",
+      "crawledAt": "2026-10-26T21:44:46.619Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1642,7 +1646,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-assistant-e-en-sciences-de-la-communication-&-des-m%C3%A9dias-et-communication-strat%C3%A9gique-Sari/1374206657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:36.645Z",
+      "crawledAt": "2026-10-26T21:44:45.954Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1726,7 +1730,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-open-rank-Chair-of-Women's-Health-and-Exposome-Saan/1374210657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:35.950Z",
+      "crawledAt": "2026-10-26T21:44:45.297Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1808,7 +1812,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Professor-open-rank-Chair-of-Women's-Health-and-Exposome-Sari/1374210557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:35.246Z",
+      "crawledAt": "2026-10-26T21:44:44.635Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1892,7 +1896,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Technischer-Mitarbeiterin-Saan/1374217757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:34.524Z",
+      "crawledAt": "2026-10-26T21:44:43.985Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -1976,7 +1980,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-technique-Sari/1374217657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:33.825Z",
+      "crawledAt": "2026-10-26T21:44:43.331Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2060,7 +2064,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-vor-der-HSW-Saan/1374215957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:33.103Z",
+      "crawledAt": "2026-10-26T21:44:42.669Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2144,7 +2148,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-pr%C3%A9-HEG-Sari/1374215857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:32.389Z",
+      "crawledAt": "2026-10-26T21:44:42.009Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2228,7 +2232,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Chimiste-cantonal-e-adjoint-e-Sari/1374281157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:31.683Z",
+      "crawledAt": "2026-10-26T21:44:41.355Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2313,7 +2317,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Stellvertretender-Kantonschemikerin-Saan/1374281057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:30.977Z",
+      "crawledAt": "2026-10-26T21:44:40.677Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -2396,7 +2400,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Richterin-beim-Zwangsmassnahmengericht-Saan/1374304357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:30.267Z",
+      "crawledAt": "2026-10-26T21:44:40.027Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2480,7 +2484,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Juge-au-Tribunal-des-mesures-de-contrainte-Sari/1374304257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:29.557Z",
+      "crawledAt": "2026-10-26T21:44:39.377Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2564,7 +2568,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-5-apprenti-e-s-laborantin-e-s-CFC-Orientation-Chimie-Sari/1374306457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:28.846Z",
+      "crawledAt": "2026-10-26T21:44:38.728Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2648,7 +2652,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-post-universitaire-pour-le-domaine-promotion-enfance-jeunesse%2C-projet-FriTime-Sari/1374404957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:28.133Z",
+      "crawledAt": "2026-10-26T21:44:38.062Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2732,7 +2736,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Employ%C3%A9-e-d'administration-Sari/1374412757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:27.427Z",
+      "crawledAt": "2026-10-26T21:44:37.404Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2783,7 +2787,6 @@
       "previousSlugsByLocale": {
         "it": [
           "employe-e-d-administration-etat-de-fribourg-ch",
-          "addetto-a-amministrazione-etat-de-fribourg-givisiez",
           "personale-amministrativo-etat-de-fribourg-givisiez",
           "personale-amministrativo-etat-de-fribourg-chatel-st-denis",
           "administrative-staff-etat-de-fribourg-chatel-st-denis",
@@ -2802,7 +2805,8 @@
           "employe-e-d-administration-etat-de-fribourg-ch-zhwlp1",
           "administrative-staff-etat-de-fribourg-granges-paccot-488926",
           "verwaltungspersonal-etat-de-fribourg-granges-paccot",
-          "employe-e-d-administration-etat-de-fribourg-granges-paccot"
+          "employe-e-d-administration-etat-de-fribourg-granges-paccot",
+          "addetto-a-amministrazione-etat-de-fribourg-givisiez"
         ],
         "en": [
           "employe-e-d-administration-etat-de-fribourg-ch-3"
@@ -2859,7 +2863,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Fachmann-frau-f%C3%BCr-Justizvollzug-Zellengeb%C3%A4ude-im-Zentralgef%C3%A4ngnis-See/1374403957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:26.716Z",
+      "crawledAt": "2026-10-26T21:44:36.742Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -2945,7 +2949,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Agent-e-de-d%C3%A9tention-Cellulaire-Lac/1374403857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:26.004Z",
+      "crawledAt": "2026-10-26T21:44:36.064Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3029,7 +3033,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-du-secteur-Acquisitions-Sari/1374669657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:25.312Z",
+      "crawledAt": "2026-10-26T21:44:35.415Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3113,7 +3117,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Leiterin-der-Abteilung-Erwerbung-Saan/1374669757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:24.615Z",
+      "crawledAt": "2026-10-26T21:44:34.759Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3199,7 +3203,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Kulturvermittlerin-Saan/1374670057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:23.906Z",
+      "crawledAt": "2026-10-26T21:44:34.117Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3283,7 +3287,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-M%C3%A9diateur-trice-culturel-le-Sari/1374669957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:23.198Z",
+      "crawledAt": "2026-10-26T21:44:33.469Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3367,7 +3371,7 @@
       "url": "https://jobs.fr.ch/job/Bulle%2C-CH-Forestier-%C3%A8re-en-Gruy%C3%A8re-Gruy/1374734457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:22.506Z",
+      "crawledAt": "2026-10-26T21:44:32.809Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "addressCountry": "CH",
@@ -3450,7 +3454,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Greffier-i%C3%A8re-Stagiaire-Sari/1374701157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:21.809Z",
+      "crawledAt": "2026-10-26T21:44:32.153Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3534,7 +3538,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Dozentin-FH-ICT-P%C3%A4dagogin-P%C3%A4dagoge-Saan/1374858457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:21.099Z",
+      "crawledAt": "2026-10-26T21:44:31.507Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3618,7 +3622,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Ma%C3%AEtre-d'enseignement-HES-Technop%C3%A9dagogue-Sari/1374858357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:20.398Z",
+      "crawledAt": "2026-10-26T21:44:30.862Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3702,7 +3706,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gesch%C3%A4ftsf%C3%BChrender-Direktorin-und-Lektorat-Sek-2-Saan/1374789157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:19.699Z",
+      "crawledAt": "2026-10-26T21:44:30.199Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3758,6 +3762,90 @@
       "addressRegion": "FR"
     },
     {
+      "id": "etat-de-fribourg-f745b89d49a6",
+      "slug": "imposte-nel-settore-gruyere-broye-etat-de-fribourg-fribourg",
+      "slugByLocale": {
+        "it": "imposte-nel-settore-gruyere-broye-etat-de-fribourg-fribourg",
+        "en": "taxing-company-in-the-gruyere-broye-sector-etat-de-fribourg-fribourg",
+        "de": "steuerpflichtiges-unternehmen-im-sektor-gruyere-broye-etat-de-fribourg-fribourg",
+        "fr": "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
+      },
+      "company": "Etat de Fribourg",
+      "companyKey": "etat-de-fribourg",
+      "companyDomain": "fr.ch",
+      "title": "Taxateur-trice fiscal-e auprès du secteur Gruyère/Broye",
+      "titleByLocale": {
+        "it": "Imposte nel settore Gruyère/Broye",
+        "en": "Taxing company in the Gruyère/Broye sector",
+        "de": "Steuerpflichtiges Unternehmen im Sektor Gruyère/Broye",
+        "fr": "Taxateur-trice fiscal-e auprès du secteur Gruyère/Broye"
+      },
+      "description": "Qui sommes-nous?\n\nLe Service cantonal des contributions (SCC) procède à la taxation et à la perception des impôts cantonaux et de l’impôt fédéral direct des personnes physiques et des personnes morales.\n\nÀ la suite d’un départ à la retraite, le SCC recherche un-e taxateur-trice fiscal-e pour le secteur Gruyère/Broye, à un taux d’activité de 90 à 100 %.\n\nEn rejoignant ce secteur, vous intégrerez une équipe de vingt collaborateurs et collaboratrices qui apprécient les échanges constructifs et le travail en équipe. Vous évoluerez dans un environnement de travail à la fois serein et stimulant, favorisant la collaboration, l’autonomie et la qualité des prestations fournies.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nLe secteur organise et assure la taxation des déclarations d'impôt déposées par les contribuables. Son travail consiste essentiellement à s'assurer que les contribuables ont correctement déclaré leurs éléments de revenu et de fortune\n\n• Détermination des impôts dus par les contribuables\n\n• Contrôle des éléments de revenu et de fortune indiqués dans les déclarations\n\n• Vérification du bien-fondé des déductions revendiquées\n\n• Taxation avec des moyens informatiques modernes\n\n• Formation assurée à l’interne\n\nProfil souhaité\n\n• CFC d’employé-e de commerce ou formation jugée équivalente\n\n• Maturité professionnelle commerciale souhaitée\n\n• Habileté rédactionnelle en langue française\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nVincent Goumaz, Chef de secteur, T +41 26 305 33 60",
+      "descriptionByLocale": {
+        "it": "Chi siamo?\n\nIl Servizio cantonale dei Contributi (SCC) raccoglie tasse cantonali e imposta federale diretta sulle persone fisiche e giuridiche.\n\nDopo il pensionamento, CSC sta cercando un funzionario fiscale per il settore Gruyère/Broye ad un tasso di attività dal 90 al 100%.\n\nEntrando in questo settore, si integra un team di venti collaboratori che apprezzano scambi costruttivi e lavoro di squadra. Si evolverà in un ambiente di lavoro sereno e stimolante, promuovendo collaborazione, autonomia e qualità dei servizi forniti.\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarità delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\nIl settore organizza e assicura la tassazione delle dichiarazioni fiscali presentate dai contribuenti. Il suo lavoro è essenzialmente quello di garantire che i contribuenti abbiano correttamente dichiarato i loro componenti di reddito e di ricchezza.\n\n• Determinazione delle imposte pagabili dai contribuenti\n\n• Controllo dei redditi e degli elementi patrimoniali indicati nelle dichiarazioni\n\n• Verifica dei meriti delle deduzioni rivendicate\n\n• Fiscalità con moderni mezzi di calcolo\n\n• Formazione interna\n\nProfilo desiderato\n\n• Dipendente aziendale SWC o formazione considerata equivalente\n\n• maturità commerciale professionale desiderata\n\n• Capacità di scrittura in francese\n\n• Masterizzazione della lingua francese con buona conoscenza della lingua tedesca\n\nInformazioni di contatto\n\nVincent Goumaz, Responsabile Settore\nT +41 26 305 33 60",
+        "en": "Who are we?\n\nThe Cantonal Service of Contributions (SCC) taxes and collects cantonal taxes and direct federal tax on natural persons and legal persons.\n\nFollowing retirement, CSC is looking for a taxing officer for the Gruyère/Broye sector at an activity rate of 90 to 100%.\n\nBy joining this sector, you will integrate a team of twenty collaborators who appreciate constructive exchanges and teamwork. You will evolve in a working environment that is both serene and stimulating, fostering collaboration, autonomy and the quality of the services provided.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\nThe sector organizes and ensures the taxation of tax returns filed by taxpayers. Her job is essentially to ensure that taxpayers have correctly declared their income and wealth components.\n\n• Determination of taxes payable by taxpayers\n\n• Control of the income and wealth elements indicated in the declarations\n\n• Verification of the merits of the claimed deductions\n\n• Taxation with modern computing means\n\n• Internal training\n\nProfile desired\n\n• SWC business employee or training deemed equivalent\n\n• Professional commercial maturity desired\n\n• Writing skills in French\n\n• Mastery of the French language with good knowledge of the German language\n\nContact details\n\nVincent Goumaz, Head of Sector\nT +41 26 305 33 60",
+        "de": "Wer sind wir?\n\nDer Kantonal Service of Contributions (SCC) besteuert und erhebt kantonale Steuern und direkte Bundessteuern auf natürliche und juristische Personen.\n\nNach der Pensionierung sucht CSC einen Steuerbeamten für den Sektor Gruyère/Broye mit einer Aktivitätsrate von 90 bis 100%.\n\nDurch den Beitritt zu diesem Sektor integrieren Sie ein Team von zwanzig Mitarbeitern, die konstruktiven Austausch und Teamarbeit schätzen. Sie entwickeln sich in einem Arbeitsumfeld, das sowohl ruhig als auch stimulierend ist und die Zusammenarbeit, Autonomie und die Qualität der angebotenen Dienstleistungen fördert.\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Staat Freiburg zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\nDer Sektor organisiert und gewährleistet die Besteuerung von Steuererklärungen, die von den Steuerzahlern eingereicht werden. Ihre Aufgabe ist es im Wesentlichen sicherzustellen, dass die Steuerzahler ihre Einkommens- und Vermögenskomponenten korrekt deklariert haben.\n\n• Bestimmung der vom Steuerzahler zu zahlenden Steuern\n\n• Kontrolle der in den Erklärungen angegebenen Einkommens- und Vermögensbestandteile\n\n• Überprüfung der Begründetheit der beantragten Abzüge\n\n• Besteuerung mit modernen Rechenmitteln\n\n• Interne Schulung\n\nProfil gewünscht\n\n• SWC Business-Mitarbeiter oder Ausbildung als gleichwertig angesehen\n\n• Gewünschte kommerzielle Reife\n\n• Schreibfähigkeiten auf Französisch\n\n• Beherrschung der französischen Sprache mit guten Kenntnissen der deutschen Sprache\n\nKontaktangaben\n\nVincent Goumaz, Leiter des Sektors\nT +41 26 305 33 60",
+        "fr": "Qui sommes-nous?\n\nLe Service cantonal des contributions (SCC) procède à la taxation et à la perception des impôts cantonaux et de l’impôt fédéral direct des personnes physiques et des personnes morales.\n\nÀ la suite d’un départ à la retraite, le SCC recherche un-e taxateur-trice fiscal-e pour le secteur Gruyère/Broye, à un taux d’activité de 90 à 100 %.\n\nEn rejoignant ce secteur, vous intégrerez une équipe de vingt collaborateurs et collaboratrices qui apprécient les échanges constructifs et le travail en équipe. Vous évoluerez dans un environnement de travail à la fois serein et stimulant, favorisant la collaboration, l’autonomie et la qualité des prestations fournies.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nLe secteur organise et assure la taxation des déclarations d'impôt déposées par les contribuables. Son travail consiste essentiellement à s'assurer que les contribuables ont correctement déclaré leurs éléments de revenu et de fortune\n\n• Détermination des impôts dus par les contribuables\n\n• Contrôle des éléments de revenu et de fortune indiqués dans les déclarations\n\n• Vérification du bien-fondé des déductions revendiquées\n\n• Taxation avec des moyens informatiques modernes\n\n• Formation assurée à l’interne\n\nProfil souhaité\n\n• CFC d’employé-e de commerce ou formation jugée équivalente\n\n• Maturité professionnelle commerciale souhaitée\n\n• Habileté rédactionnelle en langue française\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nVincent Goumaz, Chef de secteur, T +41 26 305 33 60"
+      },
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Taxateur-trice-fiscal-e-aupr%C3%A8s-du-secteur-Gruy%C3%A8reBroye-Sari/1374943657/",
+      "source": "Etat de Fribourg Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T21:44:29.550Z",
+      "addressLocality": "Fribourg",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T00:00:00Z",
+      "postedDate": "2026-10-15T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374943657/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Service cantonal des contributions",
+      "pensumMin": 90,
+      "pensumMax": 100,
+      "pensum": "90-100%",
+      "previousSlugs": [
+        "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-16T09:36:52.671Z",
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 185000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rue des Chanoines 17",
+      "addressRegion": "FR"
+    },
+    {
       "id": "etat-de-fribourg-07245397071c",
       "slug": "tirocinante-giurista-etat-de-fribourg-fribourg",
       "slugByLocale": {
@@ -3788,7 +3876,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Praktikantin-Juristin-Saan/1374990657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:18.999Z",
+      "crawledAt": "2026-10-26T21:44:28.894Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3872,7 +3960,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Stagiaire-juriste-Sari/1374990557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:18.298Z",
+      "crawledAt": "2026-10-26T21:44:28.242Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -3956,7 +4044,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Collaborateur-trice-sp%C3%A9cialis%C3%A9-e-ECAS-Sari/1374974957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:17.594Z",
+      "crawledAt": "2026-10-26T21:44:27.583Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4039,7 +4127,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-KSVA-Sachbearbeiterin-Saan/1374974857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:16.890Z",
+      "crawledAt": "2026-10-26T21:44:26.932Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4122,7 +4210,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Sekret%C3%A4rin-Saan/1374947157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:16.179Z",
+      "crawledAt": "2026-10-26T21:44:26.272Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4205,7 +4293,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Secr%C3%A9taire-Sari/1374947257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:15.415Z",
+      "crawledAt": "2026-10-26T21:44:25.622Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -4258,90 +4346,6 @@
       "addressRegion": "FR"
     },
     {
-      "id": "etat-de-fribourg-f745b89d49a6",
-      "slug": "imposte-nel-settore-gruyere-broye-etat-de-fribourg-fribourg",
-      "slugByLocale": {
-        "it": "imposte-nel-settore-gruyere-broye-etat-de-fribourg-fribourg",
-        "en": "taxing-company-in-the-gruyere-broye-sector-etat-de-fribourg-fribourg",
-        "de": "steuerpflichtiges-unternehmen-im-sektor-gruyere-broye-etat-de-fribourg-fribourg",
-        "fr": "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Taxateur-trice fiscal-e auprès du secteur Gruyère/Broye",
-      "titleByLocale": {
-        "it": "Imposte nel settore Gruyère/Broye",
-        "en": "Taxing company in the Gruyère/Broye sector",
-        "de": "Steuerpflichtiges Unternehmen im Sektor Gruyère/Broye",
-        "fr": "Taxateur-trice fiscal-e auprès du secteur Gruyère/Broye"
-      },
-      "description": "Qui sommes-nous?\n\nLe Service cantonal des contributions (SCC) procède à la taxation et à la perception des impôts cantonaux et de l’impôt fédéral direct des personnes physiques et des personnes morales.\n\nÀ la suite d’un départ à la retraite, le SCC recherche un-e taxateur-trice fiscal-e pour le secteur Gruyère/Broye, à un taux d’activité de 90 à 100 %.\n\nEn rejoignant ce secteur, vous intégrerez une équipe de vingt collaborateurs et collaboratrices qui apprécient les échanges constructifs et le travail en équipe. Vous évoluerez dans un environnement de travail à la fois serein et stimulant, favorisant la collaboration, l’autonomie et la qualité des prestations fournies.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nLe secteur organise et assure la taxation des déclarations d'impôt déposées par les contribuables. Son travail consiste essentiellement à s'assurer que les contribuables ont correctement déclaré leurs éléments de revenu et de fortune\n\n• Détermination des impôts dus par les contribuables\n\n• Contrôle des éléments de revenu et de fortune indiqués dans les déclarations\n\n• Vérification du bien-fondé des déductions revendiquées\n\n• Taxation avec des moyens informatiques modernes\n\n• Formation assurée à l’interne\n\nProfil souhaité\n\n• CFC d’employé-e de commerce ou formation jugée équivalente\n\n• Maturité professionnelle commerciale souhaitée\n\n• Habileté rédactionnelle en langue française\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nVincent Goumaz, Chef de secteur, T +41 26 305 33 60",
-      "descriptionByLocale": {
-        "it": "Chi siamo?\n\nIl Servizio cantonale dei Contributi (SCC) raccoglie tasse cantonali e imposta federale diretta sulle persone fisiche e giuridiche.\n\nDopo il pensionamento, CSC sta cercando un funzionario fiscale per il settore Gruyère/Broye ad un tasso di attività dal 90 al 100%.\n\nEntrando in questo settore, si integra un team di venti collaboratori che apprezzano scambi costruttivi e lavoro di squadra. Si evolverà in un ambiente di lavoro sereno e stimolante, promuovendo collaborazione, autonomia e qualità dei servizi forniti.\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarità delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\nIl settore organizza e assicura la tassazione delle dichiarazioni fiscali presentate dai contribuenti. Il suo lavoro è essenzialmente quello di garantire che i contribuenti abbiano correttamente dichiarato i loro componenti di reddito e di ricchezza.\n\n• Determinazione delle imposte pagabili dai contribuenti\n\n• Controllo dei redditi e degli elementi patrimoniali indicati nelle dichiarazioni\n\n• Verifica dei meriti delle deduzioni rivendicate\n\n• Fiscalità con moderni mezzi di calcolo\n\n• Formazione interna\n\nProfilo desiderato\n\n• Dipendente aziendale SWC o formazione considerata equivalente\n\n• maturità commerciale professionale desiderata\n\n• Capacità di scrittura in francese\n\n• Masterizzazione della lingua francese con buona conoscenza della lingua tedesca\n\nInformazioni di contatto\n\nVincent Goumaz, Responsabile Settore\nT +41 26 305 33 60",
-        "en": "Who are we?\n\nThe Cantonal Service of Contributions (SCC) taxes and collects cantonal taxes and direct federal tax on natural persons and legal persons.\n\nFollowing retirement, CSC is looking for a taxing officer for the Gruyère/Broye sector at an activity rate of 90 to 100%.\n\nBy joining this sector, you will integrate a team of twenty collaborators who appreciate constructive exchanges and teamwork. You will evolve in a working environment that is both serene and stimulating, fostering collaboration, autonomy and the quality of the services provided.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\nThe sector organizes and ensures the taxation of tax returns filed by taxpayers. Her job is essentially to ensure that taxpayers have correctly declared their income and wealth components.\n\n• Determination of taxes payable by taxpayers\n\n• Control of the income and wealth elements indicated in the declarations\n\n• Verification of the merits of the claimed deductions\n\n• Taxation with modern computing means\n\n• Internal training\n\nProfile desired\n\n• SWC business employee or training deemed equivalent\n\n• Professional commercial maturity desired\n\n• Writing skills in French\n\n• Mastery of the French language with good knowledge of the German language\n\nContact details\n\nVincent Goumaz, Head of Sector\nT +41 26 305 33 60",
-        "de": "Wer sind wir?\n\nDer Kantonal Service of Contributions (SCC) besteuert und erhebt kantonale Steuern und direkte Bundessteuern auf natürliche und juristische Personen.\n\nNach der Pensionierung sucht CSC einen Steuerbeamten für den Sektor Gruyère/Broye mit einer Aktivitätsrate von 90 bis 100%.\n\nDurch den Beitritt zu diesem Sektor integrieren Sie ein Team von zwanzig Mitarbeitern, die konstruktiven Austausch und Teamarbeit schätzen. Sie entwickeln sich in einem Arbeitsumfeld, das sowohl ruhig als auch stimulierend ist und die Zusammenarbeit, Autonomie und die Qualität der angebotenen Dienstleistungen fördert.\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Staat Freiburg zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\nDer Sektor organisiert und gewährleistet die Besteuerung von Steuererklärungen, die von den Steuerzahlern eingereicht werden. Ihre Aufgabe ist es im Wesentlichen sicherzustellen, dass die Steuerzahler ihre Einkommens- und Vermögenskomponenten korrekt deklariert haben.\n\n• Bestimmung der vom Steuerzahler zu zahlenden Steuern\n\n• Kontrolle der in den Erklärungen angegebenen Einkommens- und Vermögensbestandteile\n\n• Überprüfung der Begründetheit der beantragten Abzüge\n\n• Besteuerung mit modernen Rechenmitteln\n\n• Interne Schulung\n\nProfil gewünscht\n\n• SWC Business-Mitarbeiter oder Ausbildung als gleichwertig angesehen\n\n• Gewünschte kommerzielle Reife\n\n• Schreibfähigkeiten auf Französisch\n\n• Beherrschung der französischen Sprache mit guten Kenntnissen der deutschen Sprache\n\nKontaktangaben\n\nVincent Goumaz, Leiter des Sektors\nT +41 26 305 33 60",
-        "fr": "Qui sommes-nous?\n\nLe Service cantonal des contributions (SCC) procède à la taxation et à la perception des impôts cantonaux et de l’impôt fédéral direct des personnes physiques et des personnes morales.\n\nÀ la suite d’un départ à la retraite, le SCC recherche un-e taxateur-trice fiscal-e pour le secteur Gruyère/Broye, à un taux d’activité de 90 à 100 %.\n\nEn rejoignant ce secteur, vous intégrerez une équipe de vingt collaborateurs et collaboratrices qui apprécient les échanges constructifs et le travail en équipe. Vous évoluerez dans un environnement de travail à la fois serein et stimulant, favorisant la collaboration, l’autonomie et la qualité des prestations fournies.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nLe secteur organise et assure la taxation des déclarations d'impôt déposées par les contribuables. Son travail consiste essentiellement à s'assurer que les contribuables ont correctement déclaré leurs éléments de revenu et de fortune\n\n• Détermination des impôts dus par les contribuables\n\n• Contrôle des éléments de revenu et de fortune indiqués dans les déclarations\n\n• Vérification du bien-fondé des déductions revendiquées\n\n• Taxation avec des moyens informatiques modernes\n\n• Formation assurée à l’interne\n\nProfil souhaité\n\n• CFC d’employé-e de commerce ou formation jugée équivalente\n\n• Maturité professionnelle commerciale souhaitée\n\n• Habileté rédactionnelle en langue française\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nVincent Goumaz, Chef de secteur, T +41 26 305 33 60"
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Taxateur-trice-fiscal-e-aupr%C3%A8s-du-secteur-Gruy%C3%A8reBroye-Sari/1374943657/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:14.693Z",
-      "addressLocality": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T00:00:00Z",
-      "postedDate": "2026-10-15T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1374943657/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Service cantonal des contributions",
-      "pensumMin": 90,
-      "pensumMax": 100,
-      "pensum": "90-100%",
-      "previousSlugs": [
-        "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "taxateur-trice-fiscal-e-aupres-du-secteur-gruyere-broye-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-16T09:36:52.671Z",
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 185000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
-    },
-    {
       "id": "etat-de-fribourg-8456766a4201",
       "slug": "elettrico-n-cfc-etat-de-fribourg-fribourg",
       "slugByLocale": {
@@ -4372,7 +4376,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-%C3%A9lectronicien-ne-CFC-Sari/1372326157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:13.981Z",
+      "crawledAt": "2026-10-26T21:44:24.976Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4456,7 +4460,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Sari/1362499557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:13.267Z",
+      "crawledAt": "2026-10-26T21:44:24.325Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4553,7 +4557,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Laboratory-Technician-Position-in-Pharmacology-Saan/1362499657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:12.534Z",
+      "crawledAt": "2026-10-26T21:44:23.640Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4603,6 +4607,172 @@
       "addressRegion": "FR"
     },
     {
+      "id": "etat-de-fribourg-768257a239b7",
+      "slug": "dipendente-dell-amministrazione-dell-orp-del-nord-distretto-del-lago-etat-de-fribourg-morat",
+      "slugByLocale": {
+        "it": "dipendente-dell-amministrazione-dell-orp-del-nord-distretto-del-lago-etat-de-fribourg-morat",
+        "en": "administration-employee-at-the-north-orp-lake-district-etat-de-fribourg-morat",
+        "de": "verwaltungsmitarbeiter-bei-north-orp-lake-district-etat-de-fribourg-morat",
+        "fr": "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+      },
+      "company": "Etat de Fribourg",
+      "companyKey": "etat-de-fribourg",
+      "companyDomain": "fr.ch",
+      "title": "Employé-e d'administration à l'ORP Nord, district Lac",
+      "titleByLocale": {
+        "it": "Dipendente dell'amministrazione dell'ORP del Nord, Distretto del Lago",
+        "en": "Administration employee at the North ORP, Lake District",
+        "de": "Verwaltungsmitarbeiter bei North ORP, Lake District",
+        "fr": "Employé-e d'administration à l'ORP Nord, district Lac"
+      },
+      "description": "Qui sommes-nous?\n\nLe Service public de l’emploi (SPE) est l’autorité cantonale qui traite du marché de l’emploi dans le canton de Fribourg. Sa mission est de contribuer à ce que ce marché soit le plus équilibré et le plus prospère possible.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nAdministration, secrétariat, réception et soutien administratif lors des assignation à des mesures du marché du travail (MMT)\n\nProfil souhaité\n\n• CFC d'employé-e de commerce suivi d'une expérience professionnelle dans l'administration\n\n• Aisance rédactionnelle (PV et correspondance)\n\n• Excellente maîtrise des outils informatiques usuels (Word, Excel, etc.)\n\n• Mobilité et flexibilité\n\n• Intérêt pour les questions relatives au marché du travail et au placement des demandeurs-euses d'emploi\n\n• Connaissance du tissu économique\n\n• Maîtrise de la langue française ou allemande avec de très bonnes connaissances de l’autre langue\n\nCoordonnées des personnes de contact\n\nStephan Flückiger, Chef ORP Nord, T +41 26 305 96 56",
+      "descriptionByLocale": {
+        "it": "Chi siamo?\n\nIl Servizio pubblico per l'occupazione (PSE) è l'autorità cantonale che si occupa del mercato del lavoro nel Canton Friburgo. La sua missione è quella di garantire che questo mercato sia il più equilibrato e prospero possibile.\n\nPerché unirsi a noi?\n\nIl datore di lavoro di Stato incoraggia la riconciliazione del lavoro e della vita privata e offre un ambiente di lavoro attraente e condizioni di lavoro ai suoi dipendenti. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\nAmministrazione, Segretariato, Ricevimento e Sostegno amministrativo per le misure di mercato del lavoro (LMS)\n\nProfilo desiderato\n\n• Business Employee SWC seguito da esperienza professionale in amministrazione\n\n• Esperienza di scrittura (PV e corrispondenza)\n\n• Eccellente padronanza degli strumenti comuni del computer (Word, Excel, ecc.)\n\n• Mobilità e flessibilità\n\n• Interessi in materia di mercato del lavoro e collocamento dei disoccupati\n\n• Conoscenza del tessuto economico\n\n• Padroneggiare la lingua francese o tedesca con una conoscenza molto buona dell'altra lingua\n\nInformazioni di contatto\n\nStephan Flückiger, Chief ORP North, T +41 26 305 96 56",
+        "en": "Who are we?\n\nThe Public Employment Service (PSE) is the cantonal authority dealing with the labour market in the canton of Fribourg. Its mission is to help ensure that this market is as balanced and prosperous as possible.\n\nWhy join us?\n\nThe State-employer encourages the reconciliation of work and private life and offers an attractive working environment and working conditions to its employees. To learn more, follow this link .\n\nYour missions\n\nAdministration, Secretariat, Receipt and Administrative Support for Labour Market Measures (LMS)\n\nProfile desired\n\n• Business Employee SWC followed by professional experience in administration\n\n• Writing experience (PV and correspondence)\n\n• Excellent mastery of common computer tools (Word, Excel, etc.)\n\n• Mobility and flexibility\n\n• Interest in labour market issues and placement of jobseekers\n\n• Knowledge of the economic fabric\n\n• Mastering the French or German language with very good knowledge of the other language\n\nContact details\n\nStephan Flückiger, Chief ORP North, T +41 26 305 96 56",
+        "de": "Wer sind wir?\n\nDie Öffentliche Arbeitsverwaltung (PSE) ist die kantonale Behörde, die sich mit dem Arbeitsmarkt im Kanton Freiburg befasst. Seine Aufgabe ist es, dazu beizutragen, dass dieser Markt so ausgewogen und wohlhabend wie möglich ist.\n\nWarum mitmachen?\n\nDer staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\nVerwaltung, Sekretariat, Empfang und administrative Unterstützung für Arbeitsmarktmaßnahmen (LMS)\n\nProfil gewünscht\n\n• Business Employee SWC gefolgt von Berufserfahrung in der Verwaltung\n\n• Schreiberfahrung (PV und Korrespondenz)\n\n• Hervorragende Beherrschung der gängigen Computer-Tools (Word, Excel, etc.)\n\n• Mobilität und Flexibilität\n\n• Interesse an Arbeitsmarktfragen und Arbeitsvermittlung\n\n• Kenntnisse des Wirtschaftsgefüges\n\n• Beherrschung der französischen oder deutschen Sprache mit sehr guten Kenntnissen der anderen Sprache\n\nKontaktangaben\n\nStephan Flückiger, Chief ORP North, T +41 26 305 96 56",
+        "fr": "Qui sommes-nous?\n\nLe Service public de l’emploi (SPE) est l’autorité cantonale qui traite du marché de l’emploi dans le canton de Fribourg. Sa mission est de contribuer à ce que ce marché soit le plus équilibré et le plus prospère possible.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nAdministration, secrétariat, réception et soutien administratif lors des assignation à des mesures du marché du travail (MMT)\n\nProfil souhaité\n\n• CFC d'employé-e de commerce suivi d'une expérience professionnelle dans l'administration\n\n• Aisance rédactionnelle (PV et correspondance)\n\n• Excellente maîtrise des outils informatiques usuels (Word, Excel, etc.)\n\n• Mobilité et flexibilité\n\n• Intérêt pour les questions relatives au marché du travail et au placement des demandeurs-euses d'emploi\n\n• Connaissance du tissu économique\n\n• Maîtrise de la langue française ou allemande avec de très bonnes connaissances de l’autre langue\n\nCoordonnées des personnes de contact\n\nStephan Flückiger, Chef ORP Nord, T +41 26 305 96 56"
+      },
+      "location": "Morat",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Morat%2C-CH-Employ%C3%A9-e-d'administration-%C3%A0-l'ORP-Nord%2C-district-Lac-Lac/1375355657/",
+      "source": "Etat de Fribourg Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-26T21:44:22.951Z",
+      "addressLocality": "Morat",
+      "postalCode": "3280",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-20T00:00:00Z",
+      "postedDate": "2026-10-20T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1375355657/?locale=fr_FR",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Service public de l'emploi",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "previousSlugs": [
+        "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:47:57.612Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-e92ce54a7b89",
+      "slug": "dipendente-amministrativo-r-della-rav-nord-seebezirk-etat-de-fribourg-morat",
+      "slugByLocale": {
+        "it": "dipendente-amministrativo-r-della-rav-nord-seebezirk-etat-de-fribourg-morat",
+        "en": "administrative-employee-r-of-the-rav-nord-seebezirk-etat-de-fribourg-morat",
+        "de": "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch",
+        "fr": "employe-administratif-r-du-rav-nord-seebezirk-etat-de-fribourg-morat"
+      },
+      "company": "Etat de Fribourg",
+      "companyKey": "etat-de-fribourg",
+      "companyDomain": "fr.ch",
+      "title": "Verwaltungsangestellte/r beim RAV Nord Seebezirk",
+      "titleByLocale": {
+        "it": "Dipendente amministrativo/r della RAV Nord Seebezirk",
+        "en": "Administrative employee/r of the RAV Nord Seebezirk",
+        "de": "Verwaltungsangestellte/r beim RAV Nord Seebezirk",
+        "fr": "Employé administratif/r du RAV Nord Seebezirk"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für den Arbeitsmarkt (AMA) ist die kantonale Behörde, die sich mit dem Arbeitsmarkt im Kanton Freiburg befasst. Es hat die Aufgabe, zu einem möglichst ausgeglichenen und florierenden Markt beizutragen.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender  Seite .\n\nIhre Aufgaben\n\nAdministration, Sekretariat, Empfang und administrative Unterstützung bei der Zuweisung zu arbeitsmarktlichen Massnahmen (AMM).\n\nGewünschtes Profil\n\n• Eidg. Fähigkeitsausweis als kaufm. Angestellte/r, ergänzt durch mehrjährige Berufserfahrung in der Verwaltung\n\n• Redaktionelle Fähigkeiten (Protokolle und Korrespondenz)\n\n• Ausgezeichnete Kenntnis der gängigen Informatikprogramme (Word, Excel, usw.)\n\n• Mobilität und Flexibilität\n\n• Interesse an Fragen zum Arbeitsmarkt und an der Vermittlung von Stellensuchenden\n\n• Kenntnis des Wirtschaftsgefüges\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache\n\nAngaben der Kontaktpersonen\n\nStephan Flückiger, RAV-Leiter Nord, T +41 26 305 96 56",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione\n\nL'Ufficio per il mercato del lavoro (AMA) è l'autorità cantonale che si occupa del mercato del lavoro nel cantone di Friburgo. Il suo compito è quello di contribuire a un mercato che è il più equilibrato e prospero possibile.\n\nDiventa parte della nostra squadra!\n\nIl datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente.\n\nI loro compiti\n\nAmministrazione, segretariato, accoglienza e sostegno amministrativo nell'assegnazione alle misure di mercato del lavoro (AMM).\n\nProfilo desiderato\n\n• Eidg. Certificato di conformità come acquisto. Dipendente, completato da diversi anni di esperienza professionale in amministrazione\n\n• Competenze editoriali (protocollo e corrispondenza)\n\n• Ottima conoscenza dei programmi comuni del computer (Word, Excel, ecc.)\n\n• Mobilità e flessibilità\n\n• Interessi in materia di mercato del lavoro e assunzione di disoccupati\n\n• Conoscenza della struttura economica\n\n• Padroneggiare la lingua tedesca o francese con una buona conoscenza dell'altra lingua\n\nInformazioni di contatto\n\nStephan Flückiger, Direttore RAV North, T +41 26 305 96 56",
+        "en": "Appointment authority / department / institution\n\nThe Office for the Labour Market (AMA) is the cantonal authority dealing with the labour market in the canton of Freiburg. Its task is to contribute to a market that is as balanced and prosperous as possible.\n\nBecome part of our team!\n\nThe employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page.\n\nTheir tasks\n\nAdministration, secretariat, reception and administrative support in the allocation to labour market measures (AMM).\n\nDesired profile\n\n• Eidg. Certificate of Competence as Purchase. Employee, supplemented by several years of professional experience in administration\n\n• Editorial skills (protocols and correspondence)\n\n• Excellent knowledge of common computer programs (Word, Excel, etc.)\n\n• Mobility and flexibility\n\n• Interest in labour market issues and recruitment of job seekers\n\n• Knowledge of the economic structure\n\n• Mastering the German or French language with very good knowledge of the other language\n\nContact details\n\nStephan Flückiger, RAV Director North, T +41 26 305 96 56",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für den Arbeitsmarkt (AMA) ist die kantonale Behörde, die sich mit dem Arbeitsmarkt im Kanton Freiburg befasst. Es hat die Aufgabe, zu einem möglichst ausgeglichenen und florierenden Markt beizutragen.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nIhre Aufgaben\n\nAdministration, Sekretariat, Empfang und administrative Unterstützung bei der Zuweisung zu arbeitsmarktlichen Massnahmen (AMM).\n\nGewünschtes Profil\n\n• Eidg. Fähigkeitsausweis als kaufm. Angestellte/r, ergänzt durch mehrjährige Berufserfahrung in der Verwaltung\n\n• Redaktionelle Fähigkeiten (Protokolle und Korrespondenz)\n\n• Ausgezeichnete Kenntnis der gängigen Informatikprogramme (Word, Excel, usw.)\n\n• Mobilität und Flexibilität\n\n• Interesse an Fragen zum Arbeitsmarkt und an der Vermittlung von Stellensuchenden\n\n• Kenntnis des Wirtschaftsgefüges\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache\n\nAngaben der Kontaktpersonen\n\nStephan Flückiger, RAV-Leiter Nord, T +41 26 305 96 56",
+        "fr": "Pouvoir de nomination / ministère / institution\n\nL'Office du marché du travail (AMA) est l'autorité cantonale chargée du marché du travail dans le canton de Fribourg. Sa tâche est de contribuer à un marché aussi équilibré et prospère que possible.\n\nFaites partie de notre équipe !\n\nL'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante.\n\nLeurs tâches\n\nAdministration, secrétariat, accueil et appui administratif pour l'allocation aux mesures du marché du travail (AMM).\n\nProfil désiré\n\n• Oui. Certificat de compétence en tant qu'achat. Employé, complété par plusieurs années d'expérience professionnelle en administration\n\n• Compétences en rédaction (protocoles et correspondance)\n\n• Excellente connaissance des programmes informatiques courants (Word, Excel, etc.)\n\n• Mobilité et flexibilité\n\n• Intérêt pour le marché du travail et le recrutement des demandeurs d'emploi\n\n• Connaissance de la structure économique\n\n• Maîtriser l'allemand ou le français avec une très bonne connaissance de l'autre langue\n\nCoordonnées\n\nStephan Flückiger, RAV Directeur Nord, T +41 26 305 96 56"
+      },
+      "location": "Morat",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Morat%2C-CH-Verwaltungsangestellter-beim-RAV-Nord-Seebezirk-See/1375355757/",
+      "source": "Etat de Fribourg Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-26T21:44:22.304Z",
+      "addressLocality": "Morat",
+      "postalCode": "3280",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-20T00:00:00Z",
+      "postedDate": "2026-10-20T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1375355757/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Amt für den Arbeitsmarkt",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "previousSlugs": [
+        "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:47:55.981Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
       "id": "etat-de-fribourg-f46d297a1c3f",
       "slug": "bibliotecario-a-e-responsabile-di-gruppo-etat-de-fribourg-fribourg",
       "slugByLocale": {
@@ -4633,7 +4803,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Bibliothekarin-und-Gruppenleiterin-Saan/1375358657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:11.826Z",
+      "crawledAt": "2026-10-26T21:44:21.645Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4719,7 +4889,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Diplomierter-administrativer-Mitarbeiterin%2C-Kommunikationsbeauftragter-Saan/1375354057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:11.113Z",
+      "crawledAt": "2026-10-26T21:44:20.854Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4773,89 +4943,6 @@
       "addressRegion": "FR"
     },
     {
-      "id": "etat-de-fribourg-768257a239b7",
-      "slug": "dipendente-dell-amministrazione-dell-orp-del-nord-distretto-del-lago-etat-de-fribourg-morat",
-      "slugByLocale": {
-        "it": "dipendente-dell-amministrazione-dell-orp-del-nord-distretto-del-lago-etat-de-fribourg-morat",
-        "en": "administration-employee-at-the-north-orp-lake-district-etat-de-fribourg-morat",
-        "de": "verwaltungsmitarbeiter-bei-north-orp-lake-district-etat-de-fribourg-morat",
-        "fr": "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Employé-e d'administration à l'ORP Nord, district Lac",
-      "titleByLocale": {
-        "it": "Dipendente dell'amministrazione dell'ORP del Nord, Distretto del Lago",
-        "en": "Administration employee at the North ORP, Lake District",
-        "de": "Verwaltungsmitarbeiter bei North ORP, Lake District",
-        "fr": "Employé-e d'administration à l'ORP Nord, district Lac"
-      },
-      "description": "Qui sommes-nous?\n\nLe Service public de l’emploi (SPE) est l’autorité cantonale qui traite du marché de l’emploi dans le canton de Fribourg. Sa mission est de contribuer à ce que ce marché soit le plus équilibré et le plus prospère possible.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nAdministration, secrétariat, réception et soutien administratif lors des assignation à des mesures du marché du travail (MMT)\n\nProfil souhaité\n\n• CFC d'employé-e de commerce suivi d'une expérience professionnelle dans l'administration\n\n• Aisance rédactionnelle (PV et correspondance)\n\n• Excellente maîtrise des outils informatiques usuels (Word, Excel, etc.)\n\n• Mobilité et flexibilité\n\n• Intérêt pour les questions relatives au marché du travail et au placement des demandeurs-euses d'emploi\n\n• Connaissance du tissu économique\n\n• Maîtrise de la langue française ou allemande avec de très bonnes connaissances de l’autre langue\n\nCoordonnées des personnes de contact\n\nStephan Flückiger, Chef ORP Nord, T +41 26 305 96 56",
-      "descriptionByLocale": {
-        "it": "Chi siamo?\n\nIl Servizio pubblico per l'occupazione (PSE) è l'autorità cantonale che si occupa del mercato del lavoro nel Canton Friburgo. La sua missione è quella di garantire che questo mercato sia il più equilibrato e prospero possibile.\n\nPerché unirsi a noi?\n\nIl datore di lavoro di Stato incoraggia la riconciliazione del lavoro e della vita privata e offre un ambiente di lavoro attraente e condizioni di lavoro ai suoi dipendenti. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\nAmministrazione, Segretariato, Ricevimento e Sostegno amministrativo per le misure di mercato del lavoro (LMS)\n\nProfilo desiderato\n\n• Business Employee SWC seguito da esperienza professionale in amministrazione\n\n• Esperienza di scrittura (PV e corrispondenza)\n\n• Eccellente padronanza degli strumenti comuni del computer (Word, Excel, ecc.)\n\n• Mobilità e flessibilità\n\n• Interessi in materia di mercato del lavoro e collocamento dei disoccupati\n\n• Conoscenza del tessuto economico\n\n• Padroneggiare la lingua francese o tedesca con una conoscenza molto buona dell'altra lingua\n\nInformazioni di contatto\n\nStephan Flückiger, Chief ORP North, T +41 26 305 96 56",
-        "en": "Who are we?\n\nThe Public Employment Service (PSE) is the cantonal authority dealing with the labour market in the canton of Fribourg. Its mission is to help ensure that this market is as balanced and prosperous as possible.\n\nWhy join us?\n\nThe State-employer encourages the reconciliation of work and private life and offers an attractive working environment and working conditions to its employees. To learn more, follow this link .\n\nYour missions\n\nAdministration, Secretariat, Receipt and Administrative Support for Labour Market Measures (LMS)\n\nProfile desired\n\n• Business Employee SWC followed by professional experience in administration\n\n• Writing experience (PV and correspondence)\n\n• Excellent mastery of common computer tools (Word, Excel, etc.)\n\n• Mobility and flexibility\n\n• Interest in labour market issues and placement of jobseekers\n\n• Knowledge of the economic fabric\n\n• Mastering the French or German language with very good knowledge of the other language\n\nContact details\n\nStephan Flückiger, Chief ORP North, T +41 26 305 96 56",
-        "de": "Wer sind wir?\n\nDie Öffentliche Arbeitsverwaltung (PSE) ist die kantonale Behörde, die sich mit dem Arbeitsmarkt im Kanton Freiburg befasst. Seine Aufgabe ist es, dazu beizutragen, dass dieser Markt so ausgewogen und wohlhabend wie möglich ist.\n\nWarum mitmachen?\n\nDer staatliche Arbeitgeber fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitern ein attraktives Arbeitsumfeld und Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\nVerwaltung, Sekretariat, Empfang und administrative Unterstützung für Arbeitsmarktmaßnahmen (LMS)\n\nProfil gewünscht\n\n• Business Employee SWC gefolgt von Berufserfahrung in der Verwaltung\n\n• Schreiberfahrung (PV und Korrespondenz)\n\n• Hervorragende Beherrschung der gängigen Computer-Tools (Word, Excel, etc.)\n\n• Mobilität und Flexibilität\n\n• Interesse an Arbeitsmarktfragen und Arbeitsvermittlung\n\n• Kenntnisse des Wirtschaftsgefüges\n\n• Beherrschung der französischen oder deutschen Sprache mit sehr guten Kenntnissen der anderen Sprache\n\nKontaktangaben\n\nStephan Flückiger, Chief ORP North, T +41 26 305 96 56",
-        "fr": "Qui sommes-nous?\n\nLe Service public de l’emploi (SPE) est l’autorité cantonale qui traite du marché de l’emploi dans le canton de Fribourg. Sa mission est de contribuer à ce que ce marché soit le plus équilibré et le plus prospère possible.\n\nPourquoi nous rejoindre ?\n\nL’Etat-employeur encourage la conciliation vie professionnelle et vie privée et offre un environnement et des conditions de travail attractifs à ses collaborateur-trice-s. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\nAdministration, secrétariat, réception et soutien administratif lors des assignation à des mesures du marché du travail (MMT)\n\nProfil souhaité\n\n• CFC d'employé-e de commerce suivi d'une expérience professionnelle dans l'administration\n\n• Aisance rédactionnelle (PV et correspondance)\n\n• Excellente maîtrise des outils informatiques usuels (Word, Excel, etc.)\n\n• Mobilité et flexibilité\n\n• Intérêt pour les questions relatives au marché du travail et au placement des demandeurs-euses d'emploi\n\n• Connaissance du tissu économique\n\n• Maîtrise de la langue française ou allemande avec de très bonnes connaissances de l’autre langue\n\nCoordonnées des personnes de contact\n\nStephan Flückiger, Chef ORP Nord, T +41 26 305 96 56"
-      },
-      "location": "Morat",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Morat%2C-CH-Employ%C3%A9-e-d'administration-%C3%A0-l'ORP-Nord%2C-district-Lac-Lac/1375355657/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:10.411Z",
-      "addressLocality": "Morat",
-      "postalCode": "3280",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-20T00:00:00Z",
-      "postedDate": "2026-10-20T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1375355657/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Service public de l'emploi",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
-        ],
-        "de": [
-          "employe-e-d-administration-a-l-orp-nord-district-lac-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T09:47:57.612Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR"
-    },
-    {
       "id": "etat-de-fribourg-05553660040e",
       "slug": "leader-bibliotecario-e-di-gruppo-etat-de-fribourg-fribourg",
       "slugByLocale": {
@@ -4886,7 +4973,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Biblioth%C3%A9caire-et-chef-fe-de-groupe-Sari/1375358757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:09.686Z",
+      "crawledAt": "2026-10-26T21:44:20.216Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -4940,89 +5027,6 @@
       "addressRegion": "FR"
     },
     {
-      "id": "etat-de-fribourg-e92ce54a7b89",
-      "slug": "dipendente-amministrativo-r-della-rav-nord-seebezirk-etat-de-fribourg-morat",
-      "slugByLocale": {
-        "it": "dipendente-amministrativo-r-della-rav-nord-seebezirk-etat-de-fribourg-morat",
-        "en": "administrative-employee-r-of-the-rav-nord-seebezirk-etat-de-fribourg-morat",
-        "de": "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch",
-        "fr": "employe-administratif-r-du-rav-nord-seebezirk-etat-de-fribourg-morat"
-      },
-      "company": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "companyDomain": "fr.ch",
-      "title": "Verwaltungsangestellte/r beim RAV Nord Seebezirk",
-      "titleByLocale": {
-        "it": "Dipendente amministrativo/r della RAV Nord Seebezirk",
-        "en": "Administrative employee/r of the RAV Nord Seebezirk",
-        "de": "Verwaltungsangestellte/r beim RAV Nord Seebezirk",
-        "fr": "Employé administratif/r du RAV Nord Seebezirk"
-      },
-      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für den Arbeitsmarkt (AMA) ist die kantonale Behörde, die sich mit dem Arbeitsmarkt im Kanton Freiburg befasst. Es hat die Aufgabe, zu einem möglichst ausgeglichenen und florierenden Markt beizutragen.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender  Seite .\n\nIhre Aufgaben\n\nAdministration, Sekretariat, Empfang und administrative Unterstützung bei der Zuweisung zu arbeitsmarktlichen Massnahmen (AMM).\n\nGewünschtes Profil\n\n• Eidg. Fähigkeitsausweis als kaufm. Angestellte/r, ergänzt durch mehrjährige Berufserfahrung in der Verwaltung\n\n• Redaktionelle Fähigkeiten (Protokolle und Korrespondenz)\n\n• Ausgezeichnete Kenntnis der gängigen Informatikprogramme (Word, Excel, usw.)\n\n• Mobilität und Flexibilität\n\n• Interesse an Fragen zum Arbeitsmarkt und an der Vermittlung von Stellensuchenden\n\n• Kenntnis des Wirtschaftsgefüges\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache\n\nAngaben der Kontaktpersonen\n\nStephan Flückiger, RAV-Leiter Nord, T +41 26 305 96 56",
-      "descriptionByLocale": {
-        "it": "Autorità di nomina / dipartimento / istituzione\n\nL'Ufficio per il mercato del lavoro (AMA) è l'autorità cantonale che si occupa del mercato del lavoro nel cantone di Friburgo. Il suo compito è quello di contribuire a un mercato che è il più equilibrato e prospero possibile.\n\nDiventa parte della nostra squadra!\n\nIl datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente.\n\nI loro compiti\n\nAmministrazione, segretariato, accoglienza e sostegno amministrativo nell'assegnazione alle misure di mercato del lavoro (AMM).\n\nProfilo desiderato\n\n• Eidg. Certificato di conformità come acquisto. Dipendente, completato da diversi anni di esperienza professionale in amministrazione\n\n• Competenze editoriali (protocollo e corrispondenza)\n\n• Ottima conoscenza dei programmi comuni del computer (Word, Excel, ecc.)\n\n• Mobilità e flessibilità\n\n• Interessi in materia di mercato del lavoro e assunzione di disoccupati\n\n• Conoscenza della struttura economica\n\n• Padroneggiare la lingua tedesca o francese con una buona conoscenza dell'altra lingua\n\nInformazioni di contatto\n\nStephan Flückiger, Direttore RAV North, T +41 26 305 96 56",
-        "en": "Appointment authority / department / institution\n\nThe Office for the Labour Market (AMA) is the cantonal authority dealing with the labour market in the canton of Freiburg. Its task is to contribute to a market that is as balanced and prosperous as possible.\n\nBecome part of our team!\n\nThe employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page.\n\nTheir tasks\n\nAdministration, secretariat, reception and administrative support in the allocation to labour market measures (AMM).\n\nDesired profile\n\n• Eidg. Certificate of Competence as Purchase. Employee, supplemented by several years of professional experience in administration\n\n• Editorial skills (protocols and correspondence)\n\n• Excellent knowledge of common computer programs (Word, Excel, etc.)\n\n• Mobility and flexibility\n\n• Interest in labour market issues and recruitment of job seekers\n\n• Knowledge of the economic structure\n\n• Mastering the German or French language with very good knowledge of the other language\n\nContact details\n\nStephan Flückiger, RAV Director North, T +41 26 305 96 56",
-        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Amt für den Arbeitsmarkt (AMA) ist die kantonale Behörde, die sich mit dem Arbeitsmarkt im Kanton Freiburg befasst. Es hat die Aufgabe, zu einem möglichst ausgeglichenen und florierenden Markt beizutragen.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nIhre Aufgaben\n\nAdministration, Sekretariat, Empfang und administrative Unterstützung bei der Zuweisung zu arbeitsmarktlichen Massnahmen (AMM).\n\nGewünschtes Profil\n\n• Eidg. Fähigkeitsausweis als kaufm. Angestellte/r, ergänzt durch mehrjährige Berufserfahrung in der Verwaltung\n\n• Redaktionelle Fähigkeiten (Protokolle und Korrespondenz)\n\n• Ausgezeichnete Kenntnis der gängigen Informatikprogramme (Word, Excel, usw.)\n\n• Mobilität und Flexibilität\n\n• Interesse an Fragen zum Arbeitsmarkt und an der Vermittlung von Stellensuchenden\n\n• Kenntnis des Wirtschaftsgefüges\n\n• Beherrschen der deutschen oder französischen Sprache mit sehr guten Kenntnissen der anderen Sprache\n\nAngaben der Kontaktpersonen\n\nStephan Flückiger, RAV-Leiter Nord, T +41 26 305 96 56",
-        "fr": "Pouvoir de nomination / ministère / institution\n\nL'Office du marché du travail (AMA) est l'autorité cantonale chargée du marché du travail dans le canton de Fribourg. Sa tâche est de contribuer à un marché aussi équilibré et prospère que possible.\n\nFaites partie de notre équipe !\n\nL'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante.\n\nLeurs tâches\n\nAdministration, secrétariat, accueil et appui administratif pour l'allocation aux mesures du marché du travail (AMM).\n\nProfil désiré\n\n• Oui. Certificat de compétence en tant qu'achat. Employé, complété par plusieurs années d'expérience professionnelle en administration\n\n• Compétences en rédaction (protocoles et correspondance)\n\n• Excellente connaissance des programmes informatiques courants (Word, Excel, etc.)\n\n• Mobilité et flexibilité\n\n• Intérêt pour le marché du travail et le recrutement des demandeurs d'emploi\n\n• Connaissance de la structure économique\n\n• Maîtriser l'allemand ou le français avec une très bonne connaissance de l'autre langue\n\nCoordonnées\n\nStephan Flückiger, RAV Directeur Nord, T +41 26 305 96 56"
-      },
-      "location": "Morat",
-      "canton": "FR",
-      "url": "https://jobs.fr.ch/job/Morat%2C-CH-Verwaltungsangestellter-beim-RAV-Nord-Seebezirk-See/1375355757/",
-      "source": "Etat de Fribourg Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:08.962Z",
-      "addressLocality": "Morat",
-      "postalCode": "3280",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-20T00:00:00Z",
-      "postedDate": "2026-10-20T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1375355757/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Amt für den Arbeitsmarkt",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugs": [
-        "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
-        ],
-        "en": [
-          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "verwaltungsangestellte-r-beim-rav-nord-seebezirk-etat-de-fribourg-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T09:47:55.981Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "FR"
-    },
-    {
       "id": "etat-de-fribourg-73ddfe603b9a",
       "slug": "impiegato-a-amministrativo-a-presso-il-tribunale-distrettuale-della-sense-etat-de-fribourg-tafers",
       "slugByLocale": {
@@ -5053,7 +5057,7 @@
       "url": "https://jobs.fr.ch/job/Tafers%2C-CH-Verwaltungssachbearberin-beim-Bezirksgericht-der-Sense-Sens/1375376957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:08.251Z",
+      "crawledAt": "2026-10-26T21:44:19.565Z",
       "addressLocality": "Tafers",
       "postalCode": "1712",
       "addressCountry": "CH",
@@ -5136,7 +5140,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-dipl%C3%B4m%C3%A9-e-charg%C3%A9-e-de-communication-Sari/1375353957/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:07.542Z",
+      "crawledAt": "2026-10-26T21:44:18.811Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5220,7 +5224,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Verwaltungssachbearbeiterin-HR-Saan/1375441857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:06.821Z",
+      "crawledAt": "2026-10-26T21:44:18.163Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5304,7 +5308,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-en-Ressources-humaines-Sari/1375441757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:06.088Z",
+      "crawledAt": "2026-10-26T21:44:17.482Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5388,7 +5392,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Chef-fe-de-groupe-aupr%C3%A8s-du-secteur-encaissement-et-contentieux-Sari/1375615657/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:05.392Z",
+      "crawledAt": "2026-10-26T21:44:16.829Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5472,7 +5476,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Gruppenleiterin%2C-Abteilung-Steuerbezug-und-Steuerausst%C3%A4nde-Saan/1375615757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:04.676Z",
+      "crawledAt": "2026-10-26T21:44:16.180Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5558,7 +5562,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Administrativer-Mitarbeiterin-Studiensekretariat-Saan/1375539457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:03.977Z",
+      "crawledAt": "2026-10-26T21:44:15.530Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5642,7 +5646,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Secr%C3%A9taire-de-Procureur-Sari/1375598757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:03.272Z",
+      "crawledAt": "2026-10-26T21:44:14.856Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5726,7 +5730,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vizepr%C3%A4sidentin-der-Enteignungskommission-Saan/1375602457/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:40:02.525Z",
+      "crawledAt": "2026-10-26T21:44:14.216Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5807,7 +5811,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Collaborateur-trice-administratif-ve-Service-acad%C3%A9mique-Sari/1375539357/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:01.760Z",
+      "crawledAt": "2026-10-26T21:44:13.498Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5891,7 +5895,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Vice-pr%C3%A9sident-e-aupr%C3%A8s-de-la-Commission-d'expropriation-Sari/1375602557/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:01.065Z",
+      "crawledAt": "2026-10-26T21:44:12.838Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5941,9 +5945,9 @@
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economista-etat-de-fribourg-fribourg-78c340",
+      "slug": "economiste-etat-de-fribourg",
       "slugByLocale": {
-        "it": "economista-etat-de-fribourg-fribourg-78c340",
+        "it": "economiste-etat-de-fribourg",
         "en": "economist-etat-de-fribourg-fribourg",
         "de": "okonom-etat-de-fribourg-fribourg",
         "fr": "economiste-etat-de-fribourg-ch"
@@ -5970,7 +5974,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Economiste-Sari/1372971157/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:40:00.367Z",
+      "crawledAt": "2026-10-26T21:44:12.189Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -5996,14 +6000,14 @@
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
         "economista-etat-de-fribourg-fribourg",
-        "economiste-etat-de-fribourg"
+        "economista-etat-de-fribourg-fribourg-78c340"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
           "economista-etat-de-fribourg-fribourg",
-          "economiste-etat-de-fribourg"
+          "economista-etat-de-fribourg-fribourg-78c340"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"
@@ -6060,7 +6064,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Wirtschaftswissenschaftlerin-Saan/1372971257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:39:59.645Z",
+      "crawledAt": "2026-10-26T21:44:11.541Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6144,7 +6148,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Lernende-KauffrauKaufmann-EBA-EFZ-Saan/1370294857/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:39:58.926Z",
+      "crawledAt": "2026-10-26T21:44:10.825Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6234,7 +6238,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Apprenti-e-informaticien-ne-CFC-Exploitation-et-infrastructure-Sari/1370312057/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:39:58.223Z",
+      "crawledAt": "2026-10-26T21:44:10.158Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "addressCountry": "CH",
@@ -6350,7 +6354,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-employ%C3%A9-e-de-commerce-AFP-CFC-Sari/1370294757/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:39:57.496Z",
+      "crawledAt": "2026-10-26T21:44:09.486Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6462,7 +6466,7 @@
       "url": "https://jobs.fr.ch/job/Fribourg%2C-CH-Apprenti-e-informaticien-ne-CFC-Sari/1370550257/",
       "source": "Etat de Fribourg Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T09:39:56.791Z",
+      "crawledAt": "2026-10-26T21:44:08.832Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "addressCountry": "CH",
@@ -6623,7 +6627,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-353f78179cca",
@@ -6710,7 +6714,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-19026b65bbdf",
@@ -6734,7 +6738,7 @@
       "description": "Qui sommes-nous?\n\nGrangeneuve, centre de compétences pluridisciplinaire, s’engage avec passion dans la formation professionnelle, l’expertise, le conseil et les services pour les métiers de la terre, de la nature, du lait, de l’agroalimentaire et de l’hôtellerie-intendance. Ses activités sont conduites par plus de 280 collaborateur-trice-s évoluant dans un environnement bilingue, où l’excellence, le respect, la collaboration et l’innovation sont encouragés, dans un esprit de valorisation et de transmission du patrimoine.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Soutenir et conseiller la Direction sur les différents dossiers en matière de stratégie de communication et marketing\n\n• Rédiger et coordonner le rapport annuel, le rapport d’activités du Conseil d’Etat et les rapports pour la commission consultative\n\n• Assurer la gestion du site Internet et des réseaux sociaux pour la Direction\n\n• Assister et conseiller les responsables et collaborateurs-trices dans le domaine de la communication interne et externe spécialisée\n\n• Assurer les relations avec la presse et les médias en général\n\nProfil souhaité\n\n• Master en lien avec le domaine d’activité (lettres, sciences politiques, communication, …) ou formation jugée équivalente\n\n• Formation postgrade utile à la fonction (rédacteur RP,…)\n\n• Plusieurs années d'expérience professionnelle\n\n• Connaissance des domaines d’activités de Grangeneuve, un atout\n\n• Maîtrise des nouveaux médias et des médias sociaux\n\n• Parfaite maîtrise de la langue française avec de très bonnes connaissances de la langue allemande (B2-C1)\n\nCoordonnées des personnes de contact\n\nPascal Toffel, Directeur, T +41 26 305 55 05",
       "descriptionByLocale": {
         "it": "Chi siamo?\n\nGrangeneuve, centro di competenza multidisciplinare, si dedica con passione alla formazione professionale, alle competenze, ai consigli e ai servizi per le professioni di terra, natura, latte, agroalimentare e ospitalità. Le sue attività sono guidate da più di 280 collaboratori che lavorano in un ambiente bilingue, dove l'eccellenza, il rispetto, la collaborazione e l'innovazione sono incoraggiati, in uno spirito di valorizzazione e trasmissione del patrimonio.\n\nPerché unirsi a noi?\n\nCi affidiamo alla complementarietà delle competenze e alla varietà delle prospettive perché è la diversità di percorsi e profili che rende lo stato di Friburgo la forza. Promuoviamo l'equilibrio della vita lavorativa e le condizioni di lavoro flessibili. Per saperne di più, segui questo link .\n\nLe vostre missioni\n\n• Sostegno e consulenza alla Direzione per le questioni di strategia di comunicazione e di marketing\n\n• Progetto e coordinamento della relazione annuale, della relazione sulle attività del Consiglio di Stato e delle relazioni della Commissione consultiva\n\n• Gestione del sito e dei social network per la Direzione\n\n• Assistere e consigliare manager e collaboratori nel campo della comunicazione interna ed esterna specializzata\n\n• Assicurare le relazioni con la stampa e i media in generale\n\nProfilo desiderato\n\n• Laurea magistrale nel campo dell'attività (lettere, scienze politiche, comunicazione, ecc.) o formazione considerata equivalente\n\n• Allenamento post-grado utile alla funzione (editor R,...)\n\n• Diversi anni di esperienza professionale\n\n• Conoscenza delle aree di business di Grangeneuve, un bene\n\n• Masterizzazione di nuovi media e social media\n\n• Comando perfetto della lingua francese con una buona conoscenza della lingua tedesca (B2-C1)\n\nInformazioni di contatto\n\nPascal Tofel, Direttore, T +41 26 305 55 05",
-        "en": "Who are we?\n\nGrangeneuve, a multidisciplinary competence centre, is passionately committed to vocational training, expertise, advice and services for the professions of land, nature, milk, agri-food and hospitality. Its activities are led by more than 280 collaborators working in a bilingual environment, where excellence, respect, collaboration and innovation are encouraged, in a spirit of valuing and transmitting heritage.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• Support and advise the Directorate on communications and marketing strategy issues\n\n• Draft and coordinate the annual report, the report on the activities of the Council of State and the reports for the Consultative Commission\n\n• Managing the website and social networks for the Directorate\n\n• Assist and advise managers and collaborators in the field of specialized internal and external communication\n\n• Ensuring relations with the press and the media in general\n\nProfile desired\n\n• Master's degree in the field of activity (letters, political sciences, communication, etc.) or training deemed equivalent\n\n• Post-grade training useful to the function (RP editor,...)\n\n• Several years of professional experience\n\n• Knowledge of Grangeneuve's business areas, an asset\n\n• Mastery of new media and social media\n\n• Perfect command of the French language with very good knowledge of the German language (B2-C1)\n\nContact details\n\nPascal Tofel, Director, T +41 26 305 55 05",
+        "en": "Who are we?\n\nGrangeneuve, a multidisciplinary competence centre, is passionately committed to vocational training, expertise, advice and services for the professions of land, nature, milk, agri-food and hospitality. Its activities are led by more than 280 collaborators working in a bilingual environment, where excellence, respect, collaboration and innovation are encouraged, in a spirit of valuing and transmitting heritage.\n\nWhy join us?\n\nWe rely on the complementarity of skills and the variety of perspectives because it is the diversity of paths and profiles that makes the state of Fribourg the strength. We promote work-life balance and flexible working conditions. To learn more, follow this link .\n\nYour missions\n\n• Support and advise the Directorate on communications and marketing strategy issues\n\n• Draft and coordinate the annual report, the report on the activities of the Council of State and the reports for the Consultative Commission\n\n• Managing the website and social networks for the Directorate\n\n• Assist and advise managers and collaborators in the field of specialized internal and external communication\n\n• Ensuring relations with the press and the media in general\n\nProfile desired\n\n• Master's degree in the field of activity (letters, political sciences, communication, etc.) or training deemed equivalent\n\n• Post-grade training useful to the",
         "de": "Wer sind wir?\n\nGrangeneuve, ein multidisziplinäres Kompetenzzentrum, engagiert sich leidenschaftlich für berufliche Bildung, Expertise, Beratung und Dienstleistungen für die Berufe Land, Natur, Milch, Agrarlebensmittel und Gastfreundschaft. Die Aktivitäten werden von mehr als 280 Mitarbeitern geleitet, die in einem zweisprachigen Umfeld arbeiten, in dem Exzellenz, Respekt, Zusammenarbeit und Innovation im Geiste der Wertschätzung und Weitergabe von Erbe gefördert werden.\n\nWarum mitmachen?\n\nWir setzen auf die Komplementarität der Fähigkeiten und die Vielfalt der Perspektiven, denn es ist die Vielfalt der Wege und Profile, die den Staat Freiburg zur Stärke macht. Wir fördern Work-Life-Balance und flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link.\n\nIhre Missionen\n\n• Unterstützung und Beratung der Direktion in Fragen der Kommunikation und Marketingstrategie\n\n• Ausarbeitung und Koordinierung des Jahresberichts, des Berichts über die Tätigkeit des Staatsrates und der Berichte für die Beratende Kommission\n\n• Verwaltung der Website und der sozialen Netzwerke für die Direktion\n\n• Unterstützung und Beratung von Führungskräften und Mitarbeitern im Bereich der spezialisierten internen und externen Kommunikation\n\n• Gewährleistung der Beziehungen zu Presse und Medien im Allgemeinen\n\nProfil gewünscht\n\n• Master-Abschluss im Tätigkeitsbereich (Briefe, Politikwissenschaften, Kommunikation usw.) oder gleichwertige Ausbildung\n\n• Postgrad-Training nützlich für die Funktion (RP-Editor, ...)\n\n• Mehrjährige Berufserfahrung\n\n• Kenntnis der Geschäftsbereiche von Grangeneuve, ein Asset\n\n• Beherrschung neuer Medien und sozialer Medien\n\n• Perfekte Beherrschung der französischen Sprache mit sehr guten Kenntnissen der deutschen Sprache (B2-C1)\n\nKontaktangaben\n\nPascal Tofel, Direktor, T +41 26 305 55 05",
         "fr": "Qui sommes-nous?\n\nGrangeneuve, centre de compétences pluridisciplinaire, s’engage avec passion dans la formation professionnelle, l’expertise, le conseil et les services pour les métiers de la terre, de la nature, du lait, de l’agroalimentaire et de l’hôtellerie-intendance. Ses activités sont conduites par plus de 280 collaborateur-trice-s évoluant dans un environnement bilingue, où l’excellence, le respect, la collaboration et l’innovation sont encouragés, dans un esprit de valorisation et de transmission du patrimoine.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Soutenir et conseiller la Direction sur les différents dossiers en matière de stratégie de communication et marketing\n\n• Rédiger et coordonner le rapport annuel, le rapport d’activités du Conseil d’Etat et les rapports pour la commission consultative\n\n• Assurer la gestion du site Internet et des réseaux sociaux pour la Direction\n\n• Assister et conseiller les responsables et collaborateurs-trices dans le domaine de la communication interne et externe spécialisée\n\n• Assurer les relations avec la presse et les médias en général\n\nProfil souhaité\n\n• Master en lien avec le domaine d’activité (lettres, sciences politiques, communication, …) ou formation jugée équivalente\n\n• Formation postgrade utile à la fonction (rédacteur RP,…)\n\n• Plusieurs années d'expérience professionnelle\n\n• Connaissance des domaines d’activités de Grangeneuve, un atout\n\n• Maîtrise des nouveaux médias et des médias sociaux\n\n• Parfaite maîtrise de la langue française avec de très bonnes connaissances de la langue allemande (B2-C1)\n\nCoordonnées des personnes de contact\n\nPascal Toffel, Directeur, T +41 26 305 55 05"
       },
@@ -6794,7 +6798,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-c0fe87f24f43",
@@ -6875,7 +6879,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-fe8e561f8c4a",
@@ -6959,7 +6963,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-058404fa70a6",
@@ -7045,7 +7049,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-eb9136d2b59d",
@@ -7129,7 +7133,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-69936f9d6355",
@@ -7215,7 +7219,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-4023b1065267",
@@ -7300,7 +7304,7 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-ebabd01b2f7a",
@@ -7384,7 +7388,7 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-f2118a844d23",
@@ -7466,7 +7470,7 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-fribourg-05b82952ba80",
@@ -7551,7 +7555,7 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

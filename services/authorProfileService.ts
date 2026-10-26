@@ -27,6 +27,7 @@
 
 import { AUTHORS, getAuthorBySlug, type Author } from '@/data/authors';
 import { resilientImport } from '@/services/resilientImport';
+import { parseAuthorCacheMap } from '@/services/authorProfileCache';
 
 const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
 
@@ -55,19 +56,23 @@ export interface ArticleAuthorOverride {
   authorName: string;
 }
 
+function sanitizeArticleAuthorOverride(value: unknown): ArticleAuthorOverride | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
+  const source = value as Record<string, unknown>;
+  const authorSlug = typeof source.authorSlug === 'string' ? source.authorSlug.trim() : '';
+  const authorName = typeof source.authorName === 'string' ? source.authorName.trim() : '';
+  return authorSlug && authorName ? { authorSlug, authorName } : undefined;
+}
+
 const PROFILES_LS_KEY = 'author_profiles_cache';
 const OVERRIDES_LS_KEY = 'article_author_overrides_cache';
 const LS_TTL_MS = 60 * 60 * 1000; // 1 hour — admin changes are visible on the next fetch past TTL
 
-function readLocalMap<T>(key: string): Map<string, T> | null {
+function readLocalMap<T>(key: string, normalize: (value: unknown) => T | undefined): Map<string, T> | null {
   if (IS_TEST_ENV) return null;
   try {
     const raw = localStorage.getItem(key);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw);
-    if (!parsed?.data || typeof parsed.timestamp !== 'number') return null;
-    if ((Date.now() - parsed.timestamp) >= LS_TTL_MS) return null;
-    return new Map<string, T>(Object.entries(parsed.data) as [string, T][]);
+    return parseAuthorCacheMap(raw, LS_TTL_MS, normalize);
   } catch { return null; }
 }
 
@@ -105,7 +110,7 @@ async function loadProfiles(): Promise<Map<string, AuthorProfilePatch>> {
   if (profilesCache) return profilesCache;
 
   // 2. localStorage cache (skip Firestore on repeat page loads within TTL)
-  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY);
+  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY, sanitizeAuthorProfilePatch);
   if (local) {
     profilesCache = local;
     return local;
@@ -158,7 +163,7 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
     return patch;
   }
 
-  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY);
+  const local = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY, sanitizeAuthorProfilePatch);
   if (local?.has(slug)) {
     const patch = local.get(slug);
     profileBySlugCache.set(slug, patch);
@@ -186,7 +191,7 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
         // Offline / permission edge cases — fall back to the static registry only.
       }
       profileBySlugCache.set(slug, result);
-      const existing = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY) ?? new Map<string, AuthorProfilePatch>();
+      const existing = readLocalMap<AuthorProfilePatch>(PROFILES_LS_KEY, sanitizeAuthorProfilePatch) ?? new Map<string, AuthorProfilePatch>();
       if (result) existing.set(slug, result);
       writeLocalMap(PROFILES_LS_KEY, existing);
       profileBySlugInFlight.delete(slug);
@@ -208,7 +213,7 @@ async function loadProfile(slug: string): Promise<AuthorProfilePatch | undefined
 async function loadOverride(articleId: string): Promise<ArticleAuthorOverride | undefined> {
   if (overrideByIdCache.has(articleId)) return overrideByIdCache.get(articleId);
 
-  const local = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY);
+  const local = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY, sanitizeArticleAuthorOverride);
   if (local?.has(articleId)) {
     const hit = local.get(articleId);
     overrideByIdCache.set(articleId, hit);
@@ -239,7 +244,7 @@ async function loadOverride(articleId: string): Promise<ArticleAuthorOverride | 
         // Offline / permission edge cases — fall back to static byline only.
       }
       overrideByIdCache.set(articleId, result);
-      const existing = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY) ?? new Map<string, ArticleAuthorOverride>();
+      const existing = readLocalMap<ArticleAuthorOverride>(OVERRIDES_LS_KEY, sanitizeArticleAuthorOverride) ?? new Map<string, ArticleAuthorOverride>();
       if (result) existing.set(articleId, result);
       writeLocalMap(OVERRIDES_LS_KEY, existing);
       overrideByIdInFlight.delete(articleId);

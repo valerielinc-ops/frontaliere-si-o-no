@@ -14,6 +14,11 @@ import {
  type NewsletterCaptureResult,
 } from '@/services/newsletterSubscribers';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
+import {
+ parseTaxChecklistCompletedIds,
+ parseTaxChecklistPreferences,
+ type TaxChecklistProfile,
+} from '@/services/taxCalendarState';
 
 interface TaxDeadline {
  id: string;
@@ -336,7 +341,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  const now = new Date();
  return now.getFullYear() === 2026 ? now.getMonth() : 0; // default Jan 2026
  });
- const [checklistProfile, setChecklistProfile] = useState<'tutti' | 'vecchio' | 'nuovo'>('tutti');
+ const [checklistProfile, setChecklistProfile] = useState<TaxChecklistProfile>('tutti');
  const [reminderEnabled, setReminderEnabled] = useState<boolean>(false);
  const [reminderSignupOpen, setReminderSignupOpen] = useState<boolean>(false);
  const [reminderSignupLoading, setReminderSignupLoading] = useState<boolean>(false);
@@ -349,6 +354,10 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  const [completedIds, setCompletedIds] = useState<string[]>([]);
  const [checklistNotice, setChecklistNotice] = useState<string | null>(null);
 
+ const checklistDeadlineIds = useMemo(
+  () => new Set(DEADLINES_2026.map(deadline => deadline.id)),
+  [DEADLINES_2026],
+ );
 
  const today = new Date();
  const todayStr = today.toISOString().split('T')[0];
@@ -382,21 +391,17 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
 
  useEffect(() => {
  try {
- const rawDone = localStorage.getItem(CHECKLIST_DONE_KEY);
- if (rawDone) {
- const parsed = JSON.parse(rawDone) as string[];
- if (Array.isArray(parsed)) setCompletedIds(parsed);
- }
- const rawPrefs = localStorage.getItem(CHECKLIST_PREFS_KEY);
- if (rawPrefs) {
- const parsed = JSON.parse(rawPrefs) as { profile?: 'tutti' | 'vecchio' | 'nuovo'; reminderEnabled?: boolean };
- if (parsed.profile) setChecklistProfile(parsed.profile);
- if (typeof parsed.reminderEnabled === 'boolean') setReminderEnabled(parsed.reminderEnabled);
- }
+ setCompletedIds(parseTaxChecklistCompletedIds(
+  localStorage.getItem(CHECKLIST_DONE_KEY),
+  checklistDeadlineIds,
+ ));
+ const preferences = parseTaxChecklistPreferences(localStorage.getItem(CHECKLIST_PREFS_KEY));
+ setChecklistProfile(preferences.profile);
+ setReminderEnabled(preferences.reminderEnabled);
  } catch {
  // noop
  }
- }, []);
+ }, [checklistDeadlineIds]);
 
  useEffect(() => {
  localStorage.setItem(CHECKLIST_DONE_KEY, JSON.stringify(completedIds));

@@ -1,63 +1,22 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-10-26T09:49:32.376Z",
+  "generatedAt": "2026-10-26T21:50:29.998Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2292,
-  "avgDurationMs": 2292,
+  "durationMs": 2599,
+  "avgDurationMs": 2599,
   "durationHistory": [
-    2292
+    2599
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "UX Designer",
-      "slug": "ux-designer-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/U5L14rRZTa/UX-Designer",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/U5L14rRZTa/UX-Designer",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-20",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "board-international-549138686b90",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-07T22:06:14.144Z",
-      "needsRetranslation": true,
-      "datePosted": "2026-07-20",
-      "postingDateSource": "reported",
-      "postalCode": "6830",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Cloud Operations Specialist",
@@ -218,5 +177,5 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }

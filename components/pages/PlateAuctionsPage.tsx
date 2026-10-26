@@ -148,7 +148,24 @@ export function PlateAuctionsPage(): React.ReactElement {
   }, [directoryRequested, locale, routeCanton, snapshot]);
   const setSearchFilter = (value: string) => { setSearch(value); updateQuery('q', value.trim()); }; const setCantonFilter = (value: string) => { setCanton(value); updateQuery('canton', value); }; const setTypeFilter = (value: PlateAuctionListingType | '') => { setListingType(value); updateQuery('type', value); }; const setModeFilter = (value: PlateAuctionRankingMode) => { setMode(value); updateQuery('mode', value === 'current' ? '' : value); }; const setPeriodFilter = (value: PlateAuctionRankingPeriod) => { setPeriod(value); updateQuery('period', value === 'all-time' ? '' : value); }; const setSortFilter = (value: SortKey) => { setSort(value); updateQuery('sort', value === 'amount' ? '' : value); };
   const toggleWatch = useCallback((plate: string) => { setWatchlist((current) => { const next = current.includes(plate) ? current.filter((item) => item !== plate) : [...current, plate].slice(-50); try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch { /* storage is optional */ } Analytics.trackUIInteraction('plate_auctions', 'watchlist', 'plate', current.includes(plate) ? 'remove' : 'add', plate); return next; }); }, []);
-  const downloadCsv = useCallback(() => { if (ranking.length === 0) return; const header = [copy.plate, copy.vehicleType, copy.price, copy.bids, copy.end, copy.canton]; const body = ranking.map(({ auction, amountChf }) => [auction.normalizedPlate, vehicleTypeLabel(auction.vehicleType, copy), formatChf(amountChf, locale), auction.bidCount ?? '', formatDate(auction.endsAt || auction.closedAt, locale), cantonLabel(auction.sourceKey || auction.platePrefix, locale)].map(csvCell).join(',')); const blob = new Blob([[header.map(csvCell).join(','), ...body].join('\n')], { type: 'text/csv;charset=utf-8' }); const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = 'aste-targhe-' + mode + '.csv'; link.click(); URL.revokeObjectURL(url); Analytics.trackUIInteraction('plate_auctions', 'results', 'csv', 'download', mode); }, [copy, locale, mode, ranking]);
+  const downloadCsv = useCallback(() => {
+    if (ranking.length === 0 || typeof Blob === 'undefined' || typeof URL === 'undefined' || typeof URL.createObjectURL !== 'function' || typeof URL.revokeObjectURL !== 'function' || typeof document === 'undefined') return;
+    const header = [copy.plate, copy.vehicleType, copy.price, copy.bids, copy.end, copy.canton];
+    const body = ranking.map(({ auction, amountChf }) => [auction.normalizedPlate, vehicleTypeLabel(auction.vehicleType, copy), formatChf(amountChf, locale), auction.bidCount ?? '', formatDate(auction.endsAt || auction.closedAt, locale), cantonLabel(auction.sourceKey || auction.platePrefix, locale)].map(csvCell).join(','));
+    const blob = new Blob([[header.map(csvCell).join(','), ...body].join('\n')], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    let link: HTMLAnchorElement | null = null;
+    try {
+      link = document.createElement('a');
+      link.href = url;
+      link.download = 'aste-targhe-' + mode + '.csv';
+      link.click();
+    } finally {
+      link?.remove();
+      URL.revokeObjectURL(url);
+    }
+    Analytics.trackUIInteraction('plate_auctions', 'results', 'csv', 'download', mode);
+  }, [copy, locale, mode, ranking]);
   const pageTitle = detail ? detail.normalizedPlate : route?.view === 'rankings' ? `${copy.title} — ${copy.final}` : directoryRequested ? `${copy.title}: ${cantonLabel(routeCanton, locale)} — ${copy.directory}` : routeCanton ? `${copy.title}: ${cantonLabel(routeCanton, locale)}` : copy.title; const detailRequested = route?.view === 'detail'; const liveReady = Boolean(snapshot);
 
   const historicalNotice = detail ? recoveredPlateObservationNotice(detail, locale) : '';
