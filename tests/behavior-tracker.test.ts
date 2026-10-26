@@ -57,6 +57,63 @@ describe('getBehaviorData', () => {
     const data = getBehaviorData();
     expect(data.version).toBe(1);
   });
+
+  it('repairs malformed nested collections before tracking new behavior', () => {
+    localStorage.setItem('frontaliere_job_personalization', JSON.stringify({
+      ...emptyBehavior(),
+      viewedJobs: null,
+      searches: {},
+      filterUsage: [],
+    }));
+
+    expect(() => trackJobViewBehavior({
+      slug: 'new-job',
+      category: 'tech',
+      company: 'Acme',
+      location: 'Lugano',
+    })).not.toThrow();
+
+    expect(getBehaviorData()).toMatchObject({
+      viewedJobs: [expect.objectContaining({ slug: 'new-job' })],
+      searches: [],
+      filterUsage: { category: {}, location: {}, contract: {} },
+    });
+  });
+
+  it('drops malformed records and counters while preserving valid legacy timestamps', () => {
+    const now = Date.now();
+    const legacyTimestamp = new Date(now - 1000).toISOString();
+    localStorage.setItem('frontaliere_job_personalization', JSON.stringify({
+      ...emptyBehavior(),
+      viewedJobs: [
+        { slug: ' valid-job ', category: ' tech ', company: null, location: 'Lugano', ts: now },
+        { slug: '', category: 'tech', company: 'Acme', location: 'Lugano', ts: now },
+        { slug: 'missing-timestamp', category: 'tech', company: 'Acme', location: 'Lugano' },
+        { slug: 'bad-timestamp', category: 'tech', company: 'Acme', location: 'Lugano', ts: 'not-a-date' },
+        { slug: 'legacy-date', category: 'tech', company: 'Acme', location: 'Lugano', ts: legacyTimestamp },
+      ],
+      searches: [
+        { query: ' valid search ', ts: now, resultCount: 4 },
+        { query: 'missing-count', ts: now },
+        { query: 'negative-count', ts: now, resultCount: -1 },
+        { query: 'bad-timestamp', ts: 'not-a-date', resultCount: 1 },
+      ],
+      filterUsage: {
+        category: { ' tech ': 2, invalid: '2', negative: -1, fractional: 1.5, '': 4 },
+        location: null,
+        contract: [],
+      },
+    }));
+
+    const data = getBehaviorData();
+    expect(data.viewedJobs.map((job) => job.slug)).toEqual(['valid-job', 'legacy-date']);
+    expect(data.searches).toEqual([{ query: 'valid search', ts: now, resultCount: 4 }]);
+    expect(data.filterUsage).toEqual({
+      category: { tech: 2 },
+      location: {},
+      contract: {},
+    });
+  });
 });
 
 // ── trackJobViewBehavior ───────────────────────────────────────
