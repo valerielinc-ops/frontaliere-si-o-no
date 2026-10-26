@@ -9,6 +9,7 @@ import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { useAuth, renderGoogleButtonWithReadiness, signInWithLinkedIn } from '@/services/authService';
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
+import { readStorageItem, writeStorageItem } from '@/services/storageAvailability';
 import { SkeletonMobileResultCard } from '@/components/shared/Skeletons';
 import InlineNetDeltaBadge from './InlineNetDeltaBadge';
 
@@ -19,23 +20,6 @@ const ShareableResultCard = lazyRetry(() => import('@/components/shared/Shareabl
 const SubscriptionCTA = lazyRetry(() => import('@/components/shared/SubscriptionCTA'));
 
 const NEWSLETTER_GATE_DISMISSED_KEY = 'newsletter_gate_dismissed';
-
-function isMobileAnalysisGateFlagSet(key: string): boolean {
- try {
-  return localStorage.getItem(key) === 'true';
- } catch {
-  // Storage is optional: an unavailable flag must not block the gate flow.
-  return false;
- }
-}
-
-function rememberMobileAnalysisGateDismissal(): void {
- try {
-  localStorage.setItem(NEWSLETTER_GATE_DISMISSED_KEY, 'true');
- } catch {
-  // The dismissal remains in memory for this flow when storage is blocked.
- }
-}
 
 interface Props {
  inputs: SimulationInputs;
@@ -153,8 +137,8 @@ const MobileCalcLayout: React.FC<Props> = ({
 
  const shouldShowGate = useCallback(() => {
  if (typeof window === 'undefined') return false;
- if (isMobileAnalysisGateFlagSet(SUBSCRIBED_KEY)) return false;
- if (isMobileAnalysisGateFlagSet(NEWSLETTER_GATE_DISMISSED_KEY)) return false;
+ if (readStorageItem(SUBSCRIBED_KEY) === 'true') return false;
+ if (readStorageItem(NEWSLETTER_GATE_DISMISSED_KEY) === 'true') return false;
  if (fullResultsEverShown) return false;
  if (authUser) return false;
  return true;
@@ -172,7 +156,7 @@ const MobileCalcLayout: React.FC<Props> = ({
 
  const dismissGate = useCallback(() => {
  setShowNewsletterGate(false);
- rememberMobileAnalysisGateDismissal();
+ writeStorageItem(NEWSLETTER_GATE_DISMISSED_KEY, 'true');
  Analytics.trackEvent('newsletter_gate_dismissed', { source: 'full_analysis' });
  pendingAnalysisAction.current?.();
  pendingAnalysisAction.current = null;

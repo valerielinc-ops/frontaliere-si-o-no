@@ -15,3 +15,22 @@ export function isStorageAvailable(testKey = '__fs_test__'): boolean {
     return false;
   }
 }
+
+/** Read an optional localStorage value without making storage a UI dependency. */
+export function readStorageItem(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+/** Persist an optional localStorage value; callers continue when storage is blocked. */
+export function writeStorageItem(key: string, value: string): boolean {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
+  }
+}
