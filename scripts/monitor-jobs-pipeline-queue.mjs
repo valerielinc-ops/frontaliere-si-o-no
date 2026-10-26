@@ -88,13 +88,13 @@ function ghRead(args, { allowFailure = true } = {}) {
   }
 }
 
-function ghJson(path, { allowFailure = true } = {}) {
-  const out = ghRead(['api', path], { allowFailure });
-  if (!out) return null;
+function ghJson(path) {
+  const out = ghRead(['api', path], { allowFailure: false });
+  if (!out) throw new Error(`[monitor-jobs-pipeline-queue] GitHub API returned an empty response for ${path}`);
   try {
     return JSON.parse(out);
-  } catch {
-    return null;
+  } catch (error) {
+    throw new Error(`[monitor-jobs-pipeline-queue] GitHub API returned invalid JSON for ${path}`, { cause: error });
   }
 }
 

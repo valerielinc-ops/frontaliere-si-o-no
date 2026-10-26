@@ -354,6 +354,23 @@ describe('main — queue saturation pre-alarm', () => {
     expect(apiPaths().filter((path) => path.includes('runs?status=queued'))).toHaveLength(2);
     expect(callsFor('create')).toHaveLength(0);
   });
+
+  it('fails closed when the transient read budget is exhausted', async () => {
+    writeWorkflow('translate-pending.yml', MEMBER_WORKFLOW);
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'api' && (args[1] as string).includes('runs?status=queued')) {
+        throw Object.assign(new Error('Command failed: gh api'), {
+          stderr: Buffer.from('gh: Server Error (HTTP 502)'),
+        });
+      }
+      return '{}';
+    });
+
+    const { main } = await import('../scripts/monitor-jobs-pipeline-queue.mjs');
+    await expect(main()).rejects.toThrow(/HTTP 502/);
+    expect(apiPaths().filter((path) => path.includes('runs?status=queued'))).toHaveLength(3);
+    expect(callsFor('create')).toHaveLength(0);
+  });
 });
 
 describe('main — no group members', () => {
