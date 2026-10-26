@@ -180,7 +180,8 @@ describe('audit-h1-title-duplicates — rate-mode ratchet', () => {
         mainEntityOfPage: 'https://frontaliereticino.ch/articles/shadow/',
       })}</script>
     </head><body><h1>Shared headline</h1></body></html>`;
-    expect(hasMatchingArticleHeadline(html, 'Shared headline')).toBe(true);
+    expect(hasMatchingArticleHeadline(html, 'Shared headline', 'https://frontaliereticino.ch/articles/shadow/')).toBe(true);
+    expect(hasMatchingArticleHeadline(html, 'Shared headline')).toBe(false);
   });
 
   it('does not exempt an unrelated structured-data node', () => {

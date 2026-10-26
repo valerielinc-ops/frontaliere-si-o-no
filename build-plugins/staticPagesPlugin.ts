@@ -1007,17 +1007,27 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  // specific missing sibling before returning instead of treating the marker
  // as proof that the whole homepage contract is current.
  if (html.includes('id="hp-seo-block"')) {
-  if (locale === 'it' && !html.includes('id="hp-directory-hubs"') && html.includes('</body>')) {
+  // The build is incremental in production, so disabling a generator alone
+  // would leave the former cross-locale directory and optional IT guide rail
+  // in an older root artifact. Strip those obsolete rails before repairing
+  // the current directory contract.
+  let repairedHtml = html;
+  if (locale === 'it') {
+   repairedHtml = repairedHtml
+    .replace(/<aside\b[^>]*\bid="hp-xlocale-cantons"[^>]*>[\s\S]*?<\/aside>\s*/i, '')
+    .replace(/<aside\b[^>]*\bid="hp-related-guides"[^>]*>[\s\S]*?<\/aside>\s*/i, '');
+  }
+  if (locale === 'it' && !repairedHtml.includes('id="hp-directory-hubs"') && repairedHtml.includes('</body>')) {
    const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
-   if (html.includes('id="homepage-discovery"')) {
-    return html.replace(
+   if (repairedHtml.includes('id="homepage-discovery"')) {
+    return repairedHtml.replace(
      /(<section\b[^>]*\bid="homepage-discovery"[^>]*>[\s\S]*?)(<\/section>)/i,
      `$1${directoryHubs}$2`,
     );
    }
-   return html.replace('</body>', `${directoryHubs}\n</body>`);
+   return repairedHtml.replace('</body>', `${directoryHubs}\n</body>`);
   }
-  return html;
+  return repairedHtml;
  }
  const block = collapsifySeoBlock(canonicalizeBorderWaitLinks(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it));
  // Place the static navigation and SEO block after </body>'s React-owned
@@ -1027,14 +1037,13 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  if (!html.includes('</body>')) return html;
  const cantonNav = buildHomepageCantonNavHtml(locale);
  const langSwitch = buildHomepageLangSwitchHtml(locale);
- // Keep the cross-locale canton directory on the IT root. The language
- // switcher alone leaves every non-IT canton hub one hop too deep for the
- // job-detail BFS contract (home → locale home → canton → archive index →
- // archive page → detail). The directory is generated from the same canton
- // slug registry as the locale-home nav, so it cannot drift or link a 404.
- const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
+ // The locale switcher exposes /en/, /de/ and /fr/ at depth 1, and each of
+ // those roots owns its complete localized canton nav. Repeating all 81
+ // non-Italian canton anchors on `/` would exceed the homepage crawl-budget
+ // cap without improving reachability. Keep the optional guide rail on the
+ // localized roots, where it is not competing with the IT directory budget.
+ const relatedGuides = locale === 'it' ? '' : buildHomepageRelatedGuidesBlock(locale);
  const directoryHubs = buildHomepageDirectoryHubsBlock(locale);
- const crossLocaleCantons = locale === 'it' ? buildHomepageCrossLocaleCantonNavHtml() : '';
  // tests/seo/breadcrumb-coverage.test.ts requires every non-noindex dist/
  // page to carry a BreadcrumbList JSON-LD block. The locale-root mirrors
  // (/en/, /de/, /fr/) are NOT in that test's exempt list (only bare
@@ -1046,7 +1055,7 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
  const breadcrumbScript = html.includes('id="hp-breadcrumb-ld"')
   ? ''
   : `<script type="application/ld+json" id="hp-breadcrumb-ld">${buildHomepageBreadcrumbJsonLd(locale)}</script>\n`;
- const discoveryNavigation = [langSwitch, relatedGuides, directoryHubs, crossLocaleCantons, cantonNav]
+ const discoveryNavigation = [langSwitch, relatedGuides, directoryHubs, cantonNav]
   .filter(Boolean)
   .join('\n');
  const discoverySection = `<section class="homepage-discovery" id="homepage-discovery" aria-label="${HOMEPAGE_DISCOVERY_LABEL[locale]}">${discoveryNavigation}</section>`;
@@ -1508,8 +1517,9 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
 // them. Keep this small, visible directory rail separate from the editorial
 // guides so the root-to-hub links cannot disappear when guide content changes.
 const HOMEPAGE_DIRECTORY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
- { href: PHARMACY_HUB_PATH.it, label: 'Farmacie e turni' },
- { href: PHARMACY_DUTY_HUB_PATH.it, label: 'Farmacie di turno' },
+ // The two Italian pharmacy hubs already belong to NAV_LABELS.it. Keeping
+ // them out of this second rail avoids duplicate anchors on the root while
+ // the main navigation still exposes both hubs at depth 1.
  { href: buildPlateAuctionPath({ locale: 'it', view: 'hub' }), label: 'Aste targhe' },
  { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
  { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },

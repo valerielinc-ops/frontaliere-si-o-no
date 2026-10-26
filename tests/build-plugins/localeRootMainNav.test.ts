@@ -182,7 +182,7 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
   });
 
   it('the IT homepage exposes the pharmacy hub and every locale plate-auction hub from the static root', () => {
-    const html = injectHomepageSeoContent(SHELL, 'it');
+    const html = injectLocaleMainNav(injectHomepageSeoContent(SHELL, 'it'), 'it');
     expect(html).toContain('id="hp-directory-hubs"');
     expect(html).toContain(`href="${PHARMACY_HUB_PATH.it}"`);
     expect(html).toContain(`href="${PHARMACY_DUTY_HUB_PATH.it}"`);
@@ -200,13 +200,25 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(discoveryStart).toBeGreaterThan(-1);
     expect(discoveryStart).toBeLessThan(seoStart);
     expect(discovery).toContain('id="hp-lang-switch"');
-    expect(discovery).toContain('id="hp-related-guides"');
+    expect(discovery).not.toContain('id="hp-related-guides"');
     expect(discovery).toContain('id="hp-directory-hubs"');
     expect(discovery).toContain('id="hp-canton-nav"');
     // Il gruppo di hub ha un titolo visibile, come gli altri due rail.
     expect(discovery).toContain('<h2 class="hp-discovery-heading" id="hpCrossHubsTitle">Lavoro e archivi</h2>');
     expect(discovery).toContain('<nav class="hp-cross-hub-links" aria-labelledby="hpCrossHubsTitle">');
     expect(discovery).not.toContain(' style=');
+  });
+
+  it('keeps the IT homepage below the static crawler link cap without a duplicate cross-locale canton rail', () => {
+    const html = injectLocaleMainNav(injectHomepageSeoContent(SHELL, 'it'), 'it');
+    const links = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)]
+      .map((match) => match[1])
+      .filter((href) => href.startsWith('/') || href.startsWith('https://frontaliereticino.ch/'));
+    expect(links.length).toBeLessThanOrEqual(100);
+    expect(html).not.toContain('id="hp-xlocale-cantons"');
+    expect(html).toContain('href="/en/"');
+    expect(html).toContain('href="/de/"');
+    expect(html).toContain('href="/fr/"');
   });
 
   it('keeps the root rail when the real Vite template has a styled root and visible h1', () => {
