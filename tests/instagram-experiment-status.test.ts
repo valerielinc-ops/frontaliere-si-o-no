@@ -186,6 +186,37 @@ describe('Instagram experiment status', () => {
     expect(status.insights.rejectedRows[0].reason).toContain('target is 72h');
   });
 
+  it('keeps background arms in separate cohorts for the same creative', () => {
+    const navy = carouselLedger('article-navy').map((entry) => ({
+      ...entry,
+      backgroundExperimentId: 'instagram-carousel-background-v1',
+      backgroundVariant: 'navy-gradient',
+      backgroundLabel: 'Blu notte · controllo',
+    }));
+    const paper = carouselLedger('article-paper', 'proof-local').map((entry) => ({
+      ...entry,
+      backgroundExperimentId: 'instagram-carousel-background-v1',
+      backgroundVariant: 'paper-amber',
+      backgroundLabel: 'Carta calda',
+    }));
+    const status = buildExperimentStatus({
+      ledger: { posted: [...navy, ...paper] },
+      insights: {
+        posts: [
+          { id: 'media-navy', queueId: 'article-navy', windowHours: 72 },
+          { id: 'media-paper', queueId: 'article-paper', windowHours: 72 },
+        ],
+      },
+      asOf: AS_OF,
+      hasCredentials: true,
+    });
+
+    expect(status.cohorts).toEqual([
+      expect.objectContaining({ creativeId: 'proof-local', backgroundVariant: 'navy-gradient', observedPosts: 1 }),
+      expect.objectContaining({ creativeId: 'proof-local', backgroundVariant: 'paper-amber', observedPosts: 1 }),
+    ]);
+  });
+
   it('flags conflicting creative metadata instead of attributing an observation', () => {
     const status = buildExperimentStatus({
       ledger: {

@@ -14,31 +14,28 @@
  * photo endpoint accepts only JPEG/WEBP (PNG is rejected), and JPEG is the
  * safer common denominator across both platforms' upload paths.
  *
- * Brand palette values are copied from build-plugins/jobOgImagesPlugin.ts,
+ * The navy control palette is copied from build-plugins/jobOgImagesPlugin.ts,
  * not imported — that file documents its own palette as "kept inline to
- * avoid coupling the plugin to runtime CSS", and scripts/lib/
- * border-wait-ranking-content.mjs sets the precedent for this codebase of
- * deliberately duplicating a small, stable constant across a module boundary
- * rather than manufacturing a dependency on a Vite build plugin from a cron
- * script. Keep these in sync by eye if the brand palette ever changes.
+ * avoid coupling the plugin to runtime CSS". The other surfaces live in
+ * instagram-carousel-background.mjs because they are an explicit Firebase-
+ * controlled experiment, while the renderer keeps typography and safe-area
+ * geometry identical across every arm.
  */
 
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  INSTAGRAM_CAROUSEL_SAFE_AREA,
+  instagramCarouselBackgroundForId,
+} from './instagram-carousel-background.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 
-const CARD_SIZE = 1080;
+export const INSTAGRAM_CAROUSEL_CARD_SIZE = 1080;
+const CARD_SIZE = INSTAGRAM_CAROUSEL_CARD_SIZE;
 const JPEG_QUALITY = 90;
-
-// Copied from build-plugins/jobOgImagesPlugin.ts — see header comment.
-const BRAND_BG_FROM = '#0F2557';
-const BRAND_BG_TO = '#1E3D8F';
-const BRAND_ACCENT = '#FFB300';
-const TEXT_PRIMARY = '#FFFFFF';
-const TEXT_MUTED = 'rgba(255,255,255,0.78)';
 
 function readFontPair() {
   const regularPath = path.join(ROOT, 'public/fonts/Roboto-Regular.ttf');
@@ -59,7 +56,7 @@ function truncate(text, maxChars) {
   return `${(lastSpace > maxChars * 0.6 ? cut.slice(0, lastSpace) : cut).trim()}…`;
 }
 
-function brandFooter() {
+function brandFooter(theme) {
   return {
     type: 'div',
     props: {
@@ -68,21 +65,21 @@ function brandFooter() {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderTop: '2px solid rgba(255,255,255,0.18)',
+        borderTop: `2px solid ${theme.footerBorder}`,
         paddingTop: 24,
       },
       children: [
         {
           type: 'div',
           props: {
-            style: { fontSize: 26, fontWeight: 700, letterSpacing: 1, color: BRAND_ACCENT },
+            style: { fontSize: 26, fontWeight: 700, letterSpacing: 1, color: theme.accent },
             children: 'FRONTALIERE TICINO',
           },
         },
         {
           type: 'div',
           props: {
-            style: { fontSize: 24, color: TEXT_MUTED },
+            style: { fontSize: 24, color: theme.textMuted },
             children: 'frontaliereticino.ch',
           },
         },
@@ -91,7 +88,7 @@ function brandFooter() {
   };
 }
 
-function cardShell(children) {
+function cardShell(children, theme) {
   return {
     type: 'div',
     props: {
@@ -101,10 +98,14 @@ function cardShell(children) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        backgroundImage: `linear-gradient(135deg, ${BRAND_BG_FROM} 0%, ${BRAND_BG_TO} 100%)`,
-        color: TEXT_PRIMARY,
+        backgroundColor: theme.backgroundColor,
+        backgroundImage: theme.backgroundImage,
+        color: theme.textPrimary,
         fontFamily: 'Roboto',
-        padding: 64,
+        paddingTop: INSTAGRAM_CAROUSEL_SAFE_AREA.insetTop,
+        paddingRight: INSTAGRAM_CAROUSEL_SAFE_AREA.insetX,
+        paddingBottom: INSTAGRAM_CAROUSEL_SAFE_AREA.insetBottom,
+        paddingLeft: INSTAGRAM_CAROUSEL_SAFE_AREA.insetX,
       },
       children,
     },
@@ -112,7 +113,7 @@ function cardShell(children) {
 }
 
 /** Slide 1: kicker ("LA CLASSIFICA DI OGGI"), title, subtitle (date/range). */
-function coverTree({ kicker, title, subtitle }) {
+function coverTree({ kicker, title, subtitle }, theme) {
   return cardShell([
     {
       type: 'div',
@@ -126,7 +127,7 @@ function coverTree({ kicker, title, subtitle }) {
                 fontSize: 32,
                 fontWeight: 700,
                 letterSpacing: 2,
-                color: BRAND_ACCENT,
+                color: theme.accent,
                 marginBottom: 24,
               },
               children: kicker,
@@ -143,7 +144,7 @@ function coverTree({ kicker, title, subtitle }) {
             ? {
                 type: 'div',
                 props: {
-                  style: { fontSize: 34, color: TEXT_MUTED, marginTop: 28 },
+                  style: { fontSize: 34, color: theme.textMuted, marginTop: 28 },
                   children: subtitle,
                 },
               }
@@ -151,12 +152,12 @@ function coverTree({ kicker, title, subtitle }) {
         ].filter(Boolean),
       },
     },
-    brandFooter(),
-  ]);
+    brandFooter(theme),
+  ], theme);
 }
 
 /** Slides 2..N: rank number, item title, one stat line. */
-function itemTree({ rank, total, title, statLabel, statValue, footerNote }) {
+function itemTree({ rank, total, title, statLabel, statValue, footerNote }, theme) {
   return cardShell([
     {
       type: 'div',
@@ -171,7 +172,7 @@ function itemTree({ rank, total, title, statLabel, statValue, footerNote }) {
                 alignItems: 'baseline',
                 fontSize: 40,
                 fontWeight: 700,
-                color: BRAND_ACCENT,
+                color: theme.accent,
                 marginBottom: 28,
               },
               children: `#${rank}${total ? ` / ${total}` : ''}`,
@@ -196,7 +197,7 @@ function itemTree({ rank, total, title, statLabel, statValue, footerNote }) {
                     // sizing without relying on an unsupported CSS value.
                     alignSelf: 'flex-start',
                     marginTop: 36,
-                    backgroundColor: 'rgba(255,255,255,0.14)',
+                    backgroundColor: theme.statSurface,
                     borderRadius: 20,
                     padding: '18px 28px',
                     fontSize: 32,
@@ -210,7 +211,7 @@ function itemTree({ rank, total, title, statLabel, statValue, footerNote }) {
             ? {
                 type: 'div',
                 props: {
-                  style: { fontSize: 26, color: TEXT_MUTED, marginTop: 20 },
+                  style: { fontSize: 26, color: theme.textMuted, marginTop: 20 },
                   children: truncate(footerNote, 80),
                 },
               }
@@ -218,12 +219,12 @@ function itemTree({ rank, total, title, statLabel, statValue, footerNote }) {
         ].filter(Boolean),
       },
     },
-    brandFooter(),
-  ]);
+    brandFooter(theme),
+  ], theme);
 }
 
 /** Final slide: turn the chosen editorial objective into one visible action. */
-function closingTree({ kicker, title, body, cta }) {
+function closingTree({ kicker, title, body, cta }, theme) {
   return cardShell([
     {
       type: 'div',
@@ -237,7 +238,7 @@ function closingTree({ kicker, title, body, cta }) {
                 fontSize: 32,
                 fontWeight: 700,
                 letterSpacing: 2,
-                color: BRAND_ACCENT,
+                color: theme.accent,
                 marginBottom: 24,
               },
               children: truncate(kicker, 60),
@@ -254,7 +255,7 @@ function closingTree({ kicker, title, body, cta }) {
             ? {
                 type: 'div',
                 props: {
-                  style: { fontSize: 32, lineHeight: 1.35, color: TEXT_MUTED, marginTop: 28 },
+                  style: { fontSize: 32, lineHeight: 1.35, color: theme.textMuted, marginTop: 28 },
                   children: truncate(body, 160),
                 },
               }
@@ -266,8 +267,8 @@ function closingTree({ kicker, title, body, cta }) {
                   style: {
                     alignSelf: 'flex-start',
                     marginTop: 36,
-                    backgroundColor: BRAND_ACCENT,
-                    color: BRAND_BG_FROM,
+                    backgroundColor: theme.accent,
+                    color: theme.accentText,
                     borderRadius: 18,
                     padding: '18px 28px',
                     fontSize: 30,
@@ -280,8 +281,8 @@ function closingTree({ kicker, title, body, cta }) {
         ].filter(Boolean),
       },
     },
-    brandFooter(),
-  ]);
+    brandFooter(theme),
+  ], theme);
 }
 
 /**
@@ -313,13 +314,14 @@ export function buildCarouselSlidePlan({ kicker, title, subtitle, items, closing
  * callers must treat that as "skip the image, log and move on" the same way
  * every other soft-fail in this codebase's social posters works.
  *
- * @param {{ kicker: string, title: string, subtitle?: string, items: Array<{title:string, statLabel?:string, statValue?:string, footerNote?:string}>, closing?: {kicker:string, title:string, body?:string, cta?:string} }} params
+ * @param {{ kicker: string, title: string, subtitle?: string, items: Array<{title:string, statLabel?:string, statValue?:string, footerNote?:string}>, closing?: {kicker:string, title:string, body?:string, cta?:string}, backgroundVariant?: string }} params
  * @returns {Promise<Buffer[]|null>}
  */
-export async function renderCarouselSlides({ kicker, title, subtitle, items, closing }) {
+export async function renderCarouselSlides({ kicker, title, subtitle, items, closing, backgroundVariant }) {
   const fonts = readFontPair();
   if (!fonts) return null;
   if (!Array.isArray(items) || items.length === 0) return null;
+  const theme = instagramCarouselBackgroundForId(backgroundVariant);
 
   const [{ default: satori }, { Resvg }, { default: sharp }] = await Promise.all([
     import('satori'),
@@ -333,21 +335,21 @@ export async function renderCarouselSlides({ kicker, title, subtitle, items, clo
   ];
 
   const trees = buildCarouselSlidePlan({ kicker, title, subtitle, items, closing }).map((slide) => {
-    if (slide.type === 'cover') return coverTree(slide);
-    if (slide.type === 'closing') return closingTree(slide);
-    return itemTree(slide);
+    if (slide.type === 'cover') return coverTree(slide, theme);
+    if (slide.type === 'closing') return closingTree(slide, theme);
+    return itemTree(slide, theme);
   });
 
   const buffers = [];
   for (const tree of trees) {
     const svg = await satori(tree, { width: CARD_SIZE, height: CARD_SIZE, fonts: fontConfig });
     const png = new Resvg(svg, {
-      background: BRAND_BG_FROM,
+      background: theme.backgroundColor,
       fitTo: { mode: 'width', value: CARD_SIZE },
     })
       .render()
       .asPng();
-    const jpeg = await sharp(png).flatten({ background: BRAND_BG_FROM }).jpeg({ quality: JPEG_QUALITY }).toBuffer();
+    const jpeg = await sharp(png).flatten({ background: theme.backgroundColor }).jpeg({ quality: JPEG_QUALITY }).toBuffer();
     buffers.push(jpeg);
   }
   return buffers;

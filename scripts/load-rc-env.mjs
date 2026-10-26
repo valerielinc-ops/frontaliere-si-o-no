@@ -305,6 +305,11 @@ export const RC_TO_ENV = {
   INSTAGRAM_USERNAME:                  ['INSTAGRAM_USERNAME'],
   INSTAGRAM_BUSINESS_ACCOUNT_ID:       ['INSTAGRAM_BUSINESS_ACCOUNT_ID'],
   SERVER_INSTAGRAM_ACCESS_TOKEN:       ['INSTAGRAM_ACCESS_TOKEN'],
+  // Four-arm carousel background test. The poster assigns one stable arm per
+  // kind/period; absent or invalid values fall back to the navy control.
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED'],
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT'],
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS: ['INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS'],
   // Insights source: browser uses the authenticated Chrome Professional
   // Dashboard on the Mac host; graph remains an explicit compatibility path.
   SOCIAL_ROBOT_INSIGHTS_SOURCE:        ['SOCIAL_ROBOT_INSIGHTS_SOURCE'],

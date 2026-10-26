@@ -92,6 +92,10 @@ function pendingCreative(item) {
     creativeVariant: read('creativeVariant', 'creative_variant'),
     creativeLabel: read('creativeLabel', 'creative_label'),
     creativeObjective: read('creativeObjective', 'creative_objective'),
+    backgroundExperimentId: read('backgroundExperimentId', 'background_experiment_id'),
+    backgroundVariant: read('backgroundVariant', 'background_variant'),
+    backgroundLabel: read('backgroundLabel', 'background_label'),
+    safeAreaVersion: read('safeAreaVersion', 'safe_area_version'),
     primaryMetric: read('primaryMetric', 'primary_metric'),
     engagementMechanic: read('engagementMechanic', 'engagement_mechanic'),
     hookType: read('hookType', 'hook_type'),
@@ -118,6 +122,7 @@ function isCohortable(group) {
   return Boolean(
     group
     && !group.conflictingCreativeId
+    && !group.conflictingBackgroundVariant
     && firstText(group.creativeId)
     && firstText(group.kind)
     && firstText(group.creativeObjective)
@@ -182,13 +187,17 @@ function insightWindow(row, fallback) {
 }
 
 function cohortKey(group, windowHours) {
-  return [group.creativeId, group.kind, windowHours].join('\u0000');
+  return [group.creativeId, group.backgroundVariant || 'legacy', group.kind, windowHours].join('\u0000');
 }
 
 function createCohort(group, windowHours) {
   return {
     key: cohortKey(group, windowHours),
     creativeId: group.creativeId,
+    backgroundExperimentId: group.backgroundExperimentId || null,
+    backgroundVariant: group.backgroundVariant || null,
+    backgroundLabel: group.backgroundLabel || null,
+    safeAreaVersion: group.safeAreaVersion || null,
     creativeBaseId: group.creativeBaseId || null,
     creativeVariant: group.creativeVariant || null,
     creativeLabel: group.creativeLabel || null,
@@ -237,7 +246,7 @@ function statusForCohort(cohort, { asOfMs, hasCredentials, insightsAvailable, mi
 }
 
 function serializePublishedGroup(group, observedWindows = []) {
-  const hasConflict = Boolean(group.conflictingCreativeId);
+  const hasConflict = Boolean(group.conflictingCreativeId || group.conflictingBackgroundVariant);
   const metadataComplete = isCohortable(group);
   return {
     identity: group.identity,
@@ -250,6 +259,10 @@ function serializePublishedGroup(group, observedWindows = []) {
     creativeVariant: group.creativeVariant || null,
     creativeLabel: group.creativeLabel || null,
     creativeObjective: group.creativeObjective || null,
+    backgroundExperimentId: group.backgroundExperimentId || null,
+    backgroundVariant: group.backgroundVariant || null,
+    backgroundLabel: group.backgroundLabel || null,
+    safeAreaVersion: group.safeAreaVersion || null,
     primaryMetric: group.primaryMetric || null,
     engagementMechanic: group.engagementMechanic || null,
     hookType: group.hookType || null,
@@ -276,6 +289,10 @@ function serializeCohort(cohort, args) {
     : new Date(cohort.nextEligibleAtMs).toISOString();
   return {
     creativeId: cohort.creativeId,
+    backgroundExperimentId: cohort.backgroundExperimentId,
+    backgroundVariant: cohort.backgroundVariant,
+    backgroundLabel: cohort.backgroundLabel,
+    safeAreaVersion: cohort.safeAreaVersion,
     creativeBaseId: cohort.creativeBaseId,
     creativeVariant: cohort.creativeVariant,
     creativeLabel: cohort.creativeLabel,
@@ -393,7 +410,12 @@ export function buildExperimentStatus({
       return;
     }
     if (!isCohortable(group)) {
-      rejectedRows.push({ row: index + 1, reason: group.conflictingCreativeId ? 'creative metadata conflicts in ledger' : 'creative metadata incomplete in ledger' });
+      rejectedRows.push({
+        row: index + 1,
+        reason: group.conflictingCreativeId || group.conflictingBackgroundVariant
+          ? 'creative metadata conflicts in ledger'
+          : 'creative metadata incomplete in ledger',
+      });
       return;
     }
 
@@ -405,6 +427,16 @@ export function buildExperimentStatus({
     const rowKind = firstText(row.kind, row.contentKind, row.content_kind);
     if (rowKind && rowKind !== group.kind) {
       rejectedRows.push({ row: index + 1, reason: 'content kind disagrees with ledger' });
+      return;
+    }
+    const rowBackgroundVariant = firstText(
+      row.backgroundVariant,
+      row.background_variant,
+      row.visualVariant,
+      row.visual_variant,
+    );
+    if (rowBackgroundVariant && rowBackgroundVariant !== group.backgroundVariant) {
+      rejectedRows.push({ row: index + 1, reason: 'backgroundVariant disagrees with ledger' });
       return;
     }
 
@@ -429,7 +461,9 @@ export function buildExperimentStatus({
   });
 
   const serializedCohorts = [...cohortsByKey.values()]
-    .sort((a, b) => a.creativeId.localeCompare(b.creativeId) || a.kind.localeCompare(b.kind))
+    .sort((a, b) => a.creativeId.localeCompare(b.creativeId)
+      || (a.backgroundVariant || 'legacy').localeCompare(b.backgroundVariant || 'legacy')
+      || a.kind.localeCompare(b.kind))
     .map((cohort) => serializeCohort(cohort, {
       asOfMs,
       hasCredentials: Boolean(hasCredentials),
@@ -516,10 +550,11 @@ export function formatExperimentStatus(status) {
   } else {
     for (const cohort of status.cohorts) {
       const label = cohort.creativeVariant ? ` (${cohort.creativeVariant})` : '';
+      const background = cohort.backgroundVariant ? ` · bg ${cohort.backgroundVariant}` : '';
       const loop = cohort.engagementLoop ? ` · loop ${cohort.engagementLoop}` : '';
       lines.push(
         `   ${cohort.creativeId}${label} · ${cohort.kind} · ${cohort.observedPosts}/${cohort.minimumObservations} independent obs · `
-        + `${cohort.publishedPosts} published · ${cohort.status}${loop}`,
+        + `${cohort.publishedPosts} published · ${cohort.status}${background}${loop}`,
       );
     }
   }
