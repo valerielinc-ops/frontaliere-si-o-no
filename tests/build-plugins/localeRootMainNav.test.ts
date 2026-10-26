@@ -191,6 +191,27 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     }
   });
 
+  it('keeps the IT homepage below the crawler link cap while retaining its discovery hubs', () => {
+    const html = injectHomepageSeoContent(SHELL, 'it');
+    const links = [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)]
+      .map((match) => match[1])
+      .filter((href) => href.startsWith('/') || href.startsWith('https://frontaliereticino.ch/'));
+
+    expect(links.length).toBeLessThanOrEqual(100);
+    for (const href of [
+      `${EVENTS_INDEX_PATH.it}/`,
+      '/en/events/',
+      '/de/veranstaltungen/',
+      '/fr/evenements/',
+      '/ricerca/',
+      '/en/search/',
+      '/de/suche/',
+      '/fr/recherche/',
+    ]) {
+      expect(links).toContain(href);
+    }
+  });
+
   it('keeps the homepage discovery rails together before the long SEO block', () => {
     const html = injectHomepageSeoContent(SHELL, 'it');
     const discoveryStart = html.indexOf('id="homepage-discovery"');

@@ -1063,52 +1063,6 @@ export function injectHomepageSeoContent(html: string, locale: HpSeoLocale): str
 }
 
 /**
- * Cross-locale canton-hub directory — ROOT-CAUSE FIX for the bfs-depth
- * regression on sitemap-jobs-{canton}.xml that the user's locale-home
- * injection isn't reaching `/en/`, `/de/`, `/fr/` reliably (later
- * plugins overwrite). Even with PR #185's lang-switcher, the EN/DE/FR
- * homes don't carry the per-locale canton anchors needed to reach
- * `/en/find-jobs-{canton}/` etc.
- *
- * Workaround the per-locale injection gap by emitting anchors to ALL
- * 25 cantons × 4 locales = 100 canton-hub URLs DIRECTLY from `/` (the
- * IT home — the only page guaranteed to have the SEO block). Each
- * canton-hub then becomes depth 1 from `/`, regardless of locale.
- * Chain: `/ → /en/find-jobs-geneva/` (1) → tutti (2) → page-N (3) →
- * job (4). All sitemap-jobs-{canton}.xml URLs reach depth ≤ 4 without
- * relying on cross-locale home injection. Visible-not-collapsed pill
- * row grouped by locale heading.
- */
-// Kept as a separate directory so the root can expose non-IT canton hubs
-// without duplicating the locale-home navigation implementation.
-function buildHomepageCrossLocaleCantonNavHtml(): string {
- const cantonDataAny = (cantonSlugFile as { cantons: Record<string, Record<string, string>>; aggregate?: Record<string, string> });
- const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
- const localesOrder: HpSeoLocale[] = ['en', 'de', 'fr']; // IT is already covered by buildHomepageCantonNavHtml
- const sections: string[] = [];
- for (const loc of localesOrder) {
-   const langName = loc === 'en' ? 'English' : loc === 'de' ? 'Deutsch' : 'Français';
-   const rows: string[] = [];
-   for (const code of codes) {
-     const slugForLabel = code === AGGREGATE_KEY
-       ? cantonDataAny.aggregate?.[loc]
-       : cantonDataAny.cantons?.[code]?.[loc] ?? cantonDataAny.cantons?.[code]?.it;
-     if (!slugForLabel) continue;
-     const cantonSection = resolveCantonSection(loc as CantonLocale, code);
-     const cantonHubHref = `/${loc}/${cantonSection}/`.replace(/\/+/g, '/');
-     const displayLabel = slugForLabel
-       .split('-')
-       .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
-       .join(' ');
-     rows.push(`<a class="hp-cross-locale-canton-link" href="${cantonHubHref}" hreflang="${loc}">${displayLabel}</a>`);
-   }
-   if (rows.length > 0) sections.push(`<div><strong class="s-ox6EAg">${langName}</strong> ${rows.join('')}</div>`);
- }
- if (sections.length === 0) return '';
- return `<aside class="s-mnG0tW" id="hp-xlocale-cantons" aria-label="Canton hubs in all languages"><details class="s-B_AjzX"><summary class="s-JzgXFd">Cantons in other languages (${sections.length * 25})</summary><div class="s-TLn90R">${sections.join('')}</div></details></aside>`;
-}
-
-/**
  * Language switcher anchors emitted as static `<a>` on every locale's
  * home page. ROOT-CAUSE FIX for bfs-depth regression on
  * sitemap-jobs-{canton}.xml (run 25954025410 — Ginevra 465/608 URLs
