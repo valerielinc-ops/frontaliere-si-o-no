@@ -1810,6 +1810,14 @@
       "tri-de-l-employe-h-f-d-planzer-villmergen-f006c8eb",
       "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-2bf0f7ef",
       "mitarbeiter-sortierung-m-w-d-planzer-villmergen-f63e39e7",
+      "employee-picking-m-f-d-planzer-villmergen-24d6755e",
+      "selection-des-employes-h-f-d-planzer-villmergen-76867324",
+      "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen-733c7f59",
+      "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-bd202262",
+      "employee-sorting-m-f-d-planzer-villmergen-41d95aad",
+      "tri-de-l-employe-h-f-d-planzer-villmergen-df73c011",
+      "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-7dbb0c89",
+      "mitarbeiter-sortierung-m-w-d-planzer-villmergen-016e9ec0",
       "employee-picking-m-f-d-planzer-villmergen",
       "selection-des-employes-h-f-d-planzer-villmergen",
       "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
@@ -1894,6 +1902,12 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-07cdf6a1",
         "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-2bf0f7ef",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-f63e39e7",
+        "employee-picking-m-f-d-planzer-villmergen-24d6755e",
+        "selection-des-employes-h-f-d-planzer-villmergen-76867324",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen-733c7f59",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-bd202262",
+        "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-7dbb0c89",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-016e9ec0",
         "employee-picking-m-f-d-planzer-villmergen",
         "selection-des-employes-h-f-d-planzer-villmergen",
         "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
@@ -1948,6 +1962,9 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-07cdf6a1",
         "employee-sorting-m-f-d-planzer-villmergen-e412f480",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-f63e39e7",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-bd202262",
+        "employee-sorting-m-f-d-planzer-villmergen-41d95aad",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-016e9ec0",
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
         "employee-sorting-m-f-d-planzer-villmergen",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
@@ -2007,6 +2024,10 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-07cdf6a1",
         "tri-de-l-employe-h-f-d-planzer-villmergen-f006c8eb",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-f63e39e7",
+        "selection-des-employes-h-f-d-planzer-villmergen-76867324",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-bd202262",
+        "tri-de-l-employe-h-f-d-planzer-villmergen-df73c011",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-016e9ec0",
         "selection-des-employes-h-f-d-planzer-villmergen",
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
         "tri-de-l-employe-h-f-d-planzer-villmergen",
@@ -2032,6 +2053,7 @@
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-a99dbb20",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-eae1a2bf",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-f63e39e7",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-016e9ec0",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
       ]
     },
@@ -4498,15 +4520,17 @@
     },
     "slugByLocale": {
       "it": "logistiker-cfc-m-w-d-planzer-seewen-93d361c2",
-      "en": "logistician-efz-m-f-d-planzer-seewen",
+      "en": "logistician-efz-m-f-d-planzer-seewen-91f133df",
       "de": "logistiker-efz-m-w-d-planzer-seewen-1152552a",
-      "fr": "logisticien-efz-h-f-d-planzer-seewen"
+      "fr": "logisticien-efz-h-f-d-planzer-seewen-1c4b5b79"
     },
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-10-04T09:16:49.881Z",
     "previousSlugs": [
       "logistiker-efz-m-w-d-planzer-seewen-1152552a",
-      "logistiker-efz-m-w-d-planzer-seewen-b483c250"
+      "logistiker-efz-m-w-d-planzer-seewen-b483c250",
+      "logistician-efz-m-f-d-planzer-seewen",
+      "logisticien-efz-h-f-d-planzer-seewen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4515,11 +4539,13 @@
       ],
       "en": [
         "logistiker-efz-m-w-d-planzer-seewen-1152552a",
-        "logistiker-efz-m-w-d-planzer-seewen-b483c250"
+        "logistiker-efz-m-w-d-planzer-seewen-b483c250",
+        "logistician-efz-m-f-d-planzer-seewen"
       ],
       "fr": [
         "logistiker-efz-m-w-d-planzer-seewen-1152552a",
-        "logistiker-efz-m-w-d-planzer-seewen-b483c250"
+        "logistiker-efz-m-w-d-planzer-seewen-b483c250",
+        "logisticien-efz-h-f-d-planzer-seewen"
       ]
     },
     "postalCode": "6423",
