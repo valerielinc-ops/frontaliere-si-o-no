@@ -45,6 +45,7 @@ import { findCompanyAlertCached } from '@/services/userAlertsCache';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
 import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
+import { isDismissalActive } from '@/services/newsletterCtaState';
 import { POPUP_PRIORITY, canShowPromotionalPrompt } from '@/services/popupQueue';
 import CompanyFollowButton from './CompanyFollowButton';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
@@ -190,8 +191,7 @@ function companyFollowCooldownKey(company: string, companyKey?: string | null): 
 function hasCompanyFollowCooldown(key: string, now = Date.now()): boolean {
   if (!key || typeof window === 'undefined') return false;
   try {
-    const dismissedAt = Number(window.localStorage.getItem(key) || 0);
-    return Number.isFinite(dismissedAt) && dismissedAt > 0 && now - dismissedAt < COMPANY_FOLLOW_COOLDOWN_MS;
+    return isDismissalActive(window.localStorage.getItem(key), COMPANY_FOLLOW_COOLDOWN_MS / (24 * 60 * 60 * 1000), now);
   } catch {
     return false;
   }
