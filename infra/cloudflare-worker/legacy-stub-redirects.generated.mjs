@@ -6,7 +6,7 @@
 // Read by infra/cloudflare-worker/locale-router.js: a GET/HEAD on one of these
 // paths that the origin answers 200 with the legacy redirect stub becomes a
 // real 301 to the value. A live page at the same path is served untouched.
-// 902 entries.
+// 904 entries.
 export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/about/": "/en/about-us/",
   "/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/": "/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri/",
@@ -272,6 +272,8 @@ export const EDGE_LEGACY_STUB_REDIRECTS = Object.freeze({
   "/en/border-traffic/oria-gandria/oggi/": "/en/border-wait/oria-gandria/today/",
   "/en/border-traffic/ponte-tresa/oggi/": "/en/border-wait/ponte-tresa/today/",
   "/en/border-traffic/rodero-stabio/oggi/": "/en/border-wait/rodero-stabio/today/",
+  "/en/calculate-salary/compare-salaries/": "/en/statistics/compare-salaries/",
+  "/en/calculate-salary/what-if/": "/en/calculate-salary/what-if-scenarios/",
   "/en/compare-services/": "/en/service-comparison/",
   "/en/compare-services/health-insurance/": "/en/service-comparison/compare-health-insurance/",
   "/en/cross-border-articles/courmayeur-work-vallese-frontalier/": "/en/cross-border-articles/living-in-courmayeur-and-working-in-valais-as-a-cross-border-worker/",

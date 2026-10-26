@@ -1077,7 +1077,6 @@ function buildHomepageCrossLocaleCantonNavHtml(): string {
  const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
  const localesOrder: HpSeoLocale[] = ['en', 'de', 'fr']; // IT is already covered by buildHomepageCantonNavHtml
  const sections: string[] = [];
- const pillStyle = 'display:inline-block;padding:2px 7px;margin:1px;border-radius:5px;background:#f1f5f9;color:#475569;text-decoration:none;font-size:11px;border:1px solid #e2e8f0';
  for (const loc of localesOrder) {
    const langName = loc === 'en' ? 'English' : loc === 'de' ? 'Deutsch' : 'Français';
    const rows: string[] = [];
@@ -1092,7 +1091,7 @@ function buildHomepageCrossLocaleCantonNavHtml(): string {
        .split('-')
        .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
        .join(' ');
-     rows.push(`<a href="${cantonHubHref}" hreflang="${loc}" style="${pillStyle}">${displayLabel}</a>`);
+     rows.push(`<a class="hp-cross-locale-canton-link" href="${cantonHubHref}" hreflang="${loc}">${displayLabel}</a>`);
    }
    if (rows.length > 0) sections.push(`<div><strong class="s-ox6EAg">${langName}</strong> ${rows.join('')}</div>`);
  }
