@@ -1,7 +1,7 @@
 {
   "key": "bossard",
   "label": "Bossard Group",
-  "generatedAt": "2026-10-25T21:43:59.527Z",
+  "generatedAt": "2026-10-26T09:35:49.580Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8950,
-  "avgDurationMs": 8950,
+  "durationMs": 7788,
+  "avgDurationMs": 7788,
   "durationHistory": [
-    8950
+    7788
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Junior-Controller-80---100----all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:43:42.603Z",
+      "crawledAt": "2026-10-26T09:35:37.004Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -82,7 +82,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Projektleiter-Facility-Management--100---all-genders----Bossard-AG_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:43:41.924Z",
+      "crawledAt": "2026-10-26T09:35:36.335Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -125,7 +125,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Customer-Service-Specialist-80--100---all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:43:41.178Z",
+      "crawledAt": "2026-10-26T09:35:35.272Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -169,7 +169,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Einkufer-100----all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:43:40.174Z",
+      "crawledAt": "2026-10-26T09:35:34.571Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -213,7 +213,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Sachbearbeiter-in-Rechnungskontrolle-70----all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:43:39.402Z",
+      "crawledAt": "2026-10-26T09:35:33.768Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -245,5 +245,5 @@
       }
     }
   ],
-  "codeCommit": "8b7d4731fecf5d68ac519d6a8ab975dcd259043f"
+  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
 }
