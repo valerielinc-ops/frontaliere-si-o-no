@@ -17,7 +17,8 @@
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
+import { isLikelyBot } from '@/services/analytics';
+import { trackAdEvent } from '@/services/adAnalytics';
 import { classifyAdPageTemplate, documentHasJobPosting } from '@/services/adPageTemplate';
 import { observeManualAd } from '@/services/manualAdLifecycle';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
