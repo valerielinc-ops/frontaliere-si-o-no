@@ -40,6 +40,7 @@ import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/co
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
+import { readBestEffortLocalStorage } from '@/services/storageAvailability';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -190,7 +191,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
-  const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
+  const alreadySignedIn = hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
   const jobGate = useJobGateExperiment(shouldBypassJobGateExperiment() || alreadySignedIn);
   const gateVariant = jobGate.enrolled ? jobGate.arm : headlineVariant;
   const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;

@@ -32,6 +32,12 @@ const CTA_SURFACES = [
   'components/community/JobBoard.tsx',
 ];
 
+const JOB_GATE_SURFACES = [
+  'components/community/JobBridgeView.tsx',
+  'components/community/JobExpiredView.tsx',
+  'components/community/JobOrphanView.tsx',
+];
+
 describe('JobBridgeView — no company-follow CTA, no employer-hub link', () => {
   const src = read(BRIDGE);
 
@@ -76,5 +82,15 @@ describe('the three surfaces that DO carry the CTA still carry it', () => {
   // exception and start being the (wrong) house style.
   it.each(CTA_SURFACES)('%s renders CompanyFollowCta', (file) => {
     expect(read(file)).toMatch(/CompanyFollowCta/);
+  });
+});
+
+describe('job access gates tolerate unavailable browser storage', () => {
+  it.each(JOB_GATE_SURFACES)('%s reads access through the shared best-effort helper', (file) => {
+    const src = read(file);
+
+    expect(src).toContain("import { readBestEffortLocalStorage } from '@/services/storageAvailability';");
+    expect(src).toContain('readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY)');
+    expect(src).not.toContain('localStorage.getItem(JOB_EMAIL_ACCESS_KEY)');
   });
 });
