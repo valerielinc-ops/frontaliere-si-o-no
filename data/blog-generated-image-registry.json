@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 861,
-  "generatedAt": "2026-10-26T02:19:20.453Z",
+  "assetCount": 862,
+  "generatedAt": "2026-10-26T06:27:48.986Z",
   "assets": [
     {
       "schema": 1,
@@ -36785,6 +36785,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic editorial illustration of a business/industrial setting in a rural Canton TG-like landscape; no people, text, signage, logos, or identifiable event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-frontaliere-tasse-dopo-licenziamento",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "40888654406900785d32e0ec0d9a7b74b6e9d966dfbe8f1e6821e5eadc6813aa",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "6b7a91b02ed7a857b9123213337b9aea0a775d9cc85c28711b321545af130311",
+      "bytes": 93514,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-26T05:46:49.274Z",
+      "verifiedAt": "2026-10-26T05:46:59.678Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-frontaliere-tasse-dopo-licenziamento.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial scene depicting cross-border commuting in Ticino; no people, text, logos, or identifiable event."
       }
     }
   ]
