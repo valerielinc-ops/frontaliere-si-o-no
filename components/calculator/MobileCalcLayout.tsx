@@ -9,6 +9,7 @@ import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { useAuth, renderGoogleButtonWithReadiness, signInWithLinkedIn } from '@/services/authService';
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
+import { readStorageItem, writeStorageItem } from '@/services/storageAvailability';
 import { SkeletonMobileResultCard } from '@/components/shared/Skeletons';
 import InlineNetDeltaBadge from './InlineNetDeltaBadge';
 
@@ -136,8 +137,8 @@ const MobileCalcLayout: React.FC<Props> = ({
 
  const shouldShowGate = useCallback(() => {
  if (typeof window === 'undefined') return false;
- if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return false;
- if (localStorage.getItem(NEWSLETTER_GATE_DISMISSED_KEY) === 'true') return false;
+ if (readStorageItem(SUBSCRIBED_KEY) === 'true') return false;
+ if (readStorageItem(NEWSLETTER_GATE_DISMISSED_KEY) === 'true') return false;
  if (fullResultsEverShown) return false;
  if (authUser) return false;
  return true;
@@ -155,7 +156,7 @@ const MobileCalcLayout: React.FC<Props> = ({
 
  const dismissGate = useCallback(() => {
  setShowNewsletterGate(false);
- localStorage.setItem(NEWSLETTER_GATE_DISMISSED_KEY, 'true');
+ writeStorageItem(NEWSLETTER_GATE_DISMISSED_KEY, 'true');
  Analytics.trackEvent('newsletter_gate_dismissed', { source: 'full_analysis' });
  pendingAnalysisAction.current?.();
  pendingAnalysisAction.current = null;
