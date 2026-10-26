@@ -7,6 +7,21 @@ const ROOT = resolve(import.meta.dirname, '..');
 const SETUP = readFileSync(resolve(ROOT, 'scripts/cf-locale-failover-setup.mjs'), 'utf8');
 
 describe('CDN source maps are not publicly served', () => {
+  it('allows the SE Ranking Website Audit crawler through the security skip rule', () => {
+    const allowlistStart = SETUP.indexOf('const VERIFIED_CRAWLER_UAS = [');
+    const allowlistEnd = SETUP.indexOf('];', allowlistStart);
+    expect(allowlistStart).toBeGreaterThan(-1);
+    expect(allowlistEnd).toBeGreaterThan(allowlistStart);
+
+    const allowlist = SETUP.slice(allowlistStart, allowlistEnd);
+    expect(allowlist).toContain("'SEBot-WA'");
+
+    const blockedStart = SETUP.indexOf('const BLOCKED_CRAWLER_UAS = [');
+    const blockedEnd = SETUP.indexOf('];', blockedStart);
+    const blocked = SETUP.slice(blockedStart, blockedEnd);
+    expect(blocked).not.toContain('SEBot-WA');
+  });
+
   it('keeps asset source maps in the existing blocking rule on the CDN host', () => {
     const marker = 'locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)';
     const start = SETUP.indexOf(marker);

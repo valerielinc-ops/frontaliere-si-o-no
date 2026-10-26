@@ -218,12 +218,15 @@ const CHALLENGED_UAS = ['', 'node'];
 const TRUSTED_CRAWLER_IP_RANGES = ['85.208.98.128/25'];
 
 // The crawlers this site deliberately welcomes — organic-search + AI-search
-// visibility channels. Mirrors the owner's original allowlist rule (adopted
+// visibility channels. This includes SE Ranking Website Audit, whose official
+// crawler identifies as `SEBot-WA`; it must bypass WAF/Bot Fight challenges so
+// audit crawls can complete. Mirrors the owner's original allowlist rule (adopted
 // under management 2026-07-20; was a "foreign" rule with Amazonbot/Bytespider
 // INSIDE it, which exempted them from ALL security outside this rule's old
 // narrow /en|/de|/fr scope — contradicted the block above). Never
 // challenged/rate-limited, on top of the owner's own IP.
 const VERIFIED_CRAWLER_UAS = [
+  'SEBot-WA',
   'Googlebot',
   'Bingbot',
   'Mediapartners-Google',
