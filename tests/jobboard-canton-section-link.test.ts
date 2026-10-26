@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug } from '@/services/router';
+import { resolveJobBoardReturnCanton } from '@/components/community/JobBoard.tsx';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 
 /**
@@ -20,6 +21,11 @@ describe('job-board canton section links', () => {
     canton: 'ZH',
     location: 'Zürich',
     slug: 'dipl-pflegefachperson-hf-fh-privatklinik-bethanien-zurich',
+  };
+  const VS_JOB = {
+    canton: 'VS',
+    location: 'Sion',
+    slug: 'elettricista-installatore-afc-m-f-d-pemsa-sion',
   };
 
   it('buildPath emits the job canton section for a non-TI job', () => {
@@ -64,6 +70,19 @@ describe('job-board canton section links', () => {
       'it',
     );
     expect(path).toBe(`/cerca-lavoro-zurigo/${ZH_JOB.slug}/`);
+  });
+
+  it('keeps every job-detail return target on the job canton', () => {
+    expect(resolveJobBoardReturnCanton(VS_JOB, undefined, 'TI')).toBe('VS');
+    expect(resolveJobBoardReturnCanton(ZH_JOB, undefined, '_AGGREGATE_')).toBe('ZH');
+    expect(resolveJobBoardReturnCanton(null, ZH_JOB.slug, 'TI')).toBe('ZH');
+    expect(resolveJobBoardReturnCanton(null, 'unknown-job', '_AGGREGATE_')).toBe('_AGGREGATE_');
+
+    const valaisReturnCanton = resolveJobBoardReturnCanton(VS_JOB, undefined, 'TI');
+    expect(buildPath({ activeTab: 'job-board', jobBoardCanton: valaisReturnCanton }, 'it')).toBe('/cerca-lavoro-vallese/');
+
+    const returnCanton = resolveJobBoardReturnCanton(ZH_JOB, undefined, 'TI');
+    expect(buildPath({ activeTab: 'job-board', jobBoardCanton: returnCanton }, 'it')).toBe('/cerca-lavoro-zurigo/');
   });
 });
 

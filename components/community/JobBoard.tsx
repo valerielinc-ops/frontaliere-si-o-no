@@ -793,6 +793,18 @@ interface JobBoardProps {
  initialFilterCanton?: string | null;
 }
 
+/** Resolve the canton used when leaving any job-detail variant. */
+export function resolveJobBoardReturnCanton(
+ selectedJob: Pick<JobListing, 'canton' | 'location'> | null | undefined,
+ initialJobSlug?: string,
+ initialFilterCanton?: string | null,
+): string | undefined {
+ if (selectedJob) return resolveJobCanton(selectedJob);
+ return (initialJobSlug ? getJobMetaForSlug(initialJobSlug)?.canton : undefined)
+  || initialFilterCanton
+  || undefined;
+}
+
 const CATEGORY_EMOJI: Record<JobCategory, string> = {
  tech: '💻',
  finance: '💰',
@@ -7678,12 +7690,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  };
 
+ const jobBoardReturnCanton = resolveJobBoardReturnCanton(selectedJob, initialJobSlug, initialFilterCanton);
+ const jobBoardListPath = buildPath({
+ activeTab: 'job-board' as any,
+ ...(jobBoardReturnCanton ? { jobBoardCanton: jobBoardReturnCanton } : {}),
+ }, locale);
+
  const backToList = () => {
  Analytics.trackSelectContent('job_board_back_to_list', 'job-board');
  // Always use deterministic SPA navigation instead of history.back().
  // history.back() is unsafe for direct-entry pages (e.g. from Google) where
  // the previous history entry may be about:blank or an external page.
- onJobRouteChange?.(undefined);
+ onJobRouteChange?.(undefined, jobBoardReturnCanton);
  };
 
  const recordJobApplicationIntent = (job: JobListing, surface: string): Promise<boolean> => {
@@ -9046,10 +9064,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -9149,10 +9167,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return (
  <a
  key={link.href}
- href={slug ? buildPath({ activeTab: 'job-board', ...(linkCanton ? { jobBoardCanton: linkCanton } : {}), jobSlug: slug }, locale) : buildPath({ activeTab: 'job-board' }, locale)}
+ href={slug
+  ? buildPath({ activeTab: 'job-board', ...(linkCanton ? { jobBoardCanton: linkCanton } : {}), jobSlug: slug }, locale)
+  : (linkCanton ? buildPath({ activeTab: 'job-board', jobBoardCanton: linkCanton }, locale) : jobBoardListPath)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(slug || '', linkCanton);
+ onJobRouteChange?.(slug || '', linkCanton || jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="inline-flex items-center rounded-full bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent no-underline hover:underline"
@@ -9178,10 +9198,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -9288,10 +9308,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -9402,10 +9422,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -9517,10 +9537,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -9616,10 +9636,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -9715,10 +9735,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -9764,7 +9784,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={() => {
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 min-h-[44px] text-sm font-bold text-accent"
@@ -9814,10 +9834,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex items-center justify-between gap-4 mb-4">
  <h2 className="text-lg font-bold font-display text-heading">{section.label}</h2>
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.('');
+ onJobRouteChange?.('', jobBoardReturnCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="text-sm font-bold text-accent no-underline hover:underline"
@@ -11451,7 +11471,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Internal link to job listing — SEO anchor for head-term"lavoro ticino" */}
  <nav className="text-center py-4">
  <a
- href={buildPath({ activeTab: 'job-board' }, locale)}
+ href={jobBoardListPath}
  onClick={(e) => { e.preventDefault(); backToList(); }}
  className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"
  >
@@ -11559,7 +11579,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('jobBoard.filter.activeSearch', { query: searchSlugFilter })}
  </span>
  <button
- onClick={() => onJobRouteChange?.(undefined)}
+ onClick={() => onJobRouteChange?.(undefined, jobBoardReturnCanton)}
  className="px-2 py-1 rounded-md border border-accent-border hover:bg-accent-subtle text-xs font-bold"
  >
  {t('jobBoard.filter.remove')}
@@ -11572,7 +11592,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('jobBoard.filter.activeCompany')}
  </span>
  <button
- onClick={() => onJobRouteChange?.(undefined)}
+ onClick={() => onJobRouteChange?.(undefined, jobBoardReturnCanton)}
  className="px-2 py-1 rounded-md border border-accent-border hover:bg-accent-subtle text-xs font-bold"
  >
  {t('jobBoard.filter.remove')}
@@ -11586,7 +11606,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {locationDisplayName || locationSlugFilter}
  </span>
  <button
- onClick={() => onJobRouteChange?.(undefined)}
+ onClick={() => onJobRouteChange?.(undefined, jobBoardReturnCanton)}
  className="px-2 py-1 rounded-md border border-accent-border hover:bg-accent-subtle text-xs font-bold"
  >
  {t('jobBoard.filter.remove')}
