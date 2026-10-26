@@ -1,21 +1,69 @@
-import { describe, expect, it } from 'vitest';
+// @vitest-environment jsdom
+
+import { beforeEach, describe, expect, it } from 'vitest';
 import {
-  canSendChatbotMessage,
+  checkChatbotRateLimit,
   incrementChatbotRateLimit,
-  normalizeChatbotRateLimitState,
+  MAX_CHATBOT_MESSAGES_PER_DAY,
 } from '@/services/chatbotRateLimit';
 
-describe('chatbot rate-limit state', () => {
-  it('resets malformed, negative and unsafe counters', () => {
-    expect(normalizeChatbotRateLimitState({ date: '2026-10-26', count: '2' }, '2026-10-26')).toEqual({ date: '2026-10-26', count: 0 });
-    expect(normalizeChatbotRateLimitState({ date: '2026-10-26', count: -1 }, '2026-10-26')).toEqual({ date: '2026-10-26', count: 0 });
-    expect(normalizeChatbotRateLimitState({ date: '2026-10-26', count: Number.MAX_SAFE_INTEGER + 1 }, '2026-10-26')).toEqual({ date: '2026-10-26', count: 0 });
+const RATE_LIMIT_KEY = 'chatbot_msgs';
+
+function today(): string {
+  return new Date().toISOString().split('T')[0];
+}
+
+function storedState(): { date: string; count: number } {
+  return JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '{}');
+}
+
+describe('chatbot daily rate limit state', () => {
+  beforeEach(() => {
+    localStorage.clear();
   });
 
-  it('resets yesterday and caps increments at the daily limit', () => {
-    const state = normalizeChatbotRateLimitState({ date: '2026-10-25', count: 20 }, '2026-10-26');
-    expect(state).toEqual({ date: '2026-10-26', count: 0 });
-    expect(incrementChatbotRateLimit({ date: '2026-10-26', count: 19 })).toEqual({ date: '2026-10-26', count: 20 });
-    expect(canSendChatbotMessage({ date: '2026-10-26', count: 20 })).toBe(false);
+  it.each([
+    '3',
+    -1,
+    1.5,
+    Number.MAX_SAFE_INTEGER + 1,
+    null,
+    {},
+    [],
+  ])('resets malformed count %p before allowing a message', (count) => {
+    localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify({ date: today(), count }));
+
+    expect(checkChatbotRateLimit()).toBe(true);
+    expect(storedState()).toEqual({ date: today(), count: 0 });
+
+    incrementChatbotRateLimit();
+    expect(storedState()).toEqual({ date: today(), count: 1 });
+  });
+
+  it('resets invalid JSON instead of blocking the user', () => {
+    localStorage.setItem(RATE_LIMIT_KEY, '{not-json');
+
+    expect(checkChatbotRateLimit()).toBe(true);
+    expect(storedState()).toEqual({ date: today(), count: 0 });
+  });
+
+  it('resets a previous-day state', () => {
+    const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify({ date: yesterday, count: 19 }));
+
+    expect(checkChatbotRateLimit()).toBe(true);
+    expect(storedState()).toEqual({ date: today(), count: 0 });
+  });
+
+  it('enforces the daily cap after repairing a negative counter', () => {
+    localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify({ date: today(), count: -100 }));
+
+    for (let i = 0; i < MAX_CHATBOT_MESSAGES_PER_DAY; i += 1) {
+      expect(checkChatbotRateLimit()).toBe(true);
+      incrementChatbotRateLimit();
+    }
+
+    expect(checkChatbotRateLimit()).toBe(false);
+    expect(storedState()).toEqual({ date: today(), count: MAX_CHATBOT_MESSAGES_PER_DAY });
   });
 });

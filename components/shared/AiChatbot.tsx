@@ -21,11 +21,10 @@ import { cancelOneTap, eagerAuth, promptOneTap, renderGoogleButtonWithReadiness,
 import { useLinkedInSignInAvailable, linkedInPendingClass } from '@/hooks/useLinkedInSignInAvailable';
 import { NAV_ACTION_ROUTES, buildSystemPrompt, type NavAction } from '@/services/internalLinks';
 import { searchJobs, type SearchJobsResult, type Locale as ChatbotLocale } from '@/services/chatbotTools';
+import { checkChatbotRateLimit, incrementChatbotRateLimit } from '@/services/chatbotRateLimit';
 import { requestSlot, releaseSlot, isActive, subscribe, hasActiveSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
-import { readLocalStorage, writeLocalStorage } from '@/services/storageAvailability';
-import { canSendChatbotMessage, incrementChatbotRateLimit, normalizeChatbotRateLimitState } from '@/services/chatbotRateLimit';
 
 /** Last-touch attribution for a login started from this box (see authService). */
 const AI_CHATBOT_AUTH_ATTRIBUTION = { cta: 'ai_chatbot_social', component: 'AiChatbot' } as const;
@@ -261,29 +260,6 @@ async function callChatbotFunction(messages: Message[], systemPrompt: string): P
  } finally {
  clearTimeout(timer);
  }
-}
-
-// ─── Rate limiting ───────────────────────────────────────────
-
-const RATE_LIMIT_KEY = 'chatbot_msgs';
-
-function checkRateLimit(): boolean {
- try {
- const today = new Date().toISOString().split('T')[0];
- const raw = readLocalStorage(RATE_LIMIT_KEY);
- const parsed = raw ? JSON.parse(raw) : null;
- return canSendChatbotMessage(normalizeChatbotRateLimitState(parsed, today));
- } catch { return true; }
-}
-
-function incrementRateLimit(): void {
- try {
- const today = new Date().toISOString().split('T')[0];
- const raw = readLocalStorage(RATE_LIMIT_KEY);
- const parsed = raw ? JSON.parse(raw) : null;
- const next = incrementChatbotRateLimit(normalizeChatbotRateLimitState(parsed, today));
- writeLocalStorage(RATE_LIMIT_KEY, JSON.stringify(next));
- } catch { /* ignore */ }
 }
 
 // ─── Simple Markdown renderer ────────────────────────────────
@@ -576,7 +552,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
 
  const sendAuthedMessage = useCallback(async (text: string) => {
  if (!text.trim() || loading) return;
- if (!checkRateLimit()) {
+ if (!checkChatbotRateLimit()) {
  setError(t('chatbot.rateLimit'));
  Analytics.trackChatbotUsage('rate_limited', {
  auth_state: canChat ? 'authed' : 'guest',
@@ -597,7 +573,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  setError(null);
 
  try {
- incrementRateLimit();
+ incrementChatbotRateLimit();
 
  let reply: string | null = null;
  let remoteErr: (Error & { code?: string }) | null = null;
