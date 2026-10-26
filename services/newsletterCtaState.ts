@@ -15,6 +15,8 @@
 export const NEWSLETTER_CTA_DISMISSED_KEY = 'newsletter_cta_dismissed';
 export const NEWSLETTER_SUBSCRIBED_KEY = 'newsletter_subscribed';
 export const NEWSLETTER_CTA_DISMISS_DAYS = 14;
+const NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE = /^\d+$/;
+const NEWSLETTER_CTA_DISMISS_WINDOW_MS = NEWSLETTER_CTA_DISMISS_DAYS * 24 * 60 * 60 * 1000;
 
 /**
  * True when the inline newsletter CTA would be shown to this visitor:
@@ -28,8 +30,14 @@ export function isNewsletterCtaEligible(): boolean {
     if (localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true') return false;
     const dismissed = localStorage.getItem(NEWSLETTER_CTA_DISMISSED_KEY);
     if (dismissed) {
-      const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
-      if (daysSince < NEWSLETTER_CTA_DISMISS_DAYS) return false;
+      // localStorage is user-controlled: parseInt() would accept a numeric
+      // prefix and a future timestamp would suppress the CTA indefinitely.
+      // Only a safe, complete timestamp in the past can be an active dismissal.
+      const dismissedAt = NEWSLETTER_CTA_DISMISS_TIMESTAMP_RE.test(dismissed)
+        ? Number(dismissed)
+        : Number.NaN;
+      const ageMs = Date.now() - dismissedAt;
+      if (Number.isSafeInteger(dismissedAt) && ageMs >= 0 && ageMs < NEWSLETTER_CTA_DISMISS_WINDOW_MS) return false;
     }
     return true;
   } catch {
