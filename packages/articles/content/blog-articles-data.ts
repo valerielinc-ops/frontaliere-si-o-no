@@ -65,11 +65,6 @@ export interface Article {
  authorSlug?: string;
  /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
  authorName?: string;
- /**
-  * Whether the article was drafted with AI assistance, as declared by the
-  * publisher. Optional for backward compatibility with older corpus entries.
-  */
- aiAssisted?: boolean;
 }
 
 const RAW_ARTICLES_CHUNK_01: Article[] = [
