@@ -18,12 +18,15 @@
  */
 
 import { captureEvent as posthogCapture } from './posthog';
+import { isLikelyBot as analyticsIsLikelyBot } from './analytics';
 
 // `isLikelyBot()` lives in services/botPatterns.ts (the shared, dependency-free
 // home alongside BOT_UA_PATTERNS) so services/posthog.ts can gate its init on it
 // without a circular import through this module. Re-exported here to preserve the
 // historical `@/services/adAnalytics` import path used by <AdSenseBanner> + tests.
-export { isLikelyBot } from './botPatterns';
+// The forwarding binding is intentional: it keeps the named export reachable
+// from the shared analytics chunk for cached AdSense bundles.
+export const isLikelyBot = analyticsIsLikelyBot;
 
 export type AdEvent =
   | 'ad_request'

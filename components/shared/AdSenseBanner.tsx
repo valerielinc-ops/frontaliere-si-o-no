@@ -17,9 +17,7 @@
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import * as AnalyticsService from '@/services/analytics';
-import { trackAdEvent } from '@/services/adAnalytics';
-import { isLikelyBot as detectLikelyBot } from '@/services/botPatterns';
+import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
 import { classifyAdPageTemplate, documentHasJobPosting } from '@/services/adPageTemplate';
 import { observeManualAd } from '@/services/manualAdLifecycle';
 import { hasActiveReaderNoAdsEntitlement } from '@/services/readerEntitlement';
@@ -74,11 +72,7 @@ const IS_PROD =
 // session, so cache it. isLikelyBot() returns true on Playwright/Selenium/
 // scrapers/headless — these inflate AD_REQUESTS without monetizing
 // (≤€0.10 RPM) and pollute coverage metrics.
-const detectBot =
- typeof AnalyticsService.isLikelyBot === 'function'
-  ? AnalyticsService.isLikelyBot
-  : detectLikelyBot;
-const SKIP_FOR_BOT = typeof window !== 'undefined' && detectBot();
+const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
 
 type AdState = 'idle' | 'waiting_width' | 'loading' | 'waiting_response' | 'unfilled' | 'unavailable' | 'filled' | 'collapsed';
 const initializedAdElements = new WeakSet<Element>();
