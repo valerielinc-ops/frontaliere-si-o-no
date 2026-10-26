@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-26T09:34:49.533Z",
+  "generatedAt": "2026-10-26T21:56:19.267Z",
   "total": 57,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 52,
-  "durationMs": 81357,
-  "avgDurationMs": 81357,
+  "durationMs": 80411,
+  "avgDurationMs": 80411,
   "durationHistory": [
-    81357
+    80411
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -201,86 +201,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-1lvul5",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-suhr-jysk-suhr-1lvul5",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Suhr",
-      "location": "Suhr",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-suhr",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-08-27T00:43:29.648Z",
-      "firstSeenAt": "2026-07-30T22:22:51.016Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Suhr",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "AG",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "salarySource": "reported",
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-suhr",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "5034",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "company-hfbjsr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-oftringen-jysk-oftringen-hfbjsr",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Oftringen",
-      "location": "Oftringen",
-      "canton": "AG",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-oftringen",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-08-27T00:43:29.648Z",
-      "firstSeenAt": "2026-07-30T22:22:51.016Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Oftringen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "AG",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "salarySource": "reported",
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-oftringen",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "4665",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1393,5 +1314,5 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
 }
