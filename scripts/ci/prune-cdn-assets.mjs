@@ -226,7 +226,28 @@ function assertFreshRemote(clonedTip, sshEnv) {
   }
 }
 
-async function fetchActiveHashes() {
+/**
+ * A live bootstrap can name only the release entry while its cached browser
+ * copy still imports every file below that release directory. Keep the whole
+ * remote release tree protected for the grace window; otherwise the janitor
+ * could delete a transitive chunk that is still reachable from the cached
+ * bootstrap.
+ */
+export function protectActiveReleaseTrees(activePaths, allAssets) {
+  const protectedPaths = new Set(activePaths || []);
+  const releasePrefixes = [...protectedPaths]
+    .map((assetPath) => assetPath.match(/^releases\/([^/]+)\/index-entry\.js$/)?.[0])
+    .filter(Boolean)
+    .map((entryPath) => entryPath.slice(0, -'index-entry.js'.length));
+  for (const prefix of releasePrefixes) {
+    for (const assetPath of allAssets || []) {
+      if (assetPath.startsWith(prefix)) protectedPaths.add(assetPath);
+    }
+  }
+  return protectedPaths;
+}
+
+async function fetchActiveHashes(allAssets = []) {
   try {
     const res = await fetch(LIVE_ENTRY_URL, { signal: AbortSignal.timeout(15_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -241,8 +262,9 @@ async function fetchActiveHashes() {
     );
     const active = new Set();
     for (const m of html.matchAll(rx)) active.add(m[1]);
-    console.log(`[janitor] active hashes in live HTML: ${active.size}`);
-    return active;
+    const protectedPaths = protectActiveReleaseTrees(active, allAssets);
+    console.log(`[janitor] active hashes in live HTML: ${protectedPaths.size}`);
+    return protectedPaths;
   } catch (err) {
     console.warn(`[janitor] ⚠️  live HTML fetch failed (${err.message}) — abort (conservative, no prune)`);
     return null;
@@ -350,7 +372,7 @@ async function main() {
     const canPrune = distHashes !== null;
     // Live-HTML scrape: SECONDARY belt — the boot bundles the homepage references
     // (entry + modulepreload). A failed fetch is non-blocking.
-    const activeHashes = canPrune ? await fetchActiveHashes() : null;
+    const activeHashes = canPrune ? await fetchActiveHashes(allAssets) : null;
     const isActive = (f) => (distHashes != null && distHashes.has(f)) || (activeHashes != null && activeHashes.has(f));
 
     // Pure planner does registry update + prune selection (see planJanitor).
