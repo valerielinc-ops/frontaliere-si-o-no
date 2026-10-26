@@ -25,7 +25,7 @@ const TEST_STEP = 'vitest related (PR diff)';
 const TSC_STEP = 'Collect independent source gates';
 const SOURCE_GUARD_STEP = 'Run source guards in parallel';
 
-type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'failed-runs-unavailable';
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'failed-runs-unavailable' | 'stale-run';
 
 function failedStepForMode(mode: Mode) {
   switch (mode) {
@@ -61,9 +61,13 @@ function runPreflight(
     failedRuns = '123',
     runId = '456',
     latestMode = mode,
-  }: { dispatch?: boolean; failedRuns?: string; runId?: string; latestMode?: Mode } = {},
+    runHeadSha,
+    runStatus = 'completed',
+    runConclusion = 'failure',
+  }: { dispatch?: boolean; failedRuns?: string; runId?: string; latestMode?: Mode; runHeadSha?: string; runStatus?: string; runConclusion?: string | null } = {},
 ) {
   const prHead = dispatch ? DISPATCH_HEAD : 'headsha';
+  const selectedRunHeadSha = runHeadSha ?? prHead;
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
   const bin = path.join(root, 'bin');
   const output = path.join(root, 'github-output');
@@ -122,10 +126,14 @@ if [ "\${1:-}" = api ]; then
       printf '%s\\n' "\${LATEST_JOBS_JSON}"
       ;;
     *"/actions/runs/456")
-      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${PR_HEAD_SHA}"'","status":"completed","conclusion":"failure"}'
+      run_conclusion_json='"failure"'
+      if [ "\${RUN_CONCLUSION:-failure}" = null ]; then run_conclusion_json='null'; fi
+      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"'}'
       ;;
     *"/actions/runs/123")
-      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${PR_HEAD_SHA}"'","status":"completed","conclusion":"failure"}'
+      run_conclusion_json='"failure"'
+      if [ "\${RUN_CONCLUSION:-failure}" = null ]; then run_conclusion_json='null'; fi
+      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"'}'
       ;;
     *)
       exit 1
@@ -163,6 +171,9 @@ exit 1
       DISPATCH_PR: dispatch ? '42' : '',
       DISPATCH_RUN_ID: runId,
       PR_HEAD_SHA: prHead,
+      RUN_HEAD_SHA: selectedRunHeadSha,
+      RUN_STATUS: runStatus,
+      RUN_CONCLUSION: runConclusion ?? 'null',
       FAILED_RUNS: failedRuns,
       FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : mode === 'failed-runs-unavailable' ? 'failed-runs' : '',
       OPEN_PRS: '42',
@@ -229,6 +240,27 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
     expect(githubOutput).not.toContain('actionable=true');
   });
+
+  it('tratta una run valida ma stantia rispetto alla PR come no-op verde', () => {
+    const { result, githubOutput } = runPreflight('stale-run', {
+      runHeadSha: 'fedcba9876543210fedcba9876543210fedcba98',
+    });
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(result.stdout).toContain('stantia');
+    expect(githubOutput).toContain('actionable=false');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('tratta una run in corso con conclusion null come no-op verde', () => {
+    const { result, githubOutput } = runPreflight('test', {
+      runStatus: 'in_progress',
+      runConclusion: null,
+    });
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(githubOutput).toContain('actionable=false');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
   it('resolves the failure through the PR head SHA, without branch discovery', () => {
     const { result, githubOutput, ghCalls } = runPreflight('test');
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
