@@ -29,6 +29,8 @@ function runGate(opts: { fetch?: 'ok' | 'fail'; catFile?: 'ok' | 'fail'; eventSh
   const dir = mkdtempSync(join(tmpdir(), 'issue-fix-diff-gate-'));
   tempDirs.push(dir);
   writeFileSync(join(dir, 'git-calls'), '');
+  const trustedPath = join(dir, 'trusted.mjs');
+  writeFileSync(trustedPath, '');
   // `git` come funzione di shell: vince sul PATH e non tocca il repo reale.
   // Diff vuoto → lo step esce prima del classificatore node.
   const fakeGit = [
@@ -53,6 +55,7 @@ function runGate(opts: { fetch?: 'ok' | 'fail'; catFile?: 'ok' | 'fail'; eventSh
       EVENT_SHA: opts.eventSha ?? EVENT_SHA,
       FAKE_FETCH: opts.fetch ?? 'ok',
       FAKE_CAT_FILE: opts.catFile ?? 'ok',
+      ISSUE_FIX_TRUSTED_PATHS: trustedPath,
     },
   });
   const calls = readFileSync(join(dir, 'git-calls'), 'utf8').split('\n').filter(Boolean);
