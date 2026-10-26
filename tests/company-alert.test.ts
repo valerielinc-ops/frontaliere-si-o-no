@@ -1537,7 +1537,7 @@ describe('CTA on the static company hubs /cerca-lavoro-.../ (#8105)', () => {
       .toBe('brand-canonical');
   });
 
-  it('keeps the hub island after the existing heading/intro content', () => {
+  it('keeps the hub island in the first-viewport hero before the openings list', () => {
     const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
 
     const tiBodyStart = plugin.indexOf('const companyBodyHtml =');
@@ -1549,11 +1549,11 @@ describe('CTA on the static company hubs /cerca-lavoro-.../ (#8105)', () => {
     const cantonStart = plugin.indexOf(
       'for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany)',
     );
-    const cantonBodyStart = plugin.indexOf('const bodyHtml =', cantonStart);
-    const cantonBodyEnd = plugin.indexOf('// Use buildSeoPageHtml', cantonBodyStart);
-    const cantonBlock = plugin.slice(cantonBodyStart, cantonBodyEnd);
+    const cantonHeroStart = plugin.indexOf('const heroHtml =', cantonStart);
+    const cantonBodyEnd = plugin.indexOf('// Use buildSeoPageHtml', cantonHeroStart);
+    const cantonBlock = plugin.slice(cantonHeroStart, cantonBodyEnd);
     const islandIndex = cantonBlock.indexOf('${companyFollowHtml}');
-    expect(islandIndex).toBeGreaterThan(cantonBlock.indexOf('${intro}'));
+    expect(islandIndex).toBeGreaterThan(cantonBlock.indexOf('<h1 id="company-hub-title"'));
     expect(islandIndex).toBeLessThan(cantonBlock.indexOf('<ul class="s-0WjlyL">'));
   });
 
