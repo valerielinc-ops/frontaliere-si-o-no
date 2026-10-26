@@ -37,6 +37,13 @@ const JOB_GATE_SURFACES = [
   'components/community/JobBridgeView.tsx',
   'components/community/JobExpiredView.tsx',
   'components/community/JobOrphanView.tsx',
+  'components/community/JobBoard.tsx',
+];
+
+const JOB_SUBMIT_NAVIGATION_SURFACES = [
+  'components/community/JobBridgeView.tsx',
+  'components/community/JobExpiredView.tsx',
+  'components/community/JobOrphanView.tsx',
 ];
 
 describe('JobBridgeView — no company-follow CTA, no employer-hub link', () => {
@@ -97,7 +104,7 @@ describe('job access gates tolerate unavailable browser storage', () => {
     expect(src).not.toContain('localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase())');
   });
 
-  it.each(JOB_GATE_SURFACES)('%s keeps the successful submit path when storage writes throw', (file) => {
+  it.each(JOB_SUBMIT_NAVIGATION_SURFACES)('%s keeps the successful submit path when storage writes throw', (file) => {
     const src = read(file);
     const writeCall = src.indexOf('writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase())');
     const navigationCall = src.indexOf('window.location', writeCall);

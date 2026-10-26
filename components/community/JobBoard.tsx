@@ -47,6 +47,7 @@ const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/Sav
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const PartnerRecommendations = lazyRetry(() => import('@/components/shared/PartnerRecommendations'));
 import { reportCaughtError } from '@/services/errorReporter';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { trackJobView } from '@/services/jobViewsService';
 import { createPublisherApplyEventId, trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 import PublisherApplyForm from '@/components/community/PublisherApplyForm';
@@ -3473,7 +3474,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [inlineGoogleButtonReady, setInlineGoogleButtonReady] = useState(false);
  const [emailInput, setEmailInput] = useState('');
  const [emailAccessGranted, setEmailAccessGranted] = useState(
- () => !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY)
+ () => !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY)
  );
  const authResolved = !authLoading;
  const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;
@@ -7393,7 +7394,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const sourceSuffix = pendingJob ? `:${pendingJob.company}:${sanitizeJobTitle(pendingJob.title).slice(0, 60)}` : '';
  const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email', undefined, pendingJob);
- localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
+ writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
@@ -7458,7 +7459,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobContext = buildJobTrackingContext(job);
  try {
  const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email', 'job_board_email_unlock', job);
- localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
+ writeBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
