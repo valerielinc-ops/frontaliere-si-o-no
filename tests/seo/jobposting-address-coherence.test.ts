@@ -672,7 +672,7 @@ describe('JobBoard runtime JobPosting — remote and multi-location address (rev
     }, false);
     expect(posting.jobLocation.address).toEqual({
       '@type': 'PostalAddress',
-      streetAddress: 'Pully centro',
+      streetAddress: 'Pully centre-ville',
       postalCode: '1009',
       addressLocality: 'Pully',
       addressRegion: 'VD',
