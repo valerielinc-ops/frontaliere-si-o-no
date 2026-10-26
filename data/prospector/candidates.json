@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-26T13:02:02.558Z",
+  "updatedAt": "2026-10-26T13:03:32.239Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -41873,12 +41873,12 @@
     },
     "alfa-personal.ch": {
       "key": "alfa-personal.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:29:55.557Z",
-      "updatedAt": "2026-10-25T11:24:44.589Z",
+      "updatedAt": "2026-10-26T13:03:32.160Z",
       "name": "Alfa Personal GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -42145,7 +42145,13 @@
         }
       ],
       "promotionPr": "15215",
-      "promotionBranch": "prospector/promote-2026-10-25"
+      "promotionBranch": "prospector/promote-2026-10-25",
+      "promotedAt": "2026-10-25T12:11:23Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-26T09:35:05.316Z",
+      "firstCrawlerJobCount": 15
     },
     "alfa.swiss": {
       "key": "alfa.swiss",

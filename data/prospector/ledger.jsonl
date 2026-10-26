@@ -24724,3 +24724,6 @@
 {"eventType":"candidate_attempt","key":"lucarna-macana@hinwil","status":"validated","outcome":"weak","at":"2026-10-26T13:01:53.225Z","runId":"40296500425","runAttempt":1,"phase":"validate","eventId":"72cf5ba50f5596f7382e4d84"}
 {"eventType":"candidate_attempt","key":"buchi@uster","status":"validated","outcome":"weak","at":"2026-10-26T13:02:02.422Z","runId":"40296500425","runAttempt":1,"phase":"validate","eventId":"17f7ab5ec6d3276e1815c4b1"}
 {"eventType":"phase_finished","at":"2026-10-26T13:02:02.829Z","outcome":"complete","durationMs":1735794,"inputCount":65,"successCount":14,"retryCount":51,"runId":"40296500425","runAttempt":1,"phase":"validate","eventId":"4f8b0a807a823e7c210957d3"}
+{"eventType":"phase_started","at":"2026-10-26T13:03:29.205Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"c8c24ccf9345728d96d33e53"}
+{"eventType":"candidate_transition","key":"alfa-personal.ch","from":"promoting","to":"awaiting_first_crawl","at":"2026-10-26T13:03:32.126Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"4d6bee8de65d1cb17d693ac3"}
+{"eventType":"candidate_transition","key":"alfa-personal.ch","from":"awaiting_first_crawl","to":"production","at":"2026-10-26T13:03:32.160Z","runId":"40296500425","runAttempt":1,"phase":"promote","eventId":"8c996279a62fa1a97d329d67"}
