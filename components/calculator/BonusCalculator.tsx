@@ -8,6 +8,7 @@ const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'))
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateIrpefGross, irpefMarginalRate } from '@/services/calculationService';
 import { DEFAULT_EXCHANGE_RATE, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
+import { parseProfileChildren } from './bonusProfilePrefill';
 
 // Swiss bonus types for frontalieri
 const BONUS_TYPES = [
@@ -57,7 +58,6 @@ const parseBonusNumericInput = (
  max,
  fallback,
 );
-
 // Swiss social contribution rates (2026)
 const AVS_RATE = 0.053;
 const AC_RATE = 0.011;
@@ -127,12 +127,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  if (userProfile.familySituation) {
  setIsMarried(userProfile.familySituation === 'married');
  }
- if (userProfile.children) {
- const n = parseInt(userProfile.children, 10);
- if (Number.isFinite(n)) {
- setChildren(clampBonusNumericInput(n, CHILDREN_MIN, CHILDREN_MAX, DEFAULT_CHILDREN));
- }
- }
+ const profileChildren = parseProfileChildren(userProfile.children);
+ if (profileChildren !== null) setChildren(profileChildren);
  }, [userProfile]);
 
  // Use live rate unless user has manually overridden
