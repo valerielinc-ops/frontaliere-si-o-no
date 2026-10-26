@@ -10,9 +10,11 @@ import {
   withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 import { GR_ECARI_CATALOGUE_URL } from '../../../functions/src/plateAuctionSourceUrls.js';
+import { fetchWithPublicApiRelay, PLATE_AUCTION_PUBLIC_API_RELAY_URL } from './api-relay.mjs';
 
 export const GR_CANTON = 'Grigioni';
 export const GR_PLATE_CODE = 'GR';
+export const GR_PUBLIC_API_RELAY_URL = PLATE_AUCTION_PUBLIC_API_RELAY_URL;
 
 export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() } = {}) {
   const tabs = [
@@ -36,9 +38,18 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
   )), html, tabs.map(([tab]) => tab));
 }
 
-export async function fetchGrPlateAuctions() {
-  const html = await fetchHtml(GR_ECARI_CATALOGUE_URL);
-  return parseGrAuctionRows(html, { fetchedAt: new Date().toISOString() });
+export async function fetchGrPlateAuctions({ fetchPage = fetchHtml, now = new Date() } = {}) {
+  return fetchWithPublicApiRelay({
+    sourceKey: 'gr',
+    plateCode: GR_PLATE_CODE,
+    officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
+    now,
+    logLabel: 'fetchGrPlateAuctions',
+    direct: async () => {
+      const html = await fetchPage(GR_ECARI_CATALOGUE_URL);
+      return parseGrAuctionRows(html, { fetchedAt: new Date().toISOString() });
+    },
+  });
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
