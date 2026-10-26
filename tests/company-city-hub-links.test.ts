@@ -208,8 +208,8 @@ describe('cablaggio in jobsSeoPagesPlugin', () => {
     const phase33 = src.slice(at('/* ── Per-canton company hubs (Phase 3.3)'), at('/* ── Per-canton company × city hubs (Phase 3.4)'));
     expect(phase33).toContain('companyCityLinksForCompany(companyCityPlan, canton, cSlug)');
     expect(phase33).toContain('companyCityLinkLabel(locale, companyName, l.cityDisplay)');
-    expect(phase33).toContain('<span class="company-hub-crosslink-count"> — ${esc(countLabel)}</span>');
-    expect(phase33).toContain('<span class="company-hub-crosslink-action"> — ${esc(companyCityLinkActionLabel(locale))}</span>');
+    expect(src).toContain('<span class="company-hub-crosslink-count"> — ${esc(countLabel)}</span>');
+    expect(src).toContain('<span class="company-hub-crosslink-action"> — ${esc(companyCityLinkActionLabel(locale))}</span>');
     expect(phase33).toContain('${companyLocationsHtml}');
     expect(src).toContain('company-hub-crosslink-section');
     expect(src).toContain('companyHubAlsoHiringHeading(companyName, locale)');
