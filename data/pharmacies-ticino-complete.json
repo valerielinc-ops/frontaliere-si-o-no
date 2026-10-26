@@ -9,13 +9,18 @@
   "_sourcePublishedAt": "2026-01-15",
   "_fetchedAt": "2026-10-21T16:03:10.483Z",
   "_userAgent": "FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)",
-  "_pharmacyCount": 210,
-  "_errors": [],
-  "_warnings": [],
+  "_pharmacyCount": 219,
+  "_errors": [
+    "Ticino pharmacy catalogue refresh was not published after transient source failure: Failed to fetch https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/ (timeout): fetch failed"
+  ],
+  "_warnings": [
+    "Ticino pharmacy catalogue refresh was not published after transient source failure: Failed to fetch https://www4.ti.ch/dss/dsp/ufc/sportello/elenchi-e-indirizzi/ (timeout): fetch failed"
+  ],
   "_scope": {
     "country": "CH",
     "canton": "Ticino"
   },
+  "_preserved": true,
   "pharmacies": [
     {
       "id": "ti-ofct-6982-farmacia-amavita-dell-aeroporto-agno",
@@ -4559,6 +4564,132 @@
         "openingHours": "not_published",
         "services": "not_published"
       }
+    },
+    {
+      "id": "ti-amavita-serfontana-serfontana",
+      "name": "Amavita Serfontana",
+      "slug": "amavita-serfontana-serfontana",
+      "address": "Viale Serfontana 20",
+      "postalCode": "6836",
+      "city": "Serfontana",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 58 878 19 30",
+      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-benu-giubiasco-giubiasco",
+      "name": "BENU Giubiasco",
+      "slug": "benu-giubiasco-giubiasco-2",
+      "address": "Viale C. Olgiati 20.3",
+      "postalCode": "6512",
+      "city": "Giubiasco",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 91 857 29 29",
+      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-farmacia-benu-viganello-lugano",
+      "name": "Farmacia Benu Viganello",
+      "slug": "farmacia-benu-viganello-lugano",
+      "address": "Via la Santa 37",
+      "postalCode": "6900",
+      "city": "Lugano",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 91 971 75 75",
+      "sourceUrl": "https://www.ofct.ch/luganese/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-farmacia-centrale-lugano",
+      "name": "Farmacia Centrale",
+      "slug": "farmacia-centrale-lugano",
+      "address": "Via della Posta 8",
+      "postalCode": "6900",
+      "city": "Lugano",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 91 922 97 67",
+      "sourceUrl": "https://www.ofct.ch/luganese/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-farmacia-della-stazione-lugano",
+      "name": "Farmacia della Stazione",
+      "slug": "farmacia-della-stazione-lugano-2",
+      "address": "Via Sorengo 1",
+      "postalCode": "6900",
+      "city": "Lugano",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 91 966 53 49",
+      "sourceUrl": "https://www.ofct.ch/luganese/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-farmacia-di-breganzona-breganzona",
+      "name": "Farmacia di Breganzona",
+      "slug": "farmacia-di-breganzona-breganzona",
+      "address": "Via Gemmo 3",
+      "postalCode": "6932",
+      "city": "Breganzona",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 91 966 41 21",
+      "sourceUrl": "https://www.ofct.ch/luganese/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-farmacia-semper-fidelis-lugano",
+      "name": "Farmacia Semper Fidelis",
+      "slug": "farmacia-semper-fidelis-lugano",
+      "address": "Via alla Chiesa 1",
+      "postalCode": "6900",
+      "city": "Lugano",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 91 970 19 90",
+      "sourceUrl": "https://www.ofct.ch/luganese/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-stazione-mendrisio-mendrisio",
+      "name": "Stazione Mendrisio",
+      "slug": "stazione-mendrisio-mendrisio",
+      "address": "Via Giuseppe Motta 2",
+      "postalCode": "6850",
+      "city": "Mendrisio",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "+41 91 646 69 51",
+      "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
+    },
+    {
+      "id": "ti-sun-store-bellinzona",
+      "name": "Sun Store",
+      "slug": "sun-store-bellinzona",
+      "address": "Via Claudio Pellandini 7",
+      "postalCode": "6500",
+      "city": "Bellinzona",
+      "canton": "Ticino",
+      "country": "CH",
+      "phone": "410588785100",
+      "sourceUrl": "https://www.ofct.ch/bellinzonese/",
+      "sourceType": "official",
+      "lastVerifiedAt": "2026-08-31T04:26:29.114Z"
     }
   ],
   "_release": {
@@ -4579,13 +4710,13 @@
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "18b51a244fb5ed9f53f572f4f831b93e359d7cbb32e28a58a0695e56534a7dca",
+        "sha256": "ebc61e23f89d017c1aa1af83c07c526b5ac6a814e23d37e8de9bcb1964f879db",
         "fetchedAt": "2026-10-21T16:03:10.483Z"
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "f3bccb611acbf092bd2c556a3a8c660302659c38040386f1719f9bf4e9f6e516",
-        "fetchedAt": "2026-10-23T09:27:57.975Z"
+        "sha256": "1de6ed0b34ac744db850c7361b616c75048acdc99615c34f5f15c33d198df04d",
+        "fetchedAt": "2026-10-26T17:13:06.336Z"
       }
     },
     "regions": {
@@ -4593,7 +4724,7 @@
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
         "dutyCount": 14,
-        "fetchedAt": "2026-10-23T09:27:57.975Z",
+        "fetchedAt": "2026-10-26T17:13:06.336Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4603,7 +4734,7 @@
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-23T09:27:57.975Z",
+        "fetchedAt": "2026-10-26T17:13:06.336Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4613,7 +4744,7 @@
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
         "dutyCount": 13,
-        "fetchedAt": "2026-10-23T09:27:57.975Z",
+        "fetchedAt": "2026-10-26T17:13:06.336Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4623,7 +4754,7 @@
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-23T09:27:57.975Z",
+        "fetchedAt": "2026-10-26T17:13:06.336Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4633,13 +4764,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-23T09:27:57.975Z",
+        "fetchedAt": "2026-10-26T17:13:06.336Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-19d0734a23dbec65ce76ab8fda40f8c7eb75719aaba1b133340a903d251856b8"
+    "releaseId": "pharmacy-v1-b0fff055cbb84cb60bce5aa7d88e8fb4be56a1aa15e2995d62f797e4dad379f8"
   }
 }
