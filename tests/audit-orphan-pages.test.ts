@@ -21,10 +21,11 @@ interface AuditTestExports {
     distRoot: string,
   ) => Promise<{
     linked: Set<string>;
-    stats: { visited: number; noindex: number; dead: number };
+    stats: { visited: number; nofollow: number; dead: number };
   }>;
   extractAnchorHrefs: (html: string) => string[];
   htmlHasNoindex: (html: string) => boolean;
+  htmlHasNofollow: (html: string) => boolean;
   normaliseInternalPath: (href: string) => string | null;
   resolvePathToDistFile: (distRoot: string, path: string) => Promise<string | null>;
   compareAgainstBaseline: (
@@ -96,7 +97,7 @@ describe('audit-orphan-pages: BFS reachability', () => {
     expect(result.stats.visited).toBe(3);
   });
 
-  it('records noindex pages as reachable but does not follow their links', async () => {
+  it('records noindex,follow pages as reachable and follows their links', async () => {
     const { bfsReachableFromHome } = await loadHelpers();
     await mkdir(join(tmpDir, 'gate'), { recursive: true });
     await mkdir(join(tmpDir, 'beyond'), { recursive: true });
@@ -120,8 +121,31 @@ describe('audit-orphan-pages: BFS reachability', () => {
     const result = await bfsReachableFromHome(tmpDir);
     expect(result.linked.has('/')).toBe(true);
     expect(result.linked.has('/gate')).toBe(true);
+    expect(result.linked.has('/beyond')).toBe(true);
+    expect(result.stats.nofollow).toBe(0);
+  });
+
+  it('stops only at an explicit nofollow barrier', async () => {
+    const { bfsReachableFromHome } = await loadHelpers();
+    await mkdir(join(tmpDir, 'gate'), { recursive: true });
+    await mkdir(join(tmpDir, 'beyond'), { recursive: true });
+    await writeFile(
+      join(tmpDir, 'index.html'),
+      `<html><body><a href="/gate/">Gate</a></body></html>`,
+      'utf8',
+    );
+    await writeFile(
+      join(tmpDir, 'gate', 'index.html'),
+      `<html><head><meta content=noindex,nofollow name=robots /></head>` +
+        `<body><a href="/beyond/">Beyond</a></body></html>`,
+      'utf8',
+    );
+    await writeFile(join(tmpDir, 'beyond', 'index.html'), '<html><body>far</body></html>', 'utf8');
+
+    const result = await bfsReachableFromHome(tmpDir);
+    expect(result.linked.has('/gate')).toBe(true);
     expect(result.linked.has('/beyond')).toBe(false);
-    expect(result.stats.noindex).toBe(1);
+    expect(result.stats.nofollow).toBe(1);
   });
 
   it('does not follow <link rel="alternate"> hreflang tags', async () => {
@@ -177,11 +201,13 @@ describe('audit-orphan-pages: extractors and helpers', () => {
     expect(hrefs).toEqual(['/foo', '/bar', '/baz#x']);
   });
 
-  it('htmlHasNoindex detects various meta-robots formats', async () => {
-    const { htmlHasNoindex } = await loadHelpers();
+  it('detects meta-robots directives across minified formats and attribute order', async () => {
+    const { htmlHasNoindex, htmlHasNofollow } = await loadHelpers();
     expect(htmlHasNoindex('<meta name="robots" content="noindex">')).toBe(true);
     expect(htmlHasNoindex('<meta name="robots" content="noindex, follow">')).toBe(true);
     expect(htmlHasNoindex(`<meta name='robots' content='index,follow'>`)).toBe(false);
+    expect(htmlHasNofollow('<meta content=noindex,nofollow name=robots />')).toBe(true);
+    expect(htmlHasNofollow('<meta name=robots content=index,follow>')).toBe(false);
     expect(htmlHasNoindex('<p>no meta</p>')).toBe(false);
   });
 

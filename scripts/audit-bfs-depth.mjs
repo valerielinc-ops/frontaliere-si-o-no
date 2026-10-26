@@ -274,8 +274,42 @@ async function resolvePathToDistFile(path) {
 
 // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
 // attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
-const ROBOTS_NOINDEX_RE = /<meta\s+[^>]*name\s*=\s*["']?robots["']?[^>]*content\s*=\s*["']?[^"'>]*\bnoindex\b/i;
-function htmlHasNoindex(html) { return ROBOTS_NOINDEX_RE.test(html); }
+// Parse one meta tag at a time instead of using a cross-attribute lookahead:
+// that keeps `name` and `content` on the same element, supports either order,
+// and stops an unquoted value before the tag-closing slash.
+const META_TAG_RE = /<meta\b[^>]*>/gi;
+const META_ATTRIBUTE_RE = /([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s/>]+)))?/g;
+
+function robotsContent(html) {
+  for (const match of html.matchAll(META_TAG_RE)) {
+    const attributes = new Map();
+    for (const attribute of match[0].slice(5, -1).matchAll(META_ATTRIBUTE_RE)) {
+      const name = attribute[1].toLowerCase();
+      if (!attributes.has(name)) attributes.set(name, attribute[2] ?? attribute[3] ?? attribute[4] ?? '');
+    }
+    if (attributes.get('name')?.trim().toLowerCase() === 'robots') return attributes.get('content') ?? '';
+  }
+  return '';
+}
+
+function robotsDirectives(html) {
+  return robotsContent(html).toLowerCase().split(/[\s,]+/).filter(Boolean);
+}
+
+function htmlHasNoindex(html) {
+  return robotsDirectives(html).includes('noindex');
+}
+
+/**
+ * `noindex,follow` is deliberately crawlable: pagination pages use it to
+ * leave the index while still carrying the links to their sitemap-listed
+ * items. The BFS must stop only at an explicit `nofollow` barrier; treating
+ * every noindex page as a wall made the 2026-10-24 pagination policy orphan
+ * thousands of otherwise linked events, jobs, fuel pages and locale variants.
+ */
+function htmlHasNofollow(html) {
+  return robotsDirectives(html).includes('nofollow');
+}
 
 function extractAnchorHrefs(html) {
   const out = [];
@@ -322,7 +356,7 @@ async function bfsWithDepth() {
     if (!file) continue;
     let html;
     try { html = await readFile(file, 'utf8'); } catch { continue; }
-    if (htmlHasNoindex(html)) continue; // bridge stops here — equity wouldn't propagate
+    if (htmlHasNofollow(html)) continue; // an explicit nofollow page is a graph barrier
     const hrefs = extractAnchorHrefs(html);
     for (const href of hrefs) {
       const p = normaliseInternalPath(href);
@@ -779,6 +813,7 @@ export const __test = {
   extractAnchorHrefs,
   extractLocs,
   htmlHasNoindex,
+  htmlHasNofollow,
   normaliseInternalPath,
   resolvePathToDistFile,
 };

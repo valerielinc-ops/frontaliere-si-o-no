@@ -20,7 +20,8 @@
  *      130 pages sat past `maxDepth`; the border-comuni hub had exactly ONE
  *      indexable depth-1 inbound (`/vivere-in-ticino/confronta-asili-nido/`),
  *      because its "official" door `/guida-frontaliere/comuni-di-frontiera/` is
- *      `noindex,follow` and `scripts/audit-bfs-depth.mjs` stops at any noindex.
+ *      `noindex,follow`; both reachability auditors must follow that bridge
+ *      because it remains crawlable despite being excluded from the index.
  *
  * These assert the INVARIANT ("every emitted page of the family is linked from
  * its hub"), not the counts of the day, so they keep holding as the corpus
@@ -279,15 +280,11 @@ describe('the home shell carries the two depth-1 entry points the audit needs (#
  * lower card cap makes above — and here it is sharper: a ladder page is the
  * ONLY inbound of every row it carries.
  *
- * Both reachability auditors stop dead at a noindex page and never extract its
- * links: `scripts/audit-orphan-pages-in-sitemaps.mjs`
- * (`if (htmlHasNoindex(html)) { noindexCount += 1; continue; }`) and
- * `scripts/audit-bfs-depth.mjs` (`if (htmlHasNoindex(html)) continue;`). So a
- * `noindex` ladder does not merely rank badly — it re-orphans every row it was
- * built to carry, which is regression #5434 arriving through the fix meant to
- * prevent it. Nothing else in the repo watches this: the auditors need a full
- * build, and the byte-budget test in `tests/events-page-weight-bound.test.ts`
- * measures only weight and would stay green through a noindex ladder.
+ * Both reachability auditors must follow `noindex,follow` pages and stop only
+ * at an explicit `nofollow` barrier. A noindex ladder therefore does not
+ * re-orphan every row it was built to carry. Nothing else in the repo watches
+ * this: the auditors need a full build, and the byte-budget test in
+ * `tests/events-page-weight-bound.test.ts` measures only weight.
  */
 describe('the overflow ladder keeps the rows it carries reachable (#7329)', () => {
   /**

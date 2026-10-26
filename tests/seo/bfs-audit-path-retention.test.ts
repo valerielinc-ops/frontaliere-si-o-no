@@ -33,6 +33,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 
 const REPO_ROOT = resolve(__dirname, '..', '..');
 const BFS_AUDIT = resolve(REPO_ROOT, 'scripts/audit-bfs-depth.mjs');
@@ -118,4 +119,46 @@ describe('BFS audits — a discovered path must not retain the page it was scrap
       }
     });
   }
+});
+
+describe('audit-bfs-depth — followable noindex pages keep the graph connected', () => {
+  it('follows noindex,follow but stops at an explicit nofollow barrier', async () => {
+    const dist = mkdtempSync(join(tmpdir(), 'bfs-robots-directives-'));
+    try {
+      mkdirSync(join(dist, 'followable'), { recursive: true });
+      mkdirSync(join(dist, 'blocked'), { recursive: true });
+      mkdirSync(join(dist, 'beyond-followable'), { recursive: true });
+      mkdirSync(join(dist, 'beyond-blocked'), { recursive: true });
+      writeFileSync(
+        join(dist, 'index.html'),
+        '<a href="/followable/">followable</a><a href="/blocked/">blocked</a>',
+      );
+      writeFileSync(
+        join(dist, 'followable', 'index.html'),
+        '<meta name="robots" content="noindex,follow"><a href="/beyond-followable/">beyond</a>',
+      );
+      writeFileSync(
+        join(dist, 'blocked', 'index.html'),
+        '<meta content=noindex,nofollow name=robots><a href="/beyond-blocked/">beyond</a>',
+      );
+      writeFileSync(join(dist, 'beyond-followable', 'index.html'), '<p>reachable</p>');
+      writeFileSync(join(dist, 'beyond-blocked', 'index.html'), '<p>blocked</p>');
+
+      const source = `
+        const { __test } = await import(${JSON.stringify(pathToFileURL(BFS_AUDIT).href)});
+        const result = await __test.bfsWithDepth();
+        process.stdout.write(JSON.stringify([...result.keys()]));
+      `;
+      const output = execFileSync(
+        process.execPath,
+        ['--input-type=module', '-e', source, '--', 'dummy', `--dist=${dist}`],
+        { cwd: REPO_ROOT, encoding: 'utf8' },
+      );
+      const paths = JSON.parse(output) as string[];
+      expect(paths).toContain('/beyond-followable');
+      expect(paths).not.toContain('/beyond-blocked');
+    } finally {
+      rmSync(dist, { recursive: true, force: true });
+    }
+  });
 });

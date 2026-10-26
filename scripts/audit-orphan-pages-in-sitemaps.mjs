@@ -23,8 +23,9 @@ import { realpathSync } from 'node:fs';
  * 3. Build the "linked" set from the LOCAL worktree:
  *      Mode A (preferred): BFS reachability from `/` over dist/**\/*.html.
  *                          Start at dist/index.html, follow every <a href>,
- *                          stop at noindex pages (don't extract their
- *                          outgoing links — they're crawl-graph dead-ends),
+ *                          follow `noindex,follow` pages and stop only at
+ *                          explicit `nofollow` pages (the latter are
+ *                          crawl-graph dead-ends),
  *                          stop at files that don't exist in dist/. The
  *                          returned set is the reachable subgraph.
  *      Mode B (fallback):  scan source files (App.tsx, components/,
@@ -391,11 +392,33 @@ async function resolvePathToDistFile(distRoot, path) {
 
 // Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
 // attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`).
-const ROBOTS_NOINDEX_RE =
-  /<meta\s+[^>]*name\s*=\s*["']?robots["']?[^>]*content\s*=\s*["']?[^"'>]*\bnoindex\b/i;
+// Keep the parser aligned with audit-bfs-depth: attribute order is arbitrary,
+// and an unquoted value ends before the tag-closing slash.
+const META_TAG_RE = /<meta\b[^>]*>/gi;
+const META_ATTRIBUTE_RE = /([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s/>]+)))?/g;
+
+function robotsContent(html) {
+  for (const match of html.matchAll(META_TAG_RE)) {
+    const attributes = new Map();
+    for (const attribute of match[0].slice(5, -1).matchAll(META_ATTRIBUTE_RE)) {
+      const name = attribute[1].toLowerCase();
+      if (!attributes.has(name)) attributes.set(name, attribute[2] ?? attribute[3] ?? attribute[4] ?? '');
+    }
+    if (attributes.get('name')?.trim().toLowerCase() === 'robots') return attributes.get('content') ?? '';
+  }
+  return '';
+}
+
+function robotsDirectives(html) {
+  return robotsContent(html).toLowerCase().split(/[\s,]+/).filter(Boolean);
+}
 
 function htmlHasNoindex(html) {
-  return ROBOTS_NOINDEX_RE.test(html);
+  return robotsDirectives(html).includes('noindex');
+}
+
+function htmlHasNofollow(html) {
+  return robotsDirectives(html).includes('nofollow');
 }
 
 /**
@@ -421,8 +444,8 @@ function extractAnchorHrefs(html) {
  *   linked:        Set of normalised paths visited (i.e. files that exist
  *                  AND were reached via the link graph from `/`).
  *   stats.visited: linked.size
- *   stats.noindex: count of pages reached but not crawled-through
- *                  (their outgoing links were skipped)
+ *   stats.nofollow: count of pages reached but not crawled-through
+ *                   (their outgoing links were skipped)
  *   stats.dead:    count of frontier paths whose target file did not exist
  *                  in dist/ (i.e. dangling links — interesting for separate
  *                  diagnostics but not part of the reachable set)
@@ -441,7 +464,7 @@ async function bfsReachableFromHome(distRoot) {
   const frontier = ['/'];
   enqueued.add('/');
 
-  let noindexCount = 0;
+  let nofollowCount = 0;
   let deadCount = 0;
   // Index cursor instead of `frontier.shift()`: shift() is O(n) per call (it
   // copies down the whole remaining backing array), so draining a frontier of
@@ -469,10 +492,10 @@ async function bfsReachableFromHome(distRoot) {
     }
     // The page exists, so it IS reachable. Record it.
     visited.add(current);
-    // If noindex, treat as a bridge: don't extract outgoing links (Semrush
-    // wouldn't propagate equity through a noindex page).
-    if (htmlHasNoindex(html)) {
-      noindexCount += 1;
+    // `noindex,follow` is intentionally a crawlable pagination/bridge page.
+    // Only an explicit nofollow directive makes this node a graph barrier.
+    if (htmlHasNofollow(html)) {
+      nofollowCount += 1;
       continue;
     }
     const hrefs = extractAnchorHrefs(html);
@@ -487,7 +510,7 @@ async function bfsReachableFromHome(distRoot) {
 
   return {
     linked: visited,
-    stats: { visited: visited.size, noindex: noindexCount, dead: deadCount },
+    stats: { visited: visited.size, nofollow: nofollowCount, dead: deadCount },
   };
 }
 
@@ -783,7 +806,7 @@ async function main() {
     linked = r.linked;
     linkedPrefixes = new Set();
     process.stderr.write(
-      `[audit] BFS visited ${r.stats.visited} reachable pages (skipped ${r.stats.noindex} noindex bridges, ${r.stats.dead} dead-ends)\n`,
+      `[audit] BFS visited ${r.stats.visited} reachable pages (skipped ${r.stats.nofollow} nofollow barriers, ${r.stats.dead} dead-ends)\n`,
     );
   } else {
     const r = await collectLinkedUrlsModeB();
@@ -959,6 +982,7 @@ export const __test = {
   bfsReachableFromHome,
   extractAnchorHrefs,
   htmlHasNoindex,
+  htmlHasNofollow,
   normaliseInternalPath,
   resolvePathToDistFile,
   compareAgainstBaseline,
