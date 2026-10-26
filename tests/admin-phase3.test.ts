@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { buildTodaySummary, formatTodayDate } from '@/components/admin/lib/adminToday';
 import { csvText, datedExportFilename } from '@/components/admin/lib/csv';
-import { pageCount, pageSlice } from '@/components/admin/lib/pagination';
+import { clampPage, pageCount, pageSlice } from '@/components/admin/lib/pagination';
 import { describeCronForLocalDay, scheduledOccurrencesForLocalDay } from '@/services/adminCron';
 import { adminTodayRunsPath, adminTodayRunsTruncationNotice, failedCrawlerRunCount, loadAdminTodayRuns, type AdminTodayRun } from '@/services/adminTodayRuns';
 import { buildAdminPaletteIndex, filterAdminPaletteIndex, type AdminPaletteItem } from '@/components/admin/lib/adminPalette';
@@ -169,6 +169,17 @@ describe('admin fase 3 pure contracts', () => {
     expect(datedExportFilename('crawler', new Date('2026-10-22T23:30:00.000Z'))).toBe('crawler-2026-10-23.csv');
     expect(pageCount(101)).toBe(3);
     expect(pageSlice(Array.from({ length: 101 }, (_, index) => index), 3)).toEqual([100]);
+  });
+
+  it('normalizza le page size admin non valide al default senza alterare gli interi validi', () => {
+    const items = Array.from({ length: 101 }, (_, index) => index);
+    for (const invalidPageSize of [0, -5, 2.5, Number.NaN, Number.POSITIVE_INFINITY]) {
+      expect(pageCount(items.length, invalidPageSize)).toBe(3);
+      expect(clampPage(99, items.length, invalidPageSize)).toBe(3);
+      expect(pageSlice(items, 3, invalidPageSize)).toEqual([100]);
+    }
+    expect(pageCount(items.length, 25)).toBe(5);
+    expect(pageSlice(items, 3, 25)).toEqual(items.slice(50, 75));
   });
 
   it('nasconde i dettagli sensibili dell’audit', () => {
