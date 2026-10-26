@@ -6,6 +6,7 @@ describe('BonusCalculator profile children prefill', () => {
   ['0', 0],
   ['2', 2],
   ['10', 10],
+  ['4+', 4],
  ])('accepts the valid profile value %s', (value, expected) => {
   expect(parseProfileChildren(value)).toBe(expected);
  });

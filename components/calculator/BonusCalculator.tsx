@@ -58,6 +58,7 @@ const parseBonusNumericInput = (
  max,
  fallback,
 );
+
 // Swiss social contribution rates (2026)
 const AVS_RATE = 0.053;
 const AC_RATE = 0.011;

@@ -10,7 +10,6 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { AC_SALARY_CAP_CHF, DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
 import { LPP_COORDINATION_DEDUCTION_CHF, LPP_ENTRY_THRESHOLD_CHF } from '@/services/pensionParameters';
 import type { UserProfileData } from '@/components/pages/UserProfile';
-import { parseProfileChildren } from './bonusProfilePrefill';
 import { BONUS_CHILDREN_MAX, BONUS_CHILDREN_MIN, parseProfileChildren } from './bonusProfilePrefill';
 
 // Swiss social deduction rates from shared constants
