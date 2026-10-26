@@ -1443,6 +1443,63 @@ interface PaginationIndexPageArgs {
 }
 
 /**
+ * Add useful, archive-specific context to index pages. The page-range links
+ * are intentionally compact, but the surrounding static shell is large
+ * enough that a link-only index can fall below the text/HTML ratio gate. The
+ * copy explains how the range relates to the archive and how to use the
+ * numbered pages, without pretending that an index page is a search result.
+ */
+function buildPaginationIndexGuidanceHtml(args: {
+  locale: HubLocale;
+  rangeLabel: string;
+  totalPages: number;
+  totalItems: number;
+  archiveTitle: string;
+}): string {
+  const { locale, rangeLabel, totalPages, totalItems, archiveTitle } = args;
+  const totalItemsLabel = totalItems.toLocaleString(locale);
+  const copy = {
+    it: {
+      heading: 'Come usare questo indice dell’archivio',
+      paragraphs: [
+        `Questo indice è la mappa di navigazione di «${archiveTitle}». Il gruppo ${rangeLabel} raccoglie i collegamenti a una parte delle ${totalPages} pagine numerate dell’archivio, che contiene ${totalItemsLabel} elementi aggiornati. Ogni collegamento apre la pagina corrispondente nella stessa sezione del sito: la numerazione serve a orientarsi nella sequenza pubblicata e non introduce un filtro diverso da quello dell’archivio.`,
+        `Per consultare il contenuto, scegli una pagina dall’elenco e usa poi i collegamenti precedente o successivo per continuare la lettura. Se stai cercando un annuncio, un settore o un’azienda specifica, inizia dall’archivio completo e restringi la ricerca con le pagine e le categorie disponibili; questo indice evita invece di caricare in un’unica pagina tutti i collegamenti della raccolta.`,
+        `Gli intervalli restano separati per mantenere stabile il percorso di scoperta anche quando il numero di elementi cambia. Il conteggio e la sequenza mostrati qui riflettono le pagine emesse per questa versione dell’archivio; per tornare al punto di partenza puoi usare il collegamento all’archivio completo o quello alla sezione principale.`,
+      ],
+    },
+    en: {
+      heading: 'How to use this archive index',
+      paragraphs: [
+        `This index is the navigation map for “${archiveTitle}”. The ${rangeLabel} group links to one part of the ${totalPages} numbered archive pages, which contain ${totalItemsLabel} updated entries. Each link opens the matching page in the same site section: the number identifies its position in the published sequence and does not add a different filter to the archive.`,
+        `To browse the content, choose a page from the list and then use the previous or next links to continue. If you are looking for a particular job, sector, or company, start from the complete archive and narrow the search with the available pages and categories; this index instead avoids loading every link in the collection on one document.`,
+        `The ranges remain separate so the discovery path stays stable when the number of entries changes. The count and sequence shown here reflect the pages emitted for this archive version; use the complete-archive link or the parent-section link to return to the starting point.`,
+      ],
+    },
+    de: {
+      heading: 'So verwenden Sie diesen Archivindex',
+      paragraphs: [
+        `Dieser Index ist die Navigationskarte für «${archiveTitle}». Der Bereich ${rangeLabel} verlinkt auf einen Teil der ${totalPages} nummerierten Archivseiten mit insgesamt ${totalItemsLabel} aktualisierten Einträgen. Jeder Link öffnet die passende Seite im selben Bereich der Website: Die Zahl zeigt die Position in der veröffentlichten Reihenfolge und ist kein zusätzlicher Filter.`,
+        `Wählen Sie zum Lesen eine Seite aus der Liste und verwenden Sie danach die Links für die vorherige oder nächste Seite. Wenn Sie eine bestimmte Stelle, Branche oder Firma suchen, beginnen Sie im vollständigen Archiv und grenzen Sie die Suche mit den verfügbaren Seiten und Kategorien ein; dieser Index verhindert, dass alle Links der Sammlung in einem einzigen Dokument geladen werden.`,
+        `Die Bereiche bleiben getrennt, damit der Entdeckungspfad auch bei wechselnder Zahl der Einträge stabil bleibt. Die hier angezeigte Anzahl und Reihenfolge entspricht den für diese Archivversion ausgegebenen Seiten; über den Link zum vollständigen Archiv oder zum übergeordneten Bereich gelangen Sie zurück zum Ausgangspunkt.`,
+      ],
+    },
+    fr: {
+      heading: 'Comment utiliser cet index d’archive',
+      paragraphs: [
+        `Cet index est la carte de navigation de «${archiveTitle}». Le groupe ${rangeLabel} renvoie vers une partie des ${totalPages} pages d’archive numérotées, qui contiennent ${totalItemsLabel} éléments mis à jour. Chaque lien ouvre la page correspondante dans la même section du site : le numéro indique sa position dans la séquence publiée et n’ajoute pas un filtre différent à l’archive.`,
+        `Pour parcourir le contenu, choisissez une page dans la liste puis utilisez les liens précédent ou suivant pour continuer. Si vous recherchez une offre, un secteur ou une entreprise précise, commencez par l’archive complète et affinez avec les pages et catégories disponibles ; cet index évite au contraire de charger tous les liens de la collection dans un seul document.`,
+        `Les intervalles restent séparés afin de conserver un parcours de découverte stable lorsque le nombre d’éléments évolue. Le nombre et l’ordre affichés ici correspondent aux pages émises pour cette version de l’archive ; utilisez le lien vers l’archive complète ou celui de la section parente pour revenir au point de départ.`,
+      ],
+    },
+  }[locale];
+
+  return `<section class="s-ZqtBbL" data-archive-index-guidance="1" aria-labelledby="archiveIndexGuidance">
+      <h2 class="s-EoQtvj" id="archiveIndexGuidance">${esc(copy.heading)}</h2>
+      ${copy.paragraphs.map((paragraph) => `<p class="s-SCZq3T">${esc(paragraph)}</p>`).join('\n      ')}
+    </section>`;
+}
+
+/**
  * Render one bounded page-range index. The page itself is indexable and
  * contains a complete, sqrt-sized slice of the archive links, so the parent
  * landing and the archive root never need to materialize an O(total) ladder.
@@ -1593,6 +1650,13 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
       <h2 class="s-o3IET6">${esc(copy.listHeading)}</h2>
       <ul class="s-N93mPe">${pageLinks}</ul>
     </section>
+    ${buildPaginationIndexGuidanceHtml({
+      locale,
+      rangeLabel,
+      totalPages,
+      totalItems,
+      archiveTitle,
+    })}
     <nav class="s-ay7Grc" aria-label="${esc(copy.indexHeading)}">
       <p><a class="s-cta" href="${esc(basePath)}">${esc(copy.archiveLink)}</a></p>
       ${indexCount > 1 ? `<div class="s-6_t7LY hpl">${indexLinks}</div>` : ''}
