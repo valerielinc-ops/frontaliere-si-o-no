@@ -1,7 +1,7 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-10-27T09:36:11.075Z",
+  "generatedAt": "2026-10-27T21:40:33.504Z",
   "total": 4,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4651,
-  "avgDurationMs": 4651,
+  "durationMs": 4929,
+  "avgDurationMs": 4929,
   "durationHistory": [
-    4651
+    4929
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3753b756-a74d-4a84-9bcd-df7dca809453/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:36:00.202Z",
+      "crawledAt": "2026-10-27T21:40:25.126Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/6a2b1556-fc6e-4836-bb0f-3a15adbad05b/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:35:59.717Z",
+      "crawledAt": "2026-10-27T21:40:24.649Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/ed713087-46af-475b-9c0a-ccd7cedb67cf/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:35:59.215Z",
+      "crawledAt": "2026-10-27T21:40:24.181Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/e375c196-0287-4d4b-b396-3eb86ae2e3c9/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:35:58.702Z",
+      "crawledAt": "2026-10-27T21:40:23.695Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -193,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
