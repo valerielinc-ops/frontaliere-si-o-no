@@ -160,4 +160,22 @@ describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
     expect(staged).not.toContain('data/related-search-enriched.json');
     expect(staged).toContain('data/related-search-candidates.json');
   });
+
+  it('stages a tracked core deletion while leaving absent optional paths harmless', () => {
+    const dir = makeRepoFixture();
+    const deletedCorePath = join(dir, 'data', 'sector-hub-publications.json');
+    writeSizedFile(deletedCorePath, 1 * MB);
+    execFileSync('git', ['add', '--', 'data/sector-hub-publications.json'], { cwd: dir });
+    execFileSync('git', ['commit', '-qm', 'seed tracked core file'], { cwd: dir });
+
+    rmSync(deletedCorePath);
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+
+    const status = execFileSync(
+      'git',
+      ['diff', '--cached', '--name-status', '--', 'data/sector-hub-publications.json'],
+      { cwd: dir, encoding: 'utf8' },
+    );
+    expect(status.trim()).toMatch(/^D\s+data\/sector-hub-publications\.json$/u);
+  });
 });
