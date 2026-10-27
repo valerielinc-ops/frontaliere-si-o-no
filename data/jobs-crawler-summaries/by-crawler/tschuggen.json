@@ -1,7 +1,7 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-10-26T09:32:42.761Z",
+  "generatedAt": "2026-10-27T09:35:13.838Z",
   "total": 7,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 11400,
-  "avgDurationMs": 11400,
+  "durationMs": 13771,
+  "avgDurationMs": 13771,
   "durationHistory": [
-    11400
+    13771
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:32:19.454Z",
+      "crawledAt": "2026-10-27T09:34:51.109Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1395/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:32:18.082Z",
+      "crawledAt": "2026-10-27T09:34:48.983Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1396/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:32:17.190Z",
+      "crawledAt": "2026-10-27T09:34:47.998Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1399/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:32:16.531Z",
+      "crawledAt": "2026-10-27T09:34:47.020Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -239,7 +239,7 @@
       "salaryMax": 105000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -263,7 +263,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:32:20.379Z",
+      "crawledAt": "2026-10-27T09:34:52.102Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -306,7 +306,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1386/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:32:15.587Z",
+      "crawledAt": "2026-10-27T09:34:46.015Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -337,5 +337,5 @@
       }
     }
   ],
-  "codeCommit": "034f1aafe3f16e9c05e8a62f502d887125ed1976"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }
