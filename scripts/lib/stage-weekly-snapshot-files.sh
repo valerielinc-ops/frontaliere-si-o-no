@@ -24,17 +24,16 @@
 set -uo pipefail
 
 # Core weekly-snapshot files — never gated on related-search file size. Stage
-# each path independently: an optional file can be absent on a first run, and
-# passing that missing path together with the real files makes git reject the
-# whole command, silently dropping the core snapshot files as well.
+# each path independently, including tracked deletions: `git add -A` makes a
+# generator removal visible to the weekly commit while remaining harmless for
+# an optional path that has never existed in this checkout.
 for f in \
   data/jobs-snapshots-history/ \
   data/weekly-employers-delta.json \
   data/weekly-employers-top-pairs.json \
   data/sector-hub-candidates.json \
   data/sector-hub-publications.json; do
-  [ -e "$f" ] || continue
-  git add "$f" 2>/dev/null || true
+  git add -A -- "$f" 2>/dev/null || true
 done
 
 # Related-search corpus files — gated on their OWN push-safety ceiling

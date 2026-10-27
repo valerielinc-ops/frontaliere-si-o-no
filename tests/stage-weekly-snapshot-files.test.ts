@@ -89,6 +89,24 @@ describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
     expect(staged).toContain('data/related-search-candidates.json');
   });
 
+  it('stages a deletion when a tracked core file was removed by the generator', () => {
+    const dir = makeRepoFixture();
+    const removedPath = join(dir, 'data', 'sector-hub-publications.json');
+    writeSizedFile(removedPath, 1 * MB);
+    execFileSync('git', ['add', '--', removedPath], { cwd: dir });
+    execFileSync('git', ['commit', '-qm', 'seed tracked sector publication'], { cwd: dir });
+    rmSync(removedPath);
+
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+
+    const status = execFileSync(
+      'git',
+      ['diff', '--cached', '--name-status', '--', 'data/sector-hub-publications.json'],
+      { cwd: dir, encoding: 'utf8' },
+    );
+    expect(status.trim()).toBe('D\tdata/sector-hub-publications.json');
+  });
+
   it('still stages core files when related-search-candidates.json exceeds its ceiling (the #3663 failure mode)', () => {
     const dir = makeRepoFixture();
     writeSizedFile(join(dir, 'data', 'jobs-snapshots-history', '2026-07-06.json'), 10 * MB);
