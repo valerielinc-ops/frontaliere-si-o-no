@@ -23,9 +23,8 @@
  *   GITHUB_TOKEN — for issue creation (optional)
  */
 
-import { readFileSync, existsSync, appendFileSync } from 'node:fs';
+import { readFileSync, existsSync, appendFileSync, realpathSync } from 'node:fs';
 import { createSign } from 'node:crypto';
-import { resolve as resolvePath } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { validateMandatoryJobPostingFields } from './lib/jobposting-mandatory-fields.mjs';
@@ -594,8 +593,13 @@ async function submitToIndexNow(urls) {
 
 export { getLiveBuildMarker, inspectLivePage };
 
-const isMainModule = process.argv[1]
-  && pathToFileURL(resolvePath(process.argv[1])).href === import.meta.url;
+const isMainModule = process.argv[1] && (() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
 
 if (isMainModule) {
   main().catch(err => {
