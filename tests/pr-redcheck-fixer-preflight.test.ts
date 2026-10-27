@@ -25,7 +25,7 @@ const TEST_STEP = 'vitest related (PR diff)';
 const TSC_STEP = 'Collect independent source gates';
 const SOURCE_GUARD_STEP = 'Run source guards in parallel';
 
-type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'failed-runs-unavailable' | 'stale-run';
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'failed-runs-unavailable' | 'stale-run' | 'foreign-run';
 
 function failedStepForMode(mode: Mode) {
   switch (mode) {
@@ -128,12 +128,12 @@ if [ "\${1:-}" = api ]; then
     *"/actions/runs/456")
       run_conclusion_json='"failure"'
       if [ "\${RUN_CONCLUSION:-failure}" = null ]; then run_conclusion_json='null'; fi
-      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"'}'
+      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"',"event":"pull_request","pull_requests":[{"number":'"\${RUN_PR_NUMBER:-42}"',"base":{"ref":"main"},"head":{"sha":"'"\${RUN_HEAD_SHA}"'"}}]}'
       ;;
     *"/actions/runs/123")
       run_conclusion_json='"failure"'
       if [ "\${RUN_CONCLUSION:-failure}" = null ]; then run_conclusion_json='null'; fi
-      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"'}'
+      printf '%s\\n' '{"path":".github/workflows/tests.yml","head_sha":"'"\${RUN_HEAD_SHA}"'","status":"'"\${RUN_STATUS:-completed}"'","conclusion":'"\${run_conclusion_json}"',"event":"pull_request","pull_requests":[{"number":'"\${RUN_PR_NUMBER:-42}"',"base":{"ref":"main"},"head":{"sha":"'"\${RUN_HEAD_SHA}"'"}}]}'
       ;;
     *)
       exit 1
@@ -172,6 +172,7 @@ exit 1
       DISPATCH_RUN_ID: runId,
       PR_HEAD_SHA: prHead,
       RUN_HEAD_SHA: selectedRunHeadSha,
+      RUN_PR_NUMBER: mode === 'foreign-run' ? '99' : '42',
       RUN_STATUS: runStatus,
       RUN_CONCLUSION: runConclusion ?? 'null',
       FAILED_RUNS: failedRuns,
@@ -238,6 +239,12 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
   it('fails closed when the step-level jobs API is unavailable', () => {
     const { result, githubOutput, ghCalls } = runPreflight('jobs-api-unavailable');
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('fails closed when the selected tests run belongs to another PR', () => {
+    const { result, githubOutput } = runPreflight('foreign-run');
+    expect(result.status, `${result.stdout}\n${result.stderr}`).not.toBe(0);
     expect(githubOutput).not.toContain('actionable=true');
   });
 

@@ -90,7 +90,12 @@ jobs:
             const TRUSTED_AUTOMATION_USER_RE = /^valerielinc-ops$/iu;
             const trustedMutationToken = () => String(process.env.APP_TOKEN || process.env.GITHUB_PAT || '').trim();
             const nativeRevokeCapabilityAvailable = () => trustedMutationToken().length > 0;
-            async function dispatchNativeAutoMerge(number) {
+            async function dispatchNativeAutoMerge(number, expectedState = null) {
+              if (expectedState && !await currentRecoveryPr(number, expectedState)) {
+                core.warning(`Snapshot PR/HEAD/body cambiato prima del dispatch native per PR #${number}; `
+                  + 'marker completato conservato senza mutazione trusted.');
+                return false;
+              }
               if (!trustedMutationToken()) {
                 core.warning(`Token trusted per il dispatch del native auto-merge assente per PR #${number}; `
                   + 'marker completato conservato in attesa del reconciler schedulato.');
@@ -160,7 +165,9 @@ jobs:
               });
               const matches = comments
                 .map(comment => ({ comment, state: markerJson(comment.body) }))
-                .filter(item => item.state && trustedAutomationAuthor(item.comment.user));
+                .filter(item => item.state
+                  && validRecoveryState(item.state, number)
+                  && trustedAutomationAuthor(item.comment.user));
               return matches.at(-1) || null;
             }
             async function hasCodexAuthBlockedCheckpoint(number, pr, run) {
@@ -273,17 +280,26 @@ jobs:
               return { comment: response?.data || null, state };
             }
             async function completeRecoveryAndDispatch(number, state, existing) {
+              if (!await currentRecoveryPr(number, state)) {
+                core.warning(`Snapshot PR/HEAD/body non più coerente per PR #${number}; recovery resta pending senza dispatch.`);
+                return false;
+              }
               const completedState = {
                 ...state,
                 status: 'completed',
                 nativeMergeStatus: 'pending',
               };
               const completed = await persistMarker(number, completedState, existing);
-              if (!await dispatchNativeAutoMerge(number)) return;
+              if (!await dispatchNativeAutoMerge(number, completedState)) return false;
+              if (!await currentRecoveryPr(number, completedState)) {
+                core.warning(`Snapshot PR/HEAD/body cambiato dopo il dispatch native per PR #${number}; marker non promosso a dispatched.`);
+                return false;
+              }
               await persistMarker(number, {
                 ...completedState,
                 nativeMergeStatus: 'dispatched',
               }, completed);
+              return true;
             }
             async function releaseNativeAutoMergeLease(number, pr) {
               const comments = await github.paginate(github.rest.issues.listComments, {
@@ -359,6 +375,32 @@ jobs:
             function validRunAttempt(value) {
               const attempt = Number(value);
               return Number.isSafeInteger(attempt) && attempt > 0 ? attempt : null;
+            }
+            const RECOVERY_STATUSES = new Set(['pending', 'queued', 'completed', 'manual']);
+            function validRecoveryState(value, number = null) {
+              if (!value || typeof value !== 'object' || Array.isArray(value)
+                  || value.version !== 1
+                  || !RECOVERY_STATUSES.has(value.status)
+                  || !Number.isSafeInteger(value.prNumber) || value.prNumber <= 0
+                  || (number !== null && value.prNumber !== Number(number))
+                  || typeof value.headSha !== 'string' || !/^[0-9a-f]{40}$/iu.test(value.headSha)
+                  || typeof value.bodyRevision !== 'string' || !/^body:[0-9a-f]{64}$/iu.test(value.bodyRevision)
+                  || (value.runId !== null && value.runId !== undefined
+                    && (!Number.isSafeInteger(value.runId) || value.runId <= 0))
+                  || (value.runAttempt !== null && value.runAttempt !== undefined
+                    && validRunAttempt(value.runAttempt) === null)
+                  || (value.nativeMergeStatus !== undefined
+                    && !['pending', 'dispatched'].includes(value.nativeMergeStatus))) return false;
+              return true;
+            }
+            async function currentRecoveryPr(number, state) {
+              if (!validRecoveryState(state, number)) return null;
+              const { data: current } = await github.rest.pulls.get({ ...repo, pull_number: number });
+              if (current?.state !== 'open'
+                  || current?.base?.ref !== 'main'
+                  || current?.head?.sha !== state.headSha
+                  || BODY_REVISION(current.body) !== state.bodyRevision) return null;
+              return current;
             }
             const INTERRUPTED_CONCLUSIONS = ['cancelled', 'timed_out'];
             // tests.yml reads the PR body only through the API, from inside its
@@ -746,7 +788,11 @@ jobs:
                 if (existing.state.status === 'completed'
                     && existing.state.nativeMergeStatus !== 'dispatched') {
                   try {
-                    if (!await dispatchNativeAutoMerge(number)) continue;
+                    if (!await dispatchNativeAutoMerge(number, existing.state)) continue;
+                    if (!await currentRecoveryPr(number, existing.state)) {
+                      core.warning(`Snapshot PR/HEAD/body cambiato dopo il dispatch native per PR #${number}; marker resta pending.`);
+                      continue;
+                    }
                     await persistMarker(number, {
                       ...existing.state,
                       nativeMergeStatus: 'dispatched',
