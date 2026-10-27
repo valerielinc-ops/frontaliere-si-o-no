@@ -21,6 +21,16 @@ const entries = [
     introducedAt: '2026-10-07T16:50:03Z',
   },
   { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
+  // GitHub's native cron has left this daily workflow dormant despite a green
+  // scheduled run. Keep it on the external clock, with the native schedule as
+  // an independent safety net; the explicit input preserves autonomous apply.
+  {
+    id: 'site-instagram-insights-autonomy',
+    repo: 'site',
+    workflow: 'instagram-insights-snapshot.yml',
+    everyMinutes: 1440,
+    inputs: { apply: 'true' },
+  },
   // `mode: failures`: a bare dispatch defaults to `both`, and the dormant pass
   // (one Actions call per scheduled workflow) is budgeted once a day on the
   // native cron of that workflow, not once an hour.
