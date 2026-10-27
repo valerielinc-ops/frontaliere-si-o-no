@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-26T10:14:36.509Z",
+  "lastRunAt": "2026-10-27T09:52:49.278Z",
   "findings": {
     "sitemap-graph-truncated|https://frontaliereticino.ch/sitemap.xml": {
       "code": "sitemap-graph-truncated",
       "url": "https://frontaliereticino.ch/sitemap.xml",
-      "consecutiveRuns": 2,
+      "consecutiveRuns": 3,
       "firstSeenAt": "2026-10-25T09:12:19.768Z",
-      "lastSeenAt": "2026-10-26T10:14:36.509Z",
+      "lastSeenAt": "2026-10-27T09:52:49.278Z",
       "detail": "max 160 sitemap files"
     }
   },
