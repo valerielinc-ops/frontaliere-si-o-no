@@ -21,6 +21,7 @@ import {
 } from '../../packages/articles/engine/shared/articleReaders.ts';
 import { parseArticleRegistryEntries } from '../../packages/articles/engine/shared/articleRegistryEntries.ts';
 import {
+  ARTICLE_HUB_CARD_LIMIT,
   ensureArticleHubCards,
   renderArticleHubCards,
 } from '../../packages/articles/engine/articlesHubCards.ts';
@@ -160,7 +161,7 @@ export async function refreshArticleHubLandings(opts) {
     return result;
   }
 
-  const cards = articles.slice(0, 100);
+  const cards = articles.slice(0, ARTICLE_HUB_CARD_LIMIT);
   const urlSlugs = readBlogUrlSlugs(
     fs,
     path,
