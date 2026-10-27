@@ -659,12 +659,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-a64d80e29434",
-      "slug": "psychologin-psychologe-svar-spitalverbund-ar-herisau",
+      "slug": "psicologo-psicologo-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "psychologin-psychologe-svar-spitalverbund-ar-herisau",
-        "it": "psychologin-psychologe-svar-spitalverbund-ar-herisau",
-        "en": "psychologin-psychologe-svar-spitalverbund-ar-herisau",
-        "fr": "psychologin-psychologe-svar-spitalverbund-ar-herisau"
+        "it": "psicologo-psicologo-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "psychologist-psychologist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "psychologue-psychologue-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -723,16 +723,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:29:00.939Z"
+      "firstSeenAt": "2026-10-26T21:29:00.939Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "psychologin-psychologe-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "psychologin-psychologe-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-8b900d8676a8",
-      "slug": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "infermiere-a-diplomato-a-hf-in-formazione-specializzazione-in-psichiatria-m-f-d-spitalverbund-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
-        "it": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
-        "fr": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
+        "it": "infermiere-a-diplomato-a-hf-in-formazione-specializzazione-in-psichiatria-m-f-d-spitalverbund-appenzell-ausserrhoden",
+        "en": "nursing-professional-hf-in-training-specialization-in-psychiatry-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "infirmier-ere-diplome-e-es-en-formation-specialisation-en-psychiatrie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -780,11 +794,19 @@
       "externalId": "4091508",
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
+          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
           "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

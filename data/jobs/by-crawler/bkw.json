@@ -381,8 +381,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -429,8 +429,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -438,10 +438,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -2009,7 +2009,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -4023,7 +4023,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -7169,7 +7169,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -7218,7 +7218,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7226,7 +7226,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -7549,7 +7549,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -7598,8 +7598,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7608,7 +7607,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -19317,7 +19316,7 @@
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -19362,11 +19361,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -19868,7 +19867,7 @@
         "it": "senior-it-controller-tutti-bkw-bern",
         "en": "senior-it-controller-all-bkw-bern",
         "de": "senior-it-controller-alle-bkw-ch",
-        "fr": "senior-it-controller-alle-bkw-bern"
+        "fr": "controleur-informatique-principal-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -19914,7 +19913,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-it-controller-alle-bkw-ch",
-        "controleur-informatique-principal-tous-bkw-bern"
+        "senior-it-controller-alle-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19924,7 +19923,7 @@
           "senior-it-controller-alle-bkw-ch"
         ],
         "fr": [
-          "controleur-informatique-principal-tous-bkw-bern"
+          "senior-it-controller-alle-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-10-19T09:19:12.037Z",
@@ -24601,12 +24600,12 @@
     },
     {
       "id": "bkw-7f4c9faa1f7a",
-      "slug": "installateur-trice-electricien-ne-cfc-tous-bkw-ch",
+      "slug": "installatore-elettrico-cfc-tutti-bkw-le-chenit",
       "slugByLocale": {
         "fr": "installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "it": "installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "en": "installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "de": "installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        "it": "installatore-elettrico-cfc-tutti-bkw-le-chenit",
+        "en": "electrician-installer-cfc-all-bkw-le-chenit",
+        "de": "elektroinstallateur-cfc-alle-bkw-le-chenit"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24665,16 +24664,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:18:55.157Z"
+      "firstSeenAt": "2026-10-26T21:18:55.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        ],
+        "en": [
+          "installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        ],
+        "de": [
+          "installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-69ac0da2cf7c",
-      "slug": "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-saignelegier",
+      "slug": "learning-electric-planner-cfc-tutti-bkw-saignelegier",
       "slugByLocale": {
         "fr": "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch",
-        "it": "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-saignelegier",
-        "en": "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch",
-        "de": "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch"
+        "it": "learning-electric-planner-cfc-tutti-bkw-saignelegier",
+        "en": "learning-electric-planner-cfc-all-bkw-saignelegier",
+        "de": "lernen-elektroplaner-cfc-alle-bkw-saignelegier"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24722,11 +24735,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch",
+          "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-saignelegier"
+        ],
+        "en": [
+          "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch"
+        ],
+        "de": [
           "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch"
+        "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-ch",
+        "apprentissage-planificateur-trice-electrique-cfc-tous-bkw-saignelegier"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -24745,12 +24766,12 @@
     },
     {
       "id": "bkw-465c46c35c08",
-      "slug": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-saignelegier",
+      "slug": "apprendistato-installer-electrician-ne-cfc-tutti-bkw-saignelegier",
       "slugByLocale": {
         "fr": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "it": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-saignelegier",
-        "en": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "de": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        "it": "apprendistato-installer-electrician-ne-cfc-tutti-bkw-saignelegier",
+        "en": "apprenticeship-installer-electrician-ne-cfc-all-bkw-saignelegier",
+        "de": "lehrling-installer-electrician-ne-cfc-alle-bkw-saignelegier"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24798,11 +24819,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
+          "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-saignelegier"
+        ],
+        "en": [
+          "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        ],
+        "de": [
           "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
+        "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-saignelegier"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -24821,12 +24850,12 @@
     },
     {
       "id": "bkw-f05e824543c9",
-      "slug": "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-saignelegier",
+      "slug": "electrician-ne-montaggio-apprendimento-cfc-tutti-bkw-saignelegier",
       "slugByLocale": {
         "fr": "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch",
-        "it": "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-saignelegier",
-        "en": "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch",
-        "de": "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch"
+        "it": "electrician-ne-montaggio-apprendimento-cfc-tutti-bkw-saignelegier",
+        "en": "electrician-ne-mounting-learning-cfc-all-bkw-saignelegier",
+        "de": "electrician-ne-montage-lernen-cfc-alle-bkw-saignelegier"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24874,11 +24903,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch",
+          "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-saignelegier"
+        ],
+        "en": [
+          "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch"
+        ],
+        "de": [
           "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch"
+        "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-ch",
+        "apprentissage-electricien-ne-de-montage-cfc-tous-bkw-saignelegier"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -26106,7 +26143,7 @@
       "id": "bkw-042de0d16e90",
       "slug": "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle-67ff4b8fa9",
       "slugByLocale": {
-        "it": "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle-67ff4b8fa9",
+        "it": "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle",
         "en": "electrician-installer-efz-and-assembly-electrician-efz-all-bkw-bulle",
         "de": "elektriker-installateur-efz-und-montageelektriker-efz-alle-bkw-bulle",
         "fr": "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch"
@@ -26154,13 +26191,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch",
-        "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle"
+        "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch",
-          "elettricista-installatore-efz-e-elettricista-di-assemblaggio-efz-tutti-bkw-bulle"
+          "installateur-electricien-cfc-et-electricien-de-montage-cfc-tous-bkw-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.690Z",

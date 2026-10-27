@@ -26969,12 +26969,12 @@
     {
       "id": "hirslanden-ca7559667994",
       "externalId": "1451312233",
-      "slug": "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf",
+      "slug": "infermiera-all-80-flex-in-cdd-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
         "fr": "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf",
-        "it": "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf",
-        "en": "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf",
-        "de": "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf"
+        "it": "infermiera-all-80-flex-in-cdd-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "en": "nurse-at-80-flex-in-cdd-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "de": "krankenschwester-bei-80-flex-in-cdd-hirslanden-klinik-hirslanden-clinique-bois-cerf"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27032,17 +27032,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:20:17.746Z"
+      "firstSeenAt": "2026-10-26T21:20:17.746Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "en": [
+          "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "de": [
+          "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-flex-en-cdd-hirslanden-hirslanden-clinique-bois-cerf"
+      ]
     },
     {
       "id": "hirslanden-5bba622029a9",
       "externalId": "1451294033",
-      "slug": "assistenz-der-geschaftsleitung-a-50-per-das-opera-in-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag",
+      "slug": "assistente-della-direzione-a-50-per-l-opera-a-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag",
       "slugByLocale": {
         "de": "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera",
-        "it": "assistenz-der-geschaftsleitung-a-50-per-das-opera-in-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag",
-        "en": "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera",
-        "fr": "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera"
+        "it": "assistente-della-direzione-a-50-per-l-opera-a-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag",
+        "en": "assistant-management-a-50-for-opera-in-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag",
+        "fr": "gestion-adjointe-a-50-pour-opera-a-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27089,11 +27103,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera",
+          "assistenz-der-geschaftsleitung-a-50-per-das-opera-in-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag"
+        ],
+        "en": [
+          "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera"
+        ],
+        "fr": [
           "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera"
         ]
       },
       "previousSlugs": [
-        "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera"
+        "assistenz-der-geschaftsleitung-a-50-fur-das-opera-in-zumikon-hirslanden-hirslanden-opera",
+        "assistenz-der-geschaftsleitung-a-50-per-das-opera-in-zumikon-hirslanden-klinik-hirslanden-opera-zumikon-ag"
       ],
       "salaryMin": 45800,
       "salaryMax": 64000,

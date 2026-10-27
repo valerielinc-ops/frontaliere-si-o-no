@@ -862,12 +862,12 @@
     },
     {
       "id": "ottos-d96eaa513d48",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal",
+      "slug": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-thal",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thal",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal"
+        "it": "addetto-a-alle-vendite-con-mansioni-polivalenti-otto-s-ag-thal",
+        "en": "sales-associate-with-all-round-responsibilities-otto-s-ag-thal",
+        "fr": "collaborateur-trice-de-vente-avec-fonction-polyvalente-otto-s-ag-thal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -919,11 +919,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thal"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thal",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thal"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-thal",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-thal"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1798,12 +1806,12 @@
     },
     {
       "id": "ottos-2bda6db1d676",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-thal",
+      "slug": "addetto-a-alle-vendite-di-supporto-alimentari-non-alimentari-otto-s-ag-thal",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-thal",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-thal",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-thal",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-thal"
+        "it": "addetto-a-alle-vendite-di-supporto-alimentari-non-alimentari-otto-s-ag-thal",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-thal",
+        "fr": "auxiliaire-de-vente-alimentaire-non-alimentaire-otto-s-ag-thal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1866,7 +1874,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:37:52.531Z"
+      "firstSeenAt": "2026-10-26T21:37:52.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-thal"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-thal"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-thal"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-thal"
+      ]
     },
     {
       "id": "ottos-f9bc2f963c16",
@@ -3596,9 +3618,9 @@
       "slug": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-otto-s-ag-sursee",
-        "en": "logistics-specialist-otto-s-ag-sursee",
+        "en": "logistiker-in-otto-s-ag-sursee",
         "de": "logistiker-in-ottos-sursee",
-        "fr": "logisticien-ne-otto-s-ag-sursee"
+        "fr": "logistiker-in-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3649,17 +3671,18 @@
       "pensum": "100%",
       "previousSlugs": [
         "logistiker-in-ottos-sursee",
-        "logistiker-in-otto-s-ag-sursee"
+        "logistics-specialist-otto-s-ag-sursee",
+        "logisticien-ne-otto-s-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ottos-sursee"
         ],
         "en": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logistics-specialist-otto-s-ag-sursee"
         ],
         "fr": [
-          "logistiker-in-otto-s-ag-sursee"
+          "logisticien-ne-otto-s-ag-sursee"
         ]
       },
       "firstSeenAt": "2026-07-04T11:27:19.725Z",
@@ -9689,12 +9712,12 @@
     },
     {
       "id": "ottos-e7f98121c72f",
-      "slug": "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal",
+      "slug": "addetto-a-alle-vendite-di-supporto-alimentari-non-alimentari-otto-s-ag-thal-937454",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-thal-b6xia7",
-        "it": "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal",
-        "en": "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal",
-        "fr": "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal"
+        "it": "addetto-a-alle-vendite-di-supporto-alimentari-non-alimentari-otto-s-ag-thal-937454",
+        "en": "temporary-sales-assistant-food-non-food-otto-s-ag-thal-937454",
+        "fr": "auxiliaire-de-vente-alimentaire-non-alimentaire-otto-s-ag-thal-937454"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9747,15 +9770,23 @@
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-verkaufer-in-food-non-food-ottos-thal",
-          "aushilfe-verkaufer-in-food-non-food-ottos-thal-2"
+          "aushilfe-verkaufer-in-food-non-food-ottos-thal-2",
+          "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal"
         ],
         "de": [
           "aushilfe-verkaufer-in-food-non-food-ottos-thal"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal"
         ]
       },
       "previousSlugs": [
         "aushilfe-verkaufer-in-food-non-food-ottos-thal",
-        "aushilfe-verkaufer-in-food-non-food-ottos-thal-2"
+        "aushilfe-verkaufer-in-food-non-food-ottos-thal-2",
+        "aushilfe-verkaufer-in-food-non-food-otto-s-ag-thal"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,

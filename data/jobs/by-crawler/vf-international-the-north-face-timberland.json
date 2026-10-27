@@ -2211,8 +2211,8 @@
       "slugByLocale": {
         "it": "merchandiser-apparel-and-accessories-vans-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ed4jcv",
         "en": "merchandiser-apparel-and-accessories-vans-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ed4jcv",
-        "de": "merchandiser-apparel-and-accessories-vans-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ed4jcv",
-        "fr": "merchandiser-apparel-and-accessories-vans-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ed4jcv"
+        "de": "merchandiser-bekleidung-und-zubehor-vans-emea-vf-international-the-north-face-timberland-stabio",
+        "fr": "marchandiser-vetements-et-accessoires-vans-emea-vf-international-the-north-face-timberland-stabio"
       },
       "addressLocality": "Stabio",
       "addressRegion": "TI",
@@ -2246,7 +2246,7 @@
     },
     {
       "id": "company-fb7s5a",
-      "slug": "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a",
+      "slug": "manager-chiusura-finanziaria-gross-to-net-vf-international-the-north-face-timberland-stabio",
       "company": "VF International (The North Face, Timberland)",
       "title": "Manager, Financial Closing & Gross-to-Net",
       "location": "Stabio",
@@ -2299,10 +2299,10 @@
       "crawledAt": "2026-10-26T21:26:42.596Z",
       "firstSeenAt": "2026-10-26T21:26:42.596Z",
       "slugByLocale": {
-        "it": "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a",
+        "it": "manager-chiusura-finanziaria-gross-to-net-vf-international-the-north-face-timberland-stabio",
         "en": "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a",
-        "de": "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a",
-        "fr": "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a"
+        "de": "manager-finanzabschluss-gross-to-net-vf-international-the-north-face-timberland-stabio",
+        "fr": "gestionnaire-fermeture-financiere-et-gross-a-net-vf-international-the-north-face-timberland-stabio"
       },
       "addressLocality": "Stabio",
       "addressRegion": "TI",
@@ -2311,11 +2311,19 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+          "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+          "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a"
+        ],
+        "de": [
+          "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a"
+        ],
+        "fr": [
+          "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a"
         ]
       },
       "previousSlugs": [
-        "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "manager-financial-closing-gross-to-net-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-fb7s5a"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,

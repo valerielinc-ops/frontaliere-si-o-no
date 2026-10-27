@@ -4215,12 +4215,12 @@
     },
     {
       "id": "amstein-walthert-6b114b8f57e5",
-      "slug": "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011",
+      "slug": "settore-assistenza-40-50-amstein-walthert-ag-zurich-sikn47011",
       "slugByLocale": {
         "de": "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011",
-        "it": "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011",
-        "en": "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011",
-        "fr": "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011"
+        "it": "settore-assistenza-40-50-amstein-walthert-ag-zurich-sikn47011",
+        "en": "area-assistance-40-50-amstein-walthert-ag-zurich-sikn47011",
+        "fr": "assistance-regionale-40-50-amstein-walthert-ag-zurich-sikn47011"
       },
       "company": "Amstein + Walthert AG",
       "companyKey": "amstein-walthert",
@@ -4281,7 +4281,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:17:46.436Z"
+      "firstSeenAt": "2026-10-26T21:17:46.436Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011"
+        ],
+        "en": [
+          "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011"
+        ],
+        "fr": [
+          "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsassistenz-40-50-amstein-walthert-zurich-sikn47011"
+      ]
     }
   ]
 }

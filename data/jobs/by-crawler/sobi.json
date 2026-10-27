@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "sobi-e3a0fc9fa4bd",
-      "slug": "global-pv-partnership-operations-director-sobi-basel",
+      "slug": "direttore-globale-delle-partnership-e-delle-operazioni-di-farmacovigilanza-sobi-basel",
       "slugByLocale": {
-        "it": "global-pv-partnership-operations-director-sobi-basel",
+        "it": "direttore-globale-delle-partnership-e-delle-operazioni-di-farmacovigilanza-sobi-basel",
         "en": "global-pv-partnership-operations-director-sobi-basel",
-        "de": "global-pv-partnership-operations-director-sobi-basel",
-        "fr": "global-pv-partnership-operations-director-sobi-basel"
+        "de": "globaler-direktor-fur-pv-partnerschaften-und-operative-aktivitaten-sobi-basel",
+        "fr": "directeur-mondial-des-partenariats-et-des-operations-de-pharmacovigilance-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -67,7 +67,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-pv-partnership-operations-director-sobi-basel"
+        ],
+        "de": [
+          "global-pv-partnership-operations-director-sobi-basel"
+        ],
+        "fr": [
+          "global-pv-partnership-operations-director-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "global-pv-partnership-operations-director-sobi-basel"
+      ]
     },
     {
       "id": "sobi-2d75f824d61c",

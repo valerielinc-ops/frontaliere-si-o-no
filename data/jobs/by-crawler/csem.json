@@ -242,12 +242,12 @@
     },
     {
       "id": "csem-ac70333dcc61",
-      "slug": "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch",
+      "slug": "stage-in-ai-per-la-progettazione-ingegneristica-m-f-d-csem-landquart-neuchatel",
       "slugByLocale": {
         "en": "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch",
-        "it": "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch",
+        "it": "stage-in-ai-per-la-progettazione-ingegneristica-m-f-d-csem-landquart-neuchatel",
         "de": "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch",
-        "fr": "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch"
+        "fr": "stage-en-ai-pour-la-conception-d-ingenierie-h-f-d-csem-landquart-neuchatel"
       },
       "company": "CSEM Landquart",
       "companyKey": "csem",
@@ -305,7 +305,18 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-26T21:40:32.384Z"
+      "firstSeenAt": "2026-10-26T21:40:32.384Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch"
+        ],
+        "fr": [
+          "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-ai-for-engineering-design-f-m-d-neuchatel-csem-ch"
+      ]
     },
     {
       "id": "csem-a8b7d0066a9e",

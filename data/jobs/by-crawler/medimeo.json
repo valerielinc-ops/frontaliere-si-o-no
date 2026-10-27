@@ -163,12 +163,12 @@
     },
     {
       "id": "medimeo-a250602452bb",
-      "slug": "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem",
+      "slug": "medica-dirigente-medico-dirigente-medicina-interna-e-pronto-soccorso-vice-la-60-100-in-un-ospedale-per-acuti-a",
       "slugByLocale": {
         "de": "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem",
-        "it": "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem",
-        "en": "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem",
-        "fr": "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem"
+        "it": "medica-dirigente-medico-dirigente-medicina-interna-e-pronto-soccorso-vice-la-60-100-in-un-ospedale-per-acuti-a",
+        "en": "senior-physician-internal-medicine-emergency-department-deputy-chief-physician-60-100-at-a-family-oriented-acute-care",
+        "fr": "medecin-cadre-medecin-cadre-en-medecine-interne-et-aux-urgences-medecin-chef-adjoint-60-100-dans-un-hopital-de-soins"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -226,7 +226,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-26T21:31:03.099Z"
+      "firstSeenAt": "2026-10-26T21:31:03.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem"
+        ],
+        "en": [
+          "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem"
+        ],
+        "fr": [
+          "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem"
+        ]
+      },
+      "previousSlugs": [
+        "kaderarztin-kaderarzt-innere-medizin-notaufnahme-stv-la-60-100-in-familiarem-grenznahem"
+      ]
     },
     {
       "id": "medimeo-a3d3e4533106",

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bms-building-d6c7e1157d5a",
-      "slug": "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch",
+      "slug": "consulente-di-vendita-negozio-materiali-bussigny-nord-al-100-m-f-d-bms-building-materials-bussigny-pres-lausanne",
       "slugByLocale": {
         "fr": "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch",
-        "it": "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch",
-        "en": "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch",
-        "de": "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch"
+        "it": "consulente-di-vendita-negozio-materiali-bussigny-nord-al-100-m-f-d-bms-building-materials-bussigny-pres-lausanne",
+        "en": "sales-advisor-shop-materials-bussigny-nord-100-m-f-d-bms-building-materials-bussigny-pres-lausanne",
+        "de": "verkaufsberater-shop-materialien-bussigny-nord-100-m-w-d-bms-building-materials-bussigny-pres-lausanne"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -100,7 +100,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-26T21:20:46.887Z"
+      "firstSeenAt": "2026-10-26T21:20:46.887Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch"
+        ],
+        "en": [
+          "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch"
+        ],
+        "de": [
+          "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-shop-materiaux-bussigny-nord-a-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-11784011dc17",

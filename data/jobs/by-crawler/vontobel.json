@@ -1906,12 +1906,12 @@
     },
     {
       "id": "vontobel-78e89677661d",
-      "slug": "third-party-risk-manager-vontobel-ch",
+      "slug": "responsabile-del-rischio-di-terze-parti-vontobel-zurich-bleicherweg-21",
       "slugByLocale": {
         "en": "third-party-risk-manager-vontobel-ch",
-        "it": "third-party-risk-manager-vontobel-ch",
-        "de": "third-party-risk-manager-vontobel-ch",
-        "fr": "third-party-risk-manager-vontobel-ch"
+        "it": "responsabile-del-rischio-di-terze-parti-vontobel-zurich-bleicherweg-21",
+        "de": "dritter-risikomanager-vontobel-zurich-bleicherweg-21",
+        "fr": "gestionnaire-des-risques-de-tiers-vontobel-zurich-bleicherweg-21"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -1970,7 +1970,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-26T21:41:32.186Z"
+      "firstSeenAt": "2026-10-26T21:41:32.186Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "third-party-risk-manager-vontobel-ch"
+        ],
+        "de": [
+          "third-party-risk-manager-vontobel-ch"
+        ],
+        "fr": [
+          "third-party-risk-manager-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "third-party-risk-manager-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-84d0fd06961a",
@@ -1979,7 +1993,7 @@
         "it": "legal-entity-contabile-vontobel-zurich-gotthardstrasse-35",
         "en": "legal-entity-accountant-vontobel-ch",
         "de": "legal-entity-buchhalter-vontobel-zurich-gotthardstrasse-35",
-        "fr": "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
+        "fr": "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -2031,7 +2045,7 @@
         "comptable-des-entites-juridiques-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-en-personne-morale-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-        "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+        "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2053,7 +2067,7 @@
         "fr": [
           "legal-entity-accountant-us-vontobel-zurich-gotthardstrasse-35",
           "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-          "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+          "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
         ]
       },
       "firstSeenAt": "2026-08-10T22:04:14.969Z",

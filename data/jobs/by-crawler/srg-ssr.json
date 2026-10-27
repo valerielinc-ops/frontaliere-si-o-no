@@ -1800,7 +1800,7 @@
         "it": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
         "en": "a-a-specialist-in-research-and-analysis-of-audience-data-srg-ssr-lugano",
         "de": "a-ein-spezialist-fur-forschung-und-analyse-von-publikumsdaten-srg-ssr-lugano",
-        "fr": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano"
+        "fr": "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -1858,14 +1858,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-10-22T09:14:31.160Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-      ],
       "salaryMin": 50500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -2740,12 +2732,12 @@
     },
     {
       "id": "srg-ssr-fa5556b1a7f6",
-      "slug": "seo-amp-ai-search-srg-ssr-zurich",
+      "slug": "seo-e-ai-ricerca-srg-ssr-zurich",
       "slugByLocale": {
         "de": "seo-amp-ai-search-srg-ssr-zurich",
-        "it": "seo-amp-ai-search-srg-ssr-zurich",
+        "it": "seo-e-ai-ricerca-srg-ssr-zurich",
         "en": "seo-amp-ai-search-srg-ssr-zurich",
-        "fr": "seo-amp-ai-search-srg-ssr-zurich"
+        "fr": "recherche-seo-et-ai-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2821,16 +2813,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-26T21:16:20.431Z"
+      "firstSeenAt": "2026-10-26T21:16:20.431Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "seo-amp-ai-search-srg-ssr-zurich"
+        ],
+        "fr": [
+          "seo-amp-ai-search-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "seo-amp-ai-search-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-68ddf4b746a3",
-      "slug": "senior-project-manager-data-governance-srg-ssr-zurich",
+      "slug": "responsabile-senior-di-progetto-governance-dei-dati-srg-ssr-zurich",
       "slugByLocale": {
         "de": "senior-project-manager-data-governance-srg-ssr-zurich",
-        "it": "senior-project-manager-data-governance-srg-ssr-zurich",
+        "it": "responsabile-senior-di-progetto-governance-dei-dati-srg-ssr-zurich",
         "en": "senior-project-manager-data-governance-srg-ssr-zurich",
-        "fr": "senior-project-manager-data-governance-srg-ssr-zurich"
+        "fr": "gestionnaire-de-projet-principal-gouvernance-des-donnees-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2909,7 +2912,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-26T21:16:19.836Z"
+      "firstSeenAt": "2026-10-26T21:16:19.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-data-governance-srg-ssr-zurich"
+        ],
+        "fr": [
+          "senior-project-manager-data-governance-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-data-governance-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-af341670d01b",

@@ -1484,7 +1484,7 @@
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -1542,7 +1542,7 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesie-padiatrie-m-w-d-kispi"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+          "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
         ]
       },
       "previousSlugs": [
@@ -1552,7 +1552,7 @@
         "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
         "dipl-nursing-professional-dipl-nursing-professional-for-nds-hf-anesthesia-pediatrics-universitats-kinderspital-zurich",
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesie-padiatrie-m-w-d-kispi",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
       ],
       "firstSeenAt": "2026-05-19T22:39:00.246Z",
       "salaryMin": 91500,
@@ -2477,9 +2477,9 @@
     },
     {
       "id": "kispi-a0b2b8415424",
-      "slug": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+      "slug": "ampliamento-m-f-d-70-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+        "it": "ampliamento-m-f-d-70-universitats-kinderspital-zurich-zurich",
         "en": "disponentine-m-f-70-universitats-kinderspital-zurich-zurich",
         "de": "disponentin-m-w-70-kispi-zurich",
         "fr": "depontine-h-f-70-universitats-kinderspital-zurich-zurich"
@@ -2530,14 +2530,16 @@
         "disponentin-m-w-70-kispi-zurich",
         "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
         "disponentin-m-w-d-70-kispi-zurich",
-        "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich"
+        "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
+        "disponentin-m-w-d-70-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-m-w-70-kispi-zurich",
           "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
           "disponentin-m-w-d-70-kispi-zurich",
-          "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich"
+          "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
+          "disponentin-m-w-d-70-universitats-kinderspital-zurich"
         ],
         "en": [
           "disponentin-m-w-70-kispi-zurich"
@@ -4315,12 +4317,12 @@
     },
     {
       "id": "kispi-e8764f07e899",
-      "slug": "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-e-16-20-30-keine-zimmerstunden-universitats-kinderspital-zurich",
+      "slug": "addetta-al-servizio-in-camera-m-f-d-40-70-orari-di-lavoro-06-50-14-30-e-16-20-20-30-nessun-servizio-in-camera",
       "slugByLocale": {
         "de": "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine",
-        "it": "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-e-16-20-30-keine-zimmerstunden-universitats-kinderspital-zurich",
-        "en": "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine",
-        "fr": "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine"
+        "it": "addetta-al-servizio-in-camera-m-f-d-40-70-orari-di-lavoro-06-50-14-30-e-16-20-20-30-nessun-servizio-in-camera",
+        "en": "employee-room-service-m-f-d-40-70-working-hours-06-50-14-30-and-16-20-20-30-no-room-hours-universitats-kinderspital",
+        "fr": "service-en-chambre-des-employes-h-f-d-40-70-heures-de-travail-06-50-14-30-et-16-20-20-30-pas-d-heures-de-chambre"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4368,11 +4370,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine",
+          "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-e-16-20-30-keine-zimmerstunden-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine"
+        ],
+        "fr": [
           "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine"
+        "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-und-16-20-20-30-keine",
+        "mitarbeiterin-room-service-m-w-d-40-70-arbeitszeiten-06-50-14-30-e-16-20-30-keine-zimmerstunden-universitats-kinderspital-zurich"
       ],
       "salaryMin": 64000,
       "salaryMax": 89600,
@@ -4391,12 +4401,12 @@
     },
     {
       "id": "kispi-d7757acc68ad",
-      "slug": "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich",
+      "slug": "servizio-in-camera-dei-dipendenti-m-f-d-20-40-lavoro-serale-dalle-16-50-alle-20-00-universitats-kinderspital-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-kispi-zurich",
-        "it": "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich",
-        "en": "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich",
-        "fr": "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich"
+        "it": "servizio-in-camera-dei-dipendenti-m-f-d-20-40-lavoro-serale-dalle-16-50-alle-20-00-universitats-kinderspital-zurich",
+        "en": "employee-room-service-m-f-d-20-40-evening-work-from-16-50-20-00-universitats-kinderspital-zurich-zurich",
+        "fr": "service-en-chambre-des-employes-h-f-d-20-40-travail-en-soiree-de-16-50-20-00-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4444,11 +4454,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-kispi-zurich"
+          "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-kispi-zurich",
+          "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-kispi-zurich"
+        "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-kispi-zurich",
+        "mitarbeiterin-room-service-m-w-d-20-40-abendarbeit-von-16-50-20-00-universitats-kinderspital-zurich-zurich"
       ],
       "salaryMin": 31600,
       "salaryMax": 53800,

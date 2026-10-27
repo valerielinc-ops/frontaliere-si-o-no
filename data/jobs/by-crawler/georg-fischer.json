@@ -466,7 +466,7 @@
         "it": "pianificatore-di-produzione-in-m-f-d-80-georg-fischer-schaffhausen",
         "en": "production-planner-in-m-f-d-80-georg-fischer-schaffhausen",
         "de": "produktionsplanerin-m-w-d-80-georg-fischer-ch",
-        "fr": "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
+        "fr": "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -511,8 +511,7 @@
       "jobReqId": "JR11554",
       "previousSlugs": [
         "produktionsplanerin-m-w-d-80-georg-fischer-ch",
-        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen",
-        "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
+        "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -523,7 +522,7 @@
           "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
         ],
         "fr": [
-          "planificateur-de-production-en-h-f-d-80-georg-fischer-schaffhausen"
+          "produktionsplanerin-m-w-d-80-georg-fischer-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-16T09:32:14.777Z",
@@ -806,12 +805,12 @@
     },
     {
       "id": "georg-fischer-21dc7f59a982",
-      "slug": "praktikant-in-gf-konzernarchiv-e-eisenbibliothek-m-w-d-100-9-12-monate-georg-fischer-schlatt-thurgau",
+      "slug": "stagista-presso-l-archivio-del-gruppo-gf-e-la-eisenbibliothek-m-f-d-100-9-12-mesi-georg-fischer-schlatt-thurgau",
       "slugByLocale": {
         "de": "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch",
-        "it": "praktikant-in-gf-konzernarchiv-e-eisenbibliothek-m-w-d-100-9-12-monate-georg-fischer-schlatt-thurgau",
-        "en": "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch",
-        "fr": "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch"
+        "it": "stagista-presso-l-archivio-del-gruppo-gf-e-la-eisenbibliothek-m-f-d-100-9-12-mesi-georg-fischer-schlatt-thurgau",
+        "en": "intern-gf-corporate-archives-and-iron-library-m-f-d-100-9-12-months-georg-fischer-schlatt-thurgau",
+        "fr": "stagiaire-aux-archives-du-groupe-gf-et-a-l-eisenbibliothek-h-f-d-100-9-12-mois-georg-fischer-schlatt-thurgau"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -858,11 +857,19 @@
       "jobReqId": "JR11632",
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch",
+          "praktikant-in-gf-konzernarchiv-e-eisenbibliothek-m-w-d-100-9-12-monate-georg-fischer-schlatt-thurgau"
+        ],
+        "en": [
+          "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch"
+        ],
+        "fr": [
           "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch"
+        "praktikant-in-gf-konzernarchiv-und-eisenbibliothek-w-m-d-100-9-12-monate-georg-fischer-ch",
+        "praktikant-in-gf-konzernarchiv-e-eisenbibliothek-m-w-d-100-9-12-monate-georg-fischer-schlatt-thurgau"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
