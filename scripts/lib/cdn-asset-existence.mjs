@@ -67,10 +67,10 @@ export const CDN_ASSET_CHECK_MAX_URLS = 24;
 export const CDN_ASSET_CHECK_BUDGET_MS = 30_000;
 
 /**
- * Un 5xx dal CDN e' una risposta transitoria sull'infrastruttura, non una
- * prova che l'oggetto manchi. Ritenta poche volte prima di lasciare il
- * risultato `unknown`; 4xx, timeout ed errori di rete non vengono trasformati
- * in un falso `present`.
+ * Un 5xx dal CDN o un abort/timeout transitorio e' una risposta non conclusiva
+ * dell'infrastruttura, non una prova che l'oggetto manchi. Ritenta poche volte
+ * prima di lasciare il risultato `unknown`; 4xx ed errori di rete persistenti
+ * non vengono trasformati in un falso `present`.
  */
 export const CDN_ASSET_CHECK_MAX_ATTEMPTS = 3;
 export const CDN_ASSET_CHECK_RETRY_DELAY_MS = 250;
@@ -126,6 +126,23 @@ export function isSoftMissing(url, contentType) {
 }
 
 /**
+ * Un abort/timeout del probe puo' essere transitorio: undici usa sia
+ * `AbortError` sia il messaggio "This operation was aborted" a seconda del
+ * punto in cui il signal interrompe la richiesta. Gli errori DNS/di rete
+ * generici restano non ritentati: un `ENOTFOUND` persistente non deve spendere
+ * il budget intero per ripetere una diagnosi gia' fallita.
+ * @param {unknown} error
+ * @returns {boolean}
+ */
+function isRetryableProbeError(error) {
+  const name = String(error?.name || '');
+  const message = String(error?.message || error || '');
+  return name === 'AbortError'
+    || name === 'TimeoutError'
+    || /(?:operation was aborted|timed out|timeout)/i.test(message);
+}
+
+/**
  * Verifica l'esistenza degli URL dati. Non lancia mai: ogni esito e' un record.
  *
  * @param {object} a
@@ -134,8 +151,8 @@ export function isSoftMissing(url, contentType) {
  * @param {number} [a.timeoutMs]
  * @param {number} [a.maxUrls]
  * @param {number} [a.budgetMs]
- * @param {number} [a.maxAttempts] tentativi per risposta HTTP 5xx
- * @param {number} [a.retryDelayMs] base del backoff esponenziale sui 5xx
+ * @param {number} [a.maxAttempts] tentativi per risposta HTTP 5xx o abort/timeout transitorio
+ * @param {number} [a.retryDelayMs] base del backoff esponenziale sui transienti
  * @param {() => number} [a.now] orologio iniettabile per i test
  * @returns {Promise<Array<{url: string, state: 'present'|'missing'|'unknown'|'skipped', status: number|null, reason: string|null}>>}
  */
@@ -197,6 +214,13 @@ export async function verifyCdnAssetRefs({
       let res = null;
       let budgetSkipped = false;
       let budgetReason = null;
+      const waitForRetry = async (attemptNumber) => {
+        const remainingMs = budgetMs - (now() - startedAt);
+        const backoffMs = Math.min(retryDelayBaseMs * (2 ** (attemptNumber - 1)), remainingMs);
+        if (remainingMs <= 0 || backoffMs >= remainingMs) return false;
+        if (backoffMs > 0) await new Promise((resolve) => setTimeout(resolve, backoffMs));
+        return true;
+      };
       for (let attemptNumber = 1; attemptNumber <= attemptsLimit; attemptNumber += 1) {
         let attempt = await fetchWithinBudget('HEAD', attemptNumber === 1 ? budgetMs - elapsed : null);
         if (attempt.budget) {
@@ -206,7 +230,14 @@ export async function verifyCdnAssetRefs({
             : `budget di ${budgetMs}ms esaurito prima della richiesta di retry`;
           break;
         }
-        if (attempt.error) throw attempt.error;
+        if (attempt.error) {
+          if (attemptNumber >= attemptsLimit
+            || !isRetryableProbeError(attempt.error)
+            || !await waitForRetry(attemptNumber)) {
+            throw attempt.error;
+          }
+          continue;
+        }
         res = attempt.response;
         // Alcune origin non implementano HEAD (405/501): la domanda e'
         // sull'esistenza dell'oggetto, non sul metodo, quindi si ripiega su GET
@@ -218,7 +249,14 @@ export async function verifyCdnAssetRefs({
             budgetReason = `budget di ${budgetMs}ms esaurito prima del GET di fallback`;
             break;
           }
-          if (attempt.error) throw attempt.error;
+          if (attempt.error) {
+            if (attemptNumber >= attemptsLimit
+              || !isRetryableProbeError(attempt.error)
+              || !await waitForRetry(attemptNumber)) {
+              throw attempt.error;
+            }
+            continue;
+          }
           res = attempt.response;
         }
 
@@ -227,10 +265,7 @@ export async function verifyCdnAssetRefs({
         // errore edge transitorio, ma il budget resta il limite assoluto e il
         // risultato finale continua a essere `unknown` se il problema persiste.
         if (res.status < 500 || res.status > 599 || attemptNumber >= attemptsLimit) break;
-        const remainingMs = budgetMs - (now() - startedAt);
-        const backoffMs = Math.min(retryDelayBaseMs * (2 ** (attemptNumber - 1)), remainingMs);
-        if (remainingMs <= 0 || backoffMs >= remainingMs) break;
-        if (backoffMs > 0) await new Promise((resolve) => setTimeout(resolve, backoffMs));
+        if (!await waitForRetry(attemptNumber)) break;
       }
       if (budgetSkipped) {
         results.push({
@@ -306,7 +341,7 @@ export function formatCdnAssetReport(results, prefix = '[cdn-asset-check]') {
   }
   if (unknown.length) {
     lines.push(
-      `${prefix} ${unknown.length} URL non verificabili (rete/5xx, fail-open): `
+      `${prefix} ${unknown.length} URL non verificabili (rete/timeout/5xx, fail-open): `
       + unknown.map((r) => `${r.url} (${r.status ?? r.reason})`).join(', '),
     );
   }
