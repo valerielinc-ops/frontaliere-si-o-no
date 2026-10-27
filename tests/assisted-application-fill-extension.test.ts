@@ -578,7 +578,12 @@ describe('fill extension: the runner’s reading on any portal', () => {
     const entries = F.collect(document);
     // The site's own job search is no question.
     expect(entries.some((entry: any) => entry.element.id === 'site-search')).toBe(false);
-    const result = await F.fillPage(document, { ...kit, answers }, { getFile: async () => null, attempts: new WeakMap() });
+    const portalKit = {
+      ...kit,
+      identity: { ...kit.identity, address: { ...kit.identity.address, country: 'Switzerland' } },
+      answers,
+    };
+    const result = await F.fillPage(document, portalKit, { getFile: async () => null, attempts: new WeakMap() });
     expect(button.textContent).toBe('LinkedIn');
     expect(document.getElementById('pills')!.textContent).toBe('Switzerland');
     expect(result.missing).toEqual([]);
@@ -792,7 +797,43 @@ describe('fill extension: other portals', () => {
     await F.fillPage(document, { ...kit, identity, answers: [], profile: { dateOfBirth: '1986-09-12' } }, { getFile: async () => null, attempts: new WeakMap() });
     const value = (id: string) => (document.getElementById(id) as HTMLInputElement).value;
     // German compounds count; a bare postal field has no residence provenance, and a place of birth is no date.
-    expect(['fn', 'ln', 'last', 'company', 'tel', 'dob', 'plz', 'birthplace'].map(value)).toEqual(['Luigi', 'Prova', 'Prova', '', '3331234567', '12.09.1986', '', '']);
+    expect(['fn', 'ln', 'last', 'company', 'tel', 'dob', 'plz', 'birthplace'].map(value)).toEqual(['Luigi', 'Prova', 'Prova', '', '333 1234567', '12.09.1986', '', '']);
     expect(F.parseDate('12/09/1986')).toEqual({ year: 1986, month: 9, day: 12 });
+  });
+
+  it('keeps phone country and residence country separate from stale portal answers', async () => {
+    const { F, document } = page(`<form>
+      <div role="group">
+        <label for="phone-country">Land</label>
+        <select id="phone-country"><option value="">Bitte wählen</option><option value="CH">Schweiz</option><option value="IT">Italien</option></select>
+        <button type="button" aria-haspopup="dialog">+39</button>
+        <label for="phone">Telefon</label><input id="phone" type="tel" data-value="+39">
+      </div>
+      <div role="group">
+        <span>Adresse</span>
+        <label for="residence-country">Land/Region des Wohnorts</label>
+        <select id="residence-country"><option value="">Bitte wählen</option><option value="CH">Schweiz</option><option value="IT">Italien</option></select>
+      </div>
+      <button type="button">Weiter</button>
+    </form>`, 'https://jobs.example.ch/apply');
+    const identity = {
+      ...kit.identity,
+      phone: '+39 324 0753275',
+      location: 'Brescia, Italia',
+      address: { ...kit.identity.address, city: 'Brescia', country: 'Italia' },
+    };
+    const result = await F.fillPage(document, {
+      ...kit,
+      identity,
+      answers: [
+        { question: 'Land', answer: 'Schweiz', source: 'answers' },
+        { question: 'Telefon', answer: '+41 79 000 00 00', source: 'answers' },
+        { question: 'Land/Region des Wohnorts', answer: 'Schweiz', source: 'answers' },
+      ],
+    }, { getFile: async () => null, attempts: new WeakMap() });
+    expect(result.missing).toEqual([]);
+    expect((document.getElementById('phone-country') as HTMLSelectElement).selectedOptions[0].textContent).toBe('Italien');
+    expect((document.getElementById('residence-country') as HTMLSelectElement).selectedOptions[0].textContent).toBe('Italien');
+    expect((document.getElementById('phone') as HTMLInputElement).value).toBe('324 0753275');
   });
 });

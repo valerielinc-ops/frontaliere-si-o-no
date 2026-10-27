@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
-import { addressQuestionTopic, permitBooleanOptionLabel } from './plan.mjs';
+import { addressQuestionTopic, permitBooleanOptionLabel, questionTopic } from './plan.mjs';
+import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode } from '../../../../functions/src/lib/phoneNormalization.js';
 import { residenceCountryCode } from './residence-address.mjs';
 
 const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
@@ -15,6 +16,16 @@ export function residenceCountryOptionLabel(value, options = []) {
   return options
     .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
     .find((label) => optionCode(label) === wanted) || '';
+}
+
+const isPhoneCountryField = (field) => questionTopic(field?.label, field?.context, field) === 'phone_country';
+
+export function phoneCountryOptionLabel(value, options = []) {
+  const wanted = phoneCountryCode(value);
+  if (!wanted) return '';
+  return options
+    .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
+    .find((label) => countryCodeOfLabel(label) === wanted) || '';
 }
 
 /**
@@ -341,7 +352,8 @@ async function fillCombobox(page, field, locator, value) {
     }
     const nationality = isNationalityField(field.label);
     const residenceCountry = isResidenceCountryField(field.label);
-    if (!nationality && !residenceCountry) {
+    const phoneCountry = isPhoneCountryField(field);
+    if (!nationality && !residenceCountry && !phoneCountry) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
@@ -349,12 +361,14 @@ async function fillCombobox(page, field, locator, value) {
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
     selectedLabel = nationality
       ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
-      : residenceCountryOptionLabel(value, labels);
+      : phoneCountry
+        ? phoneCountryOptionLabel(value, labels)
+        : residenceCountryOptionLabel(value, labels);
     // A generic combobox filters in the form language. The candidate answer
     // may be Italian ("italiana") while the French SuccessFactors list only
     // returns a result after the French prefix ("ital"). Retry with that
     // canonical query before declaring the nationality unavailable.
-    if (!selectedLabel && (nationality || residenceCountry)) {
+    if (!selectedLabel && (nationality || residenceCountry || phoneCountry)) {
       const query = nationalitySearchQuery(value, field.label);
       if (query) {
         await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
@@ -395,7 +409,8 @@ async function chooseInOwnedList(page, field, locator, value) {
   const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
   const nationality = isNationalityField(field.label);
   const residenceCountry = isResidenceCountryField(field.label);
-  const countryLike = nationality || residenceCountry;
+  const phoneCountry = isPhoneCountryField(field);
+  const countryLike = nationality || residenceCountry || phoneCountry;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     if (attempt) {
       await locator.press('Escape').catch(() => {});
@@ -423,7 +438,9 @@ async function chooseInOwnedList(page, field, locator, value) {
       const permitBoolean = permit ? permitBooleanOptionLabel(value, labels) : '';
       return exact?.label || permitBoolean || (nationality
         ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
-        : residenceCountryOptionLabel(value, labels));
+        : phoneCountry
+          ? phoneCountryOptionLabel(value, labels)
+          : residenceCountryOptionLabel(value, labels));
     };
     let selectedLabel = findSelectedLabel();
     // Some SuccessFactors picklists do not expose the complete catalogue when
@@ -762,9 +779,12 @@ export async function applyActions(page, fields, actions, files, {
         if (field.kind === 'select') {
           const exact = (field.options || []).find((option) => normalizedChoice(option.label) === normalizedChoice(action.value));
           const nationality = isNationalityField(field.label);
+          const phoneCountry = isPhoneCountryField(field);
           selectedLabel = exact?.label || (nationality
             ? nationalityOptionLabel(action.value, (field.options || []).map((option) => option.label), nationalityFieldLanguage(field.label))
-            : residenceCountryOptionLabel(action.value, field.options || []));
+            : phoneCountry
+              ? phoneCountryOptionLabel(action.value, field.options || [])
+              : residenceCountryOptionLabel(action.value, field.options || []));
           if (!selectedLabel) throw new Error('option_not_found');
           await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
         } else if (field.kind === 'listbox') {
@@ -795,7 +815,11 @@ export async function applyActions(page, fields, actions, files, {
         // and chosen again, it would be the chosen value that gets clicked.
       } else {
         // A long text is shortened at a sentence end, never cut in the middle of one.
-        await fillText(locator, fitToLength(action.value, field.maxLength));
+        const topic = questionTopic(field.label, field.context, field);
+        const value = topic === 'phone'
+          ? formatPhoneForField(action.value, { maxLength: field.maxLength })
+          : fitToLength(action.value, field.maxLength);
+        await fillText(locator, value);
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
       }
       results.push({ fieldId: field.id, ok: true, ...(uploaded ? { files: uploaded } : {}) });

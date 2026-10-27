@@ -19,6 +19,7 @@ import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from './lib/permitStatus.js';
 import { portalAnswerForApplication } from './lib/portalQuestionMapping.js';
+import { countryCodeOfLabel, countryLabelForCode, formatInternationalPhone, phoneCountryLabel } from './lib/phoneNormalization.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 
@@ -52,6 +53,13 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     .slice(0, 60);
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field?.key, field?.value]));
   const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
+  const locationCountry = countryLabelForCode(countryCodeOfLabel(profile.location), language);
+  const canonicalAddress = {
+    ...address,
+    // A location suffix is an explicit country statement; an empty value must
+    // stay empty so a generic «Land» field cannot inherit a stale portal answer.
+    country: text(address.country || locationCountry, 100),
+  };
   // Keep the validated ATS kind with the owner handoff. An employer-branded
   // SuccessFactors page cannot identify itself from its hostname alone; when
   // the draft or redirect already carries the ATS kind, the extension passes
@@ -69,13 +77,14 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
       lastName: text(identity.lastName, 100),
       fullName: text(identity.name, 200),
       email: text(identity.email, 200),
-      phone: text(identity.phone, 40),
+      phone: text(formatInternationalPhone(identity.phone), 40),
+      phoneCountry: text(phoneCountryLabel(identity.phone, language), 100),
       location: text(profile.location, 200),
       address: {
-        street: text(address.street, 200),
-        postalCode: text(address.postalCode, 20),
-        city: text(address.city, 100),
-        country: text(address.country, 100),
+        street: text(canonicalAddress.street, 200),
+        postalCode: text(canonicalAddress.postalCode, 20),
+        city: text(canonicalAddress.city, 100),
+        country: canonicalAddress.country,
       },
       linkedin: text(profile.linkedin, 300),
       website: text(profile.website, 300),

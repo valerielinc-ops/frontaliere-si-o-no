@@ -2182,8 +2182,8 @@ describe('portal runner helpers', () => {
     const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
     expect(questionTopic('Postcode', 'My Information')).toBe('residence_postal_code');
     expect(questionTopic('Country', 'My Information / Country of birth')).toBe('');
-    expect(questionTopic('Country Phone Code*', 'My Information')).toBe('');
-    expect(questionTopic('Country code', 'My Information / Phone')).toBe('');
+    expect(questionTopic('Country Phone Code*', 'My Information')).toBe('phone_country');
+    expect(questionTopic('Country code', 'My Information / Phone')).toBe('phone_country');
     expect(questionTopic('Country code', 'Phone, Address, CAP, Country')).toBe('');
     const flattenedPersonalContext = 'Dati anagrafici · Telefono fisso / Telefono privato · Telefono mobile / Cellulare * · Indirizzo * · CAP * · Località * · Nazione (di residenza) *';
     expect(questionTopic('Indirizzo', flattenedPersonalContext)).toBe('address_street');
@@ -2217,6 +2217,32 @@ describe('portal runner helpers', () => {
       expect.objectContaining({ fieldId: country.id, action: 'select', value: 'Schweiz' }),
     ]));
     expect(guarded.missingRequired).toEqual([]);
+  });
+
+  it('keeps canonical phone and residence country ahead of stale portal answers', () => {
+    const candidate = {
+      identity: {
+        phone: '+39 324 0753275',
+        location: 'Brescia, Italia',
+        address: { city: 'Brescia', country: 'Italia' },
+      },
+      profile: { location: 'Brescia, Italia', address: { city: 'Brescia', country: 'Italia' } },
+      answers: {},
+      portalQuestionsAnswered: [
+        { question: 'Country Phone Code*', answer: 'Schweiz', source: 'answers' },
+        { question: 'Telefon', answer: '+41 79 000 00 00', source: 'answers' },
+        { question: 'Land/Region des Wohnorts', answer: 'Schweiz', source: 'answers' },
+      ],
+    };
+    const phoneCountry = { kind: 'select', label: 'Country Phone Code*', options: [{ label: 'Schweiz' }, { label: 'Italien' }] };
+    const phone = { kind: 'text', label: 'Telefon', options: [] };
+    const residenceCountry = { kind: 'select', label: 'Land/Region des Wohnorts', options: [{ label: 'Schweiz' }, { label: 'Italien' }] };
+    expect(candidateAnswerForQuestion(candidate, 'Country Phone Code*')).toBe('Italia');
+    expect(candidateAnswerForQuestion(candidate, 'Telefon')).toBe('+39 324 0753275');
+    expect(candidateAnswerForQuestion(candidate, 'Land/Region des Wohnorts')).toBe('Italia');
+    expect(candidateAnswerForField(candidate, phoneCountry)).toEqual({ value: 'Italien', source: 'identity' });
+    expect(candidateAnswerForField(candidate, phone)).toEqual({ value: '+39 324 0753275', source: 'identity' });
+    expect(candidateAnswerForField(candidate, residenceCountry)).toEqual({ value: 'Italien', source: 'identity' });
   });
 
   it('does not infer a country from an unrecognised province code alone', () => {
