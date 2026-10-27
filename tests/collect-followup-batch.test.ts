@@ -47,6 +47,7 @@ import {
   shouldTriageAfterCandidateGate,
   shouldTriageAfterFixGate,
   markerIdempotencyDecision,
+  isPrimaryTriageMarker,
   MARKER_QUARANTINE_AFTER_MS,
   quarantineReason,
   unreportedQuarantine,
@@ -377,6 +378,14 @@ describe('hasTriageComment (idempotency)', () => {
   it('returns false on parse error (proceed-safe: NOT deduped → triage runs)', () => {
     expect(hasTriageComment('not json')).toBe(false);
     expect(hasTriageComment('')).toBe(false);
+  });
+
+  it('uses the primary marker only: a correction is not an idempotency marker', () => {
+    expect(isPrimaryTriageMarker('## Post-merge follow-up triage\nCreated/updated: 1 item.')).toBe(true);
+    expect(isPrimaryTriageMarker('## Post-merge follow-up triage — correction\nThe prior marker was incomplete.')).toBe(false);
+    expect(hasTriageComment(JSON.stringify({ comments: [
+      { body: '## Post-merge follow-up triage — rettifica\nCreated/updated: 1 item.' },
+    ] }))).toBe(false);
   });
 });
 

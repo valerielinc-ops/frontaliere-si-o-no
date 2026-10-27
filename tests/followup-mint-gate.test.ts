@@ -234,6 +234,14 @@ describe('gate sul conio — comportamento', () => {
     expect(decideMintGate({ body: aggregata(itemProsa), createdAt: vecchia }).reason).toBe('not-freshly-minted');
   });
 
+  it('non ammette una issue legacy quando la freschezza non è verificabile', () => {
+    const now = Date.parse('2026-09-06T12:00:00Z');
+    const body = aggregata(itemProsa);
+    expect(decideMintGate({ body }, { now }).reason).toBe('mint-freshness-unverifiable');
+    expect(decideMintGate({ body, createdAt: 'not-a-date' }, { now }).reason).toBe('mint-freshness-unverifiable');
+    expect(decideMintGate({ body, createdAt: '2026-09-06T12:01:00Z' }, { now }).reason).toBe('mint-freshness-unverifiable');
+  });
+
   it('riallinea il conteggio nel titolo e sa estrarre la riga dell\'item demoto', () => {
     expect(retitle('follow-up(#7600): 4 item deferred — foo', 1)).toBe('follow-up(#7600): 1 item deferred — foo');
     // Il conio è un LLM e può usare un sostantivo diverso: lì il replace sarebbe un no-op
@@ -369,6 +377,7 @@ describe('gate sul conio — conservazione per item e per repository', () => {
     const site = { repo: 'site/r', read: () => ({ ok: true, comments: marker(1234) }) };
     const corpus = { repo: 'corpus/r', read: () => ({ ok: true, comments: marker(9769) }) };
     expect(triageMarkerCitesBucket(marker(9769), 9769)).toBe(true);
+    expect(triageMarkerCitesBucket(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage — correction\nCreated/updated: daily bucket #9769 con 1 item' }] }), 9769)).toBe(false);
     expect(triageMarkerCitesBucket(JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\nbucket per PR #9769: #1' }] }), 9769)).toBe(false);
     // Marker REALE di #10050: un bucket per bullet, `#N` + tag daily, senza «bucket».
     const realMarker = JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\n\nCreated/updated: 1 item.\n- Corpus #1957 `follow-up(daily:2026-09-28)` — `FU-2026-09-28-010` (riallineamento della baseline adattata in `scripts/ci/loop-sync-manifest.json`).\n\nDropped: 3 item — `non-actionable-churn` (reviewer ❓ marcato `deferred, non funnel-critical`).' }] });
