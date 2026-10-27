@@ -2072,6 +2072,25 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(second).toContain('<h1>Pagina evento aggiornata | Frontaliere Ticino</h1>');
   });
 
+  it('escapes event facts once in every Open Graph attribute', () => {
+    const html = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/nuovo-slug/', {
+      title: 'Evento "speciale" & prova',
+      startDate: '2026-07-04',
+      venue: 'LAC "Sala"',
+      comune: 'Lugano',
+      sourceName: 'Fonte & partner',
+    });
+    const ogTitle = html.match(/<meta property="og:title"[^>]*>/g) ?? [];
+    const ogDescription = html.match(/<meta property="og:description"[^>]*>/g) ?? [];
+
+    expect(ogTitle).toHaveLength(1);
+    expect(ogDescription).toHaveLength(1);
+    expect(ogDescription[0]).toContain('Evento &quot;speciale&quot; &amp; prova');
+    expect(ogDescription[0]).toContain('LAC &quot;Sala&quot;');
+    expect(ogDescription[0]).toContain('Fonte &amp; partner');
+    expect(ogDescription[0]).not.toContain('content="LAC "Sala"');
+  });
+
   it('renders all four verified Lüsslingen source-migration bridges to the refreshed owner', () => {
     const seed = JSON.parse(readFileSync(new URL('../data/events-recovery-archive.json', import.meta.url), 'utf8'));
     const prior = seed.events.find((event: { id: string }) => event.id === 'guidle:An77Y4G');
