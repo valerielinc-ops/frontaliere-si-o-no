@@ -14,7 +14,16 @@ export function readPublishedBlogCoverBytes(root, imageUrl, { rejectInvalidPath 
   }
   if (fs.existsSync(absolute)) return fs.readFileSync(absolute);
   try {
-    return execFileSync('git', ['cat-file', 'blob', `HEAD:${relative}`], {
+    // Treeless partial clones may have the commit but not its tree objects
+    // materialised yet. Resolve the path to a blob object first so Git can
+    // lazily fetch the missing tree before reading the blob itself.
+    const objectId = execFileSync('git', ['rev-parse', '--verify', `HEAD:${relative}`], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }).trim();
+    if (!/^[0-9a-f]{40}$/.test(objectId)) return null;
+    return execFileSync('git', ['cat-file', 'blob', objectId], {
       cwd: root,
       maxBuffer: MAX_COVER_BYTES,
       stdio: ['ignore', 'pipe', 'pipe'],
