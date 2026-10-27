@@ -175,7 +175,10 @@ export async function fetchTichOfficialListingViaTranslate(
   if (!proxyUrl) return null;
 
   const maxAttempts = Math.max(1, Number.isFinite(attempts) ? Math.floor(attempts) : 2);
-  const requestTimeoutMs = Math.max(1_000, Number(timeoutMs) || 20_000);
+  // Google Translate is a separate egress and can need longer than the
+  // direct crawler budget (12 s in discovery). Keep its request bounded, but
+  // do not let the direct-source timeout abort the clean-egress rescue early.
+  const requestTimeoutMs = Math.max(30_000, Number(timeoutMs) || 20_000);
   const delayMs = Number.isFinite(retryDelayMs) ? Math.max(0, retryDelayMs) : 1_500;
   let lastReason = 'unknown Google Translate proxy failure';
 
