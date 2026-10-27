@@ -231,6 +231,7 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     const requests: Array<{ url: string; init: RequestInit }> = [];
     const result = await fetchMimitApiSource([COMO], {
       retries: 1,
+      requestIntervalMs: 0,
       fetchImpl: async (url: string, init: RequestInit) => {
         requests.push({ url, init });
         return { ok: true, json: async () => ({ success: true, array: [apiStation(observedAt)] }) } as Response;
@@ -256,6 +257,7 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     const requests: Array<{ url: string; init: RequestInit }> = [];
     const result = await fetchMimitApiSource([COMO], {
       retries: 1,
+      requestIntervalMs: 0,
       fetchImpl: async (url: string, init: RequestInit) => {
         requests.push({ url, init });
         const body = JSON.parse(String(init.body));
@@ -275,11 +277,42 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(result.pricesRows).toHaveLength(2);
   });
 
+  it('serializes province and town retries to avoid API rate-limit bursts', async () => {
+    const observedAt = daysAgo(0.5);
+    const requestStarts: number[] = [];
+    let inFlight = 0;
+    let maxInFlight = 0;
+    const result = await fetchMimitApiSource([COMO], {
+      retries: 1,
+      requestIntervalMs: 50,
+      fetchImpl: async (url: string, init: RequestInit) => {
+        requestStarts.push(Date.now());
+        inFlight += 1;
+        maxInFlight = Math.max(maxInFlight, inFlight);
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        inFlight -= 1;
+        const body = JSON.parse(String(init.body));
+        return {
+          ok: true,
+          json: async () => body.town == null
+            ? { success: true, array: [] }
+            : { success: true, array: [apiStation(observedAt)] },
+        } as Response;
+      },
+    });
+
+    expect(result.source).toBe('mimit-api');
+    expect(maxInFlight).toBe(1);
+    expect(requestStarts).toHaveLength(2);
+    expect(requestStarts[1] - requestStarts[0]).toBeGreaterThanOrEqual(45);
+  });
+
   it('fails closed when a target municipality remains uncovered after the town retries', async () => {
     const observedAt = daysAgo(0.5);
     const requests: Array<{ url: string; init: RequestInit }> = [];
     await expect(fetchMimitApiSource([COMO, CANTU], {
       retries: 1,
+      requestIntervalMs: 0,
       fetchImpl: async (url: string, init: RequestInit) => {
         requests.push({ url, init });
         const body = JSON.parse(String(init.body));
