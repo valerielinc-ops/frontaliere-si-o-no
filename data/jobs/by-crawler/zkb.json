@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zkb-7001544d71d3",
-      "slug": "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich",
+      "slug": "segretario-a-generale-della-direzione-della-zkb-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich",
-        "en": "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich",
+        "it": "segretario-a-generale-della-direzione-della-zkb-zurcher-kantonalbank-zurich",
+        "en": "secretary-general-of-zkb-executive-management-zurcher-kantonalbank-zurich",
         "de": "generalsekretar-in-der-zkb-geschaftsleitung-zkb-zurich",
-        "fr": "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich"
+        "fr": "secretaire-general-e-de-la-direction-generale-de-la-zkb-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -65,15 +65,18 @@
           "sekretar-in-generaldirektion-zkb-zurich",
           "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich",
           "generalsekretar-in-der-zkb-geschaftsleitung-zkb-zurich",
-          "segretario-a-della-direzione-generale-zurcher-kantonalbank-zurich"
+          "segretario-a-della-direzione-generale-zurcher-kantonalbank-zurich",
+          "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich"
         ],
         "en": [
           "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich",
-          "secretary-to-the-general-directorate-zurcher-kantonalbank-zurich"
+          "secretary-to-the-general-directorate-zurcher-kantonalbank-zurich",
+          "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich"
         ],
         "fr": [
           "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich",
-          "secretaire-de-la-direction-generale-zurcher-kantonalbank-zurich"
+          "secretaire-de-la-direction-generale-zurcher-kantonalbank-zurich",
+          "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich"
         ]
       },
       "previousSlugs": [
@@ -82,7 +85,8 @@
         "generalsekretar-in-der-zkb-geschaftsleitung-zkb-zurich",
         "segretario-a-della-direzione-generale-zurcher-kantonalbank-zurich",
         "secretary-to-the-general-directorate-zurcher-kantonalbank-zurich",
-        "secretaire-de-la-direction-generale-zurcher-kantonalbank-zurich"
+        "secretaire-de-la-direction-generale-zurcher-kantonalbank-zurich",
+        "generalsekretar-in-der-zkb-geschaftsleitung-zurcher-kantonalbank-zurich"
       ],
       "firstSeenAt": "2026-10-21T09:15:40.791Z",
       "salaryMin": 91500,
@@ -183,12 +187,12 @@
     },
     {
       "id": "zkb-5661c5a2cef9",
-      "slug": "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+      "slug": "consulente-per-clienti-aziendali-presso-una-banca-diretta-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "firmenkundenberater-in-direktbank-zkb-zurich",
-        "it": "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich",
-        "en": "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich",
-        "fr": "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+        "it": "consulente-per-clienti-aziendali-presso-una-banca-diretta-zurcher-kantonalbank-zurich",
+        "en": "corporate-client-advisor-direct-bank-zurcher-kantonalbank-zurich",
+        "fr": "conseiller-ere-a-la-clientele-entreprises-banque-directe-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -239,11 +243,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "firmenkundenberater-in-direktbank-zkb-zurich"
+          "firmenkundenberater-in-direktbank-zkb-zurich",
+          "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
+          "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
         ]
       },
       "previousSlugs": [
-        "firmenkundenberater-in-direktbank-zkb-zurich"
+        "firmenkundenberater-in-direktbank-zkb-zurich",
+        "firmenkundenberater-in-direktbank-zurcher-kantonalbank-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,

@@ -36,8 +36,14 @@ const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
   TN: 4,
   BZ: 4,
 });
-const MIMIT_API_CONCURRENCY = 4;
-const MIMIT_API_TOWN_CONCURRENCY = 4;
+// Osservaprezzi answers concurrent bursts with HTTP 429. Keep both lookup
+// levels serial and enforce the same spacing through the request wrapper so a
+// future caller cannot reintroduce a burst by raising either worker count.
+const MIMIT_API_CONCURRENCY = 1;
+const MIMIT_API_TOWN_CONCURRENCY = 1;
+const MIMIT_API_MIN_INTERVAL_MS = 1_000;
+const MIMIT_API_RATE_LIMIT_DEFAULT_COOLDOWN_MS = 15_000;
+const MIMIT_API_RATE_LIMIT_MAX_COOLDOWN_MS = 60_000;
 const MIMIT_MAX_AGE_HOURS = 48;
 const MIMIT_PRICES_REQUIRED_COLUMNS = Object.freeze([
   'idImpianto', 'descCarburante', 'prezzo', 'isSelf', 'dtComu',
@@ -507,6 +513,67 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
   };
 }
 
+function retryAfterMs(response) {
+  const value = response?.headers?.get?.('retry-after');
+  if (value) {
+    const seconds = Number(value);
+    if (Number.isFinite(seconds)) {
+      return Math.min(
+        MIMIT_API_RATE_LIMIT_MAX_COOLDOWN_MS,
+        Math.max(MIMIT_API_MIN_INTERVAL_MS, seconds * 1_000),
+      );
+    }
+    const retryAt = Date.parse(value);
+    if (Number.isFinite(retryAt)) {
+      return Math.min(
+        MIMIT_API_RATE_LIMIT_MAX_COOLDOWN_MS,
+        Math.max(MIMIT_API_MIN_INTERVAL_MS, retryAt - Date.now()),
+      );
+    }
+  }
+  return MIMIT_API_RATE_LIMIT_DEFAULT_COOLDOWN_MS;
+}
+
+/**
+ * Serialize the official API requests and leave a measured gap between them.
+ * The fallback may schedule a province lookup and several town lookups from
+ * different workers; limiting only each worker still creates a burst at the
+ * shared upstream. A rejected/429 response must release the queue, while a
+ * 429 also extends the next slot for the bounded retry sequence.
+ */
+function createMimitApiRateLimitedFetch(fetchImpl, requestIntervalMs) {
+  const intervalMs = Number.isFinite(Number(requestIntervalMs)) && Number(requestIntervalMs) >= 0
+    ? Number(requestIntervalMs)
+    : MIMIT_API_MIN_INTERVAL_MS;
+  let queue = Promise.resolve();
+  let nextRequestAt = 0;
+  let cooldownUntil = 0;
+
+  const schedule = (operation) => {
+    const run = queue.then(async () => {
+      const waitMs = Math.max(0, Math.max(nextRequestAt, cooldownUntil) - Date.now());
+      if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
+
+      let response;
+      try {
+        response = await operation();
+        if (response?.status === 429) {
+          cooldownUntil = Math.max(cooldownUntil, Date.now() + retryAfterMs(response));
+        }
+        return response;
+      } finally {
+        nextRequestAt = Date.now() + intervalMs;
+      }
+    });
+    // A failed request must not strand every later request behind a rejected
+    // promise. The failed attempt is still surfaced to its own retry loop.
+    queue = run.then(() => undefined, () => undefined);
+    return run;
+  };
+
+  return (url, init) => schedule(() => fetchImpl(url, init));
+}
+
 async function fetchMimitApiArea({ region, province, town, fetchImpl, retries }) {
   const json = await fetchJsonWithRetry(MIMIT_API_URL, retries, {
     method: 'POST',
@@ -527,7 +594,10 @@ async function fetchMimitApiArea({ region, province, town, fetchImpl, retries })
   return { province, results };
 }
 
-export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, retries = 3 } = {}) {
+export async function fetchMimitApiSource(
+  municipalities,
+  { fetchImpl = fetch, retries = 3, requestIntervalMs = MIMIT_API_MIN_INTERVAL_MS } = {},
+) {
   const provinces = [...new Set(municipalities.map((municipality) => String(municipality.province || '').trim().toUpperCase()))]
     .filter(Boolean)
     .sort();
@@ -536,6 +606,7 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
     province,
     municipalities.filter((municipality) => String(municipality.province || '').trim().toUpperCase() === province),
   ]));
+  const rateLimitedFetch = createMimitApiRateLimitedFetch(fetchImpl, requestIntervalMs);
   const responsesByProvince = await mapWithConcurrency(provinces, MIMIT_API_CONCURRENCY, async (province) => {
     const region = MIMIT_API_REGION_BY_PROVINCE[province];
     if (region == null) throw new Error(`MIMIT API fallback has no region mapping for province ${province}`);
@@ -544,7 +615,7 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
       region,
       province,
       town: null,
-      fetchImpl,
+      fetchImpl: rateLimitedFetch,
       retries,
     });
     try {
@@ -558,7 +629,7 @@ export async function fetchMimitApiSource(municipalities, { fetchImpl = fetch, r
       region,
       province,
       town: municipality.name,
-      fetchImpl,
+      fetchImpl: rateLimitedFetch,
       retries,
     }));
   });

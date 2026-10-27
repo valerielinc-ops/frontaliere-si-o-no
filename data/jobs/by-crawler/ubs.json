@@ -10291,12 +10291,12 @@
     },
     {
       "id": "ubs-24eb1945740c",
-      "slug": "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich",
+      "slug": "centro-schede-ubs-ingegnere-di-sicurezza-senior-cyber-100-m-f-d-ubs-zurich",
       "slugByLocale": {
-        "it": "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich",
+        "it": "centro-schede-ubs-ingegnere-di-sicurezza-senior-cyber-100-m-f-d-ubs-zurich",
         "en": "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich",
         "de": "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich",
-        "fr": "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich"
+        "fr": "ubs-card-center-ingenieur-principal-de-la-cybersecurite-100-h-f-d-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -10363,7 +10363,18 @@
         }
       },
       "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich"
+        ],
+        "fr": [
+          "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ubs-card-center-senior-cyber-security-engineer-100-w-m-d-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-13f2c92e6822",
@@ -11199,7 +11210,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -11252,11 +11263,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",

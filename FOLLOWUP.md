@@ -232,7 +232,7 @@ Tutti `Dropped`/`Skipped` da QUESTA PR → `Created/updated: 0 item.` con **0**;
 1. **1ª detection** (issue non ancora `maybe-resolved`) → commento advisory + label `maybe-resolved`. **Finestra di grazia**: l'umano ha fino al run successivo per obiettare (rimuovere la label, aggiungere `keep-open`/`pinned`, riaprire lo scope).
 2. **2ª conferma** (la issue porta GIÀ `maybe-resolved` da un run precedente, è ANCORA risolta, ha il nostro commento-marker, è un bucket con **tutti** gli item validi `done` — oppure una legacy **single-item** —, **non** ha label keep-open/strategica, e l'evidenza è **forte**) → **auto-close** `--reason completed` + label `fu-resolved-auto`.
 
-Veto: invalidi bloccano; `done` + `isStrongAutoCloseEvidence()`. Parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`; **keep-open/pinned/revenue/tracker/do-not-close** = veti. `planMaybeResolvedRelease` + `<!-- FU_MAYBE_RESOLVED_RELEASED -->`; fail conserva flag, conferma azzera; `RECONCILE_NO_AUTOCLOSE=1` flag-only. Test `tests/reconcile-followups-decision.test.ts`; matcher `followup-resolution-match.mjs`, AGENTS.md #6.
+Veto: invalidi bloccano; `done` + `isStrongAutoCloseEvidence()`. Parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`; **keep-open/pinned/revenue/tracker/do-not-close/agent:no-age-out/operations-audit-review** = veti. `planMaybeResolvedRelease` + `<!-- FU_MAYBE_RESOLVED_RELEASED -->`; fail conserva flag, conferma azzera; `RECONCILE_NO_AUTOCLOSE=1` flag-only. Test `tests/reconcile-followups-decision.test.ts`; matcher `followup-resolution-match.mjs`, AGENTS.md #6.
 
 
 ## Stati dell'item, scrittori e chiusura

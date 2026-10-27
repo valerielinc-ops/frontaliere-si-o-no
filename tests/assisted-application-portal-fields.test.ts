@@ -114,6 +114,26 @@ describe('portal field extraction', () => {
     expect(extract(`${iframe}<textarea name="${name}">solved-token</textarea><textarea name="${name}"></textarea>`).captcha).toBe(true);
   });
 
+  it('recognizes a page-level Cloudflare verification interstitial without a widget iframe', () => {
+    const page = extract(`
+      <main>
+        <h1>Verifica di sicurezza</h1>
+        <p>Perché questa verifica richiede più tempo?</p>
+        <p>La verifica può richiedere più tempo a causa di un computer datato o di una connessione internet lenta.</p>
+      </main>`, 'https://www.alten.ch/de/jobs/879-google-cloud-platform/apply');
+
+    expect(page.fields).toEqual([]);
+    expect(page.buttons).toEqual([]);
+    expect(page.captcha).toBe(true);
+  });
+
+  it.each([
+    ['a hidden challenge template', '<form><label>Name<input name="name" required></label><div id="challenge-stage" hidden></div></form>'],
+    ['ordinary application copy', '<form><label>Name<input name="name" required></label><p>Our help text says checking your browser can take a moment.</p></form>'],
+  ])('does not treat %s as an active Cloudflare interstitial', (_label, html) => {
+    expect(extract(html).captcha).toBe(false);
+  });
+
   // Giro di prova 2026-10-01 on JOIN: the CV drop zone had no label, only "file:_r_3_:input",
   // so the planner skipped it and the run handed the application over.
   it('names an unlabelled drop zone by its heading and zone text, not by a generated id', () => {

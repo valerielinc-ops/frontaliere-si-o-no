@@ -8,6 +8,7 @@ on:
     paths:
       - 'data/jobs-crawler-summaries/by-crawler/**'
       - 'data/crawler-quarantine.json'
+      - 'scripts/ci/crawler-generation-roster.json'
       - 'data/job-apply-outcome-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l3-job-quality.mjs'
@@ -26,6 +27,7 @@ on:
     paths:
       - 'data/jobs-crawler-summaries/by-crawler/**'
       - 'data/crawler-quarantine.json'
+      - 'scripts/ci/crawler-generation-roster.json'
       - 'data/job-apply-outcome-baseline.json'
       - 'data/loop-fleet/loop-registry.json'
       - 'scripts/ci/loop-l3-job-quality.mjs'
@@ -68,6 +70,7 @@ jobs:
           sparse-checkout: |
             /data/jobs-crawler-summaries/by-crawler/
             /data/crawler-quarantine.json
+            /scripts/ci/crawler-generation-roster.json
             /data/job-apply-outcome-baseline.json
             /data/loop-fleet/loop-registry.json
             /scripts/ci/loop-l3-job-quality.mjs

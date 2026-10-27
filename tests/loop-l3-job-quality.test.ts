@@ -189,6 +189,38 @@ describe('L3 Job Quality → Apply', () => {
       .toContain('- Retired summaries ignored: 3');
   });
 
+  it('excludes stale summaries for crawlers removed from the generation roster', () => {
+    const verdict = validateJobSummaries([
+      summary(),
+      {
+        file: 'company.json',
+        data: {
+          ...summary().data,
+          key: 'company',
+          generatedAt: '2026-09-01T12:00:00.000Z',
+        },
+      },
+    ], {
+      outcomes: outcomes(),
+      now: NOW,
+      scheduledSummaryKeys: ['example'],
+    });
+
+    expect(verdict).toMatchObject({
+      ok: true,
+      quality: 'observed',
+      snapshot: {
+        discoveredSummaryCount: 2,
+        summaryCount: 1,
+        ignoredInactiveSummaries: 1,
+        inactiveSummaryKeys: ['company'],
+        staleSummaries: 0,
+        invalidJobs: 0,
+      },
+    });
+    expect(verdict.issues).not.toContain(expect.stringContaining('company.json: summary is stale'));
+  });
+
   it('requires the CH country field for the three quarantined Swiss-only producers', () => {
     for (const key of ['yellowshark', 'tether', 'bitfinex']) {
       const verdict = validateJobSummaries([

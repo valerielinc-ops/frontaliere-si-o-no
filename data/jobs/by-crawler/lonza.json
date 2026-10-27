@@ -10435,7 +10435,7 @@
         "it": "scienziato-senior-qc-lonza-visp",
         "en": "senior-scientist-qc-lonza-visp",
         "de": "senior-scientist-qc-lonza-ch",
-        "fr": "scientifique-senior-controle-qualite-lonza-visp"
+        "fr": "chercheur-principal-qc-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -10479,7 +10479,7 @@
       "jobReqId": "R79913",
       "previousSlugs": [
         "senior-scientist-qc-lonza-ch",
-        "chercheur-principal-qc-lonza-visp"
+        "scientifique-senior-controle-qualite-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10487,7 +10487,7 @@
         ],
         "fr": [
           "senior-scientist-qc-lonza-ch",
-          "chercheur-principal-qc-lonza-visp"
+          "scientifique-senior-controle-qualite-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-09-01T14:27:30.004Z",
@@ -14147,10 +14147,10 @@
       "id": "lonza-f22b92697afe",
       "slug": "associate-direttore-treasury-lonza-basel",
       "slugByLocale": {
-        "it": "associate-direttore-treasury-lonza-basel",
+        "it": "tesoriere-aggiunto-lonza-basel",
         "en": "deputy-treasurer-lonza-ch",
-        "de": "associate-direktor-treasury-lonza-basel",
-        "fr": "associate-directeur-treasury-lonza-basel"
+        "de": "stellvertretender-schatzmeister-lonza-basel",
+        "fr": "tresorier-adjoint-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14195,16 +14195,15 @@
       "previousSlugsByLocale": {
         "it": [
           "deputy-treasurer-lonza-ch",
-          "associate-director-treasury-lonza-ch",
-          "tesoriere-aggiunto-lonza-basel"
+          "associate-director-treasury-lonza-ch"
         ],
         "de": [
           "deputy-treasurer-lonza-ch",
-          "stellvertretender-schatzmeister-lonza-basel"
+          "associate-direktor-treasury-lonza-basel"
         ],
         "fr": [
           "deputy-treasurer-lonza-ch",
-          "tresorier-adjoint-lonza-basel"
+          "associate-directeur-treasury-lonza-basel"
         ],
         "en": [
           "associate-director-treasury-lonza-ch"
@@ -14213,9 +14212,8 @@
       "previousSlugs": [
         "deputy-treasurer-lonza-ch",
         "associate-director-treasury-lonza-ch",
-        "tesoriere-aggiunto-lonza-basel",
-        "stellvertretender-schatzmeister-lonza-basel",
-        "tresorier-adjoint-lonza-basel"
+        "associate-direktor-treasury-lonza-basel",
+        "associate-directeur-treasury-lonza-basel"
       ],
       "firstSeenAt": "2026-10-07T21:18:41.409Z",
       "salaryMin": 85500,
@@ -14548,12 +14546,12 @@
     },
     {
       "id": "lonza-96539aa48176",
-      "slug": "ai-strategy-portfolio-lead-lonza-ch",
+      "slug": "strategia-e-guida-di-portafoglio-di-ai-lonza-basel",
       "slugByLocale": {
         "en": "ai-strategy-portfolio-lead-lonza-ch",
-        "it": "ai-strategy-portfolio-lead-lonza-ch",
-        "de": "ai-strategy-portfolio-lead-lonza-ch",
-        "fr": "ai-strategy-portfolio-lead-lonza-ch"
+        "it": "strategia-e-guida-di-portafoglio-di-ai-lonza-basel",
+        "de": "ki-strategie-portfolio-leitung-lonza-basel",
+        "fr": "strategie-de-l-ia-et-chef-de-portefeuille-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14612,16 +14610,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-27T09:23:30.083Z"
+      "firstSeenAt": "2026-10-27T09:23:30.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-strategy-portfolio-lead-lonza-ch"
+        ],
+        "de": [
+          "ai-strategy-portfolio-lead-lonza-ch"
+        ],
+        "fr": [
+          "ai-strategy-portfolio-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-strategy-portfolio-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-658325e9f0ca",
-      "slug": "ai-products-lead-lonza-ch",
+      "slug": "ai-prodotti-piombo-lonza-basel",
       "slugByLocale": {
         "en": "ai-products-lead-lonza-ch",
-        "it": "ai-products-lead-lonza-ch",
-        "de": "ai-products-lead-lonza-ch",
-        "fr": "ai-products-lead-lonza-ch"
+        "it": "ai-prodotti-piombo-lonza-basel",
+        "de": "ki-produkte-blei-lonza-basel",
+        "fr": "produits-ai-plomb-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14680,7 +14692,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-27T09:23:29.465Z"
+      "firstSeenAt": "2026-10-27T09:23:29.465Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-products-lead-lonza-ch"
+        ],
+        "de": [
+          "ai-products-lead-lonza-ch"
+        ],
+        "fr": [
+          "ai-products-lead-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-products-lead-lonza-ch"
+      ]
     },
     {
       "id": "lonza-deace07d6cc2",

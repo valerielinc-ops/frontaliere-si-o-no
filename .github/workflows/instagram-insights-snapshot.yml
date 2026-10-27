@@ -1,5 +1,10 @@
 name: Instagram Insights Autonomy
 
+# The external five-minute loop clock dispatches this workflow once per day;
+# GitHub's native schedule remains an independent safety net. The marker lets
+# loop-clock-health distinguish the clock-owned run from a manual or cron run.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Instagram Insights Autonomy [loop-clock {0}]', inputs.loop_clock) || 'Instagram Insights Autonomy' }}
+
 # Collection is owned by the authenticated Chrome profile on the Mac host.
 # The Mac collector persists the read-only 24h/72h snapshot; this workflow
 # scores it once a day and may publish only bounded winner maps to Remote
@@ -25,6 +30,11 @@ on:
         default: 'true'
         type: choice
         options: ['true', 'false']
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot)'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
   group: instagram-insights-autonomy

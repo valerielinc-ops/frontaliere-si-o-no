@@ -1,0 +1,23 @@
+{
+  "companyKey": "calida",
+  "companyName": "CALIDA",
+  "companyHost": "apply.refline.ch",
+  "platform": "refline.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://apply.refline.ch/626828/jobmail.html"
+  ],
+  "detailTemplate": "/626828/jobmail.html",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Deutsch",
+    "English",
+    "Français"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:22.787Z",
+  "candidateKey": "calida.com"
+}

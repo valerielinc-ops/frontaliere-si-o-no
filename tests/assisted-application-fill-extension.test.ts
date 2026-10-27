@@ -393,6 +393,11 @@ describe('fill extension: the runner’s reading on any portal', () => {
     expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
   });
 
+  it('does not divert ordinary application copy or hidden challenge templates to captcha', () => {
+    const { read } = runnerPage('<form><label>Name<input name="name" required></label><p>Our help text says checking your browser can take a moment.</p><div id="challenge-stage" hidden></div></form>', 'https://jobs.example.ch/apply');
+    expect(read().captcha).toBe(false);
+  });
+
   it('treats SuccessFactors’ French empty picklist as a select in both extension paths', async () => {
     const { F, document, read } = runnerPage(`<form>
       <label for="nationality">Nationalité *</label>

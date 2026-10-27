@@ -1,0 +1,22 @@
+{
+  "companyKey": "grandhotel-national-com",
+  "companyName": "Grand Hotel National",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/grand-hotel-national-2711/portier-m-w-d-100-ab-januar-2027-4041546"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Luzern",
+    "Karriere"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:51:26.380Z",
+  "candidateKey": "grandhotel-national.com"
+}
