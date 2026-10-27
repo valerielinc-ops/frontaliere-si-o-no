@@ -107261,10 +107261,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp`,
+        "url": `${BASE_URL}/images/blog/article-competitivita-svizzera-ocse-berna.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Palazzo federale a Berna, sede delle istituzioni svizzere"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T08:25:08+00:00",
       "dateModified": "2026-10-18T08:25:08+00:00",
@@ -107490,10 +107490,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida pratica per l'apprendistato nel Canton Zurigo: come trovare il posto, verificare il contratto, leggere la retribuzione e inquadrare la maturità",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-canton-berna.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-apprendistato-zurigo-guida-pratica.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Giovane apprendista in un'officina svizzera a Zurigo che esamina un contratto"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T19:10:16+00:00",
       "dateModified": "2026-10-18T19:10:16+00:00",
