@@ -21,14 +21,14 @@
     "slugByLocale": {
       "it": "assistente-nella-direzione-della-filiale-denner-zug",
       "en": "assistant-branch-manager-denner-zug",
-      "de": "assistent-in-filialleitung-denner",
+      "de": "assistent-in-filialleitung-denner-a2217ec3",
       "fr": "assistant-e-de-direction-de-succursale-denner-zug"
     },
     "sector": "",
     "expiredAt": "2026-10-27T09:40:43.628Z",
     "previousSlugs": [
-      "assistent-in-filialleitung-denner-15",
-      "assistent-in-filialleitung-denner",
+      "assistent-in-filialleitung-denner-15-173c1176",
+      "assistent-in-filialleitung-denner-a2217ec3",
       "assistente-nella-gestione-delle-branche-denner-ag-richterswil",
       "assistent-in-filialleitung-denner-ag-richterswil",
       "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb",
@@ -46,7 +46,7 @@
       "assistent-in-filialleitung-denner-8-63b82061",
       "assistent-in-filialleitung-denner-a336761b",
       "assistent-in-filialleitung-denner-8-2567be07",
-      "assistent-in-filialleitung-denner-8",
+      "assistent-in-filialleitung-denner-8-ebb0625f",
       "assistant-in-branch-management-denner-ag-richterswil",
       "assistant-branch-manager-denner-zurich-1084f6",
       "assistant-branch-manager-denner-gossau-zh",
@@ -58,16 +58,20 @@
       "assistent-in-filialleitung-denner-zurich-964577aa",
       "assistent-in-filialleitung-denner-zurich-6689ca2a",
       "assistent-in-filialleitung-denner-zurich-82a2dd99",
-      "assistent-in-filialleitung-denner-zurich",
+      "assistent-in-filialleitung-denner-zurich-e403e033",
       "assistant-dans-la-gestion-des-succursales-denner-ag-richterswil",
       "assistant-e-de-direction-de-filiale-denner-zurich",
       "assistant-e-de-direction-de-succursale-denner-gossau-zh",
-      "assistant-e-de-direction-de-succursale-denner-sursee"
+      "assistant-e-de-direction-de-succursale-denner-sursee",
+      "assistent-in-filialleitung-denner-15",
+      "assistent-in-filialleitung-denner",
+      "assistent-in-filialleitung-denner-8",
+      "assistent-in-filialleitung-denner-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistent-in-filialleitung-denner-15",
-        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-15-173c1176",
+        "assistent-in-filialleitung-denner-a2217ec3",
         "assistente-nella-gestione-delle-branche-denner-ag-richterswil",
         "assistent-in-filialleitung-denner-ag-richterswil",
         "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb",
@@ -85,10 +89,13 @@
         "assistent-in-filialleitung-denner-8-63b82061",
         "assistent-in-filialleitung-denner-a336761b",
         "assistent-in-filialleitung-denner-8-2567be07",
+        "assistent-in-filialleitung-denner-8-ebb0625f",
+        "assistent-in-filialleitung-denner-15",
+        "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-8"
       ],
       "en": [
-        "assistent-in-filialleitung-denner-15",
+        "assistent-in-filialleitung-denner-15-173c1176",
         "assistant-in-branch-management-denner-ag-richterswil",
         "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb",
         "assistant-branch-manager-denner-zurich-1084f6",
@@ -103,11 +110,14 @@
         "assistent-in-filialleitung-denner-8-63b82061",
         "assistent-in-filialleitung-denner-a336761b",
         "assistent-in-filialleitung-denner-8-2567be07",
+        "assistent-in-filialleitung-denner-a2217ec3",
+        "assistent-in-filialleitung-denner-8-ebb0625f",
+        "assistent-in-filialleitung-denner-15",
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-8"
       ],
       "fr": [
-        "assistent-in-filialleitung-denner-15",
+        "assistent-in-filialleitung-denner-15-173c1176",
         "assistant-dans-la-gestion-des-succursales-denner-ag-richterswil",
         "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb",
         "assistant-e-de-direction-de-filiale-denner-zurich",
@@ -122,6 +132,9 @@
         "assistent-in-filialleitung-denner-8-63b82061",
         "assistent-in-filialleitung-denner-a336761b",
         "assistent-in-filialleitung-denner-8-2567be07",
+        "assistent-in-filialleitung-denner-a2217ec3",
+        "assistent-in-filialleitung-denner-8-ebb0625f",
+        "assistent-in-filialleitung-denner-15",
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-8"
       ],
@@ -139,6 +152,7 @@
         "assistent-in-filialleitung-denner-zurich-6689ca2a",
         "assistent-in-filialleitung-denner-a336761b",
         "assistent-in-filialleitung-denner-zurich-82a2dd99",
+        "assistent-in-filialleitung-denner-zurich-e403e033",
         "assistent-in-filialleitung-denner-zurich"
       ]
     },
@@ -179,7 +193,7 @@
     ]
   },
   {
-    "slug": "venditore-denner-visp",
+    "slug": "venditore-denner-visp-3141113d",
     "title": "Verkäufer*in",
     "titleByLocale": {
       "it": "Venditore",
@@ -198,17 +212,17 @@
       "fr": "Lieu de travail: Denner AG, succursale 720, Napoleonstrasse 32, 3930 Viège\n\nDes produits frais qui méritent leur nom. Des étagères remplies. Ordres déclenchés à temps. Zone propre. Caissier a raison. Clients satisfaits. C'est notre magasin. Et bientôt le tien aussi. Maintenant, passez à la nouvelle équipe gagnante.\n\nLuogo di lavoro: Denner AG, succursale 720, Napoleonstrasse 32, 3930 Viège\n\n## Informations importantes\nLa suite et le retour sont souhaités.\n\n## Mansioni\n- Dépôt et comptabilité\n- Acceptez les produits frais et bien sûr toutes les autres marchandises, vérifiez et remplissez-les sur les étagères de votre magasin\n- Vérification des données minimales de durabilité des produits\n- Assurer l'ordre et la propreté dans le magasin et l'entrepôt\n- Implémenter correctement les spécifications dans la configuration du magasin\n\n## Exigences\n- Idéalement, plus de deux ans d'expérience professionnelle : dans le commerce de détail (alimentaire)\n- Apprentissage professionnel achevé (EBA): dans le commerce de détail (alimentaire) ou la profession connexe serait idéal\n- Prête à travailler au-delà de l'unité de travail – et profiter du temps libre lorsque les autres travaillent\n- Physiquement en forme, certains colis sont jusqu'à 10 livres lourds\n- Familiariser avec PC, tablette et smartphone - et avec d'autres aides numériques (par exemple pour la gestion des marchandises) vous vous faites rapidement des amis\n- Comme chez les gens, une bonne partie de la chaleur et une attitude positive\n- Allemand (bonne connaissance)\n\n## Cosa de Friamo\n- Partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros\n- Travail sain : Des normes élevées en matière de sécurité, d'ergonomie et d'hygiène au travail.\n- Congé de maternité / congé de paternité: 5 semaines de congé de maternité (19 semaines) pour les mères à 100% de salaire. Les pères apprécient la progéniture 4 semaines rémunérées.\n- Salaire équitable: 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour quelques-uns.\n- Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offre de l'employé: 10% sur le prochain achat majeur (deux fois par an).\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Loisirs et offres culturelles: Divers rabais pour la location de voitures, hôtels, événements et beaucoup plus de zones.\n\n## Contatto\nDemande et contact * *\nRemo Herrmann\nVentes de recruteurs Mittelland\n\nProcessus de recrutement * *\n\n- Sélection préalable des demandes : Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction: Jusqu'à trois semaines\n- Vidéo personnelle ou conversation téléphonique : Pour un grand nombre de candidats, nous effectuons en option une conversation téléphonique personnelle ou vidéo. Cela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée de la rétroaction: Jusqu'à une semaine\n- Travail d'essai : Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction: Jusqu'à trois semaines\n- Offer & Contract Exhibition: Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction: Jusqu'à trois semaines\n\nNote pour les fournisseurs de services au personnel* *\nPour cette position, nous ne considérons que les demandes directes.\n\nGrade di occupation: 60-80 %"
     },
     "slugByLocale": {
-      "it": "venditore-denner-visp",
+      "it": "venditore-denner-visp-3141113d",
       "en": "shop-assistant-denner-visp",
-      "de": "verkaufer-in-denner",
-      "fr": "vendeur-denner-visp"
+      "de": "verkaufer-in-denner-4d52bd52",
+      "fr": "vendeur-denner-visp-2ac7899f"
     },
     "sector": "",
     "expiredAt": "2026-10-27T09:40:43.628Z",
     "previousSlugs": [
       "verkaufer-in-denner-19",
-      "verkaufer-in-denner",
-      "verkaufer-in-denner-visp",
+      "verkaufer-in-denner-4d52bd52",
+      "verkaufer-in-denner-visp-52575370",
       "venditore-denner-ag-baden",
       "verkaufer-in-denner-ag-baden-n9rluj",
       "verkaufer-in-denner-ag-baden",
@@ -228,8 +242,8 @@
     "previousSlugsByLocale": {
       "it": [
         "verkaufer-in-denner-19",
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-visp",
+        "verkaufer-in-denner-4d52bd52",
+        "verkaufer-in-denner-visp-52575370",
         "venditore-denner-ag-baden",
         "verkaufer-in-denner-ag-baden-n9rluj",
         "verkaufer-in-denner-ag-baden",
@@ -242,7 +256,7 @@
         "verkaufer-in-denner-6d20b7ea"
       ],
       "en": [
-        "verkaufer-in-denner-visp",
+        "verkaufer-in-denner-visp-52575370",
         "seller-denner-ag-baden",
         "verkaufer-in-denner-ag-baden-n9rluj",
         "verkaufer-in-denner-ag-baden",
@@ -252,7 +266,7 @@
         "sales-associate-denner-ag-gebenstorf"
       ],
       "de": [
-        "verkaufer-in-denner-visp",
+        "verkaufer-in-denner-visp-52575370",
         "verkaufer-in-denner-ag-baden",
         "verkaufer-in-denner-ag-baden-n9rluj",
         "verkaufer-in-denner-e6a09cda",
@@ -261,7 +275,7 @@
         "verkaufer-in-denner-6d20b7ea"
       ],
       "fr": [
-        "verkaufer-in-denner-visp",
+        "verkaufer-in-denner-visp-52575370",
         "vendeur-denner-ag-baden",
         "verkaufer-in-denner-ag-baden-n9rluj",
         "verkaufer-in-denner-ag-baden",
@@ -328,6 +342,7 @@
       "gerant-e-denner-martigny",
       "gerant-e-denner-636d1f63",
       "gerant-e-denner-72267368",
+      "gerant-e-denner-64b1042d",
       "gerant-e-denner"
     ],
     "previousSlugsByLocale": {
@@ -336,18 +351,21 @@
         "gerant-e-denner-martigny",
         "gerant-e-denner-636d1f63",
         "gerant-e-denner-72267368",
+        "gerant-e-denner-64b1042d",
         "gerant-e-denner"
       ],
       "en": [
         "gerant-e-denner-6f8deaff",
         "gerant-e-denner-636d1f63",
         "gerant-e-denner-72267368",
+        "gerant-e-denner-64b1042d",
         "gerant-e-denner"
       ],
       "de": [
         "gerant-e-denner-6f8deaff",
         "gerant-e-denner-636d1f63",
         "gerant-e-denner-72267368",
+        "gerant-e-denner-64b1042d",
         "gerant-e-denner"
       ]
     },
@@ -394,6 +412,7 @@
       "stv-filialleiter-in-denner-xb78n5",
       "stv-filialleiter-in-denner-e0e9f741",
       "stv-filialleiter-in-denner-f737d6b0",
+      "stv-filialleiter-in-denner-347a986e",
       "stv-filialleiter-in-denner"
     ],
     "previousSlugsByLocale": {
@@ -401,6 +420,7 @@
         "stv-filialleiter-in-denner-abadc262",
         "stv-filialleiter-in-denner-e0e9f741",
         "stv-filialleiter-in-denner-f737d6b0",
+        "stv-filialleiter-in-denner-347a986e",
         "stv-filialleiter-in-denner"
       ],
       "it": [
@@ -409,6 +429,7 @@
         "stv-filialleiter-in-denner-abadc262",
         "stv-filialleiter-in-denner-e0e9f741",
         "stv-filialleiter-in-denner-f737d6b0",
+        "stv-filialleiter-in-denner-347a986e",
         "stv-filialleiter-in-denner"
       ],
       "en": [
@@ -459,6 +480,7 @@
       "vendeur-vendeuse-denner-lausanne",
       "vendeur-vendeuse-denner-963b0f02",
       "vendeur-vendeuse-denner-632ad8d6",
+      "vendeur-vendeuse-denner-73f9d0c9",
       "vendeur-vendeuse-denner"
     ],
     "previousSlugsByLocale": {
@@ -467,18 +489,21 @@
         "vendeur-vendeuse-denner-lausanne",
         "vendeur-vendeuse-denner-963b0f02",
         "vendeur-vendeuse-denner-632ad8d6",
+        "vendeur-vendeuse-denner-73f9d0c9",
         "vendeur-vendeuse-denner"
       ],
       "en": [
         "vendeur-vendeuse-denner-b7017d67",
         "vendeur-vendeuse-denner-963b0f02",
         "vendeur-vendeuse-denner-632ad8d6",
+        "vendeur-vendeuse-denner-73f9d0c9",
         "vendeur-vendeuse-denner"
       ],
       "de": [
         "vendeur-vendeuse-denner-b7017d67",
         "vendeur-vendeuse-denner-963b0f02",
         "vendeur-vendeuse-denner-632ad8d6",
+        "vendeur-vendeuse-denner-73f9d0c9",
         "vendeur-vendeuse-denner"
       ],
       "fr": [
@@ -694,6 +719,30 @@
       "assistente-nella-gestione-delle-branche-denner-ag-adliswil-37134ac7",
       "assistent-in-filialleitung-denner-4-03441032",
       "assistant-in-branch-management-denner-ag-adliswil-245c361e",
+      "assistent-in-filialleitung-denner-d0c0b570",
+      "verkaufer-in-denner-ag-wilderswil-85f38e22",
+      "assistent-in-filialleitung-denner-frauenfeld-76cf3b60",
+      "assistente-di-filiale-denner-ag-zurich-ca384bd4",
+      "store-assistant-denner-ag-zurich-455a954d",
+      "assistant-de-magasin-denner-ag-zurich-a11c0112",
+      "assistente-nella-gestione-delle-branche-denner-ag-zurich-1950912e",
+      "assistant-in-branch-management-denner-ag-zurich-660e3889",
+      "assistant-dans-la-gestion-des-succursales-denner-ag-zurich-12376586",
+      "assistent-in-filialleitung-denner-3-eef39ba7",
+      "assistant-branch-manager-denner-ag-biel-bienne-3e9f3214",
+      "directeur-adjoint-de-succursale-denner-ag-biel-bienne-9813bc4c",
+      "assistent-in-filialleitung-denner-biel-bienne-120764ad",
+      "assistent-in-filialleitung-denner-steinhausen-34c413c2",
+      "assistent-in-filialleitung-denner-5-6ec3233f",
+      "assistent-in-filialleitung-denner-zurich-58c5ef10",
+      "assistente-nella-gestione-delle-branche-denner-ag-ruschlikon-9e3858e5",
+      "assistent-in-filialleitung-denner-2-5d849ad5",
+      "assistant-in-branch-management-denner-ag-ruschlikon-bfbca8ce",
+      "assistent-in-filialleitung-denner-ruschlikon-5c8a9926",
+      "assistant-dans-la-gestion-des-succursales-denner-ag-ruschlikon-bffec81f",
+      "assistente-nella-gestione-delle-branche-denner-ag-adliswil-9d6b9a34",
+      "assistent-in-filialleitung-denner-4-9e33ec53",
+      "assistant-in-branch-management-denner-ag-adliswil-260995e0",
       "assistent-in-filialleitung-denner",
       "verkaufer-in-denner-ag-wilderswil",
       "assistent-in-filialleitung-denner-frauenfeld",
@@ -726,6 +775,7 @@
         "assistent-in-filialleitung-denner-f93f7d32",
         "assistent-in-filialleitung-denner-433eaf80",
         "assistent-in-filialleitung-denner-be82926e",
+        "assistent-in-filialleitung-denner-d0c0b570",
         "assistent-in-filialleitung-denner"
       ],
       "it": [
@@ -791,6 +841,17 @@
         "assistente-nella-gestione-delle-branche-denner-ag-adliswil-37134ac7",
         "assistent-in-filialleitung-denner-4-03441032",
         "assistant-in-branch-management-denner-ag-adliswil-245c361e",
+        "assistent-in-filialleitung-denner-5-6ec3233f",
+        "assistent-in-filialleitung-denner-d0c0b570",
+        "assistent-in-filialleitung-denner-zurich-58c5ef10",
+        "assistente-nella-gestione-delle-branche-denner-ag-ruschlikon-9e3858e5",
+        "assistent-in-filialleitung-denner-2-5d849ad5",
+        "assistant-in-branch-management-denner-ag-ruschlikon-bfbca8ce",
+        "assistent-in-filialleitung-denner-ruschlikon-5c8a9926",
+        "assistant-dans-la-gestion-des-succursales-denner-ag-ruschlikon-bffec81f",
+        "assistente-nella-gestione-delle-branche-denner-ag-adliswil-9d6b9a34",
+        "assistent-in-filialleitung-denner-4-9e33ec53",
+        "assistant-in-branch-management-denner-ag-adliswil-260995e0",
         "assistent-in-filialleitung-denner-5",
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-zurich",
@@ -985,6 +1046,27 @@
       "stv-filialleiter-in-denner-emmenbrucke-ce6d6e4f",
       "stv-branch-manager-in-denner-ag-zurich-58b807eb",
       "directeur-de-succursale-stv-in-denner-ag-zurich-6a1d1d21",
+      "stv-filialleiter-in-denner-096252c4",
+      "stv-filialleiter-in-denner-brugg-be-e7c0ed71",
+      "stv-filialleiter-in-denner-3-5a48eec6",
+      "stv-filialleiter-in-denner-cham-cc5a6f95",
+      "stv-filialleiter-in-denner-12-e7b9e1fa",
+      "stv-filialleiter-in-denner-amriswil-d4dc23e2",
+      "vice-direttore-di-negozio-denner-ag-zurich-a66e0534",
+      "deputy-branch-manager-denner-ag-zurich-c9b36bcb",
+      "directeur-adjoint-de-la-succursale-denner-ag-zurich-5fbeb65f",
+      "stv-filialleiter-in-denner-zurich-3f57d228",
+      "stv-filialleiter-in-denner-8-99524a62",
+      "stv-filialleiter-in-denner-4-7165c1c7",
+      "stv-filialleiter-in-denner-5-f84ac711",
+      "stv-filialleiter-in-denner-wadenswil-3b0a995f",
+      "stv-filialleiter-in-denner-2-8d333087",
+      "stv-filialleiter-in-denner-basel-00932dce",
+      "stv-filialleiter-in-denner-uster-c994dcfb",
+      "vice-direttoredifiliale-denner-emmenbrucke-9cc28dd1",
+      "stv-filialleiter-in-denner-emmenbrucke-38c36026",
+      "stv-branch-manager-in-denner-ag-zurich-0cbe2115",
+      "directeur-de-succursale-stv-in-denner-ag-zurich-8009dd88",
       "stv-filialleiter-in-denner",
       "stv-filialleiter-in-denner-brugg-be",
       "stv-filialleiter-in-denner-3",
@@ -1014,6 +1096,7 @@
         "stv-filialleiter-in-denner-bcf35a4b",
         "stv-filialleiter-in-denner-af46d022",
         "stv-filialleiter-in-denner-286636b4",
+        "stv-filialleiter-in-denner-096252c4",
         "stv-filialleiter-in-denner"
       ],
       "it": [
@@ -1056,6 +1139,11 @@
         "stv-filialleiter-in-denner-emmenbrucke-ce6d6e4f",
         "stv-filialleiter-in-denner-286636b4",
         "stv-branch-manager-in-denner-ag-zurich-58b807eb",
+        "stv-filialleiter-in-denner-uster-c994dcfb",
+        "vice-direttoredifiliale-denner-emmenbrucke-9cc28dd1",
+        "stv-filialleiter-in-denner-emmenbrucke-38c36026",
+        "stv-filialleiter-in-denner-096252c4",
+        "stv-branch-manager-in-denner-ag-zurich-0cbe2115",
         "stv-filialleiter-in-denner-uster",
         "vice-direttoredifiliale-denner-emmenbrucke",
         "stv-filialleiter-in-denner-emmenbrucke",
@@ -1067,6 +1155,7 @@
         "directeur-de-succursale-stv-in-denner-ag-zurich-3192d803",
         "directeur-de-succursale-stv-in-denner-ag-zurich-ae22102b",
         "directeur-de-succursale-stv-in-denner-ag-zurich-6a1d1d21",
+        "directeur-de-succursale-stv-in-denner-ag-zurich-8009dd88",
         "directeur-de-succursale-stv-in-denner-ag-zurich"
       ]
     },
@@ -1199,6 +1288,9 @@
       "verkaufer-in-im-stundenlohn-denner-29-e37ecbab",
       "verkaufer-in-im-stundenlohn-denner-28-70a88399",
       "verkaufer-in-im-stundenlohn-denner-2-6f0bf276",
+      "verkaufer-in-im-stundenlohn-denner-29-f86fdd52",
+      "verkaufer-in-im-stundenlohn-denner-28-c814c94c",
+      "verkaufer-in-im-stundenlohn-denner-2-37fb35d3",
       "verkaufer-in-im-stundenlohn-denner-29",
       "verkaufer-in-im-stundenlohn-denner-28",
       "verkaufer-in-im-stundenlohn-denner-2"
@@ -1230,6 +1322,7 @@
         "verkaufer-in-im-stundenlohn-denner-2-1587e27a",
         "verkaufer-in-im-stundenlohn-denner-2-34af0c76",
         "verkaufer-in-im-stundenlohn-denner-2-6f0bf276",
+        "verkaufer-in-im-stundenlohn-denner-2-37fb35d3",
         "verkaufer-in-im-stundenlohn-denner-2"
       ],
       "en": [
@@ -1867,6 +1960,8 @@
       "vendeur-vendeuse-denner-890809cb",
       "vendeur-vendeuse-denner-2-37523b1c",
       "vendeur-vendeuse-denner-1b0ce294",
+      "vendeur-vendeuse-denner-2-92e091d7",
+      "vendeur-vendeuse-denner-90a46bfe",
       "vendeur-vendeuse-denner-2",
       "vendeur-vendeuse-denner"
     ],
@@ -1967,6 +2062,8 @@
         "vendeur-vendeuse-denner-890809cb",
         "vendeur-vendeuse-denner-2-37523b1c",
         "vendeur-vendeuse-denner-1b0ce294",
+        "vendeur-vendeuse-denner-2-92e091d7",
+        "vendeur-vendeuse-denner-90a46bfe",
         "vendeur-vendeuse-denner-2",
         "vendeur-vendeuse-denner"
       ],
@@ -2019,6 +2116,8 @@
         "vendeur-vendeuse-denner-890809cb",
         "vendeur-vendeuse-denner-2-37523b1c",
         "vendeur-vendeuse-denner-1b0ce294",
+        "vendeur-vendeuse-denner-2-92e091d7",
+        "vendeur-vendeuse-denner-90a46bfe",
         "vendeur-vendeuse-denner-2",
         "vendeur-vendeuse-denner"
       ],
@@ -2071,6 +2170,8 @@
         "vendeur-vendeuse-denner-890809cb",
         "vendeur-vendeuse-denner-2-37523b1c",
         "vendeur-vendeuse-denner-1b0ce294",
+        "vendeur-vendeuse-denner-2-92e091d7",
+        "vendeur-vendeuse-denner-90a46bfe",
         "vendeur-vendeuse-denner-2",
         "vendeur-vendeuse-denner"
       ],
@@ -2347,6 +2448,7 @@
       "assistent-in-filialleitung-denner-9b32c66c",
       "assistent-in-filialleitung-denner-8ade4d59",
       "assistent-in-filialleitung-denner-e0ce6eb5",
+      "assistent-in-filialleitung-denner-5f6f3fe5",
       "assistent-in-filialleitung-denner"
     ],
     "previousSlugsByLocale": {
@@ -2397,6 +2499,7 @@
         "assistent-in-filialleitung-denner-9b32c66c",
         "assistent-in-filialleitung-denner-8ade4d59",
         "assistent-in-filialleitung-denner-e0ce6eb5",
+        "assistent-in-filialleitung-denner-5f6f3fe5",
         "assistent-in-filialleitung-denner"
       ],
       "it": [
@@ -2541,6 +2644,7 @@
         "assistent-in-filialleitung-denner-9b32c66c",
         "assistent-in-filialleitung-denner-8ade4d59",
         "assistent-in-filialleitung-denner-e0ce6eb5",
+        "assistent-in-filialleitung-denner-5f6f3fe5",
         "assistent-in-filialleitung-denner"
       ],
       "en": [
@@ -2627,6 +2731,7 @@
         "assistent-in-filialleitung-denner-9b32c66c",
         "assistent-in-filialleitung-denner-8ade4d59",
         "assistent-in-filialleitung-denner-e0ce6eb5",
+        "assistent-in-filialleitung-denner-5f6f3fe5",
         "assistent-in-filialleitung-denner"
       ],
       "fr": [
@@ -2713,6 +2818,7 @@
         "assistent-in-filialleitung-denner-9b32c66c",
         "assistent-in-filialleitung-denner-8ade4d59",
         "assistent-in-filialleitung-denner-e0ce6eb5",
+        "assistent-in-filialleitung-denner-5f6f3fe5",
         "assistent-in-filialleitung-denner"
       ]
     },
@@ -2840,6 +2946,9 @@
       "verkaufer-in-im-stundenlohn-denner-7-2dfd8153",
       "verkaufer-in-im-stundenlohn-denner-23-b057397f",
       "verkaufer-in-im-stundenlohn-denner-4-ca2e7b62",
+      "verkaufer-in-im-stundenlohn-denner-7-6aee29f2",
+      "verkaufer-in-im-stundenlohn-denner-23-2985e163",
+      "verkaufer-in-im-stundenlohn-denner-4-eba34158",
       "verkaufer-in-im-stundenlohn-denner-7",
       "verkaufer-in-im-stundenlohn-denner-23",
       "verkaufer-in-im-stundenlohn-denner-4"
@@ -2916,6 +3025,9 @@
         "verkaufer-in-im-stundenlohn-denner-7-2dfd8153",
         "verkaufer-in-im-stundenlohn-denner-23-b057397f",
         "verkaufer-in-im-stundenlohn-denner-4-ca2e7b62",
+        "verkaufer-in-im-stundenlohn-denner-7-6aee29f2",
+        "verkaufer-in-im-stundenlohn-denner-23-2985e163",
+        "verkaufer-in-im-stundenlohn-denner-4-eba34158",
         "verkaufer-in-im-stundenlohn-denner-7",
         "verkaufer-in-im-stundenlohn-denner-23",
         "verkaufer-in-im-stundenlohn-denner-4"
@@ -3558,6 +3670,11 @@
       "verkaufer-in-denner-29-6f647b93",
       "verkaufer-in-denner-23-ca9e3297",
       "verkaufer-in-denner-samedan-857bb2d8",
+      "verkaufer-in-denner-5-bf10c819",
+      "verkaufer-in-denner-67a00ba2",
+      "verkaufer-in-denner-29-66784727",
+      "verkaufer-in-denner-23-ea5a29f9",
+      "verkaufer-in-denner-samedan-e79d6096",
       "verkaufer-in-denner-5",
       "verkaufer-in-denner",
       "verkaufer-in-denner-29",
@@ -3687,6 +3804,11 @@
         "verkaufer-in-denner-29-6f647b93",
         "verkaufer-in-denner-23-ca9e3297",
         "verkaufer-in-denner-samedan-857bb2d8",
+        "verkaufer-in-denner-5-bf10c819",
+        "verkaufer-in-denner-67a00ba2",
+        "verkaufer-in-denner-29-66784727",
+        "verkaufer-in-denner-23-ea5a29f9",
+        "verkaufer-in-denner-samedan-e79d6096",
         "verkaufer-in-denner-5",
         "verkaufer-in-denner",
         "verkaufer-in-denner-29",
@@ -3722,6 +3844,7 @@
         "verkaufer-in-denner-samedan-bbec7ac2",
         "verkaufer-in-denner-samedan-764e9357",
         "verkaufer-in-denner-samedan-857bb2d8",
+        "verkaufer-in-denner-samedan-e79d6096",
         "verkaufer-in-denner-samedan"
       ],
       "de": [
@@ -3750,6 +3873,7 @@
         "verkaufer-in-denner-samedan-bbec7ac2",
         "verkaufer-in-denner-samedan-764e9357",
         "verkaufer-in-denner-samedan-857bb2d8",
+        "verkaufer-in-denner-samedan-e79d6096",
         "verkaufer-in-denner-samedan"
       ],
       "fr": [
@@ -3781,6 +3905,7 @@
         "verkaufer-in-denner-samedan-bbec7ac2",
         "verkaufer-in-denner-samedan-764e9357",
         "verkaufer-in-denner-samedan-857bb2d8",
+        "verkaufer-in-denner-samedan-e79d6096",
         "verkaufer-in-denner-samedan"
       ]
     },
@@ -4087,6 +4212,14 @@
       "stv-filialleiter-in-denner-5-26504000",
       "stv-filialleiter-in-denner-brugg-be-3664e74d",
       "deputy-branch-manager-denner-amriswil-91088f3a",
+      "stv-filialleiter-in-denner-12-b42992c8",
+      "stv-filialleiter-in-denner-bb5245c5",
+      "stv-filialleiter-in-denner-amriswil-91e8c9ed",
+      "stv-filialleiter-in-denner-16-cb63450c",
+      "stv-filialleiter-in-denner-malters-0a5e9b49",
+      "stv-filialleiter-in-denner-5-16c0f9d9",
+      "stv-filialleiter-in-denner-brugg-be-c577906a",
+      "deputy-branch-manager-denner-amriswil-0b839131",
       "stv-filialleiter-in-denner-12",
       "stv-filialleiter-in-denner",
       "stv-filialleiter-in-denner-amriswil",
@@ -4184,6 +4317,9 @@
         "stv-filialleiter-in-denner-c0fbe7d2",
         "stv-filialleiter-in-denner-5-26504000",
         "stv-filialleiter-in-denner-brugg-be-3664e74d",
+        "stv-filialleiter-in-denner-bb5245c5",
+        "stv-filialleiter-in-denner-5-16c0f9d9",
+        "stv-filialleiter-in-denner-brugg-be-c577906a",
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-5",
         "stv-filialleiter-in-denner-brugg-be"
@@ -4242,6 +4378,8 @@
         "deputy-branch-manager-denner-amriswil-4cce5e98",
         "stv-filialleiter-in-denner-brugg-be-3664e74d",
         "deputy-branch-manager-denner-amriswil-91088f3a",
+        "stv-filialleiter-in-denner-brugg-be-c577906a",
+        "deputy-branch-manager-denner-amriswil-0b839131",
         "stv-filialleiter-in-denner-brugg-be",
         "deputy-branch-manager-denner-amriswil"
       ],
@@ -4278,6 +4416,7 @@
         "stv-filialleiter-in-denner-brugg-be-7a320c28",
         "stv-filialleiter-in-denner-brugg-be-4aa69f18",
         "stv-filialleiter-in-denner-brugg-be-3664e74d",
+        "stv-filialleiter-in-denner-brugg-be-c577906a",
         "stv-filialleiter-in-denner-brugg-be"
       ],
       "de": [
@@ -4518,7 +4657,7 @@
       "vendeur-dans-le-salaire-horaire-denner-ag-allschwil-e6b02874",
       "verkaufer-in-im-stundenlohn-denner-8pkow7",
       "verkaufer-in-im-stundenlohn-denner-6",
-      "verkaufer-in-im-stundenlohn-denner-bubendorf",
+      "verkaufer-in-im-stundenlohn-denner-bubendorf-c5a4da74",
       "verkaufer-in-im-stundenlohn-denner-ppf2qg",
       "verkaufer-in-im-stundenlohn-denner-bremgarten",
       "verkaufer-in-im-stundenlohn-denner-7-69b2fc16",
@@ -4575,6 +4714,9 @@
       "verkaufer-in-im-stundenlohn-denner-9-4ee71f51",
       "verkaufer-in-im-stundenlohn-denner-7-466a04be",
       "verkaufer-in-im-stundenlohn-denner-9-2ab3637c",
+      "verkaufer-in-im-stundenlohn-denner-7-e2b26547",
+      "verkaufer-in-im-stundenlohn-denner-9-2d4e1d60",
+      "verkaufer-in-im-stundenlohn-denner-bubendorf",
       "verkaufer-in-im-stundenlohn-denner-7",
       "verkaufer-in-im-stundenlohn-denner-9"
     ],
@@ -4638,29 +4780,33 @@
         "verkaufer-in-im-stundenlohn-denner-9-ecf11f77",
         "verkaufer-in-im-stundenlohn-denner-9-4ee71f51",
         "verkaufer-in-im-stundenlohn-denner-9-2ab3637c",
+        "verkaufer-in-im-stundenlohn-denner-9-2d4e1d60",
         "verkaufer-in-im-stundenlohn-denner-9"
       ],
       "en": [
         "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
         "seller-in-the-hourly-wage-denner-ag-allschwil-208f001c",
-        "verkaufer-in-im-stundenlohn-denner-bubendorf",
+        "verkaufer-in-im-stundenlohn-denner-bubendorf-c5a4da74",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-bubendorf"
       ],
       "de": [
         "verkaufer-in-im-stundenlohn-denner-wilen-b",
         "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo-ea69cb1c",
-        "verkaufer-in-im-stundenlohn-denner-bubendorf",
+        "verkaufer-in-im-stundenlohn-denner-bubendorf-c5a4da74",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
         "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
-        "verkaufer-in-im-stundenlohn-denner-worb"
+        "verkaufer-in-im-stundenlohn-denner-worb",
+        "verkaufer-in-im-stundenlohn-denner-bubendorf"
       ],
       "fr": [
         "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
         "vendeur-dans-le-salaire-horaire-denner-ag-allschwil-e6b02874",
-        "verkaufer-in-im-stundenlohn-denner-bubendorf",
+        "verkaufer-in-im-stundenlohn-denner-bubendorf-c5a4da74",
         "verkaufer-in-im-stundenlohn-denner-bremgarten",
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-bubendorf"
       ]
     },
     "postalCode": "9535",
@@ -5224,6 +5370,7 @@
       "verkaufer-in-denner-biel-bienne-1f15e6fd",
       "verkaufer-in-denner-biel-bienne-0505d730",
       "verkaufer-in-denner-biel-bienne-c5a2b4e2",
+      "verkaufer-in-denner-biel-bienne-84b23a40",
       "verkaufer-in-denner-biel-bienne"
     ],
     "previousSlugsByLocale": {
@@ -5274,6 +5421,7 @@
         "verkaufer-in-denner-biel-bienne-1f15e6fd",
         "verkaufer-in-denner-biel-bienne-0505d730",
         "verkaufer-in-denner-biel-bienne-c5a2b4e2",
+        "verkaufer-in-denner-biel-bienne-84b23a40",
         "verkaufer-in-denner-biel-bienne"
       ],
       "it": [
@@ -5335,6 +5483,7 @@
         "verkaufer-in-denner-biel-bienne-1f15e6fd",
         "verkaufer-in-denner-biel-bienne-0505d730",
         "verkaufer-in-denner-biel-bienne-c5a2b4e2",
+        "verkaufer-in-denner-biel-bienne-84b23a40",
         "verkaufer-in-denner-biel-bienne"
       ],
       "en": [
@@ -5385,6 +5534,7 @@
         "verkaufer-in-denner-biel-bienne-1f15e6fd",
         "verkaufer-in-denner-biel-bienne-0505d730",
         "verkaufer-in-denner-biel-bienne-c5a2b4e2",
+        "verkaufer-in-denner-biel-bienne-84b23a40",
         "verkaufer-in-denner-biel-bienne"
       ],
       "fr": [
@@ -5434,6 +5584,7 @@
         "verkaufer-in-denner-biel-bienne-1f15e6fd",
         "verkaufer-in-denner-biel-bienne-0505d730",
         "verkaufer-in-denner-biel-bienne-c5a2b4e2",
+        "verkaufer-in-denner-biel-bienne-84b23a40",
         "verkaufer-in-denner-biel-bienne"
       ]
     },
@@ -6393,6 +6544,10 @@
       "verkaufer-in-im-stundenlohn-denner-20-b1a9bac2",
       "verkaufer-in-im-stundenlohn-denner-sursee-9122819b",
       "verkaufer-in-im-stundenlohn-denner-3-058bca95",
+      "verkaufer-in-im-stundenlohn-denner-steinhausen-4a399d28",
+      "verkaufer-in-im-stundenlohn-denner-20-527ebe14",
+      "verkaufer-in-im-stundenlohn-denner-sursee-9ab1d96c",
+      "verkaufer-in-im-stundenlohn-denner-3-707786e4",
       "verkaufer-in-im-stundenlohn-denner-steinhausen",
       "verkaufer-in-im-stundenlohn-denner-20",
       "verkaufer-in-im-stundenlohn-denner-sursee",
@@ -6588,6 +6743,10 @@
         "verkaufer-in-im-stundenlohn-denner-20-b1a9bac2",
         "verkaufer-in-im-stundenlohn-denner-sursee-9122819b",
         "verkaufer-in-im-stundenlohn-denner-3-058bca95",
+        "verkaufer-in-im-stundenlohn-denner-steinhausen-4a399d28",
+        "verkaufer-in-im-stundenlohn-denner-20-527ebe14",
+        "verkaufer-in-im-stundenlohn-denner-sursee-9ab1d96c",
+        "verkaufer-in-im-stundenlohn-denner-3-707786e4",
         "verkaufer-in-im-stundenlohn-denner-steinhausen",
         "verkaufer-in-im-stundenlohn-denner-20",
         "verkaufer-in-im-stundenlohn-denner-sursee",
@@ -6679,6 +6838,8 @@
         "verkaufer-in-im-stundenlohn-denner-sursee-8db81756",
         "verkaufer-in-im-stundenlohn-denner-steinhausen-e2cc2b3c",
         "verkaufer-in-im-stundenlohn-denner-sursee-9122819b",
+        "verkaufer-in-im-stundenlohn-denner-steinhausen-4a399d28",
+        "verkaufer-in-im-stundenlohn-denner-sursee-9ab1d96c",
         "verkaufer-in-im-stundenlohn-denner-steinhausen",
         "verkaufer-in-im-stundenlohn-denner-sursee"
       ],
@@ -6768,6 +6929,8 @@
         "verkaufer-in-im-stundenlohn-denner-sursee-8db81756",
         "verkaufer-in-im-stundenlohn-denner-steinhausen-e2cc2b3c",
         "verkaufer-in-im-stundenlohn-denner-sursee-9122819b",
+        "verkaufer-in-im-stundenlohn-denner-steinhausen-4a399d28",
+        "verkaufer-in-im-stundenlohn-denner-sursee-9ab1d96c",
         "verkaufer-in-im-stundenlohn-denner-steinhausen",
         "verkaufer-in-im-stundenlohn-denner-sursee"
       ],
@@ -7392,6 +7555,7 @@
       "assistent-in-filialleitung-denner-wohlen-96ce3b2e",
       "assistent-in-filialleitung-denner-wohlen-0cc0e9d3",
       "assistent-in-filialleitung-denner-wohlen-65bbb591",
+      "assistent-in-filialleitung-denner-wohlen-24f9441a",
       "assistent-in-filialleitung-denner-wohlen"
     ],
     "previousSlugsByLocale": {
@@ -7472,6 +7636,7 @@
         "assistent-in-filialleitung-denner-wohlen-96ce3b2e",
         "assistent-in-filialleitung-denner-wohlen-0cc0e9d3",
         "assistent-in-filialleitung-denner-wohlen-65bbb591",
+        "assistent-in-filialleitung-denner-wohlen-24f9441a",
         "assistent-in-filialleitung-denner-wohlen"
       ],
       "fr": [
@@ -7527,6 +7692,7 @@
         "assistent-in-filialleitung-denner-wohlen-96ce3b2e",
         "assistent-in-filialleitung-denner-wohlen-0cc0e9d3",
         "assistent-in-filialleitung-denner-wohlen-65bbb591",
+        "assistent-in-filialleitung-denner-wohlen-24f9441a",
         "assistent-in-filialleitung-denner-wohlen"
       ]
     },
@@ -8064,6 +8230,9 @@
       "vendeur-denner-zurich-094ef7d2",
       "venditore-denner-fullinsdorf-4140f7af",
       "vendeur-denner-fullinsdorf-52e74e99",
+      "vendeur-denner-zurich-7575efbe",
+      "venditore-denner-fullinsdorf-d808bfea",
+      "vendeur-denner-fullinsdorf-720565af",
       "vendeur-denner-zurich",
       "venditore-denner-fullinsdorf",
       "vendeur-denner-fullinsdorf"
@@ -8132,6 +8301,7 @@
         "venditore-denner-fullinsdorf-1123e85a",
         "venditore-denner-fullinsdorf-47279ef2",
         "venditore-denner-fullinsdorf-4140f7af",
+        "venditore-denner-fullinsdorf-d808bfea",
         "venditore-denner-fullinsdorf"
       ],
       "en": [
@@ -8251,6 +8421,8 @@
         "vendeur-denner-fullinsdorf-701ba5d9",
         "vendeur-denner-zurich-094ef7d2",
         "vendeur-denner-fullinsdorf-52e74e99",
+        "vendeur-denner-zurich-7575efbe",
+        "vendeur-denner-fullinsdorf-720565af",
         "vendeur-denner-zurich",
         "vendeur-denner-fullinsdorf"
       ],
@@ -10007,6 +10179,28 @@
       "verkaufer-in-im-stundenlohn-denner-13-b5198a8f",
       "verkaufer-in-im-stundenlohn-denner-15-578a82f3",
       "verkaufer-in-im-stundenlohn-denner-3-54768617",
+      "verkaufer-in-im-stundenlohn-denner-buchs-ag-7bfc13f0",
+      "verkaufer-in-im-stundenlohn-denner-9-2cd92ab0",
+      "verkaufer-in-im-stundenlohn-denner-14-db58eaf2",
+      "verkaufer-in-im-stundenlohn-denner-10-4074d672",
+      "verkaufer-in-im-stundenlohn-denner-16-06682d07",
+      "verkaufer-in-im-stundenlohn-denner-12-51a8f463",
+      "seller-denner-ag-frauenfeld-23af274b",
+      "verkaufer-in-im-stundenlohn-denner-zug-012d2b4e",
+      "verkaufer-in-im-stundenlohn-denner-amriswil-615f6744",
+      "verkaufer-in-im-stundenlohn-denner-rothenburg-b5dbe2b8",
+      "verkaufer-in-im-stundenlohn-denner-oftringen-1556e84b",
+      "verkaufer-in-im-stundenlohn-denner-reiden-f4e75f27",
+      "verkaufer-in-denner-ag-frauenfeld-06cdbded",
+      "vendeur-denner-ag-frauenfeld-6a113891",
+      "venditore-denner-ag-frauenfeld-9e62fd14",
+      "verkaufer-in-im-stundenlohn-denner-19-acd04e31",
+      "verkaufer-in-im-stundenlohn-denner-11-b53749e4",
+      "verkaufer-in-im-stundenlohn-denner-20-262a8329",
+      "verkaufer-in-im-stundenlohn-denner-5bzt2h-8044c2cf",
+      "verkaufer-in-im-stundenlohn-denner-13-02f88441",
+      "verkaufer-in-im-stundenlohn-denner-15-680cc4dd",
+      "verkaufer-in-im-stundenlohn-denner-3-eb548c93",
       "verkaufer-in-im-stundenlohn-denner-buchs-ag",
       "verkaufer-in-im-stundenlohn-denner-9",
       "verkaufer-in-im-stundenlohn-denner-14",
@@ -10286,6 +10480,11 @@
         "verkaufer-in-im-stundenlohn-denner-16-7cf163d7",
         "verkaufer-in-im-stundenlohn-denner-12-5d30e74c",
         "verkaufer-in-im-stundenlohn-denner-3-54768617",
+        "verkaufer-in-im-stundenlohn-denner-14-db58eaf2",
+        "verkaufer-in-im-stundenlohn-denner-10-4074d672",
+        "verkaufer-in-im-stundenlohn-denner-16-06682d07",
+        "verkaufer-in-im-stundenlohn-denner-12-51a8f463",
+        "verkaufer-in-im-stundenlohn-denner-3-eb548c93",
         "verkaufer-in-im-stundenlohn-denner-14",
         "verkaufer-in-im-stundenlohn-denner-10",
         "verkaufer-in-im-stundenlohn-denner-16",
@@ -10567,6 +10766,13 @@
         "verkaufer-in-im-stundenlohn-denner-rothenburg-986ba5ea",
         "verkaufer-in-im-stundenlohn-denner-oftringen-b4293a5f",
         "verkaufer-in-im-stundenlohn-denner-reiden-d4e5210b",
+        "verkaufer-in-im-stundenlohn-denner-buchs-ag-7bfc13f0",
+        "seller-denner-ag-frauenfeld-23af274b",
+        "verkaufer-in-im-stundenlohn-denner-zug-012d2b4e",
+        "verkaufer-in-im-stundenlohn-denner-amriswil-615f6744",
+        "verkaufer-in-im-stundenlohn-denner-rothenburg-b5dbe2b8",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-1556e84b",
+        "verkaufer-in-im-stundenlohn-denner-reiden-f4e75f27",
         "verkaufer-in-im-stundenlohn-denner-buchs-ag",
         "seller-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug",
@@ -10850,6 +11056,13 @@
         "verkaufer-in-im-stundenlohn-denner-rothenburg-986ba5ea",
         "verkaufer-in-im-stundenlohn-denner-oftringen-b4293a5f",
         "verkaufer-in-im-stundenlohn-denner-reiden-d4e5210b",
+        "verkaufer-in-im-stundenlohn-denner-buchs-ag-7bfc13f0",
+        "verkaufer-in-denner-ag-frauenfeld-06cdbded",
+        "verkaufer-in-im-stundenlohn-denner-zug-012d2b4e",
+        "verkaufer-in-im-stundenlohn-denner-amriswil-615f6744",
+        "verkaufer-in-im-stundenlohn-denner-rothenburg-b5dbe2b8",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-1556e84b",
+        "verkaufer-in-im-stundenlohn-denner-reiden-f4e75f27",
         "verkaufer-in-im-stundenlohn-denner-buchs-ag",
         "verkaufer-in-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug",
@@ -11133,6 +11346,13 @@
         "verkaufer-in-im-stundenlohn-denner-rothenburg-986ba5ea",
         "verkaufer-in-im-stundenlohn-denner-oftringen-b4293a5f",
         "verkaufer-in-im-stundenlohn-denner-reiden-d4e5210b",
+        "verkaufer-in-im-stundenlohn-denner-buchs-ag-7bfc13f0",
+        "vendeur-denner-ag-frauenfeld-6a113891",
+        "verkaufer-in-im-stundenlohn-denner-zug-012d2b4e",
+        "verkaufer-in-im-stundenlohn-denner-amriswil-615f6744",
+        "verkaufer-in-im-stundenlohn-denner-rothenburg-b5dbe2b8",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-1556e84b",
+        "verkaufer-in-im-stundenlohn-denner-reiden-f4e75f27",
         "verkaufer-in-im-stundenlohn-denner-buchs-ag",
         "vendeur-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug",
@@ -11914,6 +12134,11 @@
       "verkaufer-in-denner-gossau-zh-97e800ce",
       "verkaufer-in-denner-dubendorf-c89f7bf9",
       "vendeur-denner-bubendorf-99ee8497",
+      "verkaufer-in-denner-bubendorf-ad35bb54",
+      "venditore-denner-bubendorf-4b203019",
+      "verkaufer-in-denner-gossau-zh-0a89b9e4",
+      "verkaufer-in-denner-dubendorf-4782a4f2",
+      "vendeur-denner-bubendorf-3833c720",
       "verkaufer-in-denner-bubendorf",
       "venditore-denner-bubendorf",
       "verkaufer-in-denner-gossau-zh",
@@ -12110,6 +12335,10 @@
         "venditore-denner-bubendorf-9df33b03",
         "verkaufer-in-denner-gossau-zh-97e800ce",
         "verkaufer-in-denner-dubendorf-c89f7bf9",
+        "verkaufer-in-denner-bubendorf-ad35bb54",
+        "venditore-denner-bubendorf-4b203019",
+        "verkaufer-in-denner-gossau-zh-0a89b9e4",
+        "verkaufer-in-denner-dubendorf-4782a4f2",
         "verkaufer-in-denner-bubendorf",
         "venditore-denner-bubendorf",
         "verkaufer-in-denner-gossau-zh",
@@ -12215,6 +12444,8 @@
         "verkaufer-in-denner-dubendorf-b7f8309d",
         "verkaufer-in-denner-bubendorf-08db4af5",
         "verkaufer-in-denner-dubendorf-c89f7bf9",
+        "verkaufer-in-denner-bubendorf-ad35bb54",
+        "verkaufer-in-denner-dubendorf-4782a4f2",
         "verkaufer-in-denner-bubendorf",
         "verkaufer-in-denner-dubendorf"
       ],
@@ -12359,6 +12590,9 @@
         "vendeur-denner-bubendorf-99ee8497",
         "verkaufer-in-denner-bubendorf-08db4af5",
         "verkaufer-in-denner-dubendorf-c89f7bf9",
+        "vendeur-denner-bubendorf-3833c720",
+        "verkaufer-in-denner-bubendorf-ad35bb54",
+        "verkaufer-in-denner-dubendorf-4782a4f2",
         "vendeur-denner-bubendorf",
         "verkaufer-in-denner-bubendorf",
         "verkaufer-in-denner-dubendorf"
@@ -12456,6 +12690,8 @@
         "verkaufer-in-denner-dubendorf-b7f8309d",
         "verkaufer-in-denner-bubendorf-08db4af5",
         "verkaufer-in-denner-dubendorf-c89f7bf9",
+        "verkaufer-in-denner-bubendorf-ad35bb54",
+        "verkaufer-in-denner-dubendorf-4782a4f2",
         "verkaufer-in-denner-bubendorf",
         "verkaufer-in-denner-dubendorf"
       ]
@@ -13397,6 +13633,8 @@
       "verkaufer-in-denner-biel-bienne-277ad1b3",
       "verkaufer-in-denner-13-655b1283",
       "verkaufer-in-denner-biel-bienne-294cb06b",
+      "verkaufer-in-denner-13-32101847",
+      "verkaufer-in-denner-biel-bienne-b35161d4",
       "verkaufer-in-denner-13",
       "verkaufer-in-denner-biel-bienne"
     ],
@@ -13517,6 +13755,8 @@
         "verkaufer-in-denner-biel-bienne-277ad1b3",
         "verkaufer-in-denner-13-655b1283",
         "verkaufer-in-denner-biel-bienne-294cb06b",
+        "verkaufer-in-denner-13-32101847",
+        "verkaufer-in-denner-biel-bienne-b35161d4",
         "verkaufer-in-denner-13",
         "verkaufer-in-denner-biel-bienne"
       ],
@@ -13576,6 +13816,7 @@
         "verkaufer-in-denner-biel-bienne-9a06f081",
         "verkaufer-in-denner-biel-bienne-277ad1b3",
         "verkaufer-in-denner-biel-bienne-294cb06b",
+        "verkaufer-in-denner-biel-bienne-b35161d4",
         "verkaufer-in-denner-biel-bienne"
       ],
       "fr": [
@@ -13633,6 +13874,7 @@
         "verkaufer-in-denner-biel-bienne-9a06f081",
         "verkaufer-in-denner-biel-bienne-277ad1b3",
         "verkaufer-in-denner-biel-bienne-294cb06b",
+        "verkaufer-in-denner-biel-bienne-b35161d4",
         "verkaufer-in-denner-biel-bienne"
       ]
     },
@@ -14764,6 +15006,10 @@
       "vendeur-vendeuse-denner-3-a6ca4780",
       "vendeur-vendeuse-denner-2-47860742",
       "vendeur-vendeuse-denner-be08997d",
+      "vendeur-vendeuse-denner-4-361be88d",
+      "vendeur-vendeuse-denner-3-9cccdab2",
+      "vendeur-vendeuse-denner-2-4db4b7fa",
+      "vendeur-vendeuse-denner-6c59dd9b",
       "vendeur-vendeuse-denner-4",
       "vendeur-vendeuse-denner-3",
       "vendeur-vendeuse-denner-2",
@@ -14847,6 +15093,8 @@
         "vendeur-vendeuse-denner-2-494071fd",
         "vendeur-vendeuse-denner-3-a6ca4780",
         "vendeur-vendeuse-denner-2-47860742",
+        "vendeur-vendeuse-denner-3-9cccdab2",
+        "vendeur-vendeuse-denner-2-4db4b7fa",
         "vendeur-vendeuse-denner-3",
         "vendeur-vendeuse-denner-2"
       ],
@@ -14892,6 +15140,7 @@
         "vendeur-vendeuse-denner-a38e7fda",
         "vendeur-vendeuse-denner-78d7b1f1",
         "vendeur-vendeuse-denner-be08997d",
+        "vendeur-vendeuse-denner-6c59dd9b",
         "vendeur-vendeuse-denner"
       ]
     },
@@ -15296,6 +15545,14 @@
       "verkaufer-in-im-stundenlohn-denner-3-5fda5556",
       "seller-in-the-hourly-wage-denner-ag-matzingen-f62fcc5b",
       "vendeur-dans-le-salaire-horaire-denner-ag-matzingen-84e1834a",
+      "verkaufer-in-im-stundenlohn-denner-9-164dc904",
+      "verkaufer-in-im-stundenlohn-denner-2-59a99f55",
+      "verkaufer-in-im-stundenlohn-denner-10-2448be92",
+      "verkaufer-in-im-stundenlohn-denner-4-55903776",
+      "venditore-nel-salario-orario-denner-ag-matzingen-f4079c80",
+      "verkaufer-in-im-stundenlohn-denner-3-8eaa847b",
+      "seller-in-the-hourly-wage-denner-ag-matzingen-15d0e9be",
+      "vendeur-dans-le-salaire-horaire-denner-ag-matzingen-d770d178",
       "verkaufer-in-im-stundenlohn-denner-9",
       "verkaufer-in-im-stundenlohn-denner-2",
       "verkaufer-in-im-stundenlohn-denner-10",
@@ -15580,6 +15837,12 @@
         "venditore-nel-salario-orario-denner-ag-matzingen-cf7a9aa1",
         "verkaufer-in-im-stundenlohn-denner-3-5fda5556",
         "verkaufer-in-im-stundenlohn-denner-2-4f7af608",
+        "verkaufer-in-im-stundenlohn-denner-9-164dc904",
+        "verkaufer-in-im-stundenlohn-denner-10-2448be92",
+        "verkaufer-in-im-stundenlohn-denner-4-55903776",
+        "venditore-nel-salario-orario-denner-ag-matzingen-f4079c80",
+        "verkaufer-in-im-stundenlohn-denner-3-8eaa847b",
+        "verkaufer-in-im-stundenlohn-denner-2-59a99f55",
         "verkaufer-in-im-stundenlohn-denner-9",
         "verkaufer-in-im-stundenlohn-denner-10",
         "verkaufer-in-im-stundenlohn-denner-4",
@@ -15644,6 +15907,7 @@
         "seller-in-the-hourly-wage-denner-ag-matzingen-6df6ea71",
         "seller-in-the-hourly-wage-denner-ag-matzingen-0ff15f23",
         "seller-in-the-hourly-wage-denner-ag-matzingen-f62fcc5b",
+        "seller-in-the-hourly-wage-denner-ag-matzingen-15d0e9be",
         "seller-in-the-hourly-wage-denner-ag-matzingen"
       ],
       "fr": [
@@ -15703,6 +15967,7 @@
         "vendeur-dans-le-salaire-horaire-denner-ag-matzingen-fb4279e6",
         "vendeur-dans-le-salaire-horaire-denner-ag-matzingen-1857cbb1",
         "vendeur-dans-le-salaire-horaire-denner-ag-matzingen-84e1834a",
+        "vendeur-dans-le-salaire-horaire-denner-ag-matzingen-d770d178",
         "vendeur-dans-le-salaire-horaire-denner-ag-matzingen"
       ]
     },
@@ -16325,6 +16590,8 @@
       "verkaufer-in-denner-biel-bienne-ab6bdee6",
       "verkaufer-in-denner-11-05a96cce",
       "verkaufer-in-denner-biel-bienne-9ee9b932",
+      "verkaufer-in-denner-11-1f338d5c",
+      "verkaufer-in-denner-biel-bienne-3d0e3ead",
       "verkaufer-in-denner-11",
       "verkaufer-in-denner-biel-bienne"
     ],
@@ -16386,6 +16653,7 @@
         "verkaufer-in-denner-biel-bienne-a95b4bb3",
         "verkaufer-in-denner-biel-bienne-ab6bdee6",
         "verkaufer-in-denner-biel-bienne-9ee9b932",
+        "verkaufer-in-denner-biel-bienne-3d0e3ead",
         "verkaufer-in-denner-biel-bienne"
       ],
       "it": [
@@ -16451,6 +16719,7 @@
         "verkaufer-in-denner-11-58158bf9",
         "verkaufer-in-denner-11-7f1b7db6",
         "verkaufer-in-denner-11-05a96cce",
+        "verkaufer-in-denner-11-1f338d5c",
         "verkaufer-in-denner-11"
       ],
       "en": [
@@ -16511,6 +16780,7 @@
         "verkaufer-in-denner-biel-bienne-a95b4bb3",
         "verkaufer-in-denner-biel-bienne-ab6bdee6",
         "verkaufer-in-denner-biel-bienne-9ee9b932",
+        "verkaufer-in-denner-biel-bienne-3d0e3ead",
         "verkaufer-in-denner-biel-bienne"
       ],
       "fr": [
@@ -16571,6 +16841,7 @@
         "verkaufer-in-denner-biel-bienne-a95b4bb3",
         "verkaufer-in-denner-biel-bienne-ab6bdee6",
         "verkaufer-in-denner-biel-bienne-9ee9b932",
+        "verkaufer-in-denner-biel-bienne-3d0e3ead",
         "verkaufer-in-denner-biel-bienne"
       ]
     },
@@ -17408,6 +17679,7 @@
       "verkaufer-in-denner-pratteln-51c71faa",
       "verkaufer-in-denner-pratteln-20fa9864",
       "verkaufer-in-denner-pratteln-36c9f36b",
+      "verkaufer-in-denner-pratteln-8530b0bb",
       "verkaufer-in-denner-pratteln"
     ],
     "previousSlugsByLocale": {
@@ -17481,6 +17753,7 @@
         "verkaufer-in-denner-pratteln-51c71faa",
         "verkaufer-in-denner-pratteln-20fa9864",
         "verkaufer-in-denner-pratteln-36c9f36b",
+        "verkaufer-in-denner-pratteln-8530b0bb",
         "verkaufer-in-denner-pratteln"
       ],
       "de": [
@@ -17525,6 +17798,7 @@
         "verkaufer-in-denner-pratteln-51c71faa",
         "verkaufer-in-denner-pratteln-20fa9864",
         "verkaufer-in-denner-pratteln-36c9f36b",
+        "verkaufer-in-denner-pratteln-8530b0bb",
         "verkaufer-in-denner-pratteln"
       ],
       "fr": [
@@ -17575,6 +17849,7 @@
         "verkaufer-in-denner-pratteln-51c71faa",
         "verkaufer-in-denner-pratteln-20fa9864",
         "verkaufer-in-denner-pratteln-36c9f36b",
+        "verkaufer-in-denner-pratteln-8530b0bb",
         "verkaufer-in-denner-pratteln"
       ]
     },
@@ -18631,6 +18906,13 @@
       "verkaufer-in-im-stundenlohn-denner-4-c5a58437",
       "verkaufer-in-im-stundenlohn-denner-2-110170e8",
       "verkaufer-in-im-stundenlohn-denner-oftringen-eff35100",
+      "verkaufer-in-im-stundenlohn-denner-7-3bcc6408",
+      "verkaufer-in-im-stundenlohn-denner-9-a0c90073",
+      "verkaufer-in-im-stundenlohn-denner-32-7f68a8f0",
+      "verkaufer-in-im-stundenlohn-denner-3-5508dc6a",
+      "verkaufer-in-im-stundenlohn-denner-4-0ed456d8",
+      "verkaufer-in-im-stundenlohn-denner-2-155767f6",
+      "verkaufer-in-im-stundenlohn-denner-oftringen-b1f33fd3",
       "verkaufer-in-im-stundenlohn-denner-7",
       "verkaufer-in-im-stundenlohn-denner-9",
       "verkaufer-in-im-stundenlohn-denner-32",
@@ -18839,6 +19121,11 @@
         "verkaufer-in-im-stundenlohn-denner-3-843cd16d",
         "verkaufer-in-im-stundenlohn-denner-4-c5a58437",
         "verkaufer-in-im-stundenlohn-denner-2-110170e8",
+        "verkaufer-in-im-stundenlohn-denner-7-3bcc6408",
+        "verkaufer-in-im-stundenlohn-denner-9-a0c90073",
+        "verkaufer-in-im-stundenlohn-denner-3-5508dc6a",
+        "verkaufer-in-im-stundenlohn-denner-4-0ed456d8",
+        "verkaufer-in-im-stundenlohn-denner-2-155767f6",
         "verkaufer-in-im-stundenlohn-denner-7",
         "verkaufer-in-im-stundenlohn-denner-9",
         "verkaufer-in-im-stundenlohn-denner-3",
@@ -18897,6 +19184,7 @@
         "verkaufer-in-im-stundenlohn-denner-oftringen-10e274cf",
         "verkaufer-in-im-stundenlohn-denner-oftringen-15965efe",
         "verkaufer-in-im-stundenlohn-denner-oftringen-eff35100",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-b1f33fd3",
         "verkaufer-in-im-stundenlohn-denner-oftringen"
       ],
       "de": [
@@ -18948,6 +19236,7 @@
         "verkaufer-in-im-stundenlohn-denner-oftringen-10e274cf",
         "verkaufer-in-im-stundenlohn-denner-oftringen-15965efe",
         "verkaufer-in-im-stundenlohn-denner-oftringen-eff35100",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-b1f33fd3",
         "verkaufer-in-im-stundenlohn-denner-oftringen"
       ],
       "fr": [
@@ -19002,6 +19291,7 @@
         "verkaufer-in-im-stundenlohn-denner-oftringen-10e274cf",
         "verkaufer-in-im-stundenlohn-denner-oftringen-15965efe",
         "verkaufer-in-im-stundenlohn-denner-oftringen-eff35100",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-b1f33fd3",
         "verkaufer-in-im-stundenlohn-denner-oftringen"
       ]
     },
@@ -19684,6 +19974,9 @@
       "verkaufer-in-denner-14-960f08c2",
       "verkaufer-in-denner-wetzikon-ec4afa88",
       "verkaufer-in-denner-winterthur-cdd3258f",
+      "verkaufer-in-denner-14-4e780a8b",
+      "verkaufer-in-denner-wetzikon-9d8fdc18",
+      "verkaufer-in-denner-winterthur-65f02792",
       "verkaufer-in-denner-14",
       "verkaufer-in-denner-wetzikon",
       "verkaufer-in-denner-winterthur"
@@ -19787,6 +20080,8 @@
         "verkaufer-in-denner-winterthur-903fdd11",
         "verkaufer-in-denner-wetzikon-ec4afa88",
         "verkaufer-in-denner-winterthur-cdd3258f",
+        "verkaufer-in-denner-wetzikon-9d8fdc18",
+        "verkaufer-in-denner-winterthur-65f02792",
         "verkaufer-in-denner-wetzikon",
         "verkaufer-in-denner-winterthur"
       ],
@@ -19873,6 +20168,7 @@
         "verkaufer-in-denner-winterthur-ac3953ad",
         "verkaufer-in-denner-winterthur-903fdd11",
         "verkaufer-in-denner-winterthur-cdd3258f",
+        "verkaufer-in-denner-winterthur-65f02792",
         "verkaufer-in-denner-winterthur"
       ],
       "fr": [
@@ -19936,6 +20232,7 @@
         "verkaufer-in-denner-winterthur-ac3953ad",
         "verkaufer-in-denner-winterthur-903fdd11",
         "verkaufer-in-denner-winterthur-cdd3258f",
+        "verkaufer-in-denner-winterthur-65f02792",
         "verkaufer-in-denner-winterthur"
       ]
     },
@@ -20827,6 +21124,8 @@
       "verkaufer-in-denner-binningen-baaad69a",
       "verkaufer-in-denner-12-ceab2691",
       "verkaufer-in-denner-binningen-fc9fe13d",
+      "verkaufer-in-denner-12-4469f59c",
+      "verkaufer-in-denner-binningen-99e12092",
       "verkaufer-in-denner-12",
       "verkaufer-in-denner-binningen"
     ],
@@ -20894,6 +21193,7 @@
         "verkaufer-in-denner-12-b6b80f40",
         "verkaufer-in-denner-12-b13ba2ac",
         "verkaufer-in-denner-12-ceab2691",
+        "verkaufer-in-denner-12-4469f59c",
         "verkaufer-in-denner-12"
       ],
       "en": [
@@ -20955,6 +21255,7 @@
         "verkaufer-in-denner-binningen-139fe4b0",
         "verkaufer-in-denner-binningen-baaad69a",
         "verkaufer-in-denner-binningen-fc9fe13d",
+        "verkaufer-in-denner-binningen-99e12092",
         "verkaufer-in-denner-binningen"
       ],
       "de": [
@@ -21010,6 +21311,7 @@
         "verkaufer-in-denner-binningen-139fe4b0",
         "verkaufer-in-denner-binningen-baaad69a",
         "verkaufer-in-denner-binningen-fc9fe13d",
+        "verkaufer-in-denner-binningen-99e12092",
         "verkaufer-in-denner-binningen"
       ],
       "fr": [
@@ -21071,6 +21373,7 @@
         "verkaufer-in-denner-binningen-139fe4b0",
         "verkaufer-in-denner-binningen-baaad69a",
         "verkaufer-in-denner-binningen-fc9fe13d",
+        "verkaufer-in-denner-binningen-99e12092",
         "verkaufer-in-denner-binningen"
       ]
     },
@@ -21874,6 +22177,8 @@
       "vendeur-vendeuse-denner-024dfda0",
       "vendeur-vendeuse-denner-3-2884967a",
       "vendeur-vendeuse-denner-b3606eb8",
+      "vendeur-vendeuse-denner-3-13db75ab",
+      "vendeur-vendeuse-denner-ace21bac",
       "vendeur-vendeuse-denner-3",
       "vendeur-vendeuse-denner"
     ],
@@ -21925,6 +22230,8 @@
         "vendeur-vendeuse-denner-024dfda0",
         "vendeur-vendeuse-denner-3-2884967a",
         "vendeur-vendeuse-denner-b3606eb8",
+        "vendeur-vendeuse-denner-3-13db75ab",
+        "vendeur-vendeuse-denner-ace21bac",
         "vendeur-vendeuse-denner-3",
         "vendeur-vendeuse-denner"
       ],
@@ -21932,12 +22239,14 @@
         "vendeur-vendeuse-denner-3-f6296a46",
         "vendeur-vendeuse-denner-3-ed120ecd",
         "vendeur-vendeuse-denner-3-2884967a",
+        "vendeur-vendeuse-denner-3-13db75ab",
         "vendeur-vendeuse-denner-3"
       ],
       "de": [
         "vendeur-vendeuse-denner-3-f6296a46",
         "vendeur-vendeuse-denner-3-ed120ecd",
         "vendeur-vendeuse-denner-3-2884967a",
+        "vendeur-vendeuse-denner-3-13db75ab",
         "vendeur-vendeuse-denner-3"
       ],
       "fr": [
@@ -22311,6 +22620,13 @@
       "venditore-in-orario-denner-konolfingen-cdf13b21",
       "venditore-denner-ag-stein-ag-b5bd3a15",
       "verkaufer-in-denner-3-5c64b43f",
+      "verkaufer-in-denner-pratteln-3d6fe86a",
+      "verkaufer-in-denner-17-1a214e70",
+      "seller-denner-ag-mohlin-0713a1-61dfb8e9",
+      "verkaufer-in-denner-2-cc3baaa0",
+      "venditore-in-orario-denner-konolfingen-ba287c2a",
+      "venditore-denner-ag-stein-ag-74baf278",
+      "verkaufer-in-denner-3-27342f5b",
       "verkaufer-in-denner-pratteln",
       "verkaufer-in-denner-17",
       "seller-denner-ag-mohlin-0713a1",
@@ -22593,6 +22909,12 @@
         "venditore-in-orario-denner-konolfingen-cdf13b21",
         "venditore-denner-ag-stein-ag-b5bd3a15",
         "verkaufer-in-denner-3-5c64b43f",
+        "verkaufer-in-denner-17-1a214e70",
+        "seller-denner-ag-mohlin-0713a1-61dfb8e9",
+        "verkaufer-in-denner-2-cc3baaa0",
+        "venditore-in-orario-denner-konolfingen-ba287c2a",
+        "venditore-denner-ag-stein-ag-74baf278",
+        "verkaufer-in-denner-3-27342f5b",
         "verkaufer-in-denner-17",
         "seller-denner-ag-mohlin-0713a1",
         "verkaufer-in-denner-2",
@@ -22646,6 +22968,7 @@
         "verkaufer-in-denner-pratteln-3e026b61",
         "verkaufer-in-denner-pratteln-105d289f",
         "verkaufer-in-denner-pratteln-3b784d6a",
+        "verkaufer-in-denner-pratteln-3d6fe86a",
         "verkaufer-in-denner-pratteln"
       ],
       "de": [
@@ -22690,6 +23013,7 @@
         "verkaufer-in-denner-pratteln-3e026b61",
         "verkaufer-in-denner-pratteln-105d289f",
         "verkaufer-in-denner-pratteln-3b784d6a",
+        "verkaufer-in-denner-pratteln-3d6fe86a",
         "verkaufer-in-denner-pratteln"
       ],
       "fr": [
@@ -22738,6 +23062,7 @@
         "verkaufer-in-denner-pratteln-3e026b61",
         "verkaufer-in-denner-pratteln-105d289f",
         "verkaufer-in-denner-pratteln-3b784d6a",
+        "verkaufer-in-denner-pratteln-3d6fe86a",
         "verkaufer-in-denner-pratteln"
       ]
     },
@@ -23127,6 +23452,8 @@
       "vendeur-vendeuse-denner-3c15737f",
       "vendeur-vendeuse-denner-2-ea1645bd",
       "vendeur-vendeuse-denner-b6e7bc20",
+      "vendeur-vendeuse-denner-2-d32391eb",
+      "vendeur-vendeuse-denner-7847d08e",
       "vendeur-vendeuse-denner-2",
       "vendeur-vendeuse-denner"
     ],
@@ -23265,6 +23592,7 @@
         "vendeur-vendeuse-denner-lausanne",
         "vendeur-vendeuse-denner-2-5410dfc9",
         "vendeur-vendeuse-denner-2-ea1645bd",
+        "vendeur-vendeuse-denner-2-d32391eb",
         "vendeur-vendeuse-denner-2"
       ],
       "en": [
@@ -23320,6 +23648,7 @@
         "vendeur-vendeuse-denner-2-848a919b",
         "vendeur-vendeuse-denner-2-5410dfc9",
         "vendeur-vendeuse-denner-2-ea1645bd",
+        "vendeur-vendeuse-denner-2-d32391eb",
         "vendeur-vendeuse-denner-2"
       ],
       "de": [
@@ -23375,6 +23704,7 @@
         "vendeur-vendeuse-denner-2-848a919b",
         "vendeur-vendeuse-denner-2-5410dfc9",
         "vendeur-vendeuse-denner-2-ea1645bd",
+        "vendeur-vendeuse-denner-2-d32391eb",
         "vendeur-vendeuse-denner-2"
       ]
     },
@@ -24570,7 +24900,7 @@
       "verkaufer-in-im-stundenlohn-denner-brunnen-4d2a01c2",
       "seller-in-the-hourly-wage-denner-rotkreuz",
       "verkaufer-in-im-stundenlohn-denner-rotkreuz",
-      "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
+      "verkaufer-in-im-stundenlohn-denner-emmenbrucke-32a59d74",
       "verkaufer-in-im-stundenlohn-denner-menzingen-741c6b6d",
       "verkaufer-in-im-stundenlohn-denner-ag-gossau-zh-f8h8wm",
       "verkaufer-in-im-stundenlohn-denner-ag-rumlang-cddmyi",
@@ -24682,6 +25012,10 @@
       "verkaufer-in-im-stundenlohn-denner-7-9184239d",
       "verkaufer-in-im-stundenlohn-denner-brunnen-c5e7c69a",
       "verkaufer-in-im-stundenlohn-denner-menzingen-77d4a1f9",
+      "verkaufer-in-im-stundenlohn-denner-7-8cbbf3dd",
+      "verkaufer-in-im-stundenlohn-denner-brunnen-68839e3c",
+      "verkaufer-in-im-stundenlohn-denner-menzingen-20c66a6c",
+      "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
       "verkaufer-in-im-stundenlohn-denner-7",
       "verkaufer-in-im-stundenlohn-denner-brunnen",
       "verkaufer-in-im-stundenlohn-denner-menzingen"
@@ -24724,6 +25058,7 @@
         "verkaufer-in-im-stundenlohn-denner-7-ca53f6a4",
         "verkaufer-in-im-stundenlohn-denner-7-016ede0d",
         "verkaufer-in-im-stundenlohn-denner-7-9184239d",
+        "verkaufer-in-im-stundenlohn-denner-7-8cbbf3dd",
         "verkaufer-in-im-stundenlohn-denner-7"
       ],
       "en": [
@@ -24739,7 +25074,7 @@
         "verkaufer-in-im-stundenlohn-denner-brunnen-4d2a01c2",
         "seller-in-the-hourly-wage-denner-rotkreuz",
         "verkaufer-in-im-stundenlohn-denner-rotkreuz",
-        "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
+        "verkaufer-in-im-stundenlohn-denner-emmenbrucke-32a59d74",
         "verkaufer-in-im-stundenlohn-denner-menzingen-741c6b6d",
         "verkaufer-in-im-stundenlohn-denner-brunnen-afa8dd88",
         "verkaufer-in-im-stundenlohn-denner-menzingen-0beca4e2",
@@ -24825,6 +25160,9 @@
         "verkaufer-in-im-stundenlohn-denner-menzingen-f777677d",
         "verkaufer-in-im-stundenlohn-denner-brunnen-c5e7c69a",
         "verkaufer-in-im-stundenlohn-denner-menzingen-77d4a1f9",
+        "verkaufer-in-im-stundenlohn-denner-brunnen-68839e3c",
+        "verkaufer-in-im-stundenlohn-denner-menzingen-20c66a6c",
+        "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
         "verkaufer-in-im-stundenlohn-denner-brunnen",
         "verkaufer-in-im-stundenlohn-denner-menzingen"
       ],
@@ -24841,7 +25179,7 @@
         "verkaufer-in-im-stundenlohn-denner-brunnen-4d2a01c2",
         "vendeur-dans-le-salaire-horaire-denner-rotkreuz",
         "verkaufer-in-im-stundenlohn-denner-rotkreuz",
-        "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
+        "verkaufer-in-im-stundenlohn-denner-emmenbrucke-32a59d74",
         "verkaufer-in-im-stundenlohn-denner-menzingen-741c6b6d",
         "verkaufer-in-im-stundenlohn-denner-brunnen-afa8dd88",
         "verkaufer-in-im-stundenlohn-denner-menzingen-0beca4e2",
@@ -24927,6 +25265,9 @@
         "verkaufer-in-im-stundenlohn-denner-menzingen-f777677d",
         "verkaufer-in-im-stundenlohn-denner-brunnen-c5e7c69a",
         "verkaufer-in-im-stundenlohn-denner-menzingen-77d4a1f9",
+        "verkaufer-in-im-stundenlohn-denner-brunnen-68839e3c",
+        "verkaufer-in-im-stundenlohn-denner-menzingen-20c66a6c",
+        "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
         "verkaufer-in-im-stundenlohn-denner-brunnen",
         "verkaufer-in-im-stundenlohn-denner-menzingen"
       ],
@@ -24938,7 +25279,7 @@
         "verkaufer-in-im-stundenlohn-denner-ibach",
         "verkaufer-in-im-stundenlohn-denner-brunnen-4d2a01c2",
         "verkaufer-in-im-stundenlohn-denner-rotkreuz",
-        "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
+        "verkaufer-in-im-stundenlohn-denner-emmenbrucke-32a59d74",
         "verkaufer-in-im-stundenlohn-denner-menzingen-741c6b6d",
         "verkaufer-in-im-stundenlohn-denner-brunnen-afa8dd88",
         "verkaufer-in-im-stundenlohn-denner-menzingen-0beca4e2",
@@ -25024,6 +25365,9 @@
         "verkaufer-in-im-stundenlohn-denner-menzingen-f777677d",
         "verkaufer-in-im-stundenlohn-denner-brunnen-c5e7c69a",
         "verkaufer-in-im-stundenlohn-denner-menzingen-77d4a1f9",
+        "verkaufer-in-im-stundenlohn-denner-brunnen-68839e3c",
+        "verkaufer-in-im-stundenlohn-denner-menzingen-20c66a6c",
+        "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
         "verkaufer-in-im-stundenlohn-denner-brunnen",
         "verkaufer-in-im-stundenlohn-denner-menzingen"
       ]
@@ -25602,6 +25946,7 @@
       "verkaufer-in-denner-28-3812cbb3",
       "verkaufer-in-denner-28-afb63bfb",
       "verkaufer-in-denner-28-41457c04",
+      "verkaufer-in-denner-28-1c457b9c",
       "verkaufer-in-denner-28"
     ],
     "previousSlugsByLocale": {
@@ -25668,6 +26013,7 @@
         "verkaufer-in-denner-28-3812cbb3",
         "verkaufer-in-denner-28-afb63bfb",
         "verkaufer-in-denner-28-41457c04",
+        "verkaufer-in-denner-28-1c457b9c",
         "verkaufer-in-denner-28"
       ],
       "en": [
@@ -27379,6 +27725,26 @@
       "verkaufer-in-im-stundenlohn-denner-st-gallen-70878fec",
       "verkaufer-in-im-stundenlohn-denner-d24a36f2",
       "verkaufer-in-im-stundenlohn-denner-15-17c3d6e5",
+      "verkaufer-in-im-stundenlohn-denner-buchs-ag-f4bf7af7",
+      "verkaufer-in-im-stundenlohn-denner-20-d7c6c93a",
+      "verkaufer-in-im-stundenlohn-denner-menzingen-26743e2b",
+      "verkaufer-in-im-stundenlohn-denner-sursee-258568b7",
+      "verkaufer-in-im-stundenlohn-denner-11-ad4ca101",
+      "verkaufer-in-im-stundenlohn-denner-grosswangen-932a8527",
+      "verkaufer-in-im-stundenlohn-denner-2-fbb9e2a3",
+      "verkaufer-in-im-stundenlohn-denner-4-03bde366",
+      "verkaufer-in-im-stundenlohn-denner-3-c35e749c",
+      "verkaufer-in-im-stundenlohn-denner-14-cd8df684",
+      "verkaufer-in-im-stundenlohn-denner-steinhausen-6d966c6d",
+      "verkaufer-in-im-stundenlohn-denner-zug-e9271ab6",
+      "verkaufer-in-im-stundenlohn-denner-36-0e32f437",
+      "verkaufer-in-im-stundenlohn-denner-10-843572b6",
+      "verkaufer-in-im-stundenlohn-denner-9-e0599a0f",
+      "verkaufer-in-im-stundenlohn-denner-30-cc6a516d",
+      "verkaufer-in-im-stundenlohn-denner-39-1ba04afd",
+      "verkaufer-in-im-stundenlohn-denner-st-gallen-ace6ca48",
+      "verkaufer-in-im-stundenlohn-denner-d85ca261",
+      "verkaufer-in-im-stundenlohn-denner-15-bb57208a",
       "verkaufer-in-im-stundenlohn-denner-buchs-ag",
       "verkaufer-in-im-stundenlohn-denner-20",
       "verkaufer-in-im-stundenlohn-denner-menzingen",
@@ -27463,6 +27829,7 @@
         "verkaufer-in-im-stundenlohn-denner-67dfb835",
         "verkaufer-in-im-stundenlohn-denner-9ff6d303",
         "verkaufer-in-im-stundenlohn-denner-d24a36f2",
+        "verkaufer-in-im-stundenlohn-denner-d85ca261",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -28119,6 +28486,18 @@
       "verkaufer-in-denner-19-90efaaac",
       "verkaufer-in-denner-giwqst-24d6a766",
       "verkaufer-in-denner-21-dffc2979",
+      "verkaufer-in-denner-11-80228841",
+      "verkaufer-in-denner-kkrjpb-21566632",
+      "verkaufer-in-denner-20-9ac99cd5",
+      "verkaufer-in-denner-14-e1a002d9",
+      "verkaufer-in-denner-13-dd5b17ee",
+      "verkaufer-in-denner-vxx2vp-5493417c",
+      "verkaufer-in-denner-biel-bienne-97ac22fe",
+      "verkaufer-in-denner-gossau-zh-7e3f00ff",
+      "verkaufer-in-denner-12-dece9009",
+      "verkaufer-in-denner-19",
+      "verkaufer-in-denner-giwqst-b08e12be",
+      "verkaufer-in-denner-21-d7ef1d37",
       "verkaufer-in-denner-11",
       "verkaufer-in-denner-kkrjpb",
       "verkaufer-in-denner-20",
@@ -28128,7 +28507,6 @@
       "verkaufer-in-denner-biel-bienne",
       "verkaufer-in-denner-gossau-zh",
       "verkaufer-in-denner-12",
-      "verkaufer-in-denner-19",
       "verkaufer-in-denner-giwqst",
       "verkaufer-in-denner-21"
     ],
@@ -28364,6 +28742,11 @@
         "verkaufer-in-denner-14-986c4fb5",
         "verkaufer-in-denner-13-eff1b5c1",
         "verkaufer-in-denner-vxx2vp-2936f356",
+        "verkaufer-in-denner-kkrjpb-21566632",
+        "verkaufer-in-denner-20-9ac99cd5",
+        "verkaufer-in-denner-14-e1a002d9",
+        "verkaufer-in-denner-13-dd5b17ee",
+        "verkaufer-in-denner-vxx2vp-5493417c",
         "verkaufer-in-denner-kkrjpb",
         "verkaufer-in-denner-20",
         "verkaufer-in-denner-14",
@@ -28518,6 +28901,8 @@
         "verkaufer-in-denner-gossau-zh-2e1b71ab",
         "verkaufer-in-denner-biel-bienne-eed3ab01",
         "verkaufer-in-denner-gossau-zh-90b0cbb8",
+        "verkaufer-in-denner-biel-bienne-97ac22fe",
+        "verkaufer-in-denner-gossau-zh-7e3f00ff",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-gossau-zh"
       ],
@@ -28666,6 +29051,8 @@
         "verkaufer-in-denner-gossau-zh-2e1b71ab",
         "verkaufer-in-denner-biel-bienne-eed3ab01",
         "verkaufer-in-denner-gossau-zh-90b0cbb8",
+        "verkaufer-in-denner-biel-bienne-97ac22fe",
+        "verkaufer-in-denner-gossau-zh-7e3f00ff",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-gossau-zh"
       ],
@@ -28816,6 +29203,8 @@
         "verkaufer-in-denner-gossau-zh-2e1b71ab",
         "verkaufer-in-denner-biel-bienne-eed3ab01",
         "verkaufer-in-denner-gossau-zh-90b0cbb8",
+        "verkaufer-in-denner-biel-bienne-97ac22fe",
+        "verkaufer-in-denner-gossau-zh-7e3f00ff",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-gossau-zh"
       ]
@@ -29737,6 +30126,12 @@
       "adjoint-e-gerant-e-denner-renens-vd-3b0c4224",
       "gerant-e-denner-1d6c8423",
       "gerant-e-denner-2-96e60e16",
+      "amministratore-delegato-denner-renens-vd-64d057d7",
+      "deputy-managing-officer-denner-renens-vd-05a53e34",
+      "adjoint-e-gerant-e-denner-f879f811",
+      "adjoint-e-gerant-e-denner-renens-vd-7aef50f0",
+      "gerant-e-denner-7f9a24e9",
+      "gerant-e-denner-2-47ade29f",
       "amministratore-delegato-denner-renens-vd",
       "deputy-managing-officer-denner-renens-vd",
       "adjoint-e-gerant-e-denner",
@@ -29867,6 +30262,8 @@
         "gerant-e-denner-2-0afd2ad4",
         "gerant-e-denner-1d6c8423",
         "gerant-e-denner-2-96e60e16",
+        "gerant-e-denner-7f9a24e9",
+        "gerant-e-denner-2-47ade29f",
         "gerant-e-denner",
         "gerant-e-denner-2"
       ],
@@ -29928,6 +30325,7 @@
         "gerant-e-denner-3312f932",
         "gerant-e-denner-c120679b",
         "gerant-e-denner-1d6c8423",
+        "gerant-e-denner-7f9a24e9",
         "gerant-e-denner"
       ],
       "de": [
@@ -29991,6 +30389,7 @@
         "gerant-e-denner-3312f932",
         "gerant-e-denner-c120679b",
         "gerant-e-denner-1d6c8423",
+        "gerant-e-denner-7f9a24e9",
         "gerant-e-denner"
       ]
     },
@@ -30464,6 +30863,11 @@
       "vice-direttore-di-filiale-denner-ag-appenzell-3126cf89",
       "assistant-branch-manager-denner-ag-appenzell-a6633aa0",
       "directeur-adjoint-de-succursale-denner-ag-appenzell-3e12e93f",
+      "assistent-in-filialleitung-denner-ag-appenzell-d08de40f",
+      "assistent-in-filialleitung-denner-ag-appenzell-3nhcda-1d49a422",
+      "vice-direttore-di-filiale-denner-ag-appenzell-61ba9fd6",
+      "assistant-branch-manager-denner-ag-appenzell-54f8b0f0",
+      "directeur-adjoint-de-succursale-denner-ag-appenzell-3bf6522c",
       "assistent-in-filialleitung-denner-ag-appenzell",
       "assistent-in-filialleitung-denner-ag-appenzell-3nhcda",
       "vice-direttore-di-filiale-denner-ag-appenzell",
@@ -30577,6 +30981,8 @@
         "assistent-in-filialleitung-denner-ag-appenzell-3nhcda-0f5baf96",
         "assistent-in-filialleitung-denner-ag-appenzell-9273dcdf",
         "assistent-in-filialleitung-denner-ag-appenzell-3nhcda-8cfc2482",
+        "assistent-in-filialleitung-denner-ag-appenzell-d08de40f",
+        "assistent-in-filialleitung-denner-ag-appenzell-3nhcda-1d49a422",
         "assistent-in-filialleitung-denner-ag-appenzell",
         "assistent-in-filialleitung-denner-ag-appenzell-3nhcda"
       ],
@@ -31152,6 +31558,10 @@
       "seller-seller-denner-sion-d036ed91",
       "vendeur-vendeuse-denner-sion-729851c8",
       "vendeur-vendeuse-denner-f52e8439",
+      "venditore-venditore-denner-sion-24361aa3",
+      "seller-seller-denner-sion-b49c212c",
+      "vendeur-vendeuse-denner-sion-e14aee3a",
+      "vendeur-vendeuse-denner-1d04623d",
       "venditore-venditore-denner-sion",
       "seller-seller-denner-sion",
       "vendeur-vendeuse-denner-sion",
@@ -31181,6 +31591,8 @@
         "vendeur-vendeuse-denner-sion-c420fdce",
         "venditore-venditore-denner-sion-dc5b7a53",
         "vendeur-vendeuse-denner-sion-729851c8",
+        "venditore-venditore-denner-sion-24361aa3",
+        "vendeur-vendeuse-denner-sion-e14aee3a",
         "venditore-venditore-denner-sion",
         "vendeur-vendeuse-denner-sion"
       ],
@@ -31200,6 +31612,7 @@
         "seller-seller-denner-sa-epalinges",
         "seller-seller-denner-epalinges",
         "seller-seller-denner-sion-d036ed91",
+        "seller-seller-denner-sion-b49c212c",
         "seller-seller-denner-sion"
       ],
       "de": [
@@ -31233,6 +31646,7 @@
         "vendeur-vendeuse-denner-epalinges",
         "vendeur-vendeuse-denner-sion-c420fdce",
         "vendeur-vendeuse-denner-sion-729851c8",
+        "vendeur-vendeuse-denner-sion-e14aee3a",
         "vendeur-vendeuse-denner-sion"
       ]
     },
@@ -33428,6 +33842,14 @@
       "vendeur-vendeuse-denner-sion-3b7cb945",
       "vendeur-vendeuse-denner-2-4cc3ece6",
       "vendeur-vendeuse-denner-0089d70f",
+      "venditore-venditore-denner-sion-620d1c99",
+      "seller-seller-denner-sion-5aeba43c",
+      "verkaufer-verkaufer-denner-sion-e47719d8",
+      "vendeur-vendeuse-denner-4-03c10bd3",
+      "vendeur-vendeuse-denner-3-b0aa6b51",
+      "vendeur-vendeuse-denner-sion-f93cc3b9",
+      "vendeur-vendeuse-denner-2-f1b76648",
+      "vendeur-vendeuse-denner-b492da88",
       "venditore-venditore-denner-sion",
       "seller-seller-denner-sion",
       "verkaufer-verkaufer-denner-sion",
@@ -33459,6 +33881,7 @@
         "venditore-venditrice-denner-champlan",
         "venditore-venditrice-denner-geneve",
         "venditore-venditore-denner-sion-b1a71b8f",
+        "venditore-venditore-denner-sion-620d1c99",
         "venditore-venditore-denner-sion"
       ],
       "en": [
@@ -33529,6 +33952,7 @@
         "seller-seller-denner-lausanne-8d7f1512",
         "seller-seller-denner-lausanne",
         "seller-seller-denner-sion-cdf4dfbb",
+        "seller-seller-denner-sion-5aeba43c",
         "seller-seller-denner-sion"
       ],
       "de": [
@@ -33599,6 +34023,7 @@
         "verkaufer-verkaufer-denner-lausanne-4a4dd517",
         "verkaufer-verkaufer-denner-lausanne",
         "verkaufer-verkaufer-denner-sion-a67e64f2",
+        "verkaufer-verkaufer-denner-sion-e47719d8",
         "verkaufer-verkaufer-denner-sion"
       ],
       "fr": [
@@ -33670,6 +34095,7 @@
         "vendeur-vendeuse-denner-lausanne",
         "vendeur-vendeuse-denner-sion-e29c2855",
         "vendeur-vendeuse-denner-sion-3b7cb945",
+        "vendeur-vendeuse-denner-sion-f93cc3b9",
         "vendeur-vendeuse-denner-sion"
       ]
     },
@@ -34067,6 +34493,9 @@
       "verkaufer-in-denner-kkrjpb-3060de45",
       "venditore-denner-zug-01e19be0",
       "vendeur-denner-zug-22d3751c",
+      "verkaufer-in-denner-kkrjpb-9a869bde",
+      "venditore-denner-zug-f7362508",
+      "vendeur-denner-zug-0238d357",
       "verkaufer-in-denner-kkrjpb",
       "venditore-denner-zug",
       "vendeur-denner-zug"
@@ -34138,6 +34567,7 @@
         "venditore-denner-zug-61082f4d",
         "venditore-denner-zug-c18f6b53",
         "venditore-denner-zug-01e19be0",
+        "venditore-denner-zug-f7362508",
         "venditore-denner-zug"
       ],
       "en": [
@@ -34238,6 +34668,7 @@
         "vendeur-denner-zug-e8c15cd5",
         "vendeur-denner-zug-c3926ca4",
         "vendeur-denner-zug-22d3751c",
+        "vendeur-denner-zug-0238d357",
         "vendeur-denner-zug"
       ]
     },
@@ -35549,6 +35980,17 @@
       "verkaufer-in-denner-kkrjpb-e690b062",
       "verkaufer-in-denner-o0skmk-767034a7",
       "verkaufer-in-denner-winterthur-21035a55",
+      "verkaufer-in-denner-21-b32443e8",
+      "verkaufer-in-denner-20-d1ac3dec",
+      "verkaufer-in-denner-13-f0e0dfcb",
+      "verkaufer-in-denner-zizers-3243a04d",
+      "verkaufer-in-denner-giwqst-27a0249a",
+      "verkaufer-in-denner-12-20846540",
+      "verkaufer-in-denner-biel-bienne-f53df10e",
+      "verkaufer-in-denner-bubendorf-75febf7c",
+      "verkaufer-in-denner-kkrjpb-3074c700",
+      "verkaufer-in-denner-o0skmk-4f7b8493",
+      "verkaufer-in-denner-winterthur-1516761b",
       "verkaufer-in-denner-21",
       "verkaufer-in-denner-20",
       "verkaufer-in-denner-13",
@@ -35750,6 +36192,10 @@
         "verkaufer-in-denner-12-ab9cb0cd",
         "verkaufer-in-denner-kkrjpb-e690b062",
         "verkaufer-in-denner-o0skmk-767034a7",
+        "verkaufer-in-denner-giwqst-27a0249a",
+        "verkaufer-in-denner-12-20846540",
+        "verkaufer-in-denner-kkrjpb-3074c700",
+        "verkaufer-in-denner-o0skmk-4f7b8493",
         "verkaufer-in-denner-giwqst",
         "verkaufer-in-denner-12",
         "verkaufer-in-denner-kkrjpb",
@@ -35958,6 +36404,10 @@
         "verkaufer-in-denner-biel-bienne-4be32111",
         "verkaufer-in-denner-bubendorf-08df3b2c",
         "verkaufer-in-denner-winterthur-21035a55",
+        "verkaufer-in-denner-zizers-3243a04d",
+        "verkaufer-in-denner-biel-bienne-f53df10e",
+        "verkaufer-in-denner-bubendorf-75febf7c",
+        "verkaufer-in-denner-winterthur-1516761b",
         "verkaufer-in-denner-zizers",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-bubendorf",
@@ -36164,6 +36614,10 @@
         "verkaufer-in-denner-biel-bienne-4be32111",
         "verkaufer-in-denner-bubendorf-08df3b2c",
         "verkaufer-in-denner-winterthur-21035a55",
+        "verkaufer-in-denner-zizers-3243a04d",
+        "verkaufer-in-denner-biel-bienne-f53df10e",
+        "verkaufer-in-denner-bubendorf-75febf7c",
+        "verkaufer-in-denner-winterthur-1516761b",
         "verkaufer-in-denner-zizers",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-bubendorf",
@@ -36372,6 +36826,10 @@
         "verkaufer-in-denner-biel-bienne-4be32111",
         "verkaufer-in-denner-bubendorf-08df3b2c",
         "verkaufer-in-denner-winterthur-21035a55",
+        "verkaufer-in-denner-zizers-3243a04d",
+        "verkaufer-in-denner-biel-bienne-f53df10e",
+        "verkaufer-in-denner-bubendorf-75febf7c",
+        "verkaufer-in-denner-winterthur-1516761b",
         "verkaufer-in-denner-zizers",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-bubendorf",
@@ -37382,6 +37840,8 @@
       "vendeur-denner-zug-3adee378",
       "venditore-denner-zug-6c913dbd",
       "vendeur-denner-zug-6743c1f7",
+      "venditore-denner-zug-d3969f04",
+      "vendeur-denner-zug-a103e527",
       "venditore-denner-zug",
       "vendeur-denner-zug"
     ],
@@ -37451,6 +37911,7 @@
         "venditore-denner-zug-47dbfdd1",
         "venditore-denner-zug-ec5f8a24",
         "venditore-denner-zug-6c913dbd",
+        "venditore-denner-zug-d3969f04",
         "venditore-denner-zug"
       ],
       "en": [
@@ -37522,6 +37983,7 @@
         "vendeur-denner-zug-dc67bab1",
         "vendeur-denner-zug-3adee378",
         "vendeur-denner-zug-6743c1f7",
+        "vendeur-denner-zug-a103e527",
         "vendeur-denner-zug"
       ],
       "de": [
@@ -38896,6 +39358,17 @@
       "verkaufer-in-denner-gossau-zh-6a013aab",
       "verkaufer-in-denner-11-c39979f6",
       "verkaufer-in-denner-19",
+      "verkaufer-in-denner-13-505d4518",
+      "verkaufer-in-denner-20-54c73403",
+      "verkaufer-in-denner-giwqst-d112bc58",
+      "verkaufer-in-denner-biel-bienne-0122d049",
+      "verkaufer-in-denner-12-d8392730",
+      "verkaufer-in-denner-kkrjpb-f6c1d086",
+      "verkaufer-in-denner-21-050ba175",
+      "verkaufer-in-denner-14-8c522dee",
+      "verkaufer-in-denner-vxx2vp-fe390d20",
+      "verkaufer-in-denner-gossau-zh-b4f2aec7",
+      "verkaufer-in-denner-11-9e127f3e",
       "verkaufer-in-denner-13",
       "verkaufer-in-denner-20",
       "verkaufer-in-denner-giwqst",
@@ -39182,6 +39655,12 @@
         "verkaufer-in-denner-14-ae70cc6e",
         "verkaufer-in-denner-vxx2vp-47e244a1",
         "verkaufer-in-denner-11-c39979f6",
+        "verkaufer-in-denner-12-d8392730",
+        "verkaufer-in-denner-kkrjpb-f6c1d086",
+        "verkaufer-in-denner-21-050ba175",
+        "verkaufer-in-denner-14-8c522dee",
+        "verkaufer-in-denner-vxx2vp-fe390d20",
+        "verkaufer-in-denner-11-9e127f3e",
         "verkaufer-in-denner-12",
         "verkaufer-in-denner-kkrjpb",
         "verkaufer-in-denner-21",
@@ -39336,6 +39815,8 @@
         "verkaufer-in-denner-gossau-zh-39706495",
         "verkaufer-in-denner-biel-bienne-316a58a4",
         "verkaufer-in-denner-gossau-zh-6a013aab",
+        "verkaufer-in-denner-biel-bienne-0122d049",
+        "verkaufer-in-denner-gossau-zh-b4f2aec7",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-gossau-zh"
       ],
@@ -39484,6 +39965,8 @@
         "verkaufer-in-denner-gossau-zh-39706495",
         "verkaufer-in-denner-biel-bienne-316a58a4",
         "verkaufer-in-denner-gossau-zh-6a013aab",
+        "verkaufer-in-denner-biel-bienne-0122d049",
+        "verkaufer-in-denner-gossau-zh-b4f2aec7",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-gossau-zh"
       ],
@@ -39634,6 +40117,8 @@
         "verkaufer-in-denner-gossau-zh-39706495",
         "verkaufer-in-denner-biel-bienne-316a58a4",
         "verkaufer-in-denner-gossau-zh-6a013aab",
+        "verkaufer-in-denner-biel-bienne-0122d049",
+        "verkaufer-in-denner-gossau-zh-b4f2aec7",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-gossau-zh"
       ]
@@ -40556,6 +41041,9 @@
       "verkaufer-in-im-stundenlohn-denner-ff943fb1",
       "verkaufer-in-im-stundenlohn-denner-4-ed15ca44",
       "venditore-nel-salario-orario-denner-ag-breitenbach-0e3c7ed2",
+      "verkaufer-in-im-stundenlohn-denner-7e7b3b4f",
+      "verkaufer-in-im-stundenlohn-denner-4-30f0c441",
+      "venditore-nel-salario-orario-denner-ag-breitenbach-f5547de7",
       "verkaufer-in-im-stundenlohn-denner",
       "verkaufer-in-im-stundenlohn-denner-4",
       "venditore-nel-salario-orario-denner-ag-breitenbach"
@@ -40708,6 +41196,9 @@
         "verkaufer-in-im-stundenlohn-denner-ff943fb1",
         "verkaufer-in-im-stundenlohn-denner-4-ed15ca44",
         "venditore-nel-salario-orario-denner-ag-breitenbach-0e3c7ed2",
+        "verkaufer-in-im-stundenlohn-denner-7e7b3b4f",
+        "verkaufer-in-im-stundenlohn-denner-4-30f0c441",
+        "venditore-nel-salario-orario-denner-ag-breitenbach-f5547de7",
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-4",
         "venditore-nel-salario-orario-denner-ag-breitenbach"
@@ -41824,6 +42315,27 @@
       "verkaufer-in-im-stundenlohn-denner-16-d96ca5bf",
       "verkaufer-in-im-stundenlohn-denner-reiden-bbdf3a86",
       "verkaufer-in-im-stundenlohn-denner-12-48ff60dc",
+      "verkaufer-in-im-stundenlohn-denner-buchs-ag-c274be16",
+      "verkaufer-in-im-stundenlohn-denner-9-a05511e6",
+      "seller-denner-ag-frauenfeld-39f43d2d",
+      "verkaufer-in-denner-ag-frauenfeld-b2fe07e6",
+      "vendeur-denner-ag-frauenfeld-6db4485a",
+      "venditore-denner-ag-frauenfeld-12a80984",
+      "verkaufer-in-im-stundenlohn-denner-19-6e64ec43",
+      "verkaufer-in-im-stundenlohn-denner-11-83e2d16c",
+      "verkaufer-in-im-stundenlohn-denner-zug-1fbefc08",
+      "verkaufer-in-im-stundenlohn-denner-20-4aee7dae",
+      "verkaufer-in-im-stundenlohn-denner-5bzt2h-0b6665ec",
+      "verkaufer-in-im-stundenlohn-denner-13-a354d8f7",
+      "verkaufer-in-im-stundenlohn-denner-amriswil-e1dcd93a",
+      "verkaufer-in-im-stundenlohn-denner-15-f7923cd4",
+      "verkaufer-in-im-stundenlohn-denner-rothenburg-56740dbc",
+      "verkaufer-in-im-stundenlohn-denner-oftringen-35e6a353",
+      "verkaufer-in-im-stundenlohn-denner-14-f719172d",
+      "verkaufer-in-im-stundenlohn-denner-10-34952004",
+      "verkaufer-in-im-stundenlohn-denner-16-d16d2e08",
+      "verkaufer-in-im-stundenlohn-denner-reiden-7a3d6ad6",
+      "verkaufer-in-im-stundenlohn-denner-12-c2c4e592",
       "verkaufer-in-im-stundenlohn-denner-buchs-ag",
       "verkaufer-in-im-stundenlohn-denner-9",
       "seller-denner-ag-frauenfeld",
@@ -42060,6 +42572,10 @@
         "verkaufer-in-im-stundenlohn-denner-10-040c5d35",
         "verkaufer-in-im-stundenlohn-denner-16-d96ca5bf",
         "verkaufer-in-im-stundenlohn-denner-12-48ff60dc",
+        "verkaufer-in-im-stundenlohn-denner-14-f719172d",
+        "verkaufer-in-im-stundenlohn-denner-10-34952004",
+        "verkaufer-in-im-stundenlohn-denner-16-d16d2e08",
+        "verkaufer-in-im-stundenlohn-denner-12-c2c4e592",
         "verkaufer-in-im-stundenlohn-denner-14",
         "verkaufer-in-im-stundenlohn-denner-10",
         "verkaufer-in-im-stundenlohn-denner-16",
@@ -42340,6 +42856,13 @@
         "verkaufer-in-im-stundenlohn-denner-rothenburg-0df2f463",
         "verkaufer-in-im-stundenlohn-denner-oftringen-f39e257d",
         "verkaufer-in-im-stundenlohn-denner-reiden-bbdf3a86",
+        "verkaufer-in-im-stundenlohn-denner-buchs-ag-c274be16",
+        "seller-denner-ag-frauenfeld-39f43d2d",
+        "verkaufer-in-im-stundenlohn-denner-zug-1fbefc08",
+        "verkaufer-in-im-stundenlohn-denner-amriswil-e1dcd93a",
+        "verkaufer-in-im-stundenlohn-denner-rothenburg-56740dbc",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-35e6a353",
+        "verkaufer-in-im-stundenlohn-denner-reiden-7a3d6ad6",
         "verkaufer-in-im-stundenlohn-denner-buchs-ag",
         "seller-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug",
@@ -42623,6 +43146,13 @@
         "verkaufer-in-im-stundenlohn-denner-rothenburg-0df2f463",
         "verkaufer-in-im-stundenlohn-denner-oftringen-f39e257d",
         "verkaufer-in-im-stundenlohn-denner-reiden-bbdf3a86",
+        "verkaufer-in-im-stundenlohn-denner-buchs-ag-c274be16",
+        "vendeur-denner-ag-frauenfeld-6db4485a",
+        "verkaufer-in-im-stundenlohn-denner-zug-1fbefc08",
+        "verkaufer-in-im-stundenlohn-denner-amriswil-e1dcd93a",
+        "verkaufer-in-im-stundenlohn-denner-rothenburg-56740dbc",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-35e6a353",
+        "verkaufer-in-im-stundenlohn-denner-reiden-7a3d6ad6",
         "verkaufer-in-im-stundenlohn-denner-buchs-ag",
         "vendeur-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug",
@@ -42903,6 +43433,13 @@
         "verkaufer-in-im-stundenlohn-denner-rothenburg-0df2f463",
         "verkaufer-in-im-stundenlohn-denner-oftringen-f39e257d",
         "verkaufer-in-im-stundenlohn-denner-reiden-bbdf3a86",
+        "verkaufer-in-im-stundenlohn-denner-buchs-ag-c274be16",
+        "verkaufer-in-denner-ag-frauenfeld-b2fe07e6",
+        "verkaufer-in-im-stundenlohn-denner-zug-1fbefc08",
+        "verkaufer-in-im-stundenlohn-denner-amriswil-e1dcd93a",
+        "verkaufer-in-im-stundenlohn-denner-rothenburg-56740dbc",
+        "verkaufer-in-im-stundenlohn-denner-oftringen-35e6a353",
+        "verkaufer-in-im-stundenlohn-denner-reiden-7a3d6ad6",
         "verkaufer-in-im-stundenlohn-denner-buchs-ag",
         "verkaufer-in-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug",
@@ -43912,6 +44449,15 @@
       "verkaufer-in-denner-14-87733ae2",
       "verkaufer-in-denner-11-e516601b",
       "verkaufer-in-denner-19",
+      "verkaufer-in-denner-13-d9bfd6b5",
+      "verkaufer-in-denner-20-f208ae83",
+      "verkaufer-in-denner-giwqst-c1dbb3ff",
+      "verkaufer-in-denner-biel-bienne-2f5ec3d7",
+      "verkaufer-in-denner-12-7eeb0322",
+      "verkaufer-in-denner-kkrjpb-5ce04a27",
+      "verkaufer-in-denner-21-6e5773fc",
+      "verkaufer-in-denner-14-f1f3c578",
+      "verkaufer-in-denner-11-529690f4",
       "verkaufer-in-denner-13",
       "verkaufer-in-denner-20",
       "verkaufer-in-denner-giwqst",
@@ -44154,6 +44700,11 @@
         "verkaufer-in-denner-21-b601d09a",
         "verkaufer-in-denner-14-87733ae2",
         "verkaufer-in-denner-11-e516601b",
+        "verkaufer-in-denner-12-7eeb0322",
+        "verkaufer-in-denner-kkrjpb-5ce04a27",
+        "verkaufer-in-denner-21-6e5773fc",
+        "verkaufer-in-denner-14-f1f3c578",
+        "verkaufer-in-denner-11-529690f4",
         "verkaufer-in-denner-12",
         "verkaufer-in-denner-kkrjpb",
         "verkaufer-in-denner-21",
@@ -44264,6 +44815,7 @@
         "verkaufer-in-denner-biel-bienne-e4651e32",
         "verkaufer-in-denner-biel-bienne-a2cd9dbf",
         "verkaufer-in-denner-biel-bienne-64764135",
+        "verkaufer-in-denner-biel-bienne-2f5ec3d7",
         "verkaufer-in-denner-biel-bienne"
       ],
       "fr": [
@@ -44370,6 +44922,7 @@
         "verkaufer-in-denner-biel-bienne-e4651e32",
         "verkaufer-in-denner-biel-bienne-a2cd9dbf",
         "verkaufer-in-denner-biel-bienne-64764135",
+        "verkaufer-in-denner-biel-bienne-2f5ec3d7",
         "verkaufer-in-denner-biel-bienne"
       ],
       "de": [
@@ -44474,6 +45027,7 @@
         "verkaufer-in-denner-biel-bienne-e4651e32",
         "verkaufer-in-denner-biel-bienne-a2cd9dbf",
         "verkaufer-in-denner-biel-bienne-64764135",
+        "verkaufer-in-denner-biel-bienne-2f5ec3d7",
         "verkaufer-in-denner-biel-bienne"
       ]
     },
@@ -45823,6 +46377,19 @@
       "verkaufer-in-im-stundenlohn-denner-zug-afdb8a3e",
       "verkaufer-in-im-stundenlohn-denner-10-54e43e2d",
       "verkaufer-in-im-stundenlohn-denner-12-ee8cd021",
+      "verkaufer-in-im-stundenlohn-denner-9-508dea66",
+      "venditore-denner-ag-oftringen-79429a-67212a96",
+      "seller-denner-ag-oftringen-79429a-36dbf1f0",
+      "verkaufer-in-denner-ag-oftringen-24c8b95f",
+      "vendeur-denner-ag-oftringen-79429a-64896e7c",
+      "seller-denner-ag-frauenfeld-6f709ef7",
+      "verkaufer-in-denner-ag-frauenfeld-18f1b931",
+      "vendeur-denner-ag-frauenfeld-49de5d5f",
+      "venditore-denner-ag-frauenfeld-c58f5af1",
+      "verkaufer-in-im-stundenlohn-denner-11-cca9ed6e",
+      "verkaufer-in-im-stundenlohn-denner-zug-5f3ab940",
+      "verkaufer-in-im-stundenlohn-denner-10-acd3bce9",
+      "verkaufer-in-im-stundenlohn-denner-12-1c9f17d8",
       "verkaufer-in-im-stundenlohn-denner-9",
       "venditore-denner-ag-oftringen-79429a",
       "seller-denner-ag-oftringen-79429a",
@@ -46020,6 +46587,10 @@
         "verkaufer-in-im-stundenlohn-denner-11-e52d5cf1",
         "verkaufer-in-im-stundenlohn-denner-10-54e43e2d",
         "verkaufer-in-im-stundenlohn-denner-12-ee8cd021",
+        "verkaufer-in-im-stundenlohn-denner-9-508dea66",
+        "verkaufer-in-im-stundenlohn-denner-11-cca9ed6e",
+        "verkaufer-in-im-stundenlohn-denner-10-acd3bce9",
+        "verkaufer-in-im-stundenlohn-denner-12-1c9f17d8",
         "verkaufer-in-im-stundenlohn-denner-9",
         "verkaufer-in-im-stundenlohn-denner-11",
         "verkaufer-in-im-stundenlohn-denner-10",
@@ -46124,6 +46695,8 @@
         "verkaufer-in-im-stundenlohn-denner-zug-8eba6347",
         "seller-denner-ag-frauenfeld-4a1d6cdc",
         "verkaufer-in-im-stundenlohn-denner-zug-afdb8a3e",
+        "seller-denner-ag-frauenfeld-6f709ef7",
+        "verkaufer-in-im-stundenlohn-denner-zug-5f3ab940",
         "seller-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug"
       ],
@@ -46222,6 +46795,8 @@
         "verkaufer-in-im-stundenlohn-denner-zug-8eba6347",
         "verkaufer-in-denner-ag-frauenfeld-297acbce",
         "verkaufer-in-im-stundenlohn-denner-zug-afdb8a3e",
+        "verkaufer-in-denner-ag-frauenfeld-18f1b931",
+        "verkaufer-in-im-stundenlohn-denner-zug-5f3ab940",
         "verkaufer-in-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug"
       ],
@@ -46324,6 +46899,8 @@
         "verkaufer-in-im-stundenlohn-denner-zug-8eba6347",
         "vendeur-denner-ag-frauenfeld-a2c9b34c",
         "verkaufer-in-im-stundenlohn-denner-zug-afdb8a3e",
+        "vendeur-denner-ag-frauenfeld-49de5d5f",
+        "verkaufer-in-im-stundenlohn-denner-zug-5f3ab940",
         "vendeur-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zug"
       ]
@@ -47417,6 +47994,18 @@
       "verkaufer-in-denner-14-f918c4d3",
       "verkaufer-in-denner-19-41703b4f",
       "verkaufer-in-denner-kkrjpb-4e4e87a1",
+      "verkaufer-in-denner-biel-bienne-fc042741",
+      "verkaufer-in-denner-11-52d69c2c",
+      "verkaufer-in-denner-13-5f360e42",
+      "venditore-denner-fullinsdorf-f8fac7ed",
+      "venditore-denner-biel-bienne-b4e7b95e",
+      "vendeur-denner-zurich-c4870d3d",
+      "vendeur-denner-fullinsdorf-b672e82f",
+      "vendeur-denner-biel-bienne-170a100d",
+      "verkaufer-in-denner-12-586c7e86",
+      "verkaufer-in-denner-14-b7145295",
+      "verkaufer-in-denner-19",
+      "verkaufer-in-denner-kkrjpb-e3de849a",
       "verkaufer-in-denner-biel-bienne",
       "verkaufer-in-denner-11",
       "verkaufer-in-denner-13",
@@ -47427,7 +48016,6 @@
       "vendeur-denner-biel-bienne",
       "verkaufer-in-denner-12",
       "verkaufer-in-denner-14",
-      "verkaufer-in-denner-19",
       "verkaufer-in-denner-kkrjpb"
     ],
     "previousSlugsByLocale": {
@@ -47843,13 +48431,21 @@
         "verkaufer-in-denner-19-41703b4f",
         "verkaufer-in-denner-14-f918c4d3",
         "verkaufer-in-denner-kkrjpb-4e4e87a1",
+        "verkaufer-in-denner-11-52d69c2c",
+        "verkaufer-in-denner-13-5f360e42",
+        "venditore-denner-fullinsdorf-f8fac7ed",
+        "venditore-denner-biel-bienne-b4e7b95e",
+        "verkaufer-in-denner-biel-bienne-fc042741",
+        "verkaufer-in-denner-12-586c7e86",
+        "verkaufer-in-denner-19",
+        "verkaufer-in-denner-14-b7145295",
+        "verkaufer-in-denner-kkrjpb-e3de849a",
         "verkaufer-in-denner-11",
         "verkaufer-in-denner-13",
         "venditore-denner-fullinsdorf",
         "venditore-denner-biel-bienne",
         "verkaufer-in-denner-biel-bienne",
         "verkaufer-in-denner-12",
-        "verkaufer-in-denner-19",
         "verkaufer-in-denner-14",
         "verkaufer-in-denner-kkrjpb"
       ],
@@ -47947,6 +48543,7 @@
         "verkaufer-in-denner-biel-bienne-fbd69b51",
         "verkaufer-in-denner-biel-bienne-dc52e147",
         "verkaufer-in-denner-biel-bienne-208d1961",
+        "verkaufer-in-denner-biel-bienne-fc042741",
         "verkaufer-in-denner-biel-bienne"
       ],
       "fr": [
@@ -48168,6 +48765,10 @@
         "vendeur-denner-fullinsdorf-cc2f132a",
         "vendeur-denner-biel-bienne-cc3be93a",
         "verkaufer-in-denner-biel-bienne-208d1961",
+        "vendeur-denner-zurich-c4870d3d",
+        "vendeur-denner-fullinsdorf-b672e82f",
+        "vendeur-denner-biel-bienne-170a100d",
+        "verkaufer-in-denner-biel-bienne-fc042741",
         "vendeur-denner-zurich",
         "vendeur-denner-fullinsdorf",
         "vendeur-denner-biel-bienne",
@@ -48256,6 +48857,7 @@
         "verkaufer-in-denner-biel-bienne-fbd69b51",
         "verkaufer-in-denner-biel-bienne-dc52e147",
         "verkaufer-in-denner-biel-bienne-208d1961",
+        "verkaufer-in-denner-biel-bienne-fc042741",
         "verkaufer-in-denner-biel-bienne"
       ]
     },
@@ -51747,6 +52349,10 @@
       "verkaufer-in-denner-5-9ba13db7",
       "verkaufer-in-denner-6-5cd0724d",
       "verkaufer-in-denner-zug-bfe8c41f",
+      "verkaufer-in-denner-4-40eb0e9f",
+      "verkaufer-in-denner-5-85cf29f0",
+      "verkaufer-in-denner-6-7f27b83e",
+      "verkaufer-in-denner-zug-30aaa5c0",
       "verkaufer-in-denner-4",
       "verkaufer-in-denner-5",
       "verkaufer-in-denner-6",
@@ -51928,6 +52534,10 @@
         "verkaufer-in-denner-5-9ba13db7",
         "verkaufer-in-denner-6-5cd0724d",
         "verkaufer-in-denner-zug-bfe8c41f",
+        "verkaufer-in-denner-4-40eb0e9f",
+        "verkaufer-in-denner-5-85cf29f0",
+        "verkaufer-in-denner-6-7f27b83e",
+        "verkaufer-in-denner-zug-30aaa5c0",
         "verkaufer-in-denner-4",
         "verkaufer-in-denner-5",
         "verkaufer-in-denner-6",
@@ -52026,6 +52636,7 @@
       "verkaufer-in-denner-5b740b9a",
       "verkaufer-in-denner-da41406a",
       "verkaufer-in-denner-1c50c879",
+      "verkaufer-in-denner-334532a4",
       "verkaufer-in-denner"
     ],
     "previousSlugsByLocale": {
@@ -52073,6 +52684,7 @@
         "verkaufer-in-denner-5b740b9a",
         "verkaufer-in-denner-da41406a",
         "verkaufer-in-denner-1c50c879",
+        "verkaufer-in-denner-334532a4",
         "verkaufer-in-denner"
       ]
     },
@@ -52873,6 +53485,9 @@
       "venditore-nel-salario-orario-denner-ag-breitenbach-68be287f",
       "venditore-nel-salario-orario-denner-gstaad-7661bb09",
       "verkaufer-in-im-stundenlohn-denner-aa487e6b",
+      "venditore-nel-salario-orario-denner-ag-breitenbach-1374052e",
+      "venditore-nel-salario-orario-denner-gstaad-51974514",
+      "verkaufer-in-im-stundenlohn-denner-6c3b5d26",
       "venditore-nel-salario-orario-denner-ag-breitenbach",
       "venditore-nel-salario-orario-denner-gstaad",
       "verkaufer-in-im-stundenlohn-denner"
@@ -52940,6 +53555,7 @@
         "verkaufer-in-im-stundenlohn-denner-9d2d0ac9",
         "verkaufer-in-im-stundenlohn-denner-6ce611e1",
         "verkaufer-in-im-stundenlohn-denner-aa487e6b",
+        "verkaufer-in-im-stundenlohn-denner-6c3b5d26",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -53747,6 +54363,7 @@
       "verkaufer-in-im-stundenlohn-denner-4a9b29c8",
       "verkaufer-in-im-stundenlohn-denner-757defd9",
       "verkaufer-in-im-stundenlohn-denner-f164663c",
+      "verkaufer-in-im-stundenlohn-denner-3af36302",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -53794,6 +54411,7 @@
         "verkaufer-in-im-stundenlohn-denner-4a9b29c8",
         "verkaufer-in-im-stundenlohn-denner-757defd9",
         "verkaufer-in-im-stundenlohn-denner-f164663c",
+        "verkaufer-in-im-stundenlohn-denner-3af36302",
         "verkaufer-in-im-stundenlohn-denner"
       ]
     },
@@ -54216,6 +54834,12 @@
       "gestionnaire-de-magasin-denner-ag-sursee-9e5080cd",
       "filialleiter-in-denner-2-1210f90a",
       "filialleiter-in-denner-3-1f9fd2f1",
+      "responsabile-negozio-denner-ag-sursee-65827ee7",
+      "store-manager-denner-ag-sursee-7f6dfd9c",
+      "filialleiter-in-denner-ag-sursee-834232e4",
+      "gestionnaire-de-magasin-denner-ag-sursee-8816727e",
+      "filialleiter-in-denner-2-30c7f748",
+      "filialleiter-in-denner-3-9985d099",
       "responsabile-negozio-denner-ag-sursee",
       "store-manager-denner-ag-sursee",
       "filialleiter-in-denner-ag-sursee",
@@ -54286,6 +54910,7 @@
         "filialleiter-in-denner-3-fba12844",
         "filialleiter-in-denner-3-34a7ae3e",
         "filialleiter-in-denner-3-1f9fd2f1",
+        "filialleiter-in-denner-3-9985d099",
         "filialleiter-in-denner-3"
       ],
       "en": [
@@ -54365,6 +54990,7 @@
         "filialleiter-in-denner-ag-sursee-f4463e0a",
         "filialleiter-in-denner-ag-sursee-113e0c89",
         "filialleiter-in-denner-ag-sursee-eacb6a37",
+        "filialleiter-in-denner-ag-sursee-834232e4",
         "filialleiter-in-denner-ag-sursee"
       ],
       "fr": [
@@ -55113,6 +55739,7 @@
       "verkaufer-in-im-stundenlohn-denner-d3468656",
       "verkaufer-in-im-stundenlohn-denner-b9242dab",
       "verkaufer-in-im-stundenlohn-denner-adab68e5",
+      "verkaufer-in-im-stundenlohn-denner-e3d6775b",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -55161,6 +55788,7 @@
         "verkaufer-in-im-stundenlohn-denner-d3468656",
         "verkaufer-in-im-stundenlohn-denner-b9242dab",
         "verkaufer-in-im-stundenlohn-denner-adab68e5",
+        "verkaufer-in-im-stundenlohn-denner-e3d6775b",
         "verkaufer-in-im-stundenlohn-denner"
       ]
     },
@@ -55396,6 +56024,10 @@
       "verkaufer-in-im-stundenlohn-denner-8-b67aef71",
       "verkaufer-in-im-stundenlohn-denner-9-fd46a36a",
       "verkaufer-in-im-stundenlohn-denner-eb0f3d99",
+      "verkaufer-in-im-stundenlohn-denner-3-78368032",
+      "verkaufer-in-im-stundenlohn-denner-8-ded4317f",
+      "verkaufer-in-im-stundenlohn-denner-9-ca750a03",
+      "verkaufer-in-im-stundenlohn-denner-6543446b",
       "verkaufer-in-im-stundenlohn-denner-3",
       "verkaufer-in-im-stundenlohn-denner-8",
       "verkaufer-in-im-stundenlohn-denner-9",
@@ -55577,6 +56209,10 @@
         "verkaufer-in-im-stundenlohn-denner-8-b67aef71",
         "verkaufer-in-im-stundenlohn-denner-9-fd46a36a",
         "verkaufer-in-im-stundenlohn-denner-eb0f3d99",
+        "verkaufer-in-im-stundenlohn-denner-3-78368032",
+        "verkaufer-in-im-stundenlohn-denner-8-ded4317f",
+        "verkaufer-in-im-stundenlohn-denner-9-ca750a03",
+        "verkaufer-in-im-stundenlohn-denner-6543446b",
         "verkaufer-in-im-stundenlohn-denner-3",
         "verkaufer-in-im-stundenlohn-denner-8",
         "verkaufer-in-im-stundenlohn-denner-9",
@@ -55930,6 +56566,8 @@
       "verkaufer-in-im-stundenlohn-denner-3-be452c18",
       "verkaufer-in-im-stundenlohn-denner-48c2f5ab",
       "verkaufer-in-im-stundenlohn-denner-3-8dbb919c",
+      "verkaufer-in-im-stundenlohn-denner-c5c030f9",
+      "verkaufer-in-im-stundenlohn-denner-3-e488ce5c",
       "verkaufer-in-im-stundenlohn-denner",
       "verkaufer-in-im-stundenlohn-denner-3"
     ],
@@ -56021,6 +56659,8 @@
         "verkaufer-in-im-stundenlohn-denner-3-be452c18",
         "verkaufer-in-im-stundenlohn-denner-48c2f5ab",
         "verkaufer-in-im-stundenlohn-denner-3-8dbb919c",
+        "verkaufer-in-im-stundenlohn-denner-c5c030f9",
+        "verkaufer-in-im-stundenlohn-denner-3-e488ce5c",
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-3"
       ]
@@ -56172,6 +56812,9 @@
       "verkaufer-in-im-stundenlohn-denner-7-c030d103",
       "verkaufer-in-im-stundenlohn-denner-2-35c851ed",
       "verkaufer-in-im-stundenlohn-denner-80900fd2",
+      "verkaufer-in-im-stundenlohn-denner-7-d04cc639",
+      "verkaufer-in-im-stundenlohn-denner-2-0a26f3be",
+      "verkaufer-in-im-stundenlohn-denner-a67daa9e",
       "verkaufer-in-im-stundenlohn-denner-7",
       "verkaufer-in-im-stundenlohn-denner-2",
       "verkaufer-in-im-stundenlohn-denner"
@@ -56287,6 +56930,9 @@
         "verkaufer-in-im-stundenlohn-denner-7-c030d103",
         "verkaufer-in-im-stundenlohn-denner-2-35c851ed",
         "verkaufer-in-im-stundenlohn-denner-80900fd2",
+        "verkaufer-in-im-stundenlohn-denner-7-d04cc639",
+        "verkaufer-in-im-stundenlohn-denner-2-0a26f3be",
+        "verkaufer-in-im-stundenlohn-denner-a67daa9e",
         "verkaufer-in-im-stundenlohn-denner-7",
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner"
@@ -56422,6 +57068,8 @@
       "verkaufer-in-im-stundenlohn-denner-ac9ca438",
       "verkaufer-in-im-stundenlohn-denner-2-53af29c3",
       "verkaufer-in-im-stundenlohn-denner-ea078543",
+      "verkaufer-in-im-stundenlohn-denner-2-56593a07",
+      "verkaufer-in-im-stundenlohn-denner-e9b9bda4",
       "verkaufer-in-im-stundenlohn-denner-2",
       "verkaufer-in-im-stundenlohn-denner"
     ],
@@ -56513,6 +57161,8 @@
         "verkaufer-in-im-stundenlohn-denner-ac9ca438",
         "verkaufer-in-im-stundenlohn-denner-2-53af29c3",
         "verkaufer-in-im-stundenlohn-denner-ea078543",
+        "verkaufer-in-im-stundenlohn-denner-2-56593a07",
+        "verkaufer-in-im-stundenlohn-denner-e9b9bda4",
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner"
       ],
@@ -56663,6 +57313,7 @@
       "verkaufer-in-im-stundenlohn-denner-b641c366",
       "verkaufer-in-im-stundenlohn-denner-95cbe3f4",
       "verkaufer-in-im-stundenlohn-denner-aad20b25",
+      "verkaufer-in-im-stundenlohn-denner-da8f94b8",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -56712,6 +57363,7 @@
         "verkaufer-in-im-stundenlohn-denner-b641c366",
         "verkaufer-in-im-stundenlohn-denner-95cbe3f4",
         "verkaufer-in-im-stundenlohn-denner-aad20b25",
+        "verkaufer-in-im-stundenlohn-denner-da8f94b8",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -56802,6 +57454,7 @@
       "verkaufer-in-im-stundenlohn-denner-4-c44175a3",
       "verkaufer-in-im-stundenlohn-denner-4-e4c50752",
       "verkaufer-in-im-stundenlohn-denner-4-10d61cd5",
+      "verkaufer-in-im-stundenlohn-denner-4-104d20c7",
       "verkaufer-in-im-stundenlohn-denner-4"
     ],
     "previousSlugsByLocale": {
@@ -56849,6 +57502,7 @@
         "verkaufer-in-im-stundenlohn-denner-4-c44175a3",
         "verkaufer-in-im-stundenlohn-denner-4-e4c50752",
         "verkaufer-in-im-stundenlohn-denner-4-10d61cd5",
+        "verkaufer-in-im-stundenlohn-denner-4-104d20c7",
         "verkaufer-in-im-stundenlohn-denner-4"
       ]
     },
@@ -57376,6 +58030,7 @@
       "verkaufer-in-im-stundenlohn-denner-3-5c27d38c",
       "verkaufer-in-im-stundenlohn-denner-3-861b1969",
       "verkaufer-in-im-stundenlohn-denner-3-57514ed3",
+      "verkaufer-in-im-stundenlohn-denner-3-a1da824b",
       "verkaufer-in-im-stundenlohn-denner-3"
     ],
     "previousSlugsByLocale": {
@@ -57423,6 +58078,7 @@
         "verkaufer-in-im-stundenlohn-denner-3-5c27d38c",
         "verkaufer-in-im-stundenlohn-denner-3-861b1969",
         "verkaufer-in-im-stundenlohn-denner-3-57514ed3",
+        "verkaufer-in-im-stundenlohn-denner-3-a1da824b",
         "verkaufer-in-im-stundenlohn-denner-3"
       ]
     },
@@ -57951,6 +58607,7 @@
       "verkaufer-in-im-stundenlohn-denner-e404f139",
       "verkaufer-in-im-stundenlohn-denner-3370b828",
       "verkaufer-in-im-stundenlohn-denner-a8dfa407",
+      "verkaufer-in-im-stundenlohn-denner-624426f6",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -58000,6 +58657,7 @@
         "verkaufer-in-im-stundenlohn-denner-e404f139",
         "verkaufer-in-im-stundenlohn-denner-3370b828",
         "verkaufer-in-im-stundenlohn-denner-a8dfa407",
+        "verkaufer-in-im-stundenlohn-denner-624426f6",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -58353,6 +59011,12 @@
       "venditore-denner-ag-frauenfeld-349163a5",
       "seller-denner-ag-frauenfeld-1125a3bc",
       "vendeur-denner-ag-frauenfeld-5b66b098",
+      "verkaufer-in-denner-2-a047fe44",
+      "verkaufer-in-denner-f17763e7",
+      "verkaufer-in-denner-frauenfeld-25884a1a",
+      "venditore-denner-ag-frauenfeld-5abb5060",
+      "seller-denner-ag-frauenfeld-fbf819a3",
+      "vendeur-denner-ag-frauenfeld-6bc2defb",
       "verkaufer-in-denner-2",
       "verkaufer-in-denner",
       "verkaufer-in-denner-frauenfeld",
@@ -58490,6 +59154,9 @@
         "verkaufer-in-denner-2-c1d4b863",
         "verkaufer-in-denner-c2568a98",
         "venditore-denner-ag-frauenfeld-349163a5",
+        "verkaufer-in-denner-2-a047fe44",
+        "verkaufer-in-denner-f17763e7",
+        "venditore-denner-ag-frauenfeld-5abb5060",
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
         "venditore-denner-ag-frauenfeld"
@@ -58624,6 +59291,9 @@
         "verkaufer-in-denner-frauenfeld-5b7ae255",
         "verkaufer-in-denner-c2568a98",
         "seller-denner-ag-frauenfeld-1125a3bc",
+        "verkaufer-in-denner-frauenfeld-25884a1a",
+        "verkaufer-in-denner-f17763e7",
+        "seller-denner-ag-frauenfeld-fbf819a3",
         "verkaufer-in-denner-frauenfeld",
         "verkaufer-in-denner",
         "seller-denner-ag-frauenfeld"
@@ -58672,6 +59342,7 @@
         "verkaufer-in-denner-frauenfeld-3f384aa9",
         "verkaufer-in-denner-frauenfeld-215257b9",
         "verkaufer-in-denner-frauenfeld-5b7ae255",
+        "verkaufer-in-denner-frauenfeld-25884a1a",
         "verkaufer-in-denner-frauenfeld"
       ],
       "fr": [
@@ -58804,6 +59475,9 @@
         "verkaufer-in-denner-frauenfeld-5b7ae255",
         "verkaufer-in-denner-c2568a98",
         "vendeur-denner-ag-frauenfeld-5b66b098",
+        "verkaufer-in-denner-frauenfeld-25884a1a",
+        "verkaufer-in-denner-f17763e7",
+        "vendeur-denner-ag-frauenfeld-6bc2defb",
         "verkaufer-in-denner-frauenfeld",
         "verkaufer-in-denner",
         "vendeur-denner-ag-frauenfeld"
@@ -58890,6 +59564,7 @@
       "verkaufer-in-im-stundenlohn-denner-ec91d2e7",
       "verkaufer-in-im-stundenlohn-denner-6eba2c88",
       "verkaufer-in-im-stundenlohn-denner-085566b3",
+      "verkaufer-in-im-stundenlohn-denner-30605483",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -58938,6 +59613,7 @@
         "verkaufer-in-im-stundenlohn-denner-ec91d2e7",
         "verkaufer-in-im-stundenlohn-denner-6eba2c88",
         "verkaufer-in-im-stundenlohn-denner-085566b3",
+        "verkaufer-in-im-stundenlohn-denner-30605483",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -59071,6 +59747,8 @@
       "verkaufer-in-im-stundenlohn-denner-16eb0fc6",
       "verkaufer-in-im-stundenlohn-denner-2-c7a3ce46",
       "verkaufer-in-im-stundenlohn-denner-5d7e0695",
+      "verkaufer-in-im-stundenlohn-denner-2-4c50139b",
+      "verkaufer-in-im-stundenlohn-denner-6ca14705",
       "verkaufer-in-im-stundenlohn-denner-2",
       "verkaufer-in-im-stundenlohn-denner"
     ],
@@ -59162,6 +59840,8 @@
         "verkaufer-in-im-stundenlohn-denner-16eb0fc6",
         "verkaufer-in-im-stundenlohn-denner-2-c7a3ce46",
         "verkaufer-in-im-stundenlohn-denner-5d7e0695",
+        "verkaufer-in-im-stundenlohn-denner-2-4c50139b",
+        "verkaufer-in-im-stundenlohn-denner-6ca14705",
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner"
       ],
@@ -59256,6 +59936,7 @@
       "verkaufer-in-im-stundenlohn-denner-8244031e",
       "verkaufer-in-im-stundenlohn-denner-d4999b0b",
       "verkaufer-in-im-stundenlohn-denner-6d9b7ef8",
+      "verkaufer-in-im-stundenlohn-denner-6add69af",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -59304,6 +59985,7 @@
         "verkaufer-in-im-stundenlohn-denner-8244031e",
         "verkaufer-in-im-stundenlohn-denner-d4999b0b",
         "verkaufer-in-im-stundenlohn-denner-6d9b7ef8",
+        "verkaufer-in-im-stundenlohn-denner-6add69af",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -59394,6 +60076,7 @@
       "verkaufer-in-im-stundenlohn-denner-12b9d5dd",
       "verkaufer-in-im-stundenlohn-denner-26bffbe5",
       "verkaufer-in-im-stundenlohn-denner-386b11c8",
+      "verkaufer-in-im-stundenlohn-denner-897fd110",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -59442,6 +60125,7 @@
         "verkaufer-in-im-stundenlohn-denner-12b9d5dd",
         "verkaufer-in-im-stundenlohn-denner-26bffbe5",
         "verkaufer-in-im-stundenlohn-denner-386b11c8",
+        "verkaufer-in-im-stundenlohn-denner-897fd110",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -59532,6 +60216,7 @@
       "verkaufer-in-im-stundenlohn-denner-37c20f76",
       "verkaufer-in-im-stundenlohn-denner-e2660e93",
       "verkaufer-in-im-stundenlohn-denner-1d5e1338",
+      "verkaufer-in-im-stundenlohn-denner-4089b4fe",
       "verkaufer-in-im-stundenlohn-denner"
     ],
     "previousSlugsByLocale": {
@@ -59580,6 +60265,7 @@
         "verkaufer-in-im-stundenlohn-denner-37c20f76",
         "verkaufer-in-im-stundenlohn-denner-e2660e93",
         "verkaufer-in-im-stundenlohn-denner-1d5e1338",
+        "verkaufer-in-im-stundenlohn-denner-4089b4fe",
         "verkaufer-in-im-stundenlohn-denner"
       ],
       "en": [
@@ -59836,6 +60522,7 @@
       "verkaufer-in-im-stundenlohn-denner-3-cc88cad7",
       "verkaufer-in-im-stundenlohn-denner-3-0eedf66a",
       "verkaufer-in-im-stundenlohn-denner-3-2ac31101",
+      "verkaufer-in-im-stundenlohn-denner-3-1485a92c",
       "verkaufer-in-im-stundenlohn-denner-3"
     ],
     "previousSlugsByLocale": {
@@ -59883,6 +60570,7 @@
         "verkaufer-in-im-stundenlohn-denner-3-cc88cad7",
         "verkaufer-in-im-stundenlohn-denner-3-0eedf66a",
         "verkaufer-in-im-stundenlohn-denner-3-2ac31101",
+        "verkaufer-in-im-stundenlohn-denner-3-1485a92c",
         "verkaufer-in-im-stundenlohn-denner-3"
       ]
     },
@@ -60410,6 +61098,7 @@
       "verkaufer-in-im-stundenlohn-denner-3-b122ff3e",
       "verkaufer-in-im-stundenlohn-denner-3-cddb4235",
       "verkaufer-in-im-stundenlohn-denner-3-8e41785d",
+      "verkaufer-in-im-stundenlohn-denner-3-a35123a4",
       "verkaufer-in-im-stundenlohn-denner-3"
     ],
     "previousSlugsByLocale": {
@@ -60457,6 +61146,7 @@
         "verkaufer-in-im-stundenlohn-denner-3-b122ff3e",
         "verkaufer-in-im-stundenlohn-denner-3-cddb4235",
         "verkaufer-in-im-stundenlohn-denner-3-8e41785d",
+        "verkaufer-in-im-stundenlohn-denner-3-a35123a4",
         "verkaufer-in-im-stundenlohn-denner-3"
       ]
     },
@@ -60984,6 +61674,7 @@
       "verkaufer-in-im-stundenlohn-denner-2-875d6eee",
       "verkaufer-in-im-stundenlohn-denner-2-b0f86239",
       "verkaufer-in-im-stundenlohn-denner-2-8be94f1a",
+      "verkaufer-in-im-stundenlohn-denner-2-00521be6",
       "verkaufer-in-im-stundenlohn-denner-2"
     ],
     "previousSlugsByLocale": {
@@ -61031,6 +61722,7 @@
         "verkaufer-in-im-stundenlohn-denner-2-875d6eee",
         "verkaufer-in-im-stundenlohn-denner-2-b0f86239",
         "verkaufer-in-im-stundenlohn-denner-2-8be94f1a",
+        "verkaufer-in-im-stundenlohn-denner-2-00521be6",
         "verkaufer-in-im-stundenlohn-denner-2"
       ]
     },
@@ -61558,6 +62250,7 @@
       "verkaufer-in-im-stundenlohn-denner-4-4d5ce290",
       "verkaufer-in-im-stundenlohn-denner-4-c88b7e14",
       "verkaufer-in-im-stundenlohn-denner-4-51c1dc9a",
+      "verkaufer-in-im-stundenlohn-denner-4-f200f7b6",
       "verkaufer-in-im-stundenlohn-denner-4"
     ],
     "previousSlugsByLocale": {
@@ -61605,6 +62298,7 @@
         "verkaufer-in-im-stundenlohn-denner-4-4d5ce290",
         "verkaufer-in-im-stundenlohn-denner-4-c88b7e14",
         "verkaufer-in-im-stundenlohn-denner-4-51c1dc9a",
+        "verkaufer-in-im-stundenlohn-denner-4-f200f7b6",
         "verkaufer-in-im-stundenlohn-denner-4"
       ]
     },
@@ -62132,6 +62826,7 @@
       "verkaufer-in-im-stundenlohn-denner-2-05a6b797",
       "verkaufer-in-im-stundenlohn-denner-2-97acaa14",
       "verkaufer-in-im-stundenlohn-denner-2-5b2733f3",
+      "verkaufer-in-im-stundenlohn-denner-2-05baee4d",
       "verkaufer-in-im-stundenlohn-denner-2"
     ],
     "previousSlugsByLocale": {
@@ -62179,6 +62874,7 @@
         "verkaufer-in-im-stundenlohn-denner-2-05a6b797",
         "verkaufer-in-im-stundenlohn-denner-2-97acaa14",
         "verkaufer-in-im-stundenlohn-denner-2-5b2733f3",
+        "verkaufer-in-im-stundenlohn-denner-2-05baee4d",
         "verkaufer-in-im-stundenlohn-denner-2"
       ]
     },
@@ -63940,6 +64636,8 @@
       "stv-filialleiter-in-denner-01e7c244",
       "stv-filialleiter-in-denner-basel-ddf4c6f2",
       "stv-filialleiter-in-denner-2d0bdcc7",
+      "stv-filialleiter-in-denner-basel-4fcadb4a",
+      "stv-filialleiter-in-denner-fbe55c26",
       "stv-filialleiter-in-denner-basel",
       "stv-filialleiter-in-denner"
     ],
@@ -64558,6 +65256,7 @@
       "filialleiter-in-denner-03fdabf2",
       "filialleiter-in-denner-bd337877",
       "filialleiter-in-denner-16975c5e",
+      "filialleiter-in-denner-202d59af",
       "filialleiter-in-denner"
     ],
     "previousSlugsByLocale": {
