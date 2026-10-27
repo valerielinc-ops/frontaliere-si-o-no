@@ -43,6 +43,13 @@ describe('central job-board detail URLs', () => {
     expect(isLikelyJobDetailUrl('https://jobs.example.test/it/jobs/#job.id=12345')).toBe(false);
   });
 
+  it('recognizes the NAGRA advertisement route only with a numeric vacancy id', () => {
+    expect(isLikelyJobDetailUrl('https://careers.nagra.com/?page=advertisement_display&id=15828')).toBe(true);
+    expect(isLikelyJobDetailUrl('https://careers.nagra.com/?page=advertisement_display&id=')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://careers.nagra.com/?page=advertisement')).toBe(false);
+    expect(isLikelyJobDetailUrl('https://careers.nagra.com/')).toBe(false);
+  });
+
   it('allows the shared JSON-LD parser to consume the detail page', () => {
     const result = __testables.toJobFromJsonLd(
       {
