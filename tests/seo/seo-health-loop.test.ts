@@ -188,6 +188,9 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).not.toContain('gh workflow run deploy.yml');
     expect(WORKFLOW_SOURCE).toContain("default: '320'");
     expect(WORKFLOW_SOURCE).toContain("HEALTH_ERROR_SAMPLE: ${{ inputs.error_sample || '320' }}");
+    expect(WORKFLOW_SOURCE).toContain("default: '256'");
+    expect(WORKFLOW_SOURCE).toContain("HEALTH_MAX_SITEMAPS: ${{ inputs.max_sitemaps || '256' }}");
+    expect(WORKFLOW_SOURCE).toContain('--max-sitemaps="$HEALTH_MAX_SITEMAPS"');
     expect(WORKFLOW_SOURCE).not.toMatch(/purge/i);
   });
 
@@ -354,6 +357,44 @@ describe('SEO health live runner', () => {
     expect(graph.findings).toEqual(expect.arrayContaining([
       expect.objectContaining({ code: 'sitemap-graph-truncated' }),
     ]));
+  });
+
+  it('passes the configured sitemap cap through the full runner', async () => {
+    const root = mkdtempSync(join(tmpdir(), 'seo-health-sitemap-cap-'));
+    const sitemap = `${ORIGIN}/sitemap.xml`;
+    const children = ['one', 'two', 'three'].map((name) => `${ORIGIN}/sitemap-${name}.xml`);
+    const bodies = new Map<string, string>([
+      [`${ORIGIN}/robots.txt`, `Sitemap: ${sitemap}`],
+      [sitemap, `<sitemapindex>${children.map((url) => `<sitemap><loc>${url}</loc></sitemap>`).join('')}</sitemapindex>`],
+      ...children.map((url) => [url, '<urlset><url><loc>https://fixture.test/</loc></url></urlset>'] as const),
+    ]);
+    const fetchImpl = async (url: string) => response(url, bodies.has(url) ? 200 : 404, bodies.get(url) || '');
+    try {
+      const report = await runSeoHealthLoop({
+        options: {
+          origin: ORIGIN,
+          sitemap,
+          maxSitemaps: 4,
+          sample: 0,
+          jobSample: 0,
+          dryRun: true,
+          reportDir: join(root, 'reports'),
+          statePath: join(root, 'state.json'),
+          historyPath: join(root, 'history.jsonl'),
+        },
+        fetchImpl,
+        collectAnalytics: false,
+        root,
+        now: new Date('2026-09-13T00:00:00Z'),
+      });
+      expect(report.options.maxSitemaps).toBe(4);
+      expect(report.sitemap.files).toHaveLength(4);
+      expect(report.findings.observed).not.toEqual(expect.arrayContaining([
+        expect.objectContaining({ code: 'sitemap-graph-truncated' }),
+      ]));
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('bounds a response body that never resolves', async () => {
