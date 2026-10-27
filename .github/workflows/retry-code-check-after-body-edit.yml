@@ -378,6 +378,9 @@ jobs:
             }
             const RECOVERY_STATUSES = new Set(['pending', 'queued', 'completed', 'manual']);
             function validRecoveryState(value, number = null) {
+              const validRunIdentity = Number.isSafeInteger(value?.runId) && value.runId > 0
+                && validRunAttempt(value?.runAttempt) !== null;
+              const manualRunFields = value?.runId === null && value?.runAttempt === null;
               if (!value || typeof value !== 'object' || Array.isArray(value)
                   || value.version !== 1
                   || !RECOVERY_STATUSES.has(value.status)
@@ -389,6 +392,7 @@ jobs:
                     && (!Number.isSafeInteger(value.runId) || value.runId <= 0))
                   || (value.runAttempt !== null && value.runAttempt !== undefined
                     && validRunAttempt(value.runAttempt) === null)
+                  || (value.status === 'manual' ? !(manualRunFields || validRunIdentity) : !validRunIdentity)
                   || (value.nativeMergeStatus !== undefined
                     && !['pending', 'dispatched'].includes(value.nativeMergeStatus))) return false;
               return true;
