@@ -591,28 +591,6 @@ export const SEO_STATIC_BODY_FONT_RESERVE_CSS = 'body{font-family:"Manrope",sans
  * removed — the in-flow `<ins>` slots are the same boxes before and after.
  */
 export const TAILWIND_UTILITY_RESERVE_CSS =
-  '.jc-card{border-style:solid;border-width:1px;min-height:72px;padding:calc(var(--spacing)*3)}' +
-  '.jc-link{display:block}' +
-  '.jc-row{align-items:flex-start;gap:calc(var(--spacing)*3);display:flex}' +
-  '.jc-logoslot{height:calc(var(--spacing)*10);width:calc(var(--spacing)*10);border-style:solid;border-width:1px;flex-shrink:0;justify-content:center;align-items:center;display:flex;overflow:hidden}' +
-  '.jc-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7)}' +
-  '.jc-meta{min-width:calc(var(--spacing)*0);flex:1}' +
-  '.jc-title{font-family:var(--font-display);font-size:var(--text-sm);line-height:var(--leading-tight);font-weight:var(--font-weight-bold)}' +
-  '.jc-sub{margin-top:calc(var(--spacing)*.5);-webkit-line-clamp:2;font-size:var(--text-xs);line-height:var(--text-xs--line-height);-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}' +
-  '.jc-salary{margin-top:calc(var(--spacing)*1);align-items:center;gap:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-semibold);display:inline-flex}' +
-  '.jc-chips{margin-top:calc(var(--spacing)*2);align-items:center;gap:calc(var(--spacing)*2);font-size:var(--text-xs);line-height:var(--text-xs--line-height);flex-wrap:wrap;display:flex}' +
-  '.jc-chip{align-items:center;gap:calc(var(--spacing)*1);display:inline-flex}' +
-  '.jc-chip-pill{padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5)}' +
-  '.jc-newbadge{margin-left:calc(var(--spacing)*1.5);align-items:center;gap:calc(var(--spacing)*.5);padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;display:inline-flex}' +
-  '.ec-card{border-style:solid;border-width:1px;padding:calc(var(--spacing)*3)}' +
-  '.ec-link{display:block}' +
-  '.ec-row{align-items:center;gap:calc(var(--spacing)*3);display:flex}' +
-  '.ec-logoslot{border-style:solid;border-width:1px;flex-shrink:0;justify-content:center;align-items:center;display:flex;overflow:hidden}' +
-  '.ec-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7)}' +
-  '.ec-title{font-family:var(--font-display);font-size:var(--text-sm);line-height:var(--leading-tight);font-weight:var(--font-weight-bold)}' +
-  '.ec-sub{margin-top:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--leading-snug)}' +
-  '.ec-meta{min-width:calc(var(--spacing)*0);flex:1}' +
-  '.ec-cmpct{align-items:center;gap:calc(var(--spacing)*2.5);border-style:solid;border-width:1px;display:flex;padding:calc(var(--spacing)*3)}' +
   '.sr-only{white-space:nowrap;border-width:0;width:1px;height:1px;margin:-1px;padding:0;position:absolute;overflow:hidden}' +
   '.absolute{position:absolute}' +
   '.relative{position:relative}' +
@@ -696,7 +674,7 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
   '.max-w-2xl{max-width:var(--container-2xl)}' +
   '.max-w-3xl{max-width:var(--container-3xl)}' +
   '.max-w-4xl{max-width:var(--container-4xl)}' +
-  '.max-w-5xl{max-width:var(--container-5xl)}' +
+  '.max-w-5xl{max-width:64rem}' +
   '.max-w-6xl{max-width:var(--container-6xl)}' +
   '.max-w-7xl{max-width:var(--container-7xl)}' +
   '.max-w-\\[820px\\]{max-width:820px}' +
@@ -747,7 +725,7 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
   '.px-2\\.5{padding-inline:calc(var(--spacing)*2.5)}' +
   '.px-3{padding-inline:calc(var(--spacing)*3)}' +
   '.px-3\\.5{padding-inline:calc(var(--spacing)*3.5)}' +
-  '.px-4{padding-inline:calc(var(--spacing)*4)}' +
+  '.px-4{padding-inline:1rem}' +
   '.px-5{padding-inline:calc(var(--spacing)*5)}' +
   '.py-0\\.5{padding-block:calc(var(--spacing)*.5)}' +
   '.py-1{padding-block:calc(var(--spacing)*1)}' +
