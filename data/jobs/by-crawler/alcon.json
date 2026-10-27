@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-10-27T09:39:51.431Z",
-  "runId": "40480409031",
+  "assembledAt": "2026-10-27T21:48:26.942Z",
+  "runId": "40586555991",
   "jobs": [
     {
       "id": "alcon-7e8db3a81169",
@@ -34,7 +34,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:39:47.691Z",
+      "crawledAt": "2026-10-27T21:48:21.838Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:39:47.009Z",
+      "crawledAt": "2026-10-27T21:48:21.180Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:39:46.270Z",
+      "crawledAt": "2026-10-27T21:48:20.548Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Freight-Costs-Control-Manager_R-2026-49866-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:39:45.569Z",
+      "crawledAt": "2026-10-27T21:48:19.895Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Practice-Solution-Manager--PSM----Strategic-Account-Manager--m-w-d---80-100--_R-2026-49838-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:39:44.816Z",
+      "crawledAt": "2026-10-27T21:48:19.208Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -452,7 +452,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/R-2026-48937-Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-50191-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:39:44.093Z",
+      "crawledAt": "2026-10-27T21:48:18.549Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -532,7 +532,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/E-commerce---Digital-Marketing-Sr-Brand-Manager--Contact-Lenses--IMG-VC_R-2026-50282",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:39:43.400Z",
+      "crawledAt": "2026-10-27T21:48:17.871Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -613,7 +613,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Consolidation-and-Reporting-Analyst_R-2026-50440-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:39:42.431Z",
+      "crawledAt": "2026-10-27T21:48:17.003Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -632,7 +632,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-2026-50440",
-      "firstSeenAt": "2026-10-26T21:48:47.998Z",
+      "previousSlugs": [
+        "senior-consolidation-and-reporting-analyst-alcon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-consolidation-and-reporting-analyst-alcon-ch"
@@ -644,9 +646,7 @@
           "senior-consolidation-and-reporting-analyst-alcon-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-consolidation-and-reporting-analyst-alcon-ch"
-      ],
+      "firstSeenAt": "2026-10-26T21:48:47.998Z",
       "salaryMin": 175000,
       "salaryMax": 307500,
       "salarySource": "estimated",
@@ -741,7 +741,7 @@
         }
       },
       "postalCode": "1700",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

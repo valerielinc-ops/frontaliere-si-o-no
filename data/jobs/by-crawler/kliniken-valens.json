@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kliniken-valens",
-  "assembledAt": "2026-10-27T09:52:40.718Z",
-  "runId": "40480138618",
+  "assembledAt": "2026-10-27T21:58:51.241Z",
+  "runId": "40586256935",
   "jobs": [
     {
       "id": "kliniken-valens-b6bb2f22e090",
@@ -34,7 +34,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/teamleiter-in-payroll-zeit-m-w-a/12f2a78a-5139-4913-9137-88fe51ccda62",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.806Z",
+      "crawledAt": "2026-10-27T21:58:45.006Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ernaehrungsberater-in-m-w-a/5d4fdc49-08c2-425d-a58c-923513699d3c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.804Z",
+      "crawledAt": "2026-10-27T21:58:45.005Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -156,6 +156,95 @@
       }
     },
     {
+      "id": "kliniken-valens-f6a7c525162b",
+      "slug": "formazione-come-infermiere-a-dipl-hf-m-f-a-in-corso-con-inizio-a-marzo-o-settembre-kliniken-valens-walzenhausen",
+      "slugByLocale": {
+        "it": "formazione-come-infermiere-a-dipl-hf-m-f-a-in-corso-con-inizio-a-marzo-o-settembre-kliniken-valens-walzenhausen",
+        "en": "training-as-a-dipl-nursing-professional-hf-m-f-a-ongoing-with-start-in-march-or-september-kliniken-valens-walzenhausen",
+        "de": "ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-marz-oder-september",
+        "fr": "formation-en-tant-qu-infirmier-e-diplome-e-hf-m-f-a-en-cours-avec-debut-en-mars-ou-septembre-kliniken-valens"
+      },
+      "company": "Kliniken Valens",
+      "companyKey": "kliniken-valens",
+      "companyDomain": "kliniken-valens.ch",
+      "title": "Ausbildung als Dipl. Pflegefachfrau/-mann HF (m/w/a) laufend mit Start ab März oder September",
+      "titleByLocale": {
+        "it": "Formazione come Infermiere/a Dipl. HF (m/f/a) in corso con inizio a marzo o settembre",
+        "en": "Training as a Dipl. Nursing Professional HF (m/f/a) ongoing with start in March or September",
+        "de": "Ausbildung als Dipl. Pflegefachfrau/-mann HF (m/w/a) laufend mit Start ab März oder September",
+        "fr": "Formation en tant qu'infirmier(e) diplômé(e) HF (m/f/a) en cours avec début en mars ou septembre"
+      },
+      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Wir vergeben an unserem Standort Walzenhausen freie Plätze zur\n\nAufgaben:\nStart März:\n• Dreijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener Berufslehre EFZ\n\nStart September:\n• Zweijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener FAGE-Berufslehre EFZ\n\n• Vierjährige Teilzeitausbildung für Quereinsteigende\n\n• Dreijährige Teilzeitausbildung für FAGE EFZ\n\nAnforderungen:\n• 3- oder 4-jährige Berufslehre mit EFZ oder FMS mit oder ohne Fachmaturitätsausweis oder gymnasiale Matur\n\n• Deutschkenntnisse Niveau C1\n\nWir bieten:\n• Begleitung während der Ausbildungszeit durch motivierte Ausbildner\n\n• Möglichkeit zur Teilnahme an internen Weiterbildungskursen und Informationsveranstaltungen\n\n• Ostwind-Generalabonnement für die Ausbildungszeit geschenkt\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst.\n\nBitte lade deine vollständigen Bewerbungsunterlagen, einschließlich Motivationsschreiben, Lebenslauf, Lehrabschluss- und FaGe-Schulzeugnisse und falls vorhanden den Multichecktest Professional Gesundheit HF für Dipl. Pflegefachfrau / Pflegefachmann über den Bewerbungsbutton hoch.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+      "descriptionByLocale": {
+        "it": "Lungimiranza per la riabilitazione e la mia carriera: questo è il modo in cui vivo e lavoro presso il Valens Clinic Group. Qui sono molto importanti lo scambio, il progresso, il lavoro di squadra interdisciplinare e le buone prospettive. Assegnamo posti liberi per incarichi nella nostra sede di Walzenhausen: Inizio marzo:\n• Formazione triennale per i candidati che hanno completato un tirocinio professionale EFZ Inizio settembre:\n• Formazione biennale per i candidati che hanno completato un tirocinio professionale FAGE EFZ\n• Formazione quadriennale a tempo parziale per gli iscritti secondari\n• Formazione triennale a tempo parziale per FAGE EFZ Requisiti:\n• 3 o 4 anni di tirocinio professionale presso EFZ o FMS con o senza diploma di maturità specialistica o diploma di scuola superiore Diploma di scuola superiore\n• Conoscenza della lingua tedesca livello C1 Offriamo:\n• Supporto durante il periodo di formazione da parte di formatori motivati\n• Possibilità di partecipare a corsi di perfezionamento interni ed eventi informativi\n• Abbonamento generale Ostwind gratuito durante il periodo di formazione\n• Vantaggi reali invece di parole vuote - con orario di cambio retribuito, bonus sostitutivo, 28 giorni di ferie nonché numerosi sconti e offerte interni ed esterni. Guarda tu stesso. Si prega di caricare i documenti di candidatura completi, inclusa la lettera di motivazione, CV, certificati di apprendistato e certificati scolastici FaGe e, se disponibile, il Multichecktest Professional Health HF per specialisti infermieristici qualificati utilizzando il pulsante di candidatura. Con 13 sedi e nove settori specialistici, il gruppo clinico Valens è il più grande fornitore di riabilitazione in Svizzera. In qualità di titolari dei label “Friendly Work Space” e “Best Employers in Switzerland”, sosteniamo i nostri 2.300 collaboratori nel loro equilibrio tra lavoro e vita privata e coltiviamo una cultura della cooperazione.",
+        "en": "Farsightedness for rehabilitation and my career – that is the way I live and work at the Valens Clinic Group. Exchange, progress, interdisciplinary teamwork and good prospects are very important here. We allocate free places for tasks at our Walzenhausen location: Start March:\n• Three-year training for applicants who have completed an EFZ vocational apprenticeship Start September:\n• Two-year training for applicants who have completed a FAGE EFZ vocational apprenticeship\n• Four-year part-time training for lateral entrants\n• Three-year part-time training for FAGE EFZ Requirements:\n• 3 or 4-year vocational apprenticeship with EFZ or FMS with or without a specialist baccalaureate certificate or high school diploma High school diploma\n• German language skills level C1 We offer:\n• Support during the training period by motivated trainers\n• Opportunity to take part in internal further training courses and information events\n• Ostwind general subscription for free during the training period\n• Real benefits instead of empty words - with paid changing time, stand-in bonus, 28 days of vacation as well as numerous internal and external discounts and offers. See for yourself. Please upload your complete application documents, including letter of motivation, CV, apprenticeship certificates and FaGe school certificates and, if available, the Multichecktest Professional Health HF for qualified nursing specialists using the application button. With 13 locations and nine specialist areas, the Valens clinic group is the largest rehabilitation provider in Switzerland. As holders of the “Friendly Work Space” and “Best Employers in Switzerland” labels, we support our 2,300 employees in their work-life balance and cultivate a culture of cooperation.",
+        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Wir vergeben an unserem Standort Walzenhausen freie Plätze zur\n\nAufgaben:\nStart März:\n• Dreijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener Berufslehre EFZ\n\nStart September:\n• Zweijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener FAGE-Berufslehre EFZ\n\n• Vierjährige Teilzeitausbildung für Quereinsteigende\n\n• Dreijährige Teilzeitausbildung für FAGE EFZ\n\nAnforderungen:\n• 3- oder 4-jährige Berufslehre mit EFZ oder FMS mit oder ohne Fachmaturitätsausweis oder gymnasiale Matur\n\n• Deutschkenntnisse Niveau C1\n\nWir bieten:\n• Begleitung während der Ausbildungszeit durch motivierte Ausbildner\n\n• Möglichkeit zur Teilnahme an internen Weiterbildungskursen und Informationsveranstaltungen\n\n• Ostwind-Generalabonnement für die Ausbildungszeit geschenkt\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst.\n\nBitte lade deine vollständigen Bewerbungsunterlagen, einschließlich Motivationsschreiben, Lebenslauf, Lehrabschluss- und FaGe-Schulzeugnisse und falls vorhanden den Multichecktest Professional Gesundheit HF für Dipl. Pflegefachfrau / Pflegefachmann über den Bewerbungsbutton hoch.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+        "fr": "L'hypermétropie pour la réadaptation et ma carrière – c'est ainsi que je vis et travaille au Groupe Clinique Valens. L'échange, le progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont ici très importants. Nous attribuons des places libres pour les tâches sur notre site de Walzenhausen : Début mars :\n• Formation de trois ans pour les candidats ayant suivi un apprentissage professionnel EFZ Début septembre :\n• Formation de deux ans pour les candidats ayant suivi un apprentissage professionnel FAGE EFZ\n• Formation à temps partiel de quatre ans pour les entrants latéraux\n• Formation à temps partiel de trois ans pour FAGE EFZ Conditions :\n• apprentissage professionnel de 3 ou 4 ans avec EFZ ou FMS avec ou sans baccalauréat spécialisé ou diplôme d'études secondaires Diplôme d'études secondaires\n• Compétences en allemand niveau C1 Nous offrons :\n• Un accompagnement pendant la période de formation par des formateurs motivés\n• La possibilité de participer à des cours de formation continue internes et à des événements d'information\n• Un abonnement général Ostwind gratuit pendant la période de formation\n• De vrais avantages au lieu de paroles vides de sens - avec du temps de change payant, une prime de remplacement, 28 jours de vacances ainsi que de nombreuses réductions et offres internes et externes. Voyez par vous-même. Veuillez télécharger vos documents de candidature complets, y compris la lettre de motivation, le CV, les certificats d'apprentissage et les certificats scolaires FaGe et, si disponible, le Multichecktest Professional Health HF pour les infirmières spécialisées qualifiées en utilisant le bouton de candidature. Avec 13 sites et neuf domaines spécialisés, le groupe de cliniques Valens est le plus grand prestataire de réadaptation en Suisse. En tant que titulaires des labels «Friendly Work Space» et «Meilleurs employeurs de Suisse», nous accompagnons nos 2300 collaborateurs dans leur équilibre entre vie professionnelle et vie privée et cultivons une culture de coopération."
+      },
+      "location": "Walzenhausen",
+      "canton": "AR",
+      "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-maerz-oder-september/58d38e55-622f-4e62-8c1f-d8a053dfa056",
+      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:58:45.003Z",
+      "addressLocality": "Walzenhausen",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9428",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-maerz-oder-september/58d38e55-622f-4e62-8c1f-d8a053dfa056",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Conoscenza del tedesco livello C1",
+          "Formazione triennale a tempo parziale per FAGE EFZ Requisiti:",
+          "Conoscenza della lingua tedesca livello C1 Offriamo:"
+        ],
+        "en": [
+          "German language skills at level C1",
+          "Exchange, progress, interdisciplinary teamwork and good prospects are very important here.",
+          "Three-year part-time training for FAGE EFZ Requirements:",
+          "German language skills level C1 We offer:"
+        ],
+        "fr": [
+          "Connaissances en allemand de niveau C1"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-marz-oder-september"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-marz-oder-september"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T18:25:39.750Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kliniken-valens-17c7d7efb3bd",
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-m-f-a-100-kliniken-valens-walenstadtberg",
       "slugByLocale": {
@@ -187,7 +276,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/vorpraktikum-in-der-physiotherapie-ergotherapie-m-w-a-ab-april-2027-wieder-freie-plaetze/4456f6b7-844c-416e-9b6e-3023d8a09ce3",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.802Z",
+      "crawledAt": "2026-10-27T21:58:45.002Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -256,95 +345,6 @@
       }
     },
     {
-      "id": "kliniken-valens-f6a7c525162b",
-      "slug": "formazione-come-infermiere-a-dipl-hf-m-f-a-in-corso-con-inizio-a-marzo-o-settembre-kliniken-valens-walzenhausen",
-      "slugByLocale": {
-        "it": "formazione-come-infermiere-a-dipl-hf-m-f-a-in-corso-con-inizio-a-marzo-o-settembre-kliniken-valens-walzenhausen",
-        "en": "training-as-a-dipl-nursing-professional-hf-m-f-a-ongoing-with-start-in-march-or-september-kliniken-valens-walzenhausen",
-        "de": "ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-marz-oder-september",
-        "fr": "formation-en-tant-qu-infirmier-e-diplome-e-hf-m-f-a-en-cours-avec-debut-en-mars-ou-septembre-kliniken-valens"
-      },
-      "company": "Kliniken Valens",
-      "companyKey": "kliniken-valens",
-      "companyDomain": "kliniken-valens.ch",
-      "title": "Ausbildung als Dipl. Pflegefachfrau/-mann HF (m/w/a) laufend mit Start ab März oder September",
-      "titleByLocale": {
-        "it": "Formazione come Infermiere/a Dipl. HF (m/f/a) in corso con inizio a marzo o settembre",
-        "en": "Training as a Dipl. Nursing Professional HF (m/f/a) ongoing with start in March or September",
-        "de": "Ausbildung als Dipl. Pflegefachfrau/-mann HF (m/w/a) laufend mit Start ab März oder September",
-        "fr": "Formation en tant qu'infirmier(e) diplômé(e) HF (m/f/a) en cours avec début en mars ou septembre"
-      },
-      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Wir vergeben an unserem Standort Walzenhausen freie Plätze zur\n\nAufgaben:\nStart März:\n• Dreijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener Berufslehre EFZ\n\nStart September:\n• Zweijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener FAGE-Berufslehre EFZ\n\n• Vierjährige Teilzeitausbildung für Quereinsteigende\n\n• Dreijährige Teilzeitausbildung für FAGE EFZ\n\nAnforderungen:\n• 3- oder 4-jährige Berufslehre mit EFZ oder FMS mit oder ohne Fachmaturitätsausweis oder gymnasiale Matur\n\n• Deutschkenntnisse Niveau C1\n\nWir bieten:\n• Begleitung während der Ausbildungszeit durch motivierte Ausbildner\n\n• Möglichkeit zur Teilnahme an internen Weiterbildungskursen und Informationsveranstaltungen\n\n• Ostwind-Generalabonnement für die Ausbildungszeit geschenkt\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst.\n\nBitte lade deine vollständigen Bewerbungsunterlagen, einschließlich Motivationsschreiben, Lebenslauf, Lehrabschluss- und FaGe-Schulzeugnisse und falls vorhanden den Multichecktest Professional Gesundheit HF für Dipl. Pflegefachfrau / Pflegefachmann über den Bewerbungsbutton hoch.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-      "descriptionByLocale": {
-        "it": "Lungimiranza per la riabilitazione e la mia carriera: questo è il modo in cui vivo e lavoro presso il Valens Clinic Group. Qui sono molto importanti lo scambio, il progresso, il lavoro di squadra interdisciplinare e le buone prospettive. Assegnamo posti liberi per incarichi nella nostra sede di Walzenhausen: Inizio marzo:\n• Formazione triennale per i candidati che hanno completato un tirocinio professionale EFZ Inizio settembre:\n• Formazione biennale per i candidati che hanno completato un tirocinio professionale FAGE EFZ\n• Formazione quadriennale a tempo parziale per gli iscritti secondari\n• Formazione triennale a tempo parziale per FAGE EFZ Requisiti:\n• 3 o 4 anni di tirocinio professionale presso EFZ o FMS con o senza diploma di maturità specialistica o diploma di scuola superiore Diploma di scuola superiore\n• Conoscenza della lingua tedesca livello C1 Offriamo:\n• Supporto durante il periodo di formazione da parte di formatori motivati\n• Possibilità di partecipare a corsi di perfezionamento interni ed eventi informativi\n• Abbonamento generale Ostwind gratuito durante il periodo di formazione\n• Vantaggi reali invece di parole vuote - con orario di cambio retribuito, bonus sostitutivo, 28 giorni di ferie nonché numerosi sconti e offerte interni ed esterni. Guarda tu stesso. Si prega di caricare i documenti di candidatura completi, inclusa la lettera di motivazione, CV, certificati di apprendistato e certificati scolastici FaGe e, se disponibile, il Multichecktest Professional Health HF per specialisti infermieristici qualificati utilizzando il pulsante di candidatura. Con 13 sedi e nove settori specialistici, il gruppo clinico Valens è il più grande fornitore di riabilitazione in Svizzera. In qualità di titolari dei label “Friendly Work Space” e “Best Employers in Switzerland”, sosteniamo i nostri 2.300 collaboratori nel loro equilibrio tra lavoro e vita privata e coltiviamo una cultura della cooperazione.",
-        "en": "Farsightedness for rehabilitation and my career – that is the way I live and work at the Valens Clinic Group. Exchange, progress, interdisciplinary teamwork and good prospects are very important here. We allocate free places for tasks at our Walzenhausen location: Start March:\n• Three-year training for applicants who have completed an EFZ vocational apprenticeship Start September:\n• Two-year training for applicants who have completed a FAGE EFZ vocational apprenticeship\n• Four-year part-time training for lateral entrants\n• Three-year part-time training for FAGE EFZ Requirements:\n• 3 or 4-year vocational apprenticeship with EFZ or FMS with or without a specialist baccalaureate certificate or high school diploma High school diploma\n• German language skills level C1 We offer:\n• Support during the training period by motivated trainers\n• Opportunity to take part in internal further training courses and information events\n• Ostwind general subscription for free during the training period\n• Real benefits instead of empty words - with paid changing time, stand-in bonus, 28 days of vacation as well as numerous internal and external discounts and offers. See for yourself. Please upload your complete application documents, including letter of motivation, CV, apprenticeship certificates and FaGe school certificates and, if available, the Multichecktest Professional Health HF for qualified nursing specialists using the application button. With 13 locations and nine specialist areas, the Valens clinic group is the largest rehabilitation provider in Switzerland. As holders of the “Friendly Work Space” and “Best Employers in Switzerland” labels, we support our 2,300 employees in their work-life balance and cultivate a culture of cooperation.",
-        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Wir vergeben an unserem Standort Walzenhausen freie Plätze zur\n\nAufgaben:\nStart März:\n• Dreijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener Berufslehre EFZ\n\nStart September:\n• Zweijährige Ausbildung für Bewerberinnen und Bewerber mit abgeschlossener FAGE-Berufslehre EFZ\n\n• Vierjährige Teilzeitausbildung für Quereinsteigende\n\n• Dreijährige Teilzeitausbildung für FAGE EFZ\n\nAnforderungen:\n• 3- oder 4-jährige Berufslehre mit EFZ oder FMS mit oder ohne Fachmaturitätsausweis oder gymnasiale Matur\n\n• Deutschkenntnisse Niveau C1\n\nWir bieten:\n• Begleitung während der Ausbildungszeit durch motivierte Ausbildner\n\n• Möglichkeit zur Teilnahme an internen Weiterbildungskursen und Informationsveranstaltungen\n\n• Ostwind-Generalabonnement für die Ausbildungszeit geschenkt\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst.\n\nBitte lade deine vollständigen Bewerbungsunterlagen, einschließlich Motivationsschreiben, Lebenslauf, Lehrabschluss- und FaGe-Schulzeugnisse und falls vorhanden den Multichecktest Professional Gesundheit HF für Dipl. Pflegefachfrau / Pflegefachmann über den Bewerbungsbutton hoch.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-        "fr": "L'hypermétropie pour la réadaptation et ma carrière – c'est ainsi que je vis et travaille au Groupe Clinique Valens. L'échange, le progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont ici très importants. Nous attribuons des places libres pour les tâches sur notre site de Walzenhausen : Début mars :\n• Formation de trois ans pour les candidats ayant suivi un apprentissage professionnel EFZ Début septembre :\n• Formation de deux ans pour les candidats ayant suivi un apprentissage professionnel FAGE EFZ\n• Formation à temps partiel de quatre ans pour les entrants latéraux\n• Formation à temps partiel de trois ans pour FAGE EFZ Conditions :\n• apprentissage professionnel de 3 ou 4 ans avec EFZ ou FMS avec ou sans baccalauréat spécialisé ou diplôme d'études secondaires Diplôme d'études secondaires\n• Compétences en allemand niveau C1 Nous offrons :\n• Un accompagnement pendant la période de formation par des formateurs motivés\n• La possibilité de participer à des cours de formation continue internes et à des événements d'information\n• Un abonnement général Ostwind gratuit pendant la période de formation\n• De vrais avantages au lieu de paroles vides de sens - avec du temps de change payant, une prime de remplacement, 28 jours de vacances ainsi que de nombreuses réductions et offres internes et externes. Voyez par vous-même. Veuillez télécharger vos documents de candidature complets, y compris la lettre de motivation, le CV, les certificats d'apprentissage et les certificats scolaires FaGe et, si disponible, le Multichecktest Professional Health HF pour les infirmières spécialisées qualifiées en utilisant le bouton de candidature. Avec 13 sites et neuf domaines spécialisés, le groupe de cliniques Valens est le plus grand prestataire de réadaptation en Suisse. En tant que titulaires des labels «Friendly Work Space» et «Meilleurs employeurs de Suisse», nous accompagnons nos 2300 collaborateurs dans leur équilibre entre vie professionnelle et vie privée et cultivons une culture de coopération."
-      },
-      "location": "Walzenhausen",
-      "canton": "AR",
-      "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-maerz-oder-september/58d38e55-622f-4e62-8c1f-d8a053dfa056",
-      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.802Z",
-      "addressLocality": "Walzenhausen",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9428",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-maerz-oder-september/58d38e55-622f-4e62-8c1f-d8a053dfa056",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Conoscenza del tedesco livello C1",
-          "Formazione triennale a tempo parziale per FAGE EFZ Requisiti:",
-          "Conoscenza della lingua tedesca livello C1 Offriamo:"
-        ],
-        "en": [
-          "German language skills at level C1",
-          "Exchange, progress, interdisciplinary teamwork and good prospects are very important here.",
-          "Three-year part-time training for FAGE EFZ Requirements:",
-          "German language skills level C1 We offer:"
-        ],
-        "fr": [
-          "Connaissances en allemand de niveau C1"
-        ]
-      },
-      "previousSlugs": [
-        "ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-marz-oder-september"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-marz-oder-september"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T18:25:39.750Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kliniken-valens-4298ffaf0bb2",
       "slug": "medico-di-assistenza-m-f-a-100-kliniken-valens-st-gallen",
       "slugByLocale": {
@@ -376,7 +376,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/unterassistenzaerztin-unterassistenzarzt-m-w-a/3abc7387-5bb5-4d39-9889-f133b9f1c090",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.800Z",
+      "crawledAt": "2026-10-27T21:58:45.001Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -450,7 +450,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/medizinische-r-masseur-in-m-w-a/0918300d-3eff-4e29-9292-fc16d725f514",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.799Z",
+      "crawledAt": "2026-10-27T21:58:45.000Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -494,80 +494,6 @@
       }
     },
     {
-      "id": "kliniken-valens-a5089352e310",
-      "slug": "servizio-professionale-m-f-a-80-100-kliniken-valens-walzenhausen",
-      "slugByLocale": {
-        "it": "servizio-professionale-m-f-a-80-100-kliniken-valens-walzenhausen",
-        "en": "professional-service-m-f-a-80-100-kliniken-valens-walzenhausen",
-        "de": "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-walzenhausen",
-        "fr": "service-professionnel-m-f-a-80-100-kliniken-valens-walzenhausen"
-      },
-      "company": "Kliniken Valens",
-      "companyKey": "kliniken-valens",
-      "companyDomain": "kliniken-valens.ch",
-      "title": "Fachfrau/-mann Service (m/w/a) 80 - 100 %",
-      "titleByLocale": {
-        "it": "Servizio tecnico (m/f/a) 80 - 100%",
-        "en": "Professional service (m/f/a) 80 - 100%",
-        "de": "Fachfrau/-mann Service (m/w/a) 80 - 100 %",
-        "fr": "Service professionnel (m/f/a) 80 - 100%"
-      },
-      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Servicedienstleistungen für Patienten, Besuchende und Mitarbeitende sowohl im Speisesaal als auch in der Caféteria, mit allen dabei anfallenden Arbeiten\n\n• Mithilfe bei der Durchführung von Apéros und Spezialanlässen\n\n• Einhaltung der Hygienevorschriften sowie der Arbeitssicherheit inklusive Kostverordnungen unserer Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Restaurationsfachfrau/-mann\n\n• Berufserfahrung im ähnlichen Umfeld (Klinik oder Spital, Alters-/Pflegeheim)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse und Verständnis des Schweizerdeutschen\n\n• Flexible, teamorientierte und zuverlässige Persönlichkeit\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-      "descriptionByLocale": {
-        "it": "Lungimiranza per la riabilitazione e la mia carriera – questo è lo stile di vita e la sensazione di lavoro al gruppo clinico Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono importanti qui. <br/> <br/ > Come supplemento al nostro team, stiamo cercando un\n\nCompiti:\n• Servizi per pazienti, visitatori e personale sia nella sala da pranzo che nella caffetteria, con tutto il lavoro coinvolto\n\n• Assistenza nell'attuazione di aperi ed eventi speciali\n\n• Rispetto delle normative igieniche e della sicurezza sul lavoro, comprese le normative alimentari dei nostri pazienti\n\nRequisiti\n• Formazione completa come specialista del restauro\n\n• Esperienza professionale in un ambiente simile (clinico o ospedale, casa di cura)\n\n• Molto buona conoscenza orale e scritta del tedesco e comprensione del tedesco svizzero\n\n• personalità flessibile, orientata al team e affidabile\n\nOffriamo:\n• Prospettiva e facile da raggiungere sul posto di lavoro – in un ambiente collegiale con strutture chiare, responsabili competenti e comunicazione apprezzata\n\n• Vantaggi reali invece di frasi vuote – con il tempo di cambio a pagamento, premio di salto, 28 giorni festivi e numerosi sconti interni ed esterni e offerte. Convincetevi\n\n• Ulteriore istruzione che vi avanza – formazione interna ed esterna, compreso attraverso la nostra Valens Academy, il centro di formazione a livello di gruppo\n\n• Diversità come forza – Ci affidiamo al pensiero, ai dipendenti autoconfidenti e critici con esperienze, qualifiche e prospettive diverse, perché siamo convinti che questo ci porterà tutti avanti.\n\nCon 13 sedi e nove aree specializzate, il Gruppo Clinico Valens è il più grande fornitore di riabilitazione in Svizzera. Come vettori delle etichette \"Friendly Work Space\" e \"Best Employers Switzerland\", sosteniamo i nostri 2300 dipendenti nel loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
-        "en": "Far-sightedness for rehab and my career – that is the lifestyle and working feeling at the clinic group Valens. Exchange, progress, interdisciplinary teamwork and good prospects are important here. <br/><br/ >As a supplement to our team, we are looking for an\n\nTasks:\n• Services for patients, visitors and staff both in the dining room and in the cafeteria, with all the work involved\n\n• Assistance in the implementation of aperos and special events\n\n• Compliance with hygiene regulations and occupational safety including food regulations of our patients\n\nRequirements\n• Completed training as restoration specialist\n\n• Professional experience in a similar environment (clinic or hospital, nursing home)\n\n• Very good oral and written knowledge of German and understanding of Swiss German\n\n• Flexible, team-oriented and reliable personality\n\nWe offer:\n• Prospective and easy to reach workplace – in a collegial environment with clear structures, competent managers and appreciative communication\n\n• Real benefits instead of empty phrases – with paid changing time, jump-in premium, 28 days holidays as well as numerous internal and external discounts and offers. Convince yourself\n\n• Further education that advances you – internal and external training, including through our Valens Academy, the group-wide training center\n\n• Diversity as strength – We rely on thinking, self-confident and critical employees with different experiences, qualifications and perspectives, because we are convinced that this will bring us all forward.\n\nWith 13 locations and nine specialist areas, the Valens Clinical Group is the largest rehabilitation provider in Switzerland. As carriers of the labels \"Friendly Work Space\" and \"Best Employers Switzerland\", we support our 2300 employees in their work-life balance and cultivate a culture of cooperation.",
-        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Servicedienstleistungen für Patienten, Besuchende und Mitarbeitende sowohl im Speisesaal als auch in der Caféteria, mit allen dabei anfallenden Arbeiten\n\n• Mithilfe bei der Durchführung von Apéros und Spezialanlässen\n\n• Einhaltung der Hygienevorschriften sowie der Arbeitssicherheit inklusive Kostverordnungen unserer Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Restaurationsfachfrau/-mann\n\n• Berufserfahrung im ähnlichen Umfeld (Klinik oder Spital, Alters-/Pflegeheim)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse und Verständnis des Schweizerdeutschen\n\n• Flexible, teamorientierte und zuverlässige Persönlichkeit\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-        "fr": "La clairvoyance pour la réadaptation et ma carrière – c'est le style de vie et le sentiment de travail au sein du groupe clinique Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont importants. <br/><br/ >En complément de notre équipe, nous cherchons\n\nTâches :\n• Services pour les patients, les visiteurs et le personnel dans la salle à manger et à la cafétéria, avec tout le travail impliqué\n\n• Assistance à la mise en œuvre des aéros et des manifestations spéciales\n\n• Respect des règles d'hygiène et de sécurité au travail, y compris les réglementations alimentaires de nos patients\n\nExigences\n• Formation terminée en tant que spécialiste de la restauration\n\n• Expérience professionnelle dans un environnement similaire (clinique ou hôpital, maison de soins infirmiers)\n\n• Très bonne connaissance orale et écrite de l'allemand et compréhension de l'allemand suisse\n\n• Personnalité flexible, orientée vers l'équipe et fiable\n\nNous offrons:\n• Prospective et facile d'accès au lieu de travail – dans un environnement collégial avec des structures claires, des gestionnaires compétents et une communication appréciée\n\n• Avantages réels au lieu de phrases vides – avec temps de changement payé, prime de saut, 28 jours de vacances ainsi que de nombreuses réductions et offres internes et externes. Convainquez-vous\n\n• Une formation complémentaire qui vous fait progresser – formation interne et externe, y compris par notre Valens Academy, le centre de formation à l'échelle du groupe\n\n• La diversité en tant que force – Nous nous appuyons sur la pensée, la confiance en soi et des employés critiques ayant différentes expériences, qualifications et perspectives, parce que nous sommes convaincus que cela nous fera tous avancer.\n\nAvec 13 emplacements et neuf zones spécialisées, le Groupe clinique Valens est le plus important fournisseur de services de réadaptation en Suisse. En tant que porteurs des labels « Friendly Work Space » et « Best Employers Switzerland », nous soutenons nos 2300 employés dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
-      },
-      "location": "Walzenhausen",
-      "canton": "AR",
-      "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/7616ecb3-e195-403c-8f2b-59af64cdc357",
-      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.798Z",
-      "addressLocality": "Walzenhausen",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9428",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/7616ecb3-e195-403c-8f2b-59af64cdc357",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-walzenhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-walzenhausen"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T11:36:27.627Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kliniken-valens-3d420c328310",
       "slug": "prevenzione-delle-infezioni-m-f-a-50-100-kliniken-valens-sargans",
       "slugByLocale": {
@@ -598,7 +524,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachexpert-in-infektionspraevention-m-w-a/cf37b623-d618-47f5-8d6b-576be367d51d",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.797Z",
+      "crawledAt": "2026-10-27T21:58:44.998Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -642,6 +568,80 @@
       }
     },
     {
+      "id": "kliniken-valens-a5089352e310",
+      "slug": "servizio-professionale-m-f-a-80-100-kliniken-valens-walzenhausen",
+      "slugByLocale": {
+        "it": "servizio-professionale-m-f-a-80-100-kliniken-valens-walzenhausen",
+        "en": "professional-service-m-f-a-80-100-kliniken-valens-walzenhausen",
+        "de": "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-walzenhausen",
+        "fr": "service-professionnel-m-f-a-80-100-kliniken-valens-walzenhausen"
+      },
+      "company": "Kliniken Valens",
+      "companyKey": "kliniken-valens",
+      "companyDomain": "kliniken-valens.ch",
+      "title": "Fachfrau/-mann Service (m/w/a) 80 - 100 %",
+      "titleByLocale": {
+        "it": "Servizio tecnico (m/f/a) 80 - 100%",
+        "en": "Professional service (m/f/a) 80 - 100%",
+        "de": "Fachfrau/-mann Service (m/w/a) 80 - 100 %",
+        "fr": "Service professionnel (m/f/a) 80 - 100%"
+      },
+      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Servicedienstleistungen für Patienten, Besuchende und Mitarbeitende sowohl im Speisesaal als auch in der Caféteria, mit allen dabei anfallenden Arbeiten\n\n• Mithilfe bei der Durchführung von Apéros und Spezialanlässen\n\n• Einhaltung der Hygienevorschriften sowie der Arbeitssicherheit inklusive Kostverordnungen unserer Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Restaurationsfachfrau/-mann\n\n• Berufserfahrung im ähnlichen Umfeld (Klinik oder Spital, Alters-/Pflegeheim)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse und Verständnis des Schweizerdeutschen\n\n• Flexible, teamorientierte und zuverlässige Persönlichkeit\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+      "descriptionByLocale": {
+        "it": "Lungimiranza per la riabilitazione e la mia carriera – questo è lo stile di vita e la sensazione di lavoro al gruppo clinico Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono importanti qui. <br/> <br/ > Come supplemento al nostro team, stiamo cercando un\n\nCompiti:\n• Servizi per pazienti, visitatori e personale sia nella sala da pranzo che nella caffetteria, con tutto il lavoro coinvolto\n\n• Assistenza nell'attuazione di aperi ed eventi speciali\n\n• Rispetto delle normative igieniche e della sicurezza sul lavoro, comprese le normative alimentari dei nostri pazienti\n\nRequisiti\n• Formazione completa come specialista del restauro\n\n• Esperienza professionale in un ambiente simile (clinico o ospedale, casa di cura)\n\n• Molto buona conoscenza orale e scritta del tedesco e comprensione del tedesco svizzero\n\n• personalità flessibile, orientata al team e affidabile\n\nOffriamo:\n• Prospettiva e facile da raggiungere sul posto di lavoro – in un ambiente collegiale con strutture chiare, responsabili competenti e comunicazione apprezzata\n\n• Vantaggi reali invece di frasi vuote – con il tempo di cambio a pagamento, premio di salto, 28 giorni festivi e numerosi sconti interni ed esterni e offerte. Convincetevi\n\n• Ulteriore istruzione che vi avanza – formazione interna ed esterna, compreso attraverso la nostra Valens Academy, il centro di formazione a livello di gruppo\n\n• Diversità come forza – Ci affidiamo al pensiero, ai dipendenti autoconfidenti e critici con esperienze, qualifiche e prospettive diverse, perché siamo convinti che questo ci porterà tutti avanti.\n\nCon 13 sedi e nove aree specializzate, il Gruppo Clinico Valens è il più grande fornitore di riabilitazione in Svizzera. Come vettori delle etichette \"Friendly Work Space\" e \"Best Employers Switzerland\", sosteniamo i nostri 2300 dipendenti nel loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
+        "en": "Far-sightedness for rehab and my career – that is the lifestyle and working feeling at the clinic group Valens. Exchange, progress, interdisciplinary teamwork and good prospects are important here. <br/><br/ >As a supplement to our team, we are looking for an\n\nTasks:\n• Services for patients, visitors and staff both in the dining room and in the cafeteria, with all the work involved\n\n• Assistance in the implementation of aperos and special events\n\n• Compliance with hygiene regulations and occupational safety including food regulations of our patients\n\nRequirements\n• Completed training as restoration specialist\n\n• Professional experience in a similar environment (clinic or hospital, nursing home)\n\n• Very good oral and written knowledge of German and understanding of Swiss German\n\n• Flexible, team-oriented and reliable personality\n\nWe offer:\n• Prospective and easy to reach workplace – in a collegial environment with clear structures, competent managers and appreciative communication\n\n• Real benefits instead of empty phrases – with paid changing time, jump-in premium, 28 days holidays as well as numerous internal and external discounts and offers. Convince yourself\n\n• Further education that advances you – internal and external training, including through our Valens Academy, the group-wide training center\n\n• Diversity as strength – We rely on thinking, self-confident and critical employees with different experiences, qualifications and perspectives, because we are convinced that this will bring us all forward.\n\nWith 13 locations and nine specialist areas, the Valens Clinical Group is the largest rehabilitation provider in Switzerland. As carriers of the labels \"Friendly Work Space\" and \"Best Employers Switzerland\", we support our 2300 employees in their work-life balance and cultivate a culture of cooperation.",
+        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Servicedienstleistungen für Patienten, Besuchende und Mitarbeitende sowohl im Speisesaal als auch in der Caféteria, mit allen dabei anfallenden Arbeiten\n\n• Mithilfe bei der Durchführung von Apéros und Spezialanlässen\n\n• Einhaltung der Hygienevorschriften sowie der Arbeitssicherheit inklusive Kostverordnungen unserer Patienten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Restaurationsfachfrau/-mann\n\n• Berufserfahrung im ähnlichen Umfeld (Klinik oder Spital, Alters-/Pflegeheim)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse und Verständnis des Schweizerdeutschen\n\n• Flexible, teamorientierte und zuverlässige Persönlichkeit\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, Einspringprämie, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+        "fr": "La clairvoyance pour la réadaptation et ma carrière – c'est le style de vie et le sentiment de travail au sein du groupe clinique Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont importants. <br/><br/ >En complément de notre équipe, nous cherchons\n\nTâches :\n• Services pour les patients, les visiteurs et le personnel dans la salle à manger et à la cafétéria, avec tout le travail impliqué\n\n• Assistance à la mise en œuvre des aéros et des manifestations spéciales\n\n• Respect des règles d'hygiène et de sécurité au travail, y compris les réglementations alimentaires de nos patients\n\nExigences\n• Formation terminée en tant que spécialiste de la restauration\n\n• Expérience professionnelle dans un environnement similaire (clinique ou hôpital, maison de soins infirmiers)\n\n• Très bonne connaissance orale et écrite de l'allemand et compréhension de l'allemand suisse\n\n• Personnalité flexible, orientée vers l'équipe et fiable\n\nNous offrons:\n• Prospective et facile d'accès au lieu de travail – dans un environnement collégial avec des structures claires, des gestionnaires compétents et une communication appréciée\n\n• Avantages réels au lieu de phrases vides – avec temps de changement payé, prime de saut, 28 jours de vacances ainsi que de nombreuses réductions et offres internes et externes. Convainquez-vous\n\n• Une formation complémentaire qui vous fait progresser – formation interne et externe, y compris par notre Valens Academy, le centre de formation à l'échelle du groupe\n\n• La diversité en tant que force – Nous nous appuyons sur la pensée, la confiance en soi et des employés critiques ayant différentes expériences, qualifications et perspectives, parce que nous sommes convaincus que cela nous fera tous avancer.\n\nAvec 13 emplacements et neuf zones spécialisées, le Groupe clinique Valens est le plus important fournisseur de services de réadaptation en Suisse. En tant que porteurs des labels « Friendly Work Space » et « Best Employers Switzerland », nous soutenons nos 2300 employés dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
+      },
+      "location": "Walzenhausen",
+      "canton": "AR",
+      "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/7616ecb3-e195-403c-8f2b-59af64cdc357",
+      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:58:44.998Z",
+      "addressLocality": "Walzenhausen",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9428",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/7616ecb3-e195-403c-8f2b-59af64cdc357",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-walzenhausen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-service-m-w-a-80-100-kliniken-valens-walzenhausen"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T11:36:27.627Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kliniken-valens-e99ada05315e",
       "slug": "dipl-guardia-notturna-professionale-hf-fh-50-m-f-a-kliniken-valens-davos-clavadel",
       "slugByLocale": {
@@ -672,7 +672,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-nachtwache-m-w-a/b76836d1-38cb-4cf7-9103-3a9e3b456a4c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.795Z",
+      "crawledAt": "2026-10-27T21:58:44.996Z",
       "addressLocality": "Davos Clavadel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -777,7 +777,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachmann-frau-gesundheit-efz-m-w-a/b682923a-b0ef-49b1-ab07-02074bec07d7",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.793Z",
+      "crawledAt": "2026-10-27T21:58:44.994Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -824,7 +824,7 @@
       "id": "kliniken-valens-f0aeffab6ffd",
       "slug": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-70-90-kliniken-valens-gais",
       "slugByLocale": {
-        "it": "infermiere-a-psicosomatica-psichiatria-m-f-a-70-90-kliniken-valens-gais",
+        "it": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-70-90-kliniken-valens-gais",
         "en": "dipl-nurse-psychosomatics-psychiatry-m-f-a-70-90-kliniken-valens-gais",
         "de": "dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a-70-90-kliniken-valens-gais",
         "fr": "infirmiere-infirmiere-diplomee-en-psychosomatique-psychiatrie-h-f-a-70-90-kliniken-valens-gais"
@@ -852,7 +852,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-psychosomatik-psychiatrie-m-w-a/308609ce-1aa4-4855-b8d9-140fd765ab8c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.792Z",
+      "crawledAt": "2026-10-27T21:58:44.993Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -873,6 +873,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-06T09:33:51.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infermiere-a-psicosomatica-psichiatria-m-f-a-70-90-kliniken-valens-gais"
+        ]
+      },
+      "previousSlugs": [
+        "infermiere-a-psicosomatica-psichiatria-m-f-a-70-90-kliniken-valens-gais"
+      ],
       "salaryMin": 72900,
       "salaryMax": 101700,
       "salarySource": "estimated",
@@ -919,7 +927,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ergotherapeut-in-m-w-a/b71910cf-7233-4e6f-ae20-3130c2cbcb82",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.791Z",
+      "crawledAt": "2026-10-27T21:58:44.992Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -992,7 +1000,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachmann-frau-gesundheit-efz-m-w-a/21fce8c6-b218-4715-8ad9-9b3d6dc3e837",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.789Z",
+      "crawledAt": "2026-10-27T21:58:44.990Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1066,7 +1074,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/medizininformatiker-in-integration-m-w-a/68852031-cf48-4235-b619-4e809a5dfe33",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.788Z",
+      "crawledAt": "2026-10-27T21:58:44.989Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1116,9 +1124,9 @@
       "slug": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
       "slugByLocale": {
         "it": "industria-professionale-alberghiera-m-f-a-80-kliniken-valens-wald",
-        "en": "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
+        "en": "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
         "de": "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
-        "fr": "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
+        "fr": "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -1142,7 +1150,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-fachmann-hotellerie-m-w-a/28a056e7-25e2-455b-a782-56abed2790b3",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.786Z",
+      "crawledAt": "2026-10-27T21:58:44.987Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1166,9 +1174,7 @@
         "specialista-nel-settore-alberghiero-m-f-a-80-kliniken-valens-wald",
         "professional-hotel-industry-m-f-a-80-kliniken-valens-wald",
         "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald",
-        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald",
-        "hospitality-specialist-m-f-a-80-kliniken-valens-wald",
-        "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
+        "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1178,10 +1184,10 @@
           "fachfrau-fachmann-hotellerie-m-w-a-80-kliniken-valens-wald"
         ],
         "en": [
-          "hospitality-specialist-m-f-a-80-kliniken-valens-wald"
+          "professional-hotel-industry-m-f-a-80-kliniken-valens-wald"
         ],
         "fr": [
-          "employee-employe-en-hotellerie-f-h-a-80-kliniken-valens-wald"
+          "industrie-professionnelle-hoteliere-m-f-a-80-kliniken-valens-wald"
         ]
       },
       "firstSeenAt": "2026-09-10T23:18:08.923Z",
@@ -1230,7 +1236,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/sanitaerinstallateur-in-m-w-a/54202778-82ef-49a0-9b48-a85906edd66f",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.785Z",
+      "crawledAt": "2026-10-27T21:58:44.986Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1305,7 +1311,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-maerz-september/0856bf4a-1868-4377-b92c-2da7758b615c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.782Z",
+      "crawledAt": "2026-10-27T21:58:44.985Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1391,7 +1397,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a/f0ed8f44-7c73-4c77-8153-46fe6c26e3ee",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.780Z",
+      "crawledAt": "2026-10-27T21:58:44.983Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1471,7 +1477,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/unterassistent-in-neurologie-m-w-a/25cfc53e-8a29-47bc-8e79-6b9b21023eab",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.778Z",
+      "crawledAt": "2026-10-27T21:58:44.981Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1574,7 +1580,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/praktikant-in-sport-und-bewegungstherapie-m-w-a/df4a11b4-228d-46aa-a3fc-56cf99da202d",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.776Z",
+      "crawledAt": "2026-10-27T21:58:44.979Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1649,7 +1655,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-w-m-a-mit-lehrbeginn-2027/226a354d-8484-4966-8721-5ed905d69f2c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.775Z",
+      "crawledAt": "2026-10-27T21:58:44.978Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1765,7 +1771,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-w-m-a-mit-lehrbeginn-2027/5c19c675-76d7-4e33-9816-c4f91308311a",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.774Z",
+      "crawledAt": "2026-10-27T21:58:44.977Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1864,7 +1870,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/praktikant-in-pflege-m-w-a-zivildienst-einsatz-moeglich/8217d521-627d-43ed-838f-7754f1cd0cb0",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.773Z",
+      "crawledAt": "2026-10-27T21:58:44.976Z",
       "addressLocality": "Davos Clavadel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1969,7 +1975,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-gesundheit-efz-m-w-a-mit-start-ab-2027/ae87e087-c56d-4c5c-ae71-20505f45a100",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.770Z",
+      "crawledAt": "2026-10-27T21:58:44.975Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2065,7 +2071,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachmann-frau-hf-m-w-a-laufend-mit-start-ab-maerz-september/167e8ec4-b90a-4efe-8023-873b91c31994",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.768Z",
+      "crawledAt": "2026-10-27T21:58:44.973Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -2165,7 +2171,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-psychologin-psychologe-m-w-a/5427810f-4157-4913-900d-f0041402ba2a",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.767Z",
+      "crawledAt": "2026-10-27T21:58:44.972Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2241,7 +2247,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-hf-fh-ueberwachungspflichtige-rehabilitation-m-w-a-50/40a36490-5069-4187-b451-bd0b310e01bb",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.765Z",
+      "crawledAt": "2026-10-27T21:58:44.971Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2317,7 +2323,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-apotheke-m-w-a/a6833f53-ed5e-4b41-a6df-dc944d54e6c1",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.762Z",
+      "crawledAt": "2026-10-27T21:58:44.970Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -2392,7 +2398,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-hf-fh-berufsbildner-in-m-w-a/5039931e-4dc7-4d17-93c1-1f3a1658d35c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.760Z",
+      "crawledAt": "2026-10-27T21:58:44.969Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -2467,7 +2473,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/assistent-in-gesundheit-und-soziales-m-w-a/e08006e7-b449-4d4d-8f79-e515cf2ae9cd",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.759Z",
+      "crawledAt": "2026-10-27T21:58:44.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2547,7 +2553,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/arztsekretaer-in-montag-fix/3f8f0ae3-a4b9-438d-8b6b-91f9d172f9a9",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.756Z",
+      "crawledAt": "2026-10-27T21:58:44.966Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2591,81 +2597,6 @@
       }
     },
     {
-      "id": "kliniken-valens-51b7225bbca5",
-      "slug": "infotag-zur-ausbildung-come-kauffrau-mann-cfc-m-w-a-kliniken-valens-gais",
-      "slugByLocale": {
-        "it": "infotag-zur-ausbildung-come-kauffrau-mann-cfc-m-w-a-kliniken-valens-gais",
-        "en": "information-day-for-training-as-a-merchant-efz-m-w-a-kliniken-valens-gais",
-        "de": "infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a-kliniken-valens-gais",
-        "fr": "journee-d-information-pour-la-formation-en-tant-que-commercant-efz-m-w-a-kliniken-valens-gais"
-      },
-      "company": "Kliniken Valens",
-      "companyKey": "kliniken-valens",
-      "companyDomain": "kliniken-valens.ch",
-      "title": "Infotag zur Ausbildung als Kauffrau/-mann EFZ (m/w/a)",
-      "titleByLocale": {
-        "it": "Giornata informativa per la formazione come commerciante EFZ (m/w/a)",
-        "en": "Information day for training as a merchant EFZ (m/w/a)",
-        "de": "Infotag zur Ausbildung als Kauffrau/-mann EFZ (m/w/a)",
-        "fr": "Journée d'information pour la formation en tant que commerçant EFZ (m/w/a)"
-      },
-      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>An unserem Standort in Gais bieten wir am 24. März 2027 einen\n\nAufgaben:\n• Spannender Tag von 8.00 Uhr – 16.30 Uhr\n\n• Gemeinsames Mittagessen\n\n• Informationen über die dreijährige Lehre als Kauffrau/-mann EFZ, Branche Gesundheit\n\n• Einblick in die Bereiche:\n\n• Patientenadministration\n\n• Empfang\n\n• Buchhaltung\n\n• Therapieplanung\n\n• Med. Sekretariat\n\nAnforderungen:\n• Interessierte, offene und freundliche Persönlichkeit\n\n• Freude am Kontakt zu Mitmenschen\n\nWir bieten:\nFür deine Anmeldung sende bitte eine E-Mail mit deinem Lebenslauf an monika.freund@kliniken-valens.ch.\n Anmeldung bis 01. März 2027.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-      "descriptionByLocale": {
-        "it": "Ampia vista per Reha e la mia carriera – questa è la sensazione di vita e di lavoro al Klinikgruppe Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono scritte qui. Nella nostra posizione a Gais offriamo il 02. Settembre 2026 Compiti:\n• Giorno emozionante dalle 8.00 alle 16.30\n• Pranzo comune\n• Informazioni sull'apprendistato triennale come commerciante EFZ, settore sanitario\n• Insight nelle aree:\n• Amministrazione paziente\n• Reception\n• Contabilità\n• Pianificazione del trattamento\n• Med. Segreteria Requisiti:\n• personalità interessante, aperta e amichevole\n• Gioia in contatto con altri esseri umani Offriamo: Per la registrazione si prega di inviare una e-mail con il vostro curriculum a monika.freund@kliniken-valens.ch Il Klinikgruppe Valens è il più grande fornitore di riabilitazione in Svizzera con 13 sedi e nove aree specializzate. Come vettore delle etichette \"Friendly Work Space\" e \"Best Employer Switzerland\", sosteniamo i nostri 2300 dipendenti nel loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
-        "en": "Wide view for Reha and my career – this is the feeling of life and work at the Klinikgruppe Valens. Exchange, progress, interdisciplinary teamwork and good prospects are written here. At our location in Gais we offer on 02. September 2026 Tasks:\n• Exciting day from 8.00 a.m. to 16.30 p.m.\n• Common lunch\n• Information about the three-year apprenticeship as a merchant EFZ, industry health\n• Insight into the areas:\n• Patient administration\n• Reception\n• Accounting\n• Treatment planning\n• Med. Secretariat Requirements:\n• Interested, open and friendly personality\n• Joy in contact with fellow human beings We offer: For your registration please send an e-mail with your resume to monika.freund@kliniken-valens.ch The Klinikgruppe Valens is the largest rehabilitation provider in Switzerland with 13 locations and nine specialist areas. As a carrier of the labels \"Friendly Work Space\" and \"Best Employer Switzerland\", we support our 2300 employees in their work-life balance and cultivate a culture of cooperation.",
-        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>An unserem Standort in Gais bieten wir am 24. März 2027 einen\n\nAufgaben:\n• Spannender Tag von 8.00 Uhr – 16.30 Uhr\n\n• Gemeinsames Mittagessen\n\n• Informationen über die dreijährige Lehre als Kauffrau/-mann EFZ, Branche Gesundheit\n\n• Einblick in die Bereiche:\n\n• Patientenadministration\n\n• Empfang\n\n• Buchhaltung\n\n• Therapieplanung\n\n• Med. Sekretariat\n\nAnforderungen:\n• Interessierte, offene und freundliche Persönlichkeit\n\n• Freude am Kontakt zu Mitmenschen\n\nWir bieten:\nFür deine Anmeldung sende bitte eine E-Mail mit deinem Lebenslauf an monika.freund@kliniken-valens.ch.\nAnmeldung bis 01. März 2027.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-        "fr": "Vue large pour Reha et ma carrière – c'est le sentiment de vie et de travail au Klinikgruppe Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont écrits ici. À notre emplacement à Gais nous offrons sur 02. Septembre 2026 Tâches :\n• Journée passionnante de 8 heures à 16 h 30\n• Déjeuner commun\n• Informations sur l'apprentissage de trois ans en tant que commerçant EFZ, santé de l'industrie\n• Regard sur les domaines:\n• Administration du patient\n• Réception\n• Comptabilité\n• Planification du traitement\n• Secrétariat Med. Exigences:\n• Personnalité intéressée, ouverte et amicale\n• Joy en contact avec des êtres humains Nous offrons: Pour votre inscription veuillez envoyer un e-mail avec votre CV à monika.freund@kliniken-valens.ch Le Klinikgruppe Valens est le plus grand fournisseur de réhabilitation en Suisse avec 13 sites et neuf zones spécialisées. En tant que transporteur des labels « Friendly Work Space » et « Best Employer Suisse », nous soutenons nos 2300 employés dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
-      },
-      "needsRetranslation": false,
-      "location": "Gais",
-      "canton": "AR",
-      "url": "https://jobs.valens.ch/offene-stellen/infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a/4a6d8415-8ea7-4163-a3c1-0d28807d09e6",
-      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.755Z",
-      "addressLocality": "Gais",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9056",
-      "streetAddress": "",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.valens.ch/offene-stellen/infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a/4a6d8415-8ea7-4163-a3c1-0d28807d09e6",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a-kliniken-valens-gais"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a-kliniken-valens-gais"
-        ]
-      },
-      "firstSeenAt": "2026-06-04T15:15:01.632Z",
-      "salaryMin": 56000,
-      "salaryMax": 103000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 56000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kliniken-valens-d169920c1dd7",
       "slug": "stage-per-la-formazione-come-tecnico-a-della-salute-efz-kliniken-valens-walzenhausen",
       "slugByLocale": {
@@ -2696,7 +2627,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachmann-frau-gesundheit-efz/f0c137e0-5528-421b-a52c-6b2c1fc003e7",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.754Z",
+      "crawledAt": "2026-10-27T21:58:44.964Z",
       "addressLocality": "Walzenhausen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -2759,6 +2690,81 @@
       }
     },
     {
+      "id": "kliniken-valens-51b7225bbca5",
+      "slug": "infotag-zur-ausbildung-come-kauffrau-mann-cfc-m-w-a-kliniken-valens-gais",
+      "slugByLocale": {
+        "it": "infotag-zur-ausbildung-come-kauffrau-mann-cfc-m-w-a-kliniken-valens-gais",
+        "en": "information-day-for-training-as-a-merchant-efz-m-w-a-kliniken-valens-gais",
+        "de": "infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a-kliniken-valens-gais",
+        "fr": "journee-d-information-pour-la-formation-en-tant-que-commercant-efz-m-w-a-kliniken-valens-gais"
+      },
+      "company": "Kliniken Valens",
+      "companyKey": "kliniken-valens",
+      "companyDomain": "kliniken-valens.ch",
+      "title": "Infotag zur Ausbildung als Kauffrau/-mann EFZ (m/w/a)",
+      "titleByLocale": {
+        "it": "Giornata informativa per la formazione come commerciante EFZ (m/w/a)",
+        "en": "Information day for training as a merchant EFZ (m/w/a)",
+        "de": "Infotag zur Ausbildung als Kauffrau/-mann EFZ (m/w/a)",
+        "fr": "Journée d'information pour la formation en tant que commerçant EFZ (m/w/a)"
+      },
+      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>An unserem Standort in Gais bieten wir am 24. März 2027 einen\n\nAufgaben:\n• Spannender Tag von 8.00 Uhr – 16.30 Uhr\n\n• Gemeinsames Mittagessen\n\n• Informationen über die dreijährige Lehre als Kauffrau/-mann EFZ, Branche Gesundheit\n\n• Einblick in die Bereiche:\n\n• Patientenadministration\n\n• Empfang\n\n• Buchhaltung\n\n• Therapieplanung\n\n• Med. Sekretariat\n\nAnforderungen:\n• Interessierte, offene und freundliche Persönlichkeit\n\n• Freude am Kontakt zu Mitmenschen\n\nWir bieten:\nFür deine Anmeldung sende bitte eine E-Mail mit deinem Lebenslauf an monika.freund@kliniken-valens.ch.\n Anmeldung bis 01. März 2027.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+      "descriptionByLocale": {
+        "it": "Ampia vista per Reha e la mia carriera – questa è la sensazione di vita e di lavoro al Klinikgruppe Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono scritte qui. Nella nostra posizione a Gais offriamo il 02. Settembre 2026 Compiti:\n• Giorno emozionante dalle 8.00 alle 16.30\n• Pranzo comune\n• Informazioni sull'apprendistato triennale come commerciante EFZ, settore sanitario\n• Insight nelle aree:\n• Amministrazione paziente\n• Reception\n• Contabilità\n• Pianificazione del trattamento\n• Med. Segreteria Requisiti:\n• personalità interessante, aperta e amichevole\n• Gioia in contatto con altri esseri umani Offriamo: Per la registrazione si prega di inviare una e-mail con il vostro curriculum a monika.freund@kliniken-valens.ch Il Klinikgruppe Valens è il più grande fornitore di riabilitazione in Svizzera con 13 sedi e nove aree specializzate. Come vettore delle etichette \"Friendly Work Space\" e \"Best Employer Switzerland\", sosteniamo i nostri 2300 dipendenti nel loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
+        "en": "Wide view for Reha and my career – this is the feeling of life and work at the Klinikgruppe Valens. Exchange, progress, interdisciplinary teamwork and good prospects are written here. At our location in Gais we offer on 02. September 2026 Tasks:\n• Exciting day from 8.00 a.m. to 16.30 p.m.\n• Common lunch\n• Information about the three-year apprenticeship as a merchant EFZ, industry health\n• Insight into the areas:\n• Patient administration\n• Reception\n• Accounting\n• Treatment planning\n• Med. Secretariat Requirements:\n• Interested, open and friendly personality\n• Joy in contact with fellow human beings We offer: For your registration please send an e-mail with your resume to monika.freund@kliniken-valens.ch The Klinikgruppe Valens is the largest rehabilitation provider in Switzerland with 13 locations and nine specialist areas. As a carrier of the labels \"Friendly Work Space\" and \"Best Employer Switzerland\", we support our 2300 employees in their work-life balance and cultivate a culture of cooperation.",
+        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>An unserem Standort in Gais bieten wir am 24. März 2027 einen\n\nAufgaben:\n• Spannender Tag von 8.00 Uhr – 16.30 Uhr\n\n• Gemeinsames Mittagessen\n\n• Informationen über die dreijährige Lehre als Kauffrau/-mann EFZ, Branche Gesundheit\n\n• Einblick in die Bereiche:\n\n• Patientenadministration\n\n• Empfang\n\n• Buchhaltung\n\n• Therapieplanung\n\n• Med. Sekretariat\n\nAnforderungen:\n• Interessierte, offene und freundliche Persönlichkeit\n\n• Freude am Kontakt zu Mitmenschen\n\nWir bieten:\nFür deine Anmeldung sende bitte eine E-Mail mit deinem Lebenslauf an monika.freund@kliniken-valens.ch.\nAnmeldung bis 01. März 2027.\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+        "fr": "Vue large pour Reha et ma carrière – c'est le sentiment de vie et de travail au Klinikgruppe Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont écrits ici. À notre emplacement à Gais nous offrons sur 02. Septembre 2026 Tâches :\n• Journée passionnante de 8 heures à 16 h 30\n• Déjeuner commun\n• Informations sur l'apprentissage de trois ans en tant que commerçant EFZ, santé de l'industrie\n• Regard sur les domaines:\n• Administration du patient\n• Réception\n• Comptabilité\n• Planification du traitement\n• Secrétariat Med. Exigences:\n• Personnalité intéressée, ouverte et amicale\n• Joy en contact avec des êtres humains Nous offrons: Pour votre inscription veuillez envoyer un e-mail avec votre CV à monika.freund@kliniken-valens.ch Le Klinikgruppe Valens est le plus grand fournisseur de réhabilitation en Suisse avec 13 sites et neuf zones spécialisées. En tant que transporteur des labels « Friendly Work Space » et « Best Employer Suisse », nous soutenons nos 2300 employés dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
+      },
+      "needsRetranslation": false,
+      "location": "Gais",
+      "canton": "AR",
+      "url": "https://jobs.valens.ch/offene-stellen/infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a/4a6d8415-8ea7-4163-a3c1-0d28807d09e6",
+      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:58:44.964Z",
+      "addressLocality": "Gais",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9056",
+      "streetAddress": "",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.valens.ch/offene-stellen/infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a/4a6d8415-8ea7-4163-a3c1-0d28807d09e6",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a-kliniken-valens-gais"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infotag-zur-ausbildung-als-kauffrau-mann-efz-m-w-a-kliniken-valens-gais"
+        ]
+      },
+      "firstSeenAt": "2026-06-04T15:15:01.632Z",
+      "salaryMin": 56000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 56000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kliniken-valens-1df36b3e9b20",
       "slug": "cuoca-cuoco-dietetico-o-cuoca-cuoco-f-m-a-100-kliniken-valens-davos-clavdel",
       "slugByLocale": {
@@ -2789,7 +2795,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/diaetkoechin-diaetkoch-oder-koechin-koch-w-m-a/d1c614ec-de14-4a42-b1d0-7ac1339ea563",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.753Z",
+      "crawledAt": "2026-10-27T21:58:44.963Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2870,7 +2876,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gastronomie-m-w-a/007e3fbb-bddb-4d0a-ad68-d93459485aaa",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.752Z",
+      "crawledAt": "2026-10-27T21:58:44.962Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2952,7 +2958,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-m-w-a/ca8831fa-28ea-4f2e-b528-2daf1ad791cc",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.750Z",
+      "crawledAt": "2026-10-27T21:58:44.961Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3032,7 +3038,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/psychologe-in-oder-psychotherapeut-in-m-w-a/a440f787-e129-4f94-9103-fde73ffd445d",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.748Z",
+      "crawledAt": "2026-10-27T21:58:44.960Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3108,7 +3114,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/mediz-fusspfleger-in-oder-dipl-podolog-in-hf-efz-auf-selbstaendiger-basis-moeglich-ca-1-2-1-tag-pro-monat/2bc7dbcd-c66c-4862-983f-080712f97518",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.746Z",
+      "crawledAt": "2026-10-27T21:58:44.959Z",
       "addressLocality": "Walzenhausen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -3157,7 +3163,7 @@
       "id": "kliniken-valens-2623e3cb87d2",
       "slug": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans",
+        "it": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
         "en": "tariff-specialist-m-f-a-40-60-kliniken-valens-sargans",
         "de": "fachspezialist-in-tarife-m-w-a-40-60-kliniken-valens-sargans",
         "fr": "specialiste-des-tarifs-h-f-a-40-60-kliniken-valens-sargans"
@@ -3184,7 +3190,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachspezialist-in-tarife-m-w-a/c0e01d2b-f6d2-49e8-a14a-acf35e43853c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.745Z",
+      "crawledAt": "2026-10-27T21:58:44.958Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3223,11 +3229,15 @@
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
+        "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans",
+        "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
       ],
       "previousSlugsByLocale": {
         "de": [
           "fachspezialist-in-zollen-m-w-a-40-60-kliniken-valens-sargans"
+        ],
+        "it": [
+          "tassi-speciali-m-f-a-40-60-kliniken-valens-sargans"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.781Z",
@@ -3249,7 +3259,7 @@
       "id": "kliniken-valens-8dfeda9338f3",
       "slug": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
       "slugByLocale": {
-        "it": "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen",
+        "it": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
         "en": "diabetes-specialist-advisor-m-f-a-50-70-kliniken-valens-st-gallen",
         "de": "diabetesfachberater-in-m-w-a-50-70-kliniken-valens-st-gallen",
         "fr": "conseiller-ere-specialise-e-en-diabete-m-f-a-50-70-kliniken-valens-st-gallen"
@@ -3276,7 +3286,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/diabetesfachberater-in-m-w-a/3f73efdd-bc58-44b6-a9f4-8691e175443b",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.743Z",
+      "crawledAt": "2026-10-27T21:58:44.956Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3326,11 +3336,13 @@
         ]
       },
       "previousSlugs": [
-        "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen"
+        "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen",
+        "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen"
+          "consulente-specializzato-di-diabete-in-m-f-a-50-70-kliniken-valens-st-gallen",
+          "consulente-in-specializzato-diabete-m-f-a-50-70-kliniken-valens-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.788Z",
@@ -3379,7 +3391,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-assistent-in-gesundheit-und-soziales-eba-w-m-a-mit-lehrbeginn-2027/453671ad-d43b-43b4-b4a3-11a1bf8bfa37",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.741Z",
+      "crawledAt": "2026-10-27T21:58:44.954Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3484,7 +3496,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/teamleiter-in-ergotherapie-m-w-a/a7420cfb-3faa-42b8-a875-60480b7d8d95",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.740Z",
+      "crawledAt": "2026-10-27T21:58:44.953Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -3577,7 +3589,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-service-m-w-a/981143ea-c9df-4796-b130-26c39628bdd2",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.739Z",
+      "crawledAt": "2026-10-27T21:58:44.952Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3656,7 +3668,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-assistent-in-gesundheit-und-soziales-eba-m-w-a-mit-start-2026/a698ffc0-58c1-4bd5-bc16-ff496ac4f290",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.738Z",
+      "crawledAt": "2026-10-27T21:58:44.950Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3761,7 +3773,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/assistenzpsychologin-assistenzpsychologen-oder-psychologin-psychologen-m-w-a/04117f56-b6d5-41ca-ae05-24eb7e694afe",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.737Z",
+      "crawledAt": "2026-10-27T21:58:44.948Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -3855,7 +3867,7 @@
       "slug": "farmacia-specialistica-m-f-a-30-60-kliniken-valens-zurich",
       "slugByLocale": {
         "it": "farmacia-specialistica-m-f-a-30-60-kliniken-valens-zurich",
-        "en": "specialist-pharmacy-m-f-a-30-60-kliniken-valens-zurich",
+        "en": "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich",
         "de": "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich",
         "fr": "pharmacie-specialisee-m-f-a-30-60-kliniken-valens-zurich"
       },
@@ -3881,7 +3893,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-apotheke-m-w-a/0f885907-4d31-4988-8194-92f9b5e38a09",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.736Z",
+      "crawledAt": "2026-10-27T21:58:44.947Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3908,7 +3920,8 @@
         "specialista-farmaceutico-m-f-a-50-60-kliniken-valens-walzenhausen",
         "professional-pharmacy-m-f-a-50-60-kliniken-valens-walzenhausen",
         "pharmacy-specialist-m-f-a-50-60-kliniken-valens-walzenhausen",
-        "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich"
+        "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich",
+        "specialist-pharmacy-m-f-a-30-60-kliniken-valens-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3921,7 +3934,7 @@
           "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich"
         ],
         "en": [
-          "fachfrau-mann-apotheke-m-w-a-30-60-kliniken-valens-zurich"
+          "specialist-pharmacy-m-f-a-30-60-kliniken-valens-zurich"
         ],
         "de": [
           "fachfrau-mann-apotheke-m-w-a-50-60-kliniken-valens-walzenhausen"
@@ -3977,7 +3990,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachmann-frau-gesundheit-efz-m-w-a/b96947b5-9fa6-44ff-a13d-58bf5e3622a9",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.735Z",
+      "crawledAt": "2026-10-27T21:58:44.945Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -4070,7 +4083,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-m-w-a/512d3f48-5e02-444a-a730-8b3e1b085a1f",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.733Z",
+      "crawledAt": "2026-10-27T21:58:44.944Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4151,7 +4164,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/flexibel-im-pflegeberuf-arbeiten-wann-und-wie-viel-du-willst/b10f9290-03b7-4c50-a2d0-94fa2f183f93",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.732Z",
+      "crawledAt": "2026-10-27T21:58:44.941Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4246,7 +4259,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/unterassistenzarzt-unterassistenzaerztin-cand-med-m-w-a/395f49fb-0cb7-4ed0-8cdc-0f1d89e7615f",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.731Z",
+      "crawledAt": "2026-10-27T21:58:44.940Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4330,7 +4343,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-efz-m-w-a/b70ccc81-8e31-419c-96f2-4efd0e65589e",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.729Z",
+      "crawledAt": "2026-10-27T21:58:44.938Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4404,7 +4417,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-hf-fh-m-w-a/2d729b4b-0e02-402b-80ab-2acfaaac11c2",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.728Z",
+      "crawledAt": "2026-10-27T21:58:44.936Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4448,80 +4461,6 @@
       }
     },
     {
-      "id": "kliniken-valens-87f62c32de2e",
-      "slug": "salute-professionale-m-f-a-100-kliniken-valens-walenstadtberg",
-      "slugByLocale": {
-        "it": "salute-professionale-m-f-a-100-kliniken-valens-walenstadtberg",
-        "en": "professional-health-m-f-a-100-kliniken-valens-walenstadtberg",
-        "de": "fachfrau-mann-gesundheit-m-w-a-100-kliniken-valens-walenstadtberg",
-        "fr": "sante-professionnelle-m-f-a-100-kliniken-valens-walenstadtberg"
-      },
-      "company": "Kliniken Valens",
-      "companyKey": "kliniken-valens",
-      "companyDomain": "kliniken-valens.ch",
-      "title": "Fachfrau/-mann Gesundheit (m/w/a) 100 %",
-      "titleByLocale": {
-        "it": "Salute professionale (m/f/a) 100 %",
-        "en": "Professional Health (m/f/a) 100 %",
-        "de": "Fachfrau/-mann Gesundheit (m/w/a) 100 %",
-        "fr": "Santé professionnelle (m/f/a) 100 %"
-      },
-      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sicherstellung der qualitativen und quantitativen Pflege und Betreuung unserer Patientinnen und Patienten in Zusammenarbeit mit einer dipl. Pflegefachperson\n\n• Mitverantwortung für administrative, logistische und hauswirtschaftliche Belange\n\n• Mithilfe bei der Ausbildung unserer FaGe-Lernenden\n\n• Konstruktive und situationsgerechte Zusammenarbeit im interdisziplinären Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\n• EDV-Anwenderkenntnisse\n\n• Freundliche, emphatische und hilfsbereite Persönlichkeit\n\n• Selbstständige, strukturierte Arbeitsweise\n\n• Bereitschaft für flexible Arbeitseinsätze\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-      "descriptionByLocale": {
-        "it": "Lungimiranza per la riabilitazione e la mia carriera – questo è lo stile di vita e la sensazione di lavoro al gruppo clinico Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono importanti qui. <br/> <br/ > Come supplemento al nostro team, stiamo cercando un\n\nCompiti:\n• Garantire la cura e la cura qualitativa e quantitativa dei nostri pazienti in collaborazione con un dipl. Infermieristica professionale\n\n• Co-responsabilità per questioni amministrative, logistiche e domestiche\n\n• Aiutare a formare i nostri studenti FaGe\n\n• Cooperazione costruttiva e situzionale nel team interdisciplinare\n\nRequisiti\n• Formazione completa come specialista in salute EFZ\n\n• Conoscenza dell'utente del computer\n\n• Personalità amichevole, enfatica e disponibile\n\n• Metodo di lavoro autonomo e strutturato\n\n• Prontezza per incarichi di lavoro flessibili\n\n• Molto buona conoscenza del tedesco\n\nOffriamo:\n• Posto di lavoro prospettivo e facile da raggiungere – in un ambiente collegiale con strutture chiare, responsabili competenti e comunicazione apprezzata\n\n• Vantaggi reali invece di parole vuote – con il tempo di cambio pagato, 28 giorni di vacanze e numerosi sconti interni ed esterni e offerte. Convincetevi\n\n• Ulteriore istruzione che vi avanza – formazione interna ed esterna, compreso attraverso la nostra Valens Academy, il centro di formazione a livello di gruppo\n\n• Diversità come forza – Ci affidiamo al pensiero, ai dipendenti sicuri e critici con esperienze, qualifiche e prospettive diverse, perché siamo convinti che questo ci porterà avanti.\n\nCon 13 sedi e nove aree specializzate, il Gruppo Clinico Valens è il più grande fornitore di riabilitazione in Svizzera. Come vettori delle etichette \"Friendly Work Space\" e \"Best Employers Switzerland\", sosteniamo i nostri 2300 dipendenti con il loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
-        "en": "Far-sightedness for rehab and my career – that is the lifestyle and working feeling at the clinic group Valens. Exchange, progress, interdisciplinary teamwork and good prospects are important here. <br/><br/ >As a supplement to our team, we are looking for an\n\nTasks:\n• Ensuring the qualitative and quantitative care and care of our patients in cooperation with a dipl. Nursing professional\n\n• Co-responsibility for administrative, logistical and domestic matters\n\n• Helping to train our FaGe learners\n\n• Constructive and situational cooperation in the interdisciplinary team\n\nRequirements\n• Completed training as a specialist in health EFZ\n\n• Computer user knowledge\n\n• Friendly, emphatic and helpful personality\n\n• Independent, structured working method\n\n• Readiness for flexible work assignments\n\n• Very good knowledge of German\n\nWe offer:\n• Prospective and easy-to-reach workplace – in a collegial environment with clear structures, competent managers and appreciative communication\n\n• Real benefits instead of empty words – with paid changing time, 28 days of holidays and numerous internal and external discounts and offers. Convince yourself\n\n• Further education that advances you – internal and external training, including through our Valens Academy, the group-wide training center\n\n• Diversity as strength – We rely on thinking, self-confident and critical employees with different experiences, qualifications and perspectives, because we are convinced that this will bring us all forward.\n\nWith 13 locations and nine specialist areas, the Valens Clinical Group is the largest rehabilitation provider in Switzerland. As carriers of the labels \"Friendly Work Space\" and \"Best Employers Switzerland\", we support our 2300 employees with their work-life balance and cultivate a culture of cooperation.",
-        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sicherstellung der qualitativen und quantitativen Pflege und Betreuung unserer Patientinnen und Patienten in Zusammenarbeit mit einer dipl. Pflegefachperson\n\n• Mitverantwortung für administrative, logistische und hauswirtschaftliche Belange\n\n• Mithilfe bei der Ausbildung unserer FaGe-Lernenden\n\n• Konstruktive und situationsgerechte Zusammenarbeit im interdisziplinären Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\n• EDV-Anwenderkenntnisse\n\n• Freundliche, emphatische und hilfsbereite Persönlichkeit\n\n• Selbstständige, strukturierte Arbeitsweise\n\n• Bereitschaft für flexible Arbeitseinsätze\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-        "fr": "La clairvoyance pour la réadaptation et ma carrière – c'est le style de vie et le sentiment de travail au sein du groupe clinique Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont importants. <br/><br/ > En complément de notre équipe, nous cherchons\n\nTâches :\n• Assurer les soins qualitatifs et quantitatifs de nos patients en collaboration avec un dipl. Professionnels des soins infirmiers\n\n• Coresponsabilité en matière administrative, logistique et nationale\n\n• Aider à former nos apprenants FaGe\n\n• Coopération constructive et situationnelle au sein de l'équipe interdisciplinaire\n\nExigences\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Connaissances des utilisateurs informatiques\n\n• Personnalité amicale, emphatique et utile\n\n• Méthode de travail indépendante et structurée\n\n• Préparation aux tâches flexibles\n\n• Très bonne connaissance de l'allemand\n\nNous offrons:\n• Un lieu de travail prometteur et facile d'accès – dans un environnement collégial avec des structures claires, des gestionnaires compétents et une communication appréciée\n\n• Avantages réels au lieu de mots vides – avec temps de changement payé, 28 jours de vacances et de nombreuses réductions et offres internes et externes. Convainquez-vous\n\n• Formation continue qui vous fait progresser – formation interne et externe, y compris par notre Valens Academy, le centre de formation à l'échelle du groupe\n\n• La diversité en tant que force – Nous comptons sur la pensée, la confiance en soi et des employés critiques avec des expériences, des qualifications et des perspectives différentes, parce que nous sommes convaincus que cela nous fera tous avancer.\n\nAvec 13 emplacements et neuf zones spécialisées, le Groupe clinique Valens est le plus important fournisseur de services de réadaptation en Suisse. En tant que porteurs des labels « Friendly Work Space » et « Best Employers Switzerland », nous soutenons nos 2300 collaborateurs dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
-      },
-      "location": "Walenstadtberg",
-      "canton": "SG",
-      "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-m-w-a/312929fe-a4ca-4056-a25a-193c2969ed74",
-      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.726Z",
-      "addressLocality": "Walenstadtberg",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8881",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-m-w-a/312929fe-a4ca-4056-a25a-193c2969ed74",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-m-w-a-100-kliniken-valens-walenstadtberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-m-w-a-100-kliniken-valens-walenstadtberg"
-        ]
-      },
-      "firstSeenAt": "2026-08-13T10:37:52.531Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kliniken-valens-4a9bca610a88",
       "slug": "apprendistato-come-cuoco-cuoca-efz-m-f-d-con-inizio-nel-2027-kliniken-valens-gais",
       "slugByLocale": {
@@ -4552,7 +4491,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-koechin-koch-efz-m-w-a-mit-lehrbeginn-2027/30726f1a-c8dd-44d8-ba23-ab6676fc117e",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.726Z",
+      "crawledAt": "2026-10-27T21:58:44.934Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -4622,6 +4561,80 @@
       }
     },
     {
+      "id": "kliniken-valens-87f62c32de2e",
+      "slug": "salute-professionale-m-f-a-100-kliniken-valens-walenstadtberg",
+      "slugByLocale": {
+        "it": "salute-professionale-m-f-a-100-kliniken-valens-walenstadtberg",
+        "en": "professional-health-m-f-a-100-kliniken-valens-walenstadtberg",
+        "de": "fachfrau-mann-gesundheit-m-w-a-100-kliniken-valens-walenstadtberg",
+        "fr": "sante-professionnelle-m-f-a-100-kliniken-valens-walenstadtberg"
+      },
+      "company": "Kliniken Valens",
+      "companyKey": "kliniken-valens",
+      "companyDomain": "kliniken-valens.ch",
+      "title": "Fachfrau/-mann Gesundheit (m/w/a) 100 %",
+      "titleByLocale": {
+        "it": "Salute professionale (m/f/a) 100 %",
+        "en": "Professional Health (m/f/a) 100 %",
+        "de": "Fachfrau/-mann Gesundheit (m/w/a) 100 %",
+        "fr": "Santé professionnelle (m/f/a) 100 %"
+      },
+      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sicherstellung der qualitativen und quantitativen Pflege und Betreuung unserer Patientinnen und Patienten in Zusammenarbeit mit einer dipl. Pflegefachperson\n\n• Mitverantwortung für administrative, logistische und hauswirtschaftliche Belange\n\n• Mithilfe bei der Ausbildung unserer FaGe-Lernenden\n\n• Konstruktive und situationsgerechte Zusammenarbeit im interdisziplinären Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\n• EDV-Anwenderkenntnisse\n\n• Freundliche, emphatische und hilfsbereite Persönlichkeit\n\n• Selbstständige, strukturierte Arbeitsweise\n\n• Bereitschaft für flexible Arbeitseinsätze\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+      "descriptionByLocale": {
+        "it": "Lungimiranza per la riabilitazione e la mia carriera – questo è lo stile di vita e la sensazione di lavoro al gruppo clinico Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono importanti qui. <br/> <br/ > Come supplemento al nostro team, stiamo cercando un\n\nCompiti:\n• Garantire la cura e la cura qualitativa e quantitativa dei nostri pazienti in collaborazione con un dipl. Infermieristica professionale\n\n• Co-responsabilità per questioni amministrative, logistiche e domestiche\n\n• Aiutare a formare i nostri studenti FaGe\n\n• Cooperazione costruttiva e situzionale nel team interdisciplinare\n\nRequisiti\n• Formazione completa come specialista in salute EFZ\n\n• Conoscenza dell'utente del computer\n\n• Personalità amichevole, enfatica e disponibile\n\n• Metodo di lavoro autonomo e strutturato\n\n• Prontezza per incarichi di lavoro flessibili\n\n• Molto buona conoscenza del tedesco\n\nOffriamo:\n• Posto di lavoro prospettivo e facile da raggiungere – in un ambiente collegiale con strutture chiare, responsabili competenti e comunicazione apprezzata\n\n• Vantaggi reali invece di parole vuote – con il tempo di cambio pagato, 28 giorni di vacanze e numerosi sconti interni ed esterni e offerte. Convincetevi\n\n• Ulteriore istruzione che vi avanza – formazione interna ed esterna, compreso attraverso la nostra Valens Academy, il centro di formazione a livello di gruppo\n\n• Diversità come forza – Ci affidiamo al pensiero, ai dipendenti sicuri e critici con esperienze, qualifiche e prospettive diverse, perché siamo convinti che questo ci porterà avanti.\n\nCon 13 sedi e nove aree specializzate, il Gruppo Clinico Valens è il più grande fornitore di riabilitazione in Svizzera. Come vettori delle etichette \"Friendly Work Space\" e \"Best Employers Switzerland\", sosteniamo i nostri 2300 dipendenti con il loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
+        "en": "Far-sightedness for rehab and my career – that is the lifestyle and working feeling at the clinic group Valens. Exchange, progress, interdisciplinary teamwork and good prospects are important here. <br/><br/ >As a supplement to our team, we are looking for an\n\nTasks:\n• Ensuring the qualitative and quantitative care and care of our patients in cooperation with a dipl. Nursing professional\n\n• Co-responsibility for administrative, logistical and domestic matters\n\n• Helping to train our FaGe learners\n\n• Constructive and situational cooperation in the interdisciplinary team\n\nRequirements\n• Completed training as a specialist in health EFZ\n\n• Computer user knowledge\n\n• Friendly, emphatic and helpful personality\n\n• Independent, structured working method\n\n• Readiness for flexible work assignments\n\n• Very good knowledge of German\n\nWe offer:\n• Prospective and easy-to-reach workplace – in a collegial environment with clear structures, competent managers and appreciative communication\n\n• Real benefits instead of empty words – with paid changing time, 28 days of holidays and numerous internal and external discounts and offers. Convince yourself\n\n• Further education that advances you – internal and external training, including through our Valens Academy, the group-wide training center\n\n• Diversity as strength – We rely on thinking, self-confident and critical employees with different experiences, qualifications and perspectives, because we are convinced that this will bring us all forward.\n\nWith 13 locations and nine specialist areas, the Valens Clinical Group is the largest rehabilitation provider in Switzerland. As carriers of the labels \"Friendly Work Space\" and \"Best Employers Switzerland\", we support our 2300 employees with their work-life balance and cultivate a culture of cooperation.",
+        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Als Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sicherstellung der qualitativen und quantitativen Pflege und Betreuung unserer Patientinnen und Patienten in Zusammenarbeit mit einer dipl. Pflegefachperson\n\n• Mitverantwortung für administrative, logistische und hauswirtschaftliche Belange\n\n• Mithilfe bei der Ausbildung unserer FaGe-Lernenden\n\n• Konstruktive und situationsgerechte Zusammenarbeit im interdisziplinären Team\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ\n\n• EDV-Anwenderkenntnisse\n\n• Freundliche, emphatische und hilfsbereite Persönlichkeit\n\n• Selbstständige, strukturierte Arbeitsweise\n\n• Bereitschaft für flexible Arbeitseinsätze\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Perspektivenreicher und gut zu erreichender Arbeitsplatz – in einem kollegialen Umfeld mit klaren Strukturen, kompetenten Führungskräften und wertschätzender Kommunikation\n\n• Echte Benefits statt leere Worthülsen – mit bezahlter Umkleidezeit, 28 Tagen Ferien sowie zahlreichen internen und externen Vergünstigungen und Angeboten. Überzeuge dich selbst\n\n• Weiterbildung, die dich voranbringt – interne und externe Schulungen, unter anderem über unsere Valens Academy, das gruppenweite Fort- und Weiterbildungszentrum\n\n• Vielfalt als Stärke – Wir setzen auf mitdenkende, selbstbewusste und kritische Mitarbeitende mit unterschiedlichen Erfahrungen, Qualifikationen und Perspektiven, weil wir überzeugt sind, dass das uns alle weiterbringt\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+        "fr": "La clairvoyance pour la réadaptation et ma carrière – c'est le style de vie et le sentiment de travail au sein du groupe clinique Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont importants. <br/><br/ > En complément de notre équipe, nous cherchons\n\nTâches :\n• Assurer les soins qualitatifs et quantitatifs de nos patients en collaboration avec un dipl. Professionnels des soins infirmiers\n\n• Coresponsabilité en matière administrative, logistique et nationale\n\n• Aider à former nos apprenants FaGe\n\n• Coopération constructive et situationnelle au sein de l'équipe interdisciplinaire\n\nExigences\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Connaissances des utilisateurs informatiques\n\n• Personnalité amicale, emphatique et utile\n\n• Méthode de travail indépendante et structurée\n\n• Préparation aux tâches flexibles\n\n• Très bonne connaissance de l'allemand\n\nNous offrons:\n• Un lieu de travail prometteur et facile d'accès – dans un environnement collégial avec des structures claires, des gestionnaires compétents et une communication appréciée\n\n• Avantages réels au lieu de mots vides – avec temps de changement payé, 28 jours de vacances et de nombreuses réductions et offres internes et externes. Convainquez-vous\n\n• Formation continue qui vous fait progresser – formation interne et externe, y compris par notre Valens Academy, le centre de formation à l'échelle du groupe\n\n• La diversité en tant que force – Nous comptons sur la pensée, la confiance en soi et des employés critiques avec des expériences, des qualifications et des perspectives différentes, parce que nous sommes convaincus que cela nous fera tous avancer.\n\nAvec 13 emplacements et neuf zones spécialisées, le Groupe clinique Valens est le plus important fournisseur de services de réadaptation en Suisse. En tant que porteurs des labels « Friendly Work Space » et « Best Employers Switzerland », nous soutenons nos 2300 collaborateurs dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
+      },
+      "location": "Walenstadtberg",
+      "canton": "SG",
+      "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-m-w-a/312929fe-a4ca-4056-a25a-193c2969ed74",
+      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:58:44.933Z",
+      "addressLocality": "Walenstadtberg",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8881",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-m-w-a/312929fe-a4ca-4056-a25a-193c2969ed74",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-m-w-a-100-kliniken-valens-walenstadtberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-m-w-a-100-kliniken-valens-walenstadtberg"
+        ]
+      },
+      "firstSeenAt": "2026-08-13T10:37:52.531Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kliniken-valens-ed426be532e2",
       "slug": "speech-pediatra-logopaedician-m-f-a-50-70-kliniken-valens-zurich",
       "slugByLocale": {
@@ -4653,7 +4666,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/logopaedin-logopaede-m-w-a/5d99c881-97d1-4712-af9a-e288018c3295",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.723Z",
+      "crawledAt": "2026-10-27T21:58:44.930Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4728,7 +4741,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-efz-m-w-a/a786f116-edf6-4f72-8748-3a9158e9bfd1",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.722Z",
+      "crawledAt": "2026-10-27T21:58:44.928Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4810,7 +4823,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-gesundheit-efz-m-w-a-mit-lehrbeginn-2027/c701259d-7665-43f8-b833-e45a75c86cd7",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.720Z",
+      "crawledAt": "2026-10-27T21:58:44.925Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4892,7 +4905,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-gesundheit-efz-m-w-a-mit-lehrbeginn-2027/e99c2228-b1a6-4682-ad1d-9dafe1eed153",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.719Z",
+      "crawledAt": "2026-10-27T21:58:44.920Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -4958,6 +4971,81 @@
       }
     },
     {
+      "id": "kliniken-valens-5024861862cb",
+      "slug": "schnuppertage-zur-ausbildung-come-fachfrau-mann-gesundheit-cfc-m-w-a-kliniken-valens-gais",
+      "slugByLocale": {
+        "it": "schnuppertage-zur-ausbildung-come-fachfrau-mann-gesundheit-cfc-m-w-a-kliniken-valens-gais",
+        "en": "taster-days-for-training-as-a-health-specialist-efz-m-f-a-kliniken-valens-gais",
+        "de": "schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a-kliniken-valens-gais",
+        "fr": "journees-d-essai-pour-la-formation-de-specialiste-de-la-sante-eh-vendredi-kliniken-valens-gais"
+      },
+      "company": "Kliniken Valens",
+      "companyKey": "kliniken-valens",
+      "companyDomain": "kliniken-valens.ch",
+      "title": "Schnuppertage zur Ausbildung als Fachfrau/-mann Gesundheit EFZ (m/w/a)",
+      "titleByLocale": {
+        "it": "Giorni di prova per la formazione come specialista salute EFZ (m/f/a)",
+        "en": "Trial days for training as a specialist health EFZ (m/f/a)",
+        "de": "Schnuppertage zur Ausbildung als Fachfrau/-mann Gesundheit EFZ (m/w/a)",
+        "fr": "Journées d ' essai pour la formation en tant que spécialiste de la santé"
+      },
+      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Bewerbe dich für spannende\n\nAufgaben:\n3-jährige Ausbildung:\n• Dreijährige berufliche Grundbildung zur Fachfrau / zum Fachmann Gesundheit mit eidgenössischem Fachausweis (EFZJährlicher Start im August)\n\n• Besuch der Berufsfachschule und überbetriebliche Kurse (OdA in St. Gallen)\n\n• Ausbildungsvertrag mit den Kliniken Valens während 3 Jahren\n\nDu bringst eine abgeschlossene obligatorische Schulzeit, Real- oder Sekundarschule mit\nVerkürzte 2-jährige Ausbildung für Erwachsene:\n• Mindestalter 22 Jahre oder abgeschlossene Ausbildung mit EFZ\n\n• Praktische Berufserfahrung im Tätigkeitsfeld von mind. 2 Jahren zu mind. 60%\n\nAusbildung in der Praxis:\n• Teilzeitpensum von mind. 80%\n\n• Schichtbetrieb und Wochenenddienste nach betrieblicher Vorgabe\n\nAusbildung in der Berufsfachschule:\n• Berufskunde: ein Schultag pro Woche; Allgemeinbildung: ein Schultag pro Woche\n\n• Die Allgemeinbildung kann in einem Jahreskurs vor Lehrbeginn besucht werden\n\n• Das Amt für Berufsbildung kann eine Dispens vom allgemeinbildenden Unterricht bewilligen, wenn bereits eine Berufslehre abgeschlossen wurde\n\nAnforderungen:\n• Kurzer Lebenslauf mit deinen persönlichen Angaben, deinem Wunschstandort sowie deinem Wunschschnupperdatum und Angabe deiner Kleidergrösse (XS - SL für Oberteil und Hose)\n\n• Vorhandene Zeugnisse Oberstufe\n\n• Falls vorhanden: Stellwerk und Multicheck Junior Gesundheit und Soziales, Anmeldung unter: www.multicheck.ch\n\nWir bieten:\n• Wertschätzende interdisziplinäre Zusammenarbeit in einem angenehmen Arbeitsklima\n\n• Interessante, herausfordernde sowie abwechslungsreiche Tätigkeit\n\n• Grosszügige Nebenleistungen sowie attraktive Anstellungsbedingungen\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+      "descriptionByLocale": {
+        "it": "Lungimiranza per la riabilitazione e la mia carriera – questo è lo stile di vita e la sensazione di lavoro al gruppo clinico Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono importanti qui. > > Applicare per eccitante\n\nCompiti:\n3 anni di istruzione:\n• Tre anni di formazione professionale di base come specialista per la salute con la Swiss Federal Health Card (inizio di agosto)\n\n• Visita alla scuola professionale e ai corsi intercompany (OdA a St. Gallen)\n\n• Contratto di formazione con le cliniche Valens per 3 anni\n\nPorti un periodo di scuola obbligatoria completato, scuola reale o secondaria\nFormazione di 2 anni abbreviata per adulti:\n• Età minima 22 anni o formazione completa con EFZ\n\n• Pratica esperienza professionale nel campo di attività di minimo 2 anni almeno. 60 %\n\nFormazione pratica:\n• Lavoro part-time di min. 80%\n\n• Servizi di turni e week-end come specificato dalle specifiche operative\n\nFormazione professionale:\n• formazione professionale: un giorno scolastico a settimana; istruzione generale: un giorno scolastico a settimana\n\n• L'istruzione generale può essere frequentata in un corso annuale prima dell'inizio del corso\n\n• L'Ufficio per l'istruzione e la formazione professionale può autorizzare una dispensa dall'istruzione generale se è già stato completato un apprendistato professionale.\n\nRequisiti\n• Breve CV con i tuoi dati personali, la tua posizione desiderata e la tua data di degustazione desiderata e l'indicazione della dimensione del tuo vestito (XS - SL per tomaie e pantaloni)\n\n• Certificati di livello superiore esistenti\n\n• Se disponibile: Interlock e Multicheck Junior Health and Social Affairs, registrati su www.multicheck.ch\n\nOffriamo:\n• Cooperazione interdisciplinare apprezzata in un ambiente di lavoro piacevole\n\n• Attività interessante, impegnativa e variegata\n\n• Servizi accessori e condizioni di lavoro interessanti\n\nCon 13 sedi e nove aree specializzate, il Gruppo Clinico Valens è il più grande fornitore di riabilitazione in Svizzera. Come vettori delle etichette \"Friendly Work Space\" e \"Best Employers Switzerland\", sosteniamo i nostri 2300 dipendenti nel loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
+        "en": "Far-sightedness for rehab and my career – that is the lifestyle and working feeling at the clinic group Valens. Exchange, progress, interdisciplinary teamwork and good prospects are important here. <br/><br/>Apply for exciting\n\nTasks:\n3-year education:\n• Three years of basic vocational training as a specialist for health with Swiss Federal Health Card (EFZAnnual start in August)\n\n• Visit to the vocational school and intercompany courses (OdA in St. Gallen)\n\n• Training contract with Valens clinics for 3 years\n\nYou bring a completed compulsory school period, real or secondary school\nShortened 2-year education for adults:\n• Minimum age 22 years or completed training with EFZ\n\n• Practical professional experience in the field of activity of min. 2 years at least. 60 %\n\nPractical training:\n• Part-time work of min. 80%\n\n• Shifts and weekend services as specified by operational specification\n\nTraining in vocational school:\n• vocational education: one school day per week; General education: one school day per week\n\n• General education can be attended in an annual course before the beginning of the course\n\n• The Office for Vocational Education and Training may authorise a dispensation from general education if a vocational apprenticeship has already been completed.\n\nRequirements\n• Short CV with your personal details, your desired location as well as your desired taster date and indication of your dress size (XS - SL for uppers and pants)\n\n• Existing upper-level certificates\n\n• If available: Interlock and Multicheck Junior Health and Social Affairs, register at www.multicheck.ch\n\nWe offer:\n• Appreciative interdisciplinary cooperation in a pleasant working environment\n\n• Interesting, challenging and varied activity\n\n• Generous ancillary services and attractive employment conditions\n\nWith 13 locations and nine specialist areas, the Valens Clinical Group is the largest rehabilitation provider in Switzerland. As carriers of the labels \"Friendly Work Space\" and \"Best Employers Switzerland\", we support our 2300 employees in their work-life balance and cultivate a culture of cooperation.",
+        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Bewerbe dich für spannende\n\nAufgaben:\n3-jährige Ausbildung:\n• Dreijährige berufliche Grundbildung zur Fachfrau / zum Fachmann Gesundheit mit eidgenössischem Fachausweis (EFZJährlicher Start im August)\n\n• Besuch der Berufsfachschule und überbetriebliche Kurse (OdA in St. Gallen)\n\n• Ausbildungsvertrag mit den Kliniken Valens während 3 Jahren\n\nDu bringst eine abgeschlossene obligatorische Schulzeit, Real- oder Sekundarschule mit\nVerkürzte 2-jährige Ausbildung für Erwachsene:\n• Mindestalter 22 Jahre oder abgeschlossene Ausbildung mit EFZ\n\n• Praktische Berufserfahrung im Tätigkeitsfeld von mind. 2 Jahren zu mind. 60%\n\nAusbildung in der Praxis:\n• Teilzeitpensum von mind. 80%\n\n• Schichtbetrieb und Wochenenddienste nach betrieblicher Vorgabe\n\nAusbildung in der Berufsfachschule:\n• Berufskunde: ein Schultag pro Woche; Allgemeinbildung: ein Schultag pro Woche\n\n• Die Allgemeinbildung kann in einem Jahreskurs vor Lehrbeginn besucht werden\n\n• Das Amt für Berufsbildung kann eine Dispens vom allgemeinbildenden Unterricht bewilligen, wenn bereits eine Berufslehre abgeschlossen wurde\n\nAnforderungen:\n• Kurzer Lebenslauf mit deinen persönlichen Angaben, deinem Wunschstandort sowie deinem Wunschschnupperdatum und Angabe deiner Kleidergrösse (XS - SL für Oberteil und Hose)\n\n• Vorhandene Zeugnisse Oberstufe\n\n• Falls vorhanden: Stellwerk und Multicheck Junior Gesundheit und Soziales, Anmeldung unter: www.multicheck.ch\n\nWir bieten:\n• Wertschätzende interdisziplinäre Zusammenarbeit in einem angenehmen Arbeitsklima\n\n• Interessante, herausfordernde sowie abwechslungsreiche Tätigkeit\n\n• Grosszügige Nebenleistungen sowie attraktive Anstellungsbedingungen\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
+        "fr": "La clairvoyance pour la réadaptation et ma carrière – c'est le style de vie et le sentiment de travail au sein du groupe clinique Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont importants. <br/><br/> Postuler pour excitant\n\nTâches :\nÉducation de trois ans:\n• Trois années de formation professionnelle de base en tant que spécialiste de la santé avec la carte fédérale de la santé suisse (EFZAnval début août)\n\n• Visite de l'école professionnelle et des cours interentreprises (OdA à St. Gallen)\n\n• Contrat de formation avec les cliniques Valens pendant 3 ans\n\nVous apportez une période de scolarité obligatoire terminée, école réelle ou secondaire\nÉducation réduite de 2 ans pour les adultes:\n• Âge minimum de 22 ans ou formation avec EFZ\n\n• Expérience professionnelle pratique dans le domaine d'activité de min. 2 ans au moins. 60 %\n\nFormation pratique:\n• Travail à temps partiel de min. 80%\n\n• Postes et services de fin de semaine spécifiés par les spécifications opérationnelles\n\nFormation professionnelle:\n• enseignement professionnel: une journée scolaire par semaine; enseignement général: une journée scolaire par semaine\n\n• L'enseignement général peut être suivi dans un cours annuel avant le début du cours.\n\n• L'Office de l'enseignement et de la formation professionnels peut autoriser une dispense de l'enseignement général si un apprentissage professionnel a déjà été effectué.\n\nExigences\n• CV court avec vos données personnelles, votre emplacement souhaité ainsi que votre date de dégustation souhaitée et l'indication de votre taille de robe (XS - SL pour les hauts et pantalons)\n\n• Certificats de niveau supérieur existants\n\n• Si disponible : Interlock and Multicheck Junior Health and Social Affairs, inscrivez-vous à www.multicheck.ch\n\nNous offrons:\n• Appréciation de la coopération interdisciplinaire dans un environnement de travail agréable\n\n• Activités intéressantes, stimulantes et variées\n\n• Services auxiliaires généreux et conditions d'emploi attrayantes\n\nAvec 13 emplacements et neuf zones spécialisées, le Groupe clinique Valens est le plus important fournisseur de services de réadaptation en Suisse. En tant que porteurs des labels « Friendly Work Space » et « Best Employers Switzerland », nous soutenons nos 2300 employés dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
+      },
+      "needsRetranslation": false,
+      "location": "Gais",
+      "canton": "AR",
+      "url": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a/30a4e6df-6605-46b4-832c-d677540aa5f1",
+      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:58:44.919Z",
+      "addressLocality": "Gais",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9056",
+      "streetAddress": "",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a/30a4e6df-6605-46b4-832c-d677540aa5f1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a-kliniken-valens-gais"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a-kliniken-valens-gais"
+        ]
+      },
+      "firstSeenAt": "2026-08-17T10:10:57.395Z",
+      "salaryMin": 56000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 56000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kliniken-valens-dff8f3d87338",
       "slug": "posto-di-apprendistato-come-impiegata-o-di-commercio-afc-m-f-a-profilo-e-oppure-con-maturita-professionale-con-inizio",
       "slugByLocale": {
@@ -4989,7 +5077,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-kauffrau-mann-efz-m-w-a-e-profil-oder-mit-berufsmatura-mit-lehrbeginn-2028/16be42e6-8d38-4c49-aec7-5d04dcd1b5b5",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.717Z",
+      "crawledAt": "2026-10-27T21:58:44.915Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -5041,81 +5129,6 @@
       }
     },
     {
-      "id": "kliniken-valens-5024861862cb",
-      "slug": "schnuppertage-zur-ausbildung-come-fachfrau-mann-gesundheit-cfc-m-w-a-kliniken-valens-gais",
-      "slugByLocale": {
-        "it": "schnuppertage-zur-ausbildung-come-fachfrau-mann-gesundheit-cfc-m-w-a-kliniken-valens-gais",
-        "en": "taster-days-for-training-as-a-health-specialist-efz-m-f-a-kliniken-valens-gais",
-        "de": "schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a-kliniken-valens-gais",
-        "fr": "journees-d-essai-pour-la-formation-de-specialiste-de-la-sante-eh-vendredi-kliniken-valens-gais"
-      },
-      "company": "Kliniken Valens",
-      "companyKey": "kliniken-valens",
-      "companyDomain": "kliniken-valens.ch",
-      "title": "Schnuppertage zur Ausbildung als Fachfrau/-mann Gesundheit EFZ (m/w/a)",
-      "titleByLocale": {
-        "it": "Giorni di prova per la formazione come specialista salute EFZ (m/f/a)",
-        "en": "Trial days for training as a specialist health EFZ (m/f/a)",
-        "de": "Schnuppertage zur Ausbildung als Fachfrau/-mann Gesundheit EFZ (m/w/a)",
-        "fr": "Journées d ' essai pour la formation en tant que spécialiste de la santé"
-      },
-      "description": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Bewerbe dich für spannende\n\nAufgaben:\n3-jährige Ausbildung:\n• Dreijährige berufliche Grundbildung zur Fachfrau / zum Fachmann Gesundheit mit eidgenössischem Fachausweis (EFZJährlicher Start im August)\n\n• Besuch der Berufsfachschule und überbetriebliche Kurse (OdA in St. Gallen)\n\n• Ausbildungsvertrag mit den Kliniken Valens während 3 Jahren\n\nDu bringst eine abgeschlossene obligatorische Schulzeit, Real- oder Sekundarschule mit\nVerkürzte 2-jährige Ausbildung für Erwachsene:\n• Mindestalter 22 Jahre oder abgeschlossene Ausbildung mit EFZ\n\n• Praktische Berufserfahrung im Tätigkeitsfeld von mind. 2 Jahren zu mind. 60%\n\nAusbildung in der Praxis:\n• Teilzeitpensum von mind. 80%\n\n• Schichtbetrieb und Wochenenddienste nach betrieblicher Vorgabe\n\nAusbildung in der Berufsfachschule:\n• Berufskunde: ein Schultag pro Woche; Allgemeinbildung: ein Schultag pro Woche\n\n• Die Allgemeinbildung kann in einem Jahreskurs vor Lehrbeginn besucht werden\n\n• Das Amt für Berufsbildung kann eine Dispens vom allgemeinbildenden Unterricht bewilligen, wenn bereits eine Berufslehre abgeschlossen wurde\n\nAnforderungen:\n• Kurzer Lebenslauf mit deinen persönlichen Angaben, deinem Wunschstandort sowie deinem Wunschschnupperdatum und Angabe deiner Kleidergrösse (XS - SL für Oberteil und Hose)\n\n• Vorhandene Zeugnisse Oberstufe\n\n• Falls vorhanden: Stellwerk und Multicheck Junior Gesundheit und Soziales, Anmeldung unter: www.multicheck.ch\n\nWir bieten:\n• Wertschätzende interdisziplinäre Zusammenarbeit in einem angenehmen Arbeitsklima\n\n• Interessante, herausfordernde sowie abwechslungsreiche Tätigkeit\n\n• Grosszügige Nebenleistungen sowie attraktive Anstellungsbedingungen\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-      "descriptionByLocale": {
-        "it": "Lungimiranza per la riabilitazione e la mia carriera – questo è lo stile di vita e la sensazione di lavoro al gruppo clinico Valens. Scambio, progresso, lavoro di squadra interdisciplinare e buone prospettive sono importanti qui. > > Applicare per eccitante\n\nCompiti:\n3 anni di istruzione:\n• Tre anni di formazione professionale di base come specialista per la salute con la Swiss Federal Health Card (inizio di agosto)\n\n• Visita alla scuola professionale e ai corsi intercompany (OdA a St. Gallen)\n\n• Contratto di formazione con le cliniche Valens per 3 anni\n\nPorti un periodo di scuola obbligatoria completato, scuola reale o secondaria\nFormazione di 2 anni abbreviata per adulti:\n• Età minima 22 anni o formazione completa con EFZ\n\n• Pratica esperienza professionale nel campo di attività di minimo 2 anni almeno. 60 %\n\nFormazione pratica:\n• Lavoro part-time di min. 80%\n\n• Servizi di turni e week-end come specificato dalle specifiche operative\n\nFormazione professionale:\n• formazione professionale: un giorno scolastico a settimana; istruzione generale: un giorno scolastico a settimana\n\n• L'istruzione generale può essere frequentata in un corso annuale prima dell'inizio del corso\n\n• L'Ufficio per l'istruzione e la formazione professionale può autorizzare una dispensa dall'istruzione generale se è già stato completato un apprendistato professionale.\n\nRequisiti\n• Breve CV con i tuoi dati personali, la tua posizione desiderata e la tua data di degustazione desiderata e l'indicazione della dimensione del tuo vestito (XS - SL per tomaie e pantaloni)\n\n• Certificati di livello superiore esistenti\n\n• Se disponibile: Interlock e Multicheck Junior Health and Social Affairs, registrati su www.multicheck.ch\n\nOffriamo:\n• Cooperazione interdisciplinare apprezzata in un ambiente di lavoro piacevole\n\n• Attività interessante, impegnativa e variegata\n\n• Servizi accessori e condizioni di lavoro interessanti\n\nCon 13 sedi e nove aree specializzate, il Gruppo Clinico Valens è il più grande fornitore di riabilitazione in Svizzera. Come vettori delle etichette \"Friendly Work Space\" e \"Best Employers Switzerland\", sosteniamo i nostri 2300 dipendenti nel loro equilibrio di lavoro e coltiviamo una cultura di cooperazione.",
-        "en": "Far-sightedness for rehab and my career – that is the lifestyle and working feeling at the clinic group Valens. Exchange, progress, interdisciplinary teamwork and good prospects are important here. <br/><br/>Apply for exciting\n\nTasks:\n3-year education:\n• Three years of basic vocational training as a specialist for health with Swiss Federal Health Card (EFZAnnual start in August)\n\n• Visit to the vocational school and intercompany courses (OdA in St. Gallen)\n\n• Training contract with Valens clinics for 3 years\n\nYou bring a completed compulsory school period, real or secondary school\nShortened 2-year education for adults:\n• Minimum age 22 years or completed training with EFZ\n\n• Practical professional experience in the field of activity of min. 2 years at least. 60 %\n\nPractical training:\n• Part-time work of min. 80%\n\n• Shifts and weekend services as specified by operational specification\n\nTraining in vocational school:\n• vocational education: one school day per week; General education: one school day per week\n\n• General education can be attended in an annual course before the beginning of the course\n\n• The Office for Vocational Education and Training may authorise a dispensation from general education if a vocational apprenticeship has already been completed.\n\nRequirements\n• Short CV with your personal details, your desired location as well as your desired taster date and indication of your dress size (XS - SL for uppers and pants)\n\n• Existing upper-level certificates\n\n• If available: Interlock and Multicheck Junior Health and Social Affairs, register at www.multicheck.ch\n\nWe offer:\n• Appreciative interdisciplinary cooperation in a pleasant working environment\n\n• Interesting, challenging and varied activity\n\n• Generous ancillary services and attractive employment conditions\n\nWith 13 locations and nine specialist areas, the Valens Clinical Group is the largest rehabilitation provider in Switzerland. As carriers of the labels \"Friendly Work Space\" and \"Best Employers Switzerland\", we support our 2300 employees in their work-life balance and cultivate a culture of cooperation.",
-        "de": "Weitblick für Reha und meine Karriere – das ist das Lebens- und Arbeitsgefühl bei der Klinikgruppe Valens. Austausch, Fortschritt, interdisziplinäres Teamwork und gute Aussichten werden hier gross geschrieben.<br/><br/>Bewerbe dich für spannende\n\nAufgaben:\n3-jährige Ausbildung:\n• Dreijährige berufliche Grundbildung zur Fachfrau / zum Fachmann Gesundheit mit eidgenössischem Fachausweis (EFZJährlicher Start im August)\n\n• Besuch der Berufsfachschule und überbetriebliche Kurse (OdA in St. Gallen)\n\n• Ausbildungsvertrag mit den Kliniken Valens während 3 Jahren\n\nDu bringst eine abgeschlossene obligatorische Schulzeit, Real- oder Sekundarschule mit\nVerkürzte 2-jährige Ausbildung für Erwachsene:\n• Mindestalter 22 Jahre oder abgeschlossene Ausbildung mit EFZ\n\n• Praktische Berufserfahrung im Tätigkeitsfeld von mind. 2 Jahren zu mind. 60%\n\nAusbildung in der Praxis:\n• Teilzeitpensum von mind. 80%\n\n• Schichtbetrieb und Wochenenddienste nach betrieblicher Vorgabe\n\nAusbildung in der Berufsfachschule:\n• Berufskunde: ein Schultag pro Woche; Allgemeinbildung: ein Schultag pro Woche\n\n• Die Allgemeinbildung kann in einem Jahreskurs vor Lehrbeginn besucht werden\n\n• Das Amt für Berufsbildung kann eine Dispens vom allgemeinbildenden Unterricht bewilligen, wenn bereits eine Berufslehre abgeschlossen wurde\n\nAnforderungen:\n• Kurzer Lebenslauf mit deinen persönlichen Angaben, deinem Wunschstandort sowie deinem Wunschschnupperdatum und Angabe deiner Kleidergrösse (XS - SL für Oberteil und Hose)\n\n• Vorhandene Zeugnisse Oberstufe\n\n• Falls vorhanden: Stellwerk und Multicheck Junior Gesundheit und Soziales, Anmeldung unter: www.multicheck.ch\n\nWir bieten:\n• Wertschätzende interdisziplinäre Zusammenarbeit in einem angenehmen Arbeitsklima\n\n• Interessante, herausfordernde sowie abwechslungsreiche Tätigkeit\n\n• Grosszügige Nebenleistungen sowie attraktive Anstellungsbedingungen\n\nDie Klinikgruppe Valens ist mit 13 Standorten und neun Fachbereichen der grösste Rehabilitationsanbieter der Schweiz. Als Träger der Labels \"Friendly Work Space\" und \"Beste Arbeitgeber Schweiz\" unterstützen wir unsere 2300 Mitarbeitenden bei ihrer Work-Life-Balance und pflegen eine Kultur des Miteinanders.",
-        "fr": "La clairvoyance pour la réadaptation et ma carrière – c'est le style de vie et le sentiment de travail au sein du groupe clinique Valens. Les échanges, les progrès, le travail d'équipe interdisciplinaire et les bonnes perspectives sont importants. <br/><br/> Postuler pour excitant\n\nTâches :\nÉducation de trois ans:\n• Trois années de formation professionnelle de base en tant que spécialiste de la santé avec la carte fédérale de la santé suisse (EFZAnval début août)\n\n• Visite de l'école professionnelle et des cours interentreprises (OdA à St. Gallen)\n\n• Contrat de formation avec les cliniques Valens pendant 3 ans\n\nVous apportez une période de scolarité obligatoire terminée, école réelle ou secondaire\nÉducation réduite de 2 ans pour les adultes:\n• Âge minimum de 22 ans ou formation avec EFZ\n\n• Expérience professionnelle pratique dans le domaine d'activité de min. 2 ans au moins. 60 %\n\nFormation pratique:\n• Travail à temps partiel de min. 80%\n\n• Postes et services de fin de semaine spécifiés par les spécifications opérationnelles\n\nFormation professionnelle:\n• enseignement professionnel: une journée scolaire par semaine; enseignement général: une journée scolaire par semaine\n\n• L'enseignement général peut être suivi dans un cours annuel avant le début du cours.\n\n• L'Office de l'enseignement et de la formation professionnels peut autoriser une dispense de l'enseignement général si un apprentissage professionnel a déjà été effectué.\n\nExigences\n• CV court avec vos données personnelles, votre emplacement souhaité ainsi que votre date de dégustation souhaitée et l'indication de votre taille de robe (XS - SL pour les hauts et pantalons)\n\n• Certificats de niveau supérieur existants\n\n• Si disponible : Interlock and Multicheck Junior Health and Social Affairs, inscrivez-vous à www.multicheck.ch\n\nNous offrons:\n• Appréciation de la coopération interdisciplinaire dans un environnement de travail agréable\n\n• Activités intéressantes, stimulantes et variées\n\n• Services auxiliaires généreux et conditions d'emploi attrayantes\n\nAvec 13 emplacements et neuf zones spécialisées, le Groupe clinique Valens est le plus important fournisseur de services de réadaptation en Suisse. En tant que porteurs des labels « Friendly Work Space » et « Best Employers Switzerland », nous soutenons nos 2300 employés dans leur équilibre travail-vie personnelle et cultivons une culture de coopération."
-      },
-      "needsRetranslation": false,
-      "location": "Gais",
-      "canton": "AR",
-      "url": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a/30a4e6df-6605-46b4-832c-d677540aa5f1",
-      "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.717Z",
-      "addressLocality": "Gais",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9056",
-      "streetAddress": "",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.valens.ch/offene-stellen/schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a/30a4e6df-6605-46b4-832c-d677540aa5f1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a-kliniken-valens-gais"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schnuppertage-zur-ausbildung-als-fachfrau-mann-gesundheit-efz-m-w-a-kliniken-valens-gais"
-        ]
-      },
-      "firstSeenAt": "2026-08-17T10:10:57.395Z",
-      "salaryMin": 56000,
-      "salaryMax": 103000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 56000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kliniken-valens-65f39f8f65ef",
       "slug": "cuocere-cucinare-m-f-a-80-100-kliniken-valens-wald",
       "slugByLocale": {
@@ -5147,7 +5160,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/koch-koechin-m-w-a/0ed04bc3-51c9-4164-8027-e5942eb06c08",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.716Z",
+      "crawledAt": "2026-10-27T21:58:44.914Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5257,7 +5270,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/sozialberater-in-m-w-a/b8deb4bb-dfa3-4815-85df-cce8e92eb05b",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.715Z",
+      "crawledAt": "2026-10-27T21:58:44.912Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5331,7 +5344,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-m-w-a/9bf7a835-54fe-412e-838f-7a89633f0875",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.713Z",
+      "crawledAt": "2026-10-27T21:58:44.910Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5441,7 +5454,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-gesundheit-efz-m-w-a-mit-lehrbeginn-2027/fbb4020b-b4bb-40b9-bc1a-cccf4ac744e5",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.712Z",
+      "crawledAt": "2026-10-27T21:58:44.908Z",
       "addressLocality": "Walzenhausen",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -5517,7 +5530,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/aushilfe-thermalbad-fuer-wochenendeinsaetze-m-w-a/a1ae0572-6b35-4ff9-9849-87d5b295f4c8",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.711Z",
+      "crawledAt": "2026-10-27T21:58:44.907Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5593,7 +5606,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ergotherapeut-in-m-w-a/f364fcde-3116-44fe-b7c6-1f9efe976cc4",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.709Z",
+      "crawledAt": "2026-10-27T21:58:44.906Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5668,7 +5681,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-kauffrau-mann-e-profil-oder-mit-berufsmatura/9dffe1ff-16c5-4b45-8719-57c37c6b0d60",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.706Z",
+      "crawledAt": "2026-10-27T21:58:44.904Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5742,7 +5755,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/chefaerztin-chefarzt-neurologische-rehabilitation-m-w-a/a8bc98a5-cf04-449b-8b33-47116aa0a626",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.704Z",
+      "crawledAt": "2026-10-27T21:58:44.902Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5816,7 +5829,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachverantwortliche-r-pflege-neurologie-m-w-a/f9fe9bc6-96b7-4f62-926e-cdfd23b7baec",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.701Z",
+      "crawledAt": "2026-10-27T21:58:44.900Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5892,7 +5905,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegefachfrau-mann-in-der-neurologischen-rehabilitation-m-w-a-30/d6924db8-06bd-4624-87e7-b494d263fe23",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.699Z",
+      "crawledAt": "2026-10-27T21:58:44.898Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5998,7 +6011,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/unterassistenzarztstelle-cand-med-m-w-a/a8010e3d-595e-4521-9423-aa1d20ab25ae",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.697Z",
+      "crawledAt": "2026-10-27T21:58:44.897Z",
       "addressLocality": "Davos Clavadel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -6102,7 +6115,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-a-mit-start-ab-sommer-2027/23738dee-56b2-49bf-9517-5150c9eb07bf",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.695Z",
+      "crawledAt": "2026-10-27T21:58:44.895Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6207,7 +6220,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/vorpraktikum-physiotherapie-ergotherapie-m-w-a-ab-juli-2027-wieder-freie-plaetze/0dc7350a-8506-4a62-be5d-68ca4989a871",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.694Z",
+      "crawledAt": "2026-10-27T21:58:44.894Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6308,7 +6321,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-koch-koechin-efz-m-w-a-mit-lehrbeginn-2028/4a739213-05ae-4548-be95-5432143466a9",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.693Z",
+      "crawledAt": "2026-10-27T21:58:44.893Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6412,7 +6425,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/stv-teamleiter-in-gastronomie-m-w-a/9bd2e5d9-385e-468b-ab12-51895445ce9c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.691Z",
+      "crawledAt": "2026-10-27T21:58:44.892Z",
       "addressLocality": "Walenstadtberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6492,7 +6505,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/pharma-assistent-in-m-w-a/9194c944-7a5d-435e-b829-98027a760516",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.690Z",
+      "crawledAt": "2026-10-27T21:58:44.891Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6587,7 +6600,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-laufend-mit-start-ab-maerz-september/80b491aa-d9ab-4938-abbc-6f0a3f865daf",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.688Z",
+      "crawledAt": "2026-10-27T21:58:44.889Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6689,7 +6702,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-ueberwachungspflichtige-neurologische-rehabilitation-m-w-a/d598efbd-d58f-41a6-b2d4-b8af92b7eb23",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.687Z",
+      "crawledAt": "2026-10-27T21:58:44.887Z",
       "addressLocality": "Wald ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6754,9 +6767,9 @@
     },
     {
       "id": "kliniken-valens-ee8f029934ea",
-      "slug": "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich",
+      "slug": "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
       "slugByLocale": {
-        "it": "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich",
+        "it": "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
         "en": "rehabilitation-planner-outpatient-clinic-assistant-m-w-a-40-60-kliniken-valens-zurich",
         "de": "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
         "fr": "planificateur-trice-de-readaptation-assistant-e-medical-e-h-f-a-40-60-kliniken-valens-zurich"
@@ -6783,7 +6796,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/rehaplaner-in-sprechstundenassistenz-m-w-a/721d209e-a226-478b-b68c-87faed6b8380",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.684Z",
+      "crawledAt": "2026-10-27T21:58:44.884Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6805,12 +6818,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
-        "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich"
+        "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich",
-          "rehaplaner-in-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich"
+          "pianificatore-trice-della-riabilitazione-e-assistente-di-studio-medico-m-f-a-40-60-kliniken-valens-zurich"
         ],
         "en": [
           "rehaplaner-in-amp-sprechstundenassistenz-m-w-a-40-60-kliniken-valens-zurich"
@@ -6865,7 +6878,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/pflegeexpert-in-m-w-a-auf-wunsch-zusaetzliche-stellenprozente-als-diplomierte-pflegefachperson-moeglich/6c974048-262a-4f2b-8fad-16af02e57c0f",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.682Z",
+      "crawledAt": "2026-10-27T21:58:44.883Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -6945,7 +6958,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/teamleiter-in-logopaedie-fachverantwortung-m-w-a/ee5b70d9-d9d8-47c5-8f2c-42c23ab6d7b7",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.680Z",
+      "crawledAt": "2026-10-27T21:58:44.881Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7019,7 +7032,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ernaehrungsberater-in-w-m-a/01de9d28-e3e1-467d-b5c9-9f356f87d5e5",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.678Z",
+      "crawledAt": "2026-10-27T21:58:44.880Z",
       "addressLocality": "St.Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7095,7 +7108,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/fachfrau-mann-gesundheit-efz-fuer-die-neurologische-abteilung-w-m-a/ff2e8749-2d02-47db-9147-661c8b0e5200",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.677Z",
+      "crawledAt": "2026-10-27T21:58:44.878Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7154,9 +7167,9 @@
     },
     {
       "id": "kliniken-valens-f7292a2c4c11",
-      "slug": "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens",
+      "slug": "direktionsassistent-in-m-w-a-50-60-kliniken-valens",
       "slugByLocale": {
-        "it": "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens",
+        "it": "direktionsassistent-in-m-w-a-50-60-kliniken-valens",
         "en": "executive-assistant-m-f-a-50-60-kliniken-valens-valens",
         "de": "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens",
         "fr": "assistant-e-de-direction-h-f-autre-50-60-kliniken-valens-valens"
@@ -7183,7 +7196,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/direktionsassistent-in-m-w-a/be368a69-c453-4d4b-ac30-5b4a8483943c",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.676Z",
+      "crawledAt": "2026-10-27T21:58:44.877Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7205,12 +7218,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens",
-        "direktionsassistent-in-m-w-a-50-60-kliniken-valens"
+        "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens",
-          "direktionsassistent-in-m-w-a-50-60-kliniken-valens"
+          "assistente-di-direzione-m-f-a-50-60-kliniken-valens-valens"
         ],
         "en": [
           "direktionsassistent-in-m-w-a-50-60-kliniken-valens-valens"
@@ -7265,7 +7278,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/leitende-n-aerztin-arzt-oder-oberaerztin-oberarzt-internistisch-onkologische-rehabilitation-m-w-a-60/293e322d-9bd5-4810-a5ad-1d198e9926d5",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.675Z",
+      "crawledAt": "2026-10-27T21:58:44.876Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -7348,7 +7361,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachmann-frau-hf-m-w-a-laufend-mit-start-ab-maerz-oder-september/69b68985-5c31-4a2f-af5b-3bce270a2b45",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.674Z",
+      "crawledAt": "2026-10-27T21:58:44.875Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -7446,7 +7459,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/praktikant-in-sporttherapie-m-w-a/ea7149b6-49a6-4d2b-bdca-578c9505d48b",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.673Z",
+      "crawledAt": "2026-10-27T21:58:44.874Z",
       "addressLocality": "Wald ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7520,7 +7533,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a-mit-start-ab-maerz-oder-september/cad99368-c1ff-417c-bf34-7ba6dcc7e392",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.671Z",
+      "crawledAt": "2026-10-27T21:58:44.873Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7615,7 +7628,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-oder-eba-m-w-a-mit-lehrbeginn-2027/1c7f5533-e8e9-4bd7-ba70-e000143fa5d5",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.670Z",
+      "crawledAt": "2026-10-27T21:58:44.871Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7690,7 +7703,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-als-fachfrau-mann-gesundheit-efz-m-w-a-mit-lehrbeginn-2027/fd9f17ae-426e-402e-9f60-ed6e683c3878",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.668Z",
+      "crawledAt": "2026-10-27T21:58:44.869Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7764,7 +7777,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/praktikant-in-neuropsychologie-m-w-a/89e5c689-cc8d-407e-9afe-c504c28b0051",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.667Z",
+      "crawledAt": "2026-10-27T21:58:44.868Z",
       "addressLocality": "Wald",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7839,7 +7852,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-kaufmann-kauffrau-efz-gesundheit-m-w-a-mit-lehrbeginn-2027/78d13542-0648-46d3-8c22-75695d3a7ffa",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.656Z",
+      "crawledAt": "2026-10-27T21:58:44.857Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -7923,7 +7936,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/ausbildung-als-dipl-pflegefachfrau-mann-hf-m-w-a/e2700571-db66-4f42-a545-3a0091132d55",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.655Z",
+      "crawledAt": "2026-10-27T21:58:44.856Z",
       "addressLocality": "Davos Clavadel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -8025,7 +8038,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/lehrstelle-koechin-koch-efz-m-w-a-mit-lehrbeginn-2027/c1b0aa83-1a28-4cef-9470-0913447338c2",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.653Z",
+      "crawledAt": "2026-10-27T21:58:44.855Z",
       "addressLocality": "Davos Clavdel",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -8125,7 +8138,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/idem-freiwilligenengagement/c4c701c4-ad0a-42cc-87af-e3cc4cb2cc51",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.651Z",
+      "crawledAt": "2026-10-27T21:58:44.853Z",
       "addressLocality": "Gais",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -8228,7 +8241,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/teamleiter-in-physiotherapie-m-w-a/6243c122-b8a0-4c61-b9de-5d62b5352983",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.650Z",
+      "crawledAt": "2026-10-27T21:58:44.852Z",
       "addressLocality": "Valens",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -8308,7 +8321,7 @@
       "url": "https://jobs.valens.ch/offene-stellen/dipl-ergotherapeut-in-w-m-a/0622dddd-0fa5-40df-b0bc-ca61392450ea",
       "source": "Kliniken Valens Dedicated Parser (Prospective medium 1005103)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:52:33.631Z",
+      "crawledAt": "2026-10-27T21:58:44.837Z",
       "addressLocality": "Davos Clavadel",
       "addressRegion": "GR",
       "addressCountry": "CH",
