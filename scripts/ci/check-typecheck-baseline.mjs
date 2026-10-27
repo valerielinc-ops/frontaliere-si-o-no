@@ -122,6 +122,12 @@ import { readSiteText } from './corpus-ahead-check.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const BASELINE_PATH = path.join(ROOT, 'data', 'typecheck-baseline.json');
 const TSC_BIN = path.join(ROOT, 'node_modules', 'typescript', 'bin', 'tsc');
+// The trusted tests job uses a full checkout so related tests can inspect every
+// runtime artifact. The article corpus is generated data (about 29k TypeScript
+// modules), not application source: the former sparse profile intentionally
+// excluded it from this baseline gate. Keep that established boundary explicit
+// so a full checkout does not turn the typecheck into a multi-GB OOM scan.
+const TSC_PROJECT = path.join(ROOT, 'tsconfig.ci.json');
 
 /** Prefissi il cui conteggio è informativo, non bloccante. */
 const ADVISORY_PREFIXES = ['tests/'];
@@ -154,7 +160,7 @@ function runTsc() {
     console.error(`✗ typescript non installato (${path.relative(ROOT, TSC_BIN)} assente). Esegui \`npm ci\`.`);
     process.exit(2);
   }
-  const res = spawnSync(process.execPath, [TSC_BIN, '--noEmit', '--pretty', 'false'], {
+  const res = spawnSync(process.execPath, [TSC_BIN, '--noEmit', '--pretty', 'false', '--project', TSC_PROJECT], {
     cwd: ROOT,
     encoding: 'utf8',
     maxBuffer: 256 * 1024 * 1024,
