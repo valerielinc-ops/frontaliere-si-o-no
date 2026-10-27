@@ -13,6 +13,8 @@
  * GA4, R2 or credentials.
  */
 
+import { createHash } from 'node:crypto';
+
 import { instagramEngagementMechanic } from './instagram-engagement.mjs';
 
 export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
@@ -378,6 +380,47 @@ function definitionFor(kind, id) {
   };
 }
 
+function parseBoolean(value, fallback = false) {
+  const normalized = String(value ?? '').trim().toLowerCase();
+  if (normalized === 'true' || normalized === '1' || normalized === 'on') return true;
+  if (normalized === 'false' || normalized === '0' || normalized === 'off') return false;
+  return fallback;
+}
+
+function parsePercent(value, fallback = 20) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? Math.max(0, Math.min(100, parsed)) : fallback;
+}
+
+function parseWinnerMap(value) {
+  const raw = String(value ?? '').trim();
+  if (!raw) return {};
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function explorationBucket(seed) {
+  const digest = createHash('sha256').update(seed).digest('hex');
+  return Number.parseInt(digest.slice(0, 8), 16) % 10_000;
+}
+
+function autonomousWinner({ kind, baseId, day, env }) {
+  if (!parseBoolean(env?.INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED, false)) return null;
+  const winners = parseWinnerMap(env?.INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS);
+  const winner = winners?.[kind]?.[baseId];
+  if (!CREATIVE_VARIANT_BY_ID.has(winner)) return null;
+  const definition = CREATIVE_VARIANT_BY_ID.get(winner);
+  if (definition.baseId !== baseId) return null;
+  const explorationPercent = parsePercent(env?.INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT, 20);
+  const bucket = explorationBucket(`instagram-creative-exploration:${kind}:${baseId}:${day || 'unknown'}`);
+  if (bucket < Math.round(explorationPercent * 100)) return null;
+  return winner;
+}
+
 /**
  * Pick a deterministic creative for a publishing day and content kind.
  *
@@ -386,13 +429,15 @@ function definitionFor(kind, id) {
  * accidentally select a new treatment merely because the cron was retried.
  * Invalid input safely falls back to the proof format.
  */
-export function chooseInstagramCreative({ kind, day } = {}) {
+export function chooseInstagramCreative({ kind, day, env = process.env } = {}) {
   if (!VALID_KINDS.has(kind)) return definitionFor('article', 'proof');
   const index = dayIndex(day);
   if (index === null || index < 0) return definitionFor(kind, 'proof');
   const cycle = kind === 'border' ? Math.floor(index / 7) : index;
   const formatId = INSTAGRAM_CREATIVE_IDS[(cycle + KIND_OFFSETS[kind]) % INSTAGRAM_CREATIVE_IDS.length];
-  return definitionFor(kind, formatId);
+  const rotating = definitionFor(kind, formatId);
+  const winner = autonomousWinner({ kind, baseId: rotating.baseId, day, env });
+  return winner ? definitionFor(kind, winner) : rotating;
 }
 
 /**

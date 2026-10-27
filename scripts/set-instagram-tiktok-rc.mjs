@@ -18,6 +18,19 @@ const PARAMS = {
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED: 'true',
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT: '100',
   INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS: '["navy-gradient","paper-amber","mint-ink","coral-night"]',
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT: '20',
+  INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS: '{}',
+  // The authenticated Chrome Professional Dashboard is the current Insights
+  // source; Graph remains an explicit fallback when Meta grants a token.
+  SOCIAL_ROBOT_INSIGHTS_SOURCE: 'browser',
+  INSTAGRAM_INSIGHTS_WINDOWS: '[24,72]',
+  INSTAGRAM_INSIGHTS_DECISION_WINDOW_HOURS: '72',
+  INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED: 'true',
+  INSTAGRAM_INSIGHTS_MIN_OBSERVATIONS: '3',
+  INSTAGRAM_INSIGHTS_MIN_RELATIVE_LIFT: '0.15',
+  INSTAGRAM_INSIGHTS_MIN_ABSOLUTE_LIFT: '0.005',
+  INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT: '20',
+  INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: '{}',
   TIKTOK_USERNAME: 'frontaliereticino',
   // Firebase controls the native TikTok sound experiment. `trend` selects
   // TikTok Studio's own "Per te" library; 50% keeps a no-sound control arm.

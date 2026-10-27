@@ -110,6 +110,36 @@ describe('Instagram creative system', () => {
     expect(article.id).not.toBe(job.id);
   });
 
+  it('uses an eligible Remote Config winner but keeps exploration opt-in', () => {
+    const env = {
+      INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED: 'true',
+      INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: '{"article":{"proof":"proof-surprise"}}',
+      INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT: '0',
+    };
+    expect(chooseInstagramCreative({ kind: 'article', day: '2026-10-11', env }).id).toBe('proof-surprise');
+  });
+
+  it('ignores malformed or cross-family winner maps', () => {
+    expect(chooseInstagramCreative({
+      kind: 'article',
+      day: '2026-10-11',
+      env: {
+        INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED: 'true',
+        INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: '{bad json',
+        INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT: '0',
+      },
+    }).id).toBe('proof');
+    expect(chooseInstagramCreative({
+      kind: 'article',
+      day: '2026-10-11',
+      env: {
+        INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED: 'true',
+        INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: '{"article":{"proof":"save-checklist"}}',
+        INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT: '0',
+      },
+    }).id).toBe('proof');
+  });
+
   it('fails safe to the proof treatment for malformed dates', () => {
     expect(chooseInstagramCreative({ kind: 'article', day: 'not-a-date' }).id).toBe('proof');
     expect(chooseInstagramCreative({ kind: 'article', day: '2026-02-30' }).id).toBe('proof');

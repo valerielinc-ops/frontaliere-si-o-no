@@ -115,6 +115,24 @@ function resolveInsightsSource(env = process.env) {
   return ['browser', 'graph', 'off'].includes(source) ? source : 'browser';
 }
 
+function resolveInsightsWindows(env = process.env) {
+  const raw = String(env.INSTAGRAM_INSIGHTS_WINDOWS || '').trim();
+  let values = [];
+  if (raw) {
+    try {
+      const parsed = JSON.parse(raw);
+      values = Array.isArray(parsed) ? parsed : [];
+    } catch {
+      values = raw.split(',');
+    }
+  }
+  const windows = [...new Set(values
+    .map((value) => Number(value))
+    .filter((value) => Number.isInteger(value) && value > 0 && value <= 168))]
+    .sort((a, b) => a - b);
+  return windows.length ? windows : [24, 72];
+}
+
 async function runBrowserInsights({ context, reader, stateDir, mode, log = console }) {
   if (mode === 'off' || resolveInsightsSource() !== 'browser') {
     return { status: 'disabled', additions: [], candidates: 0, source: resolveInsightsSource() };
@@ -127,19 +145,53 @@ async function runBrowserInsights({ context, reader, stateDir, mode, log = conso
   });
   const page = await context.newPage();
   try {
-    const result = await collectInstagramBrowserSnapshots({
-      page,
-      ledger: reader.readLedger('instagram'),
-      existing,
-      asOf: new Date(),
-      log,
-    });
-    if (result.additions?.length) {
-      const document = mergeInstagramBrowserSnapshots(existing, result, { generatedAt: new Date(), windowHours: 72 });
-      writeJsonAtomically(localPath, document);
-      result.output = localPath;
+    const windows = resolveInsightsWindows();
+    const ledger = reader.readLedger('instagram');
+    let document = existing;
+    const passes = [];
+    const additions = [];
+    let candidates = 0;
+    let matched = 0;
+    let cards = 0;
+    let skipped = [];
+    for (const windowHours of windows) {
+      const result = await collectInstagramBrowserSnapshots({
+        page,
+        ledger,
+        existing: document,
+        asOf: new Date(),
+        windowHours,
+        log,
+      });
+      passes.push({
+        windowHours,
+        status: result.status,
+        candidates: result.candidates || 0,
+        matched: result.matched || 0,
+        additions: result.additions?.length || 0,
+      });
+      candidates += result.candidates || 0;
+      matched += result.matched || 0;
+      cards += result.cards || 0;
+      skipped = [...skipped, ...(result.skipped || [])];
+      if (result.additions?.length) {
+        document = mergeInstagramBrowserSnapshots(document, result, { generatedAt: new Date(), windowHours });
+        additions.push(...result.additions);
+        writeJsonAtomically(localPath, document);
+      }
     }
-    return { ...result, source: 'browser' };
+    return {
+      status: additions.length ? 'snapshots-added' : 'nothing-collected',
+      source: 'browser',
+      windows,
+      passes,
+      additions,
+      candidates,
+      matched,
+      cards,
+      skipped,
+      output: additions.length ? localPath : undefined,
+    };
   } catch (error) {
     return {
       status: 'page-error',

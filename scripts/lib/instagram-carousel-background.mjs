@@ -88,6 +88,17 @@ function parsePercent(value) {
   return Number.isFinite(parsed) ? Math.min(100, Math.max(0, parsed)) : 0;
 }
 
+function parseJsonObject(value) {
+  const raw = firstText(value);
+  if (!raw) return {};
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
 function parseVariantIds(value) {
   const raw = firstText(value);
   if (!raw) return [CONTROL_VARIANT.id];
@@ -108,6 +119,8 @@ export function readInstagramCarouselBackgroundConfig(env = process.env) {
     enabled: parseBoolean(env.INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED),
     rolloutPercent: parsePercent(env.INSTAGRAM_CAROUSEL_BACKGROUND_AB_ROLLOUT_PERCENT),
     variantIds,
+    explorationPercent: parsePercent(env.INSTAGRAM_CAROUSEL_BACKGROUND_AB_EXPLORATION_PERCENT),
+    winners: parseJsonObject(env.INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS),
   };
 }
 
@@ -128,7 +141,7 @@ function deterministicBucket(seed) {
  * are the stable unit, so retries and queue replays keep the same arm.
  * Invalid or absent Remote Config always falls back to the navy control.
  */
-export function assignInstagramCarouselBackground({ kind, day, env = process.env, config } = {}) {
+export function assignInstagramCarouselBackground({ kind, day, creativeId, env = process.env, config } = {}) {
   const resolved = config || readInstagramCarouselBackgroundConfig(env);
   const configuredIds = resolved.variantIds
     .map((id) => String(id ?? '').trim())
@@ -138,6 +151,14 @@ export function assignInstagramCarouselBackground({ kind, day, env = process.env
   const seed = `${INSTAGRAM_CAROUSEL_BACKGROUND_EXPERIMENT_ID}:${firstText(kind) || 'article'}:${firstText(day) || 'unknown'}`;
   const bucket = deterministicBucket(seed);
   if (bucket.rollout >= Math.round(resolved.rolloutPercent * 100)) return CONTROL_VARIANT;
+  const winnerKey = firstText(kind) && firstText(creativeId)
+    ? `${firstText(kind)}:${firstText(creativeId)}`
+    : firstText(kind);
+  const configuredWinner = firstText(resolved.winners?.[winnerKey]);
+  const winner = configuredIds.includes(configuredWinner) ? configuredWinner : null;
+  if (winner && bucket.rollout >= Math.round(parsePercent(resolved.explorationPercent) * 100)) {
+    return instagramCarouselBackgroundForId(winner);
+  }
   return instagramCarouselBackgroundForId(configuredIds[bucket.arm % configuredIds.length]);
 }
 

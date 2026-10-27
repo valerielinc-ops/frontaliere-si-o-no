@@ -48,6 +48,8 @@ describe('Instagram carousel background experiment', () => {
       enabled: false,
       rolloutPercent: 0,
       variantIds: ['navy-gradient'],
+      explorationPercent: 0,
+      winners: {},
     });
     expect(assignInstagramCarouselBackground({ kind: 'article', day: '2026-10-26', env: {} }).id)
       .toBe('navy-gradient');
@@ -83,6 +85,22 @@ describe('Instagram carousel background experiment', () => {
     });
   });
 
+  it('promotes a proven background winner while retaining configured exploration', () => {
+    const config = {
+      enabled: true,
+      rolloutPercent: 100,
+      variantIds: [...INSTAGRAM_CAROUSEL_BACKGROUND_IDS],
+      explorationPercent: 0,
+      winners: { 'article:proof': 'paper-amber' },
+    };
+    expect(assignInstagramCarouselBackground({
+      kind: 'article',
+      creativeId: 'proof',
+      day: '2026-10-26',
+      config,
+    }).id).toBe('paper-amber');
+  });
+
   it('maps every experiment switch through the Firebase RC bridge', () => {
     expect(RC_TO_ENV.INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED).toEqual([
       'INSTAGRAM_CAROUSEL_BACKGROUND_AB_ENABLED',
@@ -92,6 +110,9 @@ describe('Instagram carousel background experiment', () => {
     ]);
     expect(RC_TO_ENV.INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS).toEqual([
       'INSTAGRAM_CAROUSEL_BACKGROUND_AB_VARIANTS',
+    ]);
+    expect(RC_TO_ENV.INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS).toEqual([
+      'INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS',
     ]);
   });
 });
