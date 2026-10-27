@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-10-27T09:22:17.942Z",
+  "generatedAt": "2026-10-27T21:16:10.446Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4009,
-  "avgDurationMs": 4009,
+  "durationMs": 3899,
+  "avgDurationMs": 3899,
   "durationHistory": [
-    4009
+    3899
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:22:00.373Z",
+      "crawledAt": "2026-10-27T21:15:54.953Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -79,7 +79,7 @@
       "url": "https://climeworks.recruitee.com/o/filtration-module-product-owner-80-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:22:00.365Z",
+      "crawledAt": "2026-10-27T21:15:54.947Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
