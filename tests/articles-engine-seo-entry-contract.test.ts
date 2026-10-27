@@ -53,4 +53,35 @@ describe('articles engine SEO-entry compatibility contract', () => {
       value: 'A static description.',
     });
   });
+
+  it('reads fields from structuredData arrays without treating unrelated URL templates as dynamic', () => {
+    const block = [
+      '{',
+      '  structuredData: [',
+      '    {',
+      '      headline: "News headline",',
+      '      description: "News description",',
+      '      image: { url: `${BASE_URL}/images/news.webp` },',
+      '      mainEntityOfPage: `${BASE_URL}/articoli-frontaliere/news/`,',
+      '    },',
+      '    { "@type": "FAQPage", "mainEntity": [] },',
+      '  ],',
+      '}',
+    ].join('\n');
+
+    expect(hasInterpolatedStaticProperty(block, 'headline')).toBe(false);
+    expect(readStructuredSeoDescriptionState(block)).toMatchObject({
+      assigned: true,
+      dynamic: false,
+      value: 'News description',
+    });
+    expect(staticPropertyState(block, 'headline')).toMatchObject({
+      assigned: true,
+      dynamic: false,
+      value: 'News headline',
+    });
+
+    const dynamicHeadline = block.replace('headline: "News headline"', 'headline: `${headline}`');
+    expect(hasInterpolatedStaticProperty(dynamicHeadline, 'headline')).toBe(true);
+  });
 });

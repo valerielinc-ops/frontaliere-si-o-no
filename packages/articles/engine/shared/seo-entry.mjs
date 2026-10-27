@@ -540,11 +540,72 @@ function emptyPropertyState() {
   return { assigned: false, dynamic: false, value: undefined };
 }
 
+function mergePropertyStates(previous, next) {
+  return {
+    assigned: previous.assigned || next.assigned,
+    dynamic: previous.dynamic || next.dynamic,
+    // A JSON-LD array contains independent objects, so the last object that
+    // assigns the field wins for readers while a dynamic assignment in any
+    // object remains fail-closed for validation.
+    value: next.assigned ? next.value : previous.value,
+  };
+}
+
+/**
+ * Resolve one field from structuredData, which may be an object or an array
+ * of JSON-LD objects. URL templates in unrelated properties must not make a
+ * static headline/description look dynamic merely because they share the
+ * same array container.
+ */
+function structuredDataPropertyState(block, valueStart, valueEnd, field, resolver, options = {}) {
+  const quote = block[valueStart];
+  if (quote === '{') {
+    return resolver(block.slice(valueStart, valueEnd), field, options);
+  }
+  if (quote !== '[') {
+    return hasInterpolatedTemplateInRange(block, valueStart, valueEnd, options)
+      ? { assigned: true, dynamic: true, value: undefined }
+      : emptyPropertyState();
+  }
+
+  const array = block.slice(valueStart, valueEnd);
+  const arrayEnd = array.length - 1;
+  let cursor = 1;
+  let state = emptyPropertyState();
+  while (cursor < arrayEnd) {
+    cursor = skipStaticTrivia(array, cursor, 'SEO entry', 'structuredData-array');
+    if (cursor >= arrayEnd || array[cursor] === ']') break;
+
+    // JSON-LD arrays emitted by the article source are arrays of object
+    // literals. An expression here could hide a metadata field, so reject it
+    // rather than silently publishing a reduced feed.
+    if (array[cursor] !== '{') {
+      return { assigned: true, dynamic: true, value: undefined };
+    }
+    const close = matchingDelimiter(array, cursor);
+    if (close < 0 || close >= arrayEnd) {
+      return { assigned: true, dynamic: true, value: undefined };
+    }
+    state = mergePropertyStates(
+      state,
+      resolver(array.slice(cursor, close + 1), field, options),
+    );
+    cursor = skipStaticTrivia(array, close + 1, 'SEO entry', 'structuredData-array');
+    if (cursor < arrayEnd && array[cursor] === ',') {
+      cursor += 1;
+      continue;
+    }
+    if (cursor < arrayEnd && array[cursor] !== ']') {
+      return { assigned: true, dynamic: true, value: undefined };
+    }
+  }
+  return state;
+}
+
 function interpolatedPropertyState(block, field, options = {}) {
   let lastTopLevelValue = emptyPropertyState();
   let lastStructuredDataValue = emptyPropertyState();
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
-    const quote = block[valueStart];
     if (key === field) {
       lastTopLevelValue = {
         assigned: true,
@@ -553,16 +614,14 @@ function interpolatedPropertyState(block, field, options = {}) {
       };
     }
     if (key === 'structuredData') {
-      const nested = quote === '{'
-        ? interpolatedPropertyState(block.slice(valueStart, valueEnd), field, options)
-        : emptyPropertyState();
-      const dynamicContainer = quote !== '{'
-        && hasInterpolatedTemplateInRange(block, valueStart, valueEnd);
-      lastStructuredDataValue = nested.assigned
-        ? nested
-        : dynamicContainer
-          ? { assigned: true, dynamic: true, value: undefined }
-          : emptyPropertyState();
+      lastStructuredDataValue = structuredDataPropertyState(
+        block,
+        valueStart,
+        valueEnd,
+        field,
+        interpolatedPropertyState,
+        options,
+      );
     }
   });
   return {
@@ -597,16 +656,19 @@ export function staticPropertyState(block, field) {
   let lastValue = emptyPropertyState();
   let lastTopLevelValue = emptyPropertyState();
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
-    const quote = block[valueStart];
     if (key === field) {
       lastTopLevelValue = readPropertyState(block, valueStart, valueEnd);
       lastValue = lastTopLevelValue;
     }
     if (key === 'structuredData'
       && ['headline', 'datePublished', 'dateModified', 'articleSection'].includes(field)) {
-      const nested = quote === '{'
-        ? staticPropertyState(block.slice(valueStart, valueEnd), field)
-        : emptyPropertyState();
+      const nested = structuredDataPropertyState(
+        block,
+        valueStart,
+        valueEnd,
+        field,
+        staticPropertyState,
+      );
       lastValue = nested.assigned ? nested : lastTopLevelValue;
     }
   });
@@ -633,23 +695,30 @@ export function readStructuredSeoBlock(block) {
 
 /** Return the final structuredData description state, including interpolation. */
 export function readStructuredSeoDescriptionState(block) {
-  let structuredData;
-  let structuredDataDynamic = false;
+  let state = emptyPropertyState();
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
     if (key !== 'structuredData') return;
-    const quote = block[valueStart];
-    if (quote === '{') {
-      structuredData = block.slice(valueStart, valueEnd);
-      structuredDataDynamic = false;
-      return;
-    }
-    structuredData = undefined;
-    structuredDataDynamic = hasInterpolatedTemplateInRange(block, valueStart, valueEnd);
+    const dynamic = structuredDataPropertyState(
+      block,
+      valueStart,
+      valueEnd,
+      'description',
+      interpolatedPropertyState,
+    );
+    const staticValue = structuredDataPropertyState(
+      block,
+      valueStart,
+      valueEnd,
+      'description',
+      staticPropertyState,
+    );
+    state = {
+      assigned: dynamic.assigned || staticValue.assigned,
+      dynamic: dynamic.dynamic || staticValue.dynamic,
+      value: dynamic.dynamic || staticValue.dynamic ? undefined : staticValue.value,
+    };
   });
-  if (structuredDataDynamic) return { assigned: true, dynamic: true, value: undefined };
-  return structuredData === undefined
-    ? emptyPropertyState()
-    : staticPropertyState(structuredData, 'description');
+  return state;
 }
 
 /** Return the final static string assigned to a top-level field. */
@@ -701,10 +770,18 @@ export function staticPropertySpans(block, field) {
 
 /** Read the final `description` from the JSON-LD-shaped structuredData object. */
 export function readStructuredSeoDescription(block) {
-  const structuredData = readStructuredSeoBlock(block);
-  return structuredData === undefined
-    ? undefined
-    : staticPropertyState(structuredData, 'description').value;
+  let description;
+  forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
+    if (key !== 'structuredData') return;
+    description = structuredDataPropertyState(
+      block,
+      valueStart,
+      valueEnd,
+      'description',
+      staticPropertyState,
+    ).value;
+  });
+  return description;
 }
 
 function isRealSeoKey(src, start, end) {
