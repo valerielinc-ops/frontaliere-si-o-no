@@ -10,5 +10,7 @@ describe('pr-redflag-fixer contract', () => {
   it('keeps the source-backed automation invariants explicit', () => {
     expect(SOURCE).toContain("PR 🔴 fixer");
     expect(SOURCE).toContain("pull_request_review");
+    expect(SOURCE).toContain('EVENT_HEAD_SHA');
+    expect(SOURCE).toContain('live_head_sha');
   });
 });

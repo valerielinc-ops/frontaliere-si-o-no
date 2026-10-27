@@ -10,5 +10,7 @@ describe('retry-code-check-body-edit contract', () => {
   it('keeps the source-backed automation invariants explicit', () => {
     expect(SOURCE).toContain("Retry code check after corrected PR body");
     expect(SOURCE).toContain("workflow_run");
+    expect(SOURCE).toContain('validRecoveryState');
+    expect(SOURCE).toContain('currentRecoveryPr');
   });
 });

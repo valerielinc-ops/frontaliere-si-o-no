@@ -651,6 +651,18 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     });
   });
 
+  it('does not dispatch a malformed recovery marker', async () => {
+    expect(await runRecovery({
+      eventName: 'schedule', pendingStatus: 'completed', markerExtra: { version: 2 },
+    })).toEqual({ reruns: [], dispatches: [] });
+  });
+
+  it('does not dispatch when the PR head changes during the final recovery snapshot', async () => {
+    expect(await runRecovery({
+      eventName: 'workflow_run', pendingStatus: 'queued', status: 'completed', changedHead: true,
+    })).toEqual({ reruns: [], dispatches: [] });
+  });
+
   it('keeps a completed recovery retryable when the native dispatch fails', async () => {
     const result = await runRecovery({
       eventName: 'workflow_run',

@@ -165,7 +165,7 @@ jobs:
           run_status=$(printf '%s' "$run" | jq -r '.status // empty')
           run_conclusion=$(printf '%s' "$run" | jq -r '.conclusion // empty')
           run_event=$(printf '%s' "$run" | jq -r '.event // empty')
-          run_pr_match=$(printf '%s' "$run" | jq -r --arg pr "$PR" --arg sha "$head_sha" '
+          run_pr_match=$(printf '%s' "$run" | jq -r --arg pr "$PR" --arg sha "$run_head_sha" '
             if (.pull_requests | type) != "array" then "malformed"
             elif any(.pull_requests[]; (.number | tostring) == $pr
               and .base.ref == "main"

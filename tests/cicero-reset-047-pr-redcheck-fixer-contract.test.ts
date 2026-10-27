@@ -10,5 +10,7 @@ describe('pr-redcheck-fixer contract', () => {
   it('keeps the source-backed automation invariants explicit', () => {
     expect(SOURCE).toContain("PR ❌ check fixer");
     expect(SOURCE).toContain("check_suite");
+    expect(SOURCE).toContain('run_pr_match');
+    expect(SOURCE).toContain('run_event');
   });
 });
