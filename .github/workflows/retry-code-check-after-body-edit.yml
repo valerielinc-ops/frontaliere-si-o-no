@@ -398,6 +398,7 @@ jobs:
               const { data: current } = await github.rest.pulls.get({ ...repo, pull_number: number });
               if (current?.state !== 'open'
                   || current?.base?.ref !== 'main'
+                  || (current?.body !== null && typeof current?.body !== 'string')
                   || current?.head?.sha !== state.headSha
                   || BODY_REVISION(current.body) !== state.bodyRevision) return null;
               return current;

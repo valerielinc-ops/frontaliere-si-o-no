@@ -188,7 +188,11 @@ jobs:
             echo "PR #$PR_NUMBER ha base/head ref cambiati ($live_base_ref/$live_head_ref) rispetto all'evento → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          if [ -z "$EVENT_HEAD_SHA" ] || [ "$live_head_sha" != "$EVENT_HEAD_SHA" ]; then
+          if ! [[ "$EVENT_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || ! [[ "$live_head_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::SHA live/event della PR #$PR_NUMBER non ha formato verificabile: stop fail-closed."
+            exit 1
+          fi
+          if [ "$live_head_sha" != "$EVENT_HEAD_SHA" ]; then
             echo "Review 🔴 stantia per PR #$PR_NUMBER: evento=$EVENT_HEAD_SHA live=$live_head_sha → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
