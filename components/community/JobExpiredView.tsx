@@ -174,7 +174,6 @@ const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
  const [locale] = useLocale();
   const { headline: gateHeadline, variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
- const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
  const [googleButtonReady, setGoogleButtonReady] = useState(false);
@@ -470,7 +469,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const backButton = onBack && (
  <button
  onClick={onBack}
- className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline shrink-0"
+ className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-stripe"
  >
  <ArrowLeft size={14} />
  {t('jobBoard.backToList')}
@@ -481,7 +480,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  // detail (JobBoard.tsx): the back link keeps its natural width, the desktop
  // banner fills the rest of the row. Banner is lg+ only.
  const topBannerRow = (
- <div className="flex items-center gap-4">
+ <div className="flex flex-wrap items-center gap-3 sm:gap-4">
  {backButton}
  {isDesktopLg && AD_SLOTS.JOBDETAIL_TOP_BANNER.slot && (
  <AdSenseBanner
@@ -495,7 +494,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  );
 
  const expiredBanner = (
- <div className="rounded-xl bg-warning-subtle border border-warning-border px-4 py-3 text-xs text-warning">
+ <div className="flex items-start gap-2.5 rounded-xl bg-warning-subtle border border-warning-border px-4 py-3 text-sm leading-relaxed text-warning">
+ <Clock size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
  {BANNER_COPY[locale] ?? BANNER_COPY.it}
  </div>
  );
@@ -546,21 +546,21 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const jobHeader = (
  <>
- <div className="flex items-start gap-4">
+ <div className="flex items-start gap-3 sm:gap-4">
  {logoUrl && (
  <img
  src={logoUrl}
  alt={job.company}
- width={48}
- height={48}
- className="w-12 h-12 rounded-lg object-contain bg-surface-alt flex-shrink-0"
+ width={56}
+ height={56}
+ className="w-14 h-14 rounded-xl object-contain bg-surface-alt flex-shrink-0"
  decoding="async"
  onError={handleCompanyLogoError}
  />
  )}
  <div className="flex-1 min-w-0">
- <h1 className="text-xl font-bold font-display text-heading leading-tight break-words [hyphens:auto]">{localizedTitle}</h1>
- <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-heading leading-tight tracking-tight break-words [hyphens:auto]">{localizedTitle}</h1>
+ <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mt-2 text-sm leading-snug text-subtle">
  {job.company && companyHref && (
  <button
  type="button"
@@ -750,7 +750,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  };
 
  return (
- <div className="space-y-5">
+ <div className="space-y-6" data-expired-layout="authenticated">
  {topBannerRow}
  {expiredBanner}
 
@@ -765,10 +765,10 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
 
  {/* ── Center content (12-col job-detail grid) ── */}
- <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
+ <div className="min-w-0 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
  {/* ── Main content (8 cols) ── */}
  <article className="lg:col-span-8 space-y-5">
- <div className="rounded-stripe border border-edge bg-surface p-5">
+ <div className="rounded-stripe border border-edge bg-surface p-5 sm:p-6 shadow-stripe-sm">
  {jobHeader}
  {job.sector && (
  <div className="mt-4 flex flex-wrap gap-2 text-xs">
@@ -955,7 +955,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  // ── Auth gate view: matches active job layout ──
 
  return (
- <div className="space-y-5" data-no-auto-ads="inside">
+ <div className="space-y-6" data-no-auto-ads="inside" data-expired-layout="gated">
  {topBannerRow}
  {/* Status banner ("no longer active") deferred until sign-in: a logged-out
      visitor sees the gate, not the dead-job notice. Shown in the logged-in view. */}
@@ -970,10 +970,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </aside>
 
  {/* ── Center content ── */}
- <div className="space-y-4">
+ <div className="min-w-0 w-full max-w-3xl mx-auto">
 
  {/* Job header card */}
- <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5" onCopy={handleGateCopy}>
+ <div onCopy={handleGateCopy}>
+ <div className="rounded-stripe border border-edge bg-surface p-5 sm:p-6 shadow-stripe-sm">
  {jobHeader}
 
  {/* Readable description teaser — shows first ~200 chars to create information
@@ -982,13 +983,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  svh, NOT dvh: dvh re-resolves on mobile URL-bar collapse/expand, oscillating
  maxHeight 0↔80px and shifting the gate below on every scroll direction change. */}
  {descriptionPreview && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden max-h-[clamp(0px,calc(100svh_-_540px),80px)]">
- <p data-job-description-preview className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
+ <div className="relative mt-5 w-full overflow-hidden rounded-stripe border border-edge bg-surface-alt/60 [@media(max-height:540px)]:hidden max-h-[clamp(0px,calc(100svh_-_500px),112px)]">
+ <p data-job-description-preview className="px-3 py-2.5 text-sm text-body leading-relaxed whitespace-pre-line sm:px-4 sm:py-3">
  {descriptionPreview}
  </p>
- <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
+ <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface-alt/95 to-transparent" />
  </div>
  )}
+ </div>
 
  {/* Auth gate */}
  <div ref={gateImpressionRef} id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className={gateSkin.container} data-jobgate-arm={jobGate.enrolled ? jobGate.arm : undefined}>
@@ -1152,17 +1154,19 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  />
  )}
 
- {/* Company banner */}
- {companyBanner}
+ <div className="w-full max-w-3xl mx-auto space-y-6">
+  {/* Company banner */}
+  {companyBanner}
 
- {/* Related active jobs */}
- {relatedJobsSection}
+  {/* Related active jobs */}
+  {relatedJobsSection}
 
- {/* Job alert opt-in */}
- <JobAlertSection initialKeyword={job.title || ''} />
+  {/* Job alert opt-in */}
+  <JobAlertSection initialKeyword={job.title || ''} />
 
- {/* CTA */}
- {ctaLink}
+  {/* CTA */}
+  {ctaLink}
+ </div>
  </div>
  );
 }

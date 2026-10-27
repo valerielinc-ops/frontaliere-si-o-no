@@ -183,7 +183,17 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   useEffect(() => onAdsConsentChange(() => setAdsConsentTick((t) => t + 1)), []);
 
   useEffect(() => {
-    if (!active || !isAdsConsentGranted()) return;
+    // An inactive slot has no creative that can ever occupy its rail. Report
+    // that terminal state to the parent so ad-only gutters do not remain as
+    // empty 160/300px columns. A later consent decision re-enters this effect
+    // and reports `false`, restoring the reserve before requesting GPT.
+    if (!active || !isAdsConsentGranted()) {
+      if (collapseOnEmpty) {
+        setCollapsed(true);
+        onEmptyChangeRef.current?.(true);
+      }
+      return;
+    }
     const divId = divIdRef.current;
 
     const idleWindow = window as Window & {

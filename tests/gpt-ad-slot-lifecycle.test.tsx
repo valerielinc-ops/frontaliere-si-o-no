@@ -106,7 +106,9 @@ describe('GPT manual reserve lifecycle', () => {
   });
   it('does not request before advertising consent', () => {
     consent.granted = false;
-    mount();
+    const { box, onEmptyChange } = mount();
+    expect(box.style.display).toBe('none');
+    expect(onEmptyChange).toHaveBeenLastCalledWith(true);
     act(() => vi.advanceTimersByTime(AD_FILL_TIMEOUT_MS));
     expect(commands).toHaveLength(0);
     expect(trackAdEvent).not.toHaveBeenCalled();

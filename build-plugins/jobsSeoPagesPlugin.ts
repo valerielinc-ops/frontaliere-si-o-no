@@ -13689,7 +13689,7 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root">
  ${shell.nav}
- <article class="ft-static-article">
+ <article class="ft-static-article ft-expired-page">
  ${staticBody}
  </article>
  ${shell.footer}
@@ -14240,18 +14240,28 @@ ${staticAnalyticsHtml}
  // is resolved per-locale earlier in this loop iteration, not hoisted.)
  const staticBodyParts: string[] = [];
 
+ // Keep the crawler-first-paint version visually aligned with the hydrated
+ // JobExpiredView: one readable column, a clear identity block, then the
+ // preview/gate and the supporting facts. The class names are intentionally
+ // stable hooks for seo-static.css; the text contract stays unchanged.
+ staticBodyParts.push('<div class="ft-expired-shell">');
+ staticBodyParts.push('<header class="ft-expired-intro">');
+
  // --- H1 + expired notice ---
  staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
- staticBodyParts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+ staticBodyParts.push(`<p class="ft-expired-status"><strong>${esc(copy.banner)}</strong></p>`);
+ staticBodyParts.push('</header>');
 
  // The original title, employer, description and dated details below identify
  // the archived vacancy. Do not manufacture uniqueness with URL tokens or
  // infer tax/permit facts from a location parsed out of a historical slug.
 
  // Archived pages use the same anonymous preview as active listings.
+ staticBodyParts.push('<div class="ft-expired-description">');
  if (jobDescription && jobDescription.length > 30) {
  staticBodyParts.push(renderJobDescriptionGate(jobDescription, locale));
  }
+ staticBodyParts.push('</div>');
 
  // --- Job details section ---
  const detailsHeading = !hasRealTitle ? unknownCopy.details : locale === 'it' ? 'Dettagli dell\'offerta' : locale === 'en' ? 'Job details' : locale === 'de' ? 'Stellendetails' : 'D\u00e9tails de l\'offre';
@@ -14263,7 +14273,7 @@ ${staticAnalyticsHtml}
  if (hasRealTitle && jobSector) detailItems.push(`<li><strong>${locale === 'it' ? 'Settore' : locale === 'en' ? 'Sector' : locale === 'de' ? 'Branche' : 'Secteur'}:</strong> ${esc(jobSector)}</li>`);
  if (hasRealTitle && jobDatePosted) detailItems.push(`<li><strong>${locale === 'it' ? 'Pubblicata il' : locale === 'en' ? 'Posted on' : locale === 'de' ? 'Ver\u00f6ffentlicht am' : 'Publi\u00e9e le'}:</strong> ${esc(jobDatePosted.slice(0, 10))}</li>`);
  if (hasRealTitle && jobExpiredAt) detailItems.push(`<li><strong>${locale === 'it' ? 'Scaduta il' : locale === 'en' ? 'Expired on' : locale === 'de' ? 'Abgelaufen am' : 'Expir\u00e9e le'}:</strong> ${esc(jobExpiredAt.slice(0, 10))}</li>`);
- staticBodyParts.push(`<section><h2>${esc(detailsHeading)}</h2><ul>${detailItems.join('')}</ul></section>`);
+ staticBodyParts.push(`<section class="ft-expired-details"><h2>${esc(detailsHeading)}</h2><ul>${detailItems.join('')}</ul></section>`);
 
  // --- Same-company active jobs ---
  if (sameCompanyActiveJobs.length > 0) {
@@ -14383,7 +14393,8 @@ ${staticAnalyticsHtml}
  }
  }
 
- staticBodyParts.push(`<p><a href="${listingPath}">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)} \u2192</a></p>`);
+ staticBodyParts.push(`<p class="ft-expired-cta"><a href="${listingPath}">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)} \u2192</a></p>`);
+ staticBodyParts.push('</div>');
  // Audit opt-out marker: text-html-ratio (and other content-quality gates)
  // skip pages carrying this marker, since prose has been deliberately stripped.
  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
