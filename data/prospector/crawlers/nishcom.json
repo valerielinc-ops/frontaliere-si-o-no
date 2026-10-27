@@ -1,0 +1,20 @@
+{
+  "companyKey": "nishcom",
+  "companyName": "nishcom",
+  "companyHost": "nishcom.jobs.personio.de",
+  "platform": "personio.de",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://nishcom.jobs.personio.de/job/2844123?language=de"
+  ],
+  "detailTemplate": "/job/2844123",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Customer Experience & Loyalty Manager/in (80-100%)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-27T11:51:42.726Z",
+  "candidateKey": "nishcom.ch"
+}
