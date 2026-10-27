@@ -202,9 +202,11 @@ describe('jobs SEO disk HTML reuse', () => {
       + '<!-- jobs-seo-reuse:job-posting:end -->';
     const jobPosting = '<script type="application/ld+json">'
       + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
-      + '"validThrough":"2026-12-31","baseSalary":{"currency":"CHF",'
+      + '"validThrough":"2026-12-31","title":"Test job","description":"A complete test description with enough detail for the shared contract.",'
+      + '"hiringOrganization":{"name":"Test AG"},"baseSalary":{"currency":"CHF",'
       + '"value":{"minValue":60000,"unitText":"YEAR"}},'
-      + '"employmentType":"FULL_TIME","jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}}}'
+      + '"employmentType":"FULL_TIME","jobLocation":{"address":{"addressLocality":"Bellinzona","addressRegion":"TI",'
+      + '"addressCountry":"CH","streetAddress":"Via Test 1","postalCode":"6900"}}}'
       + '</script>';
     const incompleteLegacyJobPosting = '<script type="application/ld+json">'
       + '{"@context":"https://schema.org","@type":"JobPosting","datePosted":"2026-10-20",'
@@ -215,11 +217,13 @@ describe('jobs SEO disk HTML reuse', () => {
       + '"validThrough":"2026-12-31","baseSalary":{"currency":"CHF"},'
       + '"employmentType":"FULL_TIME","jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}}}'
       + '</script>';
+    const missingTitleJobPosting = jobPosting.replace('"title":"Test job",', '');
 
     expect(hasActiveJobPostingJsonLd(missing)).toBe(false);
     expect(hasActiveJobPostingJsonLd(jobPosting)).toBe(true);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(missing)).toBe(true);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(jobPosting)).toBe(false);
+    expect(shouldInvalidateActiveJobReuseWithoutJobPosting(missingTitleJobPosting)).toBe(true);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(incompleteLegacyJobPosting)).toBe(true);
     expect(shouldInvalidateActiveJobReuseWithoutJobPosting(malformedSalaryJobPosting)).toBe(true);
   });
@@ -308,17 +312,23 @@ describe('jobs SEO disk HTML reuse', () => {
     const oldPosting = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-20T08:00:00.000Z",'
+      + '"title":"Test job","description":"A complete test description with enough detail for the shared contract.",'
+      + '"hiringOrganization":{"name":"Test AG"},'
       + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
       + '"employmentType":"FULL_TIME",'
-      + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
+      + '"jobLocation":{"address":{"addressLocality":"Bellinzona","addressRegion":"TI",'
+      + '"addressCountry":"CH","streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-23T08:00:00.000Z"}'
       + '</script>';
     const currentPosting = '<script type="application/ld+json">'
       + '{"@type":"JobPosting","datePosted":"2026-10-20T08:00:00.000Z",'
       + '"validThrough":"2026-12-21T08:00:00.000Z",'
+      + '"title":"Test job","description":"A complete test description with enough detail for the shared contract.",'
+      + '"hiringOrganization":{"name":"Test AG"},'
       + '"baseSalary":{"currency":"CHF","value":{"minValue":60000,"unitText":"YEAR"}},'
       + '"employmentType":"FULL_TIME",'
-      + '"jobLocation":{"address":{"streetAddress":"Via Test 1","postalCode":"6900"}},'
+      + '"jobLocation":{"address":{"addressLocality":"Bellinzona","addressRegion":"TI",'
+      + '"addressCountry":"CH","streetAddress":"Via Test 1","postalCode":"6900"}},'
       + '"crawledAt":"2026-10-24T08:00:00.000Z"}'
       + '</script>';
     const cached = [
