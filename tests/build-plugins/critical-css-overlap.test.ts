@@ -128,6 +128,11 @@ describe('render-blocking critical CSS first-paint contract', () => {
     expect(CRITICAL_CSS).toContain('body{font-family:"Manrope",sans-serif}');
     expect(CRITICAL_CSS).toContain('.max-w-5xl{max-width:64rem}');
     expect(CRITICAL_CSS).toContain('.px-4{padding-inline:1rem}');
+    expect(CRITICAL_CSS).toContain('.mt-5{margin-top:calc(var(--spacing)*5)}');
+    expect(CRITICAL_CSS).toContain('.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}');
+    expect(CRITICAL_CSS).toContain('.p-5{padding:calc(var(--spacing)*5)}');
+    expect(CRITICAL_CSS).toContain('.sm\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}');
+    expect(CRITICAL_CSS).toContain('.lg\\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}');
     expect(CRITICAL_CSS).toContain('ins.adsbygoogle[data-ft-static-ad-collapsed]');
     expect(CRITICAL_CSS).not.toMatch(/adsbygoogle[^}]*display:none/);
     expect(CRITICAL_CSS).not.toContain('enable_page_level_ads:false');
