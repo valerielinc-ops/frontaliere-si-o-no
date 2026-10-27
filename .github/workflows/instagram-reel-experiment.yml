@@ -50,13 +50,18 @@ jobs:
         with: { node-version: 22, cache: npm }
       - name: Install dependencies
         run: npm ci
+
+      - name: Setup FFmpeg toolchain
+        uses: FedericoCarboni/setup-ffmpeg@v3.1
+        with:
+          ffmpeg-version: release
+          linking-type: static
+
       - name: Ensure ffmpeg is available
         run: |
           set -euo pipefail
-          if ! command -v ffmpeg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y ffmpeg
-          fi
+          command -v ffmpeg
+          ffmpeg -version | sed -n '1p'
 
       - name: Prepare Firebase credentials
         if: env.DRY_RUN != 'true'
