@@ -1729,6 +1729,11 @@ export function getProvider(model) {
   return PROVIDER.GITHUB;
 }
 
+// Public read-only view for diagnostics and availability gates. Keep the
+// original helper as the implementation so provider routing stays in one
+// place for the site-specific model chain.
+export const getProviderForModel = getProvider;
+
 /**
  * Strip provider prefix from model ID to get the API model name.
  * e.g. 'groq/llama-3.3-70b-versatile' → 'llama-3.3-70b-versatile'
@@ -1766,7 +1771,7 @@ function getApiModelId(model) {
 }
 
 /** Get the API key for a given provider */
-function getApiKeyForProvider(provider) {
+export function getApiKeyForProvider(provider) {
   switch (provider) {
     // First available PAT (primary or any extra) — so a config that supplies
     // only GH_MODELS_PAT_2 still registers GitHub as available to the gate.
@@ -1896,6 +1901,24 @@ const DEFAULT_OPTS = {
    */
   recordScore: true,
 };
+
+const _RECORD_SCORE_FALSE_STRINGS = new Set(['false', '0', 'no', 'off', '']);
+
+/**
+ * Normalize the diagnostic score flag at the module boundary. Environment
+ * variables and workflow inputs arrive as strings; comparing only with the
+ * boolean false would let `recordScore: 'false'` mutate the shared ledger.
+ */
+export function coerceRecordScore(value) {
+  if (value === undefined) return true;
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'string') return !_RECORD_SCORE_FALSE_STRINGS.has(value.trim().toLowerCase());
+  return Boolean(value);
+}
+
+function _shouldRecordScore(opts) {
+  return coerceRecordScore(opts?.recordScore);
+}
 
 /**
  * Providers known to honor OpenAI's `response_format: { type: 'json_schema' }`
@@ -2205,6 +2228,13 @@ function _logPreflightSkipOnce(model, cause, message) {
 const _consecutive429 = new Map();
 const MAX_CONSECUTIVE_429 = 2;
 
+// Resolver flaps are transient until the same provider has failed three
+// consecutive connection attempts. Keeping this separate from the 429 map
+// prevents a quota event from masquerading as DNS evidence.
+/** @type {Map<string, number>} provider → consecutive EAI_AGAIN count */
+const _resolverFlapCounts = new Map();
+const RESOLVER_FLAP_ESCALATION = 3;
+
 // Track consecutive content-quality failures (HTTP 200 but malformed/incomplete
 // JSON from the model). callLLM itself only sees HTTP success, so without this
 // counter a weak model can keep winning the fallback chain while every output
@@ -2332,9 +2362,23 @@ export function getCallLatencyStats() {
 
 // Provider-level cooldown: when a provider returns 429, all its models
 // get a temporary cooldown to avoid wasting retries on sibling models.
-// Maps provider name → cooldown-until timestamp (ms).
+// Maps provider name → cooldown-until timestamp (ms). The same breaker also
+// handles authoritative connection failures: retrying every model on a host
+// that refuses connections only multiplies dead round-trips (issue #15641).
 const _providerCooldown = new Map();
+const _providerCooldownReason = new Map();
 const PROVIDER_COOLDOWN_MS = 60_000; // 1 minute cooldown after 429
+const RESOLVER_FLAP_COOLDOWN_MS = 5 * PROVIDER_COOLDOWN_MS;
+const COOLDOWN_SEVERITY = Object.freeze({ transient: 0, resolverFlap: 1, persistent: 2 });
+const PROVIDER_COOLDOWN_DURATION_MS = Object.freeze({
+  [COOLDOWN_SEVERITY.transient]: PROVIDER_COOLDOWN_MS,
+  [COOLDOWN_SEVERITY.resolverFlap]: RESOLVER_FLAP_COOLDOWN_MS,
+  [COOLDOWN_SEVERITY.persistent]: Infinity,
+});
+
+function providerCooldownDurationMs(severity) {
+  return PROVIDER_COOLDOWN_DURATION_MS[severity] ?? PROVIDER_COOLDOWN_MS;
+}
 
 // Ceiling applied to a provider's `Retry-After` header (some return 86399 =
 // 24h, which would freeze the pipeline). Read in two places that must never
@@ -2347,15 +2391,48 @@ function isProviderCoolingDown(provider) {
   if (!until) return false;
   if (Date.now() >= until) {
     _providerCooldown.delete(provider);
+    _providerCooldownReason.delete(provider);
     return false;
   }
   return true;
 }
 
-function cooldownProvider(provider) {
-  const until = Date.now() + PROVIDER_COOLDOWN_MS;
-  _providerCooldown.set(provider, until);
-  console.warn(`🧊 Provider ${provider} cooled down for ${PROVIDER_COOLDOWN_MS / 1000}s (rate-limited)`);
+function cooldownProvider(
+  provider,
+  reason = 'rate-limited',
+  skipPhrase = 'cooling down (rate-limited)',
+  severity = COOLDOWN_SEVERITY.transient,
+) {
+  const wasCoolingDown = isProviderCoolingDown(provider);
+  const previous = _providerCooldownReason.get(provider);
+  const previousSeverity = previous?.severity ?? COOLDOWN_SEVERITY.transient;
+  if (wasCoolingDown && severity < previousSeverity) return 'refreshed';
+
+  const durationMs = providerCooldownDurationMs(severity);
+  const until = durationMs === Infinity ? Infinity : Date.now() + durationMs;
+  const previousUntil = _providerCooldown.get(provider) || 0;
+  _providerCooldown.set(provider, Math.max(previousUntil, until));
+  _providerCooldownReason.set(provider, { reason, skipPhrase, severity });
+
+  if (!wasCoolingDown) {
+    console.warn(`🧊 Provider ${provider} cooled down for ${durationMs === Infinity ? 'the rest of the run' : `${durationMs / 1000}s`} (${reason})`);
+    return 'created';
+  }
+  if (severity > previousSeverity) {
+    console.warn(`🧊 Provider ${provider} cooldown promoted to ${reason}`);
+    return 'upgraded';
+  }
+  return 'refreshed';
+}
+
+function providerCooldownSkipPhrase(provider) {
+  return _providerCooldownReason.get(provider)?.skipPhrase || 'cooling down (rate-limited)';
+}
+
+export function _cooldownSeverityDurations() {
+  return Object.entries(COOLDOWN_SEVERITY)
+    .map(([name, severity]) => ({ name, severity, durationMs: providerCooldownDurationMs(severity) }))
+    .sort((a, b) => a.severity - b.severity);
 }
 
 // Single source of truth for what counts a "last-resort" model and its
@@ -3043,7 +3120,7 @@ export function collectOfferedIds(cfg, list) {
  * listing shape auto-detect, the `maxAdd` cap, and the `offeredIds.size > 0`
  * markStale guard. Production callers go through `discoverFreeModels`.
  */
-export async function _discoverProvider(cfg) {
+export async function _discoverProvider(cfg, { recordScore = true } = {}) {
   const apiKey = cfg.getKey();
   if (!apiKey) return { added: 0, stale: 0 };
 
@@ -3137,7 +3214,7 @@ export async function _discoverProvider(cfg) {
       (m) => m.startsWith(cfg.prefix) && !offeredIds.has(m.slice(prefixLen)),
     );
     for (const model of staleIds) {
-      markModelExhausted(model, 'stale');
+      markModelExhausted(model, 'stale', '', { recordScore });
       _prunedStale.set(model, cfg.name);
       stale++;
     }
@@ -3166,13 +3243,14 @@ export async function _discoverProvider(cfg) {
  * Run dynamic discovery across all configured providers in parallel.
  * Idempotent for the process lifetime; never throws.
  */
-export async function discoverFreeModels() {
+export async function discoverFreeModels({ recordScore = true } = {}) {
+  const wantsRecord = coerceRecordScore(recordScore);
   if (_discoveryDone) return _dynamicModels;
   _discoveryDone = true;
 
   await Promise.all(_activeDiscoveryProviders().map(async (cfg) => {
     try {
-      await _discoverProvider(cfg);
+      await _discoverProvider(cfg, { recordScore: wantsRecord });
     } catch (e) {
       const msg = e?.name === 'AbortError' ? 'timeout' : (e?.message || String(e));
       console.warn(`⚠️  [Discovery:${cfg.name}] Failed (${msg}) — using static list`);
@@ -3186,8 +3264,8 @@ export async function discoverFreeModels() {
  * Backward-compatible alias. Older call sites referenced the OpenRouter-only
  * discovery; it now triggers the full multi-provider sweep (still idempotent).
  */
-export async function discoverOpenRouterFreeModels() {
-  return discoverFreeModels();
+export async function discoverOpenRouterFreeModels(opts = {}) {
+  return discoverFreeModels(opts);
 }
 
 // ── Firestore init & load ────────────────────────────────────
@@ -3203,7 +3281,7 @@ export async function discoverOpenRouterFreeModels() {
  *
  * Safe to call multiple times (idempotent).
  */
-export async function initScoreStore() {
+export async function initScoreStore({ recordScore = true } = {}) {
   if (_storeInitialized) return;
   _storeInitialized = true;
 
@@ -3341,7 +3419,8 @@ export async function initScoreStore() {
 
   // Discover new free models across all providers (each isolated; logs its own errors)
   try {
-    await discoverFreeModels();
+    if (coerceRecordScore(recordScore)) await discoverFreeModels();
+    else await discoverFreeModels({ recordScore: false });
   } catch {
     // Already logged inside discoverFreeModels
   }
@@ -3663,7 +3742,12 @@ function _registerExitHooks() {
 // ── Score mutation (with Firestore persistence) ──────────────
 
 /** Record a model success — boosts its rank and persists to Firestore */
-export function recordModelSuccess(modelId) {
+export function recordModelSuccess(modelId, { recordScore = true } = {}) {
+  if (!modelId) return;
+  if (!coerceRecordScore(recordScore)) {
+    _bumpOutcome(modelId, 'successes', { ledger: false });
+    return;
+  }
   _modelScores.set(modelId, (_modelScores.get(modelId) || 0) + SCORE_SUCCESS);
   const d = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
   d.successes++;
@@ -3680,15 +3764,17 @@ export function recordModelSuccess(modelId) {
  * empties on every successful write, the run tally never does (printRunSummary
  * reads it at the very end).
  */
-function _bumpOutcome(modelId, field) {
-  const pending = _pendingCounterDeltas.get(modelId) || {
-    successes: 0,
-    failures: 0,
-    rejectedSuccesses: 0,
-    ignoredFailures: 0,
-  };
-  pending[field]++;
-  _pendingCounterDeltas.set(modelId, pending);
+function _bumpOutcome(modelId, field, { ledger = true } = {}) {
+  if (ledger) {
+    const pending = _pendingCounterDeltas.get(modelId) || {
+      successes: 0,
+      failures: 0,
+      rejectedSuccesses: 0,
+      ignoredFailures: 0,
+    };
+    pending[field]++;
+    _pendingCounterDeltas.set(modelId, pending);
+  }
   const run = _runOutcomes.get(modelId) || { successes: 0, failures: 0 };
   run[field]++;
   _runOutcomes.set(modelId, run);
@@ -3751,21 +3837,26 @@ export function recordModelContentSuccess(modelId) {
  * already bounds total retry time, so removing the ban here doesn't risk an
  * unbounded loop.
  */
-export function recordModelContentFailure(modelId) {
+export function recordModelContentFailure(modelId, { recordScore = true } = {}) {
   if (!modelId) return;
+  const shouldRecord = coerceRecordScore(recordScore);
   // callLLM records an HTTP success before the caller validates its payload.
   // Convert that provisional ranking success into a single failure; keep both
   // raw telemetry events visible. A direct content failure with no matching
   // success is already a ranking failure and needs no correction.
-  if (_consumeUnvalidatedSuccess(modelId)) {
+  if (shouldRecord && _consumeUnvalidatedSuccess(modelId)) {
     _bumpRankingCorrection(modelId, 'rejectedSuccesses');
+  } else if (!shouldRecord) {
+    // Do not leave a diagnostic-only provisional success to be consumed by a
+    // later production validation in this process.
+    _consumeUnvalidatedSuccess(modelId);
   }
-  recordModelFailure(modelId);
+  recordModelFailure(modelId, { recordScore });
   const count = (_consecutiveContentFailures.get(modelId) || 0) + 1;
   _consecutiveContentFailures.set(modelId, count);
   if (_isLastResortProvider(modelId)) return;
   if (count >= MAX_CONSECUTIVE_CONTENT_FAILURES) {
-    markModelExhausted(modelId, 'content');
+    markModelExhausted(modelId, 'content', '', { recordScore });
     _stats.exhausted++;
     console.warn(`🚫 [${modelId}] Exhausted after ${count} consecutive content-quality failures`);
   }
@@ -3781,7 +3872,12 @@ export function recordModelContentFailure(modelId) {
  * (`Nok/0ko`) proprio mentre sta fallendo, che e' il modo piu' rapido per
  * rendere invisibile il prossimo incidente.
  */
-export function recordModelFailure(modelId, { nonRetryable = false, exhausted = false, transportOnly = false } = {}) {
+export function recordModelFailure(modelId, { nonRetryable = false, exhausted = false, transportOnly = false, recordScore = true } = {}) {
+  if (!modelId) return;
+  if (!coerceRecordScore(recordScore)) {
+    _bumpOutcome(modelId, 'failures', { ledger: false });
+    return;
+  }
   const penalty = transportOnly ? 0
                 : exhausted ? SCORE_EXHAUSTED
                 : nonRetryable ? SCORE_NON_RETRYABLE
@@ -4199,12 +4295,15 @@ export function getDeclaredRequestTokenLimit(model) {
 // exhaustion (account-independent → rotation cannot help, and re-trying would
 // neutralise those circuit-breakers). Default 'quota' covers the daily-limit and
 // rate-limit paths; the non-quota breakers pass an explicit reason.
-export function markModelExhausted(modelId, reason = 'quota', detail = '') {
+export function markModelExhausted(modelId, reason = 'quota', detail = '', { recordScore = true } = {}) {
+  if (!modelId) return;
   _exhaustedModels.add(modelId);
   _exhaustReason.set(modelId, reason);
   if (detail) _exhaustDetail.set(modelId, detail);
-  _dirtyModels.add(modelId);
-  _schedulePersist();
+  if (coerceRecordScore(recordScore)) {
+    _dirtyModels.add(modelId);
+    _schedulePersist();
+  }
   console.warn(`🚫 Model ${modelId} marked as exhausted (${reason}) — will be skipped for rest of run`);
 }
 
@@ -4487,6 +4586,7 @@ export function resetState() {
   _pendingCounterDeltas.clear();
   _runOutcomes.clear();
   _consecutive429.clear();
+  _resolverFlapCounts.clear();
   _callLatency.clear();
   _clampedTimeouts.clear();
   _consecutiveContentFailures.clear();
@@ -4529,6 +4629,131 @@ export function resetExhaustedModel(modelId) {
 }
 
 // ── Internal helpers ─────────────────────────────────────────
+
+// Only connection-establishment errors that are authoritative about the host
+// belong here. ECONNRESET/EPIPE and EAI_AGAIN remain retryable: the former can
+// happen mid-stream and the latter literally means “try again”.
+const HOST_UNREACHABLE_CODES = new Set([
+  'ENOTFOUND',
+  'ECONNREFUSED',
+  'EHOSTUNREACH',
+  'ENETUNREACH',
+  'EHOSTDOWN',
+]);
+const TRANSIENT_RESOLVER_CODES = new Set(['EAI_AGAIN']);
+
+function _walkErrorChain(error, pick) {
+  const seen = new Set();
+  const walk = (value, depth) => {
+    if (!value || typeof value !== 'object' || depth > 4 || seen.has(value)) return null;
+    seen.add(value);
+    const hit = pick(value);
+    if (hit !== null && hit !== undefined) return hit;
+    if (Array.isArray(value.errors)) {
+      for (const nested of value.errors) {
+        const found = walk(nested, depth + 1);
+        if (found !== null && found !== undefined) return found;
+      }
+    }
+    return walk(value.cause, depth + 1);
+  };
+  return walk(error, 0);
+}
+
+/** Return the syscall code proving that a provider host is unreachable. */
+export function classifyHostUnreachable(error) {
+  return _walkErrorChain(error, (value) => (
+    typeof value.code === 'string' && HOST_UNREACHABLE_CODES.has(value.code)
+      ? value.code
+      : null
+  ));
+}
+
+/** Return EAI_AGAIN without treating the resolver flap as a dead host. */
+export function classifyTransientResolver(error) {
+  return _walkErrorChain(error, (value) => (
+    typeof value.code === 'string' && TRANSIENT_RESOLVER_CODES.has(value.code)
+      ? value.code
+      : null
+  ));
+}
+
+function _endpointHost(url) {
+  try {
+    return _normalizeFlapHost(new URL(url).hostname);
+  } catch {
+    return '';
+  }
+}
+
+function _normalizeFlapHost(host) {
+  if (typeof host !== 'string') return '';
+  return host.trim().toLowerCase().replace(/^\[|\]$/g, '').replace(/\.$/, '');
+}
+
+function _isLoopbackHost(host) {
+  const normalized = _normalizeFlapHost(host);
+  if (!normalized) return false;
+  if (normalized === 'localhost' || normalized.endsWith('.localhost')) return true;
+  if (normalized === '0.0.0.0' || normalized === '::') return true;
+  if (/^127\.(?:\d{1,3}\.){2}\d{1,3}$/.test(normalized)) return true;
+  if (normalized === '::1') return true;
+  // IPv4-mapped loopback, including the hexadecimal spelling commonly
+  // returned by undici for an IPv6 socket.
+  if (normalized.startsWith('::ffff:')) {
+    const mapped = normalized.slice('::ffff:'.length);
+    if (/^127\.(?:\d{1,3}\.){2}\d{1,3}$/.test(mapped)) return true;
+    if (/^7f00:/.test(mapped)) return true;
+  }
+  return false;
+}
+
+/**
+ * A disabled loopback fallback is expected to refuse connections on CI.
+ * Remote overrides of the same last-resort provider are real endpoints and
+ * must still trip the host breaker.
+ */
+function _isHostUnreachableExempt(model, error = null) {
+  const provider = getProvider(model);
+  const peerHost = _walkErrorChain(error, (value) => (
+    typeof value.address === 'string' && value.address ? value.address : null
+  ));
+  // A local proxy or dispatcher can refuse the connection before the request
+  // ever reaches the configured remote host. The peer is authoritative here,
+  // not the destination URL.
+  if (peerHost && _isLoopbackHost(peerHost)) return true;
+  // CLI brokers have their own run-local circuit breakers. A broker socket
+  // failure must not poison the shared model ledger for these lanes.
+  if (provider === PROVIDER.CODEX_CLI || provider === PROVIDER.CLAUDE_CLI) return true;
+  if (provider === PROVIDER.LOCAL) return _isLoopbackHost(_endpointHost(getLocalLlmUrl()));
+  if (provider === PROVIDER.OMNIROUTE) return _isLoopbackHost(_endpointHost(getOmniRouteUrl()));
+  return false;
+}
+
+function _configurableEndpointHost(provider) {
+  if (provider === PROVIDER.LOCAL) return _endpointHost(getLocalLlmUrl());
+  if (provider === PROVIDER.OMNIROUTE) return _endpointHost(getOmniRouteUrl());
+  return '';
+}
+
+export function resolverFlapKey({ provider, endpointHost, model } = {}) {
+  const resolvedProvider = provider || (model ? getProvider(model) : '');
+  if (resolvedProvider === PROVIDER.LOCAL || resolvedProvider === PROVIDER.OMNIROUTE) {
+    return _normalizeFlapHost(endpointHost)
+      || _configurableEndpointHost(resolvedProvider)
+      || resolvedProvider;
+  }
+  return resolvedProvider;
+}
+
+function _flapKeyFor(model, provider, error) {
+  const endpointHost = _walkErrorChain(error, (value) => (
+    typeof value.endpointHost === 'string' && value.endpointHost
+      ? value.endpointHost
+      : (typeof value.address === 'string' && value.address ? value.address : null)
+  ));
+  return resolverFlapKey({ provider, endpointHost, model });
+}
 
 function isRetryableError(status, bodyText = '') {
   if (status === 429 || status === 503) return true;
@@ -5303,8 +5528,8 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         // (daily-limit-looking response, stale local/OmniRoute auth 401) must
         // never hard-ban a last-resort provider. See _isLastResortProvider.
         if (isDailyLimitError(res.status, raw)) {
-          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
-            markModelExhausted(modelForTracking);
+          if (!_suppressExhaustionMark && !_isLastResortProvider(modelForTracking) && _shouldRecordScore(opts)) {
+            markModelExhausted(modelForTracking, 'quota', '', { recordScore: opts.recordScore });
             _stats.exhausted++;
           }
           throw new Error(`[${displayModel}] Daily request limit reached`);
@@ -5328,8 +5553,8 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
               _learnSchemaIncompatible(modelForTracking);
             }
           }
-          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking) && opts.recordScore !== false) {
-            markModelExhausted(modelForTracking, 'nonretryable', `HTTP ${res.status}`);
+          if (nrc.markExhausted && !_isLastResortProvider(modelForTracking) && _shouldRecordScore(opts)) {
+            markModelExhausted(modelForTracking, 'nonretryable', `HTTP ${res.status}`, { recordScore: opts.recordScore });
             _stats.exhausted++;
           }
           const err = new Error(`[${displayModel}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
@@ -5352,8 +5577,8 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
           // multi-PAT): a 429 on one account must not freeze every GitHub model
           // for the run when another account's quota is still available.
           if (is429 && !_suppressExhaustionMark) {
-            cooldownProvider(getProvider(modelForTracking));
-            _stats.providerCooldowns++;
+            const cooldownOutcome = cooldownProvider(getProvider(modelForTracking));
+            if (cooldownOutcome === 'created') _stats.providerCooldowns++;
           }
           // Respect Retry-After header if present (seconds or HTTP-date)
           // Cap at 2 minutes — some providers (e.g. Cerebras) return Retry-After: 86399 (24h)
@@ -5441,6 +5666,15 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         }
         throw e;
       }
+      // A connection-establishment failure is deterministic for this call:
+      // retrying with a larger backoff cannot make a refused or unresolved
+      // host answer. Tag it for callLLM's provider breaker and spend one
+      // connect instead of maxRetriesPerModel dead round-trips.
+      const unreachableCode = classifyHostUnreachable(e);
+      if (unreachableCode) {
+        try { e.hostUnreachable = unreachableCode; } catch { /* frozen error */ }
+        throw e;
+      }
       // Otherwise retry
       _stats.retries++;
       const waitMs = attempt * opts.backoffMs;
@@ -5490,7 +5724,7 @@ async function _callGitHub(model, messages, opts) {
         continue;
       }
       if (error?.markExhausted) {
-        markModelExhausted(model, 'nonretryable', error.nonRetryableReason || '');
+        markModelExhausted(model, 'nonretryable', error.nonRetryableReason || '', { recordScore: opts.recordScore });
         _stats.exhausted++;
         error.exhausted = true;
       }
@@ -6251,7 +6485,7 @@ async function _tryCodexCliUsageLimitFallback(messages, opts, claudeError, claud
     if (claudeModel) {
       _consecutive429.set(claudeModel, (_consecutive429.get(claudeModel) || 0) + 1);
       _recordLastResortOutcome(claudeModel, 'failed');
-      if (opts?.recordScore !== false) recordModelFailure(claudeModel);
+      recordModelFailure(claudeModel, { recordScore: opts?.recordScore });
     }
     if (opts?.modelUsedRef && typeof opts.modelUsedRef === 'object') {
       opts.modelUsedRef.model = CODEX_FALLBACK_MODEL;
@@ -6960,8 +7194,8 @@ async function _callGeminiRaw(model, messages, opts) {
       if (!res.ok) {
         // Quota / rate-limit — mark exhausted if it looks permanent
         if (isDailyLimitError(res.status, raw)) {
-          if (opts.recordScore !== false) {
-            markModelExhausted(model);
+          if (_shouldRecordScore(opts)) {
+            markModelExhausted(model, 'quota', '', { recordScore: opts.recordScore });
             _stats.exhausted++;
           }
           throw new Error(`[${model}] Daily quota reached`);
@@ -6980,7 +7214,7 @@ async function _callGeminiRaw(model, messages, opts) {
               _learnSchemaIncompatible(model);
             }
           }
-          if (nrc.markExhausted && opts.recordScore !== false) {
+          if (nrc.markExhausted && _shouldRecordScore(opts)) {
             // 'nonretryable', NOT the default 'quota': this is the Gemini twin
             // of the _callOpenAICompatible non-retryable branch, which already
             // labels correctly. Left at the default, a 404/unknown-model here
@@ -6988,7 +7222,7 @@ async function _callGeminiRaw(model, messages, opts) {
             // if it were a daily quota — exactly the over-persistence #4073
             // removed (quota-only persist gate in _persistScoresToFirestore).
             // Review 🔴 on #4073.
-            markModelExhausted(model, 'nonretryable', `HTTP ${res.status}`);
+            markModelExhausted(model, 'nonretryable', `HTTP ${res.status}`, { recordScore: opts.recordScore });
             _stats.exhausted++;
           }
           const err = new Error(`[${model}] HTTP ${res.status}: ${raw.slice(0, 300)}`);
@@ -6998,8 +7232,8 @@ async function _callGeminiRaw(model, messages, opts) {
         if (isRetryableError(res.status, raw) && attempt < opts.maxRetriesPerModel) {
           _stats.retries++;
           if (res.status === 429) {
-            cooldownProvider(PROVIDER.GEMINI);
-            _stats.providerCooldowns++;
+            const cooldownOutcome = cooldownProvider(PROVIDER.GEMINI);
+            if (cooldownOutcome === 'created') _stats.providerCooldowns++;
           }
           // Respect Retry-After header if present (capped at 2 minutes)
           const MAX_RETRY_AFTER_MS_GEMINI = 2 * 60 * 1000;
@@ -7047,6 +7281,14 @@ async function _callGeminiRaw(model, messages, opts) {
       // _callOpenAICompatible (same rationale, sibling pattern kept in sync).
       const isTimeout = e.name === 'AbortError' || e.name === 'TimeoutError' || /timeout|aborted/i.test(e.message || '');
       if (isTimeout) throw e;
+      // Keep the Gemini transport loop aligned with OpenAI-compatible
+      // providers: an unreachable host is handled by the outer provider
+      // breaker, not retried for every model in the chain.
+      const unreachableCode = classifyHostUnreachable(e);
+      if (unreachableCode) {
+        try { e.hostUnreachable = unreachableCode; } catch { /* frozen error */ }
+        throw e;
+      }
       _stats.retries++;
       const waitMs = attempt * opts.backoffMs;
       console.warn(`⚠️  [${model}] Error retry ${attempt}/${opts.maxRetriesPerModel}: ${e.message?.slice(0, 150)}`);
@@ -7269,6 +7511,7 @@ function _routeModelCall(model, messages, opts) {
  */
 export async function callSingleModel(messages, opts = {}) {
   const o = { ...DEFAULT_OPTS, ...opts };
+  o.recordScore = coerceRecordScore(o.recordScore);
   const model = o.model || AI_MODELS.GPT4O;
 
   // A direct caller has no fallback loop around this function. Once the
@@ -7333,12 +7576,16 @@ export async function callSingleModel(messages, opts = {}) {
  * @returns {Promise<string>} — Text content from whichever model succeeded
  */
 export async function callLLM(messages, opts = {}) {
-  // Auto-init score store on first call (no-op if already initialized)
-  if (!_storeInitialized) {
-    await initScoreStore();
-  }
-
   const o = { ...DEFAULT_OPTS, ...opts };
+  o.recordScore = coerceRecordScore(o.recordScore);
+
+  // Auto-init score store on first call (no-op if already initialized). Pass
+  // the caller's score policy through discovery too: stale-provider pruning
+  // is an availability decision that must remain in-process, but diagnostic
+  // calls must not write that decision to the shared ledger.
+  if (!_storeInitialized) {
+    await initScoreStore({ recordScore: o.recordScore });
+  }
 
   // Opt-in response cache: reuse identical deterministic prompts within the run
   // (e.g. fact-check re-checking an unchanged article body across regeneration
@@ -7487,14 +7734,16 @@ export async function callLLM(messages, opts = {}) {
       continue;
     }
 
-    // Skip models whose provider is cooling down (recent 429). Was silent
+    // Skip models whose provider is cooling down (recent 429 or unreachable
+    // host). Was silent
     // (errors.push only) until run 30333856358's investigation — a whole
     // last-resort tier stuck in cooldown left zero trace unless the entire
     // chain also failed. Logged once per model+cause (see _logPreflightSkipOnce).
     const provider = getProvider(model);
     if (isProviderCoolingDown(provider)) {
-      _logPreflightSkipOnce(model, 'cooldown', `provider ${provider} cooling down (rate-limited)`);
-      errors.push(`${model}: skipped — provider ${provider} cooling down (recent 429)`);
+      const skipPhrase = providerCooldownSkipPhrase(provider);
+      _logPreflightSkipOnce(model, 'cooldown', `provider ${provider} ${skipPhrase}`);
+      errors.push(`${model}: skipped — provider ${provider} ${skipPhrase}`);
       _recordLastResortSkip(model, 'provider cooling down');
       continue;
     }
@@ -7601,11 +7850,13 @@ export async function callLLM(messages, opts = {}) {
       const servedViaCodex = callModelRef.indirectFallback === true
         && servedModel === CODEX_FALLBACK_MODEL;
 
-      // ✅ Success — boost this model's score so it stays near the top
-      // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
-      if (o.recordScore !== false) recordModelSuccess(servedModel);
+      // ✅ Success — boost this model's score so it stays near the top. The
+      // writer owns the recordScore gate so in-process callers cannot bypass
+      // it accidentally.
+      recordModelSuccess(servedModel, { recordScore: o.recordScore });
       if (!servedViaCodex) {
         _consecutive429.delete(model); // FRO-325: reset 429 counter on success
+        _resolverFlapCounts.delete(_flapKeyFor(model, provider, null));
         _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
         _recordLastResortOutcome(model, 'served');
         if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
@@ -7644,12 +7895,15 @@ export async function callLLM(messages, opts = {}) {
       const rawMsg = e?.message || String(e);
       const msg = provider === PROVIDER.CODEX_CLI ? _codexSafeDiagnostic(rawMsg) : rawMsg;
       if (provider === PROVIDER.CODEX_CLI) _tripCodexPrimaryCircuit(e);
+      let hostUnreachable = e.hostUnreachable || classifyHostUnreachable(e);
+      if (hostUnreachable && !e.hostUnreachable) {
+        try { e.hostUnreachable = hostUnreachable; } catch { /* frozen error */ }
+      }
+      const errorRow = errors.length;
       errors.push(`${model}: ${msg.slice(0, 200)}`);
       _recordLastResortOutcome(model, 'failed');
       const contentFailure = e.contentFailure === true;
-      if (contentFailure && o.recordScore !== false) {
-        recordModelContentFailure(model);
-      }
+      if (contentFailure) recordModelContentFailure(model, { recordScore: o.recordScore });
 
       // claude CLI binary missing (spawn ENOENT — install step failed/was
       // skipped). Unlike quota/timeout exhaustion this can't self-heal mid-run
@@ -7663,6 +7917,33 @@ export async function callLLM(messages, opts = {}) {
       if (e.code === 'ENOENT' && provider === PROVIDER.CLAUDE_CLI) {
         _claudeCliBinaryMissing = true;
         console.warn(`🚫 [${model}] claude CLI binary not found on PATH (spawn ENOENT) — disabling claude-cli fallback for the rest of this run`);
+      }
+
+      // EAI_AGAIN is a resolver request to retry, not proof that the provider
+      // host is dead. Count only consecutive flaps; a different failure or a
+      // success resets the streak. Three consecutive flaps are promoted to the
+      // same provider breaker as an authoritative unreachable host, but the
+      // promotion uses a finite cooldown rather than a run-long ban.
+      const flapKey = _flapKeyFor(model, provider, e);
+      const flapCode = hostUnreachable ? null : classifyTransientResolver(e);
+      if (flapCode && !e.nonRetryable) {
+        const flapCount = (_resolverFlapCounts.get(flapKey) || 0) + 1;
+        _resolverFlapCounts.set(flapKey, flapCount);
+        if (flapCount >= RESOLVER_FLAP_ESCALATION && !_isHostUnreachableExempt(model, e)) {
+          hostUnreachable = flapCode;
+          _resolverFlapCounts.delete(flapKey);
+          try { e.hostUnreachable = flapCode; } catch { /* frozen error */ }
+          console.warn(`🚫 [${model}] ${flapCount} consecutive resolver failures (${flapCode}) on ${provider} — provider breaker engaged`);
+        } else {
+          errors[errorRow] += ` — resolver flap (${flapCode}), host temporarily unresolvable, retryable`;
+        }
+      } else {
+        _resolverFlapCounts.delete(flapKey);
+      }
+
+      const hostUnreachableExempt = hostUnreachable && _isHostUnreachableExempt(model, e);
+      if (hostUnreachable && !hostUnreachableExempt) {
+        errors[errorRow] += ` — unreachable (${hostUnreachable}), non-retryable`;
       }
 
       // ❌ Failure — penalize this model's score so it drops in priority
@@ -7680,8 +7961,8 @@ export async function callLLM(messages, opts = {}) {
         // PROVIDER.LOCAL carve-out on recordModelContentFailure above: no
         // external quota, so exhausting it mid-run just guarantees zero
         // output for the rest of the wall-clock budget.
-        if (count >= MAX_CONSECUTIVE_429 && !_isLastResortProvider(model) && o.recordScore !== false) {
-          markModelExhausted(model);
+        if (count >= MAX_CONSECUTIVE_429 && !_isLastResortProvider(model)) {
+          markModelExhausted(model, 'quota', '', { recordScore: o.recordScore });
           _stats.exhausted++;
           console.warn(`🚫 [${model}] Exhausted after ${count} consecutive 429s`);
         }
@@ -7714,10 +7995,30 @@ export async function callLLM(messages, opts = {}) {
           console.warn(`⏱️  [${model}] Timed out at the adaptive ${Math.round((e.adaptiveTimeoutMs || 0) / 1000)}s ceiling (caller asked ${Math.round((o.timeout || 0) / 1000)}s) — not exhausting on our own guess (${n}/${ADAPTIVE_TIMEOUT_MAX_CLAMPED_FAILURES})`);
         }
       }
-      if (isTimeoutFailure && !spared && !_isLastResortProvider(model) && o.recordScore !== false) {
-        markModelExhausted(model, 'timeout');
+      if (isTimeoutFailure && !hostUnreachable && !spared && !_isLastResortProvider(model)) {
+        markModelExhausted(model, 'timeout', '', { recordScore: o.recordScore });
         _stats.exhausted++;
         markedExhausted = true;
+      }
+      // A connection-establishment verdict is stronger than the generic
+      // timeout/error wording. Exhaust this model for the run and cool the
+      // whole provider so sibling ids do not redial the same dead host.
+      // Loopback local/OmniRoute is intentionally exempt: a stopped optional
+      // local server is the normal CI state, not a provider outage.
+      if (hostUnreachable && !hostUnreachableExempt && !spared) {
+        if (!markedExhausted) {
+          markModelExhausted(model, 'nonretryable', hostUnreachable, { recordScore: o.recordScore });
+          _stats.exhausted++;
+          markedExhausted = true;
+        }
+        const authoritative = HOST_UNREACHABLE_CODES.has(hostUnreachable);
+        const cooldownOutcome = cooldownProvider(
+          provider,
+          `host unreachable: ${hostUnreachable}`,
+          `unreachable (${hostUnreachable}), non-retryable`,
+          authoritative ? COOLDOWN_SEVERITY.persistent : COOLDOWN_SEVERITY.resolverFlap,
+        );
+        if (cooldownOutcome === 'created') _stats.providerCooldowns++;
       }
       // claude-cli's own timeout-storm circuit breaker (see
       // _claudeCliTimeoutStormDetected declaration) — separate from the
@@ -7764,19 +8065,23 @@ export async function callLLM(messages, opts = {}) {
       // connessione caduta o budget scaduto (vedi _requestCodexExecution).
       const transportOnly = ((provider === PROVIDER.CLAUDE_CLI || provider === PROVIDER.CODEX_CLI) && !!e.transportFault)
         || !!e.githubModelsCatalogFault;
-      // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
-      if (o.recordScore !== false && !contentFailure) {
+      if (!contentFailure) {
         recordModelFailure(model, {
           nonRetryable: !!e.nonRetryable,
-          exhausted: isExhausted || isTimeoutFailure,
+          exhausted: isExhausted || isTimeoutFailure || (hostUnreachable && !hostUnreachableExempt),
           transportOnly,
+          recordScore: o.recordScore,
         });
       }
 
       const scoreNote = transportOnly
         ? `guasto di trasporto, score invariato → ${_modelScores.get(model) || 0}`
         : `score → ${_modelScores.get(model) || 0}`;
-      console.warn(`❌ [${model}] Failed${markedExhausted ? ' (timeout → exhausted)' : ''} (${scoreNote}): ${msg.slice(0, 200)}`);
+      const exhaustNote = markedExhausted
+        ? (hostUnreachable ? ` (${hostUnreachable} → exhausted)`
+          : isTimeoutFailure ? ' (timeout → exhausted)' : ' (exhausted)')
+        : '';
+      console.warn(`❌ [${model}] Failed${exhaustNote} (${scoreNote}): ${msg.slice(0, 200)}`);
       // Continue to next model in chain
     }
   }
