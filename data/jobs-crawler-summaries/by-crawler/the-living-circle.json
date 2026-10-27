@@ -1,59 +1,18 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-26T21:18:59.209Z",
+  "generatedAt": "2026-10-27T09:22:50.970Z",
   "total": 30,
-  "newCount": 1,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 1254,
-  "avgDurationMs": 1254,
+  "durationMs": 1341,
+  "avgDurationMs": 1341,
   "durationHistory": [
-    1254
+    1341
   ],
-  "newJobs": [
-    {
-      "title": "Front Office und Revenue Manager 100% (all genders)",
-      "slug": "front-office-e-revenue-manager-100-all-genders-the-living-circle-ascona",
-      "url": "https://jobs.thelivingcircle.ch/jobs/68333443/Front-Office-und-Revenue-Manager-100%25-all-genders-/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68333443/Front-Office-und-Revenue-Manager-100%25-all-genders-/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Ascona",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-26T16:55:04.654+01:00",
-      "postedDate": "2026-10-26T16:55:04.654+01:00",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "id": "the-living-circle-9deb9e173624",
-      "salaryMin": 72000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6612",
-      "firstSeenAt": "2026-10-26T21:18:52.457Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
@@ -403,6 +362,46 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3818",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Front Office und Revenue Manager 100% (all genders)",
+      "slug": "front-office-e-revenue-manager-100-all-genders-the-living-circle-ascona",
+      "url": "https://jobs.thelivingcircle.ch/jobs/68333443/Front-Office-und-Revenue-Manager-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/68333443/Front-Office-und-Revenue-Manager-100%25-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-26T16:55:04.654+01:00",
+      "postedDate": "2026-10-26T16:55:04.654+01:00",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "the-living-circle-9deb9e173624",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-26T21:18:52.457Z",
+      "salaryMin": 72000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6612",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1204,5 +1203,5 @@
       }
     }
   ],
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }
