@@ -64,6 +64,8 @@ describe('SEO health contract', () => {
     expect(isJobDetailPath('/de/jobs-im-tessin/alle/')).toBe(false);
     expect(isJobDetailPath('/de/jobs-im-tessin/alle/page-1022/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/azienda-acme/')).toBe(false);
+    expect(isJobDetailPath('/cerca-lavoro-ticino/infermieri/')).toBe(false);
+    expect(isJobDetailPath('/cerca-lavoro-ticino/case-anziani/')).toBe(false);
     expect(isJobDetailPath('/cerca-lavoro-ticino/infermieri-in-ticino/')).toBe(false);
   });
 
