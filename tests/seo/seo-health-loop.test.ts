@@ -293,7 +293,7 @@ describe('SEO health live runner', () => {
       expect(report.cycle).toMatchObject({
         idempotencyKey: expect.stringMatching(/^generated:/),
         lease: { group: 'seo-health-loop', state: 'serialised' },
-        budget: { maxFetches: 640 },
+        budget: { maxFetches: 2048 },
       });
       expect(readFileSync(join(root, 'reports', 'latest.json'), 'utf8')).toContain('"dryRun": true');
       expect(existsSync(join(root, 'state.json'))).toBe(false);
