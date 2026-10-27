@@ -121,6 +121,23 @@ function collectJobPostingRecords(value, records = []) {
   return records;
 }
 
+function collectSchemaTypes(value, types = new Set()) {
+  if (Array.isArray(value)) {
+    for (const entry of value) collectSchemaTypes(entry, types);
+    return types;
+  }
+  if (!value || typeof value !== 'object') return types;
+  const schemaType = value['@type'];
+  if (typeof schemaType === 'string') types.add(schemaType);
+  if (Array.isArray(schemaType)) {
+    for (const type of schemaType) if (typeof type === 'string') types.add(type);
+  }
+  for (const [key, nested] of Object.entries(value)) {
+    if (key !== '@type') collectSchemaTypes(nested, types);
+  }
+  return types;
+}
+
 /**
  * Parse the live HTML independently from GSC. This makes the post-deploy
  * check catch a broken emitted payload immediately, and prevents a landing
@@ -129,11 +146,14 @@ function collectJobPostingRecords(value, records = []) {
  */
 export function inspectLiveJobPostingHtml(html) {
   const records = [];
+  const schemaTypes = new Set();
   let malformedJobPosting = false;
   const scriptPattern = /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
   for (const match of html.matchAll(scriptPattern)) {
     try {
-      collectJobPostingRecords(JSON.parse(match[2] || ''), records);
+      const parsed = JSON.parse(match[2] || '');
+      collectSchemaTypes(parsed, schemaTypes);
+      collectJobPostingRecords(parsed, records);
     } catch {
       if (/"@type"\s*:\s*(?:"JobPosting"|\[[^\]]*"JobPosting")/i.test(match[2] || '')) {
         malformedJobPosting = true;
@@ -154,7 +174,15 @@ export function inspectLiveJobPostingHtml(html) {
   if (malformedJobPosting) {
     errors.push({ field: 'jsonld', message: 'JobPosting JSON-LD is not valid JSON' });
   }
-  return { isJobPage: records.length > 0 || malformedJobPosting, records, errors };
+  const isListingPage = records.length === 0
+    && !malformedJobPosting
+    && ['CollectionPage', 'ItemList', 'SearchResultsPage'].some(type => schemaTypes.has(type));
+  return {
+    isJobPage: records.length > 0 || malformedJobPosting,
+    isListingPage,
+    records,
+    errors,
+  };
 }
 
 function isJobPostingRichResultType(value) {
@@ -258,6 +286,9 @@ export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   }
   if (live?.isJobPage === true) {
     return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
+  }
+  if (live?.isListingPage === true && !detailPageSignal) {
+    return { detailPageSignal, shouldInspect: false, issue: null, skipped: true };
   }
   if (detailPageSignal) {
     return {
