@@ -458,8 +458,8 @@ function treatmentId(treatment) {
 }
 
 /**
- * Aggregate comparable rows by creative, background, content kind and measurement
- * window. The common interaction rate is only an
+ * Aggregate comparable rows by creative, objective, background, content kind
+ * and measurement window. The common interaction rate is only an
  * exploratory guardrail; the treatment's primary rate remains the decision
  * metric. This prevents comparing shares and saves as if they were the same
  * business objective.
@@ -474,7 +474,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
   for (const row of rows) {
     const kind = firstString(row.kind) || 'unknown';
     const backgroundVariant = firstString(row.backgroundVariant) || 'legacy';
-    const key = `${row.creativeId}\u0000${backgroundVariant}\u0000${kind}\u0000${row.windowHours}`;
+    const key = `${row.creativeId}\u0000${row.objective}\u0000${backgroundVariant}\u0000${kind}\u0000${row.windowHours}`;
     const group = groups.get(key) || {
       creativeId: row.creativeId,
       backgroundExperimentId: row.backgroundExperimentId || null,
@@ -569,6 +569,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
 
   const sortedTreatments = treatments.sort(
     (a, b) => a.creativeId.localeCompare(b.creativeId)
+      || a.objective.localeCompare(b.objective)
       || (a.backgroundVariant || 'legacy').localeCompare(b.backgroundVariant || 'legacy')
       || a.kind.localeCompare(b.kind)
       || a.windowHours - b.windowHours,
@@ -618,7 +619,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     exploratoryWinners,
     exploratoryWinner: exploratoryWinners.length === 1 ? exploratoryWinners[0].treatmentId : null,
     methodology: {
-      comparisonUnit: 'creativeId + background variant + content kind + measurement window',
+      comparisonUnit: 'creativeId + objective + background variant + content kind + measurement window',
       primaryRate: 'primary metric / audience base (reach or views)',
       interactionRate: '(shares + saves + comments) / audience base (reach or views)',
       rankingWarning: 'exploratoryRanking is a within-objective guardrail, not a replacement for each treatment primary metric or a cross-objective winner',

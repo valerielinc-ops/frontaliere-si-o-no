@@ -69,6 +69,26 @@ community.
 I valori sono tutti più corti di sei caratteri: il loader di Remote Config non
 li maschera nei log di CI.
 
+### Meta Insights e decisioni autonome
+
+Il worker legge dal Professional Dashboard autenticato due finestre per ogni
+post eleggibile: 24 ore per la diagnosi dell’hook e 72 ore per la decisione.
+Le righe finiscono in `data/instagram-insights.json`; il workflow
+`instagram-insights-snapshot.yml` calcola ogni giorno lo scorecard e applica
+solo decisioni deterministiche già abilitate in Firebase Remote Config.
+
+Una variante viene promossa soltanto con almeno tre osservazioni indipendenti,
+un confronto con una seconda variante e un vantaggio che supera sia il 15%
+relativo sia 0,5 punti percentuali assoluti. Con segnale nullo, dati scarsi o
+un margine insufficiente il sistema mantiene la rotazione. Anche dopo una
+promozione resta il 20% di esplorazione per continuare a provare formati e
+sfondi nuovi. Le mappe pubblicate in Remote Config sono separate per
+`kind + creativeBaseId + objective` (creatività) e `kind + creativeId +
+objective` (sfondo); quando una coorte viene rivalutata senza segnale
+sufficiente, il relativo vincitore viene rimosso invece di restare attivo.
+Il Graph API resta un fallback esplicito: non si riusa il Page token come token
+Insights.
+
 ### Esperimento audio TikTok
 
 Il robot può aprire automaticamente l’editor nativo `Suoni` di TikTok Studio,

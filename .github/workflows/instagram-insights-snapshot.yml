@@ -1,9 +1,12 @@
-name: Instagram Insights Report
+name: Instagram Insights Autonomy
 
 # Collection is owned by the authenticated Chrome profile on the Mac host.
-# This workflow is deliberately report-only: it never asks for an Instagram
-# token and never competes with the local browser collector for data/.
+# The Mac collector persists the read-only 24h/72h snapshot; this workflow
+# scores it once a day and may publish only bounded winner maps to Remote
+# Config. It never asks for a Graph token when the browser source is active.
 on:
+  schedule:
+    - cron: '35 9 * * *'
   workflow_dispatch:
     inputs:
       window_hours:
@@ -16,9 +19,15 @@ on:
         required: false
         default: ''
         type: string
+      apply:
+        description: 'Apply eligible decisions to Firebase Remote Config'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
 
 concurrency:
-  group: instagram-insights-report
+  group: instagram-insights-autonomy
   cancel-in-progress: false
 
 permissions:
@@ -31,6 +40,7 @@ jobs:
     env:
       WINDOW_HOURS: ${{ github.event.inputs.window_hours || '72' }}
       AS_OF: ${{ github.event.inputs.as_of || '' }}
+      APPLY: ${{ github.event_name == 'schedule' || github.event.inputs.apply == 'true' }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -44,7 +54,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
@@ -60,6 +69,36 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
+
+      - name: Prepare Firebase credentials
+        if: env.APPLY == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load Remote Config decision settings
+        if: env.APPLY == 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Evaluate and optionally apply Instagram decisions
+        run: |
+          set -euo pipefail
+          if [ ! -f data/instagram-insights.json ]; then
+            echo "No Instagram Insights snapshot has been committed yet."
+            exit 0
+          fi
+          args=(
+            --input data/instagram-insights.json
+            --ledger data/instagram-posted.json
+            --window-hours="$WINDOW_HOURS"
+            --json
+          )
+          if [ "$APPLY" = 'true' ]; then args+=(--apply); fi
+          node scripts/instagram-insights-decision.mjs "${args[@]}"
 
       - name: Print creative scorecard
         run: |
