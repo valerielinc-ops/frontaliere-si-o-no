@@ -54,11 +54,13 @@ export interface HubCardMeta {
  * Shared static-card budget for article hubs.
  *
  * Keeping this in the engine makes the site and corpus renderers agree on the
- * same page-weight contract. Forty cards leave room for the shell, hero,
+ * same page-weight contract. Sixteen cards leave room for the shell, hero,
  * structured data and navigation while keeping the largest localized hub
- * below the 260 KB audit ceiling.
+ * below the 260 KB audit ceiling. The shell is already close to that ceiling
+ * on the largest locales, so a larger card count would make the contract
+ * depend on current article text lengths rather than on a bounded payload.
  */
-export const ARTICLE_HUB_CARD_LIMIT = 40;
+export const ARTICLE_HUB_CARD_LIMIT = 16;
 
 export interface RenderArticleHubCardsArgs {
   /** Registry entries, ALREADY sorted newest-first — the order is the caller's. */
@@ -132,11 +134,11 @@ function stripHubMarkdown(value: string): string {
  *
  * The per-card styles are CSS classes rather than inline style attributes:
  * Repeated card markup is the dominant variable part of these pages, so the
- * shared 40-card budget keeps the hub below the page-weight gate (260 KB —
- * `scripts/audit-page-weight.mjs`).
+ * shared 16-card budget keeps the hub below the page-weight gate (260 KB —
+ * `scripts/audit-page-weight.mjs`) even after the page shell is included.
  * The `.ssg-*` rules live in `public/assets/seo-static.css`, already linked on
- * these pages. Measured today: 839 B per card, the frontaliere hub at 124.5 KB
- * and the svizzera hub projected at 91.9 KB.
+ * these pages. The renderer test pins the card payload budget; the deploy
+ * audit remains the authority for the complete localized page.
  */
 export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
   const { articles, locale, sectionSlug, localePrefix, resolveSlug, resolveMeta, resolveHref } = args;
