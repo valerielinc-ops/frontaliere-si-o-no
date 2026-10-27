@@ -71,7 +71,7 @@ afterEach(() => {
 });
 
 describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
-  it('stages core snapshot/delta/footer files even when both related-search files are within ceiling', () => {
+  it('stages core files when optional sector files are absent and related-search files are within ceiling', () => {
     const dir = makeRepoFixture();
     writeSizedFile(join(dir, 'data', 'jobs-snapshots-history', '2026-07-06.json'), 10 * MB);
     writeSizedFile(join(dir, 'data', 'weekly-employers-delta.json'), 1 * MB);
