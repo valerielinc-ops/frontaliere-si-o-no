@@ -12,8 +12,15 @@ export function csvText(headers: readonly unknown[], rows: readonly (readonly un
   return [safeCsvRow(headers), ...safeRows.map(safeCsvRow)].map((row) => row.map(escapeCsvCell).join(',')).join('\r\n');
 }
 
+export class InvalidCsvExportDateError extends RangeError {
+  constructor() {
+    super('CSV export date is invalid');
+    this.name = 'InvalidCsvExportDateError';
+  }
+}
+
 export function datedExportFilename(prefix: string, date = new Date()): string {
-  if (!(date instanceof Date) || !Number.isFinite(date.getTime())) throw new RangeError('CSV export date is invalid');
+  if (!(date instanceof Date) || !Number.isFinite(date.getTime())) throw new InvalidCsvExportDateError();
   const dateKey = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich' }).format(date);
   return `${prefix}-${dateKey}.csv`;
 }
