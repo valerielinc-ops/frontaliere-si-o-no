@@ -160,6 +160,36 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('ritenta un abort transitorio del probe e non tratta il CDN come mancante', async () => {
+    const aborted = Object.assign(new Error('This operation was aborted'), { name: 'AbortError' });
+    const fetchImpl = vi.fn()
+      .mockRejectedValueOnce(aborted)
+      .mockResolvedValueOnce(res(200, 'text/javascript'));
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/gtag-init.js'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      retryDelayMs: 0,
+    });
+
+    expect(result).toMatchObject({ state: 'present', status: 200, reason: null });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('limita i retry di abort persistenti e conserva il fail-open', async () => {
+    const aborted = Object.assign(new Error('This operation was aborted'), { name: 'AbortError' });
+    const fetchImpl = vi.fn().mockRejectedValue(aborted);
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/gtag-init.js'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      retryDelayMs: 0,
+    });
+
+    expect(result).toMatchObject({ state: 'unknown', status: null });
+    expect(fetchImpl).toHaveBeenCalledTimes(CDN_ASSET_CHECK_MAX_ATTEMPTS);
+  });
+
   it('un HEAD non implementato (405) ripiega su GET invece di contare un mancante', async () => {
     const fetchImpl = vi.fn()
       .mockResolvedValueOnce(res(405, 'text/plain'))
