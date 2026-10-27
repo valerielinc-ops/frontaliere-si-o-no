@@ -487,9 +487,15 @@ async function main() {
     if (live.error) {
       unavailablePageCount++;
       log('  ❓', `${shortPath} — live HTML unavailable: ${live.error}`);
-      // Keep an unavailable candidate for URL Inspection, but do not infer
-      // JobPosting status from its path if the live response was not read.
-      candidates.push({ pageUrl, live });
+      // Keep an unavailable candidate for URL Inspection and preserve the
+      // independent URL-level detail signal. A failed live fetch cannot prove
+      // that the candidate is a landing page, so canonical regressions on a
+      // detail URL must remain observable.
+      candidates.push({
+        pageUrl,
+        live,
+        detailPageSignal: isLikelyJobDetailUrl(pageUrl, sitemapSignals),
+      });
       continue;
     }
     const classification = classifyLiveJobCandidate(pageUrl, live, sitemapSignals);

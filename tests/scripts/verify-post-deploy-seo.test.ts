@@ -72,6 +72,22 @@ describe('post-deploy SEO verification', () => {
     });
   });
 
+  it('preserves the detail signal when the live fetch is unavailable', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/job-slug/';
+    const classification = classifyLiveJobCandidate(
+      pageUrl,
+      { error: 'request timed out' },
+      new Map(),
+    );
+
+    expect(classification).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: null,
+      skipped: false,
+    });
+  });
+
   it('uses a live sitemap signal to keep a known landing out of missing-schema alerts', () => {
     const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri-in-ticino/';
     const signals = new Map([[pageUrl, false]]);
