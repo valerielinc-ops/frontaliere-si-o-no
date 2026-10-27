@@ -14,11 +14,27 @@ describe('event source homepages', () => {
     expect(EVENT_SOURCES.openagenda.homepage).toBe('https://openagenda.com/fr');
   });
 
-  it('falls back from a verified expired event detail to the official source homepage', () => {
-    const event = { id: 'nw-agenda:94123', sourceKey: 'nw-agenda' };
-    const stale = 'https://www.nw.ch/anlaesseaktuelles/94123';
-    expect(eventSourceUrl(stale, event)).toBe(EVENT_SOURCES['nw-agenda'].homepage);
-    expect(eventReferralUrl(stale, event)).toContain('https://www.nw.ch/?utm_source=frontaliereticino');
-    expect(eventReferralUrl(stale, event)).not.toContain('/anlaesseaktuelles/94123');
+  it('falls back from verified expired event details to official source homepages', () => {
+    const staleEvents = [
+      {
+        sourceKey: 'ge-agenda',
+        id: 'cafe-quartier-initiation-gout-pain-pain-artisanal-industriel-differences',
+        rawUrl: 'https://www.geneve.ch/agenda/cafe-quartier-initiation-gout-pain-pain-artisanal-industriel-differences',
+      },
+      {
+        sourceKey: 'guidle',
+        id: 'don-toliver-nitrous-octane-world-tour-leg-2_A2e1GAw',
+        rawUrl: 'https://www.guidle.com/it/veranstaltungen/musik/zuerich/don-toliver-nitrous-octane-world-tour-leg-2_A2e1GAw',
+      },
+      { sourceKey: 'nw-agenda', id: '94120', rawUrl: 'https://www.nw.ch/anlaesseaktuelles/94120' },
+      { sourceKey: 'nw-agenda', id: '94123', rawUrl: 'https://www.nw.ch/anlaesseaktuelles/94123' },
+    ] as const;
+
+    for (const { sourceKey, id, rawUrl } of staleEvents) {
+      const event = { id: `${sourceKey}:${id}`, sourceKey };
+      expect(eventSourceUrl(rawUrl, event)).toBe(EVENT_SOURCES[sourceKey].homepage);
+      expect(eventReferralUrl(rawUrl, event)).toContain(`${EVENT_SOURCES[sourceKey].homepage}?utm_source=frontaliereticino`);
+      expect(eventReferralUrl(rawUrl, event)).not.toContain(new URL(rawUrl).pathname);
+    }
   });
 });
