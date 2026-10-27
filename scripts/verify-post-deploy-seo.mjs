@@ -28,6 +28,7 @@ import { createSign } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { validateMandatoryJobPostingFields } from './lib/jobposting-mandatory-fields.mjs';
+import { isJobDetailPath } from './lib/seo-health-contract.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const LISTING_PATH = '/cerca-lavoro-ticino/';
@@ -97,15 +98,10 @@ export function isLikelyJobDetailUrl(pageUrl, sitemapSignals = null) {
     return sitemapSignals.get(normalized) === true;
   }
 
-  try {
-    const { pathname } = new URL(normalized);
-    const match = pathname.match(/^\/cerca-lavoro-ticino\/([^/]+)\/$/i);
-    if (!match) return false;
-    const slug = match[1].toLowerCase();
-    return !/^(?:azienda-|ricerca-|pagina-\d+$|page-\d+$|seite-\d+$)/i.test(slug);
-  } catch {
-    return false;
-  }
+  // Keep the conservative fallback aligned with the closed-loop sampler.
+  // Editorial/sector hubs use the same two-segment shape as job details, but
+  // they intentionally carry CollectionPage/ItemList rather than JobPosting.
+  return isJobDetailPath(normalized, SITE_URL);
 }
 
 function hasAuthoritativeSitemapDetailSignal(pageUrl, sitemapSignals) {
