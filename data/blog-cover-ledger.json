@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 919,
+      "5": 920,
       "6": 5061
     },
-    "publishedCovers": 7662,
+    "publishedCovers": 7663,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210189,6 +210189,39 @@
         "provider": "openai-codex",
         "assetId": "article-zugo-agenda-kantonsrat-ottobre",
         "imageUrl": "/images/blog/article-zugo-agenda-kantonsrat-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-maratona-laghi-varese-2027": {
+      "cover": "/images/blog/article-maratona-laghi-varese-2027.webp",
+      "hash": "0f7102bdf71ac5f06dd0862da375bef325a213f37437fd722c1f1010ba3c8f83",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "maratona-laghi-varese-2027",
+          "category": "novita",
+          "date": "2026-10-16T13:10:19.181Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-maratona-laghi-varese-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-maratona-laghi-varese-2027",
+        "imageUrl": "/images/blog/article-maratona-laghi-varese-2027.webp",
         "evidence": "generated-engine-record"
       }
     }

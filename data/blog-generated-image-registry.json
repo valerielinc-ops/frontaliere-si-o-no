@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 921,
-  "generatedAt": "2026-10-27T17:06:55.896Z",
+  "assetCount": 922,
+  "generatedAt": "2026-10-27T17:53:00.701Z",
   "assets": [
     {
       "schema": 1,
@@ -39365,6 +39365,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of a printed agenda; no readable text, logos, people, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-maratona-laghi-varese-2027",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "108ce3fd8ca72024c8ebe78b39243699f871e86ea0a806dd8e9d7289cef2c184",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "0f7102bdf71ac5f06dd0862da375bef325a213f37437fd722c1f1010ba3c8f83",
+      "bytes": 174702,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-27T17:25:54.615Z",
+      "verifiedAt": "2026-10-27T17:26:04.173Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-maratona-laghi-varese-2027.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial scene showing a lakeside runner, running shoes, and nearby rail transit; no readable text, logos, identifiable faces, or specific event documentation."
       }
     }
   ]
