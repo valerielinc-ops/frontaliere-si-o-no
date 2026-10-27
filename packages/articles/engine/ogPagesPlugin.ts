@@ -809,7 +809,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  return typeof value === 'string' ? value : '';
  };
  const dynamicFields = [
- 'title', 'description', 'keywords', 'ogTitle', 'ogDescription',
+ '@type', 'title', 'description', 'keywords', 'ogTitle', 'ogDescription',
  'canonicalPath', 'datePublished', 'dateModified',
  ];
 
@@ -835,7 +835,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // object first and guard every field it reads. BASE_URL templates are safe
  // only in the URL-bearing nested fields resolved by parseNestedObj.
  const eventFields = sdType === 'Event'
- ? ['@type', 'name', 'startDate', 'endDate', 'eventStatus', 'eventAttendanceMode', 'location', 'organizer', 'offers', 'performer']
+ ? ['name', 'startDate', 'endDate', 'eventStatus', 'eventAttendanceMode', 'location', 'organizer', 'offers', 'performer']
  : [];
  const eventBaseUrlFields = new Set(['location', 'organizer', 'offers', 'performer']);
  const dynamicField = [...dynamicFields, ...eventFields]
