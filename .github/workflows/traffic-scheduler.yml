@@ -34,9 +34,11 @@ jobs:
     runs-on: ubuntu-latest
     # Run 36519627705 completed collection at 10m09s but was killed while
     # committing because the old 10-minute cap left no tail for the mirror and
-    # push. Keep the data collection intact and give the full pass a bounded
-    # margin instead of dropping crossings or weakening publishability checks.
-    timeout-minutes: 15
+    # push. Run 40546382599 then spent 13m52s in checkout and hit the 15-minute
+    # job cap during collection, leaving the 17:00 snapshot stale. Keep the
+    # full pass intact with enough room for slow checkout plus collection,
+    # mirror, and push; this changes no publishability checks.
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
