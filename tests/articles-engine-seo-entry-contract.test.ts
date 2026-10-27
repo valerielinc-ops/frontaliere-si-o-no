@@ -26,10 +26,10 @@ describe('articles engine SEO-entry compatibility contract', () => {
     expect(staticPropertyState(block, 'headline')).toMatchObject({ assigned: true, value: 'Event headline' });
   });
 
-  it('uses the last runtime assignment when dynamic and static fields coexist', () => {
+  it('uses the last top-level assignment while remaining fail-closed for JSON-LD templates', () => {
     const block = [
       '{',
-      '  structuredData: { headline: `${title}` },',
+      '  headline: `${title}`,',
       '  headline: "Static headline",',
       '}',
     ].join('\n');
