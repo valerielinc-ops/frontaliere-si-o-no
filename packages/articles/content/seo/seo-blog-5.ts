@@ -110071,10 +110071,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-divario-reddito-giovani-svizzera.webp`,
+        "url": `${BASE_URL}/images/blog/article-giovani-lavoro-futuro-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Un giovane professionista in piedi sulla cima di una montagna in Ticino, che osserva la valle e riflette sul proprio futuro professionale."
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-16T17:37:11+00:00",
       "dateModified": "2026-10-16T17:37:11+00:00",
@@ -111124,10 +111124,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-credito-imposta-famiglia-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-franchigia-accordo-redditi-single.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Frontaliere single controlla busta paga svizzera e dichiarazione italiana a Mendrisio"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-18T03:51:56+00:00",
       "dateModified": "2026-10-18T03:51:56+00:00",
@@ -111670,7 +111670,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-indennita-lavoro-ridotto.webp`,
+        "url": `${BASE_URL}/images/blog/article-indennita-giornaliere-stop-cosa-fare.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -112918,7 +112918,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-arresto-lite-domestica-ticino.webp`,
+        "url": `${BASE_URL}/images/blog/article-arresto-ticino-banca-occulta.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -112996,7 +112996,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-fully-strada-ciclabile.webp`,
+        "url": `${BASE_URL}/images/blog/article-bellinzona-nuova-strada-ciclabile.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -113230,7 +113230,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-frontalieri-ticino-indagine-salari-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-disparita-stipendi-frontalieri.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -113269,7 +113269,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-frontalieri-disoccupazione-criterio-lavoro.webp`,
+        "url": `${BASE_URL}/images/blog/article-frontaliere-ora-mezza-viaggio.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
