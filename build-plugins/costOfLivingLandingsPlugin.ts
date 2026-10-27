@@ -515,7 +515,28 @@ function renderPage(opts: {
     )
     .join('');
 
-  const relatedHtml = L.related
+  // Keep the city landing family mutually discoverable. The audit already
+  // sees the hub and the generic calculator links, but each city leaf still
+  // had only three incoming links. Sibling links add direct, topical paths
+  // without putting the whole family into the global navigation.
+  const siblingRelated = COL_CITY_IDS
+    .filter((sibling) => sibling !== city)
+    .map((sibling) => {
+      const siblingName = COL_CITY_DISPLAY[sibling][locale];
+      const label = locale === 'en'
+        ? `Cost of living in ${siblingName}`
+        : locale === 'de'
+          ? `Lebenshaltungskosten ${siblingName}`
+          : locale === 'fr'
+            ? `Coût de la vie ${siblingName}`
+            : `Costo della vita ${siblingName}`;
+      return {
+        href: buildCostOfLivingLandingPath(locale, sibling),
+        label,
+      };
+    });
+  const relatedLinks = [...L.related, ...siblingRelated];
+  const relatedHtml = relatedLinks
     .map(
       (r) =>
         `<li class="s-Pkexk_"><a href="${esc(r.href)}" style="${LINK_ACCENT_STYLE}">${esc(r.label)}</a></li>`,
