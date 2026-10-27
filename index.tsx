@@ -111,30 +111,12 @@ const bootstrapApp = async () => {
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
 
- // The served head must be captured before importing the app, whose lazy
- // consumers can write metadata, but its guard is not itself LCP content.
- // Keep the shared authority chunk and its DOM scan off the initial paint
- // path; the static head is unchanged while the browser presents the shell.
- const { captureStaticHead } = await import('./services/seo/staticHeadAuthority');
- captureStaticHead();
+ const resilientImport = await import('./services/resilientImport');
 
- const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
-   await Promise.all([
-     import('react'),
-     import('react-dom/client'),
-     import('./services/domReconciliationGuard'),
-     import('./services/cvDownloadIntercept'),
-     import('./services/resilientImport'),
-     import('./services/staticFallbackHandoff'),
-   ]);
- recoverFromBootFailure = resilientImport.recoverFromBootFailure;
-
- // Harden the DOM before the first React render. See
- // services/domReconciliationGuard.ts.
- installDomReconciliationGuard();
-
- // Auto-reload once when a deploy replaces JS/CSS chunks while user has stale
- // index.html. Vite fires this event before the error reaches React's boundary.
+ // Register the stale-chunk recovery before loading the head authority. The
+ // authority is deliberately off the first-paint path, but a missing/stale
+ // chunk must still reach the existing cache-bust + reload recovery instead of
+ // aborting bootstrap before the listener is installed.
  window.addEventListener('vite:preloadError', (event) => {
    const key = '_deployReload';
    const last = sessionStorage.getItem(key);
@@ -143,6 +125,27 @@ const bootstrapApp = async () => {
      void resilientImport.clearAssetCaches(event).finally(() => window.location.reload());
    }
  });
+
+ // The served head must be captured before importing the app, whose lazy
+ // consumers can write metadata, but its guard is not itself LCP content.
+ // Keep the shared authority chunk and its DOM scan off the initial paint
+ // path; the static head is unchanged while the browser presents the shell.
+ const { captureStaticHead } = await import('./services/seo/staticHeadAuthority');
+ captureStaticHead();
+
+ const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, staticHandoff] =
+   await Promise.all([
+     import('react'),
+     import('react-dom/client'),
+     import('./services/domReconciliationGuard'),
+     import('./services/cvDownloadIntercept'),
+     import('./services/staticFallbackHandoff'),
+   ]);
+ recoverFromBootFailure = resilientImport.recoverFromBootFailure;
+
+ // Harden the DOM before the first React render. See
+ // services/domReconciliationGuard.ts.
+ installDomReconciliationGuard();
 
  const root = ReactDOM.createRoot(rootElement);
  if (maybeHandleCvDownload()) return;
