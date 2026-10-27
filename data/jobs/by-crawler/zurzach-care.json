@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zurzach-care",
-  "assembledAt": "2026-10-27T09:29:16.288Z",
-  "runId": "40478016287",
+  "assembledAt": "2026-10-27T21:21:17.533Z",
+  "runId": "40583794108",
   "jobs": [
     {
       "id": "zurzach-care-c6f31689beff",
@@ -34,7 +34,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Pr%C3%A4senz%C3%A4rztin-Pr%C3%A4senzarzt-Z%C3%BCri-8952/1442363833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:09.477Z",
+      "crawledAt": "2026-10-27T21:21:10.713Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Assistentin-Assistent-der-Gesch%C3%A4ftsleitung-60-80-AG-5330/1431870633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:08.573Z",
+      "crawledAt": "2026-10-27T21:21:09.846Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Fachfrau-Fachmann-Gesundheit-60-100-AG-5404/1372919133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:07.719Z",
+      "crawledAt": "2026-10-27T21:21:08.985Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Diplomierter-Pflegefachfrau-Pflegefachmann-60-100-LU-6000/1372472433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:07.131Z",
+      "crawledAt": "2026-10-27T21:21:08.452Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-Nachtdienst-50-100-Z%C3%BCri-8952/1423085233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:06.576Z",
+      "crawledAt": "2026-10-27T21:21:07.897Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -465,7 +465,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Assistenz%C3%A4rztin-Assistenzarzt-Psychiatrie-und-Psychotherapie-100-GL-8784/1432767033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:06.025Z",
+      "crawledAt": "2026-10-27T21:21:07.360Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -522,85 +522,6 @@
       }
     },
     {
-      "id": "zurzach-care-561b9c43ebcd",
-      "slug": "medizinische-r-praxisassistent-in-mpa-labor-e-rontgen-50-zurzach-care-bad-zurzach",
-      "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-mpa-labor-e-rontgen-50-zurzach-care-bad-zurzach",
-        "en": "medical-practice-assistant-mpa-laboratory-and-x-ray-50-zurzach-care-bad-zurzach",
-        "de": "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach",
-        "fr": "assistant-e-medical-e-mpa-laboratoire-et-radiographie-50-zurzach-care-bad-zurzach"
-      },
-      "company": "ZURZACH Care",
-      "companyKey": "zurzach-care",
-      "companyDomain": "zurzachcare.ch",
-      "title": "Medizinische/r Praxisassistent/in (MPA) Labor und Röntgen 50 %",
-      "titleByLocale": {
-        "it": "Assistente di studio medico (MPA) Laboratorio e radiografia 50%",
-        "en": "Medical Practice Assistant (MPA) Laboratory and X-ray 50%",
-        "de": "Medizinische/r Praxisassistent/in (MPA) Labor und Röntgen 50 %",
-        "fr": "Assistant (e) médical (e) (MPA) Laboratoire et radiographie 50 %"
-      },
-      "description": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme:  Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor:  Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit:  Du arbeitest mit einem externen Labor zusammen\n\n• EKG:  Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung:  Du planst Blutentnahmen und EKG`s\n\n• Organisation:  Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung:  Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung:  Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen:  Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
-      "descriptionByLocale": {
-        "it": "La riabilitazione di Bad Zurzach offre riabilitazione in tutti i luoghi in alto niveau medico. L'offerta di riabilitazione varia da neuro-logie a muscolo-scheletriche/rheumato-logie, cardio-logie a medicina del sonno (clinica per la medicina del sonno). Nel Centro Dolore Bad Zurzach, i trattamenti antidolorifici sono offerti nel quadro di programmi speciali che includono la diagnosi del dolore, il trattamento e la terapia.\n\nVi offriamo una variegata area di lavoro, un ambiente di lavoro moderno e interessanti ore di lavoro (Mo – Fr dalle 07:00 alle 16:30 – nessun servizio week-end).\n\nI tuoi compiti\n\n• Campionamento del sangue: si prende il controllo del prelievo giornaliero di sangue nelle stazioni e in laboratorio\n\n• Laboratorio: Lei è responsabile dell'analisi del sangue/urina (ematologia, chimica, sedimenti urinari e Regno Unito) incl. Responsabile dei controlli di qualità interni/esterni\n\n• Collaborazione: Lei lavora con un laboratorio esterno\n\n• ECG: si mette a riposo e 7 giorni ECG\n\n• Pianificazione: Pianifichi estrazioni di sangue e ECG s\n\n• Organizzazione: Si prende il controllo del servizio fatturazione in LIS (sistema informativo di laboratorio) e l'ordinazione e altri lavori di ufficio\n\n• X-ray: Lei esegue raggi X convenzionali e dosi-intensivi (estremità, toracico, spina dorsale, pelvi, fianchi, ecc.)\n\n• Gestione dei risultati: Invii le prescrizioni a raggi X agli istituti esterni e ai risultati delle importazioni nel CIS\n\nIl tuo profilo\n\n• Formazione: Formazione completa come assistente di pratica medica / assistente di pratica medica (MPA), obbligatoria con diploma di raggi X, possibilmente. Diploma per raggi X intensivi dosi già disponibili o la volontà di completarlo\n\n• Esperienza: Porti una buona esperienza nel campionamento del sangue, nel lavoro di laboratorio generale e nella creazione di ECG\n\n• Personalità: Porti responsabilità personale, pensiero orientato al processo e un atteggiamento empatico così come lavoro di squadra, resilienza e buone capacità di comunicazione\n\n• Conoscenza IT: La gestione sicura di MS Office e sistemi clinici comuni è una questione naturalmente per voi\n\n• Lingue: Buona conoscenza del tedesco\n\nCosa offriamo\n\n• Co-creazione: lavorare in un ambiente di lavoro moderno e partecipare attivamente\n\n• Ambiente di lavoro stimolante e collegiale: Lavorare in un team di supporto e di apprezzamento che lavora insieme per la migliore assistenza possibile ai pazienti\n\n• Prestazioni di sicurezza sociale sopra la media: beneficia di vantaggi sociali attraenti\n\n• Istruzione e formazione: quota generosa dei costi nell'istruzione e nella formazione\n\n• Sconti: Utilizzare sconti da vari partner, come grossisti, farmacie e la nostra appartenenza a Benefit@work\n\n• Ingresso gratuito: Godetevi l'ingresso gratuito e altri vantaggi presso il centro benessere FORTYSEVEN.\n\nNon vediamo l'ora della tua applicazione online!\n\nPersona di contatto\n\nDali Gogsadze-Fritz\nGruppo leader\nTelefono: +41 56 269 53 80\n\nEmail: dali.gogsadze@zurzachcare.ch",
-        "en": "The Bad Zurzach rehabilitation offers rehabilitation in all places on high medical niveau. The rehabilitation offer ranges from neuro-logie to musculoskeletal/rheumato-logie, cardio-logie to sleep medicine (clinic for sleep medicine). In the Pain Center Bad Zurzach, pain treatments are offered within the framework of special programs that include pain diagnosis, treatment and therapy.\n\nWe offer you a varied area of work, a modern working environment and attractive working hours (Mo – Fr from 07:00 – 16:30 – no weekend services).\n\nYour tasks\n\n• Blood sampling: You take over the daily blood sampling at the stations and in the laboratory\n\n• Laboratory: You are responsible for the analysis of blood/urine (hematology, chemistry, urine sediment and UK) incl. Responsible for internal/external quality controls\n\n• Collaboration: You work with an external laboratory\n\n• ECG: You put on rest and 7-day ECG’s\n\n• Planning: You plan blood draws and ECG s\n\n• Organization: You take over the service billing in the LIS (laboratory information system) and the ordering and other office work\n\n• X-ray: You perform conventional and dose-intensive X-rays (extremities, thoracic, spine, pelvis, hips, etc.)\n\n• Findings management: You send X-ray prescriptions to external institutes and import findings into the CIS\n\nYour profile\n\n• Training: Completed training as medical practice assistant / medical practice assistant (MPA), mandatory with X-ray diploma, possibly. Diploma for dose-intensive X-ray already available or the willingness to complete it\n\n• Experience: You bring good experience in blood sampling, general laboratory work and creation of ECGs\n\n• Personality: You bring personal responsibility, process-oriented thinking and an empathetic attitude as well as teamwork, resilience and good communication skills\n\n• IT knowledge: Safe handling of MS Office and common clinical systems is a matter of course for you\n\n• Languages: Good knowledge of German\n\nWhat we offer\n\n• Co-creation: Work in a modern working environment and actively participate\n\n• Inspiring and collegial working environment: Work in a supportive and appreciative team that works together for the best possible patient care\n\n• Above-average social security benefits: Benefit from attractive social security benefits\n\n• Education and training: generous share of costs in education and training\n\n• Discounts: Use discounts from various partners, such as wholesalers, pharmacies and our membership of Benefit@work\n\n• Free admission: Enjoy free admission and other perks at the FORTYSEVEN spa.\n\nWe look forward to your online application!\n\nContact person\n\nDali Gogsadze-Fritz\nGroup leader laboratory\nTelephone: +41 56 269 53 80\n\nEmail: dali.gogsadze@zurzachcare.ch",
-        "de": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme: Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor: Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit: Du arbeitest mit einem externen Labor zusammen\n\n• EKG: Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung: Du planst Blutentnahmen und EKG`s\n\n• Organisation: Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung: Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung: Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen: Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
-        "fr": "La réhabilitation Bad Zurzach offre une réhabilitation dans tous les endroits sur le niveau médical élevé. L'offre de réadaptation va de neuro-logie à musculosquelettique/rhumato-logie, cardio-logie à la médecine du sommeil (clinique pour la médecine du sommeil). Dans le centre de douleur Bad Zurzach, les traitements de la douleur sont offerts dans le cadre de programmes spéciaux qui incluent le diagnostic de la douleur, le traitement et la thérapie.\n\nNous vous offrons un espace de travail varié, un environnement de travail moderne et des horaires de travail attrayants (Mo – Fr de 07:00 – 16:30 – pas de services du week-end).\n\nVos tâches\n\n• Prélèvement de sang: Vous prenez en charge le prélèvement de sang quotidien aux stations et au laboratoire\n\n• Laboratoire: Vous êtes responsable de l'analyse du sang/urine (hématologie, chimie, sédiment urinaire et UK) y compris. Responsable des contrôles de qualité internes/externes\n\n• Collaboration: Vous travaillez avec un laboratoire externe\n\n• ECG: Vous mettez le repos et 7 jours ECG\n\n• Planification: Vous prévoyez des prélèvements de sang et ECG s\n\n• Organisation : Vous prenez en charge la facturation du service dans le SIL (système d'information du laboratoire) et les commandes et autres travaux de bureau\n\n• Rayons X: Vous effectuez des rayons X conventionnels et à forte intensité de dose (extrémités, thoracique, colonne vertébrale, bassin, hanches, etc.)\n\n• Gestion des résultats : Vous envoyez des ordonnances de radiographie à des instituts externes et importez des résultats dans le SIC\n\nVotre profil\n\n• Formation : Formation terminée en tant qu'assistant de pratique médicale / assistant de pratique médicale (MPA), obligatoire avec diplôme de radiographie, éventuellement. Diplôme pour radiographie à forte dose déjà disponible ou la volonté de le compléter\n\n• Expérience: Vous apportez une bonne expérience dans l'échantillonnage sanguin, le travail de laboratoire général et la création d'ECG\n\n• Personnalité: Vous apportez la responsabilité personnelle, la pensée orientée processus et une attitude empathique ainsi que le travail d'équipe, la résilience et de bonnes compétences en communication\n\n• Connaissance de la TI : La gestion sécuritaire du bureau de la SP et des systèmes cliniques communs est une question bien sûr pour vous\n\n• Langues: Bonne connaissance de l'allemand\n\nCe que nous offrons\n\n• Co-création : travailler dans un environnement de travail moderne et participer activement\n\n• Environnement de travail inspirant et collégial : travailler dans une équipe de soutien et d'appréciation qui travaille ensemble pour les meilleurs soins possibles\n\n• Prestations de sécurité sociale supérieures à la moyenne: Prestations de sécurité sociale attrayantes\n\n• Éducation et formation: une part généreuse des coûts de l'éducation et de la formation\n\n• Réductions: Utilisez les réductions de divers partenaires, tels que les grossistes, les pharmacies et notre adhésion à Benefit@work\n\n• Entrée gratuite: Profitez de l'entrée gratuite et d'autres avantages au spa FORTYSEVEN.\n\nNous nous réjouissons de votre candidature en ligne!\n\nPersonne à contacter\n\nDali Gogsadze-Fritz\nLaboratoire chef de groupe\nTéléphone: +41 56 269 53 80\n\nCourriel: dali.gogsadze@zurzachcare.ch"
-      },
-      "location": "Bad Zurzach",
-      "canton": "AG",
-      "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Medizinischer-Praxisassistentin-%28MPA%29-Labor-und-R%C3%B6ntgen-50-AG-5330/1443581533/",
-      "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:05.464Z",
-      "addressLocality": "Bad Zurzach",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5330",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T00:00:00Z",
-      "postedDate": "2026-10-02T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1443581533/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
-        ],
-        "en": [
-          "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
-        ],
-        "fr": [
-          "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:14:05.801Z",
-      "salaryMin": 44000,
-      "salaryMax": 61500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44000,
-          "maxValue": 61500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "zurzach-care-b3be25fc0dfc",
       "slug": "professionisti-della-salute-fage-zurzach-care-bad-zurzach",
       "slugByLocale": {
@@ -632,7 +553,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Fachfrau-Fachmann-Gesundheit-%28FAGE%29-80-100-AG-5330/1443892433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:04.910Z",
+      "crawledAt": "2026-10-27T21:21:06.794Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -685,6 +606,85 @@
       }
     },
     {
+      "id": "zurzach-care-561b9c43ebcd",
+      "slug": "medizinische-r-praxisassistent-in-mpa-labor-e-rontgen-50-zurzach-care-bad-zurzach",
+      "slugByLocale": {
+        "it": "medizinische-r-praxisassistent-in-mpa-labor-e-rontgen-50-zurzach-care-bad-zurzach",
+        "en": "medical-practice-assistant-mpa-laboratory-and-x-ray-50-zurzach-care-bad-zurzach",
+        "de": "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach",
+        "fr": "assistant-e-medical-e-mpa-laboratoire-et-radiographie-50-zurzach-care-bad-zurzach"
+      },
+      "company": "ZURZACH Care",
+      "companyKey": "zurzach-care",
+      "companyDomain": "zurzachcare.ch",
+      "title": "Medizinische/r Praxisassistent/in (MPA) Labor und Röntgen 50 %",
+      "titleByLocale": {
+        "it": "Assistente di studio medico (MPA) Laboratorio e radiografia 50%",
+        "en": "Medical Practice Assistant (MPA) Laboratory and X-ray 50%",
+        "de": "Medizinische/r Praxisassistent/in (MPA) Labor und Röntgen 50 %",
+        "fr": "Assistant (e) médical (e) (MPA) Laboratoire et radiographie 50 %"
+      },
+      "description": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme:  Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor:  Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit:  Du arbeitest mit einem externen Labor zusammen\n\n• EKG:  Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung:  Du planst Blutentnahmen und EKG`s\n\n• Organisation:  Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung:  Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung:  Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen:  Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
+      "descriptionByLocale": {
+        "it": "La riabilitazione di Bad Zurzach offre riabilitazione in tutti i luoghi in alto niveau medico. L'offerta di riabilitazione varia da neuro-logie a muscolo-scheletriche/rheumato-logie, cardio-logie a medicina del sonno (clinica per la medicina del sonno). Nel Centro Dolore Bad Zurzach, i trattamenti antidolorifici sono offerti nel quadro di programmi speciali che includono la diagnosi del dolore, il trattamento e la terapia.\n\nVi offriamo una variegata area di lavoro, un ambiente di lavoro moderno e interessanti ore di lavoro (Mo – Fr dalle 07:00 alle 16:30 – nessun servizio week-end).\n\nI tuoi compiti\n\n• Campionamento del sangue: si prende il controllo del prelievo giornaliero di sangue nelle stazioni e in laboratorio\n\n• Laboratorio: Lei è responsabile dell'analisi del sangue/urina (ematologia, chimica, sedimenti urinari e Regno Unito) incl. Responsabile dei controlli di qualità interni/esterni\n\n• Collaborazione: Lei lavora con un laboratorio esterno\n\n• ECG: si mette a riposo e 7 giorni ECG\n\n• Pianificazione: Pianifichi estrazioni di sangue e ECG s\n\n• Organizzazione: Si prende il controllo del servizio fatturazione in LIS (sistema informativo di laboratorio) e l'ordinazione e altri lavori di ufficio\n\n• X-ray: Lei esegue raggi X convenzionali e dosi-intensivi (estremità, toracico, spina dorsale, pelvi, fianchi, ecc.)\n\n• Gestione dei risultati: Invii le prescrizioni a raggi X agli istituti esterni e ai risultati delle importazioni nel CIS\n\nIl tuo profilo\n\n• Formazione: Formazione completa come assistente di pratica medica / assistente di pratica medica (MPA), obbligatoria con diploma di raggi X, possibilmente. Diploma per raggi X intensivi dosi già disponibili o la volontà di completarlo\n\n• Esperienza: Porti una buona esperienza nel campionamento del sangue, nel lavoro di laboratorio generale e nella creazione di ECG\n\n• Personalità: Porti responsabilità personale, pensiero orientato al processo e un atteggiamento empatico così come lavoro di squadra, resilienza e buone capacità di comunicazione\n\n• Conoscenza IT: La gestione sicura di MS Office e sistemi clinici comuni è una questione naturalmente per voi\n\n• Lingue: Buona conoscenza del tedesco\n\nCosa offriamo\n\n• Co-creazione: lavorare in un ambiente di lavoro moderno e partecipare attivamente\n\n• Ambiente di lavoro stimolante e collegiale: Lavorare in un team di supporto e di apprezzamento che lavora insieme per la migliore assistenza possibile ai pazienti\n\n• Prestazioni di sicurezza sociale sopra la media: beneficia di vantaggi sociali attraenti\n\n• Istruzione e formazione: quota generosa dei costi nell'istruzione e nella formazione\n\n• Sconti: Utilizzare sconti da vari partner, come grossisti, farmacie e la nostra appartenenza a Benefit@work\n\n• Ingresso gratuito: Godetevi l'ingresso gratuito e altri vantaggi presso il centro benessere FORTYSEVEN.\n\nNon vediamo l'ora della tua applicazione online!\n\nPersona di contatto\n\nDali Gogsadze-Fritz\nGruppo leader\nTelefono: +41 56 269 53 80\n\nEmail: dali.gogsadze@zurzachcare.ch",
+        "en": "The Bad Zurzach rehabilitation offers rehabilitation in all places on high medical niveau. The rehabilitation offer ranges from neuro-logie to musculoskeletal/rheumato-logie, cardio-logie to sleep medicine (clinic for sleep medicine). In the Pain Center Bad Zurzach, pain treatments are offered within the framework of special programs that include pain diagnosis, treatment and therapy.\n\nWe offer you a varied area of work, a modern working environment and attractive working hours (Mo – Fr from 07:00 – 16:30 – no weekend services).\n\nYour tasks\n\n• Blood sampling: You take over the daily blood sampling at the stations and in the laboratory\n\n• Laboratory: You are responsible for the analysis of blood/urine (hematology, chemistry, urine sediment and UK) incl. Responsible for internal/external quality controls\n\n• Collaboration: You work with an external laboratory\n\n• ECG: You put on rest and 7-day ECG’s\n\n• Planning: You plan blood draws and ECG s\n\n• Organization: You take over the service billing in the LIS (laboratory information system) and the ordering and other office work\n\n• X-ray: You perform conventional and dose-intensive X-rays (extremities, thoracic, spine, pelvis, hips, etc.)\n\n• Findings management: You send X-ray prescriptions to external institutes and import findings into the CIS\n\nYour profile\n\n• Training: Completed training as medical practice assistant / medical practice assistant (MPA), mandatory with X-ray diploma, possibly. Diploma for dose-intensive X-ray already available or the willingness to complete it\n\n• Experience: You bring good experience in blood sampling, general laboratory work and creation of ECGs\n\n• Personality: You bring personal responsibility, process-oriented thinking and an empathetic attitude as well as teamwork, resilience and good communication skills\n\n• IT knowledge: Safe handling of MS Office and common clinical systems is a matter of course for you\n\n• Languages: Good knowledge of German\n\nWhat we offer\n\n• Co-creation: Work in a modern working environment and actively participate\n\n• Inspiring and collegial working environment: Work in a supportive and appreciative team that works together for the best possible patient care\n\n• Above-average social security benefits: Benefit from attractive social security benefits\n\n• Education and training: generous share of costs in education and training\n\n• Discounts: Use discounts from various partners, such as wholesalers, pharmacies and our membership of Benefit@work\n\n• Free admission: Enjoy free admission and other perks at the FORTYSEVEN spa.\n\nWe look forward to your online application!\n\nContact person\n\nDali Gogsadze-Fritz\nGroup leader laboratory\nTelephone: +41 56 269 53 80\n\nEmail: dali.gogsadze@zurzachcare.ch",
+        "de": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme: Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor: Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit: Du arbeitest mit einem externen Labor zusammen\n\n• EKG: Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung: Du planst Blutentnahmen und EKG`s\n\n• Organisation: Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung: Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung: Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen: Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
+        "fr": "La réhabilitation Bad Zurzach offre une réhabilitation dans tous les endroits sur le niveau médical élevé. L'offre de réadaptation va de neuro-logie à musculosquelettique/rhumato-logie, cardio-logie à la médecine du sommeil (clinique pour la médecine du sommeil). Dans le centre de douleur Bad Zurzach, les traitements de la douleur sont offerts dans le cadre de programmes spéciaux qui incluent le diagnostic de la douleur, le traitement et la thérapie.\n\nNous vous offrons un espace de travail varié, un environnement de travail moderne et des horaires de travail attrayants (Mo – Fr de 07:00 – 16:30 – pas de services du week-end).\n\nVos tâches\n\n• Prélèvement de sang: Vous prenez en charge le prélèvement de sang quotidien aux stations et au laboratoire\n\n• Laboratoire: Vous êtes responsable de l'analyse du sang/urine (hématologie, chimie, sédiment urinaire et UK) y compris. Responsable des contrôles de qualité internes/externes\n\n• Collaboration: Vous travaillez avec un laboratoire externe\n\n• ECG: Vous mettez le repos et 7 jours ECG\n\n• Planification: Vous prévoyez des prélèvements de sang et ECG s\n\n• Organisation : Vous prenez en charge la facturation du service dans le SIL (système d'information du laboratoire) et les commandes et autres travaux de bureau\n\n• Rayons X: Vous effectuez des rayons X conventionnels et à forte intensité de dose (extrémités, thoracique, colonne vertébrale, bassin, hanches, etc.)\n\n• Gestion des résultats : Vous envoyez des ordonnances de radiographie à des instituts externes et importez des résultats dans le SIC\n\nVotre profil\n\n• Formation : Formation terminée en tant qu'assistant de pratique médicale / assistant de pratique médicale (MPA), obligatoire avec diplôme de radiographie, éventuellement. Diplôme pour radiographie à forte dose déjà disponible ou la volonté de le compléter\n\n• Expérience: Vous apportez une bonne expérience dans l'échantillonnage sanguin, le travail de laboratoire général et la création d'ECG\n\n• Personnalité: Vous apportez la responsabilité personnelle, la pensée orientée processus et une attitude empathique ainsi que le travail d'équipe, la résilience et de bonnes compétences en communication\n\n• Connaissance de la TI : La gestion sécuritaire du bureau de la SP et des systèmes cliniques communs est une question bien sûr pour vous\n\n• Langues: Bonne connaissance de l'allemand\n\nCe que nous offrons\n\n• Co-création : travailler dans un environnement de travail moderne et participer activement\n\n• Environnement de travail inspirant et collégial : travailler dans une équipe de soutien et d'appréciation qui travaille ensemble pour les meilleurs soins possibles\n\n• Prestations de sécurité sociale supérieures à la moyenne: Prestations de sécurité sociale attrayantes\n\n• Éducation et formation: une part généreuse des coûts de l'éducation et de la formation\n\n• Réductions: Utilisez les réductions de divers partenaires, tels que les grossistes, les pharmacies et notre adhésion à Benefit@work\n\n• Entrée gratuite: Profitez de l'entrée gratuite et d'autres avantages au spa FORTYSEVEN.\n\nNous nous réjouissons de votre candidature en ligne!\n\nPersonne à contacter\n\nDali Gogsadze-Fritz\nLaboratoire chef de groupe\nTéléphone: +41 56 269 53 80\n\nCourriel: dali.gogsadze@zurzachcare.ch"
+      },
+      "location": "Bad Zurzach",
+      "canton": "AG",
+      "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Medizinischer-Praxisassistentin-%28MPA%29-Labor-und-R%C3%B6ntgen-50-AG-5330/1443581533/",
+      "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:21:06.241Z",
+      "addressLocality": "Bad Zurzach",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5330",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T00:00:00Z",
+      "postedDate": "2026-10-02T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1443581533/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-labor-und-rontgen-50-zurzach-care-bad-zurzach"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:14:05.801Z",
+      "salaryMin": 44000,
+      "salaryMax": 61500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 44000,
+          "maxValue": 61500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "zurzach-care-6e20c223b8f4",
       "slug": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-fachbereich-msk-e-int-angio-zurzach-care-bad-zurzach",
       "slugByLocale": {
@@ -716,7 +716,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Diplomierter-Pflegefachfrau-Pflegefachmann-80-100-Fachbereich-MSK-und-INTAngio-AG-5330/1402747633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:04.077Z",
+      "crawledAt": "2026-10-27T21:21:05.729Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -796,7 +796,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Physiotherapeutin-Station%C3%A4r-mit-Fachverantwortung-Neurologie-60-100-AG-5330/1424539433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:03.548Z",
+      "crawledAt": "2026-10-27T21:21:04.863Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -870,7 +870,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Logop%C3%A4din-Logop%C3%A4de-80-AG-5404/1444853233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:02.985Z",
+      "crawledAt": "2026-10-27T21:21:04.329Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -950,7 +950,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Ern%C3%A4hrungsberaterin-Ern%C3%A4hrungsberater-30-LU-6000/1434916233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:02.461Z",
+      "crawledAt": "2026-10-27T21:21:03.778Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1030,7 +1030,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Mitarbeiter-Lingerie-und-Reinigung-80-GL-8784/1434848533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:01.837Z",
+      "crawledAt": "2026-10-27T21:21:03.266Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -1076,6 +1076,93 @@
       }
     },
     {
+      "id": "zurzach-care-07f8db1dfe5f",
+      "slug": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
+      "slugByLocale": {
+        "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
+        "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
+        "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
+        "fr": "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
+      },
+      "company": "ZURZACH Care",
+      "companyKey": "zurzach-care",
+      "companyDomain": "zurzachcare.ch",
+      "title": "Diplomierte/r Pflegefachfrau / Pflegefachmann 60-80 % Fachbereich MSK",
+      "titleByLocale": {
+        "it": "Infermiera diplomata / infermiere diplomato 60-80 % settore MSK",
+        "en": "Registered Nurse 60–80% – MSK Department",
+        "de": "Diplomierte/r Pflegefachfrau / Pflegefachmann 60-80 % Fachbereich MSK",
+        "fr": "Infirmier/ère diplômé/e 60–80 % – service MSK"
+      },
+      "description": "Ein engagiertes und leidenschaftliches Team sucht Verstärkung für einen spannenden Pflegealltag, in dem die Behandlungspflege und die Medizinaltechnik im Mittelpunkt stehen.\n\nBei uns unterstützen wir nicht nur unsere Patientinnen und Patienten auf ihrem Weg zur Rehabilitation, sondern fördern auch unsere Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung.\n\nSorgfalt, Zuverlässigkeit und ein grosses Engagement sind wichtige Voraussetzungen, um unseren Patientinnen und Patienten bestmöglich zur Seite zu stehen.\n\nBewirb dich jetzt online und werde Teil unseres engagierten MSK-Teams.\n\nDeine Aufgaben\n\n• Patientenorientierte Betreuung:  Du hilfst unseren Patientinnen und Patienten, den Weg zurück in ein selbstständiges Leben zu finden. Deine Arbeit hat direkten Einfluss auf den Heilungs- und Behandlungsverlauf\n\n• Interdisziplinäre Zusammenarbeit:  Durch enge Zusammenarbeit mit verschiedenen Fachdisziplinen trägst du massgeblich zur ganzheitlichen Behandlung und Rehabilitation bei\n\n• Regelmässige Weiterbildung:  Wir bieten dir regelmässig externe Weiterbildungen an, damit du dein Fachwissen stets auf dem neuesten Stand halten kannst\n\nDein Profil\n\n• Ausbildung: Du verfügst über eine abgeschlossene Anerkennung als Diplomierte Pflegefachfrau /Pflegefachmann oder eine gleichwertige Ausbildung mit mindestens einem positiven SRK-PreCheck\n\n• Erfahrung: Du bringst Erfahrung im Umgang mit komplexen Pflegesituationen und Medizinaltechnik mit\n\n• Engagement : Du bist engagiert in der interdisziplinären Zusammenarbeit\n\n• Persönlichkeit: Du bist eine kommunikationsstarke Persönlichkeit mit einer hohen Kundenorientierung, Sozialkompetenz und Teamorientierung. Zudem zeichnen dich Flexibilität, Selbstständigkeit sowie ein kompetentes und gepflegtes Auftreten aus\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Flexibilitätsbonus:  Freiwillige Teilnahme an unserem internen Pflegepool für Zusatzschichten, welche zusätzlich attraktiv Vergütet werden.\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nAnsprechpartnerin\n\nFranziska Hintermann\n\nLeitung Pflegedienst\n\nTelefon: +41 56 269 53 07\n\nE-Mail: franziska.hintermann@zurzachcare.ch",
+      "descriptionByLocale": {
+        "it": "Dein Herz schlägt für die Kardiologie?\n\nEin engagiertes und leidenschaftliches Team sucht Verstärkung für einen spannenden Pflegealltag, in dem die Behandlungspflege und die Medizinaltechnik im Mittelpunkt stehen.\n\nBei uns unterstützen wir nicht nur unsere Patientinnen und Patienten auf ihrem Weg zur Rehabilitation, sondern auch unsere Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung.\n\nSorgfalt, Zuverlässigkeit und ein grosses Herz sind wichtige Voraussetzungen, um unseren Patientinnen und Patienten bestmöglich zur Seite zu stehen.\n\nBewirb dich jetzt Online, dein neuer Job ist nur einen Herzschlag entfernt!\n\nDeine Aufgaben\n\n• Patientenorientierte Betreuung: Du hilfst unseren Patientinnen und Patienten, den Weg zurück in ein selbstständiges Leben zu finden. Deine Arbeit hat direkten Einfluss auf den Heilungs- und Behandlungsverlauf\n\n• Interdisziplinäre Zusammenarbeit: Durch enge Zusammenarbeit mit verschiedenen Fachdisziplinen trägst du massgeblich zur ganzheitlichen Behandlung und Rehabilitation bei\n\n• Regelmässige Weiterbildung: Wir bieten dir regelmässig externe Weiterbildungen an, damit du dein Fachwissen stets auf dem neuesten Stand halten kannst\n\nDein Profil\n\n• Ausbildung: Du verfügst über eine abgeschlossene Anerkennung als Diplomierte Pflegefachfrau /Pflegefachmann oder eine gleichwertige Ausbildung mit mindestens einem positiven SRK-PreCheck\n\n• Erfahrung: Du bringst Erfahrung im Umgang mit komplexen Pflegesituationen und Medizinaltechnik mit\n\n• Engagement : Du bist engagiert in der interdisziplinären Zusammenarbeit\n\n• Persönlichkeit: Du bist eine kommunikationsstarke Persönlichkeit mit einer hohen Kundenorientierung, Sozialkompetenz und Teamorientierung. Zudem zeichnen dich Flexibilität, Selbstständigkeit sowie ein kompetentes und gepflegtes Auftreten aus\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Flexibilitätsbonus: Freiwillige Teilnahme an unserem internen Pflegepool für Zusatzschichten, welche zusätzlich attraktiv Vergütet werden.\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nAnsprechpartnerin\n\nFranziska Hintermann\n\nLeitung Pflegedienst\n\nTelefon: +41 56 269 53 07\n\nE-Mail: franziska.hintermann@zurzachcare.ch",
+        "en": "Description\n\nAn engaged and passionate team is looking for reinforcements for an exciting nursing environment in which clinical care and medical technology are at the center.\n\nAt our organization, we not only support our patients on their journey to rehabilitation, but also foster our employees' professional and personal development.\n\nCare, reliability and a high level of commitment are important prerequisites for providing our patients with the best possible support.\n\nApply online now and become part of our dedicated MSK team.\n\nYour responsibilities\n\n- Patient-oriented care: You help our patients find their way back to an independent life. Your work has a direct impact on the healing and treatment process\n- Interdisciplinary collaboration: Through close collaboration with various specialist disciplines, you make a significant contribution to holistic treatment and rehabilitation\n- Regular continuing education: We regularly offer you external continuing education opportunities so that you can always keep your specialist knowledge up to date\n\nYour profile\n\n- Training: You hold a recognized qualification as a registered nurse or equivalent training with at least one positive SRK-PreCheck\n- Experience: You have experience in dealing with complex care situations and medical technology\n- Commitment: You are committed to interdisciplinary collaboration\n- Personality: You are a strong communicator with a high level of customer orientation, social skills and team orientation. You are also characterized by flexibility, independence, as well as a competent and well-groomed appearance\n\nWhat we offer\n\n- Involvement: Help shape a modern working environment and actively contribute\n- Inspiring and collegial working atmosphere: Work in a supportive and appreciative team that is jointly committed to providing the best possible patient care\n- Flexibility bonus: Voluntary participation in our internal nursing pool for additional shifts, which are additionally compensated at an attractive rate.\n- Above-average social insurance benefits: Benefit from attractive social insurance benefits and comprehensive benefits\n- Training and continuing education: Generous contribution to the costs of training and continuing education\n- Discounts: Take advantage of discounts at various partners, such as wholesalers and pharmacies, as well as our membership in Benefit@work\n- Free admission: Enjoy free admission and additional discounts at the FORTYSEVEN wellness spa\n\nContact person\n\nFranziska Hintermann\n\nHead of Nursing Services\n\nPhone: +41 56 269 53 07\n\nEmail: franziska.hintermann@zurzachcare.ch",
+        "de": "Ein engagiertes und leidenschaftliches Team sucht Verstärkung für einen spannenden Pflegealltag, in dem die Behandlungspflege und die Medizinaltechnik im Mittelpunkt stehen.\n\nBei uns unterstützen wir nicht nur unsere Patientinnen und Patienten auf ihrem Weg zur Rehabilitation, sondern fördern auch unsere Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung.\n\nSorgfalt, Zuverlässigkeit und ein grosses Engagement sind wichtige Voraussetzungen, um unseren Patientinnen und Patienten bestmöglich zur Seite zu stehen.\n\nBewirb dich jetzt online und werde Teil unseres engagierten MSK-Teams.\n\nDeine Aufgaben\n\n• Patientenorientierte Betreuung: Du hilfst unseren Patientinnen und Patienten, den Weg zurück in ein selbstständiges Leben zu finden. Deine Arbeit hat direkten Einfluss auf den Heilungs- und Behandlungsverlauf\n\n• Interdisziplinäre Zusammenarbeit: Durch enge Zusammenarbeit mit verschiedenen Fachdisziplinen trägst du massgeblich zur ganzheitlichen Behandlung und Rehabilitation bei\n\n• Regelmässige Weiterbildung: Wir bieten dir regelmässig externe Weiterbildungen an, damit du dein Fachwissen stets auf dem neuesten Stand halten kannst\n\nDein Profil\n\n• Ausbildung: Du verfügst über eine abgeschlossene Anerkennung als Diplomierte Pflegefachfrau /Pflegefachmann oder eine gleichwertige Ausbildung mit mindestens einem positiven SRK-PreCheck\n\n• Erfahrung: Du bringst Erfahrung im Umgang mit komplexen Pflegesituationen und Medizinaltechnik mit\n\n• Engagement : Du bist engagiert in der interdisziplinären Zusammenarbeit\n\n• Persönlichkeit: Du bist eine kommunikationsstarke Persönlichkeit mit einer hohen Kundenorientierung, Sozialkompetenz und Teamorientierung. Zudem zeichnen dich Flexibilität, Selbstständigkeit sowie ein kompetentes und gepflegtes Auftreten aus\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Flexibilitätsbonus: Freiwillige Teilnahme an unserem internen Pflegepool für Zusatzschichten, welche zusätzlich attraktiv Vergütet werden.\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nAnsprechpartnerin\n\nFranziska Hintermann\n\nLeitung Pflegedienst\n\nTelefon: +41 56 269 53 07\n\nE-Mail: franziska.hintermann@zurzachcare.ch",
+        "fr": "Description\n\nUne équipe engagée et passionnée recherche du renfort pour un quotidien de soins passionnant, dans lequel les soins de traitement et la technique médicale sont au centre.\n\nChez nous, nous accompagnons non seulement nos patientes et patients sur le chemin de leur réadaptation, mais nous encourageons également nos collaboratrices et collaborateurs dans leur développement professionnel et personnel.\n\nLa rigueur, la fiabilité et un grand engagement sont des conditions importantes pour accompagner au mieux nos patientes et patients.\n\nPostulez dès maintenant en ligne et rejoignez notre équipe MSK engagée.\n\nVos tâches\n\n- Prise en charge centrée sur les patients : Vous aidez nos patientes et patients à retrouver le chemin d’une vie autonome. Votre travail a une influence directe sur le processus de guérison et de traitement\n- Collaboration interdisciplinaire : Grâce à une collaboration étroite avec différentes disciplines spécialisées, vous contribuez de manière déterminante à un traitement et une réadaptation globaux\n- Formation continue régulière : Nous vous proposons régulièrement des formations continues externes afin que vous puissiez toujours maintenir vos connaissances spécialisées à jour\n\nVotre profil\n\n- Formation : Vous disposez d’une reconnaissance obtenue en tant qu’infirmière diplômée / infirmier diplômé ou d’une formation équivalente avec au moins un SRK-PreCheck positif\n- Expérience : Vous disposez d’une expérience dans la gestion de situations de soins complexes et dans l’utilisation de la technique médicale\n- Engagement : Vous faites preuve d’engagement dans la collaboration interdisciplinaire\n- Personnalité : Vous êtes une personne dotée d’excellentes capacités de communication, d’une forte orientation client, de compétences sociales et d’un bon esprit d’équipe. De plus, vous vous distinguez par votre flexibilité, votre autonomie ainsi que votre présentation professionnelle et soignée\n\nCe que nous offrons\n\n- Participation à la conception : Participez à la conception d’un environnement de travail moderne et impliquez-vous activement\n- Climat de travail inspirant et collégial : Travaillez au sein d’une équipe solidaire et respectueuse, qui s’engage collectivement pour assurer les meilleurs soins possibles à nos patientes et patients\n- Prime de flexibilité : Participation volontaire à notre pool interne de soins pour des services supplémentaires, qui sont en outre rémunérés de manière attractive.\n- Prestations d’assurances sociales supérieures à la moyenne : Profitez de prestations d’assurances sociales attrayantes et d’un ensemble complet d’avantages\n- Formation et formation continue : Participation généreuse aux frais de formation et de formation continue\n- Rabais : Profitez de rabais auprès de divers partenaires, tels que des grossistes et des pharmacies, ainsi que de notre affiliation à Benefit@work\n- Entrée gratuite : Profitez de l’entrée gratuite et d’autres avantages aux thermes bien-être FORTYSEVEN\n\nPersonne de contact\n\nFranziska Hintermann\n\nResponsable du service de soins\n\nTéléphone : +41 56 269 53 07\n\nE-mail : franziska.hintermann@zurzachcare.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Bad Zurzach",
+      "canton": "AG",
+      "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Diplomierter-Pflegefachfrau-Pflegefachmann-60-80-Fachbereich-MSK-AG-5330/1445670233/",
+      "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:21:02.729Z",
+      "addressLocality": "Bad Zurzach",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5330",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08T00:00:00Z",
+      "postedDate": "2026-10-08T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1445670233/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach"
+        ],
+        "it": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad"
+        ],
+        "fr": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
+          "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
+        "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
+        "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
+      ],
+      "firstSeenAt": "2026-10-08T21:15:07.730Z",
+      "salaryMin": 70400,
+      "salaryMax": 98400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70400,
+          "maxValue": 98400,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "zurzach-care-09c380947d07",
       "slug": "infermiere-a-diplomato-a-80-100-con-funzione-di-vice-responsabile-di-reparto-zurzach-care-bad-zurzach",
       "slugByLocale": {
@@ -1106,7 +1193,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Diplomierter-Pflegefachfrau-Pflegefachmann-80-100-mit-Stv_-Stationsleitung-AG-5330/1445669933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:01.296Z",
+      "crawledAt": "2026-10-27T21:21:02.190Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1185,7 +1272,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Ergotherapeutin-Ergotherapeut-60-100-Z%C3%BCri-8952/1445497833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:00.745Z",
+      "crawledAt": "2026-10-27T21:21:01.653Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1264,7 +1351,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Physiotherapeutin-Physiotherapeut-mit-Schwerpunkt-Neurologie-60-100-Z%C3%BCri-8952/1445544833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:29:00.238Z",
+      "crawledAt": "2026-10-27T21:21:01.132Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1313,93 +1400,6 @@
       }
     },
     {
-      "id": "zurzach-care-07f8db1dfe5f",
-      "slug": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
-      "slugByLocale": {
-        "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
-        "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
-        "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
-      },
-      "company": "ZURZACH Care",
-      "companyKey": "zurzach-care",
-      "companyDomain": "zurzachcare.ch",
-      "title": "Diplomierte/r Pflegefachfrau / Pflegefachmann 60-80 % Fachbereich MSK",
-      "titleByLocale": {
-        "it": "Infermiera diplomata / infermiere diplomato 60-80 % settore MSK",
-        "en": "Registered Nurse 60–80% – MSK Department",
-        "de": "Diplomierte/r Pflegefachfrau / Pflegefachmann 60-80 % Fachbereich MSK",
-        "fr": "Infirmier/ère diplômé/e 60–80 % – service MSK"
-      },
-      "description": "Ein engagiertes und leidenschaftliches Team sucht Verstärkung für einen spannenden Pflegealltag, in dem die Behandlungspflege und die Medizinaltechnik im Mittelpunkt stehen.\n\nBei uns unterstützen wir nicht nur unsere Patientinnen und Patienten auf ihrem Weg zur Rehabilitation, sondern fördern auch unsere Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung.\n\nSorgfalt, Zuverlässigkeit und ein grosses Engagement sind wichtige Voraussetzungen, um unseren Patientinnen und Patienten bestmöglich zur Seite zu stehen.\n\nBewirb dich jetzt online und werde Teil unseres engagierten MSK-Teams.\n\nDeine Aufgaben\n\n• Patientenorientierte Betreuung:  Du hilfst unseren Patientinnen und Patienten, den Weg zurück in ein selbstständiges Leben zu finden. Deine Arbeit hat direkten Einfluss auf den Heilungs- und Behandlungsverlauf\n\n• Interdisziplinäre Zusammenarbeit:  Durch enge Zusammenarbeit mit verschiedenen Fachdisziplinen trägst du massgeblich zur ganzheitlichen Behandlung und Rehabilitation bei\n\n• Regelmässige Weiterbildung:  Wir bieten dir regelmässig externe Weiterbildungen an, damit du dein Fachwissen stets auf dem neuesten Stand halten kannst\n\nDein Profil\n\n• Ausbildung: Du verfügst über eine abgeschlossene Anerkennung als Diplomierte Pflegefachfrau /Pflegefachmann oder eine gleichwertige Ausbildung mit mindestens einem positiven SRK-PreCheck\n\n• Erfahrung: Du bringst Erfahrung im Umgang mit komplexen Pflegesituationen und Medizinaltechnik mit\n\n• Engagement : Du bist engagiert in der interdisziplinären Zusammenarbeit\n\n• Persönlichkeit: Du bist eine kommunikationsstarke Persönlichkeit mit einer hohen Kundenorientierung, Sozialkompetenz und Teamorientierung. Zudem zeichnen dich Flexibilität, Selbstständigkeit sowie ein kompetentes und gepflegtes Auftreten aus\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Flexibilitätsbonus:  Freiwillige Teilnahme an unserem internen Pflegepool für Zusatzschichten, welche zusätzlich attraktiv Vergütet werden.\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nAnsprechpartnerin\n\nFranziska Hintermann\n\nLeitung Pflegedienst\n\nTelefon: +41 56 269 53 07\n\nE-Mail: franziska.hintermann@zurzachcare.ch",
-      "descriptionByLocale": {
-        "it": "Dein Herz schlägt für die Kardiologie?\n\nEin engagiertes und leidenschaftliches Team sucht Verstärkung für einen spannenden Pflegealltag, in dem die Behandlungspflege und die Medizinaltechnik im Mittelpunkt stehen.\n\nBei uns unterstützen wir nicht nur unsere Patientinnen und Patienten auf ihrem Weg zur Rehabilitation, sondern auch unsere Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung.\n\nSorgfalt, Zuverlässigkeit und ein grosses Herz sind wichtige Voraussetzungen, um unseren Patientinnen und Patienten bestmöglich zur Seite zu stehen.\n\nBewirb dich jetzt Online, dein neuer Job ist nur einen Herzschlag entfernt!\n\nDeine Aufgaben\n\n• Patientenorientierte Betreuung: Du hilfst unseren Patientinnen und Patienten, den Weg zurück in ein selbstständiges Leben zu finden. Deine Arbeit hat direkten Einfluss auf den Heilungs- und Behandlungsverlauf\n\n• Interdisziplinäre Zusammenarbeit: Durch enge Zusammenarbeit mit verschiedenen Fachdisziplinen trägst du massgeblich zur ganzheitlichen Behandlung und Rehabilitation bei\n\n• Regelmässige Weiterbildung: Wir bieten dir regelmässig externe Weiterbildungen an, damit du dein Fachwissen stets auf dem neuesten Stand halten kannst\n\nDein Profil\n\n• Ausbildung: Du verfügst über eine abgeschlossene Anerkennung als Diplomierte Pflegefachfrau /Pflegefachmann oder eine gleichwertige Ausbildung mit mindestens einem positiven SRK-PreCheck\n\n• Erfahrung: Du bringst Erfahrung im Umgang mit komplexen Pflegesituationen und Medizinaltechnik mit\n\n• Engagement : Du bist engagiert in der interdisziplinären Zusammenarbeit\n\n• Persönlichkeit: Du bist eine kommunikationsstarke Persönlichkeit mit einer hohen Kundenorientierung, Sozialkompetenz und Teamorientierung. Zudem zeichnen dich Flexibilität, Selbstständigkeit sowie ein kompetentes und gepflegtes Auftreten aus\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Flexibilitätsbonus: Freiwillige Teilnahme an unserem internen Pflegepool für Zusatzschichten, welche zusätzlich attraktiv Vergütet werden.\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nAnsprechpartnerin\n\nFranziska Hintermann\n\nLeitung Pflegedienst\n\nTelefon: +41 56 269 53 07\n\nE-Mail: franziska.hintermann@zurzachcare.ch",
-        "en": "Description\n\nAn engaged and passionate team is looking for reinforcements for an exciting nursing environment in which clinical care and medical technology are at the center.\n\nAt our organization, we not only support our patients on their journey to rehabilitation, but also foster our employees' professional and personal development.\n\nCare, reliability and a high level of commitment are important prerequisites for providing our patients with the best possible support.\n\nApply online now and become part of our dedicated MSK team.\n\nYour responsibilities\n\n- Patient-oriented care: You help our patients find their way back to an independent life. Your work has a direct impact on the healing and treatment process\n- Interdisciplinary collaboration: Through close collaboration with various specialist disciplines, you make a significant contribution to holistic treatment and rehabilitation\n- Regular continuing education: We regularly offer you external continuing education opportunities so that you can always keep your specialist knowledge up to date\n\nYour profile\n\n- Training: You hold a recognized qualification as a registered nurse or equivalent training with at least one positive SRK-PreCheck\n- Experience: You have experience in dealing with complex care situations and medical technology\n- Commitment: You are committed to interdisciplinary collaboration\n- Personality: You are a strong communicator with a high level of customer orientation, social skills and team orientation. You are also characterized by flexibility, independence, as well as a competent and well-groomed appearance\n\nWhat we offer\n\n- Involvement: Help shape a modern working environment and actively contribute\n- Inspiring and collegial working atmosphere: Work in a supportive and appreciative team that is jointly committed to providing the best possible patient care\n- Flexibility bonus: Voluntary participation in our internal nursing pool for additional shifts, which are additionally compensated at an attractive rate.\n- Above-average social insurance benefits: Benefit from attractive social insurance benefits and comprehensive benefits\n- Training and continuing education: Generous contribution to the costs of training and continuing education\n- Discounts: Take advantage of discounts at various partners, such as wholesalers and pharmacies, as well as our membership in Benefit@work\n- Free admission: Enjoy free admission and additional discounts at the FORTYSEVEN wellness spa\n\nContact person\n\nFranziska Hintermann\n\nHead of Nursing Services\n\nPhone: +41 56 269 53 07\n\nEmail: franziska.hintermann@zurzachcare.ch",
-        "de": "Ein engagiertes und leidenschaftliches Team sucht Verstärkung für einen spannenden Pflegealltag, in dem die Behandlungspflege und die Medizinaltechnik im Mittelpunkt stehen.\n\nBei uns unterstützen wir nicht nur unsere Patientinnen und Patienten auf ihrem Weg zur Rehabilitation, sondern fördern auch unsere Mitarbeitenden in ihrer fachlichen und persönlichen Weiterentwicklung.\n\nSorgfalt, Zuverlässigkeit und ein grosses Engagement sind wichtige Voraussetzungen, um unseren Patientinnen und Patienten bestmöglich zur Seite zu stehen.\n\nBewirb dich jetzt online und werde Teil unseres engagierten MSK-Teams.\n\nDeine Aufgaben\n\n• Patientenorientierte Betreuung: Du hilfst unseren Patientinnen und Patienten, den Weg zurück in ein selbstständiges Leben zu finden. Deine Arbeit hat direkten Einfluss auf den Heilungs- und Behandlungsverlauf\n\n• Interdisziplinäre Zusammenarbeit: Durch enge Zusammenarbeit mit verschiedenen Fachdisziplinen trägst du massgeblich zur ganzheitlichen Behandlung und Rehabilitation bei\n\n• Regelmässige Weiterbildung: Wir bieten dir regelmässig externe Weiterbildungen an, damit du dein Fachwissen stets auf dem neuesten Stand halten kannst\n\nDein Profil\n\n• Ausbildung: Du verfügst über eine abgeschlossene Anerkennung als Diplomierte Pflegefachfrau /Pflegefachmann oder eine gleichwertige Ausbildung mit mindestens einem positiven SRK-PreCheck\n\n• Erfahrung: Du bringst Erfahrung im Umgang mit komplexen Pflegesituationen und Medizinaltechnik mit\n\n• Engagement : Du bist engagiert in der interdisziplinären Zusammenarbeit\n\n• Persönlichkeit: Du bist eine kommunikationsstarke Persönlichkeit mit einer hohen Kundenorientierung, Sozialkompetenz und Teamorientierung. Zudem zeichnen dich Flexibilität, Selbstständigkeit sowie ein kompetentes und gepflegtes Auftreten aus\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Flexibilitätsbonus: Freiwillige Teilnahme an unserem internen Pflegepool für Zusatzschichten, welche zusätzlich attraktiv Vergütet werden.\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nAnsprechpartnerin\n\nFranziska Hintermann\n\nLeitung Pflegedienst\n\nTelefon: +41 56 269 53 07\n\nE-Mail: franziska.hintermann@zurzachcare.ch",
-        "fr": "Description\n\nUne équipe engagée et passionnée recherche du renfort pour un quotidien de soins passionnant, dans lequel les soins de traitement et la technique médicale sont au centre.\n\nChez nous, nous accompagnons non seulement nos patientes et patients sur le chemin de leur réadaptation, mais nous encourageons également nos collaboratrices et collaborateurs dans leur développement professionnel et personnel.\n\nLa rigueur, la fiabilité et un grand engagement sont des conditions importantes pour accompagner au mieux nos patientes et patients.\n\nPostulez dès maintenant en ligne et rejoignez notre équipe MSK engagée.\n\nVos tâches\n\n- Prise en charge centrée sur les patients : Vous aidez nos patientes et patients à retrouver le chemin d’une vie autonome. Votre travail a une influence directe sur le processus de guérison et de traitement\n- Collaboration interdisciplinaire : Grâce à une collaboration étroite avec différentes disciplines spécialisées, vous contribuez de manière déterminante à un traitement et une réadaptation globaux\n- Formation continue régulière : Nous vous proposons régulièrement des formations continues externes afin que vous puissiez toujours maintenir vos connaissances spécialisées à jour\n\nVotre profil\n\n- Formation : Vous disposez d’une reconnaissance obtenue en tant qu’infirmière diplômée / infirmier diplômé ou d’une formation équivalente avec au moins un SRK-PreCheck positif\n- Expérience : Vous disposez d’une expérience dans la gestion de situations de soins complexes et dans l’utilisation de la technique médicale\n- Engagement : Vous faites preuve d’engagement dans la collaboration interdisciplinaire\n- Personnalité : Vous êtes une personne dotée d’excellentes capacités de communication, d’une forte orientation client, de compétences sociales et d’un bon esprit d’équipe. De plus, vous vous distinguez par votre flexibilité, votre autonomie ainsi que votre présentation professionnelle et soignée\n\nCe que nous offrons\n\n- Participation à la conception : Participez à la conception d’un environnement de travail moderne et impliquez-vous activement\n- Climat de travail inspirant et collégial : Travaillez au sein d’une équipe solidaire et respectueuse, qui s’engage collectivement pour assurer les meilleurs soins possibles à nos patientes et patients\n- Prime de flexibilité : Participation volontaire à notre pool interne de soins pour des services supplémentaires, qui sont en outre rémunérés de manière attractive.\n- Prestations d’assurances sociales supérieures à la moyenne : Profitez de prestations d’assurances sociales attrayantes et d’un ensemble complet d’avantages\n- Formation et formation continue : Participation généreuse aux frais de formation et de formation continue\n- Rabais : Profitez de rabais auprès de divers partenaires, tels que des grossistes et des pharmacies, ainsi que de notre affiliation à Benefit@work\n- Entrée gratuite : Profitez de l’entrée gratuite et d’autres avantages aux thermes bien-être FORTYSEVEN\n\nPersonne de contact\n\nFranziska Hintermann\n\nResponsable du service de soins\n\nTéléphone : +41 56 269 53 07\n\nE-mail : franziska.hintermann@zurzachcare.ch"
-      },
-      "needsRetranslation": true,
-      "location": "Bad Zurzach",
-      "canton": "AG",
-      "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Diplomierter-Pflegefachfrau-Pflegefachmann-60-80-Fachbereich-MSK-AG-5330/1445670233/",
-      "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:59.680Z",
-      "addressLocality": "Bad Zurzach",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5330",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-08T00:00:00Z",
-      "postedDate": "2026-10-08T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1445670233/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach"
-        ],
-        "it": [
-          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach"
-        ],
-        "en": [
-          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad"
-        ],
-        "fr": [
-          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-          "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
-        ]
-      },
-      "previousSlugs": [
-        "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-msk-zurzach-care-bad-zurzach",
-        "infirmier-ere-diplome-e-60-80-service-msk-zurzach-care-bad-zurzach"
-      ],
-      "firstSeenAt": "2026-10-08T21:15:07.730Z",
-      "salaryMin": 70400,
-      "salaryMax": 98400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70400,
-          "maxValue": 98400,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "zurzach-care-2dd0c52c51d8",
       "slug": "terapista-occupazionale-80-100-ambulatorio-zurzach-care-bad-zurzach",
       "slugByLocale": {
@@ -1430,7 +1430,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Ergotherapeutin-Ergotherapeut-80-100-Ambulant-AG-5330/1435287433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:59.095Z",
+      "crawledAt": "2026-10-27T21:21:00.614Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1509,7 +1509,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Pr%C3%A4senz%C3%A4rztin-Pr%C3%A4senzarzt-f%C3%BCr-Nacht-und-Feiertagsdienste-20-100-AG-5404/1414701033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:58.555Z",
+      "crawledAt": "2026-10-27T21:21:00.071Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1594,7 +1594,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Dipl_-Pflegefachfrau-Pflegefachmann-f%C3%BCr-%C3%9Cberwachungsrehabilitation-%28IMC%29-60-100-Z%C3%BCri-8952/1414629133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:57.960Z",
+      "crawledAt": "2026-10-27T21:20:59.509Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1674,7 +1674,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Basel-%28Stv%29-Ober%C3%A4rztin-Oberarzt-f%C3%BCr-intern_-onkologische-und-visz_-chirurgische-Rehabilitation-80-BS-4058/1414588233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:57.379Z",
+      "crawledAt": "2026-10-27T21:20:58.955Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1767,7 +1767,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Fachverantwortlicher-Ergotherapeutin-Ergotherapeut-80-100-LU-6000/1414870133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:56.813Z",
+      "crawledAt": "2026-10-27T21:20:58.410Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1847,7 +1847,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Ausbildung-dipl_-Pflegefachperson-HF-%282-oder-3-j%C3%A4hrig%2C-auch-f%C3%BCr-FaGe%29-Baden-D%C3%A4ttwil-AG-5404/1205972801/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:56.005Z",
+      "crawledAt": "2026-10-27T21:20:57.602Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1930,7 +1930,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Vorpraktikantin-Physiotherapie-50-100-6-Monate-befristet-AG-5404/1386067233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:55.463Z",
+      "crawledAt": "2026-10-27T21:20:57.067Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2006,7 +2006,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Ergotherapeutin-Ergotherapeut-90-100-LU-6000/1395606633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:54.855Z",
+      "crawledAt": "2026-10-27T21:20:56.548Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2083,7 +2083,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Ausbildung-dipl_-Pflegefachperson-HF-%282-oder-3-j%C3%A4hrig%2C-auch-f%C3%BCr-FaGe%29-Bad-Zurzach-AG-5330/1248661601/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:54.305Z",
+      "crawledAt": "2026-10-27T21:20:56.011Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2128,85 +2128,6 @@
       }
     },
     {
-      "id": "zurzach-care-b9f6016c6a48",
-      "slug": "assistente-medico-generale-medicina-interna-aim-100-zurzach-care-basel",
-      "slugByLocale": {
-        "it": "assistente-medico-generale-medicina-interna-aim-100-zurzach-care-basel",
-        "en": "assistant-physician-general-internal-medicine-aim-100-zurzach-care-basel",
-        "de": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel",
-        "fr": "medecin-adjoint-medecine-generale-interne-mai-100-zurzach-care-basel"
-      },
-      "company": "ZURZACH Care",
-      "companyKey": "zurzach-care",
-      "companyDomain": "zurzachcare.ch",
-      "title": "Assistenzärztin / Assistenzarzt Allgemeine Innere Medizin (AIM) 100 %",
-      "titleByLocale": {
-        "it": "Assistente medico Generale Medicina Interna (AIM) 100%",
-        "en": "Assistant physician General Internal Medicine (AIM) 100%",
-        "de": "Assistenzärztin / Assistenzarzt Allgemeine Innere Medizin (AIM) 100 %",
-        "fr": "Médecin adjoint Médecine générale interne (MAI) 100%"
-      },
-      "description": "In unserer Rehaklinik in Basel behandeln wir Patientinnen und Patienten im Bereich der postakuten internistisch-onkologischen und geriatrischen Rehabilitation durch moderne und patientenzentrierte Versorgung. Deine Arbeit bleibt dadurch vielseitig und abwechslungsreich. Das Team pflegt eine offene und klare Kommunikation, die Entscheidungswege sind kurz und deine Ideen und Anregungen sind herzlich willkommen. Du hast hier also die Möglichkeit, dich einzubringen und aktiv mitzugestalten.\n\nDeine Aufgaben\n\n• Medizinische Versorgung: Übernehme die medizinische Versorgung der stationären Patientinnen und Patienten in enger Zusammenarbeit mit dem ärztlichen Kader.\n\n• Rehabilitationsplanung: Gestalte die Planung der individuellen Rehabilitation der Patientinnen und Patienten und begleite sie von der Eintrittsuntersuchung, über regelmässige Visiten bis zur Austrittsuntersuchung\n\n• Kommunikation: Du bist die Ansprechperson bei medizinischen Fragen für die eingebundenen Berufsgruppen wie Pflege und Therapie als auch für zuweisende und nachbetreuende Ärztinnen und Ärzte sowie die Angehörigen während des Aufenthalts\n\nDein Profil\n\n• Qualifikationen: Eidgenössisches oder MEBEKO-Anerkanntes Staatsexamen, von Vorteil bereits Erfahrung im Bereich der Allgemeinen Inneren Medizin\n\n• Persönlichkeit: Du bringst fachliche und soziale Kompetenz für eine gute interdisziplinäre Zusammenarbeit mit und arbeitest strukturiert sowie selbstständig\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer neuen modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, das sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Autohäusern sowie Apotheken und profitiere von benefit@work-Vergünstigungen\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness - Therme FORTYSEVEN\n\nAnsprechpartner\n\nDr. med. Bernard Descœudres-Mathieu\n Chefarzt Rehaklinik Basel\n E-Mail: bernard.descoeudres-mathieu@zurzachcare.ch\n Telefon: +41 61 685 37 50\n\nBist du interessiert? Dann freuen uns auf deine Bewerbung über unser Onlinetool!\n\nHinweis für Personalvermittlungen:  Keine Bewerbungsdossiers oder Anrufe durch Personalvermittler erwünscht.",
-      "descriptionByLocale": {
-        "it": "Nella nostra clinica di riabilitazione a Basilea, trattiamo i pazienti nel campo della riabilitazione post-acuta internastic-oncologica e geriatrica attraverso la cura moderna e paziente-centrata. Il vostro lavoro rimane così versatile e variegato. Il team mantiene una comunicazione aperta e chiara, i percorsi decisionali sono brevi e le vostre idee e suggerimenti sono benvenuti. Così qui avete l'opportunità di entrare coinvolti e partecipare attivamente.\n\nI tuoi compiti\n\n• Assistenza medica: Riprendere l'assistenza medica dei pazienti malati in stretta collaborazione con il corpo medico.\n\n• Pianificazione della riabilitazione: Progettare la pianificazione della riabilitazione individuale dei pazienti e accompagnarli dall'esame di ingresso, attraverso visite regolari all'esame di uscita\n\n• Comunicazione: Lei è la persona di contatto per le domande mediche per i gruppi professionali coinvolti come la cura e la terapia, nonché per l'assegnazione e il follow-up medici e parenti durante il soggiorno\n\nIl tuo profilo\n\n• Qualificazioni: Esame statale riconosciuto dalla Confederazione o dalla MEBEKO, di vantaggio già sperimentato nel campo della medicina interna generale\n\n• Personalità: Portare competenze professionali e sociali per una buona cooperazione interdisciplinare e lavorare in modo strutturato e indipendente\n\nCosa offriamo\n\n• Co-creazione: Unisciti a un nuovo ambiente di lavoro moderno e partecipa attivamente\n\n• Clima di lavoro stimolante e collaborativo: lavorare in un team di supporto e di apprezzamento che lavora insieme per la migliore assistenza possibile ai pazienti\n\n• Prestazioni di sicurezza sociale sopra la media: beneficia di benefici sociali attraenti e benefici completi\n\n• Istruzione e formazione: quota generosa dei costi nell'istruzione e nella formazione\n\n• Sconti: Utilizzare sconti da vari partner, come grossisti, concessionari di auto e farmacie e beneficiare di sconti beneficio@work\n\n• Ingresso gratuito: Godetevi l'ingresso gratuito e altri vantaggi al Wellness - Therme FORTYSEVEN\n\nPersona di contatto\n\nDottor Med. Bernard Descœudres-Mathieu\nPrincipale medico Rehaklinik Basilea\nEmail: bernard.descoeudres-mathieu@zurzachcare.ch\nTelefono: +41 61 685 37 50\n\nSei interessato? Quindi non vediamo l'ora della vostra applicazione tramite il nostro strumento online!\n\nNota per le agenzie di reclutamento: non sono desiderati dossier o chiamate da agenzie di reclutamento.",
-        "en": "In our rehabilitation clinic in Basel, we treat patients in the field of post-acute internistic-oncological and geriatric rehabilitation through modern and patient-centered care. Your work thus remains versatile and varied. The team maintains open and clear communication, the decision paths are short and your ideas and suggestions are welcome. So here you have the opportunity to get involved and actively participate.\n\nYour tasks\n\n• Medical care: Take over the medical care of the inpatient patients in close cooperation with the medical cadre.\n\n• Rehabilitation planning: Design the planning of the individual rehabilitation of patients and accompany them from the entrance examination, through regular visits to the exit examination\n\n• Communication: You are the contact person for medical questions for the involved professional groups such as care and therapy as well as for assignment and follow-up doctors and relatives during the stay\n\nYour profile\n\n• Qualifications: Federal or MEBEKO-recognized state examination, of advantage already experience in the field of general internal medicine\n\n• Personality: You bring professional and social competence for a good interdisciplinary cooperation and work in a structured and independent manner\n\nWhat we offer\n\n• Co-creation: Join a new modern work environment and get actively involved\n\n• Inspiring and collaborative work climate: Work in a supportive and appreciative team that works together for the best possible patient care\n\n• Above-average social security benefits: Benefit from attractive social security benefits and comprehensive benefits\n\n• Education and training: generous share of costs in education and training\n\n• Discounts: Use discounts from various partners, such as wholesalers, car dealers and pharmacies and benefit from benefit@work discounts\n\n• Free admission: Enjoy free admission and other perks at the Wellness - Therme FORTYSEVEN\n\nContact person\n\nDr med. Bernard Descœudres-Mathieu\nChief physician Rehaklinik Basel\nEmail: bernard.descoeudres-mathieu@zurzachcare.ch\nTelephone: +41 61 685 37 50\n\nAre you interested? Then we look forward to your application via our online tool!\n\nNote for recruitment agencies: No application dossiers or calls by recruitment agencies are desired.",
-        "de": "In unserer Rehaklinik in Basel behandeln wir Patientinnen und Patienten im Bereich der postakuten internistisch-onkologischen und geriatrischen Rehabilitation durch moderne und patientenzentrierte Versorgung. Deine Arbeit bleibt dadurch vielseitig und abwechslungsreich. Das Team pflegt eine offene und klare Kommunikation, die Entscheidungswege sind kurz und deine Ideen und Anregungen sind herzlich willkommen. Du hast hier also die Möglichkeit, dich einzubringen und aktiv mitzugestalten.\n\nDeine Aufgaben\n\n• Medizinische Versorgung: Übernehme die medizinische Versorgung der stationären Patientinnen und Patienten in enger Zusammenarbeit mit dem ärztlichen Kader.\n\n• Rehabilitationsplanung: Gestalte die Planung der individuellen Rehabilitation der Patientinnen und Patienten und begleite sie von der Eintrittsuntersuchung, über regelmässige Visiten bis zur Austrittsuntersuchung\n\n• Kommunikation: Du bist die Ansprechperson bei medizinischen Fragen für die eingebundenen Berufsgruppen wie Pflege und Therapie als auch für zuweisende und nachbetreuende Ärztinnen und Ärzte sowie die Angehörigen während des Aufenthalts\n\nDein Profil\n\n• Qualifikationen: Eidgenössisches oder MEBEKO-Anerkanntes Staatsexamen, von Vorteil bereits Erfahrung im Bereich der Allgemeinen Inneren Medizin\n\n• Persönlichkeit: Du bringst fachliche und soziale Kompetenz für eine gute interdisziplinäre Zusammenarbeit mit und arbeitest strukturiert sowie selbstständig\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer neuen modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, das sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Autohäusern sowie Apotheken und profitiere von benefit@work-Vergünstigungen\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness - Therme FORTYSEVEN\n\nAnsprechpartner\n\nDr. med. Bernard Descœudres-Mathieu\nChefarzt Rehaklinik Basel\nE-Mail: bernard.descoeudres-mathieu@zurzachcare.ch\nTelefon: +41 61 685 37 50\n\nBist du interessiert? Dann freuen uns auf deine Bewerbung über unser Onlinetool!\n\nHinweis für Personalvermittlungen: Keine Bewerbungsdossiers oder Anrufe durch Personalvermittler erwünscht.",
-        "fr": "Dans notre clinique de réadaptation à Bâle, nous traitons les patients dans le domaine de la réadaptation post-aiguë en oncologie et en gériatrie par des soins modernes et centrés sur le patient. Votre travail reste donc polyvalent et varié. L'équipe maintient une communication ouverte et claire, les pistes de décision sont courtes et vos idées et suggestions sont les bienvenues. Vous avez donc ici l'occasion de vous impliquer et de participer activement.\n\nVos tâches\n\n• Soins médicaux : Prendre en charge les soins médicaux des patients hospitalisés en étroite collaboration avec le personnel médical.\n\n• Planification de la réadaptation: Concevoir la planification de la réadaptation individuelle des patients et les accompagner de l'examen d'entrée, par des visites régulières à l'examen de sortie\n\n• Communication: Vous êtes la personne de contact pour les questions médicales pour les groupes professionnels concernés tels que les soins et la thérapie ainsi que pour l'affectation et le suivi des médecins et des parents pendant le séjour\n\nVotre profil\n\n• Qualifications: examen d'état reconnu fédéral ou MEBEKO, d'avantage déjà expérience dans le domaine de la médecine interne générale\n\n• Personnalité : Vous apportez des compétences professionnelles et sociales pour une bonne coopération interdisciplinaire et un travail structuré et indépendant\n\nCe que nous offrons\n\n• Co-création: Rejoignez un nouvel environnement de travail moderne et participez activement\n\n• Un climat de travail inspirant et collaboratif : travailler dans une équipe de soutien et d'appréciation qui travaille ensemble pour les meilleurs soins possibles\n\n• Prestations de sécurité sociale supérieures à la moyenne: prestations de sécurité sociale attrayantes et prestations globales\n\n• Éducation et formation: une part généreuse des coûts de l'éducation et de la formation\n\n• Réductions: Utilisez des réductions de divers partenaires, comme les grossistes, les concessionnaires automobiles et les pharmacies et bénéficiez de réductions avantage@travail\n\n• Entrée gratuite: Profitez de l'entrée gratuite et d'autres avantages au Wellness - Therme FORTYSEVEN\n\nPersonne à contacter\n\nDr Med. Bernard Descœudres-Mathieu\nMédecin en chef Rehaklinik Basel\nCourriel: bernard.descoeudres-mathieu@zurzachcare.ch\nTéléphone: +41 61 685 37 50\n\nÇa t'intéresse ? Ensuite, nous nous réjouissons de votre application via notre outil en ligne!\n\nNote pour les agences de recrutement: Aucun dossier de candidature ou appel par les agences de recrutement n'est souhaité."
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://karriere.zurzachcare.ch/job/Basel-Assistenz%C3%A4rztin-Assistenzarzt-Allgemeine-Innere-Medizin-%28AIM%29-100-BS-4058/1447133233/",
-      "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:53.798Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-13T00:00:00Z",
-      "postedDate": "2026-10-13T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1447133233/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
-        ],
-        "fr": [
-          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
-        ]
-      },
-      "firstSeenAt": "2026-10-14T09:19:20.363Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "zurzach-care-ea2e4301b408",
       "slug": "meal-hostess-pasto-20-zurzach-care-bad-zurzach",
       "slugByLocale": {
@@ -2238,7 +2159,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Mahlzeitenbegleiterin-Mahlzeitenbegleiter-20-AG-5330/1447086433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:53.269Z",
+      "crawledAt": "2026-10-27T21:20:55.489Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2287,11 +2208,90 @@
       }
     },
     {
+      "id": "zurzach-care-b9f6016c6a48",
+      "slug": "assistente-medico-generale-medicina-interna-aim-100-zurzach-care-basel",
+      "slugByLocale": {
+        "it": "assistente-medico-generale-medicina-interna-aim-100-zurzach-care-basel",
+        "en": "assistant-physician-general-internal-medicine-aim-100-zurzach-care-basel",
+        "de": "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel",
+        "fr": "medecin-adjoint-medecine-generale-interne-mai-100-zurzach-care-basel"
+      },
+      "company": "ZURZACH Care",
+      "companyKey": "zurzach-care",
+      "companyDomain": "zurzachcare.ch",
+      "title": "Assistenzärztin / Assistenzarzt Allgemeine Innere Medizin (AIM) 100 %",
+      "titleByLocale": {
+        "it": "Assistente medico Generale Medicina Interna (AIM) 100%",
+        "en": "Assistant physician General Internal Medicine (AIM) 100%",
+        "de": "Assistenzärztin / Assistenzarzt Allgemeine Innere Medizin (AIM) 100 %",
+        "fr": "Médecin adjoint Médecine générale interne (MAI) 100%"
+      },
+      "description": "In unserer Rehaklinik in Basel behandeln wir Patientinnen und Patienten im Bereich der postakuten internistisch-onkologischen und geriatrischen Rehabilitation durch moderne und patientenzentrierte Versorgung. Deine Arbeit bleibt dadurch vielseitig und abwechslungsreich. Das Team pflegt eine offene und klare Kommunikation, die Entscheidungswege sind kurz und deine Ideen und Anregungen sind herzlich willkommen. Du hast hier also die Möglichkeit, dich einzubringen und aktiv mitzugestalten.\n\nDeine Aufgaben\n\n• Medizinische Versorgung: Übernehme die medizinische Versorgung der stationären Patientinnen und Patienten in enger Zusammenarbeit mit dem ärztlichen Kader.\n\n• Rehabilitationsplanung: Gestalte die Planung der individuellen Rehabilitation der Patientinnen und Patienten und begleite sie von der Eintrittsuntersuchung, über regelmässige Visiten bis zur Austrittsuntersuchung\n\n• Kommunikation: Du bist die Ansprechperson bei medizinischen Fragen für die eingebundenen Berufsgruppen wie Pflege und Therapie als auch für zuweisende und nachbetreuende Ärztinnen und Ärzte sowie die Angehörigen während des Aufenthalts\n\nDein Profil\n\n• Qualifikationen: Eidgenössisches oder MEBEKO-Anerkanntes Staatsexamen, von Vorteil bereits Erfahrung im Bereich der Allgemeinen Inneren Medizin\n\n• Persönlichkeit: Du bringst fachliche und soziale Kompetenz für eine gute interdisziplinäre Zusammenarbeit mit und arbeitest strukturiert sowie selbstständig\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer neuen modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, das sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Autohäusern sowie Apotheken und profitiere von benefit@work-Vergünstigungen\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness - Therme FORTYSEVEN\n\nAnsprechpartner\n\nDr. med. Bernard Descœudres-Mathieu\n Chefarzt Rehaklinik Basel\n E-Mail: bernard.descoeudres-mathieu@zurzachcare.ch\n Telefon: +41 61 685 37 50\n\nBist du interessiert? Dann freuen uns auf deine Bewerbung über unser Onlinetool!\n\nHinweis für Personalvermittlungen:  Keine Bewerbungsdossiers oder Anrufe durch Personalvermittler erwünscht.",
+      "descriptionByLocale": {
+        "it": "Nella nostra clinica di riabilitazione a Basilea, trattiamo i pazienti nel campo della riabilitazione post-acuta internastic-oncologica e geriatrica attraverso la cura moderna e paziente-centrata. Il vostro lavoro rimane così versatile e variegato. Il team mantiene una comunicazione aperta e chiara, i percorsi decisionali sono brevi e le vostre idee e suggerimenti sono benvenuti. Così qui avete l'opportunità di entrare coinvolti e partecipare attivamente.\n\nI tuoi compiti\n\n• Assistenza medica: Riprendere l'assistenza medica dei pazienti malati in stretta collaborazione con il corpo medico.\n\n• Pianificazione della riabilitazione: Progettare la pianificazione della riabilitazione individuale dei pazienti e accompagnarli dall'esame di ingresso, attraverso visite regolari all'esame di uscita\n\n• Comunicazione: Lei è la persona di contatto per le domande mediche per i gruppi professionali coinvolti come la cura e la terapia, nonché per l'assegnazione e il follow-up medici e parenti durante il soggiorno\n\nIl tuo profilo\n\n• Qualificazioni: Esame statale riconosciuto dalla Confederazione o dalla MEBEKO, di vantaggio già sperimentato nel campo della medicina interna generale\n\n• Personalità: Portare competenze professionali e sociali per una buona cooperazione interdisciplinare e lavorare in modo strutturato e indipendente\n\nCosa offriamo\n\n• Co-creazione: Unisciti a un nuovo ambiente di lavoro moderno e partecipa attivamente\n\n• Clima di lavoro stimolante e collaborativo: lavorare in un team di supporto e di apprezzamento che lavora insieme per la migliore assistenza possibile ai pazienti\n\n• Prestazioni di sicurezza sociale sopra la media: beneficia di benefici sociali attraenti e benefici completi\n\n• Istruzione e formazione: quota generosa dei costi nell'istruzione e nella formazione\n\n• Sconti: Utilizzare sconti da vari partner, come grossisti, concessionari di auto e farmacie e beneficiare di sconti beneficio@work\n\n• Ingresso gratuito: Godetevi l'ingresso gratuito e altri vantaggi al Wellness - Therme FORTYSEVEN\n\nPersona di contatto\n\nDottor Med. Bernard Descœudres-Mathieu\nPrincipale medico Rehaklinik Basilea\nEmail: bernard.descoeudres-mathieu@zurzachcare.ch\nTelefono: +41 61 685 37 50\n\nSei interessato? Quindi non vediamo l'ora della vostra applicazione tramite il nostro strumento online!\n\nNota per le agenzie di reclutamento: non sono desiderati dossier o chiamate da agenzie di reclutamento.",
+        "en": "In our rehabilitation clinic in Basel, we treat patients in the field of post-acute internistic-oncological and geriatric rehabilitation through modern and patient-centered care. Your work thus remains versatile and varied. The team maintains open and clear communication, the decision paths are short and your ideas and suggestions are welcome. So here you have the opportunity to get involved and actively participate.\n\nYour tasks\n\n• Medical care: Take over the medical care of the inpatient patients in close cooperation with the medical cadre.\n\n• Rehabilitation planning: Design the planning of the individual rehabilitation of patients and accompany them from the entrance examination, through regular visits to the exit examination\n\n• Communication: You are the contact person for medical questions for the involved professional groups such as care and therapy as well as for assignment and follow-up doctors and relatives during the stay\n\nYour profile\n\n• Qualifications: Federal or MEBEKO-recognized state examination, of advantage already experience in the field of general internal medicine\n\n• Personality: You bring professional and social competence for a good interdisciplinary cooperation and work in a structured and independent manner\n\nWhat we offer\n\n• Co-creation: Join a new modern work environment and get actively involved\n\n• Inspiring and collaborative work climate: Work in a supportive and appreciative team that works together for the best possible patient care\n\n• Above-average social security benefits: Benefit from attractive social security benefits and comprehensive benefits\n\n• Education and training: generous share of costs in education and training\n\n• Discounts: Use discounts from various partners, such as wholesalers, car dealers and pharmacies and benefit from benefit@work discounts\n\n• Free admission: Enjoy free admission and other perks at the Wellness - Therme FORTYSEVEN\n\nContact person\n\nDr med. Bernard Descœudres-Mathieu\nChief physician Rehaklinik Basel\nEmail: bernard.descoeudres-mathieu@zurzachcare.ch\nTelephone: +41 61 685 37 50\n\nAre you interested? Then we look forward to your application via our online tool!\n\nNote for recruitment agencies: No application dossiers or calls by recruitment agencies are desired.",
+        "de": "In unserer Rehaklinik in Basel behandeln wir Patientinnen und Patienten im Bereich der postakuten internistisch-onkologischen und geriatrischen Rehabilitation durch moderne und patientenzentrierte Versorgung. Deine Arbeit bleibt dadurch vielseitig und abwechslungsreich. Das Team pflegt eine offene und klare Kommunikation, die Entscheidungswege sind kurz und deine Ideen und Anregungen sind herzlich willkommen. Du hast hier also die Möglichkeit, dich einzubringen und aktiv mitzugestalten.\n\nDeine Aufgaben\n\n• Medizinische Versorgung: Übernehme die medizinische Versorgung der stationären Patientinnen und Patienten in enger Zusammenarbeit mit dem ärztlichen Kader.\n\n• Rehabilitationsplanung: Gestalte die Planung der individuellen Rehabilitation der Patientinnen und Patienten und begleite sie von der Eintrittsuntersuchung, über regelmässige Visiten bis zur Austrittsuntersuchung\n\n• Kommunikation: Du bist die Ansprechperson bei medizinischen Fragen für die eingebundenen Berufsgruppen wie Pflege und Therapie als auch für zuweisende und nachbetreuende Ärztinnen und Ärzte sowie die Angehörigen während des Aufenthalts\n\nDein Profil\n\n• Qualifikationen: Eidgenössisches oder MEBEKO-Anerkanntes Staatsexamen, von Vorteil bereits Erfahrung im Bereich der Allgemeinen Inneren Medizin\n\n• Persönlichkeit: Du bringst fachliche und soziale Kompetenz für eine gute interdisziplinäre Zusammenarbeit mit und arbeitest strukturiert sowie selbstständig\n\nWas wir bieten\n\n• Mitgestaltung: Wirke in einer neuen modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima: Arbeite in einem unterstützenden und wertschätzenden Team, das sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen: Profitiere von attraktiven Sozialversicherungsleistungen und umfassenden Benefits\n\n• Aus- und Weiterbildung: Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte: Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Autohäusern sowie Apotheken und profitiere von benefit@work-Vergünstigungen\n\n• Kostenloser Eintritt: Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness - Therme FORTYSEVEN\n\nAnsprechpartner\n\nDr. med. Bernard Descœudres-Mathieu\nChefarzt Rehaklinik Basel\nE-Mail: bernard.descoeudres-mathieu@zurzachcare.ch\nTelefon: +41 61 685 37 50\n\nBist du interessiert? Dann freuen uns auf deine Bewerbung über unser Onlinetool!\n\nHinweis für Personalvermittlungen: Keine Bewerbungsdossiers oder Anrufe durch Personalvermittler erwünscht.",
+        "fr": "Dans notre clinique de réadaptation à Bâle, nous traitons les patients dans le domaine de la réadaptation post-aiguë en oncologie et en gériatrie par des soins modernes et centrés sur le patient. Votre travail reste donc polyvalent et varié. L'équipe maintient une communication ouverte et claire, les pistes de décision sont courtes et vos idées et suggestions sont les bienvenues. Vous avez donc ici l'occasion de vous impliquer et de participer activement.\n\nVos tâches\n\n• Soins médicaux : Prendre en charge les soins médicaux des patients hospitalisés en étroite collaboration avec le personnel médical.\n\n• Planification de la réadaptation: Concevoir la planification de la réadaptation individuelle des patients et les accompagner de l'examen d'entrée, par des visites régulières à l'examen de sortie\n\n• Communication: Vous êtes la personne de contact pour les questions médicales pour les groupes professionnels concernés tels que les soins et la thérapie ainsi que pour l'affectation et le suivi des médecins et des parents pendant le séjour\n\nVotre profil\n\n• Qualifications: examen d'état reconnu fédéral ou MEBEKO, d'avantage déjà expérience dans le domaine de la médecine interne générale\n\n• Personnalité : Vous apportez des compétences professionnelles et sociales pour une bonne coopération interdisciplinaire et un travail structuré et indépendant\n\nCe que nous offrons\n\n• Co-création: Rejoignez un nouvel environnement de travail moderne et participez activement\n\n• Un climat de travail inspirant et collaboratif : travailler dans une équipe de soutien et d'appréciation qui travaille ensemble pour les meilleurs soins possibles\n\n• Prestations de sécurité sociale supérieures à la moyenne: prestations de sécurité sociale attrayantes et prestations globales\n\n• Éducation et formation: une part généreuse des coûts de l'éducation et de la formation\n\n• Réductions: Utilisez des réductions de divers partenaires, comme les grossistes, les concessionnaires automobiles et les pharmacies et bénéficiez de réductions avantage@travail\n\n• Entrée gratuite: Profitez de l'entrée gratuite et d'autres avantages au Wellness - Therme FORTYSEVEN\n\nPersonne à contacter\n\nDr Med. Bernard Descœudres-Mathieu\nMédecin en chef Rehaklinik Basel\nCourriel: bernard.descoeudres-mathieu@zurzachcare.ch\nTéléphone: +41 61 685 37 50\n\nÇa t'intéresse ? Ensuite, nous nous réjouissons de votre application via notre outil en ligne!\n\nNote pour les agences de recrutement: Aucun dossier de candidature ou appel par les agences de recrutement n'est souhaité."
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://karriere.zurzachcare.ch/job/Basel-Assistenz%C3%A4rztin-Assistenzarzt-Allgemeine-Innere-Medizin-%28AIM%29-100-BS-4058/1447133233/",
+      "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T21:20:54.970Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-13T00:00:00Z",
+      "postedDate": "2026-10-13T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1447133233/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-allgemeine-innere-medizin-aim-100-zurzach-care-basel"
+        ]
+      },
+      "firstSeenAt": "2026-10-14T09:19:20.363Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "zurzach-care-a37305c528d2",
       "slug": "terapia-creativa-terapia-creativa-40-zurzach-care-bad-zurzach",
       "slugByLocale": {
         "it": "terapia-creativa-terapia-creativa-40-zurzach-care-bad-zurzach",
-        "en": "creative-therapist-creative-therapist-40-zurzach-care-bad-zurzach",
+        "en": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
         "de": "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
         "fr": "therapeute-creative-therapeute-creative-40-zurzach-care-bad-zurzach"
       },
@@ -2317,7 +2317,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Kreativtherapeutin-Kreativtherapeut-40-AG-5330/1446772533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:52.750Z",
+      "crawledAt": "2026-10-27T21:20:54.423Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2337,14 +2337,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+        "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach",
+        "creative-therapist-creative-therapist-40-zurzach-care-bad-zurzach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
         ],
         "en": [
-          "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
+          "creative-therapist-creative-therapist-40-zurzach-care-bad-zurzach"
         ],
         "fr": [
           "kreativtherapeutin-kreativtherapeut-40-zurzach-care-bad-zurzach"
@@ -2372,7 +2373,7 @@
         "it": "neuropsicologo-40-80-zurzach-care-luzern",
         "en": "neuropsychologist-40-80-zurzach-care-luzern",
         "de": "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern",
-        "fr": "neuropsychologue-40-80-zurzach-care-luzern"
+        "fr": "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -2396,7 +2397,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Neuropsychologin-Neuropsychologe-40-80-LU-6000/1447413233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:52.172Z",
+      "crawledAt": "2026-10-27T21:20:53.898Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2416,7 +2417,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
+        "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern",
+        "neuropsychologue-40-80-zurzach-care-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2426,7 +2428,7 @@
           "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
         ],
         "fr": [
-          "neuropsychologin-neuropsychologe-40-80-zurzach-care-luzern"
+          "neuropsychologue-40-80-zurzach-care-luzern"
         ]
       },
       "firstSeenAt": "2026-10-15T09:16:21.643Z",
@@ -2476,7 +2478,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Ober%C3%A4rztin-Oberarzt-90-Z%C3%BCri-8952/1447596733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:51.650Z",
+      "crawledAt": "2026-10-27T21:20:53.377Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2555,7 +2557,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Dipl_-Pflegefachfrau-Dipl_-Pflegefachmann-IMC-70-100-AG-5404/1376891433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:51.044Z",
+      "crawledAt": "2026-10-27T21:20:52.852Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2643,7 +2645,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Mitarbeiterin-Mitarbeiter-B%C3%A4der-im-Stundenlohn-%28ca_-10-%29-GL-8784/1437165933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:50.485Z",
+      "crawledAt": "2026-10-27T21:20:52.328Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -2724,7 +2726,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Dipl_-Pflegefachperson-FaGe-MPA-60-100-im-Sp%C3%A4t-und-Nachtdienst-AG-5400/1437124733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:49.918Z",
+      "crawledAt": "2026-10-27T21:20:51.783Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2806,7 +2808,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Spontanbewerbung-ZURZACH-Care-AG-5330/1168242201/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:49.361Z",
+      "crawledAt": "2026-10-27T21:20:51.216Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2887,7 +2889,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Leiterin-Psychologie-%2860-100-%29-mit-abgeschlossener-Weiterbildung-in-Psychotherapie-AG-5400/1447890833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:48.779Z",
+      "crawledAt": "2026-10-27T21:20:50.645Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2967,7 +2969,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Betriebstechnikerin-Betriebstechniker-mit-Hintergrund-Heizung-Sanit%C3%A4r-AG-5401/1437545333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:48.226Z",
+      "crawledAt": "2026-10-27T21:20:50.099Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3046,7 +3048,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Head-of-IT-80-100-AG-5330/1448608133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:47.644Z",
+      "crawledAt": "2026-10-27T21:20:49.567Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3123,7 +3125,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Physiotherapeutin-Physiotherapeut-auf-Stundenbasis-GL-8784/1417149333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:47.048Z",
+      "crawledAt": "2026-10-27T21:20:49.033Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -3206,7 +3208,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-KochK%C3%B6chin-80-100-AG-5400/1437860133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:46.445Z",
+      "crawledAt": "2026-10-27T21:20:48.502Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3286,7 +3288,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Vorpraktikantin-Therapie-%28wmd%29-100-Baden-AG-5401/1417221733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:45.888Z",
+      "crawledAt": "2026-10-27T21:20:47.968Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3369,7 +3371,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Diplomierter-Pflegefachfrau-Pflegefachmann-60-100-Z%C3%BCri-8952/1417567833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:45.364Z",
+      "crawledAt": "2026-10-27T21:20:47.457Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3459,7 +3461,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Zivildienst-Pflege%2C-Therapie%2C-Service%2C-K%C3%BCche%2C-Administration%2C-Gartenbau-und-Therapie-AG-5330/1368019833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:44.839Z",
+      "crawledAt": "2026-10-27T21:20:46.937Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3532,7 +3534,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Diplomierter-Pflegefachfrau-Pflegefachmann-60-100-AG-5404/1368061433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:44.301Z",
+      "crawledAt": "2026-10-27T21:20:46.416Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3622,7 +3624,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Fachfrau-Fachmann-Apotheke-%28Pharma-Assistentin%29-EFZ-40-60-AG-5401/1449140433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:43.748Z",
+      "crawledAt": "2026-10-27T21:20:45.858Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3702,7 +3704,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Berufsbildnerin-Berufsbildner-Pflege-80-100-LU-6000/1408261933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:43.207Z",
+      "crawledAt": "2026-10-27T21:20:45.315Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3795,7 +3797,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Dipl_-Pflegefachfrau-Pflegefachmann-80-100-Fachbereich-Neurologie-AG-5330/1439293233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:42.635Z",
+      "crawledAt": "2026-10-27T21:20:44.712Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3875,7 +3877,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Logop%C3%A4din-Logop%C3%A4de-f%C3%BCr-station%C3%A4re-Therapien-mit-Schwerpunkt-Neurologie-40-80-AG-5330/1439367333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:42.097Z",
+      "crawledAt": "2026-10-27T21:20:44.186Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3956,7 +3958,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Bildungsmanagerin-Bildungsmanager-80-100-Therapie-AG-5330/1449859033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:41.533Z",
+      "crawledAt": "2026-10-27T21:20:43.460Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4037,7 +4039,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Ober%C3%A4rztin-Oberarzt-Physikalische-Medizin-%28PMR%29-oder-Rheumatologie-Allgemeine-Innere-Medizin-AG-5330/1449962733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:40.990Z",
+      "crawledAt": "2026-10-27T21:20:42.893Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4121,7 +4123,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Basel-Diplomierte-Pflegefachfrau-Pflegefachmann-80-100-Fachbereich-Onkologie-BS-4058/1440175833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:40.475Z",
+      "crawledAt": "2026-10-27T21:20:42.362Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4201,7 +4203,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Assistenz%C3%A4rztin-Assistenzarzt-AIM-Rheumatologie-PMR-100-AG-5330/1369933933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:39.915Z",
+      "crawledAt": "2026-10-27T21:20:41.799Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4295,7 +4297,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Basel-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Basel-BS-4058/1409402733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:39.397Z",
+      "crawledAt": "2026-10-27T21:20:41.241Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4374,7 +4376,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Restaurantfachfrau-mann-EFZ-oder-Restaurantangestellter-EBA-Start-2027-AG-5330/1409410733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:38.865Z",
+      "crawledAt": "2026-10-27T21:20:40.693Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4458,7 +4460,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Logistiker-Logistikerin-EFZ-Start-2027-AG-5330/1409406933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:38.311Z",
+      "crawledAt": "2026-10-27T21:20:40.157Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4537,7 +4539,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Fachmann-Fachfrau-Betriebsunterhalt-EFZ-Start-2027-AG-5330/1409399533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:37.766Z",
+      "crawledAt": "2026-10-27T21:20:39.619Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4616,7 +4618,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Lehrstelle-K%C3%B6chin-Koch-EFZ-oder-K%C3%BCchenangestellter-EBA-Start-2027-Baden-AG-5401/1409441433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:37.206Z",
+      "crawledAt": "2026-10-27T21:20:39.104Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4695,7 +4697,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Assistentin-Assistent-Gesundheit-und-Soziales-%28AGS%29-EBA-Start-2027-Bad-Zurzach-AG-5330/1409621133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:36.382Z",
+      "crawledAt": "2026-10-27T21:20:38.260Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4774,7 +4776,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-K%C3%B6chin-Koch-EFZ-oder-K%C3%BCchenangestellter-EBA-Start-2027-Bad-Zurzach-AG-5330/1409621333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:35.835Z",
+      "crawledAt": "2026-10-27T21:20:37.729Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4853,7 +4855,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Lehrstelle-Assistentin-Assistent-Gesundheit-und-Soziales-%28AGS%29-EBA-Start-2027-Baden-AG-5401/1409620733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:34.967Z",
+      "crawledAt": "2026-10-27T21:20:36.900Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4932,7 +4934,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Chef%C3%A4rztin-Chefarzt-100-Fachbereich-MSK-AG-5330/1431538533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:34.432Z",
+      "crawledAt": "2026-10-27T21:20:36.338Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5011,7 +5013,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Vorpraktikum-Therapie-%28ErgotherapiePhysiotherapie%29-100-AG-5330/1291298901/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:33.844Z",
+      "crawledAt": "2026-10-27T21:20:35.785Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5103,7 +5105,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Chef%C3%A4rztin-Chefarzt-100-Fachbereich-Neurologie-AG-5330/1431538133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:33.317Z",
+      "crawledAt": "2026-10-27T21:20:35.250Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5183,7 +5185,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Ausbildung-dipl_-Pflegefachperson-HF-%282-oder-3-j%C3%A4hrig%2C-auch-f%C3%BCr-FaGe%29-Limmattal-Z%C3%BCri-8952/1288183001/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:32.799Z",
+      "crawledAt": "2026-10-27T21:20:34.717Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5267,7 +5269,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Baden-D%C3%A4ttwil-AG-5404/1410697233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:32.272Z",
+      "crawledAt": "2026-10-27T21:20:34.162Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5346,7 +5348,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Baden-AG-5401/1410697833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:31.736Z",
+      "crawledAt": "2026-10-27T21:20:33.646Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5425,7 +5427,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Bad-Zurzach-AG-5330/1410698133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:31.181Z",
+      "crawledAt": "2026-10-27T21:20:33.122Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5504,7 +5506,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Projektleiter-Digitalisierung-Gesundheitswesen-80-100-AG-5330/1436972633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:30.636Z",
+      "crawledAt": "2026-10-27T21:20:32.571Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5581,7 +5583,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Praktikantin-SPA-&-Wellness-Massagen-von-November-2026-Februar-2027-AG-5400/1371449033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:30.070Z",
+      "crawledAt": "2026-10-27T21:20:32.044Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5659,7 +5661,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Logop%C3%A4din-Logop%C3%A4de-60-100-LU-6000/1441679233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:28:29.501Z",
+      "crawledAt": "2026-10-27T21:20:31.497Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5706,91 +5708,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "zurzach-care-778216d47bb3",
-      "slug": "bagno-e-sauna-master-60-100-zurzach-care-baden",
-      "slugByLocale": {
-        "it": "bagno-e-sauna-master-60-100-zurzach-care-baden",
-        "en": "bathroom-and-sauna-master-60-100-zurzach-care-baden",
-        "de": "badmeister-in-saunameister-in-60-100-zurzach-care-baden",
-        "fr": "salle-de-bain-et-sauna-maitre-60-100-zurzach-care-baden"
-      },
-      "company": "ZURZACH Care",
-      "companyKey": "zurzach-care",
-      "companyDomain": "zurzachcare.ch",
-      "title": "Bad- und Saunameister*in 60-100 %",
-      "titleByLocale": {
-        "it": "Bagno e sauna master 60-100 %",
-        "en": "Bathroom and sauna master 60-100 %",
-        "de": "Bad- und Saunameister*in 60-100 %",
-        "fr": "Salle de bain et sauna maître 60-100 %"
-      },
-      "description": "Mit deinen Aufgaben wird FORTYSEVEN zur Wohlfühloase\n\n• Du betreust den gesamten Bade- und Saunabereich und sorgst für das Wohlbefinden deiner Gäste durch aufmerksame Betreuung, fachkundige Beratung und informierst sie über unser umfangreiches Angebot an Dienstleistungen und Produkten\n\n• Ausserdem sorgst du für die Sicherheit unserer Gäste, indem du proaktiv Unfälle verhinderst und in Notfällen medizinische Erste Hilfe leistest\n\n• Du spielst eine wichtige Rolle bei der Aufrechterhaltung der Sauberkeit der Therme. Mit grosser Sorgfalt führst du kleinere Reinigungsarbeiten durch und entnimmst verantwortungsvoll Wasserproben gemäss SIA-Normen\n\n• Du führst unsere beliebten Saunaaufgüsse durch, und bist Teil unserer innovativen Sauna-Events. In deinem Bereich Bad/Sauna schaffst du so ein aussergewöhnliches Gästeerlebnis\n\n• Auf deinen Rundgängen betreust du die Getränkestationen und sorgst dafür, dass der Tee immer nachgefüllt und der Bereich sauber gehalten wird. Du kümmerst dich darum, die Wäschewagen mit gebrauchter Wäsche zu versorgen und stellst frische Wäsche bereit. Schliesslich überwachst du den Fundbürobereich und sorgst dafür, dass alle verlorenen Gegenstände wiedergefunden werden\n\nDein Profil\n\n• Du hast eine abgeschlossene BLS-AED-Ausbildung und das Schwimmbrevet SLRG Pro Pool und/oder IGBA Pro erfolgreich absolviert\n\n• Du verfügst idealerweise eine Ausbildung als Fachangestellter Bäderbetrieb (DE) oder hast den Badeangestelltenkurs BAKU (CH) der IGBA besucht\n\n• Du hast in der Vergangenheit bereits Gäste mit exzellenten Saunaaufgüssen verwöhnen dürfen und wirktest bei Saunaevents aktiv mit\n\nDeine Persönlichkeit\n\n• Die Zufriedenheit unserer Gäste ist von grösster Bedeutung und du hast die Fähigkeit, mit ihnen auf professionelle und herzliche Weise umzugehen, um ein positives Erlebnis zu schaffen\n\n• Du bist jemand, der Teamarbeit schätzt und seine Teamkolleg*innen aktiv ermutigt und unterstützt\n\n• Es macht dir nichts aus, im Schichtdienst, an Wochenenden oder Feiertagen zu arbeiten, aber du geniesst mindestens einmal im Monat ein freies Wochenende\n\n• Für diese Aufgaben ist es wichtig, dass du über eine gute körperliche Fitness verfügst und es gewohnt bist, den ganzen Tag auf den Beinen zu sein. Denk auch daran, dass wir stets warme Temperaturen haben und die Luftfeuchtigkeit in einer Therme doch sehr hoch sein kann – das solltest du mögen\n\n• Du bist bekannt für dein Verantwortungsbewusstsein\n\nDeine Benefits\n\n• Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Profitiere von attraktiven und überdurchschnittlichen Sozialversicherungsleistungen und umfassenden Benefits\n\n• Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Autohäusern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Geniesse kostenlosen Eintritt in die Wellness-Therme FORTYSEVEN\n\n• Auf alle FORTYSEVEN Massagen und Behandlungen erhältst du das ganze Jahr 50% Rabatt\n\n• Wasser, Kaffee/Tee & Obst steht dir jederzeit kostenlos zur Verfügung\n\n• Du kannst jederzeit mit dem Auto anreisen, einen Parkplatz stellen wir dir zur Verfügung (kostenpflichtig)\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\n HR Assistentin\n +41 56 269 78 28\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbungstool ein.\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nBahri Tahiri\n Leitung Bad & Sauna\n +41 56 269 18 58\n b.tahiri@fortyseven.ch",
-      "descriptionByLocale": {
-        "it": "Con i vostri compiti, FORTYSEVEN diventa un'oasi di benessere\n\n• Si prende cura di tutta la zona di balneazione e sauna e assicura il benessere dei vostri ospiti attraverso la cura attenta, consigli esperti e informarli sulla nostra vasta gamma di servizi e prodotti\n\n• Garantisci inoltre la sicurezza dei nostri ospiti impedendo in modo proattivo gli incidenti e fornendo assistenza medica per le emergenze\n\n• Si gioca un ruolo importante nel mantenere la pulizia della spa. Con grande cura si effettuano piccoli lavori di pulizia e prendere campioni di acqua in modo responsabile secondo gli standard SIA\n\n• Fai le nostre infusioni di sauna popolari e fai parte dei nostri eventi di sauna innovativi. Nella tua zona bagno/sauna crei un'esperienza eccezionale per gli ospiti\n\n• Durante i vostri tour, supervisionerete le stazioni della bevanda e assicuratevi che il tè sia sempre riempito e la zona è tenuta pulita. Si prende cura di fornire i carrelli lavanderia con lavanderia usata e fornire lavanderia fresca. Infine, si monitora l'area dell'ufficio di proprietà perduta e assicurarsi che tutti gli oggetti persi siano trovati.\n\nIl tuo profilo\n\n• Hai completato la formazione BLS-AED e completato con successo il brevetto SLRG Pro Pool e/o IGBA Pro nuoto\n\n• Idealmente, si dispone di un apprendistato come dipendente specializzato nelle operazioni di balneazione (DE) o hanno frequentato il corso di balneazione dipendente BAKU (CH) della IGBA\n\n• Avete già coccolato gli ospiti con ottime infusioni di sauna in passato e hanno partecipato attivamente a eventi di sauna\n\nLa tua personalità\n\n• La soddisfazione dei nostri ospiti è fondamentale e avete la capacità di affrontarli in modo professionale e caldo per creare un'esperienza positiva.\n\n• Sei qualcuno che apprezza il lavoro di squadra e incoraggia attivamente e supporta i tuoi compagni di squadra\n\n• Non ti dispiace lavorare turni, weekend o vacanze, ma ti piace un weekend gratuito almeno una volta al mese.\n\n• Per queste attività, è importante che si dispone di una buona forma fisica e sono utilizzati per essere in piedi tutto il giorno. Ricordate anche che abbiamo sempre temperature calde e l'umidità in una spa può essere molto alta – vi piace\n\n• Siete conosciuti per il vostro senso di responsabilità\n\nI tuoi vantaggi\n\n• Lavorare in un ambiente di lavoro moderno e partecipare attivamente\n\n• Vantaggio di benefici sociali attraenti e sopra la media e benefici completi\n\n• Condivisione dei costi e formazione\n\n• Utilizzare sconti presso vari partner, come grossisti, concessionari di auto, farmacie e la nostra appartenenza a Benefit@work\n\n• Godetevi l'ingresso gratuito al centro benessere FORTYSEVEN\n\n• Su tutti i massaggi e i trattamenti FORTYSEVEN si ottiene il 50% di sconto durante l'anno\n\n• Acqua, caffè/tè e frutta è sempre disponibile gratuitamente\n\n• Puoi sempre arrivare in auto, ti forniamo un posto auto (a pagamento)\n\nDomande generali sul processo di applicazione, si prega di contattare direttamente:\n\nCorinna Schmidle\nAssistente HR\n+41 56 269 78 28\n\nSi prega di inviare la vostra applicazione esclusivamente tramite il nostro strumento di applicazione.\n\nDomande sul contenuto di lavoro direttamente a:\n\nBahri Tahiri\nGestione di Bad & Sauna\n+41 56 269 18 58\nb.tahiri@fortyseven.ch",
-        "en": "With your tasks, FORTYSEVEN becomes an oasis of well-being\n\n• You take care of the entire bathing and sauna area and ensure the well-being of your guests through attentive care, expert advice and inform them about our extensive range of services and products\n\n• You also ensure the safety of our guests by proactively preventing accidents and providing medical first aid in emergencies\n\n• You play an important role in maintaining the cleanliness of the spa. With great care you carry out minor cleaning work and take water samples responsibly according to SIA standards\n\n• You perform our popular sauna infusions and are part of our innovative sauna events. In your bathroom/sauna area you create an exceptional guest experience\n\n• On your tours, you will supervise the drink stations and ensure that the tea is always refilled and the area is kept clean. You take care of providing the laundry trolleys with used laundry and provide fresh laundry. Finally, you monitor the lost property office area and ensure that all lost items are found.\n\nYour profile\n\n• You have completed BLS-AED training and successfully completed the SLRG Pro Pool and/or IGBA Pro swimming brevet\n\n• Ideally, you have an apprenticeship as a specialist employee in bathing operations (DE) or have attended the bathing employee course BAKU (CH) of the IGBA\n\n• You have already pampered guests with excellent sauna infusions in the past and have actively participated in sauna events\n\nYour personality\n\n• The satisfaction of our guests is paramount and you have the ability to deal with them in a professional and warm way to create a positive experience.\n\n• You are someone who values teamwork and actively encourages and supports your teammates\n\n• You don’t mind working shifts, weekends or holidays, but you enjoy a free weekend at least once a month.\n\n• For these tasks, it is important that you have good physical fitness and are used to being on your feet all day. Also remember that we always have warm temperatures and the humidity in a spa can be very high – you should like that\n\n• You are known for your sense of responsibility\n\nYour Benefits\n\n• Work in a modern work environment and actively participate\n\n• Benefit from attractive and above-average social security benefits and comprehensive benefits\n\n• Generous cost-sharing of education and training\n\n• Use discounts at various partners, such as wholesalers, car dealers, pharmacies and our membership at Benefit@work\n\n• Enjoy free admission to the FORTYSEVEN spa\n\n• On all FORTYSEVEN massages and treatments you get 50% discount throughout the year\n\n• Water, coffee/tea & fruit is always available free of charge\n\n• You can always arrive by car, we provide you with a parking space (paid)\n\nGeneral questions about the application process, please contact directly:\n\nCorinna Schmidle\nHR assistant\n+41 56 269 78 28\n\nPlease submit your application exclusively via our application tool.\n\nQuestions about the work content directly to:\n\nBahri Tahiri\nManagement of Bad & Sauna\n+41 56 269 18 58\nb.tahiri@fortyseven.ch",
-        "de": "Mit deinen Aufgaben wird FORTYSEVEN zur Wohlfühloase\n\n• Du betreust den gesamten Bade- und Saunabereich und sorgst für das Wohlbefinden deiner Gäste durch aufmerksame Betreuung, fachkundige Beratung und informierst sie über unser umfangreiches Angebot an Dienstleistungen und Produkten\n\n• Ausserdem sorgst du für die Sicherheit unserer Gäste, indem du proaktiv Unfälle verhinderst und in Notfällen medizinische Erste Hilfe leistest\n\n• Du spielst eine wichtige Rolle bei der Aufrechterhaltung der Sauberkeit der Therme. Mit grosser Sorgfalt führst du kleinere Reinigungsarbeiten durch und entnimmst verantwortungsvoll Wasserproben gemäss SIA-Normen\n\n• Du führst unsere beliebten Saunaaufgüsse durch, und bist Teil unserer innovativen Sauna-Events. In deinem Bereich Bad/Sauna schaffst du so ein aussergewöhnliches Gästeerlebnis\n\n• Auf deinen Rundgängen betreust du die Getränkestationen und sorgst dafür, dass der Tee immer nachgefüllt und der Bereich sauber gehalten wird. Du kümmerst dich darum, die Wäschewagen mit gebrauchter Wäsche zu versorgen und stellst frische Wäsche bereit. Schliesslich überwachst du den Fundbürobereich und sorgst dafür, dass alle verlorenen Gegenstände wiedergefunden werden\n\nDein Profil\n\n• Du hast eine abgeschlossene BLS-AED-Ausbildung und das Schwimmbrevet SLRG Pro Pool und/oder IGBA Pro erfolgreich absolviert\n\n• Du verfügst idealerweise eine Ausbildung als Fachangestellter Bäderbetrieb (DE) oder hast den Badeangestelltenkurs BAKU (CH) der IGBA besucht\n\n• Du hast in der Vergangenheit bereits Gäste mit exzellenten Saunaaufgüssen verwöhnen dürfen und wirktest bei Saunaevents aktiv mit\n\nDeine Persönlichkeit\n\n• Die Zufriedenheit unserer Gäste ist von grösster Bedeutung und du hast die Fähigkeit, mit ihnen auf professionelle und herzliche Weise umzugehen, um ein positives Erlebnis zu schaffen\n\n• Du bist jemand, der Teamarbeit schätzt und seine Teamkolleg*innen aktiv ermutigt und unterstützt\n\n• Es macht dir nichts aus, im Schichtdienst, an Wochenenden oder Feiertagen zu arbeiten, aber du geniesst mindestens einmal im Monat ein freies Wochenende\n\n• Für diese Aufgaben ist es wichtig, dass du über eine gute körperliche Fitness verfügst und es gewohnt bist, den ganzen Tag auf den Beinen zu sein. Denk auch daran, dass wir stets warme Temperaturen haben und die Luftfeuchtigkeit in einer Therme doch sehr hoch sein kann – das solltest du mögen\n\n• Du bist bekannt für dein Verantwortungsbewusstsein\n\nDeine Benefits\n\n• Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Profitiere von attraktiven und überdurchschnittlichen Sozialversicherungsleistungen und umfassenden Benefits\n\n• Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Autohäusern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Geniesse kostenlosen Eintritt in die Wellness-Therme FORTYSEVEN\n\n• Auf alle FORTYSEVEN Massagen und Behandlungen erhältst du das ganze Jahr 50% Rabatt\n\n• Wasser, Kaffee/Tee & Obst steht dir jederzeit kostenlos zur Verfügung\n\n• Du kannst jederzeit mit dem Auto anreisen, einen Parkplatz stellen wir dir zur Verfügung (kostenpflichtig)\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\nHR Assistentin\n+41 56 269 78 28\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbungstool ein.\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nBahri Tahiri\nLeitung Bad & Sauna\n+41 56 269 18 58\nb.tahiri@fortyseven.ch",
-        "fr": "Avec vos tâches, FORTYSEVEN devient une oasis de bien-être\n\n• Vous prenez soin de l'ensemble de la zone de baignade et sauna et assurez le bien-être de vos clients grâce à des soins attentifs, des conseils d'experts et les informer sur notre vaste gamme de services et de produits\n\n• Vous assurez également la sécurité de nos clients en prévenant les accidents et en fournissant des premiers soins médicaux en cas d'urgence.\n\n• Vous jouez un rôle important dans le maintien de la propreté du spa. Avec beaucoup de soin, vous effectuez des travaux de nettoyage mineurs et prenez des échantillons d'eau de façon responsable selon les normes SIA\n\n• Vous effectuez nos infusions de sauna populaires et faites partie de nos événements de sauna innovants. Dans votre salle de bain / sauna, vous créez une expérience invité exceptionnelle\n\n• Lors de vos visites, vous superviserez les stations de boissons et vous assurerez que le thé est toujours rempli et que la zone est tenue propre. Vous vous occupez de fournir les chariots de lessive avec la lessive d'occasion et fournir une lessive fraîche. Enfin, vous surveillez la zone du bureau des biens perdus et vous assurez que tous les articles perdus sont trouvés.\n\nVotre profil\n\n• Vous avez suivi une formation BLS-AED et avez réussi la piscine SLRG Pro et/ou le brevet de natation IGBA Pro\n\n• Idéalement, vous avez un apprentissage en tant qu'employé spécialisé dans les opérations de baignade (DE) ou avez suivi le cours d'employé de baignade BAKU (CH) de l'IBBA\n\n• Vous avez déjà choyé des invités avec d'excellentes infusions de sauna dans le passé et avez participé activement à des événements de sauna\n\nVotre personnalité\n\n• La satisfaction de nos clients est primordiale et vous avez la capacité de les traiter de manière professionnelle et chaleureuse pour créer une expérience positive.\n\n• Vous êtes quelqu'un qui apprécie le travail d'équipe et qui encourage et soutient activement vos coéquipiers\n\n• Vous ne vous dérangez pas de travailler par équipes, week-ends ou vacances, mais vous profitez d'un week-end gratuit au moins une fois par mois.\n\n• Pour ces tâches, il est important que vous ayez une bonne forme physique et que vous soyez habitué à être debout toute la journée. Rappelez-vous également que nous avons toujours des températures chaudes et l'humidité dans un spa peut être très élevée – vous devriez aimer que\n\n• Vous êtes connu pour votre sens des responsabilités\n\nVos avantages\n\n• Travail dans un environnement de travail moderne et participation active\n\n• Bénéficier de prestations de sécurité sociale attrayantes et supérieures à la moyenne et de prestations globales\n\n• Participation généreuse aux coûts de l ' éducation et de la formation\n\n• Utilisez des rabais à divers partenaires, tels que grossistes, concessionnaires automobiles, pharmacies et notre adhésion à Benefit@work\n\n• Profitez de l'entrée gratuite au spa FORTYSEVEN\n\n• Sur tous les massages et traitements FORTYSEVEN vous obtenez 50% de réduction tout au long de l'année\n\n• L'eau, le café/thé et les fruits sont toujours disponibles gratuitement\n\n• Vous pouvez toujours arriver en voiture, nous vous fournissons une place de parking (payée)\n\nQuestions générales sur le processus de demande, veuillez communiquer directement avec :\n\nCorinna Schmidle\nAssistant HR\n+41 56 269 78 28\n\nVeuillez soumettre votre candidature exclusivement via notre outil d'application.\n\nQuestions sur le contenu du travail directement à:\n\nBahri Tahiri\nGestion de Bad & Sauna\n+41 56 269 18 58\nb.tahiri@fortyseven.ch"
-      },
-      "location": "Baden",
-      "canton": "AG",
-      "url": "https://karriere.zurzachcare.ch/job/Baden-Bad-und-Saunameisterin-60-100-AG-5400/1417569633/",
-      "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-25T21:16:30.408Z",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5400",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-10T02:00:00Z",
-      "postedDate": "2026-09-10T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://karriere.zurzachcare.ch/talentcommunity/apply/1417569633/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "bad-und-saunameister-in-60-100-zurzach-care-baden"
-        ],
-        "it": [
-          "bad-und-saunameister-in-60-100-zurzach-care-baden",
-          "bad-e-saunameister-in-60-100-zurzach-care-baden"
-        ],
-        "en": [
-          "bad-und-saunameister-in-60-100-zurzach-care-baden"
-        ],
-        "fr": [
-          "bad-und-saunameister-in-60-100-zurzach-care-baden"
-        ]
-      },
-      "previousSlugs": [
-        "bad-und-saunameister-in-60-100-zurzach-care-baden",
-        "bad-e-saunameister-in-60-100-zurzach-care-baden"
-      ],
-      "firstSeenAt": "2026-09-09T13:45:05.039Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
