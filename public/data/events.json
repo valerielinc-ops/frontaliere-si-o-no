@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T12:41:15.477Z",
+  "generatedAt": "2026-10-27T13:28:35.552Z",
   "totalEvents": 15298,
   "events": [
     {
@@ -254273,7 +254273,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zermatt; cantone: VS; categoria: Event; organizzatore: MySwitzerland; data: 2026-10-19; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zermatt; cantone: VS; categoria: Event; organizzatore: MySwitzerland; data: 2026-10-19; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Zermatt; canton: VS; category: Event; organiser: MySwitzerland; date: 2026-10-19; time: 16:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Zermatt; kanton: VS; kategorie: Event; veranstalter: MySwitzerland; datum: 2026-10-19; uhrzeit: 16:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Zermatt; canton: VS; catégorie: Event; organisateur: MySwitzerland; date: 2026-10-19; heure: 16:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:93973",
@@ -685125,7 +685133,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un tributo a Simon & Garfunkel con il Graceland Duo, un quartetto d’archi e una band. Si svolge all’Inselhalle Lindau, a Lindau.",
+      "descriptionByLocale": {
+        "it": "L’evento è un tributo a Simon & Garfunkel con il Graceland Duo, un quartetto d’archi e una band. Si svolge all’Inselhalle Lindau, a Lindau.",
+        "en": "The event is a tribute to Simon & Garfunkel featuring the Graceland Duo, a string quartet and a band. It takes place at Inselhalle Lindau in Lindau.",
+        "de": "Die Veranstaltung ist eine Hommage an Simon & Garfunkel mit dem Graceland Duo, einem Streichquartett und einer Band. Sie findet in der Inselhalle Lindau in Lindau statt.",
+        "fr": "Le rendez-vous rend hommage à Simon & Garfunkel avec le duo Graceland, un quatuor à cordes et un groupe. Il se déroule à l’Inselhalle Lindau, à Lindau."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9927d3b8a97b4accb31b323b00498d45",
@@ -687305,7 +687321,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Reto Burrell e Lin Stucki propongono un concerto di indie folk-rock, caratterizzato da calore e profondità. L’evento si tiene al Kulturhotel Guggenheim di Liestal.",
+      "descriptionByLocale": {
+        "it": "Reto Burrell e Lin Stucki propongono un concerto di indie folk-rock, caratterizzato da calore e profondità. L’evento si tiene al Kulturhotel Guggenheim di Liestal.",
+        "en": "Reto Burrell and Lin Stucki present an indie folk-rock concert marked by warmth and depth. The event takes place at Kulturhotel Guggenheim in Liestal.",
+        "de": "Reto Burrell und Lin Stucki präsentieren Indie-Folkrock, der Wärme und Tiefe verbindet. Die Veranstaltung findet im Kulturhotel Guggenheim in Liestal statt.",
+        "fr": "Reto Burrell et Lin Stucki proposent un concert d’indie folk-rock marqué par la chaleur et la profondeur. Le rendez-vous a lieu au Kulturhotel Guggenheim, à Liestal."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f96302c3e64f441b8dce13a46302a4ac",
@@ -691614,7 +691638,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo festival di salsa all’aperto si svolge al Pavillon am See di Weggis. L’appuntamento ricorrente si rivolge a un pubblico di tutte le età e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questo festival di salsa all’aperto si svolge al Pavillon am See di Weggis. L’appuntamento ricorrente si rivolge a un pubblico di tutte le età e l’ingresso è gratuito.",
+        "en": "This recurring open-air salsa festival takes place at Pavillon am See in Weggis. The event is aimed at visitors of all ages, and admission is free.",
+        "de": "Das wiederkehrende Salsa-Festival unter freiem Himmel findet im Pavillon am See in Weggis statt. Die Veranstaltung richtet sich an ein Publikum jeden Alters und ist kostenlos zugänglich.",
+        "fr": "Ce festival de salsa en plein air se tient au Pavillon am See, à Weggis. Le rendez-vous récurrent s’adresse à un public de tous âges et l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:09f2c132854f4a34b0e13ca16523b8db",
@@ -692569,7 +692601,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento presenta Die Ärzte al Hallenstadion Zürich di Zurigo. Il programma pop porta in scena tre musicisti con un contrabbasso.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta Die Ärzte al Hallenstadion Zürich di Zurigo. Il programma pop porta in scena tre musicisti con un contrabbasso.",
+        "en": "The event presents Die Ärzte at Hallenstadion Zürich in Zürich. This pop programme features three musicians on stage with a double bass.",
+        "de": "Die Veranstaltung mit Die Ärzte findet im Hallenstadion Zürich in Zürich statt. Zum Popprogramm gehören drei Musiker auf der Bühne und ein Kontrabass.",
+        "fr": "Le rendez-vous avec Die Ärzte se tient au Hallenstadion Zürich, à Zurich. Ce programme pop réunit trois musiciens sur scène avec une contrebasse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:93904",
@@ -694085,7 +694125,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo festival di fanfare ricorrente si svolge alla Halle polyvalente di Vendlincourt. La manifestazione è aperta a tutti.",
+      "descriptionByLocale": {
+        "it": "Questo festival di fanfare ricorrente si svolge alla Halle polyvalente di Vendlincourt. La manifestazione è aperta a tutti.",
+        "en": "This recurring brass-band festival is held at Halle polyvalente in Vendlincourt. The event is open to everyone.",
+        "de": "Das wiederkehrende Festival der Blasmusik findet in der Halle polyvalente in Vendlincourt statt. Die Veranstaltung ist für alle offen.",
+        "fr": "Ce festival de fanfares récurrent se déroule à la Halle polyvalente de Vendlincourt. La manifestation est ouverte à tous."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVjqFN6",
@@ -696027,7 +696075,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Alla Halle polyvalente di Le Noirmont, il programma comprende una serata per il 175° anniversario della fanfara, con un pasto di sostegno e un’animazione ancora da definire. Il programma diurno successivo propone il Giron des Fanfares Franc-Montagnardes, esibizioni davanti a una giuria, altre animazioni e un pasto.",
+      "descriptionByLocale": {
+        "it": "Alla Halle polyvalente di Le Noirmont, il programma comprende una serata per il 175° anniversario della fanfara, con un pasto di sostegno e un’animazione ancora da definire. Il programma diurno successivo propone il Giron des Fanfares Franc-Montagnardes, esibizioni davanti a una giuria, altre animazioni e un pasto.",
+        "en": "At the Halle polyvalente in Le Noirmont, the programme includes an evening marking the fanfare’s 175th anniversary, with a support meal and entertainment still to be determined. The following daytime programme features the Giron des Fanfares Franc-Montagnardes, performances before a jury, further entertainment and a meal.",
+        "de": "In der Halle polyvalente in Le Noirmont umfasst das Programm einen Abend zum 175-jährigen Bestehen der Fanfare mit einem Unterstützungsessen und noch festzulegender Unterhaltung. Am folgenden Tag steht tagsüber das Giron des Fanfares Franc-Montagnardes mit Auftritten vor einer Jury, weiterer Unterhaltung und einem Essen auf dem Programm.",
+        "fr": "À la Halle polyvalente du Noirmont, le programme prévoit une soirée consacrée au 175e anniversaire de la fanfare, avec un repas de soutien et une animation encore à définir. La journée suivante accueille le Giron des Fanfares Franc-Montagnardes, avec des prestations évaluées par un jury, d’autres animations et un repas."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b26b0b58d10145358f9ba64f88e675d6",
@@ -696173,7 +696229,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento si svolge in place Longereuse a Fleurier e propone cucine del mondo tramite food truck. Il programma comprende concerti dal vivo, un bar e attività per bambini; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge in place Longereuse a Fleurier e propone cucine del mondo tramite food truck. Il programma comprende concerti dal vivo, un bar e attività per bambini; l’ingresso è gratuito.",
+        "en": "At Place Longereuse in Fleurier, the festival presents food from a range of world cuisines through food trucks. The programme includes live concerts, a bar and activities for children, and admission is free.",
+        "de": "Auf der Place Longereuse in Fleurier werden verschiedene Küchen der Welt von Foodtrucks angeboten. Zum Programm gehören Live-Konzerte, eine Bar und Animationen für Kinder; der Eintritt ist kostenlos.",
+        "fr": "La manifestation se tient sur la place Longereuse à Fleurier et propose des cuisines du monde par l’intermédiaire de foodtrucks. Elle comprend aussi des concerts en direct, un bar et des animations pour enfants; l’entrée est gratuite."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a0ea9ce74b3f49eda0b13f743ec605fd",
@@ -696575,7 +696639,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di Abbamania - The Show è dedicato alla musica pop e si svolge all’Hallenstadion Zürich di Zürich. Il prezzo d’ingresso è di 102,90 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento di Abbamania - The Show è dedicato alla musica pop e si svolge all’Hallenstadion Zürich di Zürich. Il prezzo d’ingresso è di 102,90 CHF.",
+        "en": "Abbamania - The Show presents a pop music event at Hallenstadion Zürich in Zürich. Admission costs CHF 102.90.",
+        "de": "Bei der Veranstaltung von Abbamania - The Show handelt es sich um ein Popkonzert im Hallenstadion Zürich in Zürich. Der Eintritt kostet CHF 102.90.",
+        "fr": "Abbamania - The Show propose un événement de musique pop au Hallenstadion Zürich, à Zürich. L’entrée coûte 102,90 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AaFH3yM",
@@ -700091,7 +700163,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Herbert Grönemeyer propone un concerto pop all'Hallenstadion Zürich. L'appuntamento fa parte della sua tournée nelle arene del 2027, che comprende anche concerti aggiuntivi a Zurigo e Francoforte.",
+      "descriptionByLocale": {
+        "it": "Herbert Grönemeyer propone un concerto pop all'Hallenstadion Zürich. L'appuntamento fa parte della sua tournée nelle arene del 2027, che comprende anche concerti aggiuntivi a Zurigo e Francoforte.",
+        "en": "Herbert Grönemeyer is scheduled to give a pop concert at Hallenstadion Zürich. The event is part of his 2027 arena tour, which also includes additional concerts in Zürich and Frankfurt.",
+        "de": "Herbert Grönemeyer gibt im Hallenstadion Zürich ein Popkonzert. Der Auftritt ist Teil seiner Arenatour 2027, zu der auch zusätzliche Konzerte in Zürich und Frankfurt gehören.",
+        "fr": "Herbert Grönemeyer se produit au Hallenstadion Zürich dans le cadre d’un concert pop. Le rendez-vous s’inscrit dans sa tournée des arènes de 2027, qui comprend également des concerts supplémentaires à Zurich et à Francfort."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:27a122bd4be74ddbb231fe73c40055f0",
@@ -700429,7 +700509,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Flugplatz Interlaken; comune: Interlaken; cantone: BE; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-06-10; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Flugplatz Interlaken; comune: Interlaken; cantone: BE; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-06-10; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Flugplatz Interlaken; municipality: Interlaken; canton: BE; category: Festival / Incontro; organiser: Guidle; date: 2027-06-10; time: 00:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Flugplatz Interlaken; gemeinde: Interlaken; kanton: BE; kategorie: Festival / Incontro; veranstalter: Guidle; datum: 2027-06-10; uhrzeit: 00:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Flugplatz Interlaken; commune: Interlaken; canton: BE; catégorie: Festival / Incontro; organisateur: Guidle; date: 2027-06-10; heure: 00:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4c7a31fb13a74c3f9472a34207c4f1b3",
@@ -703094,7 +703182,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Alba Festival è un festival dedicato alla musica albanese e alla sua varietà. L’evento si svolge presso il Kasernenareal, nel cantone di Zurigo.",
+      "descriptionByLocale": {
+        "it": "Alba Festival è un festival dedicato alla musica albanese e alla sua varietà. L’evento si svolge presso il Kasernenareal, nel cantone di Zurigo.",
+        "en": "Alba Festival is a festival centred on Albanian music and its variety. The event takes place at Kasernenareal in the canton of Zurich.",
+        "de": "Das Alba Festival ist ein Festival rund um albanische Musik und ihre Vielfalt. Die Veranstaltung findet im Kasernenareal im Kanton Zürich statt.",
+        "fr": "Alba Festival est un festival consacré à la musique albanaise et à sa diversité. Le rendez-vous a lieu au Kasernenareal, dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AfjJdrE",
@@ -703384,7 +703480,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento musicale celebra l’anniversario della scuola di musica Muri+. Presso il Festsaal, giovani artisti presentano le loro capacità con la guida di docenti specializzati.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale celebra l’anniversario della scuola di musica Muri+. Presso il Festsaal, giovani artisti presentano le loro capacità con la guida di docenti specializzati.",
+        "en": "The musical event marks an anniversary of the Muri+ music school. At the Festsaal, young artists demonstrate their abilities under the guidance of specialist teachers.",
+        "de": "Die musikalische Veranstaltung steht im Zeichen des Jubiläums der Musikschule Muri+. Im Festsaal präsentieren junge Musizierende ihre Fähigkeiten unter der Betreuung von Fachlehrpersonen.",
+        "fr": "L’événement musical célèbre l’anniversaire de l’école de musique Muri+. Au Festsaal, de jeunes artistes présentent leurs aptitudes avec l’accompagnement d’enseignants spécialisés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:43eee9ce986f42008c2c6fd40f53e6df",
@@ -703645,7 +703749,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Bulle, nel cantone di Friburgo, si svolge una festa della musica. La manifestazione si articola su diverse scene allestite.",
+      "descriptionByLocale": {
+        "it": "A Bulle, nel cantone di Friburgo, si svolge una festa della musica. La manifestazione si articola su diverse scene allestite.",
+        "en": "The music festival takes place in Bulle, in the canton of Fribourg. Several stages are set up for the event.",
+        "de": "In Bulle im Kanton Freiburg findet ein Musikfestival statt. Für die Veranstaltung stehen mehrere eingerichtete Bühnen zur Verfügung.",
+        "fr": "Une fête de la musique a lieu à Bulle, dans le canton de Fribourg. La manifestation se déroule sur plusieurs scènes aménagées."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AwtVFAd",
