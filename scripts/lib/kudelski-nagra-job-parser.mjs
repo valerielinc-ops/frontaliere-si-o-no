@@ -13,12 +13,13 @@
 import { createHash } from 'node:crypto';
 import { sourcePostingDateFields, mergeSourcePostingDates, withLegacyPostingDay } from './source-posting-date.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.ts';
-import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { detectLang, isLikelyJobDetailUrl, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { isSwissLocationText, inferAnyCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { extractBalancedTagBlock, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
+import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -40,6 +41,7 @@ const GH_BOARDS_API = 'https://boards-api.greenhouse.io/v1/boards/kudelski/jobs'
 const GH_BOARDS_DETAIL = 'https://boards-api.greenhouse.io/v1/boards/kudelski/jobs';
 const GH_PUBLIC_BASE = 'https://careers.nagra.com';
 const COMPANY_DEFAULTS = getCompanyDefaults(KUDELSKI_NAGRA_KEY);
+const GREENHOUSE_BOARD_SLUGS = new Set(['kudelski', 'nagra', 'kudelskigroup', 'kudelski-group']);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -219,18 +221,99 @@ function isSwissListingCandidate(location = '') {
   return isSwissLocation(loc);
 }
 
-function extractDetailLocation(html = '') {
-  if (!html) return '';
-  const labelled = [
-    /<(?:strong|b)[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/(?:strong|b)>\s*([^<]+)/i,
-    /<label[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/label>\s*<span[^>]*>([\s\S]*?)<\/span>/i,
-  ];
-  for (const pattern of labelled) {
-    const match = html.match(pattern);
-    const location = normalizeSpace(stripHtml(match?.[1] || ''));
-    if (location) return location;
+function locationKey(value = '') {
+  return normalizeSpace(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function isTrustedKudelskiDetailUrl(rawUrl = '') {
+  if (!isLikelyJobDetailUrl(rawUrl)) return false;
+  if (isTrustedDomain(rawUrl)) return true;
+  try {
+    const url = new URL(rawUrl);
+    return url.hostname.toLowerCase() === 'boards.greenhouse.io'
+      && GREENHOUSE_BOARD_SLUGS.has((url.pathname.match(/^\/([^/]+)\/jobs\//)?.[1] || '').toLowerCase());
+  } catch {
+    return false;
   }
-  return '';
+}
+
+/**
+ * Resolve a vacancy identity from the source record. A careers homepage is
+ * not a job URL: if the source omits its detail link, construct the exact
+ * Greenhouse/ATS identity from the numeric requisition id, otherwise fail
+ * closed instead of publishing a non-vacancy URL.
+ */
+function resolveKudelskiDetailUrl(listing = {}, greenhouseBoard = '') {
+  for (const candidate of [listing.absolute_url, listing.url, listing.link]) {
+    if (isTrustedKudelskiDetailUrl(candidate)) return String(candidate).trim();
+  }
+
+  const id = String(
+    listing.id
+    || listing.job_id
+    || listing.requisition_id
+    || '',
+  ).trim();
+  if (!/^\d+$/.test(id)) return '';
+
+  const constructed = greenhouseBoard && GREENHOUSE_BOARD_SLUGS.has(greenhouseBoard)
+    ? `https://boards.greenhouse.io/${greenhouseBoard}/jobs/${id}`
+    : `${BASE_URL}/?page=advertisement_display&id=${id}`;
+  return isTrustedKudelskiDetailUrl(constructed) ? constructed : '';
+}
+
+function broadListingLocation(location = '') {
+  return /\b(?:switzerland|schweiz|suisse|svizzera|hybrid|onsite|on-site|remote|home\s*office)\b/i.test(
+    normalizeSpace(location),
+  );
+}
+
+function structuredDetailLocation(html = '', pageUrl = '', title = '') {
+  const renderedTitle = normalizeSpace(stripHtml(
+    /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '',
+  ));
+  const records = selectDetailStructuredRecords(
+    extractJsonLd(html, pageUrl),
+    pageUrl,
+    renderedTitle,
+    pageUrl,
+    title,
+  );
+  const locations = records.flatMap((record) => (
+    Array.isArray(record.locationCandidates)
+      ? record.locationCandidates.map((candidate) => candidate?.location)
+      : [record.location]
+  )).map((value) => normalizeSpace(value || '')).filter(Boolean);
+  const unique = [...new Map(locations.map((value) => [locationKey(value), value])).values()];
+  return unique.length === 1 ? unique[0] : '';
+}
+
+function extractDetailLocation(html = '', pageUrl = '', title = '') {
+  if (!html) return '';
+  const structured = structuredDetailLocation(html, pageUrl, title);
+  if (structured && (inferAnyCanton(structured) || isLocationExplicitlyForeign(structured))) return structured;
+
+  const labelled = [
+    /<(?:strong|b)[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/(?:strong|b)>\s*([^<]+)/gi,
+    /<label[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/label>\s*<span[^>]*>([\s\S]*?)<\/span>/gi,
+  ];
+  const values = [];
+  for (const pattern of labelled) {
+    for (const match of html.matchAll(pattern)) {
+      const location = normalizeSpace(stripHtml(match[1] || ''));
+      if (location) values.push(location);
+    }
+  }
+  const unique = [...new Map(values.map((value) => [locationKey(value), value])).values()];
+  const geographicallyVerified = unique.filter((value) => (
+    inferAnyCanton(value) || isLocationExplicitlyForeign(value)
+  ));
+  if (geographicallyVerified.length === 1) return geographicallyVerified[0];
+  if (geographicallyVerified.length > 1) return '';
+  return unique.length === 1 ? unique[0] : '';
 }
 
 /**
@@ -325,19 +408,24 @@ export async function fetchAllKudelskiNagraJobs() {
     // already carry `content` and only need the page for an unresolved city.
     let advertHtml = '';
     const needsDetailBody = !listing.content;
-    if (needsDetailBody || !inferAnyCanton(location)) {
-      const detailUrl = listing.absolute_url || listing.url || listing.link || '';
-      if (isTrustedDomain(detailUrl)) {
-        try {
-          const detailHtml = await fetchHtml(detailUrl, { timeoutMs: 20000 });
-          if (!inferAnyCanton(location)) {
-            const detailLocation = extractDetailLocation(detailHtml);
-            if (detailLocation) location = detailLocation;
-          }
-          if (needsDetailBody) advertHtml = extractNagraAdvertHtml(detailHtml);
-        } catch (err) {
-          console.warn(`  ⚠️ Kudelski NAGRA: detail fetch failed for ${title}: ${err.message}`);
+    const detailUrl = resolveKudelskiDetailUrl(listing, ghBoard);
+    if (!detailUrl) {
+      throw new Error(`Kudelski NAGRA listing has no verified vacancy detail URL: ${title}`);
+    }
+    if (needsDetailBody || !inferAnyCanton(location) || broadListingLocation(location)) {
+      try {
+        const detailHtml = await fetchHtml(detailUrl, { timeoutMs: 20000 });
+        const detailLocation = extractDetailLocation(detailHtml, detailUrl, title);
+        // A vacancy detail is stronger than a listing summary, but an empty
+        // or ambiguous detail field must not erase usable listing evidence.
+        // Explicit foreign detail evidence remains authoritative and causes
+        // the normal Swiss publish gate below to reject the row.
+        if (detailLocation && (inferAnyCanton(detailLocation) || isLocationExplicitlyForeign(detailLocation))) {
+          location = detailLocation;
         }
+        if (needsDetailBody) advertHtml = extractNagraAdvertHtml(detailHtml);
+      } catch (err) {
+        console.warn(`  ⚠️ Kudelski NAGRA: detail fetch failed for ${title}: ${err.message}`);
       }
     }
 
@@ -378,12 +466,10 @@ export async function fetchAllKudelskiNagraJobs() {
     const descriptionHtml = listing.content || advertHtml || listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
 
-    // Build public URL
-    let publicUrl = listing.absolute_url || listing.url || listing.link || '';
-    if (!publicUrl && ghBoard) {
-      publicUrl = `https://boards.greenhouse.io/${ghBoard}/jobs/${listing.id}`;
-    }
-    if (!publicUrl) publicUrl = CAREER_URL;
+    // The validated detail identity is the only publishable public URL. Never
+    // fall back to the careers homepage: it is not a vacancy and collapses
+    // unrelated rows onto one source page during assembly/audit.
+    const publicUrl = detailUrl;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} kudelski-nagra ch`);
@@ -422,7 +508,7 @@ export async function fetchAllKudelskiNagraJobs() {
       currency: 'CHF',
       featured: false,
       ...withLegacyPostingDay(mergeSourcePostingDates({}, listing)),
-      applyUrl: listing.absolute_url || publicUrl,
+      applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };

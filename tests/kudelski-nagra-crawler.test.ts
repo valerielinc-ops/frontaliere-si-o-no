@@ -257,4 +257,50 @@ describe('careers.nagra.com detail body', () => {
     // workplace and the body.
     expect(vi.mocked(fetchHtml)).toHaveBeenCalledTimes(2);
   });
+
+  it('uses the vacancy JSON-LD workplace and rejects a homepage identity', async () => {
+    const detailUrl = 'https://boards.greenhouse.io/kudelski/jobs/27182';
+    const title = 'Security Operations Engineer';
+    const description = 'We are seeking a security professional to support a major client in Switzerland. The role combines incident response, monitoring, documentation and close collaboration with the client team.';
+    vi.mocked(fetchJson).mockReset();
+    vi.mocked(fetchJson).mockResolvedValue({
+      jobs: [{
+        id: 27182,
+        title,
+        absolute_url: 'https://careers.nagra.com/',
+        content: description,
+        location: { name: 'Zurich, Switzerland (Hybrid, onsite with client)' },
+      }],
+    } as never);
+    vi.mocked(fetchHtml).mockReset();
+    vi.mocked(fetchHtml).mockResolvedValue(`
+      <h1>${title}</h1>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title,
+        url: detailUrl,
+        description,
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Adliswil',
+            addressRegion: 'ZH',
+            addressCountry: 'CH',
+          },
+        },
+      })}</script>`);
+
+    const jobs = await fetchAllKudelskiNagraJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      url: detailUrl,
+      canton: 'ZH',
+    });
+    expect(jobs[0].location).toContain('Adliswil');
+    expect(jobs[0].url).not.toBe('https://careers.nagra.com/');
+    expect(fetchHtml).toHaveBeenCalledWith(detailUrl, { timeoutMs: 20000 });
+  });
 });

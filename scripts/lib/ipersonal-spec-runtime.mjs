@@ -143,6 +143,43 @@ function normalizeKnownIpersonalLocalities(html = '') {
 }
 
 /**
+ * iPersonal pages can expose a generic `.location` value (for example an
+ * employer-area label) alongside the vacancy's own `job-location` field.
+ * The shared extractor deliberately keeps both signals so callers can decide
+ * how to reconcile them. This runtime owns the iPersonal source boundary:
+ * prefer the rendered workplace only when it contains exactly one distinct,
+ * source-verifiable Swiss place; ambiguity and foreign evidence stay
+ * fail-closed rather than selecting the first match.
+ *
+ * @param {Record<string, any>} detail
+ * @returns {Record<string, any>}
+ */
+function preferIpersonalRenderedWorkplace(detail = {}) {
+  const values = Array.isArray(detail.renderedJobLocationFields)
+    ? detail.renderedJobLocationFields.map((value) => String(value || '').trim()).filter(Boolean)
+    : [];
+  const uniqueValues = [...new Map(values.map((value) => [
+    value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(),
+    value,
+  ])).values()];
+  if (!uniqueValues.length) return detail;
+
+  const decisions = uniqueValues.map((value) => resolveDetailOrListingSwissGeography(
+    { locationCandidates: [{ location: value }] },
+    {},
+  ));
+  if (decisions.length !== 1
+    || decisions.some((decision) => !decision.geography || decision.explicitlyForeign)) return detail;
+
+  const [decision] = decisions;
+  return {
+    ...detail,
+    location: uniqueValues[0],
+    locationCandidates: [{ ...decision.candidate, location: uniqueValues[0] }],
+  };
+}
+
+/**
  * Extract the authored Simple Job Board body shared by iPersonal and
  * MediPersonal. The application form, site chrome and repeated contact/SEO
  * tail live outside (or after) this boundary and must not become description.
@@ -344,7 +381,9 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     // source proof caught the gap, failed the whole batch — before the fill
     // ever ran.
     const authored = extractIpersonalDescription(html);
-    const detail = authored ? { ...base, description: authored } : base;
+    const detail = preferIpersonalRenderedWorkplace(
+      authored ? { ...base, description: authored } : base,
+    );
     parsedDetails.set(canonicalUrl(pageUrl), detail);
     return detail;
   };
