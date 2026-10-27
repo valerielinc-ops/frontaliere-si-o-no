@@ -18837,21 +18837,7 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40570",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
-        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
-          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
-        ],
-        "fr": [
-          "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-26T21:45:34.514Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -18864,7 +18850,24 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-26T21:45:34.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
+          "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+        ],
+        "fr": [
+          "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
+        "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+      ],
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1085
     },
     {
       "id": "ksml-ad190e61019a",
