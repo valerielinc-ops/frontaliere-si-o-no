@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-26T21:50:27.170Z",
-  "runId": "40403060492",
+  "assembledAt": "2026-10-27T09:53:08.152Z",
+  "runId": "40479607665",
   "jobs": [
     {
       "id": "ghol-bb90df116e65",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.740Z",
+      "crawledAt": "2026-10-27T09:53:03.220Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -122,7 +122,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.740Z",
+      "crawledAt": "2026-10-27T09:53:03.221Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -158,8 +158,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -200,7 +200,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.740Z",
+      "crawledAt": "2026-10-27T09:53:03.221Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -229,8 +229,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -238,10 +238,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -306,7 +306,7 @@
       "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.739Z",
+      "crawledAt": "2026-10-27T09:53:03.219Z",
       "previousSlugs": [
         "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
       ],
@@ -383,7 +383,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.739Z",
+      "crawledAt": "2026-10-27T09:53:03.220Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -454,7 +454,7 @@
       "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.738Z",
+      "crawledAt": "2026-10-27T09:53:03.218Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -532,7 +532,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.738Z",
+      "crawledAt": "2026-10-27T09:53:03.219Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -609,7 +609,7 @@
       "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.737Z",
+      "crawledAt": "2026-10-27T09:53:03.216Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
@@ -642,29 +642,29 @@
     },
     {
       "id": "ghol-e70e7572db97",
-      "slug": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "fisioterapia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "fisioterapia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "physiotherapy-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "physiotherapie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
       "title": "Physiothérapeute",
       "titleByLocale": {
-        "fr": "Physiothérapeute",
-        "en": "Physiothérapeute",
-        "it": "Physiothérapeute",
-        "de": "Physiothérapeute"
+        "it": "Fisioterapia",
+        "en": "Physiotherapy",
+        "de": "Physiotherapie",
+        "fr": "Physiothérapeute"
       },
       "description": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie.\n Dans votre nouveau rôle de physiothérapeute, vous :\n\n• Prenez en charge des patients·es hospitalisés·es (médecine, chirurgie, neurologie, orthopédie, soins intensifs) ainsi que des patients·es ambulatoires.\n\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité\n Profil requis :\n Votre succès dans vos nouvelles fonctions sera favorisé par votre :\n\n• Expérience réussie en milieu hospitalier\n\n• Sensibilité à une approche individualisée du patient\n\n• Capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n\n• Aspiration à travailler en équipe\n\n• Expérience et formation en drainage lymphatique manuel et/ou en rééducation périnéale souhaitées\n Niveau de formation :\n Bachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé)\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et vous aurez l’opportunité d’intervenir dans différents services et de développer des compétences très variées\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique)\n Intéressé(e) par ce challenge ? Alors adressez-nous votre candidature !",
       "descriptionByLocale": {
-        "fr": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie.\n Dans votre nouveau rôle de physiothérapeute, vous :\n\n• Prenez en charge des patients·es hospitalisés·es (médecine, chirurgie, neurologie, orthopédie, soins intensifs) ainsi que des patients·es ambulatoires.\n\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité\n Profil requis :\n Votre succès dans vos nouvelles fonctions sera favorisé par votre :\n\n• Expérience réussie en milieu hospitalier\n\n• Sensibilité à une approche individualisée du patient\n\n• Capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n\n• Aspiration à travailler en équipe\n\n• Expérience et formation en drainage lymphatique manuel et/ou en rééducation périnéale souhaitées\n Niveau de formation :\n Bachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé)\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et vous aurez l’opportunité d’intervenir dans différents services et de développer des compétences très variées\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique)\n Intéressé(e) par ce challenge ? Alors adressez-nous votre candidature !",
-        "it": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie.\n Dans votre nouveau rôle de physiothérapeute, vous :\n\n• Prenez en charge des patients·es hospitalisés·es (médecine, chirurgie, neurologie, orthopédie, soins intensifs) ainsi que des patients·es ambulatoires.\n\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité\n Profil requis :\n Votre succès dans vos nouvelles fonctions sera favorisé par votre :\n\n• Expérience réussie en milieu hospitalier\n\n• Sensibilité à une approche individualisée du patient\n\n• Capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n\n• Aspiration à travailler en équipe\n\n• Expérience et formation en drainage lymphatique manuel et/ou en rééducation périnéale souhaitées\n Niveau de formation :\n Bachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé)\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et vous aurez l’opportunité d’intervenir dans différents services et de développer des compétences très variées\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique)\n Intéressé(e) par ce challenge ? Alors adressez-nous votre candidature !",
-        "en": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie.\n Dans votre nouveau rôle de physiothérapeute, vous :\n\n• Prenez en charge des patients·es hospitalisés·es (médecine, chirurgie, neurologie, orthopédie, soins intensifs) ainsi que des patients·es ambulatoires.\n\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité\n Profil requis :\n Votre succès dans vos nouvelles fonctions sera favorisé par votre :\n\n• Expérience réussie en milieu hospitalier\n\n• Sensibilité à une approche individualisée du patient\n\n• Capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n\n• Aspiration à travailler en équipe\n\n• Expérience et formation en drainage lymphatique manuel et/ou en rééducation périnéale souhaitées\n Niveau de formation :\n Bachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé)\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et vous aurez l’opportunité d’intervenir dans différents services et de développer des compétences très variées\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique)\n Intéressé(e) par ce challenge ? Alors adressez-nous votre candidature !",
-        "de": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie.\n Dans votre nouveau rôle de physiothérapeute, vous :\n\n• Prenez en charge des patients·es hospitalisés·es (médecine, chirurgie, neurologie, orthopédie, soins intensifs) ainsi que des patients·es ambulatoires.\n\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité\n Profil requis :\n Votre succès dans vos nouvelles fonctions sera favorisé par votre :\n\n• Expérience réussie en milieu hospitalier\n\n• Sensibilité à une approche individualisée du patient\n\n• Capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n\n• Aspiration à travailler en équipe\n\n• Expérience et formation en drainage lymphatique manuel et/ou en rééducation périnéale souhaitées\n Niveau de formation :\n Bachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé)\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et vous aurez l’opportunité d’intervenir dans différents services et de développer des compétences très variées\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique)\n Intéressé(e) par ce challenge ? Alors adressez-nous votre candidature !"
+        "it": "GHOL è l'ospedale regionale di riferimento per l'Occidente tedesco con le sue strutture a Nyon e Rolle. Unisciti a noi è l'opportunità di lavorare quotidianamente con più di 900 dipendenti per garantire la salute e il benessere dei pazienti e delle loro famiglie.\nDescrizione del post:\nNei tuoi nuovi doveri, ti unisci a una squadra di dimensioni umane (15 persone) nel sito di Nyon nel dipartimento di fisioterapia.\nNel vostro nuovo ruolo di fisioterapista, voi:\n\n• Cura per i pazienti affetti da malattia (medicina, chirurgia, neurologia, ortopedia, terapia intensiva) così come gli ambulatori.\n\n• Stabilire una diagnosi fisioterapeuta e costruire un programma di riabilitazione adatto.\n\n• Applicare le tue abilità fisioterapiste in interdisciplinarità\nProfilo richiesto:\nIl vostro successo nelle nuove funzioni sarà potenziato dal vostro:\n\n• Esperienza di successo in ambienti ospedalieri\n\n• Sensibilità ad un approccio individualizzato del paziente\n\n• Capacità riconosciuta di dimostrare empatia e comunicare in modo efficiente\n\n• Aspirazione a lavorare come squadra\n\n• Esperienza e formazione nel drenaggio linfatico manuale e/o riabilitazione perineale desiderata\nLivello di formazione:\nCorso di laurea in Fisioterapia o equivalente riconosciuto dalla Croce Rossa svizzera (richiesto)\nAll'interno di GHOL, svilupperai le tue competenze attraverso una vera e propria politica di formazione continua e avrai l'opportunità di intervenire in diversi servizi e sviluppare una vasta gamma di competenze.\nPotrai beneficiare di condizioni di lavoro interessanti (localizzazione, nuovo ospedale, spirito di squadra, supporto da un rispondente clinico)\nTi interessa questa sfida? Allora mandaci la tua domanda!",
+        "en": "GHOL is the regional reference hospital for the German West with its structures in Nyon and Rolle. Joining us is an opportunity to work daily with more than 900 employees to ensure the health and well-being of patients and their families.\nDescription of the post:\nIn your new duties, you join a human-sized team (15 people) at the Nyon site in the physiotherapy department.\nIn your new role as a physiotherapist, you:\n\n• Care for inpatient patients (medicine, surgery, neurology, orthopaedics, intensive care) as well as outpatients.\n\n• Establish a physiotherapeutic diagnosis and build a suitable rehabilitation program.\n\n• Apply your physiotherapist skills in interdisciplinarity\nProfile required:\nYour success in your new functions will be enhanced by your:\n\n• Successful experience in hospital settings\n\n• Sensitivity to an individualized patient approach\n\n• Recognized capacity to demonstrate empathy and communicate efficiently\n\n• Aspiration to work as a team\n\n• Experience and training in manual lymphatic drainage and/or desired perineal rehabilitation\nLevel of training:\nBachelor of Science in Physiotherapy or equivalent degree recognized by the Swiss Red Cross (required)\nWithin GHOL, you will develop your skills through a real continuing training policy and you will have the opportunity to intervene in different services and develop a wide variety of skills.\nYou will benefit from attractive working conditions (localization, new hospital, team spirit, support from a clinical respondent)\nInterested in this challenge? Then send us your application!",
+        "de": "GHOL ist das regionale Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen in Nyon und Rolle. Die Teilnahme an uns ist eine Gelegenheit, täglich mit mehr als 900 Mitarbeitern zu arbeiten, um die Gesundheit und das Wohlbefinden der Patienten und ihrer Familien zu gewährleisten.\nBeschreibung der Stelle:\nIn Ihren neuen Aufgaben schließen Sie sich einem Team von menschlicher Größe (15 Personen) am Standort Nyon in der Physiotherapieabteilung an.\nIn Ihrer neuen Rolle als Physiotherapeutin, Sie:\n\n• Betreuung stationärer Patienten (Medizin, Chirurgie, Neurologie, Orthopädie, Intensivmedizin) sowie ambulante Patienten.\n\n• Etablieren Sie eine physiotherapeutische Diagnose und bauen Sie ein geeignetes Rehabilitationsprogramm auf.\n\n• Wenden Sie Ihre physiotherapeutischen Fähigkeiten in der Interdisziplinarität an\nProfil erforderlich:\nIhr Erfolg in Ihren neuen Funktionen wird durch Ihre verbessert:\n\n• Erfolgreiche Erfahrungen im Krankenhaus\n\n• Sensibilität für einen individualisierten Patientenansatz\n\n• Anerkannte Fähigkeit, Empathie zu demonstrieren und effizient zu kommunizieren\n\n• Streben, als Team zu arbeiten\n\n• Erfahrung und Ausbildung in der manuellen Lymphdrainage und / oder gewünschten perinealen Rehabilitation\nAusbildungsniveau:\nBachelor of Science in Physiotherapie oder gleichwertiger Abschluss vom Schweizerischen Roten Kreuz anerkannt (erforderlich)\nInnerhalb von GHOL entwickeln Sie Ihre Fähigkeiten durch eine echte Weiterbildungspolitik und haben die Möglichkeit, in verschiedene Dienste einzugreifen und eine Vielzahl von Fähigkeiten zu entwickeln.\nSie profitieren von attraktiven Arbeitsbedingungen (Lokalisierung, neues Krankenhaus, Teamgeist, Unterstützung durch einen klinischen Befragten)\nInteresse an dieser Herausforderung? Dann senden Sie uns Ihre Bewerbung!",
+        "fr": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\nDescriptif du poste :\nDans vos nouvelles fonctions, vous rejoignez une équipe à taille humaine (15 personnes) sur le site de Nyon dans le service de physiothérapie.\nDans votre nouveau rôle de physiothérapeute, vous :\n\n• Prenez en charge des patients·es hospitalisés·es (médecine, chirurgie, neurologie, orthopédie, soins intensifs) ainsi que des patients·es ambulatoires.\n\n• Etablissez un diagnostic physiothérapeutique et construisez un programme de soins de réadaptation adapté.\n\n• Mettez en œuvre vos compétences de physiothérapeute en interdisciplinarité\nProfil requis :\nVotre succès dans vos nouvelles fonctions sera favorisé par votre :\n\n• Expérience réussie en milieu hospitalier\n\n• Sensibilité à une approche individualisée du patient\n\n• Capacités reconnues à faire preuve d’empathie et à communiquer avec efficience\n\n• Aspiration à travailler en équipe\n\n• Expérience et formation en drainage lymphatique manuel et/ou en rééducation périnéale souhaitées\nNiveau de formation :\nBachelor of Science HES⁠-⁠SO en Physiothérapie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé)\nAu sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et vous aurez l’opportunité d’intervenir dans différents services et de développer des compétences très variées\nVous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique)\nIntéressé(e) par ce challenge ? Alors adressez-nous votre candidature !"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -687,8 +687,7 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.736Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-27T09:53:03.215Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -702,7 +701,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:50:22.736Z"
+      "firstSeenAt": "2026-10-26T21:50:22.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "ghol-ca7b74ad5b09",
@@ -751,7 +765,7 @@
       "applyUrl": "https://app.beehire.com/invite/kgMrU8wmj",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:50:22.736Z",
+      "crawledAt": "2026-10-27T09:53:03.216Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"

@@ -35,6 +35,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { formatInternationalPhone, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 import { resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
@@ -311,7 +312,8 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       firstName: names.firstName,
       lastName: names.lastName,
       email: identity.email,
-      phone: identity.phone,
+      phone: formatInternationalPhone(identity.phone),
+      phoneCountry: phoneCountryLabel(identity.phone, language),
       location: profile.location || '',
       address,
       linkedin: profile.linkedin || '',

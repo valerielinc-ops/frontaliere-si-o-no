@@ -54,7 +54,7 @@ export function portalQuestionKey(question, context = '', section = '', autocomp
   const fieldAutocomplete = typeof question === 'object' ? question?.autocomplete : autocomplete;
   const topic = questionTopic(label, surrounding, { section: heading, autocomplete: fieldAutocomplete });
   if (!topic) return portalQuestionId(label, surrounding, heading, fieldAutocomplete);
-  const contextSensitive = /^(?:birth_date|address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
+  const contextSensitive = /^(?:birth_date|address|address_street|address_house_number|residence_|phone_country$|current_school$|start_date_contextual$)/.test(topic);
   const normalizedContext = normalizedPortalContext(surrounding);
   const normalizedSection = normalizedPortalContext(heading);
   if (topic === 'start_date_contextual' && !normalizedContext) return portalQuestionId(label, surrounding, heading, fieldAutocomplete);

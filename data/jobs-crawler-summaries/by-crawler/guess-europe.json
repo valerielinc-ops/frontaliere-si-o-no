@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-26T21:28:09.256Z",
+  "generatedAt": "2026-10-27T09:22:31.491Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 3531,
-  "avgDurationMs": 3531,
+  "durationMs": 3250,
+  "avgDurationMs": 3250,
   "durationHistory": [
-    3531
+    3250
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -466,5 +466,5 @@
       }
     }
   ],
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }

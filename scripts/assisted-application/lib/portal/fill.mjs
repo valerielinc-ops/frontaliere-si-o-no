@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
-import { addressQuestionTopic, permitBooleanOptionLabel } from './plan.mjs';
+import { addressQuestionTopic, permitBooleanOptionLabel, questionTopic } from './plan.mjs';
+import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
 import { residenceCountryCode } from './residence-address.mjs';
 
 const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
@@ -15,6 +16,53 @@ export function residenceCountryOptionLabel(value, options = []) {
   return options
     .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
     .find((label) => optionCode(label) === wanted) || '';
+}
+
+const isPhoneCountryField = (field) => questionTopic(field?.label, field?.context, field) === 'phone_country';
+
+export function phoneCountryOptionLabel(value, options = []) {
+  // The planner returns the displayed option label when the country control
+  // has choices (for example «Italia»), while a free control may still pass
+  // the canonical phone value. Resolve both forms before comparing options.
+  const wanted = countryCodeOfLabel(value) || phoneCountryCode(value);
+  if (!wanted) return '';
+  return options
+    .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
+    .find((label) => countryCodeOfLabel(label) === wanted) || '';
+}
+
+const sameNormalized = (left, right) => {
+  const a = normalizedChoice(left);
+  const b = normalizedChoice(right);
+  return a && b ? a === b : !a && !b;
+};
+
+/**
+ * Detect a phone input whose country prefix is represented by a sibling
+ * phone-country field. The extracted field snapshot is the source of truth:
+ * matching form/section/context keeps a residence «Land» from changing the
+ * formatting of an unrelated phone input.
+ */
+export function separatePhonePrefixMetadata(field, fields = [], value = '') {
+  if (questionTopic(field?.label, field?.context, field) !== 'phone') return {};
+  const index = fields.indexOf(field);
+  const phoneCountryFields = fields
+    .map((candidate, candidateIndex) => ({ candidate, candidateIndex }))
+    .filter(({ candidate }) => questionTopic(candidate?.label, candidate?.context, candidate) === 'phone_country')
+    .filter(({ candidate }) => candidate?.form === field?.form || candidate?.form == null || field?.form == null)
+    .filter(({ candidate }) => !candidate?.section || !field?.section || sameNormalized(candidate.section, field.section));
+  const hasSeparateControl = phoneCountryFields.some(({ candidate, candidateIndex }) => {
+    const sameContext = candidate?.context && field?.context && sameNormalized(candidate.context, field.context);
+    // Some ATSes omit sibling labels from one of the two extracted controls;
+    // when that happens, only accept the nearby control in the same form.
+    const nearby = index >= 0 && Math.abs(candidateIndex - index) <= 2;
+    return sameContext || nearby;
+  });
+  if (!hasSeparateControl) return {};
+  return {
+    countryPrefix: phoneDialCode(value),
+    separateCountryCode: true,
+  };
 }
 
 /**
@@ -341,7 +389,8 @@ async function fillCombobox(page, field, locator, value) {
     }
     const nationality = isNationalityField(field.label);
     const residenceCountry = isResidenceCountryField(field.label);
-    if (!nationality && !residenceCountry) {
+    const phoneCountry = isPhoneCountryField(field);
+    if (!nationality && !residenceCountry && !phoneCountry) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
@@ -349,12 +398,14 @@ async function fillCombobox(page, field, locator, value) {
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
     selectedLabel = nationality
       ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
-      : residenceCountryOptionLabel(value, labels);
+      : phoneCountry
+        ? phoneCountryOptionLabel(value, labels)
+        : residenceCountryOptionLabel(value, labels);
     // A generic combobox filters in the form language. The candidate answer
     // may be Italian ("italiana") while the French SuccessFactors list only
     // returns a result after the French prefix ("ital"). Retry with that
     // canonical query before declaring the nationality unavailable.
-    if (!selectedLabel && (nationality || residenceCountry)) {
+    if (!selectedLabel && (nationality || residenceCountry || phoneCountry)) {
       const query = nationalitySearchQuery(value, field.label);
       if (query) {
         await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
@@ -395,7 +446,8 @@ async function chooseInOwnedList(page, field, locator, value) {
   const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
   const nationality = isNationalityField(field.label);
   const residenceCountry = isResidenceCountryField(field.label);
-  const countryLike = nationality || residenceCountry;
+  const phoneCountry = isPhoneCountryField(field);
+  const countryLike = nationality || residenceCountry || phoneCountry;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     if (attempt) {
       await locator.press('Escape').catch(() => {});
@@ -423,7 +475,9 @@ async function chooseInOwnedList(page, field, locator, value) {
       const permitBoolean = permit ? permitBooleanOptionLabel(value, labels) : '';
       return exact?.label || permitBoolean || (nationality
         ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
-        : residenceCountryOptionLabel(value, labels));
+        : phoneCountry
+          ? phoneCountryOptionLabel(value, labels)
+          : residenceCountryOptionLabel(value, labels));
     };
     let selectedLabel = findSelectedLabel();
     // Some SuccessFactors picklists do not expose the complete catalogue when
@@ -762,9 +816,12 @@ export async function applyActions(page, fields, actions, files, {
         if (field.kind === 'select') {
           const exact = (field.options || []).find((option) => normalizedChoice(option.label) === normalizedChoice(action.value));
           const nationality = isNationalityField(field.label);
+          const phoneCountry = isPhoneCountryField(field);
           selectedLabel = exact?.label || (nationality
             ? nationalityOptionLabel(action.value, (field.options || []).map((option) => option.label), nationalityFieldLanguage(field.label))
-            : residenceCountryOptionLabel(action.value, field.options || []));
+            : phoneCountry
+              ? phoneCountryOptionLabel(action.value, field.options || [])
+              : residenceCountryOptionLabel(action.value, field.options || []));
           if (!selectedLabel) throw new Error('option_not_found');
           await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
         } else if (field.kind === 'listbox') {
@@ -795,7 +852,14 @@ export async function applyActions(page, fields, actions, files, {
         // and chosen again, it would be the chosen value that gets clicked.
       } else {
         // A long text is shortened at a sentence end, never cut in the middle of one.
-        await fillText(locator, fitToLength(action.value, field.maxLength));
+        const topic = questionTopic(field.label, field.context, field);
+        const value = topic === 'phone'
+          ? formatPhoneForField(action.value, {
+            maxLength: field.maxLength,
+            ...separatePhonePrefixMetadata(field, fields, action.value),
+          })
+          : fitToLength(action.value, field.maxLength);
+        await fillText(locator, value);
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
       }
       results.push({ fieldId: field.id, ok: true, ...(uploaded ? { files: uploaded } : {}) });

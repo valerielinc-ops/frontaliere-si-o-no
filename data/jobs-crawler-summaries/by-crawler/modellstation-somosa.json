@@ -1,7 +1,7 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-10-26T21:23:13.832Z",
+  "generatedAt": "2026-10-27T09:38:34.963Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4833,
-  "avgDurationMs": 4833,
+  "durationMs": 5092,
+  "avgDurationMs": 5092,
   "durationHistory": [
-    4833
+    5092
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "modellstation-somosa-fe86357a0d1c",
-      "slug": "sozialpadagogin-sozialpadagogen-wg-b-80-modellstation-somosa-winterthur",
+      "slug": "pedagoga-sociale-pedagoga-sociale-wg-b-80-modellstation-somosa-winterthur",
       "company": "Modellstation SOMOSA",
       "companyKey": "modellstation-somosa",
       "companyDomain": "somosa.ch",
@@ -35,7 +36,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:23:01.927Z",
+      "crawledAt": "2026-10-27T09:38:20.386Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,20 +53,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
+      "firstSeenAt": "2026-10-26T21:23:01.927Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-26T21:23:01.927Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +81,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:23:03.463Z",
+      "crawledAt": "2026-10-27T09:38:21.890Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:23:02.958Z",
+      "crawledAt": "2026-10-27T09:38:21.388Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:23:02.454Z",
+      "crawledAt": "2026-10-27T09:38:20.886Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }

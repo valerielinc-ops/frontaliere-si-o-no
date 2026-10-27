@@ -1,7 +1,7 @@
 {
   "crawlerKey": "baloise",
-  "assembledAt": "2026-10-26T21:46:01.664Z",
-  "runId": "40403356863",
+  "assembledAt": "2026-10-27T09:34:46.525Z",
+  "runId": "40479869346",
   "jobs": [
     {
       "id": "baloise-fcba44183089",
@@ -34,7 +34,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-olten/baae08f3-884a-4f3f-8d20-b23c933fd676",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.355Z",
+      "crawledAt": "2026-10-27T09:34:39.188Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/6a4f2275-6594-4285-8822-2df7eb5c3751",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.352Z",
+      "crawledAt": "2026-10-27T09:34:39.185Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/424648d3-bf31-4bd0-8c27-9ffe638bb81c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.351Z",
+      "crawledAt": "2026-10-27T09:34:39.183Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d/bc41dd02-7fc0-4f7c-a6a2-be1d122dd5e8",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.349Z",
+      "crawledAt": "2026-10-27T09:34:39.181Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/senior-berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.346Z",
+      "crawledAt": "2026-10-27T09:34:39.178Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -454,7 +454,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/privatkundenberater-w-m-d-bank-region-solothurn/8b004cab-df59-4102-83a7-e23e3b3051b3",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.344Z",
+      "crawledAt": "2026-10-27T09:34:39.175Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -534,7 +534,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/integrationsspezialist-application-management-avaloq-w-m-d/116d073e-cdf0-4643-9d40-96ceb33abfe0",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.340Z",
+      "crawledAt": "2026-10-27T09:34:39.172Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -584,12 +584,12 @@
     },
     {
       "id": "baloise-a4109f514359",
-      "slug": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
+      "slug": "stage-bem-ingresso-bancario-a-matura-m-f-d-baloise-dornach",
       "slugByLocale": {
+        "it": "stage-bem-ingresso-bancario-a-matura-m-f-d-baloise-dornach",
+        "en": "bem-internship-bank-entry-to-matura-m-f-d-baloise-dornach",
         "de": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
-        "it": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
-        "en": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
-        "fr": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        "fr": "stage-bem-entree-bancaire-a-matura-h-f-d-baloise-dornach"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -597,24 +597,23 @@
       "title": "BEM-Praktikum: Bankeinstieg nach Matura (w/m/d)",
       "titleByLocale": {
         "de": "BEM-Praktikum: Bankeinstieg nach Matura (w/m/d)",
-        "it": "BEM-Praktikum: Bankeinstieg nach Matura (w/m/d)",
-        "en": "BEM-Praktikum: Bankeinstieg nach Matura (w/m/d)",
-        "fr": "BEM-Praktikum: Bankeinstieg nach Matura (w/m/d)"
+        "it": "Stage BEM: Ingresso bancario a Matura (m/f/d)",
+        "en": "BEM internship: Bank entry to Matura (m/f/d)",
+        "fr": "Stage BEM: Entrée bancaire à Matura (h/f/d)"
       },
       "description": "Du bist motiviert, übernimmst gerne Verantwortung und möchtest direkt in die Bankenwelt einsteigen? Dann starte mit uns in eine spannende Ausbildung mit attraktiven Zukunftsaussichten.<br/><br/>Du absolvierst während 18 bis 24 Monaten eine abwechslungsreiche und praxisorientierte Ausbildung im Bankgeschäft. Dabei erhältst du umfassende Einblicke in verschiedene Bereiche des Bankalltags und verknüpfst theoretisches Wissen direkt mit praktischen Erfahrungen.<br/><br/>Nach erfolgreichem Abschluss erhältst du das schweizweit anerkannte Zertifikat der Schweizerischen Bankiervereinigung (SBVg). Dieses eröffnet dir attraktive Perspektiven für deine berufliche Zukunft in der Finanzbranche.\n\nAufgaben:\n• Du übernimmst Verantwortung für abwechslungsreiche Aufgaben und leistest einen wertvollen Beitrag zu einem positiven Kundenerlebnis.\n\n• Du arbeitest eng mit erfahrenen Fachpersonen zusammen und entwickelst deine fachlichen sowie persönlichen Kompetenzen laufend weiter.\n\n• Du gewinnst spannende Einblicke in die Welt des Bankings und sammelst praktische Erfahrungen für deine berufliche Zukunft.\n\nAnforderungen:\n• Gymnasiale Maturität oder abgeschlossene Wirtschaftsmittelschule\n\n• Gute schulische Leistungen\n\n• Gute Kenntnisse in den gängigen Informatik- und Kommunikationsanwendungen\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n• Hohe Leistungsbereitschaft und Durchhaltevermögen\n\n• Freude am Kundenkontakt sowie ausgeprägte Serviceorientierung\n\n• Flexibilität und Teamgeist\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
       "descriptionByLocale": {
         "de": "Du bist motiviert, übernimmst gerne Verantwortung und möchtest direkt in die Bankenwelt einsteigen? Dann starte mit uns in eine spannende Ausbildung mit attraktiven Zukunftsaussichten.<br/><br/>Du absolvierst während 18 bis 24 Monaten eine abwechslungsreiche und praxisorientierte Ausbildung im Bankgeschäft. Dabei erhältst du umfassende Einblicke in verschiedene Bereiche des Bankalltags und verknüpfst theoretisches Wissen direkt mit praktischen Erfahrungen.<br/><br/>Nach erfolgreichem Abschluss erhältst du das schweizweit anerkannte Zertifikat der Schweizerischen Bankiervereinigung (SBVg). Dieses eröffnet dir attraktive Perspektiven für deine berufliche Zukunft in der Finanzbranche.\n\nAufgaben:\n• Du übernimmst Verantwortung für abwechslungsreiche Aufgaben und leistest einen wertvollen Beitrag zu einem positiven Kundenerlebnis.\n\n• Du arbeitest eng mit erfahrenen Fachpersonen zusammen und entwickelst deine fachlichen sowie persönlichen Kompetenzen laufend weiter.\n\n• Du gewinnst spannende Einblicke in die Welt des Bankings und sammelst praktische Erfahrungen für deine berufliche Zukunft.\n\nAnforderungen:\n• Gymnasiale Maturität oder abgeschlossene Wirtschaftsmittelschule\n\n• Gute schulische Leistungen\n\n• Gute Kenntnisse in den gängigen Informatik- und Kommunikationsanwendungen\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n• Hohe Leistungsbereitschaft und Durchhaltevermögen\n\n• Freude am Kundenkontakt sowie ausgeprägte Serviceorientierung\n\n• Flexibilität und Teamgeist\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
-        "it": "Du bist motiviert, übernimmst gerne Verantwortung und möchtest direkt in die Bankenwelt einsteigen? Dann starte mit uns in eine spannende Ausbildung mit attraktiven Zukunftsaussichten.<br/><br/>Du absolvierst während 18 bis 24 Monaten eine abwechslungsreiche und praxisorientierte Ausbildung im Bankgeschäft. Dabei erhältst du umfassende Einblicke in verschiedene Bereiche des Bankalltags und verknüpfst theoretisches Wissen direkt mit praktischen Erfahrungen.<br/><br/>Nach erfolgreichem Abschluss erhältst du das schweizweit anerkannte Zertifikat der Schweizerischen Bankiervereinigung (SBVg). Dieses eröffnet dir attraktive Perspektiven für deine berufliche Zukunft in der Finanzbranche.\n\nAufgaben:\n• Du übernimmst Verantwortung für abwechslungsreiche Aufgaben und leistest einen wertvollen Beitrag zu einem positiven Kundenerlebnis.\n\n• Du arbeitest eng mit erfahrenen Fachpersonen zusammen und entwickelst deine fachlichen sowie persönlichen Kompetenzen laufend weiter.\n\n• Du gewinnst spannende Einblicke in die Welt des Bankings und sammelst praktische Erfahrungen für deine berufliche Zukunft.\n\nAnforderungen:\n• Gymnasiale Maturität oder abgeschlossene Wirtschaftsmittelschule\n\n• Gute schulische Leistungen\n\n• Gute Kenntnisse in den gängigen Informatik- und Kommunikationsanwendungen\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n• Hohe Leistungsbereitschaft und Durchhaltevermögen\n\n• Freude am Kundenkontakt sowie ausgeprägte Serviceorientierung\n\n• Flexibilität und Teamgeist\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
-        "en": "Du bist motiviert, übernimmst gerne Verantwortung und möchtest direkt in die Bankenwelt einsteigen? Dann starte mit uns in eine spannende Ausbildung mit attraktiven Zukunftsaussichten.<br/><br/>Du absolvierst während 18 bis 24 Monaten eine abwechslungsreiche und praxisorientierte Ausbildung im Bankgeschäft. Dabei erhältst du umfassende Einblicke in verschiedene Bereiche des Bankalltags und verknüpfst theoretisches Wissen direkt mit praktischen Erfahrungen.<br/><br/>Nach erfolgreichem Abschluss erhältst du das schweizweit anerkannte Zertifikat der Schweizerischen Bankiervereinigung (SBVg). Dieses eröffnet dir attraktive Perspektiven für deine berufliche Zukunft in der Finanzbranche.\n\nAufgaben:\n• Du übernimmst Verantwortung für abwechslungsreiche Aufgaben und leistest einen wertvollen Beitrag zu einem positiven Kundenerlebnis.\n\n• Du arbeitest eng mit erfahrenen Fachpersonen zusammen und entwickelst deine fachlichen sowie persönlichen Kompetenzen laufend weiter.\n\n• Du gewinnst spannende Einblicke in die Welt des Bankings und sammelst praktische Erfahrungen für deine berufliche Zukunft.\n\nAnforderungen:\n• Gymnasiale Maturität oder abgeschlossene Wirtschaftsmittelschule\n\n• Gute schulische Leistungen\n\n• Gute Kenntnisse in den gängigen Informatik- und Kommunikationsanwendungen\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n• Hohe Leistungsbereitschaft und Durchhaltevermögen\n\n• Freude am Kundenkontakt sowie ausgeprägte Serviceorientierung\n\n• Flexibilität und Teamgeist\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
-        "fr": "Du bist motiviert, übernimmst gerne Verantwortung und möchtest direkt in die Bankenwelt einsteigen? Dann starte mit uns in eine spannende Ausbildung mit attraktiven Zukunftsaussichten.<br/><br/>Du absolvierst während 18 bis 24 Monaten eine abwechslungsreiche und praxisorientierte Ausbildung im Bankgeschäft. Dabei erhältst du umfassende Einblicke in verschiedene Bereiche des Bankalltags und verknüpfst theoretisches Wissen direkt mit praktischen Erfahrungen.<br/><br/>Nach erfolgreichem Abschluss erhältst du das schweizweit anerkannte Zertifikat der Schweizerischen Bankiervereinigung (SBVg). Dieses eröffnet dir attraktive Perspektiven für deine berufliche Zukunft in der Finanzbranche.\n\nAufgaben:\n• Du übernimmst Verantwortung für abwechslungsreiche Aufgaben und leistest einen wertvollen Beitrag zu einem positiven Kundenerlebnis.\n\n• Du arbeitest eng mit erfahrenen Fachpersonen zusammen und entwickelst deine fachlichen sowie persönlichen Kompetenzen laufend weiter.\n\n• Du gewinnst spannende Einblicke in die Welt des Bankings und sammelst praktische Erfahrungen für deine berufliche Zukunft.\n\nAnforderungen:\n• Gymnasiale Maturität oder abgeschlossene Wirtschaftsmittelschule\n\n• Gute schulische Leistungen\n\n• Gute Kenntnisse in den gängigen Informatik- und Kommunikationsanwendungen\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\n• Hohe Leistungsbereitschaft und Durchhaltevermögen\n\n• Freude am Kundenkontakt sowie ausgeprägte Serviceorientierung\n\n• Flexibilität und Teamgeist\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team."
+        "it": "Siete motivati, come assumersi la responsabilità e vogliono entrare direttamente nel mondo bancario? Allora inizia con noi in una formazione emozionante con prospettive future attraenti. > > Completa una formazione pratica e varia nel settore bancario da 18 a 24 mesi. Acquisirete approfondimenti completi in varie aree della vita bancaria quotidiana e collegare la conoscenza teorica direttamente con esperienza pratica. < > > > ι Dopo aver completato con successo, riceverai il certificato riconosciuto dalla Svizzera dell'Associazione svizzera dei banchieri (SBA). Questo apre prospettive attraenti per il vostro futuro professionale nel settore finanziario.\n\nCompiti:\n• Si assume la responsabilità di varie attività e dare un prezioso contributo ad una positiva esperienza del cliente.\n\n• Lavori a stretto contatto con specialisti esperti e sviluppi continuamente le tue competenze professionali e personali.\n\n• Ottieni interessanti intuizioni nel mondo del banking e ottieni esperienza pratica per il tuo futuro professionale.\n\nRequisiti\n• High School Maturity o Completa Business School\n\n• Buoni risultati accademici\n\n• Buona conoscenza delle applicazioni comuni di informatica e comunicazione\n\n• Lavoro autonomo e responsabile\n\n• Elevate prestazioni e resistenza\n\n• Godimento del contatto con il cliente e un forte orientamento di servizio\n\n• Flessibilità e spirito di squadra\n\nCrediamo nella cooperazione a livello degli occhi, nella fiducia reciproca e nelle persone che vogliono assumersi la responsabilità. Prospettive diverse ci aiutano a sviluppare soluzioni migliori – per i nostri clienti e per noi come team.",
+        "en": "You are motivated, like to take on responsibility and want to enter the banking world directly? Then start with us in an exciting education with attractive future prospects. <br/><br/ >You will complete a varied and practical training in banking for 18 to 24 months. You will gain comprehensive insights into various areas of everyday banking life and link theoretical knowledge directly with practical experience. <br/><br/ After successful completion, you will receive the Swiss-recognized certificate of the Swiss Bankers Association (SBA). This opens up attractive prospects for your professional future in the financial industry.\n\nTasks:\n• You take responsibility for varied tasks and make a valuable contribution to a positive customer experience.\n\n• You work closely with experienced specialists and develop your professional and personal skills continuously.\n\n• You gain exciting insights into the world of banking and gain practical experience for your professional future.\n\nRequirements\n• High School Maturity or Completed Business School\n\n• Good academic achievements\n\n• Good knowledge of common computer science and communication applications\n\n• Self-employed and responsible work\n\n• High performance and endurance\n\n• Enjoyment of customer contact as well as a strong service orientation\n\n• Flexibility and team spirit\n\nWe believe in cooperation at eye level, mutual trust and people who want to take responsibility. Different perspectives help us to develop better solutions – for our customers as well as for us as a team.",
+        "fr": "Vous êtes motivé, aimez prendre des responsabilités et voulez entrer directement dans le monde bancaire? Alors commencez avec nous dans une éducation passionnante avec des perspectives d'avenir attrayantes. <br/><br/ > Vous compléterez une formation variée et pratique dans le secteur bancaire pendant 18 à 24 mois. Vous obtiendrez des informations complètes sur différents domaines de la vie bancaire quotidienne et lier les connaissances théoriques directement à l'expérience pratique. <br/><br/ Une fois la réussite terminée, vous recevrez le certificat suisse de l'Association suisse des banquiers (SBA). Cela ouvre des perspectives intéressantes pour votre avenir professionnel dans le secteur financier.\n\nTâches :\n• Vous assumez la responsabilité de tâches variées et apportez une contribution précieuse à une expérience client positive.\n\n• Vous travaillez en étroite collaboration avec des spécialistes expérimentés et développez continuellement vos compétences professionnelles et personnelles.\n\n• Vous gagnez des connaissances passionnantes dans le monde bancaire et acquérir une expérience pratique pour votre avenir professionnel.\n\nExigences\n• Maturité du secondaire ou école de commerce terminée\n\n• Bonnes réalisations scolaires\n\n• Bonne connaissance des applications communes en informatique et en communication\n\n• Travail indépendant et travail responsable\n\n• Haute performance et endurance\n\n• Profitez du contact avec le client ainsi que d'une forte orientation vers le service\n\n• Flexibilité et esprit d'équipe\n\nNous croyons en la coopération au niveau des yeux, en la confiance mutuelle et en ceux qui veulent assumer leurs responsabilités. Différentes perspectives nous aident à développer de meilleures solutions, tant pour nos clients que pour nous en tant qu'équipe."
       },
-      "needsRetranslation": true,
       "location": "Dornach",
       "canton": "SO",
       "url": "https://jobs.helvetia.com/offene-stellen/bem-praktikum-bankeinstieg-nach-matura-w-m-d/75572234-8947-4a9c-a23b-fe78e89eb66c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:45:57.331Z",
+      "crawledAt": "2026-10-27T09:34:39.161Z",
       "addressLocality": "Dornach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -633,23 +632,36 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.helvetia.com/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19919",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 59000,
-      "salaryMax": 108500,
+      "requirementsByLocale": {},
+      "salaryMin": 49500,
+      "salaryMax": 91500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 108500,
+          "minValue": 49500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:45:57.331Z"
+      "firstSeenAt": "2026-10-26T21:45:57.331Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        ],
+        "en": [
+          "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        ],
+        "fr": [
+          "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        ]
+      },
+      "previousSlugs": [
+        "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+      ],
+      "needsRetranslation": false
     }
   ]
 }

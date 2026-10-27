@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic, targetEmployerNoOption } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
@@ -1095,6 +1095,27 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
   });
 
+  it('passes split-phone metadata to the text boundary while keeping single inputs international', async () => {
+    let entered = '';
+    const control = {
+      fill: vi.fn(async (value: string) => { entered = value; }),
+      inputValue: vi.fn(async () => entered),
+    };
+    const options = { allInnerTexts: vi.fn(async () => []) };
+    const frame = { locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }) };
+    const page = { frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const phoneCountry = { id: 'phone-country', kind: 'select', label: 'Land', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    const phone = { id: 'phone', kind: 'text', inputType: 'tel', label: 'Phone', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    const split = await applyActions(page as any, [phoneCountry, phone], [{ fieldId: 'phone', action: 'fill', value: '+39 324 0753275' }], {}, { pause: async () => {} });
+    expect(split).toEqual([{ fieldId: 'phone', ok: true }]);
+    expect(entered).toBe('324 0753275');
+
+    entered = '';
+    const single = await applyActions(page as any, [phone], [{ fieldId: 'phone', action: 'fill', value: '+39 324 0753275' }], {}, { pause: async () => {} });
+    expect(single).toEqual([{ fieldId: 'phone', ok: true }]);
+    expect(entered).toBe('+39 324 0753275');
+  });
+
   it('matches a custom picklist label by normalized exact text', async () => {
     let selected = '';
     const option = (label: string) => ({
@@ -2182,8 +2203,8 @@ describe('portal runner helpers', () => {
     const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
     expect(questionTopic('Postcode', 'My Information')).toBe('residence_postal_code');
     expect(questionTopic('Country', 'My Information / Country of birth')).toBe('');
-    expect(questionTopic('Country Phone Code*', 'My Information')).toBe('');
-    expect(questionTopic('Country code', 'My Information / Phone')).toBe('');
+    expect(questionTopic('Country Phone Code*', 'My Information')).toBe('phone_country');
+    expect(questionTopic('Country code', 'My Information / Phone')).toBe('phone_country');
     expect(questionTopic('Country code', 'Phone, Address, CAP, Country')).toBe('');
     const flattenedPersonalContext = 'Dati anagrafici · Telefono fisso / Telefono privato · Telefono mobile / Cellulare * · Indirizzo * · CAP * · Località * · Nazione (di residenza) *';
     expect(questionTopic('Indirizzo', flattenedPersonalContext)).toBe('address_street');
@@ -2219,6 +2240,42 @@ describe('portal runner helpers', () => {
     expect(guarded.missingRequired).toEqual([]);
   });
 
+  it('keeps canonical phone and residence country ahead of stale portal answers', () => {
+    const candidate = {
+      identity: {
+        phone: '+39 324 0753275',
+        location: 'Brescia, Italia',
+        address: { city: 'Brescia', country: 'Italia' },
+      },
+      profile: { location: 'Brescia, Italia', address: { city: 'Brescia', country: 'Italia' } },
+      answers: {},
+      portalQuestionsAnswered: [
+        { question: 'Country Phone Code*', answer: 'Schweiz', source: 'answers' },
+        { question: 'Telefon', answer: '+41 79 000 00 00', source: 'answers' },
+        { question: 'Land/Region des Wohnorts', answer: 'Schweiz', source: 'answers' },
+      ],
+    };
+    const phoneCountry = { kind: 'select', label: 'Country Phone Code*', options: [{ label: 'Schweiz' }, { label: 'Italien' }] };
+    const phone = { kind: 'text', label: 'Telefon', options: [] };
+    const residenceCountry = { kind: 'select', label: 'Land/Region des Wohnorts', options: [{ label: 'Schweiz' }, { label: 'Italien' }] };
+    expect(candidateAnswerForQuestion(candidate, 'Country Phone Code*')).toBe('Italia');
+    expect(candidateAnswerForQuestion(candidate, 'Telefon')).toBe('+39 324 0753275');
+    expect(candidateAnswerForQuestion(candidate, 'Land/Region des Wohnorts')).toBe('Italia');
+    expect(candidateAnswerForField(candidate, phoneCountry)).toEqual({ value: 'Italien', source: 'identity' });
+    expect(candidateAnswerForField(candidate, phone)).toEqual({ value: '+39 324 0753275', source: 'identity' });
+    expect(candidateAnswerForField(candidate, residenceCountry)).toEqual({ value: 'Italien', source: 'identity' });
+  });
+
+  it('resolves localized phone-country labels and formats split phone controls nationally', () => {
+    expect(phoneCountryOptionLabel('Italia', ['Schweiz', 'Italia'])).toBe('Italia');
+    expect(phoneCountryOptionLabel('+39 324 0753275', ['Schweiz', 'Italia'])).toBe('Italia');
+    const phoneCountry = { id: 'phone-country', kind: 'select', label: 'Land', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    const phone = { id: 'phone', kind: 'text', label: 'Phone', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    expect(separatePhonePrefixMetadata(phone, [phoneCountry, phone], '+39 324 0753275'))
+      .toEqual({ countryPrefix: '39', separateCountryCode: true });
+    expect(separatePhonePrefixMetadata(phone, [phone], '+39 324 0753275')).toEqual({});
+  });
+
   it('does not infer a country from an unrecognised province code alone', () => {
     const candidate = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
@@ -2250,6 +2307,7 @@ describe('portal runner helpers', () => {
     expect(portalQuestionId('CAP', ' Residence ')).toBe(portalQuestionId('cap', 'residence'));
     expect(portalQuestionKey('CAP', 'Residence')).toBe(portalQuestionKey('CAP (obbligatorio)', ' residence '));
     expect(portalQuestionKey('CAP', residence.context)).not.toBe(portalQuestionKey('CAP', employer.context));
+    expect(portalQuestionKey('Country code', 'Phone · Mobile')).not.toBe(portalQuestionKey('Country code', 'Phone · Home'));
     expect(residence.id).not.toBe(employer.id);
     expect(dedupePortalQuestions([residence, employer])).toEqual([residence, employer]);
 

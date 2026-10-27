@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-lengg",
-  "assembledAt": "2026-10-26T21:36:35.182Z",
-  "runId": "40403659513",
+  "assembledAt": "2026-10-27T09:52:39.496Z",
+  "runId": "40480138618",
   "jobs": [
     {
       "id": "klinik-lengg-f404b98255c2",
@@ -35,7 +35,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a/441f7e8a-f768-4396-b9fe-c886ef55e55c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.814Z",
+      "crawledAt": "2026-10-27T09:52:33.456Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -132,7 +132,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/studierende-studierender-hf-fh-pflege-akut-somatik-a/70b0b145-c264-46c2-9724-755b6cabc071",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.812Z",
+      "crawledAt": "2026-10-27T09:52:33.454Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -235,7 +235,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/31f1983f-5f09-4c1c-a1a0-a19e99be9210",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.809Z",
+      "crawledAt": "2026-10-27T09:52:33.450Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -283,7 +283,7 @@
       "slug": "capo-infermieristica-a-klinik-lengg-zurich",
       "slugByLocale": {
         "it": "capo-infermieristica-a-klinik-lengg-zurich",
-        "en": "care-service-a-klinik-lengg-zurich",
+        "en": "chief-nursing-officer-a-klinik-lengg-zurich",
         "de": "chief-nursing-officer-a-klinik-lengg-zurich",
         "fr": "chef-des-soins-infirmiers-a-klinik-lengg-zurich"
       },
@@ -309,7 +309,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/chief-nursing-officer-a/a3c77724-f8f0-4f33-8ebb-1b1b2cf3fab2",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.807Z",
+      "crawledAt": "2026-10-27T09:52:33.448Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -330,14 +330,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chief-nursing-officer-a-klinik-lengg-zurich"
+        "chief-nursing-officer-a-klinik-lengg-zurich",
+        "care-service-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chief-nursing-officer-a-klinik-lengg-zurich"
         ],
         "en": [
-          "chief-nursing-officer-a-klinik-lengg-zurich"
+          "care-service-a-klinik-lengg-zurich"
         ],
         "fr": [
           "chief-nursing-officer-a-klinik-lengg-zurich"
@@ -389,7 +390,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/a27ec7d8-c538-4651-baee-80aea18b6e20",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.803Z",
+      "crawledAt": "2026-10-27T09:52:33.445Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -471,7 +472,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/praktikantin-praktikant-pflege-epileptologie-a/5a341392-a169-4c82-9c12-ec904f71e3c2",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.800Z",
+      "crawledAt": "2026-10-27T09:52:33.443Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -523,97 +524,6 @@
       }
     },
     {
-      "id": "klinik-lengg-d85d11280db7",
-      "slug": "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich",
-      "slugByLocale": {
-        "it": "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich",
-        "en": "assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
-        "de": "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
-        "fr": "medecin-adjoint-neuroreadaptation-a-klinik-lengg-zurich"
-      },
-      "company": "Klinik Lengg",
-      "companyKey": "klinik-lengg",
-      "companyDomain": "kliniklengg.ch",
-      "title": "Assistenzärztin / Assistenzarzt Neurorehabilitation (a)",
-      "titleByLocale": {
-        "it": "Assistente medico neuroriabilitazione (a)",
-        "en": "Assistant physician Neurorehabilitation (a)",
-        "de": "Assistenzärztin / Assistenzarzt Neurorehabilitation (a)",
-        "fr": "Médecin adjoint neuroréadaptation (a)"
-      },
-      "description": "Aufgaben:\n• Medizinisch-organisatorische Betreuung eines breiten Spektrums an neurologischen Patienten im stationären Rahmen unter der Supervision eines Kaderarztes\n\n• Verantwortung für alle medizinischen Belange (Untersuchung, medikamentöse Therapien, Diagnostik, Visiten)\n\n• Zusammenarbeit mit dem interdisziplinären Rehabilitationsteam und Kommunikation mit involvierten externen Stellen\n\n• Bei Interesse, Möglichkeit der Rotation in die Abteilung für Epileptologie\n\n• Rotation in die Neurophysiologie und Erwerb des \"Fähigkeitsausweis neurovaskuläre Sonographie SGKN\" möglich\n\n• Ausbildung in der flexiblen endoskopischen Schluckabklärung (FEES) möglich\n\nAnforderungen:\n• Erste klinische Berufserfahrung mit Interesse an der Neurorehabilitation\n\n• CH- bzw. EU-Staatsexamen (mit BAG-Anerkennung)\n\n• Sehr gute Deutschkenntnisse (mind. Niveau C)\n\n• Herausragende soziale und fachliche Kompetenzen mit Bereitschaft zur interdisziplinären Zusammenarbeit\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Cura medica-organizzativa di un ampio spettro di pazienti neurologici in un ambiente ospedaliero sotto la supervisione di un medico cadre\n\n• Responsabilità per tutte le questioni mediche (esame, terapie mediche, diagnostica, visite)\n\n• Cooperazione con il team interdisciplinare di riabilitazione e comunicazione con gli organismi esterni coinvolti\n\n• Se interessati, possibilità di rotazione nel Dipartimento di Epileptologia\n\n• Rotazione in neurofisiologia e acquisizione di \"Certificato di Competenza Neurovascolare Sonografia SGKN\" Possibile\n\n• Endoscopico flessibile rondine (FEES) formazione possibile\n\nRequisiti\n• Prima esperienza professionale clinica con interesse nella neuroriabilizzazione\n\n• Esame di stato CH o UE (con riconoscimento FOPH)\n\n• Conoscenza molto buona del tedesco (livello minimo C)\n\n• Competenze sociali e professionali eccezionali con disponibilità alla cooperazione interdisciplinare\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile a garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
-        "en": "Tasks:\n• Medical-organizational care of a broad spectrum of neurological patients in an inpatient setting under the supervision of a cadre physician\n\n• Responsibility for all medical matters (examination, medical therapies, diagnostics, visits)\n\n• Cooperation with the interdisciplinary rehabilitation team and communication with external bodies involved\n\n• If interested, possibility of rotation into the Department of Epileptology\n\n• Rotation into Neurophysiology and Acquisition of \"Certificate of Competence Neurovascular Sonography SGKN\" Possible\n\n• Flexible endoscopic swallowing (FEES) training possible\n\nRequirements\n• First clinical professional experience with interest in neurorehabilitation\n\n• CH or EU state examination (with FOPH recognition)\n\n• Very good knowledge of German (minimum level C)\n\n• Outstanding social and professional skills with willingness for interdisciplinary cooperation\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
-        "de": "Aufgaben:\n• Medizinisch-organisatorische Betreuung eines breiten Spektrums an neurologischen Patienten im stationären Rahmen unter der Supervision eines Kaderarztes\n\n• Verantwortung für alle medizinischen Belange (Untersuchung, medikamentöse Therapien, Diagnostik, Visiten)\n\n• Zusammenarbeit mit dem interdisziplinären Rehabilitationsteam und Kommunikation mit involvierten externen Stellen\n\n• Bei Interesse, Möglichkeit der Rotation in die Abteilung für Epileptologie\n\n• Rotation in die Neurophysiologie und Erwerb des \"Fähigkeitsausweis neurovaskuläre Sonographie SGKN\" möglich\n\n• Ausbildung in der flexiblen endoskopischen Schluckabklärung (FEES) möglich\n\nAnforderungen:\n• Erste klinische Berufserfahrung mit Interesse an der Neurorehabilitation\n\n• CH- bzw. EU-Staatsexamen (mit BAG-Anerkennung)\n\n• Sehr gute Deutschkenntnisse (mind. Niveau C)\n\n• Herausragende soziale und fachliche Kompetenzen mit Bereitschaft zur interdisziplinären Zusammenarbeit\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
-        "fr": "Tâches :\n• Soins médicaux et organisationnels d'un large éventail de patients neurologiques hospitalisés sous la supervision d'un médecin cadre\n\n• Responsabilité pour toutes les questions médicales (examen, thérapies médicales, diagnostics, visites)\n\n• Coopération avec l'équipe de réadaptation interdisciplinaire et communication avec les organismes externes concernés\n\n• Si intéressé, possibilité de rotation dans le département d'épileptologie\n\n• Rotation en neurophysiologie et acquisition de « Certificat de compétence Sonographie neurovasculaire SGKN » Possible\n\n• Formation endoscopique flexible (FEES) possible\n\nExigences\n• Première expérience clinique professionnelle avec intérêt pour la neuroréhabilitation\n\n• Examen du CH ou de l'UE (avec reconnaissance FOPH)\n\n• Très bonne connaissance de l'allemand (niveau minimum C)\n\n• Compétences sociales et professionnelles exceptionnelles et volonté de coopération interdisciplinaire\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Devenez membre d'une de nos équipes interdisciplinaires et interprofessionnelles."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/d0c4c59f-98b3-42d6-96ec-2c212b3cf589",
-      "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.798Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Bleulerstrasse 60",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/d0c4c59f-98b3-42d6-96ec-2c212b3cf589",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
-        "medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
-        "assistant-physician-assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
-        "medecin-adjoint-medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
-        "medecin-chef-medecin-chef-neurorehabilitation-a-klinik-lengg-zurich",
-        "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
-          "medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
-          "assistant-physician-assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
-          "medecin-adjoint-medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
-          "medecin-chef-medecin-chef-neurorehabilitation-a-klinik-lengg-zurich",
-          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
-        ],
-        "fr": [
-          "medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
-          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T10:10:52.054Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "klinik-lengg-8ed78db7ad4c",
       "slug": "infermiere-diplomato-in-epilessia-a-in-servizio-anticipato-e-posticipato-klinik-lengg-zurich",
       "slugByLocale": {
@@ -645,7 +555,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/ccab9860-04f6-4a79-9a85-03efb56f4fb1",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.796Z",
+      "crawledAt": "2026-10-27T09:52:33.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -734,7 +644,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/98e3e2cc-d421-4d64-818b-11c03e9466b1",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.794Z",
+      "crawledAt": "2026-10-27T09:52:33.440Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -823,7 +733,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/1635881d-9a65-4a14-a51c-6e9ffec256de",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.792Z",
+      "crawledAt": "2026-10-27T09:52:33.438Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -897,7 +807,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/medizinische-sekretaerin-medizinischer-sekretaer/e4f96ef8-2700-4d94-9bc9-59b9c697fe30",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.790Z",
+      "crawledAt": "2026-10-27T09:52:33.437Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -974,7 +884,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/stationsleitung-pflege-neurorehabilitation-a/8443830a-8b4d-40ab-8245-6ae7f109ecf9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.787Z",
+      "crawledAt": "2026-10-27T09:52:33.435Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1054,7 +964,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/chefaerztin-chefarzt-neurorehabilitation-mitglied-der-geschaeftsleitung-a/d8361cd8-eed7-423f-8d43-1cdfa2c25108",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.784Z",
+      "crawledAt": "2026-10-27T09:52:33.433Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1131,7 +1041,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/bb27206d-e50d-41c4-aaad-272173e48026",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.782Z",
+      "crawledAt": "2026-10-27T09:52:33.432Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1206,7 +1116,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/psychotherapeut-in-mit-schwerpunkt-ambulante-neuropsychosomatik-a/f060ef8e-77d7-4c57-a89b-bb2dc33fd6e9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.779Z",
+      "crawledAt": "2026-10-27T09:52:33.430Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1292,7 +1202,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/psychotherapeut-in-stationaer-und-ambulant-mit-schwerpunkt-neuropsychosomatik-a/967dc869-234a-43aa-829a-a4e003b1a7c3",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.773Z",
+      "crawledAt": "2026-10-27T09:52:33.428Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1347,9 +1257,9 @@
       "id": "klinik-lengg-5cc1b60c7954",
       "slug": "pedagoga-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "de": "logopadin-logopade-a-klinik-lengg-zurich",
         "it": "pedagoga-a-klinik-lengg-zurich",
         "en": "speech-pedagogue-a-klinik-lengg-zurich",
+        "de": "logopadin-logopade-a-klinik-lengg-zurich",
         "fr": "pedagogue-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
@@ -1357,24 +1267,25 @@
       "companyDomain": "kliniklengg.ch",
       "title": "Logopädin / Logopäde (a)",
       "titleByLocale": {
-        "de": "Logopädin / Logopäde (a)",
         "it": "Pedagoga (a)",
         "en": "Speech pedagogue (a)",
+        "de": "Logopädin / Logopäde (a)",
         "fr": "Pédagogue (a)"
       },
       "description": "Aufgaben:\n• Eingangs- und Verlaufsdiagnostik sowie Behandlung der neurologisch bedingten Aphasie, Dysarthrophonie, Fazialisparese, kognitiven Kommunikationsstörung, Dysphagie und Sprechapraxie vor allem im ambulanten Setting\n\n• Möglichkeit zur aktiven Mitgestaltung hausinterner logopädischer, sowie interdisziplinärer Fortbildungen\n\n• Kompetente Beratung von Angehörigen, Patientinnen und Patienten\n\n• Zusammenarbeit mit externen Institutionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur/zum Logopädin/Logopäden (MSc, BSc oder BA)\n\n• Erste Berufserfahrung im Bereich der Neurorehabilitation\n\n• Fortbildung(en) in der Behandlung neurologisch bedingter Sprach-, Sprech- und Schluckstörungen von Vorteil\n\n• Selbstständige Arbeitsweise\n\n• Interesse an interdisziplinärer Zusammenarbeit\n\n• Freude an der Anwendung evidenzbasierter Methoden\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Eingangs- und Verlaufsdiagnostik sowie Behandlung der neurologisch bedingten Aphasie, Dysarthrophonie, Fazialisparese, kognitiven Kommunikationsstörung, Dysphagie und Sprechapraxie vor allem im ambulanten Setting\n\n• Möglichkeit zur aktiven Mitgestaltung hausinterner logopädischer, sowie interdisziplinärer Fortbildungen\n\n• Kompetente Beratung von Angehörigen, Patientinnen und Patienten\n\n• Zusammenarbeit mit externen Institutionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur/zum Logopädin/Logopäden (MSc, BSc oder BA)\n\n• Erste Berufserfahrung im Bereich der Neurorehabilitation\n\n• Fortbildung(en) in der Behandlung neurologisch bedingter Sprach-, Sprech- und Schluckstörungen von Vorteil\n\n• Selbstständige Arbeitsweise\n\n• Interesse an interdisziplinärer Zusammenarbeit\n\n• Freude an der Anwendung evidenzbasierter Methoden\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
         "it": "Compiti:\n• Introduzione e diagnosi di progressione, nonché il trattamento di afasia neurologicamente causata, disartrofonia, paralisi facciale, disturbo di comunicazione cognitiva, disfagia e la disprassia specialmente in ambiente ambulatorio\n\n• Possibilità di partecipazione attiva alla formazione logopedica interna e interdisciplinare\n\n• Consulenza competente per parenti e pazienti\n\n• Cooperazione con le istituzioni esterne\n\nRequisiti\n• Formazione completa per Speech Pedophile/Logopaedist (MSc, BSc o BA)\n\n• Prima esperienza professionale in neuroriabilitazione\n\n• Formazione vantaggiosa (s) nel trattamento del discorso neurologico, disturbi del discorso e della deglutizione\n\n• Lavoro autonomo\n\n• Interessi di cooperazione interdisciplinare\n\n• Utilizzare metodi basati sulle prove\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile per garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
         "en": "Tasks:\n• Introduction and progression diagnostics as well as treatment of neurologically caused aphasia, dysarthrophonia, facial paralysis, cognitive communication disorder, dysphagia and speechapraxia especially in ambulatory setting\n\n• Possibility for active participation in in-house logopaedic and interdisciplinary training\n\n• Competent advice for relatives and patients\n\n• Cooperation with external institutions\n\nRequirements\n• Completed training for Speech Pedophile/Logopaedist (MSc, BSc or BA)\n\n• First professional experience in neurorehabilitation\n\n• Advantageous training(s) in the treatment of neurological speech, speech and swallowing disorders\n\n• Self-employed work\n\n• Interest in interdisciplinary cooperation\n\n• Enjoying the use of evidence-based methods\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
+        "de": "Aufgaben:\n• Eingangs- und Verlaufsdiagnostik sowie Behandlung der neurologisch bedingten Aphasie, Dysarthrophonie, Fazialisparese, kognitiven Kommunikationsstörung, Dysphagie und Sprechapraxie vor allem im ambulanten Setting\n\n• Möglichkeit zur aktiven Mitgestaltung hausinterner logopädischer, sowie interdisziplinärer Fortbildungen\n\n• Kompetente Beratung von Angehörigen, Patientinnen und Patienten\n\n• Zusammenarbeit mit externen Institutionen\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur/zum Logopädin/Logopäden (MSc, BSc oder BA)\n\n• Erste Berufserfahrung im Bereich der Neurorehabilitation\n\n• Fortbildung(en) in der Behandlung neurologisch bedingter Sprach-, Sprech- und Schluckstörungen von Vorteil\n\n• Selbstständige Arbeitsweise\n\n• Interesse an interdisziplinärer Zusammenarbeit\n\n• Freude an der Anwendung evidenzbasierter Methoden\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
         "fr": "Tâches :\n• Introduction et diagnostic de progression ainsi que le traitement de l'aphasie, de la dysarthrophnie, de la paralysie faciale, des troubles de la communication cognitive, de la dysphagie et de l'apraxie de la parole, en particulier en milieu ambulatoire\n\n• Possibilité de participation active à la formation interne logopaedic et interdisciplinaire\n\n• Conseils compétents pour les parents et les patients\n\n• Coopération avec les institutions extérieures\n\nExigences\n• Formation complète pour les professeurs de langue (MSc, BSc ou BA)\n\n• Première expérience professionnelle en neuroréhabilitation\n\n• Formation(s) avantageuse(s) dans le traitement des troubles neurologiques de la parole, de la parole et de l'ingestion\n\n• Travail indépendant\n\n• Intérêt pour la coopération interdisciplinaire\n\n• Profitez de l'utilisation de méthodes fondées sur des données probantes\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Faites partie d'une de nos équipes interdisciplinaires et interprofessionnelles."
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.kliniklengg.ch/offene-stellen/logopaedin-logopaede-a/1f09174c-c983-4dcf-a52a-fcc1744fa8d0",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:36:27.744Z",
+      "crawledAt": "2026-10-27T09:52:33.426Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1393,9 +1304,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/logopaedin-logopaede-a/1f09174c-c983-4dcf-a52a-fcc1744fa8d0",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "logopadin-logopade-a-klinik-lengg-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logopadin-logopade-a-klinik-lengg-zurich"
+        ],
+        "en": [
+          "logopadin-logopade-a-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "logopadin-logopade-a-klinik-lengg-zurich"
+        ]
       },
+      "firstSeenAt": "2026-10-26T21:36:27.744Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1408,22 +1332,98 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "klinik-lengg-d85d11280db7",
+      "slug": "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich",
+      "slugByLocale": {
+        "it": "assistente-medico-neuroriabilitazione-a-klinik-lengg-zurich",
+        "en": "assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
+        "de": "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
+        "fr": "medecin-adjoint-neuroreadaptation-a-klinik-lengg-zurich"
       },
-      "firstSeenAt": "2026-10-26T21:36:27.744Z",
+      "company": "Klinik Lengg",
+      "companyKey": "klinik-lengg",
+      "companyDomain": "kliniklengg.ch",
+      "title": "Assistenzärztin / Assistenzarzt Neurorehabilitation (a)",
+      "titleByLocale": {
+        "it": "Assistente medico neuroriabilitazione (a)",
+        "en": "Assistant physician Neurorehabilitation (a)",
+        "de": "Assistenzärztin / Assistenzarzt Neurorehabilitation (a)",
+        "fr": "Médecin adjoint neuroréadaptation (a)"
+      },
+      "description": "Aufgaben:\n• Medizinisch-organisatorische Betreuung eines breiten Spektrums an neurologischen Patienten im stationären Rahmen unter der Supervision eines Kaderarztes\n\n• Verantwortung für alle medizinischen Belange (Untersuchung, medikamentöse Therapien, Diagnostik, Visiten)\n\n• Zusammenarbeit mit dem interdisziplinären Rehabilitationsteam und Kommunikation mit involvierten externen Stellen\n\n• Bei Interesse, Möglichkeit der Rotation in die Abteilung für Epileptologie\n\n• Rotation in die Neurophysiologie und Erwerb des \"Fähigkeitsausweis neurovaskuläre Sonographie SGKN\" möglich\n\n• Ausbildung in der flexiblen endoskopischen Schluckabklärung (FEES) möglich\n\nAnforderungen:\n• Erste klinische Berufserfahrung mit Interesse an der Neurorehabilitation\n\n• CH- bzw. EU-Staatsexamen (mit BAG-Anerkennung)\n\n• Sehr gute Deutschkenntnisse (mind. Niveau C)\n\n• Herausragende soziale und fachliche Kompetenzen mit Bereitschaft zur interdisziplinären Zusammenarbeit\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Cura medica-organizzativa di un ampio spettro di pazienti neurologici in un ambiente ospedaliero sotto la supervisione di un medico cadre\n\n• Responsabilità per tutte le questioni mediche (esame, terapie mediche, diagnostica, visite)\n\n• Cooperazione con il team interdisciplinare di riabilitazione e comunicazione con gli organismi esterni coinvolti\n\n• Se interessati, possibilità di rotazione nel Dipartimento di Epileptologia\n\n• Rotazione in neurofisiologia e acquisizione di \"Certificato di Competenza Neurovascolare Sonografia SGKN\" Possibile\n\n• Endoscopico flessibile rondine (FEES) formazione possibile\n\nRequisiti\n• Prima esperienza professionale clinica con interesse nella neuroriabilizzazione\n\n• Esame di stato CH o UE (con riconoscimento FOPH)\n\n• Conoscenza molto buona del tedesco (livello minimo C)\n\n• Competenze sociali e professionali eccezionali con disponibilità alla cooperazione interdisciplinare\n\nKlinik Lengg AG di Zurigo è il centro di eccellenza per l'epilessologia e la riabilitazione neurologica.\n\nIl nostro obiettivo è quello di fornire ai pazienti malattie neurologiche la più ampia riabilitazione possibile e garantire una diagnosi accurata e un trattamento sostenibile dei pazienti con epilessia. Circa 300 dipendenti si impegnano in modo umano, competente, innovativo e affidabile a garantire che i nostri pazienti riacquistano la massima indipendenza possibile - e quindi la loro qualità di vita. Diventa parte di una delle nostre squadre interdisciplinari e interprofessionali.",
+        "en": "Tasks:\n• Medical-organizational care of a broad spectrum of neurological patients in an inpatient setting under the supervision of a cadre physician\n\n• Responsibility for all medical matters (examination, medical therapies, diagnostics, visits)\n\n• Cooperation with the interdisciplinary rehabilitation team and communication with external bodies involved\n\n• If interested, possibility of rotation into the Department of Epileptology\n\n• Rotation into Neurophysiology and Acquisition of \"Certificate of Competence Neurovascular Sonography SGKN\" Possible\n\n• Flexible endoscopic swallowing (FEES) training possible\n\nRequirements\n• First clinical professional experience with interest in neurorehabilitation\n\n• CH or EU state examination (with FOPH recognition)\n\n• Very good knowledge of German (minimum level C)\n\n• Outstanding social and professional skills with willingness for interdisciplinary cooperation\n\nKlinik Lengg AG in Zurich is the centre of excellence for epileptology and neurological rehabilitation.\n\nIt is our aim to provide patients with neurological diseases with the widest possible rehabilitation and to ensure an accurate diagnosis and sustainable treatment of patients with epilepsy. Around 300 employees are committed to humanely, competently, innovatively and reliably ensuring that our patients regain the greatest possible independence - and thus their quality of life. Become part of one of our interdisciplinary and interprofessional teams.",
+        "de": "Aufgaben:\n• Medizinisch-organisatorische Betreuung eines breiten Spektrums an neurologischen Patienten im stationären Rahmen unter der Supervision eines Kaderarztes\n\n• Verantwortung für alle medizinischen Belange (Untersuchung, medikamentöse Therapien, Diagnostik, Visiten)\n\n• Zusammenarbeit mit dem interdisziplinären Rehabilitationsteam und Kommunikation mit involvierten externen Stellen\n\n• Bei Interesse, Möglichkeit der Rotation in die Abteilung für Epileptologie\n\n• Rotation in die Neurophysiologie und Erwerb des \"Fähigkeitsausweis neurovaskuläre Sonographie SGKN\" möglich\n\n• Ausbildung in der flexiblen endoskopischen Schluckabklärung (FEES) möglich\n\nAnforderungen:\n• Erste klinische Berufserfahrung mit Interesse an der Neurorehabilitation\n\n• CH- bzw. EU-Staatsexamen (mit BAG-Anerkennung)\n\n• Sehr gute Deutschkenntnisse (mind. Niveau C)\n\n• Herausragende soziale und fachliche Kompetenzen mit Bereitschaft zur interdisziplinären Zusammenarbeit\n\nDie Klinik Lengg AG in Zürich ist das Kompetenzzentrum für Epileptologie und neurologische Rehabilitation.\n\nEs ist unser Anspruch, Patientinnen und Patienten mit neurologischen Erkrankungen eine möglichst weitgehende Rehabilitation zu ermöglichen und eine genaue Diagnose und nachhaltige Behandlung von Patientinnen und Patienten mit Epilepsie sicherzustellen. Rund 300 Mitarbeitende engagieren sich menschlich, kompetent, innovativ und zuverlässig dafür, dass unsere Patientinnen und Patienten grösstmögliche Selbständigkeit - und damit ihre Lebensqualität - wiedererlangen. Werden Sie Teil eines unserer interdisziplinären und interprofessionellen Teams.",
+        "fr": "Tâches :\n• Soins médicaux et organisationnels d'un large éventail de patients neurologiques hospitalisés sous la supervision d'un médecin cadre\n\n• Responsabilité pour toutes les questions médicales (examen, thérapies médicales, diagnostics, visites)\n\n• Coopération avec l'équipe de réadaptation interdisciplinaire et communication avec les organismes externes concernés\n\n• Si intéressé, possibilité de rotation dans le département d'épileptologie\n\n• Rotation en neurophysiologie et acquisition de « Certificat de compétence Sonographie neurovasculaire SGKN » Possible\n\n• Formation endoscopique flexible (FEES) possible\n\nExigences\n• Première expérience clinique professionnelle avec intérêt pour la neuroréhabilitation\n\n• Examen du CH ou de l'UE (avec reconnaissance FOPH)\n\n• Très bonne connaissance de l'allemand (niveau minimum C)\n\n• Compétences sociales et professionnelles exceptionnelles et volonté de coopération interdisciplinaire\n\nKlinik Lengg AG à Zurich est le centre d'excellence en épileptologie et en réadaptation neurologique.\n\nNotre objectif est de fournir aux patients atteints de maladies neurologiques la réadaptation la plus large possible et d'assurer un diagnostic précis et un traitement durable des patients atteints d'épilepsie. Environ 300 employés s'engagent à faire preuve d'humanité, de compétence, d'innovation et de fiabilité pour que nos patients retrouvent la plus grande indépendance possible et donc leur qualité de vie. Devenez membre d'une de nos équipes interdisciplinaires et interprofessionnelles."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/d0c4c59f-98b3-42d6-96ec-2c212b3cf589",
+      "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T09:52:33.401Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Bleulerstrasse 60",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/d0c4c59f-98b3-42d6-96ec-2c212b3cf589",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
+        "medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
+        "assistant-physician-assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
+        "medecin-adjoint-medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
+        "medecin-chef-medecin-chef-neurorehabilitation-a-klinik-lengg-zurich",
+        "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "logopadin-logopade-a-klinik-lengg-zurich"
+          "assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
+          "medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
+          "assistant-physician-assistant-physician-neurorehabilitation-a-klinik-lengg-zurich",
+          "medecin-adjoint-medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
+          "medecin-chef-medecin-chef-neurorehabilitation-a-klinik-lengg-zurich",
+          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
         ],
         "en": [
-          "logopadin-logopade-a-klinik-lengg-zurich"
+          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
         ],
         "fr": [
-          "logopadin-logopade-a-klinik-lengg-zurich"
+          "medecin-adjoint-neurorehabilitation-a-klinik-lengg-zurich",
+          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
         ]
       },
-      "previousSlugs": [
-        "logopadin-logopade-a-klinik-lengg-zurich"
-      ]
+      "firstSeenAt": "2026-08-26T10:10:52.054Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

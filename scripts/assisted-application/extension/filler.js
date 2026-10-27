@@ -63,6 +63,9 @@
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
   const ADDRESS_FAMILIES = new Set(['postalCode', 'city', 'street', 'country']);
+  const COUNTRY_WORD_RE = /\b(paese|country|land|pays|nazione)\b/;
+  const PHONE_COUNTRY_CODE_RE = /\b(?:country|paese|nazione|pays|land)\s*(?:phone\s*)?(?:code|codice|indicativo|vorwahl|prefix|prefisso)\b/;
+  const RESIDENCE_CONTEXT_RE = /\b(?:residen(?:ce|tial)|domicil|address|adresse|indirizz|abitaz|home\s+(?:address|country|city)|wohn(?:sitz|adresse|ort))\b/;
   const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|dati personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche angaben|personliche daten|private adresse|wohnadresse|adresse personnelle|coordonnees personnelles|adresse du candidat)\b/;
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
@@ -82,6 +85,86 @@
     return String(value || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
       .replace(/[^a-z0-9@+]+/g, ' ').replace(/\s+/g, ' ').trim();
   }
+
+  const PHONE_COUNTRIES = [
+    { code: 'IT', dial: '39', names: ['italia', 'italy', 'italie', 'italien'] },
+    { code: 'CH', dial: '41', names: ['svizzera', 'switzerland', 'suisse', 'schweiz'] },
+    { code: 'DE', dial: '49', names: ['germania', 'germany', 'allemagne', 'deutschland'] },
+    { code: 'FR', dial: '33', names: ['francia', 'france', 'frankreich'] },
+    { code: 'AT', dial: '43', names: ['austria', 'osterreich', 'autriche'] },
+    { code: 'BE', dial: '32', names: ['belgio', 'belgium', 'belgien', 'belgique'] },
+    { code: 'ES', dial: '34', names: ['spagna', 'spain', 'spanien', 'espagne'] },
+    { code: 'GB', dial: '44', names: ['regno unito', 'united kingdom', 'vereinigtes konigreich', 'royaume uni'] },
+    { code: 'NL', dial: '31', names: ['paesi bassi', 'netherlands', 'niederlande', 'pays bas'] },
+    { code: 'PT', dial: '351', names: ['portogallo', 'portugal'] },
+  ];
+  const phoneCountryByDial = (digits) => [...PHONE_COUNTRIES]
+    .sort((left, right) => right.dial.length - left.dial.length)
+    .find((country) => String(digits || '').startsWith(country.dial)) || null;
+  const normalizedPhone = (value) => {
+    const raw = String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!raw) return '';
+    const digits = raw.replace(/\D/g, '');
+    if (!digits) return '';
+    return raw.startsWith('+') || /^00(?:\s|[.(\-]?\d)/.test(raw)
+      ? `+${raw.startsWith('+') ? digits : digits.replace(/^00/, '')}`
+      : raw.replace(/[^\d()./ +\-]/g, '').replace(/\s+/g, ' ').trim();
+  };
+  const phoneCountryCodeOf = (value) => {
+    const normalized = normalizedPhone(value);
+    return normalized.startsWith('+') ? phoneCountryByDial(normalized.slice(1))?.code || '' : '';
+  };
+  const phoneDialCodeOf = (value) => {
+    const normalized = normalizedPhone(value);
+    return normalized.startsWith('+') ? phoneCountryByDial(normalized.slice(1))?.dial || '' : '';
+  };
+  const countryCodeOfLabel = (value) => {
+    const raw = String(value || '').replace(/\s+/g, ' ').trim();
+    const text = normalize(raw).replace(/@/g, '');
+    if (!text) return '';
+    for (const country of PHONE_COUNTRIES) {
+      if ([country.code.toLowerCase(), country.dial, ...country.names]
+        .some((name) => text === name || text.includes(` ${name}`) || text.includes(`${name} `))) return country.code;
+      if (new RegExp(`(?:^|[ (\\[{: /\\-–—])\\+?${country.dial}(?=$|[ )\\]}: /\\-–—])`).test(raw)) return country.code;
+    }
+    return '';
+  };
+  const phoneNationalPartOf = (value, prefix = '') => {
+    const normalized = normalizedPhone(value);
+    if (!normalized.startsWith('+')) return normalized.replace(/\D/g, '');
+    const dial = String(prefix || '').replace(/\D/g, '') || phoneDialCodeOf(normalized);
+    const digits = normalized.slice(1).replace(/\D/g, '');
+    return dial && digits.startsWith(dial) ? digits.slice(dial.length) : digits;
+  };
+  const formatNationalPhone = (value, code = '') => {
+    const digits = String(value || '').replace(/\D/g, '');
+    if (code === 'IT' && digits.length === 10 && digits.startsWith('3')) return `${digits.slice(0, 3)} ${digits.slice(3)}`;
+    if (code === 'CH' && digits.length === 9) return `${digits.slice(0, 2)} ${digits.slice(2, 5)} ${digits.slice(5, 7)} ${digits.slice(7)}`;
+    return digits;
+  };
+  const formatInternationalPhone = (value) => {
+    const normalized = normalizedPhone(value);
+    if (!normalized.startsWith('+')) return normalized;
+    const country = phoneCountryByDial(normalized.slice(1));
+    if (!country) return normalized;
+    return `+${country.dial} ${formatNationalPhone(phoneNationalPartOf(normalized, country.dial), country.code)}`.trim();
+  };
+  const phoneCountryLabelOf = (value, locale = 'it') => {
+    const code = phoneCountryCodeOf(value);
+    const labels = {
+      IT: { it: 'Italia', de: 'Italien', fr: 'Italie', en: 'Italy' },
+      CH: { it: 'Svizzera', de: 'Schweiz', fr: 'Suisse', en: 'Switzerland' },
+      DE: { it: 'Germania', de: 'Deutschland', fr: 'Allemagne', en: 'Germany' },
+      FR: { it: 'Francia', de: 'Frankreich', fr: 'France', en: 'France' },
+      AT: { it: 'Austria', de: 'Österreich', fr: 'Autriche', en: 'Austria' },
+      BE: { it: 'Belgio', de: 'Belgien', fr: 'Belgique', en: 'Belgium' },
+      ES: { it: 'Spagna', de: 'Spanien', fr: 'Espagne', en: 'Spain' },
+      GB: { it: 'Regno Unito', de: 'Vereinigtes Königreich', fr: 'Royaume-Uni', en: 'United Kingdom' },
+      NL: { it: 'Paesi Bassi', de: 'Niederlande', fr: 'Pays-Bas', en: 'Netherlands' },
+      PT: { it: 'Portogallo', de: 'Portugal', fr: 'Portugal', en: 'Portugal' },
+    }[code];
+    return labels?.[String(locale || '').slice(0, 2).toLowerCase()] || labels?.it || '';
+  };
 
   /** Visible text with a space between blocks (textContent glues «b» to «Posso lavorare…»). */
   function textOf(element) {
@@ -457,17 +540,31 @@
     country: 'country', 'country-name': 'country', bday: 'birthDate',
   };
 
+  function isPhoneCountryEntry(entry) {
+    const labels = entry.labels || [entry.label];
+    const labelText = normalize(labels.join(' '));
+    if (!COUNTRY_WORD_RE.test(labelText) || RESIDENCE_CONTEXT_RE.test(labelText)) return false;
+    const explicit = PHONE_COUNTRY_CODE_RE.test(labelText)
+      || (COUNTRY_WORD_RE.test(labelText) && /\b(?:phone|telephone|telefon|telefono|mobile|natel)\b/.test(labelText));
+    const scope = entry.element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question');
+    const scopeText = normalize(textOf(scope));
+    const hasPhoneControl = Boolean(scope?.querySelector('input[type="tel"], input[autocomplete="tel"], [data-aa-phone]'));
+    return explicit || (hasPhoneControl && !RESIDENCE_CONTEXT_RE.test(scopeText));
+  }
+
   function familyOf(entry) {
     if (entry.type === 'email') return 'email';
     if (entry.type === 'tel') return 'phone';
     const labels = entry.labels || [entry.label];
+    if (isPhoneCountryEntry(entry)) return 'phoneCountry';
     const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
     const autoFamily = AUTOCOMPLETE[auto];
     // Autocomplete identifies the value type, not whose address it is. Only
     // visible labels and the surrounding section may establish residence
     // provenance; a section-personal token alone must stay ownerless.
     const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''}`);
-    const candidateAddress = CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+    const candidateAddress = (CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+      || RESIDENCE_CONTEXT_RE.test(addressContext))
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext);
     if (autoFamily) {
       // `postal-code`, `address-level2`, etc. identify a value type, not
@@ -496,7 +593,8 @@
       case 'fullName': return id.fullName;
       case 'firstName': return id.firstName;
       case 'lastName': return id.lastName;
-      case 'phone': return id.phone;
+      case 'phone': return formatInternationalPhone(id.phone);
+      case 'phoneCountry': return id.phoneCountry || phoneCountryLabelOf(id.phone, kit.language);
       case 'postalCode': return address.postalCode;
       case 'city': return address.city || locationParts[0];
       case 'street': return address.street;
@@ -547,8 +645,19 @@
       // Only the required acceptance of the portal's terms: never a newsletter or a talent pool.
       return entry.required && CONSENT_RE.test(label) && !MARKETING_RE.test(label) ? { check: true } : null;
     }
-    if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
     const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'ui5-date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
+    // Contact facts are canonical identity data, not answers copied from the
+    // last portal run. This is the boundary that prevents a stale «Schweiz»
+    // answer from overwriting an Italian phone prefix or a blank residence.
+    if (['phone', 'phoneCountry', 'country'].includes(family)) {
+      const value = identityValue(family, kit);
+      return value ? { value, family } : null;
+    }
+    // A generic country label has no residence provenance. Do not reuse a
+    // portal answer whose meaning cannot be established from the page.
+    const labelText = normalize((entry.labels || [entry.label]).join(' '));
+    if (!family && COUNTRY_WORD_RE.test(labelText) && !RESIDENCE_CONTEXT_RE.test(labelText)) return null;
+    if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
     const value = family ? identityValue(family, kit) : '';
     // «Full time»/«Part time» describes the desired workload, not a notice
     // period or an earliest start date. Keep that candidate value available
@@ -565,15 +674,17 @@
   // ---- Choosing among options -------------------------------------------------
 
   /** The one option the answer names (equal, or the answer starts with it), else null. */
-  function bestOption(options, answer) {
+  function bestOption(options, answer, family = '') {
     const wanted = normalize(answer);
+    const wantedCountry = ['country', 'phoneCountry'].includes(family) ? countryCodeOfLabel(answer) : '';
     if (!wanted) return null;
     const scored = options.map((option) => {
       const full = normalize(option.label);
       // JOIN letters its choices («a», «b»…): without the marker.
       const bare = full.replace(/^[a-z] /, '');
       let score = 0;
-      if (full === wanted || bare === wanted) score = 3;
+      if (wantedCountry && countryCodeOfLabel(option.label) === wantedCountry) score = 4;
+      else if (full === wanted || bare === wanted) score = 3;
       else if (bare.length >= 3 && (wanted.startsWith(`${bare} `) || bare.startsWith(`${wanted} `))) score = 2;
       else if (wanted.length >= 6 && bare.includes(wanted)) score = 1;
       return { option, score };
@@ -660,11 +771,11 @@
         || (isSuccessFactorsPage(input, channelType) && required && owned.listbox));
   }
 
-  async function chooseInCombobox(input, answer, selectLikeOverride = null) {
+  async function chooseInCombobox(input, answer, selectLikeOverride = null, family = '') {
     if (selectLikeOverride ?? selectLike(input)) {
       // A select by another name: opened, never typed into.
       press(input);
-      const option = await waitFor(() => bestOption(optionsNear(input).filter((item) => !SELECT_PROMPT_RE.test(item.label)), answer), Math.max(config.waitMs, 8000));
+      const option = await waitFor(() => bestOption(optionsNear(input).filter((item) => !SELECT_PROMPT_RE.test(item.label)), answer, family), Math.max(config.waitMs, 8000));
       if (!option) {
         fire(input, 'keydown', { key: 'Escape' });
         return false;
@@ -677,7 +788,7 @@
     if (box) press(box);
     input.focus?.();
     setValue(input, String(answer).slice(0, 40));
-    const option = await waitFor(() => bestOption(optionsNear(input), answer));
+    const option = await waitFor(() => bestOption(optionsNear(input), answer, family));
     if (!option) {
       fire(input, 'keydown', { key: 'Escape' });
       return false;
@@ -754,14 +865,21 @@
     return `${String(order[0]).padStart(2, '0')}${sep}${String(order[1]).padStart(2, '0')}${sep}${date.year}`;
   }
 
-  /** A phone field that shows its country prefix apart (JOIN: «+39» button): the number without it. */
+  /** A phone field may show its country prefix apart (JOIN: «+39» button). */
   function phoneFor(element, phone) {
-    const prefix = element.getAttribute('data-value') || textOf(element.parentElement?.parentElement?.querySelector('[aria-haspopup="dialog"], [aria-haspopup="listbox"]'));
-    const clean = String(phone).replace(/\s+/g, ' ').trim();
-    if (/^\+\d{1,4}$/.test(String(prefix).trim()) && clean.replace(/\s/g, '').startsWith(prefix.trim())) {
-      return clean.replace(/\s/g, '').slice(prefix.trim().length);
+    const prefixText = element.getAttribute('data-value')
+      || textOf(element.closest('fieldset, [role="group"], .field, .form-group')?.querySelector('[aria-haspopup="dialog"], [aria-haspopup="listbox"]'))
+      || textOf(element.parentElement?.parentElement?.querySelector('[aria-haspopup="dialog"], [aria-haspopup="listbox"]'));
+    const prefix = String(prefixText || '').match(/\+\d{1,4}/)?.[0] || '';
+    const normalized = normalizedPhone(phone);
+    if (prefix && normalized.startsWith('+') && normalized.replace(/\D/g, '').startsWith(prefix.replace(/\D/g, ''))) {
+      const dial = prefix.replace(/\D/g, '');
+      const country = phoneCountryByDial(dial);
+      const national = formatNationalPhone(phoneNationalPartOf(normalized, dial), country?.code);
+      const max = Number(element.getAttribute('maxlength')) || 0;
+      return max > 0 && national.length > max ? national.replace(/\D/g, '') : national;
     }
-    return clean;
+    return formatInternationalPhone(normalized);
   }
 
   // ---- Filling ----------------------------------------------------------------
@@ -848,29 +966,29 @@
         if (!element.checked) press(element);
         return element.checked;
       case 'radio': {
-        const option = bestOption(entry.options, answer.value);
+        const option = bestOption(entry.options, answer.value, answer.family);
         if (!option) return false;
         if (!option.element.checked) press(option.element);
         return option.element.checked;
       }
       case 'aria-radio': {
-        const option = bestOption(entry.options, answer.value);
+        const option = bestOption(entry.options, answer.value, answer.family);
         if (!option) return false;
         press(option.element);
         return true;
       }
       case 'select': {
-        const option = bestOption([...element.options].map((item) => ({ element: item, label: item.text })), answer.value);
+        const option = bestOption([...element.options].map((item) => ({ element: item, label: item.text })), answer.value, answer.family);
         if (!option) return false;
         setValue(element, option.element.value);
         return true;
       }
       case 'combobox':
-        return chooseInCombobox(element, answer.value, entry.selectLike);
+        return chooseInCombobox(element, answer.value, entry.selectLike, answer.family);
       case 'listbox': {
         // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
         press(element);
-        const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value));
+        const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value, answer.family));
         if (!option) {
           fire(element, 'keydown', { key: 'Escape' });
           return false;
@@ -886,7 +1004,7 @@
         const wanted = normalize(answer.value);
         const option = await waitFor(() => {
           const options = openOptions(element.ownerDocument);
-          const named = bestOption(options, answer.value);
+          const named = bestOption(options, answer.value, answer.family);
           if (named) return named;
           const containing = options.filter((item) => normalize(item.label).includes(wanted));
           return containing.length === 1 ? containing[0] : null;

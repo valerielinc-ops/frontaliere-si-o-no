@@ -2,6 +2,7 @@ import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../sc
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
 import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { createActiveJobPostingCoverage } from '../scripts/lib/active-jobposting-coverage.mjs';
+import { validateMandatoryJobPostingFields } from '../scripts/lib/jobposting-mandatory-fields.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
 import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
@@ -1078,40 +1079,19 @@ function collectJobPostingRecords(value: unknown, records: Array<Record<string, 
  return records;
 }
 
-function hasNonEmptyJobPostingField(value: unknown): boolean {
- if (Array.isArray(value)) return value.length > 0 && value.some(hasNonEmptyJobPostingField);
- if (!value || typeof value !== 'object') return String(value ?? '').trim().length > 0;
- return Object.keys(value).length > 0;
-}
-
-function hasCompleteCachedBaseSalary(value: unknown): boolean {
- if (!value || typeof value !== 'object') return false;
- const salary = value as Record<string, unknown>;
- const quantitativeValue = salary.value;
- if (!quantitativeValue || typeof quantitativeValue !== 'object') return false;
- const amount = quantitativeValue as Record<string, unknown>;
- const minValue = Number(amount.minValue);
- const maxValue = amount.maxValue === undefined ? undefined : Number(amount.maxValue);
- return String(salary.currency || '').trim().length > 0
-  && Number.isFinite(minValue)
-  && minValue > 0
-  && (maxValue === undefined || (Number.isFinite(maxValue) && maxValue >= minValue))
-  && String(amount.unitText || '').trim().length > 0;
-}
-
 function hasCompleteActiveJobPostingContract(fragment: string): boolean {
  const scriptPattern = /<script\b[^>]*type=(['"])application\/ld\+json\1[^>]*>([\s\S]*?)<\/script>/gi;
  for (const match of fragment.matchAll(scriptPattern)) {
   try {
    const records = collectJobPostingRecords(JSON.parse(match[2] || ''));
    if (records.some((record) => {
-    const address = (record.jobLocation && typeof record.jobLocation === 'object'
-     ? (record.jobLocation as Record<string, unknown>).address
-     : null) as Record<string, unknown> | null;
-    return hasCompleteCachedBaseSalary(record.baseSalary)
-      && hasNonEmptyJobPostingField(record.employmentType)
-      && hasNonEmptyJobPostingField(address?.streetAddress)
-      && hasNonEmptyJobPostingField(address?.postalCode);
+    // Date fields are deliberately excluded here because the next rewrite
+    // step refreshes them on every cache hit. `datePosted` must nevertheless
+    // exist so replaceActiveJobPostingDates can replace it; validThrough may
+    // be absent because that helper repairs this one legacy field in place.
+    if (!Object.prototype.hasOwnProperty.call(record, 'datePosted')) return false;
+    return validateMandatoryJobPostingFields(record)
+     .every(({ field }) => field === 'datePosted' || field === 'validThrough');
    })) return true;
   } catch {
    // A malformed or incomplete legacy payload must be rebuilt, not reused.

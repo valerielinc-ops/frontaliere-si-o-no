@@ -213,12 +213,21 @@ describe('eventLd canonical', () => {
     expect(ld.sameAs).toBeUndefined();
   });
   it('keeps an expired source detail out of Event JSON-LD', () => {
-    const stale = { ...EVENT, id: 'nw-agenda:94123', sourceKey: 'nw-agenda', url: 'https://www.nw.ch/anlaesseaktuelles/94123' };
     const canonical = 'https://frontaliereticino.ch/eventi/nidvaldo/wolfenschiessen/alplerchilbi-2026-10-25/';
-    const ld = eventLd(stale as never, 'it', canonical) as Record<string, any>;
-    expect(ld.sameAs).toEqual(['https://www.nw.ch/']);
-    expect(ld.url).toBe(canonical);
-    expect(ld.offers.url).toBe(canonical);
+    const staleEvents = [
+      { sourceKey: 'ge-agenda', id: 'cafe-quartier-initiation-gout-pain-pain-artisanal-industriel-differences', rawUrl: 'https://www.geneve.ch/agenda/cafe-quartier-initiation-gout-pain-pain-artisanal-industriel-differences', homepage: 'https://www.geneve.ch/agenda' },
+      { sourceKey: 'guidle', id: 'don-toliver-nitrous-octane-world-tour-leg-2_A2e1GAw', rawUrl: 'https://www.guidle.com/it/veranstaltungen/musik/zuerich/don-toliver-nitrous-octane-world-tour-leg-2_A2e1GAw', homepage: 'https://www.guidle.com/de' },
+      { sourceKey: 'nw-agenda', id: '94120', rawUrl: 'https://www.nw.ch/anlaesseaktuelles/94120', homepage: 'https://www.nw.ch/' },
+      { sourceKey: 'nw-agenda', id: '94123', rawUrl: 'https://www.nw.ch/anlaesseaktuelles/94123', homepage: 'https://www.nw.ch/' },
+    ] as const;
+
+    for (const { sourceKey, id, rawUrl, homepage } of staleEvents) {
+      const stale = { ...EVENT, id: `${sourceKey}:${id}`, sourceKey, url: rawUrl };
+      const ld = eventLd(stale as never, 'it', canonical) as Record<string, any>;
+      expect(ld.sameAs).toEqual([homepage]);
+      expect(ld.url).toBe(canonical);
+      expect(ld.offers.url).toBe(canonical);
+    }
   });
   it('declares the schema.org context so Google recognizes the Event block', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, unknown>;

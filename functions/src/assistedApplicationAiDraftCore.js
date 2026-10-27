@@ -11,6 +11,7 @@ import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permi
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
 import { hasCompleteLanguageList, hasExplicitLanguageSection, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { SALUTATIONS } from './lib/personalFacts.js';
+import { formatInternationalPhone } from './lib/phoneNormalization.js';
 
 export const LETTER_FILE_LABEL = {
   it: 'Lettera di presentazione',
@@ -354,7 +355,7 @@ export function candidateIdentity(order, profile) {
   const name = clean(order?.applicantName, 200) || clean(order?.fullName, 200) || clean(profile?.fullName, 200);
   const alias = order?.candidateAlias?.active ? clean(order.candidateAlias.address, 320) : '';
   const email = alias || clean(order?.applicantEmail, 320) || clean(profile?.email, 320) || clean(order?.customerEmail, 320);
-  const phone = clean(order?.applicantPhone, 80) || clean(profile?.phone, 80);
+  const phone = formatInternationalPhone(clean(order?.applicantPhone, 80) || clean(profile?.phone, 80));
   return { name, email, phone };
 }
 

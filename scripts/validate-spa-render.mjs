@@ -22,6 +22,7 @@ import { createServer } from 'node:http';
 import { readFileSync, existsSync, readdirSync, statSync, appendFileSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import { launchChromium } from './lib/ensure-chromium.mjs';
+import { validateMandatoryJobPostingFields } from './lib/jobposting-mandatory-fields.mjs';
 
 const ROOT = process.cwd();
 const DIST = join(ROOT, 'dist');
@@ -131,21 +132,6 @@ function sample(arr, n) {
 function extractCanonical(dom) {
   const link = dom.querySelector('link[rel="canonical"]');
   return link ? link.getAttribute('href') : null;
-}
-
-function extractJobPostings(dom) {
-  const scripts = dom.querySelectorAll('script[type="application/ld+json"]');
-  let count = 0;
-  for (const s of scripts) {
-    try {
-      const data = JSON.parse(s.textContent || '');
-      if (data['@type'] === 'JobPosting') count++;
-      if (Array.isArray(data['@graph'])) {
-        count += data['@graph'].filter(i => i?.['@type'] === 'JobPosting').length;
-      }
-    } catch { /* skip */ }
-  }
-  return count;
 }
 
 function extractRobots(dom) {
@@ -261,19 +247,30 @@ async function main() {
         return el ? el.getAttribute('href') : null;
       });
 
-      const jpCount = await page.evaluate(() => {
-        let count = 0;
+      const jobPostings = await page.evaluate(() => {
+        const records = [];
+        const collect = (value) => {
+          if (Array.isArray(value)) {
+            value.forEach(collect);
+            return;
+          }
+          if (!value || typeof value !== 'object') return;
+          const type = value['@type'];
+          if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) {
+            records.push(value);
+          }
+          Object.entries(value).forEach(([key, nested]) => {
+            if (key !== '@type') collect(nested);
+          });
+        };
         document.querySelectorAll('script[type="application/ld+json"]').forEach(s => {
           try {
-            const d = JSON.parse(s.textContent || '');
-            if (d['@type'] === 'JobPosting') count++;
-            if (Array.isArray(d['@graph'])) {
-              count += d['@graph'].filter(i => i?.['@type'] === 'JobPosting').length;
-            }
+            collect(JSON.parse(s.textContent || ''));
           } catch {}
         });
-        return count;
+        return records;
       });
+      const jpCount = jobPostings.length;
 
       const robots = await page.evaluate(() => {
         const el = document.querySelector('meta[name="robots"]');
@@ -302,6 +299,16 @@ async function main() {
           pageErrors++;
         } else if (jpCount > 3) {
           console.error(`  ❌ ${label}: ${jpCount} JobPosting in DOM (@graph leak!)`);
+          pageErrors++;
+        }
+      }
+
+      // Count alone does not prove that Google can parse the complete rich
+      // result. Validate every hydrated JobPosting with the same mandatory
+      // contract used by the dist gate and the post-deploy live verifier.
+      for (const posting of jobPostings) {
+        for (const violation of validateMandatoryJobPostingFields(posting)) {
+          console.error(`  ❌ ${label}: JobPosting ${violation.field} — ${violation.message}`);
           pageErrors++;
         }
       }

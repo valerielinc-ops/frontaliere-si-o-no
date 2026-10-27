@@ -1,21 +1,20 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-10-26T21:27:05.423Z",
-  "total": 10,
+  "generatedAt": "2026-10-27T09:22:00.958Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 15490,
-  "avgDurationMs": 15490,
+  "removedCount": 2,
+  "unchangedCount": 8,
+  "durationMs": 7758,
+  "avgDurationMs": 7758,
   "durationHistory": [
-    15490
+    7758
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "il/la caposezione (realizzazione) al 100% presso la Divisione edilizia pubblica",
       "company": "Città di Lugano",
@@ -99,7 +98,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
       "company": "Città di Lugano",
@@ -124,7 +125,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-ea8513996b03",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -167,7 +168,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-41e2e7908aaa",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -210,7 +211,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-c20731cfe618",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -253,7 +254,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-7bd4e52e6830",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -296,7 +297,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-bec9b098286c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -339,7 +340,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-7cfc78c63b9e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -382,7 +383,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-cbe208e81890",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -425,7 +426,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
+      "crawledAt": "2026-10-27T09:21:50.082Z",
       "id": "citta-di-lugano-9a549c4fd9d8",
       "salaryMin": 42000,
       "salaryMax": 77500,
@@ -445,5 +446,5 @@
       }
     }
   ],
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }

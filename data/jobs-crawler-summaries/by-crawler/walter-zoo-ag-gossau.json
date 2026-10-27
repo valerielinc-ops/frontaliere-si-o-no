@@ -1,7 +1,7 @@
 {
   "key": "walter-zoo-ag-gossau",
   "label": "WALTER ZOO AG GOSSAU",
-  "generatedAt": "2026-10-26T21:23:13.491Z",
+  "generatedAt": "2026-10-27T09:26:41.172Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2886,
-  "avgDurationMs": 2886,
+  "durationMs": 3514,
+  "avgDurationMs": 3514,
   "durationHistory": [
-    2886
+    3514
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "walter-zoo-ag-gossau-953ef4344148",
-      "slug": "praktikant-in-artenschutz-e-umweltbildung-100-walter-zoo-ag-gossau-sg",
+      "slug": "tirocinante-per-la-tutela-delle-specie-e-l-educazione-ambientale-100-walter-zoo-ag-gossau-gossau-sg-sg",
       "company": "WALTER ZOO AG GOSSAU",
       "companyKey": "walter-zoo-ag-gossau",
       "companyDomain": "link.ostendis.com",
@@ -34,7 +35,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:23:06.286Z",
+      "crawledAt": "2026-10-27T09:26:31.346Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -52,22 +53,20 @@
       "postedDate": "2026-09-28",
       "postingDateSource": "reported",
       "applyUrl": "https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-26T21:23:06.286Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-26T21:23:06.286Z",
-      "_qualityScore": 91,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }
