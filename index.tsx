@@ -1,11 +1,6 @@
 import './index.css';
-import { captureStaticHead } from './services/seo/staticHeadAuthority';
 import { waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
 import type { StaticFallbackKind } from './services/staticFallbackHandoff';
-
-// Before any module can touch the head: record the robots/canonical/hreflang
-// the document was served with, which stay authoritative for this URL.
-captureStaticHead();
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -115,6 +110,13 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
+
+ // The served head must be captured before importing the app, whose lazy
+ // consumers can write metadata, but its guard is not itself LCP content.
+ // Keep the shared authority chunk and its DOM scan off the initial paint
+ // path; the static head is unchanged while the browser presents the shell.
+ const { captureStaticHead } = await import('./services/seo/staticHeadAuthority');
+ captureStaticHead();
 
  const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
    await Promise.all([
