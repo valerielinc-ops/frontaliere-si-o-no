@@ -1,7 +1,7 @@
 {
   "key": "kone",
   "label": "KONE",
-  "generatedAt": "2026-10-27T09:58:03.362Z",
+  "generatedAt": "2026-10-27T21:40:23.737Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -9,33 +9,34 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
-  "resurrectedJobs": 1,
+  "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7706,
-  "avgDurationMs": 7706,
+  "durationMs": 9145,
+  "avgDurationMs": 9145,
   "durationHistory": [
-    7706
+    9145
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kone-fa74e292ddc3",
-      "slug": "aufzugsmonteur-in-region-luzern-kone-ch",
+      "slug": "ascensore-fitter-in-regione-di-lucerna-kone-bruttisellen",
       "company": "KONE",
       "companyKey": "kone",
       "companyDomain": "kone.com",
       "title": "Aufzugsmonteur‧in – Region Luzern",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Brüttisellen",
       "canton": "ZH",
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:57:50.272Z",
+      "crawledAt": "2026-10-27T21:40:05.545Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,21 +53,20 @@
       "postingDateSource": "reported",
       "applyUrl": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "jobReqId": "R0664487",
+      "firstSeenAt": "2026-10-03T21:33:15.243Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "postalCode": "8306",
-      "firstSeenAt": "2026-10-03T21:33:15.243Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -82,7 +82,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Servicetechniker-in-Aufzge--Gebiet-Luzern_R0662101",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:57:53.923Z",
+      "crawledAt": "2026-10-27T21:40:09.111Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:57:53.092Z",
+      "crawledAt": "2026-10-27T21:40:08.059Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/echnicien-ne-de-maintenance-Ascenseurs---Rgion-Yverdon_R0665610",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T09:57:52.230Z",
+      "crawledAt": "2026-10-27T21:40:07.223Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Technicien-ne-de-maintenance-Ascenseurs---Rgion-Fribourg_R0665744",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T09:57:51.027Z",
+      "crawledAt": "2026-10-27T21:40:06.340Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -242,5 +242,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
