@@ -30,6 +30,7 @@ const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.m
 const RELATED_RUNNER = readFileSync(resolve(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
 const RELATED_SCOPE = readFileSync(resolve(ROOT, 'scripts/ci/lib/related-graph-scope.mjs'), 'utf-8');
 const TYPECHECK_GATE = readFileSync(resolve(ROOT, 'scripts/ci/check-typecheck-baseline.mjs'), 'utf-8');
+const MEMORY_SAMPLE_GATE = readFileSync(resolve(ROOT, 'scripts/ci/sample-mem-during.sh'), 'utf-8');
 const TYPECHECK_CONFIG = JSON.parse(readFileSync(resolve(ROOT, 'tsconfig.ci.json'), 'utf-8')) as {
   exclude?: string[];
   compilerOptions?: {
@@ -158,6 +159,10 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-body');
     expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-body-ch');
     expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-meta-*.ts');
+    expect(TYPECHECK_GATE).toContain("'--listFiles'");
+    expect(TYPECHECK_GATE).toContain('typecheck metrics — project=tsconfig.ci.json');
+    expect(MEMORY_SAMPLE_GATE).toContain('peak_rss=');
+    expect(TESTS_YML).toContain("hashFiles('package-lock.json', 'tsconfig.json', 'tsconfig.ci.json'");
   });
 
   it('ferma gli alias dei registry sulla boundary declaration-only CI', () => {

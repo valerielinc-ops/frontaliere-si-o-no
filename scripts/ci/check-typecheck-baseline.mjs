@@ -128,6 +128,7 @@ const TSC_BIN = path.join(ROOT, 'node_modules', 'typescript', 'bin', 'tsc');
 // excluded it from this baseline gate. Keep that established boundary explicit
 // so a full checkout does not turn the typecheck into a multi-GB OOM scan.
 const TSC_PROJECT = path.join(ROOT, 'tsconfig.ci.json');
+const TSC_LISTED_FILE_RE = /(?:^|[/\\])[^/\\\r\n]+\.(?:d\.ts|[cm]?tsx?|[cm]?jsx?)$/u;
 
 /** Prefissi il cui conteggio è informativo, non bloccante. */
 const ADVISORY_PREFIXES = ['tests/'];
@@ -160,7 +161,7 @@ function runTsc() {
     console.error(`✗ typescript non installato (${path.relative(ROOT, TSC_BIN)} assente). Esegui \`npm ci\`.`);
     process.exit(2);
   }
-  const res = spawnSync(process.execPath, [TSC_BIN, '--noEmit', '--pretty', 'false', '--project', TSC_PROJECT], {
+  const res = spawnSync(process.execPath, [TSC_BIN, '--noEmit', '--pretty', 'false', '--listFiles', '--project', TSC_PROJECT], {
     cwd: ROOT,
     encoding: 'utf8',
     maxBuffer: 256 * 1024 * 1024,
@@ -178,6 +179,12 @@ function runTsc() {
     process.exit(2);
   }
   return `${res.stdout || ''}\n${res.stderr || ''}`;
+}
+
+function countTscFiles(output) {
+  return new Set(String(output || '').split(/\r?\n/u)
+    .map((line) => line.trim())
+    .filter((line) => TSC_LISTED_FILE_RE.test(line))).size;
 }
 
 /** @returns {{errors: {file:string,code:string,msg:string,line:number}[], parsed:number, skipped:number}} */
@@ -330,6 +337,7 @@ if (sparse) {
 }
 
 const output = runTsc();
+const tscFileCount = countTscFiles(output);
 const parsed = parseTsc(output);
 const skipped = parsed.skipped;
 let errors = parsed.errors;
@@ -370,7 +378,7 @@ if (skipped) {
 }
 
 if (args.includes('--json')) {
-  console.log(JSON.stringify({ ...current, errors, sparse, environmentErrors, downstreamErrors }, null, 2));
+  console.log(JSON.stringify({ ...current, errors, sparse, environmentErrors, downstreamErrors, project: 'tsconfig.ci.json', fileCount: tscFileCount }, null, 2));
   process.exit(0);
 }
 
@@ -410,6 +418,7 @@ for (const [file, allowed] of Object.entries(baseBlocking)) {
 const blockingTotal = current.total - current.advisoryTotal;
 console.log(`tsc ${tscVersion()} — ${current.total} errori (bloccanti ${blockingTotal}, tests/ ${current.advisoryTotal})`);
 console.log(`baseline    — ${baseline.total} errori (bloccanti ${baseline.blockingTotal}, tests/ ${baseline.advisoryTotal})`);
+console.log(`typecheck metrics — project=tsconfig.ci.json baseline_errors=${baseline.total} current_errors=${current.total} file_count=${tscFileCount}`);
 
 if (current.advisoryTotal > (baseline.advisoryTotal ?? 0)) {
   const delta = current.advisoryTotal - baseline.advisoryTotal;
