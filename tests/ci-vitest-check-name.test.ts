@@ -29,6 +29,10 @@ const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), '
 const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.mjs'), 'utf-8');
 const RELATED_RUNNER = readFileSync(resolve(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
 const RELATED_SCOPE = readFileSync(resolve(ROOT, 'scripts/ci/lib/related-graph-scope.mjs'), 'utf-8');
+const TYPECHECK_GATE = readFileSync(resolve(ROOT, 'scripts/ci/check-typecheck-baseline.mjs'), 'utf-8');
+const TYPECHECK_CONFIG = JSON.parse(readFileSync(resolve(ROOT, 'tsconfig.ci.json'), 'utf-8')) as {
+  exclude?: string[];
+};
 
 function assembleDecision(
   input: Record<string, unknown>,
@@ -142,6 +146,12 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(checkout.with['sparse-checkout-cone-mode']).toBeUndefined();
     expect(checkout.with['fetch-depth']).toBe(0);
     expect(checkout.with.filter).toBe('tree:0');
+  });
+
+  it('mantiene il typecheck bounded anche con il checkout completo', () => {
+    expect(TYPECHECK_GATE).toContain('const TSC_PROJECT = path.join(ROOT, \'tsconfig.ci.json\')');
+    expect(TYPECHECK_GATE).toContain("'--project', TSC_PROJECT");
+    expect(TYPECHECK_CONFIG.exclude).toContain('packages/articles/content');
   });
 
   it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', () => {
