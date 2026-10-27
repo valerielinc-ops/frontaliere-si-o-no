@@ -115,15 +115,15 @@ describe('USI listing transport rescue', () => {
   const listingHtml = '<html><body><h1>Concorsi e le offerte di lavoro</h1></body></html>';
   const noTranslateRescue = { translateFetchImpl: vi.fn(async () => null) };
 
-  it('builds a same-locale Google Translate proxy URL for the official listing', () => {
+  it('builds an auto-source Google Translate proxy URL for the official listing', () => {
     expect(buildUsiTranslateUrl(listingUrl)).toBe(
-      'https://www-usi-ch.translate.goog/it/universita/collabora-con-noi/concorsi-e-offerte-di-lavoro?_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
+      'https://www-usi-ch.translate.goog/it/universita/collabora-con-noi/concorsi-e-offerte-di-lavoro?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
     );
   });
 
   it('restores known translated USI links to their official host', () => {
     expect(normalizeUsiLinkUrl(
-      'https://content-usi-ch.translate.goog/sites/default/files/call.pdf?_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it',
+      'https://content-usi-ch.translate.goog/sites/default/files/call.pdf?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it',
       'it',
     )).toBe('https://content.usi.ch/sites/default/files/call.pdf');
   });
