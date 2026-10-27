@@ -13605,6 +13605,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sondaggio-paga-colleghi-svizzeri.title': 'Grenzgänger im Tessin: 55,6% fühlen sich schlechter bezahlt',
     'blog.article.sondaggio-paga-colleghi-svizzeri.excerpt': '1\'542 Arbeitnehmer haben an der Umfrage teilgenommen 73% mit dem Gehalt zufrieden 55,6% fühlen sich schlechter bezahlt als eine ansässige Person 37,4% können Telearbeit ausüben Stichprobe →',
     'blog.article.sondaggio-paga-colleghi-svizzeri.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.orari-tilo-re80-s90.title': 'Tilo-Fahrpläne Lugano-Chiasso: Änderungen und Ausfälle',
+    'blog.article.orari-tilo-re80-s90.excerpt': 'Die Bauarbeiten zwischen Vezia und Capolago ändern die Tilo-Fahrpläne.',
+    'blog.article.orari-tilo-re80-s90.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
