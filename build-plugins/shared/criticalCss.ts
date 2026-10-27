@@ -521,6 +521,31 @@ export const TAILWIND_PREFLIGHT_RESERVE_CSS =
   'img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}' +
   'img,video{max-width:100%;height:auto}';
 
+/**
+ * Targeted utility reserve for the shared static hub wrapper emitted by the
+ * municipality, fiscal and events page builders. These are the only raw
+ * Tailwind utilities needed to keep that wrapper's first-paint width and
+ * padding stable; the rest of the utility sheet remains async by design.
+ *
+ * Keep this in `@layer base` below so the authoritative async utilities win
+ * once `index.css` arrives instead of leaving a permanent stale mirror.
+ */
+export const STATIC_HUB_WRAPPER_RESERVE_CSS =
+  '.mx-auto{margin-inline:auto}' +
+  '.max-w-5xl{max-width:64rem}' +
+  '.px-4{padding-inline:1rem}' +
+  '.py-6{padding-block:1.5rem}' +
+  '@media(min-width:40rem){.sm\\:px-6{padding-inline:1.5rem}}' +
+  '@media(min-width:64rem){.lg\\:px-8{padding-inline:2rem}}';
+
+/**
+ * `seo-static.css` applies this body stack to static pages. Keep the same
+ * stack in the synchronous sheet so text does not re-metric when that async
+ * stylesheet is swapped in; Manrope intentionally falls back to the generic
+ * sans-serif stack because no webfont is loaded for it.
+ */
+export const SEO_STATIC_BODY_FONT_RESERVE_CSS = 'body{font-family:"Manrope",sans-serif}';
+
 // `seo-static.css` remains the owner of its complete async layout. Only the
 // measured first-paint reserves above belong in the render-blocking sheet.
 
@@ -572,7 +597,8 @@ export const CRITICAL_CSS =
   // before the real stylesheet arrives. The utility and whole-sheet mirrors
   // are deliberately not render-blocking; the targeted reserves above are the
   // first-paint geometry contract.
-  `@layer base{${TAILWIND_PREFLIGHT_RESERVE_CSS}}` +
+  `@layer base{${TAILWIND_PREFLIGHT_RESERVE_CSS}${STATIC_HUB_WRAPPER_RESERVE_CSS}}` +
+  SEO_STATIC_BODY_FONT_RESERVE_CSS +
   CRITICAL_SEMANTIC_TOKENS_CSS +
   CRITICAL_DARK_MODE_RULES_CSS +
   CRITICAL_DARK_TEXT_CONTRAST_CSS;

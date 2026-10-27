@@ -125,6 +125,9 @@ describe('render-blocking critical CSS first-paint contract', () => {
     expect(CRITICAL_CSS).toContain('@font-face{font-family:Inter');
     expect(CRITICAL_CSS).toContain('ascent-override:90%');
     expect(CRITICAL_CSS).toContain('descent-override:22%');
+    expect(CRITICAL_CSS).toContain('body{font-family:"Manrope",sans-serif}');
+    expect(CRITICAL_CSS).toContain('.max-w-5xl{max-width:64rem}');
+    expect(CRITICAL_CSS).toContain('.px-4{padding-inline:1rem}');
     expect(CRITICAL_CSS).toContain('ins.adsbygoogle[data-ft-static-ad-collapsed]');
     expect(CRITICAL_CSS).not.toMatch(/adsbygoogle[^}]*display:none/);
     expect(CRITICAL_CSS).not.toContain('enable_page_level_ads:false');
