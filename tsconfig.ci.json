@@ -8,6 +8,12 @@
       "@/data/swiss-articles-data": [
         "./scripts/ci/typecheck-boundary/article-registry.d.ts"
       ],
+      "@/packages/articles/content/blog-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
+      "@/packages/articles/content/swiss-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
       "@/*": [
         "./*"
       ]

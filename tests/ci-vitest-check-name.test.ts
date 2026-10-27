@@ -165,6 +165,8 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     const boundary = './scripts/ci/typecheck-boundary/article-registry.d.ts';
     expect(paths?.['@/data/blog-articles-data']).toEqual([boundary]);
     expect(paths?.['@/data/swiss-articles-data']).toEqual([boundary]);
+    expect(paths?.['@/packages/articles/content/blog-articles-data']).toEqual([boundary]);
+    expect(paths?.['@/packages/articles/content/swiss-articles-data']).toEqual([boundary]);
     expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export interface Article');
     expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export declare const ARTICLES');
     expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export declare const SWISS_ARTICLES');

@@ -1539,7 +1539,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: .cache/tsc
-          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'tsconfig.ci.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
           restore-keys: |
             tsc-incremental-${{ runner.os }}-
 
@@ -2721,7 +2721,7 @@ jobs:
         uses: actions/cache/save@v6
         with:
           path: .cache/tsc
-          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'tsconfig.ci.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Save Vitest related graph
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
