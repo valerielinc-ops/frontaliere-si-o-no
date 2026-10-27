@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-27T16:25:03.317Z",
+  "generatedAt": "2026-10-27T17:32:10.684Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -7930,6 +7930,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T13:33:04.216Z"
     },
+    "ge-agenda:giff-projection-california-avenue::888c925f38a30146314630d34908932e724731966202a5f5d1314e74d9ba6a0e": {
+      "id": "ge-agenda:giff-projection-california-avenue",
+      "sourceDescriptionHash": "888c925f38a30146314630d34908932e724731966202a5f5d1314e74d9ba6a0e",
+      "description": "L’evento è una proiezione del festival GIFF a Ginevra. Ville de Genève Agenda figura come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento è una proiezione del festival GIFF a Ginevra. Ville de Genève Agenda figura come organizzatore.",
+        "en": "This event is a screening in the GIFF festival in Geneva. Ville de Genève Agenda is listed as the organizer.",
+        "de": "Die Veranstaltung ist eine Vorführung im Rahmen des GIFF-Festivals in Genf. Ville de Genève Agenda ist als Veranstalter angegeben.",
+        "fr": "Cet événement est une projection dans le cadre du festival GIFF à Genève. Ville de Genève Agenda est indiqué comme organisateur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T17:20:11.398Z"
+    },
     "ge-agenda:giff-projection-dawning::4abc3e04cbbac60e91b7e3ff2b1afd96cb76531e0d46fef5277a3666ab38edf2": {
       "id": "ge-agenda:giff-projection-dawning",
       "sourceDescriptionHash": "4abc3e04cbbac60e91b7e3ff2b1afd96cb76531e0d46fef5277a3666ab38edf2",
@@ -7943,6 +7957,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T19:16:38.585Z"
+    },
+    "ge-agenda:giff-projection-eldorado::837690172c293c6742b016acd5f291c2a96f81322577ea5655f0577198c243db": {
+      "id": "ge-agenda:giff-projection-eldorado",
+      "sourceDescriptionHash": "837690172c293c6742b016acd5f291c2a96f81322577ea5655f0577198c243db",
+      "description": "L’evento è una proiezione nell’ambito di un festival a Ginevra, organizzata da Ville de Genève Agenda. Il biglietto costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento è una proiezione nell’ambito di un festival a Ginevra, organizzata da Ville de Genève Agenda. Il biglietto costa 8 CHF.",
+        "en": "The event is a festival screening in Geneva, organized by Ville de Genève Agenda. Tickets cost CHF 8.",
+        "de": "Die Veranstaltung ist eine Filmvorführung im Rahmen eines Festivals in Genf und wird von der Ville de Genève Agenda organisiert. Der Eintritt kostet 8 CHF.",
+        "fr": "Il s’agit d’une projection dans le cadre d’un festival à Genève, organisée par Ville de Genève Agenda. Le billet coûte 8 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T17:18:56.078Z"
     },
     "ge-agenda:giff-projection-first-taste-loneliness::36c135156fef7847d7ac6f7a992e7af66397afd7967f18aa60e35469a5dc3339": {
       "id": "ge-agenda:giff-projection-first-taste-loneliness",
@@ -30176,6 +30204,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T21:16:26.408Z"
     },
+    "guidle:Agjbvby::4afabcea79a5fd7dd9c58e150dcf9d0dad562e2b0ac4b483ef001048135c2295": {
+      "id": "guidle:Agjbvby",
+      "sourceDescriptionHash": "4afabcea79a5fd7dd9c58e150dcf9d0dad562e2b0ac4b483ef001048135c2295",
+      "description": "L’evento è un appuntamento di musica rock legato al tour “RUSH: Fifty Something Tour”. Si svolge alla St. Jakobshalle.",
+      "descriptionByLocale": {
+        "it": "L’evento è un appuntamento di musica rock legato al tour “RUSH: Fifty Something Tour”. Si svolge alla St. Jakobshalle.",
+        "en": "The event is a rock music performance connected with the “RUSH: Fifty Something Tour.” It takes place at St. Jakobshalle.",
+        "de": "Die Veranstaltung gehört zur „RUSH: Fifty Something Tour“ und ist der Rockmusik zugeordnet. Sie findet in der St. Jakobshalle statt.",
+        "fr": "L’événement est un rendez-vous de musique rock lié à la tournée « RUSH: Fifty Something Tour ». Il se déroule à la St. Jakobshalle."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T17:22:34.726Z"
+    },
     "guidle:AgJijYc::881e9f59173a7afadf0c55c03a0b3fd78bed107b75e6e6276dd9eb3eabf08af5": {
       "id": "guidle:AgJijYc",
       "sourceDescriptionHash": "881e9f59173a7afadf0c55c03a0b3fd78bed107b75e6e6276dd9eb3eabf08af5",
@@ -35817,6 +35859,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-23T20:17:20.265Z"
+    },
+    "guidle:ALkubAk::d05e80ef8d4cfafc47205fd553660298cb25f0fb13f2ddec3dfbab414844d5ca": {
+      "id": "guidle:ALkubAk",
+      "sourceDescriptionHash": "d05e80ef8d4cfafc47205fd553660298cb25f0fb13f2ddec3dfbab414844d5ca",
+      "description": "È un appuntamento ricorrente dedicato alla danza, con musica dal vivo affidata a Vladi Palsa, previsto presso l’Evang.-ref. Kirchgemeindehaus Kloten di Kloten. L’evento si svolge nel Canton Zurigo, ha un prezzo d’ingresso indicato di 17 CHF e propone una programmazione regolare in più occasioni, con il medesimo formato musicale e danzante.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento ricorrente dedicato alla danza, con musica dal vivo affidata a Vladi Palsa, previsto presso l’Evang.-ref. Kirchgemeindehaus Kloten di Kloten. L’evento si svolge nel Canton Zurigo, ha un prezzo d’ingresso indicato di 17 CHF e propone una programmazione regolare in più occasioni, con il medesimo formato musicale e danzante.",
+        "en": "This recurring dance event presents an afternoon program with live music by Vladi Palsa at the Evang.-ref. Kirchgemeindehaus Kloten venue in Kloten. It is associated with the Canton of Zurich, lists an admission price of CHF 17, and is recorded as a repeated series with the same dance-and-live-music format for its several scheduled occurrences.",
+        "de": "Die wiederkehrende Tanzveranstaltung verbindet einen Tanznachmittag mit Livemusik von Vladi Palsa und ist im Evang.-ref. Kirchgemeindehaus Kloten in Kloten angesetzt. Sie gehört zum Kanton Zürich, kostet laut Angabe 17 CHF und ist als Reihe mehrerer Termine erfasst, wobei an diesem Ort dasselbe musikalische und tänzerische Veranstaltungsformat bei den wiederkehrenden Terminen fortgesetzt wird.",
+        "fr": "Ce rendez-vous récurrent consacré à la danse associe un après-midi dansant à de la musique live interprétée par Vladi Palsa, dans l’Evang.-ref. Kirchgemeindehaus Kloten à Kloten. Il relève du canton de Zurich, affiche un tarif de 17 CHF et est enregistré comme une série de plusieurs occurrences, avec un format musical et dansant récurrent dans ce lieu pour les différents rendez-vous annoncés."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T17:26:11.445Z"
     },
     "guidle:ALkVQkd::619c62372134a7e848232c23b689cff11b2b9cc35887562ec84745b10e888c59": {
       "id": "guidle:ALkVQkd",
@@ -50713,6 +50769,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T02:19:45.256Z"
+    },
+    "guidle:AYHa7k1::235fb91088207e4268e79e9f0184acd83d01b2d48a186c94da66a7ed4607738d": {
+      "id": "guidle:AYHa7k1",
+      "sourceDescriptionHash": "235fb91088207e4268e79e9f0184acd83d01b2d48a186c94da66a7ed4607738d",
+      "description": "L’evento propone un concerto jazz di Raul Midón presso la Evang.-ref. Kirche Neumünster. Il prezzo d’ingresso è di CHF 72,70.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un concerto jazz di Raul Midón presso la Evang.-ref. Kirche Neumünster. Il prezzo d’ingresso è di CHF 72,70.",
+        "en": "The event features a jazz concert by Raul Midón at the Evang.-ref. Kirche Neumünster. Admission costs CHF 72.70.",
+        "de": "Die Veranstaltung umfasst ein Jazzkonzert mit Raul Midón in der Evang.-ref. Kirche Neumünster. Der Eintritt beträgt CHF 72.70.",
+        "fr": "L’événement propose un concert de jazz de Raul Midón à l’Evang.-ref. Kirche Neumünster. Le prix d’entrée est de 72,70 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T17:19:32.093Z"
     },
     "guidle:AyhdBPb::2ecdb3b462a316fd1b93dead7eb566e2d49e697fc8ab4d0c1469051a9b6f2efc": {
       "id": "guidle:AyhdBPb",
@@ -172653,6 +172723,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T12:18:46.468Z"
+    },
+    "tio-agenda:64752::7dc67ffd2184ec9147aa3ffe5e1a08327097113bf488f6bd8d82d18a15cf3519": {
+      "id": "tio-agenda:64752",
+      "sourceDescriptionHash": "7dc67ffd2184ec9147aa3ffe5e1a08327097113bf488f6bd8d82d18a15cf3519",
+      "description": "L’appuntamento propone un laboratorio per realizzare lampade di carta personalizzate, in un contesto conviviale con aperitivo. L’attività si svolge presso Atelier Manoamano a Pregassona, nel comune di Lugano, e prevede una quota di CHF 45.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un laboratorio per realizzare lampade di carta personalizzate, in un contesto conviviale con aperitivo. L’attività si svolge presso Atelier Manoamano a Pregassona, nel comune di Lugano, e prevede una quota di CHF 45.",
+        "en": "This workshop combines paper-lamp making with a creative aperitif. It takes place at Atelier Manoamano in Pregassona, within Lugano, and costs CHF 45.",
+        "de": "Bei diesem kreativen Aperitif werden individuelle Lampen aus Papier gestaltet. Die Veranstaltung findet im Atelier Manoamano in Pregassona, Lugano, statt und kostet CHF 45.",
+        "fr": "Cet atelier associe la création de lampes en papier à un apéritif créatif. Il se déroule à l’Atelier Manoamano, à Pregassona dans la commune de Lugano, au prix de 45 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T17:23:53.585Z"
     }
   },
   "rejections": {
@@ -172920,9 +173004,9 @@
     "ge-agenda:complet-visites-guidees-decouverte-arbres-parc-bastions::882f8700a7b62ef1a026e6a7c5a3238e43e78121c7d8bc49a003bca283fce196": {
       "id": "ge-agenda:complet-visites-guidees-decouverte-arbres-parc-bastions",
       "sourceDescriptionHash": "882f8700a7b62ef1a026e6a7c5a3238e43e78121c7d8bc49a003bca283fce196",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:20:55.283Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:19:37.174Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -172993,8 +173077,8 @@
       "id": "ge-agenda:encyclopediennes-avez-canto",
       "sourceDescriptionHash": "235d402aacd73230db3d82e2ecd115a8e9589a7d17d3dcd235e5ecda8545cc10",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:26:14.972Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:20:07.821Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173038,8 +173122,8 @@
       "id": "ge-agenda:georges-haldas-rencontre-geneve-autrefois",
       "sourceDescriptionHash": "760b8ddb80343def5ab1d6820ddf28373e09119b8e1c5d05350b401b785c1ac5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:26:51.390Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:20:43.019Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173047,35 +173131,17 @@
       "id": "ge-agenda:giff-projection-alice",
       "sourceDescriptionHash": "6b98fd9d6655f8aba8e329e85b7cfe86aa739a8d2d03865575d4b8d8a8bdfbde",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:17:02.874Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:giff-projection-california-avenue::888c925f38a30146314630d34908932e724731966202a5f5d1314e74d9ba6a0e": {
-      "id": "ge-agenda:giff-projection-california-avenue",
-      "sourceDescriptionHash": "888c925f38a30146314630d34908932e724731966202a5f5d1314e74d9ba6a0e",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:17:36.856Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:giff-projection-eldorado::837690172c293c6742b016acd5f291c2a96f81322577ea5655f0577198c243db": {
-      "id": "ge-agenda:giff-projection-eldorado",
-      "sourceDescriptionHash": "837690172c293c6742b016acd5f291c2a96f81322577ea5655f0577198c243db",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:20:15.752Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:18:23.008Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "ge-agenda:giff-projection-ravalear-sale::85737044247181c30da66e1358304b0746a2ed044ed73869971856c8fb8a99dc": {
       "id": "ge-agenda:giff-projection-ravalear-sale",
       "sourceDescriptionHash": "85737044247181c30da66e1358304b0746a2ed044ed73869971856c8fb8a99dc",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:21:45.203Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:23:46.336Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173209,8 +173275,8 @@
       "id": "ge-agenda:maniere-fantaisiste-concert-lemanic-modern-ensemble",
       "sourceDescriptionHash": "3d343aeab8b80698cb28b05b10fdea92b56df5a72e6493e07139155ec9b74b9f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:20:53.607Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:23:30.830Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173281,8 +173347,8 @@
       "id": "ge-agenda:oeuvre-installative-bodil-manz",
       "sourceDescriptionHash": "36646b52d9803a03c4c396a7914b8d1035e1fb94b92bcba83053bb6e23d2119b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:24:39.228Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:24:13.635Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173920,8 +173986,8 @@
       "id": "guidle:Ac9rKrA",
       "sourceDescriptionHash": "c974b8cea24978b732867dbe0456ddf51db05b80119f139f9d2642822b9a92f5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:22:54.967Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:26:01.990Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -174235,8 +174301,8 @@
       "id": "guidle:AGCUCZM",
       "sourceDescriptionHash": "c6e49b717012fca3386b539590df5b728830878385f77da6e328322fd4a2e5db",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:32:15.608Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:19:19.147Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -174246,15 +174312,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T08:26:44.500Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Agjbvby::4afabcea79a5fd7dd9c58e150dcf9d0dad562e2b0ac4b483ef001048135c2295": {
-      "id": "guidle:Agjbvby",
-      "sourceDescriptionHash": "4afabcea79a5fd7dd9c58e150dcf9d0dad562e2b0ac4b483ef001048135c2295",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:23:24.902Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -174597,15 +174654,6 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T03:36:35.776Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:ALkubAk::d05e80ef8d4cfafc47205fd553660298cb25f0fb13f2ddec3dfbab414844d5ca": {
-      "id": "guidle:ALkubAk",
-      "sourceDescriptionHash": "d05e80ef8d4cfafc47205fd553660298cb25f0fb13f2ddec3dfbab414844d5ca",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:38:16.581Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175243,8 +175291,8 @@
       "id": "guidle:Au1F6yw",
       "sourceDescriptionHash": "3359773dbc4472446502fb0e02f25bd9e82deebc4bf98f1520cd4ec289055a5e",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:24:00.614Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:23:06.645Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175666,8 +175714,8 @@
       "id": "guidle:AXyevNZ",
       "sourceDescriptionHash": "2ecdb3b462a316fd1b93dead7eb566e2d49e697fc8ab4d0c1469051a9b6f2efc",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:35:46.830Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:25:33.554Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175704,15 +175752,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T11:32:14.693Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AYHa7k1::235fb91088207e4268e79e9f0184acd83d01b2d48a186c94da66a7ed4607738d": {
-      "id": "guidle:AYHa7k1",
-      "sourceDescriptionHash": "235fb91088207e4268e79e9f0184acd83d01b2d48a186c94da66a7ed4607738d",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:32:47.217Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175801,8 +175840,8 @@
       "id": "lu-stadt-agenda:6363316",
       "sourceDescriptionHash": "7a35bbc923c150dade1a7e9d52c4c393f0a431ad10dc3086c4d154f11fbcf129",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:25:32.139Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:25:09.511Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178762,8 +178801,8 @@
       "id": "myswitzerland:9f2904bcb88e4cdabb4d49d053e8f847",
       "sourceDescriptionHash": "71d53bb75f24ec8d832b7d7dbd8ed79e4718800d568b9e569e645c5dcd989a6b",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:29:06.330Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-27T17:22:58.112Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -181725,15 +181764,6 @@
       "code": "source-ngram-8",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T18:20:46.228Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64752::7dc67ffd2184ec9147aa3ffe5e1a08327097113bf488f6bd8d82d18a15cf3519": {
-      "id": "tio-agenda:64752",
-      "sourceDescriptionHash": "7dc67ffd2184ec9147aa3ffe5e1a08327097113bf488f6bd8d82d18a15cf3519",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-27T14:18:09.507Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

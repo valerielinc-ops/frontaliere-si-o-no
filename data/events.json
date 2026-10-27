@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T16:26:31.538Z",
+  "generatedAt": "2026-10-27T17:33:58.725Z",
   "totalEvents": 15298,
   "events": [
     {
@@ -325334,7 +325334,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un laboratorio per realizzare lampade di carta personalizzate, in un contesto conviviale con aperitivo. L’attività si svolge presso Atelier Manoamano a Pregassona, nel comune di Lugano, e prevede una quota di CHF 45.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un laboratorio per realizzare lampade di carta personalizzate, in un contesto conviviale con aperitivo. L’attività si svolge presso Atelier Manoamano a Pregassona, nel comune di Lugano, e prevede una quota di CHF 45.",
+        "en": "This workshop combines paper-lamp making with a creative aperitif. It takes place at Atelier Manoamano in Pregassona, within Lugano, and costs CHF 45.",
+        "de": "Bei diesem kreativen Aperitif werden individuelle Lampen aus Papier gestaltet. Die Veranstaltung findet im Atelier Manoamano in Pregassona, Lugano, statt und kostet CHF 45.",
+        "fr": "Cet atelier associe la création de lampes en papier à un apéritif créatif. Il se déroule à l’Atelier Manoamano, à Pregassona dans la commune de Lugano, au prix de 45 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e99985b9b8c24c7ea2d26fbac7def75f",
@@ -334522,7 +334530,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è una proiezione del festival GIFF a Ginevra. Ville de Genève Agenda figura come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento è una proiezione del festival GIFF a Ginevra. Ville de Genève Agenda figura come organizzatore.",
+        "en": "This event is a screening in the GIFF festival in Geneva. Ville de Genève Agenda is listed as the organizer.",
+        "de": "Die Veranstaltung ist eine Vorführung im Rahmen des GIFF-Festivals in Genf. Ville de Genève Agenda ist als Veranstalter angegeben.",
+        "fr": "Cet événement est une projection dans le cadre du festival GIFF à Genève. Ville de Genève Agenda est indiqué comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:giff-projection-journal-femme-chambre",
@@ -347586,7 +347602,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è una proiezione nell’ambito di un festival a Ginevra, organizzata da Ville de Genève Agenda. Il biglietto costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento è una proiezione nell’ambito di un festival a Ginevra, organizzata da Ville de Genève Agenda. Il biglietto costa 8 CHF.",
+        "en": "The event is a festival screening in Geneva, organized by Ville de Genève Agenda. Tickets cost CHF 8.",
+        "de": "Die Veranstaltung ist eine Filmvorführung im Rahmen eines Festivals in Genf und wird von der Ville de Genève Agenda organisiert. Der Eintritt kostet 8 CHF.",
+        "fr": "Il s’agit d’une projection dans le cadre d’un festival à Genève, organisée par Ville de Genève Agenda. Le billet coûte 8 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:giff-projection-vitro-creation-happiness",
@@ -670278,7 +670302,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento propone un concerto jazz di Raul Midón presso la Evang.-ref. Kirche Neumünster. Il prezzo d’ingresso è di CHF 72,70.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un concerto jazz di Raul Midón presso la Evang.-ref. Kirche Neumünster. Il prezzo d’ingresso è di CHF 72,70.",
+        "en": "The event features a jazz concert by Raul Midón at the Evang.-ref. Kirche Neumünster. Admission costs CHF 72.70.",
+        "de": "Die Veranstaltung umfasst ein Jazzkonzert mit Raul Midón in der Evang.-ref. Kirche Neumünster. Der Eintritt beträgt CHF 72.70.",
+        "fr": "L’événement propose un concert de jazz de Raul Midón à l’Evang.-ref. Kirche Neumünster. Le prix d’entrée est de 72,70 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cb35e3b658424bffbc7aedb4d2268969",
@@ -672611,7 +672643,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento è un appuntamento di musica rock legato al tour “RUSH: Fifty Something Tour”. Si svolge alla St. Jakobshalle.",
+      "descriptionByLocale": {
+        "it": "L’evento è un appuntamento di musica rock legato al tour “RUSH: Fifty Something Tour”. Si svolge alla St. Jakobshalle.",
+        "en": "The event is a rock music performance connected with the “RUSH: Fifty Something Tour.” It takes place at St. Jakobshalle.",
+        "de": "Die Veranstaltung gehört zur „RUSH: Fifty Something Tour“ und ist der Rockmusik zugeordnet. Sie findet in der St. Jakobshalle statt.",
+        "fr": "L’événement est un rendez-vous de musique rock lié à la tournée « RUSH: Fifty Something Tour ». Il se déroule à la St. Jakobshalle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8af726af18bf42a88dfe771e6e927d18",
@@ -679628,7 +679668,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un appuntamento ricorrente dedicato alla danza, con musica dal vivo affidata a Vladi Palsa, previsto presso l’Evang.-ref. Kirchgemeindehaus Kloten di Kloten. L’evento si svolge nel Canton Zurigo, ha un prezzo d’ingresso indicato di 17 CHF e propone una programmazione regolare in più occasioni, con il medesimo formato musicale e danzante.",
+      "descriptionByLocale": {
+        "it": "È un appuntamento ricorrente dedicato alla danza, con musica dal vivo affidata a Vladi Palsa, previsto presso l’Evang.-ref. Kirchgemeindehaus Kloten di Kloten. L’evento si svolge nel Canton Zurigo, ha un prezzo d’ingresso indicato di 17 CHF e propone una programmazione regolare in più occasioni, con il medesimo formato musicale e danzante.",
+        "en": "This recurring dance event presents an afternoon program with live music by Vladi Palsa at the Evang.-ref. Kirchgemeindehaus Kloten venue in Kloten. It is associated with the Canton of Zurich, lists an admission price of CHF 17, and is recorded as a repeated series with the same dance-and-live-music format for its several scheduled occurrences.",
+        "de": "Die wiederkehrende Tanzveranstaltung verbindet einen Tanznachmittag mit Livemusik von Vladi Palsa und ist im Evang.-ref. Kirchgemeindehaus Kloten in Kloten angesetzt. Sie gehört zum Kanton Zürich, kostet laut Angabe 17 CHF und ist als Reihe mehrerer Termine erfasst, wobei an diesem Ort dasselbe musikalische und tänzerische Veranstaltungsformat bei den wiederkehrenden Terminen fortgesetzt wird.",
+        "fr": "Ce rendez-vous récurrent consacré à la danse associe un après-midi dansant à de la musique live interprétée par Vladi Palsa, dans l’Evang.-ref. Kirchgemeindehaus Kloten à Kloten. Il relève du canton de Zurich, affiche un tarif de 17 CHF et est enregistré comme une série de plusieurs occurrences, avec un format musical et dansant récurrent dans ce lieu pour les différents rendez-vous annoncés."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3a5c466f461c4e3b991caa8cf1fe5b8a",
