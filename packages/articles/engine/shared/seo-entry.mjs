@@ -730,8 +730,12 @@ export function readStructuredSeoBlock(block) {
   return readStructuredSeoObjectBlocks(block)?.at(-1);
 }
 
-/** Return the final static object assigned to a structuredData field. */
+/**
+ * Return the final static object assigned to a structuredData field.
+ * @returns {string | undefined}
+ */
 export function readStaticObjectProperty(block, field) {
+  /** @type {string | undefined} */
   let objectBlock;
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
     if (key === field && block[valueStart] === '{') {
