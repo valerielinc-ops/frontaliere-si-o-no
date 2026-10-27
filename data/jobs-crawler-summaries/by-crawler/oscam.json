@@ -1,16 +1,16 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-26T21:14:27.860Z",
+  "generatedAt": "2026-10-27T09:18:30.655Z",
   "total": 2,
-  "newCount": 2,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6714,
-  "avgDurationMs": 6714,
+  "unchangedCount": 1,
+  "durationMs": 5965,
+  "avgDurationMs": 5965,
   "durationHistory": [
-    6714
+    5965
   ],
   "newJobs": [
     {
@@ -36,7 +36,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-26T21:14:13.809Z",
+      "crawledAt": "2026-10-27T09:18:20.990Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -56,7 +56,11 @@
         "translation": 16,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Concorso generale 2026",
       "slug": "concorso-generale-2026-oscam",
@@ -80,7 +84,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-26T21:14:13.809Z",
+      "crawledAt": "2026-10-27T09:18:17.009Z",
       "sourceLang": "it",
       "_targetScope": {
         "canton": "TI",
@@ -101,8 +105,5 @@
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }
