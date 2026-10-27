@@ -30,6 +30,11 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
  '#loading-shell, main.seo-static-content, main.cluster-seo-prose',
 );
 
+const JOB_BOARD_STATIC_CONTENT_SELECTOR = 'main.seo-static-content.job-board-static-hub';
+
+const hasJobBoardPreRenderedPaintContent = (): boolean =>
+ !!document.querySelector(JOB_BOARD_STATIC_CONTENT_SELECTOR);
+
 const waitForFirstPaint = () =>
  new Promise<void>((resolve) => {
  requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
@@ -115,6 +120,17 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
+ if (hasJobBoardPreRenderedPaintContent()) {
+   // The job-board static main is emitted inside #root and is the intended
+   // first LCP candidate. Let that candidate settle before the large React
+   // runtime can replace the root; otherwise slow mobile runs record the
+   // post-takeover JobBoard render instead. The selector excludes CMP UI and
+   // keeps the existing bounded fallback when the browser cannot observe LCP.
+   await waitForInitialPaintOpportunity({
+     waitForLargestContentfulPaint: true,
+     largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR,
+   });
+ }
 
  const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
    await Promise.all([
