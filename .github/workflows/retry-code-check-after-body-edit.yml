@@ -163,12 +163,19 @@ jobs:
               const comments = await github.paginate(github.rest.issues.listComments, {
                 ...repo, issue_number: number, per_page: 100,
               });
-              const matches = comments
-                .map(comment => ({ comment, state: markerJson(comment.body) }))
-                .filter(item => item.state
-                  && validRecoveryState(item.state, number)
-                  && trustedAutomationAuthor(item.comment.user));
-              return matches.at(-1) || null;
+              const markers = comments
+                .filter(comment => trustedAutomationAuthor(comment?.user)
+                  && String(comment?.body || '').includes(PENDING_MARKER))
+                .map(comment => ({ comment, state: markerJson(comment.body) }));
+              if (markers.some(item => !item.state || !validRecoveryState(item.state, number))) {
+                // A newer malformed marker can revoke or supersede an older
+                // valid epoch. Ignoring it would let stale state dispatch
+                // native auto-merge, so discovery must stop without an
+                // actionable recovery state until the marker is repaired.
+                core.warning(`Marker recovery trusted non verificabile per PR #${number}; nessun recovery state actionable.`);
+                return { comment: null, state: null, invalid: true };
+              }
+              return markers.at(-1) || null;
             }
             async function hasCodexAuthBlockedCheckpoint(number, pr, run) {
               const comments = await github.paginate(github.rest.issues.listComments, {
@@ -246,6 +253,9 @@ jobs:
               return true;
             }
             async function persistMarker(number, state, existing = null) {
+              if (existing?.invalid) {
+                throw new MarkerWriteConflict(`marker recovery trusted non verificabile per PR #${number}`);
+              }
               const body = markerBody(state);
               if (existing?.comment?.id) {
                 const current = await readMarkerComment(existing.comment.id);
@@ -271,6 +281,9 @@ jobs:
               // our last list operation and then be hidden by this marker's
               // later update.
               const concurrent = await pendingComment(number);
+              if (concurrent?.invalid) {
+                throw new MarkerWriteConflict(`marker recovery trusted non verificabile per PR #${number}`);
+              }
               if (concurrent) {
                 throw new MarkerWriteConflict(`marker ${concurrent.comment.id} comparso prima della creazione`);
               }

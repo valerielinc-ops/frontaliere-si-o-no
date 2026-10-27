@@ -15,7 +15,7 @@ const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
 const HEAD_SHA = 'a'.repeat(40);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, newerPendingMarker = null as 'malformed' | 'invalid' | null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
   const reruns: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
@@ -36,6 +36,13 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
         ...markerExtra,
       })} -->`,
   }] : [];
+  if (newerPendingMarker) comments.push({
+    id: 903,
+    user: { type: 'Bot', login: 'github-actions[bot]' },
+    body: newerPendingMarker === 'malformed'
+      ? '<!-- BODY_REVIEW_RECOVERY_PENDING: {"version":1,"status":"completed" -->'
+      : '<!-- BODY_REVIEW_RECOVERY_PENDING: {"version":2} -->',
+  });
   if (codexAuthBlocked) comments.push({
     id: 902,
     user: { type: 'Bot', login: 'github-actions[bot]' },
@@ -655,6 +662,14 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(await runRecovery({
       eventName: 'schedule', pendingStatus: 'completed', markerExtra: { version: 2 },
     })).toEqual({ reruns: [], dispatches: [] });
+  });
+
+  it('fails closed when a newer trusted recovery marker is malformed or schema-invalid', async () => {
+    for (const newerPendingMarker of ['malformed', 'invalid'] as const) {
+      expect(await runRecovery({
+        eventName: 'schedule', pendingStatus: 'completed', newerPendingMarker,
+      })).toEqual({ reruns: [], dispatches: [] });
+    }
   });
 
   it('does not dispatch when the PR head changes during the final recovery snapshot', async () => {
