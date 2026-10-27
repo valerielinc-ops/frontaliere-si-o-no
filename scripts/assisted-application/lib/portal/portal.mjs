@@ -840,13 +840,16 @@ export function namesAnotherEmployer(formText, job = {}) {
  * employer (namesAnotherEmployer) is a stop, whatever the posting said and
  * whatever the role: «Concierge — Other Hotel» is never «Grand Hotel
  * Esempio»'s form. A form reached any other way is judged by postingMatch
- * alone.
+ * alone. A generic form may also be accepted when the browser entered through
+ * a URL pair that proves this exact posting's apply route; the route is
+ * provenance, not a generic employer-site fallback.
  */
-export function formPostingMatch(formText, job = {}, { postingMatched = false } = {}) {
+export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false } = {}) {
   const direct = postingMatch(formText, job);
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
+  if (postingEntry) return 'match';
   return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
 }
 
@@ -3136,6 +3139,7 @@ export async function submitViaPortal(ctx) {
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
     const entryUrl = portalEntryUrl(ctx);
+    const enteredFromMatchingPosting = entryUrl !== String(ctx.applyUrl || '');
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
@@ -3168,7 +3172,10 @@ export async function submitViaPortal(ctx) {
     // she looked at the screenshot, goes on.
     const formMatch = async () => {
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
-      const result = formPostingMatch(seen, ctx.job, { postingMatched: postingNamed && page.url() !== postingUrl });
+      const result = formPostingMatch(seen, ctx.job, {
+        postingMatched: postingNamed && (page.url() !== postingUrl || enteredFromMatchingPosting),
+        postingEntry: postingNamed && enteredFromMatchingPosting,
+      });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
       if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
       return result;

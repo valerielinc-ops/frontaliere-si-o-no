@@ -49,6 +49,30 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('www.alten.ch', 'alten.ch') })).toBe(applyUrl);
   });
 
+  it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
+    const job = { company: 'ALTEN Switzerland', title: 'Project Manager – IT & Banking' };
+    const genericForm = [
+      'Apply',
+      'Personal information',
+      'First name',
+      'Name',
+      'E-mail',
+      'Phone',
+      'Birth date',
+      'Address',
+      'Upload your CV and your motivation letter*',
+      'Degree',
+      'Comment',
+      'Send application',
+      'https://www.alten.ch/jobs/903-pipe-project-manager-it/apply',
+    ].join('\n');
+
+    expect(formPostingMatch(genericForm, job)).toBe('mismatch');
+    expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
+    expect(formPostingMatch('Apply\nOther Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
+  });
+
   it('stops before filling a form that names neither the company nor the role', () => {
     const job = { company: 'Ospedale Regionale di Lugano SA', title: 'Infermiere/a diplomato/a' };
     expect(postingMatch('Ospedale Regionale di Lugano · Candidatura · Infermiera diplomata', job)).toBe('match');
