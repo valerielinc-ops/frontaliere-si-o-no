@@ -60,7 +60,10 @@ const TICH_TRANSLATE_QUERY_KEYS = Object.freeze([
 ]);
 
 /**
- * Build the same-locale Google Translate URL for the official listing.
+ * Build the Google Translate URL for the official listing with an
+ * auto-detected source and an Italian target. Using `sl=auto` avoids the
+ * provider rejecting same-language `sl`/`tl` pairs with HTTP 400 while still
+ * preserving the source language for this Italian listing.
  *
  * This is transport only: callers still validate the returned document and
  * parse only canonical concorsi.ti.ch links. Restricting the input to the
@@ -83,7 +86,7 @@ export function buildTichTranslateUrl(url = SOURCE_URL) {
   ) return '';
 
   source.hostname = 'www4-ti-ch.translate.goog';
-  source.searchParams.set('_x_tr_sl', 'it');
+  source.searchParams.set('_x_tr_sl', 'auto');
   source.searchParams.set('_x_tr_tl', 'it');
   source.searchParams.set('_x_tr_hl', 'it');
   source.searchParams.set('_x_tr_pto', 'wapp');

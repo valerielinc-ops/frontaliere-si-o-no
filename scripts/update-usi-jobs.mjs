@@ -350,8 +350,9 @@ function isUsiListingUrl(url = '') {
 
 /**
  * Build a Google Translate HTML proxy URL for an official USI listing.
- * The proxy supplies a separate fetch egress while retaining the source
- * locale, and the response is still accepted only after the USI marker check.
+ * The proxy supplies a separate fetch egress with an auto-detected source and
+ * the page's locale as target. The response is still accepted only after the
+ * USI marker check.
  */
 export function buildUsiTranslateUrl(url = '') {
   if (!isUsiListingUrl(url)) return '';
@@ -359,7 +360,7 @@ export function buildUsiTranslateUrl(url = '') {
   const locale = source.pathname.startsWith('/en/') ? 'en' : 'it';
   source.hostname = `${source.hostname.replace(/\./g, '-')}.translate.goog`;
   source.search = '';
-  source.searchParams.set('_x_tr_sl', locale);
+  source.searchParams.set('_x_tr_sl', 'auto');
   source.searchParams.set('_x_tr_tl', locale);
   source.searchParams.set('_x_tr_hl', locale);
   source.searchParams.set('_x_tr_pto', 'wapp');

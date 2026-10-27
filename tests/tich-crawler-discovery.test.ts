@@ -54,7 +54,7 @@ const officialListingHtml = `<!doctype html>
 
 const translatedOfficialListingHtml = officialListingHtml.replace(
   'https://www.concorsi.ti.ch/offerte-d%27impieghi.html?yid=4059',
-  'https://www-concorsi-ti-ch.translate.goog/offerte-d%27impieghi.html?yid=4059&_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
+  'https://www-concorsi-ti-ch.translate.goog/offerte-d%27impieghi.html?yid=4059&_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
 );
 
 describe('fetchTichJobDetailUrls', () => {
@@ -169,7 +169,7 @@ describe('fetchTichJobDetailUrls', () => {
 describe('Ticino official listing transport', () => {
   it('keeps the source query and restricts the proxy to the official listing', () => {
     expect(buildTichTranslateUrl(OFFICIAL_LISTING_URL)).toBe(
-      'https://www4-ti-ch.translate.goog/index.php?id=147427&_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
+      'https://www4-ti-ch.translate.goog/index.php?id=147427&_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
     );
     expect(buildTichTranslateUrl('https://www4.ti.ch/index.php?id=24469')).toBe('');
   });

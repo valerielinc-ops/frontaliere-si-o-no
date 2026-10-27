@@ -81,7 +81,7 @@ describe('OSC official listing transport fallback', () => {
     vi.stubEnv('JOBS_JINA_RETRIES', '0');
     vi.stubEnv('JOBS_JINA_RETRY_BASE_MS', '0');
     const officialUrl = 'https://www4.ti.ch/index.php?id=147427';
-    const translateUrl = 'https://www4-ti-ch.translate.goog/index.php?id=147427&_x_tr_sl=it&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp';
+    const translateUrl = 'https://www4-ti-ch.translate.goog/index.php?id=147427&_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp';
     const officialHtml = `
       <h1>Concorsi generali nell'Amministrazione cantonale</h1>
       <p>www.concorsi.ti.ch</p>
@@ -89,7 +89,7 @@ describe('OSC official listing transport fallback', () => {
         <p>no. 1/26</p>
         <p><strong>Concorso generale Infermiere presso Organizzazione Sociopsichiatrica Cantonale (OSC), Mendrisio</strong></p>
         <p>Scadenza: 31.12.2026</p>
-        <a href="https://www-concorsi-ti-ch.translate.goog/offerte-d%27impieghi.html?yid=1&amp;_x_tr_sl=it&amp;_x_tr_tl=it&amp;_x_tr_hl=it&amp;_x_tr_pto=wapp">Vai al concorso</a>
+        <a href="https://www-concorsi-ti-ch.translate.goog/offerte-d%27impieghi.html?yid=1&amp;_x_tr_sl=auto&amp;_x_tr_tl=it&amp;_x_tr_hl=it&amp;_x_tr_pto=wapp">Vai al concorso</a>
       </div>`;
     const transport = vi.fn(async (input: RequestInfo | URL) => {
       const url = input instanceof Request ? input.url : String(input);
