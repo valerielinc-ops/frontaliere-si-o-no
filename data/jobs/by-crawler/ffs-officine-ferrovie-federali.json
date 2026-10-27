@@ -10009,7 +10009,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke/ccd01a0f-250a-477d-a0c6-32ccf0164df3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-61287b0752b6",
@@ -12094,7 +12095,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/automobilmechatroniker-in-fuer-die-zugdiagnostik/86a7982a-c9aa-4b44-89c1-6b4d54fcca8c",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-27T09:41:46.625Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-fur-die-zugdiagnostik-ffs-officine-ferrovie-federali-basel"
@@ -12205,7 +12205,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polymechaniker-in-produktionsmechaniker-in/9d730de4-2a28-45c5-843a-a35d01152648",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-27T09:42:14.147Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",

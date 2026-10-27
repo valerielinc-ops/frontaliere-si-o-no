@@ -844,18 +844,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
-        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+        "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
+        "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz",
+        "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz",
+        "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz",
-          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
+          "dipendente-di-manutenzione-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz",
+          "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz",
+          "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz"
         ],
         "en": [
-          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
+          "maintenance-employee-driver-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz"
         ],
         "de": [
-          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2"
+          "employe-e-d-entretien-chauffeur-euse-pl-etat-de-vaud-rennaz-2",
+          "instandhaltungspersonal-fahrer-pl-etat-de-vaud-administration-cantonale-vaudoise-rennaz"
         ]
       },
       "firstSeenAt": "2026-10-05T21:35:33.691Z",
@@ -3555,7 +3563,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

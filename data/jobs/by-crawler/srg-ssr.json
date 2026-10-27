@@ -2818,7 +2818,6 @@
         ]
       },
       "firstSeenAt": "2026-10-26T21:16:20.431Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3217,7 +3216,7 @@
       "id": "srg-ssr-01df8e3695d9",
       "slug": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
       "slugByLocale": {
-        "fr": "product-manager-in-accessibility-services-srg-ssr-zurich",
+        "fr": "product-manager-in-accessibility-services-srg-ssr-zurich-t2urg6",
         "it": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
         "en": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
         "de": "product-manager-in-accessibility-services-srg-ssr-zurich-2"
@@ -3310,6 +3309,9 @@
       "firstSeenAt": "2026-10-27T09:36:29.938Z",
       "previousSlugsByLocale": {
         "it": [
+          "product-manager-in-accessibility-services-srg-ssr-zurich"
+        ],
+        "fr": [
           "product-manager-in-accessibility-services-srg-ssr-zurich"
         ]
       },

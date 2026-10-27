@@ -8226,9 +8226,7 @@
         "manor-mitarbeiter-in-kasse-50-liestal",
         "mitarbeiter-in-kasse-50-manor-ag-liestal",
         "collaboratore-trice-in-kasse-50-manor-ag-liestal",
-        "employeecash-register-50-manor-ag-liestal",
-        "cashier-50-manor-ag-liestal",
-        "manor-mitarbeiter-in-kasse-50-liestal-mitarbeiterin-kasse-50"
+        "employeecash-register-50-manor-ag-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17537,7 +17535,6 @@
         ]
       },
       "firstSeenAt": "2026-10-05T21:46:14.997Z",
-      "needsRetranslation": true,
       "salaryMin": 38800,
       "salaryMax": 59300,
       "currency": "CHF",
@@ -17801,7 +17798,7 @@
       "slugByLocale": {
         "it": "dipendenti-in-cassa-40-manor-ag-hinwil",
         "en": "employeecash-register-40-manor-ag-hinwil",
-        "de": "manor-mitarbeiter-in-kasse-40-hinwil",
+        "de": "manor-mitarbeiter-in-kasse-40-hinwil-ipfeug",
         "fr": "employe-e-caisse-40-manor-ag-hinwil"
       },
       "titleByLocale": {
@@ -17825,6 +17822,9 @@
           "manor-mitarbeiter-in-kasse-40-hinwil"
         ],
         "fr": [
+          "manor-mitarbeiter-in-kasse-40-hinwil"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-40-hinwil"
         ]
       },

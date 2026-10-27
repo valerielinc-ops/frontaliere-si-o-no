@@ -177,8 +177,7 @@
       "previousSlugsByLocale": {
         "it": [
           "assembly-operator-80-100-w-m-d-jr-6269",
-          "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-          "operatore-di-montaggio-80-100-m-f-d-hamilton-bonaduz-ag-bonaduz"
+          "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
         ],
         "en": [
           "assembly-operator-80-100-w-m-d-jr-6269"
@@ -189,8 +188,7 @@
       },
       "previousSlugs": [
         "assembly-operator-80-100-w-m-d-jr-6269",
-        "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "operatore-di-montaggio-80-100-m-f-d-hamilton-bonaduz-ag-bonaduz"
+        "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1214,7 +1212,8 @@
       },
       "previousSlugs": [
         "ict-engineer-identity-access-management-80-100-w-m-d-jr-6125"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lifecycle SW Engineer 80 - 100 % (w/m/d)",

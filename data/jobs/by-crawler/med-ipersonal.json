@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-amriswil-ipersonal-ag-amriswil-thurgau",
         "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-amriswil-ipersonal-ag-amriswil-thurgau",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-amriswil-ipersonal-ag-amriswil-thurgau",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-amriswil-ipersonal-ag-amriswil-thurgau"
+        "en": "electrical-installer-electrical-installer-new-and-renovation-amriswil-region-ipersonal-ag-amriswil-thurgau",
+        "fr": "installation-electrique-installation-electrique-nouveau-et-renovation-amriswil-region-ipersonal-ag-amriswil-thurgau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -55,6 +55,12 @@
         "it": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-amriswil-ipersonal-ag-amriswil-thurgau",
           "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-amriswil-ipersonal-ag-amriswil"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-amriswil-ipersonal-ag-amriswil-thurgau"
+        ],
+        "fr": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-amriswil-ipersonal-ag-amriswil-thurgau"
         ]
       },
       "previousSlugs": [
@@ -81,9 +87,9 @@
       "slug": "schreiner-bankschreiner-region-binningen-ipersonal-ag-binningen-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-binningen-ipersonal-ag-binningen-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-binningen-ipersonal-ag-binningen-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-binningen-ipersonal-ag-binningen-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-binningen-ipersonal-ag-binningen-basel-landschaft"
+        "it": "falegname-da-banco-regione-di-binningen-ipersonal-ag-binningen-basel-landschaft",
+        "en": "carpenter-bench-carpenter-binningen-region-ipersonal-ag-binningen-basel-landschaft",
+        "fr": "menuisier-menuisier-de-banque-region-de-binningen-ipersonal-ag-binningen-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -124,7 +130,6 @@
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-fuer-die-region-binningen-gesucht/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -145,9 +150,9 @@
       "slug": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-therwil-ipersonal-ag-therwil-basel-landschaft"
+        "it": "falegname-da-banco-regione-therwil-ipersonal-ag-therwil-basel-landschaft",
+        "en": "carpenter-bench-carpenter-therwil-region-ipersonal-ag-therwil-basel-landschaft",
+        "fr": "menuisier-menuisier-de-banque-region-de-therwil-ipersonal-ag-therwil-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -188,7 +193,6 @@
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-fuer-die-region-therwil-offene-stelle/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -209,9 +213,9 @@
       "slug": "montageleiter-kuchenbau-region-schotz-ipersonal-ag-schotz-luzern",
       "slugByLocale": {
         "de": "montageleiter-kuchenbau-region-schotz-ipersonal-ag-schotz-luzern",
-        "it": "montageleiter-kuchenbau-region-schotz-ipersonal-ag-schotz-luzern",
-        "en": "montageleiter-kuchenbau-region-schotz-ipersonal-ag-schotz-luzern",
-        "fr": "montageleiter-kuchenbau-region-schotz-ipersonal-ag-schotz-luzern"
+        "it": "installation-manager-edilizia-della-cucina-regione-di-schotz-ipersonal-ag-schotz-luzern",
+        "en": "installation-manager-kitchen-construction-schotz-region-ipersonal-ag-schotz-luzern",
+        "fr": "gestionnaire-d-installation-construction-de-cuisine-region-de-schotz-ipersonal-ag-schotz-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -273,8 +277,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-mannedorf-ipersonal-ag-mannedorf-zurich",
         "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-mannedorf-ipersonal-ag-mannedorf-zurich",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-mannedorf-ipersonal-ag-mannedorf-zurich",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-mannedorf-ipersonal-ag-mannedorf-zurich"
+        "en": "electrical-installer-new-and-renovation-mannedorf-region-ipersonal-ag-mannedorf-zurich",
+        "fr": "installation-electrique-et-renovation-region-de-mannedorf-ipersonal-ag-mannedorf-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -319,6 +323,12 @@
         "it": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-mannedorf-ipersonal-ag-mannedorf-zurich",
           "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-mannedorf-ipersonal-ag-mannedorf"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-mannedorf-ipersonal-ag-mannedorf-zurich"
+        ],
+        "fr": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-mannedorf-ipersonal-ag-mannedorf-zurich"
         ]
       },
       "previousSlugs": [
@@ -345,9 +355,9 @@
       "slug": "montageleiter-kuchenbau-region-greppen-ipersonal-ag-greppen-luzern",
       "slugByLocale": {
         "de": "montageleiter-kuchenbau-region-greppen-ipersonal-ag-greppen-luzern",
-        "it": "montageleiter-kuchenbau-region-greppen-ipersonal-ag-greppen-luzern",
-        "en": "montageleiter-kuchenbau-region-greppen-ipersonal-ag-greppen-luzern",
-        "fr": "montageleiter-kuchenbau-region-greppen-ipersonal-ag-greppen-luzern"
+        "it": "installation-manager-edilizia-cucina-regione-greppen-ipersonal-ag-greppen-luzern",
+        "en": "installation-manager-kitchen-construction-region-greppen-ipersonal-ag-greppen-luzern",
+        "fr": "gestionnaire-d-installation-construction-de-cuisine-region-greppen-ipersonal-ag-greppen-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -408,9 +418,9 @@
       "slug": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
-        "it": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
-        "en": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
-        "fr": "schreiner-bankschreiner-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
+        "it": "falegname-da-banco-regione-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau",
+        "en": "carpenter-bench-carpenter-gipf-oberfrick-region-ipersonal-ag-gipf-oberfrick-aargau",
+        "fr": "menuisier-menuisier-de-banc-region-gipf-oberfrick-ipersonal-ag-gipf-oberfrick-aargau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -451,7 +461,6 @@
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-in-der-region-gipf-oberfrick-freie-stelle/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -473,8 +482,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wattwil-ipersonal-ag-wattwil-st-gallen",
         "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wattwil-ipersonal-ag-wattwil-st-gallen",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wattwil-ipersonal-ag-wattwil-st-gallen",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        "en": "electrical-installer-electrical-installer-new-and-renovation-wattwil-region-ipersonal-ag-wattwil-st-gallen",
+        "fr": "installation-electrique-installateur-electrique-nouveau-et-renovation-region-de-wattwil-ipersonal-ag-wattwil-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -519,6 +528,12 @@
         "it": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wattwil-ipersonal-ag-wattwil-st-gallen",
           "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wattwil-ipersonal-ag-wattwil"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wattwil-ipersonal-ag-wattwil-st-gallen"
+        ],
+        "fr": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wattwil-ipersonal-ag-wattwil-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -545,9 +560,9 @@
       "slug": "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn",
-        "it": "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn",
-        "en": "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn",
-        "fr": "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn"
+        "it": "schreiner-bank-schreiner-regione-di-bellach-ipersonal-ag-bellach-solothurn",
+        "en": "schreiner-bank-schreiner-bellach-region-ipersonal-ag-bellach-solothurn",
+        "fr": "schreiner-bank-schreiner-region-de-bellach-ipersonal-ag-bellach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -609,9 +624,9 @@
       "slug": "schreiner-bankschreiner-region-sissach-ipersonal-ag-sissach-basel-landschaft",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-sissach-ipersonal-ag-sissach-basel-landschaft",
-        "it": "schreiner-bankschreiner-region-sissach-ipersonal-ag-sissach-basel-landschaft",
-        "en": "schreiner-bankschreiner-region-sissach-ipersonal-ag-sissach-basel-landschaft",
-        "fr": "schreiner-bankschreiner-region-sissach-ipersonal-ag-sissach-basel-landschaft"
+        "it": "falegname-da-banco-regione-sissach-ipersonal-ag-sissach-basel-landschaft",
+        "en": "carpenter-bench-carpenter-sissach-region-ipersonal-ag-sissach-basel-landschaft",
+        "fr": "menuisier-menuisier-de-banque-region-de-sissach-ipersonal-ag-sissach-basel-landschaft"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -652,7 +667,6 @@
       "postedDate": "2026-10-24",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/schreiner-bankschreiner-100-fuer-die-region-sissach-gesucht/",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -674,8 +688,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
         "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich"
+        "en": "electrical-installer-electrical-installer-new-and-renovation-zollikon-region-ipersonal-ag-zollikon-zurich",
+        "fr": "installation-electrique-installation-electrique-nouveau-et-renovation-region-de-zollikon-ipersonal-ag-zollikon-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -720,6 +734,12 @@
         "it": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich",
           "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-zollikon-ipersonal-ag-zollikon"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich"
+        ],
+        "fr": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-zollikon-ipersonal-ag-zollikon-zurich"
         ]
       },
       "previousSlugs": [
@@ -746,9 +766,9 @@
       "slug": "montageleiter-kuchenbau-region-reiden-ipersonal-ag-reiden-luzern",
       "slugByLocale": {
         "de": "montageleiter-kuchenbau-region-reiden-ipersonal-ag-reiden-luzern",
-        "it": "montageleiter-kuchenbau-region-reiden-ipersonal-ag-reiden-luzern",
-        "en": "montageleiter-kuchenbau-region-reiden-ipersonal-ag-reiden-luzern",
-        "fr": "montageleiter-kuchenbau-region-reiden-ipersonal-ag-reiden-luzern"
+        "it": "installation-manager-edilizia-della-cucina-regione-reiden-ipersonal-ag-reiden-luzern",
+        "en": "installation-manager-kitchen-construction-region-reiden-ipersonal-ag-reiden-luzern",
+        "fr": "gestionnaire-d-installation-construction-de-cuisine-region-reiden-ipersonal-ag-reiden-luzern"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",

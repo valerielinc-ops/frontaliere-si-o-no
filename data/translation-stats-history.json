@@ -1,167 +1,5 @@
 [
   {
-    "timestamp": "2026-10-08T13:41:18.319Z",
-    "label": "after",
-    "total": 32597,
-    "needsRetranslation": 5253,
-    "suppressed": 212,
-    "incomplete": 5695,
-    "complete": 26902,
-    "slotsPresent": 26902,
-    "flaggedAmongSlotsPresent": 157,
-    "verifiedTranslated": 26745,
-    "sourceCopyExcused": 456,
-    "slotsPresentByLength": 32553,
-    "languageVerified": 28486,
-    "missingByLocale": {
-      "it": 943,
-      "en": 586,
-      "de": 50,
-      "fr": 625
-    },
-    "queueAge": {
-      "count": 5253,
-      "withTimestamp": 5253,
-      "oldestAgeDays": 1485.6,
-      "p50AgeDays": 18.6,
-      "p90AgeDays": 96.1,
-      "buckets": {
-        "0-1d": 262,
-        "1-2d": 102,
-        "2-7d": 602,
-        "0-7d": 966,
-        "7-30d": 2266,
-        "30-90d": 1421,
-        "90-180d": 598,
-        "180d+": 2
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 1734,
-      "withTimestamp": 1734,
-      "oldestAgeDays": 1675.6,
-      "p50AgeDays": 18.6,
-      "p90AgeDays": 120.1,
-      "buckets": {
-        "0-1d": 295,
-        "1-2d": 45,
-        "2-7d": 112,
-        "0-7d": 452,
-        "7-30d": 518,
-        "30-90d": 338,
-        "90-180d": 425,
-        "180d+": 1
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 2555,
-      "sampled": 120,
-      "processed": 18,
-      "residual": 0,
-      "residualRate": 0,
-      "window": {
-        "size": 120,
-        "processed": 120,
-        "residual": 2,
-        "residualRate": 0.016666666666666666,
-        "runs": 24,
-        "measured": true,
-        "queueCandidates": 2555
-      }
-    },
-    "publicationHold": {
-      "held": 173,
-      "byCrawler": {
-        "fachkraft": 144,
-        "sta": 1,
-        "stellenpartner": 23,
-        "stellentreff": 5
-      }
-    },
-    "predicateVersion": "0cb188a144c6d95d",
-    "freshCohort": {
-      "window": "24-48h",
-      "total": 740,
-      "complete": 635
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 929
-      },
-      {
-        "company": "CADAR AG",
-        "pending": 259
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 232
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 224
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 204
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 135
-      },
-      {
-        "company": "Medbase",
-        "pending": 132
-      },
-      {
-        "company": "McDonald's Switzerland",
-        "pending": 118
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 97
-      },
-      {
-        "company": "Galaxus",
-        "pending": 90
-      }
-    ],
-    "codexReserve": {
-      "calls": 494,
-      "textsSent": 2824,
-      "translated": 2670,
-      "rejected": 154,
-      "spentMs": 1766752,
-      "verdict": "codex-failed",
-      "byPhase": {
-        "2b-cascade": {
-          "position": "primary",
-          "calls": 258,
-          "maxCalls": 350,
-          "translated": 1971,
-          "rejected": 115,
-          "stopReason": null
-        },
-        "2d-titles": {
-          "position": "primary",
-          "calls": 236,
-          "maxCalls": 350,
-          "translated": 699,
-          "rejected": 39,
-          "stopReason": "3 fallimenti consecutivi"
-        }
-      }
-    }
-  },
-  {
     "timestamp": "2026-10-08T14:09:50.666Z",
     "label": "before",
     "total": 32597,
@@ -28997,5 +28835,113 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-27T13:13:46.962Z",
+    "label": "before",
+    "total": 32288,
+    "needsRetranslation": 2504,
+    "suppressed": 114,
+    "incomplete": 2377,
+    "complete": 29911,
+    "slotsPresent": 29911,
+    "flaggedAmongSlotsPresent": 585,
+    "verifiedTranslated": 29326,
+    "sourceCopyExcused": 273,
+    "slotsPresentByLength": 32210,
+    "languageVerified": 31219,
+    "missingByLocale": {
+      "it": 451,
+      "en": 436,
+      "de": 57,
+      "fr": 419
+    },
+    "queueAge": {
+      "count": 2504,
+      "withTimestamp": 2504,
+      "oldestAgeDays": 197.1,
+      "p50AgeDays": 28.6,
+      "p90AgeDays": 112.6,
+      "buckets": {
+        "0-1d": 344,
+        "1-2d": 36,
+        "2-7d": 131,
+        "0-7d": 511,
+        "7-30d": 842,
+        "30-90d": 808,
+        "90-180d": 332,
+        "180d+": 11
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 823,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 122,
+      "byCrawler": {
+        "sta": 26,
+        "stellenpartner": 94,
+        "stellentreff": 2
+      }
+    },
+    "predicateVersion": "efa06838687894cc",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 626,
+      "complete": 607
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 362
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 142
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 124
+      },
+      {
+        "company": "LANDI Oberwallis AG",
+        "pending": 110
+      },
+      {
+        "company": "Medbase",
+        "pending": 103
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 79
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 60
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 58
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 46
+      },
+      {
+        "company": "Société coopérative Migros Vaud",
+        "pending": 41
+      }
+    ]
   }
 ]
