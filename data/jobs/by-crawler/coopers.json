@@ -1,7 +1,7 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-26T21:32:26.881Z",
-  "runId": "40402448058",
+  "assembledAt": "2026-10-27T09:24:58.806Z",
+  "runId": "40479074584",
   "jobs": [
     {
       "id": "coopers-52cb4b048a24",
@@ -34,7 +34,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:20.239Z",
+      "crawledAt": "2026-10-27T09:24:51.741Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:19.361Z",
+      "crawledAt": "2026-10-27T09:24:50.902Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -158,6 +158,17 @@
           "Fullstack, Software engineering, DevOps, Java, Angular, Kubernetes, SAFe"
         ]
       },
+      "previousSlugs": [
+        "senior-fullstack-software-engineer-java-angular-m-w-d-coopers-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-fullstack-software-engineer-java-angular-m-w-d-coopers-luzern"
+        ],
+        "fr": [
+          "senior-fullstack-software-engineer-java-angular-m-w-d-coopers-luzern"
+        ]
+      },
       "firstSeenAt": "2026-06-02T23:13:05.931Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -172,18 +183,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-fullstack-software-engineer-java-angular-m-w-d-coopers-luzern"
-        ],
-        "fr": [
-          "senior-fullstack-software-engineer-java-angular-m-w-d-coopers-luzern"
-        ]
-      },
-      "previousSlugs": [
-        "senior-fullstack-software-engineer-java-angular-m-w-d-coopers-luzern"
-      ]
+      "postalCode": "6003"
     },
     {
       "id": "coopers-e2bf5b2d46bc",
@@ -216,7 +216,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:18.482Z",
+      "crawledAt": "2026-10-27T09:24:50.038Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -307,7 +307,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:17.580Z",
+      "crawledAt": "2026-10-27T09:24:49.210Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -393,7 +393,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:16.708Z",
+      "crawledAt": "2026-10-27T09:24:48.353Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -429,6 +429,18 @@
           "Refer a Friend"
         ]
       },
+      "previousSlugs": [
+        "solution-architect-d365-power-platform-80-100-m-w-d-coopers-thurgau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-d365-power-platform-80-100-m-w-d-coopers-thurgau"
+        ],
+        "fr": [
+          "solution-architect-d365-power-platform-80-100-m-w-d-coopers-thurgau"
+        ]
+      },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T22:14:41.048Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -443,19 +455,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8500",
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-d365-power-platform-80-100-m-w-d-coopers-thurgau"
-        ],
-        "fr": [
-          "solution-architect-d365-power-platform-80-100-m-w-d-coopers-thurgau"
-        ]
-      },
-      "previousSlugs": [
-        "solution-architect-d365-power-platform-80-100-m-w-d-coopers-thurgau"
-      ],
-      "needsRetranslation": true
+      "postalCode": "8500"
     },
     {
       "id": "coopers-963709e57e85",
@@ -488,7 +488,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:15.832Z",
+      "crawledAt": "2026-10-27T09:24:47.527Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -593,7 +593,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:14.956Z",
+      "crawledAt": "2026-10-27T09:24:46.702Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -680,7 +680,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:14.079Z",
+      "crawledAt": "2026-10-27T09:24:45.872Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -767,7 +767,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:13.184Z",
+      "crawledAt": "2026-10-27T09:24:45.032Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -855,7 +855,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:12.313Z",
+      "crawledAt": "2026-10-27T09:24:44.204Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -941,7 +941,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:11.431Z",
+      "crawledAt": "2026-10-27T09:24:43.369Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1042,7 +1042,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:10.540Z",
+      "crawledAt": "2026-10-27T09:24:42.541Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1130,7 +1130,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:09.666Z",
+      "crawledAt": "2026-10-27T09:24:41.679Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1216,7 +1216,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:32:08.792Z",
+      "crawledAt": "2026-10-27T09:24:40.833Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1304,7 +1304,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:07.887Z",
+      "crawledAt": "2026-10-27T09:24:39.999Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1393,7 +1393,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:07.004Z",
+      "crawledAt": "2026-10-27T09:24:39.172Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1484,7 +1484,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:06.132Z",
+      "crawledAt": "2026-10-27T09:24:38.342Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1571,7 +1571,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SC117T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:05.211Z",
+      "crawledAt": "2026-10-27T09:24:37.469Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1664,7 +1664,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B3LB50",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:04.319Z",
+      "crawledAt": "2026-10-27T09:24:36.624Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1814,7 +1814,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "crawlerMissStreak": 1
     },
     {
       "id": "coopers-7cba30c89f47",
@@ -1847,7 +1848,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5LY2U0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:02.542Z",
+      "crawledAt": "2026-10-27T09:24:35.766Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1942,7 +1943,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T5ME25",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:32:01.665Z",
+      "crawledAt": "2026-10-27T09:24:34.936Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2032,7 +2033,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OIT77",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:32:00.765Z",
+      "crawledAt": "2026-10-27T09:24:34.095Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2127,7 +2128,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:31:59.882Z",
+      "crawledAt": "2026-10-27T09:24:33.262Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2219,7 +2220,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8ADY23",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:31:59.003Z",
+      "crawledAt": "2026-10-27T09:24:32.435Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2312,7 +2313,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0VTZ20",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:58.118Z",
+      "crawledAt": "2026-10-27T09:24:31.608Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2406,7 +2407,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:57.237Z",
+      "crawledAt": "2026-10-27T09:24:30.779Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2497,7 +2498,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=60UUR1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:56.353Z",
+      "crawledAt": "2026-10-27T09:24:29.926Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2577,7 +2578,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OH3F98",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:55.473Z",
+      "crawledAt": "2026-10-27T09:24:29.095Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2673,7 +2674,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=D6GR56",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:54.344Z",
+      "crawledAt": "2026-10-27T09:24:28.255Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2761,7 +2762,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2JN4D0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:53.381Z",
+      "crawledAt": "2026-10-27T09:24:27.344Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2855,7 +2856,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6HR98P",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:52.502Z",
+      "crawledAt": "2026-10-27T09:24:26.519Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2952,7 +2953,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8WU85W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:51.607Z",
+      "crawledAt": "2026-10-27T09:24:25.676Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3041,7 +3042,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H3E57F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:50.721Z",
+      "crawledAt": "2026-10-27T09:24:24.814Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3121,7 +3122,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V90UI0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:49.835Z",
+      "crawledAt": "2026-10-27T09:24:23.985Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -3201,7 +3202,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M4R79H",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:31:48.958Z",
+      "crawledAt": "2026-10-27T09:24:23.139Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3281,7 +3282,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=219YWB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:31:48.048Z",
+      "crawledAt": "2026-10-27T09:24:22.290Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3374,7 +3375,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=980SOQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:31:47.178Z",
+      "crawledAt": "2026-10-27T09:24:21.382Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3444,9 +3445,9 @@
       "id": "coopers-9c6230b096fd",
       "slug": "addetto-a-amministrativo-a-ricevimento-merci-e-controllo-delle-fatture-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug",
         "it": "addetto-a-amministrativo-a-ricevimento-merci-e-controllo-delle-fatture-m-f-d-coopers-group-ag-zug",
         "en": "clerk-goods-receipt-invoice-control-m-f-d-coopers-group-ag-zug",
+        "de": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug",
         "fr": "collaborateur-trice-administratif-ve-reception-des-marchandises-controle-des-factures-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
@@ -3471,7 +3472,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=EHF530",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:31:46.301Z",
+      "crawledAt": "2026-10-27T09:24:20.531Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3537,8 +3538,8 @@
       "id": "coopers-2e3757c8f99c",
       "slug": "supporto-it-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
-        "en": "it-supporter-m-f-d-coopers-basel-stadt",
         "it": "supporto-it-m-f-d-coopers-group-ag-basel-stadt",
+        "en": "it-supporter-m-f-d-coopers-basel-stadt",
         "de": "it-supporter-m-f-d-coopers-basel-stadt",
         "fr": "support-informatique-h-f-d-coopers-group-ag-basel-stadt"
       },
@@ -3547,9 +3548,9 @@
       "companyDomain": "coopers.ch",
       "title": "IT Supporter (m/f/d)",
       "titleByLocale": {
+        "it": "Supporto IT (m/f/d)",
         "en": "IT Supporter (m/f/d)",
         "de": "IT Supporter (m/w/d)",
-        "it": "Supporto IT (m/f/d)",
         "fr": "Support informatique (h/f/d)"
       },
       "description": "For our client in Basel, we are looking for an IT Support Engineer (m/f/d) to support daily IT operations and ensure reliable end-user services.\n\nIn this role, you will provide Level 2 support for hardware and software issues, manage user accounts in Active Directory and Azure AD (Entra ID), and assist users with Windows and Microsoft 365 environments. You will also troubleshoot network connectivity issues, handle incidents through an ITSM tool such as ServiceNow, and contribute to maintaining secure and efficient IT systems.\n\nStart date: asap\nEnd date: 6-months contract (with the chance for extension)\nWorkload: 60%\nContract Type: Contracting\nLocation: Basel\n\nYour tasks:\n• Provide Level 2 technical support for desktops, laptops, mobile devices, meeting rooms, printers, and peripherals\n• Troubleshoot and resolve issues related to Windows OS, Microsoft 365, including email, VPN, and collaboration tools (Teams, SharePoint, OneDrive)\n• Manage user accounts and access in Active Directory (on-prem) and Azure AD (Entra ID), including onboarding and offboarding\n• Install, configure, and maintain hardware and software according to company standards\n• Monitor and respond to incidents and service requests using an ITSM tool (ServiceNow)\n• Perform root cause analysis and escalate complex issues to Level 3 teams when required\n• Support network connectivity issues (LAN/WAN/Wi-Fi, VPN, firewall troubleshooting)\n• Ensure compliance with IT security policies, data protection, and audit requirements\n• Maintain documentation for procedures, configurations, and troubleshooting guides\n• Assist in IT projects such as system upgrades, migrations, and rollout of new tools\n• Provide user training and guidance on best practices and security awareness\n\nYour Profile:\n• 5–6 years of experience in IT Support / Desktop Support / End User Computing role\n• Windows 10/11, basic Linux/macOS (optional)\n• Microsoft 365 (Outlook, Teams, SharePoint, OneDrive)\n• Microsoft Active Directory and Azure AD (Entra ID)\n• Basic networking concepts (DNS, DHCP, TCP/IP, VPN)\n• Experience with endpoint management tools (Intune or similar)\n• Familiarity with ITSM tools and ticketing processes (ITIL framework or similar )\n• Strong troubleshooting skills\n• Ability to work independently and handle multiple priorities\n\nJob profile\n• Life Sciences - IT + Digital\n• Basel-Stadt\n• Contracting\n• Part Time, 60%\n• asap / by arrangement - 6 MM contract\n• 2nd Level Support, Active Directory, Microsoft Azure\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Strong team spirit",
@@ -3564,7 +3565,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9IT6S4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:31:45.433Z",
+      "crawledAt": "2026-10-27T09:24:19.681Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3712,7 +3713,7 @@
         }
       },
       "postalCode": "6003",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-57b62274cdfc",
@@ -3794,7 +3795,7 @@
         }
       },
       "postalCode": "4500",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-4fa265cf366d",
@@ -3885,195 +3886,178 @@
         }
       },
       "postalCode": "3004",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
-      "id": "coopers-d51a303504fa",
-      "slug": "responsabile-di-progetto-protezione-antincendio-m-f-d-coopers-group-ag-wallis",
+      "id": "coopers-8607ee46c11d",
+      "slug": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-protezione-antincendio-m-f-d-coopers-group-ag-wallis",
-        "en": "project-manager-fire-protection-m-w-d-coopers-wallis",
-        "de": "projektleiter-feuerschutz-m-w-d-coopers-group-ag-wallis",
-        "fr": "gestionnaire-de-projet-protection-des-feux-h-f-d-coopers-group-ag-wallis"
+        "de": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel",
+        "it": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-group-ag-basel-landschaft",
+        "en": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel",
+        "fr": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "Project Manager (Fire Protection) (m/w/d)",
+      "title": "Projektleiter / Automationsingenieur Pharma Engineering & Drug Products (m/w/d)",
       "titleByLocale": {
-        "it": "Responsabile di progetto (Protezione antincendio) (m/f/d)",
-        "en": "Project Manager (Fire Protection) (m/w/d)",
-        "de": "Projektleiter (Feuerschutz) (m/w/d)",
-        "fr": "Gestionnaire de projet (Protection des feux) (h/f/d)"
+        "de": "Projektleiter / Automationsingenieur Pharma Engineering & Drug Products (m/w/d)",
+        "en": "Projektleiter / Automationsingenieur Pharma Engineering & Drug Products (m/w/d)",
+        "it": "Projektleiter / Automationsingenieur Pharma Engineering & Drug Products (m/w/d)",
+        "fr": "Projektleiter / Automationsingenieur Pharma Engineering & Drug Products (m/w/d)"
       },
-      "description": "For our client in Visp we are looking for a Project Manager who will support the definition and implementation of fire protection concepts and requirements for capital projects.\n\nLocation: Visp\n\nContract start date: ASAP\n\nContract end date: 1 October 2027\n\nKey Responsibilities\n• Coordinate with architects, engineering partners, fire protection specialists, project teams, and the site fire brigade.\n• Lead the technical oversight of fire protection systems, including sprinkler systems, deluge systems, dry extinguishing systems, firewater networks, and firewater retention solutions.\n• Manage contractors and vendors responsible for technical fire protection installations.\n• Ensure project delivery with respect to cost, schedule, quality, and compliance requirements.\n• Participate in 3D design reviews and multidisciplinary coordination to resolve clashes and technical issues.\n• Oversee commissioning, functional testing, and acceptance activities for fire protection systems.\n• Participate in integrated system tests together with engineering teams, contractors, and stakeholders.\n• Review, collect, and hand over as-built documentation and ensure smooth transfer of systems to operations and end users.\n• Support additional engineering activities within the CAPEX team as required.\n\nRequired Qualifications\n• Bachelor's or Master's degree in Mechanical Engineering, Process Engineering, Chemical Engineering, or a related engineering discipline.\n• Fluent German and English\n• Extensive experience working with fire protection systems and related regulations, standards, and guidelines (e.g., VKF, SES).\n• Experience within pharmaceutical, biotechnology, chemical, or industrial manufacturing environments.\n• Strong understanding of GMP and cleanroom environments is advantageous.\n• Approximately 5-10 years of engineering, project execution, or operational experience within the pharmaceutical, biotech, chemical, or related industries\n• VKF certification such as \"Fachperson für Wasserlöschanlagen VKF\" is considered a strong advantage.\n• Technical expertise in fire protection systems and infrastructure\n• Knowledge of fire safety codes, regulations, and industry standards.\n• Strong contractor and stakeholder management capabilities.\n• Experience with commissioning and integrated testing activities.\n• Structured and detail-oriented working style.\n• Ability to work independently in complex, multidisciplinary project environments.\n• Strong communication and collaboration skills, primarily in German and also in English.\n• Strong understanding of fire risk assessments and selection criteria for wet versus dry suppression technologies in industrial, pharmaceutical, laboratory, and utility facilities\n\nJob profile\n• Life Sciences - Project / Program Management\n• Wallis\n• Contracting\n• Part Time, 100%\n• Immediately - 12 October 2027\n• Project Management, GMP, cleanroom",
+      "description": "Du verfügst über fundierte Erfahrung in der Produktionsautomation und möchtest anspruchsvolle Automationsprojekte in einem regulierten Pharmaumfeld eigenverantwortlich umsetzen?\n\nIn dieser Position übernimmst du die ganzheitliche Leitung von Automationsprojekten für hochautomatisierte Produktionsanlagen im Bereich fester Arzneiformen. Dabei verantwortest du technische Lösungen, Qualität, Termine und Budgets und koordinierst interdisziplinäre Teams, Lieferanten sowie interne und externe Stakeholder.\n\nHard Facts\n• Startdatum: Per sofort, spätestens am 1. März 2027\n• Dauer: 12 Monate\n• Verlängerung: Wahrscheinlich\n• Pensum: 100 %\n• Standort: Kaiseraugst\n• Homeoffice: 1 Tag pro Woche\n• Arbeitsmodell: Contracting\n• Reisetätigkeit: Gelegentliche Reisen im Rahmen von FAT-Aktivitäten möglich\n• Arbeitszeiten: Standardarbeitszeiten\n\nDeine Aufgaben\n• Betreuung hochautomatisierter Produktionsanlagen, die untereinander sowie mit übergeordneten IT-/OT-Systemen vernetzt sind\n• Eigenverantwortliche Planung, Steuerung und Umsetzung von Automationsprojekten über sämtliche Projektphasen hinweg\n• Verantwortung für technische Lösungen, Qualität, Meilensteine, Termine und die zeitnahe Behebung möglicher Showstopper\n• Erstellung von Business Cases sowie Begleitung von CAPEX- und Projektbudgetanfragen\n• Laufende Überwachung der Projektbudgets gemäss den geltenden Forecast- und Reporting-Prozessen\n• Bedarfsgerechte Planung und Koordination der erforderlichen Ressourcen\n• Koordination und Führung interdisziplinärer Projektteams aus internen und externen Fachpersonen, Partnern und Lieferanten\n• Beratung der Produktionsbereiche bei der Definition und Initiierung von Investitionsvorhaben\n• Erstellung von Kostenschätzungen und Terminplänen sowie Bewertung neuer Technologien\n• Frühzeitige Identifikation von Projektrisiken und Entwicklung geeigneter Massnahmen zur Risikominimierung\n• Sicherstellung der konsequenten Anwendung relevanter Projektmanagementmethoden und -standards\n• Regelmässige Berichterstattung und Fortschrittskontrolle anhand klarer Kennzahlen gegenüber Stakeholdern und Steering Committees\n• Technische Unterstützung des laufenden Produktionsbetriebs\n• Kontinuierliche Analyse und Optimierung bestehender Prozesse zur Steigerung von Effizienz und Anlagenleistung\n• Aktive Unterstützung bei internen Audits und behördlichen Inspektionen im GMP- und SGU-Umfeld\n\nDein Profil\n• Abgeschlossene Berufsausbildung, Weiterbildung oder Studium im Bereich Automation, Elektrotechnik, technische Informatik oder einer vergleichbaren Fachrichtung\n• Mindestens fünf Jahre Berufserfahrung in der Produktionsautomation, vorzugsweise im pharmazeutischen Umfeld\n• Sehr gute praktische Anwenderkenntnisse in Siemens S7, TIA Portal und WinCC\n• Fundierte Erfahrung im GMP- und GAMP-regulierten Umfeld\n• Erfahrung mit Schnittstellen zwischen Automationssystemen und übergeordneten IT-/OT-Systemen\n• Erfahrung in der selbstständigen Leitung und Umsetzung von Automationsprojekten über mehrere Projektphasen hinweg\n• Ausgeprägte Kommunikations-, Koordinations- und Stakeholder-Management-Fähigkeiten\n• Hohe Sozialkompetenz und Freude an der Zusammenarbeit in interdisziplinären Teams\n• Bereitschaft, in einem agilen, selbstorganisierten und rollenbasierten Arbeitsumfeld tätig zu sein\n• Sehr gute Deutschkenntnisse\n• Englisch- und Französischkenntnisse sind von Vorteil\n\nVon Vorteil\n• Begeisterungsfähigkeit sowie eine eigenverantwortliche und kundenorientierte Arbeitsweise\n• Hohes Mass an Selbstständigkeit, Initiative, Integrität und Zuverlässigkeit\n• Ausgeprägte Dienstleistungsorientierung und hohes Pflichtbewusstsein\n• Bereitschaft, konventionelle Vorgehensweisen zu hinterfragen und kreative Lösungen zu entwickeln\n• Fähigkeit, komplexe technische Sachverhalte verständlich und zielgruppengerecht zu vermitteln\n• Erfahrung in der Koordination externer Engineering-Partner, Anlagenlieferanten oder Systemintegratoren\n• Erfahrung in der Unterstützung von Audits oder Inspektionen innerhalb eines regulierten Produktionsumfelds\n\nJob profile\n• Life Sciences - Engineering\n• Basel-Landschaft\n• Contracting\n• Full Time\n• ASAP - 01.03.2027\n• Siemens PCS7, TIA, WinCC, GMP, GAMP\n\nJob benefits\n• Coopers Care\n• Further education\n• Home Office\n• Modern workspace",
       "descriptionByLocale": {
-        "it": "Per il nostro cliente a Visp stiamo cercando un Project Manager che supporterà la definizione e l'implementazione di concetti e requisiti di protezione antincendio per i progetti di capitale.\n\nPosizione: Visp\n\nData di inizio del contratto: ASAP\n\nData di scadenza del contratto: 1 ottobre 2027\n\nPrincipali responsabilità\n• Coordinate con architetti, partner ingegneristici, specialisti della protezione antincendio, team di progetto e la brigata antincendio del sito.\n• Guidare la supervisione tecnica dei sistemi di protezione antincendio, compresi i sistemi di sprinkler, i sistemi di disgelo, i sistemi di estinzione a secco, le reti antincendio e le soluzioni di ritenzione idrica.\n• Gestire gli appaltatori e i fornitori responsabili delle installazioni tecniche di protezione antincendio.\n• Assicurare la consegna del progetto rispetto ai requisiti di costo, pianificazione, qualità e conformità.\n• Partecipa a recensioni di progettazione 3D e coordinamento multidisciplinare per risolvere scontri e problemi tecnici.\n• Superare le attività di messa in servizio, test funzionali e accettazione dei sistemi di protezione antincendio.\n• Partecipa a test di sistema integrati insieme a team di ingegneria, appaltatori e stakeholder.\n• Rivedere, raccogliere e consegnare la documentazione integrata e garantire un trasferimento regolare di sistemi a operazioni e utenti finali.\n• Supporta ulteriori attività di ingegneria all'interno del team CAPEX come richiesto.\n\nQualificazioni richieste\n• Laurea o master in ingegneria meccanica, ingegneria dei processi, ingegneria chimica, o una disciplina di ingegneria relativa.\n• Tedesco fluente e inglese\n• Ampia esperienza di lavoro con sistemi di protezione antincendio e relativi regolamenti, standard e linee guida (ad esempio, VKF, SES).\n• Esperienza all'interno di ambienti farmaceutici, biotecnologie, chimici o industriali.\n• La forte comprensione degli ambienti GMP e cleanroom è vantaggiosa.\n• Circa 5-10 anni di ingegneria, esecuzione del progetto o esperienza operativa all'interno delle industrie farmaceutiche, biotecnologiche, chimiche o connesse\n• La certificazione VKF come \"Fachperson für Wasserlöschanlagen VKF\" è considerata un forte vantaggio.\n• Competenza tecnica nei sistemi antincendio e nelle infrastrutture\n• Conoscenza dei codici di sicurezza antincendio, regolamenti e standard industriali.\n• Forte appaltatore e capacità di gestione degli stakeholder.\n• Esperienza con attività di messa in servizio e test integrati.\n• Stile di lavoro strutturato e orientato al dettaglio.\n• Capacità di lavorare in modo indipendente in ambienti di progetto complessi e multidisciplinari.\n• Forte capacità di comunicazione e collaborazione, soprattutto in tedesco e anche in inglese.\n• Forte comprensione delle valutazioni dei rischi antincendio e dei criteri di selezione per le tecnologie di soppressione a secco e a umido negli impianti industriali, farmaceutici, di laboratorio e di utilità\n\nProfilo del lavoro\n• Scienze della vita - Project / Gestione del programma\n• Wallis\n• Contratti\n• Tempo parziale, 100%\n• Immediatamente - 12 ottobre 2027\n• Gestione del progetto, GMP, cleanroom",
-        "en": "For our client in Visp we are looking for a Project Manager who will support the definition and implementation of fire protection concepts and requirements for capital projects.\n\nLocation: Visp\n\nContract start date: ASAP\n\nContract end date: 1 October 2027\n\nKey Responsibilities\n• Coordinate with architects, engineering partners, fire protection specialists, project teams, and the site fire brigade.\n• Lead the technical oversight of fire protection systems, including sprinkler systems, deluge systems, dry extinguishing systems, firewater networks, and firewater retention solutions.\n• Manage contractors and vendors responsible for technical fire protection installations.\n• Ensure project delivery with respect to cost, schedule, quality, and compliance requirements.\n• Participate in 3D design reviews and multidisciplinary coordination to resolve clashes and technical issues.\n• Oversee commissioning, functional testing, and acceptance activities for fire protection systems.\n• Participate in integrated system tests together with engineering teams, contractors, and stakeholders.\n• Review, collect, and hand over as-built documentation and ensure smooth transfer of systems to operations and end users.\n• Support additional engineering activities within the CAPEX team as required.\n\nRequired Qualifications\n• Bachelor's or Master's degree in Mechanical Engineering, Process Engineering, Chemical Engineering, or a related engineering discipline.\n• Fluent German and English\n• Extensive experience working with fire protection systems and related regulations, standards, and guidelines (e.g., VKF, SES).\n• Experience within pharmaceutical, biotechnology, chemical, or industrial manufacturing environments.\n• Strong understanding of GMP and cleanroom environments is advantageous.\n• Approximately 5-10 years of engineering, project execution, or operational experience within the pharmaceutical, biotech, chemical, or related industries\n• VKF certification such as \"Fachperson für Wasserlöschanlagen VKF\" is considered a strong advantage.\n• Technical expertise in fire protection systems and infrastructure\n• Knowledge of fire safety codes, regulations, and industry standards.\n• Strong contractor and stakeholder management capabilities.\n• Experience with commissioning and integrated testing activities.\n• Structured and detail-oriented working style.\n• Ability to work independently in complex, multidisciplinary project environments.\n• Strong communication and collaboration skills, primarily in German and also in English.\n• Strong understanding of fire risk assessments and selection criteria for wet versus dry suppression technologies in industrial, pharmaceutical, laboratory, and utility facilities\n\nJob profile\n• Life Sciences - Project / Program Management\n• Wallis\n• Contracting\n• Part Time, 100%\n• Immediately - 12 October 2027\n• Project Management, GMP, cleanroom",
-        "de": "Für unseren Kunden in Visp suchen wir einen Projektmanager, der die Definition und Umsetzung von Brandschutzkonzepten und -anforderungen für Investitionsprojekte unterstützt.\n\nStandort: Visp\n\nVertragsbeginn: ASAP\n\nVertragsende: 1. Oktober 2027\n\nHauptzuständigkeiten\n• Koordinieren Sie sich mit Architekten, Ingenieurspartnern, Brandschutzspezialisten, Projektteams und der Feuerwehr.\n• Führen Sie die technische Aufsicht über Brandschutzsysteme, einschließlich Sprinklersysteme, Sintflutsysteme, Trockenlöschsysteme, Brandwassernetze und Brandwasserrückhaltelösungen.\n• Verwalten Sie Auftragnehmer und Lieferanten, die für technische Brandschutzinstallationen verantwortlich sind.\n• Sicherstellen der Projektlieferung in Bezug auf Kosten, Zeitplan, Qualität und Compliance-Anforderungen.\n• Beteiligen Sie sich an 3D-Design-Reviews und multidisziplinärer Koordination, um Konflikte und technische Probleme zu lösen.\n• Beaufsichtigen Sie die Inbetriebnahme, Funktionsprüfung und Abnahme von Brandschutzsystemen.\n• Beteiligen Sie sich an integrierten Systemtests zusammen mit Ingenieurteams, Auftragnehmern und Stakeholdern.\n• Überprüfen, sammeln und übergeben Sie die eingebaute Dokumentation und gewährleisten Sie eine reibungslose Übertragung der Systeme an den Betrieb und die Endbenutzer.\n• Unterstützen Sie bei Bedarf zusätzliche Engineering-Aktivitäten innerhalb des CAPEX-Teams.\n\nBenötigte Qualifikationen\n• Bachelor- oder Master-Abschluss in Maschinenbau, Verfahrenstechnik, Chemietechnik oder einer verwandten Ingenieurdisziplin.\n• fließend Deutsch und Englisch\n• Umfangreiche Erfahrung in der Arbeit mit Brandschutzsystemen und zugehörigen Vorschriften, Normen und Richtlinien (z.B. VKF, SES).\n• Erfahrung in pharmazeutischen, biotechnologischen, chemischen oder industriellen Fertigungsumgebungen.\n• Ein gutes Verständnis von GMP und Reinraumumgebungen ist von Vorteil.\n• Etwa 5-10 Jahre Engineering, Projektdurchführung oder operative Erfahrung in der Pharma-, Biotech-, Chemie- oder verwandten Industrie\n• VKF-Zertifizierungen wie „Fachperson für Wasserlöschanlagen VKF gelten als großer Vorteil.\n• Technische Expertise in Brandschutzsystemen und Infrastruktur\n• Wissen über Brandschutzcodes, Vorschriften und Industriestandards.\n• Starke Fähigkeiten für Auftragnehmer und Stakeholder-Management.\n• Erfahrung mit der Inbetriebnahme und integrierten Testaktivitäten.\n• Strukturierter und detailorientierter Arbeitsstil.\n• Fähigkeit, unabhängig in komplexen, multidisziplinären Projektumgebungen zu arbeiten.\n• Starke Kommunikations- und Kollaborationsfähigkeiten, vor allem in Deutsch und auch in Englisch.\n• Ein fundiertes Verständnis der Brandrisikobewertungen und Auswahlkriterien für Nass- und Trockenunterdrückungstechnologien in Industrie-, Pharma-, Labor- und Versorgungseinrichtungen\n\nStellenprofil\n• Life Sciences - Projekt- / Programmmanagement\n• Wallis\n• Vertrag\n• Teilzeit, 100%\n• Sofort - 12. Oktober 2027\n• Projektmanagement, GMP, Reinraum",
-        "fr": "Pour notre client à Viège, nous sommes à la recherche d'un gestionnaire de projet qui soutiendra la définition et la mise en œuvre des concepts et exigences de protection contre les incendies pour les projets d'immobilisations.\n\nLieu: Visp\n\nDate de début du contrat: ASP\n\nDate de fin du contrat : 1 octobre 2027\n\nPrincipales responsabilités\n• Coordonner avec les architectes, les partenaires d'ingénierie, les spécialistes de la protection contre les incendies, les équipes de projet et la brigade des pompiers.\n• Diriger la surveillance technique des systèmes de protection contre l'incendie, y compris les systèmes d'arrosage, les systèmes de déluge, les systèmes d'extinction à sec, les réseaux d'eau de feu et les solutions de rétention d'eau de feu.\n• Gérer les entrepreneurs et les fournisseurs responsables des installations techniques de protection contre les incendies.\n• Assurer l'exécution du projet en ce qui a trait aux coûts, au calendrier, à la qualité et aux exigences de conformité.\n• Participer aux examens de conception 3D et à la coordination multidisciplinaire pour résoudre les affrontements et les problèmes techniques.\n• Superviser la mise en service, les essais fonctionnels et les activités d'acceptation des systèmes de protection contre l'incendie.\n• Participer à des essais intégrés de systèmes avec des équipes d'ingénieurs, des entrepreneurs et des intervenants.\n• Examiner, recueillir et remettre la documentation telle qu'elle a été construite et assurer le transfert sans heurt des systèmes aux opérations et aux utilisateurs finaux.\n• Appuyer les activités d'ingénierie supplémentaires au sein de l'équipe CAPEX au besoin.\n\nQualifications requises\n• Baccalauréat ou maîtrise en génie mécanique, génie des procédés, génie chimique ou une discipline connexe en génie.\n• Anglais et allemand\n• Une vaste expérience de travail avec les systèmes de protection contre l'incendie et les règlements, normes et lignes directrices connexes (p. ex. VKF, SES).\n• Expérience dans les milieux pharmaceutiques, biotechnologiques, chimiques ou industriels.\n• Une bonne compréhension des BPF et des environnements propres est avantageuse.\n• Environ 5 à 10 ans d'expérience en génie, en exécution de projets ou en exploitation dans les industries pharmaceutiques, biotechniques, chimiques ou connexes\n• La certification VKF telle que \"Fachperson für Wasserlöschanlagen VKF\" est considérée comme un avantage important.\n• Expertise technique en systèmes et infrastructures de protection contre l'incendie\n• Connaissance des codes de sécurité incendie, des règlements et des normes de l'industrie.\n• Renforcement des capacités de gestion des entrepreneurs et des intervenants.\n• Expérience des activités de mise en service et d'essais intégrés.\n• Style de travail structuré et axé sur les détails.\n• Capacité de travailler de façon indépendante dans des environnements de projets complexes et multidisciplinaires.\n• Fortes compétences en communication et collaboration, principalement en allemand et aussi en anglais.\n• Une bonne compréhension des évaluations des risques d'incendie et des critères de sélection des technologies d'élimination par voie humide et sèche dans les installations industrielles, pharmaceutiques, de laboratoire et de services publics\n\nProfil d'emploi\n• Sciences de la vie - Gestion de projets et de programmes\n• Wallis\n• Contrats\n• Temps partiel, 100%\n• Immédiatement - 12 octobre 2027\n• Gestion de projet, BPF, salle blanche"
+        "de": "Du verfügst über fundierte Erfahrung in der Produktionsautomation und möchtest anspruchsvolle Automationsprojekte in einem regulierten Pharmaumfeld eigenverantwortlich umsetzen?\n\nIn dieser Position übernimmst du die ganzheitliche Leitung von Automationsprojekten für hochautomatisierte Produktionsanlagen im Bereich fester Arzneiformen. Dabei verantwortest du technische Lösungen, Qualität, Termine und Budgets und koordinierst interdisziplinäre Teams, Lieferanten sowie interne und externe Stakeholder.\n\nHard Facts\n• Startdatum: Per sofort, spätestens am 1. März 2027\n• Dauer: 12 Monate\n• Verlängerung: Wahrscheinlich\n• Pensum: 100 %\n• Standort: Kaiseraugst\n• Homeoffice: 1 Tag pro Woche\n• Arbeitsmodell: Contracting\n• Reisetätigkeit: Gelegentliche Reisen im Rahmen von FAT-Aktivitäten möglich\n• Arbeitszeiten: Standardarbeitszeiten\n\nDeine Aufgaben\n• Betreuung hochautomatisierter Produktionsanlagen, die untereinander sowie mit übergeordneten IT-/OT-Systemen vernetzt sind\n• Eigenverantwortliche Planung, Steuerung und Umsetzung von Automationsprojekten über sämtliche Projektphasen hinweg\n• Verantwortung für technische Lösungen, Qualität, Meilensteine, Termine und die zeitnahe Behebung möglicher Showstopper\n• Erstellung von Business Cases sowie Begleitung von CAPEX- und Projektbudgetanfragen\n• Laufende Überwachung der Projektbudgets gemäss den geltenden Forecast- und Reporting-Prozessen\n• Bedarfsgerechte Planung und Koordination der erforderlichen Ressourcen\n• Koordination und Führung interdisziplinärer Projektteams aus internen und externen Fachpersonen, Partnern und Lieferanten\n• Beratung der Produktionsbereiche bei der Definition und Initiierung von Investitionsvorhaben\n• Erstellung von Kostenschätzungen und Terminplänen sowie Bewertung neuer Technologien\n• Frühzeitige Identifikation von Projektrisiken und Entwicklung geeigneter Massnahmen zur Risikominimierung\n• Sicherstellung der konsequenten Anwendung relevanter Projektmanagementmethoden und -standards\n• Regelmässige Berichterstattung und Fortschrittskontrolle anhand klarer Kennzahlen gegenüber Stakeholdern und Steering Committees\n• Technische Unterstützung des laufenden Produktionsbetriebs\n• Kontinuierliche Analyse und Optimierung bestehender Prozesse zur Steigerung von Effizienz und Anlagenleistung\n• Aktive Unterstützung bei internen Audits und behördlichen Inspektionen im GMP- und SGU-Umfeld\n\nDein Profil\n• Abgeschlossene Berufsausbildung, Weiterbildung oder Studium im Bereich Automation, Elektrotechnik, technische Informatik oder einer vergleichbaren Fachrichtung\n• Mindestens fünf Jahre Berufserfahrung in der Produktionsautomation, vorzugsweise im pharmazeutischen Umfeld\n• Sehr gute praktische Anwenderkenntnisse in Siemens S7, TIA Portal und WinCC\n• Fundierte Erfahrung im GMP- und GAMP-regulierten Umfeld\n• Erfahrung mit Schnittstellen zwischen Automationssystemen und übergeordneten IT-/OT-Systemen\n• Erfahrung in der selbstständigen Leitung und Umsetzung von Automationsprojekten über mehrere Projektphasen hinweg\n• Ausgeprägte Kommunikations-, Koordinations- und Stakeholder-Management-Fähigkeiten\n• Hohe Sozialkompetenz und Freude an der Zusammenarbeit in interdisziplinären Teams\n• Bereitschaft, in einem agilen, selbstorganisierten und rollenbasierten Arbeitsumfeld tätig zu sein\n• Sehr gute Deutschkenntnisse\n• Englisch- und Französischkenntnisse sind von Vorteil\n\nVon Vorteil\n• Begeisterungsfähigkeit sowie eine eigenverantwortliche und kundenorientierte Arbeitsweise\n• Hohes Mass an Selbstständigkeit, Initiative, Integrität und Zuverlässigkeit\n• Ausgeprägte Dienstleistungsorientierung und hohes Pflichtbewusstsein\n• Bereitschaft, konventionelle Vorgehensweisen zu hinterfragen und kreative Lösungen zu entwickeln\n• Fähigkeit, komplexe technische Sachverhalte verständlich und zielgruppengerecht zu vermitteln\n• Erfahrung in der Koordination externer Engineering-Partner, Anlagenlieferanten oder Systemintegratoren\n• Erfahrung in der Unterstützung von Audits oder Inspektionen innerhalb eines regulierten Produktionsumfelds\n\nJob profile\n• Life Sciences - Engineering\n• Basel-Landschaft\n• Contracting\n• Full Time\n• ASAP - 01.03.2027\n• Siemens PCS7, TIA, WinCC, GMP, GAMP\n\nJob benefits\n• Coopers Care\n• Further education\n• Home Office\n• Modern workspace",
+        "it": "Du verfügst über fundierte Erfahrung in der Produktionsautomation und möchtest anspruchsvolle Automationsprojekte in einem regulierten Pharmaumfeld eigenverantwortlich umsetzen?\n\nIn dieser Position übernimmst du die ganzheitliche Leitung von Automationsprojekten für hochautomatisierte Produktionsanlagen im Bereich fester Arzneiformen. Dabei verantwortest du technische Lösungen, Qualität, Termine und Budgets und koordinierst interdisziplinäre Teams, Lieferanten sowie interne und externe Stakeholder.\n\nHard Facts\n• Startdatum: Per sofort, spätestens am 1. März 2027\n• Dauer: 12 Monate\n• Verlängerung: Wahrscheinlich\n• Pensum: 100 %\n• Standort: Kaiseraugst\n• Homeoffice: 1 Tag pro Woche\n• Arbeitsmodell: Contracting\n• Reisetätigkeit: Gelegentliche Reisen im Rahmen von FAT-Aktivitäten möglich\n• Arbeitszeiten: Standardarbeitszeiten\n\nDeine Aufgaben\n• Betreuung hochautomatisierter Produktionsanlagen, die untereinander sowie mit übergeordneten IT-/OT-Systemen vernetzt sind\n• Eigenverantwortliche Planung, Steuerung und Umsetzung von Automationsprojekten über sämtliche Projektphasen hinweg\n• Verantwortung für technische Lösungen, Qualität, Meilensteine, Termine und die zeitnahe Behebung möglicher Showstopper\n• Erstellung von Business Cases sowie Begleitung von CAPEX- und Projektbudgetanfragen\n• Laufende Überwachung der Projektbudgets gemäss den geltenden Forecast- und Reporting-Prozessen\n• Bedarfsgerechte Planung und Koordination der erforderlichen Ressourcen\n• Koordination und Führung interdisziplinärer Projektteams aus internen und externen Fachpersonen, Partnern und Lieferanten\n• Beratung der Produktionsbereiche bei der Definition und Initiierung von Investitionsvorhaben\n• Erstellung von Kostenschätzungen und Terminplänen sowie Bewertung neuer Technologien\n• Frühzeitige Identifikation von Projektrisiken und Entwicklung geeigneter Massnahmen zur Risikominimierung\n• Sicherstellung der konsequenten Anwendung relevanter Projektmanagementmethoden und -standards\n• Regelmässige Berichterstattung und Fortschrittskontrolle anhand klarer Kennzahlen gegenüber Stakeholdern und Steering Committees\n• Technische Unterstützung des laufenden Produktionsbetriebs\n• Kontinuierliche Analyse und Optimierung bestehender Prozesse zur Steigerung von Effizienz und Anlagenleistung\n• Aktive Unterstützung bei internen Audits und behördlichen Inspektionen im GMP- und SGU-Umfeld\n\nDein Profil\n• Abgeschlossene Berufsausbildung, Weiterbildung oder Studium im Bereich Automation, Elektrotechnik, technische Informatik oder einer vergleichbaren Fachrichtung\n• Mindestens fünf Jahre Berufserfahrung in der Produktionsautomation, vorzugsweise im pharmazeutischen Umfeld\n• Sehr gute praktische Anwenderkenntnisse in Siemens S7, TIA Portal und WinCC\n• Fundierte Erfahrung im GMP- und GAMP-regulierten Umfeld\n• Erfahrung mit Schnittstellen zwischen Automationssystemen und übergeordneten IT-/OT-Systemen\n• Erfahrung in der selbstständigen Leitung und Umsetzung von Automationsprojekten über mehrere Projektphasen hinweg\n• Ausgeprägte Kommunikations-, Koordinations- und Stakeholder-Management-Fähigkeiten\n• Hohe Sozialkompetenz und Freude an der Zusammenarbeit in interdisziplinären Teams\n• Bereitschaft, in einem agilen, selbstorganisierten und rollenbasierten Arbeitsumfeld tätig zu sein\n• Sehr gute Deutschkenntnisse\n• Englisch- und Französischkenntnisse sind von Vorteil\n\nVon Vorteil\n• Begeisterungsfähigkeit sowie eine eigenverantwortliche und kundenorientierte Arbeitsweise\n• Hohes Mass an Selbstständigkeit, Initiative, Integrität und Zuverlässigkeit\n• Ausgeprägte Dienstleistungsorientierung und hohes Pflichtbewusstsein\n• Bereitschaft, konventionelle Vorgehensweisen zu hinterfragen und kreative Lösungen zu entwickeln\n• Fähigkeit, komplexe technische Sachverhalte verständlich und zielgruppengerecht zu vermitteln\n• Erfahrung in der Koordination externer Engineering-Partner, Anlagenlieferanten oder Systemintegratoren\n• Erfahrung in der Unterstützung von Audits oder Inspektionen innerhalb eines regulierten Produktionsumfelds\n\nJob profile\n• Life Sciences - Engineering\n• Basel-Landschaft\n• Contracting\n• Full Time\n• ASAP - 01.03.2027\n• Siemens PCS7, TIA, WinCC, GMP, GAMP\n\nJob benefits\n• Coopers Care\n• Further education\n• Home Office\n• Modern workspace",
+        "en": "Du verfügst über fundierte Erfahrung in der Produktionsautomation und möchtest anspruchsvolle Automationsprojekte in einem regulierten Pharmaumfeld eigenverantwortlich umsetzen?\n\nIn dieser Position übernimmst du die ganzheitliche Leitung von Automationsprojekten für hochautomatisierte Produktionsanlagen im Bereich fester Arzneiformen. Dabei verantwortest du technische Lösungen, Qualität, Termine und Budgets und koordinierst interdisziplinäre Teams, Lieferanten sowie interne und externe Stakeholder.\n\nHard Facts\n• Startdatum: Per sofort, spätestens am 1. März 2027\n• Dauer: 12 Monate\n• Verlängerung: Wahrscheinlich\n• Pensum: 100 %\n• Standort: Kaiseraugst\n• Homeoffice: 1 Tag pro Woche\n• Arbeitsmodell: Contracting\n• Reisetätigkeit: Gelegentliche Reisen im Rahmen von FAT-Aktivitäten möglich\n• Arbeitszeiten: Standardarbeitszeiten\n\nDeine Aufgaben\n• Betreuung hochautomatisierter Produktionsanlagen, die untereinander sowie mit übergeordneten IT-/OT-Systemen vernetzt sind\n• Eigenverantwortliche Planung, Steuerung und Umsetzung von Automationsprojekten über sämtliche Projektphasen hinweg\n• Verantwortung für technische Lösungen, Qualität, Meilensteine, Termine und die zeitnahe Behebung möglicher Showstopper\n• Erstellung von Business Cases sowie Begleitung von CAPEX- und Projektbudgetanfragen\n• Laufende Überwachung der Projektbudgets gemäss den geltenden Forecast- und Reporting-Prozessen\n• Bedarfsgerechte Planung und Koordination der erforderlichen Ressourcen\n• Koordination und Führung interdisziplinärer Projektteams aus internen und externen Fachpersonen, Partnern und Lieferanten\n• Beratung der Produktionsbereiche bei der Definition und Initiierung von Investitionsvorhaben\n• Erstellung von Kostenschätzungen und Terminplänen sowie Bewertung neuer Technologien\n• Frühzeitige Identifikation von Projektrisiken und Entwicklung geeigneter Massnahmen zur Risikominimierung\n• Sicherstellung der konsequenten Anwendung relevanter Projektmanagementmethoden und -standards\n• Regelmässige Berichterstattung und Fortschrittskontrolle anhand klarer Kennzahlen gegenüber Stakeholdern und Steering Committees\n• Technische Unterstützung des laufenden Produktionsbetriebs\n• Kontinuierliche Analyse und Optimierung bestehender Prozesse zur Steigerung von Effizienz und Anlagenleistung\n• Aktive Unterstützung bei internen Audits und behördlichen Inspektionen im GMP- und SGU-Umfeld\n\nDein Profil\n• Abgeschlossene Berufsausbildung, Weiterbildung oder Studium im Bereich Automation, Elektrotechnik, technische Informatik oder einer vergleichbaren Fachrichtung\n• Mindestens fünf Jahre Berufserfahrung in der Produktionsautomation, vorzugsweise im pharmazeutischen Umfeld\n• Sehr gute praktische Anwenderkenntnisse in Siemens S7, TIA Portal und WinCC\n• Fundierte Erfahrung im GMP- und GAMP-regulierten Umfeld\n• Erfahrung mit Schnittstellen zwischen Automationssystemen und übergeordneten IT-/OT-Systemen\n• Erfahrung in der selbstständigen Leitung und Umsetzung von Automationsprojekten über mehrere Projektphasen hinweg\n• Ausgeprägte Kommunikations-, Koordinations- und Stakeholder-Management-Fähigkeiten\n• Hohe Sozialkompetenz und Freude an der Zusammenarbeit in interdisziplinären Teams\n• Bereitschaft, in einem agilen, selbstorganisierten und rollenbasierten Arbeitsumfeld tätig zu sein\n• Sehr gute Deutschkenntnisse\n• Englisch- und Französischkenntnisse sind von Vorteil\n\nVon Vorteil\n• Begeisterungsfähigkeit sowie eine eigenverantwortliche und kundenorientierte Arbeitsweise\n• Hohes Mass an Selbstständigkeit, Initiative, Integrität und Zuverlässigkeit\n• Ausgeprägte Dienstleistungsorientierung und hohes Pflichtbewusstsein\n• Bereitschaft, konventionelle Vorgehensweisen zu hinterfragen und kreative Lösungen zu entwickeln\n• Fähigkeit, komplexe technische Sachverhalte verständlich und zielgruppengerecht zu vermitteln\n• Erfahrung in der Koordination externer Engineering-Partner, Anlagenlieferanten oder Systemintegratoren\n• Erfahrung in der Unterstützung von Audits oder Inspektionen innerhalb eines regulierten Produktionsumfelds\n\nJob profile\n• Life Sciences - Engineering\n• Basel-Landschaft\n• Contracting\n• Full Time\n• ASAP - 01.03.2027\n• Siemens PCS7, TIA, WinCC, GMP, GAMP\n\nJob benefits\n• Coopers Care\n• Further education\n• Home Office\n• Modern workspace",
+        "fr": "Du verfügst über fundierte Erfahrung in der Produktionsautomation und möchtest anspruchsvolle Automationsprojekte in einem regulierten Pharmaumfeld eigenverantwortlich umsetzen?\n\nIn dieser Position übernimmst du die ganzheitliche Leitung von Automationsprojekten für hochautomatisierte Produktionsanlagen im Bereich fester Arzneiformen. Dabei verantwortest du technische Lösungen, Qualität, Termine und Budgets und koordinierst interdisziplinäre Teams, Lieferanten sowie interne und externe Stakeholder.\n\nHard Facts\n• Startdatum: Per sofort, spätestens am 1. März 2027\n• Dauer: 12 Monate\n• Verlängerung: Wahrscheinlich\n• Pensum: 100 %\n• Standort: Kaiseraugst\n• Homeoffice: 1 Tag pro Woche\n• Arbeitsmodell: Contracting\n• Reisetätigkeit: Gelegentliche Reisen im Rahmen von FAT-Aktivitäten möglich\n• Arbeitszeiten: Standardarbeitszeiten\n\nDeine Aufgaben\n• Betreuung hochautomatisierter Produktionsanlagen, die untereinander sowie mit übergeordneten IT-/OT-Systemen vernetzt sind\n• Eigenverantwortliche Planung, Steuerung und Umsetzung von Automationsprojekten über sämtliche Projektphasen hinweg\n• Verantwortung für technische Lösungen, Qualität, Meilensteine, Termine und die zeitnahe Behebung möglicher Showstopper\n• Erstellung von Business Cases sowie Begleitung von CAPEX- und Projektbudgetanfragen\n• Laufende Überwachung der Projektbudgets gemäss den geltenden Forecast- und Reporting-Prozessen\n• Bedarfsgerechte Planung und Koordination der erforderlichen Ressourcen\n• Koordination und Führung interdisziplinärer Projektteams aus internen und externen Fachpersonen, Partnern und Lieferanten\n• Beratung der Produktionsbereiche bei der Definition und Initiierung von Investitionsvorhaben\n• Erstellung von Kostenschätzungen und Terminplänen sowie Bewertung neuer Technologien\n• Frühzeitige Identifikation von Projektrisiken und Entwicklung geeigneter Massnahmen zur Risikominimierung\n• Sicherstellung der konsequenten Anwendung relevanter Projektmanagementmethoden und -standards\n• Regelmässige Berichterstattung und Fortschrittskontrolle anhand klarer Kennzahlen gegenüber Stakeholdern und Steering Committees\n• Technische Unterstützung des laufenden Produktionsbetriebs\n• Kontinuierliche Analyse und Optimierung bestehender Prozesse zur Steigerung von Effizienz und Anlagenleistung\n• Aktive Unterstützung bei internen Audits und behördlichen Inspektionen im GMP- und SGU-Umfeld\n\nDein Profil\n• Abgeschlossene Berufsausbildung, Weiterbildung oder Studium im Bereich Automation, Elektrotechnik, technische Informatik oder einer vergleichbaren Fachrichtung\n• Mindestens fünf Jahre Berufserfahrung in der Produktionsautomation, vorzugsweise im pharmazeutischen Umfeld\n• Sehr gute praktische Anwenderkenntnisse in Siemens S7, TIA Portal und WinCC\n• Fundierte Erfahrung im GMP- und GAMP-regulierten Umfeld\n• Erfahrung mit Schnittstellen zwischen Automationssystemen und übergeordneten IT-/OT-Systemen\n• Erfahrung in der selbstständigen Leitung und Umsetzung von Automationsprojekten über mehrere Projektphasen hinweg\n• Ausgeprägte Kommunikations-, Koordinations- und Stakeholder-Management-Fähigkeiten\n• Hohe Sozialkompetenz und Freude an der Zusammenarbeit in interdisziplinären Teams\n• Bereitschaft, in einem agilen, selbstorganisierten und rollenbasierten Arbeitsumfeld tätig zu sein\n• Sehr gute Deutschkenntnisse\n• Englisch- und Französischkenntnisse sind von Vorteil\n\nVon Vorteil\n• Begeisterungsfähigkeit sowie eine eigenverantwortliche und kundenorientierte Arbeitsweise\n• Hohes Mass an Selbstständigkeit, Initiative, Integrität und Zuverlässigkeit\n• Ausgeprägte Dienstleistungsorientierung und hohes Pflichtbewusstsein\n• Bereitschaft, konventionelle Vorgehensweisen zu hinterfragen und kreative Lösungen zu entwickeln\n• Fähigkeit, komplexe technische Sachverhalte verständlich und zielgruppengerecht zu vermitteln\n• Erfahrung in der Koordination externer Engineering-Partner, Anlagenlieferanten oder Systemintegratoren\n• Erfahrung in der Unterstützung von Audits oder Inspektionen innerhalb eines regulierten Produktionsumfelds\n\nJob profile\n• Life Sciences - Engineering\n• Basel-Landschaft\n• Contracting\n• Full Time\n• ASAP - 01.03.2027\n• Siemens PCS7, TIA, WinCC, GMP, GAMP\n\nJob benefits\n• Coopers Care\n• Further education\n• Home Office\n• Modern workspace"
       },
-      "location": "Wallis",
-      "canton": "VS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9LX1W6",
+      "location": "Basel-Landschaft",
+      "canton": "BL",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=UZ52R4",
       "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:36:35.762Z",
-      "addressLocality": "Wallis",
-      "addressRegion": "VS",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T09:24:18.818Z",
+      "addressLocality": "Basel-Landschaft",
+      "addressRegion": "BL",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Ingegneria",
       "contract": "contracting",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-09T00:00:00Z",
-      "postedDate": "2026-10-09T00:00:00Z",
+      "datePosted": "2026-10-27T00:00:00Z",
+      "postedDate": "2026-10-27T00:00:00Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=9LX1W6",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=UZ52R4",
       "requirements": [
-        "Candidates \n\t\t\t \n\t\t\t\t\t\t\t \n\t\t\t\t\t\n\n\t\t\t\t\t \n\t\t\t\t \n\t\t\t\t\t\t\t\n• \n\t\t \n\t\t\t \n\t\t\t\t Coopers Portal",
-        "Coopers Care",
-        "Specialization",
-        "Placements",
+        "Life Sciences - Engineering",
+        "Basel-Landschaft",
         "Contracting",
-        "Payrolling",
-        "Refer a Friend"
+        "Full Time",
+        "ASAP - 01.03.2027",
+        "Siemens PCS7, TIA, WinCC, GMP, GAMP"
       ],
       "requirementsByLocale": {
-        "en": [
-          "Candidates • Coopers Portal",
-          "Coopers Care",
-          "Specialization",
-          "Placements",
+        "de": [
+          "Life Sciences - Engineering",
+          "Basel-Landschaft",
           "Contracting",
-          "Payrolling",
-          "Refer a Friend"
+          "Full Time",
+          "ASAP - 01.03.2027",
+          "Siemens PCS7, TIA, WinCC, GMP, GAMP"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel"
         ]
       },
       "previousSlugs": [
-        "project-manager-fire-protection-m-w-d-coopers-wallis"
+        "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-fire-protection-m-w-d-coopers-wallis"
-        ]
-      },
-      "firstSeenAt": "2026-10-09T21:21:05.043Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 72500,
+      "salaryMax": 110500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 72500,
+          "maxValue": 110500,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-10-27T09:24:18.818Z"
     },
     {
-      "id": "coopers-1edd56511d8e",
-      "slug": "esperto-di-dichiarazioni-sui-materiali-migrazione-dei-dati-eh-s-sicurezza-dei-prodotti-m-f-d-coopers-group-ag-basel",
+      "id": "coopers-9477b206fa7e",
+      "slug": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
       "slugByLocale": {
-        "it": "esperto-di-dichiarazioni-sui-materiali-migrazione-dei-dati-eh-s-sicurezza-dei-prodotti-m-f-d-coopers-group-ag-basel",
-        "en": "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt",
-        "de": "materialdeklaration-experte-eh-s-datenmigration-produktsicherheit-m-w-d-coopers-group-ag-basel-stadt",
-        "fr": "declaration-de-materiel-expert-eh-s-migration-de-donnees-securite-des-produits-h-f-d-coopers-group-ag-basel-stadt"
+        "de": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
+        "it": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
+        "en": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
+        "fr": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "Material Declaration Expert EH&S Data Migration (Product Safety) (m/f/d)",
+      "title": "Senior Real Estate Transaction Manager (m/w/d)",
       "titleByLocale": {
-        "it": "Esperto di dichiarazioni sui materiali Migrazione dei dati EH&S (Sicurezza dei prodotti) (m/f/d)",
-        "en": "Material Declaration Expert EH&S Data Migration (Product Safety) (m/f/d)",
-        "de": "Materialdeklaration Experte EH&S Datenmigration (Produktsicherheit) (m/w/d)",
-        "fr": "Déclaration de matériel Expert EH&S Migration de données (Sécurité des produits) (h/f/d)"
+        "de": "Senior Real Estate Transaction Manager (m/w/d)",
+        "en": "Senior Real Estate Transaction Manager (m/w/d)",
+        "it": "Senior Real Estate Transaction Manager (m/w/d)",
+        "fr": "Senior Real Estate Transaction Manager (m/w/d)"
       },
-      "description": "We are looking for a Material Declaration Expert (Product Safety Specialist) to ensure Diagnostics Instruments, Consumables and Packaging deliver life-saving results and meet the highest global environmental compliance and sustainability standards.\n\nThis role is key to supporting global data transformation, focusing on migrating diagnostics instruments, consumables, and packaging data from legacy systems to the new S/4HANA Data Management platform.\n\nStart Date: asap\n\nLatest Possible Start Date: 01.01.2027\n\nPlanned Duration of Employment: 31.05.2027\n\nLocation: Basel or Rotkreuz\n\nHome office: 2 days/week\n\nTravel: 5 %, e.g. for Workshops\n\nResponsibilities:\n• Support a Global Data Migration Project to migrate large sets of Chemical Legislation Data from the current SAP EHSM Solution to the new Solution in EHSM S4 HANA.\n• Drive the modernization of our chemical data model by translating and transforming chemical data structures from legacy systems into S4/HANA-compatible formats to ensure seamless data migration\n• Assure global environmental regulatory compliance and sustainability for our Diagnostic Instruments, Consumables, and Packaging. This encompasses adherence to a broad spectrum of global regulations, including e.g. REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals, and the Packaging Directive.\n• Ensure data accuracy and integrity by preparing load files and performing post-load verification checks applying automation and mass load tools\n• Drive operational efficiency by simplifying processes, emphasizing the automation of manual tasks and promoting automated report generation.\n• Actively contribute to project meetings by offering valuable insights, updates, and subject-matter expertise\n• Utilize project management tools to monitor project health, ensure timely execution, and maintain momentum across key milestones.\n\nRequirements:\n• A degree in Engineering, Natural Sciences, Material Sciences, Data/Information Sciences , or a related field, fundamentally combined with a strong focus on chemistry and data management.\n• Experience managing complex data in the (medical) device, electronics, automotive, aerospace, or precision/high-tech manufacturing industry in the product safety environment (e.g. EH&S data management, material declaration, product stewardship ).\n• Relevant knowledge of environmental regulatory frameworks, including global environmental regulations such as REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals, and the Packaging Directive. A good understanding of the chemical composition of materials used in instruments, electronic devices and packaging.\n• Expertise in migrating chemical compliance, regulatory, or similar sensitive data while upholding strict data integrity and governance standards.\n• In-depth experience with interactive, re al-time Tableau dashboards and data pipelines in Snowflake.\n• Experience utilizing Material Declaration Data Management Systems for the comprehensive evaluation, maintenance, and verification of large-scale material declaration datasets (such as SAP EH&S(M) or equivalents).\n• Experience with solutions leveraging Python, RPA, VBA and SAP GUI Scripting and basic and advanced AI tools (e.g ONA)\n\nJob profile\n• Life Sciences - Engineering\n• Basel-Stadt\n• Contracting\n• Part Time, 100%\n• Immediately - 31.05.2027\n• EHS (Environment, Health & Safety), product safety, material declaration",
+      "description": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Senior Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
       "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un esperto di dichiarazione dei materiali (Product Safety Specialist) per garantire strumenti diagnostici, materiali di consumo e imballaggio fornire risultati salvavita e soddisfare i più elevati standard globali di conformità ambientale e sostenibilità.\n\nQuesto ruolo è fondamentale per supportare la trasformazione globale dei dati, concentrandosi sulla migrazione di strumenti diagnostici, materiali di consumo e dati di imballaggio dai sistemi legacy alla nuova piattaforma S/4HANA Data Management.\n\nData di inizio: asap\n\nData di inizio: 01.01.2027\n\nDurata dell'occupazione: 31.05.2027\n\nPosizione: Basilea o Rotkreuz\n\nSede: 2 giorni/settimana\n\nViaggi: 5 %, ad esempio per i Laboratori\n\nResponsabilità:\n• Sostenere un Global Data Migration Project per migrare grandi serie di dati di legislazione chimica dall'attuale soluzione SAP EHSM alla nuova Soluzione in EHSM S4 HANA.\n• Guidare l'ammodernamento del nostro modello di dati chimici traducendo e trasformando le strutture di dati chimici dai sistemi legacy in formati S4/HANA-compatibili per garantire la migrazione dei dati senza soluzione di continuità\n• Assicurare la conformità normativa ambientale globale e la sostenibilità per i nostri strumenti diagnostici, consumabili e imballaggio. Ciò comprende l'adesione ad un ampio spettro di normative globali, tra cui REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals, e la Direttiva Packaging.\n• Assicurare l'accuratezza e l'integrità dei dati preparando i file di carico e effettuando controlli di verifica post-carico che applicano strumenti di automazione e di carico di massa\n• Guidare l'efficienza operativa semplificando i processi, sottolineando l'automazione delle attività manuali e promuovendo la generazione di report automatizzati.\n• Contribuisci attivamente alle riunioni di progetto offrendo preziose conoscenze, aggiornamenti e competenze su argomenti\n• Utilizzare gli strumenti di gestione del progetto per monitorare la salute del progetto, garantire l'esecuzione tempestiva e mantenere slancio attraverso le pietre miliari chiave.\n\nRequisiti:\n• Una laurea in Ingegneria, Scienze Naturali, Scienze dei Materiali, Scienze dei Dati/Informazione o un campo correlato, fondamentalmente combinato con una forte attenzione alla chimica e alla gestione dei dati.\n• Esperienza di gestione dei dati complessi nel dispositivo (medico), elettronica, automotive, aerospaziale, o settore manifatturiero di precisione/alta tecnologia nell'ambiente di sicurezza del prodotto (ad es. gestione dei dati EH&S, dichiarazione materiale, stewardship del prodotto).\n• Conoscenza rilevante dei quadri normativi ambientali, compresi i regolamenti ambientali globali come REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals, e la Direttiva Packaging. Una buona comprensione della composizione chimica dei materiali utilizzati in strumenti, dispositivi elettronici e imballaggi.\n• Competenza nella migrazione della conformità chimica, della regolamentazione o di dati sensibili simili, mantenendo rigide integrità dei dati e standard di governance.\n• Esperienza approfondita con dashboard e datadotti interattivi e re al-time di Tableau a Snowflake.\n• Esperienza che utilizza i sistemi di gestione dei dati della dichiarazione dei materiali per la valutazione completa, la manutenzione e la verifica dei dataset di dichiarazione dei materiali di grandi dimensioni (come SAP EH&S(M) o equivalenti).\n• Esperienza con soluzioni che sfruttano Python, RPA, VBA e SAP GUI Scripting e strumenti AI di base e avanzati (ad esempio ONA)\n\nProfilo del lavoro\n• Scienze della vita - Ingegneria\n• Basilea-Stato\n• Contratti\n• Tempo parziale, 100%\n• Immediatamente - 31.05.2027\n• EHS (Ambiente, Salute e Sicurezza), sicurezza dei prodotti, dichiarazione materiale",
-        "en": "We are looking for a Material Declaration Expert (Product Safety Specialist) to ensure Diagnostics Instruments, Consumables and Packaging deliver life-saving results and meet the highest global environmental compliance and sustainability standards.\n\nThis role is key to supporting global data transformation, focusing on migrating diagnostics instruments, consumables, and packaging data from legacy systems to the new S/4HANA Data Management platform.\n\nStart Date: asap\n\nLatest Possible Start Date: 01.01.2027\n\nPlanned Duration of Employment: 31.05.2027\n\nLocation: Basel or Rotkreuz\n\nHome office: 2 days/week\n\nTravel: 5 %, e.g. for Workshops\n\nResponsibilities:\n• Support a Global Data Migration Project to migrate large sets of Chemical Legislation Data from the current SAP EHSM Solution to the new Solution in EHSM S4 HANA.\n• Drive the modernization of our chemical data model by translating and transforming chemical data structures from legacy systems into S4/HANA-compatible formats to ensure seamless data migration\n• Assure global environmental regulatory compliance and sustainability for our Diagnostic Instruments, Consumables, and Packaging. This encompasses adherence to a broad spectrum of global regulations, including e.g. REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals, and the Packaging Directive.\n• Ensure data accuracy and integrity by preparing load files and performing post-load verification checks applying automation and mass load tools\n• Drive operational efficiency by simplifying processes, emphasizing the automation of manual tasks and promoting automated report generation.\n• Actively contribute to project meetings by offering valuable insights, updates, and subject-matter expertise\n• Utilize project management tools to monitor project health, ensure timely execution, and maintain momentum across key milestones.\n\nRequirements:\n• A degree in Engineering, Natural Sciences, Material Sciences, Data/Information Sciences , or a related field, fundamentally combined with a strong focus on chemistry and data management.\n• Experience managing complex data in the (medical) device, electronics, automotive, aerospace, or precision/high-tech manufacturing industry in the product safety environment (e.g. EH&S data management, material declaration, product stewardship ).\n• Relevant knowledge of environmental regulatory frameworks, including global environmental regulations such as REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals, and the Packaging Directive. A good understanding of the chemical composition of materials used in instruments, electronic devices and packaging.\n• Expertise in migrating chemical compliance, regulatory, or similar sensitive data while upholding strict data integrity and governance standards.\n• In-depth experience with interactive, re al-time Tableau dashboards and data pipelines in Snowflake.\n• Experience utilizing Material Declaration Data Management Systems for the comprehensive evaluation, maintenance, and verification of large-scale material declaration datasets (such as SAP EH&S(M) or equivalents).\n• Experience with solutions leveraging Python, RPA, VBA and SAP GUI Scripting and basic and advanced AI tools (e.g ONA)\n\nJob profile\n• Life Sciences - Engineering\n• Basel-Stadt\n• Contracting\n• Part Time, 100%\n• Immediately - 31.05.2027\n• EHS (Environment, Health & Safety), product safety, material declaration",
-        "de": "Wir suchen einen Experten für Materialdeklarationen (Product Safety Specialist), um sicherzustellen, dass Diagnosegeräte, Verbrauchsmaterialien und Verpackungen lebensrettende Ergebnisse liefern und die höchsten globalen Umweltstandards erfüllen.\n\nDiese Rolle ist der Schlüssel zur Unterstützung der globalen Datentransformation und konzentriert sich auf die Migration von Diagnoseinstrumenten, Verbrauchsmaterialien und Verpackungsdaten von Altsystemen auf die neue S/4HANA Data Management-Plattform.\n\nStartdatum: asap\n\nLetztes mögliches Startdatum: 01.01.2027\n\nGeplante Beschäftigungsdauer: 31.05.2027\n\nStandort: Basel oder Rotkreuz\n\nHome Office: 2 Tage/Woche\n\nReise: 5 %, z. B. für Workshops\n\nZuständigkeiten:\n• Unterstützung eines globalen Datenmigrationsprojekts zur Migration großer Mengen chemischer Gesetzgebungsdaten von der aktuellen SAP EHSM-Lösung auf die neue Lösung in EHSM S4 HANA.\n• Förderung der Modernisierung unseres chemischen Datenmodells durch die Übersetzung und Transformation chemischer Datenstrukturen von Altsystemen in S4/HANA-kompatible Formate, um eine nahtlose Datenmigration zu gewährleisten\n• Gewährleistung der Einhaltung und Nachhaltigkeit der globalen Umweltvorschriften für unsere Diagnoseinstrumente, Verbrauchsmaterialien und Verpackungen. Dies umfasst die Einhaltung eines breiten Spektrums globaler Vorschriften, darunter z. B. REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals und die Verpackungsrichtlinie.\n• Gewährleistung der Datengenauigkeit und -integrität durch Vorbereitung von Ladedateien und Durchführung von Überprüfungen nach dem Laden mit Automatisierungs- und Massenlastwerkzeugen\n• Steigern Sie die betriebliche Effizienz, indem Sie Prozesse vereinfachen, die Automatisierung manueller Aufgaben betonen und die automatisierte Erstellung von Berichten fördern.\n• Tragen Sie aktiv zu Projektbesprechungen bei, indem Sie wertvolle Einblicke, Updates und Fachkenntnisse anbieten\n• Nutzen Sie Projektmanagement-Tools, um den Projektzustand zu überwachen, die zeitnahe Ausführung sicherzustellen und die Dynamik über wichtige Meilensteine hinweg aufrechtzuerhalten.\n\nAnforderungen:\n• Ein Abschluss in Ingenieurwissenschaften, Naturwissenschaften, Materialwissenschaften, Daten- / Informationswissenschaften oder einem verwandten Bereich, grundlegend kombiniert mit einem starken Fokus auf Chemie und Datenmanagement.\n• Erfahrung im Management komplexer Daten in der (medizinischen) Geräte-, Elektronik-, Automobil-, Luft- und Raumfahrt- oder Präzisions- / High-Tech-Fertigungsindustrie im Produktsicherheitsumfeld (z. B. EH & S-Datenmanagement, Materialdeklaration, Produktverwaltung).\n• Relevantes Wissen über umweltrechtliche Rahmenbedingungen, einschließlich globaler Umweltvorschriften wie REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals und der Verpackungsrichtlinie. Ein gutes Verständnis der chemischen Zusammensetzung von Materialien, die in Instrumenten, elektronischen Geräten und Verpackungen verwendet werden.\n• Expertise in der Migration von Chemikalien-Compliance, regulatorischen oder ähnlichen sensiblen Daten bei gleichzeitiger Einhaltung strenger Datenintegritäts- und Governance-Standards.\n• Tiefe Erfahrung mit interaktiven, re-al-time Tableau Dashboards und Datenpipelines in Snowflake.\n• Erfahrung im Einsatz von Materialdeklarationsdatenmanagementsystemen für die umfassende Bewertung, Wartung und Überprüfung von Datensätzen für große Materialdeklarationen (z. B. SAP EH&S(M) oder gleichwertige Systeme).\n• Erfahrung mit Lösungen, die Python, RPA, VBA und SAP GUI Scripting sowie grundlegende und fortschrittliche KI-Tools (z. B. ONA) nutzen\n\nStellenprofil\n• Life Sciences - Ingenieurwissenschaften\n• Basel-Stadt\n• Vertrag\n• Teilzeit, 100%\n• Sofort - 31.05.2027\n• EHS (Umwelt, Gesundheit & Sicherheit), Produktsicherheit, Materialdeklaration",
-        "fr": "Nous sommes à la recherche d'un expert de la déclaration des matériaux (spécialiste de la sécurité des produits) pour garantir que les instruments de diagnostic, les consommables et l'emballage produisent des résultats qui sauvent la vie et répondent aux normes mondiales les plus élevées en matière de conformité environnementale et de durabilité.\n\nCe rôle est essentiel pour soutenir la transformation des données à l'échelle mondiale, en mettant l'accent sur la migration des instruments de diagnostic, des consommables et de l'emballage des données des systèmes existants vers la nouvelle plateforme S/4HANA Data Management.\n\nDate de début: dès que\n\nDernière date de début possible: 01.01.2027\n\nDurée prévue de l'emploi: 31.05.2027\n\nLieu: Bâle ou Rotkreuz\n\nCabinet : 2 jours/semaine\n\nVoyages: 5 %, par exemple pour les ateliers\n\nResponsabilités :\n• Soutenir un projet mondial de migration de données pour migrer de grandes séries de données de législation chimique de la solution SAP EHSM actuelle vers la nouvelle solution dans EHSM S4 HANA.\n• Conduire la modernisation de notre modèle de données chimiques en transformant et transformant les structures de données chimiques des systèmes existants en formats compatibles S4/HANA pour assurer une migration de données transparente\n• Assurer la conformité et la durabilité de nos instruments de diagnostic, consommables et emballages. Cela comprend le respect d'un large éventail de règlements mondiaux, notamment REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals et la directive sur l'emballage.\n• Assurer l'exactitude et l'intégrité des données en préparant des fichiers de charge et en effectuant des vérifications après charge en appliquant des outils d'automatisation et de charge de masse\n• Diriger l'efficacité opérationnelle en simplifiant les processus, en mettant l'accent sur l'automatisation des tâches manuelles et en favorisant la production automatisée de rapports.\n• Contribuer activement aux réunions de projet en offrant des idées, des mises à jour et une expertise précieuse\n• Utiliser des outils de gestion de projet pour surveiller la santé du projet, assurer l'exécution en temps opportun et maintenir l'élan dans les étapes clés.\n\nExigences:\n• Diplôme d'ingénieur, de sciences naturelles, de sciences des matériaux, de sciences de l'information ou d'un domaine connexe, fondamentalement combiné avec une forte concentration sur la chimie et la gestion des données.\n• Expérience de la gestion de données complexes dans l'industrie de la fabrication (médicale), de l'électronique, de l'automobile, de l'aérospatiale ou de la haute technologie dans l'environnement de la sécurité des produits (p. ex., gestion des données de l'EH&S, déclaration des matériaux, gérance des produits).\n• Connaissance pertinente des cadres réglementaires environnementaux, y compris les règlements environnementaux mondiaux tels que REACH, RoHS, California Proposition 65, TSCA, POP, Conflict Minerals et la Directive sur l'emballage. Une bonne compréhension de la composition chimique des matériaux utilisés dans les instruments, les dispositifs électroniques et les emballages.\n• Expertise en matière de migration de la conformité chimique, de la réglementation ou de données sensibles similaires tout en respectant des normes strictes d'intégrité des données et de gouvernance.\n• Expérience approfondie des tableaux de bord et des pipelines de données interactifs et real-times de Tableau à Snowflake.\n• Expérience de l'utilisation des systèmes de gestion des données de déclaration de matériel pour l'évaluation, la maintenance et la vérification exhaustives des ensembles de données de déclaration de matériel à grande échelle (comme SAP EH&S(M) ou équivalents).\n• Expérience avec les solutions utilisant Python, RPA, VBA et SAP GUI Scripting et les outils d'IA basiques et avancés (par exemple ONA)\n\nProfil d'emploi\n• Sciences de la vie - Ingénierie\n• Bâle-Stadt\n• Contrats\n• Temps partiel, 100%\n• Immédiatement - 31.05.2027\n• EHS (Environnement, Santé et Sécurité), sécurité des produits, déclaration du matériel"
+        "de": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Senior Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
+        "it": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Senior Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
+        "en": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Senior Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
+        "fr": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Senior Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1Q0JG2",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=ED033Q",
       "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-25T21:36:28.935Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-27T09:24:17.956Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
       "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-19T00:00:00Z",
-      "postedDate": "2026-10-19T00:00:00Z",
+      "datePosted": "2026-10-27T00:00:00Z",
+      "postedDate": "2026-10-27T00:00:00Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1Q0JG2",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=ED033Q",
       "requirements": [
-        "Life Sciences - Engineering",
+        "Administration - Management",
         "Basel-Stadt",
         "Contracting",
-        "Part Time, 100%",
-        "Immediately - 31.05.2027",
-        "EHS (Environment, Health & Safety), product safety, material declaration"
+        "Part Time, 50-80%",
+        "Ab sofort - April 2027",
+        "MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM"
       ],
       "requirementsByLocale": {
-        "en": [
-          "Life Sciences - Engineering",
+        "de": [
+          "Administration - Management",
           "Basel-Stadt",
           "Contracting",
-          "Part Time, 100%",
-          "Immediately - 31.05.2027",
-          "EHS (Environment, Health & Safety), product safety, material declaration"
+          "Part Time, 50-80%",
+          "Ab sofort - April 2027",
+          "MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM"
         ]
       },
-      "previousSlugs": [
-        "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
-        ],
-        "de": [
-          "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
-        ],
-        "fr": [
-          "material-declaration-expert-eh-s-data-migration-product-safety-m-f-d-coopers-basel-stadt"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T09:30:54.683Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 85500,
+          "maxValue": 129500,
           "unitText": "YEAR"
         }
       },
       "postalCode": "4001",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-10-27T09:24:17.956Z"
     }
   ]
 }
