@@ -97,6 +97,13 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(paintBootstrap).toContain('largest-contentful-paint');
     expect(entry.indexOf("import('react')")).toBeGreaterThan(paintGate);
     expect(entry.indexOf("import('react-dom/client')")).toBeGreaterThan(paintGate);
+    const staticHeadImport = entry.indexOf("await import('./services/seo/staticHeadAuthority')");
+    const preloadRecoveryListener = entry.indexOf("window.addEventListener('vite:preloadError'");
+    expect(staticHeadImport).toBeGreaterThan(paintGate);
+    expect(preloadRecoveryListener).toBeGreaterThan(paintGate);
+    expect(preloadRecoveryListener).toBeLessThan(staticHeadImport);
+    expect(staticHeadImport).toBeLessThan(entry.indexOf("import('react')"));
+    expect(entry).not.toMatch(/^import \{ captureStaticHead \} from/m);
     expect(entry).not.toMatch(/^import\s+(?:React|ReactDOM)\b/m);
 
     const fallbackReveal = entry.indexOf("fallback.style.removeProperty('display')");

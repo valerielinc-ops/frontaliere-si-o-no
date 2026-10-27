@@ -1,167 +1,5 @@
 [
   {
-    "timestamp": "2026-10-08T10:19:26.394Z",
-    "label": "after",
-    "total": 32460,
-    "needsRetranslation": 6684,
-    "suppressed": 227,
-    "incomplete": 7026,
-    "complete": 25434,
-    "slotsPresent": 25434,
-    "flaggedAmongSlotsPresent": 397,
-    "verifiedTranslated": 25037,
-    "sourceCopyExcused": 515,
-    "slotsPresentByLength": 32312,
-    "languageVerified": 27031,
-    "missingByLocale": {
-      "it": 1131,
-      "en": 745,
-      "de": 144,
-      "fr": 790
-    },
-    "queueAge": {
-      "count": 6684,
-      "withTimestamp": 6684,
-      "oldestAgeDays": 1675.4,
-      "p50AgeDays": 18.5,
-      "p90AgeDays": 97.5,
-      "buckets": {
-        "0-1d": 357,
-        "1-2d": 120,
-        "2-7d": 689,
-        "0-7d": 1166,
-        "7-30d": 2767,
-        "30-90d": 1748,
-        "90-180d": 1000,
-        "180d+": 3
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 583,
-      "withTimestamp": 583,
-      "oldestAgeDays": 178,
-      "p50AgeDays": 48.5,
-      "p90AgeDays": 144,
-      "buckets": {
-        "0-1d": 8,
-        "1-2d": 2,
-        "2-7d": 5,
-        "0-7d": 15,
-        "7-30d": 73,
-        "30-90d": 370,
-        "90-180d": 125,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 2830,
-      "sampled": 120,
-      "processed": 19,
-      "residual": 0,
-      "residualRate": 0,
-      "window": {
-        "size": 120,
-        "processed": 120,
-        "residual": 3,
-        "residualRate": 0.025,
-        "runs": 23,
-        "measured": true,
-        "queueCandidates": 2830
-      }
-    },
-    "publicationHold": {
-      "held": 100,
-      "byCrawler": {
-        "fachkraft": 22,
-        "sta": 2,
-        "stellenpartner": 71,
-        "stellentreff": 5
-      }
-    },
-    "predicateVersion": "0cb188a144c6d95d",
-    "freshCohort": {
-      "window": "24-48h",
-      "total": 693,
-      "complete": 572
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 780
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 285
-      },
-      {
-        "company": "CADAR AG",
-        "pending": 278
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 249
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 196
-      },
-      {
-        "company": "Manor AG",
-        "pending": 166
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 144
-      },
-      {
-        "company": "Medbase",
-        "pending": 130
-      },
-      {
-        "company": "Stellenpartner AG",
-        "pending": 112
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 100
-      }
-    ],
-    "codexReserve": {
-      "calls": 492,
-      "textsSent": 3061,
-      "translated": 2988,
-      "rejected": 107,
-      "spentMs": 1343194,
-      "verdict": "codex-failed",
-      "byPhase": {
-        "2b-cascade": {
-          "position": "primary",
-          "calls": 246,
-          "maxCalls": 350,
-          "translated": 1795,
-          "rejected": 107,
-          "stopReason": null
-        },
-        "2d-titles": {
-          "position": "primary",
-          "calls": 246,
-          "maxCalls": 350,
-          "translated": 1193,
-          "rejected": 0,
-          "stopReason": "3 fallimenti consecutivi"
-        }
-      }
-    }
-  },
-  {
     "timestamp": "2026-10-08T10:39:44.551Z",
     "label": "before",
     "total": 32456,
@@ -28983,5 +28821,109 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-27T09:52:07.029Z",
+    "label": "before",
+    "total": 32434,
+    "needsRetranslation": 1691,
+    "suppressed": 115,
+    "incomplete": 2036,
+    "complete": 30398,
+    "slotsPresent": 30398,
+    "flaggedAmongSlotsPresent": 54,
+    "verifiedTranslated": 30344,
+    "sourceCopyExcused": 283,
+    "slotsPresentByLength": 32422,
+    "languageVerified": 31771,
+    "missingByLocale": {
+      "it": 24,
+      "en": 15,
+      "de": 18,
+      "fr": 20
+    },
+    "queueAge": {
+      "count": 1691,
+      "withTimestamp": 1691,
+      "oldestAgeDays": 197,
+      "p50AgeDays": 37.5,
+      "p90AgeDays": 115.4,
+      "buckets": {
+        "0-1d": 75,
+        "1-2d": 11,
+        "2-7d": 84,
+        "0-7d": 170,
+        "7-30d": 413,
+        "30-90d": 755,
+        "90-180d": 344,
+        "180d+": 9
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 576,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 0,
+      "byCrawler": {}
+    },
+    "predicateVersion": "efa06838687894cc",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 609,
+      "complete": 598
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 363
+      },
+      {
+        "company": "LANDI Oberwallis AG",
+        "pending": 104
+      },
+      {
+        "company": "Medbase",
+        "pending": 102
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 86
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 79
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 73
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 60
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 54
+      },
+      {
+        "company": "ETAVIS Beutler",
+        "pending": 34
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 33
+      }
+    ]
   }
 ]

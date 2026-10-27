@@ -1558,10 +1558,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 48,
+      "retranslationAttempts": 49,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
       "crawledAt": "2026-10-27T09:37:08.556Z",
       "salaryMin": 121500,
@@ -1577,7 +1576,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Leiter-Sicherheitsdienst-100---f-m-d-_r-19893",
@@ -2085,10 +2085,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5322,
-      "retranslationAttempts": 48,
+      "retranslationAttempts": 49,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-10-27T09:37:08.556Z",
       "salaryMin": 79000,
@@ -2104,7 +2103,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategy-Specialist---Group-Strategy--100---m-f-d-_r-19882",
@@ -3656,10 +3656,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2568,
-      "retranslationAttempts": 48,
+      "retranslationAttempts": 49,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-10-27T09:37:08.556Z",
       "salaryMin": 73500,
@@ -3675,7 +3674,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Valuation-Controller-100---f-m-d-_r-19074-1",
@@ -3918,7 +3918,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2652,
-      "retranslationAttempts": 48,
+      "retranslationAttempts": 49,
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
       "crawledAt": "2026-10-26T21:16:59.366Z",
       "salaryMin": 121500,

@@ -2637,7 +2637,6 @@
           "senior-assistant-manager-large-complex-audit-zurich-deloitte-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:47:03.257Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
@@ -2651,7 +2650,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-15570ecca03f",
@@ -4704,7 +4704,6 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:12:46.965Z",
       "salaryMin": 79000,
       "salaryMax": 138500,
@@ -4718,7 +4717,8 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-1d3d85c028e4",
@@ -5755,7 +5755,6 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",

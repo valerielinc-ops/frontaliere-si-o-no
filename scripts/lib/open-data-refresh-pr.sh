@@ -188,6 +188,16 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
 # intentionally uses `persist-credentials: false` in the protected refresh
 # workflows, so `origin` is not allowed to be the authentication boundary.
 PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+# GitHub App installation tokens are the preferred identity because their
+# commits re-trigger the pull-request checks. Git transport can nevertheless
+# reject an otherwise valid App token transiently (the REST ref creation above
+# may still succeed), so keep the long-lived refresh PAT as a push-only
+# fallback. Every caller already loads it from Remote Config; an empty value
+# leaves the existing fail-closed behavior unchanged.
+FALLBACK_PUSH_URL=""
+if [ -n "${GITHUB_PAT:-}" ] && [ "${GITHUB_PAT}" != "${GH_TOKEN}" ]; then
+  FALLBACK_PUSH_URL="https://x-access-token:${GITHUB_PAT}@github.com/${REPOSITORY}.git"
+fi
 OLD_HISTORY_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs"
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
 
@@ -407,6 +417,32 @@ if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ]; then
   fi
 fi
 
+run_push_with_token() {
+  local token_url="$1" label="$2" no_lazy_fetch="$3"
+  shift 3
+  if [ "$no_lazy_fetch" = true ]; then
+    run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
+      env GIT_NO_LAZY_FETCH=1 \
+      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
+  else
+    run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
+      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
+  fi
+}
+
+push_with_fallback() {
+  local label="$1" no_lazy_fetch="$2"
+  shift 2
+  if run_push_with_token "$PUSH_URL" "$label" "$no_lazy_fetch" "$@"; then
+    return 0
+  fi
+  if [ -z "$FALLBACK_PUSH_URL" ]; then
+    return 1
+  fi
+  echo "::warning::${label} failed with the primary refresh identity; retrying with GITHUB_PAT fallback"
+  run_push_with_token "$FALLBACK_PUSH_URL" "${label} via GITHUB_PAT" "$no_lazy_fetch" "$@"
+}
+
 reset_orphaned_stable_branch_to_main() {
   local main_head remote_after_failure
   run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch current main for orphaned stable branch" \
@@ -415,10 +451,9 @@ reset_orphaned_stable_branch_to_main() {
   main_head="$(git rev-parse refs/remotes/origin/main)"
   echo "No open refresh PR for ${BRANCH}; rebuilding from the current main snapshot ${main_head} instead of stale tip ${STALE_REMOTE_HEAD}."
 
-  if run_bounded "$PUSH_TIMEOUT_SECONDS" "git push orphaned stable branch ${BRANCH} to current main snapshot" \
-    git -c http.https://github.com/.extraheader= push \
+  if push_with_fallback "git push orphaned stable branch ${BRANCH} to current main snapshot" false \
     --force-with-lease="refs/heads/${BRANCH}:${STALE_REMOTE_HEAD}" \
-    "$PUSH_URL" "${main_head}:${BRANCH}"; then
+    "${main_head}:${BRANCH}"; then
     echo "Synchronized ${BRANCH} with the current main snapshot ${main_head}; no refresh PR will be opened."
     return 0
   fi
@@ -646,16 +681,13 @@ push_new_stable_branch() {
     # The compat publish carries main's tree into the branch, so its commits
     # can reference objects this checkout was only promised. The base above
     # already bounds what is sent to the commits since this run's checkout.
-    run_bounded "$PUSH_TIMEOUT_SECONDS" "git push of the new stable branch ${BRANCH}" \
-      git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"
+    push_with_fallback "git push of the new stable branch ${BRANCH}" false "HEAD:${BRANCH}"
     return
   fi
   # Everything this push sends was written by this run, so it never needs to
   # download an object. With lazy fetch off, a push that finds no common base
   # after all stops at the first object it lacks instead of fetching history.
-  run_bounded "$PUSH_TIMEOUT_SECONDS" "git push of the new stable branch ${BRANCH}" \
-    env GIT_NO_LAZY_FETCH=1 \
-    git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"
+  push_with_fallback "git push of the new stable branch ${BRANCH}" true "HEAD:${BRANCH}"
 }
 
 # A base this run created and never moved is not a refresh: leaving it would
@@ -665,10 +697,9 @@ push_new_stable_branch() {
 # remove that run's refresh in between. A deletion sends no objects.
 remove_unused_remote_base() {
   [ "$REMOTE_BASE_CREATED" = true ] || return 0
-  if run_bounded "$PUSH_TIMEOUT_SECONDS" "git push that removes the unused base of ${BRANCH}" \
-    git -c http.https://github.com/.extraheader= push \
+  if push_with_fallback "git push that removes the unused base of ${BRANCH}" false \
     --force-with-lease="refs/heads/${BRANCH}:${REFRESH_BASE}" \
-    "$PUSH_URL" ":refs/heads/${BRANCH}"; then
+    ":refs/heads/${BRANCH}"; then
     echo "Removed ${BRANCH} from the remote: it still pointed at this run's base commit and carried no refresh."
   else
     echo "::warning::${BRANCH} was not removed from the remote: it no longer points at this run's base commit ${REFRESH_BASE}, or the deletion failed; the next run reconciles on top of what is there"
@@ -685,10 +716,9 @@ push_attempt=1
 while :; do
   push_succeeded=false
   if [ -n "$REMOTE_HEAD" ]; then
-    if run_bounded "$PUSH_TIMEOUT_SECONDS" "git push over the stable branch ${BRANCH}" \
-      git -c http.https://github.com/.extraheader= push \
+    if push_with_fallback "git push over the stable branch ${BRANCH}" false \
       --force-with-lease="refs/heads/${BRANCH}:${REMOTE_HEAD}" \
-      "$PUSH_URL" "HEAD:${BRANCH}"; then
+      "HEAD:${BRANCH}"; then
       push_succeeded=true
     fi
   elif push_new_stable_branch; then
