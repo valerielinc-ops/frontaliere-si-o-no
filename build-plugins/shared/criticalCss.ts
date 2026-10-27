@@ -1,5 +1,4 @@
-import { BASE_URL, SEO_STATIC_CSS_FILENAME, readPublicAsset } from '../constants';
-import { deriveSeoStaticFirstPaintReserve } from './seoStaticFirstPaintReserve';
+import { BASE_URL } from '../constants';
 
 /**
  * Single source of truth for the first-paint CRITICAL CSS served to every
@@ -914,9 +913,9 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
  *
  * Pure space reservation (AGENTS.md §7).
  */
-export const SEO_STATIC_SHEET_RESERVE_CSS = deriveSeoStaticFirstPaintReserve(
-  readPublicAsset(SEO_STATIC_CSS_FILENAME),
-);
+// The full-sheet projection was intentionally removed from CRITICAL_CSS.
+// `seo-static.css` remains the owner of its complete async layout; only the
+// measured first-paint reserves above belong in the render-blocking sheet.
 
 /**
  * `*,::after,::before{border:0 solid #e5e7eb}` below is wrapped in
@@ -961,19 +960,15 @@ export const CRITICAL_CSS =
   SEO_SEARCH_HUB_RESERVE_CSS +
   SEO_ARTICLE_SHELL_RESERVE_CSS +
   ROOT_HEADER_RESERVE_CSS +
-  // Layered half: mirrors of `index.css` (Tailwind). `@layer base` keeps them
-  // strictly BELOW `index.css`'s own `@layer utilities`, so once the async
-  // sheet lands the authoritative rule wins and these can only ever govern the
-  // pre-swap frame.
-  `@layer base{${TAILWIND_THEME_TOKENS_RESERVE_CSS}${TAILWIND_PREFLIGHT_RESERVE_CSS}${TAILWIND_UTILITY_RESERVE_CSS}}` +
-  // Unlayered half: a mirror of `seo-static.css`, which is itself unlayered —
-  // emitted here FIRST so the real sheet wins on equal specificity when it
-  // lands. Kept last so it also supersedes the older hand-written `.s-*`
-  // reserves above wherever the two describe the same selector.
+  // The preflight subset is the only broad async-sheet copy retained here: it
+  // removes UA margins/list markers and stabilizes replaced-element geometry
+  // before the real stylesheet arrives. The utility and whole-sheet mirrors
+  // are deliberately not render-blocking; the targeted reserves above are the
+  // first-paint geometry contract.
+  `@layer base{${TAILWIND_PREFLIGHT_RESERVE_CSS}}` +
   CRITICAL_SEMANTIC_TOKENS_CSS +
   CRITICAL_DARK_MODE_RULES_CSS +
-  CRITICAL_DARK_TEXT_CONTRAST_CSS +
-  SEO_STATIC_SHEET_RESERVE_CSS;
+  CRITICAL_DARK_TEXT_CONTRAST_CSS;
 
 /**
  * Filename `staticScriptsPlugin.ts` writes {@link CRITICAL_CSS} to under
