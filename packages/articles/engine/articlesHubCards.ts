@@ -146,12 +146,10 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
 
   return articles.slice(0, limit).map((art, idx) => {
     const artSlug = resolveSlug(art.id) ?? art.id;
-    // Trailing slash: the canonical form. Measured today, every card link on
-    // the live hub answers 301 to its own slashed twin — 40 cards x 8 hubs of
-    // internal links that all cost a redirect hop before reaching a 200, on
-    // the densest internal-link surface the site has. `resolveMeta` is
-    // unaffected: both call sites key their lookup through `seoKey()`, which
-    // normalises the slash away.
+    // Trailing slash: the canonical form. The renderer passes both the stable
+    // article id and the final path to `resolveMeta`: callers may resolve
+    // metadata by id (as the canton renderer does) or by a normalised path (as
+    // the static-page renderer does).
     const artPath = localePrefix
       ? `/${localePrefix}/${sectionSlug}/${artSlug}/`
       : `/${sectionSlug}/${artSlug}/`;
