@@ -484,6 +484,40 @@ function forEachStaticProperty(block, visit) {
   }
 }
 
+/**
+ * Return every object literal in a structuredData object or object array.
+ *
+ * The OG emitter needs the concrete object that owns an Event, not a regex
+ * match somewhere in the enclosing SEO entry. Reusing the same balanced
+ * delimiter scanner also keeps braces inside quoted Event text inert.
+ */
+function structuredDataObjectBlocks(block, valueStart, valueEnd) {
+  const quote = block[valueStart];
+  if (quote === '{') return [block.slice(valueStart, valueEnd)];
+  if (quote !== '[') return [];
+
+  const array = block.slice(valueStart, valueEnd);
+  const arrayEnd = array.length - 1;
+  const objects = [];
+  let cursor = 1;
+  while (cursor < arrayEnd) {
+    cursor = skipStaticTrivia(array, cursor, 'SEO entry', 'structuredData-array');
+    if (cursor >= arrayEnd || array[cursor] === ']') break;
+    if (array[cursor] !== '{') return [];
+
+    const close = matchingDelimiter(array, cursor);
+    if (close < 0 || close >= arrayEnd) return [];
+    objects.push(array.slice(cursor, close + 1));
+    cursor = skipStaticTrivia(array, close + 1, 'SEO entry', 'structuredData-array');
+    if (cursor < arrayEnd && array[cursor] === ',') {
+      cursor += 1;
+      continue;
+    }
+    if (cursor < arrayEnd && array[cursor] !== ']') return [];
+  }
+  return objects;
+}
+
 /** Return whether a template literal contains an unevaluated interpolation. */
 function hasTemplateInterpolation(block, valueStart, valueEnd) {
   for (let cursor = valueStart + 1; cursor < valueEnd; cursor += 1) {
@@ -680,17 +714,35 @@ export function hasInterpolatedStaticProperty(block, field, options = {}) {
   return interpolatedPropertyState(block, field, options).dynamic;
 }
 
-/** Return the final balanced structuredData object, if it is an object. */
-export function readStructuredSeoBlock(block) {
+/** Return every final structuredData object, supporting object arrays. */
+export function readStructuredSeoObjectBlocks(block) {
   let structuredData;
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
     if (key === 'structuredData') {
-      structuredData = block[valueStart] === '{'
-        ? block.slice(valueStart, valueEnd)
-        : undefined;
+      structuredData = structuredDataObjectBlocks(block, valueStart, valueEnd);
     }
   });
   return structuredData;
+}
+
+/** Return the last structuredData object, preserving the legacy API shape. */
+export function readStructuredSeoBlock(block) {
+  return readStructuredSeoObjectBlocks(block)?.at(-1);
+}
+
+/**
+ * Return the final static object assigned to a structuredData field.
+ * @returns {string | undefined}
+ */
+export function readStaticObjectProperty(block, field) {
+  /** @type {string | undefined} */
+  let objectBlock;
+  forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
+    if (key === field && block[valueStart] === '{') {
+      objectBlock = block.slice(valueStart, valueEnd);
+    }
+  });
+  return objectBlock;
 }
 
 /** Return the final structuredData description state, including interpolation. */
