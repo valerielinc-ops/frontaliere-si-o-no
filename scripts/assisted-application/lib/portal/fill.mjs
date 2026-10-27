@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionTopic, permitBooleanOptionLabel, questionTopic } from './plan.mjs';
-import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode } from '../../../../functions/src/lib/phoneNormalization.js';
+import { countryCodeOfLabel, formatPhoneForField, phoneCountryCode, phoneDialCode } from '../../../../functions/src/lib/phoneNormalization.js';
 import { residenceCountryCode } from './residence-address.mjs';
 
 const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
@@ -21,11 +21,48 @@ export function residenceCountryOptionLabel(value, options = []) {
 const isPhoneCountryField = (field) => questionTopic(field?.label, field?.context, field) === 'phone_country';
 
 export function phoneCountryOptionLabel(value, options = []) {
-  const wanted = phoneCountryCode(value);
+  // The planner returns the displayed option label when the country control
+  // has choices (for example «Italia»), while a free control may still pass
+  // the canonical phone value. Resolve both forms before comparing options.
+  const wanted = countryCodeOfLabel(value) || phoneCountryCode(value);
   if (!wanted) return '';
   return options
     .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
     .find((label) => countryCodeOfLabel(label) === wanted) || '';
+}
+
+const sameNormalized = (left, right) => {
+  const a = normalizedChoice(left);
+  const b = normalizedChoice(right);
+  return a && b ? a === b : !a && !b;
+};
+
+/**
+ * Detect a phone input whose country prefix is represented by a sibling
+ * phone-country field. The extracted field snapshot is the source of truth:
+ * matching form/section/context keeps a residence «Land» from changing the
+ * formatting of an unrelated phone input.
+ */
+export function separatePhonePrefixMetadata(field, fields = [], value = '') {
+  if (questionTopic(field?.label, field?.context, field) !== 'phone') return {};
+  const index = fields.indexOf(field);
+  const phoneCountryFields = fields
+    .map((candidate, candidateIndex) => ({ candidate, candidateIndex }))
+    .filter(({ candidate }) => questionTopic(candidate?.label, candidate?.context, candidate) === 'phone_country')
+    .filter(({ candidate }) => candidate?.form === field?.form || candidate?.form == null || field?.form == null)
+    .filter(({ candidate }) => !candidate?.section || !field?.section || sameNormalized(candidate.section, field.section));
+  const hasSeparateControl = phoneCountryFields.some(({ candidate, candidateIndex }) => {
+    const sameContext = candidate?.context && field?.context && sameNormalized(candidate.context, field.context);
+    // Some ATSes omit sibling labels from one of the two extracted controls;
+    // when that happens, only accept the nearby control in the same form.
+    const nearby = index >= 0 && Math.abs(candidateIndex - index) <= 2;
+    return sameContext || nearby;
+  });
+  if (!hasSeparateControl) return {};
+  return {
+    countryPrefix: phoneDialCode(value),
+    separateCountryCode: true,
+  };
 }
 
 /**
@@ -817,7 +854,10 @@ export async function applyActions(page, fields, actions, files, {
         // A long text is shortened at a sentence end, never cut in the middle of one.
         const topic = questionTopic(field.label, field.context, field);
         const value = topic === 'phone'
-          ? formatPhoneForField(action.value, { maxLength: field.maxLength })
+          ? formatPhoneForField(action.value, {
+            maxLength: field.maxLength,
+            ...separatePhonePrefixMetadata(field, fields, action.value),
+          })
           : fitToLength(action.value, field.maxLength);
         await fillText(locator, value);
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);

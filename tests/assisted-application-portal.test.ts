@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic, targetEmployerNoOption } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
@@ -1093,6 +1093,27 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
 
     expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
+  });
+
+  it('passes split-phone metadata to the text boundary while keeping single inputs international', async () => {
+    let entered = '';
+    const control = {
+      fill: vi.fn(async (value: string) => { entered = value; }),
+      inputValue: vi.fn(async () => entered),
+    };
+    const options = { allInnerTexts: vi.fn(async () => []) };
+    const frame = { locator: vi.fn((selector: string) => selector.includes('[role="option"]') ? options : { first: () => control }) };
+    const page = { frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const phoneCountry = { id: 'phone-country', kind: 'select', label: 'Land', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    const phone = { id: 'phone', kind: 'text', inputType: 'tel', label: 'Phone', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    const split = await applyActions(page as any, [phoneCountry, phone], [{ fieldId: 'phone', action: 'fill', value: '+39 324 0753275' }], {}, { pause: async () => {} });
+    expect(split).toEqual([{ fieldId: 'phone', ok: true }]);
+    expect(entered).toBe('324 0753275');
+
+    entered = '';
+    const single = await applyActions(page as any, [phone], [{ fieldId: 'phone', action: 'fill', value: '+39 324 0753275' }], {}, { pause: async () => {} });
+    expect(single).toEqual([{ fieldId: 'phone', ok: true }]);
+    expect(entered).toBe('+39 324 0753275');
   });
 
   it('matches a custom picklist label by normalized exact text', async () => {
@@ -2243,6 +2264,16 @@ describe('portal runner helpers', () => {
     expect(candidateAnswerForField(candidate, phoneCountry)).toEqual({ value: 'Italien', source: 'identity' });
     expect(candidateAnswerForField(candidate, phone)).toEqual({ value: '+39 324 0753275', source: 'identity' });
     expect(candidateAnswerForField(candidate, residenceCountry)).toEqual({ value: 'Italien', source: 'identity' });
+  });
+
+  it('resolves localized phone-country labels and formats split phone controls nationally', () => {
+    expect(phoneCountryOptionLabel('Italia', ['Schweiz', 'Italia'])).toBe('Italia');
+    expect(phoneCountryOptionLabel('+39 324 0753275', ['Schweiz', 'Italia'])).toBe('Italia');
+    const phoneCountry = { id: 'phone-country', kind: 'select', label: 'Land', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    const phone = { id: 'phone', kind: 'text', label: 'Phone', context: 'Phone · Mobile', form: 0, section: 'Contact', options: [] };
+    expect(separatePhonePrefixMetadata(phone, [phoneCountry, phone], '+39 324 0753275'))
+      .toEqual({ countryPrefix: '39', separateCountryCode: true });
+    expect(separatePhonePrefixMetadata(phone, [phone], '+39 324 0753275')).toEqual({});
   });
 
   it('does not infer a country from an unrecognised province code alone', () => {
