@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { unlockAchievement, addXp } from '@/services/gamificationService';
+import { parseWeeklyQuizState, type WeeklyQuizState } from '@/services/weeklyQuizState';
 import { Brain, CheckCircle2, XCircle, Trophy, ArrowRight, RotateCcw, Sparkles, Clock, Award } from 'lucide-react';
 
 // ─── Quiz Data ───────────────────────────────────────────────
@@ -171,13 +172,7 @@ function getWeeklyQuestions(pool: QuizQuestion[], count = 5): QuizQuestion[] {
 
 const QUIZ_STORAGE_KEY = 'frontaliere_weekly_quiz';
 
-export interface QuizState {
- week: number;
- year: number;
- answers: Record<string, number>; // questionId → selected index
- score: number;
- completed: boolean;
-}
+export type QuizState = WeeklyQuizState;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
  return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -186,42 +181,14 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 export function validateQuizState(state: unknown, questions: QuizQuestion[]): QuizState | null {
  const currentWeek = getWeekNumber();
  const currentYear = new Date().getFullYear();
- if (!isRecord(state) || state.week !== currentWeek || state.year !== currentYear) return null;
- if (
- typeof state.score !== 'number' ||
- !Number.isFinite(state.score) ||
- typeof state.completed !== 'boolean' ||
- !isRecord(state.answers)
- ) return null;
-
- const answers: Record<string, number> = {};
- for (const [questionId, answerIndex] of Object.entries(state.answers)) {
- const question = questions.find(candidate => candidate.id === questionId);
- if (
- question &&
- typeof answerIndex === 'number' &&
- Number.isInteger(answerIndex) &&
- answerIndex >= 0 &&
- answerIndex < question.options.length
- ) {
- answers[questionId] = answerIndex;
- }
- }
-
- return {
- week: state.week,
- year: state.year,
- answers,
- score: state.score,
- completed: state.completed,
- };
+ const raw = JSON.stringify(state);
+ return parseWeeklyQuizState(raw ?? null, questions, currentWeek, currentYear);
 }
 
 export function loadQuizState(questions: QuizQuestion[]): QuizState | null {
  try {
  const raw = localStorage.getItem(QUIZ_STORAGE_KEY);
- if (!raw) return null;
- return validateQuizState(JSON.parse(raw) as unknown, questions);
+ return parseWeeklyQuizState(raw, questions, getWeekNumber(), new Date().getFullYear());
  } catch {
  return null;
  }
