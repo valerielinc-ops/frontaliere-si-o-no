@@ -1,7 +1,7 @@
 {
   "key": "walter-zoo-ag-gossau",
   "label": "WALTER ZOO AG GOSSAU",
-  "generatedAt": "2026-10-27T09:26:41.172Z",
+  "generatedAt": "2026-10-27T21:22:03.560Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3514,
-  "avgDurationMs": 3514,
+  "unchangedCount": 1,
+  "durationMs": 3455,
+  "avgDurationMs": 3455,
   "durationHistory": [
-    3514
+    3455
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "walter-zoo-ag-gossau-953ef4344148",
       "slug": "tirocinante-per-la-tutela-delle-specie-e-l-educazione-ambientale-100-walter-zoo-ag-gossau-gossau-sg-sg",
@@ -35,7 +37,7 @@
       "url": "https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my",
       "source": "WALTER ZOO AG GOSSAU Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:26:31.346Z",
+      "crawledAt": "2026-10-27T21:21:50.478Z",
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -66,7 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
