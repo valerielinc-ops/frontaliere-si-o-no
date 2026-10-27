@@ -1,18 +1,59 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-27T09:18:46.254Z",
+  "generatedAt": "2026-10-27T21:19:26.112Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 19235,
-  "avgDurationMs": 19235,
+  "removedCount": 1,
+  "unchangedCount": 3,
+  "durationMs": 21773,
+  "avgDurationMs": 21773,
   "durationHistory": [
-    19235
+    21773
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "BPS/Lean und IE (Industrial Ingenieur) Spezialist – Power Tools Accessories 100% (f/m/div.) REF282131O",
+      "slug": "bps-lean-e-ie-industrial-ingenieur-spezialist-power-tools-accessories-100-f-m-div-ref282131o-bosch-thermotechnik-ag-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF282131O-bps-lean-und-ie-industrial-ingenieur-spezialist-power-tools-accessories-100-f-m-div-ref282131o",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000157982160-bps-lean-und-ie-industrial-ingenieur-spezialist-power-tools-accessories-100-f-m-div-ref282131o?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-27",
+      "postedDate": "2026-10-27",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-dcf96acbde29",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-08-17T21:41:34.659Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Praktikum im Sales und Marketing (w/m/d) REF298875D",
@@ -175,7 +216,47 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Verfahrenstechniker 100% (w/m/div.) - REF297511W",
+      "slug": "ingegnere-di-processo-100-w-m-div-ref297511w-bosch-thermotechnik-ag-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF297511W-verfahrenstechniker-100-w-m-div-ref297511w",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000153532695-verfahrenstechniker-100-w-m-div-ref297511w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-f4b202c69c6d",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-01T09:13:44.411Z",
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "postalCode": "3924",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Fertigungssteurer 100% (w/m/div.) - REF299070D",
@@ -293,46 +374,7 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Verfahrenstechniker 100% (w/m/div.) - REF297511W",
-      "slug": "ingegnere-di-processo-100-w-m-div-ref297511w-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF297511W-verfahrenstechniker-100-w-m-div-ref297511w",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000153532695-verfahrenstechniker-100-w-m-div-ref297511w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-f4b202c69c6d",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-01T09:13:44.411Z",
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported",
-      "postalCode": "3924",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

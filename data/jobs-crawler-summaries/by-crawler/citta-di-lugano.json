@@ -1,105 +1,20 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-10-27T09:22:00.958Z",
+  "generatedAt": "2026-10-27T21:22:05.199Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 7758,
-  "avgDurationMs": 7758,
+  "durationMs": 7194,
+  "avgDurationMs": 7194,
   "durationHistory": [
-    7758
+    7194
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "il/la caposezione (realizzazione) al 100% presso la Divisione edilizia pubblica",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=D3EFB578E68DB565C1258E8900330066",
-      "applyUrl": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=D3EFB578E68DB565C1258E8900330066",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "source": "company-website",
-      "slug": "il-la-caposezione-realizzazione-al-100-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
-      "sourceLang": "it",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
-      "id": "citta-di-lugano-82898c6699ba",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T09:18:22.821Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "due collaboratori/trici MyLugano al 100% presso la Divisione amministrazione generale (Sviluppo economico)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E09B93EE95270297C1258E830031BA36",
-      "applyUrl": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E09B93EE95270297C1258E830031BA36",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "administration",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "source": "company-website",
-      "slug": "due-collaboratori-trici-mylugano-al-100-presso-la-divisione-amministrazione-generale-sviluppo-economico-citta-di-lugano",
-      "sourceLang": "it",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "2026-10-26T21:26:51.882Z",
-      "id": "citta-di-lugano-214a66703245",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T09:18:22.821Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
@@ -125,7 +40,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-ea8513996b03",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -168,7 +83,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-41e2e7908aaa",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -211,7 +126,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-c20731cfe618",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -254,7 +169,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-7bd4e52e6830",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -297,7 +212,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-bec9b098286c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -340,7 +255,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-7cfc78c63b9e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -383,7 +298,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-cbe208e81890",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -426,7 +341,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-27T09:21:50.082Z",
+      "crawledAt": "2026-10-27T21:21:55.085Z",
       "id": "citta-di-lugano-9a549c4fd9d8",
       "salaryMin": 42000,
       "salaryMax": 77500,
@@ -446,5 +361,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
