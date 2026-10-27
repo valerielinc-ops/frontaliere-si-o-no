@@ -242,7 +242,7 @@ const ELIGIBLE_AUTHORS = new Set(
  * @param {string} prefix
  * @returns {boolean}
  */
-function isPrimaryTriageMarker(body, prefix = TRIAGE_COMMENT_PREFIX) {
+export function isPrimaryTriageMarker(body, prefix = TRIAGE_COMMENT_PREFIX) {
   const text = typeof body === 'string' ? body : '';
   const trimmed = text.trimStart();
   return trimmed.startsWith(prefix) && !TRIAGE_CORRECTION_HEADING_RE.test(trimmed);

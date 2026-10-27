@@ -106,6 +106,7 @@ import { intFromEnv } from '../lib/int-from-env.mjs';
 import {
   claimBucketReferences,
   hasTriageComment,
+  isPrimaryTriageMarker,
   triageMarkerBucketReferences,
 } from './collect-followup-batch.mjs';
 import {
@@ -117,8 +118,6 @@ import {
 import { inertCommentText, itemBornSatisfiedMarker, parseItemMarkers } from './lib/followup-item-evidence.mjs';
 import { DEFAULT_REPOS as DEFAULT_FOLLOWUP_REPOS, fetchManifestFiles } from './followup-candidate-bullets.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
-
-const TRIAGE_MARKER_PREFIX = '## Post-merge follow-up triage';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
@@ -494,8 +493,11 @@ export function decideMintGate(issue, opts = {}) {
   // triage day, not by the issue creation timestamp, so a late retry must still be
   // allowed to seal the historical bucket instead of expiring it as a legacy mint.
   if (dailyBucketInfo(issue?.title || '')) return decideDailyMintGate(issue, opts);
-  const createdAt = issue?.createdAt ? Date.parse(issue.createdAt) : NaN;
-  if (Number.isFinite(createdAt) && now - createdAt > maxAgeMin * 60_000) {
+  const createdAt = typeof issue?.createdAt === 'string' ? Date.parse(issue.createdAt) : NaN;
+  if (!Number.isFinite(createdAt) || !Number.isFinite(now) || !Number.isFinite(maxAgeMin) || maxAgeMin < 0 || createdAt > now) {
+    return { action: 'skip', reason: 'mint-freshness-unverifiable', valid: [], demoted: [], body: null };
+  }
+  if (now - createdAt > maxAgeMin * 60_000) {
     return { action: 'skip', reason: 'not-freshly-minted', valid: [], demoted: [], body: null };
   }
   const { head, valid, demoted, unparsed } = partitionMintedItems(issue?.body || '', opts);
@@ -778,7 +780,7 @@ function sameQueueSnapshot(expected, actual) {
  * `gh issue list` did.
  *
  * @param {string|null} raw
- * @returns {Array<{number:number,title:string,createdAt?:string}>|null}
+ * @returns {Array<{number:number,title:string,createdAt:string}>|null}
  */
 export function parseOpenFollowupPages(raw) {
   let pages;
@@ -806,10 +808,10 @@ export function parseOpenFollowupPages(raw) {
     const createdAt = row.created_at ?? row.createdAt;
     if (!Number.isInteger(number) || number <= 0 || typeof title !== 'string' || !title.trim()
         || (row.state !== undefined && row.state !== 'open')
-        || (createdAt !== undefined && (typeof createdAt !== 'string' || Number.isNaN(Date.parse(createdAt))))
+        || typeof createdAt !== 'string' || Number.isNaN(Date.parse(createdAt))
         || seen.has(number)) return null;
     seen.add(number);
-    issues.push({ number, title, ...(createdAt === undefined ? {} : { createdAt }) });
+    issues.push({ number, title, createdAt });
   }
   return issues;
 }
@@ -1111,7 +1113,7 @@ export function triageMarkerCitesBucket(commentsJson, bucketNumber) {
   const comments = Array.isArray(data) ? data : Array.isArray(data?.comments) ? data.comments : [];
   return comments.some((comment) => {
     const body = typeof comment?.body === 'string' ? comment.body : '';
-    if (!body.trimStart().startsWith(TRIAGE_MARKER_PREFIX)) return false;
+    if (!isPrimaryTriageMarker(body)) return false;
     const legacyBucketLine = body.split(/\r?\n/).some((line) =>
       /\bbucket\b/i.test(line) && claimBucketReferences(line).includes(Number(bucketNumber)));
     return legacyBucketLine || triageMarkerBucketReferences(body).includes(Number(bucketNumber));
