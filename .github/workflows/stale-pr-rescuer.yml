@@ -160,7 +160,7 @@ jobs:
           # è leggibile, il job fallisce e il cron ritenta: non si dichiara
           # verde lasciando una PR invisibile.
           if ! prs=$("$TRUSTED_GH_BIN" api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
-            --jq '.[] | {number, headRefName: .head.ref, headRefOid: .head.sha, updatedAt: .updated_at, baseRefName: .base.ref, mergeableState: (.mergeable_state // ""), labels: [.labels[] | {name}], isDraft: .draft}' \
+            --jq '.[] | {number, headRefName: .head.ref, headRefOid: .head.sha, updatedAt: .updated_at, labels: [.labels[] | {name}], isDraft: .draft}' \
             | jq -s '.'); then
             echo "::error::Query PR aperte fallita o non valida: scan stale non eseguito." >&2
             exit 1
@@ -184,7 +184,25 @@ jobs:
             # come un conflitto attuale e mandare una PR pulita al recycle.
             HAS_CONFLICTS=false
             if [ "$HAS_CONFLICT_LABEL" = "true" ]; then
-              if [ "$BASE_REF" != "main" ] || [ "$MERGEABLE_STATE" = "" ] || [ "$MERGEABLE_STATE" = "unknown" ]; then
+              # L'endpoint di lista sopra non è una fonte affidabile per
+              # `mergeable_state`: il campo è calcolato sull'endpoint della
+              # singola PR e può essere assente o stale nella lista paginata.
+              # Leggiamo quindi la rappresentazione completa della PR solo
+              # quando la label richiede questa prova indipendente.
+              PR_CONFLICT_DETAIL=''
+              if ! PR_CONFLICT_DETAIL=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$N" 2>/dev/null); then
+                echo "PR #$N: dettaglio conflitto non leggibile — skip conservativo"; continue
+              fi
+              if ! printf '%s\n' "$PR_CONFLICT_DETAIL" | jq -e '
+                type == "object"
+                and (.base.ref | type == "string")
+                and (.mergeable_state | type == "string")
+              ' >/dev/null 2>&1; then
+                echo "PR #$N: dettaglio conflitto incompleto — skip conservativo"; continue
+              fi
+              BASE_REF=$(printf '%s\n' "$PR_CONFLICT_DETAIL" | jq -r '.base.ref')
+              MERGEABLE_STATE=$(printf '%s\n' "$PR_CONFLICT_DETAIL" | jq -r '.mergeable_state')
+              if [ "$BASE_REF" != "main" ] || [ "$MERGEABLE_STATE" = "unknown" ]; then
                 echo "PR #$N: has-conflicts non verificabile (base=${BASE_REF:-?} mergeable_state=${MERGEABLE_STATE:-?}) — skip conservativo"; continue
               fi
               if [ "$BASE_REF" = "main" ] && [ "$MERGEABLE_STATE" = "dirty" ]; then

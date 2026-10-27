@@ -101,8 +101,10 @@ describe('stale-pr-rescuer — classe D (conflitto) prima delle altre (#10608)',
   });
 
   it('non considera una label has-conflicts una prova senza base e mergeable_state correnti', () => {
-    expect(WORKFLOW).toContain('baseRefName: .base.ref');
-    expect(WORKFLOW).toContain('mergeableState: (.mergeable_state // "")');
+    expect(WORKFLOW).toContain('repos/$REPO/pulls/$N');
+    expect(WORKFLOW).toContain('.base.ref');
+    expect(WORKFLOW).toContain('.mergeable_state');
+    expect(WORKFLOW).toContain('dettaglio conflitto incompleto');
     expect(WORKFLOW).toContain('label has-conflicts non confermata');
     expect(WORKFLOW).toContain('skip conservativo');
   });
