@@ -71,7 +71,7 @@ describe('stale-pr-rescuer — un errore PCRE non spegne le classi indipendenti 
 });
 
 describe('stale-pr-rescuer — classe D (conflitto) prima delle altre (#10608)', () => {
-  it('una PR con has-conflicts è classe D anche con vitest rosso e 🔴 sulla HEAD', () => {
+  it('una PR con conflitto verificato è classe D anche con vitest rosso e 🔴 sulla HEAD', () => {
     const dir = mkdtempSync(join(tmpdir(), 'stale-pr-rescuer-class-d-'));
     try {
       const script = [
@@ -98,6 +98,13 @@ describe('stale-pr-rescuer — classe D (conflitto) prima delle altre (#10608)',
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
+  });
+
+  it('non considera una label has-conflicts una prova senza base e mergeable_state correnti', () => {
+    expect(WORKFLOW).toContain('baseRefName: .base.ref');
+    expect(WORKFLOW).toContain('mergeableState: (.mergeable_state // "")');
+    expect(WORKFLOW).toContain('label has-conflicts non confermata');
+    expect(WORKFLOW).toContain('skip conservativo');
   });
 });
 
