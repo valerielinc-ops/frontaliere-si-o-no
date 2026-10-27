@@ -1,16 +1,26 @@
 /**
  * Unit coverage for the layout-only CSS projection helper.
  *
- * The projection is useful for diagnostics and targeted reserve generation,
- * but the full async-sheet projection must not be concatenated into the
- * render-blocking critical.css. The first-paint contract is covered by
+ * The projection is useful for diagnostics and is concatenated into the
+ * render-blocking critical.css so every static `.s-*` layout family has a
+ * first-paint geometry reserve. The overlap contract is covered by
  * critical-css-overlap.test.ts.
  */
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 
-vi.mock('@/build-plugins/constants', () => ({ BASE_URL: '' }));
+vi.mock('@/build-plugins/constants', () => ({
+  BASE_URL: '',
+  readPublicAsset: (relPath: string) =>
+    readFileSync(resolve(__dirname, '..', '..', 'public', 'assets', relPath), 'utf8'),
+}));
 
-import { CRITICAL_CSS, TAILWIND_PREFLIGHT_RESERVE_CSS } from '@/build-plugins/shared/criticalCss';
+import {
+  CRITICAL_CSS,
+  SEO_STATIC_SHEET_RESERVE_CSS,
+  TAILWIND_PREFLIGHT_RESERVE_CSS,
+} from '@/build-plugins/shared/criticalCss';
 import { deriveSeoStaticFirstPaintReserve } from '@/build-plugins/shared/seoStaticFirstPaintReserve';
 
 describe('layout-only CSS projection helper', () => {
@@ -67,9 +77,9 @@ describe('layout-only CSS projection helper', () => {
     );
   });
 
-  it('keeps only the preflight mirror in critical.css', () => {
+  it('keeps the layout-only static sheet projection in critical.css', () => {
     expect(CRITICAL_CSS).toContain(TAILWIND_PREFLIGHT_RESERVE_CSS);
-    expect(CRITICAL_CSS).not.toContain('.jc-card{border-style:solid');
-    expect(CRITICAL_CSS).not.toContain('.s-MwMbiH{');
+    expect(CRITICAL_CSS).toContain(SEO_STATIC_SHEET_RESERVE_CSS);
+    expect(SEO_STATIC_SHEET_RESERVE_CSS).toContain('.s-MwMbiH{');
   });
 });

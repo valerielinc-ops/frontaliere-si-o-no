@@ -5,7 +5,11 @@ import { describe, expect, it, vi } from 'vitest';
 // Keep this focused test runnable in the agent sparse checkout. The real module
 // only needs BASE_URL; mocking the build-only constants avoids pulling the
 // crawler/data graph into a CSS contract test.
-vi.mock('@/build-plugins/constants', () => ({ BASE_URL: '' }));
+vi.mock('@/build-plugins/constants', () => ({
+  BASE_URL: '',
+  readPublicAsset: (relPath: string) =>
+    readFileSync(resolve(__dirname, '..', '..', 'public', 'assets', relPath), 'utf8'),
+}));
 
 import {
   CRITICAL_CSS,

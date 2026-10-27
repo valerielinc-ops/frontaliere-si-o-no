@@ -1,4 +1,5 @@
-import { BASE_URL } from '../constants';
+import { BASE_URL, readPublicAsset } from '../constants';
+import { deriveSeoStaticFirstPaintReserve } from './seoStaticFirstPaintReserve';
 
 /**
  * Single source of truth for the first-paint CRITICAL CSS served to every
@@ -549,6 +550,19 @@ export const TAILWIND_PREFLIGHT_RESERVE_CSS =
 export const SEO_STATIC_BODY_FONT_RESERVE_CSS = 'body{font-family:"Manrope",sans-serif}';
 
 /**
+ * Layout-only projection of the complete async `seo-static.css` sheet.
+ *
+ * The hand-picked reserves below cover the highest-volume static families, but
+ * the sheet also owns many hashed `.s-*` layout families. Keep their geometry
+ * in the render-blocking sheet by deriving this block from the same source;
+ * paint-only declarations and interactive state variants are excluded by the
+ * projection helper. The targeted reserves remain after this projection so
+ * their measured mobile/CLS corrections win during the pre-swap frame.
+ */
+export const SEO_STATIC_SHEET_RESERVE_CSS =
+  deriveSeoStaticFirstPaintReserve(readPublicAsset('seo-static.css'));
+
+/**
  * Tailwind UTILITY subset, mirrored from the ASYNC `index.css`
  * `@layer utilities`/`@layer components` into this SYNCHRONOUS first-paint
  * block.
@@ -860,8 +874,9 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
     '.lg\\:px-8{padding-inline:calc(var(--spacing)*8)}' +
   '}';
 
-// `seo-static.css` remains the owner of its complete async layout. Only the
-// measured first-paint reserves above belong in the render-blocking sheet.
+// `seo-static.css` remains the owner of paint and final cascade. Its
+// layout-only projection plus the measured first-paint reserves above belong
+// in the render-blocking sheet.
 
 /**
  * `*,::after,::before{border:0 solid #e5e7eb}` below is wrapped in
@@ -897,6 +912,7 @@ const CRITICAL_DARK_TEXT_CONTRAST_CSS =
 
 export const CRITICAL_CSS =
   `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@layer base{*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
+  SEO_STATIC_SHEET_RESERVE_CSS +
   RAIL_RESERVE_CSS +
   STATIC_AD_COLLAPSE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
