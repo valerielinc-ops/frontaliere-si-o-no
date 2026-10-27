@@ -417,6 +417,32 @@ if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ]; then
   fi
 fi
 
+run_push_with_token() {
+  local token_url="$1" label="$2" no_lazy_fetch="$3"
+  shift 3
+  if [ "$no_lazy_fetch" = true ]; then
+    run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
+      env GIT_NO_LAZY_FETCH=1 \
+      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
+  else
+    run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
+      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
+  fi
+}
+
+push_with_fallback() {
+  local label="$1" no_lazy_fetch="$2"
+  shift 2
+  if run_push_with_token "$PUSH_URL" "$label" "$no_lazy_fetch" "$@"; then
+    return 0
+  fi
+  if [ -z "$FALLBACK_PUSH_URL" ]; then
+    return 1
+  fi
+  echo "::warning::${label} failed with the primary refresh identity; retrying with GITHUB_PAT fallback"
+  run_push_with_token "$FALLBACK_PUSH_URL" "${label} via GITHUB_PAT" "$no_lazy_fetch" "$@"
+}
+
 reset_orphaned_stable_branch_to_main() {
   local main_head remote_after_failure
   run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch current main for orphaned stable branch" \
@@ -645,32 +671,6 @@ create_remote_branch_at_base() {
   # (the push below then loses to it and the loop reconciles), or the API may
   # be unavailable. The push still cannot hang: see push_new_stable_branch.
   echo "::warning::${BRANCH} could not be created on the remote at this run's base commit before the push: $(printf '%s' "$detail" | tr '\n' ' ' | cut -c1-300)"
-}
-
-run_push_with_token() {
-  local token_url="$1" label="$2" no_lazy_fetch="$3"
-  shift 3
-  if [ "$no_lazy_fetch" = true ]; then
-    run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
-      env GIT_NO_LAZY_FETCH=1 \
-      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
-  else
-    run_bounded "$PUSH_TIMEOUT_SECONDS" "$label" \
-      git -c http.https://github.com/.extraheader= push "$token_url" "$@"
-  fi
-}
-
-push_with_fallback() {
-  local label="$1" no_lazy_fetch="$2"
-  shift 2
-  if run_push_with_token "$PUSH_URL" "$label" "$no_lazy_fetch" "$@"; then
-    return 0
-  fi
-  if [ -z "$FALLBACK_PUSH_URL" ]; then
-    return 1
-  fi
-  echo "::warning::${label} failed with the primary refresh identity; retrying with GITHUB_PAT fallback"
-  run_push_with_token "$FALLBACK_PUSH_URL" "${label} via GITHUB_PAT" "$no_lazy_fetch" "$@"
 }
 
 push_new_stable_branch() {
