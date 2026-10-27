@@ -44985,7 +44985,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'maratona-laghi-varese-2027',
  category: 'novita',
  date: '2026-10-16T13:10:19.181Z',
- image: '/images/places/lugano-view.webp',
+ image: '/images/blog/article-maratona-laghi-varese-2027.webp',
  hasCalculator: false,
  articleType: 'news',
  authorSlug: 'redazione',

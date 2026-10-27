@@ -13328,7 +13328,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Panoramic view of Monte Generoso in Ticino, Switzerland, with a clear blue sky and lush greenery.',
     'blog.article.maratona-laghi-varese-2027.title': 'Lakes Marathon 2027: 2000 runners expected between Varese and Monate',
     'blog.article.maratona-laghi-varese-2027.excerpt': 'Sunday, April 11, 2027: start and finish in Angera Three lakes and eight municipalities in the project Approximately 2.000 runners estimated for the first edition Economic impact',
-    'blog.article.maratona-laghi-varese-2027.imageAlt': 'Aerial view of Lake Maggiore with runners along the shore, surrounded by picturesque villages and green hills.',
+    'blog.article.maratona-laghi-varese-2027.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.title': 'Cross-border worker taxes Italy Switzerland 2026: practical simulation',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.excerpt': 'The New Cross-Border Commuter Agreement has been in force since January 1, 2024 Old cross-border commuters: exemption of €7\'500 and transitional period 2024–2033 New cross-border commuters: allowance',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.imageAlt': 'Tax form and calculator on a desk with a view of Mendrisio',

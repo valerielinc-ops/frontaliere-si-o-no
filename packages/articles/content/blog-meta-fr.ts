@@ -13330,7 +13330,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavorare-svizzera-conviene-ancora.imageAlt': 'Vue panoramique du Monte Generoso dans le Tessin, Suisse, avec un ciel bleu clair et une végétation luxuriante.',
     'blog.article.maratona-laghi-varese-2027.title': 'Maratona dei Laghi 2027 : 2000 coureurs attendus entre Varese et Monate',
     'blog.article.maratona-laghi-varese-2027.excerpt': 'Dimanche 11 avril 2027 : départ et arrivée à Angera Trois lacs et huit communes dans le projet Environ 2.000 coureurs estimés pour la première édition Retombées économiques',
-    'blog.article.maratona-laghi-varese-2027.imageAlt': 'Vue aérienne du Lac Majeur avec des coureurs le long de la rive, entourés de villages pittoresques et de collines verdoyantes.',
+    'blog.article.maratona-laghi-varese-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.title': 'Impôts des frontaliers Italie-Suisse 2026 : simulation pratique',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.excerpt': 'Le Nouvel Accord sur les frontaliers est en vigueur depuis le 1er janvier 2024 Anciens frontaliers : exonération de €7\'500 et régime transitoire 2024–2033 Nouveaux frontaliers : franchise',
     'blog.article.frontaliere-tasse-italia-svizzera-2026-simulazione-pratica.imageAlt': 'Formule fiscale et calculatrice sur un bureau avec vue sur Mendrisio',
