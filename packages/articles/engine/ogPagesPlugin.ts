@@ -10,7 +10,6 @@
 import path from 'path';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
-import { decodeTsStringEscapes } from './shared/tsStringEscapes';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
@@ -28,6 +27,14 @@ import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
 import { ARTICLE_NOINDEX_TARGET_MARKER } from './shared/articleNoindexTargetMarker.mjs';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
+import {
+  hasInterpolatedStaticProperty,
+  lastStaticPropertyValue,
+  readStaticObjectProperty,
+  readStructuredSeoDescriptionState,
+  readStructuredSeoObjectBlocks,
+  staticPropertyState,
+} from './shared/seo-entry.mjs';
 export { parseStaticBlogBodySource };
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import {
@@ -793,23 +800,29 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const e = pos[i].end;
  const b = seoSrc.substring(s, e);
 
- // Match title/desc/og* allowing escaped quotes, trying single-quoted first
- // (dominant style) then double-quoted: the SEO entry sources mix both (e.g. the
- // metodologia + author entries in seo-pages.ts use `description: "…"`), and a
- // single-quote-only regex silently dropped those → empty og:title/og:description,
- // the same failure mode as #2996 transposed onto the OG emitter.
- const matchStr = (key: string, flags = ''): string => {
- const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, flags);
- const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, flags);
- const m = b.match(rxSingle) || b.match(rxDouble);
- return m ? decodeTsStringEscapes(m[1], { newlineAs: ' ' }) : '';
+ // Resolve every field through the balanced reader. Regex first-match is not
+ // equivalent to the source object's last-write-wins semantics and silently
+ // accepts interpolated metadata as an empty string. A dynamic value is a
+ // fail-closed source error, just as it is for the RSS and hub readers.
+ const readStaticField = (field: string): string => {
+ const value = lastStaticPropertyValue(b, field);
+ return typeof value === 'string' ? value : '';
  };
- const title = matchStr('title', 'm') || '';
- const desc = matchStr('description', 'm') || '';
- const keywords = matchStr('keywords', 'm') || '';
- const ogT = matchStr('ogTitle') || title;
- const ogD = matchStr('ogDescription') || desc;
- const cp = b.match(/canonicalPath:\s*'([^']+)'/)?.[1] ?? '';
+ const dynamicFields = [
+ 'title', 'description', 'keywords', 'ogTitle', 'ogDescription',
+ 'canonicalPath', 'datePublished', 'dateModified',
+ ];
+ if (dynamicFields.some((field) => hasInterpolatedStaticProperty(b, field))) {
+ continue;
+ }
+ const topLevelDescription = staticPropertyState(b, 'description');
+ const structuredDescription = readStructuredSeoDescriptionState(b);
+ const title = readStaticField('title');
+ const desc = topLevelDescription.value ?? structuredDescription.value ?? '';
+ const keywords = readStaticField('keywords');
+ const ogT = readStaticField('ogTitle') || title;
+ const ogD = readStaticField('ogDescription') || desc;
+ const cp = readStaticField('canonicalPath');
  const imRaw = b.match(/\/images\/[^'"`\s,}]+/)?.[0] ?? DEFAULT_IMG;
  const im = resolveImagePath(imRaw, articleId);
  // Measured here, next to the resolution that produced the path, so the
@@ -819,13 +832,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // date. Older entries may omit that literal even though the article registry
  // has one; use the registry as the fallback, and keep `''` when both sources
  // say the publication date is unknown.
- const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1]
+ const datePub = readStaticField('datePublished')
  || articlePublishedAtById[articleId]
  || '';
  // dateModified: prefer updatedAt from blog-articles-data.ts, then sitemap <lastmod>,
  // then the SEO metadata literal (if any). BUILD_DATE_ISO in seo-blog.ts is a variable
  // reference that the regex can't capture, so we need these external sources.
- const seoDateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
+ const seoDateMod = readStaticField('dateModified');
  const articleSlug = cp.replace(SECTION.canonicalPrefix, '').replace(/\/$/, '');
  // Issue #3368 item 1: a shadowed article's own slug was dropped from its
  // section's sitemap (SECTION.sitemap — sitemap-blog-ch.xml for svizzera,
@@ -838,26 +851,22 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  || (winnerSlug ? sitemapLastmodBySlug[winnerSlug] : '')
  || seoDateMod;
 
- // Extract source structuredData @type and author format
- const sdType = b.match(/"@type":\s*"([^"]+)"/)?.[1] ?? '';
- const sdAuthorHasId = /"author":\s*\{\s*"@id"/.test(b);
- // Capture the structuredData block for Event-specific fields
- const sdBlockMatch = b.match(/structuredData:\s*\{/);
- let sdBlock = '';
- if (sdBlockMatch && sdBlockMatch.index !== undefined) {
- // Find matching closing brace by counting braces
- let depth = 0;
- let started = false;
- const startIdx = sdBlockMatch.index + sdBlockMatch[0].length - 1; // position of opening {
- for (let ci = startIdx; ci < b.length; ci++) {
- if (b[ci] === '{') { depth++; started = true; }
- if (b[ci] === '}') { depth--; }
- if (started && depth === 0) {
- sdBlock = b.substring(startIdx, ci + 1);
- break;
- }
- }
- }
+ // Select the concrete JSON-LD object that owns an Event. The shared reader
+ // understands both `structuredData: { ... }` and `structuredData: [{ ... }]`
+ // and balances strings/templates, so braces in an Event name or description
+ // cannot truncate the source block.
+ const structuredBlocks = readStructuredSeoObjectBlocks(b) ?? [];
+ const eventBlock = [...structuredBlocks]
+ .reverse()
+ .find((candidate) => lastStaticPropertyValue(candidate, '@type') === 'Event');
+ const sdBlock = eventBlock ?? structuredBlocks.at(-1) ?? '';
+ const readStructuredField = (field: string): string => {
+ const value = lastStaticPropertyValue(sdBlock, field);
+ return typeof value === 'string' ? value : '';
+ };
+ const sdType = readStructuredField('@type');
+ const authorBlock = readStaticObjectProperty(sdBlock, 'author');
+ const sdAuthorHasId = Boolean(authorBlock && lastStaticPropertyValue(authorBlock, '@id'));
 
  if (cp.startsWith(SECTION.canonicalPrefix)) {
  const authorSlug = articleAuthorSlugById[articleId] || '';
@@ -1618,35 +1627,21 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Parse Event-specific fields from the source structuredData block
  const sd = en.sdBlock;
  const sdStr = (field: string): string => {
- // Handle escaped double quotes inside JSON strings (e.g. \"Corpi in prestito\")
- const rx = new RegExp(`"${field}":\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'm');
- const val = sd.match(rx)?.[1] ?? '';
- return val.replace(/\\"/g, '"').replace(/\\'/g, "'");
+ const value = lastStaticPropertyValue(sd, field);
+ return typeof value === 'string' ? value : '';
  };
  // Parse nested objects like location, organizer, offers, performer.
  // Source keys are already double-quoted (JSON-LD style), so we only need
  // to resolve `${BASE_URL}` template literals and strip trailing commas.
  const parseNestedObj = (field: string): Record<string, unknown> | null => {
- const rx = new RegExp(`"${field}":\\s*\\{`);
- const m = rx.exec(sd);
- if (!m || m.index === undefined) return null;
- let depth = 0;
- let started = false;
- const start = m.index + m[0].length - 1;
- for (let ci = start; ci < sd.length; ci++) {
- if (sd[ci] === '{') { depth++; started = true; }
- if (sd[ci] === '}') { depth--; }
- if (started && depth === 0) {
- const raw = sd.substring(start, ci + 1);
+ const raw = readStaticObjectProperty(sd, field);
+ if (!raw) return null;
  try {
  const jsonStr = raw
  .replace(/`\$\{BASE_URL\}([^`]*)`/g, `"${BASE_URL}$1"`)
  .replace(/,\s*([\]}])/g, '$1'); // strip trailing commas
  return JSON.parse(jsonStr);
  } catch { return null; }
- }
- }
- return null;
  };
 
  ldObj = {

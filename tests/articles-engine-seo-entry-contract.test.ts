@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import {
   hasInterpolatedStaticProperty,
+  readStaticObjectProperty,
   readStructuredSeoBlock,
   readStructuredSeoDescriptionState,
+  readStructuredSeoObjectBlocks,
   staticPropertyState,
 } from '../packages/articles/engine/shared/seo-entry.mjs';
 
@@ -83,5 +85,38 @@ describe('articles engine SEO-entry compatibility contract', () => {
 
     const dynamicHeadline = block.replace('headline: "News headline"', 'headline: `${headline}`');
     expect(hasInterpolatedStaticProperty(dynamicHeadline, 'headline')).toBe(true);
+  });
+
+  it('selects the Event object from a JSON-LD array and balances braces in strings', () => {
+    const block = String.raw`{
+      structuredData: [
+        { "@type": "BreadcrumbList", item: "home" },
+        {
+          "@type": "Event",
+          "name": "Open {Data} Day",
+          "location": { "@type": "Place", "name": "Hall {A}" },
+        },
+      ],
+    }`;
+
+    const objects = readStructuredSeoObjectBlocks(block);
+    expect(objects).toHaveLength(2);
+    expect(staticPropertyState(objects?.[1] ?? '', '@type')).toMatchObject({ value: 'Event' });
+    expect(readStaticObjectProperty(objects?.[1] ?? '', 'location')).toContain('Hall {A}');
+    expect(readStructuredSeoBlock(block)).toContain('Hall {A}');
+  });
+
+  it('keeps the final structuredData assignment last-write-wins', () => {
+    const block = String.raw`{
+      structuredData: { "@type": "Article", description: "old" },
+      structuredData: [{ "@type": "Event", description: "new" }],
+    }`;
+
+    expect(readStructuredSeoBlock(block)).toContain('"@type": "Event"');
+    expect(readStructuredSeoDescriptionState(block)).toMatchObject({
+      assigned: true,
+      dynamic: false,
+      value: 'new',
+    });
   });
 });
