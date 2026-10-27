@@ -74,4 +74,17 @@ describe('cost-of-living place schema', () => {
     expect(place?.['@id']).toBe(`${canonicalUrl}#place`);
     expect(schemas.some((schema) => schema['@type'] === 'LocalBusiness')).toBe(false);
   });
+
+  it.each(COL_CITY_IDS)('links each %s landing to its sibling city pages', (city) => {
+    const rendered = renderCostOfLivingPageForTest({
+      locale: 'it',
+      city,
+      dateStamp: '2026-10-05',
+      snapshot: EMPTY_SNAPSHOT,
+    });
+
+    for (const sibling of COL_CITY_IDS.filter((candidate) => candidate !== city)) {
+      expect(rendered.html).toContain(`href="${buildCostOfLivingLandingPath('it', sibling)}"`);
+    }
+  });
 });

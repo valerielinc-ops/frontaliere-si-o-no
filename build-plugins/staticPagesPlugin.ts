@@ -1383,10 +1383,12 @@ const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; l
 };
 
 // The 2026-10 crawl still found translated comparison, guide and tax leaves
-// with only the locale-root rail as an incoming edge. Keep these focused
-// clusters mutually connected so every leaf has multiple discovery paths;
-// the links are rendered only on the cluster members and therefore do not
-// inflate unrelated pages.
+// with only the locale-root rail as an incoming edge. The same crawl found
+// Italian utility, salary and cost-of-living leaves with only three incoming
+// links (including three newly reported pages). Keep these focused clusters
+// mutually connected so every leaf has multiple discovery paths; the links
+// are rendered only on the cluster members and therefore do not inflate
+// unrelated pages.
 const LOCALIZED_SINGLE_INBOUND_GROUPS: ReadonlyArray<ReadonlyArray<{ href: string; label: string }>> = [
   [
     { href: '/en/service-comparison/compare-banks/', label: 'Compare banks' },
@@ -1432,6 +1434,67 @@ const LOCALIZED_SINGLE_INBOUND_GROUPS: ReadonlyArray<ReadonlyArray<{ href: strin
     { href: '/fr/impots-et-retraite/calculer-pension/', label: 'Calculer la pension' },
     { href: '/fr/impots-et-retraite/declaration-revenus/', label: 'Guide de déclaration fiscale' },
     { href: '/fr/impots-et-retraite/echeances-fiscales/', label: 'Échéances fiscales' },
+  ],
+  // Italian utility and guide pages reported by the current SE Ranking crawl.
+  [
+    { href: '/tasse-e-pensione/quiz-fiscale/', label: 'Quiz fiscale per frontalieri' },
+    { href: '/giorni-festivi-ticino/', label: 'Giorni festivi Ticino e ponti' },
+    { href: '/salario-minimo/', label: 'Salario minimo in Svizzera' },
+  ],
+  [
+    { href: '/articoli-frontaliere/lamal-vs-cmi-frontaliere/', label: 'LAMal vs CMI per frontalieri' },
+    { href: '/compara-servizi/confronta-casse-malati/', label: 'Confronta LAMal e SSN' },
+  ],
+  [
+    { href: '/supporto/', label: 'Segnalazioni e feedback' },
+    { href: '/contattaci/', label: 'Contatti' },
+    { href: '/correzioni/', label: 'Correzioni pubbliche' },
+  ],
+  [
+    { href: '/cerca-lavoro-ticino/', label: 'Lavoro in Ticino' },
+    { href: '/cerca-lavoro-ticino/tutti/', label: 'Tutte le offerte in Ticino' },
+    { href: '/cerca-lavoro-ticino/settori/', label: 'Offerte per settore' },
+  ],
+  [
+    { href: '/vivere-in-ticino/vivere-in-italia/', label: 'Vivere in Italia da frontaliere' },
+    { href: '/vivere-in-ticino/aziende-svizzera-italiana/', label: 'Aziende della Svizzera italiana' },
+    { href: '/vivere-in-ticino/confronta-asili-nido/', label: 'Confronta gli asili nido' },
+    { href: '/vivere-in-ticino/attrazioni-svizzera-italiana/', label: 'Attrazioni della Svizzera italiana' },
+  ],
+  // Salary variants share the same decision intent. Grouping by gross salary
+  // keeps the related rail useful while giving every leaf several inbound
+  // paths instead of relying only on the calculator hub.
+  [
+    { href: '/calcola-stipendio/stipendio-netto-60000-chf/', label: 'Stipendio netto CHF 60.000' },
+    { href: '/calcola-stipendio/stipendio-netto-60000-chf-nuovo-frontaliere-2026/', label: 'CHF 60.000 — nuovo frontaliere' },
+    { href: '/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere/', label: 'CHF 60.000 — vecchio frontaliere' },
+    { href: '/calcola-stipendio/stipendio-netto-60000-chf-sposato-2-figli/', label: 'CHF 60.000 — sposato con 2 figli' },
+    { href: '/calcola-stipendio/stipendio-netto-60000-chf-residenza-entro-20km/', label: 'CHF 60.000 — residenza entro 20 km' },
+    { href: '/calcola-stipendio/stipendio-netto-60000-chf-residenza-oltre-20km/', label: 'CHF 60.000 — residenza oltre 20 km' },
+  ],
+  [
+    { href: '/calcola-stipendio/stipendio-netto-80000-chf/', label: 'Stipendio netto CHF 80.000' },
+    { href: '/calcola-stipendio/stipendio-netto-80000-chf-nuovo-frontaliere-2026/', label: 'CHF 80.000 — nuovo frontaliere' },
+    { href: '/calcola-stipendio/stipendio-netto-80000-chf-vecchio-frontaliere/', label: 'CHF 80.000 — vecchio frontaliere' },
+    { href: '/calcola-stipendio/stipendio-netto-80000-chf-sposato-2-figli/', label: 'CHF 80.000 — sposato con 2 figli' },
+    { href: '/calcola-stipendio/stipendio-netto-80000-chf-residenza-entro-20km/', label: 'CHF 80.000 — residenza entro 20 km' },
+    { href: '/calcola-stipendio/stipendio-netto-80000-chf-residenza-oltre-20km/', label: 'CHF 80.000 — residenza oltre 20 km' },
+  ],
+  [
+    { href: '/calcola-stipendio/stipendio-netto-100000-chf/', label: 'Stipendio netto CHF 100.000' },
+    { href: '/calcola-stipendio/stipendio-netto-100000-chf-nuovo-frontaliere-2026/', label: 'CHF 100.000 — nuovo frontaliere' },
+    { href: '/calcola-stipendio/stipendio-netto-100000-chf-vecchio-frontaliere/', label: 'CHF 100.000 — vecchio frontaliere' },
+    { href: '/calcola-stipendio/stipendio-netto-100000-chf-sposato-2-figli/', label: 'CHF 100.000 — sposato con 2 figli' },
+    { href: '/calcola-stipendio/stipendio-netto-100000-chf-residenza-entro-20km/', label: 'CHF 100.000 — residenza entro 20 km' },
+    { href: '/calcola-stipendio/stipendio-netto-100000-chf-residenza-oltre-20km/', label: 'CHF 100.000 — residenza oltre 20 km' },
+  ],
+  [
+    { href: '/calcola-stipendio/scenari/', label: 'Scenari stipendio frontaliere' },
+    { href: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km/', label: 'Confronto netto 2025–2026 entro 20 km' },
+    { href: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km/', label: 'Confronto netto 2025–2026 oltre 20 km' },
+    { href: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km/', label: 'Permesso G vs B entro 20 km' },
+    { href: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km/', label: 'Permesso G vs B oltre 20 km' },
+    { href: '/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri/', label: 'Lavoro stagionale vs annuale' },
   ],
 ];
 
