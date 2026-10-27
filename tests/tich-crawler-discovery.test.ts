@@ -18,7 +18,10 @@ vi.mock('../scripts/jobs-url-helper.mjs', () => ({
 }));
 
 const { buildTichFetchProxyHosts, fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs');
-const { buildTichTranslateUrl } = await import('../scripts/scrape-concorsi-ti.mjs');
+const {
+  buildTichTranslateUrl,
+  fetchTichOfficialListingViaTranslate,
+} = await import('../scripts/scrape-concorsi-ti.mjs');
 
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const RSS_URL = 'https://www.concorsi.ti.ch/rss_generator-rss0.php?unit=act&lang=it';
@@ -172,6 +175,39 @@ describe('Ticino official listing transport', () => {
       'https://www4-ti-ch.translate.goog/index.php?id=147427&_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
     );
     expect(buildTichTranslateUrl('https://www4.ti.ch/index.php?id=24469')).toBe('');
+  });
+
+  it('keeps the bounded Google Translate rescue alive beyond the direct-source timeout', async () => {
+    vi.useFakeTimers();
+    try {
+      const translateUrl = buildTichTranslateUrl(OFFICIAL_LISTING_URL);
+      let signal;
+      const fetchImpl = vi.fn((url: string, init: RequestInit) => {
+        expect(url).toBe(translateUrl);
+        signal = init.signal;
+        return new Promise<Response>((resolve, reject) => {
+          const timer = setTimeout(() => resolve(new Response(translatedOfficialListingHtml, { status: 200 })), 1_500);
+          init.signal?.addEventListener('abort', () => {
+            clearTimeout(timer);
+            reject(new Error('This operation was aborted'));
+          }, { once: true });
+        });
+      });
+
+      const pending = fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, {
+        fetchImpl,
+        timeoutMs: 1_000,
+        attempts: 1,
+        retryDelayMs: 0,
+      });
+
+      await vi.advanceTimersByTimeAsync(1_499);
+      expect(signal?.aborted).toBe(false);
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(pending).resolves.toContain('https://www.concorsi.ti.ch/offerte-d%27impieghi.html?yid=4059');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
 
