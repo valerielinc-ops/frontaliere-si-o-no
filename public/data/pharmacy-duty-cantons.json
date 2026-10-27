@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T06:05:25.484Z",
+  "generatedAt": "2026-10-27T09:57:37.659Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-27T06:04:35.864Z",
+      "fetchedAt": "2026-10-27T09:56:46.801Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
@@ -30,15 +30,6 @@
           "startsAt": "2026-10-24T06:00:00.000Z",
           "endsAt": "2026-10-31T07:00:00.000Z",
           "sourceUrl": "https://www.ofct.ch/luganese/"
-        },
-        {
-          "pharmacy": "Internazionale Dr. Merloni",
-          "city": "Chiasso",
-          "coverageName": "Mendrisiotto",
-          "dutyType": "day",
-          "startsAt": "2026-10-24T06:00:00.000Z",
-          "endsAt": "2026-10-27T07:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
         },
         {
           "pharmacy": "Stazione",
@@ -93,6 +84,15 @@
           "startsAt": "2026-10-31T07:00:00.000Z",
           "endsAt": "2026-11-03T07:00:00.000Z",
           "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "Internazionale La Rinascente",
+          "city": "Ligornetto",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-11-03T07:00:00.000Z",
+          "endsAt": "2026-11-07T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
         }
       ],
       "unresolvedDuties": 3
@@ -102,7 +102,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-27T06:05:24.170Z",
+      "fetchedAt": "2026-10-27T09:57:35.272Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -204,6 +204,15 @@
           "startsAt": "2026-11-02T23:00:00.000Z",
           "endsAt": "2026-11-03T23:00:00.000Z",
           "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "Pharmacie du Museum",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "day",
+          "startsAt": "2026-11-03T07:00:00.000Z",
+          "endsAt": "2026-11-03T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
         }
       ],
       "unresolvedDuties": 0
@@ -213,7 +222,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-27T06:05:25.484Z",
+      "fetchedAt": "2026-10-27T09:57:37.659Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -234,15 +243,6 @@
           "startsAt": "2026-10-24T06:00:00.000Z",
           "endsAt": "2026-10-31T07:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/Plan-de-garde-des-pharmacies-dAjoie-de-mars-2026-a-fevrier-2027.pdf?download=1"
-        },
-        {
-          "pharmacy": "Centre Coop",
-          "city": "Moutier",
-          "coverageName": "Moutier",
-          "dutyType": "night",
-          "startsAt": "2026-10-26T17:30:00.000Z",
-          "endsAt": "2026-10-27T07:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         },
         {
           "pharmacy": "Centre Coop",
@@ -351,7 +351,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-27T06:05:25.484Z",
+      "fetchedAt": "2026-10-27T09:57:37.659Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -435,7 +435,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-27T06:05:25.484Z",
+      "fetchedAt": "2026-10-27T09:57:37.659Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -519,7 +519,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-27T06:05:25.484Z",
+      "fetchedAt": "2026-10-27T09:57:37.659Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [
