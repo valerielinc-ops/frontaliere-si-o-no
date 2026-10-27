@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-10-27T09:13:41.858Z",
-  "runId": "40477760139",
+  "assembledAt": "2026-10-27T21:14:53.856Z",
+  "runId": "40583476531",
   "jobs": [
     {
       "id": "spital-zollikerberg-0c62c58e6024",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=1d28cb71-8fa4-4ef0-85db-3a961d13bc72,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:13:34.591Z",
+      "crawledAt": "2026-10-27T21:14:48.123Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3af15ddf-12dd-4228-8073-75630d95abc0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:13:34.590Z",
+      "crawledAt": "2026-10-27T21:14:48.122Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=d90cebd1-1125-4662-8ec2-4f4363f7c2d8,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:13:34.588Z",
+      "crawledAt": "2026-10-27T21:14:48.120Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=2c0a6813-d8ca-4173-9b61-4389d83da0a1,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:13:34.586Z",
+      "crawledAt": "2026-10-27T21:14:48.118Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=9f43c751-f835-495d-a3fa-f17679074be0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:13:34.582Z",
+      "crawledAt": "2026-10-27T21:14:48.117Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -432,7 +432,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=741af4c1-5735-47bb-99bd-56d3ec0d0e5a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:13:34.579Z",
+      "crawledAt": "2026-10-27T21:14:48.115Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -479,80 +479,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-zollikerberg-fe590a7c2c4c",
-      "slug": "medicina-interna-professionale-salute-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "it": "medicina-interna-professionale-salute-spital-zollikerberg-zollikerberg",
-        "en": "professional-health-station-internal-medicine-spital-zollikerberg-zollikerberg",
-        "de": "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg",
-        "fr": "professional-health-station-medecine-interne-spital-zollikerberg-zollikerberg"
-      },
-      "company": "Spital Zollikerberg",
-      "companyKey": "spital-zollikerberg",
-      "companyDomain": "spitalzollikerberg.ch",
-      "title": "Fachfrau / Fachmann Gesundheit Station Innere Medizin",
-      "titleByLocale": {
-        "it": "Medicina interna professionale / salute",
-        "en": "Professional / Health Station Internal Medicine",
-        "de": "Fachfrau / Fachmann Gesundheit Station Innere Medizin",
-        "fr": "Professional / Health Station Médecine interne"
-      },
-      "description": "Fachfrau / Fachmann Gesundheit Station Innere Medizin — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-      "descriptionByLocale": {
-        "de": "Fachfrau / Fachmann Gesundheit Station Innere Medizin — Spital Zollikerberg, Zollikerberg (ZH).\n\nBereich: Pflegeberufe.\n\nDas Spital Zollikerberg ist ein Akutspital mit ca. 1'100 Mitarbeitenden im Zürcher Oberland (Standort Zollikerberg). Es gehört zur Gesundheitswelt Zollikerberg und betreibt eine ausgezeichnete Geburtenstation, Innere Medizin, Chirurgie sowie Spezialambulatorien.\n\nVollständige Stellenbeschreibung und Bewerbung über die externe Bewerber-Plattform.",
-        "it": "Specialist Health Station Medicina Interna – Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Infermieristica professioni.\n\nSpital Zollikerberg è un ospedale acuto con circa 1'100 dipendenti nell'Oberland di Zurigo. Appartiene al mondo della salute Zollikerberg e gestisce un eccellente reparto di maternità, medicina interna, chirurgia e ambulatoria speciale.\n\nDescrizione e applicazione del lavoro completa tramite la piattaforma esterna richiedente.",
-        "en": "Specialist Health Station Internal Medicine – Spital Zollikerberg, Zollikerberg (ZH).\n\nArea: Nursing professions.\n\nSpital Zollikerberg is an acute care hospital with about 1'100 employees in the Zurich Oberland ( Zollikerberg location). It belongs to the health world Zollikerberg and operates an excellent maternity ward, internal medicine, surgery and special ambulatories.\n\nFull job description and application via the external applicant platform.",
-        "fr": "Station de santé spécialisée Médecine interne – Spital Zollikerberg, Zollikerberg (ZH).\n\nDomaine: professions infirmières.\n\nSpital Zollikerberg est un hôpital de soins actifs avec environ 1'100 employés dans l'Oberland de Zurich (lieu de Zollikerberg). Il appartient au monde de la santé Zollikerberg et exploite un excellent service de maternité, de médecine interne, de chirurgie et d'ambulatoires spéciales.\n\nDescription de travail complète et demande via la plateforme externe des candidats."
-      },
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=4f3ff37d-c788-464e-a46f-dfd28e789d2c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:11:40.594Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=4f3ff37d-c788-464e-a46f-dfd28e789d2c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-station-innere-medizin-spital-zollikerberg-zollikerberg"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
