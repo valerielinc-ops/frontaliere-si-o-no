@@ -1554,12 +1554,12 @@
     },
     {
       "id": "csem-ff2e2e7cfe9f",
-      "slug": "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch",
+      "slug": "tirocinante-mpc-3-1-contabilita-m-f-d-csem-landquart-neuchatel",
       "slugByLocale": {
         "fr": "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch",
-        "it": "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch",
-        "en": "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch",
-        "de": "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch"
+        "it": "tirocinante-mpc-3-1-contabilita-m-f-d-csem-landquart-neuchatel",
+        "en": "internship-mpc-3-1-accounting-m-f-d-csem-landquart-neuchatel",
+        "de": "praktikum-mpc-3-1-buchhaltung-m-w-d-csem-landquart-neuchatel"
       },
       "company": "CSEM Landquart",
       "companyKey": "csem",
@@ -1617,7 +1617,21 @@
         }
       },
       "postalCode": "2000",
-      "firstSeenAt": "2026-10-27T09:57:07.352Z"
+      "firstSeenAt": "2026-10-27T09:57:07.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch"
+        ],
+        "en": [
+          "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch"
+        ],
+        "de": [
+          "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpc-3-1-comptabilite-f-h-d-neuchatel-csem-ch"
+      ]
     }
   ]
 }

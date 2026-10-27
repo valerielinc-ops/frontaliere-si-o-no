@@ -11879,12 +11879,12 @@
     },
     {
       "id": "raiffeisen-fd282c919766",
-      "slug": "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms",
+      "slug": "consulente-clienti-m-f-d-raiffeisen-region-aletsch-goms",
       "slugByLocale": {
         "de": "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms",
-        "it": "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms",
-        "en": "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms",
-        "fr": "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms"
+        "it": "consulente-clienti-m-f-d-raiffeisen-region-aletsch-goms",
+        "en": "client-advisor-m-f-d-raiffeisen-region-aletsch-goms",
+        "fr": "conseiller-ere-a-la-clientele-h-f-d-raiffeisen-region-aletsch-goms"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11942,16 +11942,30 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms"
+        ],
+        "en": [
+          "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms"
+        ],
+        "fr": [
+          "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-m-w-d-raiffeisen-region-aletsch-goms"
+      ]
     },
     {
       "id": "raiffeisen-a4ba13b887e2",
-      "slug": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
+      "slug": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-muttenz",
       "slugByLocale": {
         "de": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
-        "it": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
-        "en": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz",
-        "fr": "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        "it": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-muttenz",
+        "en": "private-client-advisor-individual-m-f-d-raiffeisen-muttenz",
+        "fr": "conseiller-client-prive-individuel-h-f-d-raiffeisen-muttenz"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12010,16 +12024,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:31:23.919Z"
+      "firstSeenAt": "2026-10-27T09:31:23.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        ],
+        "en": [
+          "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        ],
+        "fr": [
+          "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-individual-m-w-d-raiffeisen-muttenz"
+      ]
     },
     {
       "id": "raiffeisen-914688dff6b6",
-      "slug": "firmenkundenberater-w-m-d-raiffeisen-murten",
+      "slug": "consulente-clienti-aziendale-m-f-d-raiffeisen-murten",
       "slugByLocale": {
         "de": "firmenkundenberater-w-m-d-raiffeisen-murten",
-        "it": "firmenkundenberater-w-m-d-raiffeisen-murten",
-        "en": "firmenkundenberater-w-m-d-raiffeisen-murten",
-        "fr": "firmenkundenberater-w-m-d-raiffeisen-murten"
+        "it": "consulente-clienti-aziendale-m-f-d-raiffeisen-murten",
+        "en": "corporate-client-advisor-m-f-d-raiffeisen-murten",
+        "fr": "conseiller-client-d-entreprise-h-f-d-raiffeisen-murten"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12078,7 +12106,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:31:23.915Z"
+      "firstSeenAt": "2026-10-27T09:31:23.915Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-w-m-d-raiffeisen-murten"
+        ],
+        "en": [
+          "firmenkundenberater-w-m-d-raiffeisen-murten"
+        ],
+        "fr": [
+          "firmenkundenberater-w-m-d-raiffeisen-murten"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-w-m-d-raiffeisen-murten"
+      ]
     }
   ]
 }

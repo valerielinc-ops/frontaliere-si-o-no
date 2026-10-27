@@ -1800,7 +1800,7 @@
         "it": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
         "en": "a-a-specialist-in-research-and-analysis-of-audience-data-srg-ssr-lugano",
         "de": "a-ein-spezialist-fur-forschung-und-analyse-von-publikumsdaten-srg-ssr-lugano",
-        "fr": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano"
+        "fr": "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -1858,14 +1858,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-10-22T09:14:31.160Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
-      ],
       "salaryMin": 50500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -3030,12 +3022,12 @@
     },
     {
       "id": "srg-ssr-a6a565dcc6a4",
-      "slug": "fachspezialist-in-weiterbildung-srg-ssr-bern",
+      "slug": "specialista-in-formazione-continua-srg-ssr-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-weiterbildung-srg-ssr-bern",
-        "it": "fachspezialist-in-weiterbildung-srg-ssr-bern",
-        "en": "fachspezialist-in-weiterbildung-srg-ssr-bern",
-        "fr": "fachspezialist-in-weiterbildung-srg-ssr-bern"
+        "it": "specialista-in-formazione-continua-srg-ssr-bern",
+        "en": "continuing-education-specialist-srg-ssr-bern",
+        "fr": "specialiste-en-formation-continue-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3114,16 +3106,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-27T09:36:31.257Z"
+      "firstSeenAt": "2026-10-27T09:36:31.257Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-weiterbildung-srg-ssr-bern"
+        ],
+        "en": [
+          "fachspezialist-in-weiterbildung-srg-ssr-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-weiterbildung-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-weiterbildung-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-cb4584fe181c",
-      "slug": "product-manager-in-accessibility-services-srg-ssr-zurich",
+      "slug": "servizi-di-accessibilita-per-il-product-manager-srg-ssr-zurich",
       "slugByLocale": {
         "de": "product-manager-in-accessibility-services-srg-ssr-zurich",
-        "it": "product-manager-in-accessibility-services-srg-ssr-zurich",
+        "it": "servizi-di-accessibilita-per-il-product-manager-srg-ssr-zurich",
         "en": "product-manager-in-accessibility-services-srg-ssr-zurich",
-        "fr": "product-manager-in-accessibility-services-srg-ssr-zurich"
+        "fr": "gestionnaire-de-produit-services-d-accessibilite-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3210,16 +3216,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-27T09:36:30.569Z"
+      "firstSeenAt": "2026-10-27T09:36:30.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-in-accessibility-services-srg-ssr-zurich"
+        ],
+        "fr": [
+          "product-manager-in-accessibility-services-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-in-accessibility-services-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-01df8e3695d9",
-      "slug": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
+      "slug": "product-manager-nei-servizi-di-accessibilita-srg-ssr-zurich",
       "slugByLocale": {
         "fr": "product-manager-in-accessibility-services-srg-ssr-zurich-t2urg6",
-        "it": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
+        "it": "product-manager-nei-servizi-di-accessibilita-srg-ssr-zurich",
         "en": "product-manager-in-accessibility-services-srg-ssr-zurich-2",
-        "de": "product-manager-in-accessibility-services-srg-ssr-zurich-2"
+        "de": "produktmanager-in-accessibility-services-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3309,14 +3326,19 @@
       "firstSeenAt": "2026-10-27T09:36:29.938Z",
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-in-accessibility-services-srg-ssr-zurich"
+          "product-manager-in-accessibility-services-srg-ssr-zurich",
+          "product-manager-in-accessibility-services-srg-ssr-zurich-2"
         ],
         "fr": [
           "product-manager-in-accessibility-services-srg-ssr-zurich"
+        ],
+        "de": [
+          "product-manager-in-accessibility-services-srg-ssr-zurich-2"
         ]
       },
       "previousSlugs": [
-        "product-manager-in-accessibility-services-srg-ssr-zurich"
+        "product-manager-in-accessibility-services-srg-ssr-zurich",
+        "product-manager-in-accessibility-services-srg-ssr-zurich-2"
       ]
     }
   ]

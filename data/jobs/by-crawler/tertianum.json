@@ -23307,8 +23307,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-mann-fur-die-geriatrische-rehabilitation-ohne-nachtdienst-tertianum",
         "it": "pflegefachfrau-mann-per-la-geriatrische-rehabilitation-ohne-nachtdienst-tertianum-berlingen",
-        "en": "pflegefachfrau-mann-fur-die-geriatrische-rehabilitation-ohne-nachtdienst-tertianum",
-        "fr": "pflegefachfrau-mann-fur-die-geriatrische-rehabilitation-ohne-nachtdienst-tertianum"
+        "en": "nursing-specialist-for-geriatric-rehabilitation-without-night-shift-tertianum-berlingen",
+        "fr": "infirmiere-infirmier-en-reeducation-geriatrique-sans-service-de-nuit-tertianum-berlingen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -23356,6 +23356,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-fur-die-geriatrische-rehabilitation-ohne-nachtdienst-tertianum"
+        ],
+        "en": [
+          "pflegefachfrau-mann-fur-die-geriatrische-rehabilitation-ohne-nachtdienst-tertianum"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-fur-die-geriatrische-rehabilitation-ohne-nachtdienst-tertianum"
         ]
       },
       "previousSlugs": [
@@ -23378,12 +23384,12 @@
     },
     {
       "id": "tertianum-4c2a9a02092d",
-      "slug": "agent-agente-d-exploitation-technique-a-100-tertianum-montreux",
+      "slug": "responsabile-operativo-tecnico-al-100-tertianum-montreux",
       "slugByLocale": {
         "fr": "agent-agente-d-exploitation-technique-a-100-tertianum-montreux",
-        "it": "agent-agente-d-exploitation-technique-a-100-tertianum-montreux",
-        "en": "agent-agente-d-exploitation-technique-a-100-tertianum-montreux",
-        "de": "agent-agente-d-exploitation-technique-a-100-tertianum-montreux"
+        "it": "responsabile-operativo-tecnico-al-100-tertianum-montreux",
+        "en": "100-operating-technical-officer-tertianum-montreux",
+        "de": "100-betriebsleiter-technischer-offizier-tertianum-montreux"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -23441,15 +23447,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:37:22.125Z"
+      "firstSeenAt": "2026-10-27T09:37:22.125Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-agente-d-exploitation-technique-a-100-tertianum-montreux"
+        ],
+        "en": [
+          "agent-agente-d-exploitation-technique-a-100-tertianum-montreux"
+        ],
+        "de": [
+          "agent-agente-d-exploitation-technique-a-100-tertianum-montreux"
+        ]
+      },
+      "previousSlugs": [
+        "agent-agente-d-exploitation-technique-a-100-tertianum-montreux"
+      ]
     },
     {
       "id": "tertianum-0d7ed354985b",
-      "slug": "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont",
+      "slug": "assistente-sanitario-della-comunita-assc-tertianum-delemont",
       "slugByLocale": {
         "fr": "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont",
-        "it": "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont",
-        "en": "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont",
+        "it": "assistente-sanitario-della-comunita-assc-tertianum-delemont",
+        "en": "assistant-community-health-care-assistant-assc-tertianum-delemont",
         "de": "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont"
       },
       "company": "Tertianum",
@@ -23508,7 +23528,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:37:19.127Z"
+      "firstSeenAt": "2026-10-27T09:37:19.127Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont"
+        ],
+        "en": [
+          "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-assistant-en-soins-et-sante-communautaire-assc-tertianum-delemont"
+      ]
     },
     {
       "id": "tertianum-43deb662de76",
@@ -23516,8 +23547,8 @@
       "slugByLocale": {
         "de": "leiter-in-pflege-und-betreuung-tertianum-winterthur",
         "it": "responsabile-pflege-e-betreuung-tertianum-winterthur",
-        "en": "leiter-in-pflege-und-betreuung-tertianum-winterthur",
-        "fr": "leiter-in-pflege-und-betreuung-tertianum-winterthur"
+        "en": "head-of-nursing-and-care-tertianum-winterthur",
+        "fr": "responsable-des-soins-et-de-l-encadrement-tertianum-winterthur"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -23565,6 +23596,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-pflege-und-betreuung-tertianum-winterthur"
+        ],
+        "en": [
+          "leiter-in-pflege-und-betreuung-tertianum-winterthur"
+        ],
+        "fr": [
+          "leiter-in-pflege-und-betreuung-tertianum-winterthur"
         ]
       },
       "previousSlugs": [
@@ -23587,10 +23624,10 @@
     },
     {
       "id": "tertianum-8b8affa61391",
-      "slug": "kochin-koch-efz-80-tertianum-zizers",
+      "slug": "cuoco-a-afc-80-tertianum-zizers",
       "slugByLocale": {
         "de": "kochin-koch-efz-80-tertianum-zizers",
-        "it": "kochin-koch-efz-80-tertianum-zizers",
+        "it": "cuoco-a-afc-80-tertianum-zizers",
         "en": "kochin-koch-efz-80-tertianum-zizers",
         "fr": "kochin-koch-efz-80-tertianum-zizers"
       },
@@ -23650,7 +23687,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:35:20.332Z"
+      "firstSeenAt": "2026-10-27T09:35:20.332Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-efz-80-tertianum-zizers"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-efz-80-tertianum-zizers"
+      ]
     }
   ]
 }

@@ -6438,12 +6438,12 @@
     },
     {
       "id": "epfl-855953805dc5",
-      "slug": "scientific-program-officer-nccr-separations-80-100-epfl-sion",
+      "slug": "responsabile-del-programma-scientifico-separazioni-nccr-80-100-epfl-sion",
       "slugByLocale": {
         "en": "scientific-program-officer-nccr-separations-80-100-epfl-sion",
-        "it": "scientific-program-officer-nccr-separations-80-100-epfl-sion",
+        "it": "responsabile-del-programma-scientifico-separazioni-nccr-80-100-epfl-sion",
         "de": "scientific-program-officer-nccr-separations-80-100-epfl-sion",
-        "fr": "scientific-program-officer-nccr-separations-80-100-epfl-sion"
+        "fr": "agent-de-programme-scientifique-separations-du-ccnr-80-100-epfl-sion"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6504,7 +6504,18 @@
       },
       "postalCode": "1950",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-27T09:28:23.245Z"
+      "firstSeenAt": "2026-10-27T09:28:23.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientific-program-officer-nccr-separations-80-100-epfl-sion"
+        ],
+        "fr": [
+          "scientific-program-officer-nccr-separations-80-100-epfl-sion"
+        ]
+      },
+      "previousSlugs": [
+        "scientific-program-officer-nccr-separations-80-100-epfl-sion"
+      ]
     }
   ]
 }

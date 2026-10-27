@@ -1474,12 +1474,12 @@
     },
     {
       "id": "epi-stiftung-a293d5f60f80",
-      "slug": "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich",
+      "slug": "alloggi-esperti-per-agonici-possibile-condivisione-del-lavoro-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich",
-        "it": "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich",
-        "en": "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich",
-        "fr": "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich"
+        "it": "alloggi-esperti-per-agonici-possibile-condivisione-del-lavoro-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "agogics-expert-housing-job-sharing-possible-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "agogikexpert-en-logement-job-sharing-possible-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1539,7 +1539,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:37:07.807Z"
+      "firstSeenAt": "2026-10-27T09:37:07.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich"
+        ],
+        "en": [
+          "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "agogikexpert-in-wohnen-jobsharing-moglich-epi-stiftung-zurich"
+      ]
     }
   ]
 }

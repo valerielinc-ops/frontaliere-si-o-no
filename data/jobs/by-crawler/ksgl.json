@@ -1512,8 +1512,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-kuche-ksgl-glarus",
         "it": "collaboratore-trice-in-kuche-kantonsspital-glarus-ksgl-glarus",
-        "en": "mitarbeiter-in-kuche-ksgl-glarus",
-        "fr": "mitarbeiter-in-kuche-ksgl-glarus"
+        "en": "kitchen-staff-kantonsspital-glarus-ksgl-glarus",
+        "fr": "employe-e-de-cuisine-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1560,6 +1560,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kuche-ksgl-glarus"
+        ],
+        "en": [
+          "mitarbeiter-in-kuche-ksgl-glarus"
+        ],
+        "fr": [
           "mitarbeiter-in-kuche-ksgl-glarus"
         ]
       },

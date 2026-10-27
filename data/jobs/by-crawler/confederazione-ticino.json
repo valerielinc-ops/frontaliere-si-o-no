@@ -501,7 +501,7 @@
       "slugByLocale": {
         "en": "devsecops-ict-ingenieur-in-professional-swiss-armed-forces-vtg-payerne-nfvfm2",
         "de": "devsecops-ict-ingenieur-in-professional-swiss-armed-forces-vtg-payerne-nfvfm2",
-        "fr": "devsecops-ict-ingenieur-in-professional-swiss-armed-forces-vtg-payerne-nfvfm2",
+        "fr": "devsecops-ingenieur-tic-professionnel-confederazione-svizzera-payerne-und-meiringen",
         "it": "devsecops-ict-ingenieur-in-professional-swiss-armed-forces-vtg-payerne-nfvfm2"
       },
       "id": "confederazione-ticino-bf2f804cb615",
@@ -516,7 +516,8 @@
         ],
         "fr": [
           "devsecops-ict-ingenieur-in-professional-confederazione-payerne-und-meiringen",
-          "ingenieur-e-ict-devsecops-professionnel-le-confederazione-svizzera-payerne-und-meiringen"
+          "ingenieur-e-ict-devsecops-professionnel-le-confederazione-svizzera-payerne-und-meiringen",
+          "devsecops-ict-ingenieur-in-professional-swiss-armed-forces-vtg-payerne-nfvfm2"
         ],
         "de": [
           "devsecops-ict-ingenieur-in-professional-confederazione-payerne-und-meiringen"
@@ -526,7 +527,8 @@
         "devsecops-ict-ingenieur-in-professional-confederazione-svizzera-payerne-und-meiringen",
         "devsecops-ict-ingenieur-in-professional-confederazione-payerne-und-meiringen",
         "devsecops-ict-engineer-professional-confederazione-svizzera-payerne-und-meiringen",
-        "ingenieur-e-ict-devsecops-professionnel-le-confederazione-svizzera-payerne-und-meiringen"
+        "ingenieur-e-ict-devsecops-professionnel-le-confederazione-svizzera-payerne-und-meiringen",
+        "devsecops-ict-ingenieur-in-professional-swiss-armed-forces-vtg-payerne-nfvfm2"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -16998,7 +17000,7 @@
     },
     {
       "title": "Hochschulpraktikant/-in Internationale Rechtshilfe",
-      "slug": "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern",
+      "slug": "tirocinante-universitario-a-assistenza-giudiziaria-internazionale-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-internationale-rechtshilfe/fd3e32d2-f5bd-4ef1-88df-78b2d1258079",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20761",
       "company": "Confederazione Svizzera",
@@ -17035,9 +17037,9 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern",
-        "it": "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern",
-        "en": "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern",
-        "fr": "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern"
+        "it": "tirocinante-universitario-a-assistenza-giudiziaria-internazionale-confederazione-svizzera-bern",
+        "en": "university-intern-international-legal-assistance-confederazione-svizzera-bern",
+        "fr": "stagiaire-universitaire-entraide-judiciaire-internationale-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-0cc49037be5d",
       "salaryMin": 68500,
@@ -17055,7 +17057,21 @@
         }
       },
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-27T10:01:06.786Z"
+      "firstSeenAt": "2026-10-27T10:01:06.786Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern"
+        ],
+        "en": [
+          "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-internationale-rechtshilfe-confederazione-bern"
+      ]
     }
   ]
 }

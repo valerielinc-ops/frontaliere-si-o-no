@@ -911,8 +911,8 @@
       "slugByLocale": {
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
         "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        "en": "ticket-inspector-and-customer-service-postauto-ag-interlaken",
+        "fr": "controleur-de-billets-et-conseil-client-postauto-ag-interlaken"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -964,6 +964,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        ],
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
         ]
       },
       "previousSlugs": [
@@ -986,12 +992,12 @@
     },
     {
       "id": "postauto-dadd8e65828c",
-      "slug": "postauto-fahrer-in-postauto-thusis",
+      "slug": "conducente-di-autopostale-a-postauto-ag-thusis",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-thusis",
-        "it": "postauto-fahrer-in-postauto-thusis",
-        "en": "postauto-fahrer-in-postauto-thusis",
-        "fr": "postauto-fahrer-in-postauto-thusis"
+        "it": "conducente-di-autopostale-a-postauto-ag-thusis",
+        "en": "postcar-driver-postauto-ag-thusis",
+        "fr": "conducteur-conductrice-carpostal-postauto-ag-thusis"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1053,16 +1059,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:58:03.439Z"
+      "firstSeenAt": "2026-10-27T09:58:03.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-thusis"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-thusis"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-thusis"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-thusis"
+      ]
     },
     {
       "id": "postauto-e96c5afd4743",
-      "slug": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+      "slug": "specialista-in-materia-di-sicurezza-nei-trasporti-pubblici-postauto-ag-wallisellen",
       "slugByLocale": {
         "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "it": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "en": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-        "fr": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        "it": "specialista-in-materia-di-sicurezza-nei-trasporti-pubblici-postauto-ag-wallisellen",
+        "en": "public-transport-security-specialist-postauto-ag-wallisellen",
+        "fr": "specialiste-securite-transports-publics-postauto-ag-wallisellen"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1124,7 +1144,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:58:02.143Z"
+      "firstSeenAt": "2026-10-27T09:58:02.143Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        ],
+        "en": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        ],
+        "fr": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
+      ]
     },
     {
       "id": "postauto-884df118ff4e",

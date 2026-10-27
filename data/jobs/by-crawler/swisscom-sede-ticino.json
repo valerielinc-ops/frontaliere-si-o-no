@@ -3307,9 +3307,9 @@
         "de": "Cisco Network Ingenieur",
         "fr": "Cisco Network Ingénieur"
       },
-      "slug": "cisco-network-engineer-swisscom-zurich-ro62c1",
+      "slug": "cisco-network-ingegnere-swisscom-zurich",
       "slugByLocale": {
-        "it": "cisco-network-engineer-swisscom-zurich-ro62c1",
+        "it": "cisco-network-ingegnere-swisscom-zurich",
         "en": "cisco-network-engineer-swisscom-zurich-ro62c1",
         "de": "cisco-network-engineer-swisscom-zurich-ro62c1",
         "fr": "cisco-network-engineer-swisscom-zurich-ro62c1"
@@ -3346,7 +3346,15 @@
       },
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-27T09:56:32.141Z"
+      "firstSeenAt": "2026-10-27T09:56:32.141Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cisco-network-engineer-swisscom-zurich-ro62c1"
+        ]
+      },
+      "previousSlugs": [
+        "cisco-network-engineer-swisscom-zurich-ro62c1"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Vevey/Technicien-IT-Support_R-0006778",
@@ -3375,11 +3383,11 @@
         "fr": "Technicien IT Support",
         "de": "IT Techniker Support"
       },
-      "slug": "technicien-it-support-swisscom-vevey-drxc51",
+      "slug": "supporto-tecnico-it-swisscom-vevey",
       "slugByLocale": {
-        "it": "technicien-it-support-swisscom-vevey-drxc51",
-        "en": "technicien-it-support-swisscom-vevey-drxc51",
-        "de": "technicien-it-support-swisscom-vevey-drxc51",
+        "it": "supporto-tecnico-it-swisscom-vevey",
+        "en": "it-technician-support-swisscom-vevey",
+        "de": "it-techniker-support-swisscom-vevey",
         "fr": "technicien-it-support-swisscom-vevey-drxc51"
       },
       "category": "technology",
@@ -3414,7 +3422,21 @@
       },
       "addressRegion": "VD",
       "postalCode": "1800",
-      "firstSeenAt": "2026-10-27T09:56:31.454Z"
+      "firstSeenAt": "2026-10-27T09:56:31.454Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-it-support-swisscom-vevey-drxc51"
+        ],
+        "en": [
+          "technicien-it-support-swisscom-vevey-drxc51"
+        ],
+        "de": [
+          "technicien-it-support-swisscom-vevey-drxc51"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-it-support-swisscom-vevey-drxc51"
+      ]
     }
   ]
 }

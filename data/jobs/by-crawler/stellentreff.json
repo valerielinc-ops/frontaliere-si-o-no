@@ -68690,12 +68690,12 @@
     },
     {
       "id": "stellentreff-7ff545243456",
-      "slug": "gartner-in-garten-e-landschaftsbau-per-gartenpflege-stellentreff-ag-meilen",
+      "slug": "giardiniere-a-giardinaggio-e-paesaggistica-per-la-cura-del-giardino-stellentreff-ag-meilen-zurich",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch",
-        "it": "gartner-in-garten-e-landschaftsbau-per-gartenpflege-stellentreff-ag-meilen",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch"
+        "it": "giardiniere-a-giardinaggio-e-paesaggistica-per-la-cura-del-giardino-stellentreff-ag-meilen-zurich",
+        "en": "gardener-gardening-and-landscaping-for-garden-care-stellentreff-ag-meilen-zurich",
+        "fr": "jardinier-ere-jardinage-et-amenagement-paysager-pour-l-entretien-du-jardin-stellentreff-ag-meilen-zurich"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -68741,11 +68741,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch",
+          "gartner-in-garten-e-landschaftsbau-per-gartenpflege-stellentreff-ag-meilen"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch"
+        "gartner-in-garten-und-landschaftsbau-fur-gartenpflege-meilen-zurich-stellentreff-ch",
+        "gartner-in-garten-e-landschaftsbau-per-gartenpflege-stellentreff-ag-meilen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -68762,16 +68770,16 @@
       },
       "postalCode": "8706",
       "firstSeenAt": "2026-10-27T09:39:24.679Z",
-      "translationHoldSince": "2026-10-27T09:39:41.411Z"
+      "translationHoldReleasedAt": "2026-10-27T16:35:00.328Z"
     },
     {
       "id": "stellentreff-7f574014ea34",
-      "slug": "metallbauer-in-per-aluminium-e-stahlkonstruktionen-stellentreff-ag-zofingen",
+      "slug": "carpentiere-a-metalmeccanico-a-per-strutture-in-alluminio-e-acciaio-stellentreff-ag-zofingen-aargau",
       "slugByLocale": {
         "de": "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch",
-        "it": "metallbauer-in-per-aluminium-e-stahlkonstruktionen-stellentreff-ag-zofingen",
-        "en": "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch",
-        "fr": "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch"
+        "it": "carpentiere-a-metalmeccanico-a-per-strutture-in-alluminio-e-acciaio-stellentreff-ag-zofingen-aargau",
+        "en": "metalworker-for-aluminium-and-steel-structures-stellentreff-ag-zofingen-aargau",
+        "fr": "constructeur-constructrice-de-metal-pour-constructions-en-aluminium-et-en-acier-stellentreff-ag-zofingen-aargau"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -68817,11 +68825,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch",
+          "metallbauer-in-per-aluminium-e-stahlkonstruktionen-stellentreff-ag-zofingen"
+        ],
+        "en": [
+          "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch"
+        ],
+        "fr": [
           "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch"
+        "metallbauer-in-fur-aluminium-und-stahlkonstruktionen-zofingen-aargau-stellentreff-ch",
+        "metallbauer-in-per-aluminium-e-stahlkonstruktionen-stellentreff-ag-zofingen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -68838,7 +68854,7 @@
       },
       "postalCode": "4800",
       "firstSeenAt": "2026-10-27T09:39:24.629Z",
-      "translationHoldSince": "2026-10-27T09:39:41.411Z"
+      "translationHoldReleasedAt": "2026-10-27T16:35:00.328Z"
     }
   ]
 }

@@ -3484,11 +3484,11 @@
       },
       "slugByLocale": {
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "fr": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-beromunster",
+        "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-beromunster",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-beromunster"
       },
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "slug": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-beromunster",
       "category": "medical",
       "datePosted": "2026-10-26T14:20:08.010Z",
       "postedDate": "2026-10-26T14:20:08.010Z",
@@ -3516,7 +3516,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        ],
+        "en": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        ],
+        "fr": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+      ]
     }
   ]
 }

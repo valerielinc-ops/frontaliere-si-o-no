@@ -159,12 +159,12 @@
     },
     {
       "id": "pigna-4c32c1586ed4",
-      "slug": "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten",
+      "slug": "infermiere-a-diplomato-a-per-il-nostro-servizio-specializzato-salute-60-100-stiftung-pigna-kloten",
       "slugByLocale": {
         "de": "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten",
-        "it": "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten",
-        "en": "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten",
-        "fr": "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten"
+        "it": "infermiere-a-diplomato-a-per-il-nostro-servizio-specializzato-salute-60-100-stiftung-pigna-kloten",
+        "en": "dipl-caregiver-for-our-health-care-unit-60-100-stiftung-pigna-kloten",
+        "fr": "dipl-soins-pour-notre-unite-de-soins-de-sante-60-100-stiftung-pigna-kloten"
       },
       "company": "Stiftung Pigna",
       "companyKey": "pigna",
@@ -211,11 +211,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten",
+          "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten"
+        ],
+        "en": [
+          "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten"
+        ],
+        "fr": [
           "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten"
+        "dipl-pflegfachperson-fur-unsere-fachstelle-gesundheit-60-100-pigna-kloten",
+        "dipl-pflegfachperson-per-unsere-fachstelle-gesundheit-60-100-stiftung-pigna-kloten"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -11153,12 +11153,12 @@
     },
     {
       "id": "medbase-bb7f873bb23b",
-      "slug": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3",
+      "slug": "medicina-generale-specialistica-interna-a-80-100-medbase-winterthur",
       "slugByLocale": {
         "de": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch",
-        "it": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3"
+        "it": "medicina-generale-specialistica-interna-a-80-100-medbase-winterthur",
+        "en": "specialist-general-internal-medicine-a-80-100-medbase-winterthur",
+        "fr": "specialiste-en-medecine-generale-interne-a-80-100-medbase-winterthur"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -11221,11 +11221,19 @@
       "firstSeenAt": "2026-07-22T11:32:47.084Z",
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch"
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch",
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3"
+        ],
+        "fr": [
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch"
+        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch",
+        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-medbase-ch-3"
       ]
     }
   ]

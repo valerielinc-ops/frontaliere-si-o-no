@@ -7521,12 +7521,12 @@
     },
     {
       "id": "nestle-1451603033",
-      "slug": "laboratory-technician-nestle-ch",
+      "slug": "tecnico-di-laboratorio-nestle-lausanne",
       "slugByLocale": {
         "en": "laboratory-technician-nestle-ch",
-        "it": "laboratory-technician-nestle-ch",
-        "de": "laboratory-technician-nestle-ch",
-        "fr": "laboratory-technician-nestle-ch"
+        "it": "tecnico-di-laboratorio-nestle-lausanne",
+        "de": "laboratory-techniker-nestle-lausanne",
+        "fr": "laboratory-technicien-nestle-lausanne"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -7584,7 +7584,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-27T10:00:27.053Z"
+      "firstSeenAt": "2026-10-27T10:00:27.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-nestle-ch"
+        ],
+        "de": [
+          "laboratory-technician-nestle-ch"
+        ],
+        "fr": [
+          "laboratory-technician-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-nestle-ch"
+      ]
     }
   ]
 }

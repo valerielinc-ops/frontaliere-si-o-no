@@ -386,12 +386,12 @@
     },
     {
       "id": "schulthess-klinik-4cbc17b23989",
-      "slug": "mitarbeiterin-collaboratore-trice-room-service-con-wochenendverantwortung-schulthess-klinik-zurich",
+      "slug": "dipendente-del-servizio-in-camera-con-responsabilita-nel-fine-settimana-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich",
-        "it": "mitarbeiterin-collaboratore-trice-room-service-con-wochenendverantwortung-schulthess-klinik-zurich",
-        "en": "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich"
+        "it": "dipendente-del-servizio-in-camera-con-responsabilita-nel-fine-settimana-schulthess-klinik-zurich",
+        "en": "employee-room-service-with-weekend-responsibility-schulthess-klinik-zurich",
+        "fr": "service-d-etage-des-employes-avec-responsabilite-de-fin-de-semaine-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -440,11 +440,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich",
+          "mitarbeiterin-collaboratore-trice-room-service-con-wochenendverantwortung-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich"
+        "mitarbeiterin-mitarbeiter-room-service-mit-wochenendverantwortung-schulthess-klinik-zurich",
+        "mitarbeiterin-collaboratore-trice-room-service-con-wochenendverantwortung-schulthess-klinik-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

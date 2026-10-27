@@ -983,10 +983,10 @@
     },
     {
       "id": "chopard-40b35ab83eb5",
-      "slug": "senior-tax-manager-h-f-chopard-meyrin",
+      "slug": "responsabile-fiscale-senior-m-f-chopard-meyrin",
       "slugByLocale": {
         "fr": "senior-tax-manager-h-f-chopard-meyrin",
-        "it": "senior-tax-manager-h-f-chopard-meyrin",
+        "it": "responsabile-fiscale-senior-m-f-chopard-meyrin",
         "en": "senior-tax-manager-h-f-chopard-meyrin",
         "de": "senior-tax-manager-h-f-chopard-meyrin"
       },
@@ -1048,7 +1048,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:23:43.720Z"
+      "firstSeenAt": "2026-10-27T09:23:43.720Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-tax-manager-h-f-chopard-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "senior-tax-manager-h-f-chopard-meyrin"
+      ]
     }
   ]
 }

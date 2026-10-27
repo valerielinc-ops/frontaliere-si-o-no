@@ -34571,8 +34571,8 @@
       "slugByLocale": {
         "de": "praktikant-in-im-vollzeitstudium-des-bsc-gesundheitsforderung-und-pravention-an-der-zhaw",
         "it": "praktikant-in-im-vollzeitstudium-des-bsc-gesundheitsforderung-e-pravention-an-der-zhaw-60-stadt-zurich",
-        "en": "praktikant-in-im-vollzeitstudium-des-bsc-gesundheitsforderung-und-pravention-an-der-zhaw",
-        "fr": "praktikant-in-im-vollzeitstudium-des-bsc-gesundheitsforderung-und-pravention-an-der-zhaw"
+        "en": "internin-full-time-study-of-the-bsc-health-promotion-and-prevention-at-the-zhaw-60-stadt-zurich-zurich",
+        "fr": "stagiaire-a-temps-plein-du-bsc-promotion-de-la-sante-et-prevention-a-la-zhaw-60-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34624,6 +34624,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-im-vollzeitstudium-des-bsc-gesundheitsforderung-und-pravention-an-der-zhaw"
+        ],
+        "en": [
+          "praktikant-in-im-vollzeitstudium-des-bsc-gesundheitsforderung-und-pravention-an-der-zhaw"
+        ],
+        "fr": [
+          "praktikant-in-im-vollzeitstudium-des-bsc-gesundheitsforderung-und-pravention-an-der-zhaw"
         ]
       },
       "previousSlugs": [
@@ -34646,12 +34652,12 @@
     },
     {
       "id": "stadt-zuerich-4ebbe0565feb",
-      "slug": "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064",
+      "slug": "assistenza-specialistica-70-80-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064",
-        "it": "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064",
-        "en": "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064",
-        "fr": "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064"
+        "it": "assistenza-specialistica-70-80-stadt-zurich-zurich",
+        "en": "specialist-care-70-80-stadt-zurich-zurich",
+        "fr": "soins-specialises-70-80-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34713,16 +34719,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:45:22.382Z"
+      "firstSeenAt": "2026-10-27T09:45:22.382Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064"
+        ],
+        "en": [
+          "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064"
+        ],
+        "fr": [
+          "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-70-80-stadt-zuerich-zurigo-52064"
+      ]
     },
     {
       "id": "stadt-zuerich-1da0fdcddde3",
-      "slug": "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo",
+      "slug": "assistenza-specialistica-scuola-diurna-wolfsblick-dipartimento-di-secondario-50-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo",
-        "it": "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo",
-        "en": "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo",
-        "fr": "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo"
+        "it": "assistenza-specialistica-scuola-diurna-wolfsblick-dipartimento-di-secondario-50-stadt-zurich-zurich",
+        "en": "specialist-care-day-school-wolfsblick-department-of-secondary-50-stadt-zurich-zurich",
+        "fr": "soins-specialises-ecole-de-jour-wolfsblick-departement-du-secondaire-50-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34784,7 +34804,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:45:22.382Z"
+      "firstSeenAt": "2026-10-27T09:45:22.382Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo"
+        ],
+        "en": [
+          "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo"
+        ],
+        "fr": [
+          "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-50-stadt-zuerich-zurigo"
+      ]
     }
   ]
 }

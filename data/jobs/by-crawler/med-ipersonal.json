@@ -557,12 +557,12 @@
     },
     {
       "id": "med-ipersonal-94436e315b7a",
-      "slug": "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn",
+      "slug": "carpentiere-bench-carpenter-regione-di-bellach-ipersonal-ag-bellach-solothurn",
       "slugByLocale": {
         "de": "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn",
-        "it": "schreiner-bank-schreiner-regione-di-bellach-ipersonal-ag-bellach-solothurn",
-        "en": "schreiner-bank-schreiner-bellach-region-ipersonal-ag-bellach-solothurn",
-        "fr": "schreiner-bank-schreiner-region-de-bellach-ipersonal-ag-bellach-solothurn"
+        "it": "carpentiere-bench-carpenter-regione-di-bellach-ipersonal-ag-bellach-solothurn",
+        "en": "carpenter-bench-carpenter-bellach-region-ipersonal-ag-bellach-solothurn",
+        "fr": "charpentier-de-bench-charpentier-region-de-bellach-ipersonal-ag-bellach-solothurn"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -617,7 +617,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-24T09:47:42.146Z"
+      "firstSeenAt": "2026-10-24T09:47:42.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-bank-schreiner-regione-di-bellach-ipersonal-ag-bellach-solothurn",
+          "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn"
+        ],
+        "en": [
+          "schreiner-bank-schreiner-bellach-region-ipersonal-ag-bellach-solothurn"
+        ],
+        "fr": [
+          "schreiner-bank-schreiner-region-de-bellach-ipersonal-ag-bellach-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-bank-schreiner-regione-di-bellach-ipersonal-ag-bellach-solothurn",
+        "schreiner-bankschreiner-region-bellach-ipersonal-ag-bellach-solothurn",
+        "schreiner-bank-schreiner-bellach-region-ipersonal-ag-bellach-solothurn",
+        "schreiner-bank-schreiner-region-de-bellach-ipersonal-ag-bellach-solothurn"
+      ]
     },
     {
       "id": "med-ipersonal-a894b027e4cb",
