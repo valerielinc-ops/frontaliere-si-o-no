@@ -39,6 +39,9 @@ describe('stable/release asset naming and cache contract', () => {
   const criticalCssSource = readRepoFile('build-plugins/shared/criticalCss.ts');
 
   it('keeps every HTML-referenced root asset on a stable basename', () => {
+    expect(SPA_ENTRY_JS_FILENAME).toBe('index-entry.js');
+    expect(SPA_ENTRY_CSS_FILENAME).toBe('index.css');
+
     const stableRootAssets = [
       SPA_ENTRY_JS_FILENAME,
       SPA_ENTRY_CSS_FILENAME,
@@ -52,6 +55,8 @@ describe('stable/release asset naming and cache contract', () => {
     }
 
     expect(viteSource).toContain('entryFileNames: `assets/${SPA_ENTRY_JS_FILENAME}`');
+    expect(viteSource).toContain('chunkFileNames: (chunk) =>');
+    expect(viteSource).toContain('return buildBlogBodyChunkFileName(safe, m)');
     expect(viteSource).toContain("if (n.endsWith('.css')) return 'assets/[name][extname]'");
     expect(viteSource).toContain("return 'assets/[name]-[hash][extname]'");
     expect(criticalCssSource).toContain("export const CRITICAL_CSS_FILENAME = 'critical.css'");
