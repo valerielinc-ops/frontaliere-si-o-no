@@ -127,6 +127,13 @@ describe('portal field extraction', () => {
     expect(page.captcha).toBe(true);
   });
 
+  it.each([
+    ['a hidden challenge template', '<form><label>Name<input name="name" required></label><div id="challenge-stage" hidden></div></form>'],
+    ['ordinary application copy', '<form><label>Name<input name="name" required></label><p>Our help text says checking your browser can take a moment.</p></form>'],
+  ])('does not treat %s as an active Cloudflare interstitial', (_label, html) => {
+    expect(extract(html).captcha).toBe(false);
+  });
+
   // Giro di prova 2026-10-01 on JOIN: the CV drop zone had no label, only "file:_r_3_:input",
   // so the planner skipped it and the run handed the application over.
   it('names an unlabelled drop zone by its heading and zone text, not by a generated id', () => {

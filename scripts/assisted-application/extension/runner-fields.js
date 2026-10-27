@@ -625,9 +625,15 @@
   // control on the page (ALTEN, 2026-10-27), so without this branch it is
   // mistaken for a custom application widget and sent to the agent.
   const CLOUDFLARE_PAGE_CHALLENGE_RE = /(?:performing security verification|checking your browser|verifying you are human|why is this verification taking longer|this verification can take longer|perch[eé] questa verifica richiede pi[ùu] tempo|la verifica pu[òo] richiedere pi[ùu] tempo|warum dauert diese verifizierung l[aä]nger|diese verifizierung kann .* l[aä]nger dauern|pourquoi cette v[eé]rification prend[- ]elle plus de temps|cette v[eé]rification peut prendre plus de temps)/i;
+  const CLOUDFLARE_PAGE_MARKER_SELECTOR = '#challenge-stage, #challenge-error-text, form#challenge-form, [data-cf-challenge]';
+  const CLOUDFLARE_INTERSTITIAL_CONTEXT_RE = /^(?:cloudflare\s+)?(?:just a moment(?:\.\.\.)?|attention required(?:\s*\|\s*cloudflare)?|security verification|checking your browser(?:\.\.\.)?|verifying you are human(?:\.\.\.)?|verifica(?:zione)? di sicurezza|v[eé]rification de s[eé]curit[eé]|sicherheits(?:überprüfung|prüfung))$/i;
   const pageText = String(document.body?.innerText || '').slice(0, 12_000);
-  const cloudflarePageChallenge = Boolean(document.querySelector('#challenge-stage, #challenge-error-text, form#challenge-form, [data-cf-challenge]'))
-    || CLOUDFLARE_PAGE_CHALLENGE_RE.test(`${document.title} ${pageText}`);
+  const pageChallengeCopy = CLOUDFLARE_PAGE_CHALLENGE_RE.test(`${document.title} ${pageText}`);
+  const visibleCloudflareMarker = [...document.querySelectorAll(CLOUDFLARE_PAGE_MARKER_SELECTOR)].some(shown);
+  const visibleInterstitialContext = CLOUDFLARE_INTERSTITIAL_CONTEXT_RE.test(clean(document.title))
+    || [...document.querySelectorAll('h1, h2, [role="heading"]')]
+      .some((element) => shown(element) && CLOUDFLARE_INTERSTITIAL_CONTEXT_RE.test(clean(element.innerText || element.textContent)));
+  const cloudflarePageChallenge = visibleCloudflareMarker || (pageChallengeCopy && visibleInterstitialContext);
   const captcha = [...document.querySelectorAll('iframe')].some((frame) => {
     const src = String(frame.getAttribute('src') || '');
     const rect = frame.getBoundingClientRect();
