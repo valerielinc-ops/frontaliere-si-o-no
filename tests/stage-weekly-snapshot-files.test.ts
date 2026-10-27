@@ -170,6 +170,10 @@ describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
 
     rmSync(deletedCorePath);
     execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+    // The normal commit path and the retry regeneration path can invoke the
+    // shared helper twice; the tracked deletion must remain a single staged
+    // deletion rather than being lost or duplicated on the second pass.
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
 
     const status = execFileSync(
       'git',
