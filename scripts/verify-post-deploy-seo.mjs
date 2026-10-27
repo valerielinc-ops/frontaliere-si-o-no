@@ -290,6 +290,7 @@ async function inspectLivePage(pageUrl) {
 
 export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   const detailPageSignal = isLikelyJobDetailUrl(pageUrl, sitemapSignals);
+  const sitemapAvailable = sitemapSignals instanceof Map && sitemapSignals.size > 0;
   const authoritativeSitemapDetailSignal = hasAuthoritativeSitemapDetailSignal(
     pageUrl,
     sitemapSignals,
@@ -302,8 +303,13 @@ export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   }
   // A semantic listing is stronger than the conservative path fallback. Keep
   // it observable as a missing JobPosting only when the live sitemap explicitly
-  // identifies the URL as an active detail page.
-  if (live?.isListingPage === true && !authoritativeSitemapDetailSignal) {
+  // identifies the URL as an active detail page, or when the sitemap is
+  // unavailable and the fallback cannot establish that this is a detail URL.
+  if (
+    live?.isListingPage === true
+    && !authoritativeSitemapDetailSignal
+    && (sitemapAvailable || !detailPageSignal)
+  ) {
     return { detailPageSignal, shouldInspect: false, issue: null, skipped: true };
   }
   if (detailPageSignal) {
