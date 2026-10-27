@@ -30,6 +30,8 @@ export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 export const MAX_CANDIDATES = 50;
 const SWISS_COUNTRY_REQUIRED_SUMMARY_KEYS = new Set(['yellowshark', 'tether', 'bitfinex']);
+const CRAWLER_ID_RE = /^[a-z0-9][a-z0-9._-]{0,127}$/;
+const CRAWLER_SLICE_RE = /^data\/jobs\/by-crawler\/[a-z0-9][a-z0-9._-]*\.json$/;
 
 function finiteDate(value) {
   const time = Date.parse(value);
@@ -495,7 +497,12 @@ function readScheduledSummaryKeys(filePath) {
   if (!object(roster) || !object(roster.primarySlices)) {
     throw new Error(`crawler generation roster has an invalid primarySlices map: ${filePath}`);
   }
-  return Object.keys(roster.primarySlices).sort();
+  const entries = Object.entries(roster.primarySlices);
+  const valid = entries.length > 0
+    && entries.every(([crawlerId, primarySlice]) => CRAWLER_ID_RE.test(crawlerId) && CRAWLER_SLICE_RE.test(primarySlice))
+    && new Set(entries.map(([, primarySlice]) => primarySlice)).size === entries.length;
+  if (!valid) throw new Error(`crawler generation roster has invalid primary slice bindings: ${filePath}`);
+  return entries.map(([crawlerId]) => crawlerId).sort();
 }
 
 function reportMarkdown(verdict, observation, decision) {
