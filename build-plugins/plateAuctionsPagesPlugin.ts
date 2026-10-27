@@ -21,6 +21,7 @@ import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
 import { paginationRobots } from './shared/paginationIndexPolicy';
+import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from './shared/plateAuctionNoindexTargetMarker.mjs';
 import { readPlateAuctionArchive, publicArchivedPlateAuction } from '../scripts/lib/plate-auction-archive.mjs';
 import { isRecoveredPlateObservation, recoveredPlateObservationNotice, PLATE_AUCTION_DETAIL_SEED_ID } from '../scripts/lib/plateAuctionSections.mjs';
 import { validatePlateAuctionSourcesRegistry } from '../services/plateAuctions/types';
@@ -503,7 +504,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
     : view === 'canton' && pageNumber
       ? paginationRobots(pageNumber)
       : 'index,follow';
-  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
+  return { urlPath: urlPath.replace(/^\//, '').replace(/\/$/, ''), html: buildSeoPageHtml({ locale, title, description, canonicalUrl, hreflangHtml: alternates(view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber), bodyHtml: staticBody, jsonLdScripts: [jsonLd, breadcrumbJsonLd], robots, extraHeadHtml: view === 'detail' && !detailIndexable ? PLATE_AUCTION_NOINDEX_TARGET_MARKER : undefined, distDir, seoContentOutsideRoot: true, seoMainClass: 'seo-static-content plate-auction-static' }) };
 }
 
 /**

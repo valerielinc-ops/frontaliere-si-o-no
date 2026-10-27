@@ -264,6 +264,7 @@ function buildCfHot404BridgePlugin(rootDir: string): Plugin {
 
       let emitted = 0;
       let skippedWorkerRedirect = 0;
+      let skippedReservedCompany = 0;
       let skippedExisting = 0;
       let skippedUnresolved = 0;
       let skippedNonOwnedLocale = 0;
@@ -370,10 +371,18 @@ function buildCfHot404BridgePlugin(rootDir: string): Plugin {
         // (noindex,follow, canonical to the canton, no job-board marker).
         if (kind === 'canton-moved') { skippedWorkerRedirect++; continue; }
 
+        // Company-filter URLs have a dedicated owner
+        // (companyHubBridgePlugin/jobsSeoPagesPlugin). A generic cf-hot
+        // bridge is a worse fallback here: it emits a marker-only noindex
+        // shell without a canonical, while the company contract requires a
+        // self/aggregator canonical or no page at all. Leave unresolved
+        // company paths to the owner/Worker instead of creating a third shape.
+        if (kind === 'company') { skippedReservedCompany++; continue; }
+
         // Every remaining kind lands on a listing/landing.
         const body = isClusterRedirect
           ? `Questa ricerca ha una versione aggiornata. Ti stiamo portando alla pagina corretta; se non vieni reindirizzato, aprila qui sotto.`
-          : `Questa pagina ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : "dell annuncio"} non e piu disponibile. Abbiamo mantenuto una pagina compatibile per evitare un errore e mostrarti le offerte aggiornate per questa zona.`;
+          : `Questa pagina ${kind === 'search' ? 'di ricerca' : "dell annuncio"} non e piu disponibile. Abbiamo mantenuto una pagina compatibile per evitare un errore e mostrarti le offerte aggiornate per questa zona.`;
         let html = buildCanonicalBridgePage({
           canonicalUrl: `${BASE_URL}${to}`,
           pathLabel: to,
@@ -436,6 +445,7 @@ function buildCfHot404BridgePlugin(rootDir: string): Plugin {
         console.log(
           `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare/GSC-confirmed 404s ` +
             `(${emitted} thin bridges; ${skippedWorkerRedirect} canton-moved left to the Worker 301; ` +
+            `${skippedReservedCompany} company paths left to their dedicated owner; ` +
             `cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved, ` +
             `${skippedNonOwnedLocale} non-owned-locale skipped, ${skippedWriteErrors} write errors). ` +
             `[mem] heapUsed=${heapMb}MB after emit.`,

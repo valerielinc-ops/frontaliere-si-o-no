@@ -9,6 +9,10 @@ import {
   isIntentionalPharmacyNoindexPage,
   isIntentionalEventArchiveNoindexPage,
   isIntentionalPaginationNoindexPage,
+  isArticleRoutePage,
+  isIntentionalArticleNoindexPage,
+  isPlateAuctionRoutePage,
+  isIntentionalPlateAuctionNoindexPage,
   maskHtmlCommentsOutsideRawText,
   validateBestPracticeSeo,
   validateSchemas,
@@ -19,6 +23,8 @@ import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMar
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
+import { ARTICLE_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/articleNoindexTargetMarker.mjs';
+import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
 
 const GOOD_PAGE = `
   <html>
@@ -205,6 +211,26 @@ describe('blocking page checks', () => {
     expect(isIntentionalPaginationNoindexPage(noindex)).toBe(false);
     expect(isIntentionalPaginationNoindexPage(`${PAGINATION_NOINDEX_TARGET_MARKER}<meta name=robots content=index,follow>`)).toBe(false);
     expect(isIntentionalPaginationNoindexPage(`${JOB_BOARD_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(false);
+  });
+
+  it('recognizes only marked article noindex targets on article routes', () => {
+    const noindex = '<meta name=robots content=noindex,follow>';
+    const articlePath = 'en/cross-border-articles/example-article';
+    expect(isArticleRoutePage(articlePath)).toBe(true);
+    expect(isIntentionalArticleNoindexPage(articlePath, `${ARTICLE_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(true);
+    expect(isIntentionalArticleNoindexPage('en/search/example', `${ARTICLE_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(false);
+    expect(isIntentionalArticleNoindexPage(articlePath, noindex)).toBe(false);
+    expect(isIntentionalArticleNoindexPage(articlePath, `${ARTICLE_NOINDEX_TARGET_MARKER}<meta name=robots content=index,follow>`)).toBe(false);
+  });
+
+  it('recognizes only marked noindex plate-auction detail targets', () => {
+    const noindex = '<meta name=robots content=noindex,follow>';
+    const auctionPath = 'fr/encheres-plaques-suisses/bale-ville-bs/bs9608-moto';
+    expect(isPlateAuctionRoutePage(auctionPath)).toBe(true);
+    expect(isIntentionalPlateAuctionNoindexPage(auctionPath, `${PLATE_AUCTION_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(true);
+    expect(isIntentionalPlateAuctionNoindexPage('fr/enchères/example', `${PLATE_AUCTION_NOINDEX_TARGET_MARKER}${noindex}`)).toBe(false);
+    expect(isIntentionalPlateAuctionNoindexPage(auctionPath, noindex)).toBe(false);
+    expect(isIntentionalPlateAuctionNoindexPage(auctionPath, `${PLATE_AUCTION_NOINDEX_TARGET_MARKER}<meta name=robots content=index,follow>`)).toBe(false);
   });
 
   it('classifies an owner article consolidation apart, and still flags a canonical to the section hub', () => {

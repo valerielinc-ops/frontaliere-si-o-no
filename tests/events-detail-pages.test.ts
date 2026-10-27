@@ -2036,6 +2036,10 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(html).toContain('max-image-preview:large');
     expect(countHtmlBodyWords(main)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
+    expect(html).toContain('<meta property="og:type" content="website">');
+    expect(html).toContain('<meta property="og:url" content="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
+    expect(html).toMatch(/<meta property="og:title" content="Pagina evento aggiornata/);
+    expect(html).toMatch(/<meta property="og:description" content="L’indirizzo di questo evento è cambiato/);
     expect(html).not.toContain('http-equiv="refresh"');
   });
 

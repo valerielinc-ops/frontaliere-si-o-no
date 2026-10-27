@@ -4999,6 +4999,15 @@ export function renderEventSlugRedirectPage(
     // indexable so a saved link or an existing search result can be recovered.
     noindex: false,
   });
+  // A canonical bridge is still a real indexable document for historical
+  // event URLs. Keep its social preview aligned with the document title and
+  // canonical target; the generic bridge helper deliberately leaves OG tags
+  // out because most noindex bridges must not advertise cross-page signals.
+  const bridgeOpenGraph = `
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="${canonicalUrl}">
+ <meta property="og:title" content="${bridgeTitle}">
+ <meta property="og:description" content="${body}">`;
   // Keep the bridge as a canonical, indexable recovery page. A meta-refresh
   // adds no information beyond the canonical link and CTA, and SE Ranking
   // reports every such bridge as a redirect error; static hosting cannot turn
@@ -5006,7 +5015,10 @@ export function renderEventSlugRedirectPage(
   // buildCanonicalBridgePage intentionally uses one title for both surfaces;
   // this bridge is the exception because its H1 is intentionally generic
   // while its SERP title must identify the historical source URL.
-  return bridge.replace(`<h1>${bridgeTitle}</h1>`, `<h1>${copy.title}</h1>`);
+  return bridge
+    .replace('</head>', `${bridgeOpenGraph}
+ </head>`)
+    .replace(`<h1>${bridgeTitle}</h1>`, `<h1>${copy.title}</h1>`);
 }
 
 /**

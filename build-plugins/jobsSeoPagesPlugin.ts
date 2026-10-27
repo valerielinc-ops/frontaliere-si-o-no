@@ -12583,6 +12583,29 @@ ${staticAnalyticsHtml}
  }
  }
  }
+ // Snapshot native non-Ticino registry paths before the compatibility merge
+ // below is allowed to overwrite a locale entry with its legacy-TI alias.
+ // `tracking[slug][locale]` alone cannot answer whether a legacy path should
+ // be emitted: after the merge it is, by definition, equal to the path being
+ // rendered. The Worker needs the native path to remain the sole owner of a
+ // non-IT job's URL, so both the expired loop and the self-healing fallback use
+ // this immutable route index.
+ const nativeJobPathByLocaleAndSlug = new Map<string, string>();
+ const normalizedRoutePath = (value: string): string => `/${String(value || '').replace(/^\/+|\/+$/g, '')}/`;
+ const isLegacyTiJobDetailPath = (locale: 'it' | 'en' | 'de' | 'fr', value: string): boolean => {
+  const normalized = normalizedRoutePath(value);
+  const prefix = normalizedRoutePath(`${localePrefix[locale]}/${sectionByLocale[locale]}`);
+  const rest = normalized.slice(prefix.length);
+  return normalized.startsWith(prefix) && rest.length > 1 && !rest.slice(0, -1).includes('/');
+ };
+ for (const paths of Object.values(tracking)) {
+  for (const locale of localeList) {
+   const value = paths?.[locale];
+   if (!value || isLegacyTiJobDetailPath(locale, value)) continue;
+   const slug = normalizedRoutePath(value).split('/').filter(Boolean).pop();
+   if (slug) nativeJobPathByLocaleAndSlug.set(`${locale}:${slug}`, normalizedRoutePath(value));
+  }
+ }
  // Remove search combo slugs from tracking — these are handled by the search
  // combo section, not the job crawler pipeline. They were incorrectly imported
  // from orphan-indexed-job-slugs.json in previous builds.
@@ -13231,6 +13254,19 @@ ${staticAnalyticsHtml}
  const expiredSlugs = Object.keys(tracking).filter(
  (s) => !bridgeSlugSet.has(s) && !RESERVED_HUB_SLUGS.has(s),
  );
+ // en/de/fr legacy-TI detail paths are deliberately left to the locale-router
+ // Worker when the immutable registry still has a native canton path for the
+ // same locale+slug. The registry entry may already have been compat-merged,
+ // so checking `tracking[slug][locale]` alone is tautological here.
+ const legacyTiPathRecoveredByWorker = (locale: 'it' | 'en' | 'de' | 'fr', slug: string, relPath: string): boolean => {
+  if (locale === 'it') return false;
+  const normalized = normalizedRoutePath(relPath);
+  const registryPath = tracking[slug]?.[locale];
+  if (registryPath && normalizedRoutePath(registryPath) !== normalized) return true;
+  const routeSlug = normalized.split('/').filter(Boolean).pop();
+  const nativePath = routeSlug ? nativeJobPathByLocaleAndSlug.get(`${locale}:${routeSlug}`) : undefined;
+  return Boolean(nativePath && nativePath !== normalized);
+ };
  // NB: the hub-pagination compound keys were already `delete`d from `tracking`
  // up at the reserved-hub strip block (before the tracking write AND before this
  // expiredSlugs computation), so they are absent from BOTH `expiredSlugs` here
@@ -13897,6 +13933,12 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  const relPath = paths[locale];
  if (!relPath) continue;
+ // A native non-Ticino detail page owns this locale+slug and the locale-router
+ // Worker 301s the legacy-TI URL there. Do not materialize a 200 archive at
+ // the old path: it would shadow the Worker redirect and create a duplicate
+ // canonical surface. The same guard is applied in the self-healing pass
+ // below, which otherwise could recreate this page after the expired phase.
+ if (legacyTiPathRecoveredByWorker(locale, slug, relPath)) continue;
  // Preserve a compact archive payload for locale-variant bridge paths. The
  // normal previous-slug phase will replace this with the active job's full
  // content when it has a readable canonical page; this snapshot is the
@@ -14761,11 +14803,6 @@ ${staticAnalyticsHtml}
  // previousSlug-TI mirrors below must not re-fill those paths now that the
  // removed copies no longer claim them; paths the Worker cannot resolve keep
  // their noindex page.
- const legacyTiPathRecoveredByWorker = (locale: 'it' | 'en' | 'de' | 'fr', slug: string, relPath: string): boolean => {
-  if (locale === 'it') return false;
-  const registryPath = tracking[slug]?.[locale];
-  return Boolean(registryPath) && localePathClaimKey(registryPath) !== localePathClaimKey(relPath);
- };
  let crossLocaleExpiredCount = 0;
  for (const ej of expiredJobsData) {
  const slugByLocale = (ej && ej.slugByLocale) as Record<string, string> | undefined;
@@ -15320,13 +15357,13 @@ ${staticAnalyticsHtml}
  // Skip when an authoritative active bridge already owns the path, and
  // first-claimant-wins among previousSlug mirrors so the canonical at
  // this TI path stays deterministic across builds instead of flipping
- // to whichever job happened to write last (#2545).
+ // to whichever job happened to write last (#2545). An explicit
+ // previousSlug declaration is authoritative here: it is the producer's
+ // durable ownership claim for this legacy URL and must be emitted even when
+ // the locale-router registry also contains a same-slug native destination.
  if (
  !activeJobDirs.has(legacyTIKey) &&
- !legacyTiBridgeDirs.has(legacyTIKey) &&
- // en/de/fr: when the registry knows `oldSlug` in this locale the Worker
- // 301s this URL to that page, which a 200 mirror here would block.
- !legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)
+ !legacyTiBridgeDirs.has(legacyTIKey)
  ) {
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
@@ -15915,6 +15952,11 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  const relPath = paths?.[locale];
  if (!relPath) continue;
+ // Keep the self-healing safety net aligned with the expired renderer: a
+ // native non-Ticino detail page owns this locale+slug and the Worker handles
+ // the legacy-TI URL with a redirect. Recreating a 200 tombstone here would
+ // make the result depend on phase ordering.
+ if (legacyTiPathRecoveredByWorker(locale, slug, relPath)) continue;
  // Per-locale shard build (BUILD_LOCALE): the self-healing tombstone is
  // written under this locale's prefix, so skip it for locales this shard
  // doesn't own (Fase 1c, same class as the bridge loops above). No-op in the

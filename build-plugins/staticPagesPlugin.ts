@@ -119,7 +119,7 @@ const SPA_ANALYTICS_SNIPPET = `${GTAG_SNIPPET}
 // flatHtmlRedirect's is — `packages/articles` is its own "type": "module"
 // package, where an extensionless deep specifier does not resolve under plain
 // Node ESM.
-import { renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
+import { ARTICLE_HUB_CARD_LIMIT, renderArticleHubCards, renderArticleHubGridBlock } from '../packages/articles/engine/articlesHubCards.ts';
 import { parseArticleRegistryEntries } from '../packages/articles/engine/shared/articleRegistryEntries.ts';
 import { LOCALE_EDITORIAL, SECTION_EDITORIAL, findSectionEditorialKey } from './editorialContent';
 import { isSectionPageOwnedPath } from './shared/sectionPageOwnership';
@@ -5859,7 +5859,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  const swissLocalePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
  const swissCardLocale = (swissLocalePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
  const swissCardsHtml = renderArticleHubCards({
- articles: swissArticlesStatic.slice(0, 100),
+ articles: swissArticlesStatic.slice(0, ARTICLE_HUB_CARD_LIMIT),
+ limit: ARTICLE_HUB_CARD_LIMIT,
  locale: swissCardLocale,
  sectionSlug: swissListSlug,
  localePrefix: swissLocalePrefix,
@@ -5909,16 +5910,17 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  rootHtml = isBlogDetailPage
  ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}${blogDetailCreditHtml}</div>${adPlaceholderInline}${relatedHtml}</article>${adPlaceholderEnd}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {
- // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
+ // FRO-330: SSG article cards — render the shared page-weight budget with real titles for crawlers
  const blogListSlug = firstSeg;
  const localePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
  const cardLocale = (localePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
- const topArticles = blogArticlesStatic.slice(0, 100);
+ const topArticles = blogArticlesStatic.slice(0, ARTICLE_HUB_CARD_LIMIT);
  // Card markup lives in packages/articles/engine/articlesHubCards.ts — see the
- // import at the top for why. `topArticles` is already capped and sorted here;
- // the renderer re-applies the cap so the corpus-side caller gets the same one.
+ // import at the top for why. Both the caller and renderer share the same cap
+ // so the site and corpus cannot drift back to the 100-card payload.
  const articleCardsHtml = renderArticleHubCards({
  articles: topArticles,
+ limit: ARTICLE_HUB_CARD_LIMIT,
  locale: cardLocale,
  sectionSlug: blogListSlug,
  localePrefix,

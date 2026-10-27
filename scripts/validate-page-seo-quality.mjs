@@ -8,6 +8,8 @@ import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/jobBoar
 import { PHARMACY_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/pharmacyNoindexTargetMarker.mjs';
 import { EVENT_ARCHIVE_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/eventArchiveNoindexTargetMarker.mjs';
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/paginationNoindexMarker.mjs';
+import { ARTICLE_NOINDEX_TARGET_MARKER } from '../packages/articles/engine/shared/articleNoindexTargetMarker.mjs';
+import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
 import { classifyCanonicalMismatch, isOwnerArticleConsolidation } from './lib/canonicalExemptions.mjs';
 // eslint-disable-next-line import/no-relative-parent-imports
 import { lookupRetired } from '../infra/cloudflare-worker/locale-router.js';
@@ -25,7 +27,7 @@ import { pathToFileURL } from 'node:url';
  *  5. Title tag: must be present and non-empty
  *  6. Meta description: must be present and non-empty
  *  7. Meta robots: must NOT contain "noindex" (except 404.html, search pages,
- *     and explicitly marked intentional job-board and pharmacy targets)
+ *     and explicitly marked intentional producer targets)
  *  8. Meta refresh: must NOT exist (indicates redirect shell, not real content)
  *  9. Best-practice advisory checks: self-canonical, Open Graph, partial
  *     Twitter cards, meta description length, and image alt attributes
@@ -427,6 +429,60 @@ function isIntentionalPaginationNoindexPage(html) {
     && hasNoindex(html);
 }
 
+const ARTICLE_ROUTE_PREFIXES = [
+  'articoli-frontaliere',
+  'cross-border-articles',
+  'frontier-articles',
+  'grenzgaenger-artikel',
+  'articles-frontalier',
+  'articoli-svizzera',
+  'swiss-articles',
+  'schweiz-artikel',
+  'articles-suisse',
+];
+
+function isArticleRoutePage(pagePath) {
+  const normalizedPath = String(pagePath || '').replace(/^\/+/, '');
+  return ARTICLE_ROUTE_PREFIXES.some((prefix) => (
+    normalizedPath === prefix || normalizedPath.startsWith(`${prefix}/`)
+    || normalizedPath.startsWith(`en/${prefix}/`)
+    || normalizedPath.startsWith(`de/${prefix}/`)
+    || normalizedPath.startsWith(`fr/${prefix}/`)
+  ));
+}
+
+// ogPagesPlugin emits article noindex only for bodies carrying the narrow
+// translation-placeholder signal. The route check keeps a copied marker on an
+// unrelated page from becoming an exemption.
+function isIntentionalArticleNoindexPage(pagePath, html) {
+  return isArticleRoutePage(pagePath)
+    && String(html || '').includes(ARTICLE_NOINDEX_TARGET_MARKER)
+    && hasNoindex(html);
+}
+
+// Plate-auction detail pages use a separate marker because they are a data
+// vertical, not a job-board page. Only the canonical auction route family is
+// allowed to consume it.
+const PLATE_AUCTION_ROUTE_PREFIXES = [
+  'aste-targhe-svizzera',
+  'en/swiss-plate-auctions',
+  'de/schweizer-nummernschildauktionen',
+  'fr/encheres-plaques-suisses',
+];
+
+function isPlateAuctionRoutePage(pagePath) {
+  const normalizedPath = String(pagePath || '').replace(/^\/+/, '');
+  return PLATE_AUCTION_ROUTE_PREFIXES.some((prefix) => (
+    normalizedPath === prefix || normalizedPath.startsWith(`${prefix}/`)
+  ));
+}
+
+function isIntentionalPlateAuctionNoindexPage(pagePath, html) {
+  return isPlateAuctionRoutePage(pagePath)
+    && String(html || '').includes(PLATE_AUCTION_NOINDEX_TARGET_MARKER)
+    && hasNoindex(html);
+}
+
 // Check for <meta http-equiv="refresh"> (not inside <noscript>)
 function hasMetaRefresh(html) {
   const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
@@ -639,7 +695,7 @@ function main() {
   let warningCount = 0;
   let errorCount = 0;
   // Noindex pages whose producer declared the noindex (printed, never silent).
-  const declaredNoindex = { jobBoard: 0, pharmacy: 0, eventArchive: 0, pagination: 0 };
+  const declaredNoindex = { jobBoard: 0, pharmacy: 0, eventArchive: 0, pagination: 0, article: 0, plateAuction: 0 };
   const declaredCanonical = {};
   // Pages the edge answers 301/410 (EDGE_RETIRED_PATHS): the reassembled dist
   // still holds their bytes because article shards are append-only
@@ -714,10 +770,14 @@ function main() {
     const isIntentionalPharmacyNoindex = isIntentionalPharmacyNoindexPage(page.pagePath, html);
     const isIntentionalEventArchiveNoindex = isIntentionalEventArchiveNoindexPage(html);
     const isIntentionalPaginationNoindex = isIntentionalPaginationNoindexPage(html);
+    const isIntentionalArticleNoindex = isIntentionalArticleNoindexPage(page.pagePath, html);
+    const isIntentionalPlateAuctionNoindex = isIntentionalPlateAuctionNoindexPage(page.pagePath, html);
     const declaredNoindexKind = isIntentionalJobBoardNoindex ? 'jobBoard'
       : isIntentionalPharmacyNoindex ? 'pharmacy'
         : isIntentionalEventArchiveNoindex ? 'eventArchive'
-          : isIntentionalPaginationNoindex ? 'pagination' : null;
+          : isIntentionalPaginationNoindex ? 'pagination'
+            : isIntentionalArticleNoindex ? 'article'
+              : isIntentionalPlateAuctionNoindex ? 'plateAuction' : null;
     if (page.pagePath !== '404.html' && !isSearchPage && !declaredNoindexKind && hasNoindex(html)) {
       errors.hasNoindex.push(page.pagePath || '/');
       errorCount++;
@@ -766,7 +826,7 @@ function main() {
   console.log(`  WITH ERRORS: ${pagesToCheck.length - passedCount}`);
   console.log(`  TOTAL ISSUES: ${errorCount}`);
   console.log(`  ADVISORY WARNINGS: ${warningCount}`);
-  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}, event archive ${declaredNoindex.eventArchive}, pagination ${declaredNoindex.pagination}`);
+  console.log(`  DECLARED NOINDEX (producer marker, not errors): job-board ${declaredNoindex.jobBoard}, pharmacy ${declaredNoindex.pharmacy}, event archive ${declaredNoindex.eventArchive}, pagination ${declaredNoindex.pagination}, article ${declaredNoindex.article}, plate-auction ${declaredNoindex.plateAuction}`);
   console.log(`  DECLARED CROSS-URL CANONICAL (classified, not warnings): ${Object.entries(declaredCanonical).map(([k, v]) => `${k} ${v}`).join(', ') || 'none'}`);
   console.log(`  EDGE-RETIRED (301/410 at the Worker, not served): ${edgeRetired}`);
   console.log('='.repeat(60));
@@ -949,6 +1009,10 @@ export {
   isIntentionalPharmacyNoindexPage,
   isIntentionalEventArchiveNoindexPage,
   isIntentionalPaginationNoindexPage,
+  isArticleRoutePage,
+  isIntentionalArticleNoindexPage,
+  isPlateAuctionRoutePage,
+  isIntentionalPlateAuctionNoindexPage,
 };
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

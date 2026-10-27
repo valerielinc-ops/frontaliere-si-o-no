@@ -185,12 +185,19 @@ describe('SEO builder noindex guards', () => {
       expect(nonItBranch).not.toContain('_qwFlatFull(');
     });
 
-    it('cross-locale and previousSlug-TI mirrors skip legacy-TI paths the Worker recovers', () => {
+    it('cross-locale mirrors skip legacy-TI paths the Worker recovers', () => {
       const helper = source.slice(source.indexOf('const legacyTiPathRecoveredByWorker'), source.indexOf('let crossLocaleExpiredCount = 0;'));
       expect(helper).toContain("if (locale === 'it') return false;");
       expect(helper).toContain('tracking[slug]?.[locale]');
       expect(source.match(/legacyTiPathRecoveredByWorker\(baseLocale, foreignSlug, relPath\)/g)).toHaveLength(2);
-      expect(source).toContain('!legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)');
+      // Explicit previousSlugs are durable producer ownership claims. They
+      // deliberately override the generic Worker-recovery guard below, while
+      // expired/self-healing and cross-locale reconciliation paths keep it.
+      const previousSlugStart = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+      const previousSlugEnd = source.indexOf('if (bridgeCount > 0)', previousSlugStart);
+      const previousSlugBlock = source.slice(previousSlugStart, previousSlugEnd);
+      expect(previousSlugBlock).not.toContain('legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)');
+      expect(previousSlugBlock).toContain('previousSlug declaration is authoritative');
     });
 
     it('previous-slug bridges force noindex after fresh render or cache reuse', () => {
