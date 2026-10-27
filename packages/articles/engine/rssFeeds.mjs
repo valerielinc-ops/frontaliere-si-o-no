@@ -37,7 +37,13 @@ import {
 } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
-import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
+import {
+  findAllSeoEntryMatches,
+  hasInterpolatedStaticProperty,
+  lastStaticPropertyValue,
+  readStructuredSeoDescription,
+  readStructuredSeoDescriptionState,
+} from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { decodeStaticStringLiteral } from './shared/ts-literals.mjs';
 import { articleSectionEntry } from './shared/articleSectionCore.mjs';
@@ -260,15 +266,29 @@ function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {
       // half of it: what the file holds is the ESCAPED form, so the backslash
       // has to come back out before the value is used as text, exactly as
       // parseLocalizedField does for its own fields.
-      const headline = unescapeQuoted(block.match(/"headline":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"');
-      const description = unescapeQuoted(block.match(/"description":\s*"((?:[^"\\]|\\.)*)"/)?.[1], '"');
-      const datePublished = block.match(/"datePublished":\s*"([^"]+)"/)?.[1];
-      const dateModified = block.match(/"dateModified":\s*"([^"]+)"/)?.[1];
-      const articleSection = block.match(/"articleSection":\s*"([^"]+)"/)?.[1];
-      // Same treatment, single-quoted. This one is the worse offender of the
-      // two: apostrophes are far commoner than double quotes in Italian, so the
-      // naive class truncated 1065 of 2986 entries — a third of the corpus.
-      const ogDescription = unescapeQuoted(block.match(/ogDescription:\s*'((?:[^'\\]|\\.)*)'/)?.[1], "'");
+      // Keep the producer aligned with corpus-floors: duplicate static
+      // properties are last-write-wins, and the SEO description may live in
+      // the JSON-LD-shaped structuredData object. A first-match regex here
+      // could publish stale metadata while the floor validated the live value.
+      const dynamicField = ['headline', 'description', 'datePublished', 'dateModified', 'articleSection', 'ogDescription']
+        .find((field) => hasInterpolatedStaticProperty(block, field));
+      if (dynamicField || readStructuredSeoDescriptionState(block).dynamic) {
+        throw new Error(
+          `RSS: entry '${articleId}' contains an interpolated SEO field` +
+            (dynamicField ? ` '${dynamicField}'` : ' in structuredData') +
+            '; refusing to publish a reduced section feed.',
+        );
+      }
+      const headline = lastStaticPropertyValue(block, 'headline');
+      const description = lastStaticPropertyValue(block, 'description')
+        ?? readStructuredSeoDescription(block);
+      const datePublished = lastStaticPropertyValue(block, 'datePublished');
+      const dateModified = lastStaticPropertyValue(block, 'dateModified');
+      const articleSection = lastStaticPropertyValue(block, 'articleSection');
+      // Resolve the final static assignment with the same balanced reader as
+      // the other SEO fields. This keeps duplicate metadata deterministic and
+      // supports every literal form emitted by the generator.
+      const ogDescription = lastStaticPropertyValue(block, 'ogDescription');
 
       // Per-article byline, from the same `"author"` object the page's JSON-LD
       // and visible byline are built from. Carry only a named real Person or

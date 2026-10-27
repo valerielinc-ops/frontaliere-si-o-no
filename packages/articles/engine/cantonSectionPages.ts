@@ -63,6 +63,7 @@ import { LOCALE_OG, cantonMethodologyAccordionHtml, cantonTopicHubLinks } from '
 import { rewriteBlogImageRefs } from './blogImageCdnFinalize';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { readArticleDates, readArticleMetadata, readBlogUrlSlugs } from './shared/articleReaders';
+import { httpsUrlOrNull } from './shared/httpsUrl.mjs';
 import type { ArticleSection } from '../articleSections';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 
@@ -144,7 +145,7 @@ function checkLocale(locale: string): Locale {
  */
 function safeHref(url: string, what: string): string {
   const value = String(url ?? '').trim();
-  if (/^https:\/\/[^\s"<>]+$/.test(value)) return value;
+  if (httpsUrlOrNull(value) !== null) return value;
   if (/^\/(?!\/)[^\s"<>]*$/.test(value)) {
     const path = value.split(/[?#]/)[0];
     if (!path.endsWith('/')) throw new Error(`${what}: link interno senza slash finale: ${value}`);
