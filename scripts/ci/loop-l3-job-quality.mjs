@@ -25,10 +25,13 @@ export const DEFAULT_SUMMARY_DIR = path.join('data', 'jobs-crawler-summaries', '
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'job-apply-outcome-baseline.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_QUARANTINE_PATH = path.join('data', 'crawler-quarantine.json');
+export const DEFAULT_GENERATION_ROSTER_PATH = path.join('scripts', 'ci', 'crawler-generation-roster.json');
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 export const MAX_CANDIDATES = 50;
 const SWISS_COUNTRY_REQUIRED_SUMMARY_KEYS = new Set(['yellowshark', 'tether', 'bitfinex']);
+const CRAWLER_ID_RE = /^[a-z0-9][a-z0-9._-]{0,127}$/;
+const CRAWLER_SLICE_RE = /^data\/jobs\/by-crawler\/[a-z0-9][a-z0-9._-]*\.json$/;
 
 function finiteDate(value) {
   const time = Date.parse(value);
@@ -259,6 +262,7 @@ export function validateJobSummaries(summaries, {
   candidateActionClass = null,
   registryPath = DEFAULT_REGISTRY_PATH,
   retiredSummaryKeys = [],
+  scheduledSummaryKeys = null,
 } = {}) {
   const resolvedCandidateActionClass = candidateActionClass || defaultCandidateActionClass(registryPath);
   if (!Array.isArray(summaries)) {
@@ -278,13 +282,21 @@ export function validateJobSummaries(summaries, {
   let duplicateIdentities = 0;
   const staleSummaryDetails = [];
   const retiredKeys = new Set(retiredSummaryKeys);
+  const scheduledKeys = scheduledSummaryKeys === null ? null : new Set(scheduledSummaryKeys);
   const ignoredRetiredSummaries = [];
+  const ignoredInactiveSummaries = [];
   const activeSummaries = summaries.filter((entry, summaryIndex) => {
     const file = entry?.file || `summary[${summaryIndex}]`;
     const fileKey = path.basename(file, path.extname(file));
-    if (!retiredKeys.has(fileKey)) return true;
-    ignoredRetiredSummaries.push(fileKey);
-    return false;
+    if (retiredKeys.has(fileKey)) {
+      ignoredRetiredSummaries.push(fileKey);
+      return false;
+    }
+    if (scheduledKeys && !scheduledKeys.has(fileKey)) {
+      ignoredInactiveSummaries.push(fileKey);
+      return false;
+    }
+    return true;
   });
 
   for (const [summaryIndex, entry] of activeSummaries.entries()) {
@@ -401,6 +413,8 @@ export function validateJobSummaries(summaries, {
     summaryCount,
     ignoredRetiredSummaries: ignoredRetiredSummaries.length,
     retiredSummaryKeys: ignoredRetiredSummaries.sort(),
+    ignoredInactiveSummaries: ignoredInactiveSummaries.length,
+    inactiveSummaryKeys: ignoredInactiveSummaries.sort(),
     freshSummaries,
     staleSummaries,
     staleSummaryIssueCount,
@@ -476,6 +490,21 @@ function readRetiredSummaryKeys(filePath) {
   return Object.keys(registry.retired).sort();
 }
 
+function readScheduledSummaryKeys(filePath) {
+  const absolute = path.resolve(filePath);
+  if (!fs.existsSync(absolute)) throw new Error(`crawler generation roster is missing: ${filePath}`);
+  const roster = JSON.parse(fs.readFileSync(absolute, 'utf8'));
+  if (!object(roster) || !object(roster.primarySlices)) {
+    throw new Error(`crawler generation roster has an invalid primarySlices map: ${filePath}`);
+  }
+  const entries = Object.entries(roster.primarySlices);
+  const valid = entries.length > 0
+    && entries.every(([crawlerId, primarySlice]) => CRAWLER_ID_RE.test(crawlerId) && CRAWLER_SLICE_RE.test(primarySlice))
+    && new Set(entries.map(([, primarySlice]) => primarySlice)).size === entries.length;
+  if (!valid) throw new Error(`crawler generation roster has invalid primary slice bindings: ${filePath}`);
+  return entries.map(([crawlerId]) => crawlerId).sort();
+}
+
 function reportMarkdown(verdict, observation, decision) {
   const lines = [
     `## L3 Job Quality → Apply — ${verdict.ok ? 'OK' : 'ACTION REQUIRED'}`,
@@ -484,6 +513,7 @@ function reportMarkdown(verdict, observation, decision) {
     `- Source: ${verdict.sourcePath}`,
     `- Reason: ${verdict.reason}`,
     `- Retired summaries ignored: ${verdict.snapshot?.ignoredRetiredSummaries ?? 0}`,
+    `- Inactive summaries ignored: ${verdict.snapshot?.ignoredInactiveSummaries ?? 0}`,
     `- Inspected jobs: ${verdict.snapshot?.jobsInspected ?? 'n/a'}`,
     `- Invalid jobs: ${verdict.snapshot?.invalidJobs ?? 'n/a'}`,
     `- Warnings: ${verdict.warnings.length}`,
@@ -667,6 +697,7 @@ export async function runL3({
   outcomePath = DEFAULT_OUTCOME_PATH,
   registryPath = DEFAULT_REGISTRY_PATH,
   quarantinePath = DEFAULT_QUARANTINE_PATH,
+  generationRosterPath = null,
   maxAgeHours = DEFAULT_MAX_AGE_HOURS,
   minimumSample,
   issue = false,
@@ -688,6 +719,9 @@ export async function runL3({
     const summaries = readSummaries(summaryDir);
     sourceOutcomes = readOptionalJson(outcomePath);
     const retiredSummaryKeys = readRetiredSummaryKeys(quarantinePath);
+    const scheduledSummaryKeys = generationRosterPath
+      ? readScheduledSummaryKeys(generationRosterPath)
+      : null;
     verdict = validateJobSummaries(summaries, {
       outcomes: sourceOutcomes,
       now,
@@ -697,6 +731,7 @@ export async function runL3({
       minimumSample: policyMinimumSample,
       candidateActionClass,
       retiredSummaryKeys,
+      scheduledSummaryKeys,
     });
   } catch (error) {
     verdict = baseVerdict({ sourcePath: summaryDir, now, quality: 'unmeasurable', ok: false, reason: error.message });
@@ -829,6 +864,7 @@ function parseArgs(argv) {
     outcomePath: valueAfter('--outcomes', DEFAULT_OUTCOME_PATH),
     registryPath: valueAfter('--registry', DEFAULT_REGISTRY_PATH),
     quarantinePath: valueAfter('--quarantine', DEFAULT_QUARANTINE_PATH),
+    generationRosterPath: valueAfter('--generation-roster', DEFAULT_GENERATION_ROSTER_PATH),
     maxAgeHours,
     minimumSample,
     reportDir: valueAfter('--report-dir', process.env.RUNNER_TEMP
