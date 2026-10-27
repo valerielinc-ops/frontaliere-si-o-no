@@ -108,6 +108,15 @@ export function isLikelyJobDetailUrl(pageUrl, sitemapSignals = null) {
   }
 }
 
+function hasAuthoritativeSitemapDetailSignal(pageUrl, sitemapSignals) {
+  const normalized = normalizedPublicUrl(pageUrl);
+  return Boolean(
+    normalized
+      && sitemapSignals instanceof Map
+      && sitemapSignals.get(normalized) === true,
+  );
+}
+
 function collectJobPostingRecords(value, records = []) {
   if (Array.isArray(value)) {
     for (const entry of value) collectJobPostingRecords(entry, records);
@@ -281,13 +290,26 @@ async function inspectLivePage(pageUrl) {
 
 export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   const detailPageSignal = isLikelyJobDetailUrl(pageUrl, sitemapSignals);
+  const sitemapAvailable = sitemapSignals instanceof Map && sitemapSignals.size > 0;
+  const authoritativeSitemapDetailSignal = hasAuthoritativeSitemapDetailSignal(
+    pageUrl,
+    sitemapSignals,
+  );
   if (live?.error) {
     return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
   }
   if (live?.isJobPage === true) {
     return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
   }
-  if (live?.isListingPage === true && !detailPageSignal) {
+  // A semantic listing is stronger than the conservative path fallback. Keep
+  // it observable as a missing JobPosting only when the live sitemap explicitly
+  // identifies the URL as an active detail page, or when the sitemap is
+  // unavailable and the fallback cannot establish that this is a detail URL.
+  if (
+    live?.isListingPage === true
+    && !authoritativeSitemapDetailSignal
+    && (sitemapAvailable || !detailPageSignal)
+  ) {
     return { detailPageSignal, shouldInspect: false, issue: null, skipped: true };
   }
   if (detailPageSignal) {
