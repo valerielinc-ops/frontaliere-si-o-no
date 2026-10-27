@@ -1,167 +1,5 @@
 [
   {
-    "timestamp": "2026-10-08T15:58:12.133Z",
-    "label": "after",
-    "total": 32597,
-    "needsRetranslation": 4772,
-    "suppressed": 207,
-    "incomplete": 5297,
-    "complete": 27300,
-    "slotsPresent": 27300,
-    "flaggedAmongSlotsPresent": 1,
-    "verifiedTranslated": 27299,
-    "sourceCopyExcused": 423,
-    "slotsPresentByLength": 32554,
-    "languageVerified": 28909,
-    "missingByLocale": {
-      "it": 729,
-      "en": 353,
-      "de": 26,
-      "fr": 406
-    },
-    "queueAge": {
-      "count": 4772,
-      "withTimestamp": 4772,
-      "oldestAgeDays": 1485.7,
-      "p50AgeDays": 18.7,
-      "p90AgeDays": 96.2,
-      "buckets": {
-        "0-1d": 107,
-        "1-2d": 96,
-        "2-7d": 575,
-        "0-7d": 778,
-        "7-30d": 2146,
-        "30-90d": 1267,
-        "90-180d": 579,
-        "180d+": 2
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 398,
-      "withTimestamp": 398,
-      "oldestAgeDays": 177.7,
-      "p50AgeDays": 12.1,
-      "p90AgeDays": 86.7,
-      "buckets": {
-        "0-1d": 154,
-        "1-2d": 6,
-        "2-7d": 15,
-        "0-7d": 175,
-        "7-30d": 52,
-        "30-90d": 150,
-        "90-180d": 21,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 2501,
-      "sampled": 120,
-      "processed": 12,
-      "residual": 2,
-      "residualRate": 0.16666666666666666,
-      "window": {
-        "size": 120,
-        "processed": 120,
-        "residual": 3,
-        "residualRate": 0.025,
-        "runs": 25,
-        "measured": true,
-        "queueCandidates": 2501
-      }
-    },
-    "publicationHold": {
-      "held": 51,
-      "byCrawler": {
-        "fachkraft": 22,
-        "sta": 1,
-        "stellenpartner": 23,
-        "stellentreff": 5
-      }
-    },
-    "predicateVersion": "cdc9102f0be3569c",
-    "freshCohort": {
-      "window": "24-48h",
-      "total": 740,
-      "complete": 641
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 804
-      },
-      {
-        "company": "CADAR AG",
-        "pending": 256
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 232
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 195
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 193
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 135
-      },
-      {
-        "company": "Medbase",
-        "pending": 129
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 97
-      },
-      {
-        "company": "Manor AG",
-        "pending": 88
-      },
-      {
-        "company": "Galaxus",
-        "pending": 87
-      }
-    ],
-    "codexReserve": {
-      "calls": 447,
-      "textsSent": 3381,
-      "translated": 3219,
-      "rejected": 162,
-      "spentMs": 1810708,
-      "verdict": "codex-failed",
-      "byPhase": {
-        "2b-cascade": {
-          "position": "primary",
-          "calls": 344,
-          "maxCalls": 350,
-          "translated": 2745,
-          "rejected": 146,
-          "stopReason": "budget di 1500s esaurito (FREE_TRANSLATE_CODEX_MAX_MS)"
-        },
-        "2d-titles": {
-          "position": "primary",
-          "calls": 103,
-          "maxCalls": 350,
-          "translated": 474,
-          "rejected": 16,
-          "stopReason": "3 fallimenti consecutivi"
-        }
-      }
-    }
-  },
-  {
     "timestamp": "2026-10-08T16:18:47.520Z",
     "label": "before",
     "total": 32597,
@@ -29011,5 +28849,109 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-27T18:58:18.999Z",
+    "label": "before",
+    "total": 32288,
+    "needsRetranslation": 1584,
+    "suppressed": 114,
+    "incomplete": 1904,
+    "complete": 30384,
+    "slotsPresent": 30384,
+    "flaggedAmongSlotsPresent": 57,
+    "verifiedTranslated": 30327,
+    "sourceCopyExcused": 276,
+    "slotsPresentByLength": 32272,
+    "languageVerified": 31648,
+    "missingByLocale": {
+      "it": 25,
+      "en": 19,
+      "de": 11,
+      "fr": 19
+    },
+    "queueAge": {
+      "count": 1584,
+      "withTimestamp": 1584,
+      "oldestAgeDays": 197.3,
+      "p50AgeDays": 37.8,
+      "p90AgeDays": 115.3,
+      "buckets": {
+        "0-1d": 63,
+        "1-2d": 11,
+        "2-7d": 85,
+        "0-7d": 159,
+        "7-30d": 403,
+        "30-90d": 702,
+        "90-180d": 310,
+        "180d+": 10
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 552,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 0,
+      "byCrawler": {}
+    },
+    "predicateVersion": "613cbf0b1ac61f9b",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 627,
+      "complete": 616
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 362
+      },
+      {
+        "company": "LANDI Oberwallis AG",
+        "pending": 108
+      },
+      {
+        "company": "Medbase",
+        "pending": 102
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 88
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 79
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 60
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 53
+      },
+      {
+        "company": "ETAVIS Beutler",
+        "pending": 34
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 33
+      },
+      {
+        "company": "Psychiatrische Dienste Aargau (PDAG)",
+        "pending": 32
+      }
+    ]
   }
 ]
