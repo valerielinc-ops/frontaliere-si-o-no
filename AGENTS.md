@@ -14,7 +14,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 5. Test fail → trattare test come right finché non provato contrario.
 6. Changes chirurgiche: no refactor drive-by, astrazioni speculative o churn: correggi la *classe* del bug, non un file. Regex/replace/guard/floor/threshold/selector: cerca sibling funnel-critical (`scripts/update-*.mjs`, `build-plugins/**`, `services/seoService.ts`), usa `node scripts/ci/check-sibling-patterns.mjs`; verifica a mano. Pre-push hook: scansione advisory (2026-09-04); `scripts/ci/sibling-check-gate.mjs` blocca `gh pr create` finché ogni candidato è fixato o dichiarato singolarmente falso positivo in `## Non implementato`. Sibling reale: scope aperto; chiude solo «lessicalmente simile ma semanticamente diverso». Cerca/centralizza rinomine e regex/costanti duplicate in commenti/docblock. Parser/guard funnel-critical: la shape non basta; valida dominio/contesto, gestisci unknown/ambigui e il vicino non-target prima di scartare o reinterpretare dati. Verifica al confine le rappresentazioni reali del consumer (case, Unicode, prefissi/bullet, header duplicati/mixed-case) e imponi l'invariante dopo normalizzazione: il caso nominale non basta. Dato primario assente/ambiguo: niente fallback generici (`first-match`, `substring`, campo vicino); conserva `unknown` o usa fallback solo con dominio/contesto dimostrati. Dettaglio: `docs/AGENTS-HISTORY.md#sibling-pattern-fix`.
 7. Mai disabilitare AdSense Auto Ads (anchor/in-page/vignette). Mai globale, per-route, loader gating, `enable_page_level_ads:false`, meta opt-out. ~95% revenue. CLS/layout fix da Auto Ads → reserve space (`min-height`/`aspect-ratio`/`contain: layout`), pre-declared `<ins>` placeholder fixed dim, image/font width-height fix. MAI sopprimere ad system.
-8. **Definizione di «fatto» = completezza totale, non il merge della prima PR.** Chiudi un task solo quando `## Non implementato (ancora)` è «Nessuno» e tutto lo scope è live. Il deferral mantiene il task aperto: continua nella stessa PR o in PR concatenate. «Out of scope» vale solo per un task davvero diverso e va separato. Gli stati letterali chiudenti sono quelli di `CLOSING_STATES`: `in questa PR`, `PR concatenata #N`, `blocked: decisione del proprietario`, `per scelta`, `by construction`; gli ultimi due richiedono il motivo esplicito. `blocked: <causa tecnica>` è lavoro esterno: si tenta di rimuovere il blocco e il task **non chiuso** (vedi `## Build And Test → Blocker ≠ stallo`). Reviewer: residuo senza piano o stato senza motivo = 🔴 (vedi `REVIEW.md`).
+8. **Definizione di «fatto» = completezza totale, non il merge della prima PR.** Chiudi un task solo quando `## Non implementato (ancora)` è «Nessuno» e tutto lo scope è live. Il deferral mantiene il task aperto: continua nella stessa PR o in PR concatenate. «Out of scope» vale solo per un task davvero diverso e va separato. Ogni bullet residuo deve dichiarare uno stato riconosciuto dal parser: `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario` (anche `blocked: owner decision`) oppure `blocked: <causa esterna reale>`. `PR concatenata` senza `#N` non è tracciabile; la forma negata `non è un falso positivo` non chiude il lavoro. Gli stati decisionali (`per scelta`, `by construction`, `falso positivo` e owner decision) richiedono nello stesso bullet `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.`; `blocked:` tecnico lascia il task **non chiuso** (vedi `## Build And Test → Blocker ≠ stallo`). Reviewer: residuo senza stato, piano o motivo = 🔴 (vedi `REVIEW.md`).
 9. **Esperimenti futuri: solo Firebase, mai PostHog.** Ogni nuovo A/B test, feature flag sperimentale o confronto di varianti deve usare Firebase (Remote Config per assegnazione/configurazione e Firebase Analytics per la misurazione, quando pertinente). Non introdurre nuovi flag, SDK, eventi o dipendenze PostHog per esperimenti. Il codice e la documentazione PostHog già esistenti sono storico: non vanno estesi senza una decisione esplicita del proprietario.
 
 ## Privacy
@@ -31,6 +31,25 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 - Stringa in diff dubbia → chiedi user.
 
 ## Workflow
+
+### Contratto comune del PR body
+
+`.github/pull_request_template.md`, questo documento e `ISSUES.md` devono
+descrivere la stessa superficie verificata da `scripts/lib/pr-body-sections-check.mjs`.
+`## Implementato` nomina solo file/comportamenti presenti nel diff; `## Non
+implementato (ancora)` è il piano di completamento e ogni bullet deve usare la
+tassonomia di #8, oppure la sezione deve contenere `Nessuno`. `falso positivo`
+è una forma decisionale negation-aware: `non è un falso positivo` resta dovuto.
+
+Prima di aprire una PR, il fixer scrive il body in un file, calcola la riga con
+`node scripts/lib/pr-body-generator-contract.mjs --closing-ref` e invoca
+`node scripts/ci/pr-body-check-gate.mjs --body-file <file>`. Una issue ordinaria
+singola usa `Closes #N`; una follow-up aggregata o monitor-owned usa `Addresses #N`;
+un bucket daily porta anche un solo `Follow-up item: FU-YYYY-MM-DD-NNN`.
+Le decisioni (`per scelta`, `by construction`, `falso positivo`, owner
+decision) richiedono nello stesso bullet `**Motivo:** <causa concreta>.
+**Prossimo passo:** <azione concreta>.`; `blocked: <causa esterna reale>` resta
+lavoro aperto e `PR concatenata` richiede `#N`. Mai body inline.
 
 - Worktree-first obbligatorio per task che edita/committa/pusha. Local `main` checkout = shared/read-only (status/inspection).
 - **Base worktree = `origin/main`, MAI il local `main` checkout.** Fai `git fetch origin main`, poi `git worktree add -b <branch> <path> origin/main`; il local `main` sporco è intoccabile. Verità: `git show origin/main:<file>`. Sync locale stale/dirty solo su richiesta esplicita user: `docs/LOCAL-DEV.md#syncing-a-stale-dirty-local-main-explicit-user-request-only`.
@@ -61,6 +80,16 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 - E2E: Playwright CLI o Codex Browser. No preview-only tools.
 - Playwright MCP (`browser_*`): artifact in `$CLAUDE_JOB_DIR/tmp` o worktree root — mai `/tmp` né `file://` (servi via http); prima di `browser_click`/`browser_evaluate` su pagina dinamica → `browser_snapshot` fresco; `--isolated` evita lock.
 - Mai full build locale; trigger/validate via GitHub Actions.
+
+### Checkpoint e test del fixer
+
+Quando l'issue-fix ha applicato il cambiamento, crea subito il checkpoint
+`wip(issue-N): checkpoint pre-test`; non fare push o `gh pr create` prima del
+diff gate deterministico. Esegui una sola volta il test scoped con
+`npx vitest run <path/glob pertinente>`; se fallisce, ripeti solo il test
+fallito con `-t`, correggi la root cause e riesegui lo scoped test. L'assembly
+dei dati si esegue prima solo quando il diff lo richiede. Questo percorso non
+autorizza una suite intera o un typecheck globale per un fix documentale.
 
 ## Post-merge feedback handling
 
