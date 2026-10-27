@@ -242,6 +242,16 @@ describe('gate sul conio — comportamento', () => {
     expect(decideMintGate({ body, createdAt: '2026-09-06T12:01:00Z' }, { now }).reason).toBe('mint-freshness-unverifiable');
   });
 
+  it("rifiuta la freschezza quando l'orologio o il limite massimo non sono validi", () => {
+    const createdAt = '2026-09-06T11:00:00Z';
+    const body = aggregata(itemProsa);
+    expect(decideMintGate({ body, createdAt }, { now: Number.NaN }).reason).toBe('mint-freshness-unverifiable');
+    expect(decideMintGate({ body, createdAt }, { now: Date.parse('2026-09-06T12:00:00Z'), maxAgeMin: Number.NaN }).reason)
+      .toBe('mint-freshness-unverifiable');
+    expect(decideMintGate({ body, createdAt }, { now: Date.parse('2026-09-06T12:00:00Z'), maxAgeMin: -1 }).reason)
+      .toBe('mint-freshness-unverifiable');
+  });
+
   it('riallinea il conteggio nel titolo e sa estrarre la riga dell\'item demoto', () => {
     expect(retitle('follow-up(#7600): 4 item deferred — foo', 1)).toBe('follow-up(#7600): 1 item deferred — foo');
     // Il conio è un LLM e può usare un sostantivo diverso: lì il replace sarebbe un no-op
