@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T13:28:35.552Z",
+  "generatedAt": "2026-10-27T14:43:41.794Z",
   "totalEvents": 15298,
   "events": [
     {
@@ -333316,7 +333316,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Diamante im Stroh è un evento che si svolge a Hefenhofen. Una compagnia teatrale mette in scena un'opera con questo titolo, e l'appuntamento è indicato come ricorrente.",
+      "descriptionByLocale": {
+        "it": "Diamante im Stroh è un evento che si svolge a Hefenhofen. Una compagnia teatrale mette in scena un'opera con questo titolo, e l'appuntamento è indicato come ricorrente.",
+        "en": "Diamante im Stroh is an event taking place in Hefenhofen. A theater group presents a play under this title, and the event is marked as recurring.",
+        "de": "Die Veranstaltung Diamante im Stroh findet in Hefenhofen statt. Eine Theatergruppe führt ein Stück mit diesem Titel auf, und der Termin ist als wiederkehrend vermerkt.",
+        "fr": "Diamante im Stroh est un événement qui se déroule à Hefenhofen. Une troupe de théâtre y présente une pièce portant ce titre, et le rendez-vous est indiqué comme récurrent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dce36a54c70c41238cd8761620d63b9b",
@@ -429875,7 +429883,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo atelier a Ginevra è dedicato alla scoperta di diversi animali del Bioparc Genève, tra cui uccelli, scimmie, lemuri e procioni. La partecipazione costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Questo atelier a Ginevra è dedicato alla scoperta di diversi animali del Bioparc Genève, tra cui uccelli, scimmie, lemuri e procioni. La partecipazione costa 15 CHF.",
+        "en": "This workshop in Geneva focuses on discovering animals at Bioparc Genève, including birds, monkeys, lemurs and raccoons. Admission costs CHF 15.",
+        "de": "Der Workshop in Genf widmet sich der Entdeckung von Tieren im Bioparc Genève, darunter Vögel, Affen, Lemuren und Waschbären. Die Teilnahme kostet 15 CHF.",
+        "fr": "Cet atelier à Genève propose de découvrir des animaux du Bioparc Genève, notamment des oiseaux, des singes, des lémuriens et des ratons laveurs. La participation coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZsARsL",
@@ -441368,7 +441384,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa animazione a Ginevra esamina i minerali e il loro ruolo nella storia dell’umanità. Tra i temi figurano rubini, ametiste, granati e rame, insieme alle forme cristalline che li caratterizzano.",
+      "descriptionByLocale": {
+        "it": "Questa animazione a Ginevra esamina i minerali e il loro ruolo nella storia dell’umanità. Tra i temi figurano rubini, ametiste, granati e rame, insieme alle forme cristalline che li caratterizzano.",
+        "en": "This animation in Geneva examines minerals and their role in human history. It covers ruby, amethyst, garnet and copper, together with the crystal forms associated with them.",
+        "de": "Die Animation in Genf befasst sich mit Mineralien und ihrer Bedeutung für die Geschichte der Menschheit. Sie behandelt Rubin, Amethyst, Granat und Kupfer sowie die kristallinen Formen dieser Mineralien.",
+        "fr": "Cette animation à Genève s’intéresse aux minéraux et à leur rôle dans l’histoire humaine. Elle évoque le rubis, l’améthyste, les grenats et le cuivre en examinant leurs formes cristallines."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:51927042c06e443190ce0dbc9c866855",
@@ -446792,7 +446816,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale mette a confronto il terrore politico e le conquiste dei diritti civili nell’Italia di quel periodo, intrecciando le vicende dei protagonisti con immagini e musica. La scrittura è affidata a Mario Calabresi, Benedetta Tobagi e Sara Poma; Marco Damilano aggiunge un racconto personale e inedito, e l’appuntamento si svolge al Lac, Sala Teatro di Lugano.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale mette a confronto il terrore politico e le conquiste dei diritti civili nell’Italia di quel periodo, intrecciando le vicende dei protagonisti con immagini e musica. La scrittura è affidata a Mario Calabresi, Benedetta Tobagi e Sara Poma; Marco Damilano aggiunge un racconto personale e inedito, e l’appuntamento si svolge al Lac, Sala Teatro di Lugano.",
+        "en": "The theatre production contrasts political terror with advances in civil rights in Italy during that period, bringing together stories from people involved with images and music. Mario Calabresi, Benedetta Tobagi and Sara Poma wrote the text; Marco Damilano adds a personal, original account, and the production is presented at Lac, Sala Teatro in Lugano.",
+        "de": "Die Theateraufführung stellt den politischen Terror den Kämpfen für Bürgerrechte im damaligen Italien gegenüber und verbindet die Erzählungen von Beteiligten mit Bildern und Musik. Der Text stammt von Mario Calabresi, Benedetta Tobagi und Sara Poma; Marco Damilano ergänzt ihn um einen persönlichen, unveröffentlichten Bericht, und das Stück wird im Lac, Sala Teatro in Lugano aufgeführt.",
+        "fr": "Ce spectacle théâtral oppose la violence politique aux avancées des droits civiques dans l’Italie de cette période, en réunissant les récits de personnes impliquées, des images et de la musique. Le texte est signé par Mario Calabresi, Benedetta Tobagi et Sara Poma; Marco Damilano y apporte un récit personnel et inédit, et le spectacle est présenté au Lac, Sala Teatro à Lugano."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:hoenig-masterclass",
@@ -447875,7 +447907,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Shai Maestro presenta allo Studio Foce di Lugano un progetto musicale eseguito in trio. Il progetto The Guesthouse affianca le radici jazz del pianista a una ricerca sonora contemporanea, in cui convivono strumenti acustici ed elettronica.",
+      "descriptionByLocale": {
+        "it": "Shai Maestro presenta allo Studio Foce di Lugano un progetto musicale eseguito in trio. Il progetto The Guesthouse affianca le radici jazz del pianista a una ricerca sonora contemporanea, in cui convivono strumenti acustici ed elettronica.",
+        "en": "Shai Maestro presents a trio performance at Studio Foce in Lugano. The Guesthouse sets the pianist’s jazz roots alongside contemporary sound research, bringing acoustic instruments and electronics together.",
+        "de": "Shai Maestro tritt im Studio Foce in Lugano in einer Trio-Besetzung auf. Das Projekt The Guesthouse verbindet die Jazzwurzeln des Pianisten mit einer zeitgenössischen Klangsuche, in der akustische Instrumente und Elektronik zusammenkommen.",
+        "fr": "Shai Maestro se produit en trio au Studio Foce, à Lugano. Le projet The Guesthouse associe les racines jazz du pianiste à une recherche sonore contemporaine, où se rencontrent instruments acoustiques et électronique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f20727507ebc456987b354976b2fbbb3",
@@ -633334,7 +633374,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Caroline Bungeroth presenta uno spettacolo di musica comica al Kleintheater Alte Oele di Thun. L’evento si svolge nel Canton Berna e il prezzo indicato è di 37,90 CHF.",
+      "descriptionByLocale": {
+        "it": "Caroline Bungeroth presenta uno spettacolo di musica comica al Kleintheater Alte Oele di Thun. L’evento si svolge nel Canton Berna e il prezzo indicato è di 37,90 CHF.",
+        "en": "Caroline Bungeroth presents a comedy-music performance at Kleintheater Alte Oele in Thun. The event is listed in the canton of Bern, with admission priced at CHF 37.90.",
+        "de": "Caroline Bungeroth präsentiert im Kleintheater Alte Oele in Thun ein musikkomödiantisches Programm. Die Veranstaltung findet im Kanton Bern statt; der angegebene Preis beträgt 37,90 CHF.",
+        "fr": "Caroline Bungeroth présente un spectacle de musique comique au Kleintheater Alte Oele de Thoune. L’événement est rattaché au canton de Berne et le prix indiqué est de 37,90 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A9JuGFR",
@@ -667960,7 +668008,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento al Theater Duo Fischbach, a Fischbach, è dedicato alla musica funk. La proposta musicale unisce elementi funk e groove.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento al Theater Duo Fischbach, a Fischbach, è dedicato alla musica funk. La proposta musicale unisce elementi funk e groove.",
+        "en": "The event at Theater Duo Fischbach in Fischbach is devoted to funk music. Its programme combines funk elements with a groove-oriented approach.",
+        "de": "Die Veranstaltung im Theater Duo Fischbach in Fischbach ist der Funkmusik gewidmet. Das Programm verbindet Funkklänge mit Groove-Elementen.",
+        "fr": "Le rendez-vous au Theater Duo Fischbach, à Fischbach, est consacré à la musique funk. La proposition musicale associe des sonorités funk à des éléments de groove."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:dc2a901430f54f269c94eaa6a63b6d70",
@@ -669828,7 +669884,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento si tiene al Dornier Museum. Unisce una cena a un programma musicale legato al genere del musical.",
+      "descriptionByLocale": {
+        "it": "L’evento si tiene al Dornier Museum. Unisce una cena a un programma musicale legato al genere del musical.",
+        "en": "The event is held at the Dornier Museum. It combines a meal with a programme in the musical theatre genre.",
+        "de": "Die Veranstaltung findet im Dornier Museum statt. Sie verbindet ein Dinner mit einem Programm aus dem Musical-Bereich.",
+        "fr": "L’événement a lieu au Dornier Museum. Il associe un repas à un programme de comédie musicale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8bd2e25c23b04fbc87a33d553f8ce169",
@@ -676660,7 +676724,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si tiene allo Schloss Beuggen, a Rheinfelden, nel canton Argovia. Il formato abbina una cena alla musica Schlager.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si tiene allo Schloss Beuggen, a Rheinfelden, nel canton Argovia. Il formato abbina una cena alla musica Schlager.",
+        "en": "The event takes place at Schloss Beuggen in Rheinfelden, in the canton of Aargau. It combines a dinner with Schlager music.",
+        "de": "Die Veranstaltung findet im Schloss Beuggen in Rheinfelden, im Kanton Aargau, statt. Sie verbindet ein Dinner mit Musik aus dem Schlagerbereich.",
+        "fr": "L’événement a lieu au Schloss Beuggen, à Rheinfelden, dans le canton d’Argovie. Il associe un dîner à de la musique Schlager."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AGCUCZM",
@@ -679497,7 +679569,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Münzhof Langenargen è previsto un concerto a cappella dell’ensemble Männer und Tenöre. Il programma utilizza brani dei Comedian Harmonists e li presenta come un percorso musicale attraverso il mondo.",
+      "descriptionByLocale": {
+        "it": "Al Münzhof Langenargen è previsto un concerto a cappella dell’ensemble Männer und Tenöre. Il programma utilizza brani dei Comedian Harmonists e li presenta come un percorso musicale attraverso il mondo.",
+        "en": "Münzhof Langenargen hosts an a cappella performance by Männer und Tenöre. The programme draws on pieces by the Comedian Harmonists and presents them as a musical journey around the world.",
+        "de": "Im Münzhof Langenargen steht ein A-cappella-Auftritt von Männer und Tenöre auf dem Programm. Das Ensemble verwendet Stücke der Comedian Harmonists und verbindet sie mit dem Motiv einer musikalischen Weltreise.",
+        "fr": "Le Münzhof Langenargen accueille une prestation a cappella de Männer und Tenöre. Le programme s’appuie sur des morceaux des Comedian Harmonists et les relie à l’idée d’un voyage musical autour du monde."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ALkubAk",
@@ -681447,7 +681527,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il MERCI-TOUR celebra i 30 anni di Oesch's die Dritten con un appuntamento di intrattenimento popolare. L'evento si svolge al Gemeindesaal Möriken-Wildegg, nel comune di Möriken-Wildegg, e l'ingresso costa 24 CHF.",
+      "descriptionByLocale": {
+        "it": "Il MERCI-TOUR celebra i 30 anni di Oesch's die Dritten con un appuntamento di intrattenimento popolare. L'evento si svolge al Gemeindesaal Möriken-Wildegg, nel comune di Möriken-Wildegg, e l'ingresso costa 24 CHF.",
+        "en": "This music event is part of the MERCI-TOUR marking 30 years of Oesch's die Dritten. It takes place at Gemeindesaal Möriken-Wildegg in Möriken-Wildegg, and admission costs CHF 24.",
+        "de": "Die Veranstaltung gehört zur MERCI-TOUR anlässlich des 30-jährigen Bestehens von Oesch's die Dritten. Sie findet im Gemeindesaal Möriken-Wildegg in Möriken-Wildegg statt; der Eintritt kostet 24 CHF.",
+        "fr": "Ce rendez-vous musical s'inscrit dans la MERCI-TOUR qui marque les 30 ans d'Oesch's die Dritten. Il a lieu au Gemeindesaal Möriken-Wildegg, à Möriken-Wildegg, et le prix d'entrée est de 24 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6bbd792b31134c5581e2b3f192f2a4fc",
@@ -701267,7 +701355,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Passionvinyl Festival è un appuntamento classificato come festival e incontro. Si svolge al Musée du papier peint ed è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "Passionvinyl Festival è un appuntamento classificato come festival e incontro. Si svolge al Musée du papier peint ed è organizzato da Guidle.",
+        "en": "Passionvinyl Festival is an event classified as a festival and meeting. It takes place at the Musée du papier peint and is organised by Guidle.",
+        "de": "Das Passionvinyl Festival ist als Festival und Begegnung eingestuft. Die Veranstaltung findet im Musée du papier peint statt und wird von Guidle organisiert.",
+        "fr": "Passionvinyl Festival est un événement classé dans la catégorie des festivals et rencontres. Il se déroule au Musée du papier peint et est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9e8fdff316be430f9d2f5a684bf24d02",
