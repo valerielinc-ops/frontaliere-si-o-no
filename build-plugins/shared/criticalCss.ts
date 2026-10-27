@@ -548,7 +548,7 @@ export const TAILWIND_PREFLIGHT_RESERVE_CSS =
  */
 export const SEO_STATIC_BODY_FONT_RESERVE_CSS = 'body{font-family:"Manrope",sans-serif}';
 
-+/**
+/**
  * Tailwind UTILITY subset, mirrored from the ASYNC `index.css`
  * `@layer utilities`/`@layer components` into this SYNCHRONOUS first-paint
  * block.
