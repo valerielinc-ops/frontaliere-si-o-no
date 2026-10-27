@@ -37,6 +37,7 @@ import {
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
+import { countryCodeOfLabel, formatInternationalPhone, phoneCountryCode, phoneCountryLabel } from '../../../../functions/src/lib/phoneNormalization.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -632,6 +633,20 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 const PHONE_CODE_FIELD_RE = /\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono)\b/i;
 const PHONE_COUNTRY_CODE_LABEL_RE = /\b(?:country|nazione|paese|pays|land)\s+(?:phone\s+)?(?:code|codice|indicativo|vorwahl|prefix|prefisso)\b/i;
 
+function isPhoneCountryQuestion(value, context = '', metadata = {}) {
+  const label = String(value || '');
+  const fieldContext = [context, metadata?.section].filter(Boolean).join(' ');
+  const explicitPhoneCountry = (PHONE_COUNTRY_CODE_LABEL_RE.test(label)
+    && (PHONE_CODE_FIELD_RE.test(label)
+      || (PHONE_CODE_FIELD_RE.test(fieldContext) && !RESIDENCE_CONTEXT_RE.test(fieldContext))))
+    || (COUNTRY_RE.test(label) && PHONE_CODE_FIELD_RE.test(label));
+  if (explicitPhoneCountry) return !RESIDENCE_CONTEXT_RE.test(label);
+  return COUNTRY_RE.test(label)
+    && PHONE_CODE_FIELD_RE.test(fieldContext)
+    && !RESIDENCE_CONTEXT_RE.test(label)
+    && !RESIDENCE_CONTEXT_RE.test(fieldContext);
+}
+
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
   const surrounding = String(context || '').trim();
@@ -720,6 +735,8 @@ export function questionTopic(label, context = '', metadata = {}) {
   if (isNationalityField(text)) return 'nationality';
   if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
   if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
+  if (isPhoneCountryQuestion(text, context, metadata)) return 'phone_country';
+  if (PHONE_CODE_FIELD_RE.test(text)) return 'phone';
   const ageTopic = ageQuestionTopic(text);
   if (ageTopic) return ageTopic;
   const addressTopic = addressQuestionTopic(text, context, metadata);
@@ -997,8 +1014,14 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
 }
 
 export function candidateAnswerForQuestion(candidate, question, context = '', metadata = {}) {
-  return recordedAnswerForQuestion(candidate, question, context, metadata)
-    || addressQuestionAnswer(candidate, questionTopic(question, context, metadata));
+  const topic = questionTopic(question, context, metadata);
+  if (topic === 'phone') return formatInternationalPhone(candidate?.identity?.phone);
+  if (topic === 'phone_country') return phoneCountryLabel(candidate?.identity?.phone);
+  // Contact/address facts are canonical identity data. A prior portal answer
+  // is only a compatibility fallback when the current candidate record has no
+  // value; it must not overwrite a corrected country from the CV/profile.
+  return addressQuestionAnswer(candidate, topic)
+    || recordedAnswerForQuestion(candidate, question, context, metadata);
 }
 
 /**
@@ -1288,16 +1311,36 @@ function isInferredProfileLanguageAnswer(candidate, field, answer) {
     && comparableAnswer(inferred.value) === comparableAnswer(answer));
 }
 
+function phoneCountryOption(candidate, field) {
+  const phone = formatInternationalPhone(candidate?.identity?.phone);
+  const code = phoneCountryCode(phone);
+  if (!code) return '';
+  const options = Array.isArray(field?.options) ? field.options : [];
+  const selected = options
+    .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
+    .find((label) => countryCodeOfLabel(label) === code) || '';
+  return selected || (!options.length ? phoneCountryLabel(phone) : '');
+}
+
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context, field);
+  if (topic === 'phone') {
+    const value = formatInternationalPhone(candidate?.identity?.phone);
+    return value ? { value, source: 'identity' } : null;
+  }
+  if (topic === 'phone_country') {
+    const value = phoneCountryOption(candidate, field);
+    return value ? { value, source: 'identity' } : null;
+  }
   const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context, field);
   const salutation = salutationFieldAnswer(candidate, field, previous);
   if (salutation) return salutation;
   const referralSource = referralSourceAnswer(field);
   if (referralSource) return referralSource;
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
-    const stated = previous || addressQuestionAnswer(candidate, topic);
+    const canonical = addressQuestionAnswer(candidate, topic);
+    const stated = canonical || previous;
     if (!stated) return null;
     let value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     // Workday and similar ATSs split «Street Name» from the house number.
@@ -1309,7 +1352,7 @@ export function candidateAnswerForField(candidate, field) {
         .replace(/\s+[0-9]{1,5}[A-Za-z]?\s*$/, '')
         .trim();
     }
-    return value ? { value, source: previous ? 'answers' : 'identity' } : null;
+    return value ? { value, source: canonical ? 'identity' : 'answers' } : null;
   }
   if (previous) {
     const value = optionForAnswer(field, previous);

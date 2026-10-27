@@ -64,7 +64,7 @@ describe('fill kit', () => {
       documents: { cv: { url: 'https://signed/cv', extension: 'pdf' }, coverLetter: { url: 'https://signed/letter' } },
     });
     expect(kit.applyUrl).toBe('https://jobs.example.ch/job/1/apply');
-    expect(kit.identity).toMatchObject({ firstName: 'Maria Luisa', lastName: 'Rossi', fullName: 'Maria Luisa Rossi', email: 'maria@example.com', phone: '+39 333 1234567', location: 'Como, Italia' });
+    expect(kit.identity).toMatchObject({ firstName: 'Maria Luisa', lastName: 'Rossi', fullName: 'Maria Luisa Rossi', email: 'maria@example.com', phone: '+39 333 1234567', phoneCountry: 'Italien', location: 'Como, Italia' });
     expect(kit.identity.address).toEqual({ street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' });
     expect(kit.profile).toMatchObject({ dateOfBirth: '1990-05-12', salary: 'CHF 80k' });
     // The portal's own wording wins over the draft's question; empty answers never travel.
