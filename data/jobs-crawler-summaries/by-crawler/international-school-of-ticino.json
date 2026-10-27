@@ -1,24 +1,42 @@
 {
   "key": "international-school-of-ticino",
   "label": "International School of Ticino",
-  "generatedAt": "2026-10-26T21:41:39.592Z",
+  "generatedAt": "2026-10-27T09:56:16.500Z",
   "total": 0,
-  "discovered": 360,
-  "parsed": 1,
+  "discovered": 358,
+  "parsed": 0,
   "lastFetchOutcome": "selector_miss",
-  "sourceBodyFailureCount": 0,
-  "sourceBodyFailures": [],
-  "abortKind": null,
+  "authoritativeEmptySnapshot": false,
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
+  "durationMs": 92815,
+  "avgDurationMs": 92815,
+  "durationHistory": [
+    92815
+  ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "company": "International School of Ticino",
+      "companyKey": "international-school-of-ticino",
+      "country": "CH",
+      "source": "ist-inspirededu-crawler",
+      "_qualityScore": 27,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
+        "translation": 0,
+        "completeness": 2
+      }
+    }
+  ],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
 }
