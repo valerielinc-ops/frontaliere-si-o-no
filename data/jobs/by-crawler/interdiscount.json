@@ -24157,12 +24157,12 @@
     },
     {
       "id": "interdiscount-7e8daf6d-254",
-      "slug": "auxiliaire-de-noel-interdiscount-geneve",
+      "slug": "ausiliare-di-natale-interdiscount-geneve",
       "slugByLocale": {
         "fr": "auxiliaire-de-noel-interdiscount-geneve",
-        "it": "auxiliaire-de-noel-interdiscount-geneve",
-        "en": "auxiliaire-de-noel-interdiscount-geneve",
-        "de": "auxiliaire-de-noel-interdiscount-geneve"
+        "it": "ausiliare-di-natale-interdiscount-geneve",
+        "en": "christmas-auxiliary-interdiscount-geneve",
+        "de": "weihnachtshilfswerk-interdiscount-geneve"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24235,7 +24235,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:18:20.760Z"
+      "firstSeenAt": "2026-10-27T09:18:20.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-de-noel-interdiscount-geneve"
+        ],
+        "en": [
+          "auxiliaire-de-noel-interdiscount-geneve"
+        ],
+        "de": [
+          "auxiliaire-de-noel-interdiscount-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-noel-interdiscount-geneve"
+      ]
     }
   ]
 }

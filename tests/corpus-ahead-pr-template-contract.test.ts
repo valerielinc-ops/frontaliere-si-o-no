@@ -13,4 +13,16 @@ describe('pull request template parity contract', () => {
     expect(TEMPLATE).toMatch(/Closes #N/);
     expect(TEMPLATE).toContain('una keyword per issue');
   });
+
+  it('documents the shared state, aggregate and body-file contract', () => {
+    for (const literal of [
+      'Addresses #N',
+      'Follow-up item: FU-YYYY-MM-DD-NNN',
+      'PR concatenata #N',
+      'blocked: <causa esterna reale>',
+      'falso positivo',
+      '**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.',
+      'scripts/ci/pr-body-check-gate.mjs',
+    ]) expect(TEMPLATE).toContain(literal);
+  });
 });

@@ -84,6 +84,16 @@ describe('loop clock table and cadence', () => {
     });
   });
 
+  it('keeps Instagram Insights autonomy on the daily external clock with apply enabled', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-instagram-insights-autonomy',
+      repo: 'site',
+      workflow: 'instagram-insights-snapshot.yml',
+      everyMinutes: 1440,
+      inputs: { apply: 'true' },
+    });
+  });
+
   // A field nothing reads is a promise nobody keeps. `introducedAt` is read by
   // the observer and stays optional: an entry without it is dated from the
   // history of this table (#12284).

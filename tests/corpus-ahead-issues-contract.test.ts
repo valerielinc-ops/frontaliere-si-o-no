@@ -11,4 +11,18 @@ describe('issue automation instructions contract', () => {
     expect(SOURCE).toContain('Issue Automation Instructions');
     expect(SOURCE).toContain('Bucket giornaliero follow-up');
   });
+
+  it('keeps the fixer checkpoint, scoped test and body-file rules documented', () => {
+    for (const literal of [
+      'wip(issue-N): checkpoint pre-test',
+      'npx vitest run <path/glob pertinente>',
+      'node scripts/ci/pr-body-check-gate.mjs --body-file <file>',
+      'Closes #N',
+      'Addresses #N',
+      'PR concatenata #N',
+      'blocked: <causa esterna reale>',
+      'falso positivo',
+      'Nessuno',
+    ]) expect(SOURCE).toContain(literal);
+  });
 });

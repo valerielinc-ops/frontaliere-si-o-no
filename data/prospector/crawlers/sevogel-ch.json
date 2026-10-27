@@ -1,0 +1,21 @@
+{
+  "companyKey": "sevogel-ch",
+  "companyName": "sevogel",
+  "companyHost": "sevogel.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://sevogel.ch/stellen/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Project Engineer Gebäudeautomation 100% (m/w)",
+    "Lehrstelle als Automatikmonteur/in EFZ (Start Sommer 2027)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-27T11:45:18.604Z",
+  "candidateKey": "sevogel.ch"
+}

@@ -224,10 +224,13 @@ describe('daily follow-up identity and dedup', () => {
 
   it('richiede una lista follow-up REST completa e distingue PR da issue', () => {
     const parsed = parseOpenFollowupPages(JSON.stringify([
-      [{ number: 10, title: dailyBucketTitle(DAY, 'owner/repo', 1), state: 'open' }],
+      [{ number: 10, title: dailyBucketTitle(DAY, 'owner/repo', 1), state: 'open', created_at: '2026-09-09T08:00:00Z' }],
       [{ number: 11, title: 'pull request label', pull_request: { url: 'https://example.test/pr/11' } }],
     ]));
     expect(parsed?.map((entry) => entry.number)).toEqual([10]);
+    expect(parseOpenFollowupPages(JSON.stringify([
+      [{ number: 10, title: dailyBucketTitle(DAY, 'owner/repo', 1), state: 'open' }],
+    ]))).toBeNull();
     expect(parseOpenFollowupPages(JSON.stringify([
       [{ number: 10, title: 'x' }],
       [{ number: 10, title: 'duplicate' }],

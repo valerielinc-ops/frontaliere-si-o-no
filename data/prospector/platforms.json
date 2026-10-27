@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-26T12:04:04.021Z",
+  "updatedAt": "2026-10-27T11:44:05.083Z",
   "platforms": {
     "4insiders.swiss": {
       "domain": "4insiders.swiss",
@@ -92,7 +92,8 @@
         "ssbl.ch",
         "sihlcity.ch",
         "kita-grisu.ch",
-        "rpb.ch"
+        "rpb.ch",
+        "tasted.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -100,12 +101,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.jobportal.abaservices.ch": 256
+        "app.jobportal.abaservices.ch": 260
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:32:21.923Z",
-      "note": "careers outlink, score 5",
+      "note": "careers outlink, score 6",
       "hostEmployerUnknown": {
         "app.jobportal.abaservices.ch": true
       },
@@ -117,6 +118,7 @@
           "rpb.ch",
           "sihlcity.ch",
           "ssbl.ch",
+          "tasted.ch",
           "tkb.ch"
         ]
       }
@@ -233,7 +235,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.admin.ch": 382
+        "jobs.admin.ch": 390
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -371,11 +373,11 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "fincons.applytojob.com": 76,
-        "boardinternationalsa.applytojob.com": 76
+        "fincons.applytojob.com": 77,
+        "boardinternationalsa.applytojob.com": 77
       },
       "pathHits": {
-        "/apply": 152
+        "/apply": 154
       },
       "tenantCount": 161,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -597,10 +599,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.beehire.com": 228
+        "app.beehire.com": 231
       },
       "pathHits": {
-        "/invite": 228
+        "/invite": 231
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -740,12 +742,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "job.bkw.com": 662
+        "job.bkw.com": 667
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:28:39.776Z",
-      "note": "apply-host cluster from SECO BL",
+      "note": "apply-host cluster from SECO LU",
       "hostEmployers": {
         "job.bkw.com": [
           "bkw.ch"
@@ -1432,12 +1434,12 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "chrampfcheibe.ch": 172
+        "chrampfcheibe.ch": 174
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-28T15:31:07.582Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO LU",
       "hostEmployerUnknown": {
         "chrampfcheibe.ch": true
       }
@@ -1585,18 +1587,18 @@
       "tenantShape": "mixed",
       "hostHits": {
         "bouygues-construction-it.contactrh.com": 2,
-        "geberit.contactrh.com": 46,
+        "geberit.contactrh.com": 47,
         "spar-management-ag.contactrh.com": 2,
         "stobag.contactrh.com": 36,
         "sv-schweiz-ag.contactrh.com": 44,
         "tecan-trading-ag.contactrh.com": 5,
-        "tertianum-produktion.contactrh.com": 219,
-        "vat-vakuumventile-ag.contactrh.com": 64
+        "tertianum-produktion.contactrh.com": 220,
+        "vat-vakuumventile-ag.contactrh.com": 65
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO AG",
+      "note": "apply-host cluster from SECO SG",
       "lastExpandedAt": "2026-10-20T10:44:51.238Z",
       "expansionAttempts": 7,
       "hostEmployerUnknown": {
@@ -1632,19 +1634,19 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "jobs.coopjobs.ch": 418,
+        "jobs.coopjobs.ch": 420,
         "coopjobs.ch": 2
       },
       "pathHits": {
         "/postes-vacantes": 3,
-        "/offene-stellen": 261,
+        "/offene-stellen": 263,
         "/content": 1
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
       "note": "own-crawl census: 2 datori",
-      "lastExpandedAt": "2026-10-20T06:02:41.799Z",
-      "expansionAttempts": 6,
+      "lastExpandedAt": "2026-10-27T11:22:41.079Z",
+      "expansionAttempts": 7,
       "hostEmployers": {
         "coopjobs.ch": [
           "fust.ch"
@@ -1657,6 +1659,825 @@
       },
       "hostEmployerUnknown": {
         "jobs.coopjobs.ch": true
+      },
+      "expansionProbeOffset": 200,
+      "expansionRetryHosts": [
+        {
+          "host": "qual.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "001-traductions.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "001.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "001traductions.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "01-start-physio.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "01start.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "01startphysio.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "04-start-physio-succursale-de-martigny.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "04start.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "04startphysiosuccursaledemartigny.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1-2-eat.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1-618-capital.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1-computer.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10-gute-vorsatze.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "100-cento.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "100.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000-stimmen-tunnel.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000ftad.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000stimmen.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000stimmentunnel.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001-fleurs.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001-teller.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001fleurs.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001teller.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1002388.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "100cento.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1050medical.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "108prozent.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10gute.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10gutevorsatze.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10w40.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1178.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "11teamsports.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1203-graines.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1203.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1203graines.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123-bocal.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123-swissgo.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123bocal.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123immo.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123swissgo.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275-hair-barber-shop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275hair.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275hairbarbershop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "12eat.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "13-etoiles.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1386-brauerei.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1386.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1386brauerei.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "13etoiles.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1517.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1618.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1618capital.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1648.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "169-west.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "169.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "169west.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "16boucherie.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "16boucheriethaiburgertakeawayweinshop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733-restaurant-weinbar.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733restaurant.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733restaurantweinbar.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1741.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800-degres.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800-trucs.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800degres.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800trucs.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1802.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1818.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1820.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1881-kantine.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1881.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1881kantine.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "18th-restaurant.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "18th.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "18threstaurant.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1982-foodtruck.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1982.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1982foodtruck.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1a-hunkeler-fenster.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1ahunkeler.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1ahunkelerfenster.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1computer.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1h-clean-filotex.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1h-clean-tapisan.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1hclean.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1hcleanfilotex.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1hcleantapisan.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1komma7.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1st-choice.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1st-wasch-lounge-dattwil.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1st.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stchoice.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stquad-solutions.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stquad.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stquadsolutions.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stwasch.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stwaschloungedattwil.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2-akt.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2-rad-jack-muller.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2-rad-shop-brunner.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20-02-beauty-space.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2002.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2002beautyspace.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20gi.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20km-h.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20km.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20kmh.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20th.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "21datas.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2225.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24-dumas-coiffure.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24-hours-fiberwork.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24dumas.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24dumascoiffure.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24h-kostliche-vielfalt.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24h-shop-metzgerei-metzger.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24h.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hkostliche.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hkostlichevielfalt.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hours.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hoursfiberwork.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hshop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hshopmetzgereimetzger.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hours-hotel-zurich-west.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hours.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hourshotel.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hourshotelzurichwest.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2601.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2a-gastro.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2agastro.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2akt.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2b-interventions.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresh-eschbach.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresh.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresheschbach.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2binterventions.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2communicate.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2eck-architekten.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2eck.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2eckarchitekten.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ieme-second-hand.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ieme.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2iemesecond.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2iemesecondhand.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2me-toumi.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2me.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2metoumi.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2nd-peak.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2nd-skin-tattoo-piercing.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2nd.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ndpeak.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ndskin.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ndskintattoopiercing.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2p-renovations-et-immobilier.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2prenovations.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2prenovationsetimmobilier.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2pteam.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2punkt2.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2rad-bern.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2rad-shop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2rad.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radbern.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radjackmuller.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radshop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radshopbrunner.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radzuri.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheels-rental-ebike-rental-ticino.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheels.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheelsrental.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheelsrentalebikerentalticino.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-d-art.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-grad-physiotherapie.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-k.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-la-ferme-de-la-souche.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-pyramids.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-schreiner.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-spitz.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3023.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3043er-bier.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3043er.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3043erbier.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "32-tattoo.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "321color-shop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "321color.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "321colorshop.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "32corner.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "32tattoo.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "33-coiffeur.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "33coiffeur.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "36-grad.coopjobs.ch",
+          "attempts": 1
+        },
+        {
+          "host": "360.coopjobs.ch",
+          "attempts": 1
+        }
+      ],
+      "lastExpansion": {
+        "at": "2026-10-27T11:22:41.079Z",
+        "outcome": "partial",
+        "discoveredHosts": 200,
+        "liveTenants": 0,
+        "probeLimitReached": true,
+        "sources": {
+          "commoncrawl": {
+            "outcome": "unavailable",
+            "items": 0,
+            "errorCode": "http_error"
+          },
+          "certspotter": {
+            "outcome": "complete",
+            "items": 5,
+            "errorCode": null
+          },
+          "probes": {
+            "outcome": "partial",
+            "items": 200,
+            "errorCode": "transient_probe_failures"
+          }
+        }
       }
     },
     "csod.com": {
@@ -1675,12 +2496,12 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "chopard.csod.com": 177,
-        "groupemutuel.csod.com": 98,
+        "chopard.csod.com": 178,
+        "groupemutuel.csod.com": 99,
         "msc.csod.com": 41
       },
       "pathHits": {
-        "/ux": 154
+        "/ux": 156
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -2488,7 +3309,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "cvmanager.ch": 910
+        "cvmanager.ch": 915
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -2609,14 +3430,14 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.dualoo.com": 1010
+        "jobs.dualoo.com": 1023
       },
       "pathHits": {
-        "/portal": 529
+        "/portal": 536
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "careers outlink, score 5",
+      "note": "apply-host cluster from SECO SG",
       "hostEmployers": {
         "jobs.dualoo.com": [
           "cereneo.ch",
@@ -2708,18 +3529,829 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "api.easytemp.ch": 1020,
-        "ats.easytemp.ch": 213
+        "api.easytemp.ch": 1023,
+        "ats.easytemp.ch": 215
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:29:08.377Z",
-      "note": "apply-host cluster from SECO AG",
-      "lastExpandedAt": "2026-10-20T05:51:53.724Z",
-      "expansionAttempts": 6,
+      "note": "apply-host cluster from SECO SZ",
+      "lastExpandedAt": "2026-10-27T11:13:34.160Z",
+      "expansionAttempts": 7,
       "hostEmployerUnknown": {
         "api.easytemp.ch": true,
         "ats.easytemp.ch": true
+      },
+      "expansionProbeOffset": 200,
+      "expansionRetryHosts": [
+        {
+          "host": "local.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "001-traductions.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "001.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "001traductions.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "01-start-physio.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "01start.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "01startphysio.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "04-start-physio-succursale-de-martigny.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "04start.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "04startphysiosuccursaledemartigny.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1-2-eat.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1-618-capital.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1-computer.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10-gute-vorsatze.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "100-cento.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "100.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000-stimmen-tunnel.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000ftad.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000stimmen.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1000stimmentunnel.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001-fleurs.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001-teller.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001fleurs.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1001teller.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1002388.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "100cento.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1050medical.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "108prozent.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10gute.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10gutevorsatze.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "10w40.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1178.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "11teamsports.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1203-graines.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1203.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1203graines.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123-bocal.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123-swissgo.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123bocal.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123immo.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "123swissgo.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275-hair-barber-shop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275hair.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1275hairbarbershop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "12eat.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "13-etoiles.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1386-brauerei.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1386.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1386brauerei.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "13etoiles.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1517.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1618.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1618capital.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1648.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "169-west.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "169.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "169west.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "16boucherie.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "16boucheriethaiburgertakeawayweinshop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733-restaurant-weinbar.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733restaurant.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1733restaurantweinbar.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1741.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800-degres.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800-trucs.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800degres.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1800trucs.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1802.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1818.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1820.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1881-kantine.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1881.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1881kantine.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "18th-restaurant.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "18th.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "18threstaurant.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1982-foodtruck.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1982.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1982foodtruck.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1a-hunkeler-fenster.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1ahunkeler.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1ahunkelerfenster.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1computer.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1h-clean-filotex.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1h-clean-tapisan.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1hclean.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1hcleanfilotex.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1hcleantapisan.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1komma7.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1st-choice.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1st-wasch-lounge-dattwil.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1st.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stchoice.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stquad-solutions.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stquad.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stquadsolutions.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stwasch.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "1stwaschloungedattwil.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2-akt.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2-rad-jack-muller.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2-rad-shop-brunner.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20-02-beauty-space.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2002.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2002beautyspace.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20gi.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20km-h.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20km.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20kmh.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "20th.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "21datas.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2225.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24-dumas-coiffure.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24-hours-fiberwork.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24dumas.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24dumascoiffure.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24h-kostliche-vielfalt.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24h-shop-metzgerei-metzger.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24h.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hkostliche.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hkostlichevielfalt.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hours.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hoursfiberwork.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hshop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "24hshopmetzgereimetzger.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hours-hotel-zurich-west.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hours.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hourshotel.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "25hourshotelzurichwest.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2601.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2a-gastro.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2agastro.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2akt.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2b-interventions.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresh-eschbach.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresh.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresheschbach.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2binterventions.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2communicate.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2eck-architekten.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2eck.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2eckarchitekten.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ieme-second-hand.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ieme.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2iemesecond.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2iemesecondhand.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2me-toumi.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2me.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2metoumi.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2nd-peak.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2nd-skin-tattoo-piercing.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2nd.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ndpeak.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ndskin.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2ndskintattoopiercing.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2p-renovations-et-immobilier.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2prenovations.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2prenovationsetimmobilier.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2pteam.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2punkt2.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2rad-bern.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2rad-shop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2rad.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radbern.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radjackmuller.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radshop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radshopbrunner.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2radzuri.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheels-rental-ebike-rental-ticino.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheels.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheelsrental.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "2wheelsrentalebikerentalticino.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-d-art.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-grad-physiotherapie.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-k.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-la-ferme-de-la-souche.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-pyramids.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-schreiner.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3-spitz.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3023.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3043er-bier.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3043er.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "3043erbier.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "32-tattoo.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "321color-shop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "321color.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "321colorshop.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "32corner.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "32tattoo.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "33-coiffeur.easytemp.ch",
+          "attempts": 1
+        },
+        {
+          "host": "33coiffeur.easytemp.ch",
+          "attempts": 1
+        }
+      ],
+      "lastExpansion": {
+        "at": "2026-10-27T11:13:34.160Z",
+        "outcome": "partial",
+        "discoveredHosts": 200,
+        "liveTenants": 0,
+        "probeLimitReached": true,
+        "sources": {
+          "commoncrawl": {
+            "outcome": "unavailable",
+            "items": 0,
+            "errorCode": "http_error"
+          },
+          "certspotter": {
+            "outcome": "complete",
+            "items": 6,
+            "errorCode": null
+          },
+          "probes": {
+            "outcome": "partial",
+            "items": 200,
+            "errorCode": "mixed_probe_incomplete"
+          }
+        }
       }
     },
     "edigroup.ch": {
@@ -2920,10 +4552,10 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "frontaliereticino.ch": 104
+        "frontaliereticino.ch": 106
       },
       "pathHits": {
-        "/lavoro": 104
+        "/lavoro": 106
       },
       "tenantCount": 0,
       "discoveredAt": "2026-09-11T08:08:14.827Z",
@@ -2956,14 +4588,14 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.galenica.com": 635
+        "jobs.galenica.com": 645
       },
       "pathHits": {
-        "/it": 457
+        "/it": 465
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "own-crawl census: 8 datori",
+      "note": "apply-host cluster from SECO BE",
       "hostEmployerUnknown": {
         "jobs.galenica.com": true
       }
@@ -3847,14 +5479,14 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "boards.greenhouse.io": 156,
-        "job-boards.eu.greenhouse.io": 125,
+        "boards.greenhouse.io": 158,
+        "job-boards.eu.greenhouse.io": 126,
         "job-boards.greenhouse.io": 6
       },
       "pathHits": {
-        "/onrunning": 78,
-        "/proton": 78,
-        "/vaxcyte": 78,
+        "/onrunning": 79,
+        "/proton": 79,
+        "/vaxcyte": 79,
         "/veeamsoftware": 46
       },
       "tenantCount": 1,
@@ -4626,7 +6258,13 @@
         "blatters-hotel.ch",
         "suvrettahouse.ch",
         "berufehotelgastro.ch",
-        "focushotel.ch"
+        "focushotel.ch",
+        "ghdl.ch",
+        "hotelpost.ch",
+        "derby-grindelwald.ch",
+        "grandhotel-national.com",
+        "mestierialberghieri.ch",
+        "hotelschlossrued.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -4635,8 +6273,8 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "fr.hotelcareer.ch": 1,
-        "hotelcareer.ch": 9
+        "fr.hotelcareer.ch": 2,
+        "hotelcareer.ch": 14
       },
       "pathHits": {},
       "listingPaths": [
@@ -4645,14 +6283,22 @@
       ],
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:45:25.731Z",
-      "note": "careers outlink, score 3",
+      "note": "careers outlink, score 6",
       "lastExpandedAt": "2026-10-20T10:46:36.865Z",
       "expansionAttempts": 8,
       "hostEmployerUnknown": {},
       "hostEmployers": {
         "hotelcareer.ch": [
           "berufehotelgastro.ch",
-          "focushotel.ch"
+          "derby-grindelwald.ch",
+          "focushotel.ch",
+          "ghdl.ch",
+          "grandhotel-national.com",
+          "hotelpost.ch",
+          "hotelschlossrued.ch"
+        ],
+        "fr.hotelcareer.ch": [
+          "mestierialberghieri.ch"
         ]
       }
     },
@@ -4731,12 +6377,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "hoteljob-schweiz.de": 1080
+        "hoteljob-schweiz.de": 1083
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:29:51.920Z",
-      "note": "apply-host cluster from SECO BE",
+      "note": "apply-host cluster from SECO LU",
       "hostEmployerUnknown": {
         "hoteljob-schweiz.de": true
       },
@@ -4753,7 +6399,8 @@
         "albergo-gardenia.ch",
         "alpenhof-davos.ch",
         "weisskreuz.ch",
-        "hotelseeburg.ch"
+        "hotelseeburg.ch",
+        "mestierialberghieri.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -4761,12 +6408,18 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "hotelleriesuisse.ch": 4
+        "hotelleriesuisse.ch": 5
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:45:25.727Z",
-      "note": "careers outlink, score 4.2"
+      "note": "careers outlink, score 4.2",
+      "hostEmployerUnknown": {},
+      "hostEmployers": {
+        "hotelleriesuisse.ch": [
+          "mestierialberghieri.ch"
+        ]
+      }
     },
     "hotelpost-glarnerhof.ch": {
       "domain": "hotelpost-glarnerhof.ch",
@@ -4822,14 +6475,14 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "abs.hr4you.org": 55,
-        "jobpoint.hr4you.org": 58,
+        "abs.hr4you.org": 56,
+        "jobpoint.hr4you.org": 59,
         "provia.hr4you.org": 3
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-23T04:08:44.827Z",
-      "note": "apply-host cluster from SECO AG",
+      "note": "apply-host cluster from SECO LU",
       "lastExpandedAt": "2026-10-24T10:30:30.932Z",
       "expansionAttempts": 6,
       "hostEmployerUnknown": {
@@ -5763,12 +7416,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "inrecruiting.intervieweb.it": 192
+        "inrecruiting.intervieweb.it": 194
       },
       "pathHits": {
-        "/fiammcomponents": 76,
+        "/fiammcomponents": 77,
         "/impresapizzarotti": 50,
-        "/a2plus": 66
+        "/a2plus": 67
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -6728,14 +8381,14 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "my.jobalino.ch": 659
+        "my.jobalino.ch": 668
       },
       "pathHits": {
-        "/job": 380
+        "/job": 385
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "careers outlink, score 8",
+      "note": "apply-host cluster from SECO SG",
       "hostEmployers": {
         "my.jobalino.ch": [
           "klinik-schoenberg.ch",
@@ -6790,17 +8443,17 @@
         "jdchbs039583.jobdesk.ch": 82,
         "jdchbs193852.jobdesk.ch": 149,
         "jdchlu365681.jobdesk.ch": 8,
-        "jdchlu365682.jobdesk.ch": 406,
+        "jdchlu365682.jobdesk.ch": 407,
         "jdchlu448923.jobdesk.ch": 71,
         "jdchnw915712.jobdesk.ch": 15,
         "jdchsg001385.jobdesk.ch": 46,
-        "jdchzg725110.jobdesk.ch": 78,
+        "jdchzg725110.jobdesk.ch": 79,
         "jdchzh931426.jobdesk.ch": 25
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO LU",
       "lastExpandedAt": "2026-10-20T06:24:05.368Z",
       "expansionAttempts": 6,
       "hostEmployerUnknown": {
@@ -6962,12 +8615,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "join.com": 307
+        "join.com": 309
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:30:37.007Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO SZ",
       "hostEmployerUnknown": {
         "join.com": true
       },
@@ -7114,12 +8767,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "kampajobs.ch": 556
+        "kampajobs.ch": 558
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:28:55.194Z",
-      "note": "apply-host cluster from SECO ZH",
+      "note": "apply-host cluster from SECO BE",
       "hostEmployerUnknown": {
         "kampajobs.ch": true
       }
@@ -7511,12 +9164,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "krippenstellen.ch": 3466
+        "krippenstellen.ch": 3475
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO ZH",
+      "note": "apply-host cluster from SECO SZ",
       "hostEmployerUnknown": {
         "krippenstellen.ch": true
       },
@@ -7559,12 +9212,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.lever.co": 228
+        "jobs.lever.co": 231
       },
       "pathHits": {
-        "/anybotics": 76,
-        "/sonarsource": 76,
-        "/tsmg": 76
+        "/anybotics": 77,
+        "/sonarsource": 77,
+        "/tsmg": 77
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -7687,7 +9340,7 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "mcdonalds.ch": 35,
+        "mcdonalds.ch": 37,
         "jobs.mcdonalds.ch": 49
       },
       "pathHits": {},
@@ -8622,12 +10275,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "medienjobs.ch": 1099
+        "medienjobs.ch": 1106
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO SG",
       "hostEmployerUnknown": {
         "medienjobs.ch": true
       }
@@ -8660,7 +10313,8 @@
         "xn--genossenschaft-migros-ostschweiz-catering-services---universitt-st-hsf.-gallen",
         "voi-migrospartner.ch",
         "exlibris.ch",
-        "gurtenpark.ch"
+        "gurtenpark.ch",
+        "surseepark.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -8668,21 +10322,22 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.migros.ch": 385
+        "jobs.migros.ch": 388
       },
       "pathHits": {
-        "/de": 150
+        "/de": 152
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:14.168Z",
-      "note": "own-crawl census: 2 datori",
+      "note": "careers outlink, score 5.8",
       "hostEmployers": {
         "jobs.migros.ch": [
           "denner.ch",
           "exlibris.ch",
           "gurtenpark.ch",
           "migrolino.ch",
-          "ospena.ch"
+          "ospena.ch",
+          "surseepark.ch"
         ]
       },
       "hostEmployerUnknown": {
@@ -8799,12 +10454,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "more-jobs.ch": 1465
+        "more-jobs.ch": 1467
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-09-22T08:42:21.151Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO BE",
       "hostEmployerUnknown": {
         "more-jobs.ch": true
       }
@@ -8953,87 +10608,88 @@
       "tenantShape": "subdomain",
       "hostHits": {
         "abb.wd3.myworkdayjobs.com": 41,
-        "abbott.wd5.myworkdayjobs.com": 77,
+        "abbott.wd5.myworkdayjobs.com": 78,
         "accelleron.wd3.myworkdayjobs.com": 102,
-        "alcon.wd5.myworkdayjobs.com": 122,
+        "alcon.wd5.myworkdayjobs.com": 123,
         "alsa.wd3.myworkdayjobs.com": 6,
-        "ardian.wd103.myworkdayjobs.com": 77,
+        "ardian.wd103.myworkdayjobs.com": 78,
         "bavariannordic.wd103.myworkdayjobs.com": 8,
         "bdx.wd1.myworkdayjobs.com": 6,
-        "bernergroup.wd3.myworkdayjobs.com": 68,
+        "bernergroup.wd3.myworkdayjobs.com": 69,
         "biibhr.wd3.myworkdayjobs.com": 85,
-        "bossard.wd103.myworkdayjobs.com": 127,
-        "bracco.wd103.myworkdayjobs.com": 77,
-        "capri.wd1.myworkdayjobs.com": 77,
-        "csl.wd1.myworkdayjobs.com": 80,
+        "bossard.wd103.myworkdayjobs.com": 128,
+        "bracco.wd103.myworkdayjobs.com": 78,
+        "capri.wd1.myworkdayjobs.com": 78,
+        "csl.wd1.myworkdayjobs.com": 81,
         "electrolux.wd3.myworkdayjobs.com": 8,
-        "eraneos.wd3.myworkdayjobs.com": 108,
+        "eraneos.wd3.myworkdayjobs.com": 109,
         "everestre.wd5.myworkdayjobs.com": 53,
-        "fielmann.wd3.myworkdayjobs.com": 77,
+        "fielmann.wd3.myworkdayjobs.com": 78,
         "fmc.wd12.myworkdayjobs.com": 42,
-        "fnz.wd3.myworkdayjobs.com": 77,
+        "fnz.wd3.myworkdayjobs.com": 78,
         "galderma.wd3.myworkdayjobs.com": 77,
-        "georgfischer.wd103.myworkdayjobs.com": 77,
+        "georgfischer.wd103.myworkdayjobs.com": 78,
         "getec.wd103.myworkdayjobs.com": 55,
         "gunvor.wd3.myworkdayjobs.com": 51,
-        "hamilton.wd3.myworkdayjobs.com": 77,
+        "hamilton.wd3.myworkdayjobs.com": 78,
         "hitachi.wd1.myworkdayjobs.com": 39,
-        "huntsman.wd1.myworkdayjobs.com": 119,
+        "huntsman.wd1.myworkdayjobs.com": 120,
         "idexcorp.wd5.myworkdayjobs.com": 7,
-        "imerys.wd3.myworkdayjobs.com": 27,
-        "juliusbaer.wd3.myworkdayjobs.com": 77,
-        "kantonsspitalbaden.wd3.myworkdayjobs.com": 77,
-        "kone.wd3.myworkdayjobs.com": 27,
+        "imerys.wd3.myworkdayjobs.com": 28,
+        "juliusbaer.wd3.myworkdayjobs.com": 78,
+        "kantonsspitalbaden.wd3.myworkdayjobs.com": 78,
+        "kone.wd3.myworkdayjobs.com": 28,
         "lgt.wd3.myworkdayjobs.com": 3,
-        "lindtspruengli.wd103.myworkdayjobs.com": 77,
-        "logitech.wd5.myworkdayjobs.com": 77,
-        "lombardodier.wd3.myworkdayjobs.com": 77,
-        "lonza.wd3.myworkdayjobs.com": 291,
-        "lsi.wd3.myworkdayjobs.com": 87,
-        "medbase.wd502.myworkdayjobs.com": 77,
-        "medtronic.wd1.myworkdayjobs.com": 77,
+        "lindtspruengli.wd103.myworkdayjobs.com": 78,
+        "logitech.wd5.myworkdayjobs.com": 78,
+        "lombardodier.wd3.myworkdayjobs.com": 78,
+        "lonza.wd3.myworkdayjobs.com": 292,
+        "lsi.wd3.myworkdayjobs.com": 88,
+        "medbase.wd502.myworkdayjobs.com": 78,
+        "medtronic.wd1.myworkdayjobs.com": 78,
         "miele.wd3.myworkdayjobs.com": 10,
         "msf.wd3.myworkdayjobs.com": 43,
-        "novartis.wd3.myworkdayjobs.com": 96,
-        "nvidia.wd5.myworkdayjobs.com": 77,
-        "onehealthineers.wd3.myworkdayjobs.com": 56,
+        "novartis.wd3.myworkdayjobs.com": 97,
+        "nvidia.wd5.myworkdayjobs.com": 78,
+        "onehealthineers.wd3.myworkdayjobs.com": 57,
         "otis.wd5.myworkdayjobs.com": 1,
-        "otis.wd504.myworkdayjobs.com": 76,
+        "otis.wd504.myworkdayjobs.com": 77,
         "pwc.wd3.myworkdayjobs.com": 11,
         "rbi.wd3.myworkdayjobs.com": 65,
-        "rituals.wd3.myworkdayjobs.com": 77,
-        "roche.wd3.myworkdayjobs.com": 77,
-        "siegfried.wd103.myworkdayjobs.com": 143,
+        "rituals.wd3.myworkdayjobs.com": 78,
+        "roche.wd3.myworkdayjobs.com": 78,
+        "siegfried.wd103.myworkdayjobs.com": 144,
         "smithnephew.wd5.myworkdayjobs.com": 17,
-        "stryker.wd1.myworkdayjobs.com": 77,
-        "sulzer.wd502.myworkdayjobs.com": 77,
+        "stryker.wd1.myworkdayjobs.com": 78,
+        "sulzer.wd502.myworkdayjobs.com": 78,
         "sunrise.wd3.myworkdayjobs.com": 239,
         "swarovski.wd3.myworkdayjobs.com": 193,
-        "swisscom.wd103.myworkdayjobs.com": 455,
-        "swisslife.wd3.myworkdayjobs.com": 77,
+        "swisscom.wd103.myworkdayjobs.com": 457,
+        "swisslife.wd3.myworkdayjobs.com": 78,
         "takeda.wd502.myworkdayjobs.com": 5,
         "temenos.wd103.myworkdayjobs.com": 22,
-        "trafigura.wd3.myworkdayjobs.com": 95,
-        "trumpf.wd3.myworkdayjobs.com": 119,
-        "vfc.wd5.myworkdayjobs.com": 77,
-        "vontobel.wd3.myworkdayjobs.com": 77,
+        "trafigura.wd3.myworkdayjobs.com": 96,
+        "trumpf.wd3.myworkdayjobs.com": 120,
+        "vfc.wd5.myworkdayjobs.com": 78,
+        "vontobel.wd3.myworkdayjobs.com": 78,
         "weforum.wd3.myworkdayjobs.com": 54,
         "weleda.wd3.myworkdayjobs.com": 76,
         "zuehlke.wd3.myworkdayjobs.com": 22,
         "chubbfiresecurity.wd3.myworkdayjobs.com": 1,
-        "healthcare.wd1.myworkdayjobs.com": 1
+        "healthcare.wd1.myworkdayjobs.com": 1,
+        "fourseasons.wd3.myworkdayjobs.com": 1
       },
       "pathHits": {
-        "/LindtSpruengliGroupCareers": 77,
-        "/TRUMPF_Graduates_and_Professionals": 90,
-        "/en": 993,
-        "/en-US": 1724,
-        "/it-IT": 154,
-        "/vfc_careers": 77
+        "/LindtSpruengliGroupCareers": 78,
+        "/TRUMPF_Graduates_and_Professionals": 91,
+        "/en": 1005,
+        "/en-US": 1747,
+        "/it-IT": 156,
+        "/vfc_careers": 78
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.698Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO BE",
       "lastExpandedAt": "2026-10-26T11:55:04.741Z",
       "expansionAttempts": 7,
       "hostEmployers": {
@@ -9183,7 +10839,8 @@
         "rbi.wd3.myworkdayjobs.com": true,
         "bossard.wd103.myworkdayjobs.com": true,
         "zuehlke.wd3.myworkdayjobs.com": true,
-        "healthcare.wd1.myworkdayjobs.com": true
+        "healthcare.wd1.myworkdayjobs.com": true,
+        "fourseasons.wd3.myworkdayjobs.com": true
       },
       "expansionProbeOffset": 0,
       "expansionRetryHosts": [
@@ -10405,15 +12062,15 @@
         "freitag.onlyfy.jobs": 1,
         "fust.onlyfy.jobs": 20,
         "iqair-ag.onlyfy.jobs": 4,
-        "spitex-zuerich.onlyfy.jobs": 77,
-        "vamed-ag-ch.onlyfy.jobs": 77,
+        "spitex-zuerich.onlyfy.jobs": 78,
+        "vamed-ag-ch.onlyfy.jobs": 78,
         "vitrea-gesundheit.onlyfy.jobs": 1,
         "umano-ag.onlyfy.jobs": 1,
         "dannemann-group.onlyfy.jobs": 1,
         "persona-ch.onlyfy.jobs": 1
       },
       "pathHits": {
-        "/de": 154
+        "/de": 156
       },
       "tenantCount": 6,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -10474,11 +12131,11 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "evht.fa.ocs.oraclecloud.eu": 76,
-        "iaadtu.fa.ocs.oraclecloud.eu": 76
+        "evht.fa.ocs.oraclecloud.eu": 77,
+        "iaadtu.fa.ocs.oraclecloud.eu": 77
       },
       "pathHits": {
-        "/hcmUI": 152
+        "/hcmUI": 154
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -11207,17 +12864,17 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "link.ostendis.com": 798,
+        "link.ostendis.com": 806,
         "odm.ostendis.com": 17
       },
       "pathHits": {
-        "/publication": 308
+        "/publication": 312
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "apply-host cluster from SECO ZG",
-      "lastExpandedAt": "2026-10-19T22:52:37.138Z",
-      "expansionAttempts": 6,
+      "note": "apply-host cluster from SECO SG",
+      "lastExpandedAt": "2026-10-27T11:00:05.906Z",
+      "expansionAttempts": 7,
       "hostEmployers": {
         "link.ostendis.com": [
           "ksow.ch",
@@ -11229,6 +12886,765 @@
       "hostEmployerUnknown": {
         "link.ostendis.com": true,
         "odm.ostendis.com": true
+      },
+      "expansionProbeOffset": 200,
+      "expansionRetryHosts": [
+        {
+          "host": "cftest.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "link.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "scorpion-3.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "001-traductions.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "001.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "001traductions.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "01-start-physio.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "01start.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "01startphysio.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "04-start-physio-succursale-de-martigny.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "04start.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "04startphysiosuccursaledemartigny.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1-2-eat.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1-618-capital.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1-computer.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "10-gute-vorsatze.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "100-cento.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "100.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1000-stimmen-tunnel.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1000.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1000ftad.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1000stimmen.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1000stimmentunnel.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1001-fleurs.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1001-teller.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1001.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1001fleurs.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1001teller.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1002388.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "100cento.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1050medical.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "108prozent.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "10gute.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "10gutevorsatze.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "10w40.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1178.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "11teamsports.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1203-graines.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1203.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1203graines.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "123-bocal.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "123-swissgo.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "123.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "123bocal.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "123immo.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "123swissgo.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1275-hair-barber-shop.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1275.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1275hair.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1275hairbarbershop.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "12eat.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "13-etoiles.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1386-brauerei.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1386.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1386brauerei.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "13etoiles.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1517.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1618.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1618capital.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1648.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "169-west.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "169.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "169west.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "16boucherie.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "16boucheriethaiburgertakeawayweinshop.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1733-restaurant-weinbar.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1733.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1733restaurant.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1733restaurantweinbar.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1741.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1800-degres.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1800-trucs.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1800.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1800degres.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1800trucs.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1802.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1818.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1820.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1881-kantine.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1881.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1881kantine.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "18th-restaurant.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "18th.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "18threstaurant.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1982-foodtruck.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1982.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1982foodtruck.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1a-hunkeler-fenster.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1ahunkeler.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1ahunkelerfenster.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1computer.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1h-clean-filotex.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1h-clean-tapisan.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1hclean.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1hcleanfilotex.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1hcleantapisan.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1komma7.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1st-choice.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1st-wasch-lounge-dattwil.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1st.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1stchoice.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1stquad-solutions.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1stquad.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1stquadsolutions.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1stwasch.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "1stwaschloungedattwil.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2-akt.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2-rad-jack-muller.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2-rad-shop-brunner.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "20-02-beauty-space.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2002.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2002beautyspace.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "20gi.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "20km-h.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "20km.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "20kmh.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "20th.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "21datas.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2225.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24-dumas-coiffure.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24-hours-fiberwork.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24dumas.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24dumascoiffure.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24h-kostliche-vielfalt.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24h-shop-metzgerei-metzger.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24h.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24hkostliche.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24hkostlichevielfalt.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24hours.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24hoursfiberwork.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24hshop.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "24hshopmetzgereimetzger.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "25hours-hotel-zurich-west.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "25hours.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "25hourshotel.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "25hourshotelzurichwest.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2601.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2a-gastro.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2agastro.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2akt.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2b-interventions.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresh-eschbach.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresh.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2bfresheschbach.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2binterventions.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2communicate.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2eck-architekten.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2eck.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2eckarchitekten.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2ieme-second-hand.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2ieme.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2iemesecond.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2iemesecondhand.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2me-toumi.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2me.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2metoumi.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2nd-peak.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2nd-skin-tattoo-piercing.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2nd.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2ndpeak.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2ndskin.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2ndskintattoopiercing.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2p-renovations-et-immobilier.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2prenovations.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2prenovationsetimmobilier.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2pteam.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2punkt2.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2rad-bern.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2rad-shop.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2rad.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2radbern.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2radjackmuller.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2radshop.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2radshopbrunner.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2radzuri.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2wheels-rental-ebike-rental-ticino.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2wheels.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2wheelsrental.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "2wheelsrentalebikerentalticino.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "3-d-art.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "3-grad-physiotherapie.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "3-k.ostendis.com",
+          "attempts": 1
+        },
+        {
+          "host": "3-la-ferme-de-la-souche.ostendis.com",
+          "attempts": 1
+        }
+      ],
+      "lastExpansion": {
+        "at": "2026-10-27T11:00:05.906Z",
+        "outcome": "partial",
+        "discoveredHosts": 200,
+        "liveTenants": 0,
+        "probeLimitReached": true,
+        "sources": {
+          "commoncrawl": {
+            "outcome": "unavailable",
+            "items": 0,
+            "errorCode": "http_error"
+          },
+          "certspotter": {
+            "outcome": "complete",
+            "items": 23,
+            "errorCode": null
+          },
+          "probes": {
+            "outcome": "partial",
+            "items": 200,
+            "errorCode": "mixed_probe_incomplete"
+          }
+        }
       }
     },
     "pageexecutive.com": {
@@ -11295,16 +13711,16 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "kellerhals-carrard.jobs.personio.com": 76,
-        "lalive-law.jobs.personio.com": 76,
-        "swsieber.jobs.personio.com": 76,
+        "kellerhals-carrard.jobs.personio.com": 77,
+        "lalive-law.jobs.personio.com": 77,
+        "swsieber.jobs.personio.com": 77,
         "boost-inc.jobs.personio.com": 1,
         "ridgelinediscovery.jobs.personio.com": 2,
         "faceland.jobs.personio.com": 1,
         "adagents.jobs.personio.com": 1
       },
       "pathHits": {
-        "/job": 228
+        "/job": 231
       },
       "tenantCount": 6,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -11399,7 +13815,9 @@
         "igroovemusic.com",
         "nine.ch",
         "bilddiagnostik.ch",
-        "ruba.ch"
+        "ruba.ch",
+        "nishcom.ch",
+        "emmanoah.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -11408,23 +13826,27 @@
         "igroove.jobs.personio.de",
         "nine-internet-solutions-ag.jobs.personio.de",
         "zentrum-fuer-bilddiagnostik-ag.jobs.personio.de",
-        "ruba.jobs.personio.de"
+        "ruba.jobs.personio.de",
+        "nishcom.jobs.personio.de",
+        "emma-noah-gmbh.jobs.personio.de"
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "felfel.jobs.personio.de": 76,
-        "yapeal-ag.jobs.personio.de": 76,
-        "igroove.jobs.personio.de": 76,
+        "felfel.jobs.personio.de": 77,
+        "yapeal-ag.jobs.personio.de": 77,
+        "igroove.jobs.personio.de": 77,
         "nine-internet-solutions-ag.jobs.personio.de": 1,
         "zentrum-fuer-bilddiagnostik-ag.jobs.personio.de": 1,
-        "ruba.jobs.personio.de": 1
+        "ruba.jobs.personio.de": 1,
+        "nishcom.jobs.personio.de": 1,
+        "emma-noah-gmbh.jobs.personio.de": 1
       },
       "pathHits": {
-        "/job": 228
+        "/job": 231
       },
       "tenantCount": 4,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "own-crawl census: 3 datori",
+      "note": "careers outlink, score 4.3",
       "lastExpandedAt": "2026-10-23T10:43:27.923Z",
       "expansionAttempts": 6,
       "hostEmployers": {
@@ -11445,6 +13867,12 @@
         ],
         "ruba.jobs.personio.de": [
           "ruba.ch"
+        ],
+        "nishcom.jobs.personio.de": [
+          "nishcom.ch"
+        ],
+        "emma-noah-gmbh.jobs.personio.de": [
+          "emmanoah.ch"
         ]
       },
       "hostEmployerUnknown": {},
@@ -11544,12 +13972,12 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "bellinz.pi-asp.de": 72,
-        "locarno.pi-asp.de": 75,
-        "stiftdia.pi-asp.de": 100
+        "bellinz.pi-asp.de": 73,
+        "locarno.pi-asp.de": 76,
+        "stiftdia.pi-asp.de": 101
       },
       "pathHits": {
-        "/bewerber-web": 247
+        "/bewerber-web": 250
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -12497,15 +14925,15 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "job.post.ch": 976,
+        "job.post.ch": 989,
         "baulog-odoo.post.ch": 1
       },
       "pathHits": {
-        "/default": 204
+        "/default": 206
       },
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO SZ",
       "hostEmployerUnknown": {
         "job.post.ch": true,
         "baulog-odoo.post.ch": true
@@ -13504,10 +15932,10 @@
       "tenantShape": "mixed",
       "hostHits": {
         "atsconnector.prospective.ch": 6,
-        "ohws.prospective.ch": 13301
+        "ohws.prospective.ch": 13391
       },
       "pathHits": {
-        "/public": 335
+        "/public": 340
       },
       "tenantCount": 3,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -13591,7 +16019,8 @@
         "igsbern.ch",
         "meggen.ch",
         "ebikon.ch",
-        "aarvital.ch"
+        "aarvital.ch",
+        "schule-meggen.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -13599,21 +16028,22 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "publicjobs.ch": 179
+        "publicjobs.ch": 182
       },
       "pathHits": {
-        "/jobs": 152
+        "/jobs": 154
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "own-crawl census: 2 datori",
+      "note": "careers outlink, score 3",
       "hostEmployers": {
         "publicjobs.ch": [
           "aarvital.ch",
           "ebikon.ch",
           "gzo.ch",
           "igsbern.ch",
-          "meggen.ch"
+          "meggen.ch",
+          "schule-meggen.ch"
         ]
       },
       "hostEmployerUnknown": {
@@ -13685,12 +16115,12 @@
       "hostHits": {
         "bitfinex.recruitee.com": 25,
         "chmedia.recruitee.com": 5,
-        "climeworks.recruitee.com": 77,
-        "tether.recruitee.com": 77,
+        "climeworks.recruitee.com": 78,
+        "tether.recruitee.com": 78,
         "aveniq.recruitee.com": 1
       },
       "pathHits": {
-        "/o": 179
+        "/o": 181
       },
       "tenantCount": 1,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -13820,7 +16250,8 @@
         "spruengli.ch",
         "zkb.ch",
         "pratteln.ch",
-        "kmu-treurevi.ch"
+        "kmu-treurevi.ch",
+        "calida.com"
       ],
       "markers": [],
       "hostSamples": [
@@ -13828,26 +16259,27 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "apply.refline.ch": 1684
+        "apply.refline.ch": 1703
       },
       "pathHits": {
-        "/116352": 78,
-        "/126757": 78,
-        "/163206": 78,
-        "/424626": 78,
-        "/486538": 78,
-        "/514915": 78,
-        "/640332": 78,
-        "/673276": 78,
-        "/780392": 78,
-        "/792841": 78,
-        "/878019": 78
+        "/116352": 79,
+        "/126757": 79,
+        "/163206": 79,
+        "/424626": 79,
+        "/486538": 79,
+        "/514915": 79,
+        "/640332": 79,
+        "/673276": 79,
+        "/780392": 79,
+        "/792841": 79,
+        "/878019": 79
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "careers outlink, score 3",
+      "note": "careers outlink, score 3.3",
       "hostEmployers": {
         "apply.refline.ch": [
+          "calida.com",
           "caritas.ch",
           "empa.ch",
           "galliker.com",
@@ -13886,13 +16318,13 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "app.reflinejobs.io": 295
+        "app.reflinejobs.io": 299
       },
       "pathHits": {
-        "/3316": 76,
-        "/1531": 76,
-        "/2044": 76,
-        "/1474": 65
+        "/3316": 77,
+        "/1531": 77,
+        "/2044": 77,
+        "/1474": 66
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -14619,7 +17051,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "short.sg": 72
+        "short.sg": 75
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -14684,25 +17116,25 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.smartrecruiters.com": 2255
+        "jobs.smartrecruiters.com": 2272
       },
       "pathHits": {
-        "/CERN": 76,
-        "/HUG": 76,
-        "/SwissMedicalNetwork1": 769,
-        "/Talan": 76,
-        "/AudemarsPiguet": 76,
-        "/imad": 75,
-        "/SMGSwissMarketplaceGroup": 76,
-        "/Swissquote": 75,
-        "/EtablissementsPublicsPourLIntegration": 76,
-        "/Sobi": 76,
-        "/Ardentis1": 76,
-        "/StaubliGroup": 76,
-        "/Oetiker": 75,
-        "/KIABI": 71,
-        "/Hospicegeneral": 76,
-        "/Avaloq1": 32,
+        "/CERN": 77,
+        "/HUG": 77,
+        "/SwissMedicalNetwork1": 771,
+        "/Talan": 77,
+        "/AudemarsPiguet": 77,
+        "/imad": 76,
+        "/SMGSwissMarketplaceGroup": 77,
+        "/Swissquote": 76,
+        "/EtablissementsPublicsPourLIntegration": 77,
+        "/Sobi": 77,
+        "/Ardentis1": 77,
+        "/StaubliGroup": 77,
+        "/Oetiker": 76,
+        "/KIABI": 72,
+        "/Hospicegeneral": 77,
+        "/Avaloq1": 33,
         "/Imad": 1,
         "/oetiker": 1,
         "/swissquote": 1
@@ -15621,20 +18053,20 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "vaudoise.softgarden.io": 76,
-        "etavis.softgarden.io": 930,
+        "vaudoise.softgarden.io": 77,
+        "etavis.softgarden.io": 931,
         "vonrotz.softgarden.io": 6,
         "kind.softgarden.io": 1,
         "itskanal.softgarden.io": 1
       },
       "pathHits": {
-        "/job": 1000
+        "/job": 1002
       },
       "tenantCount": 3,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
       "note": "own-crawl census: 2 datori",
-      "lastExpandedAt": "2026-10-20T05:58:58.234Z",
-      "expansionAttempts": 6,
+      "lastExpandedAt": "2026-10-27T11:20:37.564Z",
+      "expansionAttempts": 7,
       "hostEmployers": {
         "etavis.softgarden.io": [
           "etavis.ch"
@@ -15643,7 +18075,42 @@
           "vaudoise.ch"
         ]
       },
-      "hostEmployerUnknown": {}
+      "hostEmployerUnknown": {},
+      "expansionProbeOffset": 200,
+      "expansionRetryHosts": [
+        {
+          "host": "idp.softgarden.io",
+          "attempts": 1
+        },
+        {
+          "host": "ltcms.softgarden.io",
+          "attempts": 1
+        }
+      ],
+      "lastExpansion": {
+        "at": "2026-10-27T11:20:37.564Z",
+        "outcome": "partial",
+        "discoveredHosts": 200,
+        "liveTenants": 2,
+        "probeLimitReached": true,
+        "sources": {
+          "commoncrawl": {
+            "outcome": "unavailable",
+            "items": 0,
+            "errorCode": "http_error"
+          },
+          "certspotter": {
+            "outcome": "complete",
+            "items": 25,
+            "errorCode": null
+          },
+          "probes": {
+            "outcome": "partial",
+            "items": 200,
+            "errorCode": "mixed_probe_incomplete"
+          }
+        }
+      }
     },
     "solique.ch": {
       "domain": "solique.ch",
@@ -15709,25 +18176,25 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "live.solique.ch": 5684,
+        "live.solique.ch": 5721,
         "solique.ch": 21
       },
       "pathHits": {
-        "/adullam": 79,
-        "/ipw": 79,
-        "/ksw": 79,
-        "/ktzh": 79,
-        "/ottosag": 79,
-        "/planzer": 79,
-        "/rieter": 79,
-        "/spital-emmental": 79,
-        "/spital-muri": 33,
-        "/stiftung-gesundheitsversorgung-oberengadin": 79,
-        "/svar": 79
+        "/adullam": 80,
+        "/ipw": 80,
+        "/ksw": 80,
+        "/ktzh": 80,
+        "/ottosag": 80,
+        "/planzer": 80,
+        "/rieter": 80,
+        "/spital-emmental": 80,
+        "/spital-muri": 34,
+        "/stiftung-gesundheitsversorgung-oberengadin": 80,
+        "/svar": 80
       },
       "tenantCount": 2,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO ZH",
       "lastExpandedAt": "2026-10-26T11:24:15.298Z",
       "expansionAttempts": 4,
       "hostEmployers": {
@@ -17122,12 +19589,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sozialinfo.ch": 8875
+        "sozialinfo.ch": 8902
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO SZ",
       "hostEmployerUnknown": {
         "sozialinfo.ch": true
       },
@@ -17514,12 +19981,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sozjobs.ch": 5390
+        "sozjobs.ch": 5411
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO ZG",
+      "note": "apply-host cluster from SECO SZ",
       "hostEmployerUnknown": {
         "sozjobs.ch": true
       }
@@ -17595,12 +20062,15 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.srgssr.ch": 18
+        "jobs.srgssr.ch": 20
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-28T15:34:46.667Z",
-      "note": "apply-host cluster from SECO VD"
+      "note": "apply-host cluster from SECO ZH",
+      "hostEmployerUnknown": {
+        "jobs.srgssr.ch": true
+      }
     },
     "srtechnics-jobs.com": {
       "domain": "srtechnics-jobs.com",
@@ -17636,12 +20106,12 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "sta.jobs": 429
+        "sta.jobs": 433
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T18:27:39.803Z",
-      "note": "apply-host cluster from SECO AG",
+      "note": "apply-host cluster from SECO SG",
       "hostEmployerUnknown": {
         "sta.jobs": true
       }
@@ -17695,17 +20165,17 @@
       ],
       "tenantShape": "mixed",
       "hostHits": {
-        "career012.successfactors.eu": 121,
+        "career012.successfactors.eu": 122,
         "career2.successfactors.eu": 37,
-        "career5.successfactors.eu": 225,
+        "career5.successfactors.eu": 228,
         "performancemanager5.successfactors.eu": 13
       },
       "pathHits": {
-        "/career": 154
+        "/career": 156
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
-      "note": "own-crawl census: 2 datori",
+      "note": "apply-host cluster from SECO SG",
       "listingPaths": [
         "/career"
       ],
@@ -18000,14 +20470,14 @@
       ],
       "tenantShape": "subdomain",
       "hostHits": {
-        "victorinox-career.talent-soft.com": 76,
-        "aarreha-bewerber.talent-soft.com": 76,
-        "rehabbasel-career.talent-soft.com": 76,
-        "molecularpartners-career.talent-soft.com": 76
+        "victorinox-career.talent-soft.com": 77,
+        "aarreha-bewerber.talent-soft.com": 77,
+        "rehabbasel-career.talent-soft.com": 77,
+        "molecularpartners-career.talent-soft.com": 77
       },
       "pathHits": {
-        "/stelle": 228,
-        "/job": 76
+        "/stelle": 231,
+        "/job": 77
       },
       "tenantCount": 8,
       "discoveredAt": "2026-08-21T09:05:27.710Z",
@@ -19218,46 +21688,46 @@
       "tenantShape": "mixed",
       "hostHits": {
         "jsafrasarasin.umantis.com": 60,
-        "recruitingapp-122706.umantis.com": 77,
-        "recruitingapp-1251.umantis.com": 77,
+        "recruitingapp-122706.umantis.com": 78,
+        "recruitingapp-1251.umantis.com": 78,
         "recruitingapp-12705.umantis.com": 44,
-        "recruitingapp-2316.umantis.com": 77,
-        "recruitingapp-2607.umantis.com": 77,
+        "recruitingapp-2316.umantis.com": 78,
+        "recruitingapp-2607.umantis.com": 78,
         "recruitingapp-2618.umantis.com": 17,
         "recruitingapp-2690.umantis.com": 77,
-        "recruitingapp-2702.umantis.com": 7,
+        "recruitingapp-2702.umantis.com": 9,
         "recruitingapp-2717.umantis.com": 69,
-        "recruitingapp-2736.umantis.com": 102,
-        "recruitingapp-2761.umantis.com": 79,
-        "recruitingapp-2765.umantis.com": 181,
-        "recruitingapp-2769.umantis.com": 30,
+        "recruitingapp-2736.umantis.com": 103,
+        "recruitingapp-2761.umantis.com": 80,
+        "recruitingapp-2765.umantis.com": 182,
+        "recruitingapp-2769.umantis.com": 31,
         "recruitingapp-2781.umantis.com": 35,
         "recruitingapp-2797.umantis.com": 5,
-        "recruitingapp-2800.umantis.com": 191,
-        "recruitingapp-2850.umantis.com": 220,
-        "recruitingapp-2876.umantis.com": 720,
-        "recruitingapp-2884.umantis.com": 77,
-        "recruitingapp-2889.umantis.com": 45,
-        "recruitingapp-2904.umantis.com": 77,
+        "recruitingapp-2800.umantis.com": 192,
+        "recruitingapp-2850.umantis.com": 221,
+        "recruitingapp-2876.umantis.com": 723,
+        "recruitingapp-2884.umantis.com": 78,
+        "recruitingapp-2889.umantis.com": 46,
+        "recruitingapp-2904.umantis.com": 78,
         "recruitingapp-2908.umantis.com": 44,
         "recruitingapp-2910.umantis.com": 1,
         "recruitingapp-2911.umantis.com": 4,
-        "recruitingapp-2912.umantis.com": 77,
-        "recruitingapp-2924.umantis.com": 77,
-        "recruitingapp-2939.umantis.com": 77,
+        "recruitingapp-2912.umantis.com": 78,
+        "recruitingapp-2924.umantis.com": 78,
+        "recruitingapp-2939.umantis.com": 78,
         "recruitingapp-2961.umantis.com": 1,
-        "recruitingapp-2966.umantis.com": 77,
+        "recruitingapp-2966.umantis.com": 78,
         "recruitingapp-2970.umantis.com": 8,
-        "recruitingapp-2976.umantis.com": 34,
+        "recruitingapp-2976.umantis.com": 35,
         "recruitingapp-2979.umantis.com": 47,
         "recruitingapp-2995.umantis.com": 14,
         "recruitingapp-2997.umantis.com": 45,
-        "recruitingapp-2998.umantis.com": 77,
-        "recruitingapp-3010.umantis.com": 77,
+        "recruitingapp-2998.umantis.com": 78,
+        "recruitingapp-3010.umantis.com": 78,
         "recruitingapp-3017.umantis.com": 5,
         "recruitingapp-3018.umantis.com": 4,
         "recruitingapp-3027.umantis.com": 19,
-        "recruitingapp-3030.umantis.com": 77,
+        "recruitingapp-3030.umantis.com": 78,
         "recruitingapp-3040.umantis.com": 71,
         "recruitingapp-3042.umantis.com": 38,
         "recruitingapp-5597.de.umantis.com": 40,
@@ -19267,11 +21737,11 @@
         "recruitingapp-2871.umantis.com": 1
       },
       "pathHits": {
-        "/Vacancies": 1486
+        "/Vacancies": 1503
       },
       "tenantCount": 108,
       "discoveredAt": "2026-08-21T09:05:27.709Z",
-      "note": "careers outlink, score 4",
+      "note": "apply-host cluster from SECO SZ",
       "listingPaths": [
         "/Vacancies",
         "/Jobs"
@@ -19372,7 +21842,8 @@
         "recruitingapp-2889.umantis.com": true,
         "recruitingapp-2769.umantis.com": true,
         "recruitingapp-2765.umantis.com": true,
-        "recruitingapp-2970.umantis.com": true
+        "recruitingapp-2970.umantis.com": true,
+        "recruitingapp-2876.umantis.com": true
       },
       "expansionProbeOffset": 0,
       "expansionRetryHosts": [
@@ -19455,7 +21926,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "jobs.valens.ch": 79
+        "jobs.valens.ch": 82
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -19630,13 +22101,13 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "apply.workable.com": 253
+        "apply.workable.com": 257
       },
       "pathHits": {
-        "/guess-europe-sagl": 76,
-        "/sophia-genetics": 76,
-        "/debiopharm": 76,
-        "/answermodules": 25
+        "/guess-europe-sagl": 77,
+        "/sophia-genetics": 77,
+        "/debiopharm": 77,
+        "/answermodules": 26
       },
       "tenantCount": 0,
       "discoveredAt": "2026-08-21T09:05:27.711Z",
@@ -20554,22 +23025,29 @@
     },
     "zhaw.ch": {
       "domain": "zhaw.ch",
-      "status": "candidate",
+      "status": "confirmed",
       "seenOn": [
-        "ibg.ch"
+        "ibg.ch",
+        "recyclist.ch"
       ],
       "markers": [],
       "hostSamples": [
         "zhaw.ch"
       ],
-      "tenantShape": "unknown",
+      "tenantShape": "shared",
       "hostHits": {
-        "zhaw.ch": 1
+        "zhaw.ch": 2
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-08-30T09:43:46.546Z",
-      "note": "careers outlink, score 4.2"
+      "note": "careers outlink, score 4.2",
+      "hostEmployerUnknown": {},
+      "hostEmployers": {
+        "zhaw.ch": [
+          "recyclist.ch"
+        ]
+      }
     },
     "sante-sexuelle.ch": {
       "domain": "sante-sexuelle.ch",
@@ -20744,22 +23222,29 @@
     },
     "sg.ch": {
       "domain": "sg.ch",
-      "status": "candidate",
+      "status": "confirmed",
       "seenOn": [
-        "ksbg.ch"
+        "ksbg.ch",
+        "kantisargans.ch"
       ],
       "markers": [],
       "hostSamples": [
         "sg.ch"
       ],
-      "tenantShape": "unknown",
+      "tenantShape": "shared",
       "hostHits": {
-        "sg.ch": 1
+        "sg.ch": 2
       },
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-20T23:26:38.764Z",
-      "note": "careers outlink, score 3"
+      "note": "careers outlink, score 3",
+      "hostEmployerUnknown": {},
+      "hostEmployers": {
+        "sg.ch": [
+          "kantisargans.ch"
+        ]
+      }
     },
     "lu.ch": {
       "domain": "lu.ch",
@@ -21013,7 +23498,8 @@
         "baumeler-getraenke.ch",
         "truvag.ch",
         "estermann.ch",
-        "fischer-sursee.ch"
+        "fischer-sursee.ch",
+        "sckriens.ch"
       ],
       "markers": [],
       "hostSamples": [
@@ -21021,7 +23507,7 @@
       ],
       "tenantShape": "shared",
       "hostHits": {
-        "fmhjob.ch": 19
+        "fmhjob.ch": 20
       },
       "pathHits": {},
       "tenantCount": 0,
@@ -21043,6 +23529,7 @@
           "partnertreuhand.ch",
           "portanatura.ch",
           "schlierbach.ch",
+          "sckriens.ch",
           "stadttheater-sursee.ch",
           "texpress.ch",
           "thermoplan.ch",
@@ -21202,7 +23689,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "stellenpartner.ch": 23
+        "stellenpartner.ch": 25
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -21211,7 +23698,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:45:35.097Z",
-      "note": "apply-host cluster from SECO ZG"
+      "note": "apply-host cluster from SECO ZH"
     },
     "bellini.ch": {
       "domain": "bellini.ch",
@@ -21223,7 +23710,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "bellini.ch": 20
+        "bellini.ch": 22
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -21232,7 +23719,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:45:35.098Z",
-      "note": "apply-host cluster from SECO ZG"
+      "note": "apply-host cluster from SECO LU"
     },
     "stellentreff.ch": {
       "domain": "stellentreff.ch",
@@ -21244,7 +23731,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "stellentreff.ch": 17
+        "stellentreff.ch": 19
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -21253,7 +23740,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:45:35.098Z",
-      "note": "apply-host cluster from SECO LU"
+      "note": "apply-host cluster from SECO SG"
     },
     "ipersonal.ch": {
       "domain": "ipersonal.ch",
@@ -21265,7 +23752,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "ipersonal.ch": 18
+        "ipersonal.ch": 20
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -21391,7 +23878,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "starjob.ch": 10
+        "starjob.ch": 12
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -21400,7 +23887,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-22T08:50:56.609Z",
-      "note": "apply-host cluster from SECO ZG"
+      "note": "apply-host cluster from SECO SG"
     },
     "ctg-consulting.com": {
       "domain": "ctg-consulting.com",
@@ -22141,7 +24628,7 @@
       ],
       "tenantShape": "unknown",
       "hostHits": {
-        "randstad.ch": 4
+        "randstad.ch": 6
       },
       "hostEmployers": {},
       "hostEmployerUnknown": {
@@ -22150,7 +24637,7 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-24T08:19:51.804Z",
-      "note": "apply-host cluster from SECO ZG"
+      "note": "apply-host cluster from SECO LU"
     },
     "rhomberg.ch": {
       "domain": "rhomberg.ch",
@@ -22646,20 +25133,22 @@
     },
     "pks-personal.ch": {
       "domain": "pks-personal.ch",
-      "status": "candidate",
+      "status": "confirmed",
       "seenOn": [
-        "mpa-praxisstellen.ch"
+        "mpa-praxisstellen.ch",
+        "elektriker-elektromonteur-jobs.ch"
       ],
       "markers": [],
       "hostSamples": [
         "pks-personal.ch"
       ],
-      "tenantShape": "unknown",
+      "tenantShape": "shared",
       "hostHits": {
-        "pks-personal.ch": 5
+        "pks-personal.ch": 6
       },
       "hostEmployers": {
         "pks-personal.ch": [
+          "elektriker-elektromonteur-jobs.ch",
           "mpa-praxisstellen.ch"
         ]
       },
@@ -22973,20 +25462,22 @@
     },
     "personalradar.ch": {
       "domain": "personalradar.ch",
-      "status": "candidate",
+      "status": "confirmed",
       "seenOn": [
-        "mpa-praxisstellen.ch"
+        "mpa-praxisstellen.ch",
+        "elektriker-elektromonteur-jobs.ch"
       ],
       "markers": [],
       "hostSamples": [
         "personalradar.ch"
       ],
-      "tenantShape": "unknown",
+      "tenantShape": "shared",
       "hostHits": {
-        "personalradar.ch": 1
+        "personalradar.ch": 2
       },
       "hostEmployers": {
         "personalradar.ch": [
+          "elektriker-elektromonteur-jobs.ch",
           "mpa-praxisstellen.ch"
         ]
       },
@@ -23269,6 +25760,177 @@
       "pathHits": {},
       "tenantCount": 0,
       "discoveredAt": "2026-10-26T11:24:12.086Z",
+      "note": "careers outlink, score 4.2"
+    },
+    "work-shop.ch": {
+      "domain": "work-shop.ch",
+      "status": "candidate",
+      "seenOn": [],
+      "markers": [],
+      "hostSamples": [
+        "work-shop.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "work-shop.ch": 2
+      },
+      "hostEmployers": {},
+      "hostEmployerUnknown": {
+        "work-shop.ch": true
+      },
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-10-27T09:10:32.626Z",
+      "note": "apply-host cluster from SECO SG"
+    },
+    "aofoundation.org": {
+      "domain": "aofoundation.org",
+      "status": "candidate",
+      "seenOn": [
+        "ssbrm.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "careers.aofoundation.org"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "careers.aofoundation.org": 1
+      },
+      "hostEmployers": {
+        "careers.aofoundation.org": [
+          "ssbrm.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-10-27T11:00:02.663Z",
+      "note": "careers outlink, score 7"
+    },
+    "ema-partners.ch": {
+      "domain": "ema-partners.ch",
+      "status": "candidate",
+      "seenOn": [
+        "tasted.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "ema-partners.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "ema-partners.ch": 1
+      },
+      "hostEmployers": {
+        "ema-partners.ch": [
+          "tasted.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-10-27T11:00:02.664Z",
+      "note": "careers outlink, score 3"
+    },
+    "genossenschaft-baseltor.ch": {
+      "domain": "genossenschaft-baseltor.ch",
+      "status": "candidate",
+      "seenOn": [
+        "baseltor.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "genossenschaft-baseltor.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "genossenschaft-baseltor.ch": 1
+      },
+      "hostEmployers": {
+        "genossenschaft-baseltor.ch": [
+          "baseltor.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-10-27T11:00:02.685Z",
+      "note": "careers outlink, score 3"
+    },
+    "verbandsfuehrung.com": {
+      "domain": "verbandsfuehrung.com",
+      "status": "candidate",
+      "seenOn": [
+        "kampahire.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "verbandsfuehrung.com"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "verbandsfuehrung.com": 1
+      },
+      "hostEmployers": {
+        "verbandsfuehrung.com": [
+          "kampahire.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-10-27T11:00:02.688Z",
+      "note": "careers outlink, score 5.2"
+    },
+    "berufehotelgastro.ch": {
+      "domain": "berufehotelgastro.ch",
+      "status": "candidate",
+      "seenOn": [
+        "mestierialberghieri.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "berufehotelgastro.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "berufehotelgastro.ch": 1
+      },
+      "hostEmployers": {
+        "berufehotelgastro.ch": [
+          "mestierialberghieri.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-10-27T11:00:02.691Z",
+      "note": "careers outlink, score 3"
+    },
+    "stiftung-eichholz.ch": {
+      "domain": "stiftung-eichholz.ch",
+      "status": "candidate",
+      "seenOn": [
+        "regenbogenkita.ch"
+      ],
+      "markers": [],
+      "hostSamples": [
+        "stiftung-eichholz.ch"
+      ],
+      "tenantShape": "unknown",
+      "hostHits": {
+        "stiftung-eichholz.ch": 1
+      },
+      "hostEmployers": {
+        "stiftung-eichholz.ch": [
+          "regenbogenkita.ch"
+        ]
+      },
+      "hostEmployerUnknown": {},
+      "pathHits": {},
+      "tenantCount": 0,
+      "discoveredAt": "2026-10-27T11:00:02.706Z",
       "note": "careers outlink, score 4.2"
     }
   }
