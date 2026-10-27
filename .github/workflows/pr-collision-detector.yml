@@ -30,6 +30,7 @@ on:
       dry_run:
         description: 'Solo log, niente label/commenti'
         type: boolean
+        required: false
         default: false
 
 # Serializza: evita due scan concorrenti che si pestano sulle label.
@@ -147,6 +148,11 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
+          set -euo pipefail
+          case "${DRY_RUN:-false}" in
+            true|false) ;;
+            *) echo "::error::dry_run deve essere true o false" >&2; exit 1 ;;
+          esac
           if [ "${DRY_RUN:-false}" = "true" ]; then
             node scripts/ci/pr-collision-detector.mjs --dry-run
           else
