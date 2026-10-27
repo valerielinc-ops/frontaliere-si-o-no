@@ -107,6 +107,18 @@ describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
     expect(status.trim()).toBe('D\tdata/sector-hub-publications.json');
   });
 
+  it('keeps each core pathspec confined to that path', () => {
+    const dir = makeRepoFixture();
+    writeSizedFile(join(dir, 'data', 'weekly-employers-delta.json'), 1 * MB);
+    writeSizedFile(join(dir, 'data', 'unrelated-generated-file.json'), 1 * MB);
+
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+
+    const staged = stagedFiles(dir);
+    expect(staged).toContain('data/weekly-employers-delta.json');
+    expect(staged).not.toContain('data/unrelated-generated-file.json');
+  });
+
   it('still stages core files when related-search-candidates.json exceeds its ceiling (the #3663 failure mode)', () => {
     const dir = makeRepoFixture();
     writeSizedFile(join(dir, 'data', 'jobs-snapshots-history', '2026-07-06.json'), 10 * MB);
