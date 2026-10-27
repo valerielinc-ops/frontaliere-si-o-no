@@ -2276,6 +2276,7 @@ describe('portal runner helpers', () => {
     expect(portalQuestionId('CAP', ' Residence ')).toBe(portalQuestionId('cap', 'residence'));
     expect(portalQuestionKey('CAP', 'Residence')).toBe(portalQuestionKey('CAP (obbligatorio)', ' residence '));
     expect(portalQuestionKey('CAP', residence.context)).not.toBe(portalQuestionKey('CAP', employer.context));
+    expect(portalQuestionKey('Country code', 'Phone · Mobile')).not.toBe(portalQuestionKey('Country code', 'Phone · Home'));
     expect(residence.id).not.toBe(employer.id);
     expect(dedupePortalQuestions([residence, employer])).toEqual([residence, employer]);
 
