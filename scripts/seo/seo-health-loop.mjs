@@ -70,10 +70,17 @@ const DEFAULT_JOB_SAMPLE = 30;
 const DEFAULT_ERROR_SAMPLE = 320;
 const DEFAULT_FINDING_THRESHOLD = 2;
 const DEFAULT_TIMEOUT_MS = 15_000;
-const DEFAULT_MAX_SITEMAPS = 160;
+// The production graph has outgrown the original 160-file guard. Keep the
+// traversal bounded, but leave room for the root index plus newly added
+// locale/family shards; the workflow can lower or raise this explicitly.
+const DEFAULT_MAX_SITEMAPS = 256;
 const DEFAULT_GA4_DAYS = 28;
 const DEFAULT_GSC_STATE_MAX_AGE_DAYS = 10;
-export const DEFAULT_MAX_FETCHES = 640;
+// Default production envelope: 2*(1 + 256) graph requests, 2*(80 + 30)
+// sampled-page requests, 2*320 Cloudflare path probes, plus source lookups
+// and retry headroom. Keep the workflow override in sync with this value so
+// the graph cannot consume the budget before downstream phases run.
+export const DEFAULT_MAX_FETCHES = 2048;
 export const DEFAULT_CYCLE_BUDGET_MS = 25 * 60 * 1000;
 export const SEO_CONCURRENCY_GROUP = 'seo-health-loop';
 /**
@@ -103,6 +110,7 @@ function parseArgs(argv) {
     timeoutMs: DEFAULT_TIMEOUT_MS,
     ga4Days: DEFAULT_GA4_DAYS,
     findingThreshold: DEFAULT_FINDING_THRESHOLD,
+    maxSitemaps: DEFAULT_MAX_SITEMAPS,
     maxFetches: DEFAULT_MAX_FETCHES,
     cycleBudgetMs: DEFAULT_CYCLE_BUDGET_MS,
     reportDir: DEFAULT_REPORT_DIR,
@@ -129,6 +137,7 @@ function parseArgs(argv) {
     else if (key === 'timeout-ms') out.timeoutMs = Number(value);
     else if (key === 'ga4-days') out.ga4Days = Number(value);
     else if (key === 'finding-threshold') out.findingThreshold = Number(value);
+    else if (key === 'max-sitemaps') out.maxSitemaps = Number(value);
     else if (key === 'max-fetches') out.maxFetches = Number(value);
     else if (key === 'cycle-budget-ms') out.cycleBudgetMs = Number(value);
     else if (key === 'report-dir' && value) out.reportDir = path.resolve(ROOT, value);
@@ -364,6 +373,7 @@ export async function loadSitemapGraph({
   timeoutMs = DEFAULT_TIMEOUT_MS,
   maxSitemaps = DEFAULT_MAX_SITEMAPS,
 } = {}) {
+  const sitemapLimit = finitePositive(maxSitemaps, DEFAULT_MAX_SITEMAPS);
   const startedAt = new Date().toISOString();
   const findings = [];
   const files = [];
@@ -388,7 +398,7 @@ export async function loadSitemapGraph({
     const sitemapUrl = absoluteHttpUrl(candidate, origin);
     const key = sitemapUrl && comparableUrl(sitemapUrl);
     if (!key || scheduled.has(key)) return;
-    if (scheduled.size >= maxSitemaps) {
+    if (scheduled.size >= sitemapLimit) {
       graphTruncated = true;
       return;
     }
@@ -434,7 +444,7 @@ export async function loadSitemapGraph({
     }
   }
   if (graphTruncated || queue.length > 0) {
-    findings.push({ code: 'sitemap-graph-truncated', url: sitemap, detail: `max ${maxSitemaps} sitemap files` });
+    findings.push({ code: 'sitemap-graph-truncated', url: sitemap, detail: `max ${sitemapLimit} sitemap files` });
   }
   for (const entry of entriesByUrl.values()) {
     if (!isSameSiteUrl(entry.url, origin)) {
@@ -814,7 +824,13 @@ export async function runSeoHealthLoop({
     maxDurationMs: opts.cycleBudgetMs,
   });
   const cycleFetch = budget.fetch;
-  const graph = await loadSitemapGraph({ origin: opts.origin, sitemap: opts.sitemap, fetchImpl: cycleFetch, timeoutMs: opts.timeoutMs });
+  const graph = await loadSitemapGraph({
+    origin: opts.origin,
+    sitemap: opts.sitemap,
+    fetchImpl: cycleFetch,
+    timeoutMs: opts.timeoutMs,
+    maxSitemaps: opts.maxSitemaps,
+  });
   const pageAudit = await probePages(graph.entries, { fetchImpl: cycleFetch, timeoutMs: opts.timeoutMs, sample: opts.sample, jobSample: opts.jobSample, origin: opts.origin });
   const cloudflare = collectAnalytics ? await collectCloudflare({ fetchImpl: cycleFetch, timeoutMs: opts.timeoutMs, errorSample: opts.errorSample }) : { source: sourceResult({ name: 'cloudflare-analytics', skipped: true, error: 'disabled for this run' }), available: false, confirmedPersistent: [], paths: [], diagnostics: [] };
   const ga4 = collectAnalytics ? await collectGa4({ fetchImpl: cycleFetch, days: opts.ga4Days }) : { source: sourceResult({ name: 'ga4', skipped: true, error: 'disabled for this run' }), available: false, pages: [], lowEngagement: [] };
@@ -892,6 +908,7 @@ export async function runSeoHealthLoop({
       sample: opts.sample,
       jobSample: opts.jobSample,
       findingThreshold: opts.findingThreshold,
+      maxSitemaps: opts.maxSitemaps,
       maxFetches: opts.maxFetches,
       cycleBudgetMs: opts.cycleBudgetMs,
       dryRun: Boolean(opts.dryRun),
@@ -1050,6 +1067,7 @@ async function main() {
   options.timeoutMs = finitePositive(options.timeoutMs, DEFAULT_TIMEOUT_MS);
   options.ga4Days = finitePositive(options.ga4Days, DEFAULT_GA4_DAYS);
   options.findingThreshold = finitePositive(options.findingThreshold, DEFAULT_FINDING_THRESHOLD);
+  options.maxSitemaps = finitePositive(options.maxSitemaps, DEFAULT_MAX_SITEMAPS);
   options.maxFetches = finitePositive(options.maxFetches, DEFAULT_MAX_FETCHES);
   options.cycleBudgetMs = finitePositive(options.cycleBudgetMs, DEFAULT_CYCLE_BUDGET_MS);
   const report = await runSeoHealthLoop({ options });

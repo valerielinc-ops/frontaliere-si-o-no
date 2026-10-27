@@ -32,6 +32,11 @@ on:
         required: false
         type: string
         default: '320'
+      max_sitemaps:
+        description: 'Bounded sitemap files to traverse in the live graph'
+        required: false
+        type: string
+        default: '256'
 
 concurrency:
   group: seo-health-loop
@@ -102,6 +107,7 @@ jobs:
           HEALTH_SAMPLE: ${{ inputs.sample || '80' }}
           HEALTH_JOB_SAMPLE: ${{ inputs.job_sample || '30' }}
           HEALTH_ERROR_SAMPLE: ${{ inputs.error_sample || '320' }}
+          HEALTH_MAX_SITEMAPS: ${{ inputs.max_sitemaps || '256' }}
           HEALTH_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           set -euo pipefail
@@ -116,7 +122,8 @@ jobs:
             --sample="$HEALTH_SAMPLE" \
             --job-sample="$HEALTH_JOB_SAMPLE" \
             --error-sample="$HEALTH_ERROR_SAMPLE" \
-            --max-fetches=640 \
+            --max-sitemaps="$HEALTH_MAX_SITEMAPS" \
+            --max-fetches=2048 \
             --cycle-budget-ms=1500000 \
             "${extra_args[@]}"
 
