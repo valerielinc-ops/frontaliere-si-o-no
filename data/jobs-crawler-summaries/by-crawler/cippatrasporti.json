@@ -1,7 +1,7 @@
 {
   "key": "cippatrasporti",
   "label": "Cippà Trasporti SA",
-  "generatedAt": "2026-10-27T09:28:58.863Z",
+  "generatedAt": "2026-10-27T21:21:08.751Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4919,
-  "avgDurationMs": 4919,
+  "durationMs": 6408,
+  "avgDurationMs": 6408,
   "durationHistory": [
-    4919
+    6408
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-27T09:28:45.653Z",
+      "crawledAt": "2026-10-27T21:20:55.826Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -76,7 +76,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-27T09:28:45.544Z",
+      "crawledAt": "2026-10-27T21:20:55.694Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-27T09:28:45.429Z",
+      "crawledAt": "2026-10-27T21:20:54.963Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -150,5 +150,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

@@ -1,7 +1,7 @@
 {
   "key": "clinica-hildebrand",
   "label": "Clinica Hildebrand Centro di riabilitazione",
-  "generatedAt": "2026-10-27T09:26:28.009Z",
+  "generatedAt": "2026-10-27T21:24:15.822Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3697,
-  "avgDurationMs": 3697,
+  "durationMs": 4909,
+  "avgDurationMs": 4909,
   "durationHistory": [
-    3697
+    4909
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "applyUrl": "https://www.clinica-hildebrand.ch/collaborazione.html",
       "source": "Clinica Hildebrand Dedicated Parser (HTML + PDF annunci)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-27T09:26:15.730Z",
+      "crawledAt": "2026-10-27T21:23:58.182Z",
       "addressLocality": "Brissago",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
