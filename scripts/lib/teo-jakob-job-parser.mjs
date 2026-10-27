@@ -28,7 +28,7 @@ export const TEO_JAKOB_COMPANY_NAME = 'Einrichtung & Innenarchitektur – Design
 export const TEO_JAKOB_COMPANY_DOMAIN = 'my.jobalino.ch';
 
 const CAREER_URL = 'https://my.jobalino.ch/public/job/607e9bf886583eaee25ea4db60baad92/teo-jakob-ag/mitarbeiter-fuer-auslieferung-und-montage-100';
-const TEO_JAKOB_VACANCY_PATH_RE = /^\/public\/job\/(?:[a-z]{2}\/)?[^/?#]+\/teo-jakob-ag\/[^/?#]+\/?$/i;
+const TEO_JAKOB_VACANCY_PATH_RE = /^\/(?:public\/)?job\/(?:[a-z]{2}\/)?607e9bf886583eaee25ea4db60baad92\/(?:teo-jakob-ag\/)?[^/?#]+\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
