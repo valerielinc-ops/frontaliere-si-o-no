@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-27T12:22:47.747Z",
+  "updatedAt": "2026-10-27T12:24:37.233Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1235907,12 +1235907,12 @@
     },
     "teo-jakob@liebefeld": {
       "key": "teo-jakob@liebefeld",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-04T08:05:33.569Z",
-      "updatedAt": "2026-10-26T13:04:08.283Z",
+      "updatedAt": "2026-10-27T12:24:37.143Z",
       "name": "Teo Jakob AG",
       "city": "Liebefeld",
       "zip": "3097",
@@ -1236145,7 +1236145,13 @@
       "qualityVerdict": "good",
       "qualityProblems": [],
       "promotionPr": "15441",
-      "promotionBranch": "prospector/promote-2026-10-26"
+      "promotionBranch": "prospector/promote-2026-10-26",
+      "promotedAt": "2026-10-26T15:31:08Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-27T09:25:47.338Z",
+      "firstCrawlerJobCount": 1
     },
     "teo-jakob@regensdorf": {
       "key": "teo-jakob@regensdorf",
@@ -1327953,12 +1327959,12 @@
     },
     "walter-zoo-gossau@gossau-sg": {
       "key": "walter-zoo-gossau@gossau-sg",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-31T09:55:43.291Z",
-      "updatedAt": "2026-10-26T13:04:08.283Z",
+      "updatedAt": "2026-10-27T12:24:37.143Z",
       "name": "WALTER ZOO AG GOSSAU",
       "city": "Gossau SG",
       "zip": "9200",
@@ -1328199,7 +1328205,13 @@
       "qualityVerdict": "good",
       "qualityProblems": [],
       "promotionPr": "15441",
-      "promotionBranch": "prospector/promote-2026-10-26"
+      "promotionBranch": "prospector/promote-2026-10-26",
+      "promotedAt": "2026-10-26T15:31:08Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-27T09:26:35.683Z",
+      "firstCrawlerJobCount": 1
     },
     "walteraulac.ch": {
       "key": "walteraulac.ch",
