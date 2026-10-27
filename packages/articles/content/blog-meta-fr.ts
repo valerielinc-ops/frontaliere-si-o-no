@@ -13608,6 +13608,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sondaggio-paga-colleghi-svizzeri.title': 'Frontaliers au Tessin : 55,6% se sentent moins bien payés',
     'blog.article.sondaggio-paga-colleghi-svizzeri.excerpt': '1\'542 travailleurs ont répondu au sondage 73% satisfaits de leur salaire 55,6% se sentent moins bien payés qu’un résident 37,4% peuvent faire du télétravail Échantillon →',
     'blog.article.sondaggio-paga-colleghi-svizzeri.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.orari-tilo-re80-s90.title': 'Horaires Tilo Lugano-Chiasso : modifications et suppressions',
+    'blog.article.orari-tilo-re80-s90.excerpt': 'Les travaux entre Vezia et Capolago modifient les horaires Tilo.',
+    'blog.article.orari-tilo-re80-s90.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

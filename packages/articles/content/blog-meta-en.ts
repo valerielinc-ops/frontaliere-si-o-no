@@ -13606,6 +13606,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sondaggio-paga-colleghi-svizzeri.title': 'Cross-border workers in Ticino: 55,6% feel they are paid less',
     'blog.article.sondaggio-paga-colleghi-svizzeri.excerpt': '1\'542 workers responded to the survey 73% satisfied with their salary 55,6% feel they are paid less than a resident 37,4% can work remotely Sample →',
     'blog.article.sondaggio-paga-colleghi-svizzeri.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.orari-tilo-re80-s90.title': 'Tilo Lugano-Chiasso timetable: changes and cancellations',
+    'blog.article.orari-tilo-re80-s90.excerpt': 'Construction work between Vezia and Capolago is changing Tilo timetables.',
+    'blog.article.orari-tilo-re80-s90.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
