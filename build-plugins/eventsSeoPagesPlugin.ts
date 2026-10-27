@@ -4956,10 +4956,10 @@ const EVENT_SLUG_REDIRECT_COPY: Record<Locale, { title: string; body: string; ct
 };
 function eventSlugRedirectFacts(locale: Locale, event?: Pick<SiteEvent, 'title' | 'startDate' | 'venue' | 'comune' | 'sourceName'>): string {
   if (!event) return '';
-  const title = esc(event.title || '');
-  const date = esc(event.startDate || '');
-  const place = esc(event.venue || event.comune || '');
-  const source = esc(event.sourceName || '');
+  const title = event.title || '';
+  const date = event.startDate || '';
+  const place = event.venue || event.comune || '';
+  const source = event.sourceName || '';
   const facts: Record<Locale, string> = {
     it: ` Evento recuperato: ${title}. Data: ${date}. Luogo: ${place}. Fonte pubblica: ${source}.`,
     en: `Recovered event: ${title}. Date: ${date}. Venue: ${place}. Public source: ${source}.`,
@@ -4977,7 +4977,10 @@ export function renderEventSlugRedirectPage(
 ): string {
   const copy = EVENT_SLUG_REDIRECT_COPY[locale];
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const body = `${copy.body}${eventSlugRedirectFacts(locale, event)}`;
+  // Escape the complete visible/metadata body once. The same escaped value is
+  // reused in <p>, meta description and og:description, avoiding both raw
+  // attribute delimiters and the double-escaping of entities emitted by facts.
+  const body = esc(`${copy.body}${eventSlugRedirectFacts(locale, event)}`);
   // Historical event bridges are permanent indexable entry points. Their
   // generic copy used to make every bridge share one <title>/<h1>, so the
   // duplicate-title gate saw the whole migration archive as one page. Keep
@@ -4999,6 +5002,15 @@ export function renderEventSlugRedirectPage(
     // indexable so a saved link or an existing search result can be recovered.
     noindex: false,
   });
+  // A canonical bridge is still a real indexable document for historical
+  // event URLs. Keep its social preview aligned with the document title and
+  // canonical target; the generic bridge helper deliberately leaves OG tags
+  // out because most noindex bridges must not advertise cross-page signals.
+  const bridgeOpenGraph = `
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="${esc(canonicalUrl)}">
+ <meta property="og:title" content="${esc(bridgeTitle)}">
+ <meta property="og:description" content="${body}">`;
   // Keep the bridge as a canonical, indexable recovery page. A meta-refresh
   // adds no information beyond the canonical link and CTA, and SE Ranking
   // reports every such bridge as a redirect error; static hosting cannot turn
@@ -5006,7 +5018,10 @@ export function renderEventSlugRedirectPage(
   // buildCanonicalBridgePage intentionally uses one title for both surfaces;
   // this bridge is the exception because its H1 is intentionally generic
   // while its SERP title must identify the historical source URL.
-  return bridge.replace(`<h1>${bridgeTitle}</h1>`, `<h1>${copy.title}</h1>`);
+  return bridge
+    .replace('</head>', `${bridgeOpenGraph}
+ </head>`)
+    .replace(`<h1>${bridgeTitle}</h1>`, `<h1>${copy.title}</h1>`);
 }
 
 /**

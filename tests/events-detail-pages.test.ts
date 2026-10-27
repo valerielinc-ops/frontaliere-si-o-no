@@ -2036,6 +2036,10 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(html).toContain('max-image-preview:large');
     expect(countHtmlBodyWords(main)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
     expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
+    expect(html).toContain('<meta property="og:type" content="website">');
+    expect(html).toContain('<meta property="og:url" content="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
+    expect(html).toMatch(/<meta property="og:title" content="Pagina evento aggiornata/);
+    expect(html).toMatch(/<meta property="og:description" content="L’indirizzo di questo evento è cambiato/);
     expect(html).not.toContain('http-equiv="refresh"');
   });
 
@@ -2066,6 +2070,25 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(title(first)).not.toBe(title(second));
     expect(first).toContain('<h1>Pagina evento aggiornata | Frontaliere Ticino</h1>');
     expect(second).toContain('<h1>Pagina evento aggiornata | Frontaliere Ticino</h1>');
+  });
+
+  it('escapes event facts once in every Open Graph attribute', () => {
+    const html = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/nuovo-slug/', {
+      title: 'Evento "speciale" & prova',
+      startDate: '2026-07-04',
+      venue: 'LAC "Sala"',
+      comune: 'Lugano',
+      sourceName: 'Fonte & partner',
+    });
+    const ogTitle = html.match(/<meta property="og:title"[^>]*>/g) ?? [];
+    const ogDescription = html.match(/<meta property="og:description"[^>]*>/g) ?? [];
+
+    expect(ogTitle).toHaveLength(1);
+    expect(ogDescription).toHaveLength(1);
+    expect(ogDescription[0]).toContain('Evento &quot;speciale&quot; &amp; prova');
+    expect(ogDescription[0]).toContain('LAC &quot;Sala&quot;');
+    expect(ogDescription[0]).toContain('Fonte &amp; partner');
+    expect(ogDescription[0]).not.toContain('content="LAC "Sala"');
   });
 
   it('renders all four verified Lüsslingen source-migration bridges to the refreshed owner', () => {

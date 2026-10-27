@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
+  ARTICLE_HUB_CARD_LIMIT,
   ARTICLE_HUB_GRID_OPEN,
   ARTICLE_HUB_SHELL_NAV_OPEN,
   ensureArticleHubCards,
@@ -42,6 +43,23 @@ const META = {
 };
 
 describe('renderArticleHubCards', () => {
+  it('applies the shared page-weight limit when callers omit an explicit limit', () => {
+    const articles = Array.from({ length: ARTICLE_HUB_CARD_LIMIT + 1 }, (_, index) => ({
+      ...ARTICLE,
+      id: `article-${index}`,
+    }));
+    const html = renderArticleHubCards({
+      articles,
+      locale: 'it',
+      sectionSlug: 'articoli-frontaliere',
+      localePrefix: '',
+      resolveSlug: (id) => id,
+      resolveMeta: () => META,
+    });
+
+    expect(html.match(/class="ssg-art-card"/g)).toHaveLength(ARTICLE_HUB_CARD_LIMIT);
+  });
+
   it('reproduces the card markup production already serves, byte for byte', () => {
     const html = renderArticleHubCards({
       articles: [ARTICLE],

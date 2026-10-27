@@ -71,6 +71,7 @@ import {
   type SectorHubKey,
 } from './jobSectorLanding';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
+import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
@@ -744,6 +745,9 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   // assumed indexable.
   const sectorBodyHtml = `${jobsHtml}${prose.html}${journeyRequirementsHtml}${journeyCompaniesHtml}${faqHtml}${sectorContextHtml}${siblingRailHtml}${crossCantonRailHtml}`;
   const sectorRobotsTag = robotsMetaEnhancedForContent(sectorBodyHtml);
+  const sectorNoindexMarker = /\bnoindex\b/i.test(sectorRobotsTag)
+    ? `\n    ${JOB_BOARD_NOINDEX_TARGET_MARKER}`
+    : '';
 
   return `<!doctype html>
 <html lang="${locale}">
@@ -752,7 +756,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(finalizeJobBoardTitle(seo.title))}</title>
-    <meta name="description" content="${esc(clampMetaDescription(seo.desc, undefined, locale))}">${sectorRobotsTag}
+    <meta name="description" content="${esc(clampMetaDescription(seo.desc, undefined, locale))}">${sectorRobotsTag}${sectorNoindexMarker}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
