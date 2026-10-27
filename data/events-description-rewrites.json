@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-27T12:39:28.297Z",
+  "generatedAt": "2026-10-27T13:26:45.869Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -21930,6 +21930,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T15:30:20.340Z"
     },
+    "guidle:AaKtDhN::9dd0b49e910b0984c4c1b7c2e66029a4b1e384cabf3d95e0bb90d6d6ab31c93d": {
+      "id": "guidle:AaKtDhN",
+      "sourceDescriptionHash": "9dd0b49e910b0984c4c1b7c2e66029a4b1e384cabf3d95e0bb90d6d6ab31c93d",
+      "description": "Herbert Grönemeyer propone un concerto pop all'Hallenstadion Zürich. L'appuntamento fa parte della sua tournée nelle arene del 2027, che comprende anche concerti aggiuntivi a Zurigo e Francoforte.",
+      "descriptionByLocale": {
+        "it": "Herbert Grönemeyer propone un concerto pop all'Hallenstadion Zürich. L'appuntamento fa parte della sua tournée nelle arene del 2027, che comprende anche concerti aggiuntivi a Zurigo e Francoforte.",
+        "en": "Herbert Grönemeyer is scheduled to give a pop concert at Hallenstadion Zürich. The event is part of his 2027 arena tour, which also includes additional concerts in Zürich and Frankfurt.",
+        "de": "Herbert Grönemeyer gibt im Hallenstadion Zürich ein Popkonzert. Der Auftritt ist Teil seiner Arenatour 2027, zu der auch zusätzliche Konzerte in Zürich und Frankfurt gehören.",
+        "fr": "Herbert Grönemeyer se produit au Hallenstadion Zürich dans le cadre d’un concert pop. Le rendez-vous s’inscrit dans sa tournée des arènes de 2027, qui comprend également des concerts supplémentaires à Zurich et à Francfort."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:18:41.080Z"
+    },
     "guidle:AALc5tE::1ca80f6bd37672832e311f3c9d40ef1c572759a5e0a178b792ab168566e1c938": {
       "id": "guidle:AALc5tE",
       "sourceDescriptionHash": "1ca80f6bd37672832e311f3c9d40ef1c572759a5e0a178b792ab168566e1c938",
@@ -24211,6 +24225,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T07:17:49.267Z"
+    },
+    "guidle:AcDAsvc::67790938d88c025d4fa498c0d76c9f4a7a572809b11115d2446ba279bb77e965": {
+      "id": "guidle:AcDAsvc",
+      "sourceDescriptionHash": "67790938d88c025d4fa498c0d76c9f4a7a572809b11115d2446ba279bb77e965",
+      "description": "Questo festival di fanfare ricorrente si svolge alla Halle polyvalente di Vendlincourt. La manifestazione è aperta a tutti.",
+      "descriptionByLocale": {
+        "it": "Questo festival di fanfare ricorrente si svolge alla Halle polyvalente di Vendlincourt. La manifestazione è aperta a tutti.",
+        "en": "This recurring brass-band festival is held at Halle polyvalente in Vendlincourt. The event is open to everyone.",
+        "de": "Das wiederkehrende Festival der Blasmusik findet in der Halle polyvalente in Vendlincourt statt. Die Veranstaltung ist für alle offen.",
+        "fr": "Ce festival de fanfares récurrent se déroule à la Halle polyvalente de Vendlincourt. La manifestation est ouverte à tous."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:17:03.787Z"
     },
     "guidle:AcdHYQW::cd0aaf1b361aeb59e8edb76de12d74e65cf73fdb361afce040b3f6379e3b4c93": {
       "id": "guidle:AcdHYQW",
@@ -31296,6 +31324,34 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T04:14:22.930Z"
     },
+    "guidle:AhjFgeQ::b2d591cd8f1ef0385dfed0039626ffe19c5820f26920b814c8399ca22d47ea42": {
+      "id": "guidle:AhjFgeQ",
+      "sourceDescriptionHash": "b2d591cd8f1ef0385dfed0039626ffe19c5820f26920b814c8399ca22d47ea42",
+      "description": "A Bulle, nel cantone di Friburgo, si svolge una festa della musica. La manifestazione si articola su diverse scene allestite.",
+      "descriptionByLocale": {
+        "it": "A Bulle, nel cantone di Friburgo, si svolge una festa della musica. La manifestazione si articola su diverse scene allestite.",
+        "en": "The music festival takes place in Bulle, in the canton of Fribourg. Several stages are set up for the event.",
+        "de": "In Bulle im Kanton Freiburg findet ein Musikfestival statt. Für die Veranstaltung stehen mehrere eingerichtete Bühnen zur Verfügung.",
+        "fr": "Une fête de la musique a lieu à Bulle, dans le canton de Fribourg. La manifestation se déroule sur plusieurs scènes aménagées."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:21:29.079Z"
+    },
+    "guidle:AHJH8eP::2376df376dbda2ab5bf69301857090f1f2ea2559b898e9458c7c1c4fbc39c88e": {
+      "id": "guidle:AHJH8eP",
+      "sourceDescriptionHash": "2376df376dbda2ab5bf69301857090f1f2ea2559b898e9458c7c1c4fbc39c88e",
+      "description": "L’appuntamento musicale celebra l’anniversario della scuola di musica Muri+. Presso il Festsaal, giovani artisti presentano le loro capacità con la guida di docenti specializzati.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale celebra l’anniversario della scuola di musica Muri+. Presso il Festsaal, giovani artisti presentano le loro capacità con la guida di docenti specializzati.",
+        "en": "The musical event marks an anniversary of the Muri+ music school. At the Festsaal, young artists demonstrate their abilities under the guidance of specialist teachers.",
+        "de": "Die musikalische Veranstaltung steht im Zeichen des Jubiläums der Musikschule Muri+. Im Festsaal präsentieren junge Musizierende ihre Fähigkeiten unter der Betreuung von Fachlehrpersonen.",
+        "fr": "L’événement musical célèbre l’anniversaire de l’école de musique Muri+. Au Festsaal, de jeunes artistes présentent leurs aptitudes avec l’accompagnement d’enseignants spécialisés."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:21:43.289Z"
+    },
     "guidle:AhJLQ5J::92eca5a87a9712769c51e9d357fabe1a8ccd77063b142bbc9e72a43b7e2a4b1e": {
       "id": "guidle:AhJLQ5J",
       "sourceDescriptionHash": "92eca5a87a9712769c51e9d357fabe1a8ccd77063b142bbc9e72a43b7e2a4b1e",
@@ -32093,6 +32149,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T22:10:10.379Z"
+    },
+    "guidle:Aifsih5::b9a608a38092a4d9e35a5bb02c7f76f74bd8e4ea6153f1f9cc0c317f5f997144": {
+      "id": "guidle:Aifsih5",
+      "sourceDescriptionHash": "b9a608a38092a4d9e35a5bb02c7f76f74bd8e4ea6153f1f9cc0c317f5f997144",
+      "description": "Alla Halle polyvalente di Le Noirmont, il programma comprende una serata per il 175° anniversario della fanfara, con un pasto di sostegno e un’animazione ancora da definire. Il programma diurno successivo propone il Giron des Fanfares Franc-Montagnardes, esibizioni davanti a una giuria, altre animazioni e un pasto.",
+      "descriptionByLocale": {
+        "it": "Alla Halle polyvalente di Le Noirmont, il programma comprende una serata per il 175° anniversario della fanfara, con un pasto di sostegno e un’animazione ancora da definire. Il programma diurno successivo propone il Giron des Fanfares Franc-Montagnardes, esibizioni davanti a una giuria, altre animazioni e un pasto.",
+        "en": "At the Halle polyvalente in Le Noirmont, the programme includes an evening marking the fanfare’s 175th anniversary, with a support meal and entertainment still to be determined. The following daytime programme features the Giron des Fanfares Franc-Montagnardes, performances before a jury, further entertainment and a meal.",
+        "de": "In der Halle polyvalente in Le Noirmont umfasst das Programm einen Abend zum 175-jährigen Bestehen der Fanfare mit einem Unterstützungsessen und noch festzulegender Unterhaltung. Am folgenden Tag steht tagsüber das Giron des Fanfares Franc-Montagnardes mit Auftritten vor einer Jury, weiterer Unterhaltung und einem Essen auf dem Programm.",
+        "fr": "À la Halle polyvalente du Noirmont, le programme prévoit une soirée consacrée au 175e anniversaire de la fanfare, avec un repas de soutien et une animation encore à définir. La journée suivante accueille le Giron des Fanfares Franc-Montagnardes, avec des prestations évaluées par un jury, d’autres animations et un repas."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:19:43.850Z"
     },
     "guidle:Aig5UgM::fb753e907ec4861312e66e5b5c9af8b5699c960a1df07085f1bfdf63644457fa": {
       "id": "guidle:Aig5UgM",
@@ -33998,6 +34068,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T12:26:55.457Z"
     },
+    "guidle:AKA9D1j::6f5debd891f350c3c9114d3d060d1361bf644602f107d453908b40e9006dc223": {
+      "id": "guidle:AKA9D1j",
+      "sourceDescriptionHash": "6f5debd891f350c3c9114d3d060d1361bf644602f107d453908b40e9006dc223",
+      "description": "L’appuntamento presenta Die Ärzte al Hallenstadion Zürich di Zurigo. Il programma pop porta in scena tre musicisti con un contrabbasso.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta Die Ärzte al Hallenstadion Zürich di Zurigo. Il programma pop porta in scena tre musicisti con un contrabbasso.",
+        "en": "The event presents Die Ärzte at Hallenstadion Zürich in Zürich. This pop programme features three musicians on stage with a double bass.",
+        "de": "Die Veranstaltung mit Die Ärzte findet im Hallenstadion Zürich in Zürich statt. Zum Popprogramm gehören drei Musiker auf der Bühne und ein Kontrabass.",
+        "fr": "Le rendez-vous avec Die Ärzte se tient au Hallenstadion Zürich, à Zurich. Ce programme pop réunit trois musiciens sur scène avec une contrebasse."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:17:17.506Z"
+    },
     "guidle:AKAWux5::f153cb4c983037789e5fc8a0fed933679b202c5eeb800e88935d9f90880be988": {
       "id": "guidle:AKAWux5",
       "sourceDescriptionHash": "f153cb4c983037789e5fc8a0fed933679b202c5eeb800e88935d9f90880be988",
@@ -34963,6 +35047,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:33:39.158Z"
+    },
+    "guidle:AksHDea::48547a81979cf092e5650f450eff4b530a481f442becc3bf53bbcc3886a5a62d": {
+      "id": "guidle:AksHDea",
+      "sourceDescriptionHash": "48547a81979cf092e5650f450eff4b530a481f442becc3bf53bbcc3886a5a62d",
+      "description": "L’evento è un tributo a Simon & Garfunkel con il Graceland Duo, un quartetto d’archi e una band. Si svolge all’Inselhalle Lindau, a Lindau.",
+      "descriptionByLocale": {
+        "it": "L’evento è un tributo a Simon & Garfunkel con il Graceland Duo, un quartetto d’archi e una band. Si svolge all’Inselhalle Lindau, a Lindau.",
+        "en": "The event is a tribute to Simon & Garfunkel featuring the Graceland Duo, a string quartet and a band. It takes place at Inselhalle Lindau in Lindau.",
+        "de": "Die Veranstaltung ist eine Hommage an Simon & Garfunkel mit dem Graceland Duo, einem Streichquartett und einer Band. Sie findet in der Inselhalle Lindau in Lindau statt.",
+        "fr": "Le rendez-vous rend hommage à Simon & Garfunkel avec le duo Graceland, un quatuor à cordes et un groupe. Il se déroule à l’Inselhalle Lindau, à Lindau."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:17:00.954Z"
     },
     "guidle:AksmZ56::3cb9962617722db4eacc2053ef9a720ce98bd3df4c3d8bafe17e99b8e0aa48f7": {
       "id": "guidle:AksmZ56",
@@ -38758,6 +38856,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T23:14:01.851Z"
     },
+    "guidle:APCNAG2::21ca8a7d6bed2cdbdb8ec753d144261d56c047b62b5fc897bb50feb1861e78a2": {
+      "id": "guidle:APCNAG2",
+      "sourceDescriptionHash": "21ca8a7d6bed2cdbdb8ec753d144261d56c047b62b5fc897bb50feb1861e78a2",
+      "description": "Alba Festival è un festival dedicato alla musica albanese e alla sua varietà. L’evento si svolge presso il Kasernenareal, nel cantone di Zurigo.",
+      "descriptionByLocale": {
+        "it": "Alba Festival è un festival dedicato alla musica albanese e alla sua varietà. L’evento si svolge presso il Kasernenareal, nel cantone di Zurigo.",
+        "en": "Alba Festival is a festival centred on Albanian music and its variety. The event takes place at Kasernenareal in the canton of Zurich.",
+        "de": "Das Alba Festival ist ein Festival rund um albanische Musik und ihre Vielfalt. Die Veranstaltung findet im Kasernenareal im Kanton Zürich statt.",
+        "fr": "Alba Festival est un festival consacré à la musique albanaise et à sa diversité. Le rendez-vous a lieu au Kasernenareal, dans le canton de Zurich."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:20:10.482Z"
+    },
     "guidle:APcPwkt::0d408b84bbd2a5c60865d22811a3f86571a2d58dd53f53d28909734994a62849": {
       "id": "guidle:APcPwkt",
       "sourceDescriptionHash": "0d408b84bbd2a5c60865d22811a3f86571a2d58dd53f53d28909734994a62849",
@@ -40802,6 +40914,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T06:16:14.218Z"
     },
+    "guidle:AR3AUA3::b927a0cbcef6b6070d668af3522a1dff610cf3bdf510c71eeb13040bd3ebcb89": {
+      "id": "guidle:AR3AUA3",
+      "sourceDescriptionHash": "b927a0cbcef6b6070d668af3522a1dff610cf3bdf510c71eeb13040bd3ebcb89",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Flugplatz Interlaken; comune: Interlaken; cantone: BE; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-06-10; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Flugplatz Interlaken; comune: Interlaken; cantone: BE; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-06-10; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Flugplatz Interlaken; municipality: Interlaken; canton: BE; category: Festival / Incontro; organiser: Guidle; date: 2027-06-10; time: 00:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Flugplatz Interlaken; gemeinde: Interlaken; kanton: BE; kategorie: Festival / Incontro; veranstalter: Guidle; datum: 2027-06-10; uhrzeit: 00:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Flugplatz Interlaken; commune: Interlaken; canton: BE; catégorie: Festival / Incontro; organisateur: Guidle; date: 2027-06-10; heure: 00:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:16:18.094Z"
+    },
     "guidle:AR4ACjK::44cb0ad6093507dc213aebe93a4c3ede65a495b7dd1d4d7186acf2c431572c41": {
       "id": "guidle:AR4ACjK",
       "sourceDescriptionHash": "44cb0ad6093507dc213aebe93a4c3ede65a495b7dd1d4d7186acf2c431572c41",
@@ -41403,6 +41529,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T06:24:48.431Z"
+    },
+    "guidle:ARkQ123::0c4aab377073f4ff88d73b7f05cfb0d9fae199873686384911f346988f1dfdde": {
+      "id": "guidle:ARkQ123",
+      "sourceDescriptionHash": "0c4aab377073f4ff88d73b7f05cfb0d9fae199873686384911f346988f1dfdde",
+      "description": "L’evento si svolge in place Longereuse a Fleurier e propone cucine del mondo tramite food truck. Il programma comprende concerti dal vivo, un bar e attività per bambini; l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "L’evento si svolge in place Longereuse a Fleurier e propone cucine del mondo tramite food truck. Il programma comprende concerti dal vivo, un bar e attività per bambini; l’ingresso è gratuito.",
+        "en": "At Place Longereuse in Fleurier, the festival presents food from a range of world cuisines through food trucks. The programme includes live concerts, a bar and activities for children, and admission is free.",
+        "de": "Auf der Place Longereuse in Fleurier werden verschiedene Küchen der Welt von Foodtrucks angeboten. Zum Programm gehören Live-Konzerte, eine Bar und Animationen für Kinder; der Eintritt ist kostenlos.",
+        "fr": "La manifestation se tient sur la place Longereuse à Fleurier et propose des cuisines du monde par l’intermédiaire de foodtrucks. Elle comprend aussi des concerts en direct, un bar et des animations pour enfants; l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:17:03.800Z"
     },
     "guidle:ARkQ123::bbb3f7be57f908b1d9762170159c63e42f7d2c5e8b3838325587d682f4d67c42": {
       "id": "guidle:ARkQ123",
@@ -42790,6 +42930,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:28:14.877Z"
     },
+    "guidle:AsnaApK::495e8acf90fc061484f3d28dc03ff69afa842a2f4fae59b32b2204399484a7db": {
+      "id": "guidle:AsnaApK",
+      "sourceDescriptionHash": "495e8acf90fc061484f3d28dc03ff69afa842a2f4fae59b32b2204399484a7db",
+      "description": "L’evento di Abbamania - The Show è dedicato alla musica pop e si svolge all’Hallenstadion Zürich di Zürich. Il prezzo d’ingresso è di 102,90 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento di Abbamania - The Show è dedicato alla musica pop e si svolge all’Hallenstadion Zürich di Zürich. Il prezzo d’ingresso è di 102,90 CHF.",
+        "en": "Abbamania - The Show presents a pop music event at Hallenstadion Zürich in Zürich. Admission costs CHF 102.90.",
+        "de": "Bei der Veranstaltung von Abbamania - The Show handelt es sich um ein Popkonzert im Hallenstadion Zürich in Zürich. Der Eintritt kostet CHF 102.90.",
+        "fr": "Abbamania - The Show propose un événement de musique pop au Hallenstadion Zürich, à Zürich. L’entrée coûte 102,90 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:19:29.131Z"
+    },
     "guidle:AsnirED::c0b9a999bb391d466e734e4c7ed435f3c3db9c45d9e7a5f3d6e716e91b7315ca": {
       "id": "guidle:AsnirED",
       "sourceDescriptionHash": "c0b9a999bb391d466e734e4c7ed435f3c3db9c45d9e7a5f3d6e716e91b7315ca",
@@ -43895,6 +44049,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-23T13:16:05.731Z"
+    },
+    "guidle:AtkaPAi::dee8fa8cd6766919a65631c20ecd4f2d2ce47731a2922f2858a631b8dbccdf68": {
+      "id": "guidle:AtkaPAi",
+      "sourceDescriptionHash": "dee8fa8cd6766919a65631c20ecd4f2d2ce47731a2922f2858a631b8dbccdf68",
+      "description": "Questo festival di salsa all’aperto si svolge al Pavillon am See di Weggis. L’appuntamento ricorrente si rivolge a un pubblico di tutte le età e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questo festival di salsa all’aperto si svolge al Pavillon am See di Weggis. L’appuntamento ricorrente si rivolge a un pubblico di tutte le età e l’ingresso è gratuito.",
+        "en": "This recurring open-air salsa festival takes place at Pavillon am See in Weggis. The event is aimed at visitors of all ages, and admission is free.",
+        "de": "Das wiederkehrende Salsa-Festival unter freiem Himmel findet im Pavillon am See in Weggis statt. Die Veranstaltung richtet sich an ein Publikum jeden Alters und ist kostenlos zugänglich.",
+        "fr": "Ce festival de salsa en plein air se tient au Pavillon am See, à Weggis. Le rendez-vous récurrent s’adresse à un public de tous âges et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:17:03.773Z"
     },
     "guidle:AtkDgWr::b7b08e5eaa151de83332ac3790b03aa85614c55101c37ce973c8fa1ad2dba0af": {
       "id": "guidle:AtkDgWr",
@@ -45631,6 +45799,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T19:14:47.533Z"
+    },
+    "guidle:Auu9TR4::e2944b780d6883d37b621b3bfc59a5854a0f4fcc49a6a2093eab452903b0f5cd": {
+      "id": "guidle:Auu9TR4",
+      "sourceDescriptionHash": "e2944b780d6883d37b621b3bfc59a5854a0f4fcc49a6a2093eab452903b0f5cd",
+      "description": "Reto Burrell e Lin Stucki propongono un concerto di indie folk-rock, caratterizzato da calore e profondità. L’evento si tiene al Kulturhotel Guggenheim di Liestal.",
+      "descriptionByLocale": {
+        "it": "Reto Burrell e Lin Stucki propongono un concerto di indie folk-rock, caratterizzato da calore e profondità. L’evento si tiene al Kulturhotel Guggenheim di Liestal.",
+        "en": "Reto Burrell and Lin Stucki present an indie folk-rock concert marked by warmth and depth. The event takes place at Kulturhotel Guggenheim in Liestal.",
+        "de": "Reto Burrell und Lin Stucki präsentieren Indie-Folkrock, der Wärme und Tiefe verbindet. Die Veranstaltung findet im Kulturhotel Guggenheim in Liestal statt.",
+        "fr": "Reto Burrell et Lin Stucki proposent un concert d’indie folk-rock marqué par la chaleur et la profondeur. Le rendez-vous a lieu au Kulturhotel Guggenheim, à Liestal."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:17:00.969Z"
     },
     "guidle:AUUaDUf::e3bee35fba0608b93ff9e8e34161edc05091c7fd05d94d393bad29f972ddbeba": {
       "id": "guidle:AUUaDUf",
@@ -120518,6 +120700,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T02:34:18.126Z"
     },
+    "myswitzerland:a068500012954ea88b39d1e919a503f2::9b38e834d0c5298ab3c7b97a64cc9e705c30dc5efc811fceb3c11f8a63e8256f": {
+      "id": "myswitzerland:a068500012954ea88b39d1e919a503f2",
+      "sourceDescriptionHash": "9b38e834d0c5298ab3c7b97a64cc9e705c30dc5efc811fceb3c11f8a63e8256f",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zermatt; cantone: VS; categoria: Event; organizzatore: MySwitzerland; data: 2026-10-19; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Zermatt; cantone: VS; categoria: Event; organizzatore: MySwitzerland; data: 2026-10-19; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Zermatt; canton: VS; category: Event; organiser: MySwitzerland; date: 2026-10-19; time: 16:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Zermatt; kanton: VS; kategorie: Event; veranstalter: MySwitzerland; datum: 2026-10-19; uhrzeit: 16:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Zermatt; canton: VS; catégorie: Event; organisateur: MySwitzerland; date: 2026-10-19; heure: 16:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T13:16:18.102Z"
+    },
     "myswitzerland:a069f2ed84714da8abab991acf26178a::dda4ca817548e91796d3fac37d9203ad1001d830de6bb7a738dfbaaf1827da76": {
       "id": "myswitzerland:a069f2ed84714da8abab991acf26178a",
       "sourceDescriptionHash": "dda4ca817548e91796d3fac37d9203ad1001d830de6bb7a738dfbaaf1827da76",
@@ -173090,6 +173286,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:A1Eqidw::b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80": {
+      "id": "guidle:A1Eqidw",
+      "sourceDescriptionHash": "b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-27T13:22:28.476Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:A1JuikM::2e5a8cb3fc3fe66c37447d7bcfd195e31f795f662c82b6fe53684f256ab36308": {
       "id": "guidle:A1JuikM",
       "sourceDescriptionHash": "2e5a8cb3fc3fe66c37447d7bcfd195e31f795f662c82b6fe53684f256ab36308",
@@ -173522,6 +173727,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:ACbCkuT::52eabcd1e42c6fc59af974c3f89f9eadaaf533106ffebccdca80c561ab543f8e": {
+      "id": "guidle:ACbCkuT",
+      "sourceDescriptionHash": "52eabcd1e42c6fc59af974c3f89f9eadaaf533106ffebccdca80c561ab543f8e",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-27T13:17:44.149Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:AcbduAw::e34e8e35912af150bc033717c94b4e31adbe1a315d5a2b28c78cd2329f015ca7": {
       "id": "guidle:AcbduAw",
       "sourceDescriptionHash": "e34e8e35912af150bc033717c94b4e31adbe1a315d5a2b28c78cd2329f015ca7",
@@ -173546,6 +173760,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:19:50.349Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:ACLDrQW::a320988fbc428804198e8e834208f3b858cf173994e513a57c8d2ea40e3d4cb9": {
+      "id": "guidle:ACLDrQW",
+      "sourceDescriptionHash": "a320988fbc428804198e8e834208f3b858cf173994e513a57c8d2ea40e3d4cb9",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-27T13:20:22.718Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -174710,6 +174933,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AsesnYn::939c1861ea6959fbb090e8f79c70018d3c2585526687766d3aa67c5bcc9c60b7": {
+      "id": "guidle:AsesnYn",
+      "sourceDescriptionHash": "939c1861ea6959fbb090e8f79c70018d3c2585526687766d3aa67c5bcc9c60b7",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-27T13:20:57.614Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:ASMwxek::d1c3f5c73d75f27483a9cdbbc0923a22e9ed25bf8f88aef107b5be73880fcfeb": {
       "id": "guidle:ASMwxek",
       "sourceDescriptionHash": "d1c3f5c73d75f27483a9cdbbc0923a22e9ed25bf8f88aef107b5be73880fcfeb",
@@ -174752,6 +174984,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T04:34:09.090Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AsxkJvE::f1d0ce655eea03e0dbdc18ee70b62ee2cd747a526dceefff544f9aaa4749eae3": {
+      "id": "guidle:AsxkJvE",
+      "sourceDescriptionHash": "f1d0ce655eea03e0dbdc18ee70b62ee2cd747a526dceefff544f9aaa4749eae3",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-27T13:21:26.774Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175274,6 +175515,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T11:24:53.028Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AXyevNZ::2ecdb3b462a316fd1b93dead7eb566e2d49e697fc8ab4d0c1469051a9b6f2efc": {
+      "id": "guidle:AXyevNZ",
+      "sourceDescriptionHash": "2ecdb3b462a316fd1b93dead7eb566e2d49e697fc8ab4d0c1469051a9b6f2efc",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-27T13:17:46.981Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
