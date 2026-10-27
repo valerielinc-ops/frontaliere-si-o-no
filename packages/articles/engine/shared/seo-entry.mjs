@@ -541,8 +541,8 @@ function emptyPropertyState() {
 }
 
 function interpolatedPropertyState(block, field, options = {}) {
+  let lastValue = emptyPropertyState();
   let lastTopLevelValue = emptyPropertyState();
-  let lastStructuredDataValue = emptyPropertyState();
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
     const quote = block[valueStart];
     if (key === field) {
@@ -551,6 +551,7 @@ function interpolatedPropertyState(block, field, options = {}) {
         dynamic: hasInterpolatedTemplateInRange(block, valueStart, valueEnd, options),
         value: undefined,
       };
+      lastValue = lastTopLevelValue;
     }
     if (key === 'structuredData') {
       const nested = quote === '{'
@@ -558,18 +559,15 @@ function interpolatedPropertyState(block, field, options = {}) {
         : emptyPropertyState();
       const dynamicContainer = quote !== '{'
         && hasInterpolatedTemplateInRange(block, valueStart, valueEnd);
-      lastStructuredDataValue = nested.assigned
+      const structuredDataValue = nested.assigned
         ? nested
         : dynamicContainer
           ? { assigned: true, dynamic: true, value: undefined }
           : emptyPropertyState();
+      lastValue = structuredDataValue.assigned ? structuredDataValue : lastTopLevelValue;
     }
   });
-  return {
-    assigned: lastTopLevelValue.assigned || lastStructuredDataValue.assigned,
-    dynamic: lastTopLevelValue.dynamic || lastStructuredDataValue.dynamic,
-    value: undefined,
-  };
+  return lastValue;
 }
 
 function readPropertyState(block, valueStart, valueEnd) {
