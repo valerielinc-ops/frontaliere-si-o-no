@@ -64,7 +64,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       'Degree',
       'Comment',
       'Send application',
-      'https://www.alten.ch/jobs/903-pipe-project-manager-it/apply',
+      'https://www.alten.ch/jobs/903-pipe-project-manager-it/apply/',
     ].join('\n');
 
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
