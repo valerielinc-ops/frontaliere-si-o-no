@@ -198,7 +198,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/c90ca142-65d9-49eb-a95a-aea16d34b5e0",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-26T21:55:43.449Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -1442,7 +1441,6 @@
         ]
       },
       "firstSeenAt": "2026-10-22T09:37:58.444Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -10608,7 +10606,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke/ccd01a0f-250a-477d-a0c6-32ccf0164df3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-61287b0752b6",

@@ -783,7 +783,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -851,7 +850,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -871,7 +869,7 @@
       "id": "recruitingapp-1154-fd2fb41ba96d",
       "slug": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-2",
       "slugByLocale": {
-        "de": "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
+        "de": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-gyxbhw",
         "it": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-2",
         "en": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-2",
         "fr": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-2"
@@ -919,7 +917,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -936,6 +933,9 @@
       "firstSeenAt": "2026-10-26T21:50:10.050Z",
       "previousSlugsByLocale": {
         "it": [
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+        ],
+        "de": [
           "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
         ]
       },
@@ -1010,7 +1010,6 @@
         ]
       },
       "firstSeenAt": "2026-10-26T09:32:32.009Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",

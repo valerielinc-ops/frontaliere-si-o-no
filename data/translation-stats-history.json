@@ -1,167 +1,5 @@
 [
   {
-    "timestamp": "2026-10-08T08:35:00.562Z",
-    "label": "after",
-    "total": 32363,
-    "needsRetranslation": 5452,
-    "suppressed": 216,
-    "incomplete": 6031,
-    "complete": 26332,
-    "slotsPresent": 26332,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 26332,
-    "sourceCopyExcused": 651,
-    "slotsPresentByLength": 32325,
-    "languageVerified": 27949,
-    "missingByLocale": {
-      "it": 690,
-      "en": 333,
-      "de": 26,
-      "fr": 381
-    },
-    "queueAge": {
-      "count": 5452,
-      "withTimestamp": 5452,
-      "oldestAgeDays": 1485.4,
-      "p50AgeDays": 22.7,
-      "p90AgeDays": 99.4,
-      "buckets": {
-        "0-1d": 82,
-        "1-2d": 111,
-        "2-7d": 569,
-        "0-7d": 762,
-        "7-30d": 2275,
-        "30-90d": 1643,
-        "90-180d": 770,
-        "180d+": 2
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 927,
-      "withTimestamp": 927,
-      "oldestAgeDays": 141.7,
-      "p50AgeDays": 37.4,
-      "p90AgeDays": 57.4,
-      "buckets": {
-        "0-1d": 76,
-        "1-2d": 1,
-        "2-7d": 9,
-        "0-7d": 86,
-        "7-30d": 163,
-        "30-90d": 677,
-        "90-180d": 1,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 3778,
-      "sampled": 120,
-      "processed": 32,
-      "residual": 1,
-      "residualRate": 0.03125,
-      "window": {
-        "size": 120,
-        "processed": 120,
-        "residual": 3,
-        "residualRate": 0.025,
-        "runs": 22,
-        "measured": true,
-        "queueCandidates": 3778
-      }
-    },
-    "publicationHold": {
-      "held": 55,
-      "byCrawler": {
-        "fachkraft": 22,
-        "sta": 5,
-        "stellenpartner": 23,
-        "stellentreff": 5
-      }
-    },
-    "predicateVersion": "ce68357a4ff5fe25",
-    "freshCohort": {
-      "window": "24-48h",
-      "total": 860,
-      "complete": 747
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 780
-      },
-      {
-        "company": "STA Personal AG",
-        "pending": 414
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 267
-      },
-      {
-        "company": "VOLG",
-        "pending": 262
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 240
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 196
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 137
-      },
-      {
-        "company": "Medbase",
-        "pending": 130
-      },
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 105
-      },
-      {
-        "company": "Galaxus",
-        "pending": 94
-      }
-    ],
-    "codexReserve": {
-      "calls": 502,
-      "textsSent": 2655,
-      "translated": 2651,
-      "rejected": 21,
-      "spentMs": 1504423,
-      "verdict": "covered",
-      "byPhase": {
-        "2b-cascade": {
-          "position": "primary",
-          "calls": 152,
-          "maxCalls": 350,
-          "translated": 912,
-          "rejected": 21,
-          "stopReason": null
-        },
-        "2d-titles": {
-          "position": "primary",
-          "calls": 350,
-          "maxCalls": 350,
-          "translated": 1739,
-          "rejected": 0,
-          "stopReason": "budget di 350 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)"
-        }
-      }
-    }
-  },
-  {
     "timestamp": "2026-10-08T08:54:24.444Z",
     "label": "before",
     "total": 32363,
@@ -28954,5 +28792,113 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-27T06:03:01.826Z",
+    "label": "before",
+    "total": 32464,
+    "needsRetranslation": 2524,
+    "suppressed": 116,
+    "incomplete": 2433,
+    "complete": 30031,
+    "slotsPresent": 30031,
+    "flaggedAmongSlotsPresent": 536,
+    "verifiedTranslated": 29495,
+    "sourceCopyExcused": 282,
+    "slotsPresentByLength": 32422,
+    "languageVerified": 31415,
+    "missingByLocale": {
+      "it": 426,
+      "en": 414,
+      "de": 64,
+      "fr": 383
+    },
+    "queueAge": {
+      "count": 2524,
+      "withTimestamp": 2524,
+      "oldestAgeDays": 196.8,
+      "p50AgeDays": 28.3,
+      "p90AgeDays": 114.7,
+      "buckets": {
+        "0-1d": 346,
+        "1-2d": 24,
+        "2-7d": 150,
+        "0-7d": 520,
+        "7-30d": 832,
+        "30-90d": 820,
+        "90-180d": 340,
+        "180d+": 12
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 804,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 109,
+      "byCrawler": {
+        "fachkraft": 62,
+        "sta": 26,
+        "stellentreff": 21
+      }
+    },
+    "predicateVersion": "efa06838687894cc",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 477,
+      "complete": 471
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 452
+      },
+      {
+        "company": "LANDI Oberwallis AG",
+        "pending": 113
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 110
+      },
+      {
+        "company": "Medbase",
+        "pending": 104
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 79
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 73
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 60
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 56
+      },
+      {
+        "company": "Société coopérative Migros Vaud",
+        "pending": 48
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 38
+      }
+    ]
   }
 ]

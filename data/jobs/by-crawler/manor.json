@@ -543,7 +543,6 @@
         "de": "Mitarbeiter/in Kasse (Non Food) 40%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-62442f1628a5",
       "salaryMin": 28800,
       "salaryMax": 44400,
@@ -660,7 +659,6 @@
         "de": "Mitarbeiter/in Kasse (Parfümerie) 60%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-2b765f4e21da",
       "salaryMin": 43200,
       "salaryMax": 66600,
@@ -840,7 +838,7 @@
         "it": "collaboratore-di-vendita-bijouterie-60-manor-ag-monthey",
         "en": "sales-collaborator-bijouterie-60-manor-ag-monthey",
         "de": "vertriebsmitarbeiter-bijouterie-60-manor-ag-monthey",
-        "fr": "manor-collaborateur-trice-vente-bijouterie-60-monthey"
+        "fr": "manor-collaborateur-trice-vente-bijouterie-60-monthey-sjuhs6"
       },
       "titleByLocale": {
         "it": "Collaboratore di vendita (Bijouterie) 60%",
@@ -863,6 +861,9 @@
           "manor-collaborateur-trice-vente-bijouterie-60-monthey"
         ],
         "de": [
+          "manor-collaborateur-trice-vente-bijouterie-60-monthey"
+        ],
+        "fr": [
           "manor-collaborateur-trice-vente-bijouterie-60-monthey"
         ]
       },
@@ -1875,8 +1876,7 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Parfumerie%29-70/1374357755/",
-      "needsRetranslation": true
+      "applyUrl": "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Parfumerie%29-70/1374357755/"
     },
     {
       "title": "Mitarbeiter*in Kasse Parfümerie  40%",
@@ -2218,7 +2218,6 @@
         ]
       },
       "firstSeenAt": "2026-10-26T09:55:01.485Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -7249,7 +7248,6 @@
         "manor-collaborateur-trice-logistique-50-geneve",
         "manor-collaborateur-trice-logistique-50-geneve-2",
         "collaboratore-logistico-50-manor-ag-geneve-f53774",
-        "collaborateur-trice-logistique-50-manor-ag-geneve-adb731fc85",
         "collaboratore-logistico-50-manor-ag-geneve",
         "collaborateur-trice-logistique-50-manor-ag-geneve"
       ],
@@ -7258,7 +7256,6 @@
           "manor-collaborateur-trice-logistique-50-geneve",
           "manor-collaborateur-trice-logistique-50-geneve-2",
           "collaboratore-logistico-50-manor-ag-geneve-f53774",
-          "collaborateur-trice-logistique-50-manor-ag-geneve-adb731fc85",
           "collaboratore-logistico-50-manor-ag-geneve",
           "collaborateur-trice-logistique-50-manor-ag-geneve"
         ],
@@ -7481,7 +7478,6 @@
         "manor-collaborateur-trice-logistique-50-geneve-d3fyo7",
         "manor-collaborateur-trice-logistique-50-geneve",
         "collaboratore-logistico-50-manor-ag-geneve",
-        "collaborateur-trice-logistique-50-manor-ag-geneve-2909e8113f",
         "collaboratore-logistico-50-manor-ag-geneve-73a02c",
         "collaborateur-trice-logistique-50-manor-ag-geneve"
       ],
@@ -7494,7 +7490,6 @@
           "manor-collaborateur-trice-logistique-50-geneve-d3fyo7",
           "manor-collaborateur-trice-logistique-50-geneve",
           "collaboratore-logistico-50-manor-ag-geneve",
-          "collaborateur-trice-logistique-50-manor-ag-geneve-2909e8113f",
           "collaboratore-logistico-50-manor-ag-geneve-73a02c",
           "collaborateur-trice-logistique-50-manor-ag-geneve"
         ],
@@ -14168,7 +14163,6 @@
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
         "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve-dc4bad",
         "collaboratore-di-supermercato-carcuteries-dages-50-manor-ag-geneve",
-        "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-2fc36d19a1",
         "collaboratore-di-supermercato-carcuteries-dage-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
       ],
@@ -14179,7 +14173,6 @@
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
           "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve-dc4bad",
           "collaboratore-di-supermercato-carcuteries-dages-50-manor-ag-geneve",
-          "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-2fc36d19a1",
           "collaboratore-di-supermercato-carcuteries-dage-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
         ],
@@ -17096,7 +17089,6 @@
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
         "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve",
-        "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-763269553f",
         "collaboratore-del-supermercato-carcuterie-e-formaggi-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
       ],
@@ -17105,7 +17097,6 @@
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
           "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve",
-          "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-763269553f",
           "collaboratore-del-supermercato-carcuterie-e-formaggi-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
         ],
@@ -17985,7 +17976,7 @@
         "it": "collaboratore-trice-cassa-profumeria-60-manor-ag-monthey",
         "en": "cashier-perfumery-60-manor-ag-monthey",
         "de": "kassierer-parfumerie-60-manor-ag-monthey",
-        "fr": "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
+        "fr": "manor-collaborateur-trice-caisse-parfumerie-60-monthey-hejuym"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice cassa (Profumeria) 60%",
@@ -18017,6 +18008,9 @@
         "de": [
           "manor-collaborateur-trice-caisse-parfumerie-60-monthey",
           "mitarbeiter-caisse-parfumerie-60-manor-ag-monthey"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-caisse-parfumerie-60-monthey"
         ]
       },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",

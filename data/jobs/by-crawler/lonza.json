@@ -2944,7 +2944,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-10-26T21:30:14.265Z",
       "jobReqId": "R73810",
-      "needsRetranslation": true,
       "previousSlugs": [
         "electrical-compliance-reliability-ingenieur-80-100-m-w-d-lonza-visp",
         "electrical-compliance-reliability-engineer-80-100-m-w-d-lonza-ch"
@@ -2973,8 +2972,7 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS",
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     },
     {
       "id": "lonza-98469a40e604",
@@ -5977,9 +5975,7 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     },
     {
       "id": "lonza-f431fb89778d",
@@ -12775,7 +12771,6 @@
           "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:54:59.108Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -12791,8 +12786,7 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS",
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     },
     {
       "id": "lonza-a5403563fe2f",

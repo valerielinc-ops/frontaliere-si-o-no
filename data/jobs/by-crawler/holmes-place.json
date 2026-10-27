@@ -62,7 +62,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T21:22:53.197Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -75,8 +74,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "holmes-place-ff1f88de2338",
@@ -278,7 +276,6 @@
       "applyUrl": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
       ],
@@ -300,8 +297,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "holmes-place-17daf32eef8e",
