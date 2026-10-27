@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-27T12:24:37.233Z",
+  "updatedAt": "2026-10-27T12:25:10.505Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -539139,12 +539139,12 @@
     },
     "grund-ag.ch": {
       "key": "grund-ag.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-23T04:13:00.143Z",
-      "updatedAt": "2026-10-27T12:07:04.191Z",
+      "updatedAt": "2026-10-27T12:25:10.420Z",
       "name": "Grund AG Fahrzeuge",
       "domain": "grund-ag.ch",
       "city": "Triengen",
@@ -539391,7 +539391,9 @@
           "logoSourceUrl": "https://grund-ag.ch/wp-content/uploads/2022/11/cropped-FAVICON-192x192.png",
           "employerSiteName": "GRUND AG"
         }
-      ]
+      ],
+      "promotionPr": "15653",
+      "promotionBranch": "prospector/promote-2026-10-27"
     },
     "grund-und-tiefbau-basel@basel": {
       "key": "grund-und-tiefbau-basel@basel",
@@ -849729,12 +849731,12 @@
     },
     "mpa-praxisstellen.ch": {
       "key": "mpa-praxisstellen.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-15T16:07:40.330Z",
-      "updatedAt": "2026-10-27T12:07:14.011Z",
+      "updatedAt": "2026-10-27T12:25:10.419Z",
       "name": "mpa-praxisstellen",
       "domain": "mpa-praxisstellen.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -849983,7 +849985,9 @@
           "logoSourceUrl": "https://www.mpa-praxisstellen.ch/favicon.ico",
           "employerSiteName": null
         }
-      ]
+      ],
+      "promotionPr": "15653",
+      "promotionBranch": "prospector/promote-2026-10-27"
     },
     "mpb-recruitment@basel": {
       "key": "mpb-recruitment@basel",
@@ -1236192,13 +1236196,13 @@
     },
     "teojakob.ch": {
       "key": "teojakob.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-09-16T08:53:47.423Z",
-      "updatedAt": "2026-10-27T12:07:21.107Z",
+      "updatedAt": "2026-10-27T12:25:10.420Z",
       "name": "Teo Jakob",
       "domain": "teojakob.ch",
       "city": "Carouge GE",
@@ -1236416,7 +1236420,9 @@
           "logoSourceUrl": "https://teojakob.ch/wp-content/themes/teojakob/images/favicon/favicon-96x96.png",
           "employerSiteName": "Einrichtung & Innenarchitektur – Designberatung | teo jakob"
         }
-      ]
+      ],
+      "promotionPr": "15653",
+      "promotionBranch": "prospector/promote-2026-10-27"
     },
     "teoxane@geneve": {
       "key": "teoxane@geneve",
