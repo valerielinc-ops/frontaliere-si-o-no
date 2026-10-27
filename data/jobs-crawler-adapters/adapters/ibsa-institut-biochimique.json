@@ -10,19 +10,27 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://career.ibsagroup.com/job/Lamone-QC-Analysis-Technician-sterile-department-TI-6814/1369724655/",
     "https://career.ibsagroup.com/job/Grancia-Project-Management-Specialist-TI-6916/1369327655/",
-    "https://career.ibsagroup.com/job/Grancia-Project-Manager-R&D-TI-6916/1369323955/",
+    "https://career.ibsagroup.com/job/Lamone-QC-Analysis-Technician-sterile-department-TI-6814/1369724655/",
     "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/",
+    "https://career.ibsagroup.com/job/Grancia-Project-Manager-R&D-TI-6916/1369323955/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Affiliates-HR-Specialist-TI-6926/1372990455/",
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-HR-Business-Partner-TI-6926/1367796755/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Sr-Drug-Safety-Specialist-&-Deputy-QPPV-TI-6926/1372926555/"
   ],
   "notes": "Dedicated IBSA crawler seeds from career.ibsagroup.com TI search and canonicalizes detail URLs under /job/.../:jobId/.",
-  "updatedAt": "2026-10-26T21:53:55.410Z",
+  "updatedAt": "2026-10-27T09:40:14.207Z",
   "seedMetaByUrl": {
+    "https://career.ibsagroup.com/job/Grancia-Project-Management-Specialist-TI-6916/1369327655/": {
+      "location": "Grancia",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6916",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
     "https://career.ibsagroup.com/job/Lamone-QC-Analysis-Technician-sterile-department-TI-6814/1369724655/": {
       "location": "Lamone",
       "canton": "TI",
@@ -31,7 +39,7 @@
       "company": "IBSA Institut Biochimique",
       "companyDomain": "ibsa.ch"
     },
-    "https://career.ibsagroup.com/job/Grancia-Project-Management-Specialist-TI-6916/1369327655/": {
+    "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/": {
       "location": "Grancia",
       "canton": "TI",
       "country": "CH",
@@ -47,22 +55,6 @@
       "company": "IBSA Institut Biochimique",
       "companyDomain": "ibsa.ch"
     },
-    "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/": {
-      "location": "Grancia",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6916",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/": {
-      "location": "Collina d'Oro",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6926",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
     "https://career.ibsagroup.com/job/Collina-d'Oro-Lead-HR-Operations-Officer-TI-6926/1365369255/": {
       "location": "Collina d'Oro",
       "canton": "TI",
@@ -72,6 +64,14 @@
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Collina-d'Oro-Affiliates-HR-Specialist-TI-6926/1372990455/": {
+      "location": "Collina d'Oro",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6926",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/": {
       "location": "Collina d'Oro",
       "canton": "TI",
       "country": "CH",

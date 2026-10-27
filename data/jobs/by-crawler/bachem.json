@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bachem",
-  "assembledAt": "2026-10-26T21:58:41.274Z",
-  "runId": "40402908152",
+  "assembledAt": "2026-10-27T09:39:17.768Z",
+  "runId": "40479474718",
   "jobs": [
     {
       "id": "bachem-4b54f29a4e8d",
@@ -35,7 +35,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Expert-Process-Specialist-Manufacturing-&-Process-Technology-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1447527333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:35.761Z",
+      "crawledAt": "2026-10-27T09:39:07.182Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
     },
     {
       "id": "bachem-b104f0bfb9c9",
-      "slug": "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag",
+      "slug": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
         "it": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "en": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
@@ -112,7 +112,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Lead-Facility-Management-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1399950233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:35.197Z",
+      "crawledAt": "2026-10-27T09:39:05.290Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -132,11 +132,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
+        "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
+          "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag"
         ],
         "de": [
           "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
@@ -164,7 +166,7 @@
         "it": "sviluppo-del-sito-di-sisslerfeld-a-100-bachem-ag-stein-ag",
         "en": "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
         "de": "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
-        "fr": "systeme-expert-gestion-des-materiaux-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
+        "fr": "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -189,7 +191,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-System-Expert-Materials-Management-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441729733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:34.623Z",
+      "crawledAt": "2026-10-27T09:39:07.849Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -209,15 +211,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
-        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
+        "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
+        "systeme-expert-gestion-des-materiaux-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
         ],
         "fr": [
-          "system-expert-materials-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
+          "systeme-expert-gestion-des-materiaux-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
         ]
       },
       "firstSeenAt": "2026-09-28T21:24:07.877Z",
@@ -267,7 +269,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Downstream-Process-Expert-API-Production-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1441748133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:34.038Z",
+      "crawledAt": "2026-10-27T09:39:05.895Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -341,7 +343,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-PI-Server-Data-Historian-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1402184733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:33.479Z",
+      "crawledAt": "2026-10-27T09:39:06.528Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -421,7 +423,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Process-Specialist-Manufacturing-&-Process-Technology-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1447517733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:32.919Z",
+      "crawledAt": "2026-10-27T09:39:09.103Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -497,7 +499,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-MES-Design-Engineer-Sisslerfeld-Site-Development-%28a%29-100-AG-4332/1401817133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:32.346Z",
+      "crawledAt": "2026-10-27T09:39:08.475Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -552,7 +554,7 @@
       "slug": "chemical-pharmatechnologist-nel-funzionamento-a-turni-produzione-di-ingredienti-attivi-liofilizzazione-a-100-bachem-ag",
       "slugByLocale": {
         "it": "chemical-pharmatechnologist-nel-funzionamento-a-turni-produzione-di-ingredienti-attivi-liofilizzazione-a-100-bachem-ag",
-        "en": "chemical-pharmatechnologist-in-shift-operation-active-ingredient-production-lyophilisation-a-100-bachem-ag-bubendorf",
+        "en": "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem-ag-bubendorf",
         "de": "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem",
         "fr": "chimique-pharmatechnologue-en-service-poste-production-d-ingredients-actifs-et-lyophilisation-a-100-bachem-ag-bubendorf"
       },
@@ -578,7 +580,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemie-&-Pharmatechnologe-im-Schichtbetrieb-Wirkstoffherstellung-&-Lyophilisation-%28a%29-100-BL-4416/1436669133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:31.766Z",
+      "crawledAt": "2026-10-27T09:38:56.330Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -598,14 +600,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem"
+        "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem",
+        "chemical-pharmatechnologist-in-shift-operation-active-ingredient-production-lyophilisation-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem"
         ],
         "en": [
-          "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem"
+          "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem",
+          "chemical-pharmatechnologist-in-shift-operation-active-ingredient-production-lyophilisation-a-100-bachem-ag-bubendorf"
         ],
         "fr": [
           "chemie-pharmatechnologe-im-schichtbetrieb-wirkstoffherstellung-lyophilisation-a-100-bachem"
@@ -658,7 +662,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Group-Leader-QC-BL-4416/1450647733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:31.195Z",
+      "crawledAt": "2026-10-27T09:38:51.926Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -735,7 +739,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Review-Manager-%28a%29-%28100%29-BL-4416/1444683033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:30.598Z",
+      "crawledAt": "2026-10-27T09:38:41.420Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -814,7 +818,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-QC-Late-Phase-%28a%29%2C-100-BL-4416/1447502433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:29.960Z",
+      "crawledAt": "2026-10-27T09:38:53.164Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -891,7 +895,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Laborantin-Fachrichtung-Chemie-%28a%29-BL-4416/1419532933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:29.368Z",
+      "crawledAt": "2026-10-27T09:38:40.783Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -965,7 +969,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Maintenance-Technician-Heizungs-%2C-Sanit%C3%A4r-und-Druckluftanlagen-%28wmd%29%2C-100-BL-4416/1289321401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:28.806Z",
+      "crawledAt": "2026-10-27T09:39:02.107Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1045,7 +1049,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-KauffrauKaufmann-%28Branche-Dienstleistung-&-Administration%29%2C-%28a%29-BL-4416/1419046733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:28.230Z",
+      "crawledAt": "2026-10-27T09:38:46.419Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1119,7 +1123,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Mitarbeiterin-Dispensation-%28a%29-100-im-Schichtbetrieb-%28Fr%C3%BChSp%C3%A4tschicht%29-BL-4416/1412888433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:27.615Z",
+      "crawledAt": "2026-10-27T09:39:00.165Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1193,7 +1197,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Production-Support-%28a%29-BL-4416/1447234533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:27.032Z",
+      "crawledAt": "2026-10-27T09:39:00.850Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1270,7 +1274,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Associate-Batch-Compliance-%28a%29-100-BL-4416/1448961533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:26.472Z",
+      "crawledAt": "2026-10-27T09:38:47.707Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1347,7 +1351,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Associate-Scientist-%28QC-Sample-Management%29-100-%28a%29-BL-4416/1411677133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:25.883Z",
+      "crawledAt": "2026-10-27T09:38:54.444Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1421,7 +1425,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-Technologue-en-production-chimique-et-pharmaceutique-%28a%29-100-Vala-1895/1411424933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:58:25.327Z",
+      "crawledAt": "2026-10-27T09:38:48.379Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1496,7 +1500,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-MES-Specialist-100-%28a%29-BL-4416/1398047733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:24.761Z",
+      "crawledAt": "2026-10-27T09:38:58.241Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1582,7 +1586,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Category-Manager-Capex-%28a%29-100%2C-f%C3%BCr-den-Bereich-Bauleistungen-BL-4416/1287275401/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:24.257Z",
+      "crawledAt": "2026-10-27T09:39:03.993Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1642,7 +1646,7 @@
       "slug": "bio-chimico-a-come-product-steward-a-nel-settore-della-produzione-di-oligonucleotidi-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "it": "bio-chimico-a-come-product-steward-a-nel-settore-della-produzione-di-oligonucleotidi-100-bachem-ag-bubendorf",
-        "en": "bio-chemist-as-product-steward-a-in-the-field-of-oligonucleotide-production-100-bachem-ag-bubendorf",
+        "en": "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf",
         "de": "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem",
         "fr": "bio-chimiste-en-tant-que-responsable-du-produit-a-dans-le-domaine-de-la-production-d-oligonucleotides-100-bachem-ag"
       },
@@ -1668,7 +1672,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-%28Bio-%29-Chemiker-als-Product-Steward-%28a%29-im-Bereich-Oligonukleotid-Produktion-%28100%29-BL-4416/1445877133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:23.693Z",
+      "crawledAt": "2026-10-27T09:38:43.966Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1689,7 +1693,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem",
-        "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf"
+        "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf",
+        "bio-chemist-as-product-steward-a-in-the-field-of-oligonucleotide-production-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1697,7 +1702,8 @@
           "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf"
         ],
         "en": [
-          "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem"
+          "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem",
+          "bio-chemist-as-product-steward-a-in-the-field-of-oligonucleotide-production-100-bachem-ag-bubendorf"
         ],
         "fr": [
           "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem"
@@ -1750,7 +1756,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-CAD-&-CAE-Engineer-%28a%29-%2880-100%29-f%C3%BCr-die-Abteilung-Engineering-Services-BL-4416/1396693433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:23.098Z",
+      "crawledAt": "2026-10-27T09:38:51.446Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1797,9 +1803,9 @@
     },
     {
       "id": "bachem-f7af798cb9df",
-      "slug": "chimico-a-100-bachem-ag-bubendorf",
+      "slug": "chemist-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "chimico-a-100-bachem-ag-bubendorf",
+        "it": "chemist-a-100-bachem-ag-bubendorf",
         "en": "chemist-a-100-bachem-bubendorf",
         "de": "chemist-a-100-bachem-bubendorf",
         "fr": "chimiste-a-100-bachem-ag-bubendorf"
@@ -1827,7 +1833,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemist-%28a%29%2C-100-BL-4416/1440910633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:22.550Z",
+      "crawledAt": "2026-10-27T09:38:56.953Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1849,13 +1855,13 @@
       "previousSlugs": [
         "chemist-a-100-bachem-bubendorf",
         "chimico-a-100-bachem-ag-bubendorf-5275e5",
-        "chemist-a-100-bachem-ag-bubendorf"
+        "chimico-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chemist-a-100-bachem-bubendorf",
           "chimico-a-100-bachem-ag-bubendorf-5275e5",
-          "chemist-a-100-bachem-ag-bubendorf"
+          "chimico-a-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-09-09T13:55:39.157Z",
@@ -1905,7 +1911,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Construction-Management-Lead-%28a%29%2C-100-BL-4416/1398896633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:21.970Z",
+      "crawledAt": "2026-10-27T09:39:01.466Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1957,7 +1963,7 @@
       "slug": "hse-specialista-bachem-ag-vionnaz",
       "slugByLocale": {
         "it": "hse-specialista-bachem-ag-vionnaz",
-        "en": "qc-lab-technician-a-100-bachem-ag-vionnaz",
+        "en": "hse-specialist-a-100-bachem-ag-vionnaz",
         "de": "hse-spezialist-bachem-ag-vionnaz",
         "fr": "hse-specialist-bachem-vionnaz"
       },
@@ -1983,7 +1989,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-HSE-Specialist-%28a%29-100-Vala-1895/1442735433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-26T21:58:21.395Z",
+      "crawledAt": "2026-10-27T09:38:44.460Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2004,7 +2010,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hse-specialist-bachem-vionnaz",
-        "hse-specialist-a-100-bachem-vionnaz"
+        "hse-specialist-a-100-bachem-vionnaz",
+        "qc-lab-technician-a-100-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2012,7 +2019,8 @@
           "hse-specialist-a-100-bachem-vionnaz"
         ],
         "en": [
-          "hse-specialist-bachem-vionnaz"
+          "hse-specialist-bachem-vionnaz",
+          "qc-lab-technician-a-100-bachem-ag-vionnaz"
         ],
         "de": [
           "hse-specialist-bachem-vionnaz"
@@ -2065,7 +2073,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientific-Writer-QC-%28a%29-100-BL-4416/1449439533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:20.829Z",
+      "crawledAt": "2026-10-27T09:38:48.849Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2142,7 +2150,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-for-QC-%28a%29%2C-100-BL-4416/1448325133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:20.378Z",
+      "crawledAt": "2026-10-27T09:39:02.617Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2207,7 +2215,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemielaborantin-Oligo-R&D-%28a%29%2C-100-BL-4416/1445473533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:19.893Z",
+      "crawledAt": "2026-10-27T09:39:03.337Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2287,7 +2295,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Spezialist-Reinigungsvalidierung-%28a%29-100-BL-4416/1399924033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:19.306Z",
+      "crawledAt": "2026-10-27T09:38:42.744Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2361,7 +2369,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-%28Senior%29-Project-Manager-Engineering-%28a%29%2C-100-BL-4416/1289022601/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:18.746Z",
+      "crawledAt": "2026-10-27T09:38:43.331Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2426,7 +2434,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Project-Manager-Supply-Chain-Applications-Cold-Chain-Monitorning-&-Visibility-%28CCMV%29-%28a%29%2C-80-100-BL-4416/1440807633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:18.308Z",
+      "crawledAt": "2026-10-27T09:38:50.819Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2502,7 +2510,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Cluster-Specialist-%28a%29%2C-100-BL-4416/1440644233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:17.746Z",
+      "crawledAt": "2026-10-27T09:38:57.588Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2575,7 +2583,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Early-Phase-100-%28a%29-BL-4416/1434837833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:17.187Z",
+      "crawledAt": "2026-10-27T09:38:42.067Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2649,7 +2657,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Chemie-und-Pharmatechnologe-in-mit-dem-Schwerpunkt-Chemietechnologie-%28a%29-BL-4416/1419045933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:16.601Z",
+      "crawledAt": "2026-10-27T09:38:52.548Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2722,7 +2730,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-als-Laborantin-Laborant-EFZ-Fachrichtung-Chemie-mit-Schwerpunkt-Synthese-oder-Analytik-BL-4416/1419038933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:16.025Z",
+      "crawledAt": "2026-10-27T09:38:47.055Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2795,7 +2803,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-Mass-Spectrometry-Quality-Control-%28QC%29-%28a%29%2C-100-BL-4416/1446690833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:15.436Z",
+      "crawledAt": "2026-10-27T09:38:55.678Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2869,7 +2877,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Engineering-Manager-%28a%29%2C-100-BL-4416/1261351201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:14.852Z",
+      "crawledAt": "2026-10-27T09:38:45.766Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3000,7 +3008,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lehrstelle-zur-Logistikerin-EFZ%2C-Fachrichtung-Lager-%28a%29-BL-4416/1419046233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:14.391Z",
+      "crawledAt": "2026-10-27T09:38:53.818Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3074,7 +3082,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-QC-Analytical-Development-%28a%29%2C-100-BL-4416/1449346333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:13.803Z",
+      "crawledAt": "2026-10-27T09:38:50.136Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3150,7 +3158,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-%28a%29-HPLC-Late-Phase-100-BL-4416/1409920033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:13.264Z",
+      "crawledAt": "2026-10-27T09:39:04.660Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3224,7 +3232,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Schnuppertag-Chemie-und-Pharmatechnologe-login-%28a%29-BL-4416/1419530733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:12.667Z",
+      "crawledAt": "2026-10-27T09:38:55.062Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3304,7 +3312,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Support-QC-Sampling-&-Environmental-Monitoring-%28GMP%29-%28a%29-100-BL-4416/1414785333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:12.066Z",
+      "crawledAt": "2026-10-27T09:38:45.104Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3377,7 +3385,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-HSE-Specialist-80-100-%28a%29-BL-4416/1387986133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:11.472Z",
+      "crawledAt": "2026-10-27T09:38:59.534Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3495,7 +3503,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Manager-QA-%28a%29-Engineering-100-BL-4416/1429691533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:10.875Z",
+      "crawledAt": "2026-10-27T09:38:58.862Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3568,7 +3576,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Project-Director-Grossprojekte-%28a%29%2C-100-BL-4416/1388636633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:10.270Z",
+      "crawledAt": "2026-10-27T09:38:49.499Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3641,7 +3649,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Production-Technician-Oligo-Prod_-I-%28a%29%2C-100-BL-4416/1189349201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:09.669Z",
+      "crawledAt": "2026-10-27T09:38:39.807Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3756,7 +3764,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemikantin-als-Production-Technician-Oligonucleotide-Prod_-II-%28a%29%2C-100-BL-4416/1159225101/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:09.112Z",
+      "crawledAt": "2026-10-27T09:38:39.160Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3875,7 +3883,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-SAP-Solution-&-Implementation-Lead-%28a%29%2C-80-100-AG-4332/1404096933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:08.549Z",
+      "crawledAt": "2026-10-27T09:38:34.674Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3943,12 +3951,13 @@
         "de": "Die Bachem-Gruppe investiert in einen neuen Standort in Sisslerfeld in der Nordwestschweiz. Dieser Schritt ist Teil unserer langfristigen Strategie zur Erweiterung der Produktionskapazitäten. Um unser Team in der globalen IT zu stärken, suchen wir einen Master Data Management & Governance Specialist (a), 80-100%\n\nIhre Aufgaben:\n\n• Besitzen Sie den Stammdaten-Workstream für die neue Sisslerfeld-Fertigungsanlage und gewährleisten Sie die Bereitschaft während der Inbetriebnahme, Qualifizierung, Validierung und Go-Live.\n\n• Definieren und Etablieren von SAP-Stammdatenstrukturen, einschließlich Materialien, Stücklisten, Rezepturen, Routings, Batches, Ausrüstung/Ressourcen, Geschäftspartnern und Beschaffungsdaten.\n\n• Führen Sie Masterdatenmigration, Erweiterung, Laden und Validierung, um sicherzustellen, dass die Datenbereitschaft in die Go-Live-Kriterien der Website integriert ist\n\n• Festlegung des funktionsübergreifenden Data-Governance-Modells der Website, einschließlich Eigentümerschaft, Verwaltung, Entscheidungsrechte, Standards und Genehmigungsworkflows\n\n• Ausrichtung von Fertigung, Qualität, Lieferkette, Beschaffung, Engineering, Finanzen und IT auf Datendefinitionen, Standards, Namenskonventionen und Verantwortlichkeiten\n\n• Implementierung von Datenqualitätskontrollen, KPIs, Scorecards und Sanierungsprozessen, unterstützt durch Schulungen und Change Management\n\n• Stellen Sie sicher, dass die Stammdatenprozesse den GMP-, ALCOA+-Datenintegritäts-, Validierungs-, Audit- und regulatorischen Inspektionsanforderungen entsprechen\n\n• Sicherstellung der Angleichung an das unternehmensweite Data Governance Framework, einschließlich der Integration in nachgelagerte Systeme wie MES, LIMS, eQMS, WMS und die Enterprise Data Platform\n\nIhr Profil:\n\n• Mehrjährige Erfahrung im Master Data Management, Data Governance oder einer verwandten Disziplin, idealerweise im Bereich Pharma oder Life Sciences\n\n• Starke praktische SAP-Masterdatenkompetenz, insbesondere Materialmaster, Geschäftspartner, Stücklisten, Routings und Rezepte\n\n• Erfahrung mit SAP MDG oder vergleichbaren MDM Plattformen wie Informatica MDM, Stibo oder Reltio\n\n• Gutes Verständnis von GMP, ALCOA+ Datenintegritätsprinzipien, Auditanforderungen und regulierten Fertigungsumgebungen\n\n• Bewährte Erfahrung beim Aufbau von Data Governance Frameworks, Eigentümermodellen und Stewardship-Prozessen, idealerweise in einer Greenfield- oder Transformationsumgebung\n\n• Starke Programmbereitstellung und Stakeholder-Management-Fähigkeiten mit der Fähigkeit, einen Konsens über mehrere Funktionen hinweg auszurichten und aufzubauen\n\n• Erfahrung mit SAP S/4HANA und relevanten SAP-Modulen wie PP/PI, QM, MM oder EWM ist sehr wünschenswert\n\n• Bachelor-Abschluss in einem relevanten Bereich; SAP / Datenmanagement-Zertifizierungen, Greenfield-Pharmaerfahrung und Deutschkenntnisse sind vorteilhaft\n\nUnser Angebot:\n\n• Ein dynamisches und schnell wachsendes Arbeitsumfeld mit internen Entwicklungsmöglichkeiten\n\n• Flexible Arbeitszeiten mit Home-Office-Tagen und eine Option für zusätzliche Urlaubstage durch Arbeitsbelastungsreduzierung\n\n• Betriebsgeführte Kindertagesstätte auf dem Bachem Campus in Bubendorf\n\n• 60% Deckung von Pensionskassenbeiträgen durch die Bachem AG sowie Option auf außerobligatorische Vorsorge mit unserem Pensionsplan Plus\n\n• Zugang zu Leistungsplattformen mit Rabatten von externen Partnern\n\n• Frisches, gesundes und abwechslungsreiches Essen in unserem Personalrestaurant\n\n• Breites Angebot an kostenlosen Sportangeboten auf dem Bachem Campus\n\nMöchten Sie gemeinsam mit uns Innovationen vorantreiben?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Group und lassen Sie sich von unserem spannenden Arbeitsumfeld an unserem Standort in Bubendorf und unserem neuen Standort in Sisslerfeld inspirieren!",
         "fr": "Le groupe Bachem investit dans un nouveau site à Sisslerfeld, dans le nord-ouest de la Suisse. Cette étape s'inscrit dans notre stratégie à long terme visant à accroître la capacité de production. Pour renforcer notre équipe en informatique globale, nous recherchons un Master Data Management & Governance Specialist (a), 80-100%\n\nVos tâches:\n\n• Posséder le flux de données principal pour la nouvelle usine de fabrication de Sisslerfeld, en assurant la préparation tout au long de la mise en service, la qualification, la validation et la mise en service.\n\n• Définir et établir des structures de données principales SAP, y compris les matériaux, les BOM, les recettes, les routages, les lots, l'équipement/ressources, les partenaires commerciaux et les données d'approvisionnement.\n\n• Migration des données maîtresses, extension, chargement et validation, en veillant à ce que les données soient prêtes à être intégrées aux critères de mise en service du site\n\n• Établir le modèle de gouvernance des données interfonctionnelles du site, y compris la propriété, l'intendance, les droits de décision, les normes et les processus d'approbation\n\n• Aligner la fabrication, la qualité, la chaîne d'approvisionnement, les achats, l'ingénierie, les finances et les technologies de l'information sur les définitions des données, les normes, les conventions de désignation et les responsabilités\n\n• Mettre en oeuvre des contrôles de la qualité des données, des ICR, des cartes de pointage et des processus d'assainissement, appuyés par la formation et la gestion du changement\n\n• S'assurer que les processus de gestion des données sont conformes aux exigences en matière d'intégrité, de validation, de vérification et d'inspection réglementaire des données GMP, ALCOA+\n\n• Assurer l'alignement sur le cadre de gouvernance des données à l'échelle de l'entreprise, y compris l'intégration avec les systèmes en aval tels que MES, LIMS, eQMS, WMS et la plate-forme de données d'entreprise\n\nVotre profil:\n\n• Plusieurs années d'expérience dans la gestion des données maîtresses, la gouvernance des données ou une discipline connexe, idéalement dans les produits pharmaceutiques ou les sciences de la vie\n\n• Forte expertise pratique SAP master data, particulièrement maître matériel, partenaire d'affaires, BOM, routages et recettes\n\n• Expérience avec SAP OMD ou des plateformes MDM comparables comme Informatica MDM, Stibo ou Reltio\n\n• Bonne compréhension des principes d'intégrité des données GMP, ALCOA+, des exigences de vérification et des environnements de fabrication réglementés\n\n• Expérience éprouvée de l'établissement de cadres de gouvernance des données, de modèles de propriété et de processus d'intendance, idéalement dans un environnement vert ou de transformation\n\n• Renforcement des compétences en matière de prestation des programmes et de gestion des intervenants, avec la capacité d'harmoniser et de créer un consensus entre les fonctions multiples\n\n• L'expérience avec SAP S/4HANA et les modules SAP pertinents tels que PP/PI, QM, MM ou EWM est hautement souhaitable\n\n• Baccalauréat dans un domaine pertinent; les certifications SAP/gestion des données, l'expérience pharmaceutique de terrain vert et les compétences en langue allemande sont avantageuses\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne et de formation\n\n• Heures de travail flexibles avec les jours de bureau à domicile et une option pour obtenir des jours de vacances supplémentaires grâce à la réduction de la charge de travail\n\n• Centre de garderie géré par l'entreprise sur le campus Bachem à Bubendorf\n\n• 60 % de la couverture des cotisations de la caisse de retraite par Bachem AG, ainsi que l'option pour les prestations de retraite extra-obligatoires avec notre Régime de retraite Plus\n\n• Accès aux plateformes d'avantages avec des rabais de partenaires externes\n\n• Des aliments frais, sains et variés dans notre restaurant du personnel\n\n• Un large éventail d'activités sportives gratuites sur le campus de Bachem\n\nAimeriez-vous stimuler l'innovation avec nous ?\n\nNous sommes impatients de recevoir vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et s'inspirer de notre environnement de travail passionnant à notre emplacement à Bubendorf et de notre nouvel emplacement à Sisslerfeld!"
       },
+      "needsRetranslation": false,
       "location": "Stein AG",
       "canton": "AG",
       "url": "https://careers.bachem.com/job/Stein-AG-Master-Data-Management-&-Governance-Specialist-%28a%29%2C-80-100-AG-4332/1443088533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:08.064Z",
+      "crawledAt": "2026-10-27T09:38:32.118Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4013,7 +4022,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Project-Manager-Automation-%28a%29%2C-100-AG-4332/1398906233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:07.492Z",
+      "crawledAt": "2026-10-27T09:38:36.618Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4079,7 +4088,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Data-Engineer-%28a%29%2C-80-100-AG-4332/1437412233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:07.003Z",
+      "crawledAt": "2026-10-27T09:38:37.904Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4152,7 +4161,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Quality-Engineering-%28QE%29-Manager-Downstream-Sisslerfeld-%28a%29-100-AG-4332/1446143833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:06.531Z",
+      "crawledAt": "2026-10-27T09:38:35.304Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4225,7 +4234,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Senior-Commissioning-&-Qualification-Engineer-Sisslerfeld-%28a%29%2C-100-AG-4332/1378356333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:05.917Z",
+      "crawledAt": "2026-10-27T09:38:37.279Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4299,7 +4308,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-MES-System-Engineer-%28a%29%2C-80-100-AG-4332/1402497333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:05.328Z",
+      "crawledAt": "2026-10-27T09:38:32.765Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4365,7 +4374,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-ITOT-Network-&-Infrastructure-Engineer-%28a%29%2C-80-100-AG-4332/1404097333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:04.665Z",
+      "crawledAt": "2026-10-27T09:38:34.033Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4431,7 +4440,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Quality-Engineering-%28QE%29-Manager-CSV-Sisslerfeld-%28a%29-100-AG-4332/1446145133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:04.097Z",
+      "crawledAt": "2026-10-27T09:38:33.389Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4505,7 +4514,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Quality-Engineering-%28QE%29-Manager-Facility-&-Utility-Systems-Sisslerfeld-%28a%29-100-AG-4332/1446144533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:03.526Z",
+      "crawledAt": "2026-10-27T09:38:38.534Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4579,13 +4588,12 @@
         "de": "Die Bachem-Gruppe investiert in einen neuen geplanten Standort in Sisslerfeld in der Nordwestschweiz. Dieser Schritt ist Teil der langfristigen Strategie, die Produktionskapazitäten bis zum Ende des Jahrzehnts zu erweitern. Der neue Produktionsstandort wird eine zentrale Rolle bei der Erreichung dieser Ziele spielen. Die Entwurfsphase des Projekts bietet Ihnen einzigartige Möglichkeiten, die zukünftige Organisation zu gestalten.\n\nIm Rahmen der Entwicklung unseres neuen Produktionsstandorts Sisslerfeld suchen wir eine Lead QC Sisslerfeld Site Develepoment (a) 100%. In dieser Schlüsselrolle konzentrieren Sie sich auf die Einrichtung und Leitung des Anlaufs der Qualitätskontrollorganisation, die die erfolgreiche Einrichtung von Labors, Systemen und Prozessen vorantreibt und gleichzeitig die Einhaltung gesetzlicher Vorschriften, die Betriebsbereitschaft und eine nachhaltige Qualität gewährleistet Exzellenz.\n\nIhre Aufgaben\n\n• Aufbau, Leitung und kontinuierliche Weiterentwicklung der Qualitätskontrollorganisation für den Standort Sisslerfeld, einschließlich Aufbau von Laboratorien für Mikrobiologie (MIBI) und In-Process Control (IPC).\n\n• Gewährleistung der Umsetzung von regulatorischen und Compliance-Anforderungen und Unterstützung der Abstimmung mit internen und externen Stakeholdern während der gesamten Projektdurchführung.\n\n• Etablieren, implementieren und kontinuierlich verbessern QC-Systeme, Prozesse und den Qualitätsrahmen.\n\n• Qualifizierung, Validierung und Implementierung von Analysemethoden, Technologien, Geräten und Laborsystemen, einschließlich der Unterstützung von C&Q-Aktivitäten (DQ, IQ, OQ, PQ).\n\n• Entwicklung und Pflege der Dokumentationslandschaft im Zuständigkeitsbereich, einschließlich QC-Verfahren, geltenden Vorschriften, Rollen, Verantwortlichkeiten und Dokumentationsgovernance in allen anwendbaren Bereichen.\n\n• Definieren und koordinieren Sie Aktivitäten zur Betriebsbereitschaft, Meilensteine und Geschäftsprozesse, um einen erfolgreichen Übergang vom Projekt zum kommerziellen Betrieb sicherzustellen.\n\n• Überwachung und kontinuierliche Verbesserung des Ramp-up-Laborbetriebs, der QC-Prozesse, der Ressourcenplanung und der Qualitätsuntersuchungen (OOS, OOT, Abweichungen, CAPAs und Änderungskontrollen) während der Betriebsphase.\n\n• Gewährleistung der Inspektionsbereitschaft, Vertretung der Qualitätskontrolle bei Audits und Inspektionen und Zusammenarbeit mit Global Quality und Interessenvertretern, um kontinuierliche Verbesserungsinitiativen voranzutreiben.\n\nDein Profil\n\n• PhD oder MSc in einer wissenschaftlichen Disziplin (Chemie, Pharmazie oder ein verwandtes Gebiet).\n\n• Mindestens 7 Jahre Berufserfahrung in dem betreffenden Bereich, einschließlich mindestens 5 Jahre Führungserfahrung in der Leitung eines Teams.\n\n• Erfahrung im Umgang mit Swissmedic und internationalen Regulierungsbehörden bei Audits und Inspektionen.\n\n• Vertiefte Kenntnis der regulatorischen Anforderungen, einschließlich der EU-GMP-Richtlinien, des Schweizer Therapeutikagesetzes (HMG) und der Verordnung über Niederlassungslizenzen (AMBV), der PIC/S-Richtlinien, der ICH-Richtlinien, der FDA-Anforderungen und der damit verbundenen Vorschriften.\n\n• Hohes Engagement und Engagement für die Organisation.\n\n• Begeisterung für den Aufbau und Aufbau einer neuen GMP-Produktionsstätte mit Pioniergeist.\n\n• Starke und effektive Kommunikationsfähigkeiten.\n\n• Hervorragende organisatorische Fähigkeiten, mit der Fähigkeit, Aufgaben zu priorisieren und mehrere Verantwortlichkeiten gleichzeitig zu verwalten. Dies ist entscheidend für die Unterstützung eines reibungslosen Betriebs vor Ort, insbesondere während der Projektphase.\n\n• Starke Problemlösungskompetenzen mit der Fähigkeit, Probleme schnell zu identifizieren, analytisch zu denken und pragmatische, aber konforme Lösungen zu entwickeln, um Herausforderungen effektiv anzugehen.\n\n• Flexibilität und Anpassungsfähigkeit, wobei berücksichtigt wird, dass sich Prioritäten und Verantwortlichkeiten in verschiedenen Projektphasen ändern können.\n\n• Hervorragende schriftliche und gesprochene deutsche und englische Sprachkenntnisse.\n\nUnser Angebot:\n\n• Ein dynamisches und schnell wachsendes Arbeitsumfeld mit internen Entwicklungsmöglichkeiten\n\n• Mitarbeiterentwicklung durch zahlreiche interne und externe Weiterbildungsmöglichkeiten\n\n• 60% Deckung von Pensionskassenbeiträgen durch die Bachem AG sowie Option auf außerobligatorische Vorsorge mit unserem Pensionsplan Plus\n\n• Zugang zu den Leistungsplattformen mit Rabatten von externen Partnern\n\n• Frisches, gesundes und abwechslungsreiches Essen in unserem Personalrestaurant\n\n• Breites Angebot an kostenlosen Sportangeboten auf dem Bachem Campus\n\nMöchten Sie mit uns globale Operations Readiness Frameworks gestalten?\n\nWir freuen uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und unser Arbeitsumfeld am Standort Stein auf unserer Website.",
         "fr": "Le groupe Bachem investit dans un nouveau site prévu à Sisslerfeld, dans le nord-ouest de la Suisse. Cette étape s'inscrit dans la stratégie à long terme visant à accroître la capacité de production d'ici la fin de la décennie. Le nouveau site de production jouera un rôle central dans la réalisation de ces objectifs. La phase de conception du projet vous offre des possibilités uniques de façonner la future organisation.\n\nDans le cadre du développement de notre nouveau site de fabrication de Sisslerfeld, nous sommes à la recherche d'un site Lead QC Sisslerfeld (a) 100%. Dans ce rôle clé, votre objectif sera d'établir et de diriger la montée en puissance de l'organisme de contrôle de la qualité, qui pilote la mise en place réussie de laboratoires, de systèmes et de processus tout en assurant la conformité réglementaire, la disponibilité opérationnelle et l'excellence de qualité durable.\n\nVos tâches\n\n• Bâtir, diriger et développer en permanence l'organisation de contrôle de la qualité pour le site de Sisslerfeld, y compris la création de laboratoires de microbiologie (MIBI) et de contrôle des processus (PIC).\n\n• Assurer la mise en oeuvre des exigences réglementaires et de conformité et appuyer l'alignement avec les intervenants internes et externes tout au long de l'exécution du projet.\n\n• Établir, mettre en oeuvre et améliorer continuellement les systèmes, les processus et le cadre de qualité du CQ.\n\n• Diriger la qualification, la validation et la mise en oeuvre de méthodes, de technologies, d'équipement et de systèmes de laboratoire, y compris l'appui aux activités de C&Q (DQ, IQ, OQ, PQ).\n\n• Élaborer et maintenir le paysage de documentation du site dans le domaine des responsabilités, y compris les procédures de CQ, les règlements applicables, les rôles, les responsabilités et la gouvernance de la documentation dans tous les domaines pertinents.\n\n• Définir et coordonner les activités de préparation opérationnelle, les jalons et les processus opérationnels afin d'assurer une transition réussie du projet aux opérations commerciales.\n\n• Superviser et améliorer continuellement les opérations de laboratoire en amont, les processus de CQ, la planification des ressources et les enquêtes de qualité (OS, OOT, écarts, APC et contrôles du changement) pendant la phase opérationnelle.\n\n• Assurer la préparation à l'inspection, représenter le contrôle de la qualité lors des vérifications et des inspections, et collaborer avec la qualité mondiale et les intervenants du site pour mener des initiatives d'amélioration continue.\n\nVotre profil\n\n• Doctorat ou maîtrise en sciences (chimie, pharmacie ou domaine connexe).\n\n• Au moins 7 ans d'expérience professionnelle dans le domaine pertinent, y compris au moins 5 ans d'expérience en leadership dans la gestion d'une équipe.\n\n• Expérience d'interaction avec les autorités de régulation suisses et internationales lors des audits et inspections.\n\n• Connaissance approfondie des exigences réglementaires, y compris les lignes directrices de l'UE sur les BPF, la loi suisse sur les produits thérapeutiques (HMG) et l'ordonnance sur les licences d'établissement (AMBV), les lignes directrices PIC/S, les lignes directrices de l'ICH, les exigences de la FDA et les règlements connexes.\n\n• Niveau élevé d'engagement et de dévouement envers l'organisation.\n\n• Enthousiasme pour construire et établir un nouveau site de fabrication de BPF avec un état d'esprit pionnier.\n\n• Capacités de communication fortes et efficaces.\n\n• Excellentes compétences organisationnelles, avec la capacité de prioriser les tâches et de gérer simultanément plusieurs responsabilités. Cela est essentiel pour faciliter l'exploitation des sites, surtout pendant la phase du projet.\n\n• De solides compétences en résolution de problèmes, avec la capacité d'identifier rapidement les problèmes, de penser analytiquement et de développer des solutions pragmatiques mais conformes pour relever efficacement les défis.\n\n• Flexibilité et adaptabilité, reconnaissant que les priorités et les responsabilités peuvent changer au cours des différentes phases du projet.\n\n• Excellente compétence écrite et parlée en allemand et en anglais.\n\nNotre offre :\n\n• Un environnement de travail dynamique et en croissance rapide avec des possibilités de développement interne\n\n• Développement des employés grâce à de nombreuses possibilités de formation internes et externes\n\n• 60 % de la couverture des cotisations de la caisse de retraite par Bachem AG, ainsi que l'option pour les prestations de retraite extra-obligatoires avec notre Régime de retraite Plus\n\n• Accès aux plateformes d'avantages avec des rabais de partenaires externes\n\n• Des aliments frais, sains et variés dans notre restaurant du personnel\n\n• Un large éventail d'activités sportives gratuites sur le campus de Bachem\n\nSouhaitez-vous façonner les cadres mondiaux de préparation opérationnelle avec nous?\n\nNous sommes impatients de recevoir vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et notre environnement de travail sur le site Stein sur notre site."
       },
-      "needsRetranslation": false,
       "location": "Stein AG",
       "canton": "AG",
       "url": "https://careers.bachem.com/job/Stein-AG-Lead-Quality-Control-%28QC%29-Sisslerfeld-Site-Develepoment-%28a%29-100-AG-4332/1446145633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:02.940Z",
+      "crawledAt": "2026-10-27T09:38:35.931Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4658,7 +4666,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Scientist-Research-&-Development-Oligonucleotides-%28a%29%2C-100-BL-4416/1449857033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:02.349Z",
+      "crawledAt": "2026-10-27T09:38:31.483Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4724,7 +4732,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Commissioning-&-Qualification-%28C&Q%29-Lead-%28a%29%2C-100-BL-4416/1398900433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:01.772Z",
+      "crawledAt": "2026-10-27T09:38:26.296Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4789,7 +4797,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-Quality-Control-%28a%29%2C-100-BL-4416/1443154133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:58:01.200Z",
+      "crawledAt": "2026-10-27T09:38:28.187Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4863,7 +4871,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Head-of-Technical-Operations-Bubendorf-%28a%29-100-BL-4416/1445981433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:00.622Z",
+      "crawledAt": "2026-10-27T09:38:30.836Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4929,7 +4937,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Data-Platform-Owner-Databricks-%28a%29%2C-80-100-BL-4416/1442345233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:58:00.038Z",
+      "crawledAt": "2026-10-27T09:38:26.952Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5003,7 +5011,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Head-of-MES-&-PI-Competence-Center-%28a%29%2C-80-100-BL-4416/1441371333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:57:59.467Z",
+      "crawledAt": "2026-10-27T09:38:29.534Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5069,7 +5077,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Project-Procurement-Lead-%28a%29-100-Sisslerfeld-BL-4416/1431440133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:57:58.988Z",
+      "crawledAt": "2026-10-27T09:38:30.182Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5118,7 +5126,7 @@
         "it": "senior-capex-controller-a-100-bachem-bubendorf",
         "en": "senior-capex-controller-a-100-bachem-bubendorf",
         "de": "senior-capex-controller-a-100-bachem-bubendorf",
-        "fr": "controleur-principal-capex-a-100-bachem-ag-bubendorf"
+        "fr": "senior-capex-controller-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5143,7 +5151,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-CAPEX-Controller-%28a%29%2C-100-BL-4416/1441606833/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:57:58.434Z",
+      "crawledAt": "2026-10-27T09:38:28.913Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5164,12 +5172,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "controleur-principal-du-capex-a-100-bachem-ag-bubendorf",
-        "senior-capex-controller-a-100-bachem-ag-bubendorf"
+        "controleur-principal-capex-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "controleur-principal-du-capex-a-100-bachem-ag-bubendorf",
-          "senior-capex-controller-a-100-bachem-ag-bubendorf"
+          "controleur-principal-capex-a-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-09-26T14:05:42.429Z",
@@ -5219,7 +5227,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Global-Head-Quality-Systems-&-Services-%28a%29%2C-100-BL-4416/1447234133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:57:57.840Z",
+      "crawledAt": "2026-10-27T09:38:25.634Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5292,7 +5300,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Group-Treasury-&-Corporate-Finance-Manager-%28a%29%2C-90-100-BL-4416/1429463433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:57:57.248Z",
+      "crawledAt": "2026-10-27T09:38:27.574Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -5402,7 +5410,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "bachem-462b8f7a5420",
@@ -5468,7 +5476,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
