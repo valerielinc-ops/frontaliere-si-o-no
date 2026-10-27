@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-10-26T11:53:59.120Z",
+  "assembledAt": "2026-10-27T11:30:49.916Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -533,7 +533,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694110",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -556,7 +556,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7629670",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -579,7 +579,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7587574",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -602,7 +602,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694299",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -625,7 +625,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7463713",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -648,7 +648,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7723786",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -658,7 +658,7 @@
         "@type": "Organization",
         "name": "Stadt Luzern — Termine"
       },
-      "sourceDescriptionHash": "0dd322ce64875aebb2f97f6df01a19efe2faef9c28d1bbf062d8fda0e367fd11"
+      "sourceDescriptionHash": "6ecdaf3d593b3b4caf902a3ced82c4d4aee1418a7bcbc1692c9a8f138da79275"
     },
     {
       "id": "lu-stadt-agenda:7648411",
@@ -669,7 +669,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7648411",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -692,7 +692,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694113",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-26T11:53:59.120Z",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -703,6 +703,52 @@
         "name": "Stadt Luzern — Termine"
       },
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
+    },
+    {
+      "id": "lu-stadt-agenda:6363316",
+      "title": "FUKA KIOSK - Kultur zum Abholen",
+      "startDate": "2026-11-05",
+      "startTime": "12:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/6363316",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "7a35bbc923c150dade1a7e9d52c4c393f0a431ad10dc3086c4d154f11fbcf129"
+    },
+    {
+      "id": "lu-stadt-agenda:7694302",
+      "title": "Winter Qi Gong Waldfriedhof Staffeln",
+      "startDate": "2026-11-06",
+      "startTime": "08:30",
+      "comune": "Sursee",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7694302",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-27T11:30:49.916Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
     }
   ]
 }
