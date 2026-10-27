@@ -124,11 +124,12 @@ describe('post-deploy SEO verification', () => {
   it('does not use the conservative detail fallback for a semantic listing page', () => {
     const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri/';
 
+    expect(isLikelyJobDetailUrl(pageUrl, new Map())).toBe(true);
     expect(classifyLiveJobCandidate(pageUrl, {
       isJobPage: false,
       isListingPage: true,
       errors: [],
-    }, new Map([[pageUrl, false]]))).toMatchObject({
+    }, new Map())).toMatchObject({
       shouldInspect: false,
       issue: null,
       skipped: true,
