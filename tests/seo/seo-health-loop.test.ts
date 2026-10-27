@@ -20,6 +20,7 @@ import {
 import {
   buildCycleIdentity,
   createCycleBudget,
+  DEFAULT_MAX_FETCHES,
   fetchWithRetry,
   isSeoIssueActionable,
   loadSitemapGraph,
@@ -191,6 +192,8 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).toContain("default: '256'");
     expect(WORKFLOW_SOURCE).toContain("HEALTH_MAX_SITEMAPS: ${{ inputs.max_sitemaps || '256' }}");
     expect(WORKFLOW_SOURCE).toContain('--max-sitemaps="$HEALTH_MAX_SITEMAPS"');
+    expect(WORKFLOW_SOURCE).toContain('--max-fetches=2048');
+    expect(DEFAULT_MAX_FETCHES).toBe(2048);
     expect(WORKFLOW_SOURCE).not.toMatch(/purge/i);
   });
 

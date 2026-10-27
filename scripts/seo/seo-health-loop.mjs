@@ -76,7 +76,11 @@ const DEFAULT_TIMEOUT_MS = 15_000;
 const DEFAULT_MAX_SITEMAPS = 256;
 const DEFAULT_GA4_DAYS = 28;
 const DEFAULT_GSC_STATE_MAX_AGE_DAYS = 10;
-export const DEFAULT_MAX_FETCHES = 640;
+// Default production envelope: 2*(1 + 256) graph requests, 2*(80 + 30)
+// sampled-page requests, 2*320 Cloudflare path probes, plus source lookups
+// and retry headroom. Keep the workflow override in sync with this value so
+// the graph cannot consume the budget before downstream phases run.
+export const DEFAULT_MAX_FETCHES = 2048;
 export const DEFAULT_CYCLE_BUDGET_MS = 25 * 60 * 1000;
 export const SEO_CONCURRENCY_GROUP = 'seo-health-loop';
 /**
