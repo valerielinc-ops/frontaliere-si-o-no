@@ -184,7 +184,31 @@ export const RECONCILE_UNCLASSIFIABLE_CLASSIFIER_VERSION = classifierVersion();
 
 // Labels that VETO auto-close (the issue wants human eyes regardless of token match):
 // explicit keep-open pins + strategic trackers (revenue/tracker stay owner-gated).
-export const KEEP_OPEN_LABELS = new Set(['pinned', 'keep-open', 'revenue', 'tracker', 'do-not-close']);
+// `agent:no-age-out` and `operations-audit-review` are the site's permanent
+// tracking/audit pins. They are fixer-admission vetoes elsewhere too, so the
+// reconciler must not close a matching follow-up under either label. Keep this
+// list local: the corpus copy has a different parser/manifest contract and is
+// not an authority for the site's tracker labels.
+export const KEEP_OPEN_LABELS = new Set([
+  'pinned',
+  'keep-open',
+  'revenue',
+  'tracker',
+  'do-not-close',
+  'agent:no-age-out',
+  'operations-audit-review',
+]);
+
+/**
+ * GitHub normally returns lower-case label names, but fixtures and alternate
+ * transports may preserve casing or return `{name}` objects. The close veto is
+ * safety-critical: normalize at this boundary instead of letting a mixed-case
+ * pin fall through to the auto-close predicate.
+ */
+export function isKeepOpenLabel(label) {
+  const raw = labelName(label);
+  return KEEP_OPEN_LABELS.has(String(raw ?? '').trim().toLowerCase());
+}
 
 // Keep the historical named export for callers while sharing the aggregate
 // detector's implementation with the pre-flight gate.
@@ -2237,7 +2261,7 @@ async function main() {
     if (!resolved) continue;
 
     const hasMaybeResolved = labelNames.includes(LABEL);
-    const blocked = labelNames.some((n) => KEEP_OPEN_LABELS.has(n));
+    const blocked = labelNames.some(isKeepOpenLabel);
     let aggGate = isAggregateTitle(iss.title, iss.body || '')
       ? aggregateCloseGate(iss.body || '', diskIo, {
         legacyResolver: legacyContext ? (itemText) => legacyContext.byItem.get(itemText) : null,
