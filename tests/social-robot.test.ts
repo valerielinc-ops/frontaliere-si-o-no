@@ -1395,6 +1395,14 @@ describe('workflows', () => {
     }
   });
 
+  it('uses a cached static FFmpeg toolchain instead of an unbounded APT install', () => {
+    for (const workflowName of ['tiktok-daily-broadcast.yml', 'instagram-reel-experiment.yml']) {
+      const source = fs.readFileSync(path.join(ROOT, '.github', 'workflows', workflowName), 'utf8');
+      expect(source, workflowName).toContain('uses: FedericoCarboni/setup-ffmpeg@v3.1');
+      expect(source, workflowName).not.toMatch(/apt-get\s+(?:update|install)[^\n]*ffmpeg/u);
+    }
+  });
+
   it('regenerates the confirmation on the newest main after a concurrent push', () => {
     const steps = wf('social-robot-confirm.yml').jobs.confirm.steps as Array<{ name?: string; run?: string }>;
     const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
