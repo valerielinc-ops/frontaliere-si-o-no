@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-27T09:22:35.692Z",
+  "generatedAt": "2026-10-27T21:19:29.628Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8904,
-  "avgDurationMs": 8904,
+  "durationMs": 6425,
+  "avgDurationMs": 6425,
   "durationHistory": [
-    8904
+    6425
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-222ca79a9586",
       "slug": "marketing-operations-activation-specialista-m-w-d-straumann-basel",
@@ -34,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:22:20.118Z",
+      "crawledAt": "2026-10-27T21:19:16.061Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -52,20 +53,18 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:10:03.139Z",
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-03T09:10:03.139Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "straumann-ede36e57fc6e",
       "slug": "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel",
@@ -78,7 +77,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:22:15.300Z",
+      "crawledAt": "2026-10-27T21:19:13.485Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -123,7 +122,7 @@
       "url": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:22:19.846Z",
+      "crawledAt": "2026-10-27T21:19:15.558Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -164,7 +163,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:22:19.561Z",
+      "crawledAt": "2026-10-27T21:19:15.193Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -205,7 +204,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:22:17.709Z",
+      "crawledAt": "2026-10-27T21:19:14.925Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -246,7 +245,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:22:17.056Z",
+      "crawledAt": "2026-10-27T21:19:14.617Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -287,7 +286,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T09:22:16.380Z",
+      "crawledAt": "2026-10-27T21:19:13.818Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -317,5 +316,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
