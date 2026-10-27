@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-26T11:41:14.934Z",
+  "assembledAt": "2026-10-27T11:18:36.179Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -195039,27 +195039,38 @@
         "de": "Was für ein Zirkus! Spiele und Aufführungen bei den Römern",
         "fr": "Quel cirque ! Jeux et spectacles chez les Romains"
       },
-      "startDate": "2026-09-26",
+      "startDate": "2026-10-28",
       "endDate": "2027-07-04",
-      "startTime": "02:00",
-      "category": "Theater",
-      "venue": "ArchéoLab",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Pully",
       "comune": "Pully",
       "canton": "VD",
-      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/quel-cirque-jeux-et-spectacles-chez-les-romains/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/what-a-circus-games-and-shows-among-the-romans/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Avenue du Prieuré 4",
-        "postalCode": "1009",
-        "locality": "Pully"
-      },
       "geo": {
         "lat": 46.5099248,
         "lng": 6.6619212
       },
       "recurring": true,
-      "sourceDescriptionHash": "0d74880d5e48df72104b7c0988b8e8af80db57fbc0b21bd34273010010a3ccfd"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Pully"
+      },
+      "sourceDescriptionHash": "0d74880d5e48df72104b7c0988b8e8af80db57fbc0b21bd34273010010a3ccfd",
+      "previousRoutes": [
+        {
+          "canton": "VD",
+          "comune": "Pully",
+          "slug": "what-a-circus-games-and-shows-among-the-romans-2026-09-26"
+        }
+      ]
     },
     {
       "id": "myswitzerland:a006998948d247c6b3c3d7742415448b",
@@ -270512,7 +270523,7 @@
         "de": "«Der Fuchs – Meister der Anpassung»",
         "fr": "«Der Fuchs – Meister der Anpassung»"
       },
-      "startDate": "2026-10-26",
+      "startDate": "2026-10-27",
       "endDate": "2027-02-28",
       "startTime": "01:00",
       "category": "Event",
@@ -270536,7 +270547,14 @@
         "@type": "Organization",
         "name": "St. Gallen"
       },
-      "sourceDescriptionHash": "d68879df2e026f567d8b0c074a48836192063632af12e4b04a9a4dbf61b2d87a"
+      "sourceDescriptionHash": "d68879df2e026f567d8b0c074a48836192063632af12e4b04a9a4dbf61b2d87a",
+      "previousRoutes": [
+        {
+          "canton": "SG",
+          "comune": "St. Gallen",
+          "slug": "der-fuchs-meister-der-anpassung-2026-10-26"
+        }
+      ]
     },
     {
       "id": "myswitzerland:9d10259d1367473b93a0acd03b62ccd1",
@@ -270957,6 +270975,216 @@
         "name": "Basilea"
       },
       "sourceDescriptionHash": "770872f88069910532abf80b63c49538b652a71b7f9d17aa98e2fd2249294bee"
+    },
+    {
+      "id": "myswitzerland:a069f2ed84714da8abab991acf26178a",
+      "title": "Rap! (1ère partie)",
+      "titleByLocale": {
+        "it": "Rap! (1ère partie)",
+        "en": "Rap! (1ère partie)",
+        "de": "Rap! (1ère partie)",
+        "fr": "Rap! (1ère partie)"
+      },
+      "startDate": "2026-11-10",
+      "endDate": "2026-12-31",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/rap-1ere-partie/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5184353,
+        "lng": 6.6356516
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "dda4ca817548e91796d3fac37d9203ad1001d830de6bb7a738dfbaaf1827da76"
+    },
+    {
+      "id": "myswitzerland:a068500012954ea88b39d1e919a503f2",
+      "title": "Workshop: Chocolat Matterhorn Praline",
+      "titleByLocale": {
+        "it": "Workshop: Chocolat Matterhorn Praline",
+        "en": "Workshop: Chocolat Matterhorn Praline",
+        "de": "Workshop: Chocolat Matterhörnli® Praline",
+        "fr": "Atelier : Praline Chocolat Matterhorn"
+      },
+      "startDate": "2026-10-19",
+      "endDate": "2026-10-30",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Zermatt",
+      "comune": "Zermatt",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/workshop-chocolat-matterhorn-praline/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.029238,
+        "lng": 7.7532107
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zermatt"
+      },
+      "sourceDescriptionHash": "9b38e834d0c5298ab3c7b97a64cc9e705c30dc5efc811fceb3c11f8a63e8256f"
+    },
+    {
+      "id": "myswitzerland:9f2904bcb88e4cdabb4d49d053e8f847",
+      "title": "Wine & Dine im s'nani",
+      "titleByLocale": {
+        "it": "Wine & Dine im s'nani",
+        "en": "Wine & Dine im s'nani",
+        "de": "Wine & Dine im s'nani",
+        "fr": "Wine & Dine im s'nani"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Laax",
+      "comune": "Laax",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wine-dine-im-snani/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8168055,
+        "lng": 9.2672977
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Laax"
+      },
+      "sourceDescriptionHash": "71d53bb75f24ec8d832b7d7dbd8ed79e4718800d568b9e569e645c5dcd989a6b"
+    },
+    {
+      "id": "myswitzerland:9e7564afab6940c1aaec386d53b58f24",
+      "title": "Diamante im Stroh",
+      "titleByLocale": {
+        "it": "Diamante im Stroh",
+        "en": "Diamante im Stroh",
+        "de": "Diamante im Stroh",
+        "fr": "Diamante im Stroh"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-31",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Hefenhofen",
+      "comune": "Hefenhofen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/diamante-im-stroh/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5631495,
+        "lng": 9.3151708
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Hefenhofen"
+      },
+      "sourceDescriptionHash": "c065ce95f2019389d9fd4a08acba751469e2cfc8356a18032b539aaa2cd3801c"
+    },
+    {
+      "id": "myswitzerland:9d01c8e9344f4e9697a3344d91417271",
+      "title": "Weihnachtsmarkt in der Sonnenhalde",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt in der Sonnenhalde",
+        "en": "Weihnachtsmarkt in der Sonnenhalde",
+        "de": "Weihnachtsmarkt in der Sonnenhalde",
+        "fr": "Weihnachtsmarkt in der Sonnenhalde"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "startTime": "12:00",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsmarkt-in-der-sonnenhalde/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.584489,
+        "lng": 7.658037
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Riehen"
+      },
+      "sourceDescriptionHash": "822bc0d3ef38ee9ad6c2fdc45a3a710cb1fbc2758365e8a0c33c44b7b0078830"
+    },
+    {
+      "id": "myswitzerland:9b2335a1f02b4553a8d46d4624882248",
+      "title": "Avo Darts Battle",
+      "titleByLocale": {
+        "it": "Avo Darts Battle",
+        "en": "Avo Darts Battle",
+        "de": "Avo Darts Battle",
+        "fr": "Avo Darts Battle"
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-27",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Grindelwald",
+      "comune": "Grindelwald",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/avo-darts-battle/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6234067,
+        "lng": 8.0397263
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Grindelwald"
+      },
+      "sourceDescriptionHash": "16076baa7cdc6be9813e379fca6d0b663fd7a2726cc6fa72a68b84ea598ba8c7"
     }
   ]
 }
