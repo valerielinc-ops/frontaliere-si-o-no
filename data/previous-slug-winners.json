@@ -13859,6 +13859,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::en::schreiner-100-anker-swiss-ticino-ag-bern-a77483f1": {
+    "winnerJobIdentifier": "anker-swiss-a77483f1d0c1",
+    "winnerCanonical": "carpenters-100-anker-swiss-ticino-ag-bern-a77483f1",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::scientific-officer-armed-forces-relations-confederazione-svizzera-bern": {
     "winnerJobIdentifier": "company-9dl42s",
     "winnerCanonical": "scientific-officer-armed-forces-relations-swiss-armed-forces-vtg-bern",
@@ -15368,6 +15377,15 @@
     "decidedAt": "2026-07-10T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::schreiner-100-anker-swiss-ticino-ag-bern-a77483f1": {
+    "winnerJobIdentifier": "anker-swiss-a77483f1d0c1",
+    "winnerCanonical": "charpentiers-100-anker-swiss-ticino-ag-bern-a77483f1",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.7778,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -17972,6 +17990,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::ict-architekt-in-senior-safety-swiss-armed-forces-vtg-bern-olvgab": {
+    "winnerJobIdentifier": "company-olvgab",
+    "winnerCanonical": "architetto-a-ict-senior-sicurezza-swiss-armed-forces-vtg-bern",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::ict-system-engineer-senior-application-mcx-platform-confederazione-bern": {
     "winnerJobIdentifier": "company-l9zrbv",
     "winnerCanonical": "ict-system-ingegnere-senior-application-mcx-platform-swiss-armed-forces-vtg-bern-l9zrbv",
@@ -20421,12 +20448,12 @@
     "canton": "BE"
   },
   "BE::it::sanitarinstallateur-100-anker-swiss-ticino-ag-schwarzenburg-90e98397": {
-    "winnerJobIdentifier": "anker-swiss-0a9d0ebe1756",
-    "winnerCanonical": "sanitarinstallateur-100-anker-swiss-ticino-ag-schwarzenburg-0a9d0ebe",
-    "decidedAt": "2026-10-18T00:00:00.000Z",
-    "lastSeenAt": "2026-10-22T00:00:00.000Z",
-    "score": 0.7778,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "anker-swiss-90e983976cc9",
+    "winnerCanonical": "installatore-sanitario-100-anker-swiss-ticino-ag-schwarzenburg-90e98397",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart": {
@@ -20441,6 +20468,15 @@
   "BE::it::schreiner-100-anker-swiss-ticino-ag-bern-9fd5fa6e": {
     "winnerJobIdentifier": "anker-swiss-9fd5fa6e7c0c",
     "winnerCanonical": "carpentiere-100-anker-swiss-ticino-ag-bern-9fd5fa6e",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::schreiner-100-anker-swiss-ticino-ag-bern-a77483f1": {
+    "winnerJobIdentifier": "anker-swiss-a77483f1d0c1",
+    "winnerCanonical": "carpentiere-100-anker-swiss-ticino-ag-bern-a77483f1",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
     "score": 0.7778,
@@ -21970,10 +22006,10 @@
   },
   "BE::it::verkaufer-in-food-coop-grindelwald": {
     "winnerJobIdentifier": "company-j3z9gr",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-grindelwald",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald-3adb04",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.8333,
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -22383,11 +22419,11 @@
     "canton": "BE"
   },
   "BE::it::weinverkoster-in-coop-biel": {
-    "winnerJobIdentifier": "company-x2nugb",
-    "winnerCanonical": "weinverkoster-in-coop-biel-x2nugb",
+    "winnerJobIdentifier": "company-4cggaq",
+    "winnerCanonical": "degustatori-di-vino-coop-genossenschaft-biel",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.8,
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -33625,10 +33661,10 @@
   },
   "LU::it::maler-in-fur-neu-und-umbauarbeiten-luzern-luzern-stellentreff-ch": {
     "winnerJobIdentifier": "stellentreff-c2b58479cd76",
-    "winnerCanonical": "maler-in-per-neu-e-umbauarbeiten-stellentreff-ag-luzern",
+    "winnerCanonical": "pittore-trice-per-lavori-di-nuova-costruzione-e-ristrutturazione-stellentreff-ag-luzern-luzern",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.1053,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -35740,10 +35776,10 @@
   },
   "NE::it::manor-kassiererin-food-marin-epagnier": {
     "winnerJobIdentifier": "manor-c15343e236e8",
-    "winnerCanonical": "alimenti-di-cassa-manor-ag-marin-epagnier-fc28475ca7",
+    "winnerCanonical": "alimenti-di-cassa-manor-ag-marin-epagnier",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.3,
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "NE"
   },
@@ -36206,6 +36242,15 @@
     "candidatesCount": 1,
     "canton": "OW"
   },
+  "OW::en::logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej": {
+    "winnerJobIdentifier": "company-grjiej",
+    "winnerCanonical": "logistics-specialist-swiss-armed-forces-vtg-alpnach",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "OW"
+  },
   "OW::en::luftfahrzeugmechaniker-in-confederazione-svizzera-alpnach": {
     "winnerJobIdentifier": "company-hsfik1",
     "winnerCanonical": "aircraft-mechanic-swiss-armed-forces-vtg-alpnach",
@@ -36266,6 +36311,15 @@
     "decidedAt": "2026-10-05T00:00:00.000Z",
     "lastSeenAt": "2026-10-25T00:00:00.000Z",
     "score": 0.0455,
+    "candidatesCount": 2,
+    "canton": "OW"
+  },
+  "OW::fr::logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej": {
+    "winnerJobIdentifier": "company-grjiej",
+    "winnerCanonical": "logisticien-ne-swiss-armed-forces-vtg-alpnach",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "OW"
   },
@@ -36374,6 +36428,24 @@
     "decidedAt": "2026-10-09T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
     "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "OW"
+  },
+  "OW::it::impiegato-a-in-logistica-swiss-armed-forces-vtg-alpnach": {
+    "winnerJobIdentifier": "company-grjiej",
+    "winnerCanonical": "impiegato-a-in-logistica-swiss-armed-forces-vtg-alpnach-53a383de0d",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "OW"
+  },
+  "OW::it::logistiker-in-swiss-armed-forces-vtg-alpnach-grjiej": {
+    "winnerJobIdentifier": "company-grjiej",
+    "winnerCanonical": "impiegato-a-in-logistica-swiss-armed-forces-vtg-alpnach-53a383de0d",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "OW"
   },
@@ -43424,6 +43496,15 @@
     "candidatesCount": 2,
     "canton": "SH"
   },
+  "SH::en::manor-mitarbeiter-in-kasse-damenkonfektion-spielwaren-40-schaffhausen": {
+    "winnerJobIdentifier": "manor-ec8e22563d78",
+    "winnerCanonical": "cashier-women-s-clothing-toys-40-manor-ag-schaffhausen",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.2143,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::en::montage-elektriker-in-efz-fur-stark-und-schwachstrominstallationen-schaffhausen": {
     "winnerJobIdentifier": "stellentreff-5ecc406b5178",
     "winnerCanonical": "assembly-electrician-efz-for-high-and-low-voltage-electrical-installations-stellentreff-ag-schaffhausen",
@@ -43817,6 +43898,15 @@
     "decidedAt": "2026-10-16T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
     "score": 0.05,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::fr::manor-mitarbeiter-in-kasse-damenkonfektion-spielwaren-40-schaffhausen": {
+    "winnerJobIdentifier": "manor-ec8e22563d78",
+    "winnerCanonical": "employe-e-caisse-confection-dames-jouets-40-manor-ag-schaffhausen",
+    "decidedAt": "2026-10-26T00:00:00.000Z",
+    "lastSeenAt": "2026-10-26T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -44532,11 +44622,11 @@
     "canton": "SH"
   },
   "SH::it::manor-mitarbeiter-in-kasse-damenkonfektion-spielwaren-40-schaffhausen": {
-    "winnerJobIdentifier": "manor-50ad79230ceb",
-    "winnerCanonical": "collaboratore-trice-in-kasse-damenkonfektion-spielwaren-40-manor-ag-schaffhausen-e30ab9252f",
+    "winnerJobIdentifier": "manor-ec8e22563d78",
+    "winnerCanonical": "addetta-o-alla-cassa-abbigliamento-donna-giocattoli-40-manor-ag-schaffhausen",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.1875,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -59509,10 +59599,10 @@
   },
   "VS::en::stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32": {
     "winnerJobIdentifier": "company-3pj8po",
-    "winnerCanonical": "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-visp",
+    "winnerCanonical": "stv-managing-directors-region-visp-brig-zermatt-and-goms-coop-genossenschaft-visp",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.8333,
+    "score": 0.4667,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -78364,10 +78454,10 @@
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur": {
     "winnerJobIdentifier": "company-5oatlg",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur",
+    "winnerCanonical": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.8571,
+    "score": 0.1818,
     "candidatesCount": 3,
     "canton": "ZH"
   },
@@ -78525,11 +78615,11 @@
     "canton": "ZH"
   },
   "ZH::it::mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich": {
-    "winnerJobIdentifier": "company-2nddwg",
-    "winnerCanonical": "collaboratore-trice-in-lagerbewirtschaftung-genossenschaft-migros-zurich-2nddwg",
+    "winnerJobIdentifier": "company-9ip17m",
+    "winnerCanonical": "collaboratore-trice-gestione-del-magazzino-genossenschaft-migros-zurich-zurich",
     "decidedAt": "2026-10-26T00:00:00.000Z",
     "lastSeenAt": "2026-10-26T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.2727,
     "candidatesCount": 2,
     "canton": "ZH"
   },
