@@ -32,6 +32,9 @@ const RELATED_SCOPE = readFileSync(resolve(ROOT, 'scripts/ci/lib/related-graph-s
 const TYPECHECK_GATE = readFileSync(resolve(ROOT, 'scripts/ci/check-typecheck-baseline.mjs'), 'utf-8');
 const TYPECHECK_CONFIG = JSON.parse(readFileSync(resolve(ROOT, 'tsconfig.ci.json'), 'utf-8')) as {
   exclude?: string[];
+  compilerOptions?: {
+    paths?: Record<string, string[]>;
+  };
 };
 
 function assembleDecision(
@@ -155,6 +158,16 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-body');
     expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-body-ch');
     expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-meta-*.ts');
+  });
+
+  it('ferma gli alias dei registry sulla boundary declaration-only CI', () => {
+    const paths = TYPECHECK_CONFIG.compilerOptions?.paths;
+    const boundary = './scripts/ci/typecheck-boundary/article-registry.d.ts';
+    expect(paths?.['@/data/blog-articles-data']).toEqual([boundary]);
+    expect(paths?.['@/data/swiss-articles-data']).toEqual([boundary]);
+    expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export interface Article');
+    expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export declare const ARTICLES');
+    expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export declare const SWISS_ARTICLES');
   });
 
   it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', () => {

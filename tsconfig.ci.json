@@ -1,5 +1,18 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/data/blog-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
+      "@/data/swiss-articles-data": [
+        "./scripts/ci/typecheck-boundary/article-registry.d.ts"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
   "exclude": [
     "node_modules",
     "dist",
