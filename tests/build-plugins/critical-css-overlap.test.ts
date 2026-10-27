@@ -15,7 +15,6 @@ import {
   SEO_STATIC_GRID_RESERVE_CSS,
   SEO_STATIC_HERO_RESERVE_CSS,
   STATIC_AD_COLLAPSE_CSS,
-  TAILWIND_UTILITY_RESERVE_CSS,
 } from '@/build-plugins/shared/criticalCss';
 
 const ROOT = resolve(__dirname, '..', '..');
@@ -135,6 +134,6 @@ describe('render-blocking critical CSS first-paint contract', () => {
     expect(CRITICAL_CSS_LINK).toContain('<link rel="stylesheet"');
     expect(CRITICAL_CSS_LINK).toContain('href="/assets/critical.css"');
     expect(CRITICAL_CSS_LINK).not.toContain('media="print"');
-    expect(CRITICAL_CSS).not.toContain(TAILWIND_UTILITY_RESERVE_CSS);
+    expect(CRITICAL_CSS).not.toContain('.jc-card{border-style:solid');
   });
 });
