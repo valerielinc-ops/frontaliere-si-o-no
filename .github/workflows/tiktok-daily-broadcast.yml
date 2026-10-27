@@ -67,6 +67,18 @@ jobs:
         run: npm ci
 
       - name: Setup FFmpeg toolchain
+        id: setup_ffmpeg
+        continue-on-error: true
+        uses: FedericoCarboni/setup-ffmpeg@v3.1
+        with:
+          ffmpeg-version: release
+          linking-type: static
+
+      # setup-ffmpeg downloads the static release at runtime. A transient
+      # GitHub/release fetch failure must not turn a healthy runner into a
+      # broadcast failure when a second bounded attempt can recover it.
+      - name: Retry FFmpeg toolchain after transient download failure
+        if: steps.setup_ffmpeg.outcome == 'failure'
         uses: FedericoCarboni/setup-ffmpeg@v3.1
         with:
           ffmpeg-version: release

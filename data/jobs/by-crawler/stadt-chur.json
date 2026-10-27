@@ -201,7 +201,7 @@
         "it": "controller-in-80-100-stadt-chur-1731",
         "en": "controller-in-80-100-stadt-chur-1731",
         "de": "controller-in-80-100-stadt-chur-1731",
-        "fr": "controller-in-80-100-stadt-chur-chur"
+        "fr": "controleur-euse-80-100-stadt-chur-chur"
       },
       "crawledAt": "2026-10-27T09:38:41.671Z",
       "id": "stadt-chur-968df692c179",
@@ -223,11 +223,11 @@
       "firstSeenAt": "2026-10-16T21:27:21.748Z",
       "previousSlugsByLocale": {
         "fr": [
-          "controleur-euse-80-100-stadt-chur-chur"
+          "controller-in-80-100-stadt-chur-chur"
         ]
       },
       "previousSlugs": [
-        "controleur-euse-80-100-stadt-chur-chur"
+        "controller-in-80-100-stadt-chur-chur"
       ]
     },
     {
@@ -305,7 +305,8 @@
       },
       "previousSlugs": [
         "kaufmannisches-kurzzeitpraktikum-hms-3-1-100-1-monat-stadt-chur-1723"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }

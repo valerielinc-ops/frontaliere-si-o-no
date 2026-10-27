@@ -661,12 +661,12 @@
     },
     {
       "id": "planzer-559e150098b6",
-      "slug": "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-dietikon",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-settore-trasporti-planzer-dietikon",
       "slugByLocale": {
         "de": "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon",
-        "it": "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-dietikon",
-        "en": "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon",
-        "fr": "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon"
+        "it": "apprendistato-impiegato-a-di-commercio-afc-settore-trasporti-planzer-dietikon",
+        "en": "apprenticeship-as-a-businessman-woman-efz-transport-sector-planzer-dietikon",
+        "fr": "apprentissage-d-employe-e-de-commerce-cfc-branche-transport-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -716,11 +716,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon",
+          "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-dietikon"
+        ],
+        "en": [
+          "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon"
+        ],
+        "fr": [
           "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon"
+        "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-dietikon",
+        "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-dietikon"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

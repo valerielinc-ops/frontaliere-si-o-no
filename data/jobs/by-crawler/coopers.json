@@ -3894,8 +3894,8 @@
       "slugByLocale": {
         "de": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel",
         "it": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-group-ag-basel-landschaft",
-        "en": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel",
-        "fr": "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel"
+        "en": "project-manager-automation-engineer-pharma-engineering-drug-products-m-f-d-coopers-group-ag-basel-landschaft",
+        "fr": "gestionnaire-de-projet-ingenieur-d-automatisation-pharma-ingenierie-et-medicaments-h-f-d-coopers-group-ag-basel"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3956,6 +3956,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel"
+        ],
+        "en": [
+          "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel"
+        ],
+        "fr": [
+          "projektleiter-automationsingenieur-pharma-engineering-drug-products-m-w-d-coopers-basel"
         ]
       },
       "previousSlugs": [
@@ -3978,12 +3984,12 @@
     },
     {
       "id": "coopers-9477b206fa7e",
-      "slug": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
+      "slug": "responsabile-senior-delle-transazioni-immobiliari-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "de": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
-        "it": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
+        "it": "responsabile-senior-delle-transazioni-immobiliari-m-f-d-coopers-group-ag-basel-stadt",
         "en": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
-        "fr": "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
+        "fr": "gestionnaire-principal-des-transactions-immobilieres-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4056,7 +4062,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-27T09:24:17.956Z"
+      "firstSeenAt": "2026-10-27T09:24:17.956Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
+      ]
     }
   ]
 }

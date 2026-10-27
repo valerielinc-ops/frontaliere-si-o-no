@@ -52,6 +52,17 @@ jobs:
         run: npm ci
 
       - name: Setup FFmpeg toolchain
+        id: setup_ffmpeg
+        continue-on-error: true
+        uses: FedericoCarboni/setup-ffmpeg@v3.1
+        with:
+          ffmpeg-version: release
+          linking-type: static
+
+      # Keep the sibling social broadcast resilient to the same transient
+      # release-download failure as TikTok; verification remains fail-closed.
+      - name: Retry FFmpeg toolchain after transient download failure
+        if: steps.setup_ffmpeg.outcome == 'failure'
         uses: FedericoCarboni/setup-ffmpeg@v3.1
         with:
           ffmpeg-version: release

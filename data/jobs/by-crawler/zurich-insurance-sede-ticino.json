@@ -10,7 +10,7 @@
         "en": "cross-line-of-business-underwriting-product-owner-80-100-zurich-insurance-sede-ticino",
         "it": "cross-line-of-business-underwriting-product-owner-80-100-zurich-insurance-sede-ticino",
         "de": "cross-line-of-business-underwriting-product-owner-80-100-zurich-insurance-sede-ticino",
-        "fr": "cross-line-of-business-underwriting-product-owner-80-100-zurich-insurance-sede-ticino"
+        "fr": "multi-ligne-d-affaires-proprietaire-de-produit-de-souscription-80-100-zurich-insurance-zurich-1375917357"
       },
       "slugDisambiguator": "1375917357",
       "company": "Zurich Insurance",
@@ -57,7 +57,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -164,7 +163,7 @@
         "it": "controllore-finanziario-senior-m-f-d-zurich-insurance-zurich-1375839057",
         "en": "senior-financial-controller-m-w-d-zurich-insurance-sede-ticino-zurich",
         "de": "senior-financial-controller-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "senior-financial-controller-m-w-d-zurich-insurance-zurich"
+        "fr": "controleur-financier-principal-h-f-d-zurich-insurance-zurich-1375839057"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -211,7 +210,7 @@
       "previousSlugs": [
         "senior-financial-controller-m-w-d-zurich-insurance-sede-ticino-zurich",
         "senior-financial-controller-m-w-d-zurich-insurance-zurich-1375839057",
-        "controleur-financier-principal-h-f-d-zurich-insurance-zurich-1375839057"
+        "senior-financial-controller-m-w-d-zurich-insurance-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -219,7 +218,7 @@
         ],
         "fr": [
           "senior-financial-controller-m-w-d-zurich-insurance-zurich-1375839057",
-          "controleur-financier-principal-h-f-d-zurich-insurance-zurich-1375839057"
+          "senior-financial-controller-m-w-d-zurich-insurance-zurich"
         ]
       },
       "slugDisambiguator": "1375839057",
@@ -1600,7 +1599,7 @@
       "slug": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
-        "en": "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757",
+        "en": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "de": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
       },
@@ -1648,14 +1647,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+        "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "en": [
-          "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+          "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
         ]
       },
       "slugDisambiguator": "1373916757",

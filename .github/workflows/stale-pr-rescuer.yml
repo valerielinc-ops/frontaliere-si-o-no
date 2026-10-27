@@ -171,8 +171,46 @@ jobs:
             BRANCH=$(echo "$pr" | jq -r '.headRefName')
             HEAD=$(echo "$pr" | jq -r '.headRefOid')
             UPD=$(echo "$pr" | jq -r '.updatedAt')
+            BASE_REF=$(echo "$pr" | jq -r '.baseRefName // ""')
+            MERGEABLE_STATE=$(echo "$pr" | jq -r '.mergeableState // ""')
             HAS_AUTOFIX=$(echo "$pr" | jq -r 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end')
-            HAS_CONFLICTS=$(echo "$pr" | jq -r 'if any(.labels[]?.name; . == "has-conflicts") then "true" else "false" end')
+            HAS_CONFLICT_LABEL=$(echo "$pr" | jq -r 'if any(.labels[]?.name; . == "has-conflicts") then "true" else "false" end')
+            # `has-conflicts` è una traccia persistente, non una prova corrente:
+            # pr-autorebase la conserva quando il fetch o merge-tree fallisce.
+            # Prima di lasciarla entrare nella classificazione, richiediamo la
+            # seconda fonte indipendente restituita da GitHub sulla stessa PR.
+            # Uno stato non leggibile è fail-closed: nessuna classe può mutare
+            # la PR fino al prossimo scan, invece di trattare una label stale
+            # come un conflitto attuale e mandare una PR pulita al recycle.
+            HAS_CONFLICTS=false
+            if [ "$HAS_CONFLICT_LABEL" = "true" ]; then
+              # L'endpoint di lista sopra non è una fonte affidabile per
+              # `mergeable_state`: il campo è calcolato sull'endpoint della
+              # singola PR e può essere assente o stale nella lista paginata.
+              # Leggiamo quindi la rappresentazione completa della PR solo
+              # quando la label richiede questa prova indipendente.
+              PR_CONFLICT_DETAIL=''
+              if ! PR_CONFLICT_DETAIL=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$N" 2>/dev/null); then
+                echo "PR #$N: dettaglio conflitto non leggibile — skip conservativo"; continue
+              fi
+              if ! printf '%s\n' "$PR_CONFLICT_DETAIL" | jq -e '
+                type == "object"
+                and (.base.ref | type == "string")
+                and (.mergeable_state | type == "string")
+              ' >/dev/null 2>&1; then
+                echo "PR #$N: dettaglio conflitto incompleto — skip conservativo"; continue
+              fi
+              BASE_REF=$(printf '%s\n' "$PR_CONFLICT_DETAIL" | jq -r '.base.ref')
+              MERGEABLE_STATE=$(printf '%s\n' "$PR_CONFLICT_DETAIL" | jq -r '.mergeable_state')
+              if [ "$BASE_REF" != "main" ] || [ "$MERGEABLE_STATE" = "unknown" ]; then
+                echo "PR #$N: has-conflicts non verificabile (base=${BASE_REF:-?} mergeable_state=${MERGEABLE_STATE:-?}) — skip conservativo"; continue
+              fi
+              if [ "$BASE_REF" = "main" ] && [ "$MERGEABLE_STATE" = "dirty" ]; then
+                HAS_CONFLICTS=true
+              else
+                echo "PR #$N: label has-conflicts non confermata (base=$BASE_REF mergeable_state=$MERGEABLE_STATE) — valuto le altre classi"
+              fi
+            fi
             IS_DRAFT=$(echo "$pr" | jq -r '.isDraft')
 
             # Il rescuer e il recycle sono strumenti del loop autonomo. La

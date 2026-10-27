@@ -246,6 +246,7 @@ const JOB_DETAIL_FILTER_SLUG_RX = /^(?:lavoro|jobs?|stellen|emploi|offerte)-(?:p
 const JOB_DETAIL_EDITORIAL_SLUGS = new Set([
   'offerte-di-lavoro-ticino-oggi', 'ticino-jobs-today', 'jobs-tessin-heute', 'offres-emploi-tessin-aujourdhui',
   'foglio-ufficiale-offerte-di-lavoro-ticino', 'official-gazette-ticino-jobs', 'amtsblatt-stellen-tessin', 'feuille-officielle-emplois-tessin',
+  'infermieri', 'case-anziani',
   'infermieri-in-ticino', 'nurses-in-ticino', 'pflege-jobs-im-tessin', 'infirmiers-au-tessin',
   'cliniche-ticino', 'clinics-ticino-jobs', 'kliniken-tessin-jobs', 'cliniques-ticino',
   'case-anziani-ticino', 'care-homes-ticino-jobs', 'altersheime-tessin-jobs', 'maisons-retraite-ticino',

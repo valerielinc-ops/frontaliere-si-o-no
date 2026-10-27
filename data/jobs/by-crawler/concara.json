@@ -3805,12 +3805,12 @@
     },
     {
       "id": "concara-625a4f59331f",
-      "slug": "collaboratore-trice-betreuung-e-pflege-50-100-ags-srk-concara-domicil-spitex-bern",
+      "slug": "assistenza-al-personale-e-infermieristica-50-100-ags-srk-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern",
-        "it": "collaboratore-trice-betreuung-e-pflege-50-100-ags-srk-concara-domicil-spitex-bern",
-        "en": "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern",
-        "fr": "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern"
+        "it": "assistenza-al-personale-e-infermieristica-50-100-ags-srk-concara-domicil-spitex-bern-bern",
+        "en": "employee-support-and-care-50-100-ags-srk-concara-domicil-spitex-bern-bern",
+        "fr": "employe-dans-l-encadrement-et-les-soins-50-100-ags-crs-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3818,7 +3818,7 @@
       "title": "Mitarbeiter:in Betreuung und Pflege 50 - 100% AGS / SRK",
       "titleByLocale": {
         "de": "Mitarbeiter:in Betreuung und Pflege 50 - 100% AGS / SRK",
-        "it": "Collaboratore/trice Betreuung e Pflege 50 - 100% AGS / SRK",
+        "it": "Assistenza al Personale e Infermieristica 50% - 100% AGS / SRK",
         "en": "Employee support and care 50 - 100% AGS / SRK",
         "fr": "Employé :dans l'encadrement et les soins 50 - 100 % AGS / CRS"
       },
@@ -3859,11 +3859,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern",
+          "collaboratore-trice-betreuung-e-pflege-50-100-ags-srk-concara-domicil-spitex-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern"
+        ],
+        "fr": [
           "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern"
+        "mitarbeiter-in-betreuung-und-pflege-50-100-ags-srk-concara-bern",
+        "collaboratore-trice-betreuung-e-pflege-50-100-ags-srk-concara-domicil-spitex-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

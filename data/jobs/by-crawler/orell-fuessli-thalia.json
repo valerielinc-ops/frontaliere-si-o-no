@@ -937,9 +937,7 @@
       "previousSlugs": [
         "buchhandler-in-70-a-orell-fuessli-thalia-bern",
         "buchhandler-in-70-a-orell-fussli-thalia-bern",
-        "libraire-70-a-orell-fussli-thalia-bern",
-        "librairie-70-a-orell-fussli-thalia-bern",
-        "bookseller-70-a-orell-fussli-thalia-bern"
+        "libraire-70-a-orell-fussli-thalia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1759,12 +1757,12 @@
     },
     {
       "id": "orell-fuessli-thalia-137a9da55e86",
-      "slug": "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern",
+      "slug": "collaboratore-tricedell-evento-al-5-a-orell-fussli-thalia-bern",
       "slugByLocale": {
         "de": "veranstaltungsmitarbeiter-in-5-a-orell-fuessli-thalia-bern",
-        "it": "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern",
-        "en": "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern",
-        "fr": "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern"
+        "it": "collaboratore-tricedell-evento-al-5-a-orell-fussli-thalia-bern",
+        "en": "eventstaff-5-a-orell-fussli-thalia-bern",
+        "fr": "personneldel-evenement-5-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1811,14 +1809,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "veranstaltungsmitarbeiter-in-5-a-orell-fuessli-thalia-bern"
+          "veranstaltungsmitarbeiter-in-5-a-orell-fuessli-thalia-bern",
+          "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern"
+        ],
+        "en": [
+          "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern"
+        ],
+        "fr": [
+          "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern"
         ]
       },
       "previousSlugs": [
-        "veranstaltungsmitarbeiter-in-5-a-orell-fuessli-thalia-bern"
+        "veranstaltungsmitarbeiter-in-5-a-orell-fuessli-thalia-bern",
+        "veranstaltungsmitarbeiter-in-5-a-orell-fussli-thalia-bern"
       ],
       "salaryMin": 3900,
       "salaryMax": 5900,

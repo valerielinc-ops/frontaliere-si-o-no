@@ -49,6 +49,7 @@ concurrency:
 
 permissions:
   contents: read
+  actions: read
   issues: write
 
 jobs:
@@ -110,6 +111,7 @@ jobs:
           # corpus dopo la migrazione cross-repo.
           CRAWLER_RUN_REPO: nanakokyobashi-rgb/frontaliere-articles
         run: |
+          set -euo pipefail
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "::error::GITHUB_PAT_NANAKO non caricato — il GITHUB_TOKEN del sito non puo' leggere le run del corpus."
             exit 1

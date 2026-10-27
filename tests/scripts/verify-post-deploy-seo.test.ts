@@ -54,6 +54,24 @@ describe('post-deploy SEO verification', () => {
     expect(result.errors).toEqual([]);
   });
 
+  it('classifies CollectionPage and ItemList JSON-LD as a listing landing', () => {
+    const result = inspectLiveJobPostingHtml(jsonLd([
+      {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: [],
+      },
+    ]));
+
+    expect(result.isJobPage).toBe(false);
+    expect(result.isListingPage).toBe(true);
+    expect(result.errors).toEqual([]);
+  });
+
   it('keeps a detail candidate observable when its JobPosting JSON-LD disappears', () => {
     const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/job-slug/';
     const live = inspectLiveJobPostingHtml(jsonLd({
@@ -100,6 +118,35 @@ describe('post-deploy SEO verification', () => {
       shouldInspect: false,
       issue: null,
       skipped: true,
+    });
+  });
+
+  it('does not use the conservative detail fallback for a semantic listing page', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri/';
+
+    expect(classifyLiveJobCandidate(pageUrl, {
+      isJobPage: false,
+      isListingPage: true,
+      errors: [],
+    }, new Map([[pageUrl, false]]))).toMatchObject({
+      shouldInspect: false,
+      issue: null,
+      skipped: true,
+    });
+  });
+
+  it('keeps a detail candidate observable when listing schema is also present', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermiere/';
+
+    expect(classifyLiveJobCandidate(pageUrl, {
+      isJobPage: false,
+      isListingPage: true,
+      errors: [],
+    }, new Map([[pageUrl, true]]))).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: 'missing-jobposting',
+      skipped: false,
     });
   });
 

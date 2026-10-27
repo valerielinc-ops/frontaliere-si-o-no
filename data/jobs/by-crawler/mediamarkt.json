@@ -4019,12 +4019,12 @@
     },
     {
       "id": "mediamarkt-100803",
-      "slug": "collaboratore-trice-in-vendita-40-mediamarkt-steinhausen",
+      "slug": "dipendente-vendite-40-mediamarkt-steinhausen",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch",
-        "it": "collaboratore-trice-in-vendita-40-mediamarkt-steinhausen",
-        "en": "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch",
-        "fr": "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch"
+        "it": "dipendente-vendite-40-mediamarkt-steinhausen",
+        "en": "sales-associate-40-mediamarkt-steinhausen",
+        "fr": "employe-e-vente-40-mediamarkt-steinhausen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -4032,7 +4032,7 @@
       "title": "Mitarbeiter*in Verkauf 40%",
       "titleByLocale": {
         "de": "Mitarbeiter*in Verkauf 40%",
-        "it": "Collaboratore/trice*in vendita 40%",
+        "it": "Dipendente Vendite 40%",
         "en": "Sales Associate 40%",
         "fr": "Employé·e Vente 40 %"
       },
@@ -4075,11 +4075,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch",
+          "collaboratore-trice-in-vendita-40-mediamarkt-steinhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch"
+        "mitarbeiter-in-verkauf-40-mediamarkt-steinhausen-ch",
+        "collaboratore-trice-in-vendita-40-mediamarkt-steinhausen"
       ],
       "salaryMin": 31600,
       "salaryMax": 48600,

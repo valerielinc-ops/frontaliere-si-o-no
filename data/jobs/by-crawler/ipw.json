@@ -2008,12 +2008,12 @@
     },
     {
       "id": "ipw-555c187af2f2",
-      "slug": "assistenzarztin-assistenzarzt-ipw-bulach",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-bulach",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-ipw-bulach",
-        "it": "assistenzarztin-assistenzarzt-ipw-bulach",
-        "en": "assistenzarztin-assistenzarzt-ipw-bulach",
-        "fr": "assistenzarztin-assistenzarzt-ipw-bulach"
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-bulach",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-bulach",
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-bulach"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -2074,7 +2074,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ipw-bulach"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ipw-bulach"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-ipw-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ipw-bulach"
+      ]
     }
   ]
 }

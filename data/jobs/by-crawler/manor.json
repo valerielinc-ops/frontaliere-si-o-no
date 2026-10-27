@@ -8226,9 +8226,7 @@
         "manor-mitarbeiter-in-kasse-50-liestal",
         "mitarbeiter-in-kasse-50-manor-ag-liestal",
         "collaboratore-trice-in-kasse-50-manor-ag-liestal",
-        "employeecash-register-50-manor-ag-liestal",
-        "cashier-50-manor-ag-liestal",
-        "manor-mitarbeiter-in-kasse-50-liestal-mitarbeiterin-kasse-50"
+        "employeecash-register-50-manor-ag-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17427,12 +17425,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "vendite-di-collaboratore-players-50-manor-ag-biel",
+      "slug": "vendite-dei-dipendenti-giocatori-50-manor-ag-biel",
       "slugByLocale": {
-        "it": "vendite-di-collaboratore-players-50-manor-ag-biel",
+        "it": "vendite-dei-dipendenti-giocatori-50-manor-ag-biel",
         "en": "collaborator-sales-players-50-manor-ag-biel",
         "de": "mitarbeiter-verkaufe-spieler-50-manor-ag-biel",
-        "fr": "manor-collaborateur-trice-vente-jouets-50-biel"
+        "fr": "ventes-des-employes-joueurs-50-manor-ag-biel"
       },
       "titleByLocale": {
         "it": "Vendite dei dipendenti (giocatori) 50%",
@@ -17445,18 +17443,23 @@
       "previousSlugs": [
         "manor-collaborateur-trice-vente-jouets-50-biel",
         "collaboratore-trice-alle-vendite-giocattoli-50-manor-ag-biel",
-        "collaborateur-trice-vente-jouets-50-manor-ag-biel"
+        "collaborateur-trice-vente-jouets-50-manor-ag-biel",
+        "vendite-di-collaboratore-players-50-manor-ag-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-jouets-50-biel",
           "collaboratore-trice-alle-vendite-giocattoli-50-manor-ag-biel",
-          "collaborateur-trice-vente-jouets-50-manor-ag-biel"
+          "collaborateur-trice-vente-jouets-50-manor-ag-biel",
+          "vendite-di-collaboratore-players-50-manor-ag-biel"
         ],
         "en": [
           "manor-collaborateur-trice-vente-jouets-50-biel"
         ],
         "de": [
+          "manor-collaborateur-trice-vente-jouets-50-biel"
+        ],
+        "fr": [
           "manor-collaborateur-trice-vente-jouets-50-biel"
         ]
       },
@@ -17508,7 +17511,7 @@
         "it": "addetto-a-alle-vendite-giocattoli-50-manor-ag-biel",
         "en": "sales-associate-toys-50-manor-ag-biel",
         "de": "manor-mitarbeiter-in-verkauf-spielwaren-50-biel",
-        "fr": "mitarbeiter-in-vente-spielwaren-50-manor-ag-biel"
+        "fr": "employe-e-vente-jouets-50-manor-ag-biel"
       },
       "titleByLocale": {
         "it": "Addetto/a alle vendite (Giocattoli) 50%",
@@ -17521,7 +17524,8 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-spielwaren-50-biel",
         "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-biel",
-        "mitarbeiter-in-sales-spielwaren-50-manor-ag-biel"
+        "mitarbeiter-in-sales-spielwaren-50-manor-ag-biel",
+        "mitarbeiter-in-vente-spielwaren-50-manor-ag-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17533,11 +17537,11 @@
           "mitarbeiter-in-sales-spielwaren-50-manor-ag-biel"
         ],
         "fr": [
-          "manor-mitarbeiter-in-verkauf-spielwaren-50-biel"
+          "manor-mitarbeiter-in-verkauf-spielwaren-50-biel",
+          "mitarbeiter-in-vente-spielwaren-50-manor-ag-biel"
         ]
       },
       "firstSeenAt": "2026-10-05T21:46:14.997Z",
-      "needsRetranslation": true,
       "salaryMin": 38800,
       "salaryMax": 59300,
       "currency": "CHF",
@@ -17801,7 +17805,7 @@
       "slugByLocale": {
         "it": "dipendenti-in-cassa-40-manor-ag-hinwil",
         "en": "employeecash-register-40-manor-ag-hinwil",
-        "de": "manor-mitarbeiter-in-kasse-40-hinwil",
+        "de": "manor-mitarbeiter-in-kasse-40-hinwil-ipfeug",
         "fr": "employe-e-caisse-40-manor-ag-hinwil"
       },
       "titleByLocale": {
@@ -17825,6 +17829,9 @@
           "manor-mitarbeiter-in-kasse-40-hinwil"
         ],
         "fr": [
+          "manor-mitarbeiter-in-kasse-40-hinwil"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-40-hinwil"
         ]
       },
@@ -26199,9 +26206,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-40-hinwil",
+      "slug": "dipendenti-in-cassa-40-manor-ag-hinwil-c1eb3a",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-40-hinwil",
+        "it": "dipendenti-in-cassa-40-manor-ag-hinwil-c1eb3a",
         "en": "employeecash-register-40-manor-ag-hinwil",
         "de": "manor-mitarbeiter-in-kasse-40-hinwil",
         "fr": "employe-e-caisse-40-manor-ag-hinwil"
@@ -26229,7 +26236,15 @@
         }
       },
       "applyUrl": "https://positions.manor.ch/job/Hinwil-Mitarbeiterin-Kasse-40/1374099455/",
-      "firstSeenAt": "2026-09-29T09:28:01.383Z"
+      "firstSeenAt": "2026-09-29T09:28:01.383Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-40-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-40-hinwil"
+      ]
     }
   ]
 }

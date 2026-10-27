@@ -809,12 +809,43 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  return typeof value === 'string' ? value : '';
  };
  const dynamicFields = [
- 'title', 'description', 'keywords', 'ogTitle', 'ogDescription',
+ '@type', 'title', 'description', 'keywords', 'ogTitle', 'ogDescription',
  'canonicalPath', 'datePublished', 'dateModified',
  ];
- if (dynamicFields.some((field) => hasInterpolatedStaticProperty(b, field))) {
+
+ // Select the concrete JSON-LD object that owns an Event. The shared reader
+ // understands both `structuredData: { ... }` and `structuredData: [{ ... }]`
+ // and balances strings/templates, so braces in an Event name or description
+ // cannot truncate the source block.
+ const structuredBlocks = readStructuredSeoObjectBlocks(b) ?? [];
+ const eventBlock = [...structuredBlocks]
+ .reverse()
+ .find((candidate) => lastStaticPropertyValue(candidate, '@type') === 'Event');
+ const sdBlock = eventBlock ?? structuredBlocks.at(-1) ?? '';
+ const readStructuredField = (field: string): string => {
+ const value = lastStaticPropertyValue(sdBlock, field);
+ return typeof value === 'string' ? value : '';
+ };
+ const sdType = readStructuredField('@type');
+ const authorBlock = readStaticObjectProperty(sdBlock, 'author');
+ const sdAuthorHasId = Boolean(authorBlock && lastStaticPropertyValue(authorBlock, '@id'));
+
+ // A dynamic assignment cannot be represented by this static renderer. The
+ // Event branch below consumes these fields directly, so discover the Event
+ // object first and guard every field it reads. BASE_URL templates are safe
+ // only in the URL-bearing nested fields resolved by parseNestedObj.
+ const eventFields = sdType === 'Event'
+ ? ['name', 'startDate', 'endDate', 'eventStatus', 'eventAttendanceMode', 'location', 'organizer', 'offers', 'performer']
+ : [];
+ const eventBaseUrlFields = new Set(['location', 'organizer', 'offers', 'performer']);
+ const dynamicField = [...dynamicFields, ...eventFields]
+ .find((field) => hasInterpolatedStaticProperty(b, field, {
+ allowBaseUrlTemplates: eventBaseUrlFields.has(field),
+ }));
+ if (dynamicField || readStructuredSeoDescriptionState(b).dynamic) {
  continue;
  }
+
  const topLevelDescription = staticPropertyState(b, 'description');
  const structuredDescription = readStructuredSeoDescriptionState(b);
  const title = readStaticField('title');
@@ -850,23 +881,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  || sitemapLastmodBySlug[articleSlug]
  || (winnerSlug ? sitemapLastmodBySlug[winnerSlug] : '')
  || seoDateMod;
-
- // Select the concrete JSON-LD object that owns an Event. The shared reader
- // understands both `structuredData: { ... }` and `structuredData: [{ ... }]`
- // and balances strings/templates, so braces in an Event name or description
- // cannot truncate the source block.
- const structuredBlocks = readStructuredSeoObjectBlocks(b) ?? [];
- const eventBlock = [...structuredBlocks]
- .reverse()
- .find((candidate) => lastStaticPropertyValue(candidate, '@type') === 'Event');
- const sdBlock = eventBlock ?? structuredBlocks.at(-1) ?? '';
- const readStructuredField = (field: string): string => {
- const value = lastStaticPropertyValue(sdBlock, field);
- return typeof value === 'string' ? value : '';
- };
- const sdType = readStructuredField('@type');
- const authorBlock = readStaticObjectProperty(sdBlock, 'author');
- const sdAuthorHasId = Boolean(authorBlock && lastStaticPropertyValue(authorBlock, '@id'));
 
  if (cp.startsWith(SECTION.canonicalPrefix)) {
  const authorSlug = articleAuthorSlugById[articleId] || '';

@@ -369,17 +369,13 @@
       "previousSlugs": [
         "system-engineer-cbtc-stadler-rail-ch",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
-        "system-engineer-cbtc-stadler-rail-ch-c74w3g",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen"
+        "system-engineer-cbtc-stadler-rail-ch-c74w3g"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-cbtc-stadler-rail-ch",
           "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g",
-          "system-engineer-cbtc-stadler-rail-ch-c74w3g",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-0cc05de06c",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen"
+          "system-engineer-cbtc-stadler-rail-ch-c74w3g"
         ],
         "fr": [
           "system-engineer-cbtc-stadler-rail-ch"
@@ -6397,18 +6393,14 @@
         "system-engineer-cbtc-stadler-rail-ch-2",
         "system-engineer-cbtc-stadler-rail-wallisellen",
         "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
-        "system-engineer-cbtc-stadler-rail-ch-3kv6vv",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen"
+        "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-cbtc-stadler-rail-ch",
           "system-engineer-cbtc-stadler-rail-ch-2",
           "system-engineer-cbtc-stadler-rail-wallisellen",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen-cb2fa13430",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen"
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-3kv6vv"
         ],
         "de": [
           "system-engineer-cbtc-stadler-rail-ch-3kv6vv"
@@ -9595,8 +9587,7 @@
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-fertigstellung-stadler-rail-ch",
-          "anderungselektriker-in-fertigstellung-stadler-rail-ch",
-          "elettricista-in-completamento-stadler-rail-bussnang"
+          "anderungselektriker-in-fertigstellung-stadler-rail-ch"
         ],
         "en": [
           "elektriker-in-fertigstellung-stadler-rail-ch"
@@ -9610,8 +9601,7 @@
       },
       "previousSlugs": [
         "elektriker-in-fertigstellung-stadler-rail-ch",
-        "anderungselektriker-in-fertigstellung-stadler-rail-ch",
-        "elettricista-in-completamento-stadler-rail-bussnang"
+        "anderungselektriker-in-fertigstellung-stadler-rail-ch"
       ],
       "firstSeenAt": "2026-07-21T11:24:44.736Z",
       "salaryMin": 64500,
@@ -13562,12 +13552,12 @@
     },
     {
       "id": "stadler-rail-dbddf9db8d95",
-      "slug": "recruiting-stadler-rail-ch",
+      "slug": "revisione-stadler-rail-vufflens-la-ville",
       "slugByLocale": {
         "fr": "recruiting-stadler-rail-ch",
-        "it": "recruiting-stadler-rail-ch",
-        "en": "recruiting-stadler-rail-vufflens-la-ville",
-        "de": "recruiting-stadler-rail-ch"
+        "it": "revisione-stadler-rail-vufflens-la-ville",
+        "en": "recuiting-stadler-rail-vufflens-la-ville",
+        "de": "wiederholen-stadler-rail-vufflens-la-ville"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13625,16 +13615,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:40:41.667Z"
+      "firstSeenAt": "2026-10-27T09:40:41.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "recruiting-stadler-rail-ch"
+        ],
+        "en": [
+          "recruiting-stadler-rail-vufflens-la-ville"
+        ],
+        "de": [
+          "recruiting-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "recruiting-stadler-rail-ch",
+        "recruiting-stadler-rail-vufflens-la-ville"
+      ]
     },
     {
       "id": "stadler-rail-2ba0d5f39821",
-      "slug": "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch",
+      "slug": "senior-project-manager-rail-signage-stadler-rail-vufflens-la-ville",
       "slugByLocale": {
         "fr": "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch",
-        "it": "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch",
+        "it": "senior-project-manager-rail-signage-stadler-rail-vufflens-la-ville",
         "en": "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch",
-        "de": "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch"
+        "de": "senior-projektmanager-bahnbeschilderung-stadler-rail-vufflens-la-ville"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13692,7 +13697,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T09:40:28.158Z"
+      "firstSeenAt": "2026-10-27T09:40:28.158Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch"
+        ],
+        "de": [
+          "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-senior-signalisation-ferroviaire-stadler-rail-ch"
+      ]
     }
   ]
 }

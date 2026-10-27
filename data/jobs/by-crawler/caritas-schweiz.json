@@ -745,12 +745,12 @@
     },
     {
       "id": "caritas-schweiz-a0e7aca21c40",
-      "slug": "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d-caritas-schweiz-zurich",
+      "slug": "centro-di-assistenza-mna-80-100-a-zurigo-oerlikon-limitato-a-31-marzo-2027-m-f-d-caritas-schweiz-zurich",
       "slugByLocale": {
         "de": "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d",
-        "it": "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d-caritas-schweiz-zurich",
-        "en": "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d",
-        "fr": "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d"
+        "it": "centro-di-assistenza-mna-80-100-a-zurigo-oerlikon-limitato-a-31-marzo-2027-m-f-d-caritas-schweiz-zurich",
+        "en": "assistance-asylum-center-mna-80-100-in-zurich-oerlikon-limited-to-31-march-2027-m-f-d-caritas-schweiz-zurich",
+        "fr": "centre-d-assistance-d-asile-mna-80-100-a-zurich-oerlikon-limite-a-31-mars-2027-h-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -800,11 +800,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d",
+          "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d-caritas-schweiz-zurich"
+        ],
+        "en": [
+          "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d"
+        ],
+        "fr": [
           "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d"
         ]
       },
       "previousSlugs": [
-        "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d"
+        "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d",
+        "betreuung-asylzentrum-mna-80-100-in-zurich-oerlikon-befristet-bis-31-marz-2027-m-w-d-caritas-schweiz-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
