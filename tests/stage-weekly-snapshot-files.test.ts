@@ -71,7 +71,7 @@ afterEach(() => {
 });
 
 describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
-  it('stages core snapshot/delta/footer files even when both related-search files are within ceiling', () => {
+  it('stages core files when optional sector files are absent and related-search files are within ceiling', () => {
     const dir = makeRepoFixture();
     writeSizedFile(join(dir, 'data', 'jobs-snapshots-history', '2026-07-06.json'), 10 * MB);
     writeSizedFile(join(dir, 'data', 'weekly-employers-delta.json'), 1 * MB);
@@ -87,6 +87,36 @@ describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
     expect(staged).toContain('data/weekly-employers-top-pairs.json');
     expect(staged).toContain('data/related-search-enriched.json');
     expect(staged).toContain('data/related-search-candidates.json');
+  });
+
+  it('stages a deletion when a tracked core file was removed by the generator', () => {
+    const dir = makeRepoFixture();
+    const removedPath = join(dir, 'data', 'sector-hub-publications.json');
+    writeSizedFile(removedPath, 1 * MB);
+    execFileSync('git', ['add', '--', removedPath], { cwd: dir });
+    execFileSync('git', ['commit', '-qm', 'seed tracked sector publication'], { cwd: dir });
+    rmSync(removedPath);
+
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+
+    const status = execFileSync(
+      'git',
+      ['diff', '--cached', '--name-status', '--', 'data/sector-hub-publications.json'],
+      { cwd: dir, encoding: 'utf8' },
+    );
+    expect(status.trim()).toBe('D\tdata/sector-hub-publications.json');
+  });
+
+  it('keeps each core pathspec confined to that path', () => {
+    const dir = makeRepoFixture();
+    writeSizedFile(join(dir, 'data', 'weekly-employers-delta.json'), 1 * MB);
+    writeSizedFile(join(dir, 'data', 'unrelated-generated-file.json'), 1 * MB);
+
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+
+    const staged = stagedFiles(dir);
+    expect(staged).toContain('data/weekly-employers-delta.json');
+    expect(staged).not.toContain('data/unrelated-generated-file.json');
   });
 
   it('still stages core files when related-search-candidates.json exceeds its ceiling (the #3663 failure mode)', () => {
@@ -129,5 +159,27 @@ describe('scripts/lib/stage-weekly-snapshot-files.sh (issue #3663)', () => {
     expect(staged).toContain('data/jobs-snapshots-history/2026-07-06.json');
     expect(staged).not.toContain('data/related-search-enriched.json');
     expect(staged).toContain('data/related-search-candidates.json');
+  });
+
+  it('stages a tracked core deletion while leaving absent optional paths harmless', () => {
+    const dir = makeRepoFixture();
+    const deletedCorePath = join(dir, 'data', 'sector-hub-publications.json');
+    writeSizedFile(deletedCorePath, 1 * MB);
+    execFileSync('git', ['add', '--', 'data/sector-hub-publications.json'], { cwd: dir });
+    execFileSync('git', ['commit', '-qm', 'seed tracked core file'], { cwd: dir });
+
+    rmSync(deletedCorePath);
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+    // The normal commit path and the retry regeneration path can invoke the
+    // shared helper twice; the tracked deletion must remain a single staged
+    // deletion rather than being lost or duplicated on the second pass.
+    execFileSync('bash', ['scripts/lib/stage-weekly-snapshot-files.sh'], { cwd: dir });
+
+    const status = execFileSync(
+      'git',
+      ['diff', '--cached', '--name-status', '--', 'data/sector-hub-publications.json'],
+      { cwd: dir, encoding: 'utf8' },
+    );
+    expect(status.trim()).toMatch(/^D\s+data\/sector-hub-publications\.json$/u);
   });
 });
