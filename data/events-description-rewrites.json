@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-27T14:41:54.461Z",
+  "generatedAt": "2026-10-27T16:25:03.317Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -16176,6 +16176,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T14:35:32.667Z"
     },
+    "guidle:A1Eqidw::b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80": {
+      "id": "guidle:A1Eqidw",
+      "sourceDescriptionHash": "b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80",
+      "description": "Questo appuntamento è un concerto di musica corale presso la Kapelle Kollegium St. Michael, nel cantone ZG, indicata come sede dell’evento. La manifestazione ha un formato ricorrente per coro o ensemble e prevede l’ingresso gratuito; categoria musicale, sede nella cappella, cantone, ricorrenza e accesso senza costi ne delineano i principali dati informativi.",
+      "descriptionByLocale": {
+        "it": "Questo appuntamento è un concerto di musica corale presso la Kapelle Kollegium St. Michael, nel cantone ZG, indicata come sede dell’evento. La manifestazione ha un formato ricorrente per coro o ensemble e prevede l’ingresso gratuito; categoria musicale, sede nella cappella, cantone, ricorrenza e accesso senza costi ne delineano i principali dati informativi.",
+        "en": "This event is a choral music concert at Kapelle Kollegium St. Michael in canton ZG, with the chapel identified as its venue. It is a recurring choir or ensemble event with free admission; the stated musical category, chapel venue, canton, repeat status and absence of an entrance fee are its principal factual characteristics.",
+        "de": "Die Veranstaltung ist ein Konzert der Chormusik in der Kapelle Kollegium St. Michael im Kanton ZG, die als Veranstaltungsort angegeben ist. Sie wird als wiederkehrendes Chor- oder Ensembleformat mit freiem Eintritt beschrieben; die musikalische Einordnung, der benannte Veranstaltungsort, der Kanton, der Wiederholungsstatus und der kostenlose Zugang sind die wesentlichen sachlichen Merkmale dieses Konzerts.",
+        "fr": "Cet événement est un concert de musique chorale à la Kapelle Kollegium St. Michael, dans le canton ZG, ce lieu étant indiqué comme cadre de l’événement. Le rendez-vous est récurrent et l’accès est gratuit; la catégorie musicale, le lieu dans une chapelle, le canton, le caractère récurrent et l’absence de frais d’entrée en constituent les principales données factuelles."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T16:20:21.417Z"
+    },
     "guidle:A1eSFR4::2a5be6f8f63397798a2633104777faccf93d8e7151a8c2126b526fb7f632581a": {
       "id": "guidle:A1eSFR4",
       "sourceDescriptionHash": "2a5be6f8f63397798a2633104777faccf93d8e7151a8c2126b526fb7f632581a",
@@ -24170,6 +24184,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T23:14:49.934Z"
     },
+    "guidle:ACbCkuT::52eabcd1e42c6fc59af974c3f89f9eadaaf533106ffebccdca80c561ab543f8e": {
+      "id": "guidle:ACbCkuT",
+      "sourceDescriptionHash": "52eabcd1e42c6fc59af974c3f89f9eadaaf533106ffebccdca80c561ab543f8e",
+      "description": "L’appuntamento musicale riunisce la Jugend Brass Band Imboden e i giovani tamburini di Domat/Ems. Il concerto si svolge presso l’Oberstufenschulhaus Tircal, a Domat/Ems.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale riunisce la Jugend Brass Band Imboden e i giovani tamburini di Domat/Ems. Il concerto si svolge presso l’Oberstufenschulhaus Tircal, a Domat/Ems.",
+        "en": "This music event brings together the Jugend Brass Band Imboden and the young drummers from Domat/Ems. It is held at the Oberstufenschulhaus Tircal in Domat/Ems.",
+        "de": "Bei dem Konzert treten die Jugend Brass Band Imboden und die Jungtambouren aus Domat/Ems gemeinsam auf. Veranstaltungsort ist das Oberstufenschulhaus Tircal in Domat/Ems.",
+        "fr": "Ce concert réunit la Jugend Brass Band Imboden et les jeunes tambours de Domat/Ems. Il a lieu à l’Oberstufenschulhaus Tircal, à Domat/Ems."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T16:17:05.302Z"
+    },
     "guidle:ACBeqYX::330e43d2b7b2f75efa031c83c161dfcbaa192389a766239c02c815d773f7bbf6": {
       "id": "guidle:ACBeqYX",
       "sourceDescriptionHash": "330e43d2b7b2f75efa031c83c161dfcbaa192389a766239c02c815d773f7bbf6",
@@ -24758,6 +24786,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T16:15:25.149Z"
     },
+    "guidle:ACLDrQW::a320988fbc428804198e8e834208f3b858cf173994e513a57c8d2ea40e3d4cb9": {
+      "id": "guidle:ACLDrQW",
+      "sourceDescriptionHash": "a320988fbc428804198e8e834208f3b858cf173994e513a57c8d2ea40e3d4cb9",
+      "description": "L’appuntamento blues si tiene al Kulturhotel Guggenheim di Liestal e vede la partecipazione di Flo Bauer. Il programma è presentato come un progetto unplugged.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento blues si tiene al Kulturhotel Guggenheim di Liestal e vede la partecipazione di Flo Bauer. Il programma è presentato come un progetto unplugged.",
+        "en": "This blues event takes place at Kulturhotel Guggenheim in Liestal and features Flo Bauer. It is presented as an unplugged project.",
+        "de": "Die Bluesveranstaltung findet im Kulturhotel Guggenheim in Liestal statt und umfasst einen Auftritt von Flo Bauer. Sie ist als Unplugged-Projekt konzipiert.",
+        "fr": "Ce rendez-vous de blues a lieu au Kulturhotel Guggenheim, à Liestal, avec la participation de Flo Bauer. Il est présenté comme un projet unplugged."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T16:17:33.393Z"
+    },
     "guidle:ACLTp75::d620335c1505cb29ddbb241e38ffb6b513428f14241cc80f1105ae3cd4e17ad7": {
       "id": "guidle:ACLTp75",
       "sourceDescriptionHash": "d620335c1505cb29ddbb241e38ffb6b513428f14241cc80f1105ae3cd4e17ad7",
@@ -25093,6 +25135,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-24T05:16:16.487Z"
+    },
+    "guidle:Acux5fh::418a3492064f7788e2b56735c3c02b2d2d75fca4fd8edc31a44fd5a001bd50de": {
+      "id": "guidle:Acux5fh",
+      "sourceDescriptionHash": "418a3492064f7788e2b56735c3c02b2d2d75fca4fd8edc31a44fd5a001bd50de",
+      "description": "Si tratta di un appuntamento ricorrente dedicato ai tamburi e ai pifferi. È previsto nel mese di giugno 2027 al Dorfplatz di Brigerbad, nel cantone VS.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un appuntamento ricorrente dedicato ai tamburi e ai pifferi. È previsto nel mese di giugno 2027 al Dorfplatz di Brigerbad, nel cantone VS.",
+        "en": "This recurring event is devoted to drum and fife traditions. It is scheduled for June 2027 at Dorfplatz in Brigerbad, in the canton of Valais.",
+        "de": "Die wiederkehrende Veranstaltung widmet sich Trommel- und Pfeifertraditionen. Sie ist im Juni 2027 auf dem Dorfplatz in Brigerbad im Kanton Wallis vorgesehen.",
+        "fr": "Ce rendez-vous récurrent est consacré aux traditions des tambours et des fifres. Il est prévu en juin 2027 au Dorfplatz, à Brigerbad, dans le canton du Valais."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T16:17:22.338Z"
     },
     "guidle:ACV1k2v::55d1591d7da9f5f22d2093e9bc902fa03bf8d8d1031b8b4f734b792f73a39404": {
       "id": "guidle:ACV1k2v",
@@ -42706,6 +42762,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T23:32:20.396Z"
     },
+    "guidle:AsesnYn::939c1861ea6959fbb090e8f79c70018d3c2585526687766d3aa67c5bcc9c60b7": {
+      "id": "guidle:AsesnYn",
+      "sourceDescriptionHash": "939c1861ea6959fbb090e8f79c70018d3c2585526687766d3aa67c5bcc9c60b7",
+      "description": "Il festival propone musica su due palchi, danze durante il giorno e cibo di strada in un’ambientazione sul lago. Marc Sway è indicato come presentatore e curatore, mentre Altstadt Rapperswil è indicata come sede e organizzazione associata.",
+      "descriptionByLocale": {
+        "it": "Il festival propone musica su due palchi, danze durante il giorno e cibo di strada in un’ambientazione sul lago. Marc Sway è indicato come presentatore e curatore, mentre Altstadt Rapperswil è indicata come sede e organizzazione associata.",
+        "en": "The festival offers music across two stages, daytime dancing and street food in a lakeside setting. Marc Sway is listed as host and curator, while Altstadt Rapperswil is named as the venue and associated organisation.",
+        "de": "Das Festival verbindet Musik auf zwei Bühnen mit Tanzangeboten am Tag und Streetfood in einer Atmosphäre am See. Marc Sway ist als Gastgeber und Kurator aufgeführt; Altstadt Rapperswil wird als Veranstaltungsort und beteiligte Organisation genannt.",
+        "fr": "Le festival prévoit de la musique sur deux scènes, des activités dansantes en journée et de la cuisine de rue dans un cadre au bord du lac. Marc Sway est indiqué comme animateur et programmateur, tandis qu’Altstadt Rapperswil est mentionnée comme lieu et organisation associée."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T16:17:57.673Z"
+    },
     "guidle:Aset1sU::5b17a6f3ac2808bd61c0be43d039cebc6442c9e6faa7c213e3821395130e7004": {
       "id": "guidle:Aset1sU",
       "sourceDescriptionHash": "5b17a6f3ac2808bd61c0be43d039cebc6442c9e6faa7c213e3821395130e7004",
@@ -43461,6 +43531,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T16:22:00.692Z"
+    },
+    "guidle:AsxkJvE::f1d0ce655eea03e0dbdc18ee70b62ee2cd747a526dceefff544f9aaa4749eae3": {
+      "id": "guidle:AsxkJvE",
+      "sourceDescriptionHash": "f1d0ce655eea03e0dbdc18ee70b62ee2cd747a526dceefff544f9aaa4749eae3",
+      "description": "Il festival è dedicato al blues e si svolge a Sierre, nel Canton Vallese. La manifestazione offre spazio ad artisti affermati e include anche talenti emergenti.",
+      "descriptionByLocale": {
+        "it": "Il festival è dedicato al blues e si svolge a Sierre, nel Canton Vallese. La manifestazione offre spazio ad artisti affermati e include anche talenti emergenti.",
+        "en": "This blues festival takes place in Sierre, in the canton of Valais. It features established artists while also providing a platform for emerging talent.",
+        "de": "Das Bluesfestival findet in Sierre im Kanton Wallis statt. Es bietet etablierten Künstlern eine Plattform und bezieht auch aufstrebende Talente ein.",
+        "fr": "Ce festival de blues se déroule à Sierre, dans le canton du Valais. Il donne une place à des artistes établis et permet aussi à des talents émergents de se faire connaître."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-27T16:18:14.934Z"
     },
     "guidle:ASxKt5g::f5acd9f850bcfab13fd41394058c753d8fe49512036f302a2453f5c8647b8f71": {
       "id": "guidle:ASxKt5g",
@@ -173436,15 +173520,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:A1Eqidw::b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80": {
-      "id": "guidle:A1Eqidw",
-      "sourceDescriptionHash": "b46b4a9d4c02b3df8c736a203f2181a500398330ebfe4090925b49ebc67cef80",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-27T13:22:28.476Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:A1JuikM::2e5a8cb3fc3fe66c37447d7bcfd195e31f795f662c82b6fe53684f256ab36308": {
       "id": "guidle:A1JuikM",
       "sourceDescriptionHash": "2e5a8cb3fc3fe66c37447d7bcfd195e31f795f662c82b6fe53684f256ab36308",
@@ -173859,15 +173934,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ACbCkuT::52eabcd1e42c6fc59af974c3f89f9eadaaf533106ffebccdca80c561ab543f8e": {
-      "id": "guidle:ACbCkuT",
-      "sourceDescriptionHash": "52eabcd1e42c6fc59af974c3f89f9eadaaf533106ffebccdca80c561ab543f8e",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-27T13:17:44.149Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AcbduAw::e34e8e35912af150bc033717c94b4e31adbe1a315d5a2b28c78cd2329f015ca7": {
       "id": "guidle:AcbduAw",
       "sourceDescriptionHash": "e34e8e35912af150bc033717c94b4e31adbe1a315d5a2b28c78cd2329f015ca7",
@@ -173895,15 +173961,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ACLDrQW::a320988fbc428804198e8e834208f3b858cf173994e513a57c8d2ea40e3d4cb9": {
-      "id": "guidle:ACLDrQW",
-      "sourceDescriptionHash": "a320988fbc428804198e8e834208f3b858cf173994e513a57c8d2ea40e3d4cb9",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-27T13:20:22.718Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AcNusJW::fdeda9bd0bd3231965ded76aaaa813affdfc4c604734b71a5d2686e2e65d5b98": {
       "id": "guidle:AcNusJW",
       "sourceDescriptionHash": "fdeda9bd0bd3231965ded76aaaa813affdfc4c604734b71a5d2686e2e65d5b98",
@@ -173928,15 +173985,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-19T20:17:34.707Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Acux5fh::418a3492064f7788e2b56735c3c02b2d2d75fca4fd8edc31a44fd5a001bd50de": {
-      "id": "guidle:Acux5fh",
-      "sourceDescriptionHash": "418a3492064f7788e2b56735c3c02b2d2d75fca4fd8edc31a44fd5a001bd50de",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-27T14:18:42.132Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175056,15 +175104,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AsesnYn::939c1861ea6959fbb090e8f79c70018d3c2585526687766d3aa67c5bcc9c60b7": {
-      "id": "guidle:AsesnYn",
-      "sourceDescriptionHash": "939c1861ea6959fbb090e8f79c70018d3c2585526687766d3aa67c5bcc9c60b7",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-27T13:20:57.614Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ASMwxek::d1c3f5c73d75f27483a9cdbbc0923a22e9ed25bf8f88aef107b5be73880fcfeb": {
       "id": "guidle:ASMwxek",
       "sourceDescriptionHash": "d1c3f5c73d75f27483a9cdbbc0923a22e9ed25bf8f88aef107b5be73880fcfeb",
@@ -175107,15 +175146,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T04:34:09.090Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AsxkJvE::f1d0ce655eea03e0dbdc18ee70b62ee2cd747a526dceefff544f9aaa4749eae3": {
-      "id": "guidle:AsxkJvE",
-      "sourceDescriptionHash": "f1d0ce655eea03e0dbdc18ee70b62ee2cd747a526dceefff544f9aaa4749eae3",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-27T13:21:26.774Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
