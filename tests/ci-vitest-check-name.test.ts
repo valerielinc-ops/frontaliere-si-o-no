@@ -152,6 +152,9 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(TYPECHECK_GATE).toContain('const TSC_PROJECT = path.join(ROOT, \'tsconfig.ci.json\')');
     expect(TYPECHECK_GATE).toContain("'--project', TSC_PROJECT");
     expect(TYPECHECK_CONFIG.exclude).toContain('packages/articles/content');
+    expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-body');
+    expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-body-ch');
+    expect(TYPECHECK_CONFIG.exclude).toContain('services/locales/blog-meta-*.ts');
   });
 
   it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', () => {
