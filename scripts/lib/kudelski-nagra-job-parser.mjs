@@ -294,19 +294,25 @@ function structuredDetailLocation(html = '', pageUrl = '', title = '') {
 function extractDetailLocation(html = '', pageUrl = '', title = '') {
   if (!html) return '';
   const structured = structuredDetailLocation(html, pageUrl, title);
-  if (structured) return structured;
+  if (structured && (inferAnyCanton(structured) || isLocationExplicitlyForeign(structured))) return structured;
 
   const labelled = [
-    /<(?:strong|b)[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/(?:strong|b)>\s*([^<]+)/i,
-    /<label[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/label>\s*<span[^>]*>([\s\S]*?)<\/span>/i,
+    /<(?:strong|b)[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/(?:strong|b)>\s*([^<]+)/gi,
+    /<label[^>]*>\s*(?:location|work\s+location|lieu\s+de\s+travail|arbeitsort)\s*:?\s*<\/label>\s*<span[^>]*>([\s\S]*?)<\/span>/gi,
   ];
   const values = [];
   for (const pattern of labelled) {
-    const match = html.match(pattern);
-    const location = normalizeSpace(stripHtml(match?.[1] || ''));
-    if (location) values.push(location);
+    for (const match of html.matchAll(pattern)) {
+      const location = normalizeSpace(stripHtml(match[1] || ''));
+      if (location) values.push(location);
+    }
   }
   const unique = [...new Map(values.map((value) => [locationKey(value), value])).values()];
+  const geographicallyVerified = unique.filter((value) => (
+    inferAnyCanton(value) || isLocationExplicitlyForeign(value)
+  ));
+  if (geographicallyVerified.length === 1) return geographicallyVerified[0];
+  if (geographicallyVerified.length > 1) return '';
   return unique.length === 1 ? unique[0] : '';
 }
 
