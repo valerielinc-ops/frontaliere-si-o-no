@@ -9,15 +9,17 @@
  *
  * Content variants are pooled across the randomized background arms. This is
  * intentional: the background assignment is a separate experiment and the
- * creative decision should not wait for one exact visual arm. Background
- * decisions remain separate and are keyed by kind + creative id.
+ * creative decision should not wait for one exact visual arm. Both maps remain
+ * objective-scoped: creative winners use kind + base id + objective, while
+ * background winners use kind + creative id + objective.
  */
 
-export const DECISION_SCHEMA_VERSION = 1;
+export const DECISION_SCHEMA_VERSION = 2;
 export const DEFAULT_DECISION_WINDOW_HOURS = 72;
 export const DEFAULT_MINIMUM_OBSERVATIONS = 3;
 export const DEFAULT_MIN_RELATIVE_LIFT = 0.15;
 export const DEFAULT_MIN_ABSOLUTE_LIFT = 0.005;
+const LEGACY_OBJECTIVE_KEY = '__legacy__';
 
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -63,17 +65,27 @@ function parseJsonObject(value) {
   }
 }
 
-function nestedStringMap(value) {
+function creativeWinnerMap(value) {
   const source = parseJsonObject(value);
   const result = {};
   for (const [outerKey, outerValue] of Object.entries(source)) {
     if (!isRecord(outerValue)) continue;
-    const inner = {};
-    for (const [innerKey, innerValue] of Object.entries(outerValue)) {
-      const clean = text(innerValue);
-      if (clean) inner[String(innerKey)] = clean;
+    const bases = {};
+    for (const [baseKey, baseValue] of Object.entries(outerValue)) {
+      const legacy = !isRecord(baseValue) && !Array.isArray(baseValue) ? text(baseValue) : null;
+      if (legacy) {
+        bases[String(baseKey)] = { [LEGACY_OBJECTIVE_KEY]: legacy };
+        continue;
+      }
+      if (!isRecord(baseValue)) continue;
+      const objectives = {};
+      for (const [objectiveKey, winnerValue] of Object.entries(baseValue)) {
+        const clean = text(winnerValue);
+        if (clean) objectives[String(objectiveKey)] = clean;
+      }
+      if (Object.keys(objectives).length) bases[String(baseKey)] = objectives;
     }
-    if (Object.keys(inner).length) result[String(outerKey)] = inner;
+    if (Object.keys(bases).length) result[String(outerKey)] = bases;
   }
   return result;
 }
@@ -101,6 +113,73 @@ function sortNestedObject(value) {
   );
 }
 
+function sortCreativeWinnerMap(value) {
+  return Object.fromEntries(
+    Object.entries(value || {})
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([kind, bases]) => [kind, sortNestedObject(bases)]),
+  );
+}
+
+function creativeWinnerKey({ kind, baseId, objective } = {}) {
+  return [text(kind) || 'unknown', text(baseId) || 'unknown', text(objective) || 'unknown'].join(':');
+}
+
+function backgroundWinnerKey({ kind, creativeId, objective } = {}) {
+  return [text(kind) || 'unknown', text(creativeId) || 'unknown', text(objective) || 'unknown'].join(':');
+}
+
+function legacyBackgroundWinnerKey({ kind, creativeId } = {}) {
+  return [text(kind) || 'unknown', text(creativeId) || 'unknown'].join(':');
+}
+
+function setCreativeWinner(map, { kind, baseId, objective, winner } = {}) {
+  const cleanKind = text(kind);
+  const cleanBaseId = text(baseId);
+  const cleanObjective = text(objective);
+  const cleanWinner = text(winner);
+  if (!cleanKind || !cleanBaseId || !cleanObjective || !cleanWinner) return;
+  map[cleanKind] ||= {};
+  const base = isRecord(map[cleanKind][cleanBaseId]) ? map[cleanKind][cleanBaseId] : {};
+  delete base[LEGACY_OBJECTIVE_KEY];
+  base[cleanObjective] = cleanWinner;
+  map[cleanKind][cleanBaseId] = base;
+}
+
+function clearCreativeWinner(map, { kind, baseId, objective } = {}) {
+  const cleanKind = text(kind);
+  const cleanBaseId = text(baseId);
+  const cleanObjective = text(objective);
+  if (!cleanKind || !cleanBaseId || !cleanObjective) return;
+  const bases = map[cleanKind];
+  const current = bases?.[cleanBaseId];
+  if (!current) return;
+  if (!isRecord(current)) {
+    delete bases[cleanBaseId];
+  } else {
+    delete current[cleanObjective];
+    delete current[LEGACY_OBJECTIVE_KEY];
+    if (!Object.keys(current).length) delete bases[cleanBaseId];
+  }
+  if (bases && !Object.keys(bases).length) delete map[cleanKind];
+}
+
+function comparisonCreativeScope(comparison) {
+  return {
+    kind: comparison?.kind,
+    baseId: comparison?.baseId,
+    objective: comparison?.objective,
+  };
+}
+
+function comparisonBackgroundScope(comparison) {
+  return {
+    kind: comparison?.kind,
+    creativeId: comparison?.creativeId,
+    objective: comparison?.objective,
+  };
+}
+
 export function resolveInstagramDecisionConfig(env = process.env) {
   return {
     enabled: booleanValue(env.INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED, false),
@@ -108,7 +187,7 @@ export function resolveInstagramDecisionConfig(env = process.env) {
     minimumObservations: positiveInteger(env.INSTAGRAM_INSIGHTS_MIN_OBSERVATIONS, DEFAULT_MINIMUM_OBSERVATIONS),
     minimumRelativeLift: nonNegativeNumber(env.INSTAGRAM_INSIGHTS_MIN_RELATIVE_LIFT, DEFAULT_MIN_RELATIVE_LIFT),
     minimumAbsoluteLift: nonNegativeNumber(env.INSTAGRAM_INSIGHTS_MIN_ABSOLUTE_LIFT, DEFAULT_MIN_ABSOLUTE_LIFT),
-    currentCreativeWinners: nestedStringMap(env.INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS),
+    currentCreativeWinners: creativeWinnerMap(env.INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS),
     currentBackgroundWinners: stringMap(env.INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS),
   };
 }
@@ -178,6 +257,7 @@ function compareCandidates(candidates, {
   type,
   key,
   winnerKey,
+  scope,
 } = {}) {
   const eligible = candidates
     .map((candidate) => ({ ...candidate, eligible: candidate.observations >= minimumObservations }))
@@ -187,6 +267,7 @@ function compareCandidates(candidates, {
     type,
     key,
     winnerKey,
+    ...scope,
     candidates: eligible.map(serializeAggregate),
     eligibleCandidates: comparable.length,
     minimumObservations,
@@ -265,7 +346,8 @@ function creativeComparisons(report, options) {
       ...options,
       type: 'creative',
       key,
-      winnerKey: `${group.kind}:${group.baseId}`,
+      winnerKey: creativeWinnerKey({ kind: group.kind, baseId: group.baseId, objective: group.objective }),
+      scope: { kind: group.kind, baseId: group.baseId, objective: group.objective },
     }));
 }
 
@@ -289,7 +371,8 @@ function backgroundComparisons(report, options) {
       ...options,
       type: 'background',
       key,
-      winnerKey: `${group.kind}:${group.creativeId}`,
+      winnerKey: backgroundWinnerKey({ kind: group.kind, creativeId: group.creativeId, objective: group.objective }),
+      scope: { kind: group.kind, creativeId: group.creativeId, objective: group.objective },
     }));
 }
 
@@ -311,13 +394,16 @@ export function buildAutonomousDecisions(report, {
   const backgroundWinners = {};
   for (const comparison of creative) {
     if (comparison.status === 'winner') {
-      const [kind, baseId] = comparison.winnerKey.split(':');
-      creativeWinners[kind] ||= {};
-      creativeWinners[kind][baseId] = comparison.winner.creativeId;
+      setCreativeWinner(creativeWinners, {
+        ...comparisonCreativeScope(comparison),
+        winner: comparison.winner.creativeId,
+      });
     }
   }
   for (const comparison of background) {
-    if (comparison.status === 'winner') backgroundWinners[comparison.winnerKey] = comparison.winner.backgroundVariant;
+    if (comparison.status === 'winner') {
+      backgroundWinners[comparison.winnerKey] = comparison.winner.backgroundVariant;
+    }
   }
   return {
     schemaVersion: DECISION_SCHEMA_VERSION,
@@ -327,9 +413,12 @@ export function buildAutonomousDecisions(report, {
     minimumAbsoluteLift: options.minimumAbsoluteLift,
     creativeComparisons: creative,
     backgroundComparisons: background,
-    creativeWinners: sortNestedObject(creativeWinners),
+    creativeWinners: sortCreativeWinnerMap(creativeWinners),
     backgroundWinners: sortObject(backgroundWinners),
-    winnerCount: Object.values(creativeWinners).reduce((sum, values) => sum + Object.keys(values).length, 0)
+    winnerCount: Object.values(creativeWinners).reduce(
+      (sum, bases) => sum + Object.values(bases).reduce((baseSum, objectives) => baseSum + Object.keys(objectives).length, 0),
+      0,
+    )
       + Object.keys(backgroundWinners).length,
   };
 }
@@ -339,24 +428,50 @@ export function mergeAutonomousDecisionState({
   currentBackgroundWinners = {},
   decisions = {},
 } = {}) {
-  const creativeWinners = nestedStringMap(currentCreativeWinners);
+  const creativeWinners = creativeWinnerMap(currentCreativeWinners);
   const backgroundWinners = stringMap(currentBackgroundWinners);
-  for (const [kind, values] of Object.entries(decisions.creativeWinners || {})) {
-    creativeWinners[kind] = { ...(creativeWinners[kind] || {}), ...values };
+  const creativeComparisons = Array.isArray(decisions.creativeComparisons) ? decisions.creativeComparisons : null;
+  for (const comparison of creativeComparisons || []) {
+    const scope = comparisonCreativeScope(comparison);
+    clearCreativeWinner(creativeWinners, scope);
+    if (comparison.status === 'winner') {
+      setCreativeWinner(creativeWinners, { ...scope, winner: comparison.winner?.creativeId });
+    }
   }
-  for (const [key, value] of Object.entries(decisions.backgroundWinners || {})) {
-    backgroundWinners[key] = value;
+  if (!creativeComparisons) {
+    const incoming = creativeWinnerMap(decisions.creativeWinners);
+    for (const [kind, bases] of Object.entries(incoming)) {
+      for (const [baseId, objectives] of Object.entries(bases)) {
+        for (const [objective, winner] of Object.entries(objectives)) {
+          if (objective !== LEGACY_OBJECTIVE_KEY) setCreativeWinner(creativeWinners, { kind, baseId, objective, winner });
+        }
+      }
+    }
+  }
+  const backgroundComparisons = Array.isArray(decisions.backgroundComparisons) ? decisions.backgroundComparisons : null;
+  for (const comparison of backgroundComparisons || []) {
+    const scope = comparisonBackgroundScope(comparison);
+    delete backgroundWinners[backgroundWinnerKey(scope)];
+    delete backgroundWinners[legacyBackgroundWinnerKey(scope)];
+    if (comparison.status === 'winner') {
+      backgroundWinners[backgroundWinnerKey(scope)] = comparison.winner?.backgroundVariant;
+    }
+  }
+  if (!backgroundComparisons) {
+    for (const [key, value] of Object.entries(stringMap(decisions.backgroundWinners))) {
+      backgroundWinners[key] = value;
+    }
   }
   return {
-    creativeWinners: sortNestedObject(creativeWinners),
+    creativeWinners: sortCreativeWinnerMap(creativeWinners),
     backgroundWinners: sortObject(backgroundWinners),
   };
 }
 
 export function decisionStateChanges(current, next) {
   const changes = [];
-  const currentCreative = JSON.stringify(sortNestedObject(nestedStringMap(current?.creativeWinners)));
-  const nextCreative = JSON.stringify(sortNestedObject(nestedStringMap(next?.creativeWinners)));
+  const currentCreative = JSON.stringify(sortCreativeWinnerMap(creativeWinnerMap(current?.creativeWinners)));
+  const nextCreative = JSON.stringify(sortCreativeWinnerMap(creativeWinnerMap(next?.creativeWinners)));
   if (currentCreative !== nextCreative) {
     changes.push({ parameter: 'INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS', value: nextCreative });
   }

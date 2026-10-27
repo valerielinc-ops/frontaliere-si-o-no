@@ -91,11 +91,12 @@ describe('Instagram carousel background experiment', () => {
       rolloutPercent: 100,
       variantIds: [...INSTAGRAM_CAROUSEL_BACKGROUND_IDS],
       explorationPercent: 0,
-      winners: { 'article:proof': 'paper-amber' },
+      winners: { 'article:proof:share': 'paper-amber' },
     };
     expect(assignInstagramCarouselBackground({
       kind: 'article',
       creativeId: 'proof',
+      objective: 'share',
       day: '2026-10-26',
       config,
     }).id).toBe('paper-amber');

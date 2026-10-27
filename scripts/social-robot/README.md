@@ -82,8 +82,12 @@ un confronto con una seconda variante e un vantaggio che supera sia il 15%
 relativo sia 0,5 punti percentuali assoluti. Con segnale nullo, dati scarsi o
 un margine insufficiente il sistema mantiene la rotazione. Anche dopo una
 promozione resta il 20% di esplorazione per continuare a provare formati e
-sfondi nuovi. Il Graph API resta un fallback esplicito: non si riusa il Page
-token come token Insights.
+sfondi nuovi. Le mappe pubblicate in Remote Config sono separate per
+`kind + creativeBaseId + objective` (creatività) e `kind + creativeId +
+objective` (sfondo); quando una coorte viene rivalutata senza segnale
+sufficiente, il relativo vincitore viene rimosso invece di restare attivo.
+Il Graph API resta un fallback esplicito: non si riusa il Page token come token
+Insights.
 
 ### Esperimento audio TikTok
 

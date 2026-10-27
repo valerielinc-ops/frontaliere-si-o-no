@@ -227,7 +227,12 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
   const dayLabel = formatDayIt(day);
   const creative = chooseInstagramCreative({ kind, day });
-  const background = assignInstagramCarouselBackground({ kind, day, creativeId: creative.id });
+  const background = assignInstagramCarouselBackground({
+    kind,
+    day,
+    creativeId: creative.id,
+    objective: creative.objective,
+  });
   const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative });
 
   console.log(`\n─── ${kind} carousel (${picks.length} slides + CTA, creative: ${creative.id}, background: ${background.id}) ───`);
@@ -306,7 +311,12 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
   }));
   const dayLabel = `${weekStart} – ${weekEnd}`;
   const creative = chooseInstagramCreative({ kind: 'border', day: weekStart });
-  const background = assignInstagramCarouselBackground({ kind: 'border', day: weekStart, creativeId: creative.id });
+  const background = assignInstagramCarouselBackground({
+    kind: 'border',
+    day: weekStart,
+    creativeId: creative.id,
+    objective: creative.objective,
+  });
   const caption = buildInstagramCaption({
     kind: 'border',
     dayLabel,

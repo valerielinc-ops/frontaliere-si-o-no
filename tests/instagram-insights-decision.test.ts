@@ -45,10 +45,10 @@ describe('Instagram autonomous Insights decisions', () => {
     expect(decisions.creativeComparisons).toHaveLength(1);
     expect(decisions.creativeComparisons[0]).toMatchObject({
       status: 'winner',
-      winnerKey: 'article:proof',
+      winnerKey: 'article:proof:share',
       winner: expect.objectContaining({ creativeId: 'proof-local', observations: 3 }),
     });
-    expect(decisions.creativeWinners).toEqual({ article: { proof: 'proof-local' } });
+    expect(decisions.creativeWinners).toEqual({ article: { proof: { share: 'proof-local' } } });
   });
 
   it('keeps a zero-signal or low-lift test in exploration', () => {
@@ -75,33 +75,124 @@ describe('Instagram autonomous Insights decisions', () => {
 
     expect(decisions.backgroundComparisons[0]).toMatchObject({
       status: 'winner',
-      winnerKey: 'article:proof',
+      winnerKey: 'article:proof:share',
       winner: expect.objectContaining({ backgroundVariant: 'paper-amber' }),
     });
-    expect(decisions.backgroundWinners).toEqual({ 'article:proof': 'paper-amber' });
+    expect(decisions.backgroundWinners).toEqual({ 'article:proof:share': 'paper-amber' });
   });
 
-  it('preserves prior winners and returns only actual Remote Config changes', () => {
+  it('resets stale winners for evaluated scopes and returns only actual Remote Config changes', () => {
     const current = {
-      creativeWinners: { article: { proof: 'proof' } },
-      backgroundWinners: { 'article:proof': 'navy-gradient' },
+      creativeWinners: { article: { proof: { share: 'proof' } } },
+      backgroundWinners: { 'article:proof:share': 'navy-gradient' },
     };
     const next = mergeAutonomousDecisionState({
       currentCreativeWinners: current.creativeWinners,
       currentBackgroundWinners: current.backgroundWinners,
       decisions: {
-        creativeWinners: { article: { proof: 'proof-local' } },
-        backgroundWinners: {},
+        creativeComparisons: [{
+          type: 'creative',
+          kind: 'article',
+          baseId: 'proof',
+          objective: 'share',
+          status: 'winner',
+          winner: { creativeId: 'proof-local' },
+        }],
+        backgroundComparisons: [{
+          type: 'background',
+          kind: 'article',
+          creativeId: 'proof',
+          objective: 'share',
+          status: 'insufficient-lift',
+        }],
       },
     });
     expect(next).toEqual({
-      creativeWinners: { article: { proof: 'proof-local' } },
-      backgroundWinners: { 'article:proof': 'navy-gradient' },
+      creativeWinners: { article: { proof: { share: 'proof-local' } } },
+      backgroundWinners: {},
     });
     expect(decisionStateChanges(current, next)).toEqual([{
       parameter: 'INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS',
-      value: '{"article":{"proof":"proof-local"}}',
+      value: '{"article":{"proof":{"share":"proof-local"}}}',
+    }, {
+      parameter: 'INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS',
+      value: '{}',
     }]);
+  });
+
+  it('keeps creative and background winners objective-scoped', () => {
+    const report = reportFrom([
+      ...rowsFor('proof-views-a', [8, 8, 8], {
+        creativeBaseId: 'proof',
+        objective: 'share',
+        primaryMetric: 'shares',
+      }),
+      ...rowsFor('proof-views-b', [2, 2, 2], {
+        creativeBaseId: 'proof',
+        objective: 'share',
+        primaryMetric: 'shares',
+      }),
+      ...rowsFor('proof-shares-a', [2, 2, 2], {
+        creativeBaseId: 'proof',
+        objective: 'save',
+        primaryMetric: 'saves',
+        saves: 2,
+        shares: 0,
+      }),
+      ...rowsFor('proof-shares-b', [8, 8, 8], {
+        creativeBaseId: 'proof',
+        objective: 'save',
+        primaryMetric: 'saves',
+        saves: 8,
+        shares: 0,
+      }),
+      ...rowsFor('proof', [8, 8, 8], {
+        objective: 'share',
+        primaryMetric: 'shares',
+        backgroundVariant: 'navy-gradient',
+        backgroundExperimentId: 'instagram-carousel-background-v1',
+      }),
+      ...rowsFor('proof', [2, 2, 2], {
+        objective: 'share',
+        primaryMetric: 'shares',
+        backgroundVariant: 'paper-amber',
+        backgroundExperimentId: 'instagram-carousel-background-v1',
+      }),
+      ...rowsFor('proof', [2, 2, 2], {
+        objective: 'save',
+        primaryMetric: 'saves',
+        saves: 2,
+        shares: 0,
+        backgroundVariant: 'navy-gradient',
+        backgroundExperimentId: 'instagram-carousel-background-v1',
+      }),
+      ...rowsFor('proof', [8, 8, 8], {
+        objective: 'save',
+        primaryMetric: 'saves',
+        saves: 8,
+        shares: 0,
+        backgroundVariant: 'paper-amber',
+        backgroundExperimentId: 'instagram-carousel-background-v1',
+      }),
+    ]);
+    const decisions = buildAutonomousDecisions(report);
+
+    expect(decisions.creativeWinners).toEqual({
+      article: {
+        proof: {
+          save: 'proof-shares-b',
+          share: 'proof-views-a',
+        },
+      },
+    });
+    expect(decisions.creativeComparisons.map((comparison) => comparison.winnerKey)).toEqual([
+      'article:proof:save',
+      'article:proof:share',
+    ]);
+    expect(decisions.backgroundWinners).toEqual({
+      'article:proof:save': 'paper-amber',
+      'article:proof:share': 'navy-gradient',
+    });
   });
 
   it('uses safe local defaults and parses Remote Config settings', () => {
@@ -120,15 +211,15 @@ describe('Instagram autonomous Insights decisions', () => {
       INSTAGRAM_INSIGHTS_MIN_OBSERVATIONS: '4',
       INSTAGRAM_INSIGHTS_MIN_RELATIVE_LIFT: '0.2',
       INSTAGRAM_INSIGHTS_MIN_ABSOLUTE_LIFT: '0.01',
-      INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: '{"article":{"proof":"proof-local"}}',
-      INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS: '{"article:proof":"paper-amber"}',
+      INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS: '{"article":{"proof":{"share":"proof-local"}}}',
+      INSTAGRAM_CAROUSEL_BACKGROUND_AB_WINNERS: '{"article:proof:share":"paper-amber"}',
     })).toMatchObject({
       enabled: true,
       minimumObservations: 4,
       minimumRelativeLift: 0.2,
       minimumAbsoluteLift: 0.01,
-      currentCreativeWinners: { article: { proof: 'proof-local' } },
-      currentBackgroundWinners: { 'article:proof': 'paper-amber' },
+      currentCreativeWinners: { article: { proof: { share: 'proof-local' } } },
+      currentBackgroundWinners: { 'article:proof:share': 'paper-amber' },
     });
   });
 });

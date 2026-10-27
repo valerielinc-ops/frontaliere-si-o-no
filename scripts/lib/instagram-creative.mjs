@@ -408,13 +408,18 @@ function explorationBucket(seed) {
   return Number.parseInt(digest.slice(0, 8), 16) % 10_000;
 }
 
-function autonomousWinner({ kind, baseId, day, env }) {
+function autonomousWinner({ kind, baseId, objective, day, env }) {
   if (!parseBoolean(env?.INSTAGRAM_INSIGHTS_AUTONOMOUS_DECISIONS_ENABLED, false)) return null;
   const winners = parseWinnerMap(env?.INSTAGRAM_AUTONOMOUS_CREATIVE_WINNERS);
-  const winner = winners?.[kind]?.[baseId];
+  const byObjective = winners?.[kind]?.[baseId];
+  const winner = typeof byObjective === 'string'
+    ? byObjective
+    : byObjective?.[objective] || byObjective?.__legacy__;
   if (!CREATIVE_VARIANT_BY_ID.has(winner)) return null;
-  const definition = CREATIVE_VARIANT_BY_ID.get(winner);
-  if (definition.baseId !== baseId) return null;
+  const variant = CREATIVE_VARIANT_BY_ID.get(winner);
+  const definition = INSTAGRAM_CREATIVE_FORMATS[variant.baseId];
+  if (variant.baseId !== baseId) return null;
+  if (definition?.objective !== objective) return null;
   const explorationPercent = parsePercent(env?.INSTAGRAM_AUTONOMOUS_EXPLORATION_PERCENT, 20);
   const bucket = explorationBucket(`instagram-creative-exploration:${kind}:${baseId}:${day || 'unknown'}`);
   if (bucket < Math.round(explorationPercent * 100)) return null;
@@ -429,14 +434,20 @@ function autonomousWinner({ kind, baseId, day, env }) {
  * accidentally select a new treatment merely because the cron was retried.
  * Invalid input safely falls back to the proof format.
  */
-export function chooseInstagramCreative({ kind, day, env = process.env } = {}) {
+export function chooseInstagramCreative({ kind, day, objective, env = process.env } = {}) {
   if (!VALID_KINDS.has(kind)) return definitionFor('article', 'proof');
   const index = dayIndex(day);
   if (index === null || index < 0) return definitionFor(kind, 'proof');
   const cycle = kind === 'border' ? Math.floor(index / 7) : index;
   const formatId = INSTAGRAM_CREATIVE_IDS[(cycle + KIND_OFFSETS[kind]) % INSTAGRAM_CREATIVE_IDS.length];
   const rotating = definitionFor(kind, formatId);
-  const winner = autonomousWinner({ kind, baseId: rotating.baseId, day, env });
+  const winner = autonomousWinner({
+    kind,
+    baseId: rotating.baseId,
+    objective: String(objective || rotating.objective).trim() || rotating.objective,
+    day,
+    env,
+  });
   return winner ? definitionFor(kind, winner) : rotating;
 }
 
