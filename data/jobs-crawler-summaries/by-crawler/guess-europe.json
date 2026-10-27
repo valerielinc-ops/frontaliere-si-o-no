@@ -1,18 +1,66 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-27T09:22:31.491Z",
-  "total": 10,
-  "newCount": 0,
+  "generatedAt": "2026-10-27T21:21:17.742Z",
+  "total": 11,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 3250,
-  "avgDurationMs": 3250,
+  "durationMs": 3972,
+  "avgDurationMs": 3972,
   "durationHistory": [
-    3250
+    3972
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Key Account Amazon Marketplace Director",
+      "slug": "responsabile-key-account-e-marketplace-amazon-e-nord-america-guess-europe-sagl-bioggio",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/AFEB3F4F52/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/AFEB3F4F52/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-27T00:00:00.000Z",
+      "postedDate": "2026-10-27T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Community",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-8e36bea1353f",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-10-27T21:21:01.753Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
@@ -466,5 +514,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }
