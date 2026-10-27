@@ -287,8 +287,8 @@ export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   if (live?.isJobPage === true) {
     return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
   }
-  if (live?.isListingPage === true) {
-    return { detailPageSignal: false, shouldInspect: false, issue: null, skipped: true };
+  if (live?.isListingPage === true && !detailPageSignal) {
+    return { detailPageSignal, shouldInspect: false, issue: null, skipped: true };
   }
   if (detailPageSignal) {
     return {

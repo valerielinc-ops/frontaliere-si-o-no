@@ -128,10 +128,25 @@ describe('post-deploy SEO verification', () => {
       isJobPage: false,
       isListingPage: true,
       errors: [],
-    }, new Map())).toMatchObject({
+    }, new Map([[pageUrl, false]]))).toMatchObject({
       shouldInspect: false,
       issue: null,
       skipped: true,
+    });
+  });
+
+  it('keeps a detail candidate observable when listing schema is also present', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermiere/';
+
+    expect(classifyLiveJobCandidate(pageUrl, {
+      isJobPage: false,
+      isListingPage: true,
+      errors: [],
+    }, new Map([[pageUrl, true]]))).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: 'missing-jobposting',
+      skipped: false,
     });
   });
 
