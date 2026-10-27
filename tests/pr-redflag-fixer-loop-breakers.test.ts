@@ -41,7 +41,13 @@ describe('1. preflight: needs-human ferma il loop prima di ogni job', () => {
   // Il prefisso del preflight usa `grep -P` (GNU): sul runner c'è, in locale
   // (macOS) no. Si esegue il tratto che decide l'azionabilità di una PR già in
   // scope: dalla lettura dello stato fino alla fine.
-  const tail = pre.slice(pre.indexOf('state=$('));
+  // Cerca l'assegnazione `state` a inizio riga: il preflight ora legge anche
+  // `live_state` prima di arrivare alla guardia testata, quindi un semplice
+  // `indexOf('state=$(')` può agganciarsi alla parola dentro `live_state` e
+  // avviare una porzione di script che usa variabili non ancora assegnate.
+  const stateStart = pre.search(/(?:^|\n)state=\$\(/);
+  if (stateStart < 0) throw new Error('assegnazione state del preflight non trovata');
+  const tail = pre.slice(stateStart + (pre[stateStart] === '\n' ? 1 : 0));
 
   function runTail(labelsNeedsHuman: string) {
     const dir = mkdtempSync(path.join(tmpdir(), 'redflag-preflight-'));
