@@ -103,7 +103,7 @@ describe('traffic scheduler Cloud dispatch', () => {
   it('leaves bounded tail time after the full traffic collection pass', () => {
     const workflow = readFileSync(`${root}/.github/workflows/traffic-scheduler.yml`, 'utf8');
     const timeout = Number(/jobs:\s+collect:[\s\S]*?timeout-minutes:\s*(\d+)/u.exec(workflow)?.[1]);
-    expect(timeout).toBeGreaterThanOrEqual(15);
+    expect(timeout).toBeGreaterThanOrEqual(30);
   });
 
   it('uses a complete blobless checkout for the non-thin history push', () => {
