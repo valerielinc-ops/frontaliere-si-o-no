@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
+  classifyLiveJobCandidate,
   crawlIsAfterBuild,
   extractRichResultsIssues,
+  isLikelyJobDetailUrl,
   inspectLiveJobPostingHtml,
 } from '../../scripts/verify-post-deploy-seo.mjs';
 
@@ -50,6 +52,39 @@ describe('post-deploy SEO verification', () => {
 
     expect(result.isJobPage).toBe(false);
     expect(result.errors).toEqual([]);
+  });
+
+  it('keeps a detail candidate observable when its JobPosting JSON-LD disappears', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/job-slug/';
+    const live = inspectLiveJobPostingHtml(jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [],
+    }));
+    const classification = classifyLiveJobCandidate(pageUrl, live, new Map());
+
+    expect(isLikelyJobDetailUrl(pageUrl, new Map())).toBe(true);
+    expect(classification).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: 'missing-jobposting',
+      skipped: false,
+    });
+  });
+
+  it('uses a live sitemap signal to keep a known landing out of missing-schema alerts', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri-in-ticino/';
+    const signals = new Map([[pageUrl, false]]);
+
+    expect(isLikelyJobDetailUrl(pageUrl, signals)).toBe(false);
+    expect(classifyLiveJobCandidate(pageUrl, {
+      isJobPage: false,
+      errors: [],
+    }, signals)).toMatchObject({
+      shouldInspect: false,
+      issue: null,
+      skipped: true,
+    });
   });
 
   it('reports missing fields from the live shared contract', () => {

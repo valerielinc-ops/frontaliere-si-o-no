@@ -599,9 +599,12 @@ jobs:
           timeout 180 node scripts/submit-google-indexing.js &
           PID_GSC=$!
           # The verifier first checks the live HTML for the complete contract
-          # and then performs URL Inspection. Keep enough time for a cold CDN
-          # response without changing the non-blocking publish semantics.
-          timeout 180 node scripts/verify-post-deploy-seo.mjs &
+          # and then performs up to 10 sequential URL Inspections. In the
+          # bounded worst case (four 10-second live-fetch waves plus ten
+          # 20-second inspections), 180 seconds can kill it before its summary
+          # or issue creation; keep a seven-minute bound without changing the
+          # non-blocking publish semantics.
+          timeout 420 node scripts/verify-post-deploy-seo.mjs &
           PID_SEO=$!
           timeout 240 npx --no-install tsx scripts/monitor-sector-coverage.mjs &
           PID_SECTOR_COVERAGE=$!

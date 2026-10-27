@@ -36,6 +36,7 @@ const MAX_INSPECT = 10; // API quota friendly
 const MAX_ANALYTICS_CANDIDATES = 20;
 const FETCH_TIMEOUT_MS = 20_000;
 const LIVE_FETCH_TIMEOUT_MS = 10_000;
+const SITEMAP_FETCH_TIMEOUT_MS = 10_000;
 const GOOGLEBOT_USER_AGENT = 'Googlebot/2.1 (+http://www.google.com/bot.html)';
 
 // ── Helpers ─────────────────────────────────────────────────
@@ -68,6 +69,43 @@ async function mapWithConcurrency(items, concurrency, mapper) {
 
 function isJobPostingType(value) {
   return value === 'JobPosting' || (Array.isArray(value) && value.includes('JobPosting'));
+}
+
+function normalizedPublicUrl(value) {
+  try {
+    const url = new URL(value);
+    url.hash = '';
+    url.search = '';
+    if (!url.pathname.endsWith('/')) url.pathname += '/';
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Keep a URL-level detail-page signal independent from the live JSON-LD.
+ * When a JobPosting disappears, the emitted HTML cannot be the classifier.
+ * The live sitemap is the stronger signal; the conservative path fallback
+ * keeps an unseen analytics candidate observable instead of silently dropping
+ * a possible detail-page regression.
+ */
+export function isLikelyJobDetailUrl(pageUrl, sitemapSignals = null) {
+  const normalized = normalizedPublicUrl(pageUrl);
+  if (!normalized) return false;
+  if (sitemapSignals instanceof Map && sitemapSignals.has(normalized)) {
+    return sitemapSignals.get(normalized) === true;
+  }
+
+  try {
+    const { pathname } = new URL(normalized);
+    const match = pathname.match(/^\/cerca-lavoro-ticino\/([^/]+)\/$/i);
+    if (!match) return false;
+    const slug = match[1].toLowerCase();
+    return !/^(?:azienda-|ricerca-|pagina-\d+$|page-\d+$|seite-\d+$)/i.test(slug);
+  } catch {
+    return false;
+  }
 }
 
 function collectJobPostingRecords(value, records = []) {
@@ -172,6 +210,33 @@ async function getLiveBuildMarker() {
   }
 }
 
+async function getLiveJobSitemapSignals() {
+  try {
+    const response = await fetchWithTimeout(
+      `${SITE_URL}/sitemap-jobs.xml`,
+      { headers: { 'user-agent': GOOGLEBOT_USER_AGENT, accept: 'application/xml,text/xml' } },
+      SITEMAP_FETCH_TIMEOUT_MS,
+    );
+    if (!response.ok) return new Map();
+    const xml = await response.text();
+    const signals = new Map();
+    for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/gi)) {
+      const entry = match[1];
+      const loc = entry.match(/<loc>\s*([^<]+?)\s*<\/loc>/i)?.[1];
+      const normalized = normalizedPublicUrl(loc);
+      if (!normalized) continue;
+      const priority = entry.match(/<priority>\s*([^<]+?)\s*<\/priority>/i)?.[1];
+      const hasLastmod = /<lastmod>\s*[^<]+?\s*<\/lastmod>/i.test(entry);
+      // jobsSeoPagesPlugin emits active detail URLs at priority 0.6 with a
+      // listing date; landing/search/company entries use other priorities.
+      signals.set(normalized, hasLastmod || priority === '0.6');
+    }
+    return signals;
+  } catch {
+    return new Map();
+  }
+}
+
 async function inspectLivePage(pageUrl) {
   try {
     const response = await fetchWithTimeout(
@@ -184,6 +249,25 @@ async function inspectLivePage(pageUrl) {
   } catch (error) {
     return { error: error.message };
   }
+}
+
+export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
+  const detailPageSignal = isLikelyJobDetailUrl(pageUrl, sitemapSignals);
+  if (live?.error) {
+    return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
+  }
+  if (live?.isJobPage === true) {
+    return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
+  }
+  if (detailPageSignal) {
+    return {
+      detailPageSignal,
+      shouldInspect: true,
+      issue: 'missing-jobposting',
+      skipped: false,
+    };
+  }
+  return { detailPageSignal: false, shouldInspect: false, issue: null, skipped: true };
 }
 
 // ── Service Account Auth ────────────────────────────────────
@@ -385,6 +469,11 @@ async function main() {
     log('⚠️', 'Live build marker unavailable — GSC crawl freshness will not be gated');
   }
 
+  const sitemapSignals = await getLiveJobSitemapSignals();
+  if (sitemapSignals.size === 0) {
+    log('⚠️', 'Live jobs sitemap unavailable — using the conservative URL detail signal');
+  }
+
   const liveCandidates = await mapWithConcurrency(topPages, 5, async (pageUrl) => ({
     pageUrl,
     live: await inspectLivePage(pageUrl),
@@ -403,7 +492,15 @@ async function main() {
       candidates.push({ pageUrl, live });
       continue;
     }
-    if (!live.isJobPage) {
+    const classification = classifyLiveJobCandidate(pageUrl, live, sitemapSignals);
+    if (classification.issue === 'missing-jobposting') {
+      log('  ❌', `${shortPath} — live detail page has no JobPosting JSON-LD`);
+      addIssue({
+        url: pageUrl,
+        issue: 'missing-jobposting',
+        details: 'live detail page contains no JobPosting JSON-LD',
+      });
+    } else if (classification.skipped) {
       nonJobPageCount++;
       log('  ↪️', `${shortPath} — live JSON-LD is not a JobPosting; skipped`);
       continue;
@@ -415,7 +512,7 @@ async function main() {
         details: error.message,
       });
     }
-    candidates.push({ pageUrl, live });
+    candidates.push({ pageUrl, live, detailPageSignal: classification.detailPageSignal });
   }
 
   const inspectCandidates = candidates.slice(0, MAX_INSPECT);
@@ -457,7 +554,9 @@ async function main() {
     const canonicalIsListing = result.googleCanonical?.endsWith(LISTING_PATH) ||
                                 result.canonical?.endsWith(LISTING_PATH);
 
-    const isJobPage = live?.isJobPage === true || result.richResultIssues.length > 0;
+    const isJobPage = live?.isJobPage === true
+      || candidate.detailPageSignal === true
+      || result.richResultIssues.length > 0;
     const richPass = result.richResults === 'PASS';
     for (const richIssue of result.richResultIssues) {
       addIssue({
