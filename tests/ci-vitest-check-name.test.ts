@@ -1,15 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
   VITEST_CHECK_NAME,
   VITEST_EXECUTION_JOB_NAME,
   VITEST_SHARD_NAME_RE,
 } from '../scripts/ci/lib/constants.mjs';
-import { isGraphSourceFile } from '../scripts/ci/lib/related-graph-scope.mjs';
 
 /**
  * Guard per il drift descritto in #1602: il nome del check-run vitest è la
@@ -134,58 +132,16 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(related).toMatch(/false\)[\s\S]*VITEST_DATASET_GROUP=independent/);
   });
 
-  /**
-   * L'invariante che rende lo skip REALE invece che teorico.
-   *
-   * `shouldAssembleForRelatedTests()` risponde `required: true` appena
-   * `unreadableCount > 0`, e `unreadable` si riempie con i file che `git
-   * ls-files` elenca (l'INDEX, quindi completo anche sotto sparse) ma che il
-   * working tree non sa aprire. Il job `vitest:` fa un checkout sparse con
-   * allowlist non-cone: se quell'allowlist smettesse di materializzare anche
-   * UN SOLO file selezionato da `isGraphSourceFile()`, il predicato
-   * risponderebbe `required: true` su OGNI PR e l'ottimizzazione
-   * diventerebbe un no-op permanente — silenzioso, perche' nel log un
-   * `required: true` degradato e' identico a uno legittimo (per questo il
-   * runner ora emette anche un `::warning::`, vedi `decision.degraded`).
-   *
-   * Misurato oggi: 5'429 file tracciati nel grafo, 0 non coperti. Il
-   * confronto usa `git sparse-checkout check-rules`, cioe' il valutatore di
-   * git stesso: replicare a mano la semantica dei pattern non-cone (con le
-   * negazioni e i glob a stella sulle directory) sarebbe un secondo parser
-   * che diverge in silenzio da quello che il checkout esegue davvero.
-   */
-  it('lo sparse-checkout del job vitest materializza tutto il grafo related (unreadableCount == 0)', () => {
+  it('il job vitest usa un checkout completo per il verdetto related', () => {
     const doc = YAML.parse(TESTS_YML, { logLevel: 'silent' }) as any;
     const checkout = (doc?.jobs?.vitest?.steps ?? []).find(
       (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
     );
     expect(checkout, 'il job vitest ha perso il passo di checkout').toBeTruthy();
-    expect(checkout.with['sparse-checkout-cone-mode']).toBe(false);
-    const rules = String(checkout.with['sparse-checkout']);
-
-    const tracked = execFileSync('git', ['ls-files', '-z'], {
-      cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
-    }).split('\0').filter(Boolean)
-      .map((file) => file.replaceAll('\\', '/').replace(/^\.\//, ''))
-      .filter(isGraphSourceFile);
-    expect(tracked.length).toBeGreaterThan(1000);
-
-    const rulesFile = join(mkdtempSync(join(tmpdir(), 'sparse-rules-')), 'rules');
-    writeFileSync(rulesFile, rules.endsWith('\n') ? rules : `${rules}\n`);
-    const included = new Set(execFileSync(
-      'git',
-      ['sparse-checkout', 'check-rules', '--no-cone', '--rules-file', rulesFile],
-      { cwd: ROOT, input: `${tracked.join('\n')}\n`, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
-    ).split('\n').filter(Boolean));
-
-    const missing = tracked.filter((file) => !included.has(file));
-    expect(
-      missing.slice(0, 20),
-      `${missing.length} file del grafo related non sono nell'allowlist sparse del job vitest: ` +
-        'il runner li conterebbe come `unreadable` e `Assemble + migrate` non verrebbe ' +
-        'saltato su NESSUNA PR. Aggiungili all\'allowlist, oppure restringi ' +
-        '`isGraphSourceFile()` se davvero non servono al grafo.',
-    ).toEqual([]);
+    expect(checkout.with['sparse-checkout']).toBeUndefined();
+    expect(checkout.with['sparse-checkout-cone-mode']).toBeUndefined();
+    expect(checkout.with['fetch-depth']).toBe(0);
+    expect(checkout.with.filter).toBe('tree:0');
   });
 
   it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', () => {
@@ -426,8 +382,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
 
   it('include tutti i root applicativi nel grafo related', () => {
     // La selezione dei file del grafo vive in `lib/related-graph-scope.mjs`:
-    // il runner e il guard dello sparse-checkout qui sotto devono leggerla
-    // dalla STESSA sede, o il guard certifica un insieme che il runner non usa.
+    // il runner e il contratto del checkout qui sotto devono leggerla dalla
+    // STESSA sede, o il gate certifica un insieme che il runner non usa.
     expect(RELATED_RUNNER).toContain('isGraphSourceFile');
     expect(RELATED_SCOPE).toContain('GRAPH_PROJECT_RE');
     expect(RELATED_RUNNER).toContain('!alwaysExcludedTests.has(file)');
@@ -446,24 +402,15 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(RELATED_RUNNER).toContain('VITEST_SKIP_CORPUS_WIDE');
   });
 
-  it('tests.yml conserva allow-list sparse e fail-safe del corpus', () => {
-    expect(TESTS_YML).toContain('sparse-checkout: |');
-    expect(TESTS_YML).toContain('sparse-checkout-cone-mode: false');
-    expect(TESTS_YML).toContain('!/public/images/');
+  it('tests.yml conserva il checkout completo e il fail-safe del corpus', () => {
+    const checkout = (YAML.parse(TESTS_YML, { logLevel: 'silent' }) as any).jobs.vitest.steps.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    expect(checkout?.with?.['sparse-checkout']).toBeUndefined();
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBeUndefined();
     expect(TESTS_YML).toContain('changed-paths-status.txt');
     expect(TESTS_YML).toContain('partial > changed-paths-status.txt');
     expect(TESTS_YML).toContain('frontaliere-articles');
-    expect(TESTS_YML).toContain('/REVIEW.md');
-    expect(TESTS_YML).toContain('/AGENTS.md');
-    expect(TESTS_YML).toContain('/firestore.rules');
-    // Tutti i markdown di docs/, compreso docs/preferred-sources-checklist.md:
-    // i test li leggono a runtime e un carve-out per file arrivava sempre dopo
-    // il primo ENOENT in CI.
-    expect(TESTS_YML).toContain('/docs/**/*.md');
-    // Non l'intera cartella: 140 MB su 142,8 sono artefatti di docs/newsletter-qa.
-    expect(TESTS_YML).not.toMatch(/^\s+\/docs\/\s*$/m);
-    expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts');
-    expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/como-fai-giornate-autunno.ts');
     expect(TESTS_YML).toContain('hard repository-tool budget');
   });
 

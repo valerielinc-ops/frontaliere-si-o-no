@@ -7,7 +7,7 @@ name: full-suite dispatch
 #
 # Nessun altro runner esegue la suite intera in un checkout pieno:
 #   - `tests.yml` esegue solo i test collegati al diff
-#     (`scripts/ci/run-related-tests.mjs`) in un checkout sparse, con
+#     (`scripts/ci/run-related-tests.mjs`) in un checkout completo, con
 #     `VITEST_SKIP_LIVE_DATA` e `VITEST_SKIP_CORPUS_WIDE`;
 #   - `corpus-wide-gates.yml` esegue solo il registro corpus-wide
 #     (`VITEST_CORPUS_GROUP=only`);
