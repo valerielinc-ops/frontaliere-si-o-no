@@ -109,6 +109,7 @@ jobs:
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          EVENT_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           REVIEW_BODY: ${{ github.event.review.body }}
           PR_AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
         run: |
@@ -158,6 +159,41 @@ jobs:
               exit "$marker_status"
             fi
             echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+
+          # La review event può arrivare dopo un push o un body edit. Prima di
+          # spendere il classificatore e il fixer, riconcilia la generazione
+          # live della PR con quella che ha emesso l'evento. Un errore di lettura
+          # è fail-closed; una PR chiusa, draft o con HEAD/ref/base cambiati è
+          # un no-op sicuro e non deve consumare un round del loop.
+          if ! live_pr=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
+            echo "::error::PR #$PR_NUMBER non leggibile nel preflight live: stop fail-closed."
+            exit 1
+          fi
+          if ! printf '%s' "$live_pr" | jq -e 'type == "object" and (.state | type == "string") and (.draft | type == "boolean") and (.base.ref | type == "string") and (.head.ref | type == "string") and (.head.sha | type == "string") and (.body == null or (.body | type == "string"))' >/dev/null; then
+            echo "::error::Snapshot live della PR #$PR_NUMBER incompleto o ambiguo: stop fail-closed."
+            exit 1
+          fi
+          live_state=$(printf '%s' "$live_pr" | jq -r '.state')
+          live_draft=$(printf '%s' "$live_pr" | jq -r '.draft | tostring')
+          live_base_ref=$(printf '%s' "$live_pr" | jq -r '.base.ref')
+          live_head_ref=$(printf '%s' "$live_pr" | jq -r '.head.ref')
+          live_head_sha=$(printf '%s' "$live_pr" | jq -r '.head.sha')
+          if [ "$live_state" != "open" ] || [ "$live_draft" = "true" ]; then
+            echo "PR #$PR_NUMBER non più azionabile nel snapshot live (state=$live_state draft=$live_draft) → skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$live_base_ref" != "main" ] || [ "$live_head_ref" != "$HEAD_REF" ]; then
+            echo "PR #$PR_NUMBER ha base/head ref cambiati ($live_base_ref/$live_head_ref) rispetto all'evento → skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if ! [[ "$EVENT_HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || ! [[ "$live_head_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::SHA live/event della PR #$PR_NUMBER non ha formato verificabile: stop fail-closed."
+            exit 1
+          fi
+          if [ "$live_head_sha" != "$EVENT_HEAD_SHA" ]; then
+            echo "Review 🔴 stantia per PR #$PR_NUMBER: evento=$EVENT_HEAD_SHA live=$live_head_sha → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
           # Scope: il 🔴-fixer agisce SOLO su PR autonome. `fix/*`, il prefisso

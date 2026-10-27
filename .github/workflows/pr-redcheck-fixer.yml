@@ -164,10 +164,34 @@ jobs:
           run_head_sha=$(printf '%s' "$run" | jq -r '.head_sha // empty')
           run_status=$(printf '%s' "$run" | jq -r '.status // empty')
           run_conclusion=$(printf '%s' "$run" | jq -r '.conclusion // empty')
+          run_event=$(printf '%s' "$run" | jq -r '.event // empty')
+          run_pr_match=$(printf '%s' "$run" | jq -r --arg pr "$PR" --arg sha "$run_head_sha" '
+            if (.pull_requests | type) != "array" then "malformed"
+            elif any(.pull_requests[]; (.number | tostring) == $pr
+              and .base.ref == "main"
+              and .head.sha == $sha) then "true"
+            else "false" end
+          ')
           if [ -z "$run_path" ] || [ -z "$run_head_sha" ] \
             || [ -z "$run_status" ] \
+            || [ -z "$run_event" ] \
+            || [ "$run_pr_match" = "malformed" ] \
             || { [ "$run_status" = "completed" ] && [ -z "$run_conclusion" ]; }; then
             echo "::error::Metadati della run tests $RUN_ID incompleti: impossibile legare il rosso alla HEAD corrente di #$PR."
+            exit 1
+          fi
+          if ! [[ "$head_sha" =~ ^[0-9a-f]{40}$ ]] || ! [[ "$run_head_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::SHA della PR #$PR o della run $RUN_ID non ha formato verificabile: stop fail-closed."
+            exit 1
+          fi
+
+          # Lo SHA da solo non prova che la run sia stata emessa per questa PR:
+          # una run trusted su uno SHA condiviso o una selezione manuale di una
+          # run di un'altra PR potrebbe altrimenti colorare il fixer sbagliato.
+          # L'associazione event/PR/base/HEAD è parte del contratto e, se manca
+          # o è ambigua, resta un errore fail-closed (non un no-op ottimistico).
+          if [ "$run_event" != "pull_request" ] || [ "$run_pr_match" != "true" ]; then
+            echo "::error::Run tests $RUN_ID non associata in modo verificabile alla PR #$PR e alla HEAD $head_sha: stop fail-closed."
             exit 1
           fi
 

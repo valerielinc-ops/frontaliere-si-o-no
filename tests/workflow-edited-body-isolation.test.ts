@@ -13,8 +13,9 @@ const recoveryScriptStep = recovery.jobs.recover.steps.find((step: { uses?: stri
 const script = recoveryScriptStep.with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
+const HEAD_SHA = 'a'.repeat(40);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, newerPendingMarker = null as 'malformed' | 'invalid' | null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown>, bodyEditedAt = null as string | null, attemptJobs = null as Array<{ conclusion: string; started_at?: string }> | null, concurrentEdit = null as { body?: string; editedAt?: string } | null } = {}) {
   const reruns: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
@@ -23,23 +24,30 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   let lastEditedAt = bodyEditedAt;
   let nativeAutoMergeRevoked = false;
   let reads = 0;
-  const run = { id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: 'pull_request', head_sha: 'head' };
+  const run = { id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: 'pull_request', head_sha: HEAD_SHA };
   const manualRun = { ...run, id: 43, event: 'pull_request' };
   const comments = pendingStatus ? [{
       id: 900,
       user: { type: 'Bot', login: 'github-actions[bot]' },
       body: `<!-- BODY_REVIEW_RECOVERY_PENDING: ${JSON.stringify({
       version: 1, status: pendingStatus, prNumber: 1, runId: 42, runAttempt: 1,
-        headSha: 'head', bodyRevision: reviewInputRevisionFromBody(body),
+        headSha: HEAD_SHA, bodyRevision: reviewInputRevisionFromBody(body),
         ...(pendingStatus === 'manual' ? { runAttempt: 2, reconcileAttempts: 1, sourceEvent: 'rerun-ambiguous' } : {}),
         ...markerExtra,
       })} -->`,
   }] : [];
+  if (newerPendingMarker) comments.push({
+    id: 903,
+    user: { type: 'Bot', login: 'github-actions[bot]' },
+    body: newerPendingMarker === 'malformed'
+      ? '<!-- BODY_REVIEW_RECOVERY_PENDING: {"version":1,"status":"completed" -->'
+      : '<!-- BODY_REVIEW_RECOVERY_PENDING: {"version":2} -->',
+  });
   if (codexAuthBlocked) comments.push({
     id: 902,
     user: { type: 'Bot', login: 'github-actions[bot]' },
     body: `⚠️ Codex auth blocked\n\n<!-- CODEX_AUTH_BLOCKED: ${JSON.stringify({
-      version: 1, status: 'blocked', prNumber: 1, headSha: 'head', runId: 42,
+      version: 1, status: 'blocked', prNumber: 1, headSha: HEAD_SHA, runId: 42,
       runAttempt: eventRunAttempt, authDigest: 'a'.repeat(64),
     })} -->`,
   });
@@ -60,7 +68,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
     rest: {
       pulls: {
         list: 'pulls',
-        get: async () => ({ data: { state: 'open', body: prBody, head: { sha: ++reads > 1 && changedHead ? 'new' : 'head', ref: 'fork-branch' }, base: { ref: 'main' } } }),
+        get: async () => ({ data: { state: 'open', body: prBody, head: { sha: ++reads > 1 && changedHead ? 'new' : HEAD_SHA, ref: 'fork-branch' }, base: { ref: 'main' } } }),
       },
       issues: {
         listComments: 'comments',
@@ -79,7 +87,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       },
       actions: {
         listWorkflowRuns: 'runs', listJobsForWorkflowRun: 'jobs', listJobsForWorkflowRunAttempt: 'attemptJobs',
-        getWorkflowRun: async ({ run_id }: { run_id: number }) => ({ data: { ...run, id: run_id, status: finishing ? 'completed' : status, conclusion: finishing ? 'failure' : conclusion, run_attempt: changedAttempt ? 2 : 1, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: 'head' } }] } }),
+        getWorkflowRun: async ({ run_id }: { run_id: number }) => ({ data: { ...run, id: run_id, status: finishing ? 'completed' : status, conclusion: finishing ? 'failure' : conclusion, run_attempt: changedAttempt ? 2 : 1, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: HEAD_SHA } }] } }),
         reRunWorkflow: async ({ run_id }: { run_id: number }) => {
           if (rerunFails) throw new Error('rerun failed');
           reruns.push(run_id);
@@ -125,7 +133,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
           : workflowRuns === 'mixed'
             ? [run, manualRun]
             : olderFailed
-              ? [run, { id: 41, status: 'completed', conclusion: 'failure', run_attempt: 1, event: 'pull_request', head_sha: 'head' }]
+              ? [run, { id: 41, status: 'completed', conclusion: 'failure', run_attempt: 1, event: 'pull_request', head_sha: HEAD_SHA }]
               : [run];
       }
       if (endpoint === 'jobs') {
@@ -149,8 +157,8 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       eventName,
       repo: { owner: 'owner', repo: 'repo' },
       payload: eventName === 'workflow_run'
-        ? { workflow_run: { id: eventRunId, name: 'Code checks and review · PR #1 · synchronize', path: '.github/workflows/tests.yml', status: 'completed', conclusion, event: 'pull_request', run_attempt: eventRunAttempt, created_at: '2026-09-19T09:00:00Z', head_sha: 'head', repository: { full_name: 'owner/repo' }, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: 'head' } }] } }
-        : { pull_request: { number: 1, head: { sha: 'head' } } },
+        ? { workflow_run: { id: eventRunId, name: 'Code checks and review · PR #1 · synchronize', path: '.github/workflows/tests.yml', status: 'completed', conclusion, event: 'pull_request', run_attempt: eventRunAttempt, created_at: '2026-09-19T09:00:00Z', head_sha: HEAD_SHA, repository: { full_name: 'owner/repo' }, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: HEAD_SHA } }] } }
+        : { pull_request: { number: 1, head: { sha: HEAD_SHA } } },
     }, { info: () => undefined, warning: () => undefined }, require);
   } catch (caught) {
     if (!rerunFails && !dispatchFails) throw caught;
@@ -533,7 +541,7 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       const first = await runRecovery({ body: 'success', conclusion, returnComments: true });
       expect(first.reruns).toEqual([42]);
       expect(markerState(first.comments!)).toMatchObject({
-        status: 'queued', headSha: 'head', runId: 42, runAttempt: 2, interruptedRetry: true,
+        status: 'queued', headSha: HEAD_SHA, runId: 42, runAttempt: 2, interruptedRetry: true,
       });
       // A repeated edit delivery for the same HEAD + body digest, after the
       // bounded retry was already spent: no second rerun, no loop.
@@ -648,6 +656,26 @@ describe('one code verdict and metadata-triggered review recovery', () => {
         ref: 'main', inputs: { pr_number: '1' },
       }],
     });
+  });
+
+  it('does not dispatch a malformed recovery marker', async () => {
+    expect(await runRecovery({
+      eventName: 'schedule', pendingStatus: 'completed', markerExtra: { version: 2 },
+    })).toEqual({ reruns: [], dispatches: [] });
+  });
+
+  it('fails closed when a newer trusted recovery marker is malformed or schema-invalid', async () => {
+    for (const newerPendingMarker of ['malformed', 'invalid'] as const) {
+      expect(await runRecovery({
+        eventName: 'schedule', pendingStatus: 'completed', newerPendingMarker,
+      })).toEqual({ reruns: [], dispatches: [] });
+    }
+  });
+
+  it('does not dispatch when the PR head changes during the final recovery snapshot', async () => {
+    expect(await runRecovery({
+      eventName: 'workflow_run', pendingStatus: 'queued', status: 'completed', changedHead: true,
+    })).toEqual({ reruns: [], dispatches: [] });
   });
 
   it('keeps a completed recovery retryable when the native dispatch fails', async () => {
