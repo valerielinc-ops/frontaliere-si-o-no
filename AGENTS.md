@@ -73,8 +73,8 @@ passo; `blocked:` resta aperto, `PR concatenata` vuole `#N`; mai body inline.
 ### Checkpoint e test del fixer
 
 Dopo il fix issue-fix crea subito `wip(issue-N): checkpoint pre-test`; niente push
-o `gh pr create` prima del diff gate. Esegui una volta `npx vitest run
-<path/glob pertinente>`; se fallisce, ripeti solo il test fallito con `-t` e
+o `gh pr create` prima del diff gate. Esegui una volta `npx vitest run <path/glob pertinente>`;
+se fallisce, ripeti solo il test fallito con `-t` e
 riesegui lo scoped test. Assembly solo se il diff lo richiede; niente suite
 intera/typecheck globale per un fix documentale.
 
