@@ -28,6 +28,7 @@ export const MPA_PRAXISSTELLEN_CH_COMPANY_NAME = 'mpa-praxisstellen';
 export const MPA_PRAXISSTELLEN_CH_COMPANY_DOMAIN = 'pks-personal.ch';
 
 const CAREER_URL = 'https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php';
+const MPA_PRAXISSTELLEN_VACANCY_PATH_RE = /^\/stellen\/[^/?#]+\/basel\/logistik-spedition\/[^/?#]+\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -37,6 +38,17 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isMpaPraxisstellenVacancyUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || ''));
+    const host = url.hostname.toLowerCase();
+    return (host === MPA_PRAXISSTELLEN_CH_COMPANY_DOMAIN || host === `www.${MPA_PRAXISSTELLEN_CH_COMPANY_DOMAIN}`)
+      && MPA_PRAXISSTELLEN_VACANCY_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -52,13 +64,12 @@ export function isMpaPraxisstellenChJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === MPA_PRAXISSTELLEN_CH_KEY ||
     key.startsWith('mpa-praxisstellen-ch-') ||
     company.includes('mpa-praxisstellen') ||
-    url.includes('pks-personal.ch')
+    isMpaPraxisstellenVacancyUrl(job?.url)
   );
 }
 

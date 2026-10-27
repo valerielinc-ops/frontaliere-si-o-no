@@ -28,6 +28,7 @@ export const TEO_JAKOB_COMPANY_NAME = 'Einrichtung & Innenarchitektur – Design
 export const TEO_JAKOB_COMPANY_DOMAIN = 'my.jobalino.ch';
 
 const CAREER_URL = 'https://my.jobalino.ch/public/job/607e9bf886583eaee25ea4db60baad92/teo-jakob-ag/mitarbeiter-fuer-auslieferung-und-montage-100';
+const TEO_JAKOB_VACANCY_PATH_RE = /^\/public\/job\/(?:[a-z]{2}\/)?[^/?#]+\/teo-jakob-ag\/[^/?#]+\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -37,6 +38,17 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isTeoJakobVacancyUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || ''));
+    const host = url.hostname.toLowerCase();
+    return (host === TEO_JAKOB_COMPANY_DOMAIN || host === `www.${TEO_JAKOB_COMPANY_DOMAIN}`)
+      && TEO_JAKOB_VACANCY_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -52,13 +64,12 @@ export function isTeoJakobJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === TEO_JAKOB_KEY ||
     key.startsWith('teo-jakob-') ||
     company.includes('einrichtung & innenarchitektur – designberatung | teo jakob') ||
-    url.includes('my.jobalino.ch')
+    isTeoJakobVacancyUrl(job?.url)
   );
 }
 

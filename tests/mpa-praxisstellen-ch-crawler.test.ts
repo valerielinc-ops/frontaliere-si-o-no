@@ -24,8 +24,18 @@ describe('mpa-praxisstellen crawler parser', () => {
       expect(isMpaPraxisstellenChJob({ company: 'mpa-praxisstellen' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isMpaPraxisstellenChJob({ url: 'https://pks-personal.ch/jobs/123' })).toBe(true);
+    it('matches by source vacancy URL', () => {
+      expect(isMpaPraxisstellenChJob({
+        url: 'https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/abc123',
+      })).toBe(true);
+    });
+
+    it('rejects unrelated vacancies on the shared source host', () => {
+      expect(isMpaPraxisstellenChJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://pks-personal.ch/jobs/other',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

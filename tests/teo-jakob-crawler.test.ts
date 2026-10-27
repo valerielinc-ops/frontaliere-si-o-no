@@ -24,8 +24,18 @@ describe('Einrichtung & Innenarchitektur – Designberatung | teo jakob crawler 
       expect(isTeoJakobJob({ company: 'Einrichtung & Innenarchitektur – Designberatung | teo jakob' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isTeoJakobJob({ url: 'https://my.jobalino.ch/jobs/123' })).toBe(true);
+    it('matches by source vacancy URL', () => {
+      expect(isTeoJakobJob({
+        url: 'https://my.jobalino.ch/public/job/607e9bf886583eaee25ea4db60baad92/teo-jakob-ag/mitarbeiter-fuer-auslieferung-und-montage-100',
+      })).toBe(true);
+    });
+
+    it('rejects unrelated vacancies on the shared source host', () => {
+      expect(isTeoJakobJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://my.jobalino.ch/public/job/other',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

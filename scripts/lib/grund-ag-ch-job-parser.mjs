@@ -28,6 +28,7 @@ export const GRUND_AG_CH_COMPANY_NAME = 'Grund AG Fahrzeuge';
 export const GRUND_AG_CH_COMPANY_DOMAIN = 'yousty.ch';
 
 const CAREER_URL = 'https://www.yousty.ch/de-CH/lehrstellen/firmen/821127-grund-ag-fahrzeuge';
+const GRUND_AG_CH_VACANCY_PATH_RE = /^\/(?:[a-z]{2}-[a-z]{2}\/)?lehrstellen\/profile\/[^/?#]+-grund-ag-fahrzeuge\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -37,6 +38,17 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isGrundAgChVacancyUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || ''));
+    const host = url.hostname.toLowerCase();
+    return (host === GRUND_AG_CH_COMPANY_DOMAIN || host === `www.${GRUND_AG_CH_COMPANY_DOMAIN}`)
+      && GRUND_AG_CH_VACANCY_PATH_RE.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -52,13 +64,12 @@ export function isGrundAgChJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
     key === GRUND_AG_CH_KEY ||
     key.startsWith('grund-ag-ch-') ||
     company.includes('grund ag fahrzeuge') ||
-    url.includes('yousty.ch')
+    isGrundAgChVacancyUrl(job?.url)
   );
 }
 

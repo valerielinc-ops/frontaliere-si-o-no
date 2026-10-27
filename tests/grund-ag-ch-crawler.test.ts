@@ -24,8 +24,18 @@ describe('Grund AG Fahrzeuge crawler parser', () => {
       expect(isGrundAgChJob({ company: 'Grund AG Fahrzeuge' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isGrundAgChJob({ url: 'https://yousty.ch/jobs/123' })).toBe(true);
+    it('matches by source vacancy URL', () => {
+      expect(isGrundAgChJob({
+        url: 'https://www.yousty.ch/de-CH/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge',
+      })).toBe(true);
+    });
+
+    it('rejects unrelated vacancies on the shared source host', () => {
+      expect(isGrundAgChJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://yousty.ch/jobs/other',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
