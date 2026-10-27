@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 920,
+      "5": 925,
       "6": 5061
     },
-    "publishedCovers": 7663,
+    "publishedCovers": 7668,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210222,6 +210222,171 @@
         "provider": "openai-codex",
         "assetId": "article-maratona-laghi-varese-2027",
         "imageUrl": "/images/blog/article-maratona-laghi-varese-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-arco-giurassiano-frontalieri": {
+      "cover": "/images/blog/article-arco-giurassiano-frontalieri.webp",
+      "hash": "0474ea531bb88fc07a90ad839601289ded3847c82b9e62966c9c18c71f520675",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "arco-giurassiano-frontalieri",
+          "category": "novita",
+          "date": "2026-10-27T19:06:44.911Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-arco-giurassiano-frontalieri.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-arco-giurassiano-frontalieri",
+        "imageUrl": "/images/blog/article-arco-giurassiano-frontalieri.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-orari-tilo-re80-s90": {
+      "cover": "/images/blog/article-orari-tilo-re80-s90.webp",
+      "hash": "ea1f9ed20af65cc40e1d99cc307729df5e07116514c9051f66b7722171cc9996",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "orari-tilo-re80-s90",
+          "category": "pratico",
+          "date": "2026-10-27T18:36:43.018Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-orari-tilo-re80-s90.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-orari-tilo-re80-s90",
+        "imageUrl": "/images/blog/article-orari-tilo-re80-s90.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rht-ritorno-normale-orologeria": {
+      "cover": "/images/blog/article-rht-ritorno-normale-orologeria.webp",
+      "hash": "e4c7a670816aa7cbb103a60390b1ee5c634c5a5d9cebf57a7ce4df3360675587",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "rht-ritorno-normale-orologeria",
+          "category": "novita",
+          "date": "2026-10-27T18:01:44.534Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rht-ritorno-normale-orologeria.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rht-ritorno-normale-orologeria",
+        "imageUrl": "/images/blog/article-rht-ritorno-normale-orologeria.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-teufen-ricorso-progetto-bundt": {
+      "cover": "/images/blog/article-teufen-ricorso-progetto-bundt.webp",
+      "hash": "347c3078d1978fdbac89507cca6772837a43e6081903abd15411e01e50603b29",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "teufen-ricorso-progetto-bundt",
+          "category": "novita",
+          "date": "2026-10-27T20:08:13.817Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-teufen-ricorso-progetto-bundt.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-teufen-ricorso-progetto-bundt",
+        "imageUrl": "/images/blog/article-teufen-ricorso-progetto-bundt.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-wil-budget-nachtrag-2027-115": {
+      "cover": "/images/blog/article-wil-budget-nachtrag-2027-115.webp",
+      "hash": "f6f3cd7f33c0cad770a26f80f1a1717407e70ecee9be4db55423afdb3ed30a80",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sg",
+          "id": "wil-budget-nachtrag-2027-115",
+          "category": "fiscale",
+          "date": "2026-10-27T18:02:08.096Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-wil-budget-nachtrag-2027-115.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-27",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-wil-budget-nachtrag-2027-115",
+        "imageUrl": "/images/blog/article-wil-budget-nachtrag-2027-115.webp",
         "evidence": "generated-engine-record"
       }
     }

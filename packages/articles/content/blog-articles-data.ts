@@ -45903,6 +45903,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'orari-tilo-re80-s90',
+ category: 'pratico',
+ date: '2026-10-27T18:36:43.018Z',
+ image: '/images/blog/article-orari-tilo-re80-s90.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
