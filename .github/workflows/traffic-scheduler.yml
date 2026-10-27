@@ -38,7 +38,7 @@ jobs:
     # job cap during collection, leaving the 17:00 snapshot stale. Keep the
     # full pass intact with enough room for slow checkout plus collection,
     # mirror, and push; this changes no publishability checks.
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
