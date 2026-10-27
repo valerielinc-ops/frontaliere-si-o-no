@@ -8,6 +8,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/mitarbeiter-kommunikation-events-m-w-d/f8c62742-75fd-4c8f-8688-515b952f2973",
+    "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/4041c658-2eb0-4969-8a85-72d08ccf60da",
     "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/3a80fbd8-c730-4cab-afa4-20a6b7e0b452",
     "https://jobs.ems-group.com/offene-stellen/assistenz-administration-organisation-m-w-d/25eddb6a-69d9-4dcf-9277-846966a17079",
     "https://jobs.ems-group.com/offene-stellen/sap-modulbetreuer-sd-wm-ewm-m-w-d/7c9b5090-0431-480d-9dea-7f64b0eef5da",
@@ -23,6 +25,14 @@
     "https://jobs.ems-group.com/offene-stellen/entwicklungschemiker-entwicklungsingenieur-m-w-d/25d9e3e2-dbb4-42c1-8b5d-c9edfe9a9278"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/mitarbeiter-kommunikation-events-m-w-d/f8c62742-75fd-4c8f-8688-515b952f2973": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
+    "https://jobs.ems-group.com/offene-stellen/produktionscontroller-m-w-d/4041c658-2eb0-4969-8a85-72d08ccf60da": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/verkaufscontroller-m-w-d/3a80fbd8-c730-4cab-afa4-20a6b7e0b452": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -77,5 +87,5 @@
     }
   },
   "notes": "Career-portal HTML crawler tied to EMS-Chemie/EFTEC Swiss sites, centered on the Domat/Ems (GR) company seat; not a national employer search.",
-  "updatedAt": "2026-10-26T21:46:19.938Z"
+  "updatedAt": "2026-10-27T09:27:50.111Z"
 }
