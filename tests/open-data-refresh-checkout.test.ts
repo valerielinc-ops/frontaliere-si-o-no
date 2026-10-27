@@ -56,6 +56,7 @@ function writeGitUrlRewriteConfig(directory: string, remote: string) {
   fs.writeFileSync(config, [
     `[url "${remote}"]`,
     `\tinsteadOf = ${PUSH_URL}`,
+    '\tinsteadOf = https://x-access-token:fallback-token@github.com/fixture/publisher.git',
     '\tinsteadOf = https://github.com/fixture/publisher.git',
     '',
   ].join('\n'));
@@ -118,6 +119,25 @@ function fixture() {
     '',
   ].join('\n'));
   fs.chmodSync(gh, 0o755);
+  const gitWrapper = path.join(bin, 'git');
+  fs.writeFileSync(gitWrapper, [
+    '#!/bin/sh',
+    'if [ "${REFRESH_FIXTURE_FAIL_PRIMARY_PUSH:-0}" = 1 ]; then',
+    '  saw_push=0',
+    '  saw_primary=0',
+    '  for arg in "$@"; do',
+    '    [ "$arg" = push ] && saw_push=1',
+    '    case "$arg" in *fixture-token*) saw_primary=1 ;; esac',
+    '  done',
+    '  if [ "$saw_push" = 1 ] && [ "$saw_primary" = 1 ]; then',
+    '    echo "fixture: primary refresh identity rejected" >&2',
+    '    exit 77',
+    '  fi',
+    'fi',
+    'exec /usr/bin/git "$@"',
+    '',
+  ].join('\n'));
+  fs.chmodSync(gitWrapper, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture refresh.\n\n## Non implementato (ancora)\n- Nessuno.\n');
   return { repo, remote, bin, body, base, gitConfig, createAttemptMarker, prExistsMarker };
@@ -151,7 +171,11 @@ function publish(
   });
 }
 
-function publishPlain(setup: ReturnType<typeof fixture>, extraArgs: string[] = []) {
+function publishPlain(
+  setup: ReturnType<typeof fixture>,
+  extraArgs: string[] = [],
+  extraEnv: Record<string, string> = {},
+) {
   // Same call shape as sync-articles-sitemaps.yml: plain `git add`, no symlink
   // resolution, required paths first and the optional directory last.
   return spawnSync('bash', [
@@ -170,6 +194,7 @@ function publishPlain(setup: ReturnType<typeof fixture>, extraArgs: string[] = [
       REFRESH_FIXTURE_GH_FAIL: '0',
       REFRESH_FIXTURE_CREATE_ATTEMPT_MARKER: setup.createAttemptMarker,
       REFRESH_FIXTURE_PR_EXISTS_MARKER: setup.prExistsMarker,
+      ...extraEnv,
     },
   });
 }
@@ -526,6 +551,22 @@ describe('optional refresh paths (sync run 37515283217)', () => {
     const workflow = fs.readFileSync(path.join(ROOT, '.github/workflows/sync-articles-sitemaps.yml'), 'utf8');
     expect(workflow).toContain('--optional-path public/images/generated');
     expect(workflow).not.toContain('--path public/images/generated');
+  });
+});
+
+describe('refresh push identity fallback', () => {
+  it('retries a rejected primary App push with the loaded GITHUB_PAT', () => {
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"fallback"}\n');
+
+    const result = publishPlain(setup, [], {
+      GITHUB_PAT: 'fallback-token',
+      REFRESH_FIXTURE_FAIL_PRIMARY_PUSH: '1',
+    });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('retrying with GITHUB_PAT fallback');
+    expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"fallback"}');
   });
 });
 
@@ -1345,17 +1386,21 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const pushLines = lines
       .map((line, index) => ({ line, index }))
       .filter(({ line }) => !line.trimStart().startsWith('#') && /(^|\s)git(\s+-c\s+\S+)*\s+push(\s|$)/.test(line));
-    // Two forms for a new branch (compat and not), one orphan reset, one over an existing tip, one that removes an unused base.
-    expect(pushLines).toHaveLength(5);
+    // The five call sites share two bounded transport forms so the primary and
+    // fallback identities cannot drift apart.
+    expect(pushLines).toHaveLength(2);
+    expect(helper.match(/push_with_fallback /g)).toHaveLength(5);
     for (const { index } of pushLines) {
       // The command the push line belongs to starts at most two lines above it.
       const command = lines.slice(Math.max(0, index - 2), index + 1).join('\n');
       expect(command, `line ${index + 1}`).toContain('run_bounded "$PUSH_TIMEOUT_SECONDS" <label>');
     }
-    expect(helper).toMatch(/env GIT_NO_LAZY_FETCH=1 \\\n\s+git -c http\.https:\/\/github\.com\/\.extraheader= push "\$PUSH_URL" "HEAD:\$\{BRANCH\}"/);
+    expect(helper).toMatch(/env GIT_NO_LAZY_FETCH=1 \\\n\s+git -c http\.https:\/\/github\.com\/\.extraheader= push "\$token_url" "\$@"/);
     expect(helper).toMatch(/elif push_new_stable_branch; then/);
+    expect(helper).toContain('run_push_with_token "$FALLBACK_PUSH_URL"');
+    expect(helper).toContain('GITHUB_PAT fallback');
     // The cleanup deletes with a lease on the base commit; a REST delete has no such condition.
-    expect(helper).toMatch(/--force-with-lease="refs\/heads\/\$\{BRANCH\}:\$\{REFRESH_BASE\}" \\\n\s+"\$PUSH_URL" ":refs\/heads\/\$\{BRANCH\}"/);
+    expect(helper).toContain('--force-with-lease="refs/heads/${BRANCH}:${REFRESH_BASE}"');
     expect(helper).not.toContain('-X DELETE');
   });
 
