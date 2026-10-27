@@ -44,10 +44,10 @@ import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/co
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { jobDescriptionPlainText, jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 import { jobDescriptionTextToHtml } from '@/build-plugins/shared/jobDescription/toHtml';
 import { useJobCopyAttribution } from '@/hooks/useJobCopyAttribution';
 import { JOB_COPY_SITE_ORIGIN } from '@/services/jobCopyAttribution';
-import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from '@/services/storageAvailability';
 
 interface RelatedJob {
  slug: string;
@@ -189,7 +189,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
-  const alreadySignedIn = hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
+ const alreadySignedIn = hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
   const jobGate = useJobGateExperiment(shouldBypassJobGateExperiment() || alreadySignedIn);
   const gateVariant = jobGate.enrolled ? jobGate.arm : headlineVariant;
   const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;

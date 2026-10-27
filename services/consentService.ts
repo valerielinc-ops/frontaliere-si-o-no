@@ -142,9 +142,19 @@ function loadState(): ConsentState | null {
  try {
  const raw = localStorage.getItem(STORAGE_KEY);
  if (!raw) return null;
- const parsed = JSON.parse(raw);
- if (typeof parsed.analytics !== 'boolean') return null;
- return parsed as ConsentState;
+ const parsed: unknown = JSON.parse(raw);
+ if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) return null;
+ const state = parsed as Record<string, unknown>;
+ if (typeof state.analytics !== 'boolean'
+  || typeof state.advertising !== 'boolean'
+  || typeof state.timestamp !== 'number'
+  || !Number.isFinite(state.timestamp)
+  || state.timestamp < 0) return null;
+ return {
+  analytics: state.analytics,
+  advertising: state.advertising,
+  timestamp: state.timestamp,
+ };
  } catch {
  return null;
  }

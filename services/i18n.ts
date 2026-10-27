@@ -9,6 +9,7 @@ import type { ArticleSection, HistoricalArticleSection } from './articleSections
 import { articlesApiBase } from './articlesApiBase';
 import { isArticleBodyPlaceholder } from './articleBodyRecovery';
 import type { ArticleBodyApiLocale, ArticleBodyApiResult } from './articleBodyApi';
+import { readBestEffortLocalStorage, writeBestEffortLocalStorage } from './storageAvailability';
 
 type TranslationKey = string;
 type Translations = Record<TranslationKey, string>;
@@ -574,7 +575,7 @@ export function getLocaleTick(): number { return localeTick; }
 
 export function setLocale(locale: Locale): void {
  currentLocale = locale;
- localStorage.setItem('frontaliere_locale', locale);
+ writeBestEffortLocalStorage('frontaliere_locale', locale);
  document.documentElement.lang = locale;
  // Load locale data if needed, then re-notify to trigger re-render with translations
  if (locale !== 'it' && !loadedLocales[locale]) {
@@ -622,7 +623,7 @@ export function initLocale(): void {
  }
 
  // 4. Check localStorage (user's previous choice) on the locale root only
- const stored = localStorage.getItem('frontaliere_locale') as Locale | null;
+ const stored = readBestEffortLocalStorage('frontaliere_locale') as Locale | null;
  if (stored && validLocales.includes(stored)) {
  setLocale(stored);
  return;

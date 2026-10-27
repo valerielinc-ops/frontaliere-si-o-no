@@ -1,4 +1,4 @@
-import { describe, it, expect, afterAll, beforeAll, beforeEach } from 'vitest';
+import { describe, it, expect, afterAll, beforeAll, beforeEach, vi } from 'vitest';
 import { getLocale, setLocale, t, ensureLocaleLoaded, itReady, loadTabTranslations, loadAllLocaleChunks, initLocale } from '@/services/i18n';
 
 describe('i18n Service', () => {
@@ -50,6 +50,28 @@ describe('i18n Service', () => {
   it('switches to French locale', () => {
     setLocale('fr');
     expect(t('nav.simulator')).toBe('Calculateur');
+  });
+
+  it('keeps locale switching usable when browser storage is blocked', () => {
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+
+    expect(() => setLocale('en')).not.toThrow();
+    expect(getLocale()).toBe('en');
+    expect(document.documentElement.lang).toBe('en');
+    setItem.mockRestore();
+  });
+
+  it('defaults the root locale without reading blocked storage', () => {
+    const getItem = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+    window.history.replaceState({}, '', '/');
+
+    expect(() => initLocale()).not.toThrow();
+    expect(getLocale()).toBe('it');
+    getItem.mockRestore();
   });
 
   it('returns the key when translation not found', () => {
