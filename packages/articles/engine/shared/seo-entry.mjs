@@ -738,10 +738,31 @@ export function readStaticObjectProperty(block, field) {
   /** @type {string | undefined} */
   let objectBlock;
   forEachStaticProperty(block, ({ key, valueStart, valueEnd }) => {
-    if (key === field && block[valueStart] === '{') {
-      objectBlock = block.slice(valueStart, valueEnd);
-    }
+    if (key !== field) return;
+    // JavaScript object literals are last-write-wins. A later null, dynamic
+    // expression, or primitive must therefore clear an earlier object rather
+    // than leaking stale nested JSON-LD into the emitted page/feed.
+    objectBlock = block[valueStart] === '{'
+      ? block.slice(valueStart, valueEnd)
+      : undefined;
   });
+  return objectBlock;
+}
+
+/**
+ * Return the final static object assigned to a field in structuredData.
+ *
+ * JSON-LD is commonly emitted as an array containing an Article/Event object
+ * plus auxiliary objects. Resolve each object with the same balanced reader,
+ * and keep the top-level fallback for legacy SEO entries that put the field
+ * directly on the entry.
+ */
+export function readStructuredSeoObjectProperty(block, field) {
+  let objectBlock = readStaticObjectProperty(block, field);
+  for (const structuredBlock of readStructuredSeoObjectBlocks(block) ?? []) {
+    const candidate = readStaticObjectProperty(structuredBlock, field);
+    if (candidate !== undefined) objectBlock = candidate;
+  }
   return objectBlock;
 }
 

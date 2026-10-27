@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 
 import {
   hasInterpolatedStaticProperty,
+  lastStaticPropertyValue,
   readStaticObjectProperty,
+  readStructuredSeoObjectProperty,
   readStructuredSeoBlock,
   readStructuredSeoDescriptionState,
   readStructuredSeoObjectBlocks,
@@ -104,6 +106,32 @@ describe('articles engine SEO-entry compatibility contract', () => {
     expect(staticPropertyState(objects?.[1] ?? '', '@type')).toMatchObject({ value: 'Event' });
     expect(readStaticObjectProperty(objects?.[1] ?? '', 'location')).toContain('Hall {A}');
     expect(readStructuredSeoBlock(block)).toContain('Hall {A}');
+  });
+
+  it('clears a stale nested object when the final assignment is not an object', () => {
+    const block = String.raw`{
+      location: { "@type": "Place", name: "Old hall" },
+      location: null,
+    }`;
+
+    expect(readStaticObjectProperty(block, 'location')).toBeUndefined();
+  });
+
+  it('reads a structured author with balanced braces and decoded fields', () => {
+    const block = String.raw`{
+      structuredData: {
+        "@type": "NewsArticle",
+        "author": {
+          "@type": "Person",
+          "@id": "https://frontaliereticino.ch/autori/example/#person",
+          "name": "Author } Name",
+        },
+      },
+    }`;
+
+    const author = readStructuredSeoObjectProperty(block, 'author');
+    expect(author).toContain('Author } Name');
+    expect(lastStaticPropertyValue(author ?? '', 'name')).toBe('Author } Name');
   });
 
   it('keeps the final structuredData assignment last-write-wins', () => {
