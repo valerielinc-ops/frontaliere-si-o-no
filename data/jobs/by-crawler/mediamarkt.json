@@ -2202,7 +2202,7 @@
         "it": "hr-business-partner-vendite-svizzera-romanda-e-ticino-60-mediamarkt-crissier",
         "en": "hr-business-partner-sales-french-speaking-switzerland-ticino-60-mediamarkt-crissier",
         "de": "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch",
-        "fr": "partenaire-rh-ventes-suisse-romande-ticino-60-mediamarkt-crissier"
+        "fr": "ressources-humaines-partenaire-d-affaires-ventes-suisse-romande-tessin-50-mediamarkt-crissier"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2251,7 +2251,8 @@
       "previousSlugs": [
         "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier",
         "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch",
-        "hr-business-partner-ventes-suisse-romande-tessin-50-mediamarkt-crissier-ch"
+        "hr-business-partner-ventes-suisse-romande-tessin-50-mediamarkt-crissier-ch",
+        "partenaire-rh-ventes-suisse-romande-ticino-60-mediamarkt-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2259,7 +2260,8 @@
           "hr-business-partner-ventes-suisse-romande-tessin-50-mediamarkt-crissier-ch"
         ],
         "fr": [
-          "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier"
+          "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier",
+          "partenaire-rh-ventes-suisse-romande-ticino-60-mediamarkt-crissier"
         ]
       },
       "firstSeenAt": "2026-10-05T21:57:57.146Z",
@@ -3767,8 +3769,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-100-mediamarkt-winterthur-ch",
         "it": "collaboratore-trice-in-vendita-100-mediamarkt-winterthur",
-        "en": "mitarbeiter-in-verkauf-100-mediamarkt-winterthur-ch",
-        "fr": "mitarbeiter-in-verkauf-100-mediamarkt-winterthur-ch"
+        "en": "sales-employee-100-mediamarkt-winterthur",
+        "fr": "employe-e-de-vente-100-mediamarkt-winterthur"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3818,6 +3820,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-100-mediamarkt-winterthur-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-100-mediamarkt-winterthur-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-100-mediamarkt-winterthur-ch"
         ]
       },

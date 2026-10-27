@@ -584,12 +584,12 @@
     },
     {
       "id": "baloise-a4109f514359",
-      "slug": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
+      "slug": "stage-bem-ingresso-bancario-a-matura-m-f-d-baloise-dornach",
       "slugByLocale": {
         "de": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
-        "it": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
-        "en": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach",
-        "fr": "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        "it": "stage-bem-ingresso-bancario-a-matura-m-f-d-baloise-dornach",
+        "en": "bem-internship-bank-entry-to-matura-m-f-d-baloise-dornach",
+        "fr": "stage-bem-entree-bancaire-a-matura-h-f-d-baloise-dornach"
       },
       "company": "Baloise",
       "companyKey": "baloise",
@@ -648,7 +648,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:45:57.331Z"
+      "firstSeenAt": "2026-10-26T21:45:57.331Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        ],
+        "en": [
+          "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        ],
+        "fr": [
+          "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+        ]
+      },
+      "previousSlugs": [
+        "bem-praktikum-bankeinstieg-nach-matura-w-m-d-baloise-dornach"
+      ]
     }
   ]
 }

@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "analista-degli-investimenti-lombard-odier-geneva",
         "en": "private-assets-investment-analyst-lombard-odier-ch",
-        "de": "investmentanalyst-fur-private-anlagen-lombard-odier-geneva",
+        "de": "anlageanalyst-fur-privatvermogen-lombard-odier-geneva",
         "fr": "analyste-des-investissements-prives-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
@@ -56,7 +56,7 @@
       "jobReqId": "R0006952",
       "previousSlugs": [
         "private-assets-investment-analyst-lombard-odier-ch",
-        "anlageanalyst-fur-privatvermogen-lombard-odier-geneva"
+        "investmentanalyst-fur-private-anlagen-lombard-odier-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +64,7 @@
         ],
         "de": [
           "private-assets-investment-analyst-lombard-odier-ch",
-          "anlageanalyst-fur-privatvermogen-lombard-odier-geneva"
+          "investmentanalyst-fur-private-anlagen-lombard-odier-geneva"
         ],
         "fr": [
           "private-assets-investment-analyst-lombard-odier-ch"
@@ -1224,8 +1224,8 @@
       "slug": "collaboratore-trice-tesoreria-cassa-e-carte-lombard-odier-geneva",
       "slugByLocale": {
         "it": "collaboratore-trice-tesoreria-cassa-e-carte-lombard-odier-geneva",
-        "en": "vault-operator-precious-metals-lombard-odier-geneva",
-        "de": "vault-operator-edelmetalle-lombard-odier-geneva",
+        "en": "treasury-cash-and-cards-associate-lombard-odier-geneva",
+        "de": "mitarbeiter-in-treasury-kasse-und-karten-lombard-odier-geneva",
         "fr": "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch"
       },
       "company": "Lombard Odier",
@@ -1280,20 +1280,20 @@
         "en": [
           "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch",
           "vault-operator-operateur-trice-metaux-precieux-lombard-odier-geneva",
-          "treasury-cash-and-cards-associate-lombard-odier-geneva"
+          "vault-operator-precious-metals-lombard-odier-geneva"
         ],
         "de": [
           "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch",
           "vault-operator-operateur-trice-metaux-precieux-lombard-odier-geneva",
-          "mitarbeiter-in-treasury-kasse-und-karten-lombard-odier-geneva"
+          "vault-operator-edelmetalle-lombard-odier-geneva"
         ]
       },
       "previousSlugs": [
         "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch",
         "vault-operator-operateur-trice-metaux-precieux-lombard-odier-ch",
         "vault-operator-operateur-trice-metaux-precieux-lombard-odier-geneva",
-        "treasury-cash-and-cards-associate-lombard-odier-geneva",
-        "mitarbeiter-in-treasury-kasse-und-karten-lombard-odier-geneva"
+        "vault-operator-precious-metals-lombard-odier-geneva",
+        "vault-operator-edelmetalle-lombard-odier-geneva"
       ],
       "firstSeenAt": "2026-10-08T09:37:55.083Z",
       "salaryMin": 71000,
@@ -3985,12 +3985,12 @@
     },
     {
       "id": "lombard-odier-2d5ede4799cb",
-      "slug": "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch",
+      "slug": "specialista-digitale-ia-eccellenza-operativa-80-100-lombard-odier-geneva",
       "slugByLocale": {
         "fr": "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch",
-        "it": "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch",
-        "en": "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch",
-        "de": "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch"
+        "it": "specialista-digitale-ia-eccellenza-operativa-80-100-lombard-odier-geneva",
+        "en": "digital-specialist-ia-operational-excellence-80-100-lombard-odier-geneva",
+        "de": "digitaler-spezialist-ia-operational-excellence-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -4049,7 +4049,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-26T21:58:34.405Z"
+      "firstSeenAt": "2026-10-26T21:58:34.405Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch"
+        ],
+        "en": [
+          "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch"
+        ],
+        "de": [
+          "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-digital-ia-excellence-operationnelle-80-100-lombard-odier-ch"
+      ]
     },
     {
       "id": "lombard-odier-fd2ce3969cff",

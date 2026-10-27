@@ -158,8 +158,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -229,8 +229,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -238,10 +238,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -642,12 +642,12 @@
     },
     {
       "id": "ghol-e70e7572db97",
-      "slug": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "fisioterapia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "fisioterapia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "physiotherapy-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "physiotherapie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -701,7 +701,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:50:22.736Z"
+      "firstSeenAt": "2026-10-26T21:50:22.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     },
     {
       "id": "ghol-ca7b74ad5b09",

@@ -471,12 +471,12 @@
     },
     {
       "id": "sulzer-c1a75473bb11",
-      "slug": "ict-supporter-sulzer-ch",
+      "slug": "supporto-ict-sulzer-winterthur",
       "slugByLocale": {
         "de": "ict-supporter-sulzer-ch",
-        "it": "ict-supporter-sulzer-ch",
+        "it": "supporto-ict-sulzer-winterthur",
         "en": "ict-supporter-sulzer-ch",
-        "fr": "ict-supporter-sulzer-ch"
+        "fr": "soutien-aux-tic-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -536,7 +536,18 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-26T21:57:24.270Z"
+      "firstSeenAt": "2026-10-26T21:57:24.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-sulzer-ch"
+        ],
+        "fr": [
+          "ict-supporter-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-sulzer-ch"
+      ]
     }
   ]
 }

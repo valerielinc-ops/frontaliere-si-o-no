@@ -171,12 +171,12 @@
     },
     {
       "id": "caritas-schweiz-21a4395c2915",
-      "slug": "sozialarbeiter-in-60-80-m-w-d-uster-e-zurich-oerlikon-caritas-schweiz-zurich",
+      "slug": "assistente-sociale-60-80-m-f-d-uster-e-zurich-oerlikon-caritas-schweiz-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich",
-        "it": "sozialarbeiter-in-60-80-m-w-d-uster-e-zurich-oerlikon-caritas-schweiz-zurich",
-        "en": "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich",
-        "fr": "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich"
+        "it": "assistente-sociale-60-80-m-f-d-uster-e-zurich-oerlikon-caritas-schweiz-zurich",
+        "en": "social-worker-60-80-m-f-d-uster-and-zurich-oerlikon-caritas-schweiz-zurich",
+        "fr": "travailleur-euse-social-e-60-80-h-f-d-uster-et-zurich-oerlikon-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -226,11 +226,19 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
+          "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich",
+          "sozialarbeiter-in-60-80-m-w-d-uster-e-zurich-oerlikon-caritas-schweiz-zurich"
+        ],
+        "en": [
+          "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich"
+        ],
+        "fr": [
           "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich"
+        "sozialarbeiter-in-60-80-w-m-d-uster-und-zurich-oerlikon-caritas-schweiz-zurich",
+        "sozialarbeiter-in-60-80-m-w-d-uster-e-zurich-oerlikon-caritas-schweiz-zurich"
       ],
       "salaryMin": 50400,
       "salaryMax": 93200,

@@ -1340,12 +1340,12 @@
     },
     {
       "id": "valiant-bank-221459759798",
-      "slug": "berater-in-privat-e-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant-bank-ag-burgdorf",
+      "slug": "consulente-per-clienti-privati-e-aziendali-vice-responsabile-di-filiale-80-100-valiant-bank-ag-burgdorf",
       "slugByLocale": {
         "de": "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant",
-        "it": "berater-in-privat-e-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant-bank-ag-burgdorf",
-        "en": "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant",
-        "fr": "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant"
+        "it": "consulente-per-clienti-privati-e-aziendali-vice-responsabile-di-filiale-80-100-valiant-bank-ag-burgdorf",
+        "en": "private-and-business-customer-advisor-deputy-branch-manager-80-100-valiant-bank-ag-burgdorf",
+        "fr": "conseiller-ere-a-la-clientele-privee-et-commerciale-adjoint-e-a-la-direction-de-la-succursale-80-100-valiant-bank-ag"
       },
       "company": "Valiant Bank AG",
       "companyKey": "valiant-bank",
@@ -1394,11 +1394,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant",
+          "berater-in-privat-e-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant-bank-ag-burgdorf"
+        ],
+        "en": [
+          "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant"
+        ],
+        "fr": [
           "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant"
         ]
       },
       "previousSlugs": [
-        "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant"
+        "berater-in-privat-und-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant",
+        "berater-in-privat-e-geschaftskunden-stv-geschaftsstellenleiter-in-80-100-valiant-bank-ag-burgdorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

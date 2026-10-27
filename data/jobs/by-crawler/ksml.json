@@ -3188,8 +3188,8 @@
       "slugByLocale": {
         "de": "stv-fur-mutterschaftsurlaub-5-6-klasse-12l-5-funktion-klp-facher-und-pensum-nach-absprache-40578",
         "it": "stv-per-mutterschaftsurlaub-5-6-klasse-12l-5-funktion-klp-facher-e-pensum-nach-absprache-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hindelbank",
-        "en": "stv-fur-mutterschaftsurlaub-5-6-klasse-12l-5-funktion-klp-facher-und-pensum-nach-absprache-40578",
-        "fr": "stv-fur-mutterschaftsurlaub-5-6-klasse-12l-5-funktion-klp-facher-und-pensum-nach-absprache-40578"
+        "en": "substitute-for-maternity-leave-5-6-grade-12l-5-class-teacher-function-subjects-and-workload-by-agreement-ksml-40578",
+        "fr": "remplacement-pour-conge-maternite-en-5e-6e-annee-12-lecons-et-fonction-de-titulaire-de-classe-a-5-matieres-et-taux-40578"
       },
       "slugDisambiguator": "40578",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -3238,6 +3238,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stv-fur-mutterschaftsurlaub-5-6-klasse-12l-5-funktion-klp-facher-und-pensum-nach-absprache-40578"
+        ],
+        "en": [
+          "stv-fur-mutterschaftsurlaub-5-6-klasse-12l-5-funktion-klp-facher-und-pensum-nach-absprache-40578"
+        ],
+        "fr": [
           "stv-fur-mutterschaftsurlaub-5-6-klasse-12l-5-funktion-klp-facher-und-pensum-nach-absprache-40578"
         ]
       },
@@ -12036,12 +12042,12 @@
     },
     {
       "id": "ksml-aae3ccd9e3cb",
-      "slug": "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529",
+      "slug": "responsabile-della-sicurezza-delle-informazioni-responsabile-della-sicurezza-delle-informazioni-r-m-f-d-80-100-40529",
       "slugByLocale": {
         "de": "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529",
-        "it": "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529",
+        "it": "responsabile-della-sicurezza-delle-informazioni-responsabile-della-sicurezza-delle-informazioni-r-m-f-d-80-100-40529",
         "en": "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529",
-        "fr": "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529"
+        "fr": "responsable-de-la-securite-de-l-information-responsable-de-la-securite-de-l-information-h-f-d-80-100-ksml-40529"
       },
       "slugDisambiguator": "40529",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -12101,7 +12107,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:45:34.530Z"
+      "firstSeenAt": "2026-10-26T21:45:34.530Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529"
+        ],
+        "fr": [
+          "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529"
+        ]
+      },
+      "previousSlugs": [
+        "information-security-officer-informationssicherheitsbeauftragte-r-m-w-d-80-100-40529"
+      ]
     },
     {
       "id": "ksml-13160d419342",
@@ -15259,8 +15276,8 @@
       "slugByLocale": {
         "de": "die-primarschule-wattenwil-sucht-eine-eine-stellvertretung-als-mr-lehrperson-if-im-zyklus-40564",
         "it": "la-primarschule-wattenwil-sucht-eine-stellvertretung-come-mr-lehrperson-if-im-zyklus-1-per-29-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wat",
-        "en": "die-primarschule-wattenwil-sucht-eine-eine-stellvertretung-als-mr-lehrperson-if-im-zyklus-40564",
-        "fr": "die-primarschule-wattenwil-sucht-eine-eine-stellvertretung-als-mr-lehrperson-if-im-zyklus-40564"
+        "en": "the-primary-school-wattenwil-is-looking-for-a-deputy-as-mr-teacher-if-in-cycle-1-for-29-lessons-ksml-kantonaler-40564",
+        "fr": "l-ecole-primaire-wattenwil-est-a-la-recherche-d-un-adjoint-comme-professeur-de-mr-fi-dans-le-cycle-1-pour-29-40564"
       },
       "slugDisambiguator": "40564",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -15309,6 +15326,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "die-primarschule-wattenwil-sucht-eine-eine-stellvertretung-als-mr-lehrperson-if-im-zyklus-40564"
+        ],
+        "en": [
+          "die-primarschule-wattenwil-sucht-eine-eine-stellvertretung-als-mr-lehrperson-if-im-zyklus-40564"
+        ],
+        "fr": [
           "die-primarschule-wattenwil-sucht-eine-eine-stellvertretung-als-mr-lehrperson-if-im-zyklus-40564"
         ]
       },
@@ -15492,7 +15515,7 @@
       "slug": "insegnante-di-classe-a-livello-di-base-da-22-a-24-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
       "slugByLocale": {
         "it": "insegnante-di-classe-a-livello-di-base-da-22-a-24-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-        "en": "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten",
+        "en": "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
         "de": "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-schule-signau-mutten-40533",
         "fr": "co-enseignant-au-niveau-de-base-22-a-24-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40533"
       },
@@ -15542,8 +15565,7 @@
       "previousSlugs": [
         "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-schule-signau-mutten-40533",
         "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten",
-        "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-        "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
+        "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15552,7 +15574,7 @@
         ],
         "en": [
           "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533",
-          "co-class-teacher-at-the-basic-level-22-to-24-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
+          "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mutten"
         ],
         "fr": [
           "co-klassenlehrperson-an-der-basisstufe-22-bis-24-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40533"
@@ -17041,12 +17063,12 @@
     },
     {
       "id": "ksml-0854fb657446",
-      "slug": "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567",
+      "slug": "6-lezioni-2-grado-3-nov-al-26-gennaio-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-port-40567",
       "slugByLocale": {
         "de": "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567",
-        "it": "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567",
-        "en": "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567",
-        "fr": "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567"
+        "it": "6-lezioni-2-grado-3-nov-al-26-gennaio-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-port-40567",
+        "en": "6-lessons-2nd-grade-3rd-nov-to-26th-jan-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-port-40567",
+        "fr": "6-lecons-2e-annee-3-novembre-au-26-janvier-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40567"
       },
       "slugDisambiguator": "40567",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -17106,7 +17128,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:45:34.518Z"
+      "firstSeenAt": "2026-10-26T21:45:34.518Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567"
+        ],
+        "en": [
+          "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567"
+        ],
+        "fr": [
+          "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567"
+        ]
+      },
+      "previousSlugs": [
+        "6-lektionen-2-klasse-3-nov-bis-26-jan-primarschule-port-port-40567"
+      ]
     },
     {
       "id": "ksml-14caf05d5305",
@@ -18455,12 +18491,12 @@
     },
     {
       "id": "ksml-bdd13fb6330d",
-      "slug": "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
+      "slug": "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570",
       "slugByLocale": {
         "de": "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
-        "it": "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570",
+        "it": "traduzione-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570",
         "en": "lehrperson-basisstufe-13-2-l-dez-jan-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570",
-        "fr": "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"
+        "fr": "professeur-de-base-13-2-l-dez-jan-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-bern-40570"
       },
       "slugDisambiguator": "40570",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -18521,7 +18557,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:45:34.514Z"
+      "firstSeenAt": "2026-10-26T21:45:34.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"
+        ],
+        "fr": [
+          "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-basisstufe-13-2-l-dez-jan-schule-bumpliz-hohe-schulhaus-hohe-bernstrasse-35-40570"
+      ]
     },
     {
       "id": "ksml-47e1da24cc87",

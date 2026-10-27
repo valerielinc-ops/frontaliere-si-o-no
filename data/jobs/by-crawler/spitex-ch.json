@@ -858,9 +858,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
-        "it": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
-        "en": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal",
-        "fr": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-regio-liestal"
+        "it": "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
+        "en": "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
+        "fr": "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
       },
       "company": "Spitex Regio Liestal",
       "companyKey": "spitex-ch",
@@ -914,12 +914,6 @@
           "dipl-infermiera-hf-fh-servizio-notturno-regionale-spitex-regio-liestal-liestal",
           "dipl-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
           "dipl-infirmiere-hf-fh-service-de-nuit-regional-spitex-regio-liestal-liestal"
-        ],
-        "en": [
-          "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal"
-        ],
-        "fr": [
-          "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
         ]
       },
       "previousSlugs": [
@@ -948,12 +942,12 @@
     },
     {
       "id": "spitex-ch-1ffb481e2ded",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil",
+      "slug": "dipl-infermieristica-professionale-80-100-spitex-region-uzwil-niederuzwil",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil",
-        "it": "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil",
-        "en": "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil"
+        "it": "dipl-infermieristica-professionale-80-100-spitex-region-uzwil-niederuzwil",
+        "en": "dipl-nursing-professional-80-100-spitex-region-uzwil-niederuzwil",
+        "fr": "dipl-professionnel-des-soins-infirmiers-80-100-spitex-region-uzwil-niederuzwil"
       },
       "company": "Spitex Region Uzwil",
       "companyKey": "spitex-ch",
@@ -1012,16 +1006,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:49:12.075Z"
+      "firstSeenAt": "2026-10-26T21:49:12.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-80-100-spitex-ch-niederuzwil"
+      ]
     },
     {
       "id": "spitex-ch-427b63abc818",
-      "slug": "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach",
+      "slug": "formazione-professionale-fage-m-f-d-professione-principale-spitex-regio-tannzapfenland-sirnach",
       "slugByLocale": {
         "de": "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach",
-        "it": "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach",
-        "en": "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach",
-        "fr": "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach"
+        "it": "formazione-professionale-fage-m-f-d-professione-principale-spitex-regio-tannzapfenland-sirnach",
+        "en": "vocational-trainer-fage-m-f-d-main-profession-spitex-regio-tannzapfenland-sirnach",
+        "fr": "entraineur-professionnel-fage-h-f-d-profession-principale-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1080,16 +1088,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:49:11.624Z"
+      "firstSeenAt": "2026-10-26T21:49:11.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach"
+        ],
+        "en": [
+          "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach"
+        ],
+        "fr": [
+          "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-fage-m-w-d-hauptberuf-spitex-ch-sirnach"
+      ]
     },
     {
       "id": "spitex-ch-f5af57cf2a4c",
-      "slug": "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach",
+      "slug": "operatrice-o-operatore-sociosanitario-afc-spitex-regio-tannzapfenland-sirnach",
       "slugByLocale": {
         "de": "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
-        "it": "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach",
-        "en": "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
-        "fr": "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach"
+        "it": "operatrice-o-operatore-sociosanitario-afc-spitex-regio-tannzapfenland-sirnach",
+        "en": "health-professional-efz-spitex-regio-tannzapfenland-sirnach",
+        "fr": "professionnels-de-la-sante-efz-spitex-regio-tannzapfenland-sirnach"
       },
       "company": "Spitex Regio Tannzapfenland",
       "companyKey": "spitex-ch",
@@ -1137,11 +1159,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
+          "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach"
+        ],
+        "en": [
+          "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach"
+        ],
+        "fr": [
           "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach"
         ]
       },
       "previousSlugs": [
-        "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach"
+        "fachfrau-oder-fachmann-gesundheit-efz-spitex-ch-sirnach",
+        "fachfrau-o-fachmann-gesundheit-cfc-spitex-regio-tannzapfenland-sirnach"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,

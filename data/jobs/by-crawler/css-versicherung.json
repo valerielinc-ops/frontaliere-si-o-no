@@ -2760,7 +2760,7 @@
         "it": "dati-del-controller-finanziario-bi-m-f-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
         "de": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "fr": "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
+        "fr": "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2806,7 +2806,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+        "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2814,7 +2814,7 @@
         ],
         "fr": [
           "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-          "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+          "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
         ]
       },
       "firstSeenAt": "2026-10-22T09:36:32.945Z",
@@ -2837,7 +2837,7 @@
       "slug": "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "it": "impiegato-a-del-centro-servizi-hr-80-90-css-versicherung-luzern-hybrid",
-        "en": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid",
+        "en": "hr-service-center-administrator-80-90-css-versicherung-luzern",
         "de": "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern",
         "fr": "collaborateur-trice-administratif-ve-du-hr-service-center-80-90-css-versicherung-luzern-hybrid"
       },
@@ -2894,6 +2894,9 @@
         "fr": [
           "gestionnaire-administratif-ve-au-hr-service-center-80-90-css-versicherung-luzern-hybrid",
           "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
+        ],
+        "en": [
+          "sachbearbeiter-in-hr-service-center-80-90-css-versicherung-luzern-hybrid"
         ]
       },
       "previousSlugs": [
@@ -2918,12 +2921,12 @@
     },
     {
       "id": "css-versicherung-6129c9878f7a",
-      "slug": "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne",
+      "slug": "intern-mpe-3-1-hr-formazione-professionale-agosto-2027-css-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne",
-        "it": "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne",
-        "en": "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne",
-        "de": "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne"
+        "it": "intern-mpe-3-1-hr-formazione-professionale-agosto-2027-css-lausanne",
+        "en": "intern-mpe-3-1-hr-vocational-training-august-2027-css-lausanne",
+        "de": "praktikant-mpe-3-1-hr-berufsbildung-august-2027-css-lausanne"
       },
       "company": "CSS",
       "companyKey": "css-versicherung",
@@ -2982,16 +2985,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:55:36.094Z"
+      "firstSeenAt": "2026-10-26T21:55:36.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne"
+        ],
+        "en": [
+          "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne"
+        ],
+        "de": [
+          "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpe-3-43-1-rh-amp-formation-professionnelle-aout-2027-css-versicherung-lausanne"
+      ]
     },
     {
       "id": "css-versicherung-420992ba4914",
-      "slug": "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg",
+      "slug": "intern-mpe-3-1-agenzia-fribourg-agosto-2027-css-fribourg",
       "slugByLocale": {
         "fr": "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg",
-        "it": "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg",
-        "en": "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg",
-        "de": "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg"
+        "it": "intern-mpe-3-1-agenzia-fribourg-agosto-2027-css-fribourg",
+        "en": "intern-mpe-3-1-fribourg-agency-august-2027-css-fribourg",
+        "de": "intern-mpe-3-1-agentur-freiburg-august-2027-css-fribourg"
       },
       "company": "CSS",
       "companyKey": "css-versicherung",
@@ -3050,16 +3067,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:55:31.967Z"
+      "firstSeenAt": "2026-10-26T21:55:31.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg"
+        ],
+        "en": [
+          "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg"
+        ],
+        "de": [
+          "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpe-3-43-1-agence-de-fribourg-aout-2027-css-versicherung-fribourg"
+      ]
     },
     {
       "id": "css-versicherung-846c6149255b",
-      "slug": "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel",
+      "slug": "intern-mpe-3-1-agenzia-neuchatel-agosto-2027-css-neuchatel",
       "slugByLocale": {
         "fr": "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel",
-        "it": "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel",
-        "en": "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel",
-        "de": "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel"
+        "it": "intern-mpe-3-1-agenzia-neuchatel-agosto-2027-css-neuchatel",
+        "en": "intern-mpe-3-1-neuchatel-agency-august-2027-css-neuchatel",
+        "de": "intern-mpe-3-1-agentur-neuenburg-august-2027-css-neuchatel"
       },
       "company": "CSS",
       "companyKey": "css-versicherung",
@@ -3118,16 +3149,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:55:28.012Z"
+      "firstSeenAt": "2026-10-26T21:55:28.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel"
+        ],
+        "en": [
+          "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel"
+        ],
+        "de": [
+          "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpe-3-43-1-agence-de-neuchatel-aout-2027-css-versicherung-neuchatel"
+      ]
     },
     {
       "id": "css-versicherung-caf8a6ede9aa",
-      "slug": "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne",
+      "slug": "intern-mpe-3-1-risorse-umane-agosto-2027-css-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne",
-        "it": "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne",
-        "en": "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne",
-        "de": "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne"
+        "it": "intern-mpe-3-1-risorse-umane-agosto-2027-css-lausanne",
+        "en": "intern-mpe-3-1-human-resources-august-2027-css-lausanne",
+        "de": "praktikant-mpe-3-1-human-resources-august-2027-css-lausanne"
       },
       "company": "CSS",
       "companyKey": "css-versicherung",
@@ -3186,16 +3231,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:55:24.216Z"
+      "firstSeenAt": "2026-10-26T21:55:24.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne"
+        ],
+        "en": [
+          "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne"
+        ],
+        "de": [
+          "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpe-3-43-1-ressources-humaines-aout-2027-css-versicherung-lausanne"
+      ]
     },
     {
       "id": "css-versicherung-73c7987eb572",
-      "slug": "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid",
+      "slug": "gestione-del-servizio-medico-di-fiducia-80-100-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "de": "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid",
-        "it": "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid",
-        "en": "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid",
-        "fr": "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid"
+        "it": "gestione-del-servizio-medico-di-fiducia-80-100-css-versicherung-luzern-hybrid",
+        "en": "management-of-the-trusted-medical-service-80-100-css-versicherung-luzern-hybrid",
+        "fr": "gestion-du-service-medical-de-confiance-80-100-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3254,16 +3313,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:55:20.021Z"
+      "firstSeenAt": "2026-10-26T21:55:20.021Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid"
+        ],
+        "en": [
+          "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "ressortleitung-vertrauensarztlicher-dienst-80-100-css-versicherung-luzern-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-567d4becf2d9",
-      "slug": "collaboratore-trice-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg",
+      "slug": "addetto-a-al-servizio-clienti-buchs-sg-80-100-css-versicherung-buchs-sg",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg",
-        "it": "collaboratore-trice-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg",
-        "en": "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg",
-        "fr": "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg"
+        "it": "addetto-a-al-servizio-clienti-buchs-sg-80-100-css-versicherung-buchs-sg",
+        "en": "customer-service-representative-buchs-sg-80-100-css-versicherung-buchs-sg",
+        "fr": "collaborateur-trice-service-clientele-buchs-sg-80-100-css-versicherung-buchs-sg"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3311,11 +3384,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg",
+          "collaboratore-trice-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg"
+        "mitarbeiter-in-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg",
+        "collaboratore-trice-kundenservice-buchs-sg-80-100-css-versicherung-buchs-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3408,12 +3489,12 @@
     },
     {
       "id": "css-versicherung-21cb1e4b30a7",
-      "slug": "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne",
+      "slug": "intern-mpe-3-1-dipartimento-finanze-agosto-2027-css-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne",
-        "it": "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne",
-        "en": "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne",
-        "de": "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne"
+        "it": "intern-mpe-3-1-dipartimento-finanze-agosto-2027-css-lausanne",
+        "en": "intern-mpe-3-1-finance-department-august-2027-css-lausanne",
+        "de": "intern-mpe-3-1-finanzabteilung-august-2027-css-lausanne"
       },
       "company": "CSS",
       "companyKey": "css-versicherung",
@@ -3472,7 +3553,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:55:09.020Z"
+      "firstSeenAt": "2026-10-26T21:55:09.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne"
+        ],
+        "en": [
+          "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne"
+        ],
+        "de": [
+          "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpe-3-43-1-service-des-finances-aout-2027-css-versicherung-lausanne"
+      ]
     },
     {
       "id": "css-versicherung-970ba67269d9",

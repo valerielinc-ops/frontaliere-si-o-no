@@ -899,12 +899,12 @@
     },
     {
       "id": "spital-nidwalden-dfc9a361b9d3",
-      "slug": "collaboratore-trice-apotheke-40-spital-nidwalden-stans",
+      "slug": "addetto-a-alla-farmacia-40-spital-nidwalden-stans",
       "slugByLocale": {
         "de": "mitarbeiter-in-apotheke-40-spital-nidwalden-stans",
-        "it": "collaboratore-trice-apotheke-40-spital-nidwalden-stans",
-        "en": "mitarbeiter-in-apotheke-40-spital-nidwalden-stans",
-        "fr": "mitarbeiter-in-apotheke-40-spital-nidwalden-stans"
+        "it": "addetto-a-alla-farmacia-40-spital-nidwalden-stans",
+        "en": "pharmacy-assistant-40-spital-nidwalden-stans",
+        "fr": "employe-e-en-pharmacie-a-40-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -952,11 +952,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-apotheke-40-spital-nidwalden-stans",
+          "collaboratore-trice-apotheke-40-spital-nidwalden-stans"
+        ],
+        "en": [
+          "mitarbeiter-in-apotheke-40-spital-nidwalden-stans"
+        ],
+        "fr": [
           "mitarbeiter-in-apotheke-40-spital-nidwalden-stans"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-apotheke-40-spital-nidwalden-stans"
+        "mitarbeiter-in-apotheke-40-spital-nidwalden-stans",
+        "collaboratore-trice-apotheke-40-spital-nidwalden-stans"
       ],
       "salaryMin": 34600,
       "salaryMax": 48200,

@@ -1447,7 +1447,7 @@
       "slug": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
-        "en": "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich",
+        "en": "transport-expert-kantonale-verwaltung-zurich-zurich",
         "de": "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
         "fr": "specialiste-des-transports-kantonale-verwaltung-zurich-zurich"
       },
@@ -1500,7 +1500,7 @@
       "previousSlugs": [
         "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
         "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
-        "transport-expert-kantonale-verwaltung-zurich-zurich"
+        "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1509,7 +1509,7 @@
         ],
         "en": [
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
-          "transport-expert-kantonale-verwaltung-zurich-zurich"
+          "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
         ],
         "fr": [
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich"
@@ -1640,7 +1640,7 @@
       "slug": "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
         "it": "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
-        "en": "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "en": "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
         "fr": "therapeute-en-milieu-de-vie-duree-limitee-kantonale-verwaltung-zurich-regensdorf"
       },
@@ -1691,8 +1691,7 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
-        "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf"
+        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1700,7 +1699,7 @@
           "milieutherapeut-in-befristet-kanton-zuerich-regensdorf"
         ],
         "en": [
-          "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf"
+          "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ],
         "fr": [
           "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
@@ -2397,8 +2396,8 @@
       "slugByLocale": {
         "de": "lehrbeauftragte-n-fur-informatik-kanton-zuerich-winterthur",
         "it": "lehrbeauftragte-n-per-informatik-kantonale-verwaltung-zurich-winterthur",
-        "en": "lehrbeauftragte-n-fur-informatik-kantonale-verwaltung-zurich-winterthur",
-        "fr": "lehrbeauftragte-n-fur-informatik-kantonale-verwaltung-zurich-winterthur"
+        "en": "lecturer-s-in-computer-science-kantonale-verwaltung-zurich-winterthur",
+        "fr": "enseignant-s-en-informatique-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2450,10 +2449,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrbeauftragte-n-fur-informatik-kanton-zuerich-winterthur"
+        ],
+        "en": [
+          "lehrbeauftragte-n-fur-informatik-kantonale-verwaltung-zurich-winterthur"
+        ],
+        "fr": [
+          "lehrbeauftragte-n-fur-informatik-kantonale-verwaltung-zurich-winterthur"
         ]
       },
       "previousSlugs": [
-        "lehrbeauftragte-n-fur-informatik-kanton-zuerich-winterthur"
+        "lehrbeauftragte-n-fur-informatik-kanton-zuerich-winterthur",
+        "lehrbeauftragte-n-fur-informatik-kantonale-verwaltung-zurich-winterthur"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -2829,7 +2835,7 @@
         "it": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich-a38393a55d",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich",
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich"
+        "fr": "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2881,7 +2887,7 @@
         "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
         "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
         "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich-ec85ba",
-        "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
+        "polizeiaspirant-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2891,7 +2897,7 @@
         "fr": [
           "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
           "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich-ec85ba",
-          "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
+          "polizeiaspirant-in-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:26.443Z",
@@ -3002,7 +3008,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich-altstetten",
         "de": "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "fr": "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
+        "fr": "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3054,7 +3060,7 @@
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+        "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3063,7 +3069,7 @@
         "fr": [
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
           "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
-          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+          "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:25.654Z",
@@ -4093,12 +4099,12 @@
     },
     {
       "id": "kanton-zuerich-6481b7e92e56",
-      "slug": "ikt-governance-e-servicemanager-in-kantonale-verwaltung-zurich",
+      "slug": "manager-della-governance-e-dei-servizi-tic-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich",
-        "it": "ikt-governance-e-servicemanager-in-kantonale-verwaltung-zurich",
-        "en": "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich",
-        "fr": "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich"
+        "it": "manager-della-governance-e-dei-servizi-tic-kantonale-verwaltung-zurich-zurich",
+        "en": "ict-governance-and-service-manager-kantonale-verwaltung-zurich-zurich",
+        "fr": "gestionnaire-de-la-gouvernance-et-des-services-tic-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4149,11 +4155,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich",
+          "ikt-governance-e-servicemanager-in-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich"
+        "ikt-governance-und-servicemanager-in-kanton-zuerich-zurich",
+        "ikt-governance-e-servicemanager-in-kantonale-verwaltung-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5184,7 +5198,7 @@
         "it": "tecnico-a-di-laboratorio-di-fisica-kantonale-verwaltung-zurich-wetzikon-zh",
         "en": "physics-laboratory-technician-kantonale-verwaltung-zurich-wetzikon-zh",
         "de": "physik-laborant-in-kanton-zuerich-wetzikon-zh",
-        "fr": "physik-laborant-in-kantonale-verwaltung-zurich-wetzikon-zh"
+        "fr": "laborantin-e-en-physique-kantonale-verwaltung-zurich-wetzikon-zh"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5233,7 +5247,7 @@
       "pensum": "80%",
       "previousSlugs": [
         "physik-laborant-in-kanton-zuerich-wetzikon-zh",
-        "laborantin-e-en-physique-kantonale-verwaltung-zurich-wetzikon-zh"
+        "physik-laborant-in-kantonale-verwaltung-zurich-wetzikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5243,7 +5257,7 @@
           "physik-laborant-in-kanton-zuerich-wetzikon-zh"
         ],
         "fr": [
-          "laborantin-e-en-physique-kantonale-verwaltung-zurich-wetzikon-zh"
+          "physik-laborant-in-kantonale-verwaltung-zurich-wetzikon-zh"
         ]
       },
       "firstSeenAt": "2026-10-19T09:34:13.964Z",
@@ -5268,7 +5282,7 @@
         "it": "sorvegliante-a-assistente-a-pianificazione-operativa-benvenuti-e-anche-i-le-candidati-e-provenienti-da-altri-settori",
         "en": "supervisor-attendant-operations-dispatching-career-changers-welcome-kantonale-verwaltung-zurich-zurich",
         "de": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kanton-zuerich",
-        "fr": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
+        "fr": "surveillant-e-accompagnateur-trice-planification-de-l-exploitation-personnes-en-reconversion-bienvenues-kantonale"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5318,7 +5332,7 @@
       "previousSlugs": [
         "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kanton-zuerich",
         "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich-zurich",
-        "surveillant-e-accompagnateur-trice-planification-de-l-exploitation-personnes-en-reconversion-bienvenues-kantonale"
+        "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5330,7 +5344,7 @@
         ],
         "fr": [
           "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich-zurich",
-          "surveillant-e-accompagnateur-trice-planification-de-l-exploitation-personnes-en-reconversion-bienvenues-kantonale"
+          "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:47:06.008Z",
@@ -5617,12 +5631,12 @@
     },
     {
       "id": "kanton-zuerich-53e83d562976",
-      "slug": "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis",
+      "slug": "sorvegliante-assistente-kantonale-verwaltung-zurich-affoltern-am-albis",
       "slugByLocale": {
         "de": "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis",
-        "it": "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis",
-        "en": "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis",
-        "fr": "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis"
+        "it": "sorvegliante-assistente-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "en": "supervisor-caregiver-kantonale-verwaltung-zurich-affoltern-am-albis",
+        "fr": "surveillant-e-accompagnateur-trice-kantonale-verwaltung-zurich-affoltern-am-albis"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5684,7 +5698,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:48:34.957Z"
+      "firstSeenAt": "2026-10-26T21:48:34.957Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis"
+        ],
+        "en": [
+          "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis"
+        ],
+        "fr": [
+          "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "aufseher-in-betreuer-in-kanton-zuerich-affoltern-am-albis"
+      ]
     },
     {
       "id": "kanton-zuerich-d6f612631cd5",
@@ -7136,9 +7164,9 @@
     },
     {
       "id": "kanton-zuerich-cc435a09ce1d",
-      "slug": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf",
         "en": "workshop-supervisor-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
         "fr": "assistant-d-atelier-a-duree-determinee-kantonale-verwaltung-zurich-regensdorf"
@@ -7192,13 +7220,13 @@
       "previousSlugs": [
         "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
         "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
-        "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf"
+        "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
           "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
-          "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf"
+          "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-24T14:46:32.192Z",
@@ -8985,7 +9013,7 @@
         "it": "responsabile-di-progetto-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich",
         "en": "project-manager-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich-zurich",
         "de": "projektleiter-in-koordinationsstelle-teilhabe-kanton-zuerich-zurich",
-        "fr": "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich"
+        "fr": "chef-fe-de-projet-du-service-de-coordination-de-la-participation-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9035,7 +9063,7 @@
       "previousSlugs": [
         "projektleiter-in-koordinationsstelle-teilhabe-kanton-zuerich-zurich",
         "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich-zurich",
-        "chef-fe-de-projet-du-service-de-coordination-de-la-participation-kantonale-verwaltung-zurich-zurich"
+        "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9046,7 +9074,7 @@
         ],
         "fr": [
           "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich-zurich",
-          "chef-fe-de-projet-du-service-de-coordination-de-la-participation-kantonale-verwaltung-zurich-zurich"
+          "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T21:29:02.963Z",
@@ -9487,12 +9515,12 @@
     },
     {
       "id": "kanton-zuerich-6c5a79ce03a7",
-      "slug": "begleitpersonen-per-familien-con-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach",
+      "slug": "accompagnatori-trici-per-famiglie-di-madrelingua-dari-farsi-kantonale-verwaltung-zurich-bulach",
       "slugByLocale": {
         "de": "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kanton-zuerich-bulach",
-        "it": "begleitpersonen-per-familien-con-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach",
-        "en": "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach",
-        "fr": "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach"
+        "it": "accompagnatori-trici-per-famiglie-di-madrelingua-dari-farsi-kantonale-verwaltung-zurich-bulach",
+        "en": "accompanying-families-with-mother-tongue-dari-farsi-kantonale-verwaltung-zurich-bulach",
+        "fr": "accompagner-les-familles-avec-la-langue-maternelle-dari-farsi-kantonale-verwaltung-zurich-bulach"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9543,11 +9571,20 @@
       "pensum": "10 - 20%",
       "previousSlugsByLocale": {
         "it": [
-          "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kanton-zuerich-bulach"
+          "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kanton-zuerich-bulach",
+          "begleitpersonen-per-familien-con-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach"
+        ],
+        "en": [
+          "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach"
+        ],
+        "fr": [
+          "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach"
         ]
       },
       "previousSlugs": [
-        "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kanton-zuerich-bulach"
+        "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kanton-zuerich-bulach",
+        "begleitpersonen-per-familien-con-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach",
+        "begleitpersonen-fur-familien-mit-muttersprache-dari-farsi-kantonale-verwaltung-zurich-bulach"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -10534,12 +10571,12 @@
     },
     {
       "id": "kanton-zuerich-1e63fda30338",
-      "slug": "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090",
+      "slug": "giurista-responsabile-di-caso-50-kantonale-verwaltung-zurich-8090",
       "slugByLocale": {
         "de": "jurist-in-fallverantwortliche-r-50-kanton-zuerich-8090",
-        "it": "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090",
-        "en": "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090",
-        "fr": "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090"
+        "it": "giurista-responsabile-di-caso-50-kantonale-verwaltung-zurich-8090",
+        "en": "lawyer-case-manager-50-kantonale-verwaltung-zurich-8090",
+        "fr": "juriste-responsable-de-cas-50-kantonale-verwaltung-zurich-8090"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10590,11 +10627,19 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-fallverantwortliche-r-50-kanton-zuerich-8090"
+          "jurist-in-fallverantwortliche-r-50-kanton-zuerich-8090",
+          "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090"
+        ],
+        "en": [
+          "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090"
+        ],
+        "fr": [
+          "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090"
         ]
       },
       "previousSlugs": [
-        "jurist-in-fallverantwortliche-r-50-kanton-zuerich-8090"
+        "jurist-in-fallverantwortliche-r-50-kanton-zuerich-8090",
+        "jurist-in-fallverantwortliche-r-50-kantonale-verwaltung-zurich-8090"
       ],
       "salaryMin": 42500,
       "salaryMax": 72500,
@@ -10695,7 +10740,7 @@
         "it": "hr-business-partner-kantonale-verwaltung-zurich-zurich",
         "en": "hr-business-partner-kantonale-verwaltung-zurich-zurich",
         "de": "hr-business-partner-in-kanton-zuerich-zurich",
-        "fr": "hr-business-partner-in-kantonale-verwaltung-zurich"
+        "fr": "partenaire-rh-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10745,12 +10790,12 @@
       "previousSlugs": [
         "hr-business-partner-in-kantonale-verwaltung-zurich-zurich",
         "hr-business-partner-in-kanton-zuerich-zurich",
-        "partenaire-rh-kantonale-verwaltung-zurich-zurich"
+        "hr-business-partner-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "hr-business-partner-in-kantonale-verwaltung-zurich-zurich",
-          "partenaire-rh-kantonale-verwaltung-zurich-zurich"
+          "hr-business-partner-in-kantonale-verwaltung-zurich"
         ],
         "it": [
           "hr-business-partner-in-kanton-zuerich-zurich"
@@ -10781,7 +10826,7 @@
         "it": "applicazione-responsabile-r-sistema-di-gestione-dei-costi-di-costruzione-kantonale-verwaltung-zurich-zurich",
         "en": "application-responsible-r-construction-cost-management-system-kantonale-verwaltung-zurich-zurich",
         "de": "applikationsverantwortliche-r-baukostenmanagementsystem-kanton-zuerich-zurich",
-        "fr": "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich"
+        "fr": "application-responsable-r-systeme-de-gestion-des-couts-de-construction-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10831,7 +10876,7 @@
       "previousSlugs": [
         "applikationsverantwortliche-r-baukostenmanagementsystem-kanton-zuerich-zurich",
         "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich-zurich",
-        "application-responsable-r-systeme-de-gestion-des-couts-de-construction-kantonale-verwaltung-zurich-zurich"
+        "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10843,7 +10888,7 @@
         ],
         "fr": [
           "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich-zurich",
-          "application-responsable-r-systeme-de-gestion-des-couts-de-construction-kantonale-verwaltung-zurich-zurich"
+          "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-10-22T09:33:37.435Z",
@@ -11280,7 +11325,7 @@
         "it": "tirocinante-universitario-a-kantonale-verwaltung-zurich-rheinau",
         "en": "student-intern-kantonale-verwaltung-zurich-rheinau",
         "de": "studienpraktikant-in-kanton-zuerich-rheinau",
-        "fr": "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
+        "fr": "stagiaire-etudiant-e-kantonale-verwaltung-zurich-rheinau"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11329,8 +11374,7 @@
       "pensum": "70 - 100%",
       "previousSlugs": [
         "studienpraktikant-in-kanton-zuerich-rheinau",
-        "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau",
-        "stagiaire-etudiant-e-kantonale-verwaltung-zurich-rheinau"
+        "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11341,7 +11385,7 @@
           "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
         ],
         "fr": [
-          "stagiaire-etudiant-e-kantonale-verwaltung-zurich-rheinau"
+          "studienpraktikant-in-kantonale-verwaltung-zurich-rheinau"
         ]
       },
       "salaryMin": 62000,

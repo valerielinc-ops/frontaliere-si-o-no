@@ -4507,12 +4507,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-8110e14f7c38",
-      "slug": "collaboratore-trice-hauswirtschaft-reinigung-spitaler-schaffhausen",
+      "slug": "collaboratore-trice-per-l-economia-domestica-e-la-pulizia-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-reinigung-spitaeler-schaffhausen-schaffhausen",
-        "it": "collaboratore-trice-hauswirtschaft-reinigung-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-hauswirtschaft-reinigung-spitaler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-hauswirtschaft-reinigung-spitaler-schaffhausen-schaffhausen"
+        "it": "collaboratore-trice-per-l-economia-domestica-e-la-pulizia-spitaler-schaffhausen-schaffhausen",
+        "en": "housekeeping-and-cleaning-staff-spitaler-schaffhausen-schaffhausen",
+        "fr": "employe-e-en-intendance-nettoyage-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4560,11 +4560,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-reinigung-spitaeler-schaffhausen-schaffhausen"
+          "mitarbeiter-in-hauswirtschaft-reinigung-spitaeler-schaffhausen-schaffhausen",
+          "collaboratore-trice-hauswirtschaft-reinigung-spitaler-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-reinigung-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-reinigung-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-reinigung-spitaeler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-hauswirtschaft-reinigung-spitaeler-schaffhausen-schaffhausen",
+        "collaboratore-trice-hauswirtschaft-reinigung-spitaler-schaffhausen",
+        "mitarbeiter-in-hauswirtschaft-reinigung-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,

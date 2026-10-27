@@ -3442,12 +3442,12 @@
     },
     {
       "id": "coopers-9c6230b096fd",
-      "slug": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug",
+      "slug": "addetto-a-amministrativo-a-ricevimento-merci-e-controllo-delle-fatture-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "de": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug",
-        "it": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug",
-        "en": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug",
-        "fr": "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
+        "it": "addetto-a-amministrativo-a-ricevimento-merci-e-controllo-delle-fatture-m-f-d-coopers-group-ag-zug",
+        "en": "clerk-goods-receipt-invoice-control-m-f-d-coopers-group-ag-zug",
+        "fr": "collaborateur-trice-administratif-ve-reception-des-marchandises-controle-des-factures-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3517,16 +3517,30 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-26T21:31:46.301Z"
+      "firstSeenAt": "2026-10-26T21:31:46.301Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
+        ],
+        "en": [
+          "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
+        ],
+        "fr": [
+          "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-wareneingang-rechnungskontrolle-m-w-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-2e3757c8f99c",
-      "slug": "it-supporter-m-f-d-coopers-basel-stadt",
+      "slug": "supporto-it-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "it-supporter-m-f-d-coopers-basel-stadt",
-        "it": "it-supporter-m-f-d-coopers-basel-stadt",
+        "it": "supporto-it-m-f-d-coopers-group-ag-basel-stadt",
         "de": "it-supporter-m-f-d-coopers-basel-stadt",
-        "fr": "it-supporter-m-f-d-coopers-basel-stadt"
+        "fr": "support-informatique-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3598,7 +3612,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-26T21:31:45.433Z"
+      "firstSeenAt": "2026-10-26T21:31:45.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-supporter-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "it-supporter-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "it-supporter-m-f-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-3d8c7e902f15",

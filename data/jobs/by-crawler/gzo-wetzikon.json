@@ -1860,12 +1860,12 @@
     },
     {
       "id": "gzo-wetzikon-b129d7184ce6",
-      "slug": "oberarztin-oberarzt-intensivmedizin-e-o-anasthesie-60-100-gzo-spital-wetzikon",
+      "slug": "medica-dirigente-medico-dirigente-in-medicina-intensiva-e-o-anestesia-60-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch",
-        "it": "oberarztin-oberarzt-intensivmedizin-e-o-anasthesie-60-100-gzo-spital-wetzikon",
-        "en": "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch",
-        "fr": "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch"
+        "it": "medica-dirigente-medico-dirigente-in-medicina-intensiva-e-o-anestesia-60-100-gzo-spital-wetzikon-wetzikon",
+        "en": "senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon",
+        "fr": "medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1914,11 +1914,19 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch",
+          "oberarztin-oberarzt-intensivmedizin-e-o-anasthesie-60-100-gzo-spital-wetzikon"
+        ],
+        "en": [
+          "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch"
+        "oberarztin-oberarzt-intensivmedizin-und-oder-anasthesie-60-100-gzo-wetzikon-ch",
+        "oberarztin-oberarzt-intensivmedizin-e-o-anasthesie-60-100-gzo-spital-wetzikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

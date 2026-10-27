@@ -7,7 +7,7 @@
       "id": "bls-7afab74d709b",
       "slug": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
       "slugByLocale": {
-        "it": "meccatronico-a-dell-automobile-automatista-bls-ag-spiez",
+        "it": "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez",
         "en": "automotive-mechatronics-technician-automation-technician-bls-ag-spiez",
         "de": "automobilmechatroniker-in-automatiker-in-bls-ch",
         "fr": "technicien-en-mecatronique-automobile-technicien-en-automatisation-bls-ag-spiez"
@@ -69,14 +69,12 @@
       },
       "previousSlugs": [
         "automobilmechatroniker-in-automatiker-in-bls-ch",
-        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
-        "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
+        "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-automatiker-in-bls-ch",
-          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
-          "tecnico-di-meccatronica-automobilistica-tecnico-di-automazione-bls-ag-spiez"
+          "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
         ],
         "en": [
           "automobilmechatroniker-in-automatiker-in-bls-ag-spiez"
@@ -204,7 +202,7 @@
         "it": "fornitori-di-veicoli-bls-ag-spiez",
         "en": "vehicle-suppliers-bls-ag-spiez",
         "de": "fahrzeugbereitsteller-in-bls-ch",
-        "fr": "preparateur-rice-de-vehicules-bls-ag-spiez"
+        "fr": "fournisseur-du-vehicule-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -267,7 +265,7 @@
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
         "vehicle-supplier-in-bls-ag-spiez",
-        "fournisseur-du-vehicule-bls-ag-spiez"
+        "preparateur-rice-de-vehicules-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -281,7 +279,7 @@
         ],
         "fr": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "fournisseur-du-vehicule-bls-ag-spiez"
+          "preparateur-rice-de-vehicules-bls-ag-spiez"
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:09.774Z",
@@ -307,7 +305,7 @@
         "it": "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf",
         "en": "electrical-installers-bls-ag-hasle-bei-burgdorf",
         "de": "elektroinstallateur-in-bls-ch",
-        "fr": "electricien-ne-bls-ag-hasle-bei-burgdorf"
+        "fr": "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -372,7 +370,7 @@
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
         "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
         "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-        "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+        "electricien-ne-bls-ag-hasle-bei-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -392,7 +390,7 @@
         "fr": [
           "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf",
           "elektroinstallateur-in-bls-ag-hasle-bei-burgdorf",
-          "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+          "electricien-ne-bls-ag-hasle-bei-burgdorf"
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:15.744Z",
@@ -724,7 +722,7 @@
       "id": "bls-29de476924b8",
       "slug": "diagnosta-bls-ag-spiez",
       "slugByLocale": {
-        "it": "diagnosta-bls-ag-spiez",
+        "it": "diagnostico-bls-ag-spiez",
         "en": "diagnostician-bls-ag-spiez",
         "de": "diagnostiker-in-bls-ch",
         "fr": "diagnosticien-bls-ag-spiez"
@@ -788,13 +786,11 @@
         ]
       },
       "previousSlugs": [
-        "diagnostiker-in-bls-ch",
-        "diagnostico-bls-ag-spiez"
+        "diagnostiker-in-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diagnostiker-in-bls-ch",
-          "diagnostico-bls-ag-spiez"
+          "diagnostiker-in-bls-ch"
         ],
         "en": [
           "diagnostiker-in-bls-ch"
@@ -2179,7 +2175,7 @@
       "slugByLocale": {
         "de": "leiter-in-sap-technologie-bls-ch",
         "it": "responsabile-sap-technologie-bls-ag-bern",
-        "en": "leiter-in-sap-technologie-bls-ch",
+        "en": "head-of-sap-technology-bls-ag-bern",
         "fr": "leiter-in-sap-technologie-bls-ch"
       },
       "company": "BLS AG",
@@ -2242,6 +2238,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-sap-technologie-bls-ch"
+        ],
+        "en": [
           "leiter-in-sap-technologie-bls-ch"
         ]
       },

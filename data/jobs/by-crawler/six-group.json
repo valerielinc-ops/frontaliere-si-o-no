@@ -1982,11 +1982,11 @@
     },
     {
       "id": "six-group-ee3c4a6b816b",
-      "slug": "devops-engineer-six-group-zurich",
+      "slug": "devops-ingegnere-six-group-zurich",
       "slugByLocale": {
         "en": "devops-engineer-six-group-zurich",
-        "it": "devops-engineer-six-group-zurich",
-        "de": "devops-engineer-six-group-zurich",
+        "it": "devops-ingegnere-six-group-zurich",
+        "de": "devops-ingenieur-six-group-zurich",
         "fr": "devops-engineer-six-group-zurich"
       },
       "company": "SIX Group",
@@ -2045,7 +2045,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:57:27.454Z"
+      "firstSeenAt": "2026-10-26T21:57:27.454Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-six-group-zurich"
+        ],
+        "de": [
+          "devops-engineer-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-b80b9c13934c",

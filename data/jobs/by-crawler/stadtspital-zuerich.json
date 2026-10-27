@@ -7393,8 +7393,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-bettentransport-stadtspital-zurich-zurich",
         "it": "collaboratore-trice-bettentransport-stadtspital-zurich",
-        "en": "mitarbeiter-bettentransport-stadtspital-zurich-zurich",
-        "fr": "mitarbeiter-bettentransport-stadtspital-zurich-zurich"
+        "en": "employees-bed-transport-stadtspital-zurich-zurich",
+        "fr": "transport-des-lits-des-employes-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7449,10 +7449,17 @@
         ],
         "de": [
           "mitarbeiter-bettentransport-stadtspital-zuerich-52054"
+        ],
+        "en": [
+          "mitarbeiter-bettentransport-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-bettentransport-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-bettentransport-stadtspital-zuerich-52054"
+        "mitarbeiter-bettentransport-stadtspital-zuerich-52054",
+        "mitarbeiter-bettentransport-stadtspital-zurich-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -7471,12 +7478,12 @@
     },
     {
       "id": "stadtspital-zuerich-63cc66e893b2",
-      "slug": "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich",
+      "slug": "assistente-medico-assistenza-sanitaria-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich",
-        "it": "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich",
-        "en": "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich",
-        "fr": "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich"
+        "it": "assistente-medico-assistenza-sanitaria-stadtspital-zurich-zurich",
+        "en": "assistant-doctor-assistant-palliative-care-stadtspital-zurich-zurich",
+        "fr": "medecin-assistant-soins-palliatifs-auxiliaires-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7527,14 +7534,22 @@
       "referenceNumber": "52063",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zuerich-52063"
+          "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zuerich-52063",
+          "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zuerich-52063"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zuerich-52063"
+        "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zuerich-52063",
+        "assistenzarztin-assistenzarzt-palliative-care-stadtspital-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7802,7 +7817,7 @@
         "it": "gestione-dei-processi-stadtspital-zurich-zurich",
         "en": "process-manager-stadtspital-zurich-zurich",
         "de": "prozessmanager-in-stadtspital-zuerich-51681",
-        "fr": "gestionnairedeprocessus-stadtspital-zurich"
+        "fr": "gestionnaire-de-processus-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7852,7 +7867,7 @@
       "previousSlugs": [
         "prozessmanager-in-stadtspital-zurich",
         "prozessmanager-in-stadtspital-zuerich-51681",
-        "gestionnaire-de-processus-stadtspital-zurich-zurich"
+        "gestionnairedeprocessus-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7863,7 +7878,7 @@
         ],
         "fr": [
           "prozessmanager-in-stadtspital-zurich",
-          "gestionnaire-de-processus-stadtspital-zurich-zurich"
+          "gestionnairedeprocessus-stadtspital-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.497Z",

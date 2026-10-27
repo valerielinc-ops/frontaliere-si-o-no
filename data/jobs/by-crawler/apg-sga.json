@@ -600,12 +600,12 @@
     },
     {
       "id": "apg-sga-034fc3f824d9",
-      "slug": "afficheur-afficheuse-60-neuchatel-apg-sga-ch",
+      "slug": "display-displayer-60-neuchatel-apg-sga-neuchatel",
       "slugByLocale": {
         "fr": "afficheur-afficheuse-60-neuchatel-apg-sga-ch",
-        "it": "afficheur-afficheuse-60-neuchatel-apg-sga-ch",
+        "it": "display-displayer-60-neuchatel-apg-sga-neuchatel",
         "en": "afficheur-afficheuse-60-neuchatel-apg-sga-ch",
-        "de": "afficheur-afficheuse-60-neuchatel-apg-sga-ch"
+        "de": "display-displayer-60-neuenburg-apg-sga-neuchatel"
       },
       "company": "APG|SGA",
       "companyKey": "apg-sga",
@@ -663,7 +663,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:54:52.177Z"
+      "firstSeenAt": "2026-10-26T21:54:52.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "afficheur-afficheuse-60-neuchatel-apg-sga-ch"
+        ],
+        "de": [
+          "afficheur-afficheuse-60-neuchatel-apg-sga-ch"
+        ]
+      },
+      "previousSlugs": [
+        "afficheur-afficheuse-60-neuchatel-apg-sga-ch"
+      ]
     }
   ]
 }

@@ -908,7 +908,7 @@
         "it": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "en": "legal-counsel-global-procurement-dd-it-novartis-ch",
         "de": "rechtsberater-globale-beschaffung-dd-it-novartis-basel-city",
-        "fr": "legal-counsel-global-procurement-dd-it-novartis-basel-city"
+        "fr": "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -951,14 +951,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-global-procurement-dd-it-novartis-ch",
-        "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+        "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-global-procurement-dd-it-novartis-ch"
         ],
         "fr": [
-          "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+          "legal-counsel-global-procurement-dd-it-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-19T23:01:12.102Z",
@@ -1132,7 +1132,7 @@
         "it": "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city",
         "en": "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
         "de": "executive-clinical-program-leader-translationale-klinische-onkologie-novartis-basel-city",
-        "fr": "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
+        "fr": "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1175,14 +1175,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
-        "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+        "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch"
         ],
         "fr": [
-          "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+          "executive-clinical-program-leader-translational-clinical-oncology-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:03.000Z",
@@ -1957,7 +1957,7 @@
         "it": "direttore-portfolio-analytics-novartis-basel-city",
         "en": "director-portfolio-analytics-novartis-ch",
         "de": "direktor-portfolio-analytics-novartis-basel-city",
-        "fr": "director-portfolio-analytics-novartis-basel-city"
+        "fr": "directeur-analyse-de-portefeuille-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2000,7 +2000,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-portfolio-analytics-novartis-ch",
-        "directeur-analyse-de-portefeuille-novartis-basel-city"
+        "director-portfolio-analytics-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2010,7 +2010,7 @@
           "director-portfolio-analytics-novartis-ch"
         ],
         "fr": [
-          "directeur-analyse-de-portefeuille-novartis-basel-city"
+          "director-portfolio-analytics-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-10-22T09:44:08.408Z",
@@ -2262,12 +2262,12 @@
     },
     {
       "id": "novartis-b3ef757a6783",
-      "slug": "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch",
+      "slug": "lavoratori-strategia-scienza-dei-dati-impresa-e-intelligenza-artificiale-dsai-novartis-basel-city",
       "slugByLocale": {
         "en": "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch",
-        "it": "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch",
-        "de": "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch",
-        "fr": "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch"
+        "it": "lavoratori-strategia-scienza-dei-dati-impresa-e-intelligenza-artificiale-dsai-novartis-basel-city",
+        "de": "arbeitsstrategie-head-unternehmen-datenwissenschaft-und-kunstliche-intelligenz-dsai-novartis-basel-city",
+        "fr": "strategie-de-travail-en-faveur-de-la-science-de-l-entreprise-et-de-l-intelligence-artificielle-dsai-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2325,7 +2325,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-26T21:44:27.916Z"
+      "firstSeenAt": "2026-10-26T21:44:27.916Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch"
+        ],
+        "de": [
+          "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch"
+        ],
+        "fr": [
+          "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "workforce-strategy-head-enterprise-data-science-artificial-intelligence-dsai-novartis-ch"
+      ]
     }
   ]
 }

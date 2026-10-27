@@ -333,12 +333,12 @@
     },
     {
       "id": "holcim-324431e0aba9",
-      "slug": "machiniste-conducteur-trice-de-dumper-holcim-ch",
+      "slug": "driver-per-il-dispositivo-holcim-group-eclepens",
       "slugByLocale": {
         "fr": "machiniste-conducteur-trice-de-dumper-holcim-ch",
-        "it": "machiniste-conducteur-trice-de-dumper-holcim-ch",
-        "en": "machiniste-conducteur-trice-de-dumper-holcim-ch",
-        "de": "machiniste-conducteur-trice-de-dumper-holcim-ch"
+        "it": "driver-per-il-dispositivo-holcim-group-eclepens",
+        "en": "machinery-dumper-driver-holcim-group-eclepens",
+        "de": "maschinen-dumpertreiber-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -396,7 +396,21 @@
         }
       },
       "postalCode": "1312",
-      "firstSeenAt": "2026-10-26T21:57:12.235Z"
+      "firstSeenAt": "2026-10-26T21:57:12.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "machiniste-conducteur-trice-de-dumper-holcim-ch"
+        ],
+        "en": [
+          "machiniste-conducteur-trice-de-dumper-holcim-ch"
+        ],
+        "de": [
+          "machiniste-conducteur-trice-de-dumper-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "machiniste-conducteur-trice-de-dumper-holcim-ch"
+      ]
     },
     {
       "id": "holcim-3dc7d849fc44",

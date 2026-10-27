@@ -2726,7 +2726,7 @@
       "slugByLocale": {
         "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "de": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "fr": "greffier-ere-etat-de-vaud-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -2773,7 +2773,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "greffier-ere-etat-de-vaud-renens-vd",
-        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2784,7 +2784,7 @@
         ],
         "de": [
           "greffier-ere-etat-de-vaud-renens-vd",
-          "kanzler-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+          "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ]
       },
       "firstSeenAt": "2026-10-08T09:29:34.086Z",
@@ -2964,12 +2964,12 @@
     },
     {
       "id": "etat-de-vaud-6067",
-      "slug": "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne",
+      "slug": "responsabile-delle-missioni-legali-e-strategiche-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne",
-        "it": "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne",
-        "en": "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne",
-        "de": "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne"
+        "it": "responsabile-delle-missioni-legali-e-strategiche-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "responsible-for-legal-and-strategic-missions-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "verantwortlich-fur-rechtliche-und-strategische-missionen-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3028,7 +3028,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:43:50.686Z"
+      "firstSeenAt": "2026-10-26T21:43:50.686Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-de-missions-juridiques-et-strategiques-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6052",
@@ -3273,9 +3287,9 @@
     },
     {
       "id": "etat-de-vaud-6036",
-      "slug": "collaborateur-trice-du-registre-foncier-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz",
+      "slug": "collaboratore-del-registro-di-terra-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz",
       "slugByLocale": {
-        "it": "collaborateur-trice-du-registre-foncier-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz",
+        "it": "collaboratore-del-registro-di-terra-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz",
         "en": "collaborator-of-the-land-registry-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz",
         "de": "mitarbeiter-des-grundbuchamts-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz",
         "fr": "collaborateur-trice-du-registre-foncier-etat-de-vaud-tolochenaz"
@@ -3324,12 +3338,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-trice-du-registre-foncier-etat-de-vaud-tolochenaz",
-        "collaboratore-del-registro-di-terra-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz"
+        "collaborateur-trice-du-registre-foncier-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-du-registre-foncier-etat-de-vaud-tolochenaz",
-          "collaboratore-del-registro-di-terra-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz"
+          "collaborateur-trice-du-registre-foncier-etat-de-vaud-administration-cantonale-vaudoise-tolochenaz"
         ],
         "en": [
           "collaborateur-trice-du-registre-foncier-etat-de-vaud-tolochenaz"

@@ -2244,7 +2244,7 @@
         "it": "direzione-assistenza-60-spital-lachen-lachen",
         "en": "directorate-assistance-60-spital-lachen-lachen",
         "de": "direktionsassistenz-60-spital-lachen-lachen",
-        "fr": "direktionsassistenz-60-spital-lachen"
+        "fr": "assistance-de-la-direction-60-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -2313,8 +2313,7 @@
         "assistente-di-direzione-60-spital-lachen-lachen",
         "executive-assistant-60-spital-lachen-lachen",
         "direktionsassistenz-60-spital-lachen",
-        "direktionsassistenz-60-spital-lachen-lachen",
-        "assistance-de-la-direction-60-spital-lachen-lachen"
+        "direktionsassistenz-60-spital-lachen-lachen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2327,7 +2326,7 @@
           "direktionsassistenz-60-spital-lachen"
         ],
         "fr": [
-          "assistance-de-la-direction-60-spital-lachen-lachen"
+          "direktionsassistenz-60-spital-lachen"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:59.397Z",
@@ -3071,12 +3070,12 @@
     },
     {
       "id": "spital-lachen-4873bcdf4027",
-      "slug": "fachfrau-mann-gesundheit-auf-der-tagesklinik-con-eintrittsstation-100-spital-lachen",
+      "slug": "operatore-trice-sociosanitario-a-presso-il-day-hospital-con-reparto-di-ammissione-100-spital-lachen-lachen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen",
-        "it": "fachfrau-mann-gesundheit-auf-der-tagesklinik-con-eintrittsstation-100-spital-lachen",
-        "en": "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen",
-        "fr": "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen"
+        "it": "operatore-trice-sociosanitario-a-presso-il-day-hospital-con-reparto-di-ammissione-100-spital-lachen-lachen",
+        "en": "healthcare-professional-at-the-day-clinic-with-admissions-unit-100-spital-lachen-lachen",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-en-clinique-de-jour-avec-unite-d-admission-100-spital-lachen-lachen"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -3124,11 +3123,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen",
+          "fachfrau-mann-gesundheit-auf-der-tagesklinik-con-eintrittsstation-100-spital-lachen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen"
+        "fachfrau-mann-gesundheit-auf-der-tagesklinik-mit-eintrittsstation-100-spital-lachen-lachen",
+        "fachfrau-mann-gesundheit-auf-der-tagesklinik-con-eintrittsstation-100-spital-lachen"
       ],
       "salaryMin": 74500,
       "salaryMax": 127000,

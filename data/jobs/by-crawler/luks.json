@@ -926,7 +926,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -973,7 +973,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +981,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -17585,11 +17585,11 @@
     },
     {
       "id": "luks-badda99a434f",
-      "slug": "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern",
+      "slug": "pre-internship-fisioterapia-ergoterapia-neuroreabilitazione-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern",
-        "it": "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern",
-        "en": "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern",
+        "it": "pre-internship-fisioterapia-ergoterapia-neuroreabilitazione-luzerner-kantonsspital-luks-luzern",
+        "en": "pre-internship-physiotherapy-ergotherapy-neurorehabilitation-luzerner-kantonsspital-luks-luzern",
         "fr": "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -17649,16 +17649,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:49:06.377Z"
+      "firstSeenAt": "2026-10-26T21:49:06.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern"
+        ],
+        "en": [
+          "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikum-physiotherapie-ergotherapie-neurorehabilitation-luks-luzern"
+      ]
     },
     {
       "id": "luks-ca2fd9874c44",
-      "slug": "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern",
+      "slug": "unita-di-cura-virtuale-hf-fh-60-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern",
-        "it": "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern",
+        "it": "unita-di-cura-virtuale-hf-fh-60-100-luzerner-kantonsspital-luks-luzern",
         "en": "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern",
-        "fr": "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern"
+        "fr": "unite-de-soins-virtuels-hf-fh-60-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17717,7 +17728,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:49:06.369Z"
+      "firstSeenAt": "2026-10-26T21:49:06.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-virtual-care-unit-60-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-cba213747e6b",

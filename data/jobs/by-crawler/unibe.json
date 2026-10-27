@@ -2380,7 +2380,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -2430,7 +2430,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2439,7 +2439,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"
@@ -2790,7 +2790,7 @@
         "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
-        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
+        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2837,7 +2837,7 @@
       "previousSlugs": [
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine",
-        "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2849,7 +2849,7 @@
         "fr": [
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine",
-          "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-20T09:31:08.059Z",
@@ -3204,7 +3204,7 @@
         "it": "assistente-di-direzione-universitat-bern-bern",
         "en": "executive-assistant-universitat-bern-bern",
         "de": "direktionsassistent-in-unibe-bern",
-        "fr": "direktionsassistent-in-universitat-bern"
+        "fr": "assistant-e-de-direction-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3251,7 +3251,7 @@
       "previousSlugs": [
         "direktionsassistent-in-unibe-bern",
         "direktionsassistent-in-universitat-bern-bern",
-        "assistant-e-de-direction-universitat-bern-bern"
+        "direktionsassistent-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3263,7 +3263,7 @@
         ],
         "fr": [
           "direktionsassistent-in-universitat-bern-bern",
-          "assistant-e-de-direction-universitat-bern-bern"
+          "direktionsassistent-in-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-21T09:52:54.503Z",
@@ -4436,12 +4436,12 @@
     },
     {
       "id": "unibe-3eef72203983",
-      "slug": "wissenschaftliche-r-collaboratore-trice-nachhaltige-entwicklung-universitat-bern",
+      "slug": "collaboratore-trice-scientifico-a-per-lo-sviluppo-sostenibile-universitat-bern-bern",
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern",
-        "it": "wissenschaftliche-r-collaboratore-trice-nachhaltige-entwicklung-universitat-bern",
-        "en": "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern"
+        "it": "collaboratore-trice-scientifico-a-per-lo-sviluppo-sostenibile-universitat-bern-bern",
+        "en": "research-associate-sustainable-development-universitat-bern-bern",
+        "fr": "collaborateur-trice-scientifique-developpement-durable-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4489,11 +4489,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern",
+          "wissenschaftliche-r-collaboratore-trice-nachhaltige-entwicklung-universitat-bern"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern"
+        ],
+        "fr": [
           "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern"
+        "wissenschaftliche-r-mitarbeiter-in-nachhaltige-entwicklung-unibe-bern",
+        "wissenschaftliche-r-collaboratore-trice-nachhaltige-entwicklung-universitat-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4512,12 +4520,12 @@
     },
     {
       "id": "unibe-7f0d867a310d",
-      "slug": "leitung-service-center-finanzen-zentralbereich-unibe-bern",
+      "slug": "responsabile-del-service-center-finance-central-universitat-bern-bern",
       "slugByLocale": {
         "de": "leitung-service-center-finanzen-zentralbereich-unibe-bern",
-        "it": "leitung-service-center-finanzen-zentralbereich-unibe-bern",
-        "en": "leitung-service-center-finanzen-zentralbereich-unibe-bern",
-        "fr": "leitung-service-center-finanzen-zentralbereich-unibe-bern"
+        "it": "responsabile-del-service-center-finance-central-universitat-bern-bern",
+        "en": "head-of-service-center-finance-central-universitat-bern-bern",
+        "fr": "chef-du-centre-de-services-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4576,7 +4584,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:57:52.740Z"
+      "firstSeenAt": "2026-10-26T21:57:52.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-service-center-finanzen-zentralbereich-unibe-bern"
+        ],
+        "en": [
+          "leitung-service-center-finanzen-zentralbereich-unibe-bern"
+        ],
+        "fr": [
+          "leitung-service-center-finanzen-zentralbereich-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-service-center-finanzen-zentralbereich-unibe-bern"
+      ]
     }
   ]
 }

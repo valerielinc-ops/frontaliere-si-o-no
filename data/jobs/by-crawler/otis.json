@@ -473,8 +473,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -516,19 +516,18 @@
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsreparateur-in-service-m-w-d-otis-belp"
         ],
         "de": [
-          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "aufzugsreparateur-in-service-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:43.487Z",
@@ -1375,12 +1374,12 @@
     },
     {
       "id": "otis-28017dc49048",
-      "slug": "technische-r-verkaufer-in-m-w-d-otis-wallisellen",
+      "slug": "venditore-venditrice-tecnico-a-m-f-d-otis-sa-wallisellen",
       "slugByLocale": {
         "en": "technische-r-verkaufer-in-m-w-d-otis-wallisellen",
-        "it": "technische-r-verkaufer-in-m-w-d-otis-wallisellen",
-        "de": "technische-r-verkaufer-in-m-w-d-otis-wallisellen",
-        "fr": "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+        "it": "venditore-venditrice-tecnico-a-m-f-d-otis-sa-wallisellen",
+        "de": "technisch-r-verkaufer-in-m-w-d-otis-sa-wallisellen",
+        "fr": "commercial-e-technique-h-f-d-otis-sa-wallisellen"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -1436,7 +1435,21 @@
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/technische-r-Verkufer-in--m-w-d-_20171433-1",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-26T21:47:42.676Z"
+      "firstSeenAt": "2026-10-26T21:47:42.676Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+        ],
+        "de": [
+          "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+        ],
+        "fr": [
+          "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+      ]
     },
     {
       "id": "otis-b30ceee4d632",

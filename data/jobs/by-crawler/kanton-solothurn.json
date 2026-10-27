@@ -1829,12 +1829,12 @@
     },
     {
       "id": "kanton-solothurn-121f772ab236",
-      "slug": "jurist-in-60-kanton-solothurn-solothurn",
+      "slug": "giurista-60-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "jurist-in-60-kanton-solothurn-solothurn",
-        "it": "jurist-in-60-kanton-solothurn-solothurn",
-        "en": "jurist-in-60-kanton-solothurn-solothurn",
-        "fr": "jurist-in-60-kanton-solothurn-solothurn"
+        "it": "giurista-60-kanton-solothurn-solothurn",
+        "en": "legal-counsel-60-kanton-solothurn-solothurn",
+        "fr": "juriste-60-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1893,7 +1893,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:57:36.830Z"
+      "firstSeenAt": "2026-10-26T21:57:36.830Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "jurist-in-60-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-60-kanton-solothurn-solothurn"
+      ]
     }
   ]
 }

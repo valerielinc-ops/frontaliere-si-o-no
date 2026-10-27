@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "rechtsberater-buhler-group-uzwil",
+        "de": "rechtsberatung-buhler-group-uzwil",
         "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -57,14 +57,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-buehler-uzwil",
-        "rechtsberatung-buhler-group-uzwil"
+        "rechtsberater-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-buehler-uzwil"
         ],
         "de": [
-          "rechtsberatung-buhler-group-uzwil"
+          "rechtsberater-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.078Z",
@@ -1450,12 +1450,12 @@
     },
     {
       "id": "buehler-ffcbd42c5378",
-      "slug": "project-manager-grinding-amp-dispersing-buehler-uzwil",
+      "slug": "responsabile-di-progetto-macinazione-e-dispersione-buhler-group-uzwil",
       "slugByLocale": {
         "de": "project-manager-grinding-amp-dispersing-buehler-uzwil",
-        "it": "project-manager-grinding-amp-dispersing-buehler-uzwil",
+        "it": "responsabile-di-progetto-macinazione-e-dispersione-buhler-group-uzwil",
         "en": "project-manager-grinding-dispersing-buhler-group-uzwil",
-        "fr": "project-manager-grinding-amp-dispersing-buehler-uzwil"
+        "fr": "gestionnaire-de-projet-grindage-et-dispersion-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1514,7 +1514,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-26T21:45:02.818Z"
+      "firstSeenAt": "2026-10-26T21:45:02.818Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-grinding-amp-dispersing-buehler-uzwil"
+        ],
+        "fr": [
+          "project-manager-grinding-amp-dispersing-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-grinding-amp-dispersing-buehler-uzwil"
+      ]
     }
   ]
 }
