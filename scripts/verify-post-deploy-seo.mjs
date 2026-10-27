@@ -484,21 +484,16 @@ async function main() {
   for (const candidate of liveCandidates) {
     const { pageUrl, live } = candidate;
     const shortPath = new URL(pageUrl).pathname.slice(0, 60);
+    const classification = classifyLiveJobCandidate(pageUrl, live, sitemapSignals);
     if (live.error) {
       unavailablePageCount++;
       log('  ❓', `${shortPath} — live HTML unavailable: ${live.error}`);
-      // Keep an unavailable candidate for URL Inspection and preserve the
-      // independent URL-level detail signal. A failed live fetch cannot prove
-      // that the candidate is a landing page, so canonical regressions on a
-      // detail URL must remain observable.
-      candidates.push({
-        pageUrl,
-        live,
-        detailPageSignal: isLikelyJobDetailUrl(pageUrl, sitemapSignals),
-      });
+      // Keep an unavailable candidate for URL Inspection. The live payload
+      // remains unknown, but preserve the independent detail signal so GSC
+      // can still expose a canonical-to-listing regression.
+      candidates.push({ pageUrl, live, detailPageSignal: classification.detailPageSignal });
       continue;
     }
-    const classification = classifyLiveJobCandidate(pageUrl, live, sitemapSignals);
     if (classification.issue === 'missing-jobposting') {
       log('  ❌', `${shortPath} — live detail page has no JobPosting JSON-LD`);
       addIssue({

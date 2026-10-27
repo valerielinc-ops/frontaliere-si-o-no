@@ -103,6 +103,17 @@ describe('post-deploy SEO verification', () => {
     });
   });
 
+  it('preserves the detail signal when live HTML is unavailable', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/job-slug/';
+
+    expect(classifyLiveJobCandidate(pageUrl, { error: 'timeout' }, new Map())).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: null,
+      skipped: false,
+    });
+  });
+
   it('reports missing fields from the live shared contract', () => {
     const incomplete: Record<string, unknown> = { ...completeJobPosting };
     delete incomplete.baseSalary;
