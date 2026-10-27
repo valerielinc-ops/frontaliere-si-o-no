@@ -70,7 +70,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
-    expect(formPostingMatch('Apply\nOther Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
+    expect(formPostingMatch('Project Manager — Other Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
   });
 
   it('stops before filling a form that names neither the company nor the role', () => {
