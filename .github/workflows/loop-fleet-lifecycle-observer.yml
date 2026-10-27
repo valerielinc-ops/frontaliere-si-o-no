@@ -142,12 +142,27 @@ jobs:
           fi
 
           write_token="${APP_TOKEN:-${GITHUB_PAT:-}}"
+          if [ -n "${APP_TOKEN:-}" ]; then
+            write_token_source='APP_TOKEN'
+          else
+            write_token_source='GITHUB_PAT'
+          fi
           if [ -z "$write_token" ]; then
             echo '::error::No reviewed App/PAT token; refusing to push the durable ledger branch.'
             exit 1
           fi
           export GH_TOKEN="$write_token"
           basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+          switch_to_reviewed_pat() {
+            if [ "$write_token_source" != 'APP_TOKEN' ] || [ -z "${GITHUB_PAT:-}" ]; then
+              return 1
+            fi
+            echo '::warning::The GitHub App token was rejected for the durable ledger branch; retrying with the reviewed GITHUB_PAT.'
+            write_token="$GITHUB_PAT"
+            write_token_source='GITHUB_PAT'
+            export GH_TOKEN="$write_token"
+            basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+          }
 
           git config user.name 'frontaliere-automation[bot]'
           git config user.email '41898282+frontaliere-automation[bot]@users.noreply.github.com'
@@ -197,6 +212,10 @@ jobs:
               exit 1
             fi
             if bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"; then
+              exit 0
+            fi
+            if switch_to_reviewed_pat \
+                && bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"; then
               exit 0
             fi
             if bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"; then

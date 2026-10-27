@@ -864,6 +864,12 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('retry_delay=$((attempt * 3 + GITHUB_RUN_ID % 11))');
       expect(source, name).toContain('sleep "$retry_delay"');
       expect(source, name).toContain('after 10 attempts');
+      expect(source, name).toContain("write_token_source='APP_TOKEN'");
+      expect(source, name).toContain("write_token_source='GITHUB_PAT'");
+      expect(source, name).toContain('switch_to_reviewed_pat()');
+      expect(source, name).toContain('retrying with the reviewed GITHUB_PAT');
+      expect(source, name).toContain('switch_to_reviewed_pat \\');
+      expect(source, name).toContain('&& bounded_remote git -C "$ledger_worktree"');
       expect(source, name).not.toMatch(/git push[^\n]*--force(?:-with-lease)?/u);
       if (name === 'loop-fleet-lifecycle-observer.yml') {
         expect(source, name).not.toContain('observer is read-only');
