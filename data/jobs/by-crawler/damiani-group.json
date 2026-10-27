@@ -1,7 +1,7 @@
 {
   "crawlerKey": "damiani-group",
-  "assembledAt": "2026-10-27T09:29:52.348Z",
-  "runId": "40478540403",
+  "assembledAt": "2026-10-27T21:20:05.185Z",
+  "runId": "40584409394",
   "jobs": [
     {
       "title": "Consolidation & Reporting Specialist",
@@ -316,7 +316,7 @@
         "it": "business-controller-damiani-group-mendrisio",
         "en": "business-controller-damiani-group-mendrisio",
         "de": "geschaftsbetrieb-damiani-group-mendrisio",
-        "fr": "entreprises-damiani-group-mendrisio"
+        "fr": "business-controller-damiani-group-mendrisio"
       },
       "id": "damiani-group-3095ed600c31",
       "needsRetranslation": true,
@@ -336,7 +336,15 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "firstSeenAt": "2026-10-13T21:24:12.552Z"
+      "firstSeenAt": "2026-10-13T21:24:12.552Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "entreprises-damiani-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "entreprises-damiani-group-mendrisio"
+      ]
     },
     {
       "title": "Customer Service Specialist - German Speaking",
