@@ -226,6 +226,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'everest-re': cLogo('everestre.com'),
  // #6504 residual: the official site exposes only a small favicon; this is
  // the published Imerys mark from the company-origin Commons file.
+ 'grund-ag-ch': 'https://grund-ag.ch/wp-content/uploads/2022/11/cropped-FAVICON-192x192.png',
  'hanseisenring': 'https://hanseisenring.ch/favicon-96x96.png',
  'imerys': 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',
  'farmacia-internazionale-dr-merloni': 'https://static.wixstatic.com/media/f027ed155a8a4874b856344a5b970a4b.jpg',
@@ -382,6 +383,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'modellstation-somosa': cLogo('somosa.ch'),
  'molecular-partners': cLogo('molecularpartners.com'),
  'moncucco': '/images/brands/moncucco.png',
+ 'mpa-praxisstellen-ch': 'https://www.mpa-praxisstellen.ch/favicon.ico',
  'msc-cargo': cLogo('msc.com'),
  'mtic-group': gFavicon('mtic-group.org'),
  'mueller-frauenfeld': 'https://www.mueller-frauenfeld.ch/img/touch/apple-touch-icon-114x114.png',
@@ -521,6 +523,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'tarchini-group': cLogo('tarchinigroup.com'),
  'tecan': cLogo('tecan.com'),
  'temenos': cLogo('temenos.com'),
+ 'teo-jakob': 'https://teojakob.ch/wp-content/themes/teojakob/images/favicon/favicon-96x96.png',
  'teo-jakob-ag': 'https://teojakob.ch/wp-content/themes/teojakob/images/favicon/favicon-96x96.png',
  'tertianum': cLogo('tertianum.ch'),
  'tether': '/images/brands/tether.png',
