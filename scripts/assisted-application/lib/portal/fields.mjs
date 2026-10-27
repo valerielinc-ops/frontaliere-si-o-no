@@ -629,6 +629,14 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     const responses = [...document.querySelectorAll(`[name="${name}"]`)];
     return responses.length > 0 && responses.every((field) => String(field.value || '').trim());
   };
+  // Cloudflare's managed challenge can be a page-level interstitial rather
+  // than a visible Turnstile iframe. Its error copy is the only rendered
+  // control on the page (ALTEN, 2026-10-27), so without this branch it is
+  // mistaken for a custom application widget and sent to the agent.
+  const CLOUDFLARE_PAGE_CHALLENGE_RE = /(?:performing security verification|checking your browser|verifying you are human|why is this verification taking longer|this verification can take longer|perch[eé] questa verifica richiede pi[ùu] tempo|la verifica pu[òo] richiedere pi[ùu] tempo|warum dauert diese verifizierung l[aä]nger|diese verifizierung kann .* l[aä]nger dauern|pourquoi cette v[eé]rification prend[- ]elle plus de temps|cette v[eé]rification peut prendre plus de temps)/i;
+  const pageText = String(document.body?.innerText || '').slice(0, 12_000);
+  const cloudflarePageChallenge = Boolean(document.querySelector('#challenge-stage, #challenge-error-text, form#challenge-form, [data-cf-challenge]'))
+    || CLOUDFLARE_PAGE_CHALLENGE_RE.test(`${document.title} ${pageText}`);
   const captcha = [...document.querySelectorAll('iframe')].some((frame) => {
     const src = String(frame.getAttribute('src') || '');
     const rect = frame.getBoundingClientRect();
@@ -637,10 +645,11 @@ export function extractFieldsInPage({ channelType = '', includeHidden = false } 
     if (/recaptcha\/(api2|enterprise)\/anchor/.test(src)) return !/size=invisible/.test(src) && !answered('g-recaptcha-response');
     if (/recaptcha\/(api2|enterprise)\/bframe/.test(src)) return !answered('g-recaptcha-response');
     if (/hcaptcha\.com/.test(src)) return /frame=(challenge|checkbox)(?!-invisible)/.test(src) && !answered('h-captcha-response');
-    // DataDome (SmartRecruiters): a full-page challenge or block, never solved by the runner.
+    // Cloudflare Turnstile: keep a full-page challenge or block in the captcha
+    // path so the extension can wait for it and unresolved cases hand off.
     if (/challenges\.cloudflare\.com/.test(src)) return !answered('cf-turnstile-response');
     return /captcha-delivery\.com/.test(src);
-  });
+  }) || cloudflarePageChallenge;
   const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible);
   // The form's own validation messages, read back to the planner when a page does not advance.
   // A framework's route announcer is no message on the form: Next.js reads the
