@@ -13618,6 +13618,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion in Ticino against the health tax',
     'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparty motion submitted to the Grand Council The Italian measure is challenged over Article 9 Ticino threatens to block the tax revenue transfers Subject',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.ristorni-malnate-meno-500mila.title': 'Cross-border tax rebates, 500mila euro less for Malnate',
+    'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate will receive nearly 500 thousand euros less The national fund increases from 89 to 108 million The refunds will arrive in early November Nearly 1,700 residents of Malnate',
+    'blog.article.ristorni-malnate-meno-500mila.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

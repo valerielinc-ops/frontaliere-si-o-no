@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 937,
+      "5": 939,
       "6": 5061
     },
-    "publishedCovers": 7680,
+    "publishedCovers": 7682,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210783,6 +210783,72 @@
         "provider": "openai-codex",
         "assetId": "article-mozione-ticino-ristorni-salute",
         "imageUrl": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bains-ovronnaz-nuovo-sursis": {
+      "cover": "/images/blog/article-bains-ovronnaz-nuovo-sursis.webp",
+      "hash": "5ee5e7c432498246c57e8b9fd43ec27e1b548bd97ac743edc836eeb5f7f1942a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "bains-ovronnaz-nuovo-sursis",
+          "category": "novita",
+          "date": "2026-10-28T15:29:18.560Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bains-ovronnaz-nuovo-sursis.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bains-ovronnaz-nuovo-sursis",
+        "imageUrl": "/images/blog/article-bains-ovronnaz-nuovo-sursis.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ristorni-malnate-meno-500mila": {
+      "cover": "/images/blog/article-ristorni-malnate-meno-500mila.webp",
+      "hash": "6c2c1e2c9c704b97ceef8d7ab347651c308b17efec25f8af760aa67f1559497b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ristorni-malnate-meno-500mila",
+          "category": "fiscale",
+          "date": "2026-10-28T15:40:26.747Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ristorni-malnate-meno-500mila.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ristorni-malnate-meno-500mila",
+        "imageUrl": "/images/blog/article-ristorni-malnate-meno-500mila.webp",
         "evidence": "generated-engine-record"
       }
     }
