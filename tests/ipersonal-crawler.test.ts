@@ -556,6 +556,103 @@ describe('MediPersonal crawler parser', () => {
       expect((jobs as any).parsedDetailCount).toBe(1);
     });
 
+    it('treats a long unstructured detail body as a bounded quality drop', async () => {
+      const seedUrl = 'https://ipersonal-rich-body-gate.example/';
+      const richDetailUrl = `${seedUrl}jobs/rich-body/`;
+      const unstructuredDetailUrl = `${seedUrl}jobs/unstructured-body/`;
+      const richDescription = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.';
+      const unstructuredDescription = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig. Sie organisiert Termine, stimmt Abläufe ab, beantwortet Rückfragen und hält die Ergebnisse nachvollziehbar fest.\n- JSON-LD metadata item';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(
+            `<a href="${richDetailUrl}">Rich body</a><a href="${unstructuredDetailUrl}">Unstructured body</a>`,
+            { status: 200 },
+          );
+        }
+        const detailUrl = url === richDetailUrl ? richDetailUrl : unstructuredDetailUrl;
+        const description = detailUrl === richDetailUrl ? richDescription : unstructuredDescription;
+        const authoredBody = detailUrl === richDetailUrl
+          ? `<section class="job-profile-section"><div id="Jobdetails"><p>${richDescription}</p><h3>Deine Aufgaben</h3><ul><li>Aufgaben sorgfältig bearbeiten</li></ul></div></section>`
+          : '<main><p>Nur ein langer JSON-LD-Text ohne den autoritativen corpo del posto.</p></main>';
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org', '@type': 'JobPosting',
+            title: detailUrl === richDetailUrl ? 'Rich body' : 'Unstructured body',
+            url: detailUrl, description,
+            jobLocation: {
+              '@type': 'Place',
+              address: { '@type': 'PostalAddress', addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' },
+            },
+          })}</script>${authoredBody}`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+
+      const evidence = jobs as typeof jobs & {
+        qualityDroppedCount: number;
+        resolvedDetailCount: number;
+        parsedDetailCount: number;
+      };
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].url).toBe(richDetailUrl);
+      expect(jobs[0].description).toContain('•');
+      expect(evidence.qualityDroppedCount).toBe(1);
+      expect(evidence.resolvedDetailCount).toBe(2);
+      expect(evidence.parsedDetailCount).toBe(2);
+    });
+
+    it('drops a thin redirected detail under its resolved row identity', async () => {
+      const seedUrl = 'https://ipersonal-thin-redirect.example/';
+      const attemptedDetailUrl = `${seedUrl}jobs/legacy-alias/`;
+      const resolvedDetailUrl = `${seedUrl}jobs/canonical-role/`;
+      const unstructuredDescription = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig. Sie organisiert Termine, stimmt Abläufe ab, beantwortet Rückfragen und hält die Ergebnisse nachvollziehbar fest.\n- JSON-LD metadata item';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${attemptedDetailUrl}">Thin redirect</a>`, { status: 200 });
+        const response = new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org', '@type': 'JobPosting',
+            title: 'Thin redirect', url: resolvedDetailUrl,
+            description: unstructuredDescription,
+            jobLocation: {
+              '@type': 'Place',
+              address: { '@type': 'PostalAddress', addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' },
+            },
+          })}</script><main><p>Only generic page copy.</p></main>`, { status: 200 });
+        Object.defineProperty(response, 'url', { value: resolvedDetailUrl });
+        return response;
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+
+      const evidence = jobs as typeof jobs & {
+        qualityDroppedCount: number;
+        resolvedDetailCount: number;
+        parsedDetailCount: number;
+      };
+      expect(jobs).toHaveLength(0);
+      expect(evidence.qualityDroppedCount).toBe(1);
+      expect(evidence.resolvedDetailCount).toBe(1);
+      expect(evidence.parsedDetailCount).toBe(1);
+    });
+
     it('commits observer state and parsed content only from the retry that succeeds', async () => {
       const seedUrl = 'https://ipersonal-retry.example/';
       const detailUrl = `${seedUrl}jobs/retry-winner/`;
