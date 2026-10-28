@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-10-28T21:30:28.121Z",
-  "runId": "40770529431",
+  "assembledAt": "2026-10-28T22:32:19.123Z",
+  "runId": "40775453042",
   "jobs": [
     {
       "id": "sbb-f742db5fe37a",
@@ -80,7 +80,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-bahnproduktion/c6f0b378-847d-44b7-93f0-eea6c34a8365",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:15.931Z",
+      "crawledAt": "2026-10-28T22:29:58.315Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
@@ -107,7 +107,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-bahnproduktion/c6f0b378-847d-44b7-93f0-eea6c34a8365",
-      "firstSeenAt": "2026-10-28T21:29:15.931Z"
+      "firstSeenAt": "2026-10-28T22:29:58.315Z"
     },
     {
       "id": "sbb-7785215bcb04",
@@ -186,7 +186,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/netzleiter-in-spezialist-in-bahnverkehr/58229955-5201-42b1-9ae7-759b7d494498",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:17.947Z",
+      "crawledAt": "2026-10-28T22:30:03.225Z",
       "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -205,7 +205,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/netzleiter-in-spezialist-in-bahnverkehr/58229955-5201-42b1-9ae7-759b7d494498",
-      "firstSeenAt": "2026-10-28T21:29:17.947Z"
+      "firstSeenAt": "2026-10-28T22:30:03.225Z"
     },
     {
       "id": "sbb-699c8b291d7a",
@@ -273,22 +273,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-bauzuege/327f0fe5-d3a0-4724-b73c-a6e2c2198a9c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:13.969Z",
-      "previousSlugs": [
-        "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
-        ],
-        "en": [
-          "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
-        ],
-        "fr": [
-          "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T09:32:06.485Z",
+      "crawledAt": "2026-10-28T22:29:53.215Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -305,7 +290,22 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "postalCode": "4132",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-bauzuege/327f0fe5-d3a0-4724-b73c-a6e2c2198a9c"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-bauzuege/327f0fe5-d3a0-4724-b73c-a6e2c2198a9c",
+      "firstSeenAt": "2026-10-28T09:32:06.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "en": [
+          "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
+        ],
+        "fr": [
+          "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "lokfuhrer-in-bauzuge-ffs-officine-ferrovie-federali-muttenz"
+      ]
     },
     {
       "id": "sbb-97cf862e49d8",
@@ -368,7 +368,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/formateurtrice-pratique-conducteurtrices-vehicules-moteurs-cat-ai40-b100/248314ed-0aa5-4815-b6e5-74c804f015aa",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:08.965Z",
+      "crawledAt": "2026-10-28T22:29:40.700Z",
       "previousSlugs": [
         "formateur-trice-pratique-conducteur-trices-vehicules-moteurs-cat-ai40-b100-ffs-officine-ferrovie-federali-biel-bienne-sion-ou-denges-lausanne-triage"
       ],
@@ -450,7 +450,8 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-application-platform-m-w-d/8894df2e-c123-47d8-85f6-7b1f954ec282",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:24.454Z",
+      "crawledAt": "2026-10-28T22:30:18.727Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "product-manager-application-platform-m-w-d-ffs-officine-ferrovie-federali-bern"
       ],
@@ -462,7 +463,6 @@
           "product-manager-application-platform-m-w-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -547,7 +547,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-cloud-foundation-m-w-d/137f6d3d-9298-4c0d-a312-ce3b02a9c64d",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:24.969Z",
+      "crawledAt": "2026-10-28T22:30:20.226Z",
       "previousSlugs": [
         "product-manager-cloud-foundation-m-w-d-ffs-officine-ferrovie-federali-bern"
       ],
@@ -559,8 +559,8 @@
           "product-manager-cloud-foundation-m-w-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-28T09:32:16.489Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -641,7 +641,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei/dd2b0128-322e-481f-b926-50db26857220",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:27.453Z",
+      "crawledAt": "2026-10-28T22:30:26.232Z",
       "previousSlugs": [
         "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -737,10 +737,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei/e8af940c-7c45-453c-ab5a-4d0fd52b5b84",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:27.952Z",
-      "previousSlugs": [
-        "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
-      ],
+      "crawledAt": "2026-10-28T22:30:27.726Z",
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
@@ -752,7 +749,9 @@
           "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-10-28T09:32:19.494Z",
+      "previousSlugs": [
+        "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
+      ],
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -769,7 +768,8 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei/e8af940c-7c45-453c-ab5a-4d0fd52b5b84"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei/e8af940c-7c45-453c-ab5a-4d0fd52b5b84",
+      "firstSeenAt": "2026-10-28T09:32:19.494Z"
     },
     {
       "id": "sbb-359030f480b9",
@@ -833,10 +833,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei/f126df72-fec3-4842-b0c5-08f52477a322",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:28.473Z",
-      "previousSlugs": [
-        "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-chur"
-      ],
+      "crawledAt": "2026-10-28T22:30:28.255Z",
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-chur"
@@ -848,7 +845,9 @@
           "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-chur"
         ]
       },
-      "firstSeenAt": "2026-10-28T09:32:19.994Z",
+      "previousSlugs": [
+        "quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei-ffs-officine-ferrovie-federali-chur"
+      ],
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -865,7 +864,8 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei/f126df72-fec3-4842-b0c5-08f52477a322"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-als-polizist-in-mit-eidg-fachausweis-bei-der-transportpolizei/f126df72-fec3-4842-b0c5-08f52477a322",
+      "firstSeenAt": "2026-10-28T09:32:19.994Z"
     },
     {
       "id": "sbb-0bb21e6d55c5",
@@ -914,7 +914,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-netzelektriker-in-im-bereich-bahnstrom/998e7856-1c5f-4208-a27d-45efe7aeb24b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:20.003Z",
+      "crawledAt": "2026-10-28T22:29:31.223Z",
       "previousSlugs": [
         "elektroinstallateur-in-netzelektriker-in-im-bereich-bahnstrom-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -1009,22 +1009,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/sachbearbeiter-in-frontdesk-finanzen/5ea2c91b-e054-49dd-8995-31cc12b765d3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:55.959Z",
-      "previousSlugs": [
-        "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
-        ],
-        "en": [
-          "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
-        ],
-        "fr": [
-          "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T09:32:37.978Z",
+      "crawledAt": "2026-10-28T22:30:52.708Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1041,7 +1026,22 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/sachbearbeiter-in-frontdesk-finanzen/5ea2c91b-e054-49dd-8995-31cc12b765d3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/sachbearbeiter-in-frontdesk-finanzen/5ea2c91b-e054-49dd-8995-31cc12b765d3",
+      "firstSeenAt": "2026-10-28T09:32:37.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-frontdesk-finanzen-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-4adc3925184a",
@@ -1104,7 +1104,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/automobilmechatroniker-in-fuer-die-zugdiagnostik/86a7982a-c9aa-4b44-89c1-6b4d54fcca8c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:03.964Z",
+      "crawledAt": "2026-10-28T22:29:06.209Z",
       "previousSlugs": [
         "automobilmechatroniker-in-fur-die-zugdiagnostik-ffs-officine-ferrovie-federali-basel",
         "automobilmechatroniker-in-per-la-zugdiagnostik-ffs-officine-ferrovie-federali-basel"
@@ -1206,10 +1206,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in/1699b34c-f807-45b0-bce4-e118d7be9f3d",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:09.947Z",
-      "previousSlugs": [
-        "gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in-ffs-officine-ferrovie-federali-olten"
-      ],
+      "crawledAt": "2026-10-28T22:29:43.230Z",
       "previousSlugsByLocale": {
         "it": [
           "gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in-ffs-officine-ferrovie-federali-olten"
@@ -1221,6 +1218,9 @@
           "gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in-ffs-officine-ferrovie-federali-olten"
         ]
       },
+      "previousSlugs": [
+        "gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in-ffs-officine-ferrovie-federali-olten"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1313,7 +1313,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polymechaniker-in-produktionsmechaniker-in/9d730de4-2a28-45c5-843a-a35d01152648",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:23.455Z",
+      "crawledAt": "2026-10-28T22:30:16.225Z",
       "previousSlugs": [
         "polymechaniker-in-produktionsmechaniker-in-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -1412,7 +1412,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/608a4d71-406e-467f-8bff-008184530071",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:40.464Z",
+      "crawledAt": "2026-10-28T22:30:37.717Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-romanshorn"
       ],
@@ -1525,7 +1525,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-avu-fahrbahn-gleisbaumaschinen-region-ost/e124521b-2e29-4b53-a602-d2aed98feca4"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-avu-fahrbahn-gleisbaumaschinen-region-ost/e124521b-2e29-4b53-a602-d2aed98feca4",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-caa67c08fe3e",
@@ -1619,7 +1620,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4657",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kat-a-fahrleitungszugmaschine-fzm/e4cb14a5-c841-44c1-a000-baafa0346174"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kat-a-fahrleitungszugmaschine-fzm/e4cb14a5-c841-44c1-a000-baafa0346174",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-0dd670f614eb",
@@ -1704,7 +1706,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau/c4e53414-9079-4133-9a71-6c9dccd794a2",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:04.923Z",
+      "crawledAt": "2026-10-28T22:29:10.678Z",
       "previousSlugs": [
         "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-winterthur"
       ],
@@ -1816,7 +1818,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-elektro-und-telecom/b8a5ad06-0550-4a39-b22f-c13a5c2599c1",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:06.973Z",
+      "crawledAt": "2026-10-28T22:29:35.723Z",
       "previousSlugs": [
         "fachtechniker-in-elektro-und-telecom-ffs-officine-ferrovie-federali-brig"
       ],
@@ -1912,7 +1914,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/c90ca142-65d9-49eb-a95a-aea16d34b5e0",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:54.022Z",
+      "crawledAt": "2026-10-28T22:30:46.774Z",
       "previousSlugs": [
         "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-muttenz"
       ],
@@ -2012,7 +2014,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/conducteurtrice-de-vehicule-moteur-cat-b100/43d7001b-ab0d-4828-a341-91208197a060",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:14.503Z",
+      "crawledAt": "2026-10-28T22:29:21.733Z",
       "previousSlugs": [
         "cat-b100-ffs-officine-ferrovie-federali-neuchatel"
       ],
@@ -2107,7 +2109,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/pompierere-mecanicienne-de-locomotive-intervention/fc969356-6828-434b-9062-720d052b6b4b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:24.047Z",
+      "crawledAt": "2026-10-28T22:30:17.804Z",
       "previousSlugs": [
         "pompier-ere-mecanicien-ne-de-locomotive-intervention-ffs-officine-ferrovie-federali-biel-bienne"
       ],
@@ -2203,7 +2205,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-feuerwehrmann-feuerwehrfrau-und-lokfuehrer-in-sbb-feuerwehr-intervention/c6a08d96-60b9-4754-88bb-5939e138f205",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:26.463Z",
+      "crawledAt": "2026-10-28T22:30:23.748Z",
       "previousSlugs": [
         "quereinsteiger-in-feuerwehrmann-feuerwehrfrau-und-lokfuhrer-in-sbb-feuerwehr-intervention-ffs-officine-ferrovie-federali-biel-bienne"
       ],
@@ -2306,7 +2308,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-team-voies-ferrees/f93882aa-5b2d-4886-9fab-f9f4ee4f0b48",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:05.475Z",
+      "crawledAt": "2026-10-28T22:29:16.213Z",
       "previousSlugs": [
         "chef-fe-de-team-voies-ferrees-ffs-officine-ferrovie-federali-renens-vd"
       ],
@@ -2404,7 +2406,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/diagnostiker-in-fahrzeugdiagnostiker-in-stoerungssuche/19b906f5-4df0-4aa8-a862-8b774e2a6ec0",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:05.956Z",
+      "crawledAt": "2026-10-28T22:29:25.743Z",
       "previousSlugs": [
         "diagnostiker-in-fahrzeugdiagnostiker-in-storungssuche-ffs-officine-ferrovie-federali-winterthur",
         "diagnostico-diagnostico-veicolo-risoluzione-dei-problemi-ffs-officine-ferrovie-federali-winterthur"
@@ -2488,7 +2490,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/automatiker-in-elektroniker-in-fuer-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik/25403ef7-839b-4dff-bc49-545620ffb2e8",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:55.951Z",
+      "crawledAt": "2026-10-28T22:29:04.228Z",
       "previousSlugsByLocale": {
         "de": [
           "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-olten"
@@ -2595,7 +2597,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80/e774ed1f-19aa-4e22-add0-2e3a51e86069",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:54.433Z",
+      "crawledAt": "2026-10-28T22:28:59.196Z",
       "previousSlugs": [
         "applikationsverantwortliche-r-bahnplanungssysteme-product-owner-80-100-ffs-officine-ferrovie-federali-6362-stansstad"
       ],
@@ -2710,7 +2712,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fuer-elektro-und-telekommunikationsanlagen/9cdee9d1-f5cd-431c-8a5a-c76f17177ccd"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fuer-elektro-und-telekommunikationsanlagen/9cdee9d1-f5cd-431c-8a5a-c76f17177ccd",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-1a9fdfef95cf",
@@ -2772,7 +2775,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/kalkulator-in-fahrbahnprojekte/62d388dd-bdda-443c-9ff2-e31abb498474",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:11.960Z",
+      "crawledAt": "2026-10-28T22:29:48.210Z",
       "previousSlugs": [
         "kalkulator-in-fahrbahnprojekte-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
@@ -2867,7 +2870,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-basel-09-2027/1de3955f-3074-4282-bfa9-015310dfcb9a",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:33.958Z",
+      "crawledAt": "2026-10-28T22:30:33.740Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-basel-09-2027-ffs-officine-ferrovie-federali-basel"
       ],
@@ -2950,7 +2953,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ai-portfolio-process-manager-marketing/b2213421-b609-4ace-9eea-b85259de5fb1",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:53.459Z",
+      "crawledAt": "2026-10-28T22:28:57.748Z",
       "previousSlugs": [
         "ai-portfolio-e-process-manager-marketing-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -3057,7 +3060,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/aaa2e4ee-90c0-4b6d-8f80-a4e95175911d",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:16.966Z",
+      "crawledAt": "2026-10-28T22:30:00.839Z",
       "previousSlugs": [
         "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
         "monteur-in-fahrleitung-b100-e-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
@@ -3171,7 +3174,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-datenmanagement/9eb0bb3e-89c7-4d3e-a892-8c6f587e0624",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:25.451Z",
+      "crawledAt": "2026-10-28T22:30:21.233Z",
       "previousSlugs": [
         "projektleiter-in-datenmanagement-ffs-officine-ferrovie-federali-olten"
       ],
@@ -3288,7 +3291,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau/2954218e-0da3-43e2-b1f1-3af35592419b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:04.973Z",
+      "crawledAt": "2026-10-28T22:29:08.704Z",
       "previousSlugs": [
         "berufsbildner-in-gleisbau-ffs-officine-ferrovie-federali-olten"
       ],
@@ -3384,7 +3387,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/campaign-manager-in/238e08fd-f34c-487e-aabd-089f4a3fcc48",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:08.522Z",
+      "crawledAt": "2026-10-28T22:29:13.225Z",
       "previousSlugs": [
         "campaign-manager-in-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -3477,7 +3480,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/contremaitre-voies-ferrees-h-f-d/7f49f7ea-263a-43c4-b806-589d64274b73",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:16.513Z",
+      "crawledAt": "2026-10-28T22:29:23.736Z",
       "previousSlugs": [
         "contremaitre-voies-ferrees-h-f-d-ffs-officine-ferrovie-federali-allaman"
       ],
@@ -3568,7 +3571,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/installatore-trice-elettricista/f30169c3-ab07-4196-a869-436ec64125ed",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:11.481Z",
+      "crawledAt": "2026-10-28T22:29:46.214Z",
       "firstSeenAt": "2026-10-22T09:38:13.395Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -3695,7 +3698,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "2502",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-lignes-de-contact-cheffe-monteureuse/4f1b75e5-4ad5-49c1-aa5a-69f528d8c257"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-lignes-de-contact-cheffe-monteureuse/4f1b75e5-4ad5-49c1-aa5a-69f528d8c257",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-cc27527c6435",
@@ -3800,108 +3804,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "2502",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fahrleitung-chefmonteur-in/0f1bffdc-7a2f-4ce6-b7bb-5eea054cedee"
-    },
-    {
-      "id": "sbb-1b5bbbbaf134",
-      "slug": "cambio-di-carriera-come-accompagnatore-accompagnatrice-della-clientela-per-la-rilevazione-dell-affluenza-ffs-officine",
-      "slugByLocale": {
-        "it": "cambio-di-carriera-come-accompagnatore-accompagnatrice-della-clientela-per-la-rilevazione-dell-affluenza-ffs-officine",
-        "en": "career-changer-as-a-customer-attendant-for-frequency-recording-ffs-officine-ferrovie-federali-zurich",
-        "de": "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-zurich",
-        "fr": "reconversion-professionnelle-comme-accompagnateur-trice-clientele-pour-le-releve-de-la-frequentation-ffs-officine"
-      },
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "jobs.sbb.ch",
-      "title": "Quereinstieg Kundenbegleiter:in für Frequenzerfassung 03/27",
-      "titleByLocale": {
-        "it": "Cambio di carriera come accompagnatore/accompagnatrice della clientela per la rilevazione dell'affluenza",
-        "en": "Career changer as a customer attendant for frequency recording",
-        "de": "Quereinstieg Kundenbegleiter:in für Frequenzerfassung 03/27",
-        "fr": "Reconversion professionnelle comme accompagnateur/trice clientèle pour le relevé de la fréquentation"
-      },
-      "description": "Quereinstieg Kundenbegleiter:in für Frequenzerfassung 03/27 50% | SBB\n-\n-\n-\n-\n-\n-\nBeweg die Schweiz mit uns.\nQuereinstieg Kundenbegleiter:in für Frequenzerfassung 03/27\nZürich, 01.03.2027, 50%\nJetzt bewerben\n\n## Darauf kannst du dich freuen.\nAls Kundenbegleiter:in für Frequenzerfassung stehst du im direkten Kontakt mit unseren Fahrgästen und ermittelst ihr Reiseverhalten. Es erwartet dich eine abwechslungsreiche, viermonatige bezahlte Teilzeitausbildung (50%), in der du in Theorie und Praxis ausgebildet wirst. Unsere Ausbildungsstandorte sind Olten oder Zürich Altstetten. Nach erfolgreicher Abschlussprüfung bist du im Teilzeitpensum (50%) landesweit im Schichtbetrieb als Kundenbegleiter:in unterwegs, wobei die Schichten jeweils am gleichen Ausbildungsstandort beginnen und enden. Die Laufbahn Kundenbegleitung bietet dir interessante Weiterentwicklungsmöglichkeiten wie zum Beispiel die viermonatige Ausbildung zum:zur Kundenbegleiter:in für Fahrausweiskontrolle oder die achtmonatige Ausbildung zur Kundenbegleiter:in. Als Kundenbegleiter:in für Frequenzerfassung trägst du zu unserem grossen Ziel bei: begeisterte Kund:innen.\nDu siehst unregelmässige Arbeitszeiten und Schichtarbeit als Vorteil, da du deine Freizeit geniessen kannst, während andere arbeiten. Nacht- und Wochenendarbeiten werden bei uns zusätzlich vergütet, zum Beispiel mit einem Stundenlohnzusatz von 16 Franken für Sonntagsarbeit. Bei Nachteinsätzen erhältst du Zeitzuschläge von 10 bis 30%, was dir mehr Freizeit ermöglicht.\nBenefits wie kostenloses GA, vergünstigtes Reisen im Ausland – auch für die Familie – findest du auf unserer Website unter Benefits.\nErfahre mehr zum Beruf in der aufgezeichneten Infoveranstaltung .\nDas kannst du bewegen.\n- Als Kundenbegleiter:in für Frequenzerfassung stehst du im direkten Kontakt mit unseren Kund:innen und begleitest sie auf ihrer Reise. Du befragst unsere Fahrgäste nach ihrer Reisestrecke und ihren Fahrausweisen, um das Reiseverhalten zu ermitteln.\n- Die gesammelten Daten erfasst du in einem elektronischen Gerät.\n- Du informierst die Kundschaft über ihre Reise, stellst den Reisekomfort sicher und lenkst die Kundenströme.\n- In einem sehr abwechslungsreichen Berufsalltag bewegst du mit täglich neu zugeteilten Teamkolleg:innen die Schweiz.\n- Dank dem exakt getakteten Dienstplan kannst du pünktlich und ohne weitere Aufgaben oder E-Mails in den wohlverdienten Feierabend.\nDas bringst du mit.\n- Du bist kommunikativ, aufgeschlossen und dein freundlicher Umgang mit Menschen sowie deine ausgeprägte Kundenorientierung zeichnen dich aus. Mit deinen sehr guten Kommunikations- und Konfliktfähigkeiten trägst du entscheidend zu einem positiven Kundenerlebnis bei.\n- Wir setzen auf Zusammenarbeit und Teamgeist, um die zum Teil physisch anspruchsvollen Aufgaben zu bewältigen.\n- Du hast ein Flair für Zahlen, ein rasches Auffassungsvermögen sowie ein ausgeprägtes Verantwortungsbewusstsein. Du arbeitest effizient und genau, beherrschst digitale Arbeitsmittel und bist bereit, im Schichtbetrieb zu arbeiten.\n- Du hast eine Berufslehre (mindestens zweijährig) oder Matura abgeschlossen. Deine Motivation ist uns dabei wichtiger als die Branche, aus der du kommst.\n- Du verfügst über sehr gute Deutschkenntnisse (Niveau C1). Zudem bringst du die Bereitschaft mit, innerhalb von zwei Jahren ein Sprachdiplom (Niveau A2) zu erwerben: Französisch, Italienisch oder Englisch.\n- Im Bewerbungsprozess werden wir von dir einen aktuellen Strafregister- und Betreibungsregisterauszug (nicht älter als 3 Monate) verlangen. Das Dokument kann bei der Einladung zum persönlichen Kennenlernen bestellt werden.\n\n## Dein Lohn und deine Benefits.\nDie Einstufung während der Zweitausbildung erfolgt entsprechend der Funktion und dem Alter. Mehr zum konkreten Lohn für diese Rolle findest du unter Quereinstieg .\n\n## Damit gelingt der Einstieg.\nDass du mit uns die Schweiz bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.\nGrosses machen ist einfacher per du. Das beginnt bereits bei deiner Bewerbung.\n\n## So geht's weiter.\n×\nSpätestens 10 Arbeitstage nach Bewerbungseingang erhältst du eine erste Rückmeldung von uns.\nFinaler Entscheid zwei Monate nach Bewerbungseingang\nBewerbung\nFinaler Entscheid zwei Monate nach Bewerbungseingang\nNoch Fragen?\nZum Bewerbungsprozess\nSBB Recruiting Support\nTelefon + 41 51 220 20 29\nrecruiting@sbb.ch\n#einfachDu\nFAQ zur Bewerbung\nZur Stelle\nJob ID 103780\nEliane Bühler, Teamleiterin\nTelefon +41 512 82 85 81\nBewerbungen per E-Mail können leider nicht berücksichtigt werden.\nFür diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen.\n\n## Das bieten wir.\nBenefits\nBenefits\nMehr erfahren\nWo immer möglich setzen wir auf flexible Arbeitszeiten und moderne Arbeitszeitmodelle. Darüber hinaus sind wir als Arbeitgeberin auch flexibel, wenn es darum geht, dein Berufsleben mit deinem Privatleben in Einklang zu bringen.\nMehr erfahren\nMehr erfahren\nUnterschiede willkommen\nUnterschiede willkommen\nMehr erfahren\nMit über 150 verschiedenen Berufen bieten wir eine beeindruckende Vielfalt an Einstiegs- und Entwicklungsmöglichkeiten. Ebenso vielfältig sind unsere Mitarbeitenden. Darum engagieren wir uns dafür dass alle Mitarbeitenden ihre individuellen Stärken und Denkweisen einbringen können.\nMehr erfahren\nMehr erfahren\nKarriere und Entwicklung\nKarriere und Entwicklung\nMehr erfahren\nWir fördern unsere Mitarbeitenden entlang ihren persönlichen Bedürfnissen und Ambitionen. Dafür stellen wir ein breites Angebot an fach- und bereichsübergreifenden Weiterbildungsangeboten zur Verfügung. An ausgewählten externen Weiterbildungen, beteiligen wir uns finanziell und zeitlich.\nMehr erfahren\nMehr erfahren",
-      "descriptionByLocale": {
-        "it": "Compagni clienti:in per la registrazione di frequenza 50% | FFS\n-\n-\n-\n-\n-\n-\nSposta la Svizzera con noi.\nCompagni clienti:in per la registrazione di frequenza\nZurigo, 01.03.2027, 50 %\nApplicare ora\n\n## Non vedo l'ora.\nIn qualità di cliente: in Frequenza Acquisizione siete in contatto diretto con i nostri passeggeri e determinare il loro comportamento di viaggio. Puoi aspettarti una formazione a tempo parziale a pagamento di quattro mesi (50%) in cui sarai addestrato in teoria e pratica. Le nostre sedi di formazione sono Olten o Zurich Altstetten. Dopo un esame finale di successo, sei part-time (50%) nelle operazioni a turni a livello nazionale come compagno di cliente, con i turni che iniziano e terminano nella stessa posizione di allenamento. La carriera di supporto al cliente offre interessanti ulteriori opportunità di sviluppo, come la formazione di quattro mesi per:al supporto del cliente:in per il controllo dei biglietti o la formazione di otto mesi per il supporto del cliente:in. Come compagno di cliente: per l'acquisizione di frequenza, si contribuisce al nostro grande obiettivo: clienti entusiasti: dentro.\nSi vede ore di lavoro irregolari e lavoro a turni come un vantaggio perché si può godere il vostro tempo libero mentre altri lavorano. Il lavoro notturno e fine settimana viene pagato anche per, ad esempio, un supplemento di salario orario di 16 franchi per il lavoro di domenica. Per le assegnazioni notturne, si ottiene supplementi di tempo del 10 al 30%, che consente più tempo libero.\nVantaggi come GA gratuito, viaggi scontati all'estero - anche per la famiglia - possono essere trovati sul nostro sito web sotto Vantaggi.\nMaggiori informazioni sulla professione nell'evento informativo registrato.\nVuoi saperne di più sull'ingresso laterale come gestore del traffico ferroviario in una conversazione personale? Vi aspettiamo dal 22 al 24. 2026 presso la stazione centrale di Zurigo. Tutte le informazioni sul SBB Berufswelten Café possono essere trovate a sbb.ch/berufsweltencafe.\nPuoi spostarlo.\n- In qualità di cliente: in Frequenza Acquisizione siete in diretto contatto con i nostri clienti e li accompagnate nel loro viaggio. Chiedete ai nostri passeggeri la loro rotta di viaggio e biglietti per determinare il loro comportamento di viaggio.\n- Raccogli i dati raccolti in un dispositivo elettronico.\n- Si informa il cliente circa il loro viaggio, garantire il comfort di viaggio e dirigere i flussi del cliente.\n- In una giornata di lavoro molto variegata, ti muovi con il lavoro di squadra riassegnato ogni giorno: Svizzera.\n- Grazie al roster con precisione, si può essere in tempo e senza ulteriori compiti o e-mail nella serata meritata.\nLo porti con te.\n- Siete comunicativi, di mentalità aperta e i vostri rapporti amichevoli con le persone e il vostro forte orientamento del cliente vi distinguono. Con le vostre ottime capacità di comunicazione e di conflitto, apportate un contributo decisivo a un'esperienza positiva del cliente.\n- Ci concentriamo sulla cooperazione e lo spirito di squadra per far fronte ai compiti a volte fisicamente impegnativi.\n- Lei ha un fascino per i numeri, una rapida comprensione e un forte senso di responsabilità. Si lavora in modo efficiente e preciso, master strumenti digitali e sono pronti a lavorare turni.\n- Hai completato un tirocinio professionale (almeno due anni) o una laurea. La tua motivazione è più importante per noi che per l'industria da cui vieni.\n- Hai una buona conoscenza del tedesco (livello C1). Sarete inoltre pronti ad ottenere un diploma di lingua (livello A2) entro due anni: francese, italiano o inglese.\n- Nel processo di applicazione, vi chiederemo un record penale e di esecuzione corrente (non superiore a 3 mesi). Il documento può essere ordinato su invito per conoscenza personale.\n\n## Le tue ricompense e i tuoi benefici.\nLa classificazione durante l'istruzione secondaria si basa sulla funzione e sull'età. Ulteriori informazioni sulla ricompensa concreta per questo ruolo si possono trovare sotto Quereinstieg.\n\n## Questo è il punto di partenza.\nIl fatto che tu voglia spostare la Svizzera con noi è la più grande motivazione per noi. Pertanto, ci asteniamo da una lettera di motivazione a questo punto. Se volete ancora dirci la vostra motivazione, avete ancora la possibilità di farlo nel nostro strumento di applicazione.\nFare il grande è più facile con te. Questo inizia con la tua applicazione.\n\n## E' cosi' che va.\n×\nAl più tardi 10 giorni lavorativi dopo il ricevimento della domanda, riceverai un feedback iniziale da parte nostra.\nDecisione finale due mesi dopo la ricezione della domanda\nApplicazione\nDecisione finale due mesi dopo la ricezione della domanda\nAncora domande?\nIl processo di applicazione\nSupporto per il reclutamento delle FFS\nTelefono + 41 51 220 20 29\nreclutamento@sbb.ch\n#SimplyYou #\nFAQ per l'applicazione\nAi fini della\nID lavoro 103780\nEliane Bühler, Team Leader\nTelefono +41 512 82 85 81\nLe applicazioni via e-mail non possono purtroppo essere considerate.\nPer questa posizione, non accettiamo i fascicoli dei reclutatori.\n\n## Lo offriamo.\nVantaggi\nVantaggi\nScopri di più\nOvunque possibile, ci concentriamo su orari di lavoro flessibili e modelli di tempo di lavoro moderni. Inoltre, come datore di lavoro, siamo anche flessibili quando si tratta di riconciliare la vostra vita professionale con la vostra vita privata.\nScopri di più\nScopri di più\nDifferenze benvenuti\nDifferenze benvenuti\nScopri di più\nCon oltre 150 professioni diverse, offriamo una varietà impressionante di opportunità di ingresso e sviluppo. I nostri dipendenti sono altrettanto diversi. Ecco perché ci impegniamo a garantire che tutti i dipendenti possano contribuire ai loro punti di forza e ai loro modi di pensare individuali.\nScopri di più\nScopri di più\nCarriera e sviluppo\nCarriera e sviluppo\nScopri di più\nPromuoviamo i nostri dipendenti in base alle loro esigenze e ambizioni personali. A questo scopo, forniamo una vasta gamma di offerte di formazione interdisciplinare e trasversale. Nella formazione esterna selezionata, partecipiamo finanziariamente e temporalmente.\nScopri di più\nScopri di più",
-        "en": "Cross-entry Customer companions:in for frequency recording 50% | SBB\n-\n-\n-\n-\n-\n-\nMove Switzerland with us.\nCross-entry Customer companions:in for frequency recording\nZurich, 01.03.2027, 50 %\nApply now\n\n## You can look forward to that.\nAs a customer companion: in Frequency Acquisition you are in direct contact with our passengers and determine their travel behaviour. You can expect a varied, four-month paid part-time training (50%) in which you will be trained in theory and practice. Our training locations are Olten or Zurich Altstetten. After a successful final examination, you are part-time (50%) in shift operations nationwide as a customer companion, with the shifts beginning and ending at the same training location. The customer support career offers you interesting further development opportunities such as the four-month training for:to the customer support:in for ticket control or the eight-month training for customer support:in. As a customer companion:in for frequency acquisition, you contribute to our big goal: enthusiastic customers:inside.\nYou see irregular working hours and shift work as an advantage because you can enjoy your free time while others work. Night and weekend work is also paid for, for example, an hourly wage supplement of 16 francs for Sunday work. For night assignments, you get time surcharges of 10 to 30%, which allows you more free time.\nBenefits such as free GA, discounted travel abroad – also for the family – can be found on our website under Benefits.\nLearn more about the profession in the recorded info event.\nInterested to find out more about the lateral entry as a train traffic manager in a personal conversation? We look forward to seeing you from 22 to 24. 2026 at Zurich Central Station. All information about the SBB Berufswelten Café can be found at sbb.ch/berufsweltencafe.\nYou can move that.\n- As a customer companion: in Frequency Acquisition you are in direct contact with our customers and accompany them on their journey. You ask our passengers for their travel route and tickets to determine their travel behaviour.\n- You collect the collected data in an electronic device.\n- You inform the customer about their journey, ensure travel comfort and direct the customer flows.\n- In a very varied working day, you move with daily reassigned teamwork: Switzerland.\n- Thanks to the precisely clocked roster, you can be on time and without further tasks or e-mails in the well-deserved evening.\nYou bring that with you.\n- You are communicative, open-minded and your friendly dealings with people and your strong customer orientation distinguish you. With your very good communication and conflict skills, you make a decisive contribution to a positive customer experience.\n- We focus on cooperation and team spirit in order to cope with the sometimes physically demanding tasks.\n- You have a flair for numbers, a quick comprehension and a strong sense of responsibility. You work efficiently and accurately, master digital tools and are ready to work shifts.\n- You have completed a vocational apprenticeship (at least two years old) or graduate degree. Your motivation is more important to us than the industry you come from.\n- You have very good knowledge of German (level C1). You will also be prepared to obtain a language diploma (level A2) within two years: French, Italian or English.\n- In the application process, we will ask you for a current criminal record and enforcement record (not older than 3 months). The document can be ordered at the invitation for personal acquaintance.\n\n## Your rewards and benefits.\nClassification during secondary education shall be based on function and age. More about the concrete reward for this role can be found under Quereinstieg.\n\n## This is the starting point.\nThe fact that you want to move Switzerland with us is the greatest motivation for us. Therefore, we refrain from a letter of motivation at this point. If you still want to tell us your motivation, you still have the opportunity to do so in our application tool.\nMaking big is easier with you. This starts with your application.\n\n## That's how it goes.\n×\nAt the latest 10 working days after receipt of the application, you will receive an initial feedback from us.\nFinal decision two months after receiving the application\nApplication\nFinal decision two months after receiving the application\nStill questions?\nThe application process\nSBB Recruitment Support\nPhone + 41 51 220 20 29\nrecruiting@sbb.ch\n#SimplyYou\nFAQ for Application\nFor the purpose of\nJob ID 103780\nEliane Bühler, Team Leader\nPhone +41 512 82 85 81\nApplications by e-mail can unfortunately not be considered.\nFor this position, we do not accept dossiers from recruiters.\n\n## We offer that.\nBenefits\nBenefits\nFind out more\nWherever possible, we focus on flexible working hours and modern working time models. In addition, as an employer, we are also flexible when it comes to reconciling your professional life with your private life.\nFind out more\nFind out more\nDifferences welcome\nDifferences welcome\nFind out more\nWith over 150 different professions, we offer an impressive variety of entry and development opportunities. Our employees are just as diverse. That is why we are committed to ensuring that all employees can contribute their individual strengths and ways of thinking.\nFind out more\nFind out more\nCareer and development\nCareer and development\nFind out more\nWe promote our employees according to their personal needs and ambitions. For this purpose, we provide a broad range of interdisciplinary and cross-divisional training offers. In selected external training, we participate financially and temporally.\nFind out more\nFind out more",
-        "de": "Quereinstieg Kundenbegleiter:in für Frequenzerfassung 03/27 50% | SBB\n-\n-\n-\n-\n-\n-\nBeweg die Schweiz mit uns.\nQuereinstieg Kundenbegleiter:in für Frequenzerfassung 03/27\nZürich, 01.03.2027, 50%\nJetzt bewerben\n\n## Darauf kannst du dich freuen.\nAls Kundenbegleiter:in für Frequenzerfassung stehst du im direkten Kontakt mit unseren Fahrgästen und ermittelst ihr Reiseverhalten. Es erwartet dich eine abwechslungsreiche, viermonatige bezahlte Teilzeitausbildung (50%), in der du in Theorie und Praxis ausgebildet wirst. Unsere Ausbildungsstandorte sind Olten oder Zürich Altstetten. Nach erfolgreicher Abschlussprüfung bist du im Teilzeitpensum (50%) landesweit im Schichtbetrieb als Kundenbegleiter:in unterwegs, wobei die Schichten jeweils am gleichen Ausbildungsstandort beginnen und enden. Die Laufbahn Kundenbegleitung bietet dir interessante Weiterentwicklungsmöglichkeiten wie zum Beispiel die viermonatige Ausbildung zum:zur Kundenbegleiter:in für Fahrausweiskontrolle oder die achtmonatige Ausbildung zur Kundenbegleiter:in. Als Kundenbegleiter:in für Frequenzerfassung trägst du zu unserem grossen Ziel bei: begeisterte Kund:innen.\nDu siehst unregelmässige Arbeitszeiten und Schichtarbeit als Vorteil, da du deine Freizeit geniessen kannst, während andere arbeiten. Nacht- und Wochenendarbeiten werden bei uns zusätzlich vergütet, zum Beispiel mit einem Stundenlohnzusatz von 16 Franken für Sonntagsarbeit. Bei Nachteinsätzen erhältst du Zeitzuschläge von 10 bis 30%, was dir mehr Freizeit ermöglicht.\nBenefits wie kostenloses GA, vergünstigtes Reisen im Ausland – auch für die Familie – findest du auf unserer Website unter Benefits.\nErfahre mehr zum Beruf in der aufgezeichneten Infoveranstaltung .\nDas kannst du bewegen.\n- Als Kundenbegleiter:in für Frequenzerfassung stehst du im direkten Kontakt mit unseren Kund:innen und begleitest sie auf ihrer Reise. Du befragst unsere Fahrgäste nach ihrer Reisestrecke und ihren Fahrausweisen, um das Reiseverhalten zu ermitteln.\n- Die gesammelten Daten erfasst du in einem elektronischen Gerät.\n- Du informierst die Kundschaft über ihre Reise, stellst den Reisekomfort sicher und lenkst die Kundenströme.\n- In einem sehr abwechslungsreichen Berufsalltag bewegst du mit täglich neu zugeteilten Teamkolleg:innen die Schweiz.\n- Dank dem exakt getakteten Dienstplan kannst du pünktlich und ohne weitere Aufgaben oder E-Mails in den wohlverdienten Feierabend.\nDas bringst du mit.\n- Du bist kommunikativ, aufgeschlossen und dein freundlicher Umgang mit Menschen sowie deine ausgeprägte Kundenorientierung zeichnen dich aus. Mit deinen sehr guten Kommunikations- und Konfliktfähigkeiten trägst du entscheidend zu einem positiven Kundenerlebnis bei.\n- Wir setzen auf Zusammenarbeit und Teamgeist, um die zum Teil physisch anspruchsvollen Aufgaben zu bewältigen.\n- Du hast ein Flair für Zahlen, ein rasches Auffassungsvermögen sowie ein ausgeprägtes Verantwortungsbewusstsein. Du arbeitest effizient und genau, beherrschst digitale Arbeitsmittel und bist bereit, im Schichtbetrieb zu arbeiten.\n- Du hast eine Berufslehre (mindestens zweijährig) oder Matura abgeschlossen. Deine Motivation ist uns dabei wichtiger als die Branche, aus der du kommst.\n- Du verfügst über sehr gute Deutschkenntnisse (Niveau C1). Zudem bringst du die Bereitschaft mit, innerhalb von zwei Jahren ein Sprachdiplom (Niveau A2) zu erwerben: Französisch, Italienisch oder Englisch.\n- Im Bewerbungsprozess werden wir von dir einen aktuellen Strafregister- und Betreibungsregisterauszug (nicht älter als 3 Monate) verlangen. Das Dokument kann bei der Einladung zum persönlichen Kennenlernen bestellt werden.\n\n## Dein Lohn und deine Benefits.\nDie Einstufung während der Zweitausbildung erfolgt entsprechend der Funktion und dem Alter. Mehr zum konkreten Lohn für diese Rolle findest du unter Quereinstieg .\n\n## Damit gelingt der Einstieg.\nDass du mit uns die Schweiz bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.\nGrosses machen ist einfacher per du. Das beginnt bereits bei deiner Bewerbung.\n\n## So geht's weiter.\n×\nSpätestens 10 Arbeitstage nach Bewerbungseingang erhältst du eine erste Rückmeldung von uns.\nFinaler Entscheid zwei Monate nach Bewerbungseingang\nBewerbung\nFinaler Entscheid zwei Monate nach Bewerbungseingang\nNoch Fragen?\nZum Bewerbungsprozess\nSBB Recruiting Support\nTelefon + 41 51 220 20 29\nrecruiting@sbb.ch\n#einfachDu\nFAQ zur Bewerbung\nZur Stelle\nJob ID 103780\nEliane Bühler, Teamleiterin\nTelefon +41 512 82 85 81\nBewerbungen per E-Mail können leider nicht berücksichtigt werden.\nFür diese Stelle nehmen wir keine Dossiers von Personalvermittlern entgegen.\n\n## Das bieten wir.\nBenefits\nBenefits\nMehr erfahren\nWo immer möglich setzen wir auf flexible Arbeitszeiten und moderne Arbeitszeitmodelle. Darüber hinaus sind wir als Arbeitgeberin auch flexibel, wenn es darum geht, dein Berufsleben mit deinem Privatleben in Einklang zu bringen.\nMehr erfahren\nMehr erfahren\nUnterschiede willkommen\nUnterschiede willkommen\nMehr erfahren\nMit über 150 verschiedenen Berufen bieten wir eine beeindruckende Vielfalt an Einstiegs- und Entwicklungsmöglichkeiten. Ebenso vielfältig sind unsere Mitarbeitenden. Darum engagieren wir uns dafür dass alle Mitarbeitenden ihre individuellen Stärken und Denkweisen einbringen können.\nMehr erfahren\nMehr erfahren\nKarriere und Entwicklung\nKarriere und Entwicklung\nMehr erfahren\nWir fördern unsere Mitarbeitenden entlang ihren persönlichen Bedürfnissen und Ambitionen. Dafür stellen wir ein breites Angebot an fach- und bereichsübergreifenden Weiterbildungsangeboten zur Verfügung. An ausgewählten externen Weiterbildungen, beteiligen wir uns finanziell und zeitlich.\nMehr erfahren\nMehr erfahren",
-        "fr": "Compagnons clients:en pour l'enregistrement de fréquence 50%\n-\n-\n-\n-\n-\n-\nDéplacez la Suisse avec nous.\nCompagnons clients:In pour l'enregistrement de fréquence\nZurich, 01.03.2027, 50 %\nAppliquer maintenant\n\n## Vous pouvez attendre avec impatience.\nEn tant que compagnon client : en Acquisition de fréquence, vous êtes en contact direct avec nos passagers et déterminez leur comportement de voyage. Vous pouvez vous attendre à une formation variée à temps partiel rémunéré de quatre mois (50%) dans laquelle vous serez formé en théorie et en pratique. Nos lieux de formation sont Olten ou Zurich Altstetten. Après un examen final réussi, vous êtes à temps partiel (50%) dans les opérations de quart à l'échelle nationale en tant que compagnon de clientèle, les quarts commencent et se terminent au même endroit de formation. La carrière de support client vous offre d'intéressantes opportunités de développement comme la formation de quatre mois pour:pour le support client:en pour le contrôle des billets ou la formation de huit mois pour le support client:en. En tant qu'accompagnateur client:pour l'acquisition de fréquences, vous contribuez à notre grand objectif: clients enthousiastes:à l'intérieur.\nVous voyez les heures de travail irrégulières et le travail posté comme un avantage parce que vous pouvez profiter de votre temps libre tandis que les autres travaillent. Le travail de nuit et le travail de fin de semaine sont également payés, par exemple, un supplément de salaire horaire de 16 francs pour le travail du dimanche. Pour les affectations de nuit, vous obtenez des suppléments de temps de 10 à 30%, ce qui vous permet plus de temps libre.\nDes avantages tels que le GA gratuit, les voyages à rabais à l'étranger – également pour la famille – sont disponibles sur notre site Web sous Prestations.\nEn savoir plus sur la profession dans l'événement d'information enregistré.\nIntéressé à en savoir plus sur l'entrée latérale en tant que gestionnaire de trafic ferroviaire dans une conversation personnelle? Nous sommes impatients de vous voir du 22 au 24. 2026 à la gare centrale de Zurich. Toutes les informations sur le CFF Berufswelten Café sont disponibles sur cff.ch/berufsweltencafe.\nTu peux bouger ça.\n- En tant qu'accompagnateur client : en Acquisition de Fréquence, vous êtes en contact direct avec nos clients et les accompagnez lors de leur voyage. Vous demandez à nos passagers leur itinéraire et leurs billets pour déterminer leur comportement.\n- Vous recueillez les données collectées dans un appareil électronique.\n- Vous informez le client de son voyage, assurez le confort du voyage et dirigez les flux du client.\n- Dans une journée de travail très variée, vous déménagez avec un travail d'équipe quotidien réaffecté : la Suisse.\n- Grâce à la liste précise, vous pouvez être à l'heure et sans autres tâches ou courriels dans la soirée bien méritée.\nApporte ça avec toi.\n- Vous êtes communicatif, ouvert d'esprit et vos relations amicales avec les gens et votre forte orientation client vous distinguent. Grâce à vos compétences en communication et en conflit, vous contribuez de manière décisive à une expérience client positive.\n- Nous nous concentrons sur la coopération et l'esprit d'équipe pour faire face aux tâches parfois exigeantes physiquement.\n- Vous avez un goût pour les chiffres, une compréhension rapide et un fort sens des responsabilités. Vous travaillez efficacement et avec précision, maîtrisez les outils numériques et êtes prêt à travailler par équipes.\n- Vous avez terminé un apprentissage professionnel (au moins deux ans) ou un diplôme d'études supérieures. Votre motivation est plus importante pour nous que l'industrie dont vous venez.\n- Vous avez une très bonne connaissance de l'allemand (niveau C1). Vous serez également prêt à obtenir un diplôme de langue (niveau A2) dans un délai de deux ans : français, italien ou anglais.\n- Dans le processus de demande, nous vous demanderons un casier judiciaire actuel et un casier judiciaire (pas plus de 3 mois). Le document peut être commandé à l'invitation de la connaissance personnelle.\n\n## Vos récompenses et avantages.\nLa classification dans l'enseignement secondaire est fondée sur la fonction et l'âge. En savoir plus sur la récompense concrète pour ce rôle peut être trouvé sous Quereinstieg.\n\n## C'est le point de départ.\nLe fait que vous vouliez déplacer la Suisse avec nous est la plus grande motivation pour nous. Nous nous abstiendrons donc d'une lettre de motivation à ce stade. Si vous voulez encore nous dire votre motivation, vous avez encore la possibilité de le faire dans notre outil d'application.\nFaire grand est plus facile avec toi. Cela commence par votre demande.\n\n## C'est comme ça.\n×\nAu plus tard 10 jours ouvrables après la réception de la demande, vous recevrez une première rétroaction de notre part.\nDécision définitive deux mois après réception de la demande\nDemande\nDécision définitive deux mois après réception de la demande\nToujours des questions ?\nLe processus de demande\nSoutien au recrutement des CFF\nTéléphone + 41 51 220 20 29\nrecrutement@sbb.ch\nJuste toi\nFAQ pour la demande\nAux fins\nNuméro d'emploi 103780\nEliane Bühler, chef d'équipe\nTéléphone +41 512 82 85 81\nLes demandes par courrier électronique ne peuvent malheureusement pas être examinées.\nPour ce poste, nous n'acceptons pas les dossiers des recruteurs.\n\n## Nous offrons ça.\nAvantages\nAvantages\nEn savoir plus\nDans la mesure du possible, nous nous concentrons sur des horaires flexibles et des modèles modernes de temps de travail. De plus, en tant qu'employeur, nous sommes également flexibles pour concilier votre vie professionnelle avec votre vie privée.\nEn savoir plus\nEn savoir plus\nDifférences bienvenues\nDifférences bienvenues\nEn savoir plus\nAvec plus de 150 professions différentes, nous offrons une variété impressionnante de possibilités d'entrée et de développement. Nos employés sont tout aussi divers. C'est pourquoi nous nous engageons à faire en sorte que tous les employés puissent apporter leurs forces et leurs façons de penser.\nEn savoir plus\nEn savoir plus\nCarrière et développement\nCarrière et développement\nEn savoir plus\nNous faisons la promotion de nos employés en fonction de leurs besoins personnels et de leurs ambitions. À cette fin, nous proposons un large éventail d'offres de formation interdisciplinaire et interdivisionnelle. Nous participons financièrement et temporellement à la formation externe choisie.\nEn savoir plus\nEn savoir plus"
-      },
-      "requirements": [
-        "Du bist kommunikativ, aufgeschlossen und dein freundlicher Umgang mit Menschen sowie deine ausgeprägte Kundenorientierung zeichnen dich aus. Mit deinen sehr guten Kommunikations- und Konfliktfähigkeiten trägst du entscheidend zu einem positiven Kundenerlebnis bei.",
-        "Wir setzen auf Zusammenarbeit und Teamgeist, um die zum Teil physisch anspruchsvollen Aufgaben zu bewältigen.",
-        "Du hast ein Flair für Zahlen, ein rasches Auffassungsvermögen sowie ein ausgeprägtes Verantwortungsbewusstsein. Du arbeitest effizient und genau, beherrschst digitale Arbeitsmittel und bist bereit, im Schichtbetrieb zu arbeiten.",
-        "Du hast eine Berufslehre (mindestens zweijährig) oder Matura abgeschlossen. Deine Motivation ist uns dabei wichtiger als die Branche, aus der du kommst.",
-        "Du verfügst über sehr gute Deutschkenntnisse (Niveau C1). Zudem bringst du die Bereitschaft mit, innerhalb von zwei Jahren ein Sprachdiplom (Niveau A2) zu erwerben: Französisch, Italienisch oder Englisch.",
-        "Im Bewerbungsprozess werden wir von dir einen aktuellen Strafregister- und Betreibungsregisterauszug (nicht älter als 3 Monate) verlangen. Das Dokument kann bei der Einladung zum persönlichen Kennenlernen bestellt werden."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Wir setzen auf Zusammenarbeit und Teamgeist, um die zum Teil physisch anspruchsvollen Aufgaben zu bewältigen."
-        ],
-        "en": [
-          "Wir setzen auf Zusammenarbeit und Teamgeist, um die zum Teil physisch anspruchsvollen Aufgaben zu bewältigen."
-        ],
-        "de": [
-          "Wir setzen auf Zusammenarbeit und Teamgeist, um die zum Teil physisch anspruchsvollen Aufgaben zu bewältigen."
-        ],
-        "fr": [
-          "Wir setzen auf Zusammenarbeit und Teamgeist, um die zum Teil physisch anspruchsvollen Aufgaben zu bewältigen."
-        ]
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "de",
-      "datePosted": "2026-10-19T22:00:00Z",
-      "postedDate": "2026-10-19T22:00:00Z",
-      "postingDateSource": "reported",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung-03-27/68befda0-85b1-400c-a727-da2174cddf52",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T09:32:20.481Z",
-      "previousSlugs": [
-        "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-zurich",
-        "cambio-carriera-kundenbegleiter-in-per-frequenzerfassung-ffs-officine-ferrovie-federali-zurich",
-        "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-03-27-ffs-officine-ferrovie-federali-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-zurich",
-          "cambio-carriera-kundenbegleiter-in-per-frequenzerfassung-ffs-officine-ferrovie-federali-zurich",
-          "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-03-27-ffs-officine-ferrovie-federali-zurich"
-        ],
-        "en": [
-          "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-zurich"
-        ],
-        "fr": [
-          "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-20T21:24:02.498Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung-03-27/68befda0-85b1-400c-a727-da2174cddf52",
-      "crawlerMissStreak": 2
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fahrleitung-chefmonteur-in/0f1bffdc-7a2f-4ce6-b7bb-5eea054cedee",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-fe9edfe1bdc7",
@@ -3964,7 +3868,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-technik-grossprojekte-flotte/786e2f4c-ef17-4b05-a37c-868601bbb32a",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:25.950Z",
+      "crawledAt": "2026-10-28T22:30:22.733Z",
       "previousSlugs": [
         "projektleiter-in-technik-grossprojekte-flotte-ffs-officine-ferrovie-federali-bern"
       ],
@@ -4100,7 +4004,8 @@
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
       "postalCode": "2000",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-lignes-de-contact-cheffe-monteureuse/6088a269-86cd-43fd-9c3f-df1c7bd0361d"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-lignes-de-contact-cheffe-monteureuse/6088a269-86cd-43fd-9c3f-df1c7bd0361d",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-e0af629adc6c",
@@ -4164,7 +4069,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/messtechniker-in-instandhaltung-personenzuege/5bcb3117-9573-428e-8f7a-b6526433d152",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:15.468Z",
+      "crawledAt": "2026-10-28T22:29:56.215Z",
       "previousSlugs": [
         "messtechniker-in-instandhaltung-personenzuge-ffs-officine-ferrovie-federali-olten"
       ],
@@ -4280,7 +4185,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/anlagenmanager-in-bahntechnik-mit-schwerpunkt-bahnstrom-80/52272455-051d-43fd-b44b-306b4d086092",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:52.947Z",
+      "crawledAt": "2026-10-28T22:28:58.201Z",
       "previousSlugs": [
         "anlagenmanager-in-bahntechnik-mit-schwerpunkt-bahnstrom-80-100-ffs-officine-ferrovie-federali-stansstad"
       ],
@@ -4406,7 +4311,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/specialista-in-preparazione-del-lavoro-avor/906d8781-3e3d-482e-8cfd-9017a75e12ba"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/specialista-in-preparazione-del-lavoro-avor/906d8781-3e3d-482e-8cfd-9017a75e12ba",
+      "crawlerMissStreak": 2
     },
     {
       "id": "sbb-84ef0acce1a9",
@@ -4456,7 +4362,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-quart-production-lausanne-triage/4fb69ca1-3bd2-4657-ad32-95e172b94822",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:09.030Z",
+      "crawledAt": "2026-10-28T22:29:14.731Z",
       "previousSlugs": [
         "chef-fe-de-quart-production-lausanne-triage-ffs-officine-ferrovie-federali-denges"
       ],
@@ -4584,7 +4490,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/sicherheitsberater-in-und-pruefungsexpert-in/9bd262b7-d054-4a37-ac62-34ff04981e5b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/sicherheitsberater-in-und-pruefungsexpert-in/9bd262b7-d054-4a37-ac62-34ff04981e5b",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-6ea3c6a999fb",
@@ -4692,7 +4599,8 @@
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
       "postalCode": "2000",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-qualifiee-lignes-de-contact/44ef68d0-3f66-4060-aae4-58789b1c3ad7"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-qualifiee-lignes-de-contact/44ef68d0-3f66-4060-aae4-58789b1c3ad7",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-69587de340c4",
@@ -4760,7 +4668,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/cheffe-de-team-maintenance-vehicules-voyageurs/ce32aa86-3369-4aec-aa8a-65a607379124",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:09.997Z",
+      "crawledAt": "2026-10-28T22:29:15.718Z",
       "previousSlugs": [
         "chef-fe-de-team-maintenance-vehicules-voyageurs-ffs-officine-ferrovie-federali-geneve"
       ],
@@ -4865,7 +4773,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fachspezialist-in-arbeitsvorbereitung/758cf00e-72f0-46c8-90fe-de1ff198b498",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:20.509Z",
+      "crawledAt": "2026-10-28T22:29:33.220Z",
       "previousSlugs": [
         "fachspezialist-in-arbeitsvorbereitung-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -4962,7 +4870,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/offizier-in/039daf6b-c02c-4fbf-bc0b-df2b2e459fc4",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:18.447Z",
+      "crawledAt": "2026-10-28T22:30:03.738Z",
       "previousSlugs": [
         "offizier-in-ffs-officine-ferrovie-federali-st-gallen"
       ],
@@ -5091,7 +4999,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/tecnico-industriale-specializzato/f0f574f2-180b-4a46-871a-e26a09fe9ad6"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/tecnico-industriale-specializzato/f0f574f2-180b-4a46-871a-e26a09fe9ad6",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-566301940c24",
@@ -5158,7 +5067,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/kommerzielle-r-projektleiter-in/9137df5f-64e4-4167-a58e-75aa505eaeb6",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:12.473Z",
+      "crawledAt": "2026-10-28T22:29:48.723Z",
       "previousSlugs": [
         "kommerzielle-r-projektleiter-in-ffs-officine-ferrovie-federali-bern"
       ],
@@ -5261,7 +5170,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/automatiker-in-oder-elektroinstallateur-in-bahnstrom/2c85b1df-2731-4748-85b0-d617b4d82d4b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:56.960Z",
+      "crawledAt": "2026-10-28T22:29:05.242Z",
       "previousSlugs": [
         "automatiker-in-oder-elektroinstallateur-in-bahnstrom-ffs-officine-ferrovie-federali-emmenbrucke"
       ],
@@ -5379,7 +5288,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/telecom-solution-engineer-bahnkommunikation-m-w-d/aeddd45a-72ec-4722-8012-ef2b9adc0415",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-330cd8604fe7",
@@ -5461,7 +5371,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-schweisserei/ed84922d-6cab-4a10-8241-e2e258d3c102"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-schweisserei/ed84922d-6cab-4a10-8241-e2e258d3c102",
+      "crawlerMissStreak": 2
     },
     {
       "id": "sbb-ebd10104b050",
@@ -5560,7 +5471,8 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "postalCode": "3900",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/aea4d605-b7cd-4598-b3b1-985e802b6a11"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/aea4d605-b7cd-4598-b3b1-985e802b6a11",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-9bb886bab981",
@@ -5611,7 +5523,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-en-reconversion-professionnelle/a81e915b-ea81-4f08-ae6d-2bc38a893e94",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:54.016Z",
+      "crawledAt": "2026-10-28T22:28:58.790Z",
       "previousSlugs": [
         "assistant-e-clientele-en-charge-du-releve-des-frequences-en-reconversion-professionnelle-ffs-officine-ferrovie-federali-lausanne"
       ],
@@ -5713,7 +5625,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gleisbau-polier-in-oder-vorarbeiter-in/ed5e99e4-c873-4a4d-9105-250a49ceb835",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:09.442Z",
+      "crawledAt": "2026-10-28T22:29:41.215Z",
       "previousSlugs": [
         "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg"
       ],
@@ -5819,7 +5731,8 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "postalCode": "4132",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kategorie-b-oder-b100-ch/5bd94d73-d29a-41cd-bbe1-3c5a74eb6fa4"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kategorie-b-oder-b100-ch/5bd94d73-d29a-41cd-bbe1-3c5a74eb6fa4",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-52b24c141a95",
@@ -5870,7 +5783,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-reconversion-professionnelle/cda7c3d4-d145-470e-bd6f-5e49e94bd534",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:55.022Z",
+      "crawledAt": "2026-10-28T22:29:00.343Z",
       "previousSlugs": [
         "assistant-e-clientele-reconversion-professionnelle-ffs-officine-ferrovie-federali-delemont"
       ],
@@ -5966,7 +5879,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/2a6256c7-9a90-4927-990a-f12facbe07d6",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:07.950Z",
+      "crawledAt": "2026-10-28T22:29:38.215Z",
       "previousSlugs": [
         "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-ostermundigen"
       ],
@@ -6070,7 +5983,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ingenieure-genie-civil-ouvrages-geotechnique/5cac88d2-7dd9-4be2-ac69-88f4e876d420",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:10.968Z",
+      "crawledAt": "2026-10-28T22:29:45.740Z",
       "previousSlugs": [
         "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
         "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne"
@@ -6179,7 +6092,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/93cb2d8a-c90e-48e4-9a6b-a6435c6207a0",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:03.002Z",
+      "crawledAt": "2026-10-28T22:29:07.228Z",
       "previousSlugs": [
         "bauingenieur-in-im-konstruktiven-tiefbau-ffs-officine-ferrovie-federali-bern"
       ],
@@ -6284,7 +6197,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ausbildungsleiter-in-gleisbau-und-logistik/270e6e87-c2f4-4aec-80d8-bde324476dc6",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:28:55.432Z",
+      "crawledAt": "2026-10-28T22:29:00.693Z",
       "previousSlugs": [
         "ausbildungsleiter-in-gleisbau-und-logistik-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
@@ -6384,7 +6297,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/94c3d1f8-e48c-4e34-96fa-6538a035060e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:13.454Z",
+      "crawledAt": "2026-10-28T22:29:51.225Z",
       "previousSlugs": [
         "landschaftsgartner-in-maurer-in-oder-strassenbauer-in-fur-den-bereich-kabel-tiefbau-ffs-officine-ferrovie-federali-muttenz"
       ],
@@ -6488,7 +6401,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/e2532350-7aac-4e51-b69a-2ed7ba8bb66e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:18.517Z",
+      "crawledAt": "2026-10-28T22:29:28.202Z",
       "previousSlugs": [
         "elektriker-in-automatiker-in-fur-den-einstieg-in-den-bereich-bahnsicherungsanlagen-ffs-officine-ferrovie-federali-luzern"
       ],
@@ -6619,7 +6532,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baustellensicherheit/6c635a45-7636-4854-a32e-233469630f4f"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baustellensicherheit/6c635a45-7636-4854-a32e-233469630f4f",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-af5a3bd6dfee",
@@ -6683,7 +6597,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/conducteurtrice-de-vehicule-moteur-cat-b100/6550c7f3-2abe-4dfd-a339-fc0040651487",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:15.510Z",
+      "crawledAt": "2026-10-28T22:29:23.221Z",
       "previousSlugs": [
         "cat-b100-ffs-officine-ferrovie-federali-denges"
       ],
@@ -6780,7 +6694,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fachspezialist-in-einsatzgruppe-transportpolizei/9aab0619-0f94-4f93-95e6-5e5973754975",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:06.466Z",
+      "crawledAt": "2026-10-28T22:29:33.718Z",
       "previousSlugs": [
         "fachspezialist-in-einsatzgruppe-transportpolizei-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
@@ -6873,7 +6787,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-invoice-management-m-w-d/ef572cd0-e33e-4631-8480-7165ed5c8986"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/sap-consultant-invoice-management-m-w-d/ef572cd0-e33e-4631-8480-7165ed5c8986",
+      "crawlerMissStreak": 2
     },
     {
       "id": "sbb-865bf0475be8",
@@ -6940,7 +6855,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-industrie/86bea3ae-2572-4bf7-94ca-c5779bd54c06",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:07.455Z",
+      "crawledAt": "2026-10-28T22:29:36.206Z",
       "previousSlugs": [
         "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
       ],
@@ -7036,7 +6951,8 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "postalCode": "4132",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/958c3006-f859-43e4-8615-26d2037ef5a0"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/zugvorbereiter-in-level-b2/958c3006-f859-43e4-8615-26d2037ef5a0",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-dd04505224b2",
@@ -7099,7 +7015,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/conducteurtrice-de-vehicule-moteur-cat-b100-deja-forme/17d55b0a-8dfd-4dbd-83fa-1a27aee3f6f2",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:14.009Z",
+      "crawledAt": "2026-10-28T22:29:20.721Z",
       "previousSlugs": [
         "conducteur-trice-de-vehicule-moteur-cat-b100-deja-forme-ffs-officine-ferrovie-federali-bussigny"
       ],
@@ -7189,7 +7105,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/76396058-4cd6-40e8-80fe-502ab789f471",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:48.959Z",
+      "crawledAt": "2026-10-28T22:30:42.273Z",
       "previousSlugs": [
         "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-rotkreuz"
       ],
@@ -7283,7 +7199,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/18924901-7fd3-49ee-aad1-2fc6b3d65fd1",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:47.946Z",
+      "crawledAt": "2026-10-28T22:30:41.724Z",
       "previousSlugs": [
         "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-birsfelden-hafen"
       ],
@@ -7392,7 +7308,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/2f0bf44b-d14f-4382-b79d-41f72a2fb3bd",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:18.960Z",
+      "crawledAt": "2026-10-28T22:30:05.705Z",
       "previousSlugs": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-lausanne"
       ],
@@ -7507,7 +7423,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/4347dfb0-ecaf-42cf-9cba-1ec0cbdcd73c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:19.452Z",
+      "crawledAt": "2026-10-28T22:30:06.228Z",
       "previousSlugs": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-geneve"
       ],
@@ -7622,7 +7538,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/policier-policiere-aupres-de-la-police-des-transports-cff-tpo/c36b3f6d-4435-4d78-a81e-e513a830d8c6",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:19.951Z",
+      "crawledAt": "2026-10-28T22:30:07.730Z",
       "previousSlugs": [
         "policier-policiere-aupres-de-la-police-des-transports-cff-tpo-ffs-officine-ferrovie-federali-fribourg"
       ],
@@ -7725,7 +7641,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-kategorie-b100-cargo/19e26bf2-7aa9-4139-a33e-f0d090a4654c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:31.962Z",
+      "crawledAt": "2026-10-28T22:30:31.726Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-oensingen"
       ],
@@ -7814,7 +7730,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/ad4125ec-1538-4123-97c1-5d202ab0ea77",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:49.976Z",
+      "crawledAt": "2026-10-28T22:30:42.736Z",
       "previousSlugs": [
         "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -7946,7 +7862,8 @@
       "addressRegion": "OW",
       "employmentType": "FULL_TIME",
       "postalCode": "6060",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/unterhaltsfachmann-frau-von-gleisanlagen/0a830a24-58b1-41b5-8728-194c9b003e0b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/unterhaltsfachmann-frau-von-gleisanlagen/0a830a24-58b1-41b5-8728-194c9b003e0b",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-83c61f0a4674",
@@ -8010,7 +7927,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/badd1a6a-e5b1-4941-b760-43a14bd3251f",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:29.462Z",
+      "crawledAt": "2026-10-28T22:30:29.229Z",
       "previousSlugs": [
         "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-olten"
       ],
@@ -8109,7 +8026,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-a40/f522b594-0f04-45be-88c8-d0ce0428a2a1",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:14.476Z",
+      "crawledAt": "2026-10-28T22:29:53.718Z",
       "previousSlugs": [
         "lokfuhrer-in-kat-a40-ffs-officine-ferrovie-federali-basel"
       ],
@@ -8204,7 +8121,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-gueterverkehr-gossau/0ee8afe0-2d9c-43fb-8408-5ac5daf25101",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:45.940Z",
+      "crawledAt": "2026-10-28T22:30:40.706Z",
       "previousSlugs": [
         "quereinstieg-rangierspezialist-in-guterverkehr-gossau-ffs-officine-ferrovie-federali-gossau-sg"
       ],
@@ -8293,7 +8210,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in-gueterverkehr/296036f8-36f1-4f6c-9582-4ce5631b7223",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:46.966Z",
+      "crawledAt": "2026-10-28T22:30:41.222Z",
       "previousSlugs": [
         "quereinstieg-rangierspezialist-in-guterverkehr-ffs-officine-ferrovie-federali-niederglatt",
         "specialista-in-manovra-a-ingresso-laterale-nel-trasporto-merci-ffs-officine-ferrovie-federali-dietikon",
@@ -8399,7 +8316,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gruppenchef-in-einsatzleitzentrale-transportpolizei/10db6974-06d6-42d5-a6cb-3cca0f1c4d18",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:10.474Z",
+      "crawledAt": "2026-10-28T22:29:43.736Z",
       "previousSlugs": [
         "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern"
       ],
@@ -8507,7 +8424,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-mechanik/18300b5a-193d-4464-9f2b-e1d1df012650",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:07.484Z",
+      "crawledAt": "2026-10-28T22:29:12.192Z",
       "previousSlugs": [
         "berufsbildner-in-mechanik-ffs-officine-ferrovie-federali-spiez"
       ],
@@ -8602,7 +8519,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-kat-b100-fahrleitungszugmaschine/1049e8bc-5bd7-4938-b951-5a2a87f973c3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:14.956Z",
+      "crawledAt": "2026-10-28T22:29:55.702Z",
       "previousSlugs": [
         "lokfuhrer-in-kat-b100-fahrleitungszugmaschine-ffs-officine-ferrovie-federali-dulliken"
       ],
@@ -8684,7 +8601,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-06-2027/e6112bc2-550c-43f4-8e28-335a2af111c6",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:33.437Z",
+      "crawledAt": "2026-10-28T22:30:33.255Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-06-2027-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
@@ -8778,7 +8695,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/e78ea635-e2b0-4920-b793-9c90137130c3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:31.467Z",
+      "crawledAt": "2026-10-28T22:30:31.223Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-lenzburg",
         "cambio-carriera-lokfuhrer-in-bauzug-con-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-lenzburg",
@@ -8929,7 +8846,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/stellwerkangestellte-r-olten/1358a492-a8fc-41c5-be4a-3c8953a9a2e3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/stellwerkangestellte-r-olten/1358a492-a8fc-41c5-be4a-3c8953a9a2e3",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-7f592ffc0bb0",
@@ -8996,7 +8914,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier-luzern/c3f662be-15e0-4a72-ac3c-985f735a6058",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:35.976Z",
+      "crawledAt": "2026-10-28T22:30:35.715Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-luzern-ffs-officine-ferrovie-federali-luzern",
         "ingresso-trasversale-specialista-di-manovra-nel-traffico-merci-lucerna-o-rotkreuz-ffs-officine-ferrovie-federali-luzern-und-rotkreuz",
@@ -9103,7 +9021,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/ba21b12a-e597-4f3d-8f0d-692817ed85dd",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:28.949Z",
+      "crawledAt": "2026-10-28T22:30:28.738Z",
       "previousSlugs": [
         "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
@@ -9198,7 +9116,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in/c56e8659-03c9-45a7-93c5-47bbe7db154e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:44.960Z",
+      "crawledAt": "2026-10-28T22:30:40.211Z",
       "previousSlugs": [
         "quereinstieg-rangiermitarbeiter-in-ffs-officine-ferrovie-federali-muttenz"
       ],
@@ -9291,7 +9209,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitungszugmaschine-fzm/0afed118-c50d-4613-ae0d-a0e0f2a20798",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:17.474Z",
+      "crawledAt": "2026-10-28T22:30:01.274Z",
       "previousSlugs": [
         "monteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
       ],
@@ -9390,7 +9308,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/01d41364-2b82-48cd-9f43-2c5b234d8f07",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:37.466Z",
+      "crawledAt": "2026-10-28T22:30:36.204Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
@@ -9483,7 +9401,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4169895d-9700-489f-bbc6-b9f1b779f7c6",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:38.462Z",
+      "crawledAt": "2026-10-28T22:30:36.722Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich",
         "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-zurich",
@@ -9595,7 +9513,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangiermitarbeiter-in-1/84e60310-488b-4b90-ac05-c5750f07bcef",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:43.964Z",
+      "crawledAt": "2026-10-28T22:30:39.724Z",
       "previousSlugs": [
         "quereinstieg-rangiermitarbeiter-in-ffs-officine-ferrovie-federali-spreitenbach",
         "dipendente-di-manovra-a-ingresso-laterale-ffs-officine-ferrovie-federali-spreitenbach",
@@ -9704,7 +9622,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/c27dd8b2-a9ee-494c-8c6c-d81531879e6f",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:41.977Z",
+      "crawledAt": "2026-10-28T22:30:38.722Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-biel-bienne"
       ],
@@ -9797,7 +9715,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/4e8754c7-1122-4cc0-b301-dcbb260bbcbd",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:39.447Z",
+      "crawledAt": "2026-10-28T22:30:37.210Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-brig"
       ],
@@ -9890,7 +9808,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/181b575a-0f66-4ee6-a4c0-f78ee17305db",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:30.444Z",
+      "crawledAt": "2026-10-28T22:30:30.233Z",
       "previousSlugsByLocale": {
         "de": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-zurich"
@@ -9988,7 +9906,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr/52cb6107-1a9a-4f9e-aa50-ed406bfe2895",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:35.000Z",
+      "crawledAt": "2026-10-28T22:30:34.741Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-ffs-officine-ferrovie-federali-beinwil-am-see"
       ],
@@ -10076,7 +9994,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-efz/666a464a-2aac-4c6d-935a-a3f0cea4383e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:19.005Z",
+      "crawledAt": "2026-10-28T22:29:28.727Z",
       "previousSlugs": [
         "elektroinstallateur-in-efz-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
@@ -10157,7 +10075,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitungszugmaschine-fzm/d33b6b90-7077-4ea2-812a-258e619e0852",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:12.512Z",
+      "crawledAt": "2026-10-28T22:29:19.207Z",
       "previousSlugs": [
         "chefmonteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
         "agente-di-condotta-in-cat-a-macchina-di-trazione-della-linea-di-contatto-fzm-ffs-officine-ferrovie-federali-dulliken",
@@ -10269,7 +10187,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/landschaftsgaertner-in-maurer-in-oder-strassenbauer-in-fuer-den-bereich-kabel-tiefbau/835be5a2-bcc2-4afc-ad95-1d36486d9307",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:12.965Z",
+      "crawledAt": "2026-10-28T22:29:50.719Z",
       "previousSlugs": [
         "landschaftsgartner-in-maurer-in-oder-strassenbauer-in-fur-den-bereich-kabel-tiefbau-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
@@ -10368,7 +10286,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in/d26025bf-b71a-449c-b74a-f5a49942d33f",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:08.487Z",
+      "crawledAt": "2026-10-28T22:29:38.752Z",
       "previousSlugs": [
         "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-deutschschweiz",
         "montatore-di-catenarie-fabbro-meccanico-elettricista-di-rete-elettricista-ffs-officine-ferrovie-federali-deutschschweiz",
@@ -10487,7 +10405,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in/1b722e38-412d-48f8-a190-98bdda7c6c62"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in/1b722e38-412d-48f8-a190-98bdda7c6c62",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-063add1eddb2",
@@ -10554,7 +10473,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/elektriker-in-automatiker-in-fuer-den-einstieg-in-den-bereich-bahnsicherungsanlagen/1535df5b-6256-4f29-8aa4-e70925b6ca64",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:18.024Z",
+      "crawledAt": "2026-10-28T22:29:26.226Z",
       "previousSlugs": [
         "elektriker-in-automatiker-in-fur-den-einstieg-in-den-bereich-bahnsicherungsanlagen-ffs-officine-ferrovie-federali-sargans",
         "elettricista-tecnico-di-automazione-per-l-ingresso-nel-campo-dei-sistemi-di-sicurezza-ferroviaria-ffs-officine-ferrovie-federali-sargans",
@@ -10654,7 +10573,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr/dd759881-368e-4e1f-8490-92e1f377fa1d",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:35.465Z",
+      "crawledAt": "2026-10-28T22:30:35.233Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-luzern",
         "cross-entry-locomotive-engineer-passenger-12-2026-ffs-officine-ferrovie-federali-chur",
@@ -10762,7 +10681,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-rangier/9aba6330-e7ba-47a7-9d5b-fd6f3577aa7b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:41.475Z",
+      "crawledAt": "2026-10-28T22:30:38.211Z",
       "previousSlugsByLocale": {
         "de": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-basel"
@@ -10860,7 +10779,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/6c7f6e35-c7cd-48d4-89fe-153b56d40827",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:21.951Z",
+      "crawledAt": "2026-10-28T22:30:12.711Z",
       "previousSlugs": [
         "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-basel"
       ],
@@ -10956,7 +10875,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:52.969Z",
+      "crawledAt": "2026-10-28T22:30:44.220Z",
       "previousSlugs": [
         "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-olten",
         "responsabile-del-treno-cross-entry-in-ffs-officine-ferrovie-federali-muttenz",
@@ -11070,7 +10989,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenberater-in-im-contact-center/79c05fea-7983-439e-be67-c54fa18f9313",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:29.958Z",
+      "crawledAt": "2026-10-28T22:30:29.773Z",
       "previousSlugs": [
         "quereinstieg-kundenberater-in-im-contact-center-ffs-officine-ferrovie-federali-brig"
       ],
@@ -11177,7 +11096,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/berufsbildner-in-gleisbau-bern/1c6d635e-bb00-4959-98bf-e6453ab409cf",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:03.979Z",
+      "crawledAt": "2026-10-28T22:29:08.195Z",
       "previousSlugs": [
         "berufsbildner-in-gleisbau-vorarbeiter-in-bern-ffs-officine-ferrovie-federali-bern",
         "berufsbildner-in-gleisbau-bern-ffs-officine-ferrovie-federali-bern"
@@ -11262,7 +11181,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:34.449Z",
+      "crawledAt": "2026-10-28T22:30:34.228Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-ziegelbrucke-12-2026-ffs-officine-ferrovie-federali-ziegelbrucke",
         "trasporto-passeggeri-a-ingresso-laterale-ziegelbrucke-12-2026-ffs-officine-ferrovie-federali-ziegelbrucke",
@@ -11363,7 +11282,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:54.976Z",
+      "crawledAt": "2026-10-28T22:30:52.223Z",
       "previousSlugs": [
         "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
       ],
@@ -11462,7 +11381,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierlokfuehrer-in-rangierleiter-in-kat-a40/7db3ce4e-0d41-40b9-a121-4596055d6949",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:42.943Z",
+      "crawledAt": "2026-10-28T22:30:39.223Z",
       "previousSlugs": [
         "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf",
         "conducente-e-responsabile-manovra-a-ingresso-laterale-cat-a40-ffs-officine-ferrovie-federali-hagendorf",
@@ -11567,7 +11486,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-weichenmontage/03fd2c08-9f3b-4fbc-8202-946b15839c45",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:16.471Z",
+      "crawledAt": "2026-10-28T22:29:58.738Z",
       "previousSlugs": [
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
@@ -11671,7 +11590,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-bauzug-mit-handwerklicher-erfahrung/564c40cb-78f9-4d81-9a54-d73b2137d3f7",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:30.970Z",
+      "crawledAt": "2026-10-28T22:30:30.707Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-erstfeld"
       ],
@@ -11802,7 +11721,8 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in/6014e2c8-debd-4f8e-ac2a-5c08adaa1440"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in/6014e2c8-debd-4f8e-ac2a-5c08adaa1440",
+      "crawlerMissStreak": 2
     },
     {
       "id": "sbb-3ea5f0531e97",
@@ -11903,7 +11823,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-tiefbau-landschaftsgaertner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in/3a885cd7-35b6-4282-bab1-ec9c26ce4f6a"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-tiefbau-landschaftsgaertner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in/3a885cd7-35b6-4282-bab1-ec9c26ce4f6a",
+      "crawlerMissStreak": 2
     },
     {
       "id": "sbb-4a6dd0fbc095",
@@ -11966,7 +11887,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/23f571c2-4c91-4f72-aca1-6e99263e13e9",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:32.451Z",
+      "crawledAt": "2026-10-28T22:30:32.240Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-goldau"
       ],
@@ -12054,7 +11975,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-03-2027/40c52ee8-c98e-4ccc-9bb3-ee20f4758239",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:32.947Z",
+      "crawledAt": "2026-10-28T22:30:32.706Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-zug",
         "lateral-entry-train-driver-passenger-transport-ziegelbrucke-12-2026-ffs-officine-ferrovie-federali-ziegelbrucke",
@@ -12133,7 +12054,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-in-die-welt-der-mechanisch-handwerklichen-berufe/ee3d5e25-8635-4a78-812d-5975c8baaa3f",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:27.031Z",
+      "crawledAt": "2026-10-28T22:30:25.296Z",
       "previousSlugs": [
         "quereinsteiger-in-in-die-welt-der-mechanisch-handwerklichen-berufe-ffs-officine-ferrovie-federali-deutschschweiz",
         "quereinsteiger-in-die-welt-der-mechanisch-handwerklichen-berufe-ffs-officine-ferrovie-federali-deutschschweiz"
@@ -12231,7 +12152,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/fe67b68e-9147-4ed6-bb72-e6b2998db7de",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:22.966Z",
+      "crawledAt": "2026-10-28T22:30:15.199Z",
       "previousSlugs": [
         "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-zurich"
       ],
@@ -12334,7 +12255,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polier-in-gleisbau/2a01ef4d-f337-4400-8c48-426ba7481cb4",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:20.461Z",
+      "crawledAt": "2026-10-28T22:30:08.748Z",
       "previousSlugs": [
         "polier-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
@@ -12468,7 +12389,8 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/02a24c36-7d33-4c07-87c6-2e0f5c241bd5"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/02a24c36-7d33-4c07-87c6-2e0f5c241bd5",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-6b092c7bf6b8",
@@ -12517,7 +12439,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitung/849e9868-857b-4a00-ba41-36d11a055fef",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:11.500Z",
+      "crawledAt": "2026-10-28T22:29:18.216Z",
       "previousSlugsByLocale": {
         "de": [
           "chefmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-ostermundigen"
@@ -12623,7 +12545,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-sicherheitswaerter-in-sicherheitschef/ed58eb66-2df5-4a0b-845c-aae5d6da439f",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:51.965Z",
+      "crawledAt": "2026-10-28T22:30:43.722Z",
       "previousSlugs": [
         "quereinstieg-sicherheitswarter-in-sicherheitschef-ffs-officine-ferrovie-federali-winterthur"
       ],
@@ -12736,7 +12658,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-klimaanlagen-der-sbb-flotte/051e1df0-66b2-457c-a1f8-bb0dcc506d98"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-klimaanlagen-der-sbb-flotte/051e1df0-66b2-457c-a1f8-bb0dcc506d98",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-4250634f1bcf",
@@ -12799,7 +12722,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/38b5218d-91c9-474d-bb67-28570e713b56",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:20.960Z",
+      "crawledAt": "2026-10-28T22:30:10.222Z",
       "previousSlugs": [
         "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-st-gallen"
       ],
@@ -12894,7 +12817,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/46d533b8-f18f-45aa-8620-dbabe24bd9c5",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:21.446Z",
+      "crawledAt": "2026-10-28T22:30:11.225Z",
       "previousSlugs": [
         "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-winterthur"
       ],
@@ -12989,7 +12912,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/d781a513-ee0b-4749-a032-7f601128d8e7",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:50.936Z",
+      "crawledAt": "2026-10-28T22:30:43.212Z",
       "previousSlugsByLocale": {
         "de": [
           "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-bern"
@@ -13091,7 +13014,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polizist-in-transportpolizei/a2ef93f0-4915-44c1-81df-7359d62d676e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T21:29:22.439Z",
+      "crawledAt": "2026-10-28T22:30:13.704Z",
       "previousSlugs": [
         "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-olten"
       ],
@@ -13219,7 +13142,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378",
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-9c21afa81f97",
@@ -13268,7 +13192,7 @@
       "postingDateSource": "reported",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-elektrofachpersonal-in-der-welt-der-technischen-bahnberufe/8d93b023-24ce-47a6-937b-89eebe726968",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-10-28T20:13:19.492Z",
+      "crawledAt": "2026-10-28T22:29:30.725Z",
       "previousSlugsByLocale": {
         "de": [
           "elektroinstallateur-in-elektrofachpersonal-in-der-welt-der-technischen-bahnberufe-ffs-officine-ferrovie-federali-zurich"
