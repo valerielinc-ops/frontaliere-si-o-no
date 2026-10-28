@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 946,
+      "5": 949,
       "6": 5061
     },
-    "publishedCovers": 7689,
+    "publishedCovers": 7692,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211080,6 +211080,105 @@
         "provider": "openai-codex",
         "assetId": "article-tpf-bus-elettrici-friburgo",
         "imageUrl": "/images/blog/article-tpf-bus-elettrici-friburgo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-costi-sanita-meno-entrate": {
+      "cover": "/images/blog/article-costi-sanita-meno-entrate.webp",
+      "hash": "bc4a319e714d064615eb1c96554bccb344134dcf9d6f425558022fb4f5d2d0b5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "costi-sanita-meno-entrate",
+          "category": "fiscale",
+          "date": "2026-10-28T19:28:05.243Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-costi-sanita-meno-entrate.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-costi-sanita-meno-entrate",
+        "imageUrl": "/images/blog/article-costi-sanita-meno-entrate.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-malnate-ristorni-500-mila-meno": {
+      "cover": "/images/blog/article-malnate-ristorni-500-mila-meno.webp",
+      "hash": "f68d6eeada9151c555778c017ffac768501b2fca245192d1fef1143f2faf7cd7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "malnate-ristorni-500-mila-meno",
+          "category": "fiscale",
+          "date": "2026-10-28T11:59:45.372Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-malnate-ristorni-500-mila-meno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-malnate-ristorni-500-mila-meno",
+        "imageUrl": "/images/blog/article-malnate-ristorni-500-mila-meno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-norme-flessibilita-start-up": {
+      "cover": "/images/blog/article-norme-flessibilita-start-up.webp",
+      "hash": "8387949621413e739ab62a77e472243dc25c4a0734a024efd73cd84d1606f6b5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "norme-flessibilita-start-up",
+          "category": "novita",
+          "date": "2026-10-28T18:52:28.427Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-norme-flessibilita-start-up.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-norme-flessibilita-start-up",
+        "imageUrl": "/images/blog/article-norme-flessibilita-start-up.webp",
         "evidence": "generated-engine-record"
       }
     }

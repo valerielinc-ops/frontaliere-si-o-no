@@ -8645,6 +8645,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.title': 'Population alert: 165,4 mln for modernization',
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'The Federal Council is requesting 165,4 million francs.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.norme-flessibilita-start-up.title': 'Federal Council grants start-ups flexibility in working hours',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'New special rules adopted on October 28, 2026 Effective date set for December 1, 2026 Targeted exemptions for certain start-up employees The review',
+    'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

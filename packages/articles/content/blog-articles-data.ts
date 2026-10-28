@@ -45929,7 +45929,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'malnate-ristorni-500-mila-meno',
  category: 'fiscale',
  date: '2026-10-28T11:59:45.372Z',
- image: '/images/blog/article-frontalieri-vendemmia-tasse-ristorni-settembre.webp',
+ image: '/images/blog/article-malnate-ristorni-500-mila-meno.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'marco-ferrari',

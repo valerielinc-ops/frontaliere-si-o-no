@@ -8645,6 +8645,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.title': 'Allarme popolazione: 165,4 mln per modernizzazione',
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Il Consiglio federale chiede 165,4 milioni di franchi.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.norme-flessibilita-start-up.title': 'Consiglio federale concede flessibilità alle start-up per l\'orario di lavoro',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione',
+    'blog.article.norme-flessibilita-start-up.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

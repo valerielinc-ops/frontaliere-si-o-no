@@ -8645,6 +8645,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.title': 'Alarmierung der Bevölkerung: 165,4 Mio. für die Modernisierung',
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Der Bundesrat beantragt 165,4 Millionen Franken.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.norme-flessibilita-start-up.title': 'Bundesrat gewährt Start-ups Flexibilität bei der Arbeitszeit',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Neue Sonderbestimmungen am 28.',
+    'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
