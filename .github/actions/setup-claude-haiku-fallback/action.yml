@@ -379,7 +379,7 @@ runs:
             done
             return 1
           }
-          if ! download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 3 60 15; then
+          if ! download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 60 15; then
             disable_codex_lane 'Pinned Node runtime download failed or timed out.'
           fi
           archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | "$cut_cmd" -d ' ' -f 1)"

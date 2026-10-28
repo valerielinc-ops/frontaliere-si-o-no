@@ -92,7 +92,7 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(resolver).toContain('node_version=');
     expect(resolver).toContain('node_archive_sha256=');
     // Il download resta bounded e usa chunk HTTP espliciti con il checksum finale.
-    expect(resolver).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 3 60 15');
+    expect(resolver).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 60 15');
     expect(resolver).toContain('local chunk_bytes=4194304');
     expect(resolver).toContain('range_end_request=$((archive_size + chunk_bytes - 1))');
     expect(resolver).toContain('--range "${archive_size}-${range_end_request}"');
@@ -114,7 +114,7 @@ describe('Codex Luna Max article lane setup action', () => {
         step.id === 'trusted_toolchain' || step.id === 'trusted_node'
       )?.run ?? '';
       const transferBudget = candidatePath === actionPath
-        ? 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 3 60 15'
+        ? 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 60 15'
         : 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 12 120 20';
       expect(resolver, candidatePath).toContain(transferBudget);
       expect(resolver, candidatePath).toContain('download_pinned_node_archive()');
