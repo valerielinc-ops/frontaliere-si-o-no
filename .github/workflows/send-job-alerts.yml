@@ -221,10 +221,7 @@ jobs:
           # Bypass newsletter cooldown when targeting a single test recipient
           SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
         run: |
-          # Remote Config may override this while the sender is ramped up. Keep
-          # the bounded local default even when the parameter is absent.
-          JOB_ALERT_MAX_EMAILS_PER_RUN="${JOB_ALERT_MAX_EMAILS_PER_RUN:-1000}" \
-            node scripts/send-job-alerts.mjs
+          node scripts/send-job-alerts.mjs
 
       - name: Report failure to GitHub Issues
         if: steps.send-alerts.outcome == 'failure'

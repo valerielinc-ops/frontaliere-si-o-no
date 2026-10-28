@@ -25,9 +25,7 @@ import {
   filterLiveJobs,
   forEachJobAlertPlanBatch,
   JOB_ALERT_PLAN_BATCH_SIZE,
-  DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN,
   resolveJobAlertCapacity,
-  resolveJobAlertRunLimit,
   jobPageUrl,
   planAlertMatch,
 } from '../scripts/send-job-alerts.mjs';
@@ -207,17 +205,28 @@ describe('job-alert plan batching', () => {
     expect(activeCallbacks).toBe(0);
   });
 
-  it('keeps a 10k-alert catch-up under the run cap even with 250k cascade capacity', () => {
+  it('lets a 10k-alert catch-up scan the full candidate list under quota-only capacity', () => {
     const capacity = resolveJobAlertCapacity({
       alertCount: 9449,
       availableQuota: 21846,
-      maxEmailsPerRun: DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN,
     });
     expect(capacity.quotaCapacity).toBe(19661);
-    expect(capacity.runLimit).toBe(1000);
-    expect(capacity.capacity).toBe(1000);
-    expect(resolveJobAlertRunLimit('not-a-number')).toBe(DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN);
-    expect(resolveJobAlertRunLimit('0')).toBe(DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN);
+    expect(capacity.capacity).toBe(9449);
+  });
+
+  it('stops after the callback reports that the real send budget is exhausted', async () => {
+    const batches: string[][] = [];
+    const alerts = Array.from({ length: 10 }, (_, index) => `alert-${index}`);
+
+    await forEachJobAlertPlanBatch(alerts, async (batch) => {
+      batches.push(batch);
+      return batches.length < 2;
+    }, 3);
+
+    expect(batches).toEqual([
+      ['alert-0', 'alert-1', 'alert-2'],
+      ['alert-3', 'alert-4', 'alert-5'],
+    ]);
   });
 });
 
@@ -271,6 +280,7 @@ describe('createJobLivenessPrefetcher', () => {
     expect(fetchSpy.mock.calls.length).toBe(baselineFetches);
     expect(peak()).toBeLessThanOrEqual(3);
     expect(peak()).toBeGreaterThan(1);
+    expect(prefetcher.stats().retained).toBe(0);
 
     const actual = [];
     for (const b of batches) actual.push(await filterLiveJobs(b.jobs, b.locale, cache));

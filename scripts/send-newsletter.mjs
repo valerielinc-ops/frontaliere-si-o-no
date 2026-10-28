@@ -1660,6 +1660,12 @@ async function fetchSubscribers() {
   // Firestore field names directly off the row, so keep the rows around too.
   const rawRows = [];
   let excludedNoBasis = 0;
+  let scannedRows = 0;
+  let excludedStatus = 0;
+  const excludedStatusBy = {};
+  let excludedCrossChannel = 0;
+  let excludedNewsletterOptOut = 0;
+  let excludedMalformed = 0;
   try {
     // Every non-excluded subscriber is eligible here, including pending rows
     // and rows without a confirmation proof. The delivery stops are the
@@ -1668,21 +1674,26 @@ async function fetchSubscribers() {
     const snap = await db.collection('newsletter_subscribers').get();
     snap.docs.forEach((d) => {
       if (d.id === '_meta_') return;
+      scannedRows++;
       const row = d.data() || {};
       // The document id is the canonical key for this collection. Older rows
       // can omit `email` (or retain a name-only malformed value), so use the
       // id before deciding that the address is unusable. This keeps a storage
       // shape defect from silently cutting the bulk audience.
       const rowForSend = normalizeEmailAddress(row.email) ? row : { ...row, email: d.id };
-      if (!normalizeEmailAddress(rowForSend.email)) return;
+      if (!normalizeEmailAddress(rowForSend.email)) { excludedMalformed++; return; }
       const status = (rowForSend.status || '').toLowerCase();
-      if (EXCLUDED_STATUSES.has(status)) return;
-      if (isCrossChannelStop(rowForSend)) return;
+      if (EXCLUDED_STATUSES.has(status)) {
+        excludedStatus++;
+        excludedStatusBy[status || '(missing)'] = (excludedStatusBy[status || '(missing)'] || 0) + 1;
+        return;
+      }
+      if (isCrossChannelStop(rowForSend)) { excludedCrossChannel++; return; }
       // Belt-and-suspenders: also exclude on the opt-out STAMPS, not just the
       // status (frontend handler bug backfill). Same shared predicate as
       // fetchTargetSubscriber above — a stamp superseded by a strictly later
       // explicit re-opt-in is not binding (#5711).
-      if (isNewsletterOptOutBinding(rowForSend)) return;
+      if (isNewsletterOptOutBinding(rowForSend)) { excludedNewsletterOptOut++; return; }
       // Profile-only rows written by a generic sign-in since #8341 carry no
       // status, terms, consent or confirmation: no relationship, no mail. The
       // #8754 policy (terms, no proof) is unchanged for every other row.
@@ -1698,7 +1709,7 @@ async function fetchSubscribers() {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
 
-  console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size} (excludedNoBasis ${excludedNoBasis})`);
+  console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size}/${scannedRows} (excludedStatus ${excludedStatus}, statusBy ${JSON.stringify(excludedStatusBy)}, crossChannelStop ${excludedCrossChannel}, newsletterOptOut ${excludedNewsletterOptOut}, excludedNoBasis ${excludedNoBasis}, malformed ${excludedMalformed})`);
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
