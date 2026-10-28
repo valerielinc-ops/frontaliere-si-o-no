@@ -296,7 +296,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-application-platform-m-w-d/8894df2e-c123-47d8-85f6-7b1f954ec282",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-28T09:32:15.993Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -314,7 +313,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-application-platform-m-w-d/8894df2e-c123-47d8-85f6-7b1f954ec282",
-      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
           "product-manager-application-platform-m-w-d-ffs-officine-ferrovie-federali-bern"
@@ -410,7 +408,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-cloud-foundation-m-w-d/137f6d3d-9298-4c0d-a312-ce3b02a9c64d",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-28T09:32:16.489Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -429,7 +426,6 @@
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/product-manager-cloud-foundation-m-w-d/137f6d3d-9298-4c0d-a312-ce3b02a9c64d",
       "firstSeenAt": "2026-10-28T09:32:16.489Z",
-      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
           "product-manager-cloud-foundation-m-w-d-ffs-officine-ferrovie-federali-bern"
@@ -11241,8 +11237,7 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
-      "needsRetranslation": true
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke/ccd01a0f-250a-477d-a0c6-32ccf0164df3"
     },
     {
       "id": "sbb-61287b0752b6",
