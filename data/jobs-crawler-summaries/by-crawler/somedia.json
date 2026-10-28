@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-28T21:29:06.631Z",
+  "generatedAt": "2026-10-28T22:05:42.754Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 9341,
-  "avgDurationMs": 9341,
+  "durationMs": 9432,
+  "avgDurationMs": 9432,
   "durationHistory": [
-    9341
+    9432
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.somedia.ch/Instructional-Designerin-E-Learning-80-100-de-j432.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:28:51.368Z",
+      "crawledAt": "2026-10-28T22:05:21.580Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,7 +84,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:28:49.229Z",
+      "crawledAt": "2026-10-28T22:05:19.492Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -136,7 +136,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:28:50.235Z",
+      "crawledAt": "2026-10-28T22:05:20.473Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -184,7 +184,7 @@
       "url": "https://jobs.somedia.ch/Senior-Subscription-Digital-Marketing-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:28:48.101Z",
+      "crawledAt": "2026-10-28T22:05:18.387Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,5 +222,5 @@
       }
     }
   ],
-  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }
