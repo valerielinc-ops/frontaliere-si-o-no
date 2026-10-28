@@ -74,6 +74,7 @@
       "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-27cb030d",
       "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k8awn3",
       "posto-di-apprendistato-come-installatore-trice-di-impianti-di-riscaldamento-afc-tutti-bkw-saanen-ddc0bc66ab",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-22617ab4",
       "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -81,6 +82,7 @@
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-27cb030d",
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-k8awn3",
         "posto-di-apprendistato-come-installatore-trice-di-impianti-di-riscaldamento-afc-tutti-bkw-saanen-ddc0bc66ab",
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-22617ab4",
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch"
       ]
     },
@@ -133,6 +135,10 @@
       "teaching-position-sanitary-practitioner-in-eba-all-bkw-luzern",
       "poste-d-enseignant-praticien-sanitaire-dans-eba-tous-bkw-luzern",
       "posto-di-apprendistato-come-addetto-a-agli-impianti-sanitari-cfp-tutti-bkw-saanen-f409412099",
+      "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-51717bbf",
+      "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-2-4b69e8cb",
+      "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-3-1ee712f7",
+      "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-4-0ca10515",
       "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
       "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-2",
       "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-3",
@@ -152,6 +158,10 @@
         "teaching-position-sanitary-practitioner-in-eba-all-bkw-luzern",
         "poste-d-enseignant-praticien-sanitaire-dans-eba-tous-bkw-luzern",
         "posto-di-apprendistato-come-addetto-a-agli-impianti-sanitari-cfp-tutti-bkw-saanen-f409412099",
+        "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-51717bbf",
+        "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-2-4b69e8cb",
+        "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-3-1ee712f7",
+        "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-4-0ca10515",
         "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch",
         "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-2",
         "lehrstelle-sanitarpraktiker-in-eba-alle-bkw-ch-3",
@@ -204,6 +214,9 @@
       "gesundheitseinrichtung-alle-bkw-echallens",
       "installateur-sanitaire-tous-bkw-ch",
       "strutture-sanitarie-tutti-bkw-echallens",
+      "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch-4f278a92",
+      "apprenticeship-installer-sanitary-afp-all-bkw-echallens-4f4b8e9c",
+      "lehrling-installer-sanitary-afp-alle-bkw-echallens-6b2ce1f6",
       "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch",
       "apprenticeship-installer-sanitary-afp-all-bkw-echallens",
       "lehrling-installer-sanitary-afp-alle-bkw-echallens"
@@ -216,17 +229,22 @@
         "gesundheitseinrichtung-alle-bkw-echallens",
         "installateur-sanitaire-tous-bkw-ch",
         "strutture-sanitarie-tutti-bkw-echallens",
+        "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch-4f278a92",
         "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch"
       ],
       "en": [
         "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch-f979d6e3",
         "health-facility-all-bkw-echallens",
+        "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch-4f278a92",
+        "apprenticeship-installer-sanitary-afp-all-bkw-echallens-4f4b8e9c",
         "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch",
         "apprenticeship-installer-sanitary-afp-all-bkw-echallens"
       ],
       "de": [
         "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch-f979d6e3",
         "gesundheitseinrichtung-alle-bkw-echallens",
+        "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch-4f278a92",
+        "lehrling-installer-sanitary-afp-alle-bkw-echallens-6b2ce1f6",
         "apprentissage-installateur-trice-sanitaire-afp-tous-bkw-ch",
         "lehrling-installer-sanitary-afp-alle-bkw-echallens"
       ],
@@ -1058,7 +1076,7 @@
     },
     "slugByLocale": {
       "it": "installateur-de-service-en-chauffage-tous-bkw-bulle",
-      "en": "heating-service-installer-all-bkw-bulle",
+      "en": "heating-service-installer-all-bkw-bulle-c69f23f2",
       "de": "heizungsanlage-alle-bkw-bulle",
       "fr": "installateur-de-service-en-chauffage-tous-bkw-ch"
     },
@@ -1066,12 +1084,16 @@
     "expiredAt": "2026-10-27T09:25:25.078Z",
     "previousSlugs": [
       "installateur-de-service-en-chauffage-tous-bkw-ch",
-      "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle"
+      "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle",
+      "heating-service-installer-all-bkw-bulle"
     ],
     "previousSlugsByLocale": {
       "it": [
         "installateur-de-service-en-chauffage-tous-bkw-ch",
         "facilita-del-servizio-di-riscaldamento-tutti-bkw-bulle"
+      ],
+      "en": [
+        "heating-service-installer-all-bkw-bulle"
       ]
     },
     "postalCode": "1630",
@@ -1844,6 +1866,8 @@
       "installateur-de-service-en-chauffage-tous-bkw-beringen-93f90aa3",
       "servicemonteur-in-heizung-alle-bkw-ch-25fe7162",
       "installateur-de-service-en-chauffage-tous-bkw-beringen-a5ece76f",
+      "servicemonteur-in-heizung-alle-bkw-ch-2cfa8270",
+      "installateur-de-service-en-chauffage-tous-bkw-beringen-11e07d45",
       "servicemonteur-in-heizung-alle-bkw-ch",
       "installateur-de-service-en-chauffage-tous-bkw-beringen"
     ],
@@ -1883,6 +1907,7 @@
         "servicemonteur-in-heizung-alle-bkw-ch-186a2671",
         "servicemonteur-in-heizung-alle-bkw-ch-c0d3c392",
         "servicemonteur-in-heizung-alle-bkw-ch-25fe7162",
+        "servicemonteur-in-heizung-alle-bkw-ch-2cfa8270",
         "servicemonteur-in-heizung-alle-bkw-ch"
       ],
       "fr": [
@@ -1919,6 +1944,7 @@
         "installateur-de-service-en-chauffage-tous-bkw-beringen-a3046c04",
         "installateur-de-service-en-chauffage-tous-bkw-beringen-93f90aa3",
         "installateur-de-service-en-chauffage-tous-bkw-beringen-a5ece76f",
+        "installateur-de-service-en-chauffage-tous-bkw-beringen-11e07d45",
         "installateur-de-service-en-chauffage-tous-bkw-beringen"
       ]
     },
@@ -2321,6 +2347,9 @@
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-16-86d01b3c",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17-9eba847b",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-ff19bde1",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-16-05bb1236",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17-f2cb8110",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-a48e50c7",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-16",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
@@ -2456,6 +2485,9 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-16-86d01b3c",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17-9eba847b",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-ff19bde1",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-16-05bb1236",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17-f2cb8110",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-a48e50c7",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-16",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-17",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
@@ -3299,6 +3331,16 @@
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-5-b817a038",
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6-f4f19473",
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-a878b259",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-e8dbb84a",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8-b71c18bd",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-3-7496326c",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-4-d7cccab1",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9-e29106a4",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-2-2c0840f2",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10-50dd4703",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-5-692d0894",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6-9bb3b2c0",
+      "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8fd8df99",
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8",
       "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-3",
@@ -3793,6 +3835,16 @@
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-5-b817a038",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6-f4f19473",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-a878b259",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-e8dbb84a",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8-b71c18bd",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-3-7496326c",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-4-d7cccab1",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9-e29106a4",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-2-2c0840f2",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10-50dd4703",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-5-692d0894",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6-9bb3b2c0",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8fd8df99",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-3",
@@ -3853,6 +3905,7 @@
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-8cdba2b0",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-977c20a8",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-45339e90",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-e8dbb84a",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
       ],
       "fr": [
@@ -3904,6 +3957,7 @@
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-8cdba2b0",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-977c20a8",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-45339e90",
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7-e8dbb84a",
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
       ]
     },
@@ -4530,6 +4584,18 @@
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8-74ffdad9",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4-66b92884",
       "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-314d4892",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-1b6369bc",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11-abf2367e",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10-e839f367",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2-f4ed21d8",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5-d1923d32",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-7-1e157ef0",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-9-baaa77a4",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-6-c57e5edd",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-cb120b1d",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8-ab5b0fc6",
+      "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4-725b970d",
+      "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-ae8f869a",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11",
       "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10",
@@ -5129,6 +5195,18 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4-66b92884",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-314d4892",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-423cdfec",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11-abf2367e",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10-e839f367",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2-f4ed21d8",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-5-d1923d32",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-7-1e157ef0",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-9-baaa77a4",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-6-c57e5edd",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-cb120b1d",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8-ab5b0fc6",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-4-725b970d",
+        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-ae8f869a",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-1b6369bc",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2",
@@ -5196,6 +5274,7 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-fef2691a",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-10f497e1",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-35cb10bf",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-cb120b1d",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3"
       ],
       "fr": [
@@ -5248,6 +5327,7 @@
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-fef2691a",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-10f497e1",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-35cb10bf",
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3-cb120b1d",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3"
       ]
     },
@@ -5727,6 +5807,13 @@
       "servicemonteur-in-elektro-alle-bkw-ch-4-e7cb54fc",
       "electrical-service-technician-all-bkw-bern-271e4f2c",
       "technicien-en-service-electrique-tous-bkw-bern-53739dd6",
+      "servicemonteur-in-elektro-alle-bkw-ch-2-143c14a7",
+      "servicemonteur-in-elektro-alle-bkw-ch-8b249984",
+      "electrical-service-technician-all-bkw-kloten-d719282c",
+      "servicemonteur-in-elektro-alle-bkw-ch-3-b0240b55",
+      "servicemonteur-in-elektro-alle-bkw-ch-4-2711d597",
+      "electrical-service-technician-all-bkw-bern-d1a8f80f",
+      "technicien-en-service-electrique-tous-bkw-bern-961195a1",
       "servicemonteur-in-elektro-alle-bkw-ch-2",
       "servicemonteur-in-elektro-alle-bkw-ch",
       "electrical-service-technician-all-bkw-kloten",
@@ -5989,6 +6076,11 @@
         "electrical-service-technician-all-bkw-kloten-026f4608",
         "servicemonteur-in-elektro-alle-bkw-ch-3-c5559117",
         "servicemonteur-in-elektro-alle-bkw-ch-4-e7cb54fc",
+        "servicemonteur-in-elektro-alle-bkw-ch-2-143c14a7",
+        "servicemonteur-in-elektro-alle-bkw-ch-8b249984",
+        "electrical-service-technician-all-bkw-kloten-d719282c",
+        "servicemonteur-in-elektro-alle-bkw-ch-3-b0240b55",
+        "servicemonteur-in-elektro-alle-bkw-ch-4-2711d597",
         "servicemonteur-in-elektro-alle-bkw-ch-2",
         "servicemonteur-in-elektro-alle-bkw-ch",
         "electrical-service-technician-all-bkw-kloten",
@@ -6095,6 +6187,8 @@
         "electrical-service-technician-all-bkw-bern-6a13e1b1",
         "electrical-service-technician-all-bkw-kloten-026f4608",
         "electrical-service-technician-all-bkw-bern-271e4f2c",
+        "electrical-service-technician-all-bkw-kloten-d719282c",
+        "electrical-service-technician-all-bkw-bern-d1a8f80f",
         "electrical-service-technician-all-bkw-kloten",
         "electrical-service-technician-all-bkw-bern"
       ],
@@ -6151,6 +6245,7 @@
         "technicien-en-service-electrique-tous-bkw-bern-fe461553",
         "technicien-en-service-electrique-tous-bkw-bern-47b72be0",
         "technicien-en-service-electrique-tous-bkw-bern-53739dd6",
+        "technicien-en-service-electrique-tous-bkw-bern-961195a1",
         "technicien-en-service-electrique-tous-bkw-bern"
       ],
       "de": [
@@ -6620,6 +6715,10 @@
       "installatore-trice-elettrico-a-in-alle-bkw-zurich-dfcf612c",
       "electrician-all-bkw-zurich-dd0c9f6b",
       "electricien-tous-bkw-zurich-c8a3861e",
+      "elektroinstallateur-in-alle-bkw-ch-efc5a06f",
+      "installatore-trice-elettrico-a-in-alle-bkw-zurich-93fc03fa",
+      "electrician-all-bkw-zurich-40b05975",
+      "electricien-tous-bkw-zurich-e2d62dbc",
       "elektroinstallateur-in-alle-bkw-ch",
       "installatore-trice-elettrico-a-in-alle-bkw-zurich",
       "electrician-all-bkw-zurich",
@@ -6949,6 +7048,7 @@
       "bauleiter-in-elektro-alle-bkw-ch-d69f2db4",
       "bauleiter-in-elektro-alle-bkw-ch-c50b4e17",
       "bauleiter-in-elektro-alle-bkw-ch-4b37aba6",
+      "bauleiter-in-elektro-alle-bkw-ch-b03adc7a",
       "bauleiter-in-elektro-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -7003,6 +7103,7 @@
         "bauleiter-in-elektro-alle-bkw-ch-d69f2db4",
         "bauleiter-in-elektro-alle-bkw-ch-c50b4e17",
         "bauleiter-in-elektro-alle-bkw-ch-4b37aba6",
+        "bauleiter-in-elektro-alle-bkw-ch-b03adc7a",
         "bauleiter-in-elektro-alle-bkw-ch"
       ],
       "en": [
@@ -7123,6 +7224,7 @@
       "lehre-als-netzelektriker-in-efz-alle-bkw-ch-6367a8ad",
       "lehre-als-netzelektriker-in-efz-alle-bkw-ch-c1505f2a",
       "lehre-als-netzelektriker-in-efz-alle-bkw-ch-b1a6451b",
+      "lehre-als-netzelektriker-in-efz-alle-bkw-ch-9504faa9",
       "lehre-als-netzelektriker-in-efz-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -7177,6 +7279,7 @@
         "lehre-als-netzelektriker-in-efz-alle-bkw-ch-6367a8ad",
         "lehre-als-netzelektriker-in-efz-alle-bkw-ch-c1505f2a",
         "lehre-als-netzelektriker-in-efz-alle-bkw-ch-b1a6451b",
+        "lehre-als-netzelektriker-in-efz-alle-bkw-ch-9504faa9",
         "lehre-als-netzelektriker-in-efz-alle-bkw-ch"
       ],
       "de": [
@@ -8523,6 +8626,10 @@
       "installatore-trice-elettrico-a-in-cfc-alle-bkw-gwatt-thun-f228349b",
       "installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-94397ca9",
       "elektroinstallateur-in-efz-alle-bkw-ch-6-5e4f8f01",
+      "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen-4bf8262d",
+      "installatore-trice-elettrico-a-in-cfc-alle-bkw-gwatt-thun-e07d0931",
+      "installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau-e3e52e06",
+      "elektroinstallateur-in-efz-alle-bkw-ch-6-9932c2a6",
       "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen",
       "installatore-trice-elettrico-a-in-cfc-alle-bkw-gwatt-thun",
       "installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau",
@@ -8582,6 +8689,7 @@
         "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen-e844e1e7",
         "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen-b00c7b8e",
         "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen-f3eb5857",
+        "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen-4bf8262d",
         "installatore-trice-elettrico-a-in-cfc-alle-bkw-munsingen"
       ],
       "en": [
@@ -9050,6 +9158,9 @@
       "partenaire-principal-des-rh-tous-bkw-bulle-134a064c",
       "senior-hr-business-partner-alle-bkw-ch-e31a65ad",
       "senior-hr-business-partner-bkw-bulle-97579caa",
+      "partenaire-principal-des-rh-tous-bkw-bulle-dae0c033",
+      "senior-hr-business-partner-alle-bkw-ch-8b1e9b25",
+      "senior-hr-business-partner-bkw-bulle-213ab9f0",
       "partenaire-principal-des-rh-tous-bkw-bulle",
       "senior-hr-business-partner-alle-bkw-ch",
       "senior-hr-business-partner-bkw-bulle"
@@ -9167,6 +9278,8 @@
         "senior-hr-business-partner-bkw-bulle-afd4660b",
         "senior-hr-business-partner-alle-bkw-ch-e31a65ad",
         "senior-hr-business-partner-bkw-bulle-97579caa",
+        "senior-hr-business-partner-alle-bkw-ch-8b1e9b25",
+        "senior-hr-business-partner-bkw-bulle-213ab9f0",
         "senior-hr-business-partner-alle-bkw-ch",
         "senior-hr-business-partner-bkw-bulle"
       ],
@@ -9276,6 +9389,8 @@
         "senior-hr-business-partner-alle-bkw-ch-606d549c",
         "partenaire-principal-des-rh-tous-bkw-bulle-134a064c",
         "senior-hr-business-partner-alle-bkw-ch-e31a65ad",
+        "partenaire-principal-des-rh-tous-bkw-bulle-dae0c033",
+        "senior-hr-business-partner-alle-bkw-ch-8b1e9b25",
         "partenaire-principal-des-rh-tous-bkw-bulle",
         "senior-hr-business-partner-alle-bkw-ch"
       ],
@@ -9335,6 +9450,7 @@
         "senior-hr-business-partner-alle-bkw-ch-29217e2b",
         "senior-hr-business-partner-alle-bkw-ch-606d549c",
         "senior-hr-business-partner-alle-bkw-ch-e31a65ad",
+        "senior-hr-business-partner-alle-bkw-ch-8b1e9b25",
         "senior-hr-business-partner-alle-bkw-ch"
       ],
       "de": [
@@ -9466,6 +9582,7 @@
       "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-b8ef61bc",
       "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-e4af4b87",
       "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-1c430ba9",
+      "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-053f91b1",
       "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -9526,6 +9643,7 @@
         "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-b8ef61bc",
         "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-e4af4b87",
         "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-1c430ba9",
+        "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch-053f91b1",
         "lehre-als-kaufmann-kauffrau-efz-alle-bkw-ch"
       ],
       "de": [
@@ -9679,6 +9797,8 @@
       "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-35e9e51b",
       "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-e37acb00",
       "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-709be49d",
+      "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-bb3b7776",
+      "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-9d664271",
       "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2",
       "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch"
     ],
@@ -9794,6 +9914,8 @@
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-35e9e51b",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-e37acb00",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-709be49d",
+        "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-bb3b7776",
+        "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-9d664271",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch"
       ],
@@ -9852,6 +9974,7 @@
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-f12ab49f",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-9d71b617",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-e37acb00",
+        "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-bb3b7776",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2"
       ],
       "de": [
@@ -9909,6 +10032,7 @@
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-f12ab49f",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-9d71b617",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-e37acb00",
+        "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2-bb3b7776",
         "place-d-apprentissage-comme-electricien-ne-de-reseau-cfc-tous-bkw-ch-2"
       ]
     },
@@ -10061,6 +10185,8 @@
       "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-2d3edac1",
       "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-44e15b32",
       "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-0b9163a3",
+      "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-ebfef023",
+      "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-236acf5b",
       "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch",
       "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2"
     ],
@@ -10176,6 +10302,8 @@
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-2d3edac1",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-44e15b32",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-0b9163a3",
+        "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-ebfef023",
+        "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-236acf5b",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2"
       ],
@@ -10238,6 +10366,7 @@
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-01f7792a",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-2d3edac1",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-0b9163a3",
+        "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-236acf5b",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2"
       ],
       "fr": [
@@ -10296,6 +10425,7 @@
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-01f7792a",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-2d3edac1",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-0b9163a3",
+        "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2-236acf5b",
         "lehrstelle-heizungspraktiker-in-eba-alle-bkw-ch-2"
       ]
     },
@@ -10758,6 +10888,13 @@
       "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-6-bd0e1f0c",
       "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-7-e2e5d812",
       "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-9ba01b66",
+      "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-5-30761b27",
+      "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-4-cd6482d5",
+      "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-3-140e991c",
+      "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-2-9269b204",
+      "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-6-ddf67a34",
+      "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-7-8f6f932d",
+      "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-8ba6a129",
       "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-5",
       "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-4",
       "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-3",
@@ -11000,6 +11137,10 @@
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-4-62df1c0c",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-3-336d78fe",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-2-612be8e1",
+        "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-5-30761b27",
+        "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-4-cd6482d5",
+        "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-3-140e991c",
+        "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-2-9269b204",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-5",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-4",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-3",
@@ -11068,6 +11209,7 @@
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-9b1238cd",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-b2f9cc13",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-9ba01b66",
+        "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch-8ba6a129",
         "lehrstelle-sanitarinstallateur-in-efz-alle-bkw-ch"
       ],
       "fr": [
@@ -11563,6 +11705,8 @@
       "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern-e5e5db54",
       "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch-952ae92c",
       "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern-90e7359e",
+      "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch-fbefa17a",
+      "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern-c1c8b7a0",
       "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch",
       "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern"
     ],
@@ -11679,6 +11823,8 @@
         "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern-e5e5db54",
         "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch-952ae92c",
         "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern-90e7359e",
+        "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch-fbefa17a",
+        "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern-c1c8b7a0",
         "lehrstelle-automatik-monteur-in-efz-alle-bkw-ch",
         "apprendistato-automatik-monteur-in-cfc-alle-bkw-bern"
       ],
@@ -11874,6 +12020,8 @@
       "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-546992b0",
       "apprendistato-automatiker-in-cfc-alle-bkw-bern-596b26a2",
       "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-0164d2a2",
+      "apprendistato-automatiker-in-cfc-alle-bkw-bern-b1f0a9d4",
+      "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-47987b54",
       "apprendistato-automatiker-in-cfc-alle-bkw-bern",
       "apprenticeship-as-an-automation-technician-efz-all-bkw-bern"
     ],
@@ -12001,6 +12149,8 @@
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-546992b0",
         "apprendistato-automatiker-in-cfc-alle-bkw-bern-596b26a2",
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-0164d2a2",
+        "apprendistato-automatiker-in-cfc-alle-bkw-bern-b1f0a9d4",
+        "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-47987b54",
         "apprendistato-automatiker-in-cfc-alle-bkw-bern",
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern"
       ],
@@ -12068,6 +12218,7 @@
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-d1ced5d0",
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-546992b0",
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-0164d2a2",
+        "apprenticeship-as-an-automation-technician-efz-all-bkw-bern-47987b54",
         "apprenticeship-as-an-automation-technician-efz-all-bkw-bern"
       ],
       "fr": [
@@ -12203,6 +12354,7 @@
       "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-9ddac38b",
       "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-69e0001c",
       "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-5159204a",
+      "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-bd0f1e36",
       "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf"
     ],
     "previousSlugsByLocale": {
@@ -12263,6 +12415,7 @@
         "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-9ddac38b",
         "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-69e0001c",
         "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-5159204a",
+        "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf-bd0f1e36",
         "apprenticeship-as-electrical-planner-efz-all-bkw-utzenstorf"
       ],
       "fr": [
@@ -13268,6 +13421,24 @@
       "installatore-di-riscaldamento-in-efz-tutti-bkw-ostermundigen-71d55d8a",
       "heating-installer-efz-all-bkw-ostermundigen-c606b504",
       "installateur-de-chauffage-efz-tous-bkw-ostermundigen-bd3f357f",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-6593c106",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-8-daf247f5",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-2-e992c584",
+      "heizungsinstallateur-in-cfc-alle-bkw-luzern-ac2bbc4e",
+      "heating-installer-in-efz-all-bkw-luzern-5b208e62",
+      "heizungsinstallateur-in-efz-alle-bkw-ch-ae2cad8f",
+      "installateur-de-chauffage-dans-efz-tous-bkw-luzern-0f02cac8",
+      "heizungsinstallateur-in-efz-alle-bkw-ch-2-cad4b7a5",
+      "installatore-di-riscaldamento-efz-tutti-bkw-luzern-bab5f2a4",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-5-d61dec53",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-4-9a492583",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-6-3dba289f",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-7-db9bac49",
+      "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-3-39b8154c",
+      "heizungsinstallateur-in-cfc-alle-bkw-ostermundigen-263a3d33",
+      "installatore-di-riscaldamento-in-efz-tutti-bkw-ostermundigen-bd943503",
+      "heating-installer-efz-all-bkw-ostermundigen-18d370b8",
+      "installateur-de-chauffage-efz-tous-bkw-ostermundigen-91aa9f96",
       "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
       "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-8",
       "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-2",
@@ -13464,6 +13635,10 @@
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-5-51cbcd01",
         "heizungsinstallateur-in-cfc-alle-bkw-ostermundigen-8f16e9eb",
         "installatore-di-riscaldamento-in-efz-tutti-bkw-ostermundigen-71d55d8a",
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-6593c106",
+        "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-5-d61dec53",
+        "heizungsinstallateur-in-cfc-alle-bkw-ostermundigen-263a3d33",
+        "installatore-di-riscaldamento-in-efz-tutti-bkw-ostermundigen-bd943503",
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch",
         "lehrstelle-heizungsinstallateur-in-efz-alle-bkw-ch-5",
         "heizungsinstallateur-in-cfc-alle-bkw-ostermundigen",
@@ -13528,6 +13703,7 @@
         "heating-installer-efz-all-bkw-ostermundigen-66fdc366",
         "heating-installer-efz-all-bkw-ostermundigen-6e3d9924",
         "heating-installer-efz-all-bkw-ostermundigen-c606b504",
+        "heating-installer-efz-all-bkw-ostermundigen-18d370b8",
         "heating-installer-efz-all-bkw-ostermundigen"
       ],
       "de": [
@@ -13593,6 +13769,7 @@
         "installateur-de-chauffage-efz-tous-bkw-ostermundigen-5ace3447",
         "installateur-de-chauffage-efz-tous-bkw-ostermundigen-ef6bebc2",
         "installateur-de-chauffage-efz-tous-bkw-ostermundigen-bd3f357f",
+        "installateur-de-chauffage-efz-tous-bkw-ostermundigen-91aa9f96",
         "installateur-de-chauffage-efz-tous-bkw-ostermundigen"
       ]
     },
@@ -15196,6 +15373,7 @@
       "monteur-in-freileitungsbau-alle-bkw-ch-8535939f",
       "monteur-in-freileitungsbau-alle-bkw-ch-7c42d5ab",
       "monteur-in-freileitungsbau-alle-bkw-ch-2ec27438",
+      "monteur-in-freileitungsbau-alle-bkw-ch-cc5f4a77",
       "monteur-in-freileitungsbau-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -15258,6 +15436,7 @@
         "monteur-in-freileitungsbau-alle-bkw-ch-8535939f",
         "monteur-in-freileitungsbau-alle-bkw-ch-7c42d5ab",
         "monteur-in-freileitungsbau-alle-bkw-ch-2ec27438",
+        "monteur-in-freileitungsbau-alle-bkw-ch-cc5f4a77",
         "monteur-in-freileitungsbau-alle-bkw-ch"
       ],
       "en": [
@@ -15532,6 +15711,7 @@
       "gruppenchef-in-alle-bkw-ch-10aac9fc",
       "gruppenchef-in-alle-bkw-ch-2b8b21ee",
       "gruppenchef-in-alle-bkw-ch-4376574e",
+      "gruppenchef-in-alle-bkw-ch-50ecc310",
       "gruppenchef-in-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -15590,6 +15770,7 @@
         "gruppenchef-in-alle-bkw-ch-10aac9fc",
         "gruppenchef-in-alle-bkw-ch-2b8b21ee",
         "gruppenchef-in-alle-bkw-ch-4376574e",
+        "gruppenchef-in-alle-bkw-ch-50ecc310",
         "gruppenchef-in-alle-bkw-ch"
       ],
       "en": [
@@ -15647,6 +15828,7 @@
         "gruppenchef-in-alle-bkw-ch-10aac9fc",
         "gruppenchef-in-alle-bkw-ch-2b8b21ee",
         "gruppenchef-in-alle-bkw-ch-4376574e",
+        "gruppenchef-in-alle-bkw-ch-50ecc310",
         "gruppenchef-in-alle-bkw-ch"
       ],
       "fr": [
@@ -15704,6 +15886,7 @@
         "gruppenchef-in-alle-bkw-ch-10aac9fc",
         "gruppenchef-in-alle-bkw-ch-2b8b21ee",
         "gruppenchef-in-alle-bkw-ch-4376574e",
+        "gruppenchef-in-alle-bkw-ch-50ecc310",
         "gruppenchef-in-alle-bkw-ch"
       ]
     },
@@ -19072,6 +19255,7 @@
       "fachspezialist-in-elektro-alle-bkw-ch-45ce4e7c",
       "fachspezialist-in-elektro-alle-bkw-ch-1c7c9c3e",
       "fachspezialist-in-elektro-alle-bkw-ch-dfade3c6",
+      "fachspezialist-in-elektro-alle-bkw-ch-23f22c97",
       "fachspezialist-in-elektro-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -19115,6 +19299,7 @@
         "fachspezialist-in-elektro-alle-bkw-ch-45ce4e7c",
         "fachspezialist-in-elektro-alle-bkw-ch-1c7c9c3e",
         "fachspezialist-in-elektro-alle-bkw-ch-dfade3c6",
+        "fachspezialist-in-elektro-alle-bkw-ch-23f22c97",
         "fachspezialist-in-elektro-alle-bkw-ch"
       ]
     },
@@ -19522,6 +19707,7 @@
       "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b3d6981a",
       "servicetechniker-in-heizung-sanitar-alle-bkw-ch-321e8a3e",
       "servicetechniker-in-heizung-sanitar-alle-bkw-ch-0e3b5d25",
+      "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b8b2eceb",
       "servicetechniker-in-heizung-sanitar-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -19581,6 +19767,7 @@
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b3d6981a",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-321e8a3e",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-0e3b5d25",
+        "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b8b2eceb",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch"
       ],
       "en": [
@@ -19638,6 +19825,7 @@
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b3d6981a",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-321e8a3e",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-0e3b5d25",
+        "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b8b2eceb",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch"
       ],
       "fr": [
@@ -19695,6 +19883,7 @@
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b3d6981a",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-321e8a3e",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch-0e3b5d25",
+        "servicetechniker-in-heizung-sanitar-alle-bkw-ch-b8b2eceb",
         "servicetechniker-in-heizung-sanitar-alle-bkw-ch"
       ]
     },
@@ -19802,6 +19991,7 @@
       "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-e7303ce4",
       "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-65d34721",
       "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-558b7e8b",
+      "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-39239abf",
       "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -19861,6 +20051,7 @@
         "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-e7303ce4",
         "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-65d34721",
         "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-558b7e8b",
+        "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch-39239abf",
         "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch"
       ]
     },
@@ -20348,6 +20539,7 @@
       "software-engineer-realtime-applications-alle-bkw-ch-34efe104",
       "software-engineer-realtime-applications-alle-bkw-ch-c832a93b",
       "software-engineer-realtime-applications-alle-bkw-ch-fe84d1c3",
+      "software-engineer-realtime-applications-alle-bkw-ch-c8caeebc",
       "software-engineer-realtime-applications-alle-bkw-ch"
     ],
     "previousSlugsByLocale": {
@@ -20406,6 +20598,7 @@
         "software-engineer-realtime-applications-alle-bkw-ch-34efe104",
         "software-engineer-realtime-applications-alle-bkw-ch-c832a93b",
         "software-engineer-realtime-applications-alle-bkw-ch-fe84d1c3",
+        "software-engineer-realtime-applications-alle-bkw-ch-c8caeebc",
         "software-engineer-realtime-applications-alle-bkw-ch"
       ]
     },
