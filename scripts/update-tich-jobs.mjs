@@ -649,7 +649,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
           discoveryFailure.transport = true;
         }
       } catch (err) {
-        discoveryFailure.fatal = true;
+        noteDiscoveryFailure(err);
         console.warn(`⚠️ Jina official Ti.CH listing fallback failed: ${err.message}`);
       }
     }
@@ -676,6 +676,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
         discoveryFailure.transport = true;
       }
     } catch (err) {
+      noteDiscoveryFailure(err);
       console.warn(`⚠️ Google Translate official Ti.CH listing fallback failed: ${err.message}`);
     }
   }
