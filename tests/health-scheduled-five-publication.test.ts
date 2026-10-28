@@ -137,6 +137,8 @@ describe('OSC official listing transport fallback', () => {
   it('keeps an unverified Translate response hard after direct discovery transport failures', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubEnv('JOBS_JINA_RETRIES', '0');
+    vi.stubEnv('JOBS_JINA_RETRY_BASE_MS', '0');
     const transport = vi.fn(async (input: RequestInfo | URL) => {
       const url = input instanceof Request ? input.url : String(input);
       if (url.includes('.translate.goog/')) return new Response('<html>wrong source</html>', { status: 200 });
