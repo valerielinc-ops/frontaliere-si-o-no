@@ -3490,7 +3490,6 @@
       "department": "Departement der Industriellen Betriebe",
       "unit": "Verkehrsbetriebe",
       "referenceNumber": "51796",
-      "needsRetranslation": true,
       "previousSlugs": [
         "application-manager-stadt-zuerich-zurigo-51796",
         "responsable-applicatif-stadt-zurich",
@@ -9011,7 +9010,6 @@
           "coach-job-plus-gp-stadt-zuerich-zurigo-51829"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31391,10 +31389,6 @@
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2472,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -31408,7 +31402,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 5,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2472,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c9ee943891a3",
@@ -31562,10 +31560,6 @@
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2726,
-      "retranslationAttempts": 4,
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -31579,7 +31573,11 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 5,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2726,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ebe0e147c966",

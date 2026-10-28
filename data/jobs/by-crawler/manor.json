@@ -1244,7 +1244,7 @@
       "slugByLocale": {
         "it": "addetto-a-alla-cassa-profumeria-40-manor-ag-schaffhausen",
         "en": "cashier-perfumery-40-manor-ag-schaffhausen",
-        "de": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
+        "de": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-rb61sw",
         "fr": "employe-e-a-la-caisse-en-parfumerie-40-manor-ag-schaffhausen"
       },
       "titleByLocale": {
@@ -1280,6 +1280,9 @@
           "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
         ],
         "fr": [
+          "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
         ]
       },
@@ -5050,7 +5053,6 @@
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
         "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve-dc4bad",
         "collaboratore-di-supermercato-carcuteries-dages-50-manor-ag-geneve",
-        "collaboratore-di-supermercato-carcuteries-dage-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-2fc36d19a1"
       ],
@@ -5061,7 +5063,6 @@
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
           "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve-dc4bad",
           "collaboratore-di-supermercato-carcuteries-dages-50-manor-ag-geneve",
-          "collaboratore-di-supermercato-carcuteries-dage-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-2fc36d19a1"
         ],
@@ -12382,7 +12383,7 @@
       "slugByLocale": {
         "it": "addetto-a-alla-cassa-60-manor-ag-luzern-108872",
         "en": "cashier-60-manor-ag-luzern-108872",
-        "de": "manor-mitarbeiter-in-kasse-60-luzern",
+        "de": "manor-mitarbeiter-in-kasse-60-luzern-s0oco4",
         "fr": "employe-e-de-caisse-60-manor-ag-luzern-108872"
       },
       "titleByLocale": {
@@ -12410,6 +12411,9 @@
           "manor-mitarbeiter-in-kasse-60-luzern"
         ],
         "fr": [
+          "manor-mitarbeiter-in-kasse-60-luzern"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-60-luzern"
         ]
       },
@@ -16508,7 +16512,6 @@
         "logistikbeitrag-50-manor-ag-geneve-73a02c",
         "manor-collaborateur-trice-logistique-50-geneve-d3fyo7",
         "manor-collaborateur-trice-logistique-50-geneve",
-        "collaboratore-logistico-50-manor-ag-geneve",
         "collaboratore-logistico-50-manor-ag-geneve-73a02c",
         "collaborateur-trice-logistique-50-manor-ag-geneve",
         "collaborateur-trice-logistique-50-manor-ag-geneve-2909e8113f"
@@ -16521,7 +16524,6 @@
           "logistikbeitrag-50-manor-ag-geneve-73a02c",
           "manor-collaborateur-trice-logistique-50-geneve-d3fyo7",
           "manor-collaborateur-trice-logistique-50-geneve",
-          "collaboratore-logistico-50-manor-ag-geneve",
           "collaboratore-logistico-50-manor-ag-geneve-73a02c",
           "collaborateur-trice-logistique-50-manor-ag-geneve",
           "collaborateur-trice-logistique-50-manor-ag-geneve-2909e8113f"
@@ -16807,7 +16809,6 @@
       "previousSlugs": [
         "manor-collaborateur-trice-logistique-50-geneve",
         "manor-collaborateur-trice-logistique-50-geneve-2",
-        "collaboratore-logistico-50-manor-ag-geneve-f53774",
         "collaboratore-logistico-50-manor-ag-geneve",
         "collaborateur-trice-logistique-50-manor-ag-geneve",
         "collaborateur-trice-logistique-50-manor-ag-geneve-adb731fc85"
@@ -16816,7 +16817,6 @@
         "it": [
           "manor-collaborateur-trice-logistique-50-geneve",
           "manor-collaborateur-trice-logistique-50-geneve-2",
-          "collaboratore-logistico-50-manor-ag-geneve-f53774",
           "collaboratore-logistico-50-manor-ag-geneve",
           "collaborateur-trice-logistique-50-manor-ag-geneve",
           "collaborateur-trice-logistique-50-manor-ag-geneve-adb731fc85"
@@ -18489,9 +18489,7 @@
         "manor-mitarbeiter-in-kasse-50-liestal",
         "mitarbeiter-in-kasse-50-manor-ag-liestal",
         "collaboratore-trice-in-kasse-50-manor-ag-liestal",
-        "employeecash-register-50-manor-ag-liestal",
-        "cashier-50-manor-ag-liestal",
-        "manor-mitarbeiter-in-kasse-50-liestal-mitarbeiterin-kasse-50"
+        "employeecash-register-50-manor-ag-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18860,7 +18858,7 @@
       "slugByLocale": {
         "it": "addetto-a-alla-cassa-60-manor-ag-luzern",
         "en": "cashier-60-manor-ag-luzern",
-        "de": "manor-mitarbeiter-in-kasse-60-luzern",
+        "de": "manor-mitarbeiter-in-kasse-60-luzern-fg4xs1",
         "fr": "employe-e-de-caisse-60-manor-ag-luzern"
       },
       "titleByLocale": {
@@ -18888,6 +18886,9 @@
           "manor-mitarbeiter-in-kasse-60-luzern"
         ],
         "fr": [
+          "manor-mitarbeiter-in-kasse-60-luzern"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-60-luzern"
         ]
       },
@@ -20562,7 +20563,6 @@
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
         "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve",
-        "collaboratore-del-supermercato-carcuterie-e-formaggi-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-763269553f"
       ],
@@ -20571,7 +20571,6 @@
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
           "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve",
-          "collaboratore-del-supermercato-carcuterie-e-formaggi-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-763269553f"
         ],
@@ -23178,7 +23177,7 @@
       "slugByLocale": {
         "it": "addetto-a-alla-cassa-60-manor-ag-luzern-60fbbc",
         "en": "cashier-60-manor-ag-luzern-60fbbc",
-        "de": "manor-mitarbeiter-in-kasse-60-luzern",
+        "de": "manor-mitarbeiter-in-kasse-60-luzern-s0ovy6",
         "fr": "employe-e-de-caisse-60-manor-ag-luzern-60fbbc"
       },
       "titleByLocale": {
@@ -23208,6 +23207,9 @@
           "manor-mitarbeiter-in-kasse-60-luzern"
         ],
         "fr": [
+          "manor-mitarbeiter-in-kasse-60-luzern"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-60-luzern"
         ]
       },
@@ -25256,7 +25258,6 @@
         "fr": "Collaborateur/-trice de vente en bijouterie 30%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-103f01680cb4",
       "salaryMin": 20600,
       "salaryMax": 31500,
@@ -25373,7 +25374,6 @@
         "de": "Mitarbeiter/in Kasse (Herrenbekleidung) 50%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-71a57aaaab00",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -25432,7 +25432,6 @@
         "de": "Mitarbeiter/in Kasse (Parfümerie) 50%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-139cacc6b31f",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -25557,7 +25556,6 @@
         "de": "Mitarbeiter/in Kasse 40%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-47203dd3e348",
       "salaryMin": 28800,
       "salaryMax": 44400,
@@ -25616,7 +25614,6 @@
         "de": "Mitarbeiter/in Kasse (Parfümerie) 50%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-parfumerie-50-nyon-2",
@@ -25685,7 +25682,6 @@
         "fr": "Employé·e de caisse en parfumerie 40%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-cc9bf772bbb6",
       "salaryMin": 27400,
       "salaryMax": 42000,
@@ -25744,7 +25740,6 @@
         "fr": "Employé*e de vente en bijouterie 40%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-713e87b850b8",
       "salaryMin": 27400,
       "salaryMax": 42000,
@@ -25803,7 +25798,6 @@
         "fr": "Employé*e de caisse en parfumerie 20%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-0171847f8e54",
       "salaryMin": 13700,
       "salaryMax": 21000,
@@ -25862,7 +25856,6 @@
         "fr": "Employé*e de vente en jouets 40%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-af53ee192ec1",
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -25921,7 +25914,6 @@
         "fr": "Employé*e de caisse 50%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-a1e71afb0ad9",
       "salaryMin": 34300,
       "salaryMax": 52500,
@@ -25980,7 +25972,6 @@
         "fr": "Employé*e de vente en jouets 20%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-5f07158e61ed",
       "salaryMin": 16600,
       "salaryMax": 25500,
@@ -26039,7 +26030,6 @@
         "fr": "Collaborateur·rice aux accessoires 40 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-774b7e49bcfc",
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -26098,7 +26088,6 @@
         "fr": "Collaborateur·rice à la caisse 5 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-24f2999766e0",
       "salaryMin": 3400,
       "salaryMax": 5300,
@@ -26157,7 +26146,6 @@
         "fr": "Employé·e de caisse 60%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-fe3a7b312fb7",
       "salaryMin": 47400,
       "salaryMax": 72900,
@@ -26216,7 +26204,6 @@
         "fr": "Collaborateur·rice à la table d’emballage 50 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-ea878a2e580b",
       "salaryMin": 37000,
       "salaryMax": 56800,
