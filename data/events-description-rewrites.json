@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-28T16:28:44.215Z",
+  "generatedAt": "2026-10-28T17:30:25.644Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -175338,8 +175338,8 @@
       "id": "ge-agenda:giff-projection-estranea",
       "sourceDescriptionHash": "ffde7623a58d0eeb05c10cbe71e6e6781b9049405b24da689006da5b06306140",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:19:21.317Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T17:23:25.782Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175365,8 +175365,8 @@
       "id": "ge-agenda:giff-projection-opening-night-tangles",
       "sourceDescriptionHash": "552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:20:03.341Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T17:23:58.447Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175382,9 +175382,9 @@
     "ge-agenda:giff-projection-singapura::6a481886e18e2a9e66f9ad5013c2771543addbf4a6b84bd9e832cdaeb3116036": {
       "id": "ge-agenda:giff-projection-singapura",
       "sourceDescriptionHash": "6a481886e18e2a9e66f9ad5013c2771543addbf4a6b84bd9e832cdaeb3116036",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:18:05.570Z",
+      "code": "new-name",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T17:22:44.178Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
