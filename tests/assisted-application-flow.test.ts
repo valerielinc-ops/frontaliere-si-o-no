@@ -302,7 +302,12 @@ describe('approval flow', () => {
       { type: 'submit_needs_candidate', questions: [{ id: undefined }], documents: [] },
       { draft: cleanDraft, nowMs: T0 },
     );
-    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal_needs_candidate'] });
+    expect(step.flow).toMatchObject({
+      state: 'owner_takeover',
+      heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryCount: 0,
+      portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0],
+    });
     expect(step.effects).toEqual([{
       type: 'email',
       kind: 'owner_takeover',

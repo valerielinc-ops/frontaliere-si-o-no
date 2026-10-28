@@ -714,18 +714,11 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // on. Treat it as an unsupported portal stop so the owner can retry
       // after the runner or portal changes, instead of sending a blank request.
       if (questionIds.length === 0 && eventDocuments.length === 0) {
-        next.state = 'owner_takeover';
-        next.deadlineAt = null;
-        next.reminderAt = null;
-        next.heldBy = ['portal_needs_candidate'];
-        next.heldSince = null;
-        effects = [{
-          type: 'email',
-          kind: 'owner_takeover',
-          reason: 'portal:portal_needs_candidate',
-          stage: 'submit',
-          attempts,
-        }];
+        // Keep the stop visible to the owner, but schedule the same bounded
+        // recovery used by an unsupported portal page. In particular, a
+        // portal that only exposes a generic form (without the employer or
+        // role in its visible fields) must not remain suspended forever.
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {

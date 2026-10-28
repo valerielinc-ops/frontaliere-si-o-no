@@ -118,9 +118,35 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     changed: answers,
   });
   const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers };
+  const persistCandidateQuestionAnswers = async () => {
+    const userId = String(order?.userId || '').trim();
+    if (!userId || !Object.keys(questionAnswers).length) return;
+    const profileRef = db.collection('user_cv_profiles').doc(userId);
+    try {
+      await db.runTransaction(async (transaction) => {
+        const snapshot = await transaction.get(profileRef);
+        const current = snapshot.data()?.applicationQuestionAnswers;
+        const merged = { ...(current && typeof current === 'object' && !Array.isArray(current) ? current : {}) };
+        for (const [key, value] of Object.entries(questionAnswers)) {
+          delete merged[key];
+          merged[key] = value;
+        }
+        transaction.set(profileRef, {
+          applicationQuestionAnswers: Object.fromEntries(Object.entries(merged).slice(-80)),
+          applicationQuestionAnswersUpdatedAt: nowMs,
+        }, { merge: true });
+      });
+    } catch (error) {
+      // The order-local answer is already authoritative. A profile-ledger
+      // failure must not make the candidate lose a saved answer or block the
+      // current application; the next save can repair the ledger.
+      console.warn('[assistedApplicationCvCommit] candidate answer ledger failed', orderId, error instanceof Error ? error.message : String(error));
+    }
+  };
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
   if (!live || !tailoredCvChanges({ order, draft, flow, nextFlow })) {
     await flowRefFor(db, orderId).set({ answers, questionAnswers, updatedAt: nowMs }, { merge: true });
+    await persistCandidateQuestionAnswers();
     return { rebuilt: false };
   }
   if (!bucket) throw new CvCommitError('storage_unavailable', 503);
@@ -131,5 +157,6 @@ export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draf
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);
+  await persistCandidateQuestionAnswers();
   return { rebuilt: true };
 }
