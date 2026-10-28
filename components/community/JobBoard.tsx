@@ -5894,13 +5894,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
   (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
  ) || returnVisitResultsPending;
 
- // The canonical unfiltered listing has a deterministic first viewport: the
- // first page is `pageSize` cards when that footprint is available. During a
- // short/empty resolution, only the currently known result count is safe to
- // reserve; otherwise the loader would mount a full page and then collapse it
- // into a short list or empty state, recreating the CLS this branch fixes.
- // Filtered and editorial views keep their existing six-card loader because
- // their final result count is unknown.
+ // The canonical unfiltered TI/aggregate listing has a deterministic first
+ // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
+ // while the asset is pending so the cards and in-feed ad slots do not arrive
+ // into an empty rail. Once the first response settles, use the known count so
+ // a short/empty result does not get a full-page reserve and then collapse.
+ // Filtered, editorial, and other canton views keep their existing loader
+ // footprint because their first response is not the canonical first page.
  const isUnfilteredListing = activeFilterCount === 0
   && salaryRangeFilter.min === null
   && !searchSlugFilter
@@ -5908,8 +5908,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   && !locationSlugFilter
   && !editorialLandingDescriptor
   && !clusterSeedApplies;
+ const isCanonicalFirstPageListing = isUnfilteredListing
+  && (initialFilterCanton === null
+   || initialFilterCanton === 'TI'
+   || initialFilterCanton === AGGREGATE_CANTON_CODE);
  const loadingCardCount = isUnfilteredListing
-  ? Math.min(pageSize, filteredJobs.length)
+  ? isCanonicalFirstPageListing && jobsLoading && filteredJobs.length === 0
+   ? pageSize
+   : Math.min(pageSize, filteredJobs.length)
   : 6;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
