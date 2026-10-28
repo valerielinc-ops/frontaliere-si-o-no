@@ -1,7 +1,7 @@
 {
   "key": "entero",
   "label": "entero",
-  "generatedAt": "2026-10-28T20:06:06.867Z",
+  "generatedAt": "2026-10-28T21:38:04.735Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 7828,
-  "avgDurationMs": 7828,
+  "durationMs": 6936,
+  "avgDurationMs": 6936,
   "durationHistory": [
-    7828
+    6936
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.entero.ch/de/karriere/psychologin-oder-psychologe-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:05:51.492Z",
+      "crawledAt": "2026-10-28T21:37:51.089Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:05:50.855Z",
+      "crawledAt": "2026-10-28T21:37:50.454Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:05:50.215Z",
+      "crawledAt": "2026-10-28T21:37:49.819Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "url": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:05:49.583Z",
+      "crawledAt": "2026-10-28T21:37:49.185Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       "url": "https://www.entero.ch/de/karriere/psycholog-in-psychotherapeut-in-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:05:48.949Z",
+      "crawledAt": "2026-10-28T21:37:48.549Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "url": "https://www.entero.ch/de/karriere/dipl-pflegefachperson-hf-fh-fuer-den-nachtdienst-psychiatrie-sucht-60",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:05:48.310Z",
+      "crawledAt": "2026-10-28T21:37:47.914Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -275,5 +275,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
