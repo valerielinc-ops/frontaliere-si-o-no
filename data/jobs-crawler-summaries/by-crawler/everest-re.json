@@ -1,7 +1,7 @@
 {
   "key": "everest-re",
   "label": "Everest Re",
-  "generatedAt": "2026-10-28T21:42:44.355Z",
+  "generatedAt": "2026-10-28T22:04:39.254Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13634,
-  "avgDurationMs": 13634,
+  "durationMs": 15207,
+  "avgDurationMs": 15207,
   "durationHistory": [
-    13634
+    15207
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Claims-Specialist_R7430",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T21:42:21.333Z",
+      "crawledAt": "2026-10-28T22:04:17.008Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,5 +69,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "everest-re",
-  "assembledAt": "2026-10-28T21:42:35.716Z",
-  "runId": "40770680711",
+  "assembledAt": "2026-10-28T22:04:31.400Z",
+  "runId": "40775593533",
   "jobs": [
     {
       "id": "everest-re-1306a4a3fe5d",
@@ -35,7 +35,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Claims-Specialist_R7430",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T21:42:21.333Z",
+      "crawledAt": "2026-10-28T22:04:17.008Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,6 +54,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R7430",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
       "firstSeenAt": "2026-10-28T20:08:29.795Z",
       "previousSlugsByLocale": {
         "it": [
@@ -68,21 +82,7 @@
       },
       "previousSlugs": [
         "senior-claims-specialist-everest-re-ch"
-      ],
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001"
+      ]
     }
   ]
 }
