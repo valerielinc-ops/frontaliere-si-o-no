@@ -80,10 +80,10 @@ describe('frontaliere pillar copy', () => {
 
   it('uses final landing URLs for official external sources', () => {
     const expectedBfs = {
-      it: 'https://www.bfs.admin.ch/bfs/it/home.html',
-      en: 'https://www.bfs.admin.ch/bfs/en/home.html',
-      de: 'https://www.bfs.admin.ch/bfs/de/home.html',
-      fr: 'https://www.bfs.admin.ch/bfs/fr/home.html',
+      it: 'https://www.bfs.admin.ch/it/',
+      en: 'https://www.bfs.admin.ch/en/',
+      de: 'https://www.bfs.admin.ch/de/',
+      fr: 'https://www.bfs.admin.ch/fr/',
     } as const;
 
     for (const locale of FRONTALIERE_PILLAR_LOCALES) {

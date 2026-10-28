@@ -3729,7 +3729,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  ) => {
  const canonicalPath = withTrailingSlash(urlPath);
  const externalOfficialLocale = ['en', 'de', 'fr'].includes(locale) ? locale : 'it';
- const bfsHomeUrl = `https://www.bfs.admin.ch/bfs/${externalOfficialLocale}/home.html`;
+ const bfsHomeUrl = `https://www.bfs.admin.ch/${externalOfficialLocale}/`;
  const bazgHomeUrl = `https://www.bazg.admin.ch/${externalOfficialLocale}`;
  const bsvHomeUrl = `https://www.bsv.admin.ch/${externalOfficialLocale}`;
  const estvHomeUrl = `https://www.estv.admin.ch/${externalOfficialLocale}`;
