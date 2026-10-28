@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-10-28T09:24:17.887Z",
-  "runId": "40661941340",
+  "assembledAt": "2026-10-28T20:18:57.676Z",
+  "runId": "40757867683",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-50--60-215552",
@@ -26,9 +26,9 @@
         "de": "Verwaltungsmitarbeiter oder Verwaltungsmitarbeiter",
         "fr": "Collaborateur administratif ou collaboratrice administrative"
       },
-      "slug": "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion",
+      "slug": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-wallis-sion",
       "slugByLocale": {
-        "it": "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion",
+        "it": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-wallis-sion",
         "en": "administrative-collaborator-or-administrative-collaborator-hes-so-valais-wallis-sion",
         "de": "verwaltungsmitarbeiter-oder-verwaltungsmitarbeiter-hes-so-valais-wallis-sion",
         "fr": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
@@ -54,12 +54,12 @@
       "id": "hes-so-valais-2f031ec3361d",
       "previousSlugs": [
         "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais",
-        "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-wallis-sion"
+        "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais",
-          "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-wallis-sion"
+          "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion"
         ],
         "en": [
           "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais"
@@ -69,7 +69,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:13:13.966Z",
-      "crawledAt": "2026-10-28T09:24:14.520Z",
+      "crawledAt": "2026-10-28T20:18:53.896Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",

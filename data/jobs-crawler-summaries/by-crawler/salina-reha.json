@@ -1,7 +1,7 @@
 {
   "key": "salina-reha",
   "label": "Salina Rehaklinik Rheinfelden",
-  "generatedAt": "2026-10-28T09:18:20.201Z",
+  "generatedAt": "2026-10-28T20:13:42.261Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 19757,
-  "avgDurationMs": 19757,
+  "durationMs": 20366,
+  "avgDurationMs": 20366,
   "durationHistory": [
-    19757
+    20366
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:17:51.013Z",
+      "crawledAt": "2026-10-28T20:13:13.833Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:17:52.954Z",
+      "crawledAt": "2026-10-28T20:13:16.576Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }

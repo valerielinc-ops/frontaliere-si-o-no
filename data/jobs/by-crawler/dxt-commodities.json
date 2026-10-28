@@ -1,7 +1,7 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-10-28T09:19:12.954Z",
-  "runId": "40661941340",
+  "assembledAt": "2026-10-28T20:17:18.991Z",
+  "runId": "40757867683",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
@@ -36,7 +36,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:19:09.536Z",
+      "crawledAt": "2026-10-28T20:17:14.910Z",
       "source": "dxt-careers-crawler",
       "sourceLang": "en",
       "employmentType": "FULL_TIME",
@@ -47,7 +47,9 @@
         "location": "Lugano"
       },
       "id": "dxt-commodities-c531c6e4c1f6",
-      "firstSeenAt": "2026-10-27T21:21:44.442Z",
+      "previousSlugs": [
+        "natural-gas-analyst-dxt"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "natural-gas-analyst-dxt"
@@ -56,9 +58,7 @@
           "natural-gas-analyst-dxt"
         ]
       },
-      "previousSlugs": [
-        "natural-gas-analyst-dxt"
-      ],
+      "firstSeenAt": "2026-10-27T21:21:44.442Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
