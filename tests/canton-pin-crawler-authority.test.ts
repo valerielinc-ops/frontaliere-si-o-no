@@ -132,6 +132,7 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
     expect(sourceLocationContainsCity('Reinach Aargau', 'Reinach')).toBe(true);
     expect(sourceLocationContainsCity('Seewen-Schwyz', 'Seewen')).toBe(true);
     expect(sourceLocationContainsCity('Baden-Württemberg', 'Baden')).toBe(false);
+    expect(sourceLocationContainsCity('Baden-Württemberg, Aargau', 'Baden')).toBe(true);
     expect(sourceLocationContainsCity('Laufental', 'Au')).toBe(false);
   });
 

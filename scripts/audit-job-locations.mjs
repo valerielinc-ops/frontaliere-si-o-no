@@ -266,6 +266,19 @@ function hirslandenCorrelationEntry({ job, id, company, city, rawLocation, canto
   };
 }
 
+function sourceBackedPlaceMatchesCanton(sourceLocation, city, sourceCanton, storedCanton) {
+  // A contiguous token match is only evidence when the source row independently
+  // carries the canton we are about to certify and the published city is an
+  // official locality in that canton. This keeps foreign compounds such as
+  // `Baden-Württemberg` from certifying the Swiss homonym `Baden`.
+  return Boolean(
+    sourceLocation
+    && sourceCanton === storedCanton
+    && sourceLocationContainsCity(sourceLocation, city)
+    && isKnownSwissMunicipalityInCanton(city, storedCanton, { allowOfficialLocality: true }),
+  );
+}
+
 function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   if (!crawlerRecord?.canton || !city || !storedCanton) return false;
   if (crawlerRecord.canton !== storedCanton) return false;
@@ -279,9 +292,7 @@ function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   // source place certify a published city by canton alone.
   const samePlace = sourceLocation && (
     sameRecordedPlace(sourceLocation, city)
-    || (sourceCanton === storedCanton
-      && sourceLocationContainsCity(sourceLocation, city)
-      && isKnownSwissMunicipalityInCanton(city, storedCanton, { allowOfficialLocality: true }))
+    || sourceBackedPlaceMatchesCanton(sourceLocation, city, sourceCanton, storedCanton)
   );
   if (!samePlace) return false;
   // The source adapter may have preserved an explicit per-posting canton
