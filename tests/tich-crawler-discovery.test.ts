@@ -168,6 +168,48 @@ describe('fetchTichJobDetailUrls', () => {
     ]);
     expect(fetchImpl.mock.calls.some(([url]) => url === translateUrl)).toBe(true);
   });
+
+  it('tags an all-transport discovery outage for the crawler soft-exit guard', async () => {
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.startsWith('https://r.jina.ai/')) return new Response('', { status: 502 });
+      if (url.includes('.translate.goog/')) return new Response('', { status: 408 });
+      throw new TypeError('fetch failed');
+    });
+
+    await expect(fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      proxyRetries: 0,
+      proxyRetryBaseMs: 0,
+      translateAttempts: 1,
+      translateRetryDelayMs: 0,
+      timeoutMs: 1_000,
+    })).rejects.toMatchObject({ feedEndpointUnavailable: true });
+  });
+
+  it('does not soften a source identity response into a transport outage', async () => {
+    const fetchImpl = vi.fn(async () => new Response('<html>wrong source</html>', { status: 200 }));
+
+    let thrown: unknown;
+    try {
+      await fetchTichJobDetailUrls({
+        fetchImpl,
+        retries: 0,
+        retryBaseMs: 0,
+        proxyRetries: 0,
+        proxyRetryBaseMs: 0,
+        translateAttempts: 1,
+        translateRetryDelayMs: 0,
+        timeoutMs: 1_000,
+      });
+    } catch (error) {
+      thrown = error;
+    }
+
+    expect(thrown).toBeInstanceOf(Error);
+    expect((thrown as { feedEndpointUnavailable?: boolean }).feedEndpointUnavailable).not.toBe(true);
+  });
 });
 
 describe('Ticino official listing transport', () => {

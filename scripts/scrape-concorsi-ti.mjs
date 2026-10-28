@@ -39,6 +39,12 @@ import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { FeedEndpointUnavailableError } from './lib/feed-endpoint-guard.mjs';
+import {
+  RETRYABLE_STATUS,
+  isConnectionLevelFetchError,
+  isRetryBudgetExhausted,
+} from './lib/transient-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -50,6 +56,24 @@ export const OFFICIAL_LISTING_URLS = Object.freeze([
   SOURCE_URL,
   OFFICIAL_LISTING_CANONICAL_URL,
 ]);
+
+/**
+ * Keep the two Ti.CH consumers on the same terminal transport classification.
+ * A source outage may be soft-exited; an identity/parser response must still
+ * fail closed so a moved or poisoned listing cannot be mistaken for downtime.
+ */
+export function isTichDiscoveryTransportFailure(value) {
+  return isConnectionLevelFetchError(value)
+    || isRetryBudgetExhausted(value)
+    || (Number.isFinite(value?.status) && RETRYABLE_STATUS.has(value.status));
+}
+
+export function createTichDiscoveryUnavailableError(message, cause) {
+  const error = new FeedEndpointUnavailableError(message);
+  if (cause !== undefined) error.cause = cause;
+  return error;
+}
+
 const USER_AGENT =
   'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch; seo-research)';
 

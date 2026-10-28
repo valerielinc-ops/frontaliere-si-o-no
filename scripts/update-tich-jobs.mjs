@@ -61,6 +61,8 @@ import {
   OFFICIAL_LISTING_URLS,
   fetchTichOfficialListingViaTranslate,
   isTichOfficialListingHtml,
+  isTichDiscoveryTransportFailure,
+  createTichDiscoveryUnavailableError,
   parseConcorsiHtml,
 } from './scrape-concorsi-ti.mjs';
 
@@ -467,6 +469,11 @@ export async function fetchTichJobDetailUrls(options = {}) {
   let listingSucceeded = false;
   let rssSucceeded = false;
   let discoveredOccurrences = 0;
+  const discoveryFailure = { transport: false, fatal: false };
+  const noteDiscoveryFailure = (value) => {
+    if (isTichDiscoveryTransportFailure(value)) discoveryFailure.transport = true;
+    else discoveryFailure.fatal = true;
+  };
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -488,6 +495,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
     });
 
     if (!res.ok) {
+      noteDiscoveryFailure(res);
       console.warn(`⚠️ Listing returned ${res.status} — will try RSS fallback.`);
     } else {
       if (!/<title[^>]*>[^<]*Amministrazione Cantonale Ticino Jobportal/i.test(html)
@@ -508,6 +516,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
       console.log(`  📦 Listing page: ${allUrls.size} job URL(s) found`);
     }
   } catch (err) {
+    noteDiscoveryFailure(err);
     console.warn(`⚠️ Listing fetch failed: ${err.message} — will try RSS fallback.`);
   }
 
@@ -528,6 +537,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
     });
 
     if (!res.ok) {
+      noteDiscoveryFailure(res);
       console.warn(`⚠️ RSS feed returned ${res.status} — skipping.`);
     } else {
       if (!/<feed\b[^>]*xmlns=["']http:\/\/www\.w3\.org\/2005\/Atom["']/i.test(xml)
@@ -558,6 +568,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
       console.log(`  📦 RSS feed: ${newFromRss} additional URL(s) found`);
     }
   } catch (err) {
+    noteDiscoveryFailure(err);
     console.warn(`⚠️ RSS feed fetch failed: ${err.message}`);
   }
 
@@ -599,11 +610,13 @@ export async function fetchTichJobDetailUrls(options = {}) {
         });
 
         if (!res.ok) {
+          noteDiscoveryFailure(res);
           console.warn(`⚠️ Official Ti.CH listing returned ${res.status} — trying the next official endpoint.`);
         } else if (!consumeOfficialListingHtml(html, 'Official Ti.CH listing')) {
           throw new Error('Official Ti.CH listing identity marker missing.');
         }
       } catch (err) {
+        noteDiscoveryFailure(err);
         console.warn(`⚠️ Official Ti.CH listing fetch failed: ${err.message}`);
       }
     }
@@ -629,10 +642,14 @@ export async function fetchTichJobDetailUrls(options = {}) {
         if (html) {
           const accepted = consumeOfficialListingHtml(html, 'Official Ti.CH listing via Jina');
           if (!accepted) {
+            discoveryFailure.fatal = true;
             console.warn('⚠️ Jina Ti.CH response failed the official-listing identity check.');
           }
+        } else {
+          discoveryFailure.transport = true;
         }
       } catch (err) {
+        discoveryFailure.fatal = true;
         console.warn(`⚠️ Jina official Ti.CH listing fallback failed: ${err.message}`);
       }
     }
@@ -651,17 +668,26 @@ export async function fetchTichJobDetailUrls(options = {}) {
         attempts: options.translateAttempts,
         retryDelayMs: options.translateRetryDelayMs,
       });
-      if (html) consumeOfficialListingHtml(html, 'Official Ti.CH listing via Google Translate');
+      if (html) {
+        if (!consumeOfficialListingHtml(html, 'Official Ti.CH listing via Google Translate')) {
+          discoveryFailure.fatal = true;
+        }
+      } else {
+        discoveryFailure.transport = true;
+      }
     } catch (err) {
       console.warn(`⚠️ Google Translate official Ti.CH listing fallback failed: ${err.message}`);
     }
   }
 
   if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
-    throw new Error(
+    const message =
       'Ti.CH discovery failed: both primary portal sources (SSR listing and RSS fallback) '
-      + 'and the official listing were unavailable.',
-    );
+      + 'and the official listing were unavailable.';
+    if (discoveryFailure.transport && !discoveryFailure.fatal) {
+      throw createTichDiscoveryUnavailableError(message);
+    }
+    throw new Error(message);
   }
   const byIdentity = new Map();
   for (const rawUrl of allUrls) {

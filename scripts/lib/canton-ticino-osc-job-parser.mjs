@@ -52,6 +52,8 @@ import {
   OFFICIAL_LISTING_URLS,
   fetchTichOfficialListingViaTranslate,
   isTichOfficialListingHtml,
+  isTichDiscoveryTransportFailure,
+  createTichDiscoveryUnavailableError,
   parseConcorsiHtml,
 } from '../scrape-concorsi-ti.mjs';
 
@@ -247,11 +249,14 @@ export async function fetchAllCantonTicinoOscJobs() {
 
   let candidates = [];
   let indexError;
+  const discoveryFailure = { transport: false, fatal: false };
   try {
     const indexHtml = await fetchHtml(LISTING_URL, { timeoutMs });
     candidates = parseConcorsiListingIndex(indexHtml);
   } catch (err) {
     indexError = err;
+    if (isTichDiscoveryTransportFailure(err)) discoveryFailure.transport = true;
+    else discoveryFailure.fatal = true;
     console.warn(`  ⚠️  ${LISTING_URL} unavailable: ${err?.message || err}`);
   }
 
@@ -270,6 +275,8 @@ export async function fetchAllCantonTicinoOscJobs() {
         );
       } catch (err) {
         officialError = err;
+        if (isTichDiscoveryTransportFailure(err)) discoveryFailure.transport = true;
+        else discoveryFailure.fatal = true;
         console.warn(`  ⚠️  ${officialUrl} unavailable: ${err?.message || err}`);
       }
     }
@@ -285,16 +292,13 @@ export async function fetchAllCantonTicinoOscJobs() {
         }
       }
       if (candidates.length === 0) {
-        if (indexError) {
-          throw new Error(
-            `Failed to fetch concorsi.ti.ch index and official Canton Ticino listing: ${indexError?.message || indexError}; ${officialError?.message || officialError}`,
-            { cause: officialError },
-          );
+        const message = indexError
+          ? `Failed to fetch concorsi.ti.ch index and official Canton Ticino listing: ${indexError?.message || indexError}; ${officialError?.message || officialError}`
+          : `Failed to parse or fetch official Canton Ticino listing: ${officialError?.message || officialError}`;
+        if (discoveryFailure.transport && !discoveryFailure.fatal) {
+          throw createTichDiscoveryUnavailableError(message, officialError || indexError);
         }
-        throw new Error(
-          `Failed to parse or fetch official Canton Ticino listing: ${officialError?.message || officialError}`,
-          { cause: officialError },
-        );
+        throw new Error(message, { cause: officialError || indexError });
       }
     }
   }
