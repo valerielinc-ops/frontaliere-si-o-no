@@ -390,12 +390,12 @@
     },
     {
       "id": "nord-anglia-e1522b597a67",
-      "slug": "choir-teacher-after-school-tutoring-nord-anglia-geneva",
+      "slug": "insegnante-di-coro-dopo-scuola-insegnante-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "choir-teacher-after-school-tutoring-nord-anglia-geneva",
-        "it": "choir-teacher-after-school-tutoring-nord-anglia-geneva",
-        "de": "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve",
-        "fr": "choir-teacher-after-school-tutoring-nord-anglia-geneva"
+        "it": "insegnante-di-coro-dopo-scuola-insegnante-nord-anglia-education-switzerland-geneva",
+        "de": "chorlehrer-nachschulunterricht-nord-anglia-education-switzerland-geneva",
+        "fr": "professeur-de-chorale-tutorat-extrascolaire-nord-anglia-education-switzerland-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -455,7 +455,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:30:08.597Z"
+      "firstSeenAt": "2026-10-28T09:30:08.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "choir-teacher-after-school-tutoring-nord-anglia-geneva"
+        ],
+        "de": [
+          "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
+        ],
+        "fr": [
+          "choir-teacher-after-school-tutoring-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "choir-teacher-after-school-tutoring-nord-anglia-geneva",
+        "choir-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
+      ]
     },
     {
       "id": "nord-anglia-b5d8acd346ac",
@@ -464,7 +479,7 @@
         "en": "regional-people-culture-director-europe-nord-anglia-lausanne",
         "it": "regional-people-culture-director-europe-nord-anglia-lausanne",
         "de": "regional-people-culture-director-europe-nord-anglia-lausanne",
-        "fr": "regional-people-culture-director-europe-nord-anglia-lausanne"
+        "fr": "directeur-regional-personnes-culture-europe-nord-anglia-education-switzerland-lausanne"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -528,11 +543,11 @@
     },
     {
       "id": "nord-anglia-dad4a0e6017c",
-      "slug": "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
+      "slug": "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
-        "it": "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
-        "de": "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva",
+        "it": "insegnante-di-francese-lezioni-di-supporto-nord-anglia-education-switzerland-geneva",
+        "de": "franzosischlehrer-in-nachhilfeunterricht-nord-anglia-education-switzerland-geneva",
         "fr": "professeur-e-de-francais-cours-de-soutien-nord-anglia-education-switzerland-geneve"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -594,7 +609,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:30:06.863Z"
+      "firstSeenAt": "2026-10-28T09:30:06.863Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva"
+        ],
+        "de": [
+          "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "professeur-e-de-francais-cours-de-soutien-nord-anglia-geneva"
+      ]
     },
     {
       "id": "nord-anglia-cbb1e87a43f0",
@@ -1065,7 +1091,7 @@
       "slugByLocale": {
         "it": "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
         "en": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne",
+        "de": "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
         "fr": "enseignant-principal-remplacement-de-la-maternite-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -1114,7 +1140,7 @@
       "previousSlugs": [
         "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
         "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
+        "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1122,7 +1148,7 @@
         ],
         "de": [
           "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-          "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
+          "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:21.946Z",

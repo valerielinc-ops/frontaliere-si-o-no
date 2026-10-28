@@ -2814,8 +2814,8 @@
       "slugByLocale": {
         "de": "leistungsspezialist-in-leistungsprufung-mit-franzosisch-oder-italienischkenntnissen-100",
         "it": "leistungsspezialist-in-leistungsprufung-con-franzosisch-o-italienischkenntnissen-100-concordia-luzern",
-        "en": "leistungsspezialist-in-leistungsprufung-mit-franzosisch-oder-italienischkenntnissen-100",
-        "fr": "leistungsspezialist-in-leistungsprufung-mit-franzosisch-oder-italienischkenntnissen-100"
+        "en": "benefits-specialist-claims-assessment-with-french-or-italian-language-skills-100-concordia-luzern",
+        "fr": "specialiste-des-prestations-controle-des-prestations-avec-des-connaissances-en-francais-ou-en-italien-100-concordia"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -2863,6 +2863,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leistungsspezialist-in-leistungsprufung-mit-franzosisch-oder-italienischkenntnissen-100"
+        ],
+        "en": [
+          "leistungsspezialist-in-leistungsprufung-mit-franzosisch-oder-italienischkenntnissen-100"
+        ],
+        "fr": [
           "leistungsspezialist-in-leistungsprufung-mit-franzosisch-oder-italienischkenntnissen-100"
         ]
       },
@@ -2960,12 +2966,12 @@
     },
     {
       "id": "concordia-355ea664b537",
-      "slug": "it-application-manager-in-80-100-concordia-luzern",
+      "slug": "responsabile-delle-applicazioni-it-80-100-concordia-luzern",
       "slugByLocale": {
         "de": "it-application-manager-in-80-100-concordia-luzern",
-        "it": "it-application-manager-in-80-100-concordia-luzern",
+        "it": "responsabile-delle-applicazioni-it-80-100-concordia-luzern",
         "en": "it-application-manager-in-80-100-concordia-luzern",
-        "fr": "it-application-manager-in-80-100-concordia-luzern"
+        "fr": "gestionnaire-d-applications-informatiques-80-100-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3024,16 +3030,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:14:06.705Z"
+      "firstSeenAt": "2026-10-28T09:14:06.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-application-manager-in-80-100-concordia-luzern"
+        ],
+        "fr": [
+          "it-application-manager-in-80-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "it-application-manager-in-80-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-bf5dcd6f007b",
-      "slug": "kundenberater-in-80-100-in-kloten-concordia-kloten",
+      "slug": "consulente-alla-clientela-80-100-a-kloten-concordia-kloten",
       "slugByLocale": {
         "de": "kundenberater-in-80-100-in-kloten-concordia-kloten",
-        "it": "kundenberater-in-80-100-in-kloten-concordia-kloten",
-        "en": "kundenberater-in-80-100-in-kloten-concordia-kloten",
-        "fr": "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        "it": "consulente-alla-clientela-80-100-a-kloten-concordia-kloten",
+        "en": "customer-advisor-80-100-in-kloten-concordia-kloten",
+        "fr": "conseiller-conseillere-a-la-clientele-80-100-a-kloten-concordia-kloten"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3092,16 +3109,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:14:06.273Z"
+      "firstSeenAt": "2026-10-28T09:14:06.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        ],
+        "en": [
+          "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        ],
+        "fr": [
+          "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-80-100-in-kloten-concordia-kloten"
+      ]
     },
     {
       "id": "concordia-7abbbdae5d9c",
-      "slug": "kundenberater-in-100-in-frick-concordia-frick",
+      "slug": "consulente-alla-clientela-100-a-frick-concordia-frick",
       "slugByLocale": {
         "de": "kundenberater-in-100-in-frick-concordia-frick",
-        "it": "kundenberater-in-100-in-frick-concordia-frick",
-        "en": "kundenberater-in-100-in-frick-concordia-frick",
-        "fr": "kundenberater-in-100-in-frick-concordia-frick"
+        "it": "consulente-alla-clientela-100-a-frick-concordia-frick",
+        "en": "customer-advisor-100-in-frick-concordia-frick",
+        "fr": "conseiller-conseillere-a-la-clientele-100-a-frick-concordia-frick"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3160,16 +3191,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:14:05.760Z"
+      "firstSeenAt": "2026-10-28T09:14:05.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-100-in-frick-concordia-frick"
+        ],
+        "en": [
+          "kundenberater-in-100-in-frick-concordia-frick"
+        ],
+        "fr": [
+          "kundenberater-in-100-in-frick-concordia-frick"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-100-in-frick-concordia-frick"
+      ]
     },
     {
       "id": "concordia-3d44acc5d36a",
-      "slug": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
+      "slug": "consulente-assicurativo-a-100-a-lenzburg-concordia-lenzburg",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
-        "it": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
-        "en": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
-        "fr": "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+        "it": "consulente-assicurativo-a-100-a-lenzburg-concordia-lenzburg",
+        "en": "insurance-advisor-100-in-lenzburg-concordia-lenzburg",
+        "fr": "conseiller-ere-en-assurances-100-a-lenzburg-concordia-lenzburg"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3228,7 +3273,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:14:05.245Z"
+      "firstSeenAt": "2026-10-28T09:14:05.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+        ],
+        "en": [
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+        ],
+        "fr": [
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg"
+      ]
     }
   ]
 }

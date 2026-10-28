@@ -2069,12 +2069,12 @@
     },
     {
       "id": "sonarsource-1c5213613180",
-      "slug": "account-executive-emea-east-sonarsource-ch",
+      "slug": "responsabile-clienti-emea-est-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "account-executive-emea-east-sonarsource-ch",
-        "it": "account-executive-emea-east-sonarsource-ch",
-        "de": "account-executive-emea-east-sonarsource-ch",
-        "fr": "account-executive-emea-east-sonarsource-ch"
+        "it": "responsabile-clienti-emea-est-sonarsource-sonar-geneva",
+        "de": "kontofuhrung-emea-east-sonarsource-sonar-geneva",
+        "fr": "responsable-de-compte-emea-est-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -2132,7 +2132,21 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-10-28T09:30:08.133Z"
+      "firstSeenAt": "2026-10-28T09:30:08.133Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-executive-emea-east-sonarsource-ch"
+        ],
+        "de": [
+          "account-executive-emea-east-sonarsource-ch"
+        ],
+        "fr": [
+          "account-executive-emea-east-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-executive-emea-east-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-fa61009f7838",

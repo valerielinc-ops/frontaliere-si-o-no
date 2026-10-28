@@ -3322,12 +3322,12 @@
     },
     {
       "id": "css-versicherung-74b6e40afd09",
-      "slug": "initiativbewerbung-kundenberater-in-per-privatkunden-olten-80-100-css-versicherung-olten",
+      "slug": "candidatura-spontanea-come-consulente-alla-clientela-privata-olten-80-100-css-versicherung-olten",
       "slugByLocale": {
         "de": "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten",
-        "it": "initiativbewerbung-kundenberater-in-per-privatkunden-olten-80-100-css-versicherung-olten",
-        "en": "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten",
-        "fr": "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten"
+        "it": "candidatura-spontanea-come-consulente-alla-clientela-privata-olten-80-100-css-versicherung-olten",
+        "en": "unsolicited-application-for-customer-advisor-for-private-customers-olten-80-100-css-versicherung-olten",
+        "fr": "candidature-spontanee-conseiller-ere-a-la-clientele-privee-a-olten-80-100-css-versicherung-olten"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3375,11 +3375,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten",
+          "initiativbewerbung-kundenberater-in-per-privatkunden-olten-80-100-css-versicherung-olten"
+        ],
+        "en": [
+          "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten"
+        ],
+        "fr": [
           "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten"
         ]
       },
       "previousSlugs": [
-        "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten"
+        "initiativbewerbung-kundenberater-in-fur-privatkunden-olten-80-100-css-versicherung-olten",
+        "initiativbewerbung-kundenberater-in-per-privatkunden-olten-80-100-css-versicherung-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3480,7 +3488,7 @@
         "it": "dati-del-controller-finanziario-bi-m-f-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
         "de": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "fr": "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
+        "fr": "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3526,7 +3534,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+        "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3534,7 +3542,7 @@
         ],
         "fr": [
           "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-          "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
+          "financial-controller-data-bi-m-w-d-80-90-css-versicherung-luzern-hybrid"
         ]
       },
       "firstSeenAt": "2026-10-22T09:36:32.945Z",

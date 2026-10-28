@@ -257,12 +257,12 @@
     },
     {
       "id": "amina-bank-6dc97b03283f",
-      "slug": "relationship-manager-b2b2c-amina-bank-zug",
+      "slug": "responsabile-relazioni-b2b2c-amina-bank-zug",
       "slugByLocale": {
-        "it": "relationship-manager-b2b2c-amina-bank-zug",
+        "it": "responsabile-relazioni-b2b2c-amina-bank-zug",
         "en": "relationship-manager-b2b2c-amina-bank-zug",
-        "de": "relationship-manager-b2b2c-amina-bank-zug",
-        "fr": "relationship-manager-b2b2c-amina-bank-zug"
+        "de": "beziehungsmanager-b2b2c-amina-bank-zug",
+        "fr": "gestionnaire-de-relations-b2b2c-amina-bank-zug"
       },
       "company": "AMINA Bank",
       "companyKey": "amina-bank",
@@ -306,20 +306,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "executive-director-b2b-sales-amina-bank-zug"
+          "executive-director-b2b-sales-amina-bank-zug",
+          "relationship-manager-b2b2c-amina-bank-zug"
         ],
         "de": [
-          "executive-director-b2b-sales-amina-bank-zug"
+          "executive-director-b2b-sales-amina-bank-zug",
+          "relationship-manager-b2b2c-amina-bank-zug"
         ],
         "fr": [
-          "executive-director-b2b-sales-amina-bank-zug"
+          "executive-director-b2b-sales-amina-bank-zug",
+          "relationship-manager-b2b2c-amina-bank-zug"
         ],
         "en": [
           "executive-director-b2b-sales-amina-bank-zug"
         ]
       },
       "previousSlugs": [
-        "executive-director-b2b-sales-amina-bank-zug"
+        "executive-director-b2b-sales-amina-bank-zug",
+        "relationship-manager-b2b2c-amina-bank-zug"
       ],
       "firstSeenAt": "2026-07-03T21:21:14.959Z",
       "salaryMin": 96000,

@@ -1993,12 +1993,12 @@
     },
     {
       "id": "vontobel-dadfb039ac59",
-      "slug": "senior-client-associate-vontobel-ch",
+      "slug": "client-anziano-vontobel-zurich-splugenstrasse-5",
       "slugByLocale": {
         "en": "senior-client-associate-vontobel-ch",
-        "it": "senior-client-associate-vontobel-ch",
-        "de": "senior-client-associate-vontobel-ch",
-        "fr": "senior-client-associate-vontobel-ch"
+        "it": "client-anziano-vontobel-zurich-splugenstrasse-5",
+        "de": "senior-kundenbetreuer-vontobel-zurich-splugenstrasse-5",
+        "fr": "client-principal-associe-vontobel-zurich-splugenstrasse-5"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -2057,7 +2057,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-28T09:38:58.750Z"
+      "firstSeenAt": "2026-10-28T09:38:58.750Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-client-associate-vontobel-ch"
+        ],
+        "de": [
+          "senior-client-associate-vontobel-ch"
+        ],
+        "fr": [
+          "senior-client-associate-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-client-associate-vontobel-ch"
+      ]
     }
   ]
 }

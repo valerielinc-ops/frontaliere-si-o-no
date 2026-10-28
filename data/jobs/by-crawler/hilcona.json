@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hilcona-7ca2dad79e5a",
-      "slug": "sprachcoach-deutsch-englisch-hilcona-zell",
+      "slug": "language-coach-tedesco-inglese-bell-schweiz-ag-zell",
       "slugByLocale": {
         "de": "sprachcoach-deutsch-englisch-hilcona-zell",
-        "it": "sprachcoach-deutsch-englisch-hilcona-zell",
-        "en": "sprachcoach-deutsch-englisch-hilcona-zell",
-        "fr": "sprachcoach-deutsch-englisch-hilcona-zell"
+        "it": "language-coach-tedesco-inglese-bell-schweiz-ag-zell",
+        "en": "language-coach-german-english-bell-schweiz-ag-zell",
+        "fr": "entraineur-de-langue-allemand-anglais-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -65,16 +65,30 @@
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/sprachcoach-deutsch-englisch-5455",
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-28T09:32:28.722Z"
+      "firstSeenAt": "2026-10-28T09:32:28.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sprachcoach-deutsch-englisch-hilcona-zell"
+        ],
+        "en": [
+          "sprachcoach-deutsch-englisch-hilcona-zell"
+        ],
+        "fr": [
+          "sprachcoach-deutsch-englisch-hilcona-zell"
+        ]
+      },
+      "previousSlugs": [
+        "sprachcoach-deutsch-englisch-hilcona-zell"
+      ]
     },
     {
       "id": "hilcona-1147b2a405df",
-      "slug": "ict-supporter-hilcona-oensingen",
+      "slug": "specialista-del-supporto-ict-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "ict-supporter-hilcona-oensingen",
-        "it": "ict-supporter-hilcona-oensingen",
-        "en": "ict-supporter-hilcona-oensingen",
-        "fr": "ict-supporter-hilcona-oensingen"
+        "it": "specialista-del-supporto-ict-bell-schweiz-ag-oensingen",
+        "en": "ict-support-specialist-bell-schweiz-ag-oensingen",
+        "fr": "technicien-support-informatique-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -129,7 +143,21 @@
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/ict-supporter-5454",
       "addressRegion": "SO",
-      "firstSeenAt": "2026-10-28T09:32:28.329Z"
+      "firstSeenAt": "2026-10-28T09:32:28.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-hilcona-oensingen"
+        ],
+        "en": [
+          "ict-supporter-hilcona-oensingen"
+        ],
+        "fr": [
+          "ict-supporter-hilcona-oensingen"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-hilcona-oensingen"
+      ]
     },
     {
       "id": "hilcona-1f1c3e1049b3",
@@ -214,7 +242,7 @@
         "it": "ict-system-ingegnere-bell-schweiz-ag-basel",
         "en": "ict-system-engineer-bell-schweiz-ag-basel",
         "de": "ict-system-engineer-hilcona-basel",
-        "fr": "ict-system-engineer-hilcona-basel"
+        "fr": "ingenieur-systemes-ict-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -257,6 +285,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ict-system-engineer-hilcona-basel"
+        ],
+        "fr": [
           "ict-system-engineer-hilcona-basel"
         ]
       },

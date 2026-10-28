@@ -793,12 +793,12 @@
     },
     {
       "id": "spitex-ch-15877ec7f702",
-      "slug": "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur",
+      "slug": "infermiera-hf-fh-80-spitex-spitex-stadt-winterthur-winterthur",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur",
-        "it": "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur",
-        "en": "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur",
-        "fr": "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur"
+        "it": "infermiera-hf-fh-80-spitex-spitex-stadt-winterthur-winterthur",
+        "en": "dipl-nurse-hf-fh-80-spitex-spitex-stadt-winterthur-winterthur",
+        "fr": "infirmiere-diplomee-hf-fh-80-spitex-spitex-stadt-winterthur-winterthur"
       },
       "company": "Spitex Stadt Winterthur",
       "companyKey": "spitex-ch",
@@ -857,16 +857,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:28:27.107Z"
+      "firstSeenAt": "2026-10-28T09:28:27.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-80-spitex-spitex-ch-winterthur"
+      ]
     },
     {
       "id": "spitex-ch-5e44785de4ea",
-      "slug": "collaboratore-trice-in-kundendienst-m-w-d-spitex-rebeno-ag-zollikofen",
+      "slug": "addetto-a-al-servizio-clienti-m-f-d-spitex-rebeno-ag-zollikofen",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen",
-        "it": "collaboratore-trice-in-kundendienst-m-w-d-spitex-rebeno-ag-zollikofen",
-        "en": "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen",
-        "fr": "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen"
+        "it": "addetto-a-al-servizio-clienti-m-f-d-spitex-rebeno-ag-zollikofen",
+        "en": "customer-service-representative-m-f-d-spitex-rebeno-ag-zollikofen",
+        "fr": "employe-e-du-service-clientele-h-f-d-spitex-rebeno-ag-zollikofen"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -914,11 +928,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen",
+          "collaboratore-trice-in-kundendienst-m-w-d-spitex-rebeno-ag-zollikofen"
+        ],
+        "en": [
+          "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen"
+        ],
+        "fr": [
           "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen"
+        "mitarbeiter-in-kundendienst-m-w-d-spitex-ch-zollikofen",
+        "collaboratore-trice-in-kundendienst-m-w-d-spitex-rebeno-ag-zollikofen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -937,12 +959,12 @@
     },
     {
       "id": "spitex-ch-e4002a58ac87",
-      "slug": "bildungsverantwortliche-r-e-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex-glattal-dietlikon",
+      "slug": "responsabile-della-formazione-e-responsabile-specialistico-a-delle-cure-infermieristiche-direzione-del-servizio",
       "slugByLocale": {
         "de": "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex",
-        "it": "bildungsverantwortliche-r-e-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex-glattal-dietlikon",
-        "en": "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex",
-        "fr": "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex"
+        "it": "responsabile-della-formazione-e-responsabile-specialistico-a-delle-cure-infermieristiche-direzione-del-servizio",
+        "en": "education-responsible-r-and-specialist-responsible-r-care-maintenance-service-100-spitex-glattal-dietlikon",
+        "fr": "education-responsable-r-et-specialiste-responsable-r-soins-service-d-entretien-100-spitex-glattal-dietlikon"
       },
       "company": "Spitex Glattal",
       "companyKey": "spitex-ch",
@@ -991,11 +1013,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex",
+          "bildungsverantwortliche-r-e-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex-glattal-dietlikon"
+        ],
+        "en": [
+          "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex"
+        ],
+        "fr": [
           "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex"
         ]
       },
       "previousSlugs": [
-        "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex"
+        "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex",
+        "bildungsverantwortliche-r-e-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex-glattal-dietlikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1014,12 +1044,12 @@
     },
     {
       "id": "spitex-ch-eb9830378051",
-      "slug": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
+      "slug": "operatrice-operatore-sociosanitario-fage-efz-nel-servizio-notturno-rotes-kreuz-baselland-liestal",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
-        "it": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
-        "en": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal",
-        "fr": "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        "it": "operatrice-operatore-sociosanitario-fage-efz-nel-servizio-notturno-rotes-kreuz-baselland-liestal",
+        "en": "professional-health-fage-efz-on-night-duty-rotes-kreuz-baselland-liestal",
+        "fr": "sante-professionnelle-fage-efz-en-service-de-nuit-rotes-kreuz-baselland-liestal"
       },
       "company": "Rotes Kreuz Baselland",
       "companyKey": "spitex-ch",
@@ -1078,16 +1108,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:38.941Z"
+      "firstSeenAt": "2026-10-01T09:15:38.941Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-efz-im-nachtdienst-spitex-ch-liestal"
+      ]
     },
     {
       "id": "spitex-ch-e8bfac2bd5e1",
-      "slug": "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau",
+      "slug": "team-leader-care-housekeeping-hf-dn-ii-akp-spitex-pfaffnau-roggliswil-altburon-pfaffnau",
       "slugByLocale": {
         "de": "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau",
-        "it": "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau",
+        "it": "team-leader-care-housekeeping-hf-dn-ii-akp-spitex-pfaffnau-roggliswil-altburon-pfaffnau",
         "en": "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau",
-        "fr": "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau"
+        "fr": "soins-aux-chefs-d-equipe-menage-hf-dn-ii-akp-spitex-pfaffnau-roggliswil-altburon-pfaffnau"
       },
       "company": "Spitex Pfaffnau-Roggliswil-Altbüron",
       "companyKey": "spitex-ch",
@@ -1146,7 +1190,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:28:24.241Z"
+      "firstSeenAt": "2026-10-28T09:28:24.241Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau"
+        ],
+        "fr": [
+          "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-pflege-hauswirtschaft-hf-dn-ii-akp-spitex-ch-pfaffnau"
+      ]
     },
     {
       "id": "spitex-ch-33b8bd381727",
@@ -1543,12 +1598,12 @@
     },
     {
       "id": "spitex-ch-6584a81d1e87",
-      "slug": "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
+      "slug": "benvenuti-a-rebeno-spitex-rebeno-ag-zollikofen",
       "slugByLocale": {
         "de": "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
-        "it": "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
-        "en": "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen",
-        "fr": "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
+        "it": "benvenuti-a-rebeno-spitex-rebeno-ag-zollikofen",
+        "en": "welcome-to-rebeno-spitex-rebeno-ag-zollikofen",
+        "fr": "bienvenue-a-rebeno-spitex-rebeno-ag-zollikofen"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -1607,7 +1662,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:28:20.567Z"
+      "firstSeenAt": "2026-10-28T09:28:20.567Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
+        ],
+        "en": [
+          "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
+        ],
+        "fr": [
+          "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "herzlich-willkommen-bei-rebeno-spitex-ch-zollikofen"
+      ]
     },
     {
       "id": "spitex-ch-d6a5ae371a19",

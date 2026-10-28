@@ -917,12 +917,12 @@
     },
     {
       "id": "imad-f1b946a75101",
-      "slug": "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier",
+      "slug": "programmatore-di-sistema-analyst-web-application-development-business-solutions-service-digital-and-information-systems",
       "slugByLocale": {
         "fr": "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier",
-        "it": "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier",
-        "en": "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier",
-        "de": "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier"
+        "it": "programmatore-di-sistema-analyst-web-application-development-business-solutions-service-digital-and-information-systems",
+        "en": "system-programmer-analyst-web-application-development-business-solutions-service-digital-and-information-systems",
+        "de": "system-programmer-analyst-web-application-development-business-solutions-service-direktion-digitale-und"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -981,7 +981,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-28T09:21:38.659Z"
+      "firstSeenAt": "2026-10-28T09:21:38.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier"
+        ],
+        "en": [
+          "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier"
+        ],
+        "de": [
+          "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier"
+        ]
+      },
+      "previousSlugs": [
+        "analyste-programmeur-de-systeme-developpement-web-applicatif-service-solutions-metier"
+      ]
     }
   ]
 }

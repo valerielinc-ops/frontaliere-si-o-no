@@ -10032,7 +10032,7 @@
         "it": "scienziato-senior-qc-lonza-visp",
         "en": "senior-scientist-qc-lonza-visp",
         "de": "senior-scientist-qc-lonza-ch",
-        "fr": "scientifique-senior-controle-qualite-lonza-visp"
+        "fr": "chercheur-principal-qc-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -10076,7 +10076,7 @@
       "jobReqId": "R79913",
       "previousSlugs": [
         "senior-scientist-qc-lonza-ch",
-        "chercheur-principal-qc-lonza-visp"
+        "scientifique-senior-controle-qualite-lonza-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10084,7 +10084,7 @@
         ],
         "fr": [
           "senior-scientist-qc-lonza-ch",
-          "chercheur-principal-qc-lonza-visp"
+          "scientifique-senior-controle-qualite-lonza-visp"
         ]
       },
       "firstSeenAt": "2026-09-01T14:27:30.004Z",
@@ -13666,10 +13666,10 @@
       "id": "lonza-f22b92697afe",
       "slug": "associate-direttore-treasury-lonza-basel",
       "slugByLocale": {
-        "it": "associate-direttore-treasury-lonza-basel",
+        "it": "tesoriere-aggiunto-lonza-basel",
         "en": "deputy-treasurer-lonza-ch",
-        "de": "associate-direktor-treasury-lonza-basel",
-        "fr": "associate-directeur-treasury-lonza-basel"
+        "de": "stellvertretender-schatzmeister-lonza-basel",
+        "fr": "tresorier-adjoint-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13714,16 +13714,15 @@
       "previousSlugsByLocale": {
         "it": [
           "deputy-treasurer-lonza-ch",
-          "associate-director-treasury-lonza-ch",
-          "tesoriere-aggiunto-lonza-basel"
+          "associate-director-treasury-lonza-ch"
         ],
         "de": [
           "deputy-treasurer-lonza-ch",
-          "stellvertretender-schatzmeister-lonza-basel"
+          "associate-direktor-treasury-lonza-basel"
         ],
         "fr": [
           "deputy-treasurer-lonza-ch",
-          "tresorier-adjoint-lonza-basel"
+          "associate-directeur-treasury-lonza-basel"
         ],
         "en": [
           "associate-director-treasury-lonza-ch"
@@ -13732,9 +13731,8 @@
       "previousSlugs": [
         "deputy-treasurer-lonza-ch",
         "associate-director-treasury-lonza-ch",
-        "tesoriere-aggiunto-lonza-basel",
-        "stellvertretender-schatzmeister-lonza-basel",
-        "tresorier-adjoint-lonza-basel"
+        "associate-direktor-treasury-lonza-basel",
+        "associate-directeur-treasury-lonza-basel"
       ],
       "firstSeenAt": "2026-10-07T21:18:41.409Z",
       "salaryMin": 85500,
@@ -14468,8 +14466,8 @@
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-konstruktionstechnik-80-100-m-w-d-lonza-ch",
         "it": "anlagen-e-apparatebauer-konstruktionstechnik-80-100-m-w-d-lonza-visp",
-        "en": "anlagen-und-apparatebauer-konstruktionstechnik-80-100-m-w-d-lonza-ch",
-        "fr": "anlagen-und-apparatebauer-konstruktionstechnik-80-100-m-w-d-lonza-ch"
+        "en": "plant-and-apparatus-manufacturer-design-technology-80-100-m-f-d-lonza-visp",
+        "fr": "fabricant-d-installations-et-d-appareils-technologie-de-conception-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14515,6 +14513,12 @@
       "jobReqId": "R79946",
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebauer-konstruktionstechnik-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-konstruktionstechnik-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-konstruktionstechnik-80-100-m-w-d-lonza-ch"
         ]
       },
@@ -14621,7 +14625,7 @@
         "de": "senior-chemist-development-drug-linker-80-100-m-w-d-lonza-ch",
         "it": "senior-chemist-development-drug-linker-80-100-m-w-d-lonza-ch",
         "en": "senior-chemist-development-drug-linker-80-100-m-w-d-lonza-ch",
-        "fr": "senior-chemist-development-drug-linker-80-100-m-w-d-lonza-ch"
+        "fr": "liens-de-medicaments-de-developpement-chimiste-senior-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",

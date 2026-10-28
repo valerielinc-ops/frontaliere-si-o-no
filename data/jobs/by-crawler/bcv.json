@@ -2860,10 +2860,10 @@
     },
     {
       "id": "bcv-0bb763e15593",
-      "slug": "hr-business-partner-80-bcv-lausanne",
+      "slug": "risorse-umane-business-partner-80-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "hr-business-partner-80-bcv-lausanne",
-        "it": "hr-business-partner-80-bcv-lausanne",
+        "it": "risorse-umane-business-partner-80-banque-cantonale-vaudoise-lausanne",
         "en": "hr-business-partner-80-bcv-lausanne",
         "de": "hr-business-partner-80-bcv-lausanne"
       },
@@ -2925,7 +2925,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:15:14.000Z"
+      "firstSeenAt": "2026-10-28T09:15:14.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partner-80-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-partner-80-bcv-lausanne"
+      ]
     }
   ]
 }

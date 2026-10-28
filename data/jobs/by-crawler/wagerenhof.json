@@ -188,12 +188,12 @@
     },
     {
       "id": "wagerenhof-26f9400bd58e",
-      "slug": "fachperson-betreuung-fabe-per-la-wohngemeinschaft-seestern-con-erhohtem-betreuungsbedarf-80-stiftung-wagerenhof-uster",
+      "slug": "operatore-trice-socioassistenziale-fabe-per-la-comunita-abitativa-seestern-con-un-elevato-fabbisogno-di-assistenza-80",
       "slugByLocale": {
         "de": "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf",
-        "it": "fachperson-betreuung-fabe-per-la-wohngemeinschaft-seestern-con-erhohtem-betreuungsbedarf-80-stiftung-wagerenhof-uster",
-        "en": "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf",
-        "fr": "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf"
+        "it": "operatore-trice-socioassistenziale-fabe-per-la-comunita-abitativa-seestern-con-un-elevato-fabbisogno-di-assistenza-80",
+        "en": "specialist-care-fabe-for-the-residential-community-of-sea-stars-with-increased-need-for-care-80-stiftung-wagerenhof",
+        "fr": "soins-specialises-fabe-pour-la-communaute-residentielle-des-etoiles-de-mer-avec-un-besoin-accru-de-soins-80-stiftung"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -240,11 +240,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf",
+          "fachperson-betreuung-fabe-per-la-wohngemeinschaft-seestern-con-erhohtem-betreuungsbedarf-80-stiftung-wagerenhof-uster"
+        ],
+        "en": [
+          "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf"
+        ],
+        "fr": [
           "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf"
         ]
       },
       "previousSlugs": [
-        "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf"
+        "fachperson-betreuung-fabe-fur-die-wohngemeinschaft-seestern-mit-erhohtem-betreuungsbedarf",
+        "fachperson-betreuung-fabe-per-la-wohngemeinschaft-seestern-con-erhohtem-betreuungsbedarf-80-stiftung-wagerenhof-uster"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -351,9 +359,9 @@
     },
     {
       "id": "wagerenhof-f76a55e10f93",
-      "slug": "infermiera-e-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
+      "slug": "infermiere-a-diplomato-a-hf-dn-ii-akp-50-100-stiftung-wagerenhof-uster",
       "slugByLocale": {
-        "it": "infermiera-e-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
+        "it": "infermiere-a-diplomato-a-hf-dn-ii-akp-50-100-stiftung-wagerenhof-uster",
         "en": "registered-nurse-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
         "de": "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster",
         "fr": "infirmier-iere-diplome-e-es-dn-ii-akp-50-stiftung-wagerenhof-uster"
@@ -402,13 +410,15 @@
       "previousSlugs": [
         "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster",
         "pflegefachfrau-mann-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
-        "pflegefachfrau-mann-hf-dn-ii-akp-50-100-wagerenhof-uster"
+        "pflegefachfrau-mann-hf-dn-ii-akp-50-100-wagerenhof-uster",
+        "infermiera-e-hf-dn-ii-akp-50-stiftung-wagerenhof-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster",
           "pflegefachfrau-mann-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
-          "pflegefachfrau-mann-hf-dn-ii-akp-50-100-wagerenhof-uster"
+          "pflegefachfrau-mann-hf-dn-ii-akp-50-100-wagerenhof-uster",
+          "infermiera-e-hf-dn-ii-akp-50-stiftung-wagerenhof-uster"
         ],
         "en": [
           "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster"

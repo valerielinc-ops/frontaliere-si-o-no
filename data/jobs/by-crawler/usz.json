@@ -16348,12 +16348,12 @@
     },
     {
       "id": "usz-a4ed74c2ed08",
-      "slug": "pflegefachperson-per-la-klinik-per-kardiologie-50-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-a-per-la-clinica-di-cardiologia-50-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch",
-        "it": "pflegefachperson-per-la-klinik-per-kardiologie-50-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch",
-        "fr": "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch"
+        "it": "infermiere-a-per-la-clinica-di-cardiologia-50-100-universitatsspital-zurich-usz-zurich",
+        "en": "nurse-for-the-clinic-of-cardiology-50-100-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmiere-de-la-clinique-de-cardiologie-50-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16400,11 +16400,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch",
+          "pflegefachperson-per-la-klinik-per-kardiologie-50-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch"
+        "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch",
+        "pflegefachperson-per-la-klinik-per-kardiologie-50-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16423,12 +16431,12 @@
     },
     {
       "id": "usz-f74986dd484e",
-      "slug": "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-a-per-la-clinica-di-traumatologia-50-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
-        "it": "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
-        "fr": "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        "it": "infermiere-a-per-la-clinica-di-traumatologia-50-100-universitatsspital-zurich-usz-zurich",
+        "en": "nurse-for-the-clinic-of-traumatology-50-100-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmiere-de-la-clinique-de-traumatologie-50-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16475,11 +16483,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
+          "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch"
+        "pflegefachperson-fur-die-klinik-fur-traumatologie-50-100-usz-ch",
+        "pflegefachperson-per-la-klinik-per-traumatologie-50-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

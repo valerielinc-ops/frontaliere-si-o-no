@@ -12546,12 +12546,12 @@
     },
     {
       "id": "ottos-03fe18ea7619",
-      "slug": "filialleiter-in-aspirant-otto-s-ag-littau",
+      "slug": "aspirante-responsabile-di-filiale-otto-s-ag-littau",
       "slugByLocale": {
         "de": "filialleiter-in-aspirant-ottos-littau",
-        "it": "filialleiter-in-aspirant-otto-s-ag-littau",
-        "en": "filialleiter-in-aspirant-otto-s-ag-littau",
-        "fr": "filialleiter-in-aspirant-otto-s-ag-littau"
+        "it": "aspirante-responsabile-di-filiale-otto-s-ag-littau",
+        "en": "branch-manager-trainee-otto-s-ag-littau",
+        "fr": "aspirant-e-responsable-de-filiale-otto-s-ag-littau"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -12603,11 +12603,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-aspirant-ottos-littau"
+          "filialleiter-in-aspirant-ottos-littau",
+          "filialleiter-in-aspirant-otto-s-ag-littau"
+        ],
+        "en": [
+          "filialleiter-in-aspirant-otto-s-ag-littau"
+        ],
+        "fr": [
+          "filialleiter-in-aspirant-otto-s-ag-littau"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-aspirant-ottos-littau"
+        "filialleiter-in-aspirant-ottos-littau",
+        "filialleiter-in-aspirant-otto-s-ag-littau"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

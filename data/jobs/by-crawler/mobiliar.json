@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-8bab5ca2a50f",
-      "slug": "sachbearbeiter-kundendienst-private-previdenza-m-w-d-die-mobiliar-nyon",
+      "slug": "addetto-a-al-servizio-clienti-previdenza-privata-m-f-d-die-mobiliar-nyon",
       "slugByLocale": {
         "de": "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch",
-        "it": "sachbearbeiter-kundendienst-private-previdenza-m-w-d-die-mobiliar-nyon",
-        "en": "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch",
-        "fr": "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch"
+        "it": "addetto-a-al-servizio-clienti-previdenza-privata-m-f-d-die-mobiliar-nyon",
+        "en": "personnel-customer-service-private-provision-m-f-d-die-mobiliar-nyon",
+        "fr": "personnel-service-a-la-clientele-fourniture-privee-h-f-d-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -69,11 +69,19 @@
       "sfJobId": "1165692355",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch",
+          "sachbearbeiter-kundendienst-private-previdenza-m-w-d-die-mobiliar-nyon"
+        ],
+        "en": [
+          "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch"
+        "sachbearbeiter-kundendienst-private-vorsorge-w-m-d-mobiliar-ch",
+        "sachbearbeiter-kundendienst-private-previdenza-m-w-d-die-mobiliar-nyon"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -94,12 +102,12 @@
     },
     {
       "id": "mobiliar-2e8aab9aff8f",
-      "slug": "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch",
+      "slug": "assistenza-arena-kmu-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch",
-        "it": "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch",
-        "en": "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch",
-        "fr": "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch"
+        "it": "assistenza-arena-kmu-m-f-d-die-mobiliar-bern",
+        "en": "assistance-arena-kmu-m-f-d-die-mobiliar-bern",
+        "fr": "assistance-arena-kmu-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -179,19 +187,23 @@
       "previousSlugs": [
         "assistenza-arena-kmu-m-f-d-die-mobiliar-bern",
         "assistance-arena-kmu-m-f-d-die-mobiliar-bern",
-        "aide-arena-kmu-h-f-d-die-mobiliar-bern"
+        "aide-arena-kmu-h-f-d-die-mobiliar-bern",
+        "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenza-arena-kmu-m-f-d-die-mobiliar-bern",
           "assistance-arena-kmu-m-f-d-die-mobiliar-bern",
-          "aide-arena-kmu-h-f-d-die-mobiliar-bern"
+          "aide-arena-kmu-h-f-d-die-mobiliar-bern",
+          "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch"
         ],
         "en": [
-          "assistance-arena-kmu-m-f-d-die-mobiliar-bern"
+          "assistance-arena-kmu-m-f-d-die-mobiliar-bern",
+          "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "aide-arena-kmu-h-f-d-die-mobiliar-bern"
+          "aide-arena-kmu-h-f-d-die-mobiliar-bern",
+          "aushilfe-assistenz-arena-kmu-w-m-d-mobiliar-ch"
         ]
       }
     },
@@ -2308,7 +2320,7 @@
       "slug": "servizio-di-campo-esperto-di-veicoli-m-f-d-die-mobiliar-xpertcenter-ag",
       "slugByLocale": {
         "it": "servizio-di-campo-esperto-di-veicoli-m-f-d-die-mobiliar-xpertcenter-ag",
-        "en": "fahrzeugexperte-aussendienst-m-w-d-die-mobiliar-xpertcenter-ag",
+        "en": "vehicle-expert-field-service-m-f-d-die-mobiliar-xpertcenter-ag",
         "de": "fahrzeugexperte-aussendienst-w-m-d-mobiliar-ch",
         "fr": "service-sur-le-terrain-expert-du-vehicule-h-f-d-die-mobiliar-xpertcenter-ag"
       },
@@ -2372,7 +2384,7 @@
       "previousSlugs": [
         "fahrzeugexperte-aussendienst-w-m-d-mobiliar-ch",
         "fahrzeugexperte-aussendienst-w-m-d-die-mobiliar-xpertcenter-ag",
-        "vehicle-expert-field-service-m-f-d-die-mobiliar-xpertcenter-ag"
+        "fahrzeugexperte-aussendienst-m-w-d-die-mobiliar-xpertcenter-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2381,7 +2393,7 @@
         ],
         "en": [
           "fahrzeugexperte-aussendienst-w-m-d-die-mobiliar-xpertcenter-ag",
-          "vehicle-expert-field-service-m-f-d-die-mobiliar-xpertcenter-ag"
+          "fahrzeugexperte-aussendienst-m-w-d-die-mobiliar-xpertcenter-ag"
         ],
         "fr": [
           "fahrzeugexperte-aussendienst-w-m-d-die-mobiliar-xpertcenter-ag"
@@ -7261,9 +7273,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7327,17 +7339,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

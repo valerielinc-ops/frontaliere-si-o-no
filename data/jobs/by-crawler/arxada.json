@@ -645,8 +645,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-automatiker-arxada-ch",
         "it": "installatore-trice-elettrico-a-automatiker-arxada-visp",
-        "en": "elektroinstallateur-automatiker-arxada-visp",
-        "fr": "elektroinstallateur-automatiker-arxada-visp"
+        "en": "electrical-installer-automatic-operator-arxada-visp",
+        "fr": "installateur-electrique-operateur-automatique-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -693,10 +693,17 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-automatiker-arxada-ch"
+        ],
+        "en": [
+          "elektroinstallateur-automatiker-arxada-visp"
+        ],
+        "fr": [
+          "elektroinstallateur-automatiker-arxada-visp"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-automatiker-arxada-ch"
+        "elektroinstallateur-automatiker-arxada-ch",
+        "elektroinstallateur-automatiker-arxada-visp"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,

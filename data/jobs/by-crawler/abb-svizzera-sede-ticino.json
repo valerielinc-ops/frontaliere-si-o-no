@@ -1289,7 +1289,7 @@
     },
     {
       "id": "company-e412mz",
-      "slug": "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz",
+      "slug": "product-manager-digitale-abb-svizzera-sede-ticino-baden-aargau",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Product Manager Digital",
       "location": "Baden, Aargau",
@@ -1331,10 +1331,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz",
+        "it": "product-manager-digitale-abb-svizzera-sede-ticino-baden-aargau",
         "en": "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz",
-        "de": "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz",
-        "fr": "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz"
+        "de": "produktmanager-digital-abb-svizzera-sede-ticino-baden-aargau",
+        "fr": "gestionnaire-de-produits-numeriques-abb-svizzera-sede-ticino-baden-aargau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1348,11 +1348,19 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau"
+          "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau",
+          "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz"
+        ],
+        "de": [
+          "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz"
+        ],
+        "fr": [
+          "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz"
         ]
       },
       "previousSlugs": [
-        "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau"
+        "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau",
+        "product-manager-digital-abb-svizzera-sede-ticino-baden-aargau-e412mz"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,

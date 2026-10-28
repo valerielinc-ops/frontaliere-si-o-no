@@ -467,12 +467,12 @@
     },
     {
       "id": "pictet-20eba102f671",
-      "slug": "telephonist-pictet-group-geneva",
+      "slug": "telefonia-pictet-group-geneva",
       "slugByLocale": {
         "fr": "telephonist-pictet-geneva",
-        "it": "telephonist-pictet-group-geneva",
-        "en": "telephonist-pictet-geneva",
-        "de": "telephonist-pictet-geneva"
+        "it": "telefonia-pictet-group-geneva",
+        "en": "telephoneist-pictet-group-geneva",
+        "de": "telefonisten-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -519,11 +519,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "telephonist-pictet-geneva",
+          "telephonist-pictet-group-geneva"
+        ],
+        "en": [
+          "telephonist-pictet-geneva"
+        ],
+        "de": [
           "telephonist-pictet-geneva"
         ]
       },
       "previousSlugs": [
-        "telephonist-pictet-geneva"
+        "telephonist-pictet-geneva",
+        "telephonist-pictet-group-geneva"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,

@@ -6270,12 +6270,12 @@
     },
     {
       "id": "epfl-7842aea044e0",
-      "slug": "technician-for-the-lexplore-platform-epfl-lausanne",
+      "slug": "tecnico-per-la-piattaforma-lexplore-epfl-lausanne",
       "slugByLocale": {
         "en": "technician-for-the-lexplore-platform-epfl-lausanne",
-        "it": "technician-for-the-lexplore-platform-epfl-lausanne",
-        "de": "technician-for-the-lexplore-platform-epfl-lausanne",
-        "fr": "technician-for-the-lexplore-platform-epfl-lausanne"
+        "it": "tecnico-per-la-piattaforma-lexplore-epfl-lausanne",
+        "de": "techniker-fur-die-lexplore-plattform-epfl-lausanne",
+        "fr": "technicien-de-la-plateforme-lexplore-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6336,7 +6336,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-28T09:22:07.485Z"
+      "firstSeenAt": "2026-10-28T09:22:07.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-for-the-lexplore-platform-epfl-lausanne"
+        ],
+        "de": [
+          "technician-for-the-lexplore-platform-epfl-lausanne"
+        ],
+        "fr": [
+          "technician-for-the-lexplore-platform-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technician-for-the-lexplore-platform-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-bcd318dcf10b",

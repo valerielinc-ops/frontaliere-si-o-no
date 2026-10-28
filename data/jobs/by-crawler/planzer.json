@@ -729,12 +729,12 @@
     },
     {
       "id": "planzer-0db14fd43e2a",
-      "slug": "chauffeur-kat-c-ce-m-w-d-planzer-dintikon",
+      "slug": "chauffeur-cat-c-ce-m-f-d-planzer-dintikon",
       "slugByLocale": {
         "de": "chauffeur-kat-c-ce-m-w-d-planzer-dintikon",
-        "it": "chauffeur-kat-c-ce-m-w-d-planzer-dintikon",
+        "it": "chauffeur-cat-c-ce-m-f-d-planzer-dintikon",
         "en": "chauffeur-kat-c-ce-m-w-d-planzer-dintikon",
-        "fr": "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
+        "fr": "chauffeur-cat-c-ce-h-f-d-planzer-dintikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -794,7 +794,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:17:30.911Z"
+      "firstSeenAt": "2026-10-28T09:17:30.911Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
+        ],
+        "fr": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-ce-m-w-d-planzer-dintikon"
+      ]
     },
     {
       "id": "planzer-0af3bbdfee7e",

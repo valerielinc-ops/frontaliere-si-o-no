@@ -1137,7 +1137,7 @@
       "slugByLocale": {
         "it": "risorse-umane-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu7",
         "en": "hr-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu7",
-        "de": "personalwesen-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu7",
+        "de": "hr-business-partner-80-100-vor-ort-schweizer-uhrenmanufaktur-eta-sa-eta-sa-swatch-group-2540-grenchen",
         "fr": "hr-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu7"
       },
       "requirementsByLocale": {},
@@ -1145,10 +1145,14 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+        ],
+        "de": [
+          "personalwesen-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu7"
         ]
       },
       "previousSlugs": [
-        "hr-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+        "hr-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
+        "personalwesen-business-partner-80-100-sur-site-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu7"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1240,7 +1244,7 @@
     },
     {
       "id": "company-esyu6",
-      "slug": "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6",
+      "slug": "tecnico-tecnica-per-la-manutenzione-degli-impianti-tecnici-degli-edifici-in-sede-manufacture-horlogere-suisse-eta-sa-eta",
       "company": "ETA SA (Swatch Group)",
       "title": "FACHMANN/FACHFRAU INSTANDHALTUNG GEBÄUDETECHNIK - vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "2540 Grenchen",
@@ -1275,20 +1279,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6",
-        "en": "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6",
+        "it": "tecnico-tecnica-per-la-manutenzione-degli-impianti-tecnici-degli-edifici-in-sede-manufacture-horlogere-suisse-eta-sa-eta",
+        "en": "building-technology-maintenance-specialist-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen",
         "de": "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6",
-        "fr": "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6"
+        "fr": "specialiste-en-maintenance-de-la-technique-du-batiment-sur-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+          "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
+          "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6"
+        ],
+        "en": [
+          "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6"
+        ],
+        "fr": [
+          "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6"
         ]
       },
       "previousSlugs": [
-        "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+        "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
+        "fachmann-fachfrau-instandhaltung-gebaudetechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu6"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1414,19 +1426,26 @@
       },
       "slugByLocale": {
         "it": "risorse-umane-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu5",
-        "en": "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu5",
+        "en": "human-resources-business-partner-80-100-before-location-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540",
         "de": "personalwesen-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu5",
-        "fr": "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu5"
+        "fr": "ressources-humaines-partenaire-d-affaires-80-100-before-location-eta-sa-swatch-group-2540-grenchen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+        ],
+        "en": [
+          "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu5"
+        ],
+        "fr": [
+          "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu5"
         ]
       },
       "previousSlugs": [
-        "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+        "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
+        "hr-business-partner-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyu5"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

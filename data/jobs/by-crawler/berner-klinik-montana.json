@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "berner-klinik-montana-15179945cb12",
-      "slug": "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana",
+      "slug": "un-ufficiale-di-comunicazione-del-40-50-berner-klinik-montana-crans-montana",
       "slugByLocale": {
         "fr": "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana",
-        "it": "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana",
-        "en": "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana",
-        "de": "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana"
+        "it": "un-ufficiale-di-comunicazione-del-40-50-berner-klinik-montana-crans-montana",
+        "en": "a-40-50-communication-officer-berner-klinik-montana-crans-montana",
+        "de": "ein-40-50-kommunikationsoffizier-berner-klinik-montana-crans-montana"
       },
       "company": "Berner Klinik Montana",
       "companyKey": "berner-klinik-montana",
@@ -68,7 +68,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:17:18.593Z"
+      "firstSeenAt": "2026-10-28T09:17:18.593Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana"
+        ],
+        "en": [
+          "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana"
+        ],
+        "de": [
+          "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana"
+      ]
     },
     {
       "id": "berner-klinik-montana-fb815f2b592c",
@@ -259,7 +273,7 @@
       "slugByLocale": {
         "it": "infermiere-a-a-tempo-pieno-berner-klinik-montana-crans-montana",
         "en": "full-time-nurse-berner-klinik-montana-crans-montana",
-        "de": "infirmier-ere-100-berner-klinik-montana-crans-montana",
+        "de": "vollzeit-pflegekraft-berner-klinik-montana-crans-montana",
         "fr": "infirmier-ere-100-berner-klinik-montana-crans-montana"
       },
       "company": "Berner Klinik Montana",
@@ -335,15 +349,14 @@
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-100-berner-klinik-montana-crans-montana",
-        "vollzeit-pflegekraft-berner-klinik-montana-crans-montana"
+        "infirmier-ere-100-berner-klinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-100-berner-klinik-montana-crans-montana"
         ],
         "de": [
-          "vollzeit-pflegekraft-berner-klinik-montana-crans-montana"
+          "infirmier-ere-100-berner-klinik-montana-crans-montana"
         ]
       },
       "firstSeenAt": "2026-05-19T10:50:54.698Z",

@@ -2457,12 +2457,12 @@
     },
     {
       "id": "tally-weijl-3cf82a6d8fe9",
-      "slug": "flexible-aushilfe-20-40-tally-weijl-schaffhausen",
+      "slug": "aiuto-flessibile-20-40-tally-weijl-schaffhausen",
       "slugByLocale": {
         "de": "flexible-aushilfe-20-40-tally-weijl-schaffhausen",
-        "it": "flexible-aushilfe-20-40-tally-weijl-schaffhausen",
-        "en": "flexible-aushilfe-20-40-tally-weijl-schaffhausen",
-        "fr": "flexible-aushilfe-20-40-tally-weijl-schaffhausen"
+        "it": "aiuto-flessibile-20-40-tally-weijl-schaffhausen",
+        "en": "flexible-help-20-40-tally-weijl-schaffhausen",
+        "fr": "aide-flexible-20-40-tally-weijl-schaffhausen"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -2521,16 +2521,30 @@
       },
       "postalCode": "8200",
       "addressRegion": "SH",
-      "firstSeenAt": "2026-10-28T09:18:53.444Z"
+      "firstSeenAt": "2026-10-28T09:18:53.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-20-40-tally-weijl-schaffhausen"
+        ],
+        "en": [
+          "flexible-aushilfe-20-40-tally-weijl-schaffhausen"
+        ],
+        "fr": [
+          "flexible-aushilfe-20-40-tally-weijl-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-20-40-tally-weijl-schaffhausen"
+      ]
     },
     {
       "id": "tally-weijl-3a972ed86f57",
-      "slug": "flexible-aushilfe-tally-weijl-luzern",
+      "slug": "assistenza-flessibile-tally-weijl-luzern",
       "slugByLocale": {
         "de": "flexible-aushilfe-tally-weijl-luzern",
-        "it": "flexible-aushilfe-tally-weijl-luzern",
-        "en": "flexible-aushilfe-tally-weijl-luzern",
-        "fr": "flexible-aushilfe-tally-weijl-luzern"
+        "it": "assistenza-flessibile-tally-weijl-luzern",
+        "en": "flexible-assistance-tally-weijl-luzern",
+        "fr": "assistance-souple-tally-weijl-luzern"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -2589,7 +2603,21 @@
       },
       "postalCode": "6003",
       "addressRegion": "LU",
-      "firstSeenAt": "2026-10-28T09:18:47.214Z"
+      "firstSeenAt": "2026-10-28T09:18:47.214Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-tally-weijl-luzern"
+        ],
+        "en": [
+          "flexible-aushilfe-tally-weijl-luzern"
+        ],
+        "fr": [
+          "flexible-aushilfe-tally-weijl-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-luzern"
+      ]
     }
   ]
 }

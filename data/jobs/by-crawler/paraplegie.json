@@ -1739,12 +1739,12 @@
     },
     {
       "id": "paraplegie-55d7d0a23626",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "infermiere-a-diplomato-a-hf-fh-in-terapia-intensiva-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-paraplegie-nottwil",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "infermiere-a-diplomato-a-hf-fh-in-terapia-intensiva-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "diploma-nurse-hf-fh-in-the-intensive-care-unit-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "infirmier-ere-diplome-e-es-hes-en-soins-intensifs-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1792,11 +1792,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-paraplegie-nottwil"
+          "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-paraplegie-nottwil",
+          "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-paraplegie-nottwil"
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-paraplegie-nottwil",
+        "dipl-pflegefachfrau-mann-hf-fh-auf-der-intensivstation-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -1815,12 +1823,12 @@
     },
     {
       "id": "paraplegie-d8d909b598b2",
-      "slug": "wissensmanager-in-paraplegie-nottwil",
+      "slug": "responsabile-della-gestione-della-conoscenza-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "wissensmanager-in-paraplegie-nottwil",
-        "it": "wissensmanager-in-paraplegie-nottwil",
-        "en": "wissensmanager-in-paraplegie-nottwil",
-        "fr": "wissensmanager-in-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "responsabile-della-gestione-della-conoscenza-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "knowledge-manager-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "gestionnaire-des-connaissances-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1879,7 +1887,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:13:36.490Z"
+      "firstSeenAt": "2026-10-28T09:13:36.490Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wissensmanager-in-paraplegie-nottwil"
+        ],
+        "en": [
+          "wissensmanager-in-paraplegie-nottwil"
+        ],
+        "fr": [
+          "wissensmanager-in-schweizer-paraplegiker-gruppe-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "wissensmanager-in-paraplegie-nottwil",
+        "wissensmanager-in-schweizer-paraplegiker-gruppe-nottwil"
+      ]
     }
   ]
 }
