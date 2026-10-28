@@ -7,7 +7,9 @@ import {
   COOKIE_ACCEPT_RE,
   COOKIE_REJECT_RE,
   formPostingMatch,
+  hasApplicationSurface,
   namesAnotherEmployer,
+  pageControls,
   sameEmployerFamily,
   REFRESH_ASKED_RE,
   removalsOf,
@@ -31,6 +33,43 @@ import { interviewPrepUserText } from '../functions/src/assistedApplicationInter
 
 // career-ops comparison of 2026-10-01: what the portal runner still lacked.
 describe('portal runner hardening (career-ops apply.md)', () => {
+  it('recognizes the RHB Talentsoft resume-upload step as the matching posting form', () => {
+    const title = 'Gesamtverantwortliche/r Kundeninformation (60-100%)';
+    const job = { company: 'Ferrovia Retica (RhB)', title };
+    const url = 'https://rhb-career.talent-soft.com/mein-portal/mein-lebenslauf-fuer-meine-bewerbung-fuer-gesamtverantwortliche-r-kundeninformation-60-100-_2233.aspx?ApplicationType=OfferApplication';
+    const snapshot = {
+      fields: [
+        { id: 'search', kind: 'text', label: 'Suchbegriffe (z.B.: Projektleiter)' },
+        { id: 'document', kind: 'select', label: 'Mein Lebenslauf' },
+        { id: 'name', kind: 'text', label: 'Name des Anhangs :' },
+        { id: 'cv', kind: 'file', label: 'Lebenslauf :', required: true },
+      ],
+      buttons: [
+        { text: 'Suchen' },
+        { text: 'Hinzufügen' },
+        { text: 'Abbrechen' },
+        { text: 'Weiter' },
+      ],
+    };
+    const formText = [
+      'Rhätische Bahn - Meine Bewerbung absenden',
+      'Bezeichnung des Angebots',
+      title,
+      'Sie können nun Ihren Lebenslauf hochladen.',
+      ...snapshot.fields.map((field) => field.label),
+    ].join('\n');
+
+    expect(hasApplicationSurface(snapshot)).toBe(true);
+    expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url).next).toEqual(expect.objectContaining({ text: 'Weiter' }));
+    expect(postingMatch('Senior Engineer Weiter', { company: 'Ferrovia Retica (RhB)', title: 'Senior Engineer' }, url)).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url })).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url.replace('rhb-career', 'other-career') })).toBe('mismatch');
+    expect(formPostingMatch(formText, {
+      ...job,
+      title: 'Rangiermitarbeiter/in (50-100%)',
+    })).toBe('mismatch');
+  });
+
   it('opens a SuccessFactors application from its matching posting page', () => {
     const applyUrl = 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US';
     const postingUrl = 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418433/';
