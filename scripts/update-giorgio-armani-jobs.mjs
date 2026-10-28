@@ -241,18 +241,26 @@ async function fetchDetailHtml(page, reqId) {
  * Returns null on a transient browser/site failure so the caller preserves the
  * existing dataset rather than wiping it.
  */
-async function discoverSwissJobs() {
+async function discoverSwissJobs(summaryCounts) {
   console.log('🔍 Rendering SuccessFactors listing with headless browser...');
   try {
     return await withBrowser(async (page) => {
       const listings = await discoverAllListings(page);
       console.log(`📋 Discovered ${listings.length} total jobs across all pages.`);
+      summaryCounts.discovered = listings.length;
       if (listings.length === 0) {
+        summaryCounts.parsed = 0;
+        summaryCounts.abortKind = 'no-jobs-parsed';
         throw new Error('Giorgio Armani listing rendered 0 jobs');
       }
 
       const swiss = listings.filter((l) => isGiorgioArmaniSwissJob(l.title, l.country));
       console.log(`🇨🇭 ${swiss.length}/${listings.length} jobs match Swiss locations.`);
+      summaryCounts.parsed = swiss.length;
+      if (swiss.length === 0) {
+        summaryCounts.lastFetchOutcome = 'filtered_empty';
+        return [];
+      }
 
       const out = [];
       for (const job of swiss) {
@@ -261,12 +269,26 @@ async function discoverSwissJobs() {
         if (!html) continue;
         out.push({ ...job, html });
       }
+      summaryCounts.parsed = out.length;
+      if (out.length === 0) {
+        summaryCounts.abortKind = 'source-extraction-failed';
+      } else {
+        summaryCounts.lastFetchOutcome = 'ok';
+      }
       return out;
     });
   } catch (err) {
     const msg = err?.message || String(err);
     const isTransient = /did not hydrate|rendered 0 jobs|net::ERR_|timeout|TimeoutError|403/i.test(msg);
     if (isTransient) {
+      const selectorMiss = /did not hydrate|rendered 0 jobs/i.test(msg);
+      const antiBotBlock = /403/i.test(msg);
+      summaryCounts.lastFetchOutcome = selectorMiss
+        ? null
+        : antiBotBlock
+          ? 'anti_bot_block'
+          : 'connection_error';
+      summaryCounts.abortKind = selectorMiss ? 'no-jobs-parsed' : 'connection-level-fetch';
       console.warn(`⚠️  Giorgio Armani listing unavailable: ${msg}`);
       console.log('ℹ️  Keeping existing data — no updates this run.');
       return null;
@@ -414,6 +436,35 @@ function updateAdapterConfig(jobs) {
   });
 }
 
+function writeGiorgioArmaniSummary({ counts, sliceJobs = [], diff = null }) {
+  const summaryDiff = diff || {
+    newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0,
+  };
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'giorgio-armani',
+    generatedAt: new Date().toISOString(),
+    total: sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome,
+    abortKind: counts.abortKind,
+    newCount: summaryDiff.newJobs.length,
+    updatedCount: summaryDiff.updatedJobs.length,
+    removedCount: summaryDiff.removedJobs.length,
+    unchangedCount: summaryDiff.unchangedCount,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: summaryDiff.newJobs.slice(0, 30),
+    updatedJobs: summaryDiff.updatedJobs.slice(0, 30),
+    removedJobs: summaryDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (summaryDiff.unchangedJobs || []).slice(0, 30),
+  });
+}
+
 function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_GIORGIO_ARMANI_STRICT',
@@ -431,7 +482,13 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'giorgio-armani');
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+  };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'giorgio-armani', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Giorgio Armani — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -439,7 +496,7 @@ async function main() {
   console.log(`  SuccessFactors company: ${SF_COMPANY_ID}`);
   console.log(`  Headless browser: ${HEADLESS ? 'on' : 'off'}\n`);
 
-  const discoveries = await discoverSwissJobs();
+  const discoveries = await discoverSwissJobs(summaryCounts);
 
   // Transient browser/site failure → discoverSwissJobs returned null. Preserve
   // the existing dataset untouched rather than wiping target jobs on a bad run.
@@ -458,6 +515,11 @@ async function main() {
     const existingSwiss = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
     updateAdapterConfig(existingSwiss);
     validateLocales();
+    if (summaryCounts.lastFetchOutcome === 'filtered_empty') {
+      writeGiorgioArmaniSummary({ counts: summaryCounts });
+    } else {
+      summaryCounts.abortKind ||= 'no-jobs-parsed';
+    }
     console.log('\n✅ Giorgio Armani crawler complete (0 Swiss jobs found, existing data preserved).');
     return;
   }
@@ -481,27 +543,10 @@ async function main() {
   console.log(`\n✅ Giorgio Armani crawler complete (${total} jobs, added=${added}, updated=${updated}).`);
 
   // Write per-crawler slice and reassemble global dataset
-  const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({
-    key: COMPANY_KEY,
-    label: 'giorgio-armani',
-    generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
-    newCount: diff.newJobs.length,
-    updatedCount: diff.updatedJobs.length,
-    removedCount: diff.removedJobs.length,
-    unchangedCount: diff.unchangedCount,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
-    newJobs: diff.newJobs.slice(0, 30),
-    updatedJobs: diff.updatedJobs.slice(0, 30),
-    removedJobs: diff.removedJobs.slice(0, 30),
-    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
-  });
+  writeGiorgioArmaniSummary({ counts: summaryCounts, sliceJobs: _sliceJobs, diff });
   await assembleJobsDataset();
 }
 
