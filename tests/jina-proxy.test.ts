@@ -297,4 +297,19 @@ describe('JOBS_JINA_RETRIES / JOBS_JINA_RETRY_BASE_MS env override (falsy-zero r
     expect(html).toBeNull();
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
+
+  it('reports the terminal response to an exhaustion observer without changing the null contract', async () => {
+    const exhausted = vi.fn();
+    const fetchMock = vi.fn(async () => new Response('', { status: 404 }));
+
+    const html = await fetchHtmlViaJinaWithRetry('https://example.test/jobs', {
+      retries: 0,
+      retryBaseMs: 0,
+      fetchImpl: fetchMock as any,
+      onExhausted: exhausted,
+    });
+
+    expect(html).toBeNull();
+    expect(exhausted).toHaveBeenCalledWith({ status: 404, reason: 'HTTP 404' });
+  });
 });
