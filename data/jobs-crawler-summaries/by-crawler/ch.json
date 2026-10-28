@@ -1,7 +1,7 @@
 {
   "key": "ch",
   "label": "Global Sana",
-  "generatedAt": "2026-10-28T20:33:07.986Z",
+  "generatedAt": "2026-10-28T21:24:45.432Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4961,
-  "avgDurationMs": 4961,
+  "durationMs": 3669,
+  "avgDurationMs": 3669,
   "durationHistory": [
-    4961
+    3669
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:32:52.605Z",
+      "crawledAt": "2026-10-28T21:24:31.188Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

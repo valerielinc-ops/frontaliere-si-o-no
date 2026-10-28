@@ -1,18 +1,19 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-28T20:37:43.475Z",
+  "generatedAt": "2026-10-28T21:20:58.973Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 151825,
-  "avgDurationMs": 151825,
+  "durationMs": 143185,
+  "avgDurationMs": 143185,
   "durationHistory": [
-    151825
+    143185
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Consulente vendita veicoli commerciali (m/f) - 100%",
       "slug": "consulente-vendita-veicoli-commerciali-m-f-100",
@@ -54,7 +55,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -256,5 +256,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
