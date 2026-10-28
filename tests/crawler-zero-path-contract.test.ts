@@ -54,13 +54,14 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // null` on every early exit: the monitor sees a zero with no evidence.
     //
     // RATCHET (two-sided) — measured on origin/main d25732d2cca (2026-10-04),
-    // after the interroll runner was instrumented. This PR instruments the AIL
-    // runner too. The budget must EQUAL the count: lower it in
+    // after the interroll runner was instrumented. This PR instruments the
+    // Giorgio Armani runner too. The budget must EQUAL the count: lower it in
     // the same PR that instruments a runner; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if([...s.matchAll(/registerCrawlerSummaryGuard\(([^()]*)\)/g)].some(m=>m[1].split(',').filter(a=>a.trim()).length===2))n++}console.log(n)"
-    // 104 → 101: update-lis-jobs.mjs, update-pkb-private-bank-jobs.mjs, and
-    // the DXT runner now record their counters/proven empty snapshot.
-    const TWO_ARGUMENT_GUARD_BUDGET = 101;
+    // 104 → 100: update-lis-jobs.mjs, update-pkb-private-bank-jobs.mjs, the
+    // DXT runner, and update-giorgio-armani-jobs.mjs now record their counters
+    // or proven empty snapshot.
+    const TWO_ARGUMENT_GUARD_BUDGET = 100;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
@@ -88,9 +89,9 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // The budget must EQUAL the count: lower it in the same PR in which a
     // runner starts naming its bail-out; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
-    // 113 → 111: update-lis-jobs.mjs and update-pkb-private-bank-jobs.mjs now
-    // classify their zero-path abort kind.
-    const NO_ABORT_KIND_BUDGET = 111;
+    // 113 → 110: update-lis-jobs.mjs, update-pkb-private-bank-jobs.mjs, and
+    // update-giorgio-armani-jobs.mjs now classify their zero-path abort kind.
+    const NO_ABORT_KIND_BUDGET = 110;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);
