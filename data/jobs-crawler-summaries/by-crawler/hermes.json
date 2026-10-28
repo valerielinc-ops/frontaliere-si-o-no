@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-10-28T20:05:34.691Z",
+  "generatedAt": "2026-10-28T21:18:52.041Z",
   "total": 5,
   "discovered": null,
   "parsed": 4,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 16047,
-  "avgDurationMs": 16047,
+  "durationMs": 15606,
+  "avgDurationMs": 15606,
   "durationHistory": [
-    16047
+    15606
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hermes-c2ddb8c5dcfa",
       "slug": "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch",
@@ -34,7 +35,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24472",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:05:20.282Z",
+      "crawledAt": "2026-10-28T21:18:40.923Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -51,11 +52,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24472",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:05:20.282Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3001",
-      "firstSeenAt": "2026-10-28T20:05:20.282Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -63,9 +64,7 @@
         "translation": 16,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hermes-f368fe61a72d",
       "slug": "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
@@ -99,7 +98,7 @@
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -110,50 +109,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "hermes-6a5a5af20aa5",
-      "slug": "cdi-responsabile-dipartimento-lugano-m-f-hermes-lugano",
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "CDI - Department Manager Lugano (F/H)",
-      "location": "Lugano, Ticino, Switzerland",
-      "canton": "TI",
-      "url": "https://talents.hermes.com/en/sites/CX/job/23993",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:28:42.963Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19",
-      "postedDate": "2026-10-19",
-      "postingDateSource": "reported",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/job/23993",
-      "firstSeenAt": "2026-10-19T09:16:36.377Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "salarySource": "estimated",
-      "postalCode": "6900",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "hermes-4cca3ac90e60",
@@ -167,7 +123,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23939",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:05:22.130Z",
+      "crawledAt": "2026-10-28T21:18:42.830Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -208,7 +164,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23994",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:05:21.495Z",
+      "crawledAt": "2026-10-28T21:18:42.178Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +205,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:05:20.882Z",
+      "crawledAt": "2026-10-28T21:18:41.567Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -278,5 +234,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

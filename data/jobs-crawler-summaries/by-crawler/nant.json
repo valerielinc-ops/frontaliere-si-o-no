@@ -1,7 +1,7 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-10-28T20:00:48.775Z",
+  "generatedAt": "2026-10-28T21:16:02.403Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3155,
-  "avgDurationMs": 3155,
+  "unchangedCount": 4,
+  "durationMs": 3500,
+  "avgDurationMs": 3500,
   "durationHistory": [
-    3155
+    3500
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "nant-daa915ec4a40",
       "slug": "aiuto-a-tasso-variabile-fondation-de-nant-corsier-sur-vevey",
@@ -36,7 +38,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:00:34.169Z",
+      "crawledAt": "2026-10-28T21:15:50.032Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -67,51 +69,6 @@
       }
     },
     {
-      "id": "nant-c25894a15447",
-      "slug": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
-      "company": "Fondation de Nant",
-      "companyKey": "nant",
-      "companyDomain": "nant.ch",
-      "title": "Stagiaire pré-HEG à 100%",
-      "location": "Corsier-sur-Vevey",
-      "canton": "VD",
-      "url": "https://app.beehire.com/invite/PzPmrtqqv",
-      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:00:34.160Z",
-      "addressLocality": "Corsier-sur-Vevey",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1804",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Santé mentale / Psychiatrie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://app.beehire.com/invite/PzPmrtqqv",
-      "careerSiteUrl": "https://nant.ch/carrieres/",
-      "firstSeenAt": "2026-10-27T21:18:47.211Z",
-      "salaryMin": 77500,
-      "salaryMax": 108000,
-      "salarySource": "estimated",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
       "id": "nant-5bed28d501c2",
       "slug": "frequenza-variabile-fondation-de-nant-corsier-sur-vevey",
       "company": "Fondation de Nant",
@@ -124,7 +81,7 @@
       "url": "https://app.beehire.com/invite/PdTkBFu_5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:00:34.169Z",
+      "crawledAt": "2026-10-28T21:15:50.032Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -166,7 +123,7 @@
       "url": "https://app.beehire.com/invite/vOH7Zsw7M",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:00:34.162Z",
+      "crawledAt": "2026-10-28T21:15:50.028Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -195,7 +152,49 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "id": "nant-c25894a15447",
+      "slug": "stagiaire-pre-heg-a-100-nant-corsier-sur-vevey",
+      "company": "Fondation de Nant",
+      "companyKey": "nant",
+      "companyDomain": "nant.ch",
+      "title": "Stagiaire pré-HEG à 100%",
+      "location": "Corsier-sur-Vevey",
+      "canton": "VD",
+      "url": "https://app.beehire.com/invite/PzPmrtqqv",
+      "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-28T21:15:50.026Z",
+      "addressLocality": "Corsier-sur-Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1804",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Santé mentale / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://app.beehire.com/invite/PzPmrtqqv",
+      "careerSiteUrl": "https://nant.ch/carrieres/",
+      "firstSeenAt": "2026-10-27T21:18:47.211Z",
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
