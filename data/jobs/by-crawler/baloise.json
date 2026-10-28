@@ -1,7 +1,7 @@
 {
   "crawlerKey": "baloise",
-  "assembledAt": "2026-10-28T09:32:53.154Z",
-  "runId": "40663322971",
+  "assembledAt": "2026-10-28T20:52:46.824Z",
+  "runId": "40759444491",
   "jobs": [
     {
       "id": "baloise-fcba44183089",
@@ -34,7 +34,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-olten/baae08f3-884a-4f3f-8d20-b23c933fd676",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.783Z",
+      "crawledAt": "2026-10-28T20:52:40.025Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/6a4f2275-6594-4285-8822-2df7eb5c3751",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.782Z",
+      "crawledAt": "2026-10-28T20:52:40.023Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/424648d3-bf31-4bd0-8c27-9ffe638bb81c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.780Z",
+      "crawledAt": "2026-10-28T20:52:40.021Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d/bc41dd02-7fc0-4f7c-a6a2-be1d122dd5e8",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.778Z",
+      "crawledAt": "2026-10-28T20:52:40.019Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/senior-berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.776Z",
+      "crawledAt": "2026-10-28T20:52:40.017Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -454,7 +454,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/privatkundenberater-w-m-d-bank-region-solothurn/8b004cab-df59-4102-83a7-e23e3b3051b3",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.774Z",
+      "crawledAt": "2026-10-28T20:52:40.014Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -534,7 +534,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/integrationsspezialist-application-management-avaloq-w-m-d/116d073e-cdf0-4643-9d40-96ceb33abfe0",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.771Z",
+      "crawledAt": "2026-10-28T20:52:40.012Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -614,7 +614,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/bem-praktikum-bankeinstieg-nach-matura-w-m-d/75572234-8947-4a9c-a23b-fe78e89eb66c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:32:47.764Z",
+      "crawledAt": "2026-10-28T20:52:40.009Z",
       "addressLocality": "Dornach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -662,6 +662,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "baloise-bd0bf4e42973",
+      "slug": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
+      "slugByLocale": {
+        "de": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
+        "it": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
+        "en": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn",
+        "fr": "berater-w-m-d-unternehmenskunden-bank-60-baloise-solothurn"
+      },
+      "company": "Baloise",
+      "companyKey": "baloise",
+      "companyDomain": "baloise.com",
+      "title": "Berater (w/m/d) Unternehmenskunden Bank 60%",
+      "titleByLocale": {
+        "de": "Berater (w/m/d) Unternehmenskunden Bank 60%",
+        "it": "Berater (w/m/d) Unternehmenskunden Bank 60%",
+        "en": "Berater (w/m/d) Unternehmenskunden Bank 60%",
+        "fr": "Berater (w/m/d) Unternehmenskunden Bank 60%"
+      },
+      "description": "Wir sind die Bank von Helvetia - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Du berätst selbständig dein eigenes Portefeuille von Unternehmenskunden der Bank, mit Schwerpunkt Kredite und Hypotheken im Bereich von Renditeliegenschaften.\n\n• Du akquirierst neue Kundschaft aus dem eigenen Netzwerk oder aus anderen Vertriebskanälen (Vermittler, Versicherung usw.) und baust bestehende Kundenpositionen aus.\n\n• Du vermittelst weitere Geschäftsmöglichkeiten innerhalb der Bank und Versicherung.\n\n• Du erstellst und koordinierst Kreditrevisionen, inkl. Kundenbesprechung.\n\n• Du nimmst an Kundenevents von Helvetia teil und betreust dort deine Kundinnen und Kunden.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Grundausbildung sowie mehrjährige Berufserfahrung bei einer Bank in der Schweiz.\n\n• Du hast vertiefte Kenntnisse im Hypothekarfinanzierungsgeschäft sowie in der Finanzierung von Renditeimmobilien.\n\n• Idealerweise hast du eine weiterführende Ausbildung in der Finanzbranche abgeschlossen.\n\n• Du bist eine flexible, dienstleistungs- und lösungsorientierte Persönlichkeit, die über eine rasche Auffassungsgabe verfügt und offen für Veränderungen ist.\n\n• Kundenfokus ist dir wichtig: Es geht um individuell bestmögliche Lösungen und eine exakte Bearbeitung. Du arbeitest strukturiert und umsichtig.\n\n• Kenntnisse der Banking-Software Avaloq sowie Vernetzung in der Region Solothurn sind erwünscht.\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
+      "descriptionByLocale": {
+        "de": "Wir sind die Bank von Helvetia - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Du berätst selbständig dein eigenes Portefeuille von Unternehmenskunden der Bank, mit Schwerpunkt Kredite und Hypotheken im Bereich von Renditeliegenschaften.\n\n• Du akquirierst neue Kundschaft aus dem eigenen Netzwerk oder aus anderen Vertriebskanälen (Vermittler, Versicherung usw.) und baust bestehende Kundenpositionen aus.\n\n• Du vermittelst weitere Geschäftsmöglichkeiten innerhalb der Bank und Versicherung.\n\n• Du erstellst und koordinierst Kreditrevisionen, inkl. Kundenbesprechung.\n\n• Du nimmst an Kundenevents von Helvetia teil und betreust dort deine Kundinnen und Kunden.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Grundausbildung sowie mehrjährige Berufserfahrung bei einer Bank in der Schweiz.\n\n• Du hast vertiefte Kenntnisse im Hypothekarfinanzierungsgeschäft sowie in der Finanzierung von Renditeimmobilien.\n\n• Idealerweise hast du eine weiterführende Ausbildung in der Finanzbranche abgeschlossen.\n\n• Du bist eine flexible, dienstleistungs- und lösungsorientierte Persönlichkeit, die über eine rasche Auffassungsgabe verfügt und offen für Veränderungen ist.\n\n• Kundenfokus ist dir wichtig: Es geht um individuell bestmögliche Lösungen und eine exakte Bearbeitung. Du arbeitest strukturiert und umsichtig.\n\n• Kenntnisse der Banking-Software Avaloq sowie Vernetzung in der Region Solothurn sind erwünscht.\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
+        "it": "Wir sind die Bank von Helvetia - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Du berätst selbständig dein eigenes Portefeuille von Unternehmenskunden der Bank, mit Schwerpunkt Kredite und Hypotheken im Bereich von Renditeliegenschaften.\n\n• Du akquirierst neue Kundschaft aus dem eigenen Netzwerk oder aus anderen Vertriebskanälen (Vermittler, Versicherung usw.) und baust bestehende Kundenpositionen aus.\n\n• Du vermittelst weitere Geschäftsmöglichkeiten innerhalb der Bank und Versicherung.\n\n• Du erstellst und koordinierst Kreditrevisionen, inkl. Kundenbesprechung.\n\n• Du nimmst an Kundenevents von Helvetia teil und betreust dort deine Kundinnen und Kunden.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Grundausbildung sowie mehrjährige Berufserfahrung bei einer Bank in der Schweiz.\n\n• Du hast vertiefte Kenntnisse im Hypothekarfinanzierungsgeschäft sowie in der Finanzierung von Renditeimmobilien.\n\n• Idealerweise hast du eine weiterführende Ausbildung in der Finanzbranche abgeschlossen.\n\n• Du bist eine flexible, dienstleistungs- und lösungsorientierte Persönlichkeit, die über eine rasche Auffassungsgabe verfügt und offen für Veränderungen ist.\n\n• Kundenfokus ist dir wichtig: Es geht um individuell bestmögliche Lösungen und eine exakte Bearbeitung. Du arbeitest strukturiert und umsichtig.\n\n• Kenntnisse der Banking-Software Avaloq sowie Vernetzung in der Region Solothurn sind erwünscht.\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
+        "en": "Wir sind die Bank von Helvetia - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Du berätst selbständig dein eigenes Portefeuille von Unternehmenskunden der Bank, mit Schwerpunkt Kredite und Hypotheken im Bereich von Renditeliegenschaften.\n\n• Du akquirierst neue Kundschaft aus dem eigenen Netzwerk oder aus anderen Vertriebskanälen (Vermittler, Versicherung usw.) und baust bestehende Kundenpositionen aus.\n\n• Du vermittelst weitere Geschäftsmöglichkeiten innerhalb der Bank und Versicherung.\n\n• Du erstellst und koordinierst Kreditrevisionen, inkl. Kundenbesprechung.\n\n• Du nimmst an Kundenevents von Helvetia teil und betreust dort deine Kundinnen und Kunden.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Grundausbildung sowie mehrjährige Berufserfahrung bei einer Bank in der Schweiz.\n\n• Du hast vertiefte Kenntnisse im Hypothekarfinanzierungsgeschäft sowie in der Finanzierung von Renditeimmobilien.\n\n• Idealerweise hast du eine weiterführende Ausbildung in der Finanzbranche abgeschlossen.\n\n• Du bist eine flexible, dienstleistungs- und lösungsorientierte Persönlichkeit, die über eine rasche Auffassungsgabe verfügt und offen für Veränderungen ist.\n\n• Kundenfokus ist dir wichtig: Es geht um individuell bestmögliche Lösungen und eine exakte Bearbeitung. Du arbeitest strukturiert und umsichtig.\n\n• Kenntnisse der Banking-Software Avaloq sowie Vernetzung in der Region Solothurn sind erwünscht.\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team.",
+        "fr": "Wir sind die Bank von Helvetia - einem innovativen Finanzdienstleister, der Banking und Versicherung intelligent verbindet. Gemeinsam neue Massstäbe setzen und die Zukunft gestalten – das bedeutet für uns mehr, als Aufgaben einfach abzuarbeiten. Hier arbeitest du mit Menschen zusammen, die Verantwortung übernehmen, hohe Ansprüche haben und den Mut mitbringen, neue Wege zu gehen. Bei uns findest du ein Umfeld, in dem Vertrauen und Leistung Hand in Hand gehen und deine Ideen, deine Initiative und dein Beitrag zählen. So hast du die Möglichkeit, wirklich etwas zu bewegen für unsere Kundinnen und Kunden, dein Team und deine persönliche Entwicklung.\n\nAufgaben:\n• Du berätst selbständig dein eigenes Portefeuille von Unternehmenskunden der Bank, mit Schwerpunkt Kredite und Hypotheken im Bereich von Renditeliegenschaften.\n\n• Du akquirierst neue Kundschaft aus dem eigenen Netzwerk oder aus anderen Vertriebskanälen (Vermittler, Versicherung usw.) und baust bestehende Kundenpositionen aus.\n\n• Du vermittelst weitere Geschäftsmöglichkeiten innerhalb der Bank und Versicherung.\n\n• Du erstellst und koordinierst Kreditrevisionen, inkl. Kundenbesprechung.\n\n• Du nimmst an Kundenevents von Helvetia teil und betreust dort deine Kundinnen und Kunden.\n\nAnforderungen:\n• Du verfügst über eine kaufmännische Grundausbildung sowie mehrjährige Berufserfahrung bei einer Bank in der Schweiz.\n\n• Du hast vertiefte Kenntnisse im Hypothekarfinanzierungsgeschäft sowie in der Finanzierung von Renditeimmobilien.\n\n• Idealerweise hast du eine weiterführende Ausbildung in der Finanzbranche abgeschlossen.\n\n• Du bist eine flexible, dienstleistungs- und lösungsorientierte Persönlichkeit, die über eine rasche Auffassungsgabe verfügt und offen für Veränderungen ist.\n\n• Kundenfokus ist dir wichtig: Es geht um individuell bestmögliche Lösungen und eine exakte Bearbeitung. Du arbeitest strukturiert und umsichtig.\n\n• Kenntnisse der Banking-Software Avaloq sowie Vernetzung in der Region Solothurn sind erwünscht.\n\nWir glauben an Zusammenarbeit auf Augenhöhe, gegenseitiges Vertrauen und Menschen, die Verantwortung übernehmen wollen. Unterschiedliche Perspektiven helfen uns, bessere Lösungen zu entwickeln - für unsere Kundinnen und Kunden genauso wie für uns als Team."
+      },
+      "needsRetranslation": true,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-unternehmenskunden-bank/b8a2d618-e0fc-4e7f-b6c7-24fb0b2bcd28",
+      "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T20:52:39.988Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4500",
+      "streetAddress": "Amthausplatz 4",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.helvetia.com/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19728",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 51000,
+      "salaryMax": 71400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 71400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-28T20:52:39.988Z"
     }
   ]
 }

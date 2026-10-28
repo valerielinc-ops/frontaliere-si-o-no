@@ -1,10 +1,10 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-10-28T09:31:38.729Z",
+  "generatedAt": "2026-10-28T20:55:06.871Z",
   "total": 4,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 3,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -13,13 +13,13 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5366,
-  "avgDurationMs": 5366,
+  "unchangedCount": 3,
+  "durationMs": 7050,
+  "avgDurationMs": 7050,
   "durationHistory": [
-    5366
+    7050
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:31:23.913Z",
+      "crawledAt": "2026-10-28T20:54:48.780Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -64,10 +64,54 @@
         "translation": 25,
         "completeness": 20
       }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "amina-bank-cb420a3c2317",
+      "slug": "responsabile-relazioni-amina-bank-zug",
+      "company": "AMINA Bank",
+      "companyKey": "amina-bank",
+      "companyDomain": "amina.jobs.personio.com",
+      "title": "Relationship Manager",
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://amina.jobs.personio.com/job/2840347",
+      "source": "AMINA Bank Dedicated Parser (Personio JSON)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-28T20:54:49.602Z",
+      "addressLocality": "Zug",
+      "postalCode": "6300",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://amina.jobs.personio.com/job/2840347",
+      "firstSeenAt": "2026-10-13T21:28:39.813Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "addressRegion": "ZG",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
     },
     {
       "id": "amina-bank-6dc97b03283f",
-      "slug": "relationship-manager-b2b2c-amina-bank-zug",
+      "slug": "responsabile-relazioni-b2b2c-amina-bank-zug",
       "company": "AMINA Bank",
       "companyKey": "amina-bank",
       "companyDomain": "amina.jobs.personio.com",
@@ -77,7 +121,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:31:23.442Z",
+      "crawledAt": "2026-10-28T20:54:48.534Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -93,23 +137,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://amina.jobs.personio.com/job/2558847",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:21:14.959Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
       "addressRegion": "ZG",
-      "_qualityScore": 87,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 20,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "amina-bank-ad6a1ff45626",
       "slug": "head-of-market-risk-risk-reporting-amina-bank-zug",
@@ -143,47 +183,7 @@
       "salaryMax": 192000,
       "salarySource": "estimated",
       "addressRegion": "ZG",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "amina-bank-cb420a3c2317",
-      "slug": "responsabile-relazioni-amina-bank-zug",
-      "company": "AMINA Bank",
-      "companyKey": "amina-bank",
-      "companyDomain": "amina.jobs.personio.com",
-      "title": "Relationship Manager",
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://amina.jobs.personio.com/job/2840347",
-      "source": "AMINA Bank Dedicated Parser (Personio JSON)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:31:24.399Z",
-      "addressLocality": "Zug",
-      "postalCode": "6300",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://amina.jobs.personio.com/job/2840347",
-      "firstSeenAt": "2026-10-13T21:28:39.813Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "addressRegion": "ZG",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -193,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
