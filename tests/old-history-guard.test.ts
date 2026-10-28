@@ -755,7 +755,7 @@ describe('old-history-guard', () => {
     }
   });
 
-  it('usa compare remoto per bloccare la storia riscritta senza scaricare il grafo né salvare il token', () => {
+  it('usa compare remoto con GITHUB_PAT per bloccare la storia riscritta senza scaricare il grafo né salvare il token', () => {
     const fixture = rewrittenRemoteFixture();
     try {
       const checkout = fixture.shallowClone('old-branch');
@@ -766,7 +766,9 @@ describe('old-history-guard', () => {
       const github = mockGithubCli(fixture.root, ['diverged', 'ahead']);
 
       const result = withEnvironment({
-        GH_TOKEN: 'fixture-token',
+        GH_TOKEN: '',
+        GITHUB_TOKEN: '',
+        GITHUB_PAT: 'fixture-token',
         GITHUB_REPOSITORY: 'fixture/publisher',
         GH_COMPARE_STATUSES: github.statuses,
         GH_COMPARE_CALL_LOG: github.log,
