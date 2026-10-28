@@ -1,18 +1,60 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-27T21:33:06.899Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-10-28T09:44:07.981Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12715,
-  "avgDurationMs": 12715,
+  "durationMs": 11434,
+  "avgDurationMs": 11434,
   "durationHistory": [
-    12715
+    11434
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Business Analyst - Payments and Fintech",
+      "slug": "business-analyst-payments-and-fintech-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000157995635&jobName=Business+Analyst+-+Payments+and+Fintech",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000157995635-business-analyst-payments-and-fintech?oga=true",
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "source": "Company Careers Crawler",
+      "sourceLang": "en",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "datePosted": "2026-10-27T09:31:56.947Z",
+      "postedDate": "2026-10-27T09:31:56.947Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "streetAddress": "Corso San Gottardo 84",
+      "contract": "full-time",
+      "id": "lastminute-com-eda1eb1e9ecd",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-28T09:43:58.006Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Software Engineering - Finance Core Platform",
@@ -303,5 +345,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }
