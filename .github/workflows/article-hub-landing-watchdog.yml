@@ -262,6 +262,17 @@ jobs:
     # discovery and the terminal status poll without holding the probe lock.
     timeout-minutes: 40
     steps:
+      # The recovery job has no checkout by design for the API-only waiter, but
+      # its failure reporter is a first-party module. Check out only that
+      # standalone transport artifact before the reporter step; keeping this
+      # sparse avoids materialising the site's data and public trees.
+      - name: Checkout failure reporter
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /scripts/lib/github-issue-creator.mjs
+          sparse-checkout-cone-mode: false
+
       # This job deliberately has no `article-hub-surfaces` concurrency group:
       # the probe job released that group before this waiter started. Holding it
       # here would queue the child rerender behind the waiter forever.
