@@ -44,6 +44,7 @@ const AssistedApplicationUpload = lazyRetry(() => import('@/components/community
 const AssistedApplicationReview = lazyRetry(() => import('@/components/community/AssistedApplicationReview'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
+const JobAlertAuthPromptModal = lazyRetry(() => import('@/components/community/JobAlertAuthPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const PartnerRecommendations = lazyRetry(() => import('@/components/shared/PartnerRecommendations'));
 import { reportCaughtError } from '@/services/errorReporter';
@@ -2886,6 +2887,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // action here and opens SaveSignInPromptModal; the effect below replays it
  // once authUser.uid becomes truthy.
  const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
+ const [jobBoardAlertAuthPromptOpen, setJobBoardAlertAuthPromptOpen] = useState(false);
+ useEffect(() => {
+  if (!authUser?.uid) return;
+  releaseSlot('job-board-alert-auth-prompt');
+  setJobBoardAlertAuthPromptOpen(false);
+ }, [authUser?.uid]);
  const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null; savedCount: number; category: string } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
  const savedNudgeArmedRef = useRef(false);
@@ -11495,10 +11502,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
+ const handleBoardFilterAlertAuthRequired = () => {
+  Analytics.trackJobAlertAuthHandoff(
+   'job_board_filters',
+   'pending_saved',
+   boardFilterAlertKeywordLabel,
+  );
+  requestSlot('job-board-alert-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
+  setJobBoardAlertAuthPromptOpen(true);
+  Analytics.trackJobAlertAuthHandoff(
+   'job_board_filters',
+   'prompt_shown',
+   boardFilterAlertKeywordLabel,
+  );
+ };
+
+ const handleBoardFilterAlertAuthPromptDismiss = () => {
+  Analytics.trackJobAlertAuthHandoff(
+   'job_board_filters',
+   'dismissed',
+   boardFilterAlertKeywordLabel,
+  );
+  releaseSlot('job-board-alert-auth-prompt');
+  setJobBoardAlertAuthPromptOpen(false);
+ };
+
  // This surface stays next to the filters so a category/sector intent is
- // actionable before the first result on mobile. Anonymous visitors are
- // handed to the already-mounted JobAlertForm; authenticated visitors keep
- // the one-tap create path below.
+ // actionable before the first result on mobile. Anonymous visitors keep the
+ // exact filter intent parked while the contextual auth gate is shown;
+ // authenticated visitors keep the one-tap create path below.
+ const boardFilterAlertAuthPromptJsx = jobBoardAlertAuthPromptOpen ? (
+ <Suspense fallback={null}>
+ <JobAlertAuthPromptModal
+ locale={locale}
+ keyword={boardFilterAlertKeywordLabel}
+ onDismiss={handleBoardFilterAlertAuthPromptDismiss}
+ />
+ </Suspense>
+ ) : null;
+
  const boardFilterAlertCtaJsx = boardFilterAlertVisible ? (
  <Suspense fallback={null}>
  <JobBoardFilterAlertCta
@@ -11515,7 +11557,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sectors: selectedSector === 'all' ? [] : [selectedSector],
  }}
  formOrigin="job_board_filters"
- onAnonymousAuthRequired={onRequireAuth}
+ onAnonymousAuthRequired={handleBoardFilterAlertAuthRequired}
  onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
  onAnonymousOpen={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
@@ -12012,6 +12054,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {boardFilterAlertCtaJsx}
+ {boardFilterAlertAuthPromptJsx}
 
  {/* A neutral, useful recommendation slot exists before Remote Config resolves.
      The flag only opts into popularity ranking; false keeps ordinary job cards. */}
