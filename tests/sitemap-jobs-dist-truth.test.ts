@@ -310,6 +310,18 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(shardXml).toContain('bridge-healthy');
   });
 
+  it('drops a noindex URL from the rehydrated Ticino DE job shard', async () => {
+    const shardPath = path.join(dist, 'sitemap-jobs-ticino-de.xml');
+    const rehydratedNoindex = `${BASE}/de/jobs-im-tessin/hydraulik-pemsa-lugano/`;
+    fs.writeFileSync(shardPath, wrapJobUrls([rehydratedNoindex]), 'utf-8');
+    writePage(rehydratedNoindex, noindexBridge(rehydratedNoindex));
+
+    await reconcileFinalSitemapsWithDist(dist, []);
+
+    expect(fs.existsSync(shardPath)).toBe(false);
+    expect(fs.existsSync(pageFile(rehydratedNoindex))).toBe(true);
+  });
+
   it('removes a shard file after its last URL is filtered out', async () => {
     const shardPath = path.join(dist, 'sitemap-jobs-stale.xml');
     fs.writeFileSync(shardPath, wrap([MISSING]), 'utf-8');
