@@ -1,7 +1,7 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-10-28T09:54:19.040Z",
+  "generatedAt": "2026-10-28T20:38:12.789Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 10617,
-  "avgDurationMs": 10617,
+  "durationMs": 10218,
+  "avgDurationMs": 10218,
   "durationHistory": [
-    10617
+    10218
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Practice-Solution-Manager--PSM----Strategic-Account-Manager--m-w-d---80-100--_R-2026-49838-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:54:03.778Z",
+      "crawledAt": "2026-10-28T20:37:55.838Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/R-2026-48937-Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-50191-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:54:03.023Z",
+      "crawledAt": "2026-10-28T20:37:55.146Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -110,51 +110,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "alcon-9045ce55a7e5",
-      "slug": "field-service-ingegnere-m-f-d-medical-devices-german-english-speaking-alcon-fribourg",
-      "company": "Alcon",
-      "companyKey": "alcon",
-      "companyDomain": "alcon.com",
-      "title": "Field Service Engineer (m/f/d) – Medical Devices – German & English speaking",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Field-Service-Engineer--m-f-d----Medical-Devices---German---English-speaking_R-2026-49510-1",
-      "source": "Alcon Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-26T21:48:52.508Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Medtech / Cura della vista",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "applyUrl": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Field-Service-Engineer--m-f-d----Medical-Devices---German---English-speaking_R-2026-49510-1",
-      "jobReqId": "R-2026-49510",
-      "firstSeenAt": "2026-09-29T21:38:57.665Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "postalCode": "1700",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "alcon-7e8db3a81169",
@@ -168,7 +124,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:54:06.628Z",
+      "crawledAt": "2026-10-28T20:37:58.822Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -211,7 +167,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:54:05.914Z",
+      "crawledAt": "2026-10-28T20:37:58.129Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -254,7 +210,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:54:05.205Z",
+      "crawledAt": "2026-10-28T20:37:57.450Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -297,7 +253,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Freight-Costs-Control-Manager_R-2026-49866-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:54:04.497Z",
+      "crawledAt": "2026-10-28T20:37:56.784Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -340,7 +296,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/E-commerce---Digital-Marketing-Sr-Brand-Manager--Contact-Lenses--IMG-VC_R-2026-50282",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:54:02.210Z",
+      "crawledAt": "2026-10-28T20:37:54.471Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -383,7 +339,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Consolidation-and-Reporting-Analyst_R-2026-50440-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:54:00.536Z",
+      "crawledAt": "2026-10-28T20:37:53.314Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -414,5 +370,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }

@@ -1,35 +1,35 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-28T09:49:18.446Z",
-  "total": 12,
+  "generatedAt": "2026-10-28T20:36:27.418Z",
+  "total": 13,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 1,
-  "updatedCount": 10,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 12208,
-  "avgDurationMs": 12208,
+  "durationMs": 12795,
+  "avgDurationMs": 12795,
   "durationHistory": [
-    12208
+    12795
   ],
   "newJobs": [
     {
-      "title": "Assistenz Group Management / Leitung Gruppensekretariat (a)",
-      "slug": "assistenz-group-management-leitung-gruppensekretariat-a-rittmeyer-ag-birr",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/assistenz-group-management-leitung-gruppensekretariat-a/",
-      "applyUrl": "https://karriere.rittmeyer.com/offene-stellen/assistenz-group-management-leitung-gruppensekretariat-a/",
+      "title": "ICT-Supporter (a) Baar",
+      "slug": "ict-supporter-a-baar-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-baar/",
+      "applyUrl": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-baar/",
       "company": "Rittmeyer AG",
       "companyKey": "rittmeyer-ag",
       "companyDomain": "rittmeyer.com",
-      "location": "Birr",
-      "addressLocality": "Birr",
-      "addressRegion": "AG",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
       "addressCountry": "CH",
-      "postalCode": "5242",
-      "streetAddress": "",
-      "canton": "AG",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
       "country": "CH",
       "category": "other",
       "sector": "Energia",
@@ -38,23 +38,23 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:48:57.624Z",
+      "crawledAt": "2026-10-28T20:36:08.531Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "rittmeyer-ag-93ca8c7c7715",
+      "id": "rittmeyer-ag-6afeadb6de6d",
       "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T09:48:57.624Z",
-      "_qualityScore": 83,
+      "firstSeenAt": "2026-10-28T20:36:08.531Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 20
+        "completeness": 23
       }
     }
   ],
@@ -91,7 +91,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:48:55.886Z",
+      "crawledAt": "2026-10-28T20:36:06.829Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -133,7 +133,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:48:56.769Z",
+      "crawledAt": "2026-10-28T20:36:07.655Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -141,6 +141,48 @@
         "richness": 22,
         "translation": 25,
         "completeness": 23
+      }
+    },
+    {
+      "title": "Assistenz Group Management / Leitung Gruppensekretariat (a)",
+      "slug": "assistente-gestione-del-gruppo-capogruppo-segretariato-a-rittmeyer-ag-birr",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/assistenz-group-management-leitung-gruppensekretariat-a/",
+      "applyUrl": "https://karriere.rittmeyer.com/offene-stellen/assistenz-group-management-leitung-gruppensekretariat-a/",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "BIrr",
+      "addressLocality": "BIrr",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "postalCode": "5242",
+      "streetAddress": "",
+      "canton": "AG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-28T20:36:09.361Z",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "rittmeyer-ag-93ca8c7c7715",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "currency": "CHF",
+      "salarySource": "reported",
+      "firstSeenAt": "2026-10-28T09:48:57.624Z",
+      "needsRetranslation": true,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -175,7 +217,7 @@
       "firstSeenAt": "2026-10-01T09:27:19.173Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:48:58.419Z",
+      "crawledAt": "2026-10-28T20:36:10.183Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -217,7 +259,7 @@
       "firstSeenAt": "2026-09-26T14:26:58.217Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:48:59.276Z",
+      "crawledAt": "2026-10-28T20:36:10.996Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -259,7 +301,7 @@
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:49:00.067Z",
+      "crawledAt": "2026-10-28T20:36:11.835Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -301,7 +343,7 @@
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:49:00.761Z",
+      "crawledAt": "2026-10-28T20:36:12.569Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -334,7 +376,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:49:01.547Z",
+      "crawledAt": "2026-10-28T20:36:13.274Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -376,7 +418,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:49:02.387Z",
+      "crawledAt": "2026-10-28T20:36:14.062Z",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
@@ -427,7 +469,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:49:03.160Z",
+      "crawledAt": "2026-10-28T20:36:14.908Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -469,7 +511,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:49:03.968Z",
+      "crawledAt": "2026-10-28T20:36:15.721Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -514,7 +556,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T09:49:04.776Z",
+      "crawledAt": "2026-10-28T20:36:16.500Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -524,5 +566,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
