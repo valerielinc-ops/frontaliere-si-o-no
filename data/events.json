@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T14:28:38.361Z",
+  "generatedAt": "2026-10-28T15:33:57.706Z",
   "totalEvents": 15451,
   "events": [
     {
@@ -348373,7 +348373,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è una proiezione della categoria Festival, organizzata a Ginevra da Ville de Genève Agenda. È associato a Léa Fazer, Mathilde Henzelin e Sébastien Meier e prevede una versione originale in francese con sottotitoli in inglese; è indicato come prima internazionale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è una proiezione della categoria Festival, organizzata a Ginevra da Ville de Genève Agenda. È associato a Léa Fazer, Mathilde Henzelin e Sébastien Meier e prevede una versione originale in francese con sottotitoli in inglese; è indicato come prima internazionale.",
+        "en": "This festival screening is organised in Geneva by Ville de Genève Agenda. It is associated with Léa Fazer, Mathilde Henzelin and Sébastien Meier, uses French as its original language with English subtitles, and is identified as an international premiere.",
+        "de": "Die Veranstaltung ist eine Projektion im Festivalbereich und wird in Genf von Ville de Genève Agenda organisiert. Sie ist mit Léa Fazer, Mathilde Henzelin und Sébastien Meier verbunden, wird in französischer Originalfassung mit englischen Untertiteln gezeigt und als internationale Premiere bezeichnet.",
+        "fr": "Cette projection de la catégorie Festival est organisée à Genève par Ville de Genève Agenda. Elle est associée à Léa Fazer, Mathilde Henzelin et Sébastien Meier, est présentée en version originale française avec des sous-titres anglais et est annoncée comme une première internationale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:giff-projection-singapura",
@@ -348526,7 +348534,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La proiezione del GIFF a Ginevra presenta un film del 2026. La scheda indica una durata di 124 minuti e associa il film a Danimarca, Svezia e Lettonia. Il biglietto costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "La proiezione del GIFF a Ginevra presenta un film del 2026. La scheda indica una durata di 124 minuti e associa il film a Danimarca, Svezia e Lettonia. Il biglietto costa 8 CHF.",
+        "en": "The GIFF screening in Geneva presents a film from 2026. The listing gives a running time of 124 minutes and associates the film with Denmark, Sweden and Latvia. Admission costs CHF 8.",
+        "de": "Die GIFF-Vorführung in Genf zeigt einen Film aus dem Jahr 2026. Die Angaben nennen eine Laufzeit von 124 Minuten und führen Dänemark, Schweden und Lettland im Zusammenhang mit dem Film auf. Der Eintritt kostet 8 CHF.",
+        "fr": "La projection du GIFF à Genève présente un film de 2026. La fiche indique une durée de 124 minutes et associe le film au Danemark, à la Suède et à la Lettonie. Le billet coûte 8 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3ac8a7cf953e48188d34a7c5eb56e548",
@@ -353675,7 +353691,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento dedicato ai gatti si svolge al Mercato Coperto di Giubiasco, nel territorio di Bellinzona. I visitatori possono osservare da vicino gatti di razze diverse e vari esemplari del mondo felino. L’iniziativa è adatta anche alle famiglie.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento dedicato ai gatti si svolge al Mercato Coperto di Giubiasco, nel territorio di Bellinzona. I visitatori possono osservare da vicino gatti di razze diverse e vari esemplari del mondo felino. L’iniziativa è adatta anche alle famiglie.",
+        "en": "This event dedicated to cats takes place at Mercato Coperto in Giubiasco, within Bellinzona. Visitors can observe cats from different breeds at close range and see a variety of feline specimens. The event is also suitable for families.",
+        "de": "Die Veranstaltung rund um Katzen findet im Mercato Coperto in Giubiasco, in Bellinzona, statt. Das Publikum kann Katzen verschiedener Rassen aus der Nähe betrachten und unterschiedliche Vertreter der Katzenwelt sehen. Die Veranstaltung eignet sich auch für Familien.",
+        "fr": "Ce rendez-vous consacré aux chats se tient au Mercato Coperto de Giubiasco, dans la commune de Bellinzona. Les visiteurs peuvent observer de près des chats de différentes races et découvrir plusieurs spécimens félins. L’événement convient également aux familles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:41d231f1e7834cce97a6cb8c29c995a7",
@@ -360489,7 +360513,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo evento per bambini a Lausanne prevede balli in costume e un’occasione per stare insieme. L’appuntamento è organizzato da MySwitzerland e si svolge nel pomeriggio.",
+      "descriptionByLocale": {
+        "it": "Questo evento per bambini a Lausanne prevede balli in costume e un’occasione per stare insieme. L’appuntamento è organizzato da MySwitzerland e si svolge nel pomeriggio.",
+        "en": "This event for children in Lausanne includes dancing in costume and time to socialise with other participants. It is organised by MySwitzerland and takes place in the afternoon.",
+        "de": "Die Veranstaltung in Lausanne richtet sich an Kinder und verbindet Tanzen mit Kostümen. Sie wird von MySwitzerland organisiert und findet am Nachmittag statt.",
+        "fr": "Cet événement pour enfants à Lausanne propose de danser en costume et de passer un moment avec d’autres participants. Il est organisé par MySwitzerland et a lieu l’après-midi."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:179be5d3ce6a4eb0b6fa1b813f5efbe9",
@@ -434093,7 +434125,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone una passeggiata guidata nella Cité, a Ginevra. La partecipazione è gratuita e l’organizzazione è affidata a Ville de Genève Agenda.",
+      "descriptionByLocale": {
+        "it": "L’evento propone una passeggiata guidata nella Cité, a Ginevra. La partecipazione è gratuita e l’organizzazione è affidata a Ville de Genève Agenda.",
+        "en": "This event offers a guided walk through the Cité in Geneva. Participation is free, and the event is organised by Ville de Genève Agenda.",
+        "de": "Die Veranstaltung bietet einen geführten Rundgang durch die Cité in Genf. Die Teilnahme ist kostenlos, und als Organisator ist Ville de Genève Agenda angegeben.",
+        "fr": "L’événement propose un parcours guidé dans la Cité, à Genève. La participation est gratuite et Ville de Genève Agenda en assure l’organisation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AWxDPaq",
@@ -671395,7 +671435,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Beth Hart si esibisce in un concerto di blues al THE HALL di Dübendorf. L’evento è organizzato da Guidle e il prezzo indicato è di 2 CHF.",
+      "descriptionByLocale": {
+        "it": "Beth Hart si esibisce in un concerto di blues al THE HALL di Dübendorf. L’evento è organizzato da Guidle e il prezzo indicato è di 2 CHF.",
+        "en": "Beth Hart performs a blues concert at THE HALL in Dübendorf. The event is organised by Guidle, and the listed price is CHF 2.",
+        "de": "Beth Hart tritt bei einem Blueskonzert im THE HALL in Dübendorf auf. Die Veranstaltung wird von Guidle organisiert, und der angegebene Preis beträgt 2 CHF.",
+        "fr": "Beth Hart se produit lors d’un concert de blues au THE HALL à Dübendorf. L’événement est organisé par Guidle et le prix indiqué est de 2 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXRA2tt",
@@ -671616,7 +671664,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Winterthur, al locale im Eulachstrand (Läbesruum), Flo Bauer si esibisce con CIRCLE OF MUD in un programma acustico di brani blues originali. Il biglietto costa 28 CHF.",
+      "descriptionByLocale": {
+        "it": "A Winterthur, al locale im Eulachstrand (Läbesruum), Flo Bauer si esibisce con CIRCLE OF MUD in un programma acustico di brani blues originali. Il biglietto costa 28 CHF.",
+        "en": "At im Eulachstrand (Läbesruum) in Winterthur, Flo Bauer performs with CIRCLE OF MUD in an acoustic programme of original blues songs. Admission costs CHF 28.",
+        "de": "Im Eulachstrand (Läbesruum) in Winterthur präsentiert Flo Bauer mit CIRCLE OF MUD ein akustisches Programm eigener Bluesstücke. Der Eintritt kostet 28 CHF.",
+        "fr": "À Winterthour, Flo Bauer se produit avec CIRCLE OF MUD dans une formule acoustique consacrée à ses propres morceaux de blues. L’entrée est fixée à 28 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d6bac911397b45bc8222e57d168f5d5d",
@@ -678136,7 +678192,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento abbina una cena a un programma di musical. Si svolge al Gasthaus-Pension Zum Kreuz.",
+      "descriptionByLocale": {
+        "it": "L’evento abbina una cena a un programma di musical. Si svolge al Gasthaus-Pension Zum Kreuz.",
+        "en": "This event combines a dinner with a musical-theatre programme. It is held at Gasthaus-Pension Zum Kreuz.",
+        "de": "Der Termin verbindet ein Dinner mit einer Musicalaufführung. Veranstaltungsort ist das Gasthaus-Pension Zum Kreuz.",
+        "fr": "Le rendez-vous associe un dîner à un spectacle de comédie musicale. Il se déroule au Gasthaus-Pension Zum Kreuz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a3af88850e1d443088d0ed2759ed666d",
@@ -685357,7 +685421,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Si tratta di un evento musicale in programma al Theater Fauteuil. È previsto in più date nell’aprile 2027 e l’ingresso costa 44 CHF.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un evento musicale in programma al Theater Fauteuil. È previsto in più date nell’aprile 2027 e l’ingresso costa 44 CHF.",
+        "en": "This event is a musical production presented at Theater Fauteuil. It is scheduled across several dates in April 2027, with admission priced at CHF 44.",
+        "de": "Die Veranstaltung ist ein Musical im Theater Fauteuil. Sie findet an mehreren Terminen im April 2027 statt; der Eintritt kostet 44 CHF.",
+        "fr": "Cet événement musical est présenté au Theater Fauteuil. Il est programmé à plusieurs dates en avril 2027, avec un tarif d’entrée de 44 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6cdb3ca430bb4711808c945e3e650e10",
@@ -690385,7 +690457,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Megawatt è l’interprete di questo appuntamento rock al Pentorama Amriswil. Il prezzo d’ingresso indicato è di 64,60 CHF.",
+      "descriptionByLocale": {
+        "it": "Megawatt è l’interprete di questo appuntamento rock al Pentorama Amriswil. Il prezzo d’ingresso indicato è di 64,60 CHF.",
+        "en": "Megawatt is the performer at this rock event held at Pentorama Amriswil. The listed admission price is CHF 64.60.",
+        "de": "Megawatt tritt bei dieser Rockveranstaltung im Pentorama Amriswil auf. Der angegebene Eintrittspreis beträgt CHF 64.60.",
+        "fr": "Megawatt se produit lors de ce rendez-vous rock au Pentorama Amriswil. Le prix d’entrée indiqué est de 64,60 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AkZHQCc",
