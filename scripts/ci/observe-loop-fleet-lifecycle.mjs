@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createdSinceFilter } from './lib/run-listing-window.mjs';
+import { withTransientGithubApiRetry } from './lib/github-api-retry.mjs';
 import {
   buildLifecycleEvent,
   validateHistoricalLifecycleEvent,
@@ -99,15 +100,20 @@ function repositoryName() {
 
 const POST_MERGE_RUN_WINDOW_DAYS = 90;
 
-function ghJson(args) {
+export function ghJson(args, { run = defaultGhJsonRun, retryOptions = {} } = {}) {
   const fullArgs = [...args, ...(repositoryName() ? ['--repo', repositoryName()] : [])];
   let raw;
   try {
-    raw = execFileSync('gh', fullArgs, {
-      encoding: 'utf8',
-      maxBuffer: 64 * 1024 * 1024,
-      stdio: ['ignore', 'pipe', 'inherit'],
-    });
+    raw = withTransientGithubApiRetry(
+      () => run(fullArgs),
+      {
+        ...retryOptions,
+        onRetry: ({ attempt, maxRetries, delayMs, error }) => {
+          retryOptions.onRetry?.({ attempt, maxRetries, delayMs, error });
+          console.warn(`GitHub read transient failure; retrying in ${delayMs} ms (attempt ${attempt}/${maxRetries})`);
+        },
+      },
+    );
   } catch (error) {
     throw new Error(`GitHub read failed: ${error.message}`);
   }
@@ -116,6 +122,14 @@ function ghJson(args) {
   } catch (error) {
     throw new Error(`GitHub returned invalid JSON: ${error.message}`);
   }
+}
+
+function defaultGhJsonRun(fullArgs) {
+  return execFileSync('gh', fullArgs, {
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
 }
 
 /** Return only the PRs created by the reviewed loop-fleet ledger bridge. */

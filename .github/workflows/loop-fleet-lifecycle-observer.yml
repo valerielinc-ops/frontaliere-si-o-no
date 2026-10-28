@@ -39,6 +39,7 @@ jobs:
             /scripts/ci/append-loop-fleet-lifecycle.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/lib/run-listing-window.mjs
+            /scripts/ci/lib/github-api-retry.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/githubApiHeaders.mjs
