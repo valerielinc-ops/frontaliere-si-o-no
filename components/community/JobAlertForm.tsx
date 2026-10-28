@@ -527,14 +527,14 @@ export default function JobAlertForm({
     const replaySurface = pending.origin ?? "post_auth_auto";
     const replayKeyword = pending.config.keywords.join(", ");
     if (pending.origin) {
-      track((a) => a.trackJobAlertAuthHandoff(pending.origin as typeof replaySurface, "replay_started", replayKeyword));
+      track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_started", replayKeyword));
     }
     (async () => {
       try {
         const created = await persistAlert(authUser.uid, authUser.email || "", pending.config, replaySurface, "post_auth_replay");
         if (pending.origin) {
           trackCtaAction(pending.origin, "success", replayKeyword);
-          track((a) => a.trackJobAlertAuthHandoff(pending.origin as typeof replaySurface, "replay_succeeded", replayKeyword));
+          track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_succeeded", replayKeyword));
         }
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
         // Reset like the manual path so the now-authenticated user can't re-submit
@@ -548,7 +548,7 @@ export default function JobAlertForm({
         // the now-authenticated user can re-submit manually if needed.
         if (pending.origin) {
           trackCtaAction(pending.origin, "error", replayKeyword);
-          track((a) => a.trackJobAlertAuthHandoff(pending.origin as typeof replaySurface, "replay_failed", replayKeyword));
+          track((a) => a.trackJobAlertAuthHandoff(pending.origin, "replay_failed", replayKeyword));
         }
         showToast(err?.message || (t("jobAlert.error.generic") as string) || "Errore durante la creazione dell'alert.");
       }

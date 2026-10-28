@@ -2888,6 +2888,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // once authUser.uid becomes truthy.
  const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
  const [jobBoardAlertAuthPromptOpen, setJobBoardAlertAuthPromptOpen] = useState(false);
+ useEffect(() => {
+  if (!authUser?.uid) return;
+  releaseSlot('job-board-alert-auth-prompt');
+  setJobBoardAlertAuthPromptOpen(false);
+ }, [authUser?.uid]);
  const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null; savedCount: number; category: string } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
  const savedNudgeArmedRef = useRef(false);
@@ -11497,7 +11502,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
- const handleBoardFilterAlertAuthRequired = useCallback(() => {
+ const handleBoardFilterAlertAuthRequired = () => {
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'pending_saved',
@@ -11510,9 +11515,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'prompt_shown',
    boardFilterAlertKeywordLabel,
   );
- }, [boardFilterAlertKeywordLabel]);
+ };
 
- const handleBoardFilterAlertAuthPromptDismiss = useCallback(() => {
+ const handleBoardFilterAlertAuthPromptDismiss = () => {
   Analytics.trackJobAlertAuthHandoff(
    'job_board_filters',
    'dismissed',
@@ -11520,13 +11525,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   releaseSlot('job-board-alert-auth-prompt');
   setJobBoardAlertAuthPromptOpen(false);
- }, [boardFilterAlertKeywordLabel]);
-
- useEffect(() => {
-  if (!authUser?.uid) return;
-  releaseSlot('job-board-alert-auth-prompt');
-  setJobBoardAlertAuthPromptOpen(false);
- }, [authUser?.uid]);
+ };
 
  // This surface stays next to the filters so a category/sector intent is
  // actionable before the first result on mobile. Anonymous visitors keep the
