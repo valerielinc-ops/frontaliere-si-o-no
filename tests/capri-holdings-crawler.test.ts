@@ -349,6 +349,36 @@ describe('Capri Workday location resolution', () => {
     expect(jobs).toHaveLength(40);
     expect(offset20Attempts).toBe(1);
   });
+
+  it('skips an identity-less row while preserving the Workday pagination bound', async () => {
+    const firstPage = {
+      total: 21,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/valid-${index + 1}`,
+        title: `Valid role ${index + 1}`,
+        bulletFields: ['Mendrisio', 'Switzerland'],
+      })),
+    };
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        total: 21,
+        jobPostings: [{ title: 'Malformed Workday row' }],
+      }), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(20);
+    expect(fetchMock).toHaveBeenCalledTimes(6);
+  });
 });
 
 describe('Capri Workday brand sites', () => {
