@@ -282,7 +282,13 @@ export async function fetchAllCantonTicinoOscJobs() {
     }
 
     if (candidates.length === 0) {
-      const translatedHtml = await fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, { timeoutMs });
+      const translatedHtml = await fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, {
+        timeoutMs,
+        onExhausted: ({ transport, fatal } = {}) => {
+          if (transport) discoveryFailure.transport = true;
+          if (fatal) discoveryFailure.fatal = true;
+        },
+      });
       if (translatedHtml) {
         candidates = parseOfficialConcorsiListing(translatedHtml);
         if (candidates.length > 0) {

@@ -188,6 +188,33 @@ describe('fetchTichJobDetailUrls', () => {
     })).rejects.toMatchObject({ feedEndpointUnavailable: true });
   });
 
+  it('keeps a persistent Jina response hard after direct discovery transport failures', async () => {
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.startsWith('https://r.jina.ai/')) return new Response('', { status: 404 });
+      if (url.includes('.translate.goog/')) return new Response('', { status: 408 });
+      throw new TypeError('fetch failed');
+    });
+
+    let thrown: unknown;
+    try {
+      await fetchTichJobDetailUrls({
+        fetchImpl,
+        retries: 0,
+        retryBaseMs: 0,
+        proxyRetries: 0,
+        proxyRetryBaseMs: 0,
+        translateAttempts: 1,
+        translateRetryDelayMs: 0,
+        timeoutMs: 1_000,
+      });
+    } catch (error) {
+      thrown = error;
+    }
+
+    expect(thrown).toBeInstanceOf(Error);
+    expect((thrown as { feedEndpointUnavailable?: boolean }).feedEndpointUnavailable).not.toBe(true);
+  });
+
   it('does not soften a source identity response into a transport outage', async () => {
     const fetchImpl = vi.fn(async () => new Response('<html>wrong source</html>', { status: 200 }));
 

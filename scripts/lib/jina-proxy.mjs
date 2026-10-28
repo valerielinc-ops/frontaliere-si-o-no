@@ -318,10 +318,19 @@ const jinaSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * first call was blocked. Retries on: proxy throw (abort/network), non-ok
  * status, and a 200-but-not-target body (detectJinaErrorBody). Exponential
  * backoff + jitter. Tunable via JOBS_JINA_RETRIES / JOBS_JINA_RETRY_BASE_MS.
+ * An optional `onExhausted({ status, reason })` observes the terminal response
+ * without changing the null-return contract used by existing callers.
  */
 export async function fetchHtmlViaJinaWithRetry(
   targetUrl,
-  { timeoutMs = 30000, retries, retryBaseMs, fetchImpl = fetch, sleepImpl = jinaSleep } = {},
+  {
+    timeoutMs = 30000,
+    retries,
+    retryBaseMs,
+    fetchImpl = fetch,
+    sleepImpl = jinaSleep,
+    onExhausted,
+  } = {},
 ) {
   // Broad egress outage already detected this run → fast-fail (null) with no
   // attempt, so the caller's safe-fail (re-throw / skip, prior data preserved)
@@ -341,9 +350,11 @@ export async function fetchHtmlViaJinaWithRetry(
     pickEnvNumber(retryBaseMs, process.env.JOBS_JINA_RETRY_BASE_MS, 1000),
   );
   let lastReason = 'unknown';
+  let lastStatus = 0;
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
     try {
       const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl });
+      lastStatus = res.status;
       if (res.ok) {
         const html = await res.text();
         const reason = detectJinaErrorBody(html);
@@ -373,6 +384,9 @@ export async function fetchHtmlViaJinaWithRetry(
   }
   console.warn(`⚠️ Jina egress exhausted ${maxRetries + 1} attempt(s) for ${targetUrl} (last: ${lastReason}).`);
   recordJinaFailure();
+  if (typeof onExhausted === 'function') {
+    onExhausted({ status: lastStatus, reason: lastReason });
+  }
   return null;
 }
 

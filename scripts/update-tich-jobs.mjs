@@ -474,6 +474,13 @@ export async function fetchTichJobDetailUrls(options = {}) {
     if (isTichDiscoveryTransportFailure(value)) discoveryFailure.transport = true;
     else discoveryFailure.fatal = true;
   };
+  const noteJinaFailure = ({ status } = {}) => {
+    noteDiscoveryFailure(
+      Number.isFinite(status) && status > 0
+        ? { status }
+        : { retryable: true },
+    );
+  };
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -638,6 +645,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
           retries: options.proxyRetries ?? options.retries,
           retryBaseMs: options.proxyRetryBaseMs ?? options.retryBaseMs,
           fetchImpl,
+          onExhausted: noteJinaFailure,
         });
         if (html) {
           const accepted = consumeOfficialListingHtml(html, 'Official Ti.CH listing via Jina');
@@ -667,6 +675,10 @@ export async function fetchTichJobDetailUrls(options = {}) {
         timeoutMs,
         attempts: options.translateAttempts,
         retryDelayMs: options.translateRetryDelayMs,
+        onExhausted: ({ transport, fatal } = {}) => {
+          if (transport) discoveryFailure.transport = true;
+          if (fatal) discoveryFailure.fatal = true;
+        },
       });
       if (html) {
         if (!consumeOfficialListingHtml(html, 'Official Ti.CH listing via Google Translate')) {

@@ -193,7 +193,8 @@ export function isTichOfficialListingHtml(html = '') {
  * egress. The response is normalized back to source URLs before validation so
  * the downstream parser keeps its canonical-host and numeric-yid invariants.
  * Returns null after bounded exhaustion; it never turns an unverified page
- * into a successful source.
+ * into a successful source. An optional `onExhausted` callback receives the
+ * aggregate `{ transport, fatal }` classification for the failed attempts.
  */
 export async function fetchTichOfficialListingViaTranslate(
   sourceUrl = SOURCE_URL,
@@ -202,6 +203,7 @@ export async function fetchTichOfficialListingViaTranslate(
     timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000,
     attempts = 2,
     retryDelayMs = 1_500,
+    onExhausted,
   } = {},
 ) {
   const sourceUrls = sourceUrl === SOURCE_URL
@@ -215,6 +217,12 @@ export async function fetchTichOfficialListingViaTranslate(
   const requestTimeoutMs = Math.max(30_000, Number(timeoutMs) || 20_000);
   const delayMs = Number.isFinite(retryDelayMs) ? Math.max(0, retryDelayMs) : 1_500;
   let lastReason = 'unknown Google Translate proxy failure';
+  const failure = { transport: false, fatal: false };
+
+  const noteFailure = (value) => {
+    if (isTichDiscoveryTransportFailure(value)) failure.transport = true;
+    else failure.fatal = true;
+  };
 
   for (const candidateUrl of sourceUrls) {
     const proxyUrl = buildTichTranslateUrl(candidateUrl);
@@ -235,13 +243,16 @@ export async function fetchTichOfficialListingViaTranslate(
 
         if (!response.ok) {
           lastReason = `HTTP ${response.status}`;
+          noteFailure(response);
         } else {
           const html = normalizeTichTranslatedListingHtml(await response.text());
           if (isTichOfficialListingHtml(html) && parseConcorsiHtml(html).length > 0) return html;
           lastReason = 'response did not contain a verified official Ti.CH listing with rows';
+          noteFailure(new Error(lastReason));
         }
       } catch (error) {
         lastReason = error?.message || String(error);
+        noteFailure(error);
       } finally {
         clearTimeout(timer);
       }
@@ -253,6 +264,7 @@ export async function fetchTichOfficialListingViaTranslate(
   }
 
   console.warn(`⚠️ Google Translate official Ti.CH listing fallback exhausted (${lastReason}).`);
+  if (typeof onExhausted === 'function') onExhausted(failure);
   return null;
 }
 

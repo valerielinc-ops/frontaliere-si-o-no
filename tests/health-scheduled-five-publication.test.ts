@@ -133,6 +133,27 @@ describe('OSC official listing transport fallback', () => {
     await expect(fetchAllCantonTicinoOscJobs())
       .rejects.toMatchObject({ feedEndpointUnavailable: true });
   });
+
+  it('keeps an unverified Translate response hard after direct discovery transport failures', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const transport = vi.fn(async (input: RequestInfo | URL) => {
+      const url = input instanceof Request ? input.url : String(input);
+      if (url.includes('.translate.goog/')) return new Response('<html>wrong source</html>', { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+    vi.stubGlobal('fetch', transport);
+
+    let thrown: unknown;
+    try {
+      await fetchAllCantonTicinoOscJobs();
+    } catch (error) {
+      thrown = error;
+    }
+
+    expect(thrown).toBeInstanceOf(Error);
+    expect((thrown as { feedEndpointUnavailable?: boolean }).feedEndpointUnavailable).not.toBe(true);
+  });
 });
 
 describe('PDF-only clinic offers have no verified publication field', () => {
