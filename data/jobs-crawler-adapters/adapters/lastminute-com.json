@@ -10,33 +10,16 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000157995635&jobName=Business+Analyst+-+Payments+and+Fintech",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000156745735&jobName=Software+Engineering+-+Finance+Core+Platform",
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000156314299&jobName=Administrative+B2B+Specialist",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000155574569&jobName=Junior+Accountant",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000154626729&jobName=Data+Engineer",
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000154598830&jobName=Consolidation",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000148443690&jobName=AI+Automation+Engineer",
     "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll"
   ],
   "notes": "Dedicated lastminute.com crawler reads the complete careers listing, resolves each posting through SmartRecruiters, keeps only Swiss locations with inferAnyCanton(), and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
-  "updatedAt": "2026-10-28T09:43:54.710Z",
+  "updatedAt": "2026-10-28T20:08:18.550Z",
   "seedMetaByUrl": {
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000157995635&jobName=Business+Analyst+-+Payments+and+Fintech": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    },
     "https://corporate.lastminute.com/careers/jobs/job?id=744000156745735&jobName=Software+Engineering+-+Finance+Core+Platform": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    },
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000156314299&jobName=Administrative+B2B+Specialist": {
       "location": "Chiasso",
       "canton": "TI",
       "country": "CH",
@@ -51,13 +34,6 @@
       "companyDomain": "lastminute.com"
     },
     "https://corporate.lastminute.com/careers/jobs/job?id=744000154626729&jobName=Data+Engineer": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    },
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000154598830&jobName=Consolidation": {
       "location": "Chiasso",
       "canton": "TI",
       "country": "CH",
