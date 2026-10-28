@@ -1,18 +1,19 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-27T21:19:52.267Z",
-  "total": 4,
-  "newCount": 1,
-  "updatedCount": 0,
+  "generatedAt": "2026-10-28T09:17:03.059Z",
+  "total": 3,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 5898,
-  "avgDurationMs": 5898,
+  "unchangedCount": 2,
+  "durationMs": 4939,
+  "avgDurationMs": 4939,
   "durationHistory": [
-    5898
+    4939
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cedes-586f99785859",
       "slug": "smd-assembly-operator-production-assistant-cedes-landquart",
@@ -37,23 +38,22 @@
       "url": "https://www.cedes.com/en/career/jobs/production-assistant/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:19:40.726Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-28T09:16:48.388Z",
+      "firstSeenAt": "2026-10-27T21:19:40.726Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
       "applyUrl": "https://www.cedes.com/en/career/jobs/production-assistant/",
-      "firstSeenAt": "2026-10-27T21:19:40.726Z",
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +80,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:19:39.848Z",
+      "crawledAt": "2026-10-28T09:16:48.043Z",
       "firstSeenAt": "2026-10-09T09:13:37.313Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
@@ -118,7 +118,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:19:39.090Z",
+      "crawledAt": "2026-10-28T09:16:47.710Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -131,46 +131,7 @@
         "translation": 25,
         "completeness": 20
       }
-    },
-    {
-      "id": "cedes-38194b91f772",
-      "slug": "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart",
-      "company": "CEDES AG",
-      "companyKey": "cedes-ag",
-      "companyDomain": "cedes.com",
-      "title": "Lead Buyer Electronics",
-      "location": "Landquart",
-      "canton": "GR",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "postalCode": "7302",
-      "addressCountry": "CH",
-      "category": "technology",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
-      "source": "CEDES Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:24:10.718Z",
-      "firstSeenAt": "2026-08-25T09:46:00.183Z",
-      "salaryMin": 92000,
-      "salaryMax": 156500,
-      "salarySource": "estimated",
-      "applyUrl": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }
