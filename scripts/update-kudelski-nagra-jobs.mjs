@@ -12,6 +12,7 @@ import {
   fetchAllKudelskiNagraJobs,
   isKudelskiNagraJob,
   isTrustedDomain,
+  kudelskiNagraMatchKey,
   KUDELSKI_NAGRA_KEY,
   KUDELSKI_NAGRA_COMPANY_NAME,
 } from './lib/kudelski-nagra-job-parser.mjs';
@@ -26,6 +27,7 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllKudelskiNagraJobs,
   isCompanyJob: isKudelskiNagraJob,
   isTrustedDomain,
+  matchKey: kudelskiNagraMatchKey,
   defaultSourceLang: 'en',
 }).catch((err) => {
   console.error(`❌ Kudelski NAGRA crawler failed: ${err?.message || err}`);
