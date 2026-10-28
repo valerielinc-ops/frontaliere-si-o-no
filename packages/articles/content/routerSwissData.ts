@@ -2905,6 +2905,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tavola-rotonda-sei-misure': { it: 'tavola-rotonda-sei-misure', en: 'round-table-six-measures', de: 'runden-tisch-sechs-massnahmen', fr: 'table-ronde-six-mesures' },
  'allarme-popolazione-165-milioni': { it: 'allarme-popolazione-165-milioni', en: 'population-alert-165-million', de: 'bevoelkerungswarnung-165-millionen', fr: 'alerte-population-165-millions' },
  'norme-flessibilita-start-up': { it: 'norme-flessibilita-start-up', en: 'flexibility-start-up-rules', de: 'flexibilitaet-startups-regeln', fr: 'regles-flexibilite-startups' },
+ 'sem-rinnovo-simic-paralisi': { it: 'sem-rinnovo-simic-paralisi', en: 'sem-simic-renewal-paralysis', de: 'sem-simic-erneuerung-blockade', fr: 'sem-renouvellement-simic-paralysie' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
