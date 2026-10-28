@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T13:47:49.369Z",
+  "generatedAt": "2026-10-28T14:28:38.361Z",
   "totalEvents": 15451,
   "events": [
     {
@@ -307953,7 +307953,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'evento propone una cena a lume di candela a Zurigo. È un appuntamento ricorrente organizzato da MySwitzerland.",
+      "descriptionByLocale": {
+        "it": "L'evento propone una cena a lume di candela a Zurigo. È un appuntamento ricorrente organizzato da MySwitzerland.",
+        "en": "This recurring event features a candlelit dinner in Zurich. MySwitzerland is listed as the organizer.",
+        "de": "Bei diesem wiederkehrenden Anlass in Zürich steht ein Abendessen bei Kerzenlicht im Mittelpunkt. MySwitzerland ist als Veranstalter angegeben.",
+        "fr": "Ce rendez-vous récurrent propose un dîner aux chandelles à Zurich. MySwitzerland est indiqué comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ALBsRFY",
@@ -682405,7 +682413,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il festival celebra il quinto anniversario di emMetal e schiera per la prima volta due headliner, Bütcher (BE) e Ambush (SE). L’appuntamento si svolge allo Sternensaal Bümpliz.",
+      "descriptionByLocale": {
+        "it": "Il festival celebra il quinto anniversario di emMetal e schiera per la prima volta due headliner, Bütcher (BE) e Ambush (SE). L’appuntamento si svolge allo Sternensaal Bümpliz.",
+        "en": "The festival marks emMetal’s fifth anniversary and features Bütcher (BE) and Ambush (SE) as its two headliners for the first time. The event takes place at Sternensaal Bümpliz.",
+        "de": "Das Festival markiert das fünfte Jubiläum von emMetal. Erstmals stehen Bütcher (BE) und Ambush (SE) gemeinsam als Headliner auf dem Programm, und die Veranstaltung findet im Sternensaal Bümpliz statt.",
+        "fr": "Le festival célèbre les cinq ans d’emMetal. Bütcher (BE) et Ambush (SE) y sont réunis pour la première fois en tête d’affiche, au Sternensaal Bümpliz."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ADxmcDd",
@@ -682667,7 +682683,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Hotel Emmental; comune: Langnau im Emmental; cantone: BE; categoria: Rock generalmente; organizzatore: Guidle; data: 2027-04-10; ora: 21:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Hotel Emmental; comune: Langnau im Emmental; cantone: BE; categoria: Rock generalmente; organizzatore: Guidle; data: 2027-04-10; ora: 21:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Hotel Emmental; municipality: Langnau im Emmental; canton: BE; category: Rock generalmente; organiser: Guidle; date: 2027-04-10; time: 21:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Hotel Emmental; gemeinde: Langnau im Emmental; kanton: BE; kategorie: Rock generalmente; veranstalter: Guidle; datum: 2027-04-10; uhrzeit: 21:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Hotel Emmental; commune: Langnau im Emmental; canton: BE; catégorie: Rock generalmente; organisateur: Guidle; date: 2027-04-10; heure: 21:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c98db28b54544d1da45a55dc30cf7c50",
@@ -682775,7 +682799,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Megawatt propone un concerto rock nell’ambito di una tournée. L’evento si svolge alla Z7 Konzertfabrik Pratteln, nel comune di Pratteln.",
+      "descriptionByLocale": {
+        "it": "Megawatt propone un concerto rock nell’ambito di una tournée. L’evento si svolge alla Z7 Konzertfabrik Pratteln, nel comune di Pratteln.",
+        "en": "Megawatt appears in a rock concert that forms part of a tour. The event is held at Z7 Konzertfabrik Pratteln in Pratteln.",
+        "de": "Megawatt tritt bei einem Rockkonzert im Rahmen einer Tournee auf. Veranstaltungsort ist die Z7 Konzertfabrik Pratteln in Pratteln.",
+        "fr": "Megawatt se produit lors d’un concert de rock intégré à une tournée. Le rendez-vous a lieu à la Z7 Konzertfabrik Pratteln, à Pratteln."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AGUrbRq",
@@ -683908,7 +683940,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturladen; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-04-11; ora: 20:00; prezzo: EUR. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturladen; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-04-11; ora: 20:00; prezzo: EUR. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kulturladen; category: Pop generalmente; organiser: Guidle; date: 2027-04-11; time: 20:00; price: EUR. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kulturladen; kategorie: Pop generalmente; veranstalter: Guidle; datum: 2027-04-11; uhrzeit: 20:00; preis: EUR. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kulturladen; catégorie: Pop generalmente; organisateur: Guidle; date: 2027-04-11; heure: 20:00; prix: EUR. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d3212dcc328740e487300cbe1055c458",
@@ -684661,7 +684701,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Nicole Bernegger è l’artista in programma per questo appuntamento soul. L’evento si tiene al Kaufleuten, nel Canton Zurigo.",
+      "descriptionByLocale": {
+        "it": "Nicole Bernegger è l’artista in programma per questo appuntamento soul. L’evento si tiene al Kaufleuten, nel Canton Zurigo.",
+        "en": "Nicole Bernegger performs at this soul event. The event takes place at Kaufleuten in the canton of Zurich.",
+        "de": "Bei der Soul-Veranstaltung tritt Nicole Bernegger auf. Sie findet im Kaufleuten im Kanton Zürich statt.",
+        "fr": "Nicole Bernegger se produit lors de ce rendez-vous consacré à la soul. L’événement se déroule au Kaufleuten, dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:71abf369328944298661d0aabea4d3c7",
@@ -686626,7 +686674,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "SEOM Tour 2027 è un appuntamento hip-hop presentato come un’esperienza condivisa, non come un concerto tradizionale. L’evento si svolge al National Bern, nella città di Berna.",
+      "descriptionByLocale": {
+        "it": "SEOM Tour 2027 è un appuntamento hip-hop presentato come un’esperienza condivisa, non come un concerto tradizionale. L’evento si svolge al National Bern, nella città di Berna.",
+        "en": "SEOM Tour 2027 is a hip-hop event described as a shared experience rather than a conventional concert. It takes place at National Bern in Bern.",
+        "de": "SEOM Tour 2027 ist eine Hip-Hop-Veranstaltung, die als gemeinsames Erleben und nicht als klassisches Konzert beschrieben wird. Sie findet im National Bern in Bern statt.",
+        "fr": "SEOM Tour 2027 est un rendez-vous hip-hop présenté comme une expérience collective plutôt que comme un concert classique. Il a lieu au National Bern, à Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:65fbb173ad874addb3fbb31033fff07d",
@@ -689220,7 +689276,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento presenta AMBÄCK nell’ambito della musica Ländler al Theater Lindau di Lindau. Il trio mette in relazione tradizione, composizione e improvvisazione attraverso un dialogo musicale di carattere danzante.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento presenta AMBÄCK nell’ambito della musica Ländler al Theater Lindau di Lindau. Il trio mette in relazione tradizione, composizione e improvvisazione attraverso un dialogo musicale di carattere danzante.",
+        "en": "The event presents AMBÄCK in the Ländler music category at Theater Lindau in Lindau. The trio brings tradition, composition and improvisation into a dance-oriented musical dialogue.",
+        "de": "Bei diesem Termin ist AMBÄCK im Bereich der Ländlermusik im Theater Lindau in Lindau zu erleben. Das Trio verbindet Tradition, Komposition und Improvisation in einem tänzerisch geprägten musikalischen Dialog.",
+        "fr": "Ce rendez-vous présente AMBÄCK dans le domaine de la musique Ländler au Theater Lindau, à Lindau. Le trio fait dialoguer tradition, composition et improvisation dans une expression musicale dansante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cb27aca8ef694a69b147894b7253a289",
@@ -691470,7 +691534,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento di musica comica si svolge presso la PMS Pädagogische Maturitätsschule Kreuzlingen, a Kreuzlingen. Il programma combina musica e umorismo con una storia di nuovo inizio in Svizzera.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di musica comica si svolge presso la PMS Pädagogische Maturitätsschule Kreuzlingen, a Kreuzlingen. Il programma combina musica e umorismo con una storia di nuovo inizio in Svizzera.",
+        "en": "This comedy-music event takes place at PMS Pädagogische Maturitätsschule Kreuzlingen in Kreuzlingen. It combines music and humour with a story about starting anew in Switzerland.",
+        "de": "Die Veranstaltung im Bereich komische Musik findet an der PMS Pädagogische Maturitätsschule Kreuzlingen in Kreuzlingen statt. Sie verbindet Musik und Humor mit einer Geschichte über einen Neuanfang in der Schweiz.",
+        "fr": "Ce spectacle de musique comique a lieu à la PMS Pädagogische Maturitätsschule Kreuzlingen, à Kreuzlingen. Il associe musique et humour à une histoire de nouveau départ en Suisse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AuVbaBF",
@@ -691520,7 +691592,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento presenta uno spettacolo dal vivo dedicato al K-pop, con musica e movimenti scenici. Si svolge alla Stadthalle Waldshut e prevede un ingresso di 34,10 EUR.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta uno spettacolo dal vivo dedicato al K-pop, con musica e movimenti scenici. Si svolge alla Stadthalle Waldshut e prevede un ingresso di 34,10 EUR.",
+        "en": "This live event is a K-pop show featuring music and stage movement. It is held at Stadthalle Waldshut, with admission listed at EUR 34.10.",
+        "de": "Die Veranstaltung ist eine K-Pop-Liveshow mit Musik und Bewegungselementen. Sie findet in der Stadthalle Waldshut statt; der Eintritt ist mit 34,10 EUR angegeben.",
+        "fr": "Ce rendez-vous est un spectacle live consacré à la K-pop, avec musique et mouvements scéniques. Il se déroule à la Stadthalle Waldshut et l’entrée est indiquée à 34,10 EUR."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f59fad8bf3de40ac800aec2332b40bf7",
@@ -692370,7 +692450,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento jazz al Kaufleuten presenta Lila Downs. La proposta unisce musica, cultura e narrazione.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento jazz al Kaufleuten presenta Lila Downs. La proposta unisce musica, cultura e narrazione.",
+        "en": "The jazz event at Kaufleuten features Lila Downs. It brings music, culture and storytelling together.",
+        "de": "Der Jazztermin im Kaufleuten präsentiert Lila Downs. Die Veranstaltung verbindet Musik, Kultur und Geschichten.",
+        "fr": "Ce rendez-vous de jazz au Kaufleuten présente Lila Downs. Il met en relation musique, culture et récits."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:df76583e2ff446f2bc7734fd791301d2",
@@ -692879,7 +692967,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Martinskirche; cantone: BS; categoria: Soul; organizzatore: Guidle; partecipante: Jazzfestival Basel; data: 2027-04-27; ora: 20:15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Martinskirche; cantone: BS; categoria: Soul; organizzatore: Guidle; partecipante: Jazzfestival Basel; data: 2027-04-27; ora: 20:15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Martinskirche; canton: BS; category: Soul; organiser: Guidle; participant: Jazzfestival Basel; date: 2027-04-27; time: 20:15; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Martinskirche; kanton: BS; kategorie: Soul; veranstalter: Guidle; mitwirkender: Jazzfestival Basel; datum: 2027-04-27; uhrzeit: 20:15; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Martinskirche; canton: BS; catégorie: Soul; organisateur: Guidle; participant: Jazzfestival Basel; date: 2027-04-27; heure: 20:15; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:56359c757d6b4b349aced4ae49e8387d",
@@ -693330,7 +693426,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "ALTE BEKANNTE propone un concerto a cappella al Milchwerk Radolfzell. Il programma riunisce brani che guardano al repertorio passato e al presente.",
+      "descriptionByLocale": {
+        "it": "ALTE BEKANNTE propone un concerto a cappella al Milchwerk Radolfzell. Il programma riunisce brani che guardano al repertorio passato e al presente.",
+        "en": "ALTE BEKANNTE presents an a cappella concert at Milchwerk Radolfzell. The programme connects material from earlier periods with the present.",
+        "de": "ALTE BEKANNTE gestaltet einen A-cappella-Abend im Milchwerk Radolfzell. Das Programm reicht von früheren Liedern bis zu Stücken aus der Gegenwart.",
+        "fr": "ALTE BEKANNTE propose un concert a cappella au Milchwerk Radolfzell. Le programme met en regard des morceaux issus de périodes antérieures et du présent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1ad284c961ec447ba6c58006bdf8533d",
@@ -693782,7 +693886,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Dana è in programma alla Mühle Hunziken di Rubigen per un evento pop legato al lancio di un album. La sede si trova nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "Dana è in programma alla Mühle Hunziken di Rubigen per un evento pop legato al lancio di un album. La sede si trova nel cantone di Berna.",
+        "en": "Dana is scheduled at Mühle Hunziken in Rubigen for a pop event linked to an album launch. The venue is in the canton of Bern.",
+        "de": "Dana ist in der Mühle Hunziken in Rubigen für eine Popveranstaltung im Zusammenhang mit einer Albumveröffentlichung angekündigt. Der Veranstaltungsort liegt im Kanton Bern.",
+        "fr": "Dana est programmé à la Mühle Hunziken de Rubigen pour un rendez-vous pop lié à la sortie d’un album. Le lieu se trouve dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AAVwVYP",
@@ -693834,7 +693946,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La formazione di ottoni Die Egerländer Musikanten è annunciata al KKL Luzern, con Alexander Wurz come direttore musicale. L’appuntamento è previsto a Lucerna, nel cantone di Lucerna.",
+      "descriptionByLocale": {
+        "it": "La formazione di ottoni Die Egerländer Musikanten è annunciata al KKL Luzern, con Alexander Wurz come direttore musicale. L’appuntamento è previsto a Lucerna, nel cantone di Lucerna.",
+        "en": "The brass ensemble Die Egerländer Musikanten is scheduled at KKL Luzern, with Alexander Wurz identified as conductor. The event is listed in Luzern, in the canton of Lucerne.",
+        "de": "Die Blaskapelle Die Egerländer Musikanten ist im KKL Luzern angekündigt; Alexander Wurz wird als Kapellmeister genannt. Die Veranstaltung findet in Luzern im Kanton Luzern statt.",
+        "fr": "La formation de cuivres Die Egerländer Musikanten est annoncée au KKL Luzern, avec Alexander Wurz à la direction. L’événement est situé à Lucerne, dans le canton de Lucerne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:Abcv87c",
@@ -693944,7 +694064,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturzentrum Braui; comune: Hochdorf; cantone: LU; categoria: Cabaret; organizzatore: Guidle; partecipante: Frölein Da Capo; data: 2027-04-30; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturzentrum Braui; comune: Hochdorf; cantone: LU; categoria: Cabaret; organizzatore: Guidle; partecipante: Frölein Da Capo; data: 2027-04-30; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kulturzentrum Braui; municipality: Hochdorf; canton: LU; category: Cabaret; organiser: Guidle; participant: Frölein Da Capo; date: 2027-04-30; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kulturzentrum Braui; gemeinde: Hochdorf; kanton: LU; kategorie: Cabaret; veranstalter: Guidle; mitwirkender: Frölein Da Capo; datum: 2027-04-30; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kulturzentrum Braui; commune: Hochdorf; canton: LU; catégorie: Cabaret; organisateur: Guidle; participant: Frölein Da Capo; date: 2027-04-30; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:290761fe594845ffa02787e858a4ce60",
@@ -694797,7 +694925,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento musicale presenta i Calimeros allo Sportzentrum Aaretal di Wichtrach. Il biglietto VIP include un menu di tre portate servito e una visuale sul palco.",
+      "descriptionByLocale": {
+        "it": "L’evento musicale presenta i Calimeros allo Sportzentrum Aaretal di Wichtrach. Il biglietto VIP include un menu di tre portate servito e una visuale sul palco.",
+        "en": "The event features Calimeros at Sportzentrum Aaretal in Wichtrach. A VIP ticket includes a served three-course meal and a view of the stage.",
+        "de": "Die musikalische Veranstaltung präsentiert die Calimeros im Sportzentrum Aaretal in Wichtrach. Ein VIP-Ticket umfasst ein serviertes Drei-Gänge-Menü und Sicht auf die Bühne.",
+        "fr": "Le rendez-vous musical présente les Calimeros au Sportzentrum Aaretal, à Wichtrach. Le billet VIP comprend un menu servi en trois plats et une vue sur la scène."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:73f2ae6479a34d27a9083410e311cd07",
@@ -694948,7 +695084,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone musica pop italiana con Grüezi Italia. Si svolge al Kursaal Bern, a Berna, nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone musica pop italiana con Grüezi Italia. Si svolge al Kursaal Bern, a Berna, nel cantone di Berna.",
+        "en": "The event presents Italian pop music with Grüezi Italia. It takes place at Kursaal Bern in Bern, in the canton of Bern.",
+        "de": "Die Veranstaltung bietet italienische Popmusik mit Grüezi Italia. Sie findet im Kursaal Bern in Bern im Kanton Bern statt.",
+        "fr": "Le rendez-vous propose de la musique pop italienne avec Grüezi Italia. Il a lieu au Kursaal Bern, à Berne, dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b87615409775489b83f933cd086e1f39",
@@ -695208,7 +695352,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "PopOphonics è un evento in programma a Zurigo. La scheda fa riferimento a un Golden Seat, a un VIP Business Seat e a un’Aftershow Party, indicando MySwitzerland come organizzatore.",
+      "descriptionByLocale": {
+        "it": "PopOphonics è un evento in programma a Zurigo. La scheda fa riferimento a un Golden Seat, a un VIP Business Seat e a un’Aftershow Party, indicando MySwitzerland come organizzatore.",
+        "en": "PopOphonics is an event listed in Zurich. The listing refers to a Golden Seat, a VIP Business Seat and an Aftershow Party, and names MySwitzerland as the organiser.",
+        "de": "PopOphonics ist eine in Zürich aufgeführte Veranstaltung. Der Eintrag nennt einen Golden Seat, einen VIP Business Seat und eine Aftershow Party; als Veranstalter ist MySwitzerland angegeben.",
+        "fr": "PopOphonics est un événement répertorié à Zurich. La fiche mentionne les désignations Golden Seat, VIP Business Seat et Aftershow Party, et indique MySwitzerland comme organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7b5f30f170764722835fea577320bcda",
@@ -695359,7 +695511,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone una serata di musica pop con Grüezi Italia. Si svolge al Parktheater di Grenchen, con un biglietto al prezzo di 2 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone una serata di musica pop con Grüezi Italia. Si svolge al Parktheater di Grenchen, con un biglietto al prezzo di 2 CHF.",
+        "en": "This event features pop music by Grüezi Italia. It is held at Parktheater in Grenchen, with admission priced at CHF 2.",
+        "de": "Bei dieser Veranstaltung steht Popmusik von Grüezi Italia im Mittelpunkt. Sie findet im Parktheater in Grenchen statt; der Eintritt kostet 2 CHF.",
+        "fr": "Ce rendez-vous présente de la musique pop avec Grüezi Italia. Il a lieu au Parktheater de Grenchen, et l’entrée coûte 2 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7de07aba5190405b8725618cdc1de449",
@@ -695458,7 +695618,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Graf-Zeppelin-Haus si svolge uno spettacolo dal vivo dedicato al K-pop. Il programma riunisce brani K-pop, movimenti di danza e una messa in scena.",
+      "descriptionByLocale": {
+        "it": "Al Graf-Zeppelin-Haus si svolge uno spettacolo dal vivo dedicato al K-pop. Il programma riunisce brani K-pop, movimenti di danza e una messa in scena.",
+        "en": "The Graf-Zeppelin-Haus hosts a live event dedicated to K-pop. The programme combines K-pop songs, dance movements and a stage show.",
+        "de": "Im Graf-Zeppelin-Haus findet eine Live-Veranstaltung rund um K-Pop statt. Das Programm verbindet K-Pop-Musik, tänzerische Bewegungen und eine Bühnenshow.",
+        "fr": "Le Graf-Zeppelin-Haus accueille un spectacle en direct consacré à la K-pop. Le programme associe des chansons de K-pop, des mouvements dansés et une mise en scène."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a49f2444b3f4473683fc2ae3a014c4b0",
@@ -695836,7 +696004,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Cécile McLorin Salvant è la protagonista di un appuntamento blues alla Victoria Hall, nel cantone di Ginevra. La sua attività comprende composizione, canto e arti visive; ha ricevuto tre Grammy Awards.",
+      "descriptionByLocale": {
+        "it": "Cécile McLorin Salvant è la protagonista di un appuntamento blues alla Victoria Hall, nel cantone di Ginevra. La sua attività comprende composizione, canto e arti visive; ha ricevuto tre Grammy Awards.",
+        "en": "Cécile McLorin Salvant appears in a blues event at Victoria Hall in the canton of Geneva. Her work spans composition, singing and visual art, and she has received three Grammy Awards.",
+        "de": "Cécile McLorin Salvant steht bei einer Blues-Veranstaltung in der Victoria Hall im Kanton Genf auf dem Programm. Sie arbeitet als Komponistin, Sängerin und bildende Künstlerin und wurde mit drei Grammy Awards ausgezeichnet.",
+        "fr": "Cécile McLorin Salvant est à l’affiche d’un rendez-vous blues au Victoria Hall, dans le canton de Genève. Son activité couvre la composition, le chant et les arts visuels, et elle a reçu trois Grammy Awards."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:93919",
@@ -696555,7 +696731,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il festival riunisce schlager e musica popolare. Si tiene nella tenda per feste dietro BHF Wittenbach SG, a Wittenbach, nel cantone di San Gallo.",
+      "descriptionByLocale": {
+        "it": "Il festival riunisce schlager e musica popolare. Si tiene nella tenda per feste dietro BHF Wittenbach SG, a Wittenbach, nel cantone di San Gallo.",
+        "en": "The festival combines schlager with folk music. It takes place in the festival tent behind BHF Wittenbach SG, in Wittenbach, canton of St Gallen.",
+        "de": "Das Festival verbindet Schlager und Volksmusik. Es findet im Festzelt hinter BHF Wittenbach SG in Wittenbach im Kanton Sankt Gallen statt.",
+        "fr": "Le festival associe le schlager et la musique folklorique. Il se déroule dans la tente de fête derrière BHF Wittenbach SG, à Wittenbach, dans le canton de Saint-Gall."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:93916",
@@ -696825,7 +697009,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone musica pop italiana con Grüezi Italia. Si svolge al Volkshaus Zürich, a Zurigo, nel cantone di Zurigo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone musica pop italiana con Grüezi Italia. Si svolge al Volkshaus Zürich, a Zurigo, nel cantone di Zurigo.",
+        "en": "The event presents Italian pop music with Grüezi Italia. It takes place at Volkshaus Zürich in Zürich, in the canton of Zürich.",
+        "de": "Die Veranstaltung bietet italienische Popmusik mit Grüezi Italia. Sie findet im Volkshaus Zürich in Zürich im Kanton Zürich statt.",
+        "fr": "Le rendez-vous propose de la musique pop italienne avec Grüezi Italia. Il a lieu au Volkshaus Zürich, à Zurich, dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:881eaa118b2d49c492ae3ee027fef011",
@@ -697186,7 +697378,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone musica pop italiana con Grüezi Italia. Si svolge al Tägi, a Wettingen, nel cantone di Argovia.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone musica pop italiana con Grüezi Italia. Si svolge al Tägi, a Wettingen, nel cantone di Argovia.",
+        "en": "The event presents Italian pop music with Grüezi Italia. It takes place at Tägi in Wettingen, in the canton of Aargau.",
+        "de": "Die Veranstaltung bietet italienische Popmusik mit Grüezi Italia. Sie findet im Tägi in Wettingen im Kanton Aargau statt.",
+        "fr": "Le rendez-vous propose de la musique pop italienne avec Grüezi Italia. Il a lieu au Tägi, à Wettingen, dans le canton d’Argovie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:62f54ec554a14bbc97a97af071ec5c59",
@@ -698503,7 +698703,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Corbak Festival è una manifestazione musicale ricorrente che si svolge a La Chaux-du-Milieu, nel cantone di Neuchâtel. L’evento riunisce diversi artisti.",
+      "descriptionByLocale": {
+        "it": "Il Corbak Festival è una manifestazione musicale ricorrente che si svolge a La Chaux-du-Milieu, nel cantone di Neuchâtel. L’evento riunisce diversi artisti.",
+        "en": "Corbak Festival is a recurring music festival held in La Chaux-du-Milieu, in the canton of Neuchâtel. It brings together a range of artists.",
+        "de": "Das Corbak Festival ist ein wiederkehrendes Musikfestival in La Chaux-du-Milieu im Kanton Neuenburg. Die Veranstaltung bringt verschiedene Künstlerinnen und Künstler zusammen.",
+        "fr": "Le Corbak Festival est un festival musical récurrent à La Chaux-du-Milieu, dans le canton de Neuchâtel. Il rassemble plusieurs artistes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ebbf8db550624a1aae83fb9890be62fb",
@@ -699179,7 +699387,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Grüezi Italia propone un appuntamento di musica pop al Forum Landquart di Landquart. L’evento è organizzato da Guidle e il prezzo indicato è di 2 CHF.",
+      "descriptionByLocale": {
+        "it": "Grüezi Italia propone un appuntamento di musica pop al Forum Landquart di Landquart. L’evento è organizzato da Guidle e il prezzo indicato è di 2 CHF.",
+        "en": "Grüezi Italia presents a pop music event at Forum Landquart in Landquart. The event is organised by Guidle, and the listed price is CHF 2.",
+        "de": "Die Pop-Musikveranstaltung mit Grüezi Italia findet im Forum Landquart in Landquart statt. Sie wird von Guidle organisiert und der angegebene Preis beträgt 2 CHF.",
+        "fr": "Grüezi Italia se produit lors d’un rendez-vous de musique pop au Forum Landquart, à Landquart. L’événement est organisé par Guidle et le prix indiqué est de 2 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "fr-agenda:les-midis-de-sainte-croix-7",
@@ -699330,7 +699546,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento di musica pop con Rami Hattab si svolge al Club Vaudeville di Lindau. Il biglietto costa 34 euro.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop con Rami Hattab si svolge al Club Vaudeville di Lindau. Il biglietto costa 34 euro.",
+        "en": "The pop event featuring Rami Hattab takes place at Club Vaudeville in Lindau. Admission costs EUR 34.",
+        "de": "Die Popveranstaltung mit Rami Hattab findet im Club Vaudeville in Lindau statt. Der Eintritt kostet 34 Euro.",
+        "fr": "Cet événement de musique pop avec Rami Hattab a lieu au Club Vaudeville, à Lindau. L’entrée coûte 34 euros."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:03db07cae6b543c0b8a66b8a3652c23a",
@@ -699506,7 +699730,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Stadthalle Schopfheim; categoria: Canzonetta; organizzatore: Guidle; data: 2027-05-15; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Stadthalle Schopfheim; categoria: Canzonetta; organizzatore: Guidle; data: 2027-05-15; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Stadthalle Schopfheim; category: Canzonetta; organiser: Guidle; date: 2027-05-15; time: 19:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Stadthalle Schopfheim; kategorie: Canzonetta; veranstalter: Guidle; datum: 2027-05-15; uhrzeit: 19:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Stadthalle Schopfheim; catégorie: Canzonetta; organisateur: Guidle; date: 2027-05-15; heure: 19:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b62f67b2533c4e53ad6665fb3a54d447",
@@ -699607,7 +699839,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Si tratta di un evento di musica pop con Grüezi Italia. L'appuntamento si svolge al Fürstenlandsaal.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un evento di musica pop con Grüezi Italia. L'appuntamento si svolge al Fürstenlandsaal.",
+        "en": "This is a pop music event featuring Grüezi Italia. It takes place at Fürstenlandsaal.",
+        "de": "Bei der Popmusik-Veranstaltung tritt Grüezi Italia auf. Sie findet im Fürstenlandsaal statt.",
+        "fr": "Il s’agit d’un événement de musique pop avec Grüezi Italia. Il se déroule au Fürstenlandsaal."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A35jvWJ",
@@ -699842,7 +700082,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Megawatt presenta un appuntamento di genere rock al KKL Luzern. L’evento rientra nella tournée annunciata del gruppo e si svolge a Luzern.",
+      "descriptionByLocale": {
+        "it": "Megawatt presenta un appuntamento di genere rock al KKL Luzern. L’evento rientra nella tournée annunciata del gruppo e si svolge a Luzern.",
+        "en": "Megawatt appears in a rock event at KKL Luzern. The performance is part of the group’s announced tour and takes place in Luzern.",
+        "de": "Megawatt ist im Rahmen einer Rockveranstaltung im KKL Luzern zu erleben. Der Auftritt gehört zur angekündigten Tour der Gruppe und findet in Luzern statt.",
+        "fr": "Megawatt se produit dans le cadre d’un événement rock au KKL Luzern. Le spectacle fait partie de la tournée annoncée du groupe et a lieu à Luzern."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6e1d678c1d084b7a95943d8e77ed0326",
@@ -700414,7 +700662,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater 11; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-05-19; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater 11; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-05-19; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Theater 11; canton: ZH; category: Pop generalmente; organiser: Guidle; date: 2027-05-19; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Theater 11; kanton: ZH; kategorie: Pop generalmente; veranstalter: Guidle; datum: 2027-05-19; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Theater 11; canton: ZH; catégorie: Pop generalmente; organisateur: Guidle; date: 2027-05-19; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:94585",
@@ -701153,7 +701409,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Frölein Da Capo presenta uno spettacolo di musica comica al Gemeindezentrum «Dreiklang» di Steinhausen. Il programma è dedicato al tema della metà del percorso, come suggerisce il titolo dell’evento.",
+      "descriptionByLocale": {
+        "it": "Frölein Da Capo presenta uno spettacolo di musica comica al Gemeindezentrum «Dreiklang» di Steinhausen. Il programma è dedicato al tema della metà del percorso, come suggerisce il titolo dell’evento.",
+        "en": "Frölein Da Capo presents a comedy-music show at Gemeindezentrum «Dreiklang» in Steinhausen. The programme is built around the idea of reaching the midpoint, as indicated by the event title.",
+        "de": "Frölein Da Capo präsentiert eine Musik-Comedy-Show im Gemeindezentrum «Dreiklang» in Steinhausen. Das Programm greift das Thema der Halbzeit auf, wie der Veranstaltungstitel andeutet.",
+        "fr": "Frölein Da Capo propose un spectacle musical comique au Gemeindezentrum «Dreiklang», à Steinhausen. Le programme s’articule autour de l’idée du milieu du parcours, comme l’indique le titre de l’événement."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ANW7sVT",
@@ -701204,7 +701468,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento appartiene alla categoria della musica pop e ha come interprete Grüezi Italia. Si svolge al Pentorama Amriswil, ad Amriswil, nel cantone di TG.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento appartiene alla categoria della musica pop e ha come interprete Grüezi Italia. Si svolge al Pentorama Amriswil, ad Amriswil, nel cantone di TG.",
+        "en": "This pop music event features the performer Grüezi Italia. It is scheduled at Pentorama Amriswil in Amriswil, in the canton of TG.",
+        "de": "Bei der Popveranstaltung tritt Grüezi Italia auf. Sie findet im Pentorama Amriswil in Amriswil, im Kanton TG, statt.",
+        "fr": "Ce rendez-vous de musique pop accueille l’interprète Grüezi Italia. Il est prévu au Pentorama Amriswil, à Amriswil, dans le canton de TG."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:122810e90f334b2296f8e0c0b7dca278",
@@ -701468,7 +701740,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater 11; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Thomas Anders; data: 2027-05-21; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater 11; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Thomas Anders; data: 2027-05-21; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Theater 11; canton: ZH; category: Pop generalmente; organiser: Guidle; participant: Thomas Anders; date: 2027-05-21; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Theater 11; kanton: ZH; kategorie: Pop generalmente; veranstalter: Guidle; mitwirkender: Thomas Anders; datum: 2027-05-21; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Theater 11; canton: ZH; catégorie: Pop generalmente; organisateur: Guidle; participant: Thomas Anders; date: 2027-05-21; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:8ff7e9286ca24122beaa72c03cafe3fb",
@@ -701993,7 +702273,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alambics Théâtre-École; comune: Martigny; cantone: VS; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-05-22; ora: 10:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alambics Théâtre-École; comune: Martigny; cantone: VS; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-05-22; ora: 10:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Alambics Théâtre-École; municipality: Martigny; canton: VS; category: Festival / Incontro; organiser: Guidle; date: 2027-05-22; time: 10:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Alambics Théâtre-École; gemeinde: Martigny; kanton: VS; kategorie: Festival / Incontro; veranstalter: Guidle; datum: 2027-05-22; uhrzeit: 10:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Alambics Théâtre-École; commune: Martigny; canton: VS; catégorie: Festival / Incontro; organisateur: Guidle; date: 2027-05-22; heure: 10:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AcDAsvc",
@@ -702414,7 +702702,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento propone un concerto rock presso la Markthalle Burgdorf, a Burgdorf. La serata è affidata a Megawatt e rientra in una tournée del 2027.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un concerto rock presso la Markthalle Burgdorf, a Burgdorf. La serata è affidata a Megawatt e rientra in una tournée del 2027.",
+        "en": "Megawatt performs a rock concert at Markthalle Burgdorf in Burgdorf. The event is part of a 2027 tour.",
+        "de": "In der Markthalle Burgdorf in Burgdorf steht ein Rockkonzert mit Megawatt auf dem Programm. Die Veranstaltung gehört zu einer Tournee im Jahr 2027.",
+        "fr": "Megawatt se produit dans le cadre d’un concert de rock à la Markthalle Burgdorf, à Burgdorf. L’événement s’inscrit dans une tournée prévue en 2027."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:740dd47c82d74cf6ab6f363dad1c7fd8",
@@ -704456,7 +704752,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Megawatt porta il proprio repertorio rock sul palco di X-TRA, nel Cantone di Zurigo. L’appuntamento fa parte della tournée annunciata del gruppo.",
+      "descriptionByLocale": {
+        "it": "Megawatt porta il proprio repertorio rock sul palco di X-TRA, nel Cantone di Zurigo. L’appuntamento fa parte della tournée annunciata del gruppo.",
+        "en": "Megawatt performs in a rock event at X-TRA in the canton of Zurich. The event is part of the group’s announced tour.",
+        "de": "Megawatt tritt bei einer Rockveranstaltung im X-TRA im Kanton Zürich auf. Der Auftritt gehört zur angekündigten Tour der Gruppe.",
+        "fr": "Megawatt se produit dans le cadre d’un événement rock au X-TRA, dans le canton de Zurich. Le spectacle fait partie de la tournée annoncée du groupe."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4ceea3c5db8e49e6a51080a9f341b8eb",
@@ -705643,7 +705947,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: KiM – Kultur in Mogelsberg; cantone: SG; categoria: Altri musica; organizzatore: Guidle; data: 2027-05-30; ora: 20:15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: KiM – Kultur in Mogelsberg; cantone: SG; categoria: Altri musica; organizzatore: Guidle; data: 2027-05-30; ora: 20:15; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: KiM – Kultur in Mogelsberg; canton: SG; category: Altri musica; organiser: Guidle; date: 2027-05-30; time: 20:15; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: KiM – Kultur in Mogelsberg; kanton: SG; kategorie: Altri musica; veranstalter: Guidle; datum: 2027-05-30; uhrzeit: 20:15; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: KiM – Kultur in Mogelsberg; canton: SG; catégorie: Altri musica; organisateur: Guidle; date: 2027-05-30; heure: 20:15; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:84a94bce927c4721846cc12b5840df74",
@@ -705815,7 +706127,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un recital di canto all’Opernhaus Zürich, a Zurigo. Il repertorio comprende brani di Yvette Guilbert, Aristide Bruant, Francis Poulenc ed Eric Satie.",
+      "descriptionByLocale": {
+        "it": "È un recital di canto all’Opernhaus Zürich, a Zurigo. Il repertorio comprende brani di Yvette Guilbert, Aristide Bruant, Francis Poulenc ed Eric Satie.",
+        "en": "This is a vocal recital at Opernhaus Zürich in Zürich. The programme includes works by Yvette Guilbert, Aristide Bruant, Francis Poulenc and Eric Satie.",
+        "de": "Die Veranstaltung ist ein Liederabend im Opernhaus Zürich in Zürich. Zum Programm gehören Werke von Yvette Guilbert, Aristide Bruant, Francis Poulenc und Eric Satie.",
+        "fr": "Le rendez-vous est un récital vocal à l’Opernhaus Zürich, à Zurich. Le programme comprend des œuvres de Yvette Guilbert, Aristide Bruant, Francis Poulenc et Eric Satie."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:ddae907e9eb74fa8803b5ae4fc2c85a1",
@@ -706615,7 +706935,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturbühne AMBACH; categoria: cantautore; organizzatore: Guidle; data: 2027-06-03; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturbühne AMBACH; categoria: cantautore; organizzatore: Guidle; data: 2027-06-03; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kulturbühne AMBACH; category: cantautore; organiser: Guidle; date: 2027-06-03; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kulturbühne AMBACH; kategorie: cantautore; veranstalter: Guidle; datum: 2027-06-03; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kulturbühne AMBACH; catégorie: cantautore; organisateur: Guidle; date: 2027-06-03; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c5a99f77a1fb47c18c0e6ceac962df7f",
@@ -707424,7 +707752,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Stadthaus Winterthur; comune: Winterthur; cantone: ZH; categoria: Musica moderna / seria; organizzatore: Guidle; data: 2027-06-05; ora: 15:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Stadthaus Winterthur; comune: Winterthur; cantone: ZH; categoria: Musica moderna / seria; organizzatore: Guidle; data: 2027-06-05; ora: 15:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Stadthaus Winterthur; municipality: Winterthur; canton: ZH; category: Musica moderna / seria; organiser: Guidle; date: 2027-06-05; time: 15:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Stadthaus Winterthur; gemeinde: Winterthur; kanton: ZH; kategorie: Musica moderna / seria; veranstalter: Guidle; datum: 2027-06-05; uhrzeit: 15:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Stadthaus Winterthur; commune: Winterthur; canton: ZH; catégorie: Musica moderna / seria; organisateur: Guidle; date: 2027-06-05; heure: 15:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:436b3c5d63f14af2a203ccfb43ec34ae",
@@ -707544,7 +707880,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Si tratta di un appuntamento hip-hop. L'evento si svolge allo Schlossplatz Meersburg.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un appuntamento hip-hop. L'evento si svolge allo Schlossplatz Meersburg.",
+        "en": "This is a hip-hop event. It takes place at Schlossplatz Meersburg.",
+        "de": "Die Veranstaltung gehört zum Hip-Hop. Sie findet am Schlossplatz Meersburg statt.",
+        "fr": "Cet événement relève du hip-hop. Il se déroule au Schlossplatz Meersburg."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f9bb153d5f6146499fb04fd6b69d3b1d",
@@ -708249,7 +708593,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'evento di arte vocale riunisce Rolando Villazón e Xavier de Maistre in un programma dal carattere latino. È previsto alla Tonhalle Zürich, a Zürich.",
+      "descriptionByLocale": {
+        "it": "L'evento di arte vocale riunisce Rolando Villazón e Xavier de Maistre in un programma dal carattere latino. È previsto alla Tonhalle Zürich, a Zürich.",
+        "en": "This vocal-art event features Rolando Villazón and Xavier de Maistre in a Latin-themed programme. It is scheduled at Tonhalle Zürich in Zürich.",
+        "de": "Die Veranstaltung der Vokalkunst bringt Rolando Villazón und Xavier de Maistre in einem lateinisch geprägten Programm zusammen. Sie findet in der Tonhalle Zürich in Zürich statt.",
+        "fr": "Ce rendez-vous d’art vocal associe Rolando Villazón et Xavier de Maistre autour d’un programme à caractère latin. Il est prévu à la Tonhalle Zürich, à Zürich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AN1JxZW",
@@ -708316,7 +708668,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il pomeriggio di danza si svolge all’Hotel & Restaurant Schützen di Rheinfelden. Il programma propone valzer, fox, cha-cha-cha, jive, tango e rumba con i Moody Tunes.",
+      "descriptionByLocale": {
+        "it": "Il pomeriggio di danza si svolge all’Hotel & Restaurant Schützen di Rheinfelden. Il programma propone valzer, fox, cha-cha-cha, jive, tango e rumba con i Moody Tunes.",
+        "en": "The dance afternoon takes place at Hotel & Restaurant Schützen in Rheinfelden. The programme features waltz, foxtrot, cha-cha-cha, jive, tango and rumba with Moody Tunes.",
+        "de": "Im Hotel & Restaurant Schützen in Rheinfelden findet ein Tanznachmittag statt. Zum Tanzangebot gehören Walzer und Fox sowie Cha-Cha-Cha, Jive, Tango und Rumba; genannt werden ausserdem die Moody Tunes.",
+        "fr": "L’après-midi dansant se déroule à l’Hotel & Restaurant Schützen, à Rheinfelden. Le programme comprend la valse, le fox-trot, le cha-cha-cha, le jive, le tango et la rumba, avec les Moody Tunes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:22b563875a5d4ff3afc425abda53c8cb",
@@ -708971,7 +709331,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Festi'neuch è un festival musicale che si svolge a Neuchâtel. Il programma presenta diversi generi della musica attuale, tra cui rock, pop, reggae, world music ed elettronica.",
+      "descriptionByLocale": {
+        "it": "Festi'neuch è un festival musicale che si svolge a Neuchâtel. Il programma presenta diversi generi della musica attuale, tra cui rock, pop, reggae, world music ed elettronica.",
+        "en": "Festi'neuch is a music festival held in Neuchâtel. Its programme presents current music in rock, pop, reggae, world music and electronic styles.",
+        "de": "Festi'neuch ist ein Musikfestival in Neuchâtel. Das Programm umfasst verschiedene Richtungen der aktuellen Musikszene, darunter Rock, Pop, Reggae, Weltmusik und Elektro.",
+        "fr": "Festi'neuch est un festival musical organisé à Neuchâtel. Sa programmation couvre plusieurs styles des musiques actuelles, notamment le rock, la pop, le reggae, la musique du monde et l'électro."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AR3AUA3",
@@ -709628,7 +709996,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L'appuntamento è un festival musicale sulla Promenade di Gstaad, nel Canton Berna. Sono previste esibizioni dal vivo di artisti diversi, con più generi musicali rappresentati.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento è un festival musicale sulla Promenade di Gstaad, nel Canton Berna. Sono previste esibizioni dal vivo di artisti diversi, con più generi musicali rappresentati.",
+        "en": "This music festival takes place at Promenade Gstaad in the canton of Bern. Its programme brings together live appearances by several artists across different musical genres.",
+        "de": "Das Musikfestival findet an der Promenade Gstaad im Kanton Bern statt. Auf dem Programm stehen Live-Auftritte mehrerer Künstler aus unterschiedlichen musikalischen Richtungen.",
+        "fr": "Ce festival musical se déroule à la Promenade de Gstaad, dans le canton de Berne. Il réunit des prestations en direct de plusieurs artistes issus de genres musicaux différents."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AyQBiST",
@@ -709678,7 +710054,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un evento di musica pop con Hecht. L'appuntamento si svolge allo Stadion Letzigrund, nel cantone di Zurigo.",
+      "descriptionByLocale": {
+        "it": "È un evento di musica pop con Hecht. L'appuntamento si svolge allo Stadion Letzigrund, nel cantone di Zurigo.",
+        "en": "HECHT is a pop music event featuring Hecht. It takes place at Stadion Letzigrund in the canton of Zurich.",
+        "de": "HECHT ist eine Popmusik-Veranstaltung mit Hecht. Sie findet im Stadion Letzigrund im Kanton Zürich statt.",
+        "fr": "HECHT est un événement de musique pop avec Hecht. Il se déroule au Stadion Letzigrund, dans le canton de Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:86489f57e6cb465184e7eac80441cc80",
@@ -709850,7 +710234,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Vaudoise Arena; comune: Prilly; cantone: VD; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Mariza; data: 2027-06-12; ora: 20:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Vaudoise Arena; comune: Prilly; cantone: VD; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Mariza; data: 2027-06-12; ora: 20:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Vaudoise Arena; municipality: Prilly; canton: VD; category: Pop generalmente; organiser: Guidle; participant: Mariza; date: 2027-06-12; time: 20:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Vaudoise Arena; gemeinde: Prilly; kanton: VD; kategorie: Pop generalmente; veranstalter: Guidle; mitwirkender: Mariza; datum: 2027-06-12; uhrzeit: 20:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Vaudoise Arena; commune: Prilly; canton: VD; catégorie: Pop generalmente; organisateur: Guidle; participant: Mariza; date: 2027-06-12; heure: 20:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0133496cd169419e9324691fd46a5798",
