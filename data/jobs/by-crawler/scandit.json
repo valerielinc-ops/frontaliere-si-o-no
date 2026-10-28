@@ -1,7 +1,7 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-10-28T21:49:05.678Z",
-  "runId": "40771569350",
+  "assembledAt": "2026-10-28T22:34:36.080Z",
+  "runId": "40776421110",
   "jobs": [
     {
       "id": "scandit-08ee2b53999e",
@@ -34,7 +34,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552679",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T21:48:56.816Z",
+      "crawledAt": "2026-10-28T22:34:31.092Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -165,7 +165,7 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
