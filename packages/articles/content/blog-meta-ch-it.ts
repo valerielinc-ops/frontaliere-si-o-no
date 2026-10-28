@@ -8200,7 +8200,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bcg-consiglio-mueller.imageAlt': 'Rinnovo del Consiglio di banca della Banca cantonale grigione',
     'blog.article.offerte-formazione-federale.title': 'Amministrazione federale: lavoro, praticantati e formazione',
     'blog.article.offerte-formazione-federale.excerpt': 'L\'Amministrazione federale propone un lavoro significativo Gli studenti neolaureati hanno un\'ampia gamma di praticantati Sono disponibili 50 formazioni',
-    'blog.article.offerte-formazione-federale.imageAlt': 'Castelgrande a Bellinzona, immagine svizzera per il lavoro federale',
+    'blog.article.offerte-formazione-federale.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.divario-reddito-giovani-svizzera.title': 'Divario salariale giovani Svizzera: cala il gap di reddito',
     'blog.article.divario-reddito-giovani-svizzera.excerpt': 'Tra i nati nel 1995, il divario di reddito è del 14% Tra i nati nel 1965, il divario era del 55% Nel 2025, il titolo terziario riguarda il 54% delle giovani',
     'blog.article.divario-reddito-giovani-svizzera.imageAlt': 'Vista di Lugano con giovani professionisti',
@@ -8636,6 +8636,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pesca-zurigo-servizi-regolati.title': 'Permesso di pesca Cantone Zurigo: verifica requisiti e competenza',
     'blog.article.pesca-zurigo-servizi-regolati.excerpt': 'La pesca è un servizio regolato a livello cantonale; requisiti, scadenze e importi vanno verificati ufficialmente sulla fonte cantonale.',
     'blog.article.pesca-zurigo-servizi-regolati.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sei-misure-cure-sanitarie.title': 'Costi sanitari: sei nuove misure adottate a Berna',
+    'blog.article.sei-misure-cure-sanitarie.excerpt': 'Sei misure adottate lunedì a Berna Cure a domicilio e pronto soccorso tra gli ambiti Le misure si aggiungono alle 12 del 2025 Impatto economico ancora',
+    'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

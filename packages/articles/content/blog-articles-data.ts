@@ -45914,6 +45914,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chiasso-via-motta-lavoro',
+ category: 'novita',
+ date: '2026-10-28T02:02:16.502Z',
+ image: '/images/blog/article-chiasso-via-motta-lavoro.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

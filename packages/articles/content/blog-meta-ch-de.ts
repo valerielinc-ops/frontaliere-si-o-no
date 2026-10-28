@@ -8200,7 +8200,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bcg-consiglio-mueller.imageAlt': 'Erneuerung des Bankrats der Bündner Kantonalbank',
     'blog.article.offerte-formazione-federale.title': 'Bundesverwaltung: Arbeit, Praktika und Ausbildung',
     'blog.article.offerte-formazione-federale.excerpt': 'Die Bundesverwaltung bietet eine sinnstiftende Arbeit an Frisch diplomierten Studierenden steht eine breite Auswahl an Praktika zur Verfügung 50 Ausbildungen stehen zur Verfügung',
-    'blog.article.offerte-formazione-federale.imageAlt': 'Castelgrande in Bellinzona, Schweizer Motiv zur Arbeit beim Bund',
+    'blog.article.offerte-formazione-federale.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.divario-reddito-giovani-svizzera.title': 'Lohngefälle bei jungen Menschen in der Schweiz: Einkommenslücke geht zurück',
     'blog.article.divario-reddito-giovani-svizzera.excerpt': 'Bei den 1995 Geborenen beträgt die Einkommenslücke 14% Bei den 1965 Geborenen lag die Lücke bei 55% Im Jahr 2025 hatten 54% der jungen Frauen einen tertiären Bildungsabschluss',
     'blog.article.divario-reddito-giovani-svizzera.imageAlt': 'Ansicht von Lugano mit jungen Fachkräften',
@@ -8636,6 +8636,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pesca-zurigo-servizi-regolati.title': 'Fischereibewilligung Zürich: Voraussetzungen prüfen',
     'blog.article.pesca-zurigo-servizi-regolati.excerpt': 'Die Fischerei ist eine auf kantonaler Ebene geregelte Dienstleistung; Voraussetzungen, Fristen und Beträge sind offiziell anhand der kantonalen Quelle zu überprüfen.',
     'blog.article.pesca-zurigo-servizi-regolati.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.sei-misure-cure-sanitarie.title': 'Gesundheitskosten: sechs neue Maßnahmen in Bern beschlossen',
+    'blog.article.sei-misure-cure-sanitarie.excerpt': 'Sechs am Montag in Bern beschlossene Maßnahmen Häusliche Pflege und Notfallversorgung unter den Bereichen Die Maßnahmen kommen zu den 12 aus dem Jahr 2025 hinzu Wirtschaftliche Auswirkungen noch',
+    'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
