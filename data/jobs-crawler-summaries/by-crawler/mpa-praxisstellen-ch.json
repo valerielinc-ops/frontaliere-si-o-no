@@ -1,7 +1,7 @@
 {
   "key": "mpa-praxisstellen-ch",
   "label": "mpa-praxisstellen",
-  "generatedAt": "2026-10-28T20:15:36.742Z",
+  "generatedAt": "2026-10-28T21:18:25.534Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9272,
-  "avgDurationMs": 9272,
+  "durationMs": 7927,
+  "avgDurationMs": 7927,
   "durationHistory": [
-    9272
+    7927
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "mpa-praxisstellen-ch-445577b9d250",
       "slug": "disponent-internationale-landverkehre-100-sie-bewegen-nicht-nur-frachten-sie-bewegen-das-geschaft-disponent-internationale-landverkehre-100-basel-mpa-praxisstellen-binningen",
@@ -34,7 +35,7 @@
       "url": "https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:18.585Z",
+      "crawledAt": "2026-10-28T21:18:14.816Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -52,10 +53,10 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:15:18.585Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T20:15:18.585Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -76,7 +77,7 @@
       "url": "https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:18.584Z",
+      "crawledAt": "2026-10-28T21:18:14.815Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -94,10 +95,10 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:15:18.584Z",
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T20:15:18.584Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -108,7 +109,7 @@
     },
     {
       "id": "mpa-praxisstellen-ch-70ea7625f26a",
-      "slug": "sachbearbeiter-in-spedition-export-100-die-rampensau-steht-im-rampenlicht-die-fleissbiene",
+      "slug": "sachbearbeiter-in-spedition-export-100-la-rampensau-steht-im-rampenlicht-la-fleissbiene-sorgt-dafur-dass-la-rampe-leer",
       "company": "mpa-praxisstellen",
       "companyKey": "mpa-praxisstellen-ch",
       "companyDomain": "pks-personal.ch",
@@ -118,7 +119,7 @@
       "url": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/e5809283",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:18.582Z",
+      "crawledAt": "2026-10-28T21:18:14.814Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -136,10 +137,10 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/e5809283",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:15:18.582Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T20:15:18.582Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -149,8 +150,7 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
