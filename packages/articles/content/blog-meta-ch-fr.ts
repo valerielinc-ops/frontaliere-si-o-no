@@ -8639,6 +8639,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sei-misure-cure-sanitarie.title': 'Coûts de santé : six nouvelles mesures adoptées à Berne',
     'blog.article.sei-misure-cure-sanitarie.excerpt': 'Six mesures adoptées lundi à Berne Soins à domicile et urgences parmi les domaines Les mesures s\'ajoutent aux 12 de 2025 Impact économique encore',
     'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.tavola-rotonda-sei-misure.title': 'Six nouvelles mesures visant à contenir les coûts dans le secteur de la santé',
+    'blog.article.tavola-rotonda-sei-misure.excerpt': 'Six nouvelles mesures entreront en vigueur à partir de 2027 La cinquième table ronde s’est réunie à Berne le 26 octobre 2026 Le paquet concerne les consultations ambulatoires, les services d’urgence et les soins',
+    'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

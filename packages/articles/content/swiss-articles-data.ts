@@ -28903,6 +28903,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tavola-rotonda-sei-misure',
+    category: 'novita',
+    date: '2026-10-28T09:49:00.544Z',
+    image: '/images/blog/article-tavola-rotonda-sei-misure.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
