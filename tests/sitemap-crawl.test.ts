@@ -172,14 +172,53 @@ describe('sitemap graph availability policy', () => {
       return Promise.resolve(new Response('missing', { status: 404 }));
     }));
 
-    await expect(crawlSitemaps({ baseUrl: BASE, strict: true }))
+    await expect(crawlSitemaps({ baseUrl: BASE, strict: true, fetchDelayMs: 0 }))
       .rejects.toThrow('sitemap-cantons.xml');
   });
 
   it('fails closed when the master sitemap itself is unavailable', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('missing', { status: 404 })));
 
-    await expect(crawlSitemaps({ baseUrl: BASE, strict: true }))
+    await expect(crawlSitemaps({ baseUrl: BASE, strict: true, fetchDelayMs: 0 }))
       .rejects.toThrow('Sitemap crawl incomplete');
+  });
+
+  it('retries a transient 404 before failing closed', async () => {
+    const fetchMock = vi.fn();
+    let childAttempts = 0;
+    fetchMock.mockImplementation((input: string) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-articles-canton-nw.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      if (url.endsWith('/sitemap-articles-canton-nw.xml')) {
+        childAttempts += 1;
+        if (childAttempts === 1) return Promise.resolve(new Response('not propagated', { status: 404 }));
+        return Promise.resolve(new Response(
+          `<urlset><url><loc>${BASE}/nw/articolo</loc></url></urlset>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const crawl = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchDelayMs: 0,
+    });
+
+    expect(childAttempts).toBe(2);
+    expect(crawl.missing).toEqual([]);
+    expect(crawl.records.get('sitemap-articles-canton-nw.xml')?.urls)
+      .toEqual([`${BASE}/nw/articolo`]);
   });
 });
