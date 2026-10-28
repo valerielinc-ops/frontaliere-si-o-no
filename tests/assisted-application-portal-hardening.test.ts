@@ -64,7 +64,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url).next).toEqual(expect.objectContaining({ text: 'Weiter' }));
     expect(formPostingMatch(formText, job)).toBe('match');
     expect(formPostingMatch(formText.replace('rhb-career', 'other-career'), job)).toBe('mismatch');
-    expect(formPostingMatch(formText.replace(title, 'Rangiermitarbeiter/in (50-100%)'), job)).toBe('mismatch');
+    expect(formPostingMatch(formText, {
+      ...job,
+      title: 'Rangiermitarbeiter/in (50-100%)',
+    })).toBe('mismatch');
   });
 
   it('opens a SuccessFactors application from its matching posting page', () => {
