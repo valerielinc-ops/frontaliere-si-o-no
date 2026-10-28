@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rfsm-fribourg",
-  "assembledAt": "2026-10-28T09:38:22.401Z",
-  "runId": "40663599005",
+  "assembledAt": "2026-10-28T20:34:59.760Z",
+  "runId": "40759767316",
   "jobs": [
     {
       "id": "rfsm-fribourg-3922d1e34cad",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "contabile-esperto-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "en": "experienced-accountant-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "de": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
         "fr": "comptable-experimente-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
@@ -35,7 +35,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Erfahrene-Buchhalterin-erfahrener-Buchhalter%2C-FNPG-Marsens-Grey/1373589557/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:38:15.570Z",
+      "crawledAt": "2026-10-28T20:34:53.918Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -54,10 +54,10 @@
       "applyUrl": "https://jobs.fr.ch/job/Marsens%2C-CH-Erfahrene-Buchhalterin-erfahrener-Buchhalter%2C-FNPG-Marsens-Grey/1373589557/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ],
         "it": [
           "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
         ],
@@ -66,11 +66,12 @@
         ],
         "fr": [
           "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
-        ],
-        "de": [
-          "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens"
         ]
       },
+      "previousSlugs": [
+        "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-fribourg-marsens",
+        "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ],
       "firstSeenAt": "2026-08-28T05:35:37.294Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -92,7 +93,7 @@
       "slugByLocale": {
         "it": "interno-legale-interno-legale-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "en": "legal-intern-legal-intern-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "de": "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
         "fr": "stage-juridique-stage-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
@@ -118,7 +119,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Juristische-Praktikantin-juristischer-Praktikant%2C-FNPG-Marsens-Grey/1373686757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:38:14.771Z",
+      "crawledAt": "2026-10-28T20:34:53.131Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -137,11 +138,10 @@
       "applyUrl": "https://jobs.fr.ch/job/Marsens%2C-CH-Juristische-Praktikantin-juristischer-Praktikant%2C-FNPG-Marsens-Grey/1373686757/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stagiaire-juridique-stagiaire-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ],
         "it": [
           "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
         ],
@@ -151,11 +151,13 @@
         "fr": [
           "stagiaire-juridique-stagiaire-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
           "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
-        ],
-        "de": [
-          "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens"
         ]
       },
+      "previousSlugs": [
+        "stagiaire-juridique-stagiaire-juridique-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-fribourg-marsens",
+        "juristische-praktikantin-juristischer-praktikant-fnpg-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ],
       "firstSeenAt": "2026-10-03T09:29:25.323Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -203,7 +205,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Oberarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350362257/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:38:13.975Z",
+      "crawledAt": "2026-10-28T20:34:52.344Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -288,7 +290,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Ober%C3%A4rztinOberarzt%2C-FNPG-Marsens-Station-Thalassa-Grey/1371546057/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:38:13.159Z",
+      "crawledAt": "2026-10-28T20:34:51.546Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -367,7 +369,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350361957/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:38:12.341Z",
+      "crawledAt": "2026-10-28T20:34:50.749Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -463,7 +465,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;employ%C3%A9-e-de-cuisine-AFP%2C-RFSM-Marsens-Gruy/1371220657/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:11.563Z",
+      "crawledAt": "2026-10-28T20:34:49.941Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -520,7 +522,7 @@
         "it": "contabile-senior-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "en": "senior-accountant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "de": "leitender-buchhalter-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "fr": "comptable-confirme-e-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "fr": "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -544,7 +546,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Comptable-confirm%C3%A9-e%2C-RFSM-Marsens-Gruy/1373589457/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:10.777Z",
+      "crawledAt": "2026-10-28T20:34:49.147Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -563,10 +565,10 @@
       "applyUrl": "https://jobs.fr.ch/job/Marsens%2C-CH-Comptable-confirm%C3%A9-e%2C-RFSM-Marsens-Gruy/1373589457/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "comptable-confirme-e-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ],
         "it": [
           "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
         ],
@@ -575,11 +577,12 @@
         ],
         "de": [
           "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
-        ],
-        "fr": [
-          "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens"
         ]
       },
+      "previousSlugs": [
+        "comptable-confirme-e-rfsm-marsens-rfsm-fribourg-marsens",
+        "comptable-confirme-e-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ],
       "firstSeenAt": "2026-08-28T05:31:36.757Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -602,7 +605,7 @@
         "it": "imparare-i-dipendenti-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "en": "business-employee-learning-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "de": "business-employee-learning-swc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "fr": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "fr": "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -626,7 +629,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;employ%C3%A9-e-de-commerce-CFC%2C-RFSM-Marsens-Gruy/1373676857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:10.003Z",
+      "crawledAt": "2026-10-28T20:34:48.348Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -645,11 +648,10 @@
       "applyUrl": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;employ%C3%A9-e-de-commerce-CFC%2C-RFSM-Marsens-Gruy/1373676857/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
-        "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ],
         "it": [
           "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
           "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
@@ -659,11 +661,12 @@
         ],
         "de": [
           "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens"
-        ],
-        "fr": [
-          "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens"
         ]
       },
+      "previousSlugs": [
+        "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-fribourg-marsens",
+        "apprentissage-d-employe-e-de-commerce-cfc-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ],
       "firstSeenAt": "2026-10-03T09:29:20.636Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -711,7 +714,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Pflegefachperson-FNPG-Marsens-und-Villars-sur-Gl%C3%A2ne-f%C3%BCr-Spontanbewerbungen-Grey/1349950857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:38:09.225Z",
+      "crawledAt": "2026-10-28T20:34:47.518Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -771,7 +774,7 @@
         "it": "psicoterapeuta-rfsm-givisiez-cpc-clinica-day-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
         "en": "psychotherapist-rfsm-givisiez-cpc-day-clinic-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
         "de": "psychotherapeut-rfsm-givisiez-cpc-tagesklinik-rfsm-reseau-fribourgeois-sante-mentale-givisiez",
-        "fr": "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
+        "fr": "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -796,7 +799,7 @@
       "url": "https://jobs.fr.ch/job/Givisiez%2C-CH-Psychologue-psychoth%C3%A9rapeute%2C-RFSM-Givisiez-CPP-Clinique-de-jour-Sari/1374701757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:08.405Z",
+      "crawledAt": "2026-10-28T20:34:46.704Z",
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -815,11 +818,10 @@
       "applyUrl": "https://jobs.fr.ch/job/Givisiez%2C-CH-Psychologue-psychoth%C3%A9rapeute%2C-RFSM-Givisiez-CPP-Clinique-de-jour-Sari/1374701757/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez",
-        "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
+        ],
         "it": [
           "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez",
           "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
@@ -829,11 +831,12 @@
         ],
         "de": [
           "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez"
-        ],
-        "fr": [
-          "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez"
         ]
       },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-fribourg-givisiez",
+        "psychologue-psychotherapeute-rfsm-givisiez-cpp-clinique-de-jour-rfsm-reseau-fribourgeois-sante-mentale-givisiez"
+      ],
       "firstSeenAt": "2026-10-16T09:30:00.999Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -881,7 +884,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Marsens-Unit%C3%A9-Thalassa-Gruy/1371545957/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:07.613Z",
+      "crawledAt": "2026-10-28T20:34:45.819Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -936,7 +939,7 @@
         "it": "addestramento-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "en": "legal-trainee-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "de": "legal-trainee-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "fr": "stagiaire-juriste-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        "fr": "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -961,7 +964,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Stagiaire-juriste%2C-RFSM-Marsens-Gruy/1373686657/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:06.798Z",
+      "crawledAt": "2026-10-28T20:34:45.017Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -980,13 +983,10 @@
       "applyUrl": "https://jobs.fr.ch/job/Marsens%2C-CH-Stagiaire-juriste%2C-RFSM-Marsens-Gruy/1373686657/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "interno-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "legal-intern-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "stagiaire-juriste-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+        ],
         "it": [
           "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
         ],
@@ -997,11 +997,15 @@
         "de": [
           "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
           "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
-        ],
-        "fr": [
-          "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens"
         ]
       },
+      "previousSlugs": [
+        "interno-legale-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "legal-intern-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "rechtspraktikant-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "stagiaire-juriste-rfsm-marsens-rfsm-fribourg-marsens",
+        "stagiaire-juriste-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+      ],
       "firstSeenAt": "2026-10-03T09:29:15.952Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
@@ -1049,7 +1053,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350362157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:06.011Z",
+      "crawledAt": "2026-10-28T20:34:44.193Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1140,7 +1144,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;assistant-e-en-soins-et-sant%C3%A9-communautaire-CFC%2C-RFSM-Marsens-Gruy/1371221557/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:05.181Z",
+      "crawledAt": "2026-10-28T20:34:43.365Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1221,7 +1225,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350361857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:04.397Z",
+      "crawledAt": "2026-10-28T20:34:42.562Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1331,7 +1335,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Apprentissage-d&apos;aide-en-soins-et-accompagnement-AFP%2C-RFSM-Marsens-Gruy/1371192157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:03.600Z",
+      "crawledAt": "2026-10-28T20:34:41.768Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1413,7 +1417,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-et-Villars-sur-Gl%C3%A2ne-pour-les-candidatures-spontan%C3%A9es-Gruy/1349950757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:38:02.797Z",
+      "crawledAt": "2026-10-28T20:34:40.963Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
