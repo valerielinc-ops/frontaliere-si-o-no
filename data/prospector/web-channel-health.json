@@ -1,13 +1,5 @@
 [
   {
-    "at": "2026-09-10T08:31:28.363Z",
-    "collection": "CC-MAIN-2026-34",
-    "totalPages": 1210,
-    "pagesRead": 20,
-    "employers": 147,
-    "outage": false
-  },
-  {
     "at": "2026-09-11T08:25:20.489Z",
     "collection": "CC-MAIN-2026-34",
     "totalPages": 1210,
@@ -1621,6 +1613,184 @@
       }
     ],
     "coverageRate": 0.0408,
+    "outage": false
+  },
+  {
+    "at": "2026-10-28T10:11:48.059Z",
+    "collection": "CC-MAIN-2026-43",
+    "totalPages": 1200,
+    "pagesRead": 7,
+    "employers": 81,
+    "outcome": "partial",
+    "errorCode": "malformed_rows",
+    "failedPages": [
+      {
+        "page": 917,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 975,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 1004,
+        "outcome": "unavailable",
+        "errorCode": "http_502"
+      },
+      {
+        "page": 1062,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 580,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 1189,
+        "outcome": "unavailable",
+        "errorCode": "http_404"
+      },
+      {
+        "page": 47,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 105,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 134,
+        "outcome": "unavailable",
+        "errorCode": "http_502"
+      },
+      {
+        "page": 1178,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 36,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 297,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 221,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 460,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 489,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 518,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 547,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 576,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 605,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 634,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 663,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 692,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 721,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 750,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 779,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 808,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 837,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 866,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 895,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 924,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 953,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 982,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      },
+      {
+        "page": 1011,
+        "outcome": "unavailable",
+        "errorCode": "http_0"
+      }
+    ],
+    "coverageRate": 0.0467,
     "outage": false
   }
 ]

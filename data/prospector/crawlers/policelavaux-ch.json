@@ -1,0 +1,24 @@
+{
+  "companyKey": "policelavaux-ch",
+  "companyName": "policelavaux",
+  "companyHost": "policelavaux.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.policelavaux.ch/emplois/offres-demploi/"
+  ],
+  "detailTemplate": "/emplois/offres-demploi/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "POLICE LAVAUX RECRUTE DEUX SOUS-OFFICIERS OU SOUS-OFFICIÈRES SUPÉRIEUR-E-S",
+    "POLICE LAVAUX SE DÉVELOPPE ET RECRUTE DES POLICIÈRES ET POLICIERS !",
+    "SECRÉTAIRE DE POLICE DU COMMERCE (CDD POUR ÉTUDIANT)",
+    "SECRÉTAIRE EN CHARGE DES AFFAIRES PORTUAIRES (CDD POUR ÉTUDIANT)",
+    "UN-E ASSISTANT-E DE SÉCURITÉ PUBLIQUE"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-28T12:02:05.251Z",
+  "candidateKey": "policelavaux.ch"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "pks-personal-ch",
+  "companyName": "pks-personal",
+  "companyHost": "personalradar.ch",
+  "platform": "personalradar.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.personalradar.ch/"
+  ],
+  "detailTemplate": "/bewerbung-2/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Aug. 7 Den Jahrgang verstecken ist so wirksam wie das Entfernen der Seitenzahl aus einem dicken Buch.",
+    "Juli 27 Der Lebenslauf darf glänzen. Aber er darf nicht lügen.",
+    "Juni 22 Der Lebenslauf ist nicht tot. Er wurde nur an eine Maschine verfüttert.",
+    "Juli 14 Motivationsschreiben reloaded: KI kann Bewerbungsprozesse nicht ersetzen, aber verbessern."
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:09:51.409Z",
+  "candidateKey": "pks-personal.ch"
+}
