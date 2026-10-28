@@ -1,7 +1,7 @@
 {
   "crawlerKey": "straumann",
-  "assembledAt": "2026-10-28T21:18:30.820Z",
-  "runId": "40769003973",
+  "assembledAt": "2026-10-28T22:02:12.501Z",
+  "runId": "40774021048",
   "jobs": [
     {
       "id": "straumann-c7d689ad55de",
@@ -34,7 +34,7 @@
       "url": "https://careers.straumann.com/global/en/job/22444/process-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:18:24.850Z",
+      "crawledAt": "2026-10-28T22:02:06.541Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "postalCode": "2613",
@@ -53,8 +53,9 @@
       "applyUrl": "https://careers.straumann.com/global/en/job/22444/process-engineer",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T20:03:36.968Z",
+      "previousSlugs": [
+        "process-engineer-straumann-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "process-engineer-straumann-ch"
@@ -63,9 +64,8 @@
           "process-engineer-straumann-ch"
         ]
       },
-      "previousSlugs": [
-        "process-engineer-straumann-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:03:36.968Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -111,7 +111,7 @@
       "url": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T21:18:24.493Z",
+      "crawledAt": "2026-10-28T22:02:05.377Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -190,7 +190,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T21:18:23.987Z",
+      "crawledAt": "2026-10-28T22:02:04.993Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -269,7 +269,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T21:18:23.424Z",
+      "crawledAt": "2026-10-28T22:02:04.667Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -348,7 +348,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T21:18:23.042Z",
+      "crawledAt": "2026-10-28T22:02:04.349Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -427,7 +427,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:18:20.756Z",
+      "crawledAt": "2026-10-28T22:02:03.981Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -500,7 +500,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:18:19.205Z",
+      "crawledAt": "2026-10-28T22:02:03.177Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
