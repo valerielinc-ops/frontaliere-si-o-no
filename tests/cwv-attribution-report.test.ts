@@ -15,6 +15,7 @@ import {
   ATTRIBUTION_PAGE,
   ATTRIBUTION_SECTIONS,
   ATTRIBUTION_COMPONENTS,
+  JOB_PAGE_TEMPLATES,
   attributionRequest,
   selectorRequest,
   templateRequest,
@@ -29,16 +30,6 @@ import {
   WINDOW_DAYS,
   LAG_DAYS,
 } from '../scripts/cwv-attribution-report.mjs';
-
-// The report fixtures intentionally exercise the full attribution rendering
-// path. Their request shapes exceed GA4's nine-dimension budget once the
-// complete fleet exclusion is attached, so the real wrapper's fail-closed
-// contract is covered by tests/ga4-automation-fleet.test.ts while these tests
-// isolate report behavior with an identity test-double.
-vi.mock('../scripts/lib/ga4-automation-fleet.mjs', async (importOriginal) => {
-  const actual = await importOriginal<any>();
-  return { ...actual, withAutomationFleetExclusion: (body: unknown) => body };
-});
 
 /**
  * scripts/cwv-attribution-report.mjs reads the CWV field attribution emitted by
@@ -57,16 +48,16 @@ const row = (dims: string[], count: number): Row => ({
 // 2161 events, jobs_index 0.215 (453), jobs_search 0.150 (238); the footer was
 // the first CLS target with three Auto Ads containers, one collapsed.
 const ATTRIBUTION_ROWS = [
-  row(['/cerca-lavoro-ticino/annuncio/a/', 'cls', 'footer', 'complete'], 120),
-  row(['/cerca-lavoro-ticino/', 'cls', 'auto_ad', 'loading'], 40),
-  row(['/cerca-lavoro-ticino/annuncio/b/', 'cls', 'footer', 'complete'], 30),
-  row(['/', 'inp', 'main', 'pointer'], 20),
+  row(['/cerca-lavoro-ticino/annuncio/a/', 'cls', 'web_vitals.cls.footer.complete'], 120),
+  row(['/cerca-lavoro-ticino/', 'cls', 'web_vitals.cls.auto_ad.loading'], 40),
+  row(['/cerca-lavoro-ticino/annuncio/b/', 'cls', 'web_vitals.cls.footer.complete'], 30),
+  row(['/', 'inp', 'web_vitals.inp.main.pointer'], 20),
 ];
 const SELECTOR_ROWS = [
-  row(['/cerca-lavoro-ticino/annuncio/a/', 'cls', 'footer', 'complete', 'footer>div.mt-8|ac3|cc1'], 120),
-  row(['/cerca-lavoro-ticino/', 'cls', 'auto_ad', 'loading', 'ins.google-auto-placed|ac4|cc0'], 40),
-  row(['/cerca-lavoro-ticino/annuncio/b/', 'cls', 'footer', 'complete', 'footer>div.mt-8|ac3|cc1'], 30),
-  row(['/', 'inp', 'main', 'pointer', 'button.cta|ac2|cc2'], 20),
+  row(['/cerca-lavoro-ticino/annuncio/a/', 'cls', 'web_vitals.cls.footer.complete', 'footer>div.mt-8|ac3|cc1'], 120),
+  row(['/cerca-lavoro-ticino/', 'cls', 'web_vitals.cls.auto_ad.loading', 'ins.google-auto-placed|ac4|cc0'], 40),
+  row(['/cerca-lavoro-ticino/annuncio/b/', 'cls', 'web_vitals.cls.footer.complete', 'footer>div.mt-8|ac3|cc1'], 30),
+  row(['/', 'inp', 'web_vitals.inp.main.pointer', 'button.cta|ac2|cc2'], 20),
 ];
 const TEMPLATE_ROWS = [
   // job_detail CLS: 2161 events, the 75th percentile falls on 222 thousandths.
@@ -164,10 +155,10 @@ describe('client <-> reader contract', () => {
     expect(ATTRIBUTION_COMPONENTS).toEqual([...CWV_ATTRIBUTION_COMPONENTS]);
   });
 
-  it('request (a) filters on the client page value', () => {
+  it('request (a) filters on the client attribution id', () => {
     const body = attributionRequest({ startDate: 'a', endDate: 'b' });
     expect(body.dimensionFilter.andGroup.expressions).toContainEqual({
-      filter: { fieldName: 'customEvent:page', stringFilter: { value: CWV_ATTRIBUTION_PAGE, matchType: 'EXACT' } },
+      filter: { fieldName: 'customEvent:cta_id', stringFilter: { value: `${CWV_ATTRIBUTION_PAGE}.`, matchType: 'BEGINS_WITH' } },
     });
   });
 });
@@ -188,19 +179,19 @@ describe('GA4 requests', () => {
       ] },
     };
     const attributionFilter = { andGroup: { expressions: [
-      { filter: { fieldName: 'eventName', stringFilter: { value: 'ui_interaction', matchType: 'EXACT' } } },
-      { filter: { fieldName: 'customEvent:page', stringFilter: { value: 'web_vitals', matchType: 'EXACT' } } },
+      { filter: { fieldName: 'customEvent:cta_id', stringFilter: { value: 'web_vitals.', matchType: 'BEGINS_WITH' } } },
+      { filter: { fieldName: 'customEvent:section', inListFilter: { values: ['cls', 'inp'] } } },
       scope,
     ] } };
 
-    expect(a.dimensions.map((d: any) => d.name)).toEqual(['pagePath', 'customEvent:section', 'customEvent:component', 'customEvent:action']);
+    expect(a.dimensions.map((d: any) => d.name)).toEqual(['pagePath', 'customEvent:section', 'customEvent:cta_id']);
     expect(a.metrics).toEqual([{ name: 'eventCount' }]);
     const expectedAttribution = { ...attributionRequest(range), dimensionFilter: attributionFilter };
     const expectedSelectors = { ...selectorRequest(range), dimensionFilter: attributionFilter };
     expect(a.dimensionFilter).toEqual(withAutomationFleetExclusion(expectedAttribution).dimensionFilter);
 
     expect(b.dimensions.map((d: any) => d.name)).toEqual([
-      'pagePath', 'customEvent:section', 'customEvent:component', 'customEvent:action', 'customEvent:details',
+      'pagePath', 'customEvent:section', 'customEvent:cta_id', 'customEvent:details',
     ]);
     expect(b.dimensionFilter).toEqual(withAutomationFleetExclusion(expectedSelectors).dimensionFilter);
     expect(b.limit).toBe(200);
@@ -213,9 +204,8 @@ describe('GA4 requests', () => {
       'customEvent:page_template', 'customEvent:metric_name', 'customEvent:metric_value', 'deviceCategory',
     ]);
     const templateFilter = { andGroup: { expressions: [
-      { filter: { fieldName: 'eventName', stringFilter: { value: 'web_vitals', matchType: 'EXACT' } } },
+      { filter: { fieldName: 'customEvent:page_template', inListFilter: { values: [...JOB_PAGE_TEMPLATES] } } },
       { filter: { fieldName: 'customEvent:metric_name', inListFilter: { values: ['CLS', 'INP'] } } },
-      { filter: { fieldName: 'pagePath', stringFilter: { value: '/cerca-lavoro', matchType: 'BEGINS_WITH' } } },
     ] } };
     expect(c.dimensionFilter).toEqual(withAutomationFleetExclusion({
       ...templateRequest(range),
@@ -332,7 +322,7 @@ describe('report', () => {
   });
 
   it('reports INP events whose interaction target is missing from attribution', async () => {
-    const missing = row(['/cerca-lavoro-ticino/', 'inp', 'main', 'pointer', '|ac1|cc0'], 3);
+    const missing = row(['/cerca-lavoro-ticino/', 'inp', 'web_vitals.inp.main.pointer', '|ac1|cc0'], 3);
     const { code, out } = await run(['--dry-run'], {
       ...FULL,
       selectors: [...SELECTOR_ROWS, missing],
@@ -346,11 +336,10 @@ describe('report', () => {
     const selectors = Array.from({ length: 200 }, (_, i) => row([
       `/cerca-lavoro-ticino/annuncio/${String(i).padStart(3, '0')}/`,
       'inp',
-      'main',
-      'pointer',
+      'web_vitals.inp.main.pointer',
       `button.cta-${i}|ac1|cc0`,
     ], 1));
-    selectors.push(row(['/cerca-lavoro-ticino/annuncio/zzz/', 'inp', 'unknown', 'pointer', 'unknown|ac1|cc0'], 7));
+    selectors.push(row(['/cerca-lavoro-ticino/annuncio/zzz/', 'inp', 'web_vitals.inp.unknown.pointer', 'unknown|ac1|cc0'], 7));
 
     const { code, bodies, out } = await run(['--dry-run'], { ...FULL, selectors });
     const selectorBodies = bodies.filter((body) => kindOf(body) === 'selectors');

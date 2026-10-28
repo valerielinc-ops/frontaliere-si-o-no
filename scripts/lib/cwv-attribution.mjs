@@ -20,6 +20,13 @@ export const ATTRIBUTION_COMPONENTS = ['footer', 'auto_ad', 'manual_ad', 'rail',
 export const ATTRIBUTION_EVENT = 'ui_interaction';
 export const VITALS_EVENT = 'web_vitals';
 export const JOBS_PATH_PREFIX = '/cerca-lavoro';
+export const JOB_PAGE_TEMPLATES = Object.freeze([
+  'jobs_index',
+  'jobs_company',
+  'jobs_search',
+  'jobs_sector',
+  'job_detail',
+]);
 export const SELECTOR_PAGE_SIZE = 200;
 export const TOP_SELECTORS = 5;
 const TEMPLATE_LIMIT = 100000;
@@ -37,16 +44,18 @@ function beginsWith(fieldName, value) {
 const ATTRIBUTION_DIMENSIONS = [
   'pagePath',
   'customEvent:section',
-  'customEvent:component',
-  'customEvent:action',
+  // cta_id is `web_vitals.<section>.<component>.<action>` in the emitter.
+  // Keeping the two values in one registered dimension leaves room for the
+  // complete five-dimension automation-fleet exclusion (GA4 budget: nine).
+  'customEvent:cta_id',
 ];
 
 function attributionFilter() {
   return {
     andGroup: {
       expressions: [
-        exact('eventName', ATTRIBUTION_EVENT),
-        exact('customEvent:page', ATTRIBUTION_PAGE),
+        beginsWith('customEvent:cta_id', `${ATTRIBUTION_PAGE}.`),
+        { filter: { fieldName: 'customEvent:section', inListFilter: { values: ATTRIBUTION_SECTIONS } } },
         { orGroup: { expressions: [exact('pagePath', '/'), beginsWith('pagePath', JOBS_PATH_PREFIX)] } },
       ],
     },
@@ -88,9 +97,11 @@ export function templateRequest({ startDate, endDate }) {
     dimensionFilter: {
       andGroup: {
         expressions: [
-          exact('eventName', VITALS_EVENT),
+          // metric_name is emitted only by services/webVitals.ts. Filtering
+          // the registered page-template dimension keeps this query within
+          // the same nine-dimension budget as the full fleet exclusion.
+          { filter: { fieldName: 'customEvent:page_template', inListFilter: { values: JOB_PAGE_TEMPLATES } } },
           { filter: { fieldName: 'customEvent:metric_name', inListFilter: { values: TEMPLATE_METRICS } } },
-          beginsWith('pagePath', JOBS_PATH_PREFIX),
         ],
       },
     },
@@ -113,12 +124,21 @@ function truncated(data, rows) {
     || (data?.rowCount != null && data.rowCount > rows.length);
 }
 
+function parseAttributionCtaId(value, section) {
+  const [page, ctaSection, component, action] = String(value ?? '').split('.');
+  if (page !== ATTRIBUTION_PAGE || ctaSection !== section
+    || !ATTRIBUTION_COMPONENTS.includes(component)
+    || !/^[a-z-]{1,24}$/.test(action || '')) return null;
+  return { component, action };
+}
+
 /** Request (a) rows → [{ path, section, component, action, count }]. */
 export function parseAttributionRows(data) {
   return (data?.rows || []).flatMap((row) => {
-    const [path, section, component, action] = dims(row);
+    const [path, section, ctaId] = dims(row);
     const count = rowCount(row);
-    return section && count ? [{ path, section, component, action, count }] : [];
+    const attribution = parseAttributionCtaId(ctaId, section);
+    return attribution && count ? [{ path, section, ...attribution, count }] : [];
   });
 }
 
@@ -138,12 +158,13 @@ export function parseDetails(details) {
 /** Request (b) rows → [{ path, section, component, action, selector, ac, cc, count }]. */
 export function parseSelectorRows(data) {
   return (data?.rows || []).flatMap((row) => {
-    const [path, section, component, action, details] = dims(row);
+    const [path, section, ctaId, details] = dims(row);
     const count = rowCount(row);
-    if (!section || !count) return [];
+    const attribution = parseAttributionCtaId(ctaId, section);
+    if (!attribution || !count) return [];
     const parsed = parseDetails(details);
     if (section === ATTRIBUTION_SECTIONS[1] && !parsed.selector) parsed.selector = 'unknown';
-    return [{ path, section, component, action, ...parsed, count }];
+    return [{ path, section, ...attribution, ...parsed, count }];
   });
 }
 
