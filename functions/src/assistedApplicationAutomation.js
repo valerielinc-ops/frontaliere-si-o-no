@@ -79,6 +79,16 @@ export function draftRefFor(db, orderId) {
   return orderRefFor(db, orderId).collection(AI_DRAFTS_SUBCOLLECTION).doc(AI_DRAFT_DOC_ID);
 }
 
+function candidateQuestionAnswersRefFor(db, userId) {
+  const id = String(userId || '').trim();
+  return id ? db.collection('user_cv_profiles').doc(id) : null;
+}
+
+function candidateQuestionAnswersOf(snapshot) {
+  const memory = snapshot?.data()?.applicationQuestionAnswers;
+  return memory && typeof memory === 'object' && !Array.isArray(memory) ? memory : {};
+}
+
 /**
  * The Remote Config flag: "true" automates every order; "false" or empty
  * none; anything else is a list of order ids (commas or spaces) and automates
@@ -199,11 +209,13 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
   const draftRef = draftRefFor(db, orderId);
   let outcome = null;
   await db.runTransaction(async (transaction) => {
-    const [orderSnapshot, flowSnapshot, draftSnapshot, claimSnapshot] = await Promise.all([
-      transaction.get(orderRef),
+    const orderSnapshot = await transaction.get(orderRef);
+    const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, orderSnapshot.data()?.userId);
+    const [flowSnapshot, draftSnapshot, claimSnapshot, candidateProfileSnapshot] = await Promise.all([
       transaction.get(flowRef),
       transaction.get(draftRef),
       claimRef ? transaction.get(claimRef) : Promise.resolve(null),
+      candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
     ]);
     if (claimSnapshot?.data()?.appliedAt) {
       outcome = { ok: false, ignored: 'already_applied' };
@@ -221,6 +233,16 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
     }
     const flow = flowSnapshot.data() || {};
     const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : null;
+    // Answers explicitly saved on this order win over the candidate-wide
+    // ledger. The latter fills only semantic gaps, so a new posting can reuse
+    // a confirmed answer without asking the same person again.
+    const flowForTransition = {
+      ...flow,
+      questionAnswers: {
+        ...candidateQuestionAnswersOf(candidateProfileSnapshot),
+        ...(flow.questionAnswers || {}),
+      },
+    };
     // A runner event from a superseded round is stale: never let it move the
     // current round (e.g. a slow draft of round 1 finishing after a rejection).
     if (RUNNER_EVENT_TYPES.has(event.type) && Number(event.round) && Number(event.round) !== Number(flow.round || 1)) {
@@ -228,7 +250,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flow, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    const result = transition(flowForTransition, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
     if (result.ignored) {
       claim(`ignored:${result.ignored}`);
       outcome = { ok: false, ignored: result.ignored, state: flow.state };
@@ -343,13 +365,19 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
   let created = null;
   await db.runTransaction(async (transaction) => {
     created = null; // Firestore retries a contended transaction: never keep a previous attempt's result
-    const [orderSnapshot, flowSnapshot] = await Promise.all([transaction.get(orderRef), transaction.get(flowRef)]);
+    const orderSnapshot = await transaction.get(orderRef);
+    const order = orderSnapshot.data() || {};
+    const candidateQuestionAnswersRef = candidateQuestionAnswersRefFor(db, order.userId);
+    const [flowSnapshot, candidateProfileSnapshot] = await Promise.all([
+      transaction.get(flowRef),
+      candidateQuestionAnswersRef ? transaction.get(candidateQuestionAnswersRef) : Promise.resolve(null),
+    ]);
     if (!orderSnapshot.exists) return;
     const existing = flowSnapshot.exists ? flowSnapshot.data() || {} : null;
     // A live flow is never restarted; a finished takeover can be restarted by the owner.
     if (existing && !(reason === 'owner_request' && existing.state === 'owner_takeover')) return;
-    const order = orderSnapshot.data() || {};
     if (!automationEligibility(order, orderId).eligible) return;
+    const candidateQuestionAnswers = candidateQuestionAnswersOf(candidateProfileSnapshot);
     const flow = {
       state: 'drafting',
       round: 1,
@@ -361,6 +389,10 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       shownRounds: [],
       feedback: existing?.feedback || [],
       answers: existing?.answers || {},
+      questionAnswers: {
+        ...candidateQuestionAnswers,
+        ...(existing?.questionAnswers || {}),
+      },
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
       dispatch: { mode: 'draft', round: 1, requestedAt: nowMs, attempts: 1, reason },
       startedAt: nowMs,

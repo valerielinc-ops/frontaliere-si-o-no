@@ -201,6 +201,13 @@ function base(flow) {
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
+    // Keep the semantic answer ledger across every transition.  Older flows
+    // may not have the field yet; a plain object is the only shape accepted by
+    // the candidate-answer projection and avoids leaking malformed data into
+    // the next persisted state.
+    questionAnswers: flow?.questionAnswers && typeof flow.questionAnswers === 'object' && !Array.isArray(flow.questionAnswers)
+      ? { ...flow.questionAnswers }
+      : {},
     // The last wait for the candidate that ended (round, since, until), and when the ad was found closed
     // during one: see the end of transition, and the tick.
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
@@ -714,18 +721,11 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // on. Treat it as an unsupported portal stop so the owner can retry
       // after the runner or portal changes, instead of sending a blank request.
       if (questionIds.length === 0 && eventDocuments.length === 0) {
-        next.state = 'owner_takeover';
-        next.deadlineAt = null;
-        next.reminderAt = null;
-        next.heldBy = ['portal_needs_candidate'];
-        next.heldSince = null;
-        effects = [{
-          type: 'email',
-          kind: 'owner_takeover',
-          reason: 'portal:portal_needs_candidate',
-          stage: 'submit',
-          attempts,
-        }];
+        // Keep the stop visible to the owner, but schedule the same bounded
+        // recovery used by an unsupported portal page. In particular, a
+        // portal that only exposes a generic form (without the employer or
+        // role in its visible fields) must not remain suspended forever.
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
