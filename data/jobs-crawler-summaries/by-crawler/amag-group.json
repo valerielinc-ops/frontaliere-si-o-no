@@ -1,19 +1,62 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-28T09:34:02.177Z",
-  "total": 5,
-  "newCount": 0,
-  "updatedCount": 4,
+  "generatedAt": "2026-10-28T20:37:43.475Z",
+  "total": 6,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 199995,
-  "avgDurationMs": 199995,
+  "unchangedCount": 5,
+  "durationMs": 151825,
+  "avgDurationMs": 151825,
   "durationHistory": [
-    199995
+    151825
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "title": "Consulente vendita veicoli commerciali (m/f) - 100%",
+      "slug": "consulente-vendita-veicoli-commerciali-m-f-100",
+      "url": "https://jobs.amag-group.ch/Consulente-vendita-veicoli-commerciali-mf-100-it-j23843.html",
+      "applyUrl": "https://jobs.amag-group.ch/Consulente-vendita-veicoli-commerciali-mf-100-it-f23843.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "2026-10-28",
+      "postedDate": "2026-10-28",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-01-31",
+      "id": "amag-group-6f815049d13c",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-10-28T20:37:33.367Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Apprendista Impiegato/a in logistica AFC 2027",
       "slug": "apprendista-impiegato-a-in-logistica-afc-2027",
@@ -85,7 +128,6 @@
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-09T09:22:42.256Z",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -135,50 +177,6 @@
       }
     },
     {
-      "title": "Apprendista (magazzino) Impiegato/a del comm. al dettaglio AFC After-Sales Automobile 2027 (m/f) - AMAG Breganzona",
-      "slug": "apprendista-magazzino-impiegato-a-del-comm-al-dettaglio-afc-after-sales-automobile-2027-m-f-amag-breganzona",
-      "url": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-j23660.html",
-      "applyUrl": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-f23660.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Breganzona",
-      "addressLocality": "Breganzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-09-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-04-01",
-      "id": "amag-group-635c94e01215",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:48:22.457Z",
-      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-magazzino-impiegatoa-del-comm-al-dettaglio-afc-it-j23660.html",
-      "datePosted": "2026-09-22",
-      "postingDateSource": "reported",
-      "postalCode": "6932",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
       "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
       "slug": "apprendisti-meccatronici-d-automobili-afc-m-f-amag-ticino-estate-2027",
       "url": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-j23683.html",
@@ -216,7 +214,47 @@
         "translation": 25,
         "completeness": 19
       }
+    },
+    {
+      "title": "Apprendista (magazzino) Impiegato/a del comm. al dettaglio AFC After-Sales Automobile 2027 (m/f) - AMAG Breganzona",
+      "slug": "apprendista-magazzino-impiegato-a-del-comm-al-dettaglio-afc-after-sales-automobile-2027-m-f-amag-breganzona",
+      "url": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-j23660.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-f23660.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Breganzona",
+      "addressLocality": "Breganzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-04-01",
+      "id": "amag-group-635c94e01215",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:48:22.457Z",
+      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-magazzino-impiegatoa-del-comm-al-dettaglio-afc-it-j23660.html",
+      "datePosted": "2026-09-22",
+      "postingDateSource": "reported",
+      "postalCode": "6932",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
