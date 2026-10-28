@@ -1,7 +1,7 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-10-28T20:39:17.151Z",
+  "generatedAt": "2026-10-28T21:43:12.721Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 11818,
-  "avgDurationMs": 11818,
+  "durationMs": 9627,
+  "avgDurationMs": 9627,
   "durationHistory": [
-    11818
+    9627
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Ausbildung-Produktionsmechaniker--m-w-d----Selzach--CH-_R569007",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:38:55.047Z",
+      "crawledAt": "2026-10-28T21:42:55.610Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:39:01.445Z",
+      "crawledAt": "2026-10-28T21:43:00.670Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Instandhaltungsmechaniker--m-w-d--fr-CNC-Anlagen---Medizintechnik_R571498",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:39:00.574Z",
+      "crawledAt": "2026-10-28T21:42:59.980Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--EHS-Manager--m-w-d--Arbeitssicherheit--Umweltschutz_R573690-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:38:59.852Z",
+      "crawledAt": "2026-10-28T21:42:59.201Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -209,7 +209,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R574592",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:38:59.081Z",
+      "crawledAt": "2026-10-28T21:42:58.542Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Produktionstechnik--Fertigung-Produktion----ab-Februar-Mrz-2027-6-Monate_R569865",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:38:58.234Z",
+      "crawledAt": "2026-10-28T21:42:57.889Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/R-D-Packaging---Internship--6-months-_R574827",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:38:57.252Z",
+      "crawledAt": "2026-10-28T21:42:57.221Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Project-Associate--m-f-d--as-part-of-our-Regulatory-Affairs-team_R576188",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:38:56.064Z",
+      "crawledAt": "2026-10-28T21:42:56.563Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -367,5 +367,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
