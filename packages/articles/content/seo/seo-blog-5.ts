@@ -113562,6 +113562,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gaggiolo-articoli-lusso-non-dichiarati': {
+    title: 'A Gaggiolo articoli di lusso non dichiarati oltre 23.000 euro',
+    description: 'A Gaggiolo, una conducente è entrata in Italia con una borsa e un foulard di alta gamma non dichiarati, valutati oltre 23.000 euro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gaggiolo, articoli, lusso, dichiarati',
+    ogTitle: 'Articoli di lusso non dichiarati a Gaggiolo oltre 23.000 euro',
+    ogDescription: 'A Gaggiolo, una conducente è entrata in Italia con una borsa e un foulard di alta gamma non dichiarati, valutati oltre 23.000 euro. Il caso evidenzia il contrasto tra dichiarazione e ritrovamento.',
+    canonicalPath: '/articoli-frontaliere/gaggiolo-articoli-lusso-non-dichiarati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Gaggiolo articoli di lusso non dichiarati oltre 23.000 euro",
+      "description": "A Gaggiolo, una conducente è entrata in Italia con una borsa e un foulard di alta gamma non dichiarati, valutati oltre 23.000 euro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T15:59:33+00:00",
+      "dateModified": "2026-10-28T15:59:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gaggiolo-articoli-lusso-non-dichiarati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

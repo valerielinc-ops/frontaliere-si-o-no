@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 941,
-  "generatedAt": "2026-10-28T16:11:22.579Z",
+  "assetCount": 942,
+  "generatedAt": "2026-10-28T16:54:48.339Z",
   "assets": [
     {
       "schema": 1,
@@ -40225,6 +40225,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic border-crossing scene relevant to Ticino cross-border commuting; no readable text, logos, faces, or specific event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-gaggiolo-articoli-lusso-non-dichiarati",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "f5db753c139051aa18c25898ac036da2003b80cf93345953ee9ac17eb28019cb",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "b0401ce903e7937e3a69103aa68d7ce30b30f4180a5bede623abbc6d1e142d68",
+      "bytes": 129300,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-28T15:59:21.522Z",
+      "verifiedAt": "2026-10-28T15:59:32.132Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic border-crossing scene with luggage; no visible text, logos, people, or specific event."
       }
     }
   ]

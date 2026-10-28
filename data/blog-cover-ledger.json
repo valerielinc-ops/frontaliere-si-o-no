@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 939,
+      "5": 940,
       "6": 5061
     },
-    "publishedCovers": 7682,
+    "publishedCovers": 7683,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210849,6 +210849,39 @@
         "provider": "openai-codex",
         "assetId": "article-ristorni-malnate-meno-500mila",
         "imageUrl": "/images/blog/article-ristorni-malnate-meno-500mila.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-gaggiolo-articoli-lusso-non-dichiarati": {
+      "cover": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
+      "hash": "b0401ce903e7937e3a69103aa68d7ce30b30f4180a5bede623abbc6d1e142d68",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gaggiolo-articoli-lusso-non-dichiarati",
+          "category": "fiscale",
+          "date": "2026-10-28T15:59:32.918Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-gaggiolo-articoli-lusso-non-dichiarati.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-gaggiolo-articoli-lusso-non-dichiarati",
+        "imageUrl": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
         "evidence": "generated-engine-record"
       }
     }
