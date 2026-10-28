@@ -8,6 +8,12 @@ export const INITIAL_PAINT_FRAME_TIMEOUT_MS = 250;
 export const INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS = 2500;
 export const INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS = 5000;
 export const LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS = 250;
+/** The static job-board LCP gate is needed below the desktop layout breakpoint. */
+export const JOB_BOARD_LCP_WAIT_MAX_WIDTH = 1024;
+
+export function shouldWaitForJobBoardLcp(viewportWidth: number): boolean {
+  return viewportWidth < JOB_BOARD_LCP_WAIT_MAX_WIDTH;
+}
 
 export type LargestContentfulPaintCandidateFilter = (element: Element | null) => boolean;
 

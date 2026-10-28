@@ -1,5 +1,5 @@
 import './index.css';
-import { waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
+import { shouldWaitForJobBoardLcp, waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
 import type { StaticFallbackKind } from './services/staticFallbackHandoff';
 
 const rootElement = document.getElementById('root');
@@ -115,12 +115,15 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
- if (hasJobBoardPreRenderedPaintContent()) {
+ if (hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth)) {
    // The job-board static main is emitted inside #root and is the intended
-   // first LCP candidate. Let that candidate settle before the large React
-   // runtime can replace the root; otherwise slow mobile runs record the
-   // post-takeover JobBoard render instead. The selector excludes CMP UI and
-   // keeps the existing bounded fallback when the browser cannot observe LCP.
+   // first LCP candidate on sub-desktop viewports. Let that candidate settle
+   // before the large React runtime can replace the root; otherwise slow mobile
+   // runs record the post-takeover JobBoard render instead. On desktop, keep the
+   // existing FCP handoff: waiting for static LCP leaves more time for ad/third-
+   // party layout writes inside the fallback before React replaces it, which
+   // regressed field CLS on this route (#15770). The selector excludes CMP UI
+   // and the bounded fallback remains in place when LCP cannot be observed.
    await waitForInitialPaintOpportunity({
      waitForLargestContentfulPaint: true,
      largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR,
