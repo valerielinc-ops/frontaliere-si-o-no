@@ -1,14 +1,13 @@
 {
-  "run": 261,
+  "run": 262,
   "companies": {
     "vaxcyte": {
       "sterile": 1,
       "signature": "fbae73aaf36293da"
     },
     "migrolino": {
-      "sterile": 0,
-      "signature": "b7c5f981ef83f8c3",
-      "skipUntilRun": 261
+      "sterile": 1,
+      "signature": "b7c5f981ef83f8c3"
     },
     "fielmann": {
       "sterile": 1,
