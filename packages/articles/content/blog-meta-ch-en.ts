@@ -8648,6 +8648,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.norme-flessibilita-start-up.title': 'Federal Council grants start-ups flexibility in working hours',
     'blog.article.norme-flessibilita-start-up.excerpt': 'The Federal Council adopted new special rules for start-ups and certain employees; they enter into force on December 1, 2026, and allow greater working-time flexibility under clear conditions.',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.sem-rinnovo-simic-paralisi.title': 'SEM risks paralysis over the renewal of SIMIC',
+    'blog.article.sem-rinnovo-simic-paralisi.excerpt': 'The SEM risks paralysis without additional resources SIMIC: approximately 66 to 193 million estimated in 2024 The new system will not be operational before 2032',
+    'blog.article.sem-rinnovo-simic-paralisi.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

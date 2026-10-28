@@ -8648,6 +8648,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.norme-flessibilita-start-up.title': 'Consiglio federale concede flessibilità alle start-up per l\'orario di lavoro',
     'blog.article.norme-flessibilita-start-up.excerpt': 'Il Consiglio federale introduce nuove norme speciali per start-up e alcuni dipendenti: entreranno in vigore il 1° dicembre 2026 e consentiranno maggiore flessibilità nell’orario di lavoro a precise condizioni.',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sem-rinnovo-simic-paralisi.title': 'La SEM rischia la paralisi per il rinnovo di SIMIC',
+    'blog.article.sem-rinnovo-simic-paralisi.excerpt': 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032',
+    'blog.article.sem-rinnovo-simic-paralisi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

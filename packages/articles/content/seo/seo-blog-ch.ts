@@ -109309,6 +109309,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sem-rinnovo-simic-paralisi': {
+    title: 'La SEM rischia la paralisi per il rinnovo di SIMIC',
+    description: 'La SEM rischia la paralisi senza risorse aggiuntive. SIMIC è passato da un preventivo iniziale di circa 66 milioni a una stima di 193 milioni nel 2024; il nuovo sistema non sarà operativo prima del 2032.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rischia, paralisi, rinnovo, simic',
+    ogTitle: 'SIMIC, la SEM rischia la paralisi senza nuove risorse',
+    ogDescription: 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032',
+    canonicalPath: '/articoli-svizzera/sem-rinnovo-simic-paralisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La SEM rischia la paralisi per il rinnovo di SIMIC",
+      "description": "La SEM rischia la paralisi senza risorse aggiuntive. SIMIC è passato da un preventivo iniziale di circa 66 milioni a una stima di 193 milioni nel 2024; il nuovo sistema non sarà operativo prima del 2032.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sem-rinnovo-simic-paralisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T22:15:39+00:00",
+      "dateModified": "2026-10-28T22:15:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sem-rinnovo-simic-paralisi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
