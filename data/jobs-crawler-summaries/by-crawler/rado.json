@@ -1,19 +1,96 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-10-27T21:31:18.143Z",
+  "generatedAt": "2026-10-28T09:24:23.420Z",
   "total": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 2,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 1,
-  "durationMs": 401440,
-  "avgDurationMs": 401440,
+  "durationMs": 451917,
+  "avgDurationMs": 451917,
   "durationHistory": [
-    401440
+    451917
   ],
   "newJobs": [
+    {
+      "id": "company-7uc34b",
+      "slug": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
+      "company": "Rado Watch Co. Ltd.",
+      "title": "Logistiker:in Lehrstelle 2027",
+      "location": "Lengnau BE",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/de/job/33585",
+      "applyUrl": "https://www.swatchgroup.com/de/job/33585",
+      "source": "Company Careers Crawler",
+      "companyKey": "rado",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-10-28T09:23:59.542Z",
+      "firstSeenAt": "2026-10-26T09:26:02.889Z",
+      "sourceLang": "de",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "addressLocality": "Lengnau BE",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "company-7uc352",
+      "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc352",
+      "company": "Rado Watch Co. Ltd.",
+      "title": "HR Business Partner 100%",
+      "location": "Lengnau BE",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/de/job/33591",
+      "applyUrl": "https://www.swatchgroup.com/de/job/33591",
+      "source": "Company Careers Crawler",
+      "companyKey": "rado",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-10-28T09:23:59.542Z",
+      "firstSeenAt": "2026-10-23T21:17:42.290Z",
+      "sourceLang": "de",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "addressLocality": "Lengnau BE",
+      "addressRegion": "BE",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "company-7uc34b",
       "slug": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
@@ -89,83 +166,6 @@
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "company-7uc34b",
-      "slug": "impiegata-impiegato-in-logistica-apprendistato-2027-rado-watch-co-ltd-lengnau-be-7uc34b",
-      "company": "Rado Watch Co. Ltd.",
-      "title": "Logistiker:in Lehrstelle 2027",
-      "location": "Lengnau BE",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/de/job/33585",
-      "applyUrl": "https://www.swatchgroup.com/de/job/33585",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-27T09:47:40.517Z",
-      "firstSeenAt": "2026-10-26T09:26:02.889Z",
-      "sourceLang": "de",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3001",
-      "addressLocality": "Lengnau BE",
-      "addressRegion": "BE",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "company-7uc352",
-      "slug": "risorse-umane-business-partner-100-rado-watch-co-ltd-lengnau-be-7uc352",
-      "company": "Rado Watch Co. Ltd.",
-      "title": "HR Business Partner 100%",
-      "location": "Lengnau BE",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/de/job/33591",
-      "applyUrl": "https://www.swatchgroup.com/de/job/33591",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-27T09:47:40.517Z",
-      "firstSeenAt": "2026-10-23T21:17:42.290Z",
-      "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "postalCode": "3001",
-      "addressLocality": "Lengnau BE",
-      "addressRegion": "BE",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
   "unchangedJobs": [
     {
       "id": "company-7uc31s-r9dbbe922",
@@ -197,6 +197,7 @@
       "addressLocality": "Lengnau BE",
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -206,5 +207,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }
