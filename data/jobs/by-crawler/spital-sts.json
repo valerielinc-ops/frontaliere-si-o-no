@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-27T21:21:42.810Z",
-  "runId": "40584575105",
+  "assembledAt": "2026-10-28T09:14:49.261Z",
+  "runId": "40662075077",
   "jobs": [
     {
       "id": "spital-sts-31893623eded",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:36.818Z",
+      "crawledAt": "2026-10-28T09:14:43.758Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:36.356Z",
+      "crawledAt": "2026-10-28T09:14:43.292Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:35.883Z",
+      "crawledAt": "2026-10-28T09:14:42.852Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:35.418Z",
+      "crawledAt": "2026-10-28T09:14:42.413Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -324,7 +324,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:34.932Z",
+      "crawledAt": "2026-10-28T09:14:41.928Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -404,7 +404,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/86f24237-a339-46ca-baf6-0e076f12a645/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:34.433Z",
+      "crawledAt": "2026-10-28T09:14:41.510Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -478,7 +478,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:33.971Z",
+      "crawledAt": "2026-10-28T09:14:41.085Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -558,7 +558,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/933e431f-6eef-4f55-9c1f-32a157b02780/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:33.514Z",
+      "crawledAt": "2026-10-28T09:14:40.605Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -639,7 +639,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6e2ea497-b235-49f8-a54c-363a2f2316c6/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:32.908Z",
+      "crawledAt": "2026-10-28T09:14:40.158Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -695,9 +695,9 @@
       "id": "spital-sts-b2ad16825de5",
       "slug": "dipl-infermiera-infermiera-hf-sala-di-recupero-spital-sts-thun",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-aufwachraum-spital-sts-thun",
         "it": "dipl-infermiera-infermiera-hf-sala-di-recupero-spital-sts-thun",
         "en": "dipl-nurse-nurse-hf-recovery-room-spital-sts-thun",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-aufwachraum-spital-sts-thun",
         "fr": "dipl-infirmiere-infirmiere-hf-salle-de-recuperation-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -722,7 +722,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2c3071b4-a896-4d30-9a35-143f25e4a165/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:21:32.452Z",
+      "crawledAt": "2026-10-28T09:14:39.735Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -740,9 +740,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/2c3071b4-a896-4d30-9a35-143f25e4a165",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -859,7 +857,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
