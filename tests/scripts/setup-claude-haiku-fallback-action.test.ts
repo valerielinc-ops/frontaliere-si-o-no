@@ -110,11 +110,20 @@ describe('Codex Luna Max article lane setup action', () => {
       const resolver = document.runs?.steps?.find((step) =>
         step.id === 'trusted_toolchain' || step.id === 'trusted_node'
       )?.run ?? '';
-      expect(resolver, candidatePath).toMatch(/--connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5/u);
-      expect(resolver, candidatePath).toContain('--retry-max-time 900');
+      const transferBudget = candidatePath === actionPath
+        ? /--connect-timeout 15 --max-time 60 --retry 2 --retry-delay 3/u
+        : /--connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5/u;
+      const retryBudget = candidatePath === actionPath ? '--retry-max-time 120' : '--retry-max-time 900';
+      expect(resolver, candidatePath).toMatch(transferBudget);
+      expect(resolver, candidatePath).toContain(retryBudget);
       expect(resolver, candidatePath).toContain('--continue-at -');
       expect(resolver, candidatePath).toContain('node_archive_sha256=');
       expect(resolver, candidatePath).toContain('sha256sum');
+      if (candidatePath === actionPath) {
+        expect(resolver).toContain('disable_codex_lane()');
+        expect(resolver).toContain('CODEX_ARTICLE_LANE_GATE=0');
+        expect(resolver).toContain('if ! /usr/bin/curl');
+      }
     }
   });
 
