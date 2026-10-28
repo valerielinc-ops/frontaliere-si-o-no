@@ -388,7 +388,16 @@ export async function listSwissJobs(site, brand) {
           });
           if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
           const pageLength = jobPostings.length;
-          assertUniqueWorkdayPostings(jobPostings, {
+          // Workday's declared total and page length are the pagination
+          // contract. A malformed row without an externalPath cannot be
+          // detail-fetched, but must not abort the whole snapshot: count it
+          // for pagination and keep only fetchable rows for publication.
+          const identifiablePostings = filterIdentifiableWorkdayPostings(jobPostings, {
+            brand,
+            searchText,
+            offset,
+          });
+          assertUniqueWorkdayPostings(identifiablePostings, {
             brand,
             searchText,
             offset,
@@ -403,7 +412,7 @@ export async function listSwissJobs(site, brand) {
             error.code = 'WORKDAY_TOTAL_CHANGED';
             throw error;
           }
-          queryPostings.push(...jobPostings);
+          queryPostings.push(...identifiablePostings);
 
           if (queryPostingsFetched < declaredTotal && pageLength < limit) {
             const error = new Error(
@@ -531,9 +540,7 @@ export function assertUniqueWorkdayPostings(
   { brand = 'Capri Holdings', searchText = '', offset = 0, seen = new Set() } = {},
 ) {
   for (const posting of jobPostings) {
-    const identity = typeof posting?.externalPath === 'string'
-      ? normalizeSpace(posting.externalPath)
-      : '';
+    const identity = workdayPostingIdentity(posting);
     if (!identity) {
       throw new Error(
         `Workday ${brand} ${searchText || 'empty'} search returned a posting without an identity `
@@ -551,6 +558,40 @@ export function assertUniqueWorkdayPostings(
     seen.add(identity);
   }
   return seen;
+}
+
+function workdayPostingIdentity(posting) {
+  return typeof posting?.externalPath === 'string'
+    ? normalizeSpace(posting.externalPath)
+    : '';
+}
+
+/**
+ * Workday has occasionally returned a row without the path needed to fetch
+ * its detail page. Keep the source row in the pagination count, but exclude
+ * it from the detail-fetch set so one malformed posting cannot kill the
+ * complete brand crawl.
+ */
+export function filterIdentifiableWorkdayPostings(
+  jobPostings,
+  { brand = 'Capri Holdings', searchText = '', offset = 0 } = {},
+) {
+  const identifiablePostings = [];
+  let skipped = 0;
+  for (const posting of jobPostings) {
+    if (!workdayPostingIdentity(posting)) {
+      skipped += 1;
+      continue;
+    }
+    identifiablePostings.push(posting);
+  }
+  if (skipped > 0) {
+    console.warn(
+      `⚠️ Workday ${brand} ${searchText || 'empty'} search skipped ${skipped} `
+      + `posting(s) without an identity at offset ${offset}`,
+    );
+  }
+  return identifiablePostings;
 }
 
 /**

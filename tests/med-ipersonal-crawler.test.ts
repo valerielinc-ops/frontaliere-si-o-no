@@ -29,6 +29,7 @@ describe('iPersonal AG crawler parser', () => {
   });
 
   describe('shared Simple Job Board detail boundary', () => {
+    // Regression coverage for both iPersonal page layouts lives below.
     it('preserves authored HTML lists without the application tail', () => {
       const html = `
         <header>Site chrome</header>
@@ -47,6 +48,28 @@ describe('iPersonal AG crawler parser', () => {
       expect(description).toContain('\n• Mehrjährige Berufserfahrung');
       expect(description).not.toContain('Site chrome');
       expect(description).not.toContain('Unterlagen per Formular');
+    });
+
+    it('recognizes MediPersonal old-ad articles and excludes the contract tail', () => {
+      const html = `
+        <section class="ins-koerper"><article class="inserat inserat--alt">
+          <p>Fachfrau/mann Langzeitpflege: Deine Chance!</p>
+          <p>Eine source-backed introduction with enough detail for the vacancy.</p>
+          <h2>Was dich erwartet:</h2>
+          <ul><li>Menschen individuell begleiten</li><li>Pflege fachgerecht dokumentieren</li></ul>
+          <h2>Ihr MediPersonal Team</h2>
+          <p>Wir begleiten dich beim nächsten beruflichen Schritt.</p>
+          <h2>Anstellung und Vertrag</h2>
+          <p>Dieser Vertragstext gehört nicht in die Stellenbeschreibung.</p>
+          <h2>Ihre Bewerbung bei MediPersonal</h2>
+          <p>Online bewerben und Gespräch führen.</p>
+        </article></section>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Menschen individuell begleiten');
+      expect(description).toContain('\n• Pflege fachgerecht dokumentieren');
+      expect(description).not.toContain('Dieser Vertragstext');
+      expect(description).not.toContain('Online bewerben');
     });
   });
 
