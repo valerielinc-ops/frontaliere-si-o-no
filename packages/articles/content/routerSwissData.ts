@@ -2903,6 +2903,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pesca-zurigo-servizi-regolati': { it: 'pesca-zurigo-servizi-regolati', en: 'zurich-fishing-regulated-services', de: 'fischen-zuerich-regulierte-dienste', fr: 'pesche-zurich-services-reglementes' },
  'sei-misure-cure-sanitarie': { it: 'sei-misure-cure-sanitarie', en: 'six-health-cost-measures', de: 'sechs-massnahmen-gesundheitskosten', fr: 'six-mesures-couts-sanitaires' },
  'tavola-rotonda-sei-misure': { it: 'tavola-rotonda-sei-misure', en: 'round-table-six-measures', de: 'runden-tisch-sechs-massnahmen', fr: 'table-ronde-six-mesures' },
+ 'allarme-popolazione-165-milioni': { it: 'allarme-popolazione-165-milioni', en: 'population-alert-165-million', de: 'bevoelkerungswarnung-165-millionen', fr: 'alerte-population-165-millions' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

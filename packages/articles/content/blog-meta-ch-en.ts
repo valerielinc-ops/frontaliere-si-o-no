@@ -8642,6 +8642,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tavola-rotonda-sei-misure.title': 'Six new measures to contain costs in the healthcare sector',
     'blog.article.tavola-rotonda-sei-misure.excerpt': 'Six new measures will start in 2027 The fifth roundtable met in Bern on October 26, 2026 The package concerns outpatient clinics, emergency departments and care',
     'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.allarme-popolazione-165-milioni.title': 'Population alert: 165,4 mln for modernization',
+    'blog.article.allarme-popolazione-165-milioni.excerpt': 'The Federal Council is requesting 165,4 million francs.',
+    'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

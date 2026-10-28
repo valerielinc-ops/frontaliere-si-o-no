@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 940,
+      "5": 942,
       "6": 5061
     },
-    "publishedCovers": 7683,
+    "publishedCovers": 7685,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210882,6 +210882,72 @@
         "provider": "openai-codex",
         "assetId": "article-gaggiolo-articoli-lusso-non-dichiarati",
         "imageUrl": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-allarme-popolazione-165-milioni": {
+      "cover": "/images/blog/article-allarme-popolazione-165-milioni.webp",
+      "hash": "60a7fbea6289e33a08e9d15ad3b15cd0d11240c268e3451022e35e0b7e633276",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "allarme-popolazione-165-milioni",
+          "category": "novita",
+          "date": "2026-10-28T16:52:57.192Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-allarme-popolazione-165-milioni.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-allarme-popolazione-165-milioni",
+        "imageUrl": "/images/blog/article-allarme-popolazione-165-milioni.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tutele-frontaliero-uscita-ticino": {
+      "cover": "/images/blog/article-tutele-frontaliero-uscita-ticino.webp",
+      "hash": "a1c34d00a22db9b569f31fde7c085dd371bb31147034cb2171573fa5d7e4004c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "tutele-frontaliero-uscita-ticino",
+          "category": "pratico",
+          "date": "2026-10-18T16:43:35.261Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tutele-frontaliero-uscita-ticino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tutele-frontaliero-uscita-ticino",
+        "imageUrl": "/images/blog/article-tutele-frontaliero-uscita-ticino.webp",
         "evidence": "generated-engine-record"
       }
     }
