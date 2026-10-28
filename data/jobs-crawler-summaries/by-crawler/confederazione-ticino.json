@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione CH",
-  "generatedAt": "2026-10-28T22:01:55.455Z",
+  "generatedAt": "2026-10-28T22:39:11.846Z",
   "total": 224,
   "newCount": 0,
   "updatedCount": 40,
   "removedCount": 0,
   "unchangedCount": 184,
-  "durationMs": 112715,
-  "avgDurationMs": 112715,
+  "durationMs": 120822,
+  "avgDurationMs": 120822,
   "durationHistory": [
-    112715
+    120822
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1929,45 +1929,6 @@
       }
     },
     {
-      "title": "ICT-Architekt/-in Senior (972, 973)",
-      "slug": "architetto-a-ict-senior-972-973-confederazione-svizzera-zollikofen",
-      "url": "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-senior-972-973/0ed36422-9e73-4048-9ca2-b0899c15b1ad",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16757",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Zollikofen",
-      "addressLocality": "Zollikofen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "it",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-25T23:00:00Z",
-      "postedDate": "2026-10-25T23:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2028-10-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "confederazione-ticino-e56db9b52c43",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3052",
-      "firstSeenAt": "2026-10-26T09:44:49.185Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Hochschulpraktikant/-in Sektion Kulturschaffen und Preise",
       "slug": "tirocinante-universitario-a-sezione-creazione-culturale-e-premi-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-sektion-kulturschaffen-und-preise/e5207868-e206-485c-aaee-9d51194dac90",
@@ -1999,6 +1960,45 @@
       "postalCode": "3004",
       "firstSeenAt": "2026-10-26T09:44:49.185Z",
       "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "ICT-Architekt/-in Senior (972, 973)",
+      "slug": "architetto-a-ict-senior-972-973-confederazione-svizzera-zollikofen",
+      "url": "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-senior-972-973/0ed36422-9e73-4048-9ca2-b0899c15b1ad",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16757",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Zollikofen",
+      "addressLocality": "Zollikofen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "it",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-25T23:00:00Z",
+      "postedDate": "2026-10-25T23:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2028-10-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "confederazione-ticino-e56db9b52c43",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3052",
+      "firstSeenAt": "2026-10-26T09:44:49.185Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2398,5 +2398,5 @@
       }
     }
   ],
-  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }

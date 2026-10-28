@@ -1,6 +1,7 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-10-28T22:00:55.938Z",
+  "assembledAt": "2026-10-28T22:39:48.104Z",
+  "runId": "40776570474",
   "jobs": [
     {
       "id": "company-5lfr88",
@@ -28,7 +29,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Verkäufer / Verkäuferin (m/w/d) 40-60% — Amriswil",
@@ -60,6 +61,8 @@
       "previousSlugs": [
         "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-amriswil"
       ],
+      "salaryMin": 34500,
+      "salaryMax": 52200,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -74,9 +77,7 @@
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
-      "postalCode": "8580",
-      "salaryMin": 34500,
-      "salaryMax": 52200
+      "postalCode": "8580"
     },
     {
       "id": "company-da3utt",
@@ -104,7 +105,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendor-m-f-d-40-60-winterthur-lidl-svizzera-winterthur",
@@ -186,7 +187,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-27T09:55:33.989Z",
       "titleByLocale": {
         "it": "Venditore (m/f/d) 40 — Courgevaux",
@@ -271,7 +272,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-27T09:55:33.989Z",
       "titleByLocale": {
         "it": "Venditore / venditrice con responsabilità per turni (m/f/d) 60-80% — Oron",
@@ -355,7 +356,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-27T09:55:33.989Z",
       "titleByLocale": {
         "it": "Venditore / venditrice con responsabilità per turni (m/f/d) 60%",
@@ -439,7 +440,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-23T11:55:40.747Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-winterthur-u756sn",
@@ -514,7 +515,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-26T21:39:55.673Z",
       "titleByLocale": {
         "it": "Agent / Agente de nettoyage (f/m/d) 40%",
@@ -597,7 +598,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60 % 1",
         "en": "Seller with shift responsibility (m/f/d) 60% 1",
@@ -680,7 +681,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-26T09:42:15.201Z",
       "titleByLocale": {
         "it": "Commesso / Commessa con responsabilità di turno (m/f/d) 40-60%",
@@ -764,7 +765,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-23T21:36:06.504Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Aarberg",
@@ -845,7 +846,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-23T21:36:06.504Z",
       "titleByLocale": {
         "it": "Studentenjob vendita (m/w/d) 20% — Aarberg",
@@ -920,7 +921,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-kussnacht-a-r-nw2wwy",
@@ -986,7 +987,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-23T09:49:20.582Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice (m/f/d) 40% — Etoy",
@@ -1069,7 +1070,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-23T09:49:20.582Z",
       "titleByLocale": {
         "it": "Vice direttore di filiale / Vice direttrice di filiale (m/f/d) 80-100% — Perlen",
@@ -1146,7 +1147,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-23T09:49:20.582Z",
       "titleByLocale": {
         "it": "Vice direttore di filiale / Vice direttrice di filiale (m/f/d) 80-100% — Emmenbrücke",
@@ -1223,7 +1224,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-22T09:49:08.488Z",
       "titleByLocale": {
         "it": "Venditore (m/f/d) 60%",
@@ -1304,7 +1305,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-20T09:38:28.197Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Affoltern am Albis",
@@ -1385,7 +1386,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-06-10T23:03:39.688Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle pulizie (m/f/d) 20% — Seewen",
@@ -1469,7 +1470,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-19T21:51:25.879Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Döttingen",
@@ -1552,7 +1553,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-19T09:36:22.989Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Spiez",
@@ -1636,7 +1637,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice (m/f/d) 20-40%",
         "en": "Seller (m/f/d) 20-40%",
@@ -1719,7 +1720,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40-60% - Riden — Reiden",
@@ -1808,7 +1809,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice (m/f/d) 20-60%",
@@ -1891,7 +1892,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Sursee",
@@ -1972,7 +1973,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40 - 60% — Solothurn",
@@ -2059,7 +2060,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Vice direttore / Vice direttrice di filiale (m/f/d) 80%",
@@ -2146,7 +2147,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Vice direttore / Vice direttrice di filiale (m/f/d) 80-100% — Seewen",
@@ -2233,7 +2234,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Vice direttore / Vice direttrice di filiale (m/f/d) 80-100% — Brunnen",
@@ -2320,7 +2321,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Vice direttore / Vice direttrice di filiale (m/f/d) 80-100% — Flüelen",
@@ -2407,7 +2408,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Responsabile clienti / Gestione clienti Self-Checkout 20-40% — Flüelen",
         "en": "Customer Manager / Customer Manager Self-Checkout 20-40% — Flüelen",
@@ -2493,7 +2494,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-27T19:55:59.501Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Sarnen",
@@ -2577,7 +2578,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Flüelen",
         "en": "Allrounder Sales (m/w/d) 20-40% — Flüelen",
@@ -2655,7 +2656,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Vendor (m/f/d) 20-80% — Sarnen",
@@ -2740,7 +2741,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Inserimento diretto dopo l'apprendistato: Venditore / Venditrice con responsabilità di turno (m/f/d) 80-100%",
@@ -2824,7 +2825,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-16T21:36:43.944Z",
       "titleByLocale": {
         "it": "Personale / Personale auto flotta / Mobilità (m/f/d) 40 %",
@@ -2911,7 +2912,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-14T09:48:41.125Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice responsabile di team (m/f/d) 60-80% — Neuchâtel",
@@ -2996,7 +2997,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-14T09:48:41.125Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Horgen",
@@ -3080,7 +3081,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-14T09:48:41.125Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Rüschlikon",
@@ -3164,7 +3165,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-13T09:41:55.731Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice responsabile di team (m/f/d) 80% — Morges",
@@ -3247,7 +3248,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-60-chur-lidl-svizzera-chur",
         "en": "seller-seller-m-f-d-20-60-chur-lidl-svizzera-chur",
@@ -3333,7 +3334,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-12T09:43:45.884Z",
       "titleByLocale": {
         "it": "Vendor (m/f/d) 40-60 % — Biberista",
@@ -3416,7 +3417,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-09T21:46:29.898Z",
       "titleByLocale": {
         "it": "Vendor (m/f/d) 20-40% — Bern",
@@ -3499,7 +3500,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-aquila-lidl-svizzera-aigle",
         "en": "versatile-sales-assistant-m-w-d-40-aigle-lidl-svizzera-aigle",
@@ -3585,7 +3586,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-09T21:46:29.898Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40%-60% — Forza — Zwingen",
@@ -3668,7 +3669,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Commesso / Commessa con responsabilità di turno (m/f/d) 60-80% — Wetzikon",
         "en": "Seller with shift responsibility (m/f/d) 60-80% — Wetzikon",
@@ -3751,7 +3752,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-09T09:48:24.211Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Jona",
@@ -3834,7 +3835,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-09T09:48:24.211Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Jona",
@@ -3918,7 +3919,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Jona",
         "en": "All-rounder Sale (m/f/d) 20-40% — Jona",
@@ -3998,7 +3999,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "venditore-m-f-d-20-60-wetzikon-lidl-svizzera-wetzikon",
@@ -4082,7 +4083,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T22:39:15.159Z",
       "titleByLocale": {
         "en": "(Junior) Manager Occupational Safety (m/f/d) 80-100 %",
@@ -4172,7 +4173,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T22:39:15.159Z",
       "titleByLocale": {
         "it": "Gestione della persona / Gestione della persona business (m/f/d) 80-100 %",
@@ -4255,7 +4256,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-01T23:07:03.903Z",
       "titleByLocale": {
         "it": "Vice direttore / Vice direttrice di filiale (m/f/d) 80-100% — Cham",
@@ -4338,7 +4339,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T22:39:15.159Z",
       "titleByLocale": {
         "it": "Assortimento personale (m/f/d) 80-100 %",
@@ -4421,7 +4422,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T22:39:15.159Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40%-60% — Basilea (BS) — Basel (BS)",
@@ -4504,7 +4505,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-80-dietikon-lidl-svizzera-dietikon",
         "en": "seller-seller-m-f-d-20-80-dietikon-lidl-svizzera-dietikon",
@@ -4578,7 +4579,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-24T00:06:10.062Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Schlieren",
@@ -4659,7 +4660,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T22:39:15.159Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC - Beginn 2027",
@@ -4742,7 +4743,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-lidl-svizzera-riazzino-wgtum5",
         "en": "learned-in-retail-cfp-or-afc-riazzino-lidl-svizzera-riazzino",
@@ -4808,7 +4809,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-lidl-svizzera-giubiasco-beezho",
         "en": "learned-in-retail-trade-cfp-or-afc-jubiasco-lidl-svizzera-giubiasco",
@@ -4874,7 +4875,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% 1 — Wettingen",
         "en": "Seller with shift responsibility (m/f/d) 60-80% 1 — Wettingen",
@@ -4957,7 +4958,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% 1 — Döttingen",
         "en": "Seller with shift responsibility (m/f/d) 60-80% 1 — Döttingen",
@@ -5040,7 +5041,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% 1 — Hunzenschwil",
         "en": "Seller with shift responsibility (m/f/d) 60-80% 1 — Hunzenschwil",
@@ -5123,7 +5124,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% 1 — Baden",
         "en": "Seller with shift responsibility (m/f/d) 60-80% 1 — Baden",
@@ -5206,7 +5207,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% 1 — Brugg",
         "en": "Seller with shift responsibility (m/f/d) 60-80% 1 — Brugg",
@@ -5289,7 +5290,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T09:49:42.826Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-80% 1 — Wettingen",
@@ -5372,7 +5373,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Vendor (m/f/d) 20-80% 1 — Döttingen",
         "en": "Vendor (m/f/d) 20-80% 1 — Döttingen",
@@ -5454,7 +5455,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T09:49:42.826Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-80% 1 — Hunzenschwil",
@@ -5537,7 +5538,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T09:49:42.826Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-80% 1 — Baden",
@@ -5620,7 +5621,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-08T09:49:42.826Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-80% 1 — Brugg",
@@ -5703,7 +5704,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Wettingen",
         "en": "All-rounder Sale (m/f/d) 20-40% 1 — Wettingen",
@@ -5783,7 +5784,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Döttingen",
         "en": "Allrounder Sales (m/w/d) 20-40% 1 — Döttingen",
@@ -5862,7 +5863,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Hunzenschwil",
         "en": "All-rounder Sale (m/f/d) 20-40% 1 — Hunzenschwil",
@@ -5942,7 +5943,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Baden",
         "en": "All-rounder Sale (m/f/d) 20-40% 1 — Baden",
@@ -6023,7 +6024,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% 1 — Brugg",
         "en": "All-rounder Sale (m/f/d) 20-40% 1 — Brugg",
@@ -6104,7 +6105,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-10T23:05:45.537Z",
       "slugByLocale": {
         "it": "venditore-m-w-d-40-60-1-lidl-svizzera-sierre",
@@ -6181,7 +6182,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-07T21:54:04.429Z",
       "titleByLocale": {
         "it": "Responsabile categoria (m/f/d) 80-100 %",
@@ -6261,7 +6262,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-07T09:47:19.996Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Buchs",
@@ -6342,7 +6343,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-23T13:53:18.342Z",
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-landquart-7aai46",
@@ -6427,7 +6428,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T21:56:29.640Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Chur",
@@ -6508,7 +6509,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T21:56:29.640Z",
       "titleByLocale": {
         "it": "354 Assistente alle vendite con responsabilità turni (m/f/d) 60-80%",
@@ -6592,7 +6593,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T21:56:29.640Z",
       "titleByLocale": {
         "it": "Gestione clienti / Gestione clienti Self-Checkout 60-80% (m/f/d)",
@@ -6675,7 +6676,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Vice direttore di filiale / Vice direttore di filiale (m/f/d) 80-100% — Schlieren",
@@ -6758,7 +6759,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Libri — Buchs",
         "en": "Seller / Seller (m/f/d) 20-60% — Books — Buchs",
@@ -6840,7 +6841,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T21:56:29.640Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Widnau",
@@ -6923,7 +6924,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T21:56:29.640Z",
       "titleByLocale": {
         "it": "Venditore CH / Venditore (m/f/d) 20-80 %",
@@ -7006,7 +7007,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T09:52:52.094Z",
       "titleByLocale": {
         "it": "Area Manager (m/w/d) 80-100% - Direkteinstieg o Apprendista",
@@ -7091,7 +7092,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T09:52:52.094Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Sevelen",
@@ -7174,7 +7175,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Schlieren",
         "en": "Seller with shift responsibility (m/f/d) 60-80% — Schlieren",
@@ -7257,7 +7258,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-80% — Schlieren",
         "en": "Seller / Seller (m/f/d) 20-80% — Schlieren",
@@ -7339,7 +7340,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-06T09:52:52.094Z",
       "titleByLocale": {
         "it": "Vice direttore di filiale / Vice direttore di filiale (m/f/d) 80-100% — Schluein",
@@ -7426,7 +7427,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-06-29T22:39:11.744Z",
       "titleByLocale": {
         "it": "Branch Manager / Branch Manager Kt.Schwyz - Marzo / Lago di Zurigo (m/f/d) 80-100 %",
@@ -7509,7 +7510,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-05T21:57:26.712Z",
       "titleByLocale": {
         "it": "Commesso / Commessa con responsabilità di turno (m/f/d) 80-100% — Pratteln",
@@ -7593,7 +7594,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-05T21:57:26.712Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40%-60% — Pratteln",
@@ -7676,7 +7677,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-11T09:42:56.265Z",
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-52fmh9",
@@ -7752,7 +7753,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-03T09:37:45.174Z",
       "titleByLocale": {
         "it": "Gestione di controllo specialistica (m/f/d) 60%",
@@ -7841,7 +7842,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-03T09:37:45.174Z",
       "titleByLocale": {
         "it": "Addetto alle vendite / Addetta alle vendite con responsabilità di turno (m/f/d) 60-80% — Dübendorf",
@@ -7925,7 +7926,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-03T09:37:45.174Z",
       "titleByLocale": {
         "it": "Responsabile clienti / Gestione clienti Self-Checkout – Dübendorf",
@@ -8008,7 +8009,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-03T09:37:45.174Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Regensdorf",
@@ -8091,7 +8092,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-03T09:37:45.174Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Zürich",
@@ -8170,7 +8171,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-03T09:37:45.174Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-60% — Bützberg",
@@ -8253,7 +8254,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-30T21:36:17.533Z",
       "titleByLocale": {
         "it": "Venditore / venditrice con responsabilità per turni (m/f/d) 60-80% — Thusis",
@@ -8337,7 +8338,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite con responsabilità di turno (m/f/d) 60-80% — Küssnacht a",
@@ -8420,7 +8421,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Vice direttore di filiale (m/f/d) 80-100% — Küssnacht a",
@@ -8502,7 +8503,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-30T21:36:17.533Z",
       "titleByLocale": {
         "it": "Vice direttore di filiale / Vice direttore di filiale (m/f/d) 80-100% — Baar",
@@ -8589,7 +8590,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-conthey-lidl-svizzera-conthey",
         "en": "versatile-sales-associate-m-w-d-40-conthey-lidl-svizzera-conthey",
@@ -8675,7 +8676,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-29T21:38:55.206Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite tuttofare (m/f/d) 20-40% — Schluein",
@@ -8757,7 +8758,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-lidl-svizzera-conthey",
@@ -8923,7 +8924,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-29T21:38:55.206Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite (m/f/d) 20-40% — Biel/Bienne",
@@ -9013,7 +9014,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "gerant-adjoint-gerante-adjointe-m-w-d-80-100-payerne-lidl-svizzera-payerne",
         "en": "assistant-manager-m-f-d-80-100-payerne-lidl-svizzera-payerne",
@@ -9080,7 +9081,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-24T14:54:08.815Z",
       "titleByLocale": {
         "it": "CH_Allrounder Vendita (m/f/d) 20-40% 1 — Oeschgen",
@@ -9155,7 +9156,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% 1 — Baden-Dättwil",
@@ -9239,7 +9240,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "CH_Tuttofare vendite (m/f/d) 20-40% 1 — Baden-Dättwil",
@@ -9316,7 +9317,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-11T09:42:56.265Z",
       "titleByLocale": {
         "it": "Team-Lead, responsabile della flotta (car flotte) (m/f/d) 80-100 %",
@@ -9396,7 +9397,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-06-24T11:57:40.883Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite polivalente (m/f/d) 20–40% — Horgen",
@@ -9478,7 +9479,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-27T19:55:59.501Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite polivalente (m/f/d) 20-40% — Rüschlikon",
@@ -9570,7 +9571,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite tuttofare (m/f/d) 20-40% — Gattikon",
@@ -9652,7 +9653,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-21T22:07:43.598Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite polivalente (m/f/d) 20-40% — Adliswil",
@@ -9748,7 +9749,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-lidl-svizzera-bellach-bewg0a",
         "en": "cleaner-m-w-d-20-bellach-lidl-svizzera-bellach",
@@ -9830,7 +9831,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-11T09:42:56.265Z",
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-cham-eqmv3o",
@@ -9906,7 +9907,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-29T21:38:55.206Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle pulizie (m/f/d) 30%",
@@ -9990,7 +9991,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-givisiez-lidl-svizzera-givisiez",
@@ -10065,7 +10066,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-marly-lidl-svizzera-marly",
@@ -10140,7 +10141,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Vendeur polyvalent / Vendeuse polyvalente (f/m/d) 40% — Fribourg",
@@ -10234,7 +10235,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-fribourg-lidl-svizzera-fribourg",
@@ -10309,7 +10310,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "collaboratore-self-service-e-partner-commerciale-40-fribourg-lidl-svizzera-fribourg",
@@ -10387,7 +10388,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "venditore-multiuso-venditore-multiuso-m-f-d-40-lidl-svizzera-matran",
@@ -10480,7 +10481,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-matran-lidl-svizzera-matran",
@@ -10555,7 +10556,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "slugByLocale": {
         "it": "collaboratore-self-service-e-partner-commerciale-40-bulle-lidl-svizzera-bulle",
@@ -10633,7 +10634,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-conthey-lidl-svizzera-conthey",
         "en": "salesperson-responsible-for-team-m-f-d-60-80-conthey-lidl-svizzera-conthey",
@@ -10701,7 +10702,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-11T09:42:56.265Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40-60% — Gwatt",
@@ -10782,7 +10783,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite con responsabilità di turno (m/f/d) 80%",
@@ -10868,7 +10869,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-40% — Dübendorf",
@@ -10949,7 +10950,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice (m/f/d) 20-60% — Pfäffikon (ZH)",
@@ -11033,7 +11034,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-26T09:55:15.575Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice con responsabilità di turno (m/f/d) 60-80% — Ins",
@@ -11118,7 +11119,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "venditore-m-f-d-20-40-einsiedeln-lidl-svizzera-einsiedeln",
@@ -11198,7 +11199,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Lavoro studentesco Vendita (m/f/d) 20-40%",
@@ -11273,7 +11274,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Seller (m/f/d) 20- 40%. Clever — Schluein",
@@ -11356,7 +11357,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Seller con responsabilità di turno (m/f/d) 60-802 Clever — Schluein",
@@ -11440,7 +11441,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Posizione di insegnamento Commercio al dettaglio EBA o EFZ Wittbach — Wittenbach",
@@ -11515,7 +11516,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Centro didattico per il commercio al dettaglio EBA o EFZ. Niederuzwil",
@@ -11594,7 +11595,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Centro didattico per il commercio al dettaglio EBA o EFZ Dübendorf",
@@ -11669,7 +11670,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Gestore di filiali / Gestore di filiali (m/f/d) 80-100%. St. Moritz",
@@ -11769,7 +11770,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-19T22:49:40.886Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alla vendita (m/f/d) 20-40% — Thusis",
@@ -11856,7 +11857,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-11T09:42:56.265Z",
       "titleByLocale": {
         "it": "Vice direttore / vice direttrice di filiale (m/f/d) 80-100% — Visp",
@@ -11937,7 +11938,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-24T00:06:10.062Z",
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern",
@@ -12056,7 +12057,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "direttore-direttrice-di-filiale-m-f-d-80-100-coira-chur-lidl-svizzera-chur",
@@ -12144,7 +12145,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-09T13:46:28.874Z",
       "titleByLocale": {
         "it": "Vice responsabile di filiale/ Vice responsabile di filiale (m/f/d) 80-100% — Hägendorf",
@@ -12231,7 +12232,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-21T11:17:03.148Z",
       "titleByLocale": {
         "it": "Addetto / Addetta al self-checkout e alle vendite — Altendorf",
@@ -12310,7 +12311,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-10T22:17:19.398Z",
       "titleByLocale": {
         "it": "Addetto alle vendite / Addetta alle vendite con responsabilità di turno (m/f/d) 60-80% — Zug",
@@ -12392,7 +12393,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite con responsabilità di turno (m/f/d) 60-80% — Siebnen",
@@ -12476,7 +12477,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Impiegato delle pulizie (m/f/d) 20-40%",
@@ -12560,7 +12561,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite (m/f/d) 20-60% — Samstagern",
@@ -12645,7 +12646,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Lavoro per studenti nelle vendite (m/f/d) 20% — Brig",
@@ -12720,7 +12721,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Responsabile Servizio Clienti Self-Checkout 20-40% — Brig",
@@ -12803,7 +12804,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite (m/f/d) 20-40% — Brig",
@@ -12889,7 +12890,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-02T23:10:20.798Z",
       "titleByLocale": {
         "it": "Vicedirettore di filiale / Vicedirettrice di filiale (m/f/d) 80-100% — Zug",
@@ -12972,7 +12973,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice (m/f/d) 40% — Biel/Bienne",
         "en": "Sales Assistant (m/f/d) 40% — Biel/Bienne",
@@ -13058,7 +13059,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-26T09:55:15.575Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite (m/f/d) 40-60% — Aegerten",
@@ -13169,7 +13170,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-24T22:09:52.739Z",
       "titleByLocale": {
         "it": "Vendor (m/f/d) 40-60% — Uster",
@@ -13250,7 +13251,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite polivalente (m/f/d) 20-40% — Brig",
@@ -13332,7 +13333,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Gestione clienti Self-Checkout (40-60%) — Aegerten",
@@ -13416,7 +13417,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Direttore / Direttrice di filiale (m/f/d) 80-100% 1",
@@ -13514,7 +13515,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Venditore / Venditrice (m/f/d) 40-60% — Spiez",
@@ -13599,7 +13600,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Römerswil",
@@ -13688,7 +13689,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-19T21:35:36.935Z",
       "titleByLocale": {
         "it": "CH_ Vice direttore di filiale / Vice direttrice di filiale (m/f/d) 80%",
@@ -13779,7 +13780,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-18T21:33:55.684Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Schluein",
@@ -13854,7 +13855,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite con responsabilità di team (m/f/d) 60% — Matran",
@@ -13940,7 +13941,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "titleByLocale": {
         "it": "Addetto / Addetta alle vendite con responsabilità di turno (m/f/d) 80-100% — Brig",
         "en": "Sales Assistant with Shift Responsibility (m/f/d) 80-100% — Brig",
@@ -14023,7 +14024,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-17T09:56:11.782Z",
       "titleByLocale": {
         "it": "Addetto/a alla vendita con responsabilità di turno (m/f/d) 60–80% — Visp",
@@ -14108,7 +14109,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-10-11T09:42:56.265Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 40% — tasso inverso — Kehrsatz",
@@ -14188,7 +14189,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-10T10:29:47.426Z",
       "titleByLocale": {
         "it": "Gestione clienti / Gestione clienti Self-Checkout 20-40% — Visp",
@@ -14271,7 +14272,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — Yverdon-les-Bains",
@@ -14361,7 +14362,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — Noville",
@@ -14449,7 +14450,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — Matran",
@@ -14535,7 +14536,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio (CFP o AFC) - Inizio 2027 — Martigny",
@@ -14621,7 +14622,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — La Chaux-de-Fonds",
@@ -14707,7 +14708,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — Gland",
@@ -14793,7 +14794,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC – Inizio 2027 — Fribourg",
@@ -14879,7 +14880,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — Crissier",
@@ -14965,7 +14966,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — Conthey",
@@ -15063,7 +15064,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC – Inizio 2027 — Collombey-Muraz",
@@ -15149,7 +15150,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2027 — Châtel-Saint-Denis",
@@ -15235,7 +15236,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ - inizio 2027 — Visp",
@@ -15313,7 +15314,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ - Inizio 2027 — Sursee",
@@ -15391,7 +15392,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ - Inizio 2027 — Spiez",
@@ -15471,7 +15472,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ - Inizio 2027 — Rothrist",
@@ -15549,7 +15550,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ - Inizio 2027 — Reiden",
@@ -15627,7 +15628,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ – inizio 2027 — Lyss",
@@ -15708,7 +15709,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Lehre commercio al dettaglio AFP o CFC - Beginn 2027 — Düdingen",
@@ -15790,7 +15791,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC – inizio 2027 — Biberist",
@@ -15868,7 +15869,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ - Inizio 2027 — Bellach",
@@ -15946,7 +15947,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ - Inizio 2027 — Berna",
@@ -16024,7 +16025,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-20T21:33:39.585Z",
       "previousSlugs": [
         "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-schaffhausen",
@@ -16113,7 +16114,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Frauenfeld",
@@ -16189,7 +16190,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Herisau",
@@ -16265,7 +16266,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Kreuzlingen",
@@ -16341,7 +16342,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Neftenbach",
@@ -16417,7 +16418,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Oberglatt",
@@ -16493,7 +16494,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Tirocinio nella Vendita al Dettaglio EBA o EFZ — Widnau",
@@ -16570,7 +16571,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato Commercio al Dettaglio EBA o EFZ — Winterthur",
@@ -16647,7 +16648,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Posto di apprendistato nel commercio al dettaglio EBA o EFZ — Altendorf",
@@ -16723,7 +16724,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Brugg",
@@ -16799,7 +16800,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC — Chur",
@@ -16875,7 +16876,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Dietikon",
@@ -16951,7 +16952,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Gretzenbach",
@@ -17027,7 +17028,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Horgen",
@@ -17103,7 +17104,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Kloten",
@@ -17179,7 +17180,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Lausen",
@@ -17255,7 +17256,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Niederlenz",
@@ -17331,7 +17332,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC — Rapperswil-Jona",
@@ -17407,7 +17408,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Schlieren",
@@ -17483,7 +17484,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Volketswil",
@@ -17559,7 +17560,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Tirocinio Commercio al Dettaglio EBA o EFZ — Zwingen",
@@ -17637,7 +17638,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Aarau (AG)",
@@ -17716,7 +17717,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Basilea (BS) — Basel (BS)",
@@ -17799,7 +17800,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Buchs",
@@ -17878,7 +17879,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Emmenbrücke",
@@ -17957,7 +17958,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio EBA o EFZ — Rudolfstetten",
@@ -18038,7 +18039,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Bachenbülach",
@@ -18121,7 +18122,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFP o CFC — Zürich",
@@ -18204,7 +18205,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Venditore / venditrice con responsabilità di turno 60-80%",
@@ -18285,7 +18286,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-08-05T11:30:00.222Z",
       "titleByLocale": {
         "it": "Direttore di filiale (m/f/d) 80-100% — Sarnen",
@@ -18373,7 +18374,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-03T22:50:59.931Z",
       "titleByLocale": {
         "it": "Vice direttore di filiale / Vice direttrice di filiale (m/f/d) 80-100% — Ostermundigen",
@@ -18453,7 +18454,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-lidl-svizzera-marly",
@@ -18542,7 +18543,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "gestione-clienti-self-checkout-20-30-ostermundigen-lidl-svizzera-ostermundigen",
@@ -18635,7 +18636,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "direttore-di-filiale-m-f-d-80-100-stans-lidl-svizzera-stans",
@@ -18723,7 +18724,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-05-28T13:18:37.201Z",
       "titleByLocale": {
         "it": "Branch Manager / Branch Manager (m/f/d) 80-100% — St. Moritz",
@@ -18806,7 +18807,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-06-29T22:39:11.744Z",
       "titleByLocale": {
         "it": "Branch Manager / Branch Manager (m/f/d) 80-100% — Zurigo — Zürich",
@@ -18886,7 +18887,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-07-06T22:40:50.002Z",
       "slugByLocale": {
         "it": "direttore-di-filiale-m-f-d-80-100-einsiedeln-lidl-svizzera-einsiedeln",
@@ -18972,7 +18973,7 @@
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-10-28T22:00:09.367Z",
+      "crawledAt": "2026-10-28T22:38:55.848Z",
       "firstSeenAt": "2026-09-26T14:25:55.505Z",
       "titleByLocale": {
         "it": "Venditore / Venditore (m/f/d) 20-40% — Staad",
@@ -20045,6 +20046,5 @@
       "postingDateSource": "unknown",
       "postalCode": "8304"
     }
-  ],
-  "runId": "40771720057"
+  ]
 }

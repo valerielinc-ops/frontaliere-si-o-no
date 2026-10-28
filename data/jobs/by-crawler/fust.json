@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-10-28T21:58:09.974Z",
-  "runId": "40771720057",
+  "assembledAt": "2026-10-28T22:36:22.151Z",
+  "runId": "40776570474",
   "jobs": [
     {
       "id": "company-bqxhdp",
@@ -29,7 +29,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-08T22:37:34.966Z",
       "titleByLocale": {
         "it": "Disponent:in Küchen e Bäder 80% - 100%",
@@ -58,6 +58,8 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -76,9 +78,7 @@
         "it": [
           "disponent-in-kuchen-und-bader-80-100-fust-burgdorf-bern"
         ]
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      }
     },
     {
       "id": "company-xtjx5a",
@@ -106,7 +106,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-07T15:24:19.786Z",
       "titleByLocale": {
         "it": "Sachbearbeiter:in Kundendienst Küchen & Bäder",
@@ -135,6 +135,8 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -145,9 +147,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-tznyy5",
@@ -175,7 +175,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "titleByLocale": {
         "it": "Sachbearbeiter:in Kundendienst Küchen & Bäder",
         "en": "Sachbearbeiter:in Kundendienst Küchen & Bäder",
@@ -203,6 +203,8 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -213,9 +215,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      }
     },
     {
       "id": "company-uvbhk3",
@@ -243,7 +243,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-28T20:17:50.742Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Intralogistik - Bereich Wareneingang",
@@ -272,6 +272,8 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -290,9 +292,7 @@
         "it": [
           "mitarbeiter-in-intralogistik-bereich-wareneingang-fust-oberburen-sankt-gallen"
         ]
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-23zypw",
@@ -320,7 +320,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-28T20:17:50.742Z",
       "titleByLocale": {
         "it": "Montage-Assistent:in per la Heimlieferung von Elektrohaushaltgeräten",
@@ -349,6 +349,8 @@
       "addressCountry": "CH",
       "_enrichedFromDetail": true,
       "sourceLang": "de",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -367,9 +369,7 @@
         "it": [
           "montage-assistent-in-fur-die-heimlieferung-von-elektrohaushaltgeraten-fust-oberburen-sankt-gallen"
         ]
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      }
     },
     {
       "id": "company-h1wvb3",
@@ -397,7 +397,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-07T15:24:19.786Z",
       "titleByLocale": {
         "it": "Capo della ricevuta aggiunto",
@@ -479,7 +479,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-03T13:51:17.068Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -547,7 +547,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-03T13:51:17.068Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -615,7 +615,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-24T09:33:44.874Z",
       "titleByLocale": {
         "it": "Montatore/trice di falegnameria, cucine e bagni",
@@ -697,7 +697,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-14T21:44:44.981Z",
       "titleByLocale": {
         "it": "Risorse Umane Recruiting Specialista",
@@ -765,7 +765,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -851,7 +851,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -939,7 +939,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -1027,7 +1027,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Stagista marketing",
@@ -1111,7 +1111,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Addetto/a all'intralogistica - Reparto resi",
@@ -1199,7 +1199,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Tecnico/a del servizio a domicilio",
@@ -1283,7 +1283,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a / responsabile della qualità delle consegne a domicilio",
@@ -1371,7 +1371,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -1457,7 +1457,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Tecnico/a del servizio a domicilio",
@@ -1541,7 +1541,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Montatore/trice per la consegna a domicilio di elettrodomestici",
@@ -1627,7 +1627,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Autista cat. C/CE",
@@ -1711,7 +1711,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -1797,7 +1797,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Assistente al montaggio per la consegna a domicilio di elettrodomestici",
@@ -1887,7 +1887,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Montatore/trice per la consegna a domicilio di elettrodomestici",
@@ -1973,7 +1973,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "tecnico post-vendita",
@@ -2055,7 +2055,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Montatore/trice per la consegna a domicilio di elettrodomestici",
@@ -2141,7 +2141,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2227,7 +2227,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2315,7 +2315,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Application Sviluppatore Java 80 - 100%",
@@ -2398,7 +2398,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2484,7 +2484,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2570,7 +2570,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2656,7 +2656,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2742,7 +2742,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2828,7 +2828,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -2914,7 +2914,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Outsystems Sviluppatore",
@@ -3004,7 +3004,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -3092,7 +3092,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3178,7 +3178,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-26T14:23:35.938Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3264,7 +3264,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3350,7 +3350,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3436,7 +3436,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3522,7 +3522,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3608,7 +3608,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-23T09:46:18.009Z",
       "titleByLocale": {
         "it": "Impiegato/a del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3694,7 +3694,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "Montatore/trice falegname per cucine e bagni",
@@ -3776,7 +3776,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "Montatore/trice falegname per cucine e bagni",
@@ -3858,7 +3858,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-05T09:35:03.545Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -3926,7 +3926,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
@@ -4008,7 +4008,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-23T11:59:30.089Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4092,7 +4092,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia 80% - 100%",
@@ -4176,7 +4176,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Montatore per la sostituzione di elettrodomestici da incasso per cucina",
@@ -4260,7 +4260,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-25T15:10:02.746Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4344,7 +4344,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
@@ -4426,7 +4426,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
         "en": "SWC Retail Manager \"Designation and realization of procurement experiences\"",
@@ -4508,7 +4508,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "SWC Retail Manager \"Progettazione e realizzazione di esperienze di approvvigionamento\"",
@@ -4590,7 +4590,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-16T21:35:36.082Z",
       "titleByLocale": {
         "it": "SWC Retail Manager's Learning \"Design e realizzazione delle esperienze di acquisto\"",
@@ -4672,7 +4672,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4756,7 +4756,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -4840,7 +4840,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
         "it": "Installatore/trice di impianti sanitari per cucine e bagni",
@@ -4922,7 +4922,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -5008,7 +5008,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-16T09:39:18.410Z",
       "titleByLocale": {
         "it": "Designer grafico/a",
@@ -5099,7 +5099,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-15T09:50:38.380Z",
       "titleByLocale": {
         "it": "Specialista dei processi di officina",
@@ -5181,7 +5181,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-14T21:44:44.981Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -5249,7 +5249,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-14T21:44:44.981Z",
       "titleByLocale": {
         "it": "Addetto/a alle vendite / Progettista di cucine e bagni",
@@ -5333,7 +5333,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-12T09:41:20.676Z",
       "titleByLocale": {
         "it": "Falegname-Montatore di cucine & bagni",
@@ -5422,7 +5422,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-09T23:27:05.730Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -5506,7 +5506,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-09T23:27:05.730Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -5590,7 +5590,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-08T09:48:54.366Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici e multimedia",
@@ -5674,7 +5674,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -5752,7 +5752,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-05T21:49:31.175Z",
       "titleByLocale": {
         "it": "Tecnico/a di officina per grandi elettrodomestici",
@@ -5830,7 +5830,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Installatore adomicilio di elettrodomestici",
@@ -5914,7 +5914,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-10-05T21:49:31.175Z",
       "titleByLocale": {
         "it": "Consulente di vendita per elettrodomestici & multimedia",
@@ -5992,7 +5992,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-24T14:55:37.092Z",
       "titleByLocale": {
         "it": "Impiegato/a addetto/a alla gestione dei ricambi",
@@ -6068,7 +6068,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -6136,7 +6136,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6212,7 +6212,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6288,7 +6288,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "2nd Level Support Ingegnere",
@@ -6364,7 +6364,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -6432,7 +6432,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "Tecnico di Elettronica Multimediale EFZ",
@@ -6508,7 +6508,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica CFC",
@@ -6584,7 +6584,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6660,7 +6660,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6736,7 +6736,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6812,7 +6812,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6888,7 +6888,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-29T21:38:00.732Z",
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Progettazione di esperienze di acquisto\"",
@@ -6964,7 +6964,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-28T21:37:25.196Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-mvdbaz",
@@ -7040,7 +7040,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-10-28T21:57:21.119Z",
+      "crawledAt": "2026-10-28T22:35:33.947Z",
       "firstSeenAt": "2026-09-11T13:54:23.138Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica AFP",
