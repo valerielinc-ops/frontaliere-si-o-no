@@ -8646,7 +8646,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Der Bundesrat beantragt 165,4 Millionen Franken.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustratives Bild zum Thema des Artikels',
     'blog.article.norme-flessibilita-start-up.title': 'Bundesrat gewährt Start-ups Flexibilität bei der Arbeitszeit',
-    'blog.article.norme-flessibilita-start-up.excerpt': 'Neue Sonderbestimmungen am 28.',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Der Bundesrat führt gezielte Ausnahmen von den Arbeits- und Ruhezeitregeln für bestimmte Start-up-Mitarbeitende ein; die neuen Bestimmungen treten am 1. Dezember 2026 in Kraft und gelten unter Bedingungen wie spezifischen Kompetenzen, weitgehender Autonomie, Kapitalbeteiligung und zeitlich begrenzten Projekten.',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
