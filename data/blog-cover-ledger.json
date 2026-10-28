@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 932,
+      "5": 936,
       "6": 5061
     },
-    "publishedCovers": 7675,
+    "publishedCovers": 7679,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210618,6 +210618,138 @@
         "provider": "openai-codex",
         "assetId": "article-tavola-rotonda-sei-misure",
         "imageUrl": "/images/blog/article-tavola-rotonda-sei-misure.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cham-moltiplicatore-fiscale-2027": {
+      "cover": "/images/blog/article-cham-moltiplicatore-fiscale-2027.webp",
+      "hash": "9c866b188d5c3a122223c597e82c7b03b205227e98b19b74de6d4ac5f7dc0b1d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "cham-moltiplicatore-fiscale-2027",
+          "category": "fiscale",
+          "date": "2026-10-28T11:33:27.848Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cham-moltiplicatore-fiscale-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cham-moltiplicatore-fiscale-2027",
+        "imageUrl": "/images/blog/article-cham-moltiplicatore-fiscale-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-fislisbach-acqua-potabile": {
+      "cover": "/images/blog/article-fislisbach-acqua-potabile.webp",
+      "hash": "afae0ffa8c34fca2f9a8e0683c8dc7c2f059d10aa51560d4d832d6ee2534be18",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "fislisbach-acqua-potabile",
+          "category": "pratico",
+          "date": "2026-10-28T11:31:41.205Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fislisbach-acqua-potabile.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fislisbach-acqua-potabile",
+        "imageUrl": "/images/blog/article-fislisbach-acqua-potabile.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mutazioni-lavoro-frontaliero-jura": {
+      "cover": "/images/blog/article-mutazioni-lavoro-frontaliero-jura.webp",
+      "hash": "3438f8db0cef11c2e4de9b715dba8d5729294fa0c57a5f93c1cf39e502deb11f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "mutazioni-lavoro-frontaliero-jura",
+          "category": "novita",
+          "date": "2026-10-28T11:22:42.284Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mutazioni-lavoro-frontaliero-jura.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mutazioni-lavoro-frontaliero-jura",
+        "imageUrl": "/images/blog/article-mutazioni-lavoro-frontaliero-jura.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-solothurn-sussidi-premi-2027": {
+      "cover": "/images/blog/article-solothurn-sussidi-premi-2027.webp",
+      "hash": "fe6d5dcba56fb9ce9c96eab54b4937f49deee26ea037411302a58cc2ce07263b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "solothurn-sussidi-premi-2027",
+          "category": "fiscale",
+          "date": "2026-10-28T11:42:42.148Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-solothurn-sussidi-premi-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-solothurn-sussidi-premi-2027",
+        "imageUrl": "/images/blog/article-solothurn-sussidi-premi-2027.webp",
         "evidence": "generated-engine-record"
       }
     }
