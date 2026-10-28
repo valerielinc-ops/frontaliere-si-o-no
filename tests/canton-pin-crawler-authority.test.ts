@@ -131,6 +131,7 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
     expect(sourceLocationContainsCity('Region Pfäffikon SZ', 'Pfäffikon')).toBe(true);
     expect(sourceLocationContainsCity('Reinach Aargau', 'Reinach')).toBe(true);
     expect(sourceLocationContainsCity('Seewen-Schwyz', 'Seewen')).toBe(true);
+    expect(sourceLocationContainsCity('Baden-Württemberg', 'Baden')).toBe(false);
     expect(sourceLocationContainsCity('Laufental', 'Au')).toBe(false);
   });
 

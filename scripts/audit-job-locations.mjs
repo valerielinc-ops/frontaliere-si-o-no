@@ -203,6 +203,11 @@ function sameRecordedPlace(crawlerCity, publishedCity) {
   const a = crawlerCity.toLowerCase();
   const b = publishedCity.toLowerCase();
   if (!a || !b) return false;
+  // `swissCityFromLocationField()` intentionally extracts known Swiss tokens
+  // from decorated fields, but a foreign field such as `Baden-Württemberg`
+  // contains the Swiss homonym `Baden` as well. Never let that fuzzy rescue
+  // certify a stored locality before the source-canton guard gets a chance.
+  if (isLocationExplicitlyForeign(crawlerCity)) return false;
   if (a === b) return true;
   // Strip only a trailing source canton/country marker before comparing. The
   // Galenica record is `Seewen SZ` while assembly publishes `Seewen`; feeding
@@ -265,17 +270,20 @@ function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   if (!crawlerRecord?.canton || !city || !storedCanton) return false;
   if (crawlerRecord.canton !== storedCanton) return false;
   const sourceLocation = crawlerRecord.location || crawlerRecord.city;
+  const sourceCanton = String(
+    crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation) || '',
+  ).trim().toUpperCase();
   // A crawler canton is frequently an employer-level stamp. It becomes
   // useful evidence for an ambiguous official locality only when the same
   // source row also names that locality; never let a missing or different
   // source place certify a published city by canton alone.
   const samePlace = sourceLocation && (
     sameRecordedPlace(sourceLocation, city)
-    || (sourceLocationContainsCity(sourceLocation, city)
+    || (sourceCanton === storedCanton
+      && sourceLocationContainsCity(sourceLocation, city)
       && isKnownSwissMunicipalityInCanton(city, storedCanton, { allowOfficialLocality: true }))
   );
   if (!samePlace) return false;
-  const sourceCanton = crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation);
   // The source adapter may have preserved an explicit per-posting canton
   // marker that the assembled locality normalizer stripped from the public
   // city field. It is valid evidence for a homonym only when it agrees with

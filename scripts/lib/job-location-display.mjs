@@ -259,7 +259,9 @@ export function isSlashSeparatedMultiLocation(location) {
  */
 function hasMultipleExplicitCantonSegments(location) {
   const codes = new Set();
-  for (const segment of String(location || '').split(/[,;/|]/)) {
+  // Keep this separator family aligned with SEP_TAIL: an en/em dash is also
+  // a valid source-list separator and must not be peeled as one canton tail.
+  for (const segment of String(location || '').split(/[,;/|–—-]/)) {
     const token = fold(segment);
     if (CANTON_CODES.has(token.toUpperCase())) codes.add(token.toUpperCase());
     const named = NAME_TO_CODE.get(token);

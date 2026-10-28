@@ -35,18 +35,42 @@ import {
  * @returns {boolean}
  */
 export function sourceLocationContainsCity(sourceLocation, city) {
-  const foldTokens = (value) => String(value || '')
+  const tokenize = (value) => {
+    const folded = String(value || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}]+/gu, ' ')
-    .trim()
-    .split(/\s+/)
-    .filter(Boolean);
-  const sourceTokens = foldTokens(sourceLocation);
-  const cityTokens = foldTokens(city);
+    .toLowerCase();
+    const tokens = [];
+    const separators = [];
+    let previousEnd = 0;
+    for (const match of folded.matchAll(/[\p{L}\p{N}]+/gu)) {
+      if (tokens.length > 0) separators.push(folded.slice(previousEnd, match.index));
+      tokens.push(match[0]);
+      previousEnd = match.index + match[0].length;
+    }
+    return { tokens, separators };
+  };
+  const source = tokenize(sourceLocation);
+  const cityTokens = tokenize(city).tokens;
+  const sourceTokens = source.tokens;
   if (sourceTokens.length === 0 || cityTokens.length === 0 || cityTokens.length > sourceTokens.length) return false;
-  return sourceTokens.some((_, index) => cityTokens.every((token, offset) => sourceTokens[index + offset] === token));
+
+  // A hyphen can join a Swiss locality to its canton (`Seewen-Schwyz`), but
+  // it can also turn a foreign compound region into a false municipality
+  // match (`Baden-Württemberg`). Only accept a match that crosses such a
+  // compound boundary when the source text independently names a Swiss
+  // canton; the caller still checks that marker against the stored canton.
+  const hasSwissCantonContext = Boolean(cantonNamedByLocation(sourceLocation));
+  return sourceTokens.some((_, index) => {
+    const matches = cityTokens.every((token, offset) => sourceTokens[index + offset] === token);
+    if (!matches) return false;
+    const end = index + cityTokens.length;
+    const crossesCompoundBoundary = (
+      (index > 0 && /[-–—]/u.test(source.separators[index - 1]))
+      || (end < sourceTokens.length && /[-–—]/u.test(source.separators[end - 1]))
+    );
+    return !crossesCompoundBoundary || hasSwissCantonContext;
+  });
 }
 
 export function inferCantonFromJobEvidence({

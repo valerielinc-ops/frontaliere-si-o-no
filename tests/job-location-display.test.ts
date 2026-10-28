@@ -196,6 +196,9 @@ describe('splitJobLocation', () => {
     expect(splitJobLocation('Graubünden, Thurgau, Zürich', 'GR')).toEqual({
       city: 'Graubünden, Thurgau, Zürich', canton: 'GR', stripped: [], conflict: false,
     });
+    expect(splitJobLocation('Graubünden – Thurgau – Zürich', 'ZH')).toEqual({
+      city: 'Graubünden – Thurgau – Zürich', canton: 'ZH', stripped: [], conflict: false,
+    });
     expect(splitJobLocation('Büren an der Aare, Bern', 'SO').conflict).toBe(true);
   });
 });
