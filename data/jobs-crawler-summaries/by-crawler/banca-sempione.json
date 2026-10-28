@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-28T21:26:55.672Z",
+  "generatedAt": "2026-10-28T22:44:12.378Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5111,
-  "avgDurationMs": 5111,
+  "durationMs": 5714,
+  "avgDurationMs": 5714,
   "durationHistory": [
-    5111
+    5714
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "datePosted": "2026-04-24T08:00:41Z",
       "postedDate": "2026-04-24T08:00:41Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-28T21:26:46.724Z",
+      "crawledAt": "2026-10-28T22:44:02.517Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
@@ -64,7 +64,7 @@
       "datePosted": "2026-04-23T08:30:00Z",
       "postedDate": "2026-04-23T08:30:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-28T21:26:46.724Z",
+      "crawledAt": "2026-10-28T22:44:02.517Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
@@ -92,5 +92,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }
