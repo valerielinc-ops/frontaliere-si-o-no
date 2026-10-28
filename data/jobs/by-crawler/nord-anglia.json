@@ -390,12 +390,12 @@
     },
     {
       "id": "nord-anglia-cbb1e87a43f0",
-      "slug": "spanish-teacher-after-school-tutoring-nord-anglia-geneva",
+      "slug": "insegnante-spagnolo-dopo-school-tutoring-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "spanish-teacher-after-school-tutoring-nord-anglia-geneva",
-        "it": "spanish-teacher-after-school-tutoring-nord-anglia-geneva",
-        "de": "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve",
-        "fr": "spanish-teacher-after-school-tutoring-nord-anglia-geneva"
+        "it": "insegnante-spagnolo-dopo-school-tutoring-nord-anglia-education-switzerland-geneva",
+        "de": "spanischlehrer-after-school-tutoring-nord-anglia-education-switzerland-geneva",
+        "fr": "professeur-d-espagnol-enseignement-postscolaire-nord-anglia-education-switzerland-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -455,7 +455,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:26:54.831Z"
+      "firstSeenAt": "2026-10-27T21:26:54.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spanish-teacher-after-school-tutoring-nord-anglia-geneva"
+        ],
+        "de": [
+          "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
+        ],
+        "fr": [
+          "spanish-teacher-after-school-tutoring-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "spanish-teacher-after-school-tutoring-nord-anglia-geneva",
+        "spanish-teacher-after-school-tutoring-nord-anglia-education-switzerland-geneve"
+      ]
     },
     {
       "id": "nord-anglia-8044b0c14594",
@@ -463,7 +478,7 @@
       "slugByLocale": {
         "it": "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
         "en": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne",
+        "de": "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
         "fr": "enseignant-principal-remplacement-de-la-maternite-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -512,7 +527,7 @@
       "previousSlugs": [
         "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
         "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
+        "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -520,7 +535,7 @@
         ],
         "de": [
           "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-          "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
+          "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:21.946Z",

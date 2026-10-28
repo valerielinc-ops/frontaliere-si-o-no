@@ -10883,12 +10883,12 @@
     },
     {
       "id": "helvetia-7a28bd80bbec",
-      "slug": "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel",
+      "slug": "assicurazione-personale-senior-tutti-i-tipi-tempo-pieno-o-parziale-helvetia-versicherungen-lausanne",
       "slugByLocale": {
         "fr": "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel",
-        "it": "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel",
-        "en": "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel",
-        "de": "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel"
+        "it": "assicurazione-personale-senior-tutti-i-tipi-tempo-pieno-o-parziale-helvetia-versicherungen-lausanne",
+        "en": "subscriber-senior-personal-insurance-all-kinds-full-or-part-time-helvetia-versicherungen-lausanne",
+        "de": "abonnent-senior-personliche-versicherung-alle-arten-voll-oder-teilzeit-helvetia-versicherungen-lausanne"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10946,7 +10946,21 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel"
+        ],
+        "en": [
+          "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel"
+        ],
+        "de": [
+          "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel"
+        ]
+      },
+      "previousSlugs": [
+        "souscripteur-senior-assurances-de-personnes-tous-genres-temps-plein-ou-temps-partiel"
+      ]
     },
     {
       "id": "helvetia-02bf630c28af",

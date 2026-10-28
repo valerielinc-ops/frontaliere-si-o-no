@@ -84,12 +84,12 @@
     },
     {
       "id": "medimeo-f9984fc7f1a9",
-      "slug": "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch",
+      "slug": "principale-medico-ostetriciano-principale-80-100-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch",
-        "it": "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch",
-        "en": "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch",
-        "fr": "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch"
+        "it": "principale-medico-ostetriciano-principale-80-100-medimeo-ag-region-zurich",
+        "en": "principal-physician-principal-obstetrician-80-100-medimeo-ag-region-zurich",
+        "fr": "medecin-principal-obstetricien-principal-80-100-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -147,16 +147,30 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-27T21:19:51.408Z"
+      "firstSeenAt": "2026-10-27T21:19:51.408Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-geburtshilfe-80-100-region-zurich-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-3468a177fbcb",
-      "slug": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
+      "slug": "special-ophthalmology-60-100-ambiente-di-lavoro-attraente-e-collegiale-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
-        "it": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
-        "en": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
-        "fr": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        "it": "special-ophthalmology-60-100-ambiente-di-lavoro-attraente-e-collegiale-medimeo-ag-olten-aargau",
+        "en": "specialist-ophthalmology-60-100-appreciative-collegial-working-environment-medimeo-ag-olten-aargau",
+        "fr": "specialiste-de-l-ophtalmologie-60-100-environnement-de-travail-agreable-et-collegial-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -214,7 +228,21 @@
         }
       },
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-27T21:19:51.406Z"
+      "firstSeenAt": "2026-10-27T21:19:51.406Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        ],
+        "en": [
+          "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        ],
+        "fr": [
+          "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+      ]
     },
     {
       "id": "medimeo-afa5c2c1893a",
@@ -222,8 +250,8 @@
       "slugByLocale": {
         "de": "praktischer-arzt-allgemeinmedizinerin-mit-attraktiver-umsatzbeteiligung-region-bern-berner",
         "it": "praktischer-arzt-allgemeinmedizinerin-mit-attraktiver-umsatzbeteiligung-medimeo-ag-bern",
-        "en": "praktischer-arzt-allgemeinmedizinerin-mit-attraktiver-umsatzbeteiligung-medimeo-ag-bern",
-        "fr": "praktischer-arzt-allgemeinmedizinerin-mit-attraktiver-umsatzbeteiligung-medimeo-ag-bern"
+        "en": "practical-doctor-general-practitioner-with-an-attractive-turnover-share-medimeo-ag-region-bern-berner-oberland-emmental",
+        "fr": "medecin-pratique-omnipraticien-avec-une-part-de-chiffre-d-affaires-attrayante-medimeo-ag-region-bern-berner-oberland"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -293,12 +321,12 @@
     },
     {
       "id": "medimeo-0845f4b1c38c",
-      "slug": "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau",
+      "slug": "pediatriciano-60-100-pediatria-consolidata-nella-pratica-di-gruppo-moderna-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau",
-        "it": "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau",
-        "en": "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau",
-        "fr": "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau"
+        "it": "pediatriciano-60-100-pediatria-consolidata-nella-pratica-di-gruppo-moderna-medimeo-ag-olten-aargau",
+        "en": "pediatrician-60-100-established-pediatrics-in-modern-group-practice-medimeo-ag-olten-aargau",
+        "fr": "pediatrie-60-100-pediatrie-etablie-dans-la-pratique-de-groupe-moderne-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -356,7 +384,21 @@
         }
       },
       "postalCode": "4600",
-      "firstSeenAt": "2026-10-27T21:19:51.402Z"
+      "firstSeenAt": "2026-10-27T21:19:51.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau"
+        ],
+        "en": [
+          "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau"
+        ],
+        "fr": [
+          "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "kinderarztin-kinderarzt-60-100-etablierte-padiatrie-in-moderner-gruppenpraxis-olten-aargau"
+      ]
     },
     {
       "id": "medimeo-f832027b4f75",

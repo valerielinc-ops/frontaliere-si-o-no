@@ -402,12 +402,12 @@
     },
     {
       "id": "entero-a952c2c228d9",
-      "slug": "dipl-pflegefachperson-hf-fh-per-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz",
+      "slug": "infermiere-a-diplomato-a-hf-fh-per-il-servizio-notturno-psichiatria-dipendenze-60-entero-niederlenz",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz",
-        "it": "dipl-pflegefachperson-hf-fh-per-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz",
-        "en": "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz"
+        "it": "infermiere-a-diplomato-a-hf-fh-per-il-servizio-notturno-psichiatria-dipendenze-60-entero-niederlenz",
+        "en": "dipl-nurse-hf-fh-for-night-service-psychiatry-addiction-60-entero-niederlenz",
+        "fr": "dipl-infirmiere-hf-fh-pour-le-service-de-nuit-psychiatrie-addiction-60-entero-niederlenz"
       },
       "company": "entero",
       "companyKey": "entero",
@@ -454,11 +454,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz",
+          "dipl-pflegefachperson-hf-fh-per-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz"
+        "dipl-pflegefachperson-hf-fh-fur-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz",
+        "dipl-pflegefachperson-hf-fh-per-den-nachtdienst-psychiatrie-sucht-60-entero-niederlenz"
       ],
       "salaryMin": 52800,
       "salaryMax": 73800,

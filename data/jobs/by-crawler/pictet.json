@@ -390,12 +390,12 @@
     },
     {
       "id": "pictet-e1fcdd767c81",
-      "slug": "compliance-all-round-contrat-de-18-mois-pictet-geneva",
+      "slug": "compliance-tutto-tondo-18-mesi-contratto-pictet-group-geneva",
       "slugByLocale": {
         "fr": "compliance-all-round-contrat-de-18-mois-pictet-geneva",
-        "it": "compliance-all-round-contrat-de-18-mois-pictet-geneva",
-        "en": "compliance-all-round-contrat-de-18-mois-pictet-geneva",
-        "de": "compliance-all-round-contrat-de-18-mois-pictet-geneva"
+        "it": "compliance-tutto-tondo-18-mesi-contratto-pictet-group-geneva",
+        "en": "compliance-all-round-18-months-contract-pictet-group-geneva",
+        "de": "compliance-allround-18-monate-vertrag-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -454,7 +454,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-27T21:22:36.688Z"
+      "firstSeenAt": "2026-10-27T21:22:36.688Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-all-round-contrat-de-18-mois-pictet-geneva"
+        ],
+        "en": [
+          "compliance-all-round-contrat-de-18-mois-pictet-geneva"
+        ],
+        "de": [
+          "compliance-all-round-contrat-de-18-mois-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-all-round-contrat-de-18-mois-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-a68ceb0574cc",

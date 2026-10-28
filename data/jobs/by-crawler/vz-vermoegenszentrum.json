@@ -5937,7 +5937,7 @@
         "fr": "investment-advisor-vz-vermoegenszentrum-ch",
         "it": "investment-advisor-vz-vermogenszentrum-lausanne",
         "en": "investment-advisor-vz-vermogenszentrum-lausanne",
-        "de": "investment-advisor-vz-vermoegenszentrum-ch"
+        "de": "investment-berater-vz-vermogenszentrum-lausanne-vaud"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6000,6 +6000,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "investment-advisor-vz-vermoegenszentrum-ch"
+        ],
+        "de": [
           "investment-advisor-vz-vermoegenszentrum-ch"
         ]
       },

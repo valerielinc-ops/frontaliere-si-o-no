@@ -311,12 +311,12 @@
     },
     {
       "id": "ikea-0729910a4e5f",
-      "slug": "collaborateur-trice-en-decoration-interieure-100-ikea-ch",
+      "slug": "lavoratore-nella-decorazione-interna-100-ikea-vernier-geneve",
       "slugByLocale": {
         "fr": "collaborateur-trice-en-decoration-interieure-100-ikea-ch",
-        "it": "collaborateur-trice-en-decoration-interieure-100-ikea-ch",
-        "en": "collaborateur-trice-en-decoration-interieure-100-ikea-ch",
-        "de": "collaborateur-trice-en-decoration-interieure-100-ikea-ch"
+        "it": "lavoratore-nella-decorazione-interna-100-ikea-vernier-geneve",
+        "en": "worker-in-interior-decoration-100-ikea-vernier-geneve",
+        "de": "arbeiter-in-innendekoration-100-ikea-vernier-geneve"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -374,7 +374,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:17:50.244Z"
+      "firstSeenAt": "2026-10-27T21:17:50.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-en-decoration-interieure-100-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-en-decoration-interieure-100-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-en-decoration-interieure-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-en-decoration-interieure-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-e2bee6f6594b",
@@ -455,8 +469,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80-ikea-ch",
         "it": "addetto-a-alle-vendite-in-der-geschirrabteilung-60-80-ikea-dietlikon",
-        "en": "mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80-ikea-ch"
+        "en": "sales-associate-in-the-tableware-department-60-80-ikea-dietlikon-zurich",
+        "fr": "collaborateur-rice-de-vente-au-rayon-vaisselle-60-80-ikea-dietlikon-zurich"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -504,6 +518,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80-ikea-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80-ikea-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80-ikea-ch"
         ]
       },
       "previousSlugs": [
@@ -530,7 +550,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -577,7 +597,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -585,7 +605,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -1896,12 +1916,12 @@
     },
     {
       "id": "ikea-f773b9d6ea21",
-      "slug": "unit-facility-management-spezialist-in-100-ikea-ch",
+      "slug": "specialista-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
       "slugByLocale": {
         "de": "unit-facility-management-spezialist-in-100-ikea-ch",
-        "it": "unit-facility-management-spezialist-in-100-ikea-ch",
+        "it": "specialista-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
         "en": "unit-facility-management-spezialist-in-100-ikea-ch",
-        "fr": "unit-facility-management-spezialist-in-100-ikea-ch"
+        "fr": "specialiste-de-l-unite-facility-management-100-ikea-rothenburg-luzern"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1959,16 +1979,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:17:50.203Z"
+      "firstSeenAt": "2026-10-27T21:17:50.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unit-facility-management-spezialist-in-100-ikea-ch"
+        ],
+        "fr": [
+          "unit-facility-management-spezialist-in-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unit-facility-management-spezialist-in-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-6bac6638b86d",
-      "slug": "unit-facility-management-techniker-in-100-ikea-ch",
+      "slug": "tecnico-a-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
       "slugByLocale": {
         "de": "unit-facility-management-techniker-in-100-ikea-ch",
-        "it": "unit-facility-management-techniker-in-100-ikea-ch",
+        "it": "tecnico-a-dell-unita-di-facility-management-100-ikea-rothenburg-luzern",
         "en": "unit-facility-management-techniker-in-100-ikea-ch",
-        "fr": "unit-facility-management-techniker-in-100-ikea-ch"
+        "fr": "technicien-ne-de-l-unite-facility-management-100-ikea-rothenburg-luzern"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2026,7 +2057,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:17:50.200Z"
+      "firstSeenAt": "2026-10-27T21:17:50.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unit-facility-management-techniker-in-100-ikea-ch"
+        ],
+        "fr": [
+          "unit-facility-management-techniker-in-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unit-facility-management-techniker-in-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-d75acabae724",

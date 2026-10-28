@@ -31,8 +31,8 @@
       "slugByLocale": {
         "fr": "medecin-pediatre-h-f-swiss-medical-network",
         "it": "medico-pediatrico-m-f-swiss-medical-network-saint-imier-7e96ad2645",
-        "en": "medico-pediatrico-m-f-swiss-medical-network-saint-imier-7e96ad2645",
-        "de": "medico-pediatrico-m-f-swiss-medical-network-saint-imier-7e96ad2645"
+        "en": "pediatric-doctor-m-f-swiss-medical-network-saint-imier",
+        "de": "kinderarzt-m-w-swiss-medical-network-saint-imier"
       },
       "slug": "medico-pediatrico-m-f-swiss-medical-network-saint-imier-7e96ad2645",
       "category": "medical",
@@ -101,8 +101,8 @@
       "slugByLocale": {
         "fr": "medecin-adjoint-pedopsychiatre-fmh-h-f-swiss-medical-network",
         "it": "assistente-medico-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier-2f580cdc31",
-        "en": "assistente-medico-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier-2f580cdc31",
-        "de": "assistente-medico-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier-2f580cdc31"
+        "en": "assistant-physician-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier",
+        "de": "assistenzarzt-padopsychiater-fmh-m-w-swiss-medical-network-saint-imier"
       },
       "slug": "assistente-medico-pedopsychiatrist-fmh-m-f-swiss-medical-network-saint-imier-2f580cdc31",
       "category": "medical",
@@ -172,7 +172,7 @@
         "fr": "assistant-e-medical-e-swiss-medical-network",
         "it": "assistente-medico-swiss-medical-network-saint-imier-1d0158eec2",
         "en": "assistente-medico-swiss-medical-network-saint-imier-1d0158eec2",
-        "de": "assistente-medico-swiss-medical-network-saint-imier-1d0158eec2"
+        "de": "arzthelferin-swiss-medical-network-saint-imier"
       },
       "slug": "assistente-medico-swiss-medical-network-saint-imier-1d0158eec2",
       "category": "admin",
@@ -2190,7 +2190,7 @@
         "fr": "Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
+        "it": "specialista-medicina-interna-swiss-medical-network-wengen",
         "en": "specialist-general-internal-medicine-swiss-medical-network-wengen",
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
@@ -3701,7 +3701,7 @@
         "fr": "Assistant(e) médical(e)"
       },
       "slugByLocale": {
-        "it": "assistente-medico-swiss-medical-network-saint-imier-4be634cec5",
+        "it": "assistente-medico-swiss-medical-network-saint-imier",
         "en": "assistant-e-medical-e-swiss-medical-network",
         "de": "arzthelferin-swiss-medical-network-saint-imier",
         "fr": "assistant-e-medical-e-swiss-medical-network"
@@ -3738,13 +3738,11 @@
       },
       "crawlerMissStreak": 1,
       "previousSlugs": [
-        "assistant-e-medical-e-swiss-medical-network",
-        "assistente-medico-swiss-medical-network-saint-imier"
+        "assistant-e-medical-e-swiss-medical-network"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-swiss-medical-network",
-          "assistente-medico-swiss-medical-network-saint-imier"
+          "assistant-e-medical-e-swiss-medical-network"
         ]
       }
     }

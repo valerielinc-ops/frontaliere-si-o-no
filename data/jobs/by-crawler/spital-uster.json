@@ -4716,12 +4716,12 @@
     },
     {
       "id": "spital-uster-501534a85d0a",
-      "slug": "teamleitung-arztsekretariat-pneumologie-gastroenterologie-e-weitere-fachbereiche-der-medizin-80-100-spital-uster",
+      "slug": "responsabile-del-team-della-segreteria-medica-di-pneumologia-gastroenterologia-e-di-ulteriori-ambiti-specialistici-della",
       "slugByLocale": {
         "de": "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der",
-        "it": "teamleitung-arztsekretariat-pneumologie-gastroenterologie-e-weitere-fachbereiche-der-medizin-80-100-spital-uster",
-        "en": "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der",
-        "fr": "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der"
+        "it": "responsabile-del-team-della-segreteria-medica-di-pneumologia-gastroenterologia-e-di-ulteriori-ambiti-specialistici-della",
+        "en": "team-management-medical-secretariat-pneumology-gastroenterology-and-other-fields-of-medicine-80-100-spital-uster-uster",
+        "fr": "gestion-d-equipe-secretariat-medical-pneumologie-gastroenterologie-et-autres-domaines-de-la-medecine-80-100-spital-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4769,11 +4769,19 @@
       "department": "Dienste (Infrastruktur/Gastronomie)",
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der",
+          "teamleitung-arztsekretariat-pneumologie-gastroenterologie-e-weitere-fachbereiche-der-medizin-80-100-spital-uster"
+        ],
+        "en": [
+          "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der"
+        ],
+        "fr": [
           "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der"
         ]
       },
       "previousSlugs": [
-        "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der"
+        "teamleitung-arztsekretariat-pneumologie-gastroenterologie-und-weitere-fachbereiche-der",
+        "teamleitung-arztsekretariat-pneumologie-gastroenterologie-e-weitere-fachbereiche-der-medizin-80-100-spital-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

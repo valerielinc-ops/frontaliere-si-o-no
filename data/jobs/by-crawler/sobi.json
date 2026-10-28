@@ -388,7 +388,7 @@
       "slugByLocale": {
         "it": "gestore-di-accesso-al-mercato-sobi-zug",
         "en": "market-access-manager-sobi-zug",
-        "de": "manager-in-fur-marktzugang-sobi-zug",
+        "de": "marktzugangsmanager-sobi-zug",
         "fr": "gestionnaire-d-acces-au-marche-sobi-zug"
       },
       "company": "Sobi",
@@ -435,14 +435,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "market-access-manager-sobi-zug",
-        "marktzugangsmanager-sobi-zug"
+        "manager-in-fur-marktzugang-sobi-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "market-access-manager-sobi-zug"
         ],
         "de": [
-          "marktzugangsmanager-sobi-zug"
+          "manager-in-fur-marktzugang-sobi-zug"
         ]
       },
       "firstSeenAt": "2026-10-08T22:13:39.403Z",
@@ -537,12 +537,12 @@
     },
     {
       "id": "sobi-852ea316e8c2",
-      "slug": "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel",
+      "slug": "tossicologo-senior-scienziato-di-farmacologia-non-clinica-sobi-basel",
       "slugByLocale": {
         "en": "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel",
-        "it": "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel",
-        "de": "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel",
-        "fr": "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel"
+        "it": "tossicologo-senior-scienziato-di-farmacologia-non-clinica-sobi-basel",
+        "de": "senior-toxikologe-nicht-klinischer-pharmakologie-wissenschaftler-sobi-basel",
+        "fr": "toxicologue-principal-pharmacologie-non-clinique-scientifique-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -602,7 +602,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-27T21:21:00.399Z"
+      "firstSeenAt": "2026-10-27T21:21:00.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel"
+        ],
+        "de": [
+          "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel"
+        ],
+        "fr": [
+          "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-toxicologist-non-clinical-pharmacology-scientist-sobi-basel"
+      ]
     }
   ]
 }

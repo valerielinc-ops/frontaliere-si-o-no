@@ -3754,12 +3754,12 @@
     },
     {
       "id": "eraneos-4c30b2cb6dfc",
-      "slug": "initiativbewerbung-im-consulting-per-berufserfahrene-80-100-eraneos-switzerland-ag-zurich",
+      "slug": "candidatura-spontanea-nella-consulenza-per-professionisti-con-esperienza-80-100-eraneos-switzerland-ag-zurich",
       "slugByLocale": {
         "de": "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch",
-        "it": "initiativbewerbung-im-consulting-per-berufserfahrene-80-100-eraneos-switzerland-ag-zurich",
-        "en": "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch",
-        "fr": "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch"
+        "it": "candidatura-spontanea-nella-consulenza-per-professionisti-con-esperienza-80-100-eraneos-switzerland-ag-zurich",
+        "en": "initiative-application-in-consulting-for-experienced-professionals-80-100-eraneos-switzerland-ag-zurich",
+        "fr": "application-d-initiative-en-consultation-pour-les-professionnels-experimentes-80-100-eraneos-switzerland-ag-zurich"
       },
       "company": "Eraneos Switzerland AG",
       "companyKey": "eraneos",
@@ -3806,11 +3806,19 @@
       "jobReqId": "JR100313",
       "previousSlugsByLocale": {
         "it": [
+          "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch",
+          "initiativbewerbung-im-consulting-per-berufserfahrene-80-100-eraneos-switzerland-ag-zurich"
+        ],
+        "en": [
+          "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch"
+        ],
+        "fr": [
           "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch"
         ]
       },
       "previousSlugs": [
-        "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch"
+        "initiativbewerbung-im-consulting-fur-berufserfahrene-80-100-eraneos-ch",
+        "initiativbewerbung-im-consulting-per-berufserfahrene-80-100-eraneos-switzerland-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

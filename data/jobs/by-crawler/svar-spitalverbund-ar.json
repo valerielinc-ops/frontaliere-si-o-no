@@ -739,12 +739,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-5415cdc7845e",
-      "slug": "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "operatrice-operatore-sociosanitario-per-il-reparto-di-terapia-intensiva-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau",
-        "it": "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau",
-        "fr": "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+        "it": "operatrice-operatore-sociosanitario-per-il-reparto-di-terapia-intensiva-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
+        "en": "professional-health-for-the-intensive-care-unit-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "sante-professionnelle-pour-l-unite-de-soins-intensifs-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -792,11 +792,19 @@
       "externalId": "4092443",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau",
+          "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau",
+        "fachfrau-fachmann-gesundheit-per-la-intensivstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 118500,

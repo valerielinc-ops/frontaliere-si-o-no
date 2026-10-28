@@ -2811,7 +2811,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -3418,7 +3418,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -5112,7 +5112,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -5161,8 +5161,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5171,7 +5170,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -7062,7 +7061,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -7111,7 +7110,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7119,7 +7118,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -17902,7 +17901,7 @@
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -17947,11 +17946,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -18453,7 +18452,7 @@
         "it": "senior-it-controller-tutti-bkw-bern",
         "en": "senior-it-controller-all-bkw-bern",
         "de": "senior-it-controller-alle-bkw-ch",
-        "fr": "senior-it-controller-alle-bkw-bern"
+        "fr": "controleur-informatique-principal-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -18499,7 +18498,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-it-controller-alle-bkw-ch",
-        "controleur-informatique-principal-tous-bkw-bern"
+        "senior-it-controller-alle-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18509,7 +18508,7 @@
           "senior-it-controller-alle-bkw-ch"
         ],
         "fr": [
-          "controleur-informatique-principal-tous-bkw-bern"
+          "senior-it-controller-alle-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-10-19T09:19:12.037Z",
@@ -22934,12 +22933,12 @@
     },
     {
       "id": "bkw-8caa5652140c",
-      "slug": "installateur-trice-de-service-en-chauffage-tous-bkw-ch",
+      "slug": "installatore-di-servizio-di-riscaldamento-tutti-bkw-bulle",
       "slugByLocale": {
         "fr": "installateur-trice-de-service-en-chauffage-tous-bkw-ch",
-        "it": "installateur-trice-de-service-en-chauffage-tous-bkw-ch",
-        "en": "installateur-trice-de-service-en-chauffage-tous-bkw-ch",
-        "de": "installateur-trice-de-service-en-chauffage-tous-bkw-ch"
+        "it": "installatore-di-servizio-di-riscaldamento-tutti-bkw-bulle",
+        "en": "heating-service-installer-all-bkw-bulle",
+        "de": "heizungsinstallateur-alle-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22998,16 +22997,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:34.051Z"
+      "firstSeenAt": "2026-10-27T21:22:34.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-trice-de-service-en-chauffage-tous-bkw-ch"
+        ],
+        "en": [
+          "installateur-trice-de-service-en-chauffage-tous-bkw-ch"
+        ],
+        "de": [
+          "installateur-trice-de-service-en-chauffage-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-trice-de-service-en-chauffage-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-526598c367ff",
-      "slug": "chef-fe-de-projet-sanitaire-tous-bkw-ch",
+      "slug": "capo-del-progetto-sanitario-tutti-bkw-bulle",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-sanitaire-tous-bkw-ch",
-        "it": "chef-fe-de-projet-sanitaire-tous-bkw-ch",
-        "en": "chef-fe-de-projet-sanitaire-tous-bkw-ch",
-        "de": "chef-fe-de-projet-sanitaire-tous-bkw-ch"
+        "it": "capo-del-progetto-sanitario-tutti-bkw-bulle",
+        "en": "head-of-health-project-all-bkw-bulle",
+        "de": "leiter-des-gesundheitsprojekts-alle-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23066,16 +23079,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:34.050Z"
+      "firstSeenAt": "2026-10-27T21:22:34.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-sanitaire-tous-bkw-ch"
+        ],
+        "en": [
+          "chef-fe-de-projet-sanitaire-tous-bkw-ch"
+        ],
+        "de": [
+          "chef-fe-de-projet-sanitaire-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-sanitaire-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-7862d9365744",
-      "slug": "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch",
+      "slug": "installatore-sanitario-con-cfc-tutti-bkw-bulle",
       "slugByLocale": {
         "fr": "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch",
-        "it": "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch",
-        "en": "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch",
-        "de": "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch"
+        "it": "installatore-sanitario-con-cfc-tutti-bkw-bulle",
+        "en": "sanitary-installer-with-cfc-all-bkw-bulle",
+        "de": "sanitarinstallateur-mit-cfc-alle-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23134,7 +23161,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:34.049Z"
+      "firstSeenAt": "2026-10-27T21:22:34.049Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch"
+        ],
+        "en": [
+          "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch"
+        ],
+        "de": [
+          "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-trice-sanitaire-avec-cfc-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-7755a38efc3e",
@@ -24664,8 +24705,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-rapperswil-jona",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "electrical-installer-efz-all-genders-bkw-rapperswil-jona",
+        "fr": "installateur-rice-electricien-ne-cfc-toutes-et-tous-bkw-rapperswil-jona"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24714,6 +24755,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -24736,12 +24783,12 @@
     },
     {
       "id": "bkw-751504bffdbb",
-      "slug": "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
+      "slug": "pulitore-installatore-elettrico-ne-cfc-tutti-bkw-lausanne",
       "slugByLocale": {
         "fr": "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "it": "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "en": "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "de": "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        "it": "pulitore-installatore-elettrico-ne-cfc-tutti-bkw-lausanne",
+        "en": "cleaner-installer-electrician-ne-cfc-all-bkw-lausanne",
+        "de": "cleaner-installer-electrician-ne-cfc-alle-bkw-lausanne"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24800,7 +24847,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:34.029Z"
+      "firstSeenAt": "2026-10-27T21:22:34.029Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        ],
+        "en": [
+          "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        ],
+        "de": [
+          "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "depanneur-euse-installateur-trice-electricien-ne-cfc-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-2be6444c14bc",
@@ -24880,12 +24941,12 @@
     },
     {
       "id": "bkw-cf4a1b7a2724",
-      "slug": "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch",
+      "slug": "testa-del-sito-installer-sanitary-tutti-bkw-bulle",
       "slugByLocale": {
         "fr": "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch",
-        "it": "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch",
-        "en": "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch",
-        "de": "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch"
+        "it": "testa-del-sito-installer-sanitary-tutti-bkw-bulle",
+        "en": "head-of-site-installer-sanitary-all-bkw-bulle",
+        "de": "leiter-des-installateur-sanitars-alle-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24944,16 +25005,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:34.028Z"
+      "firstSeenAt": "2026-10-27T21:22:34.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch"
+        ],
+        "en": [
+          "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch"
+        ],
+        "de": [
+          "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-chantier-installateur-sanitaire-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-e35b4ffeea1b",
-      "slug": "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-echallens",
+      "slug": "apprenticeship-health-installer-cfc-tutti-bkw-echallens",
       "slugByLocale": {
         "fr": "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch",
-        "it": "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-echallens",
-        "en": "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch",
-        "de": "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch"
+        "it": "apprenticeship-health-installer-cfc-tutti-bkw-echallens",
+        "en": "apprenticeship-health-installer-cfc-all-bkw-echallens",
+        "de": "lehrling-gesundheitsinstallateur-cfc-alle-bkw-echallens"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25001,11 +25076,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch",
+          "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-echallens"
+        ],
+        "en": [
+          "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch"
+        ],
+        "de": [
           "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch"
+        "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-ch",
+        "apprentissage-installateur-trice-sanitaire-cfc-tous-bkw-echallens"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -25024,12 +25107,12 @@
     },
     {
       "id": "bkw-6e34bdeaf917",
-      "slug": "monteur-euse-de-service-chauffage-tous-bkw-ch",
+      "slug": "servizio-di-riscaldamento-tutti-bkw-marly",
       "slugByLocale": {
         "fr": "monteur-euse-de-service-chauffage-tous-bkw-ch",
-        "it": "monteur-euse-de-service-chauffage-tous-bkw-ch",
-        "en": "monteur-euse-de-service-chauffage-tous-bkw-ch",
-        "de": "monteur-euse-de-service-chauffage-tous-bkw-ch"
+        "it": "servizio-di-riscaldamento-tutti-bkw-marly",
+        "en": "heating-service-machine-all-bkw-marly",
+        "de": "heizungsdienstmaschine-alle-bkw-marly"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25088,16 +25171,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:34.016Z"
+      "firstSeenAt": "2026-10-27T21:22:34.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-euse-de-service-chauffage-tous-bkw-ch"
+        ],
+        "en": [
+          "monteur-euse-de-service-chauffage-tous-bkw-ch"
+        ],
+        "de": [
+          "monteur-euse-de-service-chauffage-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-euse-de-service-chauffage-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-f0e6086c965c",
-      "slug": "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch",
+      "slug": "installatore-di-riscaldamento-con-cfc-tutti-bkw-marly",
       "slugByLocale": {
         "fr": "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch",
-        "it": "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch",
-        "en": "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch",
-        "de": "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch"
+        "it": "installatore-di-riscaldamento-con-cfc-tutti-bkw-marly",
+        "en": "heating-installer-with-cfc-all-bkw-marly",
+        "de": "heizungsinstallateur-mit-fckw-alle-bkw-marly"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25156,16 +25253,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:34.015Z"
+      "firstSeenAt": "2026-10-27T21:22:34.015Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch"
+        ],
+        "en": [
+          "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch"
+        ],
+        "de": [
+          "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "installateur-trice-en-chauffage-avec-cfc-tous-bkw-ch"
+      ]
     },
     {
       "id": "bkw-3d8305033597",
-      "slug": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-lausanne",
+      "slug": "apprenticeship-installer-electrician-ne-cfc-tutti-bkw-lausanne",
       "slugByLocale": {
         "fr": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "it": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-lausanne",
-        "en": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch-2",
-        "de": "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch-2"
+        "it": "apprenticeship-installer-electrician-ne-cfc-tutti-bkw-lausanne",
+        "en": "apprenticeship-installer-electrician-ne-cfc-all-bkw-lausanne",
+        "de": "lehrling-installer-electrician-ne-cfc-alle-bkw-lausanne"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25214,12 +25325,20 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
+          "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch-2",
+          "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-lausanne"
+        ],
+        "en": [
+          "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch-2"
+        ],
+        "de": [
           "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch-2"
         ]
       },
       "previousSlugs": [
         "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch",
-        "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch-2"
+        "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-ch-2",
+        "apprentissage-installateur-trice-electricien-ne-cfc-tous-bkw-lausanne"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,

@@ -274,12 +274,12 @@
     },
     {
       "id": "zkb-223acf1a315c",
-      "slug": "business-risk-manager-in-private-banking-zkb-zurich",
+      "slug": "responsabile-dei-rischi-aziendali-per-il-private-banking-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "business-risk-manager-in-private-banking-zkb-zurich",
-        "it": "business-risk-manager-in-private-banking-zkb-zurich",
+        "it": "responsabile-dei-rischi-aziendali-per-il-private-banking-zurcher-kantonalbank-zurich",
         "en": "business-risk-manager-in-private-banking-zurcher-kantonalbank-zurich",
-        "fr": "business-risk-manager-in-private-banking-zkb-zurich"
+        "fr": "gestionnaire-des-risques-commerciaux-en-banque-privee-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -342,7 +342,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:20:21.802Z"
+      "firstSeenAt": "2026-10-27T21:20:21.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-risk-manager-in-private-banking-zkb-zurich"
+        ],
+        "fr": [
+          "business-risk-manager-in-private-banking-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-risk-manager-in-private-banking-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-642ba4e62d6a",

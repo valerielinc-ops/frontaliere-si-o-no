@@ -153,8 +153,8 @@
       "slugByLocale": {
         "de": "leiter-abteilung-reinigung-100-hilcona-dallikon",
         "it": "leiter-abteilung-reinigung-100-eisberg-ag-dallikon",
-        "en": "leiter-abteilung-reinigung-100-hilcona-dallikon",
-        "fr": "leiter-abteilung-reinigung-100-hilcona-dallikon"
+        "en": "head-of-cleaning-department-100-eisberg-ag-dallikon",
+        "fr": "chef-du-service-de-nettoyage-100-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -196,6 +196,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-abteilung-reinigung-100-hilcona-dallikon"
+        ],
+        "en": [
+          "leiter-abteilung-reinigung-100-hilcona-dallikon"
+        ],
+        "fr": [
           "leiter-abteilung-reinigung-100-hilcona-dallikon"
         ]
       },

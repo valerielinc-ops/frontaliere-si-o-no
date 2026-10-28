@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "bms-building-ef96f1e82669",
-      "slug": "transportfachfrau-mann-con-stv-disposition-m-w-d-100-bms-building-materials-wil",
+      "slug": "specialista-dei-trasporti-con-funzione-di-vice-responsabile-della-pianificazione-m-f-d-100-bms-building-materials-wil",
       "slugByLocale": {
         "de": "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch",
-        "it": "transportfachfrau-mann-con-stv-disposition-m-w-d-100-bms-building-materials-wil",
-        "en": "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch",
-        "fr": "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch"
+        "it": "specialista-dei-trasporti-con-funzione-di-vice-responsabile-della-pianificazione-m-f-d-100-bms-building-materials-wil",
+        "en": "transport-specialist-with-deputy-dispatching-responsibilities-m-f-d-100-bms-building-materials-wil",
+        "fr": "specialiste-du-transport-avec-suppleance-de-la-planification-h-f-d-100-bms-building-materials-wil"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -94,11 +94,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch",
+          "transportfachfrau-mann-con-stv-disposition-m-w-d-100-bms-building-materials-wil"
+        ],
+        "en": [
+          "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch"
+        ],
+        "fr": [
           "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch"
         ]
       },
       "previousSlugs": [
-        "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch"
+        "transportfachfrau-mann-mit-stv-disposition-w-m-d-100-bms-building-ch",
+        "transportfachfrau-mann-con-stv-disposition-m-w-d-100-bms-building-materials-wil"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

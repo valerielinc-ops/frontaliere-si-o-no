@@ -1131,12 +1131,12 @@
     },
     {
       "id": "recruitingapp-1154-40ac74f2c284",
-      "slug": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3",
+      "slug": "consulente-per-clienti-privati-80-100-sgkb-bewerbermanagement-stellen-wittenbach",
       "slugByLocale": {
         "de": "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
-        "it": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3",
-        "en": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3",
-        "fr": "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3"
+        "it": "consulente-per-clienti-privati-80-100-sgkb-bewerbermanagement-stellen-wittenbach",
+        "en": "private-client-advisor-80-100-sgkb-bewerbermanagement-stellen-wittenbach",
+        "fr": "conseiller-ere-a-la-clientele-privee-80-100-sgkb-bewerbermanagement-stellen-wittenbach"
       },
       "company": "SGKB Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-1154",
@@ -1197,21 +1197,29 @@
       "firstSeenAt": "2026-10-26T21:50:10.353Z",
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3"
+        ],
+        "en": [
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3"
+        ],
+        "fr": [
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3"
         ]
       },
       "previousSlugs": [
-        "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+        "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
+        "berater-in-privatkunden-80-100-recruitingapp-1154-ch-3"
       ]
     },
     {
       "id": "recruitingapp-1154-341ba52713ce",
-      "slug": "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach",
+      "slug": "consulente-per-la-clientela-privata-60-sgkb-bewerbermanagement-stellen-wittenbach",
       "slugByLocale": {
         "de": "kundenberater-in-privatkunden-60-recruitingapp-1154-ch",
-        "it": "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach",
-        "en": "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach",
-        "fr": "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach"
+        "it": "consulente-per-la-clientela-privata-60-sgkb-bewerbermanagement-stellen-wittenbach",
+        "en": "customer-advisor-for-private-customers-60-sgkb-bewerbermanagement-stellen-wittenbach",
+        "fr": "conseiller-conseillere-a-la-clientele-privee-60-sgkb-bewerbermanagement-stellen-wittenbach"
       },
       "company": "SGKB Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-1154",
@@ -1258,11 +1266,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-privatkunden-60-recruitingapp-1154-ch"
+          "kundenberater-in-privatkunden-60-recruitingapp-1154-ch",
+          "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach"
+        ],
+        "en": [
+          "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach"
+        ],
+        "fr": [
+          "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-privatkunden-60-recruitingapp-1154-ch"
+        "kundenberater-in-privatkunden-60-recruitingapp-1154-ch",
+        "kundenberater-in-privatkunden-60-sgkb-bewerbermanagement-stellen-wittenbach"
       ],
       "salaryMin": 34500,
       "salaryMax": 52200,

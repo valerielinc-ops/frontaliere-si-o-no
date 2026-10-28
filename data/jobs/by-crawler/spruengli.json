@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "temporare-mitarbeiter-innen-paketversand-bis-ende-dezember-spruengli-dietikon",
         "it": "temporare-collaboratore-trice-innen-paketversand-bis-ende-dezember-confiserie-sprungli-ag-dietikon",
-        "en": "temporare-mitarbeiter-innen-paketversand-bis-ende-dezember-spruengli-dietikon",
-        "fr": "temporare-mitarbeiter-innen-paketversand-bis-ende-dezember-spruengli-dietikon"
+        "en": "temporary-employees-for-parcel-shipping-until-the-end-of-december-confiserie-sprungli-ag-dietikon",
+        "fr": "collaborateurs-trices-temporaires-pour-l-expedition-de-colis-jusqu-a-fin-decembre-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -60,6 +60,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "temporare-mitarbeiter-innen-paketversand-bis-ende-dezember-spruengli-dietikon"
+        ],
+        "en": [
+          "temporare-mitarbeiter-innen-paketversand-bis-ende-dezember-spruengli-dietikon"
+        ],
+        "fr": [
           "temporare-mitarbeiter-innen-paketversand-bis-ende-dezember-spruengli-dietikon"
         ]
       },

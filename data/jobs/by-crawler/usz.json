@@ -16181,12 +16181,12 @@
     },
     {
       "id": "usz-1bcd38ba298d",
-      "slug": "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch",
+      "slug": "dipartimento-privato-dell-infermiera-medicina-interna-oncologia-ematologia-70-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch",
-        "it": "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch",
-        "en": "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch",
-        "fr": "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch"
+        "it": "dipartimento-privato-dell-infermiera-medicina-interna-oncologia-ematologia-70-100-universitatsspital-zurich-usz-zurich",
+        "en": "nurse-s-private-department-internal-medicine-oncology-hematology-70-100-universitatsspital-zurich-usz-zurich",
+        "fr": "departement-prive-de-l-infirmiere-medecine-interne-oncologie-hematologie-70-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16244,16 +16244,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:24:15.269Z"
+      "firstSeenAt": "2026-10-27T21:24:15.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch"
+        ],
+        "en": [
+          "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch"
+        ],
+        "fr": [
+          "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-privatstation-innere-medizin-onkologie-hamatologie-70-100-usz-ch"
+      ]
     },
     {
       "id": "usz-1e259fb689ac",
-      "slug": "pflegefachperson-per-la-rheumatologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "professionista-infermieristico-a-per-la-reumatologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch",
-        "it": "pflegefachperson-per-la-rheumatologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch",
-        "fr": "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch"
+        "it": "professionista-infermieristico-a-per-la-reumatologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "rheumatology-care-professional-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "specialiste-des-soins-rhumatologiques-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16300,11 +16314,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch",
+          "pflegefachperson-per-la-rheumatologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch"
+        "pflegefachperson-fur-die-rheumatologie-80-100-usz-ch",
+        "pflegefachperson-per-la-rheumatologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16323,12 +16345,12 @@
     },
     {
       "id": "usz-524bd92c8154",
-      "slug": "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz",
+      "slug": "esperto-a-di-cure-infermieristiche-nurse-practitioner-percorso-oncologico-breast-and-cancer-care-nurse-m-f-d-80-100",
       "slugByLocale": {
         "de": "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz",
-        "it": "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz",
+        "it": "esperto-a-di-cure-infermieristiche-nurse-practitioner-percorso-oncologico-breast-and-cancer-care-nurse-m-f-d-80-100",
         "en": "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz",
-        "fr": "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz"
+        "fr": "expert-e-en-soins-infirmiers-infirmier-ere-praticien-ne-parcours-tumoral-infirmier-ere-en-soins-du-sein-et-du-cancer-h-f"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16386,7 +16408,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:24:15.264Z"
+      "firstSeenAt": "2026-10-27T21:24:15.264Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz"
+        ],
+        "fr": [
+          "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpert-in-nurse-practitioner-tumorpfad-breast-and-cancer-care-nurse-w-m-d-80-100-usz"
+      ]
     }
   ]
 }

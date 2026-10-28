@@ -3665,7 +3665,7 @@
         "en": "2027-internship-global-real-estate-portfolio-management-zurich-ubs-zurich",
         "it": "2027-internship-global-real-estate-portfolio-management-zurich-ubs-zurich",
         "de": "2027-internship-global-real-estate-portfolio-management-zurich-ubs-zurich",
-        "fr": "2027-internship-global-real-estate-portfolio-management-zurich-ubs-zurich"
+        "fr": "2027-stage-gestion-de-portefeuille-immobilier-mondial-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11021,7 +11021,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -11074,11 +11074,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -11517,7 +11521,7 @@
         "de": "digital-client-manager-zurich-chur-luzern-cfd-60-100-ubs-zurich",
         "it": "digital-client-manager-zurich-chur-luzern-cfd-60-100-ubs-zurich",
         "en": "digital-client-manager-zurich-chur-luzern-cfd-60-100-ubs-zurich",
-        "fr": "digital-client-manager-zurich-chur-luzern-cfd-60-100-ubs-zurich"
+        "fr": "responsable-client-numerique-zurich-chur-lucerne-cfd-60-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11588,10 +11592,10 @@
     },
     {
       "id": "ubs-e2880e858b86",
-      "slug": "client-manager-digital-banking-support-zurich-60-100-ubs-zurich",
+      "slug": "gestione-clienti-digital-banking-support-zurigo-60-100-ubs-zurich",
       "slugByLocale": {
         "de": "client-manager-digital-banking-support-zurich-60-100-ubs-zurich",
-        "it": "client-manager-digital-banking-support-zurich-60-100-ubs-zurich",
+        "it": "gestione-clienti-digital-banking-support-zurigo-60-100-ubs-zurich",
         "en": "client-manager-digital-banking-support-zurich-60-100-ubs-zurich",
         "fr": "client-manager-digital-banking-support-zurich-60-100-ubs-zurich"
       },
@@ -11661,7 +11665,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-27T21:23:31.385Z"
+      "firstSeenAt": "2026-10-27T21:23:31.385Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-manager-digital-banking-support-zurich-60-100-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-manager-digital-banking-support-zurich-60-100-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-d7817147821e",
@@ -11741,12 +11753,12 @@
     },
     {
       "id": "ubs-488d33d875bc",
-      "slug": "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande",
+      "slug": "bank-now-consulente-clienti-specializzato-in-credito-privato-ubs-suisse-romande",
       "slugByLocale": {
         "fr": "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande",
-        "it": "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande",
-        "en": "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande",
-        "de": "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande"
+        "it": "bank-now-consulente-clienti-specializzato-in-credito-privato-ubs-suisse-romande",
+        "en": "bank-now-customer-advisor-specializing-in-private-credit-ubs-suisse-romande",
+        "de": "bank-now-kundenberater-spezialisiert-auf-privatkredite-ubs-suisse-romande"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11813,7 +11825,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-27T21:23:30.058Z"
+      "firstSeenAt": "2026-10-27T21:23:30.058Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande"
+        ],
+        "en": [
+          "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande"
+        ],
+        "de": [
+          "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande"
+        ]
+      },
+      "previousSlugs": [
+        "bank-now-conseiller-ere-a-la-clientele-specialisee-en-credits-prive-ubs-suisse-romande"
+      ]
     },
     {
       "id": "ubs-1238644eef70",

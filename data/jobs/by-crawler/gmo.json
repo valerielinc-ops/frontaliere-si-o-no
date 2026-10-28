@@ -1024,12 +1024,12 @@
     },
     {
       "id": "gmo-98b36d660938",
-      "slug": "infirmier-ere-a-70-gmo-1213-onex-98b36d66",
+      "slug": "infermiera-al-70-gmo-1213-onex-98b36d66",
       "slugByLocale": {
         "fr": "infirmier-ere-a-70-gmo-1213-onex-98b36d66",
-        "it": "infirmier-ere-a-70-gmo-1213-onex-98b36d66",
-        "en": "infirmier-ere-a-70-gmo-1213-onex-98b36d66",
-        "de": "infirmier-ere-a-70-gmo-1213-onex-98b36d66"
+        "it": "infermiera-al-70-gmo-1213-onex-98b36d66",
+        "en": "nurse-at-70-gmo-1213-onex-98b36d66",
+        "de": "krankenschwester-bei-70-gmo-1213-onex-98b36d66"
       },
       "slugDisambiguator": "98b36d66",
       "company": "gmo",
@@ -1088,7 +1088,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:23:24.169Z"
+      "firstSeenAt": "2026-10-27T21:23:24.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-70-gmo-1213-onex-98b36d66"
+        ],
+        "en": [
+          "infirmier-ere-a-70-gmo-1213-onex-98b36d66"
+        ],
+        "de": [
+          "infirmier-ere-a-70-gmo-1213-onex-98b36d66"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-70-gmo-1213-onex-98b36d66"
+      ]
     }
   ]
 }
