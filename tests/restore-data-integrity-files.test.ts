@@ -47,7 +47,7 @@ describe('data-integrity conflict recovery', () => {
     ]) {
       expect(WORKFLOW_SOURCE).toContain(materializedPath);
     }
-    expect(WORKFLOW_SOURCE).not.toContain('/*');
+    expect(WORKFLOW_SOURCE).toContain('sparse-checkout: |\n            /scripts/');
     expect(WORKFLOW_SOURCE).not.toContain('!/data/jobs/');
   });
 
