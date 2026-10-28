@@ -488,7 +488,7 @@ describe('live-link prefetch stats (#9314 matching split log)', () => {
     expect(prefetcher.stats().pending).toBe(queued);
     release();
     await prefetcher.drain();
-    expect(prefetcher.stats()).toEqual({ queued, pending: 0 });
+    expect(prefetcher.stats()).toEqual({ queued, pending: 0, retained: 0 });
   });
 });
 
