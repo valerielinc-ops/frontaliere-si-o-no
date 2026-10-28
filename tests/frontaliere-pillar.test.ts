@@ -7,6 +7,7 @@ import {
   parseFrontalierePillarPath,
 } from '../build-plugins/frontalierePillarData';
 import { FRONTALIERE_PILLAR_COPY, PILLAR_PROFESSION_IDS } from '../build-plugins/frontalierePillarCopy';
+import { CAREER_LANDING_COPY } from '../build-plugins/careerLandingsCopy';
 import { PROFESSION_IDS } from '../build-plugins/professionLandingsData';
 import { parsePath } from '../services/router';
 
@@ -75,6 +76,24 @@ describe('frontaliere pillar copy', () => {
         expect(href.endsWith('/'), `${locale} → ${href}`).toBe(true);
       }
     }
+  });
+
+  it('uses final landing URLs for official external sources', () => {
+    const expectedBfs = {
+      it: 'https://www.bfs.admin.ch/bfs/it/home.html',
+      en: 'https://www.bfs.admin.ch/bfs/en/home.html',
+      de: 'https://www.bfs.admin.ch/bfs/de/home.html',
+      fr: 'https://www.bfs.admin.ch/bfs/fr/home.html',
+    } as const;
+
+    for (const locale of FRONTALIERE_PILLAR_LOCALES) {
+      const bfs = FRONTALIERE_PILLAR_COPY[locale].sources.find((source) => source.label.includes('FSO') || source.label.includes('UST') || source.label.includes('BFS') || source.label.includes('OFS'));
+      expect(bfs?.url, locale).toBe(expectedBfs[locale]);
+    }
+
+    expect(CAREER_LANDING_COPY.it['agenzie-lavoro-lugano'].sources[0]?.href).toBe(
+      'https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend/',
+    );
   });
 
   it('links only professions that have a dedicated landing', () => {
