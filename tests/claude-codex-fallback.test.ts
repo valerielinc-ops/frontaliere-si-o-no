@@ -941,6 +941,23 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('RUNNER_TOOL_CACHE');
   });
 
+  it('rende npm e npx disponibili nel sandbox dal runtime attestato', () => {
+    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
+    const codexStep = codexActionStep('Run Codex primary (bounded capacity retry)').run!;
+    const codexStepDefinition = codexActionStep('Run Codex primary (bounded capacity retry)');
+    expect(codexStepDefinition.env?.TRUSTED_NPM).toBe('${{ steps.trusted_node.outputs.npm_realpath }}');
+    expect(codexStepDefinition.env?.TRUSTED_NPM_SHA256).toBe('${{ steps.trusted_node.outputs.npm_sha256 }}');
+    expect(codexStep).toContain('Trusted npm runtime escaped the pinned Node directory.');
+    expect(codexStep).toContain('Attested npm runtime cannot be executed by attested Node.');
+    expect(codexStep).toContain('trusted_node_root_toml=');
+    expect(codexStep).toContain('codex_filesystem_rules=');
+    expect(action).toContain('[permissions.codex-fallback.filesystem."$trusted_node_root_toml"]');
+    expect(codexStep).toContain('command -v npm >/dev/null');
+    expect(codexStep).toContain('command -v npx >/dev/null');
+    expect(codexStep).toContain('CODEX_NPM_REAL=$npm_realpath');
+    expect(action).toContain('codex_command_path="$bridge_dir:$node_root/bin:/usr/bin:/bin"');
+  });
+
   it('rifiuta un archivio Node con checksum alterato', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     const checksumStart = action.indexOf('        archive_sha256="$(/usr/bin/sha256sum');

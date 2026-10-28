@@ -21,12 +21,14 @@ function runProbe(failure = '') {
     const executable = (name: string, body: string) => writeFileSync(join(bin, name), '#!/bin/sh\n' + body, { mode: 0o755 });
     executable('git', 'case "$1" in rev-parse) printf "%s\\n" "$PROBE_GIT_DIR";; remote) exit 0;; ls-remote) [ "$PROBE_FAILURE" != "git-bridge" ];; *) exit 1;; esac\n');
     executable('gh', 'case "$1" in --version) exit 0;; api) [ "$PROBE_FAILURE" != "bridge" ] || exit 2; printf "%s\\n" "$GITHUB_REPOSITORY";; *) exit 1;; esac\n');
+    executable('npm', 'exit 0\n');
+    executable('npx', 'exit 0\n');
     executable('touch', '[ "$PROBE_FAILURE" = "hooks" ]\n');
     executable('dd', 'case "$1" in "if=$CODEX_HOME/auth.json") [ "$PROBE_FAILURE" = "auth" ]; exit $?;; "if=$CODEX_OUTSIDE_PROBE") [ "$PROBE_FAILURE" = "outside" ]; exit $?;; esac\nexec /bin/dd "$@"\n');
     return spawnSync('/bin/sh', ['-c', probe], {
       encoding: 'utf8',
       env: {
-        PATH: `${bin}:/usr/bin:/bin`, CODEX_REALPATH: '/usr/bin/true', CODEX_NODE_REAL: '/usr/bin/true', CODEX_BIN: join(root, 'denied-prefix', 'bin', 'codex'),
+        PATH: `${bin}:/usr/bin:/bin`, CODEX_REALPATH: '/usr/bin/true', CODEX_NODE_REAL: '/usr/bin/true', CODEX_NPM_REAL: '/usr/bin/true', CODEX_BIN: join(root, 'denied-prefix', 'bin', 'codex'),
         CODEX_HOME: home, CODEX_OUTSIDE_PROBE: join(root, 'outside'), TMPDIR: scratch,
         GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no', PROBE_GIT_DIR: gitDir, PROBE_FAILURE: failure,
       },

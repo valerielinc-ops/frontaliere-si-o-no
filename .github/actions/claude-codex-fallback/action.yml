@@ -538,6 +538,8 @@ runs:
         TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
         TRUSTED_NODE_VERSION: ${{ steps.trusted_node.outputs.node_version }}
         TRUSTED_NODE_SHA256: ${{ steps.trusted_node.outputs.node_sha256 }}
+        TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}
+        TRUSTED_NPM_SHA256: ${{ steps.trusted_node.outputs.npm_sha256 }}
         TRUSTED_GH: ${{ steps.trusted_node.outputs.gh_realpath }}
         TRUSTED_GH_SHA256: ${{ steps.trusted_node.outputs.gh_sha256 }}
         TRUSTED_GIT: ${{ steps.trusted_node.outputs.git_realpath }}
@@ -589,7 +591,31 @@ runs:
           echo '::error::Trusted Node runtime digest changed after attestation.'
           exit 1
         }
+        trusted_npm="${TRUSTED_NPM:?Trusted npm runtime unavailable}"
+        trusted_npm_sha256="${TRUSTED_NPM_SHA256:?Trusted npm digest unavailable}"
+        case "$trusted_npm" in
+          /*) ;;
+          *) echo '::error::Trusted npm runtime path is not absolute.'; exit 1 ;;
+        esac
+        [ -f "$trusted_npm" ] && [ -x "$trusted_npm" ] || {
+          echo '::error::Trusted npm runtime is not an executable regular file.'
+          exit 1
+        }
+        node_root="$(/usr/bin/dirname "$(/usr/bin/dirname "$trusted_node")")"
+        case "$trusted_npm" in
+          "$node_root"/*) ;;
+          *) echo '::error::Trusted npm runtime escaped the pinned Node directory.'; exit 1 ;;
+        esac
+        [ "$(sha256_file "$trusted_npm")" = "$trusted_npm_sha256" ] || {
+          echo '::error::Trusted npm runtime digest changed after attestation.'
+          exit 1
+        }
+        "$trusted_node" "$trusted_npm" --version >/dev/null 2>&1 || {
+          echo '::error::Attested npm runtime cannot be executed by attested Node.'
+          exit 1
+        }
         node_realpath="$trusted_node"
+        npm_realpath="$trusted_npm"
         codex_bin="${CODEX_BIN:?Pinned Codex CLI path unavailable}"
         codex_realpath="${CODEX_REALPATH:?Pinned Codex CLI realpath unavailable}"
         codex_launcher_dir="${CODEX_LAUNCHER_DIR:?Codex launcher directory unavailable}"
@@ -930,6 +956,7 @@ runs:
         bridge_dir_toml="$(toml_quote_path "$bridge_dir")"
         body_gate_dir_toml="$(toml_quote_path "${body_gate_dir:-}")"
         trusted_node_realpath_toml="$(toml_quote_path "$node_realpath")"
+        trusted_node_root_toml="$(toml_quote_path "$node_root")"
         codex_realpath_toml="$(toml_quote_path "$codex_realpath")"
         codex_launcher_dir_toml="$(toml_quote_path "$codex_launcher_dir")"
         codex_runtime_root_toml="$(toml_quote_path "$codex_runtime_root")"
@@ -961,6 +988,8 @@ runs:
         EOF
         cat >> "$config_file" <<EOF
         [permissions.codex-fallback.filesystem."$trusted_node_realpath_toml"]
+        "." = "read"
+        [permissions.codex-fallback.filesystem."$trusted_node_root_toml"]
         "." = "read"
         [permissions.codex-fallback.filesystem."$codex_realpath_toml"]
         "." = "read"
@@ -1017,7 +1046,7 @@ runs:
         # resolve to that same path and override its write grant. Root and /tmp
         # remain denied outside the explicit workspace/runtime/scratch roots.
         base_filesystem_rules='{":root"="deny",":minimal"="read",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
-        codex_filesystem_rules="\"$trusted_node_realpath_toml\"={\".\"=\"read\"},\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
+        codex_filesystem_rules="\"$trusted_node_root_toml\"={\".\"=\"read\"},\"$trusted_node_realpath_toml\"={\".\"=\"read\"},\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
         if [ -n "$body_gate_dir_toml" ]; then
           codex_filesystem_rules="\"$body_gate_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules"
         fi
@@ -1158,7 +1187,7 @@ runs:
           echo "::error::The Codex Git bridge did not start."
           exit 1
         fi
-        codex_command_path="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin"
+        codex_command_path="$bridge_dir:$node_root/bin:/usr/bin:/bin"
         if [ -n "${PR_BODY_GATE_BIN:-}" ]; then
           # PR_BODY_GATE_BIN is rewritten above from runner.temp to the copied
           # scratch path.  Put that rewritten path in PATH; the original
@@ -1174,10 +1203,14 @@ runs:
         # request. It catches malformed/unsupported permission TOML early and
         # uses real file operations: the explicit gitdir/common overrides must
         # create/read/remove probes, while hooks/auth/runner files stay denied.
-        CODEX_BRIDGE_TRANSPORT=files PATH="$bridge_dir:$(/usr/bin/dirname "$node_realpath"):/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+        CODEX_BRIDGE_TRANSPORT=files PATH="$bridge_dir:$node_root/bin:/usr/bin:/bin" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_NPM_REAL="$npm_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
           set -eu
           test -x "$CODEX_REALPATH"
           "$CODEX_NODE_REAL" "$CODEX_REALPATH" --version >/dev/null
+          test -x "$CODEX_NPM_REAL"
+          "$CODEX_NODE_REAL" "$CODEX_NPM_REAL" --version >/dev/null
+          command -v npm >/dev/null
+          command -v npx >/dev/null
           git_dir="$(git rev-parse --git-dir)"
           common_git_dir="$(git rev-parse --git-common-dir)"
           probe="$git_dir/codex-fallback-probe.$$"
@@ -1238,6 +1271,7 @@ runs:
           "HOME=$scratch_home"
           "TMPDIR=$scratch_dir"
           "CODEX_NODE_REAL=$node_realpath"
+          "CODEX_NPM_REAL=$npm_realpath"
           "CODEX_GH_SOCKET=$gh_socket"
           "CODEX_GH_CLIENT=$bridge_dir/gh-client.mjs"
           "CODEX_GH_REAL=$gh_sandbox_binary"
@@ -1254,7 +1288,7 @@ runs:
         for name in "${metadata_vars[@]}"; do
           if [ -n "${!name+x}" ]; then codex_env+=("$name=${!name}"); fi
         done
-        codex_env_patterns='["CODEX_BRIDGE_TRANSPORT","PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","PR_BODY_EXPECTED_REVISION","CODEX_NODE_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
+        codex_env_patterns='["CODEX_BRIDGE_TRANSPORT","PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","PR_BODY_EXPECTED_REVISION","CODEX_NODE_REAL","CODEX_NPM_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
 
         # Closed set, same as CODEX_ALLOWED_EFFORTS in claude-codex-fallback.mjs:
         # an unknown value must fail here, not silently fall back to a default.
