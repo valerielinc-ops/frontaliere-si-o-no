@@ -13,7 +13,11 @@ run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '
 # runs `probe:5xx` + `test:e2e:live` after every deploy), so this canary
 # intentionally does NOT trigger on `push: main` — its unique value is
 # catching regressions BETWEEN deploys (Pages outage, RC config breakage,
-# DNS/CDN/cert issues, upstream rate-limits).
+# DNS/CDN/cert issues, upstream rate-limits). The admission guard below also
+# keeps this between-deploy observer out of the window where deploy.yml is
+# uploading CDN assets or Pages/fast-publish is changing live bytes: probing a
+# mixed edge during that window creates a false outage and duplicates the
+# post-deploy validator's responsibility.
 #
 # No external notifications (Slack etc.) are wired — CI failure surfaces via
 # GitHub Actions status and emails project maintainers.
@@ -37,6 +41,7 @@ concurrency:
 
 permissions:
   contents: read
+  actions: read
   issues: write
 
 jobs:
@@ -79,8 +84,16 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Admit canary only outside production writes
+        id: admission
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/production-canary-admission.mjs
+
       - name: Run 5XX probe
         id: probe
+        if: steps.admission.outputs.skip_probe != 'true'
         run: npm run probe:5xx 2> probe-output.err
         # Non-zero exit fails the workflow by default.
 
