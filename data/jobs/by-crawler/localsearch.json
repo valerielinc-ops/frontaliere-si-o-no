@@ -2025,12 +2025,12 @@
     },
     {
       "id": "localsearch-0ecd50ed2b81",
-      "slug": "outbound-sales-agent-60-100-localsearch-ch",
+      "slug": "agente-di-vendita-in-uscita-60-100-localsearch-zurich",
       "slugByLocale": {
         "de": "outbound-sales-agent-60-100-localsearch-ch",
-        "it": "outbound-sales-agent-60-100-localsearch-ch",
+        "it": "agente-di-vendita-in-uscita-60-100-localsearch-zurich",
         "en": "outbound-sales-agent-60-100-localsearch-ch",
-        "fr": "outbound-sales-agent-60-100-localsearch-ch"
+        "fr": "agent-de-vente-sortant-60-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -2088,7 +2088,18 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ],
+        "fr": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "outbound-sales-agent-60-100-localsearch-ch"
+      ]
     }
   ]
 }

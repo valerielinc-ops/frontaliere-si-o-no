@@ -4026,12 +4026,12 @@
     },
     {
       "id": "mediamarkt-100809",
-      "slug": "verkaufsberater-in-80-100-mediamarkt-thun-ch",
+      "slug": "consulente-di-vendita-80-100-mediamarkt-thun",
       "slugByLocale": {
         "de": "verkaufsberater-in-80-100-mediamarkt-thun-ch",
-        "it": "verkaufsberater-in-80-100-mediamarkt-thun-ch",
-        "en": "verkaufsberater-in-80-100-mediamarkt-thun-ch",
-        "fr": "verkaufsberater-in-80-100-mediamarkt-thun-ch"
+        "it": "consulente-di-vendita-80-100-mediamarkt-thun",
+        "en": "sales-advisor-80-100-mediamarkt-thun",
+        "fr": "conseiller-ere-de-vente-80-100-mediamarkt-thun"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -4092,7 +4092,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:54:29.159Z"
+      "firstSeenAt": "2026-10-27T21:54:29.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-80-100-mediamarkt-thun-ch"
+        ],
+        "en": [
+          "verkaufsberater-in-80-100-mediamarkt-thun-ch"
+        ],
+        "fr": [
+          "verkaufsberater-in-80-100-mediamarkt-thun-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-80-100-mediamarkt-thun-ch"
+      ]
     }
   ]
 }

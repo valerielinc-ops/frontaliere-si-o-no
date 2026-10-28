@@ -1500,8 +1500,8 @@
       "slug": "fx-vendite-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
-        "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne",
+        "en": "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -1556,13 +1556,13 @@
           "corporate-sales-rates-fx-bcv-lausanne"
         ],
         "en": [
-          "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne"
+          "fx-sales-banque-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "fx-sales-bcv-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
@@ -1570,8 +1570,8 @@
         "corporate-sales-rates-fx-bcv-lausanne",
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "business-sales-rates-and-exchange-rates-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "fx-sales-banque-cantonale-vaudoise-lausanne",
+        "firmenkundenvertrieb-zinsen-und-devisen-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,
@@ -2204,9 +2204,9 @@
     },
     {
       "id": "bcv-6d90e717486b",
-      "slug": "stage-ehl-2027-banque-cantonale-vaudoise-lausanne",
+      "slug": "fase-e-hl-2027-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "stage-ehl-2027-banque-cantonale-vaudoise-lausanne",
+        "it": "fase-e-hl-2027-banque-cantonale-vaudoise-lausanne",
         "en": "stage-ehl-2027-bcv-lausanne",
         "de": "stufe-ehl-2027-banque-cantonale-vaudoise-lausanne",
         "fr": "stage-ehl-2027-bcv-lausanne"
@@ -2256,12 +2256,12 @@
       "sfJobId": "1450701633",
       "previousSlugs": [
         "stage-ehl-2027-bcv-lausanne",
-        "fase-e-hl-2027-banque-cantonale-vaudoise-lausanne"
+        "stage-ehl-2027-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stage-ehl-2027-bcv-lausanne",
-          "fase-e-hl-2027-banque-cantonale-vaudoise-lausanne"
+          "stage-ehl-2027-banque-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "stage-ehl-2027-bcv-lausanne"

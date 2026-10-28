@@ -336,12 +336,12 @@
     },
     {
       "id": "bossard-40d3e5c1b987",
-      "slug": "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug",
+      "slug": "collaboratore-trice-del-servizio-clienti-100-tutti-i-generi-bossard-ag-bossard-group-zug",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
-        "it": "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug",
-        "en": "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
-        "fr": "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug"
+        "it": "collaboratore-trice-del-servizio-clienti-100-tutti-i-generi-bossard-ag-bossard-group-zug",
+        "en": "customer-service-employee-100-all-genders-bossard-ag-bossard-group-zug",
+        "fr": "employe-e-du-service-clientele-100-tous-les-genres-bossard-ag-bossard-group-zug"
       },
       "company": "Bossard Group",
       "companyKey": "bossard",
@@ -390,11 +390,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
+          "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug"
+        "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
+        "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

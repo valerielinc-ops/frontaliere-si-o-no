@@ -2819,12 +2819,12 @@
     },
     {
       "id": "concordia-f7160c0ae228",
-      "slug": "agenturleiter-in-100-in-kloten-concordia-kloten",
+      "slug": "responsabile-di-agenzia-100-a-kloten-concordia-kloten",
       "slugByLocale": {
         "de": "agenturleiter-in-100-in-kloten-concordia-kloten",
-        "it": "agenturleiter-in-100-in-kloten-concordia-kloten",
-        "en": "agenturleiter-in-100-in-kloten-concordia-kloten",
-        "fr": "agenturleiter-in-100-in-kloten-concordia-kloten"
+        "it": "responsabile-di-agenzia-100-a-kloten-concordia-kloten",
+        "en": "agency-manager-100-in-kloten-concordia-kloten",
+        "fr": "responsable-d-agence-100-a-kloten-concordia-kloten"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -2883,7 +2883,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:22:33.254Z"
+      "firstSeenAt": "2026-10-27T21:22:33.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agenturleiter-in-100-in-kloten-concordia-kloten"
+        ],
+        "en": [
+          "agenturleiter-in-100-in-kloten-concordia-kloten"
+        ],
+        "fr": [
+          "agenturleiter-in-100-in-kloten-concordia-kloten"
+        ]
+      },
+      "previousSlugs": [
+        "agenturleiter-in-100-in-kloten-concordia-kloten"
+      ]
     }
   ]
 }

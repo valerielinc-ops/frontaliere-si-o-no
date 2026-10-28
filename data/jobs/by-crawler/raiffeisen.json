@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -326,7 +326,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -385,7 +385,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -408,7 +408,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -587,7 +587,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -637,7 +637,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -647,7 +647,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -758,7 +758,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -808,14 +808,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -1155,7 +1153,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -1213,14 +1211,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -11544,12 +11542,12 @@
     },
     {
       "id": "raiffeisen-0130cad684ae",
-      "slug": "firmenkundenberater-w-m-d-raiffeisen-mohlin",
+      "slug": "consulente-clienti-aziendale-m-f-d-raiffeisen-mohlin",
       "slugByLocale": {
         "de": "firmenkundenberater-w-m-d-raiffeisen-mohlin",
-        "it": "firmenkundenberater-w-m-d-raiffeisen-mohlin",
-        "en": "firmenkundenberater-w-m-d-raiffeisen-mohlin",
-        "fr": "firmenkundenberater-w-m-d-raiffeisen-mohlin"
+        "it": "consulente-clienti-aziendale-m-f-d-raiffeisen-mohlin",
+        "en": "corporate-client-advisor-m-f-d-raiffeisen-mohlin",
+        "fr": "conseiller-client-d-entreprise-h-f-d-raiffeisen-mohlin"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11608,7 +11606,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:27:45.266Z"
+      "firstSeenAt": "2026-10-27T21:27:45.266Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-w-m-d-raiffeisen-mohlin"
+        ],
+        "en": [
+          "firmenkundenberater-w-m-d-raiffeisen-mohlin"
+        ],
+        "fr": [
+          "firmenkundenberater-w-m-d-raiffeisen-mohlin"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-w-m-d-raiffeisen-mohlin"
+      ]
     },
     {
       "id": "raiffeisen-914688dff6b6",
@@ -11693,12 +11705,12 @@
     },
     {
       "id": "raiffeisen-00bec5a820d8",
-      "slug": "kundenberater-w-m-d-raiffeisen-baar",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-baar",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-raiffeisen-baar",
-        "it": "kundenberater-w-m-d-raiffeisen-baar",
-        "en": "kundenberater-w-m-d-raiffeisen-baar",
-        "fr": "kundenberater-w-m-d-raiffeisen-baar"
+        "it": "servizio-clienti-m-f-d-raiffeisen-baar",
+        "en": "customer-service-provider-m-f-d-raiffeisen-baar",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-raiffeisen-baar"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11757,16 +11769,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:27:45.261Z"
+      "firstSeenAt": "2026-10-27T21:27:45.261Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-raiffeisen-baar"
+        ],
+        "en": [
+          "kundenberater-w-m-d-raiffeisen-baar"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-raiffeisen-baar"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-raiffeisen-baar"
+      ]
     },
     {
       "id": "raiffeisen-e4c6ae465747",
-      "slug": "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin",
+      "slug": "junior-corporate-client-advisor-m-f-d-raiffeisen-mohlin",
       "slugByLocale": {
         "de": "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin",
-        "it": "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin",
+        "it": "junior-corporate-client-advisor-m-f-d-raiffeisen-mohlin",
         "en": "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin",
-        "fr": "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin"
+        "fr": "junior-conseiller-client-d-entreprise-h-f-d-raiffeisen-mohlin"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11825,7 +11851,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:27:45.216Z"
+      "firstSeenAt": "2026-10-27T21:27:45.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin"
+        ],
+        "fr": [
+          "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin"
+        ]
+      },
+      "previousSlugs": [
+        "junior-firmenkundenberater-w-m-d-raiffeisen-mohlin"
+      ]
     },
     {
       "id": "raiffeisen-cfc79801e074",

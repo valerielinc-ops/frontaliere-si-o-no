@@ -1554,12 +1554,12 @@
     },
     {
       "id": "csem-613f74ce92b0",
-      "slug": "physiklaborant-in-w-m-d-allschwil-csem-ch",
+      "slug": "laboratorista-di-fisica-m-f-d-csem-landquart-allschwil",
       "slugByLocale": {
         "de": "physiklaborant-in-w-m-d-allschwil-csem-ch",
-        "it": "physiklaborant-in-w-m-d-allschwil-csem-ch",
-        "en": "physiklaborant-in-w-m-d-allschwil-csem-ch",
-        "fr": "physiklaborant-in-w-m-d-csem-landquart-allschwil"
+        "it": "laboratorista-di-fisica-m-f-d-csem-landquart-allschwil",
+        "en": "physics-laboratory-technician-m-f-d-csem-landquart-allschwil",
+        "fr": "laborantin-e-en-physique-h-f-d-csem-landquart-allschwil"
       },
       "company": "CSEM Landquart",
       "companyKey": "csem",
@@ -1617,7 +1617,22 @@
         }
       },
       "postalCode": "4123",
-      "firstSeenAt": "2026-10-27T22:02:36.356Z"
+      "firstSeenAt": "2026-10-27T22:02:36.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiklaborant-in-w-m-d-allschwil-csem-ch"
+        ],
+        "en": [
+          "physiklaborant-in-w-m-d-allschwil-csem-ch"
+        ],
+        "fr": [
+          "physiklaborant-in-w-m-d-csem-landquart-allschwil"
+        ]
+      },
+      "previousSlugs": [
+        "physiklaborant-in-w-m-d-allschwil-csem-ch",
+        "physiklaborant-in-w-m-d-csem-landquart-allschwil"
+      ]
     },
     {
       "id": "csem-ff2e2e7cfe9f",

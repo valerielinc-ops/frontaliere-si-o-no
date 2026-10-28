@@ -796,9 +796,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "en": "two-themed-birthplace-spital-bulach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "maison-de-naissance-spital-bulach"
+        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -876,11 +876,11 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "two-themed-birthplace-spital-bulach-bulach"
+          "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+          "maison-de-naissance-spital-bulach"
         ]
       },
       "previousSlugs": [
@@ -891,8 +891,8 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
-        "two-themed-birthplace-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "maison-de-naissance-spital-bulach"
       ],
       "firstSeenAt": "2026-05-19T12:20:48.647Z",
       "salaryMin": 91500,
@@ -1656,10 +1656,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricisti-commerciali-spital-bulach",
+        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electriciens-d-affaires-spital-bulach"
+        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1705,16 +1705,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
-        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+        "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
-          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
+          "electriciens-d-affaires-spital-bulach"
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:51.572Z",
@@ -4635,12 +4633,12 @@
     },
     {
       "id": "spital-buelach-179c2921ea21",
-      "slug": "collaboratore-trice-kapazitatsmanagement-spital-bulach",
+      "slug": "collaboratore-trice-per-la-gestione-delle-capacita-spital-bulach-bulach",
       "slugByLocale": {
         "de": "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-        "it": "collaboratore-trice-kapazitatsmanagement-spital-bulach",
-        "en": "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
-        "fr": "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
+        "it": "collaboratore-trice-per-la-gestione-delle-capacita-spital-bulach-bulach",
+        "en": "employee-capacity-management-spital-bulach-bulach",
+        "fr": "collaborateur-rice-en-gestion-des-capacites-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4688,11 +4686,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
+          "collaboratore-trice-kapazitatsmanagement-spital-bulach"
+        ],
+        "en": [
+          "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
+        ],
+        "fr": [
           "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach"
+        "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
+        "collaboratore-trice-kapazitatsmanagement-spital-bulach"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4711,12 +4717,12 @@
     },
     {
       "id": "spital-buelach-2f382c187776",
-      "slug": "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach",
+      "slug": "capo-dipartimento-endocrinologia-diabetologia-la-spital-bulach-bulach",
       "slugByLocale": {
         "de": "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach",
-        "it": "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach",
-        "en": "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach",
-        "fr": "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach"
+        "it": "capo-dipartimento-endocrinologia-diabetologia-la-spital-bulach-bulach",
+        "en": "head-of-department-endocrinology-diabetology-la-spital-bulach-bulach",
+        "fr": "chef-du-departement-endocrinologie-diabetologie-la-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4775,7 +4781,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:44:09.681Z"
+      "firstSeenAt": "2026-10-27T21:44:09.681Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach"
+        ],
+        "en": [
+          "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach"
+        ],
+        "fr": [
+          "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleitung-endokrinologie-diabetologie-la-spital-buelach-bulach"
+      ]
     }
   ]
 }

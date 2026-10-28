@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "galderma-58c28018924d",
-      "slug": "customer-service-specialist-galderma-ch",
+      "slug": "servizio-clienti-specialista-galderma-zug",
       "slugByLocale": {
         "de": "customer-service-specialist-galderma-ch",
-        "it": "customer-service-specialist-galderma-ch",
+        "it": "servizio-clienti-specialista-galderma-zug",
         "en": "customer-service-specialist-galderma-ch",
-        "fr": "customer-service-specialist-galderma-ch"
+        "fr": "service-client-specialiste-galderma-zug"
       },
       "company": "Galderma",
       "companyKey": "galderma",
@@ -69,7 +69,18 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-27T21:40:30.862Z"
+      "firstSeenAt": "2026-10-27T21:40:30.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-specialist-galderma-ch"
+        ],
+        "fr": [
+          "customer-service-specialist-galderma-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-specialist-galderma-ch"
+      ]
     }
   ]
 }

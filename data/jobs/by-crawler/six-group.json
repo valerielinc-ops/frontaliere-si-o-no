@@ -2062,12 +2062,12 @@
     },
     {
       "id": "six-group-f20a9a297319",
-      "slug": "working-student-asset-servicing-40-60-six-group-olten",
+      "slug": "servizio-attivo-degli-studenti-di-lavoro-40-60-six-group-olten",
       "slugByLocale": {
         "de": "working-student-asset-servicing-40-60-six-group-olten",
-        "it": "working-student-asset-servicing-40-60-six-group-olten",
+        "it": "servizio-attivo-degli-studenti-di-lavoro-40-60-six-group-olten",
         "en": "working-student-asset-servicing-40-60-six-group-olten",
-        "fr": "working-student-asset-servicing-40-60-six-group-olten"
+        "fr": "service-aux-etudiants-qui-travaillent-40-60-six-group-olten"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -2126,7 +2126,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-27T21:40:51.229Z"
+      "firstSeenAt": "2026-10-27T21:40:51.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-asset-servicing-40-60-six-group-olten"
+        ],
+        "fr": [
+          "working-student-asset-servicing-40-60-six-group-olten"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-asset-servicing-40-60-six-group-olten"
+      ]
     }
   ]
 }

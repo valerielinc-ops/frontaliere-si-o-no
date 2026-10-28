@@ -1513,12 +1513,12 @@
     },
     {
       "id": "nestle-1451823333",
-      "slug": "junior-corporate-pensions-actuary-nestle-ch",
+      "slug": "junior-corporate-pensioni-attuario-nestle-vevey",
       "slugByLocale": {
         "en": "junior-corporate-pensions-actuary-nestle-ch",
-        "it": "junior-corporate-pensions-actuary-nestle-ch",
-        "de": "junior-corporate-pensions-actuary-nestle-ch",
-        "fr": "junior-corporate-pensions-actuary-nestle-ch"
+        "it": "junior-corporate-pensioni-attuario-nestle-vevey",
+        "de": "junior-aktuar-fur-betriebliche-altersversorgung-nestle-vevey",
+        "fr": "actuaire-des-pensions-d-entreprise-junior-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1576,16 +1576,30 @@
       },
       "postalCode": "1800",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-27T21:58:20.549Z"
+      "firstSeenAt": "2026-10-27T21:58:20.549Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-corporate-pensions-actuary-nestle-ch"
+        ],
+        "de": [
+          "junior-corporate-pensions-actuary-nestle-ch"
+        ],
+        "fr": [
+          "junior-corporate-pensions-actuary-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-corporate-pensions-actuary-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1451637933",
-      "slug": "safety-health-manager-nestle-ch",
+      "slug": "responsabile-sicurezza-e-salute-nestle-avenches",
       "slugByLocale": {
         "fr": "safety-health-manager-nestle-ch",
-        "it": "safety-health-manager-nestle-ch",
+        "it": "responsabile-sicurezza-e-salute-nestle-avenches",
         "en": "safety-health-manager-nestle-ch",
-        "de": "safety-health-manager-nestle-ch"
+        "de": "manager-fur-arbeitssicherheit-und-gesundheitsschutz-nestle-avenches"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1643,7 +1657,18 @@
       },
       "postalCode": "1580",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-27T21:58:19.771Z"
+      "firstSeenAt": "2026-10-27T21:58:19.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "safety-health-manager-nestle-ch"
+        ],
+        "de": [
+          "safety-health-manager-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "safety-health-manager-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1451603033",
@@ -2028,7 +2053,7 @@
       "slugByLocale": {
         "it": "ingenieur-e-digitale-e-performance-nestle-henniez-ch",
         "en": "automaticien-ne-specialiste-digital-nestle-ch",
-        "de": "automatician-ne-digital-spezialist-nestle-henniez",
+        "de": "automatiker-in-und-digitalspezialist-in-nestle-henniez",
         "fr": "ingenieur-e-digital-performance-nestle-ch"
       },
       "company": "Nestlé",
@@ -2079,13 +2104,13 @@
         ],
         "de": [
           "automaticien-ne-specialiste-digital-nestle-henniez",
-          "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+          "automatician-ne-digital-spezialist-nestle-henniez"
         ]
       },
       "previousSlugs": [
         "automaticien-ne-specialiste-digital-nestle-ch",
         "automaticien-ne-specialiste-digital-nestle-henniez",
-        "automatiker-in-und-digitalspezialist-in-nestle-henniez"
+        "automatician-ne-digital-spezialist-nestle-henniez"
       ],
       "firstSeenAt": "2026-05-25T13:33:29.386Z",
       "salaryMin": 60500,
@@ -2700,7 +2725,7 @@
       "slugByLocale": {
         "it": "pianificatore-di-domanda-e-di-alimentazione-nestle-henniez",
         "en": "demand-supply-planner-nestle-ch",
-        "de": "nachfrage-und-versorgungsplan-nestle-henniez",
+        "de": "demand-supply-planer-nestle-henniez",
         "fr": "demande-planificateur-de-l-offre-nestle-henniez"
       },
       "company": "Nestlé",
@@ -2748,7 +2773,7 @@
         "demand-supply-planner-business-growth-solutions-nestle-ch",
         "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch",
         "demand-supply-planner-nestle-henniez",
-        "demand-supply-planer-nestle-henniez"
+        "nachfrage-und-versorgungsplan-nestle-henniez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2758,7 +2783,7 @@
           "demande-planificateur-de-l-offre-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
-          "demand-supply-planer-nestle-henniez"
+          "nachfrage-und-versorgungsplan-nestle-henniez"
         ],
         "fr": [
           "demand-supply-planner-nestle-henniez"
@@ -3404,7 +3429,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "en": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "de": "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe",
+        "de": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "fr": "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
       },
       "company": "Nestlé",
@@ -3448,12 +3473,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        "project-manager-for-out-of-home-beverage-systems-nestle-orbe",
+        "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-for-out-of-home-beverage-systems-nestle-ch",
           "project-manager-for-out-of-home-beverage-systems-nestle-orbe"
+        ],
+        "de": [
+          "projektmanager-fur-out-of-home-beverage-systems-nestle-orbe"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:30.943Z",
@@ -3859,7 +3888,7 @@
         "it": "direttore-comunitario-nestle-lausanne",
         "en": "community-manager-nestle-ch",
         "de": "direttore-comunitario-nestle-lausanne",
-        "fr": "responsable-de-communaute-nestle-lausanne"
+        "fr": "gestionnaire-communautaire-nestle-lausanne"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -3903,7 +3932,7 @@
       "previousSlugs": [
         "community-manager-nestle-ch",
         "community-manager-nestle-lausanne",
-        "gestionnaire-communautaire-nestle-lausanne"
+        "responsable-de-communaute-nestle-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3911,7 +3940,7 @@
         ],
         "fr": [
           "community-manager-nestle-lausanne",
-          "gestionnaire-communautaire-nestle-lausanne"
+          "responsable-de-communaute-nestle-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-24T00:04:10.154Z",
@@ -7193,7 +7222,7 @@
       "slugByLocale": {
         "it": "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch",
         "en": "apprenti-e-brassage-and-beverage-technologist-nestle-henniez-ch",
-        "de": "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez",
+        "de": "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch",
         "fr": "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
       },
       "company": "Nestlé",
@@ -7237,14 +7266,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
-        "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+        "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
         ],
         "de": [
-          "apprenti-e-brassage-und-beverage-technologist-nestle-henniez-ch"
+          "auszubildende-r-fur-brau-und-getranketechnologie-nestle-henniez"
         ]
       },
       "firstSeenAt": "2026-10-12T09:45:59.851Z",

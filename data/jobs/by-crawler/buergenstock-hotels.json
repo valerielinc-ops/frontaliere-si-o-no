@@ -2952,12 +2952,12 @@
     },
     {
       "id": "buergenstock-hotels-502fbda69212",
-      "slug": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "portata-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "portata-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "siege-de-porte-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3015,16 +3015,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T13:52:38.369Z"
+      "firstSeenAt": "2026-06-01T13:52:38.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-7d4f069a44a3",
-      "slug": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "agent-de-reception-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3082,7 +3093,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T06:08:46.341Z"
+      "firstSeenAt": "2026-05-20T06:08:46.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }
