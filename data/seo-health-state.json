@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-27T09:52:49.278Z",
+  "lastRunAt": "2026-10-28T10:39:38.985Z",
   "findings": {
-    "sitemap-graph-truncated|https://frontaliereticino.ch/sitemap.xml": {
-      "code": "sitemap-graph-truncated",
-      "url": "https://frontaliereticino.ch/sitemap.xml",
-      "consecutiveRuns": 3,
-      "firstSeenAt": "2026-10-25T09:12:19.768Z",
-      "lastSeenAt": "2026-10-27T09:52:49.278Z",
-      "detail": "max 160 sitemap files"
+    "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
+      "code": "cloudflare-5xx-unverified",
+      "url": "source:cloudflare-5xx-unverified",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-28T10:39:38.985Z",
+      "lastSeenAt": "2026-10-28T10:39:38.985Z",
+      "detail": "count=1807 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": true
+  "lastActionable": false
 }
