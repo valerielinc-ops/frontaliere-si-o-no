@@ -69,7 +69,7 @@ function signatureFilter(signature, fields = Object.keys(signature)) {
 
 /** GA4 FilterExpression that matches any measured fleet. */
 export function buildAutomationFleetFilter() {
-  return { orGroup: { expressions: AUTOMATION_FLEET_GA4_SIGNATURES.map(signatureFilter) } };
+  return { orGroup: { expressions: AUTOMATION_FLEET_GA4_SIGNATURES.map((signature) => signatureFilter(signature)) } };
 }
 
 /** GA4 FilterExpression that removes every measured fleet. */
