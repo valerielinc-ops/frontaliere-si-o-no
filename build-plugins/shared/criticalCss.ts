@@ -1,4 +1,4 @@
-import { BASE_URL, SEO_STATIC_CSS_FILENAME, readPublicAsset } from '../constants';
+import { BASE_URL, readPublicAsset } from '../constants';
 import { deriveSeoStaticFirstPaintReserve } from './seoStaticFirstPaintReserve';
 
 /**
@@ -542,6 +542,32 @@ export const TAILWIND_PREFLIGHT_RESERVE_CSS =
   'img,video{max-width:100%;height:auto}';
 
 /**
+ * `seo-static.css` applies this body stack to static pages. Keep the same
+ * stack in the synchronous sheet so text does not re-metric when that async
+ * stylesheet is swapped in; Manrope intentionally falls back to the generic
+ * sans-serif stack because no webfont is loaded for it.
+ */
+export const SEO_STATIC_BODY_FONT_RESERVE_CSS = 'body{font-family:"Manrope",sans-serif}';
+
+/**
+ * Layout-only projection of the complete async `seo-static.css` sheet.
+ *
+ * The hand-picked reserves below cover the highest-volume static families, but
+ * the sheet also owns many hashed `.s-*` layout families. Keep their geometry
+ * in the render-blocking sheet by deriving this block from the same source;
+ * paint-only declarations and interactive state variants are excluded by the
+ * projection helper. The targeted reserves remain after this projection so
+ * their measured mobile/CLS corrections win during the pre-swap frame.
+ *
+ * Byte audit (same-stage, 2026-10-28): the generated `CRITICAL_CSS` string is
+ * 126,787 bytes on merge-base `2131d6f1` and 126,802 bytes on this ref
+ * (`+15`, `+0.01%`). The refactor is therefore a first-paint coverage and
+ * layout/paint separation change, not an unverified raw byte-size reduction.
+ */
+export const SEO_STATIC_SHEET_RESERVE_CSS =
+  deriveSeoStaticFirstPaintReserve(readPublicAsset('seo-static.css'));
+
+/**
  * Tailwind UTILITY subset, mirrored from the ASYNC `index.css`
  * `@layer utilities`/`@layer components` into this SYNCHRONOUS first-paint
  * block.
@@ -584,28 +610,6 @@ export const TAILWIND_PREFLIGHT_RESERVE_CSS =
  * removed — the in-flow `<ins>` slots are the same boxes before and after.
  */
 export const TAILWIND_UTILITY_RESERVE_CSS =
-  '.jc-card{border-style:solid;border-width:1px;min-height:72px;padding:calc(var(--spacing)*3)}' +
-  '.jc-link{display:block}' +
-  '.jc-row{align-items:flex-start;gap:calc(var(--spacing)*3);display:flex}' +
-  '.jc-logoslot{height:calc(var(--spacing)*10);width:calc(var(--spacing)*10);border-style:solid;border-width:1px;flex-shrink:0;justify-content:center;align-items:center;display:flex;overflow:hidden}' +
-  '.jc-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7)}' +
-  '.jc-meta{min-width:calc(var(--spacing)*0);flex:1}' +
-  '.jc-title{font-family:var(--font-display);font-size:var(--text-sm);line-height:var(--leading-tight);font-weight:var(--font-weight-bold)}' +
-  '.jc-sub{margin-top:calc(var(--spacing)*.5);-webkit-line-clamp:2;font-size:var(--text-xs);line-height:var(--text-xs--line-height);-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}' +
-  '.jc-salary{margin-top:calc(var(--spacing)*1);align-items:center;gap:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-semibold);display:inline-flex}' +
-  '.jc-chips{margin-top:calc(var(--spacing)*2);align-items:center;gap:calc(var(--spacing)*2);font-size:var(--text-xs);line-height:var(--text-xs--line-height);flex-wrap:wrap;display:flex}' +
-  '.jc-chip{align-items:center;gap:calc(var(--spacing)*1);display:inline-flex}' +
-  '.jc-chip-pill{padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5)}' +
-  '.jc-newbadge{margin-left:calc(var(--spacing)*1.5);align-items:center;gap:calc(var(--spacing)*.5);padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-bold);letter-spacing:var(--tracking-wide);text-transform:uppercase;display:inline-flex}' +
-  '.ec-card{border-style:solid;border-width:1px;padding:calc(var(--spacing)*3)}' +
-  '.ec-link{display:block}' +
-  '.ec-row{align-items:center;gap:calc(var(--spacing)*3);display:flex}' +
-  '.ec-logoslot{border-style:solid;border-width:1px;flex-shrink:0;justify-content:center;align-items:center;display:flex;overflow:hidden}' +
-  '.ec-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7)}' +
-  '.ec-title{font-family:var(--font-display);font-size:var(--text-sm);line-height:var(--leading-tight);font-weight:var(--font-weight-bold)}' +
-  '.ec-sub{margin-top:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--leading-snug)}' +
-  '.ec-meta{min-width:calc(var(--spacing)*0);flex:1}' +
-  '.ec-cmpct{align-items:center;gap:calc(var(--spacing)*2.5);border-style:solid;border-width:1px;display:flex;padding:calc(var(--spacing)*3)}' +
   '.sr-only{white-space:nowrap;border-width:0;width:1px;height:1px;margin:-1px;padding:0;position:absolute;overflow:hidden}' +
   '.absolute{position:absolute}' +
   '.relative{position:relative}' +
@@ -689,7 +693,7 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
   '.max-w-2xl{max-width:var(--container-2xl)}' +
   '.max-w-3xl{max-width:var(--container-3xl)}' +
   '.max-w-4xl{max-width:var(--container-4xl)}' +
-  '.max-w-5xl{max-width:var(--container-5xl)}' +
+  '.max-w-5xl{max-width:64rem}' +
   '.max-w-6xl{max-width:var(--container-6xl)}' +
   '.max-w-7xl{max-width:var(--container-7xl)}' +
   '.max-w-\\[820px\\]{max-width:820px}' +
@@ -740,7 +744,7 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
   '.px-2\\.5{padding-inline:calc(var(--spacing)*2.5)}' +
   '.px-3{padding-inline:calc(var(--spacing)*3)}' +
   '.px-3\\.5{padding-inline:calc(var(--spacing)*3.5)}' +
-  '.px-4{padding-inline:calc(var(--spacing)*4)}' +
+  '.px-4{padding-inline:1rem}' +
   '.px-5{padding-inline:calc(var(--spacing)*5)}' +
   '.py-0\\.5{padding-block:calc(var(--spacing)*.5)}' +
   '.py-1{padding-block:calc(var(--spacing)*1)}' +
@@ -797,6 +801,28 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
   '.uppercase{text-transform:uppercase}' +
   '.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}' +
   '.scrollbar-hide::-webkit-scrollbar{display:none}' +
+  '.jc-card{padding:calc(var(--spacing)*3);min-height:72px;border-width:1px;border-style:solid}' +
+  '.jc-link{display:block}' +
+  '.jc-row{display:flex;align-items:flex-start;gap:calc(var(--spacing)*3)}' +
+  '.jc-logoslot{height:calc(var(--spacing)*10);width:calc(var(--spacing)*10);display:flex;align-items:center;justify-content:center;overflow:hidden;border-width:1px;border-style:solid;flex-shrink:0}' +
+  '.jc-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7);object-fit:contain}' +
+  '.jc-meta{min-width:0;flex:1}' +
+  '.jc-title{font-size:var(--text-sm);line-height:var(--text-sm--line-height);font-weight:var(--font-weight-bold);font-family:var(--font-display)}' +
+  '.jc-sub{margin-top:calc(var(--spacing)*.5);font-size:var(--text-xs);line-height:var(--text-xs--line-height);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}' +
+  '.jc-salary{margin-top:calc(var(--spacing)*1);display:inline-flex;align-items:center;gap:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-semibold)}' +
+  '.jc-chips{margin-top:calc(var(--spacing)*2);display:flex;flex-wrap:wrap;align-items:center;gap:calc(var(--spacing)*2);font-size:var(--text-xs);line-height:var(--text-xs--line-height)}' +
+  '.jc-chip{display:inline-flex;align-items:center;gap:calc(var(--spacing)*1)}' +
+  '.jc-chip-pill{padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5)}' +
+  '.jc-newbadge{margin-left:calc(var(--spacing)*1.5);display:inline-flex;align-items:center;gap:calc(var(--spacing)*.5);padding-inline:calc(var(--spacing)*1.5);padding-block:calc(var(--spacing)*.5);font-size:var(--text-xs);line-height:var(--text-xs--line-height);font-weight:var(--font-weight-bold);text-transform:uppercase;letter-spacing:var(--tracking-wide)}' +
+  '.ec-card{padding:calc(var(--spacing)*3);border-width:1px;border-style:solid}' +
+  '.ec-link{display:block}' +
+  '.ec-row{display:flex;align-items:center;gap:calc(var(--spacing)*3)}' +
+  '.ec-logoslot{display:flex;align-items:center;justify-content:center;overflow:hidden;border-width:1px;border-style:solid;flex-shrink:0}' +
+  '.ec-logoimg{height:calc(var(--spacing)*7);width:calc(var(--spacing)*7);object-fit:contain}' +
+  '.ec-title{font-size:var(--text-sm);line-height:var(--text-sm--line-height);font-weight:var(--font-weight-bold);font-family:var(--font-display)}' +
+  '.ec-sub{margin-top:calc(var(--spacing)*1);font-size:var(--text-xs);line-height:var(--leading-snug)}' +
+  '.ec-meta{min-width:0;flex:1}' +
+  '.ec-cmpct{display:flex;align-items:center;gap:calc(var(--spacing)*2.5);padding:calc(var(--spacing)*3);border-width:1px;border-style:solid}' +
   '@media(min-width:40rem){' +
     '.jc-card{padding:calc(var(--spacing)*4)}' +
     '.jc-logoslot{height:calc(var(--spacing)*14);width:calc(var(--spacing)*14)}' +
@@ -875,48 +901,9 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
     '.lg\\:px-8{padding-inline:calc(var(--spacing)*8)}' +
   '}';
 
-/**
- * `seo-static.css` LAYOUT subset, DERIVED from that ASYNC sheet at build time
- * (`deriveSeoStaticFirstPaintReserve`) instead of hand-copied — the
- * generalisation of {@link SEO_STATIC_HERO_RESERVE_CSS} /
- * {@link SEO_SEARCH_HUB_RESERVE_CSS} / {@link SEO_ARTICLE_SHELL_RESERVE_CSS},
- * which each pinned one family's `.s-*` classes and left the rest of the sheet
- * (~1000 layout-bearing rules, ~40 static families) unreserved.
- *
- * Why (CLS fix, issue #5001 point 3): `seo-static.css` is the second
- * `media="print"`-swapped sheet on every static SEO page, and it owns the box of
- * every family the three blocks above do not cover. Measured residual with the
- * Tailwind reserve in place but this block absent (local A/B harness on the
- * production HTML, only critical.css differing, desktop 1350px):
- * `/articoli-frontaliere/lamal-vs-cmi-frontaliere/` 0.061 (the whole
- * `.ft-blog-article` prose column — padding, section margins, heading metrics),
- * `/lavoro-argovia-infermiere/` 0.054 (`.cl-fun`),
- * `/cerca-lavoro-ticino/ricerca/` 0.414 (`.s-USY9TF`/`.s-MwMbiH` city blocks).
- * With it: 0.0002 / 0.0019 / 0.0000 — the hub number is with JS off, because its
- * remaining full-page 0.106 is the SPA removing the static `nav.seo-hub-subnav`
- * at hydration (~935ms), which no stylesheet can reserve.
- *
- * It also covers the BODY FONT, which no per-family block could: the sheet sets
- * `body{font-family:"Manrope",…}`, overriding the metric-matched Inter stack
- * declared at the top of {@link CRITICAL_CSS}. Manrope is never loaded (no
- * `@font-face` anywhere, no webfont link on any sampled page), so the swap
- * re-metrics EVERY text node from Inter to the generic `sans-serif` — visible in
- * the trace as a per-element `dw`/`dh` on essentially the whole document.
- * Mirroring the declaration makes first paint agree with the end state; ALIGNING
- * the two stacks instead would change what the page finally looks like, which is
- * a typography decision, not a reserve — left to the owner (see the PR).
- *
- * Why deriving is what makes this safe to keep: see the module header of
- * `./seoStaticFirstPaintReserve`. Short version — unlayered like the sheet
- * itself and emitted BEFORE it, so `seo-static.css` always wins on equal
- * specificity once it lands, and the projection cannot drift from its source
- * because it IS its source.
- *
- * Pure space reservation (AGENTS.md §7).
- */
-export const SEO_STATIC_SHEET_RESERVE_CSS = deriveSeoStaticFirstPaintReserve(
-  readPublicAsset(SEO_STATIC_CSS_FILENAME),
-);
+// `seo-static.css` remains the owner of paint and final cascade. Its
+// layout-only projection plus the measured first-paint reserves above belong
+// in the render-blocking sheet.
 
 /**
  * `*,::after,::before{border:0 solid #e5e7eb}` below is wrapped in
@@ -952,6 +939,7 @@ const CRITICAL_DARK_TEXT_CONTRAST_CSS =
 
 export const CRITICAL_CSS =
   `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@layer base{*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
+  SEO_STATIC_SHEET_RESERVE_CSS +
   RAIL_RESERVE_CSS +
   STATIC_AD_COLLAPSE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
@@ -961,19 +949,15 @@ export const CRITICAL_CSS =
   SEO_SEARCH_HUB_RESERVE_CSS +
   SEO_ARTICLE_SHELL_RESERVE_CSS +
   ROOT_HEADER_RESERVE_CSS +
-  // Layered half: mirrors of `index.css` (Tailwind). `@layer base` keeps them
-  // strictly BELOW `index.css`'s own `@layer utilities`, so once the async
-  // sheet lands the authoritative rule wins and these can only ever govern the
-  // pre-swap frame.
+  // The preflight plus raw-utility subsets are the only broad async-sheet
+  // copies retained here: they stabilize UA and utility-driven geometry before
+  // the real stylesheet arrives. The whole-sheet mirror remains async; the
+  // targeted reserves above complete the first-paint geometry contract.
   `@layer base{${TAILWIND_THEME_TOKENS_RESERVE_CSS}${TAILWIND_PREFLIGHT_RESERVE_CSS}${TAILWIND_UTILITY_RESERVE_CSS}}` +
-  // Unlayered half: a mirror of `seo-static.css`, which is itself unlayered —
-  // emitted here FIRST so the real sheet wins on equal specificity when it
-  // lands. Kept last so it also supersedes the older hand-written `.s-*`
-  // reserves above wherever the two describe the same selector.
+  SEO_STATIC_BODY_FONT_RESERVE_CSS +
   CRITICAL_SEMANTIC_TOKENS_CSS +
   CRITICAL_DARK_MODE_RULES_CSS +
-  CRITICAL_DARK_TEXT_CONTRAST_CSS +
-  SEO_STATIC_SHEET_RESERVE_CSS;
+  CRITICAL_DARK_TEXT_CONTRAST_CSS;
 
 /**
  * Filename `staticScriptsPlugin.ts` writes {@link CRITICAL_CSS} to under
