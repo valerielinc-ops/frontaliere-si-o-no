@@ -25,20 +25,20 @@ ticino_tree_require_worker_layout() {
       fi
       echo "::error::active Worker does not advertise Ticino hash-v1 routing for $section_sub; refusing to publish hashed paths" >&2
       return 1
+    else
+      curl_rc="$?"
+      case "$curl_rc" in
+        6|7|28|35|52|56|92)
+          if [ "$attempt" -lt 3 ]; then
+            echo "::warning::Ticino shard layout probe transport failure for $section_sub (curl $curl_rc; attempt $attempt/3) — retrying in 2s" >&2
+            sleep 2
+            continue
+          fi
+          ;;
+      esac
+      echo "::error::Ticino shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
+      return 1
     fi
-
-    curl_rc="$?"
-    case "$curl_rc" in
-      6|7|28|35|52|56|92)
-        if [ "$attempt" -lt 3 ]; then
-          echo "::warning::Ticino shard layout probe transport failure for $section_sub (curl $curl_rc; attempt $attempt/3) — retrying in 2s" >&2
-          sleep 2
-          continue
-        fi
-        ;;
-    esac
-    echo "::error::Ticino shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
-    return 1
   done
 }
 
