@@ -16,13 +16,14 @@ describe('Codex article lane bootstrap', () => {
     expect(runtimeEnd).toBeGreaterThan(runtimeStart);
     expect(RUNTIME).toContain('disable_codex_lane()');
     expect(RUNTIME).toContain('CODEX_ARTICLE_LANE_GATE=0');
-    expect(RUNTIME).toMatch(/if ! \/usr\/bin\/curl[\s\S]*?disable_codex_lane/);
+    expect(RUNTIME).toMatch(/if ! download_pinned_node_archive[\s\S]*?disable_codex_lane/);
     expect(RUNTIME).not.toMatch(/exit 1/);
   });
 
   it('bounds a slow Node mirror instead of holding a crawler group open', () => {
-    expect(RUNTIME).toContain('--max-time 60');
-    expect(RUNTIME).toContain('--retry-max-time 120');
-    expect(RUNTIME).toContain('--continue-at -');
+    expect(RUNTIME).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 3 60 15');
+    expect(RUNTIME).toContain('--max-time "$max_time"');
+    expect(RUNTIME).toContain('--range "${archive_size}-"');
+    expect(RUNTIME).toContain('content-range:*');
   });
 });
