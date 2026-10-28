@@ -22,6 +22,7 @@ describe('mpa-praxisstellen crawler parser', () => {
 
     it('matches by company name', () => {
       expect(isMpaPraxisstellenChJob({ company: 'mpa-praxisstellen' })).toBe(true);
+      expect(isMpaPraxisstellenChJob({ company: 'Not mpa-praxisstellen competitor' })).toBe(false);
     });
 
     it('does not infer the company from the shared source vacancy URL', () => {
