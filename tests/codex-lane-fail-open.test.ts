@@ -21,6 +21,7 @@ describe('Codex article lane bootstrap', () => {
   });
 
   it('bounds a slow Node mirror instead of holding a crawler group open', () => {
+    expect(RUNTIME).toContain('--max-time 60');
     expect(RUNTIME).toContain('--retry-max-time 120');
     expect(RUNTIME).toContain('--continue-at -');
   });
