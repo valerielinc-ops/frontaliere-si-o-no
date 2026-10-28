@@ -193,10 +193,11 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
 }
 
 /**
- * Umantis application URLs carry the vacancy id across the ATS and employer
- * hosts (`/Vacancies/<id>/Application/...`). When the order also has the
- * matching Umantis detail route or employer vacancy page, enter through that
- * page so a generic application form inherits the posting's provenance.
+ * Umantis application URLs carry the vacancy id in the ATS route
+ * (`/Vacancies/<id>/Application/...`). Only a posting on the same origin is
+ * an explicit URL-level binding to that application; a numeric id on another
+ * host can belong to an unrelated job and must never replace the application
+ * entry point.
  */
 function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
   try {
@@ -205,7 +206,7 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
     if (!/(?:^|\.)umantis\.com$/i.test(apply.hostname)) return false;
     const applyId = /\/vacancies\/(\d+)\/application(?:\/|$)/i.exec(apply.pathname)?.[1];
     const postingId = /\/vacancies\/(\d+)(?:\/description(?:\/[^/]+)?)?\/?$/i.exec(posting.pathname)?.[1];
-    return Boolean(applyId && postingId && applyId === postingId);
+    return apply.origin === posting.origin && Boolean(applyId && postingId && applyId === postingId);
   } catch {
     return false;
   }

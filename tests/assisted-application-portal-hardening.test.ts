@@ -51,7 +51,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
   it('opens an Umantis Application/New form from its matching vacancy page', () => {
     const applyUrl = 'https://recruitingapp-2983.umantis.com/Vacancies/716/Application/CheckLogin/2?lang=eng';
-    const postingUrl = 'https://careers.kronenhof.com/en/vacancies/716';
+    const postingUrl = 'https://recruitingapp-2983.umantis.com/Vacancies/716/Description/1';
     const job = { company: 'Grand Hotel Kronenhof', title: 'Chef de Rang - immediate start (m/w/d)' };
     const form = [
       'Application Tracking System',
@@ -84,11 +84,18 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     ].join('\n');
 
     expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
-    expect(portalEntryUrl({ applyUrl, postingUrl: 'https://recruitingapp-2983.umantis.com/Vacancies/716/Description/1' }))
-      .toBe('https://recruitingapp-2983.umantis.com/Vacancies/716/Description/1');
+    expect(portalEntryUrl({ applyUrl, postingUrl: 'https://careers.kronenhof.com/en/vacancies/716' })).toBe(applyUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('/716', '/717') })).toBe(applyUrl);
     expect(formPostingMatch(form, job)).toBe('mismatch');
     expect(formPostingMatch(form, job, { postingMatched: true, postingEntry: true })).toBe('match');
+  });
+
+  it('requires a same-origin Umantis vacancy binding before changing the entry URL', () => {
+    const applyUrl = 'https://jobs.umantis.com/Vacancies/717/Application/New/2';
+    const pairedPostingUrl = 'https://jobs.umantis.com/Vacancies/717/Description/1';
+
+    expect(portalEntryUrl({ applyUrl, postingUrl: pairedPostingUrl })).toBe(pairedPostingUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: 'https://other.example/Vacancies/717' })).toBe(applyUrl);
   });
 
   it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
