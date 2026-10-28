@@ -20,7 +20,9 @@ vi.mock('../scripts/jobs-url-helper.mjs', () => ({
 const {
   buildTichFetchProxyHosts,
   buildTichMorssProxyHosts,
+  fetchTichHtml,
   fetchTichJobDetailUrls,
+  isTichDetailHtmlForUrl,
 } = await import('../scripts/update-tich-jobs.mjs');
 const {
   buildTichTranslateUrl,
@@ -65,6 +67,13 @@ const translatedOfficialListingHtml = officialListingHtml.replace(
   'https://www-concorsi-ti-ch.translate.goog/offerte-d%27impieghi.html?yid=4059&_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
 );
 const morssListingHtml = listingHtml.replace('class="jobsearch"', 'id="jobslisting"');
+const TICH_DETAIL_URL = "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059";
+const validTichDetailHtml = `<!doctype html>
+<html><head><title>Offerta di lavoro Aiuto cucina presso Amministrazione Cantonale Ticino Jobportal</title>
+<meta name="generator" content="Rexx Recruitment - Portal7"></head>
+<body><div id="jobTplContainer">Concorso yid=4059</div>
+<a href="forma-di-lavoro.html?yid=4059&amp;sid=transient">candidatura</a></body></html>`;
+const morssInterstitialHtml = '<html><head><title>Checking your browser</title></head><body>Proxy unavailable</body></html>';
 
 describe('fetchTichJobDetailUrls', () => {
   it('retries a transient discovery failure before falling back to the RSS source', async () => {
@@ -328,6 +337,26 @@ describe('fetchTichJobDetailUrls', () => {
     expect(thrown).toBeInstanceOf(Error);
     expect((thrown as { feedEndpointUnavailable?: boolean }).feedEndpointUnavailable).not.toBe(true);
   });
+
+  it('rejects a Morss interstitial and falls back to the direct detail page', async () => {
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === 'https://morss.it/:get=page/' + TICH_DETAIL_URL) {
+        return new Response(morssInterstitialHtml, { status: 200 });
+      }
+      if (url === TICH_DETAIL_URL) return new Response(validTichDetailHtml, { status: 200 });
+      throw new Error(`unexpected URL: ${url}`);
+    });
+
+    await expect(fetchTichHtml(TICH_DETAIL_URL, {
+      fetchImpl,
+      preferMorss: true,
+      timeoutMs: 1_000,
+    })).resolves.toBe(validTichDetailHtml);
+    expect(fetchImpl.mock.calls.map(([url]) => url)).toEqual([
+      'https://morss.it/:get=page/' + TICH_DETAIL_URL,
+      TICH_DETAIL_URL,
+    ]);
+  });
 });
 
 describe('Ticino official listing transport', () => {
@@ -420,5 +449,13 @@ describe('buildTichFetchProxyHosts', () => {
     expect(buildTichMorssProxyHosts({ morssSucceeded: true }, 'other.example')).toBe(
       'other.example,www.concorsi.ti.ch',
     );
+  });
+});
+
+describe('Ti.CH detail identity', () => {
+  it('accepts only the requested canonical detail identity', () => {
+    expect(isTichDetailHtmlForUrl(validTichDetailHtml, TICH_DETAIL_URL)).toBe(true);
+    expect(isTichDetailHtmlForUrl(validTichDetailHtml, "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4101")).toBe(false);
+    expect(isTichDetailHtmlForUrl(morssInterstitialHtml, TICH_DETAIL_URL)).toBe(false);
   });
 });

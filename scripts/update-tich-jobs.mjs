@@ -939,21 +939,49 @@ function validateTichLocaleCoverage() {
 // Detail-page enrichment (FRO-70)
 // ──────────────────────────────────────────────────────────────
 
-async function fetchTichHtml(
+export function isTichDetailHtmlForUrl(html, rawUrl) {
+  const source = String(html || '')
+    .replace(/&amp;/gi, '&')
+    .replace(/%3d/gi, '=');
+  if (!source) return false;
+
+  let yid = '';
+  try {
+    const parsed = new URL(rawUrl);
+    const host = parsed.hostname.toLowerCase();
+    const decodedPath = decodeURIComponent(parsed.pathname);
+    if (!host.endsWith('concorsi.ti.ch') || decodedPath !== "/offerte-d'impieghi.html") return false;
+    yid = parsed.searchParams.get('yid') || '';
+  } catch {
+    return false;
+  }
+  if (!/^\d+$/.test(yid)) return false;
+
+  const hasPortalIdentity = /Amministrazione Cantonale Ticino Jobportal|rexx\s+Recruitment\s+-\s+Portal7/i.test(source);
+  const hasRequestedYid = new RegExp(`(?:[?&])yid=${yid}(?:[&"'<>\\s]|$)`, 'i').test(source);
+  return hasPortalIdentity && hasRequestedYid;
+}
+
+export async function fetchTichHtml(
   url,
   {
     timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12_000,
     preferMorss = false,
+    fetchImpl = globalThis.fetch,
   } = {},
 ) {
   let morssAttempted = false;
   const fetchViaMorss = async () => {
     morssAttempted = true;
-    return fetchHtmlViaMorssWithRetry(url, {
+    const proxied = await fetchHtmlViaMorssWithRetry(url, {
       timeoutMs: Math.max(timeoutMs, 30_000),
       attempts: 2,
       retryDelayMs: 500,
+      fetchImpl,
     });
+    if (proxied && isTichDetailHtmlForUrl(proxied, url)) return proxied;
+    if (proxied) console.warn(`  ⚠️ Morss Ti.CH detail response failed the identity check for ${url}`);
+    return null;
   };
 
   if (preferMorss) {
@@ -964,7 +992,7 @@ async function fetchTichHtml(
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetchImpl(url, {
       signal: controller.signal,
       headers: {
         Accept: 'text/html,application/xhtml+xml',
