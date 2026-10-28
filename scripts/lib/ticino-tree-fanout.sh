@@ -12,16 +12,34 @@ TICINO_TREE_FANOUT_TOOL="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/tic
 ticino_tree_require_worker_layout() {
   local section_sub="$1"
   local probe_url="https://frontaliereticino.ch/${section_sub}/?__frontaliere_ticino_tree_layout=hash-v1"
-  local headers
+  local headers curl_rc attempt
 
-  if ! headers="$(curl --silent --show-error --fail --head --max-time 20 "$probe_url")"; then
-    echo "::error::Ticino shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
-    return 1
-  fi
-  if ! printf '%s\n' "$headers" | tr -d '\r' | grep -Eiq '^x-frontaliere-ticino-tree-layout:[[:space:]]*hash-v1[[:space:]]*$'; then
-    echo "::error::active Worker does not advertise Ticino hash-v1 routing for $section_sub; refusing to publish hashed paths" >&2
-    return 1
-  fi
+  # A timeout is not evidence that the active Worker lacks hash-v1 routing.
+  # Retry only transport failures, with a bounded budget; HTTP responses still
+  # go straight to the semantic header check and every exhausted/unknown
+  # failure remains fail-closed before the hashed tree is published.
+  for attempt in 1 2 3; do
+    if headers="$(curl --silent --show-error --fail --head --max-time 20 "$probe_url")"; then
+      if printf '%s\n' "$headers" | tr -d '\r' | grep -Eiq '^x-frontaliere-ticino-tree-layout:[[:space:]]*hash-v1[[:space:]]*$'; then
+        return 0
+      fi
+      echo "::error::active Worker does not advertise Ticino hash-v1 routing for $section_sub; refusing to publish hashed paths" >&2
+      return 1
+    else
+      curl_rc="$?"
+      case "$curl_rc" in
+        6|7|28|35|52|56|92)
+          if [ "$attempt" -lt 3 ]; then
+            echo "::warning::Ticino shard layout probe transport failure for $section_sub (curl $curl_rc; attempt $attempt/3) — retrying in 2s" >&2
+            sleep 2
+            continue
+          fi
+          ;;
+      esac
+      echo "::error::Ticino shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
+      return 1
+    fi
+  done
 }
 
 # ticino_tree_fanout_stage <section> <section-root>

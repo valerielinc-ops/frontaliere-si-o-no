@@ -120,6 +120,7 @@ describe("public plate-auction snapshot source gating", () => {
       db: makeDb({
         auctions: [
           row({ id: "fr-1", sourceKey: "FR", platePrefix: "FR", canton: "Friburgo" }),
+          row({ id: "fr-legacy", sourceKey: "fr", platePrefix: "fr", canton: "Friburgo" }),
           row({ id: "ti-1", sourceKey: "TI", platePrefix: "TI", canton: "Ticino" }),
         ],
         sources: [{
@@ -128,7 +129,7 @@ describe("public plate-auction snapshot source gating", () => {
           plateCode: "FR",
           officialUrl: "https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch",
           status: "active",
-          rowCount: 1,
+          rowCount: 2,
           lastSuccessAt: "2026-09-14T12:00:00.000Z",
         }],
       }) as never,
@@ -136,8 +137,8 @@ describe("public plate-auction snapshot source gating", () => {
     });
 
     expect(snapshot.sources).toHaveProperty("fr");
-    expect(snapshot.auctions.map((auction) => auction.sourceKey)).toEqual(["FR"]);
-    expect(snapshot.auctions).toHaveLength(1);
+    expect(snapshot.auctions.map((auction) => auction.sourceKey)).toEqual(["FR", "fr"]);
+    expect(snapshot.auctions).toHaveLength(2);
   });
 });
 
