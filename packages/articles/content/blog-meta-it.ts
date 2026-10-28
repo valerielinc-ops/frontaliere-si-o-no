@@ -13619,6 +13619,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mozione-ticino-ristorni-salute.title': 'Mozione in Ticino contro la tassa sulla salute',
     'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.ristorni-malnate-meno-500mila.title': 'Ristorni frontalieri, 500mila euro in meno a Malnate',
+    'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700 malnatesi',
+    'blog.article.ristorni-malnate-meno-500mila.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
