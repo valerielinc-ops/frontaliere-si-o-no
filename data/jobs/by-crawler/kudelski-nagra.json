@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-10-28T20:37:11.675Z",
-  "runId": "40760083926",
+  "assembledAt": "2026-10-28T21:53:30.936Z",
+  "runId": "40771569350",
   "jobs": [
     {
       "id": "kudelski-nagra-362f31b80bbf",
@@ -34,7 +34,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:37:05.513Z",
+      "crawledAt": "2026-10-28T21:53:24.722Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -54,13 +54,6 @@
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
-        "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
-        "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
-        "security-operations-engineer-kudelski-nagra-ch",
-        "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "security-operations-engineer-kudelski-nagra-ch"
@@ -74,6 +67,13 @@
           "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
         ]
       },
+      "previousSlugs": [
+        "securit-oper-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
+        "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
+        "security-operations-engineer-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client",
+        "security-operations-engineer-kudelski-nagra-ch",
+        "security-operations-ingenieur-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
+      ],
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
