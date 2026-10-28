@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-10-28T09:24:12.747Z",
-  "runId": "40661670587",
+  "assembledAt": "2026-10-28T20:53:31.627Z",
+  "runId": "40757546918",
   "jobs": [
     {
       "id": "company-7uc3o0",
@@ -72,7 +72,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2400",
       "addressLocality": "Le Locle",
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "crawlerMissStreak": 1
     }
   ]
 }
