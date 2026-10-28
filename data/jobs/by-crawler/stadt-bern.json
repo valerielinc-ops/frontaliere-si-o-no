@@ -1,7 +1,7 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-10-28T20:03:00.107Z",
-  "runId": "40756911700",
+  "assembledAt": "2026-10-28T21:19:34.376Z",
+  "runId": "40768538343",
   "jobs": [
     {
       "id": "stadt-bern-6dee1ce44d86",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz/08236f3e-92df-4972-8c3b-b3d57dc53f88",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.999Z",
+      "crawledAt": "2026-10-28T21:19:28.027Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-sporttalente/568bdcbd-ed0f-4a57-96e0-cb31c95dd28d",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.998Z",
+      "crawledAt": "2026-10-28T21:19:28.026Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -139,81 +139,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:53.100Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "stadt-bern-beb5401848b9",
-      "slug": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
-        "en": "apprenticeship-as-an-expert-expert-in-business-maintenance-stadt-bern-bern",
-        "de": "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
-        "fr": "apprentissage-en-tant-qu-expert-expert-en-maintenance-d-entreprise-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
-      "titleByLocale": {
-        "it": "Apprendistato come esperto / esperto nella manutenzione aziendale",
-        "en": "Apprenticeship as an expert / expert in business maintenance",
-        "de": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
-        "fr": "Apprentissage en tant qu'expert / expert en maintenance d'entreprise"
-      },
-      "description": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklicher Arbeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-      "descriptionByLocale": {
-        "it": "Ti piace affrontare, sono praticamente dotati e piace essere in aria fresca?\n\nCompiti:\n• Conoscere i vari compiti del servizio di lavoro di una comunità\n\n• Eseguire lavori di manutenzione su strade, sentieri, sponde, aree verdi e la rete canale\n\n• Mantenere e mantenere macchinari e attrezzature\n\nRequisiti\n• Formazione elementare completa\n\n• Divertimento dell'artigianato\n\n• Personalità orientata al servizio e orientata al team\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "Do you like to tackle, are practically gifted and like to be in the fresh air?\n\nTasks:\n• Getting to know the various tasks of the work service of a community\n\n• Carry out maintenance work on roads, paths, shores, green areas and the canal network\n\n• Maintaining and maintaining machinery and equipment\n\nRequirements\n• Completed elementary education\n\n• Enjoying craftsmanship\n\n• Service-oriented and team-oriented personality\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklicher Arbeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "Aimez-vous s'attaquer, sont pratiquement doués et aiment être dans l'air frais ?\n\nTâches :\n• Apprendre à connaître les différentes tâches du service de travail d'une communauté\n\n• Effectuer des travaux d'entretien sur les routes, les sentiers, les rives, les espaces verts et le réseau de canaux\n\n• Entretien et entretien des machines et du matériel\n\nExigences\n• Enseignement primaire terminé\n\n• Profitez de l'artisanat\n\n• Personnalité axée sur le service et axée sur l'équipe\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.997Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Eymattstrasse 13b",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T21:43:20.049Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -260,7 +185,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehre-als-geomatiker-in/6cdae81a-6a9c-480a-b814-d699f9d6d7d5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.997Z",
+      "crawledAt": "2026-10-28T21:19:28.025Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -304,44 +229,44 @@
       }
     },
     {
-      "id": "stadt-bern-2f4f443aa656",
-      "slug": "apprendistato-del-meccanico-dell-attrezzatura-del-motore-stadt-bern-bern",
+      "id": "stadt-bern-beb5401848b9",
+      "slug": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
       "slugByLocale": {
-        "it": "apprendistato-del-meccanico-dell-attrezzatura-del-motore-stadt-bern-bern",
-        "en": "apprenticeship-of-engine-equipment-mechanic-stadt-bern-bern",
-        "de": "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern",
-        "fr": "apprentissage-d-un-mecanicien-d-equipement-moteur-stadt-bern-bern"
+        "it": "apprendistato-come-fachmann-fachfrau-betriebsunterhalt-stadt-bern",
+        "en": "apprenticeship-as-an-expert-expert-in-business-maintenance-stadt-bern-bern",
+        "de": "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern",
+        "fr": "apprentissage-en-tant-qu-expert-expert-en-maintenance-d-entreprise-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
       "companyDomain": "bern.ch",
-      "title": "Lehrstelle Motorgerätemechaniker*in",
+      "title": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
       "titleByLocale": {
-        "it": "Apprendistato del meccanico dell'attrezzatura del motore",
-        "en": "Apprenticeship of engine equipment mechanic",
-        "de": "Lehrstelle Motorgerätemechaniker*in",
-        "fr": "Apprentissage d'un mécanicien d'équipement moteur"
+        "it": "Apprendistato come esperto / esperto nella manutenzione aziendale",
+        "en": "Apprenticeship as an expert / expert in business maintenance",
+        "de": "Lehre als Fachmann/Fachfrau Betriebsunterhalt",
+        "fr": "Apprentissage en tant qu'expert / expert en maintenance d'entreprise"
       },
-      "description": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+      "description": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklicher Arbeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
       "descriptionByLocale": {
-        "it": "Compiti:\n• Mantenere e riparare macchine e attrezzature\n\n• Eseguire il lavoro di servizio con un team competente\n\n• Macchine di prova per funzionalità\n\n• Fare pezzi di ricambio\n\nRequisiti\n• Completo della scuola elementare\n\n• Artigianato e interesse per macchinari e tecnologie\n\n• La gioia di affrontare le persone\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
-        "en": "Tasks:\n• Maintain and repair machines and equipment\n\n• Carry out service work with a competent team\n\n• Testing machines for functionality\n\n• Make spare parts\n\nRequirements\n• Completed elementary school degree\n\n• Craftsmanship and interest in machinery and technology\n\n• The joy of dealing with people\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
-        "de": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
-        "fr": "Tâches :\n• Entretien et réparation des machines et du matériel\n\n• Effectuer un travail de service avec une équipe compétente\n\n• Machines d'essai pour la fonctionnalité\n\n• Fabrication de pièces de rechange\n\nExigences\n• Diplôme d ' études primaires\n\n• Artisanat et intérêt pour les machines et la technologie\n\n• La joie de traiter avec les gens\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
+        "it": "Ti piace affrontare, sono praticamente dotati e piace essere in aria fresca?\n\nCompiti:\n• Conoscere i vari compiti del servizio di lavoro di una comunità\n\n• Eseguire lavori di manutenzione su strade, sentieri, sponde, aree verdi e la rete canale\n\n• Mantenere e mantenere macchinari e attrezzature\n\nRequisiti\n• Formazione elementare completa\n\n• Divertimento dell'artigianato\n\n• Personalità orientata al servizio e orientata al team\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e più di 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "Do you like to tackle, are practically gifted and like to be in the fresh air?\n\nTasks:\n• Getting to know the various tasks of the work service of a community\n\n• Carry out maintenance work on roads, paths, shores, green areas and the canal network\n\n• Maintaining and maintaining machinery and equipment\n\nRequirements\n• Completed elementary education\n\n• Enjoying craftsmanship\n\n• Service-oriented and team-oriented personality\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Packst du gerne an, bist praktisch begabt und bist gerne an der frischen Luft?\n\nAufgaben:\n• Vielfältige Aufgaben des Werkdiensts einer Gemeinde kennenlernen\n\n• Unterhaltsarbeiten auf Strassen, Wegen, Ufern, Grünanlagen und des Kanalnetzes ausführen\n\n• Maschinen und Geräte pflegen und unterhalten\n\nAnforderungen:\n• Abschlossene Volksschulausbildung\n\n• Freude an handwerklicher Arbeiten\n\n• Dienstleistungsorientierte und teamorientierte Persönlichkeit\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+        "fr": "Aimez-vous s'attaquer, sont pratiquement doués et aiment être dans l'air frais ?\n\nTâches :\n• Apprendre à connaître les différentes tâches du service de travail d'une communauté\n\n• Effectuer des travaux d'entretien sur les routes, les sentiers, les rives, les espaces verts et le réseau de canaux\n\n• Entretien et entretien des machines et du matériel\n\nExigences\n• Enseignement primaire terminé\n\n• Profitez de l'artisanat\n\n• Personnalité axée sur le service et axée sur l'équipe\n\nNous offrons:\nPour le sens et la vie en ville\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
       },
       "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
+      "url": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.996Z",
+      "crawledAt": "2026-10-28T21:19:28.024Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3004",
-      "streetAddress": "Elfenauweg 94D",
+      "streetAddress": "Eymattstrasse 13b",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -352,20 +277,18 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehre-als-fachmann-fachfrau-betriebsunterhalt/8568d2a3-8bca-4c24-b3eb-9b93b704b602",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprendistato-motorgeratemechaniker-in-stadt-bern",
-        "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern"
+        "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-motorgeratemechaniker-in-stadt-bern",
-          "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern"
+          "lehre-als-fachmann-fachfrau-betriebsunterhalt-stadt-bern-bern"
         ]
       },
-      "firstSeenAt": "2026-09-10T23:04:31.840Z",
+      "firstSeenAt": "2026-08-10T21:43:20.049Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -411,7 +334,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-kauffrau-kaufmann-efz-fuer-musiktalente/a1e2ff6c-fc50-463a-b25d-658ac6fb3410",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.996Z",
+      "crawledAt": "2026-10-28T21:19:28.023Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -488,7 +411,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-recyclist-in/88a43347-1bfb-4be8-b50a-eed4f0fffc46",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.995Z",
+      "crawledAt": "2026-10-28T21:19:28.022Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -532,44 +455,44 @@
       }
     },
     {
-      "id": "stadt-bern-b9ddeadcd138",
-      "slug": "vigile-del-fuoco-professionista-vigile-del-fuoco-professionista-con-attestato-professionale-federale-stadt-bern-bern",
+      "id": "stadt-bern-2f4f443aa656",
+      "slug": "apprendistato-del-meccanico-dell-attrezzatura-del-motore-stadt-bern-bern",
       "slugByLocale": {
-        "it": "vigile-del-fuoco-professionista-vigile-del-fuoco-professionista-con-attestato-professionale-federale-stadt-bern-bern",
-        "en": "professional-firefighter-professional-firefighter-with-federal-law-specialist-card-stadt-bern-bern",
-        "de": "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern",
-        "fr": "pompier-professionnel-pompier-professionnel-avec-le-droit-federal-carte-de-specialiste-stadt-bern-bern"
+        "it": "apprendistato-del-meccanico-dell-attrezzatura-del-motore-stadt-bern-bern",
+        "en": "apprenticeship-of-engine-equipment-mechanic-stadt-bern-bern",
+        "de": "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern",
+        "fr": "apprentissage-d-un-mecanicien-d-equipement-moteur-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
       "companyDomain": "bern.ch",
-      "title": "Berufsfeuerwehrfrau / Berufsfeuerwehrmann mit eidg. Fachausweis",
+      "title": "Lehrstelle Motorgerätemechaniker*in",
       "titleByLocale": {
-        "it": "Vigile del fuoco professionista/ Vigile del fuoco professionista con attestato professionale federale",
-        "en": "Professional firefighter / professional firefighter with federal law. Specialist card",
-        "de": "Berufsfeuerwehrfrau / Berufsfeuerwehrmann mit eidg. Fachausweis",
-        "fr": "Pompier professionnel / pompier professionnel avec le droit fédéral. Carte de spécialiste"
+        "it": "Apprendistato del meccanico dell'attrezzatura del motore",
+        "en": "Apprenticeship of engine equipment mechanic",
+        "de": "Lehrstelle Motorgerätemechaniker*in",
+        "fr": "Apprentissage d'un mécanicien d'équipement moteur"
       },
-      "description": "Du suchst keinen gewöhnlichen Job, sondern eine Aufgabe mit Verantwortung, Teamgeist und echtem Sinn? Schutz und Rettung Bern sucht engagierte, belastbare und lernbereite Persönlichkeiten, die bereit sind, sich während der 18-monatigen Ausbildung intensiv auf den vielseitigen Beruf der Berufsfeuerwehrfrau bzw. des Berufsfeuerwehrmannes vorzubereiten. Dich erwartet eine spannende und lehrreiche Ausbildungszeit, spannende Einsätze, moderne Technik und ein starkes Team, das sich aufeinander verlassen kann.\n\nAufgaben:\n• Du absolvierst die 18-monatige Ausbildung, welche in Lehrgangs- und Praktikumsblöcke gegliedert ist\n\n• Du erlernst den Umgang mit neustem technischem Material, um in Notlagen von Menschen und Tieren gezielt Hilfe leisten zu können\n\n• Du schliesst den Lehrgang zur Berufsfeuerwehrfrau bzw. zum Berufsfeuerwehrmann mit einem eidg. Fachausweis ab\n\n• Nach bestandener Prüfung bieten wir dir eine interessante und abwechslungsreiche Tätigkeit im 24h-Schichtdienst zum Wohl und Schutz unserer Bevölkerung\n\n• Du hast die Möglichkeit, dich persönlich und beruflich weiterzuentwickeln\n\nAnforderungen:\n• Abgeschlossene berufliche Grundbildung EFZ, Matura oder höhere Ausbildung\n\n• Du bist bei Stellenantritt zwischen 24 und 32 Jahre jung\n\n• Bei Stellenantritt bist du im Besitz der Führerausweiskategorien B und C\n\n• Du hast ein sehr guter Gesundheitszustand, normale Seh- und Hörschärfe und bist physisch und psychisch belastbar\n\n• Deine ausgeprägte Teamfähigkeit und überdurchschnittliche Leistungsbereitschaft zeichnen dich aus\n\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift, gute Informatik Anwenderkenntnisse sowie handwerkliche Fertigkeiten mit\n\n• Ein einwandfreier Leumund ist unerlässlich\n\n• Deine Bewerbungsunterlagen beinhalten mindestens einen Lebenslauf mit Referenzen, ein Motivationsschreiben, Arbeitszeugnisse und Diplome, eine Kopie deines Führerausweises, einen Strafregisterauszug sowie einen IVZ-Registerauszug\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "description": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nVielfältig & fair\n Bei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
       "descriptionByLocale": {
-        "it": "Non siete alla ricerca di un lavoro ordinario, ma un compito con responsabilità, spirito di squadra e significato reale? La protezione e il salvataggio Berna è alla ricerca di personalità impegnate, resilienti e pronte a diventare pronte a prepararsi intensamente alla versatile professione di vigile professionista durante la formazione di 18 mesi. Si può aspettare un periodo di formazione emozionante e istruttivo, incarichi emozionanti, tecnologia moderna e un team forte che può contare l'uno sull'altro.\n\nCompiti:\n• Si completerà la formazione di 18 mesi, che è diviso in blocchi di corso e stage\n\n• Imparerai come utilizzare l'ultimo materiale tecnico per fornire un aiuto mirato nelle emergenze di persone e animali\n\n• Chiudete il corso al vigile del fuoco professionale o al vigile professionale con una legge federale. Carta speciale\n\n• Dopo aver superato l'esame, vi offriamo un'attività interessante e varia nel servizio di turni 24 ore per il benessere e la protezione della nostra popolazione.\n\n• Hai l'opportunità di sviluppare personalmente e professionalmente\n\nRequisiti\n• Formazione professionale completa EFZ, Matura o istruzione superiore\n\n• Hai tra 24 e 32 anni quando inizi il tuo lavoro\n\n• Entrando nel lavoro, sarete in possesso delle categorie di patente di guida B e C\n\n• Hai molto buona salute, normale acuità visiva e uditiva e sono fisicamente e psicologicamente resilienti\n\n• Il vostro forte lavoro di squadra e la volontà superiore alla media di eseguire distinguere voi\n\n• Porti molto buone competenze tedesche in parola e scrittura, buone conoscenze utente informatica e competenze artigianali\n\n• Una reputazione impeccabile è essenziale\n\n• I documenti di richiesta contengono almeno un CV con riferimenti, una lettera di motivazione, certificati di lavoro e diplomi, una copia della patente di guida, un verbale penale e un record di IVZ\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "You are not looking for an ordinary job, but a task with responsibility, team spirit and real meaning? Protection and Rescue Bern is looking for committed, resilient and ready-to-learn personalities who are willing to prepare intensively for the versatile profession of professional firefighter during the 18-month training. You can expect an exciting and instructive training period, exciting assignments, modern technology and a strong team that can rely on each other.\n\nTasks:\n• You will complete the 18-month training, which is divided into course and internship blocks\n\n• You will learn how to use the latest technical material to provide targeted help in emergencies of people and animals\n\n• You close the course to the professional firefighter or professional firefighter with a federal law. Specialised card\n\n• After passing the exam, we offer you an interesting and varied activity in the 24-hour shift service for the welfare and protection of our population.\n\n• You have the opportunity to develop personally and professionally\n\nRequirements\n• Completed basic vocational training EFZ, Matura or higher education\n\n• You are between 24 and 32 years old when you start your job\n\n• Upon entering the job, you will be in possession of driving licence categories B and C\n\n• You have very good health, normal visual and hearing acuity and are physically and psychologically resilient\n\n• Your strong teamwork and above-average willingness to perform distinguish you\n\n• You bring very good German skills in word and writing, good computer science user knowledge and craft skills\n\n• An impeccable reputation is essential\n\n• Your application documents contain at least a CV with references, a letter of motivation, employment certificates and diplomas, a copy of your driving licence, a criminal record and an IVZ record\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Du suchst keinen gewöhnlichen Job, sondern eine Aufgabe mit Verantwortung, Teamgeist und echtem Sinn? Schutz und Rettung Bern sucht engagierte, belastbare und lernbereite Persönlichkeiten, die bereit sind, sich während der 18-monatigen Ausbildung intensiv auf den vielseitigen Beruf der Berufsfeuerwehrfrau bzw. des Berufsfeuerwehrmannes vorzubereiten. Dich erwartet eine spannende und lehrreiche Ausbildungszeit, spannende Einsätze, moderne Technik und ein starkes Team, das sich aufeinander verlassen kann.\n\nAufgaben:\n• Du absolvierst die 18-monatige Ausbildung, welche in Lehrgangs- und Praktikumsblöcke gegliedert ist\n\n• Du erlernst den Umgang mit neustem technischem Material, um in Notlagen von Menschen und Tieren gezielt Hilfe leisten zu können\n\n• Du schliesst den Lehrgang zur Berufsfeuerwehrfrau bzw. zum Berufsfeuerwehrmann mit einem eidg. Fachausweis ab\n\n• Nach bestandener Prüfung bieten wir dir eine interessante und abwechslungsreiche Tätigkeit im 24h-Schichtdienst zum Wohl und Schutz unserer Bevölkerung\n\n• Du hast die Möglichkeit, dich persönlich und beruflich weiterzuentwickeln\n\nAnforderungen:\n• Abgeschlossene berufliche Grundbildung EFZ, Matura oder höhere Ausbildung\n\n• Du bist bei Stellenantritt zwischen 24 und 32 Jahre jung\n\n• Bei Stellenantritt bist du im Besitz der Führerausweiskategorien B und C\n\n• Du hast ein sehr guter Gesundheitszustand, normale Seh- und Hörschärfe und bist physisch und psychisch belastbar\n\n• Deine ausgeprägte Teamfähigkeit und überdurchschnittliche Leistungsbereitschaft zeichnen dich aus\n\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift, gute Informatik Anwenderkenntnisse sowie handwerkliche Fertigkeiten mit\n\n• Ein einwandfreier Leumund ist unerlässlich\n\n• Deine Bewerbungsunterlagen beinhalten mindestens einen Lebenslauf mit Referenzen, ein Motivationsschreiben, Arbeitszeugnisse und Diplome, eine Kopie deines Führerausweises, einen Strafregisterauszug sowie einen IVZ-Registerauszug\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Vous ne cherchez pas un travail ordinaire, mais une tâche avec responsabilité, esprit d'équipe et sens réel? Protection et sauvetage Bern est à la recherche de personnalités engagées, résilientes et prêtes à apprendre qui sont prêtes à se préparer intensément à la profession polyvalente de pompier professionnel pendant la formation de 18 mois. Vous pouvez vous attendre à une période d'entraînement passionnante et instructive, des missions passionnantes, une technologie moderne et une équipe forte qui peut compter sur l'autre.\n\nTâches :\n• Vous terminerez la formation de 18 mois, qui est divisée en modules de cours et de stages\n\n• Vous apprendrez à utiliser le matériel technique le plus récent pour fournir une aide ciblée dans les situations d'urgence des personnes et des animaux\n\n• Vous fermez le cours au pompier professionnel ou au pompier professionnel avec une loi fédérale. Carte spécialisée\n\n• Après l'examen, nous vous proposons une activité intéressante et variée dans le service de 24 heures pour le bien-être et la protection de notre population.\n\n• Vous avez la possibilité de vous développer personnellement et professionnellement\n\nExigences\n• Formation professionnelle de base terminée EFZ, Matura ou enseignement supérieur\n\n• Vous avez entre 24 et 32 ans quand vous commencez votre travail\n\n• En entrant dans l'emploi, vous serez en possession des catégories de permis de conduire B et C\n\n• Vous avez une très bonne santé, une acuité visuelle et auditive normale et êtes physiquement et psychologiquement résistant\n\n• Votre solide travail d'équipe et votre volonté supérieure à la moyenne de vous distinguer\n\n• Vous apportez de très bonnes compétences allemandes en paroles et en écriture, de bonnes connaissances des utilisateurs d'informatique et des compétences artisanales\n\n• Une réputation impeccable est essentielle\n\n• Vos documents de candidature contiennent au moins un CV avec références, une lettre de motivation, des certificats d'emploi et des diplômes, une copie de votre permis de conduire, un casier judiciaire et un dossier IVZ\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+        "it": "Compiti:\n• Mantenere e riparare macchine e attrezzature\n\n• Eseguire il lavoro di servizio con un team competente\n\n• Macchine di prova per funzionalità\n\n• Fare pezzi di ricambio\n\nRequisiti\n• Completo della scuola elementare\n\n• Artigianato e interesse per macchinari e tecnologie\n\n• La gioia di affrontare le persone\n\nOffriamo:\nDiverso e giusto\nPiù di 20 apprendisti vi aspettano con noi – dall’artigianato all’amministrazione. Come azienda di apprendistato versatile, valutiamo i diversi modelli di ruolo e paghiamo tutti gli apprendisti lo stesso salario – e gli studenti da 25 anche un po 'di più.\n\nLa città di Berna è impegnata nella formazione professionale sostenibile e vi offre una vasta gamma di opportunità per la vostra carriera. Circa 200 apprendisti stanno attualmente completando la loro formazione in oltre 20 professioni diverse – accompagnati da oltre 300 dipendenti esperti che trasmettono la loro conoscenza ed entusiasmo. Con noi non solo impari il tuo lavoro da sogno, ma anche forma attivamente la vita nella nostra città. Diventa parte di un team che lavora con gioia, responsabilità e cuore per Berna.",
+        "en": "Tasks:\n• Maintain and repair machines and equipment\n\n• Carry out service work with a competent team\n\n• Testing machines for functionality\n\n• Make spare parts\n\nRequirements\n• Completed elementary school degree\n\n• Craftsmanship and interest in machinery and technology\n\n• The joy of dealing with people\n\nWe offer:\nDiverse and fair\nMore than 20 exciting apprenticeships await you with us – from crafts to administrative. As a versatile apprenticeship company, we value the different role models and pay all apprenticeships the same wage – and learners from 25 even a little more.\n\nThe city of Bern is committed to sustainable vocational training and offers you a wide range of opportunities for your career. Around 200 apprentices are currently completing their training in over 20 different professions – accompanied by more than 300 experienced employees who pass on their knowledge and enthusiasm. With us you not only learn your dream job, but also actively shape life in our city. Become part of a team that works with joy, responsibility and heart for Bern.",
+        "de": "Aufgaben:\n• Maschinen und Geräte warten und reparieren\n\n• Servicearbeiten ausführen mit einem kompetenten Team\n\n• Maschinen auf Funktionsfähigkeit prüfen\n\n• Ersatzteile anfertigen\n\nAnforderungen:\n• Abgeschlossener Volksschulabschluss\n\n• Handwerkliches Geschick und Interesse an Maschinen und Technik\n\n• Freude am Umgang mit Menschen\n\nWir bieten:\nVielfältig & fair\nBei uns erwarten dich über 20 spannende Lehrberufe – von handwerklich bis administrativ. Als vielseitiger Ausbildungsbetrieb schätzen wir die unterschiedlichen Rollenbilder und zahlen allen Lehrberufen den gleichen Lohn – und Lernenden ab 25 sogar etwas mehr.\n\nDie Stadt Bern engagiert sich für eine nachhaltige Berufsbildung und bietet dir vielfältige Chancen für deinen Berufseinstieg. Rund 200 Lernende absolvieren aktuell ihre Ausbildung in über 20 verschiedenen Berufen – begleitet von mehr als 300 erfahrenen Mitarbeitenden, die ihr Wissen und ihre Begeisterung weitergeben. Bei uns erlernst du nicht nur deinen Traumberuf, sondern gestaltest auch das Leben in unserer Stadt aktiv mit. Werde Teil eines Teams, das mit Freude, Verantwortung und Herz für Bern arbeitet.",
+        "fr": "Tâches :\n• Entretien et réparation des machines et du matériel\n\n• Effectuer un travail de service avec une équipe compétente\n\n• Machines d'essai pour la fonctionnalité\n\n• Fabrication de pièces de rechange\n\nExigences\n• Diplôme d ' études primaires\n\n• Artisanat et intérêt pour les machines et la technologie\n\n• La joie de traiter avec les gens\n\nNous offrons:\nDivers et équitables\nPlus de 20 apprentissages passionnants vous attendent avec nous – de l'artisanat à l'administration. En tant qu'entreprise d'apprentissage polyvalente, nous valorisons les différents modèles et payons tous les apprentissages le même salaire – et les apprenants de 25 encore un peu plus.\n\nLa ville de Berne est engagée dans la formation professionnelle durable et vous offre un large éventail d'opportunités pour votre carrière. Environ 200 apprentis suivent actuellement leur formation dans plus de 20 professions différentes, accompagnés de plus de 300 employés expérimentés qui transmettent leurs connaissances et leur enthousiasme. Avec nous, vous apprenez non seulement votre travail de rêve, mais aussi façonner activement la vie dans notre ville. Devenez membre d'une équipe qui travaille avec joie, responsabilité et cœur pour Berne."
       },
       "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
+      "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.994Z",
+      "crawledAt": "2026-10-28T21:19:28.022Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3004",
-      "streetAddress": "Murtenstrasse 98",
+      "streetAddress": "Elfenauweg 94D",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -580,28 +503,30 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/lehrstelle-motorgeraetemechaniker-in/c33d7530-fbfc-4e54-84c6-6a61be3f5fab",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern"
+        "apprendistato-motorgeratemechaniker-in-stadt-bern",
+        "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern"
+          "apprendistato-motorgeratemechaniker-in-stadt-bern",
+          "lehrstelle-motorgeratemechaniker-in-stadt-bern-bern"
         ]
       },
-      "firstSeenAt": "2026-10-01T09:11:55.853Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "firstSeenAt": "2026-09-10T23:04:31.840Z",
+      "salaryMin": 76000,
+      "salaryMax": 106000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 76000,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -637,7 +562,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/gaertner-in/067aec99-e6f5-4e34-8fc0-3f30e170a336",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.994Z",
+      "crawledAt": "2026-10-28T21:19:28.021Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -666,6 +591,81 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:46:53.597Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-b9ddeadcd138",
+      "slug": "vigile-del-fuoco-professionista-vigile-del-fuoco-professionista-con-attestato-professionale-federale-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "vigile-del-fuoco-professionista-vigile-del-fuoco-professionista-con-attestato-professionale-federale-stadt-bern-bern",
+        "en": "professional-firefighter-professional-firefighter-with-federal-law-specialist-card-stadt-bern-bern",
+        "de": "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern",
+        "fr": "pompier-professionnel-pompier-professionnel-avec-le-droit-federal-carte-de-specialiste-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Berufsfeuerwehrfrau / Berufsfeuerwehrmann mit eidg. Fachausweis",
+      "titleByLocale": {
+        "it": "Vigile del fuoco professionista/ Vigile del fuoco professionista con attestato professionale federale",
+        "en": "Professional firefighter / professional firefighter with federal law. Specialist card",
+        "de": "Berufsfeuerwehrfrau / Berufsfeuerwehrmann mit eidg. Fachausweis",
+        "fr": "Pompier professionnel / pompier professionnel avec le droit fédéral. Carte de spécialiste"
+      },
+      "description": "Du suchst keinen gewöhnlichen Job, sondern eine Aufgabe mit Verantwortung, Teamgeist und echtem Sinn? Schutz und Rettung Bern sucht engagierte, belastbare und lernbereite Persönlichkeiten, die bereit sind, sich während der 18-monatigen Ausbildung intensiv auf den vielseitigen Beruf der Berufsfeuerwehrfrau bzw. des Berufsfeuerwehrmannes vorzubereiten. Dich erwartet eine spannende und lehrreiche Ausbildungszeit, spannende Einsätze, moderne Technik und ein starkes Team, das sich aufeinander verlassen kann.\n\nAufgaben:\n• Du absolvierst die 18-monatige Ausbildung, welche in Lehrgangs- und Praktikumsblöcke gegliedert ist\n\n• Du erlernst den Umgang mit neustem technischem Material, um in Notlagen von Menschen und Tieren gezielt Hilfe leisten zu können\n\n• Du schliesst den Lehrgang zur Berufsfeuerwehrfrau bzw. zum Berufsfeuerwehrmann mit einem eidg. Fachausweis ab\n\n• Nach bestandener Prüfung bieten wir dir eine interessante und abwechslungsreiche Tätigkeit im 24h-Schichtdienst zum Wohl und Schutz unserer Bevölkerung\n\n• Du hast die Möglichkeit, dich persönlich und beruflich weiterzuentwickeln\n\nAnforderungen:\n• Abgeschlossene berufliche Grundbildung EFZ, Matura oder höhere Ausbildung\n\n• Du bist bei Stellenantritt zwischen 24 und 32 Jahre jung\n\n• Bei Stellenantritt bist du im Besitz der Führerausweiskategorien B und C\n\n• Du hast ein sehr guter Gesundheitszustand, normale Seh- und Hörschärfe und bist physisch und psychisch belastbar\n\n• Deine ausgeprägte Teamfähigkeit und überdurchschnittliche Leistungsbereitschaft zeichnen dich aus\n\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift, gute Informatik Anwenderkenntnisse sowie handwerkliche Fertigkeiten mit\n\n• Ein einwandfreier Leumund ist unerlässlich\n\n• Deine Bewerbungsunterlagen beinhalten mindestens einen Lebenslauf mit Referenzen, ein Motivationsschreiben, Arbeitszeugnisse und Diplome, eine Kopie deines Führerausweises, einen Strafregisterauszug sowie einen IVZ-Registerauszug\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Non siete alla ricerca di un lavoro ordinario, ma un compito con responsabilità, spirito di squadra e significato reale? La protezione e il salvataggio Berna è alla ricerca di personalità impegnate, resilienti e pronte a diventare pronte a prepararsi intensamente alla versatile professione di vigile professionista durante la formazione di 18 mesi. Si può aspettare un periodo di formazione emozionante e istruttivo, incarichi emozionanti, tecnologia moderna e un team forte che può contare l'uno sull'altro.\n\nCompiti:\n• Si completerà la formazione di 18 mesi, che è diviso in blocchi di corso e stage\n\n• Imparerai come utilizzare l'ultimo materiale tecnico per fornire un aiuto mirato nelle emergenze di persone e animali\n\n• Chiudete il corso al vigile del fuoco professionale o al vigile professionale con una legge federale. Carta speciale\n\n• Dopo aver superato l'esame, vi offriamo un'attività interessante e varia nel servizio di turni 24 ore per il benessere e la protezione della nostra popolazione.\n\n• Hai l'opportunità di sviluppare personalmente e professionalmente\n\nRequisiti\n• Formazione professionale completa EFZ, Matura o istruzione superiore\n\n• Hai tra 24 e 32 anni quando inizi il tuo lavoro\n\n• Entrando nel lavoro, sarete in possesso delle categorie di patente di guida B e C\n\n• Hai molto buona salute, normale acuità visiva e uditiva e sono fisicamente e psicologicamente resilienti\n\n• Il vostro forte lavoro di squadra e la volontà superiore alla media di eseguire distinguere voi\n\n• Porti molto buone competenze tedesche in parola e scrittura, buone conoscenze utente informatica e competenze artigianali\n\n• Una reputazione impeccabile è essenziale\n\n• I documenti di richiesta contengono almeno un CV con riferimenti, una lettera di motivazione, certificati di lavoro e diplomi, una copia della patente di guida, un verbale penale e un record di IVZ\n\nOffriamo:\nPer il senso e la vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "You are not looking for an ordinary job, but a task with responsibility, team spirit and real meaning? Protection and Rescue Bern is looking for committed, resilient and ready-to-learn personalities who are willing to prepare intensively for the versatile profession of professional firefighter during the 18-month training. You can expect an exciting and instructive training period, exciting assignments, modern technology and a strong team that can rely on each other.\n\nTasks:\n• You will complete the 18-month training, which is divided into course and internship blocks\n\n• You will learn how to use the latest technical material to provide targeted help in emergencies of people and animals\n\n• You close the course to the professional firefighter or professional firefighter with a federal law. Specialised card\n\n• After passing the exam, we offer you an interesting and varied activity in the 24-hour shift service for the welfare and protection of our population.\n\n• You have the opportunity to develop personally and professionally\n\nRequirements\n• Completed basic vocational training EFZ, Matura or higher education\n\n• You are between 24 and 32 years old when you start your job\n\n• Upon entering the job, you will be in possession of driving licence categories B and C\n\n• You have very good health, normal visual and hearing acuity and are physically and psychologically resilient\n\n• Your strong teamwork and above-average willingness to perform distinguish you\n\n• You bring very good German skills in word and writing, good computer science user knowledge and craft skills\n\n• An impeccable reputation is essential\n\n• Your application documents contain at least a CV with references, a letter of motivation, employment certificates and diplomas, a copy of your driving licence, a criminal record and an IVZ record\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Du suchst keinen gewöhnlichen Job, sondern eine Aufgabe mit Verantwortung, Teamgeist und echtem Sinn? Schutz und Rettung Bern sucht engagierte, belastbare und lernbereite Persönlichkeiten, die bereit sind, sich während der 18-monatigen Ausbildung intensiv auf den vielseitigen Beruf der Berufsfeuerwehrfrau bzw. des Berufsfeuerwehrmannes vorzubereiten. Dich erwartet eine spannende und lehrreiche Ausbildungszeit, spannende Einsätze, moderne Technik und ein starkes Team, das sich aufeinander verlassen kann.\n\nAufgaben:\n• Du absolvierst die 18-monatige Ausbildung, welche in Lehrgangs- und Praktikumsblöcke gegliedert ist\n\n• Du erlernst den Umgang mit neustem technischem Material, um in Notlagen von Menschen und Tieren gezielt Hilfe leisten zu können\n\n• Du schliesst den Lehrgang zur Berufsfeuerwehrfrau bzw. zum Berufsfeuerwehrmann mit einem eidg. Fachausweis ab\n\n• Nach bestandener Prüfung bieten wir dir eine interessante und abwechslungsreiche Tätigkeit im 24h-Schichtdienst zum Wohl und Schutz unserer Bevölkerung\n\n• Du hast die Möglichkeit, dich persönlich und beruflich weiterzuentwickeln\n\nAnforderungen:\n• Abgeschlossene berufliche Grundbildung EFZ, Matura oder höhere Ausbildung\n\n• Du bist bei Stellenantritt zwischen 24 und 32 Jahre jung\n\n• Bei Stellenantritt bist du im Besitz der Führerausweiskategorien B und C\n\n• Du hast ein sehr guter Gesundheitszustand, normale Seh- und Hörschärfe und bist physisch und psychisch belastbar\n\n• Deine ausgeprägte Teamfähigkeit und überdurchschnittliche Leistungsbereitschaft zeichnen dich aus\n\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift, gute Informatik Anwenderkenntnisse sowie handwerkliche Fertigkeiten mit\n\n• Ein einwandfreier Leumund ist unerlässlich\n\n• Deine Bewerbungsunterlagen beinhalten mindestens einen Lebenslauf mit Referenzen, ein Motivationsschreiben, Arbeitszeugnisse und Diplome, eine Kopie deines Führerausweises, einen Strafregisterauszug sowie einen IVZ-Registerauszug\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Vous ne cherchez pas un travail ordinaire, mais une tâche avec responsabilité, esprit d'équipe et sens réel? Protection et sauvetage Bern est à la recherche de personnalités engagées, résilientes et prêtes à apprendre qui sont prêtes à se préparer intensément à la profession polyvalente de pompier professionnel pendant la formation de 18 mois. Vous pouvez vous attendre à une période d'entraînement passionnante et instructive, des missions passionnantes, une technologie moderne et une équipe forte qui peut compter sur l'autre.\n\nTâches :\n• Vous terminerez la formation de 18 mois, qui est divisée en modules de cours et de stages\n\n• Vous apprendrez à utiliser le matériel technique le plus récent pour fournir une aide ciblée dans les situations d'urgence des personnes et des animaux\n\n• Vous fermez le cours au pompier professionnel ou au pompier professionnel avec une loi fédérale. Carte spécialisée\n\n• Après l'examen, nous vous proposons une activité intéressante et variée dans le service de 24 heures pour le bien-être et la protection de notre population.\n\n• Vous avez la possibilité de vous développer personnellement et professionnellement\n\nExigences\n• Formation professionnelle de base terminée EFZ, Matura ou enseignement supérieur\n\n• Vous avez entre 24 et 32 ans quand vous commencez votre travail\n\n• En entrant dans l'emploi, vous serez en possession des catégories de permis de conduire B et C\n\n• Vous avez une très bonne santé, une acuité visuelle et auditive normale et êtes physiquement et psychologiquement résistant\n\n• Votre solide travail d'équipe et votre volonté supérieure à la moyenne de vous distinguer\n\n• Vous apportez de très bonnes compétences allemandes en paroles et en écriture, de bonnes connaissances des utilisateurs d'informatique et des compétences artisanales\n\n• Une réputation impeccable est essentielle\n\n• Vos documents de candidature contiennent au moins un CV avec références, une lettre de motivation, des certificats d'emploi et des diplômes, une copie de votre permis de conduire, un casier judiciaire et un dossier IVZ\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:19:28.020Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Murtenstrasse 98",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis/e71551d2-9f79-43c4-8db9-c68cf37fbb52",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-01T09:11:55.853Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -712,7 +712,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-3/9e256239-a03c-4fd9-b970-697475902627",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.993Z",
+      "crawledAt": "2026-10-28T21:19:28.019Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -793,7 +793,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/co-schulleitung-zyklus-2/8665fed7-0cd9-4aaf-b09b-240bc2a50c59",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.992Z",
+      "crawledAt": "2026-10-28T21:19:28.018Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -843,6 +843,81 @@
       }
     },
     {
+      "id": "stadt-bern-22f81e70eca9",
+      "slug": "assistente-specialista-struttura-sportiva-nord-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "assistente-specialista-struttura-sportiva-nord-stadt-bern-bern",
+        "en": "specialist-assistant-sports-facility-north-stadt-bern-bern",
+        "de": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
+        "fr": "assistant-specialiste-des-installations-sportives-nord-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Fachmitarbeiter*in Sportanlage Nord",
+      "titleByLocale": {
+        "it": "Assistente Specialista Struttura Sportiva Nord",
+        "en": "Specialist Assistant Sports Facility North",
+        "de": "Fachmitarbeiter*in Sportanlage Nord",
+        "fr": "Assistant spécialiste des installations sportives Nord"
+      },
+      "description": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Ti aspettiamo il 1 marzo 2027 o su appuntamento\n\nCompiti:\n• Gestire e mantenere edifici e impianti tecnici\n\n• Eseguire attività di manutenzione\n\n• Pulisci le aree interne ed esterne\n\n• Mantenere e manutenere campi in erba naturale e artificiale con macchine e attrezzature\n\n• Supportare il team in tutto il lavoro amministrativo\n\nRequisiti:\n• Specialista nella manutenzione aziendale EFZ o esperienza in una funzione comparabile\n\n• Metodo di lavoro indipendente, affidabile e preciso, orientato al servizio e al team\n\n• Buona salute e piacere del lavoro legato allo sport\n\n• Buona conoscenza degli utenti di Office\n\n• Disponibilità a lavorare con orario irregolare serale e nei fine settimana\n\n• Patente di guida cat. B\n\nOffriamo:\nPer il significato e la vita cittadina\nCon noi cambi qualcosa. Contribuisci a dare forma alla vita cittadina, ti assumi la responsabilità e rendi Berna più vivibile.\n\nNella città di Berna lavorano insieme oltre 4.500 persone in cinque dipartimenti e più di 80 profili professionali. Ci impegniamo con passione e convinzione a favore delle persone che qui vivono e lavorano. Insieme diamo forma alla comunità e al futuro di questa città: visibile, evidente, sostenibile. Per la nostra città. Per Berna.",
+        "en": "We are looking for you on March 1st, 2027 or by appointment\n\nTasks:\n• Operate and maintain buildings and technical systems\n\n• Perform maintenance tasks\n\n• Clean indoor and outdoor areas\n\n• Maintain and maintain natural and artificial turf fields with machines and equipment\n\n• Support the team in all administrative work\n\nRequirements:\n• Specialist in business maintenance EFZ, or experience in a comparable function\n\n• Independent, reliable and precise way of working, service- and team-oriented\n\n• Robust health and enjoyment of work related to sport\n\n• Good Office user knowledge\n\n• Willingness to work irregular hours in the evenings and weekends\n\n• Driving license Cat. B\n\nWe offer:\nFor meaning & city life\nWith us you change something. You help shape city life, bear responsibility and make Bern more livable.\n\nIn the city of Bern, over 4,500 people work together across five departments and more than 80 job profiles. We are committed with passion and conviction to the people who live here and work here. Together we shape the community and the future of this city - visible, noticeable, sustainable. For our city. For Berne.",
+        "de": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Nous vous recherchons le 1er mars 2027 ou sur rendez-vous\n\nTâches :\n• Exploiter et entretenir les bâtiments et les systèmes techniques\n\n• Effectuer des tâches de maintenance\n\n• Nettoyer les espaces intérieurs et extérieurs\n\n• Entretenir et entretenir les terrains en gazon naturel et artificiel avec des machines et des équipements\n\n• Soutenir l’équipe dans tous les travaux administratifs\n\nExigences:\n• Spécialiste en maintenance d'entreprise EFZ, ou expérience dans une fonction comparable\n\n• Méthode de travail indépendante, fiable et précise, orientée service et équipe\n\n• Bonne santé et plaisir du travail lié au sport\n\n• Bonne connaissance des utilisateurs d'Office\n\n• Volonté de travailler selon des horaires irréguliers le soir et le week-end\n\n• Permis de conduire Cat. B\n\nNous proposons :\nPour le sens et la vie en ville\nAvec nous, vous changez quelque chose. Vous contribuez à façonner la vie urbaine, assumez vos responsabilités et rendez Berne plus agréable à vivre.\n\nDans la ville de Berne, plus de 4'500 personnes travaillent ensemble dans cinq départements et plus de 80 profils de poste. Nous nous engageons avec passion et conviction auprès des personnes qui vivent et travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville - visible, visible et durable. Pour notre ville. Pour Berne."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:19:28.017Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Brünnenstrasse 10",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-05T06:24:57.821Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-fc94e036d0bb",
       "slug": "senior-project-manager-stadt-bern-bern",
       "slugByLocale": {
@@ -874,7 +949,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/senior-projektleiter-in/5733a290-6dac-48ab-a765-b37e8a2c213b",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.991Z",
+      "crawledAt": "2026-10-28T21:19:28.013Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -920,81 +995,6 @@
       }
     },
     {
-      "id": "stadt-bern-22f81e70eca9",
-      "slug": "assistente-specialista-struttura-sportiva-nord-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "assistente-specialista-struttura-sportiva-nord-stadt-bern-bern",
-        "en": "specialist-assistant-sports-facility-north-stadt-bern-bern",
-        "de": "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern",
-        "fr": "assistant-specialiste-des-installations-sportives-nord-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Fachmitarbeiter*in Sportanlage Nord",
-      "titleByLocale": {
-        "it": "Assistente Specialista Struttura Sportiva Nord",
-        "en": "Specialist Assistant Sports Facility North",
-        "de": "Fachmitarbeiter*in Sportanlage Nord",
-        "fr": "Assistant spécialiste des installations sportives Nord"
-      },
-      "description": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Ti aspettiamo il 1 marzo 2027 o su appuntamento\n\nCompiti:\n• Gestire e mantenere edifici e impianti tecnici\n\n• Eseguire attività di manutenzione\n\n• Pulisci le aree interne ed esterne\n\n• Mantenere e manutenere campi in erba naturale e artificiale con macchine e attrezzature\n\n• Supportare il team in tutto il lavoro amministrativo\n\nRequisiti:\n• Specialista nella manutenzione aziendale EFZ o esperienza in una funzione comparabile\n\n• Metodo di lavoro indipendente, affidabile e preciso, orientato al servizio e al team\n\n• Buona salute e piacere del lavoro legato allo sport\n\n• Buona conoscenza degli utenti di Office\n\n• Disponibilità a lavorare con orario irregolare serale e nei fine settimana\n\n• Patente di guida cat. B\n\nOffriamo:\nPer il significato e la vita cittadina\nCon noi cambi qualcosa. Contribuisci a dare forma alla vita cittadina, ti assumi la responsabilità e rendi Berna più vivibile.\n\nNella città di Berna lavorano insieme oltre 4.500 persone in cinque dipartimenti e più di 80 profili professionali. Ci impegniamo con passione e convinzione a favore delle persone che qui vivono e lavorano. Insieme diamo forma alla comunità e al futuro di questa città: visibile, evidente, sostenibile. Per la nostra città. Per Berna.",
-        "en": "We are looking for you on March 1st, 2027 or by appointment\n\nTasks:\n• Operate and maintain buildings and technical systems\n\n• Perform maintenance tasks\n\n• Clean indoor and outdoor areas\n\n• Maintain and maintain natural and artificial turf fields with machines and equipment\n\n• Support the team in all administrative work\n\nRequirements:\n• Specialist in business maintenance EFZ, or experience in a comparable function\n\n• Independent, reliable and precise way of working, service- and team-oriented\n\n• Robust health and enjoyment of work related to sport\n\n• Good Office user knowledge\n\n• Willingness to work irregular hours in the evenings and weekends\n\n• Driving license Cat. B\n\nWe offer:\nFor meaning & city life\nWith us you change something. You help shape city life, bear responsibility and make Bern more livable.\n\nIn the city of Bern, over 4,500 people work together across five departments and more than 80 job profiles. We are committed with passion and conviction to the people who live here and work here. Together we shape the community and the future of this city - visible, noticeable, sustainable. For our city. For Berne.",
-        "de": "Wir suchen dich per 01.03.2027 oder nach Vereinbarung\n\nAufgaben:\n• Gebäude sowie technische Anlagen betreiben und unterhalten\n\n• Instandhaltungsaufgaben ausführen\n\n• Innen- und Aussenbereiche reinigen\n\n• Natur- und Kunstrasenfelder mit Maschinen und Geräten pflegen und unterhalten\n\n• Team in sämtlichen administrativen Arbeiten unterstützen\n\nAnforderungen:\n• Fachmann/-frau Betriebsunterhalt EFZ, oder Erfahrung in vergleichbarer Funktion\n\n• Selbstständige, zuverlässige und exakte Arbeitsweise, dienstleistungs- und teamorientiert\n\n• Robuste Gesundheit und Freude an der Arbeit rund um den Sport\n\n• Gute Office Anwenderkenntnisse\n\n• Bereitschaft für unregelmässige Arbeitszeiten am Abend und Wochenende\n\n• Führerausweis Kat. B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Nous vous recherchons le 1er mars 2027 ou sur rendez-vous\n\nTâches :\n• Exploiter et entretenir les bâtiments et les systèmes techniques\n\n• Effectuer des tâches de maintenance\n\n• Nettoyer les espaces intérieurs et extérieurs\n\n• Entretenir et entretenir les terrains en gazon naturel et artificiel avec des machines et des équipements\n\n• Soutenir l’équipe dans tous les travaux administratifs\n\nExigences:\n• Spécialiste en maintenance d'entreprise EFZ, ou expérience dans une fonction comparable\n\n• Méthode de travail indépendante, fiable et précise, orientée service et équipe\n\n• Bonne santé et plaisir du travail lié au sport\n\n• Bonne connaissance des utilisateurs d'Office\n\n• Volonté de travailler selon des horaires irréguliers le soir et le week-end\n\n• Permis de conduire Cat. B\n\nNous proposons :\nPour le sens et la vie en ville\nAvec nous, vous changez quelque chose. Vous contribuez à façonner la vie urbaine, assumez vos responsabilités et rendez Berne plus agréable à vivre.\n\nDans la ville de Berne, plus de 4'500 personnes travaillent ensemble dans cinq départements et plus de 80 profils de poste. Nous nous engageons avec passion et conviction auprès des personnes qui vivent et travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville - visible, visible et durable. Pour notre ville. Pour Berne."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.991Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Brünnenstrasse 10",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-sportanlage-nord/7d5cb150-b51c-42c6-b112-0fc2de1120f4",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachmitarbeiter-in-sportanlage-nord-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T06:24:57.821Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-227670d6f5fd",
       "slug": "responsabiledi-progetto-in-uso-e-funzionamento-stadt-bern-bern",
       "slugByLocale": {
@@ -1026,7 +1026,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-nutzung-und-betrieb/d4117a12-4cbe-48f2-9ade-bd7a207db253",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.988Z",
+      "crawledAt": "2026-10-28T21:19:28.012Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1102,7 +1102,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/praktikant-in-projekte-portfolio-beratung-administration/02550176-6f15-4ac9-b5e0-ce755ff25c82",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.987Z",
+      "crawledAt": "2026-10-28T21:19:28.011Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1146,81 +1146,6 @@
       }
     },
     {
-      "id": "stadt-bern-6ef2c944bb71",
-      "slug": "gestione-dei-moduli-nell-ambiente-sap-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "gestione-dei-moduli-nell-ambiente-sap-stadt-bern-bern",
-        "en": "module-managers-in-the-sap-environment-stadt-bern-bern",
-        "de": "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern",
-        "fr": "gestionnaires-de-modules-dans-l-environnement-sap-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Modulverantwortliche/n im SAP-Umfeld",
-      "titleByLocale": {
-        "it": "Gestione dei moduli nell'ambiente SAP",
-        "en": "Module managers in the SAP environment",
-        "de": "Modulverantwortliche/n im SAP-Umfeld",
-        "fr": "Gestionnaires de modules dans l'environnement SAP"
-      },
-      "description": "Für den Bereich Business Services SAP suchen wir per 01. Januar 2027 oder nach Vereinbarung eine*n<br/>Modulverantwortliche/n im SAP-Umfeld<br/>80 - 100 %\n\nAufgaben:\n• Nach einer gründlichen Einführung übernimmst du unterschiedliche Betriebs- und Projektaufgaben im Bereich SAP (u.a. Waste & Recycling & Logistikmanagement)\n\n• Du betreust verschiedene SAP Add-ons und SAP Integrationsthemen\n\n• Die Sicherstellung des Betriebs und die Weiterentwicklung der Lösungen in S/4HANA\n\n• Du berätst die interne Kundschaft bei der Aufnahme und Analyse von Bedürfnissen\n\nAnforderungen:\n• Idealerweise Erfahrung im Umfeld von SAP in vergleichbarer Funktion\n\n• Eine Ausbildung in Richtung BWL oder Wirtschaftsinformatik (HF, FH oder vergleichbar)\n\n• Breites IT-Fachwissen und betriebswirtschaftliche Grundkenntnisse\n\n• Erfahrung in der Projektarbeit\n\n• Hohe Planungs-, Organisations- und Kommunikationsfähigkeit\n\n• Lösungsorientierte und initiative Arbeitsweise, Selbständigkeit, hohe Flexibilität, Humor\n\n• Die Stelle kann auch als Junior-Modulverantwortliche*r besetzt werden.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Per i servizi aziendali SAP stiamo cercando 01. Gennaio 2027 o d'accordo a*n <br/>module manager nell'ambiente SAP\n\nCompiti:\n• Dopo un'introduzione approfondita, si prenderanno varie attività operative e di progetto nell'area di SAP (tra cui Waste & Recycling & Logistics Management)\n\n• Gestisci vari componenti aggiuntivi SAP e temi di integrazione SAP\n\n• Garantire il funzionamento e l'ulteriore sviluppo di soluzioni in S/4HANA\n\n• Si consiglia ai clienti interni sulla ricezione e l'analisi delle esigenze\n\nRequisiti\n• Idealmente, l'esperienza nell'ambiente SAP in una funzione paragonabile\n\n• Un apprendistato nell'amministrazione aziendale o nell'informatica aziendale (HF, FH o simili)\n\n• Competenze informatiche e conoscenze di base\n\n• Esperienza nel lavoro di progetto\n\n• Capacità di pianificazione, organizzazione e comunicazione\n\n• Soluzione orientata e metodo di lavoro di iniziativa, indipendenza, alta flessibilità, umorismo\n\n• La posizione può anche essere riempita come Junior Module Manager*r.\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "For Business Services SAP we are looking for 01. January 2027 or by agreement a*n<br/>module manager in the SAP environment<br/>80 - 100%\n\nTasks:\n• After a thorough introduction, you will take on various operational and project tasks in the area of SAP (including Waste & Recycling & Logistics Management)\n\n• You manage various SAP add-ons and SAP integration topics\n\n• Ensuring operation and further development of solutions in S/4HANA\n\n• You advise internal customers on the reception and analysis of needs\n\nRequirements\n• Ideally, experience in the SAP environment in a comparable function\n\n• An apprenticeship in business administration or business informatics (HF, FH or comparable)\n\n• Broad IT expertise and basic business knowledge\n\n• Experience in project work\n\n• High planning, organisational and communication skills\n\n• Solution-oriented and initiative working method, independence, high flexibility, humor\n\n• The position can also be filled as Junior Module Manager*r.\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Für den Bereich Business Services SAP suchen wir per 01. Januar 2027 oder nach Vereinbarung eine*n<br/>Modulverantwortliche/n im SAP-Umfeld<br/>80 - 100 %\n\nAufgaben:\n• Nach einer gründlichen Einführung übernimmst du unterschiedliche Betriebs- und Projektaufgaben im Bereich SAP (u.a. Waste & Recycling & Logistikmanagement)\n\n• Du betreust verschiedene SAP Add-ons und SAP Integrationsthemen\n\n• Die Sicherstellung des Betriebs und die Weiterentwicklung der Lösungen in S/4HANA\n\n• Du berätst die interne Kundschaft bei der Aufnahme und Analyse von Bedürfnissen\n\nAnforderungen:\n• Idealerweise Erfahrung im Umfeld von SAP in vergleichbarer Funktion\n\n• Eine Ausbildung in Richtung BWL oder Wirtschaftsinformatik (HF, FH oder vergleichbar)\n\n• Breites IT-Fachwissen und betriebswirtschaftliche Grundkenntnisse\n\n• Erfahrung in der Projektarbeit\n\n• Hohe Planungs-, Organisations- und Kommunikationsfähigkeit\n\n• Lösungsorientierte und initiative Arbeitsweise, Selbständigkeit, hohe Flexibilität, Humor\n\n• Die Stelle kann auch als Junior-Modulverantwortliche*r besetzt werden.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Pour les services aux entreprises SAP que nous recherchons 01. Janvier 2027 ou par accord a*n<br/>gestionnaire de modules dans l'environnement SAP<br/>80 - 100%\n\nTâches :\n• Après une introduction approfondie, vous assumerez diverses tâches opérationnelles et de projet dans le domaine de SAP (y compris la gestion des déchets et du recyclage et de la logistique)\n\n• Vous gérez divers add-ons SAP et des sujets d'intégration SAP\n\n• Assurer le fonctionnement et le développement de solutions à S/4HANA\n\n• Vous conseillez les clients internes sur la réception et l'analyse des besoins\n\nExigences\n• Idéalement, l'expérience dans l'environnement SAP dans une fonction comparable\n\n• Un apprentissage en administration des affaires ou en informatique des affaires (HF, FH ou comparable)\n\n• Large expertise en TI et connaissances de base en affaires\n\n• Expérience des travaux de projet\n\n• Compétences élevées en matière de planification, d'organisation et de communication\n\n• Méthode de travail axée sur la solution et l'initiative, indépendance, flexibilité élevée, humour\n\n• Le poste peut également être pourvu en tant que gestionnaire de modules junior*r.\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/modulverantwortliche-n-im-sap-umfeld/ee5d0d78-a4cd-45b2-a90f-3735bbe3b805",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.986Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Bümplizstrasse 45",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/modulverantwortliche-n-im-sap-umfeld/ee5d0d78-a4cd-45b2-a90f-3735bbe3b805",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T21:20:51.628Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-b6d4a702bfae",
       "slug": "projektleiter-in-stadt-bern",
       "slugByLocale": {
@@ -1252,7 +1177,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in/b687f675-3140-4ae6-a1cb-940e78ef2a69",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.986Z",
+      "crawledAt": "2026-10-28T21:19:28.010Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1312,6 +1237,161 @@
       }
     },
     {
+      "id": "stadt-bern-6ef2c944bb71",
+      "slug": "gestione-dei-moduli-nell-ambiente-sap-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "gestione-dei-moduli-nell-ambiente-sap-stadt-bern-bern",
+        "en": "module-managers-in-the-sap-environment-stadt-bern-bern",
+        "de": "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern",
+        "fr": "gestionnaires-de-modules-dans-l-environnement-sap-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Modulverantwortliche/n im SAP-Umfeld",
+      "titleByLocale": {
+        "it": "Gestione dei moduli nell'ambiente SAP",
+        "en": "Module managers in the SAP environment",
+        "de": "Modulverantwortliche/n im SAP-Umfeld",
+        "fr": "Gestionnaires de modules dans l'environnement SAP"
+      },
+      "description": "Für den Bereich Business Services SAP suchen wir per 01. Januar 2027 oder nach Vereinbarung eine*n<br/>Modulverantwortliche/n im SAP-Umfeld<br/>80 - 100 %\n\nAufgaben:\n• Nach einer gründlichen Einführung übernimmst du unterschiedliche Betriebs- und Projektaufgaben im Bereich SAP (u.a. Waste & Recycling & Logistikmanagement)\n\n• Du betreust verschiedene SAP Add-ons und SAP Integrationsthemen\n\n• Die Sicherstellung des Betriebs und die Weiterentwicklung der Lösungen in S/4HANA\n\n• Du berätst die interne Kundschaft bei der Aufnahme und Analyse von Bedürfnissen\n\nAnforderungen:\n• Idealerweise Erfahrung im Umfeld von SAP in vergleichbarer Funktion\n\n• Eine Ausbildung in Richtung BWL oder Wirtschaftsinformatik (HF, FH oder vergleichbar)\n\n• Breites IT-Fachwissen und betriebswirtschaftliche Grundkenntnisse\n\n• Erfahrung in der Projektarbeit\n\n• Hohe Planungs-, Organisations- und Kommunikationsfähigkeit\n\n• Lösungsorientierte und initiative Arbeitsweise, Selbständigkeit, hohe Flexibilität, Humor\n\n• Die Stelle kann auch als Junior-Modulverantwortliche*r besetzt werden.\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Per i servizi aziendali SAP stiamo cercando 01. Gennaio 2027 o d'accordo a*n <br/>module manager nell'ambiente SAP\n\nCompiti:\n• Dopo un'introduzione approfondita, si prenderanno varie attività operative e di progetto nell'area di SAP (tra cui Waste & Recycling & Logistics Management)\n\n• Gestisci vari componenti aggiuntivi SAP e temi di integrazione SAP\n\n• Garantire il funzionamento e l'ulteriore sviluppo di soluzioni in S/4HANA\n\n• Si consiglia ai clienti interni sulla ricezione e l'analisi delle esigenze\n\nRequisiti\n• Idealmente, l'esperienza nell'ambiente SAP in una funzione paragonabile\n\n• Un apprendistato nell'amministrazione aziendale o nell'informatica aziendale (HF, FH o simili)\n\n• Competenze informatiche e conoscenze di base\n\n• Esperienza nel lavoro di progetto\n\n• Capacità di pianificazione, organizzazione e comunicazione\n\n• Soluzione orientata e metodo di lavoro di iniziativa, indipendenza, alta flessibilità, umorismo\n\n• La posizione può anche essere riempita come Junior Module Manager*r.\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "For Business Services SAP we are looking for 01. January 2027 or by agreement a*n<br/>module manager in the SAP environment<br/>80 - 100%\n\nTasks:\n• After a thorough introduction, you will take on various operational and project tasks in the area of SAP (including Waste & Recycling & Logistics Management)\n\n• You manage various SAP add-ons and SAP integration topics\n\n• Ensuring operation and further development of solutions in S/4HANA\n\n• You advise internal customers on the reception and analysis of needs\n\nRequirements\n• Ideally, experience in the SAP environment in a comparable function\n\n• An apprenticeship in business administration or business informatics (HF, FH or comparable)\n\n• Broad IT expertise and basic business knowledge\n\n• Experience in project work\n\n• High planning, organisational and communication skills\n\n• Solution-oriented and initiative working method, independence, high flexibility, humor\n\n• The position can also be filled as Junior Module Manager*r.\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Für den Bereich Business Services SAP suchen wir per 01. Januar 2027 oder nach Vereinbarung eine*n<br/>Modulverantwortliche/n im SAP-Umfeld<br/>80 - 100 %\n\nAufgaben:\n• Nach einer gründlichen Einführung übernimmst du unterschiedliche Betriebs- und Projektaufgaben im Bereich SAP (u.a. Waste & Recycling & Logistikmanagement)\n\n• Du betreust verschiedene SAP Add-ons und SAP Integrationsthemen\n\n• Die Sicherstellung des Betriebs und die Weiterentwicklung der Lösungen in S/4HANA\n\n• Du berätst die interne Kundschaft bei der Aufnahme und Analyse von Bedürfnissen\n\nAnforderungen:\n• Idealerweise Erfahrung im Umfeld von SAP in vergleichbarer Funktion\n\n• Eine Ausbildung in Richtung BWL oder Wirtschaftsinformatik (HF, FH oder vergleichbar)\n\n• Breites IT-Fachwissen und betriebswirtschaftliche Grundkenntnisse\n\n• Erfahrung in der Projektarbeit\n\n• Hohe Planungs-, Organisations- und Kommunikationsfähigkeit\n\n• Lösungsorientierte und initiative Arbeitsweise, Selbständigkeit, hohe Flexibilität, Humor\n\n• Die Stelle kann auch als Junior-Modulverantwortliche*r besetzt werden.\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Pour les services aux entreprises SAP que nous recherchons 01. Janvier 2027 ou par accord a*n<br/>gestionnaire de modules dans l'environnement SAP<br/>80 - 100%\n\nTâches :\n• Après une introduction approfondie, vous assumerez diverses tâches opérationnelles et de projet dans le domaine de SAP (y compris la gestion des déchets et du recyclage et de la logistique)\n\n• Vous gérez divers add-ons SAP et des sujets d'intégration SAP\n\n• Assurer le fonctionnement et le développement de solutions à S/4HANA\n\n• Vous conseillez les clients internes sur la réception et l'analyse des besoins\n\nExigences\n• Idéalement, l'expérience dans l'environnement SAP dans une fonction comparable\n\n• Un apprentissage en administration des affaires ou en informatique des affaires (HF, FH ou comparable)\n\n• Large expertise en TI et connaissances de base en affaires\n\n• Expérience des travaux de projet\n\n• Compétences élevées en matière de planification, d'organisation et de communication\n\n• Méthode de travail axée sur la solution et l'initiative, indépendance, flexibilité élevée, humour\n\n• Le poste peut également être pourvu en tant que gestionnaire de modules junior*r.\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/modulverantwortliche-n-im-sap-umfeld/ee5d0d78-a4cd-45b2-a90f-3735bbe3b805",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:19:28.009Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Bümplizstrasse 45",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/modulverantwortliche-n-im-sap-umfeld/ee5d0d78-a4cd-45b2-a90f-3735bbe3b805",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-08T21:20:51.628Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "stadt-bern-b20fea3c78e4",
+      "slug": "giardiniere-a-becchino-a-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "giardiniere-a-becchino-a-stadt-bern-bern",
+        "en": "gardener-gravedigger-stadt-bern-bern",
+        "de": "gartner-in-totengraber-in-stadt-bern-bern",
+        "fr": "jardinier-ere-fossoyeur-euse-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Gärtner*in / Totengräber*in",
+      "titleByLocale": {
+        "it": "Giardiniere/a / becchino/a",
+        "en": "Gardener / Gravedigger",
+        "de": "Gärtner*in / Totengräber*in",
+        "fr": "Jardinier·ère / Fossoyeur·euse"
+      },
+      "description": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Du führst Erdbestattungen- und Urnenbeisetzungen durch\n\n• Du machst Kontroll- und Pflegerundgänge über die neuen Gräber und zugewiesenen Grabfelder\n\n• Du pflegst und unterhältst die Friedhofanlage\n\n• Du bepflanzt die Gräber nach Saison\n\n• Du bedienst sämtliche zur Verfügung stehenden Maschinen\n\nAnforderungen:\n• Berufslehre als Gärtner*in, Fachrichtung Garten- und Landschaftsbau oder Forstwart*in/Landwirt*in\n\n• Interesse am pietätvollen Umgang mit Verstorbenen und Hinterbliebenen\n\n• Selbstständig und zuverlässig\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Siamo alla ricerca di voi immediatamente o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Fai i funerali e i funerali della terra\n\n• Prenderai il controllo e la cura delle nuove tombe e dei campi di sepoltura assegnati\n\n• Ti interessa e mantieni il cimitero\n\n• Pianta le tombe per stagione\n\n• Opera tutte le macchine disponibili\n\nRequisiti\n• Apprendistato professionale come giardiniere, specializzazione in giardinaggio e paesaggistica o foresta manager/agricoltore\n\n• Interessato al rispetto del trattamento dei defunti e dei superstiti\n\n• Lavoratori autonomi e affidabili\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
+        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you immediately or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• You carry out earth funerals and urn funerals\n\n• You will take control and care tours of the new tombs and assigned burial fields\n\n• You care for and maintain the cemetery\n\n• You plant the graves by season\n\n• You operate all available machines\n\nRequirements\n• Vocational apprenticeship as a gardener, specialisation in gardening and landscaping or forest manager/farmer\n\n• Interested in respectful treatment of the deceased and survivors\n\n• Self-employed and reliable\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
+        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Du führst Erdbestattungen- und Urnenbeisetzungen durch\n\n• Du machst Kontroll- und Pflegerundgänge über die neuen Gräber und zugewiesenen Grabfelder\n\n• Du pflegst und unterhältst die Friedhofanlage\n\n• Du bepflanzt die Gräber nach Saison\n\n• Du bedienst sämtliche zur Verfügung stehenden Maschinen\n\nAnforderungen:\n• Berufslehre als Gärtner*in, Fachrichtung Garten- und Landschaftsbau oder Forstwart*in/Landwirt*in\n\n• Interesse am pietätvollen Umgang mit Verstorbenen und Hinterbliebenen\n\n• Selbstständig und zuverlässig\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "Nous rendons Bern plus belle, colorée et vivante. Voulez-vous nous soutenir ? Nous sommes à votre recherche immédiatement ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Vous effectuez des enterrements de terre et des enterrements d'urne\n\n• Vous prendrez le contrôle et le soin des visites des nouvelles tombes et des champs de sépulture assignés\n\n• Vous gardez et maintenez le cimetière\n\n• Vous plantez les tombes par saison\n\n• Vous utilisez toutes les machines disponibles\n\nExigences\n• Apprentissage professionnel en tant que jardinier, spécialisation en jardinage et aménagement paysager ou en gestion forestière/agriculteur\n\n• Intéressé au traitement respectueux du défunt et des survivants\n\n• Travailleurs indépendants et fiables\n\n• Joy de travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/gaertner-in-totengraeber-in/f26ff8b0-e1db-4bf6-a894-89cd2acc68a4",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:19:28.008Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Murtenstrasse 51",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in-totengraeber-in/f26ff8b0-e1db-4bf6-a894-89cd2acc68a4",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gartner-in-totengraber-in-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-totengraber-in-stadt-bern-bern"
+        ],
+        "en": [
+          "gartner-in-totengraber-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "gartner-in-totengraber-in-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-13T09:15:50.477Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-c7cae288c926",
       "slug": "educatore-trice-sociale-jolly-stadt-bern-bern",
       "slugByLocale": {
@@ -1342,7 +1422,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/springer-in-sozialpaedagogik/fa6109c0-54a8-49da-8561-9626db5b48aa",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.985Z",
+      "crawledAt": "2026-10-28T21:19:28.008Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1394,86 +1474,6 @@
       }
     },
     {
-      "id": "stadt-bern-b20fea3c78e4",
-      "slug": "giardiniere-a-becchino-a-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "giardiniere-a-becchino-a-stadt-bern-bern",
-        "en": "gardener-gravedigger-stadt-bern-bern",
-        "de": "gartner-in-totengraber-in-stadt-bern-bern",
-        "fr": "jardinier-ere-fossoyeur-euse-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Gärtner*in / Totengräber*in",
-      "titleByLocale": {
-        "it": "Giardiniere/a / becchino/a",
-        "en": "Gardener / Gravedigger",
-        "de": "Gärtner*in / Totengräber*in",
-        "fr": "Jardinier·ère / Fossoyeur·euse"
-      },
-      "description": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Du führst Erdbestattungen- und Urnenbeisetzungen durch\n\n• Du machst Kontroll- und Pflegerundgänge über die neuen Gräber und zugewiesenen Grabfelder\n\n• Du pflegst und unterhältst die Friedhofanlage\n\n• Du bepflanzt die Gräber nach Saison\n\n• Du bedienst sämtliche zur Verfügung stehenden Maschinen\n\nAnforderungen:\n• Berufslehre als Gärtner*in, Fachrichtung Garten- und Landschaftsbau oder Forstwart*in/Landwirt*in\n\n• Interesse am pietätvollen Umgang mit Verstorbenen und Hinterbliebenen\n\n• Selbstständig und zuverlässig\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "Facciamo Berna più bella, colorata e vivibile. Vuoi sostenerci? Siamo alla ricerca di voi immediatamente o su appuntamento, se il lavoro di giardinaggio è la vostra passione e siete alla ricerca di un compito con un lavoro significativo così come soluzioni di lavoro individuali che si adattano alle vostre esigenze.\n\nCompiti:\n• Fai i funerali e i funerali della terra\n\n• Prenderai il controllo e la cura delle nuove tombe e dei campi di sepoltura assegnati\n\n• Ti interessa e mantieni il cimitero\n\n• Pianta le tombe per stagione\n\n• Opera tutte le macchine disponibili\n\nRequisiti\n• Apprendistato professionale come giardiniere, specializzazione in giardinaggio e paesaggistica o foresta manager/agricoltore\n\n• Interessato al rispetto del trattamento dei defunti e dei superstiti\n\n• Lavoratori autonomi e affidabili\n\n• Gioia del lavoro pratico all'aperto in qualsiasi tempo\n\n• Titolo di guida della categoria B\n\nOffriamo:\nPer senso e vita della città\nCon noi cambi qualcosa. Aiutate a plasmare la vita della città, assumete la responsabilità e rendete Berna più vivibile.\n\nNella città di Berna, più di 4.500 persone lavorano insieme in cinque directory e oltre 80 profili di lavoro. Ci impegniamo con passione e convinzione per le persone che vivono qui, che lavorano qui. Insieme formiamo la comunità e il futuro di questa città – visibile, tangibile, sostenibile. per la nostra città. Per Bern.",
-        "en": "We make Bern more beautiful, colorful and liveable. Do you want to support us in this? We are looking for you immediately or by appointment, if gardening work is your passion and you are looking for a task with meaningful work as well as individual working time solutions that suit your needs.\n\nTasks:\n• You carry out earth funerals and urn funerals\n\n• You will take control and care tours of the new tombs and assigned burial fields\n\n• You care for and maintain the cemetery\n\n• You plant the graves by season\n\n• You operate all available machines\n\nRequirements\n• Vocational apprenticeship as a gardener, specialisation in gardening and landscaping or forest manager/farmer\n\n• Interested in respectful treatment of the deceased and survivors\n\n• Self-employed and reliable\n\n• Joy of practical outdoor work in any weather\n\n• Category B driving licence\n\nWe offer:\nFor sense and city life\nWith us you change something. You help shape city life, carry responsibility and make Bern more liveable.\n\nIn the city of Bern, more than 4,500 people work together across five directorates and more than 80 job profiles. We are committed with passion and conviction to the people who live here, who work here. Together we shape the community and the future of this city – visible, tangible, sustainable. for our city. For Bern.",
-        "de": "Wir machen Bern schöner, farbiger und lebenswerter. Willst du uns dabei unterstützen? Wir suchen genau dich per sofort oder nach Vereinbarung, wenn gärtnerische Arbeiten deine Leidenschaft sind und du ein Aufgabengebiet mit sinnstiftender Tätigkeit sowie individuellen Arbeitszeitlösungen suchst, die zu deinen Bedürfnissen passen.\n\nAufgaben:\n• Du führst Erdbestattungen- und Urnenbeisetzungen durch\n\n• Du machst Kontroll- und Pflegerundgänge über die neuen Gräber und zugewiesenen Grabfelder\n\n• Du pflegst und unterhältst die Friedhofanlage\n\n• Du bepflanzt die Gräber nach Saison\n\n• Du bedienst sämtliche zur Verfügung stehenden Maschinen\n\nAnforderungen:\n• Berufslehre als Gärtner*in, Fachrichtung Garten- und Landschaftsbau oder Forstwart*in/Landwirt*in\n\n• Interesse am pietätvollen Umgang mit Verstorbenen und Hinterbliebenen\n\n• Selbstständig und zuverlässig\n\n• Freude an praktischer Arbeit im Freien bei jeder Witterung\n\n• Führerausweis Kategorie B\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "Nous rendons Bern plus belle, colorée et vivante. Voulez-vous nous soutenir ? Nous sommes à votre recherche immédiatement ou sur rendez-vous, si le travail de jardinage est votre passion et vous êtes à la recherche d'une tâche avec un travail significatif ainsi que des solutions de temps de travail individuel qui répondent à vos besoins.\n\nTâches :\n• Vous effectuez des enterrements de terre et des enterrements d'urne\n\n• Vous prendrez le contrôle et le soin des visites des nouvelles tombes et des champs de sépulture assignés\n\n• Vous gardez et maintenez le cimetière\n\n• Vous plantez les tombes par saison\n\n• Vous utilisez toutes les machines disponibles\n\nExigences\n• Apprentissage professionnel en tant que jardinier, spécialisation en jardinage et aménagement paysager ou en gestion forestière/agriculteur\n\n• Intéressé au traitement respectueux du défunt et des survivants\n\n• Travailleurs indépendants et fiables\n\n• Joy de travail pratique en plein air par tous les temps\n\n• Permis de conduire de catégorie B\n\nNous offrons:\nPour le sens et la vie urbaine\nAvec nous, tu changes quelque chose. Vous aidez à façonner la vie de la ville, à porter des responsabilités et à rendre Berne plus vivante.\n\nDans la ville de Berne, plus de 4 500 personnes travaillent ensemble dans cinq directions et plus de 80 profils d'emploi. Nous sommes engagés avec passion et conviction envers les gens qui vivent ici, qui travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville – visible, tangible, durable. pour notre ville. Pour Bern."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/gaertner-in-totengraeber-in/f26ff8b0-e1db-4bf6-a894-89cd2acc68a4",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.984Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Murtenstrasse 51",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/gaertner-in-totengraeber-in/f26ff8b0-e1db-4bf6-a894-89cd2acc68a4",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-totengraber-in-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-totengraber-in-stadt-bern-bern"
-        ],
-        "en": [
-          "gartner-in-totengraber-in-stadt-bern-bern"
-        ],
-        "fr": [
-          "gartner-in-totengraber-in-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T09:15:50.477Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-5e3aa20dd601",
       "slug": "posto-di-apprendistato-come-logistico-a-afc-cfp-stadt-bern-bern",
       "slugByLocale": {
@@ -1505,7 +1505,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-eba/b391d93e-c9b1-4b2a-844f-774a6428be42",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.983Z",
+      "crawledAt": "2026-10-28T21:19:28.007Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1587,7 +1587,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/ict-fachspezialist-in-support-digitalisierung/96a5a836-ebdc-40f0-a0ba-f6784f9efab2",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.982Z",
+      "crawledAt": "2026-10-28T21:19:28.006Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1670,7 +1670,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/leitung-kommunikation/0b32d669-c13e-4c17-a5a6-e3042abacc81",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.981Z",
+      "crawledAt": "2026-10-28T21:19:28.005Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1720,87 +1720,6 @@
       }
     },
     {
-      "id": "stadt-bern-2b096e79bab1",
-      "slug": "responsabile-di-sezione-per-la-protezione-degli-adulti-stadt-bern-bern",
-      "slugByLocale": {
-        "it": "responsabile-di-sezione-per-la-protezione-degli-adulti-stadt-bern-bern",
-        "en": "section-head-adult-protection-stadt-bern-bern",
-        "de": "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern",
-        "fr": "responsable-de-section-protection-de-l-adulte-stadt-bern-bern"
-      },
-      "company": "Stadt Bern",
-      "companyKey": "stadt-bern",
-      "companyDomain": "bern.ch",
-      "title": "Sektionsleiter*in Erwachsenenschutz",
-      "titleByLocale": {
-        "it": "Responsabile di sezione per la protezione degli adulti",
-        "en": "Section Head, Adult Protection",
-        "de": "Sektionsleiter*in Erwachsenenschutz",
-        "fr": "Responsable de section Protection de l’adulte"
-      },
-      "description": "In Folge Stellenausbau und Gründung einer zusätzlichen Sektion, suchen wir dich, als Verstärkung für unser Leitungsteam im Erwachsenenschutz.\n\nAufgaben:\n• Personelle, fachliche und organisatorische Führung von Beistandspersonen\n\n• Mitgestalten und Weiterentwickeln des Bereichs Erwachsenenschutz\n\n• Umsetzen, Überprüfen und Weiterentwickeln von Abläufen und Standards\n\n• Führen von Erwachsenenschutzmassnahmen\n\n• Vertreten und Repräsentieren der Organisation nach aussen\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Mehrjährige Berufserfahrung im Bereich Erwachsenenschutz sowie Führungserfahrung\n\n• Freude an der Arbeit mit Klient*innen in herausfordernden Lebenssituationen\n\n• Ausgeprägte planerische und organisatorische Fähigkeiten sowie hohe Sozial- und Fachkompetenz\n\n• Flexibilität, Belastbarkeit, ausgeprägtes Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-      "descriptionByLocale": {
-        "it": "In seguito all'ampliamento delle mansioni e alla creazione di una sezione aggiuntiva, cerchiamo te per entrare a far parte del nostro team di gestione della protezione degli adulti.\n\nCompiti:\n• Gestione personale, tecnica e organizzativa del personale di supporto\n\n• Contribuire a modellare e sviluppare ulteriormente l’area della protezione degli adulti\n\n• Implementazione, controllo e ulteriore sviluppo di processi e standard\n\n• Attuazione di misure di protezione degli adulti\n\n• Rappresentare e rappresentare l'organizzazione all'esterno\n\nRequisiti:\n• Laurea in assistenza sociale o titolo comparabile\n\n• Diversi anni di esperienza professionale nel campo della protezione degli adulti, nonché esperienza di leadership\n\n• Divertiti a lavorare con i clienti in situazioni di vita difficili\n\n• Forti capacità di pianificazione e organizzazione, nonché elevate competenze sociali e tecniche\n\n• Flessibilità, resilienza, forti capacità organizzative e ottime capacità di comunicazione\n\nOffriamo:\nPer il significato e la vita cittadina\nCon noi cambi qualcosa. Contribuisci a dare forma alla vita cittadina, ti assumi la responsabilità e rendi Berna più vivibile.\n\nNella città di Berna lavorano insieme oltre 4.500 persone in cinque dipartimenti e più di 80 profili professionali. Ci impegniamo con passione e convinzione a favore delle persone che qui vivono e lavorano. Insieme diamo forma alla comunità e al futuro di questa città: visibile, evidente, sostenibile. Per la nostra città. Per Berna.",
-        "en": "As a result of job expansion and the establishment of an additional section, we are looking for you to join our management team in adult protection.\n\nTasks:\n• Personal, technical and organizational management of support staff\n\n• Helping to shape and further develop the area of ​​adult protection\n\n• Implementing, checking and further developing processes and standards\n\n• Carrying out adult protection measures\n\n• Represent and represent the organization externally\n\nRequirements:\n• Degree in social work or comparable degree\n\n• Several years of professional experience in the field of adult protection as well as leadership experience\n\n• Enjoy working with clients in challenging life situations\n\n• Strong planning and organizational skills as well as high social and technical skills\n\n• Flexibility, resilience, strong organizational skills and very good communication skills\n\nWe offer:\nFor meaning & city life\nWith us you change something. You help shape city life, bear responsibility and make Bern more livable.\n\nIn the city of Bern, over 4,500 people work together across five departments and more than 80 job profiles. We are committed with passion and conviction to the people who live here and work here. Together we shape the community and the future of this city - visible, noticeable, sustainable. For our city. For Berne.",
-        "de": "In Folge Stellenausbau und Gründung einer zusätzlichen Sektion, suchen wir dich, als Verstärkung für unser Leitungsteam im Erwachsenenschutz.\n\nAufgaben:\n• Personelle, fachliche und organisatorische Führung von Beistandspersonen\n\n• Mitgestalten und Weiterentwickeln des Bereichs Erwachsenenschutz\n\n• Umsetzen, Überprüfen und Weiterentwickeln von Abläufen und Standards\n\n• Führen von Erwachsenenschutzmassnahmen\n\n• Vertreten und Repräsentieren der Organisation nach aussen\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Mehrjährige Berufserfahrung im Bereich Erwachsenenschutz sowie Führungserfahrung\n\n• Freude an der Arbeit mit Klient*innen in herausfordernden Lebenssituationen\n\n• Ausgeprägte planerische und organisatorische Fähigkeiten sowie hohe Sozial- und Fachkompetenz\n\n• Flexibilität, Belastbarkeit, ausgeprägtes Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
-        "fr": "À la suite de l'expansion des emplois et de la mise en place d'une section supplémentaire, nous recherchons que vous vous joigniez à notre équipe de direction en protection des adultes.\n\nTâches :\n• Gestion personnelle, technique et organisationnelle du personnel de support\n\n• Contribuer à façonner et à développer davantage le domaine de la protection des adultes\n\n• Mettre en œuvre, vérifier et développer des processus et des normes\n\n• Réaliser des mesures de protection des adultes\n\n• Représenter et représenter l'organisation à l'extérieur\n\nExigences:\n• Diplôme en travail social ou diplôme comparable\n\n• Plusieurs années d'expérience professionnelle dans le domaine de la protection des adultes ainsi qu'une expérience en leadership\n\n• Aimer travailler avec des clients dans des situations de vie difficiles\n\n• Solides compétences en matière de planification et d'organisation ainsi que de hautes compétences sociales et techniques\n\n• Flexibilité, résilience, solides compétences organisationnelles et très bonnes compétences en communication\n\nNous proposons :\nPour le sens et la vie en ville\nAvec nous, vous changez quelque chose. Vous contribuez à façonner la vie urbaine, assumez vos responsabilités et rendez Berne plus agréable à vivre.\n\nDans la ville de Berne, plus de 4'500 personnes travaillent ensemble dans cinq départements et plus de 80 profils de poste. Nous nous engageons avec passion et conviction auprès des personnes qui vivent et travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville - visible, visible et durable. Pour notre ville. Pour Berne."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bern.ch/offene-stellen/sektionsleiter-in-erwachsenenschutz/55297f2a-0bd9-410f-9c26-839cfee2db77",
-      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.979Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Predigergasse 10",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bern.ch/offene-stellen/sektionsleiter-in-erwachsenenschutz/55297f2a-0bd9-410f-9c26-839cfee2db77",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
-        ],
-        "en": [
-          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
-        ],
-        "fr": [
-          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T21:20:51.608Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 115000,
-          "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "stadt-bern-cf108caa9bfe",
       "slug": "educatore-trice-per-bambini-e-giovani-stadt-bern-bern",
       "slugByLocale": {
@@ -1831,7 +1750,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/kinder-jugendbetreuer-in/53200d08-e517-4648-a05b-354bd9b84439",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.979Z",
+      "crawledAt": "2026-10-28T21:19:28.003Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1883,6 +1802,87 @@
       }
     },
     {
+      "id": "stadt-bern-2b096e79bab1",
+      "slug": "responsabile-di-sezione-per-la-protezione-degli-adulti-stadt-bern-bern",
+      "slugByLocale": {
+        "it": "responsabile-di-sezione-per-la-protezione-degli-adulti-stadt-bern-bern",
+        "en": "section-head-adult-protection-stadt-bern-bern",
+        "de": "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern",
+        "fr": "responsable-de-section-protection-de-l-adulte-stadt-bern-bern"
+      },
+      "company": "Stadt Bern",
+      "companyKey": "stadt-bern",
+      "companyDomain": "bern.ch",
+      "title": "Sektionsleiter*in Erwachsenenschutz",
+      "titleByLocale": {
+        "it": "Responsabile di sezione per la protezione degli adulti",
+        "en": "Section Head, Adult Protection",
+        "de": "Sektionsleiter*in Erwachsenenschutz",
+        "fr": "Responsable de section Protection de l’adulte"
+      },
+      "description": "In Folge Stellenausbau und Gründung einer zusätzlichen Sektion, suchen wir dich, als Verstärkung für unser Leitungsteam im Erwachsenenschutz.\n\nAufgaben:\n• Personelle, fachliche und organisatorische Führung von Beistandspersonen\n\n• Mitgestalten und Weiterentwickeln des Bereichs Erwachsenenschutz\n\n• Umsetzen, Überprüfen und Weiterentwickeln von Abläufen und Standards\n\n• Führen von Erwachsenenschutzmassnahmen\n\n• Vertreten und Repräsentieren der Organisation nach aussen\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Mehrjährige Berufserfahrung im Bereich Erwachsenenschutz sowie Führungserfahrung\n\n• Freude an der Arbeit mit Klient*innen in herausfordernden Lebenssituationen\n\n• Ausgeprägte planerische und organisatorische Fähigkeiten sowie hohe Sozial- und Fachkompetenz\n\n• Flexibilität, Belastbarkeit, ausgeprägtes Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\n Bei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+      "descriptionByLocale": {
+        "it": "In seguito all'ampliamento delle mansioni e alla creazione di una sezione aggiuntiva, cerchiamo te per entrare a far parte del nostro team di gestione della protezione degli adulti.\n\nCompiti:\n• Gestione personale, tecnica e organizzativa del personale di supporto\n\n• Contribuire a modellare e sviluppare ulteriormente l’area della protezione degli adulti\n\n• Implementazione, controllo e ulteriore sviluppo di processi e standard\n\n• Attuazione di misure di protezione degli adulti\n\n• Rappresentare e rappresentare l'organizzazione all'esterno\n\nRequisiti:\n• Laurea in assistenza sociale o titolo comparabile\n\n• Diversi anni di esperienza professionale nel campo della protezione degli adulti, nonché esperienza di leadership\n\n• Divertiti a lavorare con i clienti in situazioni di vita difficili\n\n• Forti capacità di pianificazione e organizzazione, nonché elevate competenze sociali e tecniche\n\n• Flessibilità, resilienza, forti capacità organizzative e ottime capacità di comunicazione\n\nOffriamo:\nPer il significato e la vita cittadina\nCon noi cambi qualcosa. Contribuisci a dare forma alla vita cittadina, ti assumi la responsabilità e rendi Berna più vivibile.\n\nNella città di Berna lavorano insieme oltre 4.500 persone in cinque dipartimenti e più di 80 profili professionali. Ci impegniamo con passione e convinzione a favore delle persone che qui vivono e lavorano. Insieme diamo forma alla comunità e al futuro di questa città: visibile, evidente, sostenibile. Per la nostra città. Per Berna.",
+        "en": "As a result of job expansion and the establishment of an additional section, we are looking for you to join our management team in adult protection.\n\nTasks:\n• Personal, technical and organizational management of support staff\n\n• Helping to shape and further develop the area of ​​adult protection\n\n• Implementing, checking and further developing processes and standards\n\n• Carrying out adult protection measures\n\n• Represent and represent the organization externally\n\nRequirements:\n• Degree in social work or comparable degree\n\n• Several years of professional experience in the field of adult protection as well as leadership experience\n\n• Enjoy working with clients in challenging life situations\n\n• Strong planning and organizational skills as well as high social and technical skills\n\n• Flexibility, resilience, strong organizational skills and very good communication skills\n\nWe offer:\nFor meaning & city life\nWith us you change something. You help shape city life, bear responsibility and make Bern more livable.\n\nIn the city of Bern, over 4,500 people work together across five departments and more than 80 job profiles. We are committed with passion and conviction to the people who live here and work here. Together we shape the community and the future of this city - visible, noticeable, sustainable. For our city. For Berne.",
+        "de": "In Folge Stellenausbau und Gründung einer zusätzlichen Sektion, suchen wir dich, als Verstärkung für unser Leitungsteam im Erwachsenenschutz.\n\nAufgaben:\n• Personelle, fachliche und organisatorische Führung von Beistandspersonen\n\n• Mitgestalten und Weiterentwickeln des Bereichs Erwachsenenschutz\n\n• Umsetzen, Überprüfen und Weiterentwickeln von Abläufen und Standards\n\n• Führen von Erwachsenenschutzmassnahmen\n\n• Vertreten und Repräsentieren der Organisation nach aussen\n\nAnforderungen:\n• Studium in Sozialer Arbeit oder vergleichbarer Abschluss\n\n• Mehrjährige Berufserfahrung im Bereich Erwachsenenschutz sowie Führungserfahrung\n\n• Freude an der Arbeit mit Klient*innen in herausfordernden Lebenssituationen\n\n• Ausgeprägte planerische und organisatorische Fähigkeiten sowie hohe Sozial- und Fachkompetenz\n\n• Flexibilität, Belastbarkeit, ausgeprägtes Organisationsgeschick und sehr gute Kommunikationsfähigkeit\n\nWir bieten:\nFür Sinn & Stadtleben\nBei uns veränderst du etwas. Du gestaltest das Stadtleben mit, trägst Verantwortung und machst Bern lebenswerter.\n\nIn der Stadt Bern arbeiten über 4'500 Menschen verteilt auf fünf Direktionen und mehr als 80 Berufsbilder zusammen. Wir engagieren uns mit Leidenschaft und Überzeugung für die Menschen, die hier leben, die hier arbeiten. Gemeinsam gestalten wir die Gemeinschaft und die Zukunft dieser Stadt – sichtbar, spürbar, nachhaltig. Für unsere Stadt. Für Bern.",
+        "fr": "À la suite de l'expansion des emplois et de la mise en place d'une section supplémentaire, nous recherchons que vous vous joigniez à notre équipe de direction en protection des adultes.\n\nTâches :\n• Gestion personnelle, technique et organisationnelle du personnel de support\n\n• Contribuer à façonner et à développer davantage le domaine de la protection des adultes\n\n• Mettre en œuvre, vérifier et développer des processus et des normes\n\n• Réaliser des mesures de protection des adultes\n\n• Représenter et représenter l'organisation à l'extérieur\n\nExigences:\n• Diplôme en travail social ou diplôme comparable\n\n• Plusieurs années d'expérience professionnelle dans le domaine de la protection des adultes ainsi qu'une expérience en leadership\n\n• Aimer travailler avec des clients dans des situations de vie difficiles\n\n• Solides compétences en matière de planification et d'organisation ainsi que de hautes compétences sociales et techniques\n\n• Flexibilité, résilience, solides compétences organisationnelles et très bonnes compétences en communication\n\nNous proposons :\nPour le sens et la vie en ville\nAvec nous, vous changez quelque chose. Vous contribuez à façonner la vie urbaine, assumez vos responsabilités et rendez Berne plus agréable à vivre.\n\nDans la ville de Berne, plus de 4'500 personnes travaillent ensemble dans cinq départements et plus de 80 profils de poste. Nous nous engageons avec passion et conviction auprès des personnes qui vivent et travaillent ici. Ensemble, nous façonnons la communauté et l'avenir de cette ville - visible, visible et durable. Pour notre ville. Pour Berne."
+      },
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bern.ch/offene-stellen/sektionsleiter-in-erwachsenenschutz/55297f2a-0bd9-410f-9c26-839cfee2db77",
+      "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:19:28.002Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Predigergasse 10",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.bern.ch/offene-stellen/sektionsleiter-in-erwachsenenschutz/55297f2a-0bd9-410f-9c26-839cfee2db77",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-08T21:20:51.608Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "stadt-bern-f85ce2927471",
       "slug": "co-dirigente-scolastico-a-ciclo-1-stadt-bern-bern",
       "slugByLocale": {
@@ -1914,7 +1914,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/co-schulleiter-in-zyklus-1/197dc481-67ec-4e22-b24b-8119870315b7",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.978Z",
+      "crawledAt": "2026-10-28T21:19:28.001Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1995,7 +1995,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/tierpfleger-in-fachrichtung-wildtierpflege/8feb9673-1e70-44a6-9624-e032d5868143",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.977Z",
+      "crawledAt": "2026-10-28T21:19:28.000Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2078,7 +2078,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/berufsbeistandspersonen-erwachsenenschutz/54a87209-bb47-4ea9-91c3-ab0c04de00ee",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.976Z",
+      "crawledAt": "2026-10-28T21:19:27.999Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2159,7 +2159,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/vorarbeiter-in-baumpflege/1c75d449-b5d5-44d0-bc3d-0aee734a4768",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.975Z",
+      "crawledAt": "2026-10-28T21:19:27.998Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2239,7 +2239,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/florist-in/b5d98f9a-2df6-46e9-97b6-03c955b9827a",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.973Z",
+      "crawledAt": "2026-10-28T21:19:27.997Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2319,7 +2319,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/praktikant-in-verkehrsplanung/b2327e82-ee46-4471-91ae-69ebbe89e107",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.972Z",
+      "crawledAt": "2026-10-28T21:19:27.995Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2394,7 +2394,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachspezialist-in-subsidiaritaet-und-auskunft/fc8f16ff-bb3f-40b5-8acb-e4edc1d72016",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.971Z",
+      "crawledAt": "2026-10-28T21:19:27.994Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2477,7 +2477,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitarbeiter-in-rueckzugsraum-schuetzenmatte-oder-a/97d60574-89c1-4ab7-84ad-877015e690f0",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.970Z",
+      "crawledAt": "2026-10-28T21:19:27.993Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2551,7 +2551,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/fachmitarbeiter-in-hausdienst/ffaf215c-3504-4df8-b447-30a0dc5b8c08",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.969Z",
+      "crawledAt": "2026-10-28T21:19:27.992Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2630,7 +2630,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-sportanlagen/fbaede8b-3300-4fa3-8117-7c518ab658b8",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.968Z",
+      "crawledAt": "2026-10-28T21:19:27.991Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2713,7 +2713,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/geschaeftsleiter-in-kommissionen/facae2cd-c815-4ccb-8862-75c8658aa2de",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.967Z",
+      "crawledAt": "2026-10-28T21:19:27.990Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2794,7 +2794,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/ict-supporter-in-2nd-level/419c65dd-e259-4d8b-9760-eafd38beb5d2",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.966Z",
+      "crawledAt": "2026-10-28T21:19:27.989Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2871,7 +2871,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/jobcoach-personalvermittlerin-personalvermittler/aa777a41-78cf-459a-bafa-1eeaa0db168c",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.965Z",
+      "crawledAt": "2026-10-28T21:19:27.987Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2952,7 +2952,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialarbeiter-in/4ef3a8ad-b2e6-4c7d-bf3f-13b2bb17e2ea",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.964Z",
+      "crawledAt": "2026-10-28T21:19:27.986Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3033,7 +3033,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/projektleiter-in-erhaltungsmanagement-strasse/839404c1-ab5a-44f1-9080-03ae8dc777eb",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.963Z",
+      "crawledAt": "2026-10-28T21:19:27.984Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3114,7 +3114,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/sozialpaedagog-in/dd10b8ab-265d-4cb7-918e-43a2b2c094b5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:02:29.957Z",
+      "crawledAt": "2026-10-28T21:19:27.971Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
