@@ -102,7 +102,7 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(install).not.toContain('CLAUDE_CODE_OAUTH_TOKEN');
   });
 
-  it('resumes the checksum-pinned Node download across bounded retries in both setup actions', () => {
+  it('resumes the checksum-pinned Node download with validated HTTP ranges in both setup actions', () => {
     for (const candidatePath of [actionPath, fallbackActionPath]) {
       const document = YAML.parse(fs.readFileSync(candidatePath, 'utf8')) as {
         runs?: { steps?: Array<{ id?: string; run?: string }> };
@@ -111,18 +111,22 @@ describe('Codex Luna Max article lane setup action', () => {
         step.id === 'trusted_toolchain' || step.id === 'trusted_node'
       )?.run ?? '';
       const transferBudget = candidatePath === actionPath
-        ? /--connect-timeout 15 --max-time 60 --retry 2 --retry-delay 3/u
-        : /--connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5/u;
-      const retryBudget = candidatePath === actionPath ? '--retry-max-time 120' : '--retry-max-time 900';
-      expect(resolver, candidatePath).toMatch(transferBudget);
-      expect(resolver, candidatePath).toContain(retryBudget);
-      expect(resolver, candidatePath).toContain('--continue-at -');
+        ? 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 3 60 15'
+        : 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 6 120 20';
+      expect(resolver, candidatePath).toContain(transferBudget);
+      expect(resolver, candidatePath).toContain('download_pinned_node_archive()');
+      expect(resolver, candidatePath).toContain('--range "${archive_size}-"');
+      expect(resolver, candidatePath).toContain('--dump-header "$headers_path"');
+      expect(resolver, candidatePath).toContain('content-range:*');
+      expect(resolver, candidatePath).toContain('range_start');
+      expect(resolver, candidatePath).toContain('/usr/bin/cat -- "$part_path" >> "$destination"');
+      expect(resolver, candidatePath).not.toContain('--continue-at -');
       expect(resolver, candidatePath).toContain('node_archive_sha256=');
       expect(resolver, candidatePath).toContain('sha256sum');
       if (candidatePath === actionPath) {
         expect(resolver).toContain('disable_codex_lane()');
         expect(resolver).toContain('CODEX_ARTICLE_LANE_GATE=0');
-        expect(resolver).toContain('if ! /usr/bin/curl');
+        expect(resolver).toContain('if ! download_pinned_node_archive');
       }
     }
   });

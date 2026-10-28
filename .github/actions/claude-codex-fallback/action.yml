@@ -145,7 +145,7 @@ runs:
           Linux:x86_64) ;;
           *) echo '::error::Codex primary requires Ubuntu Linux x64.'; exit 1 ;;
         esac
-        for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/cut /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/dirname /usr/bin/realpath /usr/bin/stat /usr/bin/tr /usr/bin/timeout /usr/bin/tee; do
+        for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/cut /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/dirname /usr/bin/realpath /usr/bin/stat /usr/bin/tr /usr/bin/timeout /usr/bin/tee /usr/bin/touch /usr/bin/mv /usr/bin/cat /usr/bin/sleep; do
           [ -x "$host_tool" ] || { echo "::error::Required root-owned host tool is unavailable: $host_tool"; exit 1; }
         done
         realpath_cmd=/usr/bin/realpath
@@ -165,14 +165,85 @@ runs:
         printf 'node_runtime_root=%s\n' "$node_runtime_root" >> "$GITHUB_OUTPUT"
         archive_path="$node_runtime_root/$node_archive"
         # Keep every transfer attempt bounded, but resume a partial archive
-        # when nodejs.org is slow. The checksum below remains the final
-        # integrity gate, while the 15-minute retry window stays bounded for
-        # callers that share this Codex setup class (the event-rewrite run
-        # 40636386276 reached 15.3 MB of 31.9 MB before the old window expired).
-        /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
-          --connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5 \
-          --retry-max-time 900 --continue-at - \
-          --output "$archive_path" "$node_url"
+        # with explicit HTTP ranges. curl's internal retry loop can replace a
+        # partial response with a fresh response, so it can spend all 15
+        # minutes without monotonic progress (run 40662122968). A partial
+        # 206 response is appended only after Content-Range proves that it
+        # starts at the current file size; the checksum below remains the
+        # final integrity gate.
+        download_pinned_node_archive() {
+          local url="$1" destination="$2" temp_root="$3" max_attempts="$4" max_time="$5" connect_timeout="$6"
+          local attempt=1 archive_size part_path headers_path response_code curl_status
+          local content_range range_spec range_start range_end range_total range_valid
+          local expected_chunk_size part_size new_size header_line
+          /usr/bin/touch -- "$destination"
+          part_path="$temp_root/node-archive-part"
+          headers_path="$temp_root/node-archive-headers"
+          while [ "$attempt" -le "$max_attempts" ]; do
+            archive_size="$(/usr/bin/stat -c '%s' -- "$destination" 2>/dev/null || printf '0')"
+            : > "$part_path"
+            : > "$headers_path"
+            set +e
+            response_code="$(/usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+              --connect-timeout "$connect_timeout" --max-time "$max_time" \
+              --range "${archive_size}-" --dump-header "$headers_path" \
+              --write-out '%{http_code}' --output "$part_path" "$url")"
+            curl_status=$?
+            set -e
+            content_range=''
+            while IFS= read -r header_line; do
+              case "${header_line,,}" in
+                content-range:*)
+                  content_range="${header_line#*:}"
+                  content_range="${content_range//$'\r'/}"
+                  content_range="${content_range#"${content_range%%[![:space:]]*}"}"
+                  ;;
+              esac
+            done < "$headers_path"
+            case "$response_code" in
+              200)
+                if [ "$curl_status" -eq 0 ]; then
+                  part_size="$(/usr/bin/stat -c '%s' -- "$part_path" 2>/dev/null || printf '0')"
+                  if [ "$part_size" -gt 0 ]; then
+                    /usr/bin/mv -- "$part_path" "$destination"
+                    return 0
+                  fi
+                fi
+                ;;
+              206)
+                range_spec="${content_range#bytes }"
+                range_start="${range_spec%%-*}"
+                range_end="${range_spec#*-}"
+                range_end="${range_end%%/*}"
+                range_total="${range_spec##*/}"
+                range_valid=1
+                for range_value in "$range_start" "$range_end" "$range_total"; do
+                  case "$range_value" in
+                    ''|*[!0-9]*) range_valid=0 ;;
+                  esac
+                done
+                if [ "$range_valid" -eq 1 ] && [ "$range_start" = "$archive_size" ] && \
+                  [ "$range_end" -ge "$range_start" ]; then
+                  expected_chunk_size=$((range_end - range_start + 1))
+                  part_size="$(/usr/bin/stat -c '%s' -- "$part_path" 2>/dev/null || printf '0')"
+                  if [ "$part_size" -gt 0 ] && [ "$part_size" -le "$expected_chunk_size" ]; then
+                    /usr/bin/cat -- "$part_path" >> "$destination"
+                    new_size="$(/usr/bin/stat -c '%s' -- "$destination" 2>/dev/null || printf '0')"
+                    if [ "$new_size" -eq "$range_total" ]; then
+                      return 0
+                    fi
+                  fi
+                fi
+                ;;
+            esac
+            if [ "$attempt" -lt "$max_attempts" ]; then
+              /usr/bin/sleep 5
+            fi
+            attempt=$((attempt + 1))
+          done
+          return 1
+        }
+        download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 6 120 20
         archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | /usr/bin/cut -d ' ' -f 1)"
         if [ "$archive_sha256" != "$node_archive_sha256" ]; then
           echo '::error::Pinned Node archive checksum mismatch.'
