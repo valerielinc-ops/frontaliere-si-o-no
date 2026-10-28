@@ -1,7 +1,7 @@
 {
   "key": "guggerbach",
   "label": "Bistro Guggerzyt",
-  "generatedAt": "2026-10-28T09:21:24.216Z",
+  "generatedAt": "2026-10-28T20:11:17.215Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9454,
-  "avgDurationMs": 9454,
+  "durationMs": 10090,
+  "avgDurationMs": 10090,
   "durationHistory": [
-    9454
+    10090
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:21:08.498Z",
+      "crawledAt": "2026-10-28T20:11:01.725Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:21:08.497Z",
+      "crawledAt": "2026-10-28T20:11:01.724Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:21:08.496Z",
+      "crawledAt": "2026-10-28T20:11:01.723Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:21:08.493Z",
+      "crawledAt": "2026-10-28T20:11:01.720Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -196,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }

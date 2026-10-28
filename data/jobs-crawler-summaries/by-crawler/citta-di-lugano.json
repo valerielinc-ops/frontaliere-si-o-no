@@ -1,16 +1,16 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-10-28T09:24:03.746Z",
+  "generatedAt": "2026-10-28T20:15:14.999Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 7586,
-  "avgDurationMs": 7586,
+  "durationMs": 8086,
+  "avgDurationMs": 8086,
   "durationHistory": [
-    7586
+    8086
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-ea8513996b03",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -83,7 +83,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-41e2e7908aaa",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -126,7 +126,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-c20731cfe618",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -169,7 +169,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-7bd4e52e6830",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -212,7 +212,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-bec9b098286c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -255,7 +255,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-7cfc78c63b9e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -298,7 +298,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-cbe208e81890",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -341,7 +341,7 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "crawledAt": "2026-10-28T09:23:52.412Z",
+      "crawledAt": "2026-10-28T20:15:01.371Z",
       "id": "citta-di-lugano-9a549c4fd9d8",
       "salaryMin": 42000,
       "salaryMax": 77500,
@@ -361,5 +361,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
