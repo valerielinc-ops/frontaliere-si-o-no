@@ -169,6 +169,16 @@ describe('JobBoard wiring preserves public surfaces while derivation is pending'
     expect(source).toContain('returnVisitNewJobsDerivation.pending');
     expect(source).not.toContain('preReturnVisitFilteredJobs.filter(isNewSincePreviousVisit)');
   });
+
+  it('keeps card-to-detail navigation non-urgent until the list can paint', () => {
+    const openDetailStart = source.indexOf('const openDetail = useCallback');
+    const renderCardStart = source.indexOf('const renderJobCard =', openDetailStart);
+    const openDetailSource = source.slice(openDetailStart, renderCardStart);
+
+    expect(openDetailSource).toMatch(
+      /startTransition\(\(\) => \{\s*onJobRouteChange\?\./,
+    );
+  });
 });
 
 describe('JobBoard cluster-seed handoff', () => {
