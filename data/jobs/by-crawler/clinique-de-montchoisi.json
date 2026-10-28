@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-de-montchoisi",
-  "assembledAt": "2026-10-28T21:44:33.721Z",
-  "runId": "40770826204",
+  "assembledAt": "2026-10-28T22:03:32.512Z",
+  "runId": "40775735936",
   "jobs": [
     {
       "id": "clinique-de-montchoisi-c9c29e33dfc8",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:44:27.472Z",
+      "crawledAt": "2026-10-28T22:03:24.386Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -54,6 +54,10 @@
       "postingDateSource": "reported",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assc-clinique-de-montchoisi",
+        "assc-clinique-de-montchoisi-lausanne"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "assc-clinique-de-montchoisi-lausanne"
@@ -62,10 +66,6 @@
           "assc-clinique-de-montchoisi"
         ]
       },
-      "previousSlugs": [
-        "assc-clinique-de-montchoisi",
-        "assc-clinique-de-montchoisi-lausanne"
-      ],
       "firstSeenAt": "2026-09-18T23:20:51.196Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -114,7 +114,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:44:27.471Z",
+      "crawledAt": "2026-10-28T22:03:24.388Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
