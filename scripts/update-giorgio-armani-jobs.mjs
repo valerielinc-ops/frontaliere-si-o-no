@@ -266,7 +266,14 @@ async function discoverSwissJobs(summaryCounts) {
       for (const job of swiss) {
         console.log(`  📄 Rendering Swiss detail: ${job.title} (${job.reqId}) — ${job.country}`);
         const html = await fetchDetailHtml(page, job.reqId);
-        if (!html) continue;
+        if (!html) {
+          // A partial detail response is not a valid snapshot. Publishing the
+          // successfully parsed subset would make the next merge drop the
+          // failed listing, so preserve the existing dataset fail-closed.
+          summaryCounts.parsed = out.length;
+          summaryCounts.abortKind = 'source-extraction-failed';
+          return null;
+        }
         out.push({ ...job, html });
       }
       summaryCounts.parsed = out.length;
