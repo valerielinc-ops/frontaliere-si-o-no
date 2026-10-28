@@ -151,7 +151,11 @@ function sitemapUrlsFromText(text, options) {
   return values;
 }
 
-async function fetchLiveText(url, { attempts = 3, timeoutMs = 15_000 } = {}) {
+async function fetchLiveText(url, {
+  attempts = 3,
+  timeoutMs = 15_000,
+  retryDelayMs = 1_000,
+} = {}) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const response = await fetch(url, {
@@ -162,11 +166,16 @@ async function fetchLiveText(url, { attempts = 3, timeoutMs = 15_000 } = {}) {
         signal: AbortSignal.timeout(timeoutMs),
       });
       if (response.ok) return await response.text();
-      if ((response.status < 500 && response.status !== 429) || attempt === attempts) return null;
+      // A sitemap can be referenced by an index before the edge has finished
+      // propagating the child object. Treat 404 like the other transient
+      // delivery failures here; the caller still fails closed after all
+      // attempts, so a genuinely retired sitemap is never silently omitted.
+      const retryableStatus = response.status === 404 || response.status === 429 || response.status >= 500;
+      if (!retryableStatus || attempt === attempts) return null;
     } catch {
       if (attempt === attempts) return null;
     }
-    await new Promise((resolveSleep) => setTimeout(resolveSleep, 1000 * attempt));
+    await new Promise((resolveSleep) => setTimeout(resolveSleep, retryDelayMs * attempt));
   }
   return null;
 }
@@ -230,6 +239,8 @@ export async function crawlSitemaps({
   seeds,
   requiredSeeds = ['sitemap.xml'],
   strict = source === 'live',
+  fetchAttempts = 3,
+  fetchDelayMs = 1_000,
   logger = console,
 } = {}) {
   if (source === 'local' && !rootDir) {
@@ -238,7 +249,7 @@ export async function crawlSitemaps({
   const options = { baseUrl, host };
   const loader = source === 'local'
     ? makeLocalLoader(rootDir, options)
-    : (url) => fetchLiveText(url);
+    : (url) => fetchLiveText(url, { attempts: fetchAttempts, retryDelayMs: fetchDelayMs });
   let seedValues;
   if (source === 'local') {
     seedValues = seeds || localSitemapSeeds(rootDir, options);
