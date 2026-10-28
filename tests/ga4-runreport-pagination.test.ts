@@ -181,9 +181,9 @@ describe('fetchAttribution (cwv-attribution)', () => {
           return { dimensionValues: [{ value: 'job_detail' }, { value: 'CLS' }, { value: String(i) }, { value: 'mobile' }], metricValues: [{ value: '1' }] };
         }
         if (isSelector(body)) {
-          return { dimensionValues: [{ value: `/p/${i}/` }, { value: 'inp' }, { value: 'main' }, { value: 'pointer' }, { value: `button.${i}|ac1|cc1` }], metricValues: [{ value: '1' }] };
+          return { dimensionValues: [{ value: `/p/${i}/` }, { value: 'inp' }, { value: 'web_vitals.inp.main.pointer' }, { value: `button.${i}|ac1|cc1` }], metricValues: [{ value: '1' }] };
         }
-        return { dimensionValues: [{ value: `/p/${i}/` }, { value: 'cls' }, { value: 'main' }, { value: 'load' }], metricValues: [{ value: '1' }] };
+        return { dimensionValues: [{ value: `/p/${i}/` }, { value: 'cls' }, { value: 'web_vitals.cls.main.load' }], metricValues: [{ value: '1' }] };
       },
     );
     const report = await fetchAttribution({ token: 't', startDate: '2026-09-01', endDate: '2026-09-28', fetchImpl });

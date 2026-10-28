@@ -3,6 +3,7 @@ import {
   AUTOMATION_FLEET_GA4_SIGNATURE,
   AUTOMATION_FLEET_GA4_SIGNATURES,
   buildAutomationFleetExclusion,
+  GA4_NESTED_DIMENSION_LIMIT,
   withAutomationFleetExclusion,
   withAutomationFleetExclusionForFetch,
 } from '../scripts/lib/ga4-automation-fleet.mjs';
@@ -34,6 +35,39 @@ describe('GA4 automation-fleet exclusion', () => {
     const once = withAutomationFleetExclusion({ dimensionFilter: hostFilter });
     expect(once.dimensionFilter).toEqual({ andGroup: { expressions: [hostFilter, buildAutomationFleetExclusion()] } });
     expect(withAutomationFleetExclusion(once)).toBe(once);
+  });
+
+  it('fails closed instead of reducing the fleet signature for a high-dimensional report', () => {
+    const body = {
+      dimensions: [
+        { name: 'pagePath' },
+        { name: 'customEvent:section' },
+        { name: 'customEvent:component' },
+        { name: 'customEvent:action' },
+        { name: 'customEvent:details' },
+        { name: 'deviceCategory' },
+      ],
+    };
+    expect(() => withAutomationFleetExclusion(body)).toThrow(
+      `complete automation-fleet exclusion within the ${GA4_NESTED_DIMENSION_LIMIT}-dimension budget`,
+    );
+  });
+
+  it('does not let idempotence bypass the dimension budget', () => {
+    const body = {
+      dimensions: [
+        { name: 'pagePath' },
+        { name: 'customEvent:section' },
+        { name: 'customEvent:component' },
+        { name: 'customEvent:action' },
+        { name: 'customEvent:details' },
+        { name: 'deviceCategory' },
+      ],
+      dimensionFilter: buildAutomationFleetExclusion(),
+    };
+    expect(() => withAutomationFleetExclusion(body)).toThrow(
+      `complete automation-fleet exclusion within the ${GA4_NESTED_DIMENSION_LIMIT}-dimension budget`,
+    );
   });
 
   it('rewrites runReport and batchRunReports bodies but leaves other Google APIs alone', () => {
