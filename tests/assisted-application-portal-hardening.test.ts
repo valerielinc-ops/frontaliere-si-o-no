@@ -57,13 +57,13 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       title,
       'Sie können nun Ihren Lebenslauf hochladen.',
       ...snapshot.fields.map((field) => field.label),
-      url,
     ].join('\n');
 
     expect(hasApplicationSurface(snapshot)).toBe(true);
     expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url).next).toEqual(expect.objectContaining({ text: 'Weiter' }));
-    expect(formPostingMatch(formText, job)).toBe('match');
-    expect(formPostingMatch(formText.replace('rhb-career', 'other-career'), job)).toBe('mismatch');
+    expect(postingMatch('Senior Engineer Weiter', { company: 'Ferrovia Retica (RhB)', title: 'Senior Engineer' }, url)).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url })).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url.replace('rhb-career', 'other-career') })).toBe('mismatch');
     expect(formPostingMatch(formText, {
       ...job,
       title: 'Rangiermitarbeiter/in (50-100%)',

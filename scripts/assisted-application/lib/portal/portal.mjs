@@ -735,12 +735,13 @@ function titleMatches(pageText, title) {
  * evidence when the job title is also present: a tenant alone must never turn
  * a generic portal page into this posting's form.
  */
-function talentSoftEmployerAliasMatches(pageText, job = {}) {
+function talentSoftEmployerAliasMatches(pageText, job = {}, pageUrl = '') {
   const aliases = [...String(job.company || '').matchAll(/\(([^)]+)\)/g)]
     .flatMap(([, alias]) => nameWords(alias))
     .filter((alias) => alias.length >= 3);
   if (!aliases.length || !titleMatches(pageText, job.title)) return false;
-  const urls = String(pageText || '').match(/\bhttps?:\/\/[^\s"'<>]+/gi) || [];
+  const urls = [pageUrl, ...(String(pageText || '').match(/\bhttps?:\/\/[^\s"'<>]+/gi) || [])]
+    .filter(Boolean);
   return urls.some((raw) => {
     try {
       const hostname = new URL(raw.replace(/[),.;]+$/, '')).hostname;
@@ -763,14 +764,14 @@ function talentSoftEmployerAliasMatches(pageText, job = {}) {
  * ("Infermiere/a" = "Infermiera": same word but the last two letters).
  * 'unknown' when the order names neither.
  */
-export function postingMatch(pageText, job = {}) {
+export function postingMatch(pageText, job = {}, pageUrl = '') {
   const company = nameWords(job.company);
   const title = nameWords(job.title).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
     const named = ` ${nameWords(pageText).join(' ')} `;
-    return named.includes(` ${company.join(' ')} `) || talentSoftEmployerAliasMatches(pageText, job) ? 'match' : 'mismatch';
+    return named.includes(` ${company.join(' ')} `) || talentSoftEmployerAliasMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
   return titleMatches(pageText, job.title) ? 'match' : 'mismatch';
 }
@@ -897,13 +898,13 @@ export function namesAnotherEmployer(formText, job = {}) {
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
-export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false } = {}) {
-  const direct = postingMatch(formText, job);
+export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false, pageUrl = '' } = {}) {
+  const direct = postingMatch(formText, job, pageUrl);
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
   if (postingEntry) return 'match';
-  return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
+  return postingMatch(formText, { title: job.title }, pageUrl) === 'match' ? 'match' : 'mismatch';
 }
 
 // A send button that names an application: «Submit final application»,
@@ -3216,21 +3217,23 @@ export async function submitViaPortal(ctx) {
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
     // the page: the posting is the order's.
-    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }) === 'match';
-    const postingNamed = postingMatch(postingSeen, ctx.job) === 'match' || namedByItsData;
+    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
+    const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
     const formMatch = async () => {
-      const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
+      const pageUrl = page.url();
+      const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${pageUrl}`;
       const result = formPostingMatch(seen, ctx.job, {
         postingMatched: postingNamed && (page.url() !== postingUrl || enteredFromMatchingPosting),
         postingEntry: postingNamed && enteredFromMatchingPosting,
+        pageUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
+      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
       return result;
     };
     const pendingOtpAccount = async (current) => {
