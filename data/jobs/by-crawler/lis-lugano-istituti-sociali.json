@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-10-28T20:05:09.614Z",
-  "runId": "40758186396",
+  "assembledAt": "2026-10-28T21:30:04.170Z",
+  "runId": "40769766021",
   "jobs": [
     {
       "title": "Addetti servizi alla casa",
@@ -43,7 +43,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-28T20:04:38.451Z",
+      "crawledAt": "2026-10-28T21:29:34.880Z",
       "requirementsByLocale": {},
       "sourceLang": "it",
       "currency": "CHF",
@@ -135,7 +135,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-28T20:04:37.077Z",
+      "crawledAt": "2026-10-28T21:29:33.573Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "cuochi-lis-lugano-istituti-sociali-lugano",
@@ -241,7 +241,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-28T20:04:35.702Z",
+      "crawledAt": "2026-10-28T21:29:32.251Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-pregassona-0rvbn5",
@@ -338,7 +338,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-10-28T20:04:34.325Z",
+      "crawledAt": "2026-10-28T21:29:30.934Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona-arxo48",
@@ -437,7 +437,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-28T20:04:32.946Z",
+      "crawledAt": "2026-10-28T21:29:29.615Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1",
@@ -494,7 +494,8 @@
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=39-operatori-socioassistenziali-infanza-pregassona&language=it",
       "postedDate": "2026-01-25",
-      "postingDateSource": "reported"
+      "postingDateSource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Educatori sociali",
@@ -536,7 +537,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-28T20:04:31.579Z",
+      "crawledAt": "2026-10-28T21:29:28.304Z",
       "requirementsByLocale": {
         "en": [
           "Swiss citizenship or foreigners with a work permit",
@@ -665,7 +666,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-28T20:04:30.203Z",
+      "crawledAt": "2026-10-28T21:29:26.977Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona-qdaggp",
@@ -762,7 +763,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-10-28T20:04:28.816Z",
+      "crawledAt": "2026-10-28T21:29:25.667Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona-6skb5e",
@@ -770,8 +771,8 @@
         "operatori-settore-animazione-lis-lugano-istituti-sociali-lugano",
         "operateurs-du-secteur-du-divertissement-lis-lugano-istituti-sociali-pregassona",
         "operators-in-the-entertainment-sector-lis-lugano-istituti-sociali-pregassona",
-        "operatori-settore-animazione",
-        "betreiber-im-unterhaltungssektor-lis-lugano-istituti-sociali-pregassona"
+        "betreiber-im-unterhaltungssektor-lis-lugano-istituti-sociali-pregassona",
+        "operatori-settore-animazione"
       ],
       "sourceLang": "it",
       "currency": "CHF",
@@ -861,7 +862,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-28T20:04:27.438Z",
+      "crawledAt": "2026-10-28T21:29:24.349Z",
       "requirementsByLocale": {
         "en": [
           "Swiss citizenship or foreign nationals with a work permit",
@@ -899,8 +900,8 @@
         "collaborateurs-de-sante-lis-lugano-istituti-sociali-pregassona",
         "kindergartner-lis-lugano-istituti-sociali-pregassona",
         "collaboratori-sanitari-lis-lugano-istituti-sociali-lugano",
-        "collaboratori-sanitari",
-        "agents-de-sante-lis-lugano-istituti-sociali-pregassona"
+        "agents-de-sante-lis-lugano-istituti-sociali-pregassona",
+        "collaboratori-sanitari"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -1013,7 +1014,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-28T20:04:26.073Z",
+      "crawledAt": "2026-10-28T21:29:23.035Z",
       "requirementsByLocale": {},
       "sourceLang": "it",
       "currency": "CHF",
@@ -1064,8 +1065,8 @@
         "assistenti-di-cura-lis-lugano-istituti-sociali-lugano",
         "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
         "assistente-di-cura-lis-lugano-istituti-sociali-pregassona",
-        "pflegehelfer-lis-lugano-istituti-sociali-pregassona",
-        "aides-soignants-lis-lugano-istituti-sociali-pregassona"
+        "aides-soignants-lis-lugano-istituti-sociali-pregassona",
+        "pflegehelfer-lis-lugano-istituti-sociali-pregassona"
       ],
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
@@ -1112,7 +1113,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-28T20:04:24.688Z",
+      "crawledAt": "2026-10-28T21:29:21.735Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona-ceayh7",
@@ -1203,7 +1204,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-28T20:04:23.478Z",
+      "crawledAt": "2026-10-28T21:29:20.561Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "infermieri-lis-lugano-istituti-sociali-lugano",
@@ -1299,7 +1300,7 @@
       "salaryMax": 109645,
       "salaryCurrency": "CHF",
       "salaryClass": "16",
-      "crawledAt": "2026-10-28T20:04:22.268Z",
+      "crawledAt": "2026-10-28T21:29:19.374Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "capireparto-lis-lugano-istituti-sociali-lugano",
