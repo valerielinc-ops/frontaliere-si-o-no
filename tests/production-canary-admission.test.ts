@@ -94,6 +94,28 @@ describe('production-canary-admission', () => {
     expect(selected.map((candidate) => candidate.id)).toEqual([321]);
   });
 
+  it('retries a status page whose count is stale during a run transition', async () => {
+    let queuedRequests = 0;
+    const fetchImpl = async (url: string) => {
+      const parsed = new URL(url);
+      const status = parsed.searchParams.get('status');
+      if (status === 'queued') {
+        queuedRequests += 1;
+        if (queuedRequests === 1) {
+          return new Response(JSON.stringify({ total_count: 1, workflow_runs: [] }), { status: 200 });
+        }
+      }
+      return new Response(JSON.stringify({ total_count: 0, workflow_runs: [] }), { status: 200 });
+    };
+
+    await expect(readActiveProductionWriters({
+      repository: 'example/repo',
+      token: 'test-token',
+      fetchImpl,
+    })).resolves.toEqual([]);
+    expect(queuedRequests).toBe(2);
+  });
+
   it('rejects an unreadable GitHub API response instead of admitting the probe', async () => {
     const fetchImpl = async () => new Response('{}', { status: 200 });
     await expect(readActiveProductionWriters({
