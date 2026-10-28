@@ -109233,7 +109233,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-allarme-popolazione-165-milioni': {
     title: 'Allarme popolazione: 165,4 mln per modernizzazione',
-    description: 'Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell',
+    description: 'Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, mentre competenze e finanziamento delle sirene passeranno ai Cantoni. Il cell broadcast integrerà l’allerta esistente.',
     keywords: 'frontalieri, ticino, svizzera, italia, allarme, popolazione, modernizzazione, consiglio',
     ogTitle: 'Allarme popolazione: 165,4 mln per modernizzazione',
     ogDescription: 'Il Consiglio federale chiede 165,4 milioni di franchi.',
@@ -109242,7 +109242,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Allarme popolazione: 165,4 mln per modernizzazione",
-      "description": "Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell",
+      "description": "Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, mentre competenze e finanziamento delle sirene passeranno ai Cantoni. Il cell broadcast integrerà l’allerta esistente.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
