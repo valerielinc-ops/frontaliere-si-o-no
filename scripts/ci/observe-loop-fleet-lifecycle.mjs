@@ -128,7 +128,7 @@ function defaultGhJsonRun(fullArgs) {
   return execFileSync('gh', fullArgs, {
     encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
-    stdio: ['ignore', 'pipe', 'inherit'],
+    stdio: ['ignore', 'pipe', 'pipe'],
   });
 }
 
