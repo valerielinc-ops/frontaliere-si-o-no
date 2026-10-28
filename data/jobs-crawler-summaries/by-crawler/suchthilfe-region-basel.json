@@ -1,7 +1,7 @@
 {
   "key": "suchthilfe-region-basel",
   "label": "Suchthilfe Region Basel",
-  "generatedAt": "2026-10-28T09:19:02.951Z",
+  "generatedAt": "2026-10-28T20:04:57.983Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 4695,
-  "avgDurationMs": 4695,
+  "unchangedCount": 2,
+  "durationMs": 5374,
+  "avgDurationMs": 5374,
   "durationHistory": [
-    4695
+    5374
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "suchthilfe-region-basel-9ee6eb185429",
       "slug": "servizio-infermieristico-60-80-suchthilfe-region-basel-reinach",
@@ -32,12 +30,13 @@
       "companyKey": "suchthilfe-region-basel",
       "companyDomain": "suchthilfe.ch",
       "title": "Pflegefachperson Tagdienst 60-80%",
+      "needsRetranslation": true,
       "location": "Reinach",
       "canton": "BL",
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/10/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:18:43.777Z",
+      "crawledAt": "2026-10-28T20:04:45.778Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -65,7 +64,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "suchthilfe-region-basel-43102fd8f94b",
       "slug": "gastfamilien-per-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel",
@@ -79,7 +81,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:18:43.250Z",
+      "crawledAt": "2026-10-28T20:04:45.205Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -121,7 +123,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:18:42.715Z",
+      "crawledAt": "2026-10-28T20:04:44.650Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -151,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
