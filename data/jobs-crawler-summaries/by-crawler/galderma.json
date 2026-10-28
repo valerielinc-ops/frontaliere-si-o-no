@@ -1,7 +1,7 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-10-27T21:40:45.627Z",
+  "generatedAt": "2026-10-28T09:50:26.305Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7311,
-  "avgDurationMs": 7311,
+  "durationMs": 7526,
+  "avgDurationMs": 7526,
   "durationHistory": [
-    7311
+    7526
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "galderma-58c28018924d",
       "slug": "customer-service-specialist-galderma-ch",
@@ -29,13 +30,12 @@
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
       "title": "Customer Service Specialist",
-      "needsRetranslation": true,
       "location": "Zug",
       "canton": "ZG",
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:40:30.862Z",
+      "crawledAt": "2026-10-28T09:50:14.444Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -52,22 +52,21 @@
       "postingDateSource": "reported",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "jobReqId": "JR021258",
+      "firstSeenAt": "2026-10-27T21:40:30.862Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-27T21:40:30.862Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }

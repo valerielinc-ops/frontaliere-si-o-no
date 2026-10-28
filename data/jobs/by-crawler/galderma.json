@@ -1,7 +1,7 @@
 {
   "crawlerKey": "galderma",
-  "assembledAt": "2026-10-27T21:40:36.604Z",
-  "runId": "40586406642",
+  "assembledAt": "2026-10-28T09:50:19.735Z",
+  "runId": "40663733739",
   "jobs": [
     {
       "id": "galderma-58c28018924d",
@@ -34,7 +34,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:40:30.862Z",
+      "crawledAt": "2026-10-28T09:50:14.444Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -51,9 +51,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "JR021258",
       "salaryMin": 69500,
       "salaryMax": 106000,

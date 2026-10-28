@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.admin.ch/offene-stellen/stv-chef-kriminalpolizei/86ca4dff-6fcb-4082-8015-9b22ab8447b4",
     "https://jobs.admin.ch/offene-stellen/devsecops-ict-ingenieur-in-junior/e988eeb1-c988-458f-809c-b2c0572f6cc5",
     "https://jobs.admin.ch/offene-stellen/devsecops-ict-ingenieur-in-professional/f04c4790-dee8-43b3-be7c-267d3d1447a8",
     "https://jobs.admin.ch/offene-stellen/ict-architekt-in-senior-safety/ec157164-8a90-4a8f-b64c-1fa364ea2ec3",
@@ -18,12 +19,12 @@
     "https://jobs.admin.ch/offene-stellen/rz-techniker-in-tga-mechanik/88777c7d-f15c-4b6a-a83f-f2d3557bacae",
     "https://jobs.admin.ch/offene-stellen/local-information-system-security-manager/5c40b352-7e59-44bd-b8fb-d516ecd7f2f7",
     "https://jobs.admin.ch/offene-stellen/logistiker-in/2d7168f3-4722-405a-8fb3-eedf59a80c0b",
-    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-avor-persoenliche-ausruestung-retablierung/38ccc5c2-f937-4187-868f-73f3f14db81a",
     "https://jobs.admin.ch/offene-stellen/hochschulpraktikant-in-osint-data-analysis-intelligence-dai/1a62b9db-13c7-4b68-9a28-48759d3c6482",
+    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-avor-persoenliche-ausruestung-retablierung/38ccc5c2-f937-4187-868f-73f3f14db81a",
     "https://jobs.admin.ch/offene-stellen/ict-architekt-in-iii-senior-ict-systems-architect/b6cbbb0d-3972-41fb-ae98-d00e27bdabeb",
     "https://jobs.admin.ch/offene-stellen/logistiker-in-vorortlager/d7c1aa20-c994-406a-a243-6b99e9cb8fe7",
-    "https://jobs.admin.ch/offene-stellen/logistiker-in-schmalganglager/c8b273bf-8ec3-4d86-836e-6511dca4e654",
     "https://jobs.admin.ch/offene-stellen/panzerelektriker-in/359f4264-94fc-4b5c-ab79-3de004175ef8",
+    "https://jobs.admin.ch/offene-stellen/logistiker-in-schmalganglager/c8b273bf-8ec3-4d86-836e-6511dca4e654",
     "https://jobs.admin.ch/offene-stellen/fachspezialist-in-fachstelle-personenwagen/6f205928-0786-4b8a-b31f-f5d769adb4a3",
     "https://jobs.admin.ch/offene-stellen/lernende-r-kaufmann-frau-efz-sportlehre-musiklehre/52550469-140f-419c-8a69-8a8c217d9cfc",
     "https://jobs.admin.ch/offene-stellen/lernende-r-kaufmann-frau-efz/d6965a83-a611-452f-9068-37f9753ddd70",
@@ -31,21 +32,21 @@
     "https://jobs.admin.ch/offene-stellen/elektriker-in-spezialist-in-elektrotechnik/09bf37f5-8199-4b4c-a0d2-b9fc65c60e36",
     "https://jobs.admin.ch/offene-stellen/automobilmechatroniker-in/c923697f-2f8d-48dc-a08e-60d8a3265498",
     "https://jobs.admin.ch/offene-stellen/ict-system-engineer-senior-network-transport/f40ed236-f5b8-41e4-8b29-ef1c2fa1e000",
+    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-verkehrstechnik-und-signalisation/13d52ceb-7144-4f51-8b30-5aeec59b8a1d",
     "https://jobs.admin.ch/offene-stellen/application-manager-in/06bc920b-9c66-4f84-9f88-33a09a0ff75f",
     "https://jobs.admin.ch/offene-stellen/waffenmechaniker-in/401c95e6-2d9e-4da4-a39b-656f23079ee8",
-    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-verkehrstechnik-und-signalisation/13d52ceb-7144-4f51-8b30-5aeec59b8a1d",
     "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-logistik/7e6b326b-1800-4c09-b80c-41cd685cfee2",
     "https://jobs.admin.ch/offene-stellen/ict-system-engineer-senior-device-user-environment/edcf3381-ed33-4463-a9b0-560e1239d0e6",
     "https://jobs.admin.ch/offene-stellen/chef-in-finanzen-qsm-care/af6a37d6-0adc-4151-8f35-17d9c8c93dc1",
-    "https://jobs.admin.ch/offene-stellen/panzermechatroniker-in-schwere-raupenfahrzeuge/ad36888c-19dd-4960-a1a0-2952b09b9f14",
     "https://jobs.admin.ch/offene-stellen/ict-system-engineer-senior-application-mcx-platform/b146f208-dfad-4a85-b76f-bee88b33aacb",
+    "https://jobs.admin.ch/offene-stellen/panzermechatroniker-in-schwere-raupenfahrzeuge/ad36888c-19dd-4960-a1a0-2952b09b9f14",
     "https://jobs.admin.ch/offene-stellen/chef-in-aktionen-cesa/e601cb1c-0c65-43b3-b267-afce0de85f5c",
     "https://jobs.admin.ch/offene-stellen/dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in/8a8b4049-bed8-4342-81a9-869488858863",
     "https://jobs.admin.ch/offene-stellen/automobil-mechatroniker-in/18e162db-26d7-45d8-b445-57431881dc44",
     "https://jobs.admin.ch/offene-stellen/aerztin-arzt-fliegeraerztliches-institut-luftwaffe/53b28a29-7b8d-4298-9ef2-1ecd22d1b804",
+    "https://jobs.admin.ch/offene-stellen/ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator/63dc8829-02fc-4f02-8318-8fc54aca75c0",
     "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-logistik/3d45d475-852c-4da3-bbe5-020a2c96e897",
     "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-hr-admin-2-stellvertretende-r-teamleiter-in/c8c0cd41-8cd6-4383-91ae-146fa9aa8696",
-    "https://jobs.admin.ch/offene-stellen/ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator/63dc8829-02fc-4f02-8318-8fc54aca75c0",
     "https://jobs.admin.ch/offene-stellen/luftfahrzeugmechaniker-in/df1f4c8d-7f95-4dbd-b017-48bd988060fd",
     "https://jobs.admin.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-streitkraeftebeziehungen/f29e7693-075a-4480-9a37-35d3f85cf594",
     "https://jobs.admin.ch/offene-stellen/hochschulpraktikant-in-internationale-ausbildung-und-uebungen/2c5661e7-6dfc-4c06-a34e-c2957077cb72",
@@ -57,8 +58,8 @@
     "https://jobs.admin.ch/offene-stellen/logistiker-in/f2b2c447-60c1-4e3b-a9de-5662085c3670",
     "https://jobs.admin.ch/offene-stellen/chef-in-administration-kanzlei-im-lehrverband-genie-rettung-abc/2740b76a-1127-49a2-98f3-f317cebd2e7b",
     "https://jobs.admin.ch/offene-stellen/ict-test-manager-in-senior/d98cd6a4-bd19-4135-84cf-bb1195378440",
-    "https://jobs.admin.ch/offene-stellen/system-ingenieur-in-luftraumueberwachungssysteme/3e5ee751-587b-4940-929c-c21fe9ba99a4",
     "https://jobs.admin.ch/offene-stellen/hochschulpraktikant-in-portfoliomanagement-cer-ikt/99d09b96-c14b-4711-8973-c49887f68c58",
+    "https://jobs.admin.ch/offene-stellen/system-ingenieur-in-luftraumueberwachungssysteme/3e5ee751-587b-4940-929c-c21fe9ba99a4",
     "https://jobs.admin.ch/offene-stellen/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c",
     "https://jobs.admin.ch/offene-stellen/mechatroniker-in-waffensystem-gepanzerte-fahrzeuge/1998e119-73b0-4b75-ae85-b96699714340",
     "https://jobs.admin.ch/offene-stellen/wissenschaftliche-r-mitarbeiter-in-stv-chef-in-kompetenzzentrum-mkm/9b9da4a5-ed3f-4858-8187-a1cb4a21f830",
@@ -84,78 +85,83 @@
     "https://jobs.admin.ch/offene-stellen/chef-in-managementsupport-infrastruktur/ad45f212-fb02-4b2f-a48f-e6832474c890",
     "https://jobs.admin.ch/offene-stellen/senior-release-train-engineer-infrastructure-and-platform-services/1057f9f5-fe21-4175-a662-4b8a54dbdfee",
     "https://jobs.admin.ch/offene-stellen/logistiker-in/d9106ffb-dd38-4c29-a0df-e7fc66c419fb",
-    "https://jobs.admin.ch/offene-stellen/fahrer-in-car-lkw/9cd7e4b1-ef3d-4253-80dd-70ada9fa9d97",
     "https://jobs.admin.ch/offene-stellen/automobil-mechatroniker-in-fachrichtung-nutzfahrzeuge/5f175cc3-692a-4e21-92d5-3c27cd089449",
-    "https://jobs.admin.ch/offene-stellen/automobil-mechatroniker-in-nutzfahrzeuge/48cc0e92-f41c-4048-9875-14388f769b63",
-    "https://jobs.admin.ch/offene-stellen/aerztin-arzt-rekrutierung-im-rekrutierungszentrum-rueti/ab08c40a-da0f-4ac8-9879-d3e3cb170a94",
-    "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-gebaeudebetrieb-bronschhofen/c797a638-87d2-4095-8a89-31890b49131d",
-    "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-gebaeudebetrieb-duebendorf/394d9115-7e0b-46a3-9aa1-a45a99d9f963",
+    "https://jobs.admin.ch/offene-stellen/fahrer-in-car-lkw/9cd7e4b1-ef3d-4253-80dd-70ada9fa9d97",
     "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-waescherei/d592b025-358b-4715-9f45-61671afb36a4",
     "https://jobs.admin.ch/offene-stellen/kommissaer-in-dpsa-auswertung/6f4c615d-cc60-4386-add2-d239e7257d48",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/175207a9-b5ae-42d2-aa0d-80e41f35906c",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/a00b998e-d88c-496c-91a8-18b65745a5a1",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-personenwagen/e6942463-e363-4e1e-bcf6-4c9eb0cd20e4",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/5cf5f6eb-fab7-4943-8c94-d3dc87034131",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/87d7306e-81a9-4f8f-875f-ad450f4eeeae",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/16e5cbdb-a1e3-4b0e-9d61-49bfe7f16aa9",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/bffa3fac-9fc8-48b0-b7a9-a0e8a6ccf653",
     "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/7e573a5e-b63b-4523-91bf-caf5fdde9d3b",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/a00b998e-d88c-496c-91a8-18b65745a5a1",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/87d7306e-81a9-4f8f-875f-ad450f4eeeae",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/bffa3fac-9fc8-48b0-b7a9-a0e8a6ccf653",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/5cf5f6eb-fab7-4943-8c94-d3dc87034131",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/16e5cbdb-a1e3-4b0e-9d61-49bfe7f16aa9",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-personenwagen/e6942463-e363-4e1e-bcf6-4c9eb0cd20e4",
     "https://jobs.admin.ch/offene-stellen/lernende-r-polymechaniker-in-efz/b2a30774-fe61-4720-ac6d-2220174ffe5a",
     "https://jobs.admin.ch/offene-stellen/fahrer-in-transporthelfer-in/0ea29eec-472f-4f91-a867-40b6a7ba79fd",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-informatiker-in-fachrichtung-plattformentwicklung/141ccb00-e8e4-4900-a8bb-344b395d37e2",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/87a2fdf1-5a31-46d1-ae71-41754d108c68",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-informatiker-in-fachrichtung-plattformentwicklung/141ccb00-e8e4-4900-a8bb-344b395d37e2",
     "https://jobs.admin.ch/offene-stellen/lernende-r-koch-koechin-efz/f056b627-58c6-4f7d-a99f-4bc1f16af78f",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/01d60d89-bf3e-460f-9a5c-1abc8d123377",
-    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/d180e5a6-c674-4d6b-8418-a5a2b98f117c",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/e74b8566-5393-4e09-82a9-626eb999a984",
-    "https://jobs.admin.ch/offene-stellen/2-lernende-kauffrauen-maenner-efz-branche-dienstleistung-und-administration/e7e54d84-3f5e-49e1-9f38-ec400a2be8a2",
-    "https://jobs.admin.ch/offene-stellen/pionier-maurer-m-w/222ebe19-1f85-4762-a4fe-4e387433a9eb",
+    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-bereich-infrastruktur-m-w/83909ec7-a0fd-48f6-abe8-b1792c29d9ba",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/fe3ab121-2167-4b05-b279-de743257ab55",
+    "https://jobs.admin.ch/offene-stellen/uebermittlungs-informatikspezialist-in/793bdd51-2d47-4b3e-a4e0-ca5d4ba656f5",
+    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-gastgewerblichen-bereich-m-w/ab0b76d1-ab5e-4f37-af11-a430a36f17eb",
+    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7",
     "https://jobs.admin.ch/offene-stellen/staff-officers-hq-kfor/82929105-838d-495c-9c5d-8b72405d01da",
     "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau/7e8f2980-6964-4068-9057-847ac35f084c",
+    "https://jobs.admin.ch/offene-stellen/2-lernende-kauffrauen-maenner-efz-branche-dienstleistung-und-administration/e7e54d84-3f5e-49e1-9f38-ec400a2be8a2",
+    "https://jobs.admin.ch/offene-stellen/chief-medical-officer/88e318ea-19a7-4713-929e-d0d28d9a075c",
+    "https://jobs.admin.ch/offene-stellen/pionier-maurer-m-w/222ebe19-1f85-4762-a4fe-4e387433a9eb",
+    "https://jobs.admin.ch/offene-stellen/staff-officer-assessment-so-assessment/b7265446-2d16-4e10-bf8e-21483ec1aa61",
+    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/d180e5a6-c674-4d6b-8418-a5a2b98f117c",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/e74b8566-5393-4e09-82a9-626eb999a984",
+    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783",
+    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
+    "https://jobs.admin.ch/offene-stellen/isr-bataillon-staff-officers/512f9322-d516-4a1f-aef4-7fe0d7449558",
     "https://jobs.admin.ch/offene-stellen/multinational-military-police-mnmp/b5d183eb-19b7-4b4c-b1f0-281fbd98c2c3",
     "https://jobs.admin.ch/offene-stellen/lernende-r-polymechaniker-in-efz/d2f295cf-9b21-40b6-b741-87dcfa3ce15a",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/cd590fb6-132b-4430-acfa-7543b447f35e",
-    "https://jobs.admin.ch/offene-stellen/uebermittlungs-informatikspezialist-in/793bdd51-2d47-4b3e-a4e0-ca5d4ba656f5",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-koch-koechin-efz/1a227faf-4e87-43d5-be12-2f71d29a3634",
-    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-gastgewerblichen-bereich-m-w/ab0b76d1-ab5e-4f37-af11-a430a36f17eb",
-    "https://jobs.admin.ch/offene-stellen/chief-medical-officer/88e318ea-19a7-4713-929e-d0d28d9a075c",
-    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7",
-    "https://jobs.admin.ch/offene-stellen/2-lernende-logistiker-innen-efz-fachrichtung-lager/4c24ff1a-43e9-40d4-ab34-eee893556e33",
+    "https://jobs.admin.ch/offene-stellen/current-ops-staff-officer/38f28d63-d19a-4de4-a411-24b8cbc10fd4",
+    "https://jobs.admin.ch/offene-stellen/offizier-in-fuer-friedensfoerdernde-auslandseinsaetze/c52e5d4c-02a8-40fd-8d90-531dd4550022",
+    "https://jobs.admin.ch/offene-stellen/un-military-expert-on-mission/13fa465a-09cc-4303-83b0-ef7eaf50fbd0",
+    "https://jobs.admin.ch/offene-stellen/stabsoffizier-in-joint-visitors-bureau/4c253690-82d1-47e8-8bda-35c9ce99e178",
     "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/546e728c-e355-4e54-ba69-6e6bd0068f25",
     "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/ea005ce1-effe-4ebc-8aaa-ae297d901436",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/fe3ab121-2167-4b05-b279-de743257ab55",
+    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/403a0ed9-706f-4aa6-b20b-d6dac450a37f",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-koch-koechin-efz/1a227faf-4e87-43d5-be12-2f71d29a3634",
+    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-personenwagen/4f6503df-b600-4b58-a2d0-c85c09d55fef",
+    "https://jobs.admin.ch/offene-stellen/3-lernende-logistiker-innen-efz-fachrichtung-lager/c985f605-3a5e-481d-ad94-5e496af21298",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/01d60d89-bf3e-460f-9a5c-1abc8d123377",
+    "https://jobs.admin.ch/offene-stellen/lkw-automobil-mechatroniker-in/678344cb-36cb-4e4c-bf18-3a8cfd3b3d0f",
     "https://jobs.admin.ch/offene-stellen/humanitaere-minenraeumung-im-bereich-logistik/5bd7d341-fe9c-4187-b73a-eee3a76e9660",
     "https://jobs.admin.ch/offene-stellen/chef-in-tactical-effects-center-chief-tec/754ceb02-122b-4781-86a3-d191982c9f5d",
-    "https://jobs.admin.ch/offene-stellen/staff-officer-assessment-so-assessment/b7265446-2d16-4e10-bf8e-21483ec1aa61",
-    "https://jobs.admin.ch/offene-stellen/un-military-expert-on-mission/13fa465a-09cc-4303-83b0-ef7eaf50fbd0",
-    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883",
-    "https://jobs.admin.ch/offene-stellen/current-ops-staff-officer/38f28d63-d19a-4de4-a411-24b8cbc10fd4",
-    "https://jobs.admin.ch/offene-stellen/stabsoffizier-in-joint-visitors-bureau/4c253690-82d1-47e8-8bda-35c9ce99e178",
-    "https://jobs.admin.ch/offene-stellen/offizier-in-fuer-friedensfoerdernde-auslandseinsaetze/c52e5d4c-02a8-40fd-8d90-531dd4550022",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/403a0ed9-706f-4aa6-b20b-d6dac450a37f",
-    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-bereich-infrastruktur-m-w/83909ec7-a0fd-48f6-abe8-b1792c29d9ba",
-    "https://jobs.admin.ch/offene-stellen/lkw-automobil-mechatroniker-in/678344cb-36cb-4e4c-bf18-3a8cfd3b3d0f",
-    "https://jobs.admin.ch/offene-stellen/isr-bataillon-staff-officers/512f9322-d516-4a1f-aef4-7fe0d7449558",
-    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
-    "https://jobs.admin.ch/offene-stellen/3-lernende-logistiker-innen-efz-fachrichtung-lager/c985f605-3a5e-481d-ad94-5e496af21298",
-    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-personenwagen/4f6503df-b600-4b58-a2d0-c85c09d55fef",
-    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783",
+    "https://jobs.admin.ch/offene-stellen/2-lernende-logistiker-innen-efz-fachrichtung-lager/4c24ff1a-43e9-40d4-ab34-eee893556e33",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/cd590fb6-132b-4430-acfa-7543b447f35e",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/978823f4-e23a-4cfd-9092-88005f3c233b",
-    "https://jobs.admin.ch/offene-stellen/aerztin-arzt/7f7b3dc0-57f8-426b-9ce1-b932fff214a5",
-    "https://jobs.admin.ch/offene-stellen/militaerisches-kaderspersonal-m-w/6c59bb4d-6148-460e-a982-6d5eaab3d2d8",
-    "https://jobs.admin.ch/offene-stellen/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/c7fa954c-29e6-4318-9d6e-9fcfbbb1d4cc",
     "https://jobs.admin.ch/offene-stellen/lernende-r-kaufmann-frau-efz/17c36907-3cf7-4c5c-a656-f0381f29a5c8",
-    "https://jobs.admin.ch/offene-stellen/lernende-r-polymechaniker-in-efz/9637dfac-52ff-418d-84f9-925f5112f710",
-    "https://jobs.admin.ch/offene-stellen/offiziere-fuer-friedensfoerdernde-auslandseinsaetze-m-w/448aa333-1f38-4a1a-b25b-4f1008707480",
     "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/ddc0e869-6e97-4565-9249-4101252aa19a",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-polymechaniker-in-efz/9637dfac-52ff-418d-84f9-925f5112f710",
+    "https://jobs.admin.ch/offene-stellen/militaerisches-kaderspersonal-m-w/6c59bb4d-6148-460e-a982-6d5eaab3d2d8",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/c7fa954c-29e6-4318-9d6e-9fcfbbb1d4cc",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/f18eb6a8-ec4e-4985-a0e7-1af3a2259cde",
     "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/9c6504b9-d7cf-4cc7-b32a-d5f997b06d2b",
+    "https://jobs.admin.ch/offene-stellen/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c",
+    "https://jobs.admin.ch/offene-stellen/offiziere-fuer-friedensfoerdernde-auslandseinsaetze-m-w/448aa333-1f38-4a1a-b25b-4f1008707480",
+    "https://jobs.admin.ch/offene-stellen/aerztin-arzt/7f7b3dc0-57f8-426b-9ce1-b932fff214a5",
     "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-fachrichtung-lager/5392b2dd-8e97-45ba-ae39-5d52ce5375bd",
     "https://jobs.admin.ch/offene-stellen/lernende-r-koch-koechin-efz/d08d7e74-2830-4e0d-bddc-c99c4e048bea",
     "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/4ecc825f-594a-462b-8082-0971eedb621e"
   ],
   "seedMetaByUrl": {
+    "https://jobs.admin.ch/offene-stellen/stv-chef-kriminalpolizei/86ca4dff-6fcb-4082-8015-9b22ab8447b4": {
+      "location": "Sion",
+      "workplaceLocation": "Sion",
+      "canton": "VS",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-10-27T23:00:00Z",
+      "postedDate": "2026-10-27T23:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/offene-stellen/devsecops-ict-ingenieur-in-junior/e988eeb1-c988-458f-809c-b2c0572f6cc5": {
       "location": "Payerne und Meiringen",
       "workplaceLocation": "Payerne",
@@ -227,15 +233,6 @@
       "postedDate": "2026-10-23T09:15:41Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-avor-persoenliche-ausruestung-retablierung/38ccc5c2-f937-4187-868f-73f3f14db81a": {
-      "location": "Hinwil",
-      "workplaceLocation": "Hinwil",
-      "canton": "ZH",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-10-23T08:16:41Z",
-      "postedDate": "2026-10-23T08:16:41Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/offene-stellen/hochschulpraktikant-in-osint-data-analysis-intelligence-dai/1a62b9db-13c7-4b68-9a28-48759d3c6482": {
       "location": "Bern",
       "workplaceLocation": "Bern",
@@ -243,6 +240,15 @@
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-10-23T08:43:03Z",
       "postedDate": "2026-10-23T08:43:03Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-avor-persoenliche-ausruestung-retablierung/38ccc5c2-f937-4187-868f-73f3f14db81a": {
+      "location": "Hinwil",
+      "workplaceLocation": "Hinwil",
+      "canton": "ZH",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-10-23T08:16:41Z",
+      "postedDate": "2026-10-23T08:16:41Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/ict-architekt-in-iii-senior-ict-systems-architect/b6cbbb0d-3972-41fb-ae98-d00e27bdabeb": {
@@ -263,7 +269,7 @@
       "postedDate": "2026-10-20T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/logistiker-in-schmalganglager/c8b273bf-8ec3-4d86-836e-6511dca4e654": {
+    "https://jobs.admin.ch/offene-stellen/panzerelektriker-in/359f4264-94fc-4b5c-ab79-3de004175ef8": {
       "location": "Hinwil",
       "workplaceLocation": "Hinwil",
       "canton": "ZH",
@@ -272,7 +278,7 @@
       "postedDate": "2026-10-20T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/panzerelektriker-in/359f4264-94fc-4b5c-ab79-3de004175ef8": {
+    "https://jobs.admin.ch/offene-stellen/logistiker-in-schmalganglager/c8b273bf-8ec3-4d86-836e-6511dca4e654": {
       "location": "Hinwil",
       "workplaceLocation": "Hinwil",
       "canton": "ZH",
@@ -344,6 +350,15 @@
       "postedDate": "2026-10-19T05:24:11Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-verkehrstechnik-und-signalisation/13d52ceb-7144-4f51-8b30-5aeec59b8a1d": {
+      "location": "Bern",
+      "workplaceLocation": "Bern",
+      "canton": "BE",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-10-16T13:14:10Z",
+      "postedDate": "2026-10-16T13:14:10Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/offene-stellen/application-manager-in/06bc920b-9c66-4f84-9f88-33a09a0ff75f": {
       "location": "Sion",
       "workplaceLocation": "Sion",
@@ -360,15 +375,6 @@
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-10-11T22:00:00Z",
       "postedDate": "2026-10-11T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-verkehrstechnik-und-signalisation/13d52ceb-7144-4f51-8b30-5aeec59b8a1d": {
-      "location": "Bern",
-      "workplaceLocation": "Bern",
-      "canton": "BE",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-10-16T13:14:10Z",
-      "postedDate": "2026-10-16T13:14:10Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-logistik/7e6b326b-1800-4c09-b80c-41cd685cfee2": {
@@ -398,15 +404,6 @@
       "postedDate": "2026-10-16T07:44:05Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/panzermechatroniker-in-schwere-raupenfahrzeuge/ad36888c-19dd-4960-a1a0-2952b09b9f14": {
-      "location": "Bronschhofen",
-      "workplaceLocation": "Bronschhofen (SG)",
-      "canton": "SG",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-10-16T06:47:29Z",
-      "postedDate": "2026-10-16T06:47:29Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/offene-stellen/ict-system-engineer-senior-application-mcx-platform/b146f208-dfad-4a85-b76f-bee88b33aacb": {
       "location": "Bern",
       "workplaceLocation": "Bern",
@@ -414,6 +411,15 @@
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-10-16T06:05:23Z",
       "postedDate": "2026-10-16T06:05:23Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/panzermechatroniker-in-schwere-raupenfahrzeuge/ad36888c-19dd-4960-a1a0-2952b09b9f14": {
+      "location": "Bronschhofen",
+      "workplaceLocation": "Bronschhofen (SG)",
+      "canton": "SG",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-10-16T06:47:29Z",
+      "postedDate": "2026-10-16T06:47:29Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/chef-in-aktionen-cesa/e601cb1c-0c65-43b3-b267-afce0de85f5c": {
@@ -451,6 +457,15 @@
       "postedDate": "2026-10-12T14:04:51Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/offene-stellen/ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator/63dc8829-02fc-4f02-8318-8fc54aca75c0": {
+      "location": "Flugplatzkommando Locarno",
+      "workplaceLocation": "Flugplatzkommando Locarno",
+      "canton": "TI",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-10-14T09:02:31Z",
+      "postedDate": "2026-10-14T09:02:31Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-logistik/3d45d475-852c-4da3-bbe5-020a2c96e897": {
       "location": "Thun",
       "workplaceLocation": "Thun",
@@ -467,15 +482,6 @@
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-10-14T09:26:30Z",
       "postedDate": "2026-10-14T09:26:30Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator/63dc8829-02fc-4f02-8318-8fc54aca75c0": {
-      "location": "Flugplatzkommando Locarno",
-      "workplaceLocation": "Flugplatzkommando Locarno",
-      "canton": "TI",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-10-14T09:02:31Z",
-      "postedDate": "2026-10-14T09:02:31Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/luftfahrzeugmechaniker-in/df1f4c8d-7f95-4dbd-b017-48bd988060fd": {
@@ -577,15 +583,6 @@
       "postedDate": "2026-10-08T10:12:39Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/system-ingenieur-in-luftraumueberwachungssysteme/3e5ee751-587b-4940-929c-c21fe9ba99a4": {
-      "location": "Dübendorf",
-      "workplaceLocation": "Dübendorf",
-      "canton": "ZH",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-10-07T22:00:00Z",
-      "postedDate": "2026-10-07T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/offene-stellen/hochschulpraktikant-in-portfoliomanagement-cer-ikt/99d09b96-c14b-4711-8973-c49887f68c58": {
       "location": "Bern",
       "workplaceLocation": "Bern",
@@ -593,6 +590,15 @@
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-10-08T09:13:16Z",
       "postedDate": "2026-10-08T09:13:16Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/system-ingenieur-in-luftraumueberwachungssysteme/3e5ee751-587b-4940-929c-c21fe9ba99a4": {
+      "location": "Dübendorf",
+      "workplaceLocation": "Dübendorf",
+      "canton": "ZH",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-10-07T22:00:00Z",
+      "postedDate": "2026-10-07T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c": {
@@ -819,13 +825,6 @@
       "postedDate": "2026-09-24T05:55:41Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/fahrer-in-car-lkw/9cd7e4b1-ef3d-4253-80dd-70ada9fa9d97": {
-      "location": "Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2023-11-20T22:00:00Z",
-      "postedDate": "2023-11-20T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/offene-stellen/automobil-mechatroniker-in-fachrichtung-nutzfahrzeuge/5f175cc3-692a-4e21-92d5-3c27cd089449": {
       "location": "Kosovo",
       "company": "Swiss Armed Forces (VTG)",
@@ -833,40 +832,11 @@
       "postedDate": "2024-09-16T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/automobil-mechatroniker-in-nutzfahrzeuge/48cc0e92-f41c-4048-9875-14388f769b63": {
-      "location": "Dübendorf",
-      "workplaceLocation": "Dübendorf",
-      "canton": "ZH",
+    "https://jobs.admin.ch/offene-stellen/fahrer-in-car-lkw/9cd7e4b1-ef3d-4253-80dd-70ada9fa9d97": {
+      "location": "Kosovo",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-09-22T22:00:00Z",
-      "postedDate": "2026-09-22T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/aerztin-arzt-rekrutierung-im-rekrutierungszentrum-rueti/ab08c40a-da0f-4ac8-9879-d3e3cb170a94": {
-      "location": "Rüti",
-      "workplaceLocation": "Rüti (ZH)",
-      "canton": "ZH",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-09-22T22:00:00Z",
-      "postedDate": "2026-09-22T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-gebaeudebetrieb-bronschhofen/c797a638-87d2-4095-8a89-31890b49131d": {
-      "location": "Bronschhofen",
-      "workplaceLocation": "Bronschhofen (SG)",
-      "canton": "SG",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-09-23T06:30:03Z",
-      "postedDate": "2026-09-23T06:30:03Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-gebaeudebetrieb-duebendorf/394d9115-7e0b-46a3-9aa1-a45a99d9f963": {
-      "location": "Dübendorf",
-      "workplaceLocation": "Dübendorf",
-      "canton": "ZH",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-09-23T04:43:44Z",
-      "postedDate": "2026-09-23T04:43:44Z",
+      "datePosted": "2023-11-20T22:00:00Z",
+      "postedDate": "2023-11-20T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-waescherei/d592b025-358b-4715-9f45-61671afb36a4": {
@@ -896,26 +866,17 @@
       "postedDate": "2026-09-14T06:35:46Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/7e573a5e-b63b-4523-91bf-caf5fdde9d3b": {
+      "location": "Bern",
+      "workplaceLocation": "Bern",
+      "canton": "BE",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/a00b998e-d88c-496c-91a8-18b65745a5a1": {
       "location": "Thun",
-      "workplaceLocation": "Thun",
-      "canton": "BE",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-personenwagen/e6942463-e363-4e1e-bcf6-4c9eb0cd20e4": {
-      "location": "Meiringen",
-      "workplaceLocation": "Meiringen",
-      "canton": "BE",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/5cf5f6eb-fab7-4943-8c94-d3dc87034131": {
-      "location": "Lehrbeginn August 2027, Thun",
       "workplaceLocation": "Thun",
       "canton": "BE",
       "company": "Swiss Armed Forces (VTG)",
@@ -932,15 +893,6 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/16e5cbdb-a1e3-4b0e-9d61-49bfe7f16aa9": {
-      "location": "Brenzikofen",
-      "workplaceLocation": "Brenzikofen",
-      "canton": "BE",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/bffa3fac-9fc8-48b0-b7a9-a0e8a6ccf653": {
       "location": "Thun",
       "workplaceLocation": "Thun",
@@ -950,9 +902,27 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/7e573a5e-b63b-4523-91bf-caf5fdde9d3b": {
-      "location": "Bern",
-      "workplaceLocation": "Bern",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/5cf5f6eb-fab7-4943-8c94-d3dc87034131": {
+      "location": "Lehrbeginn August 2027, Thun",
+      "workplaceLocation": "Thun",
+      "canton": "BE",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/16e5cbdb-a1e3-4b0e-9d61-49bfe7f16aa9": {
+      "location": "Brenzikofen",
+      "workplaceLocation": "Brenzikofen",
+      "canton": "BE",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-fachmann-frau-efz-fachrichtung-personenwagen/e6942463-e363-4e1e-bcf6-4c9eb0cd20e4": {
+      "location": "Meiringen",
+      "workplaceLocation": "Meiringen",
       "canton": "BE",
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
@@ -975,19 +945,19 @@
       "postedDate": "2021-07-20T07:21:41Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-informatiker-in-fachrichtung-plattformentwicklung/141ccb00-e8e4-4900-a8bb-344b395d37e2": {
-      "location": "Bern",
-      "workplaceLocation": "Bern",
-      "canton": "BE",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/87a2fdf1-5a31-46d1-ae71-41754d108c68": {
+      "location": "Hinwil",
+      "workplaceLocation": "Hinwil",
+      "canton": "ZH",
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/87a2fdf1-5a31-46d1-ae71-41754d108c68": {
-      "location": "Hinwil",
-      "workplaceLocation": "Hinwil",
-      "canton": "ZH",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-informatiker-in-fachrichtung-plattformentwicklung/141ccb00-e8e4-4900-a8bb-344b395d37e2": {
+      "location": "Bern",
+      "workplaceLocation": "Bern",
+      "canton": "BE",
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
@@ -1002,13 +972,89 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/01d60d89-bf3e-460f-9a5c-1abc8d123377": {
-      "location": "Emmen",
-      "workplaceLocation": "Emmen",
-      "canton": "LU",
+    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-bereich-infrastruktur-m-w/83909ec7-a0fd-48f6-abe8-b1792c29d9ba": {
+      "location": "Ausland / Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2021-05-26T22:00:00Z",
+      "postedDate": "2021-05-26T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/fe3ab121-2167-4b05-b279-de743257ab55": {
+      "location": "Payerne",
+      "workplaceLocation": "Payerne",
+      "canton": "VD",
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/uebermittlungs-informatikspezialist-in/793bdd51-2d47-4b3e-a4e0-ca5d4ba656f5": {
+      "location": "STANS-OBERDORF / AUSLAND",
+      "workplaceLocation": "Stans-Oberdorf",
+      "canton": "NW",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2019-09-10T22:00:00Z",
+      "postedDate": "2019-09-10T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-gastgewerblichen-bereich-m-w/ab0b76d1-ab5e-4f37-af11-a430a36f17eb": {
+      "location": "Ausland / Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2021-07-20T07:17:56Z",
+      "postedDate": "2021-07-20T07:17:56Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7": {
+      "location": "STANS-OBERDORF / AUSLAND",
+      "workplaceLocation": "Stans-Oberdorf",
+      "canton": "NW",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2020-06-04T22:00:00Z",
+      "postedDate": "2020-06-04T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/staff-officers-hq-kfor/82929105-838d-495c-9c5d-8b72405d01da": {
+      "location": "Ausland / Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2021-02-04T09:08:56Z",
+      "postedDate": "2021-02-04T09:08:56Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau/7e8f2980-6964-4068-9057-847ac35f084c": {
+      "location": "AUSLAND / KOSOVO",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2020-11-29T22:00:00Z",
+      "postedDate": "2020-11-29T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/2-lernende-kauffrauen-maenner-efz-branche-dienstleistung-und-administration/e7e54d84-3f5e-49e1-9f38-ec400a2be8a2": {
+      "location": "Grolley (FR)",
+      "workplaceLocation": "Grolley (FR)",
+      "canton": "FR",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/chief-medical-officer/88e318ea-19a7-4713-929e-d0d28d9a075c": {
+      "location": "Pristina, Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2025-05-21T22:00:00Z",
+      "postedDate": "2025-05-21T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/pionier-maurer-m-w/222ebe19-1f85-4762-a4fe-4e387433a9eb": {
+      "location": "Ausland / Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2020-12-06T22:00:00Z",
+      "postedDate": "2020-12-06T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/staff-officer-assessment-so-assessment/b7265446-2d16-4e10-bf8e-21483ec1aa61": {
+      "location": "Ausland / Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2023-07-26T22:00:00Z",
+      "postedDate": "2023-07-26T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/d180e5a6-c674-4d6b-8418-a5a2b98f117c": {
@@ -1029,34 +1075,29 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/2-lernende-kauffrauen-maenner-efz-branche-dienstleistung-und-administration/e7e54d84-3f5e-49e1-9f38-ec400a2be8a2": {
-      "location": "Grolley (FR)",
-      "workplaceLocation": "Grolley (FR)",
-      "canton": "FR",
+    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783": {
+      "location": "STANS-OBERDORF / Kosovo",
+      "workplaceLocation": "Stans-Oberdorf",
+      "canton": "NW",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
+      "datePosted": "2017-09-25T22:01:32Z",
+      "postedDate": "2017-09-25T22:01:32Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/pionier-maurer-m-w/222ebe19-1f85-4762-a4fe-4e387433a9eb": {
+    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db": {
+      "location": "STANS-OBERDORF / AUSLAND",
+      "workplaceLocation": "Stans-Oberdorf",
+      "canton": "NW",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2020-05-29T06:58:49Z",
+      "postedDate": "2020-05-29T06:58:49Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/isr-bataillon-staff-officers/512f9322-d516-4a1f-aef4-7fe0d7449558": {
       "location": "Ausland / Kosovo",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2020-12-06T22:00:00Z",
-      "postedDate": "2020-12-06T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/staff-officers-hq-kfor/82929105-838d-495c-9c5d-8b72405d01da": {
-      "location": "Ausland / Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2021-02-04T09:08:56Z",
-      "postedDate": "2021-02-04T09:08:56Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau/7e8f2980-6964-4068-9057-847ac35f084c": {
-      "location": "AUSLAND / KOSOVO",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2020-11-29T22:00:00Z",
-      "postedDate": "2020-11-29T22:00:00Z",
+      "datePosted": "2023-07-30T22:00:00Z",
+      "postedDate": "2023-07-30T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/multinational-military-police-mnmp/b5d183eb-19b7-4b4c-b1f0-281fbd98c2c3": {
@@ -1075,63 +1116,32 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/cd590fb6-132b-4430-acfa-7543b447f35e": {
-      "location": "Othmarsingen",
-      "workplaceLocation": "Othmarsingen",
-      "canton": "AG",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/uebermittlungs-informatikspezialist-in/793bdd51-2d47-4b3e-a4e0-ca5d4ba656f5": {
-      "location": "STANS-OBERDORF / AUSLAND",
-      "workplaceLocation": "Stans-Oberdorf",
-      "canton": "NW",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2019-09-10T22:00:00Z",
-      "postedDate": "2019-09-10T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-koch-koechin-efz/1a227faf-4e87-43d5-be12-2f71d29a3634": {
-      "location": "Payerne (VD)",
-      "workplaceLocation": "Payerne",
-      "canton": "VD",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-gastgewerblichen-bereich-m-w/ab0b76d1-ab5e-4f37-af11-a430a36f17eb": {
+    "https://jobs.admin.ch/offene-stellen/current-ops-staff-officer/38f28d63-d19a-4de4-a411-24b8cbc10fd4": {
       "location": "Ausland / Kosovo",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2021-07-20T07:17:56Z",
-      "postedDate": "2021-07-20T07:17:56Z",
+      "datePosted": "2023-07-26T22:00:00Z",
+      "postedDate": "2023-07-26T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/chief-medical-officer/88e318ea-19a7-4713-929e-d0d28d9a075c": {
-      "location": "Pristina, Kosovo",
+    "https://jobs.admin.ch/offene-stellen/offizier-in-fuer-friedensfoerdernde-auslandseinsaetze/c52e5d4c-02a8-40fd-8d90-531dd4550022": {
+      "location": "Ausland, weltweite Einsatzmöglichkeiten",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2025-05-21T22:00:00Z",
-      "postedDate": "2025-05-21T22:00:00Z",
+      "datePosted": "2023-07-31T22:00:00Z",
+      "postedDate": "2023-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7": {
-      "location": "STANS-OBERDORF / AUSLAND",
-      "workplaceLocation": "Stans-Oberdorf",
-      "canton": "NW",
+    "https://jobs.admin.ch/offene-stellen/un-military-expert-on-mission/13fa465a-09cc-4303-83b0-ef7eaf50fbd0": {
+      "location": "Ausland, weltweite Einsatzmöglichkeiten",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2020-06-04T22:00:00Z",
-      "postedDate": "2020-06-04T22:00:00Z",
+      "datePosted": "2023-07-31T22:00:00Z",
+      "postedDate": "2023-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/2-lernende-logistiker-innen-efz-fachrichtung-lager/4c24ff1a-43e9-40d4-ab34-eee893556e33": {
-      "location": "Romont (FR)",
-      "workplaceLocation": "Romont (FR)",
-      "canton": "FR",
+    "https://jobs.admin.ch/offene-stellen/stabsoffizier-in-joint-visitors-bureau/4c253690-82d1-47e8-8bda-35c9ce99e178": {
+      "location": "Ausland / Kosovo",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
+      "datePosted": "2023-07-26T22:00:00Z",
+      "postedDate": "2023-07-26T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/546e728c-e355-4e54-ba69-6e6bd0068f25": {
@@ -1152,13 +1162,65 @@
       "postedDate": "2023-10-26T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/fe3ab121-2167-4b05-b279-de743257ab55": {
-      "location": "Payerne",
+    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883": {
+      "location": "Othmarsingen, Lernbeginn August 2027",
+      "workplaceLocation": "Othmarsingen",
+      "canton": "AG",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/403a0ed9-706f-4aa6-b20b-d6dac450a37f": {
+      "location": "Visp",
+      "workplaceLocation": "Visp",
+      "canton": "VS",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-koch-koechin-efz/1a227faf-4e87-43d5-be12-2f71d29a3634": {
+      "location": "Payerne (VD)",
       "workplaceLocation": "Payerne",
       "canton": "VD",
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-personenwagen/4f6503df-b600-4b58-a2d0-c85c09d55fef": {
+      "location": "Grolley",
+      "workplaceLocation": "Grolley (FR)",
+      "canton": "FR",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/3-lernende-logistiker-innen-efz-fachrichtung-lager/c985f605-3a5e-481d-ad94-5e496af21298": {
+      "location": "Grolley (FR)",
+      "workplaceLocation": "Grolley (FR)",
+      "canton": "FR",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/01d60d89-bf3e-460f-9a5c-1abc8d123377": {
+      "location": "Emmen",
+      "workplaceLocation": "Emmen",
+      "canton": "LU",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/lkw-automobil-mechatroniker-in/678344cb-36cb-4e4c-bf18-3a8cfd3b3d0f": {
+      "location": "Ausland / Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2021-01-19T22:00:00Z",
+      "postedDate": "2021-01-19T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/humanitaere-minenraeumung-im-bereich-logistik/5bd7d341-fe9c-4187-b73a-eee3a76e9660": {
@@ -1175,22 +1237,17 @@
       "postedDate": "2023-07-26T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/staff-officer-assessment-so-assessment/b7265446-2d16-4e10-bf8e-21483ec1aa61": {
-      "location": "Ausland / Kosovo",
+    "https://jobs.admin.ch/offene-stellen/2-lernende-logistiker-innen-efz-fachrichtung-lager/4c24ff1a-43e9-40d4-ab34-eee893556e33": {
+      "location": "Romont (FR)",
+      "workplaceLocation": "Romont (FR)",
+      "canton": "FR",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2023-07-26T22:00:00Z",
-      "postedDate": "2023-07-26T22:00:00Z",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/un-military-expert-on-mission/13fa465a-09cc-4303-83b0-ef7eaf50fbd0": {
-      "location": "Ausland, weltweite Einsatzmöglichkeiten",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2023-07-31T22:00:00Z",
-      "postedDate": "2023-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883": {
-      "location": "Othmarsingen, Lernbeginn August 2027",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/cd590fb6-132b-4430-acfa-7543b447f35e": {
+      "location": "Othmarsingen",
       "workplaceLocation": "Othmarsingen",
       "canton": "AG",
       "company": "Swiss Armed Forces (VTG)",
@@ -1198,130 +1255,10 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/current-ops-staff-officer/38f28d63-d19a-4de4-a411-24b8cbc10fd4": {
-      "location": "Ausland / Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2023-07-26T22:00:00Z",
-      "postedDate": "2023-07-26T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/stabsoffizier-in-joint-visitors-bureau/4c253690-82d1-47e8-8bda-35c9ce99e178": {
-      "location": "Ausland / Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2023-07-26T22:00:00Z",
-      "postedDate": "2023-07-26T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/offizier-in-fuer-friedensfoerdernde-auslandseinsaetze/c52e5d4c-02a8-40fd-8d90-531dd4550022": {
-      "location": "Ausland, weltweite Einsatzmöglichkeiten",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2023-07-31T22:00:00Z",
-      "postedDate": "2023-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/403a0ed9-706f-4aa6-b20b-d6dac450a37f": {
-      "location": "Visp",
-      "workplaceLocation": "Visp",
-      "canton": "VS",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/mannschaft-und-kader-im-bereich-infrastruktur-m-w/83909ec7-a0fd-48f6-abe8-b1792c29d9ba": {
-      "location": "Ausland / Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2021-05-26T22:00:00Z",
-      "postedDate": "2021-05-26T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/lkw-automobil-mechatroniker-in/678344cb-36cb-4e4c-bf18-3a8cfd3b3d0f": {
-      "location": "Ausland / Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2021-01-19T22:00:00Z",
-      "postedDate": "2021-01-19T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/isr-bataillon-staff-officers/512f9322-d516-4a1f-aef4-7fe0d7449558": {
-      "location": "Ausland / Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2023-07-30T22:00:00Z",
-      "postedDate": "2023-07-30T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db": {
-      "location": "STANS-OBERDORF / AUSLAND",
-      "workplaceLocation": "Stans-Oberdorf",
-      "canton": "NW",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2020-05-29T06:58:49Z",
-      "postedDate": "2020-05-29T06:58:49Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/3-lernende-logistiker-innen-efz-fachrichtung-lager/c985f605-3a5e-481d-ad94-5e496af21298": {
-      "location": "Grolley (FR)",
-      "workplaceLocation": "Grolley (FR)",
-      "canton": "FR",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-personenwagen/4f6503df-b600-4b58-a2d0-c85c09d55fef": {
-      "location": "Grolley",
-      "workplaceLocation": "Grolley (FR)",
-      "canton": "FR",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783": {
-      "location": "STANS-OBERDORF / Kosovo",
-      "workplaceLocation": "Stans-Oberdorf",
-      "canton": "NW",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2017-09-25T22:01:32Z",
-      "postedDate": "2017-09-25T22:01:32Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/978823f4-e23a-4cfd-9092-88005f3c233b": {
       "location": "Brugg",
       "workplaceLocation": "Brugg",
       "canton": "AG",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/aerztin-arzt/7f7b3dc0-57f8-426b-9ce1-b932fff214a5": {
-      "location": "Kosovo",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2024-09-16T22:00:00Z",
-      "postedDate": "2024-09-16T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/militaerisches-kaderspersonal-m-w/6c59bb4d-6148-460e-a982-6d5eaab3d2d8": {
-      "location": "STANS-OBERDORF / Kosovo",
-      "workplaceLocation": "Stans-Oberdorf",
-      "canton": "NW",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2017-09-25T22:02:28Z",
-      "postedDate": "2017-09-25T22:02:28Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c": {
-      "location": "Schweiz und Ausland (abhängig von Funktion und Einsatzort)",
-      "canton": "GE",
-      "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2025-10-29T22:00:00Z",
-      "postedDate": "2025-10-29T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/c7fa954c-29e6-4318-9d6e-9fcfbbb1d4cc": {
-      "location": "Emmenbrücke",
-      "workplaceLocation": "Emmenbrücke (LU)",
-      "canton": "LU",
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
@@ -1336,6 +1273,15 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/ddc0e869-6e97-4565-9249-4101252aa19a": {
+      "location": "Chur",
+      "workplaceLocation": "Chur",
+      "canton": "GR",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/offene-stellen/lernende-r-polymechaniker-in-efz/9637dfac-52ff-418d-84f9-925f5112f710": {
       "location": "Sitten",
       "workplaceLocation": "Sitten",
@@ -1345,19 +1291,19 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/offiziere-fuer-friedensfoerdernde-auslandseinsaetze-m-w/448aa333-1f38-4a1a-b25b-4f1008707480": {
-      "location": "STANS-OBERDORF / AUSLAND",
+    "https://jobs.admin.ch/offene-stellen/militaerisches-kaderspersonal-m-w/6c59bb4d-6148-460e-a982-6d5eaab3d2d8": {
+      "location": "STANS-OBERDORF / Kosovo",
       "workplaceLocation": "Stans-Oberdorf",
       "canton": "NW",
       "company": "Swiss Armed Forces (VTG)",
-      "datePosted": "2017-10-19T10:45:33Z",
-      "postedDate": "2017-10-19T10:45:33Z",
+      "datePosted": "2017-09-25T22:02:28Z",
+      "postedDate": "2017-09-25T22:02:28Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-berufsfeld-lager/ddc0e869-6e97-4565-9249-4101252aa19a": {
-      "location": "Chur",
-      "workplaceLocation": "Chur",
-      "canton": "GR",
+    "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/c7fa954c-29e6-4318-9d6e-9fcfbbb1d4cc": {
+      "location": "Emmenbrücke",
+      "workplaceLocation": "Emmenbrücke (LU)",
+      "canton": "LU",
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
@@ -1379,6 +1325,30 @@
       "company": "Swiss Armed Forces (VTG)",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c": {
+      "location": "Schweiz und Ausland (abhängig von Funktion und Einsatzort)",
+      "canton": "GE",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2025-10-29T22:00:00Z",
+      "postedDate": "2025-10-29T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/offiziere-fuer-friedensfoerdernde-auslandseinsaetze-m-w/448aa333-1f38-4a1a-b25b-4f1008707480": {
+      "location": "STANS-OBERDORF / AUSLAND",
+      "workplaceLocation": "Stans-Oberdorf",
+      "canton": "NW",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2017-10-19T10:45:33Z",
+      "postedDate": "2017-10-19T10:45:33Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/offene-stellen/aerztin-arzt/7f7b3dc0-57f8-426b-9ce1-b932fff214a5": {
+      "location": "Kosovo",
+      "company": "Swiss Armed Forces (VTG)",
+      "datePosted": "2024-09-16T22:00:00Z",
+      "postedDate": "2024-09-16T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/offene-stellen/lernende-r-logistiker-in-efz-fachrichtung-lager/5392b2dd-8e97-45ba-ae39-5d52ce5375bd": {
@@ -1410,5 +1380,5 @@
     }
   },
   "notes": "Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). VTG verwaltungseinheit IDs: 1083433,1132413,1526654,1132414,1083406. Swiss-wide seed URLs auto-discovered from the API.",
-  "updatedAt": "2026-10-27T21:40:26.477Z"
+  "updatedAt": "2026-10-28T09:50:41.667Z"
 }
