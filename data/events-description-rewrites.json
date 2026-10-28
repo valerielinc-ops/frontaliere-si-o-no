@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-28T17:30:25.644Z",
+  "generatedAt": "2026-10-28T18:31:45.983Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -8154,6 +8154,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T17:18:56.078Z"
     },
+    "ge-agenda:giff-projection-estranea::ffde7623a58d0eeb05c10cbe71e6e6781b9049405b24da689006da5b06306140": {
+      "id": "ge-agenda:giff-projection-estranea",
+      "sourceDescriptionHash": "ffde7623a58d0eeb05c10cbe71e6e6781b9049405b24da689006da5b06306140",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Festival; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Festival; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Festival; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T18:16:35.407Z"
+    },
     "ge-agenda:giff-projection-first-taste-loneliness::36c135156fef7847d7ac6f7a992e7af66397afd7967f18aa60e35469a5dc3339": {
       "id": "ge-agenda:giff-projection-first-taste-loneliness",
       "sourceDescriptionHash": "36c135156fef7847d7ac6f7a992e7af66397afd7967f18aa60e35469a5dc3339",
@@ -8308,6 +8322,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T19:16:38.612Z"
     },
+    "ge-agenda:giff-projection-opening-night-tangles::552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3": {
+      "id": "ge-agenda:giff-projection-opening-night-tangles",
+      "sourceDescriptionHash": "552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Festival; organiser: Ville de Genève Agenda; date: 2026-10-30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Festival; veranstalter: Ville de Genève Agenda; datum: 2026-10-30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Festival; organisateur: Ville de Genève Agenda; date: 2026-10-30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T18:16:35.396Z"
+    },
     "ge-agenda:giff-projection-peccato::28679a7d60503c1f684cd4b70ffb7f041b5b2e0a9dd502fceda7f18daeff069b": {
       "id": "ge-agenda:giff-projection-peccato",
       "sourceDescriptionHash": "28679a7d60503c1f684cd4b70ffb7f041b5b2e0a9dd502fceda7f18daeff069b",
@@ -8364,6 +8392,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T19:16:38.595Z"
     },
+    "ge-agenda:giff-projection-singapura::6a481886e18e2a9e66f9ad5013c2771543addbf4a6b84bd9e832cdaeb3116036": {
+      "id": "ge-agenda:giff-projection-singapura",
+      "sourceDescriptionHash": "6a481886e18e2a9e66f9ad5013c2771543addbf4a6b84bd9e832cdaeb3116036",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Festival; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Festival; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Festival; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Festival; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T18:16:35.417Z"
+    },
     "ge-agenda:giff-projection-summer-1985::44d132637e71027d0303df17b669fa999001ce4a77a7cbe1498413c08f3b120e": {
       "id": "ge-agenda:giff-projection-summer-1985",
       "sourceDescriptionHash": "44d132637e71027d0303df17b669fa999001ce4a77a7cbe1498413c08f3b120e",
@@ -8377,6 +8419,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T12:35:00.417Z"
+    },
+    "ge-agenda:giff-projection-tangles::552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3": {
+      "id": "ge-agenda:giff-projection-tangles",
+      "sourceDescriptionHash": "552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3",
+      "description": "È una proiezione nell’ambito di un festival a Ginevra, nel cantone di Ginevra. L’evento è organizzato da Ville de Genève Agenda e l’ingresso costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "È una proiezione nell’ambito di un festival a Ginevra, nel cantone di Ginevra. L’evento è organizzato da Ville de Genève Agenda e l’ingresso costa 8 CHF.",
+        "en": "This festival event is a screening in Geneva, in the canton of Geneva. It is organized by Ville de Genève Agenda, and admission costs CHF 8.",
+        "de": "Die Veranstaltung ist eine Vorführung im Rahmen eines Festivals in Genf, im Kanton Genf. Sie wird von Ville de Genève Agenda organisiert; der Eintritt kostet 8 CHF.",
+        "fr": "Cette manifestation est une projection dans le cadre d’un festival à Genève, dans le canton de Genève. Elle est organisée par Ville de Genève Agenda et l’entrée coûte 8 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T18:21:36.603Z"
     },
     "ge-agenda:giff-projection-variola-vera::499e017c219c1702373b08050b2a124a00f065b283f4ffb538297954b48e9a52": {
       "id": "ge-agenda:giff-projection-variola-vera",
@@ -174824,6 +174880,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-28T15:21:54.256Z"
     },
+    "tio-agenda:64756::06d5ae88c66ba990b2319db7a57abf4bfcec9797b9a3511378dbd3fd7e0f14cd": {
+      "id": "tio-agenda:64756",
+      "sourceDescriptionHash": "06d5ae88c66ba990b2319db7a57abf4bfcec9797b9a3511378dbd3fd7e0f14cd",
+      "description": "L’evento teatrale al Teatro Dimitri di Verscio riunisce diversi artisti per sostenere Clown senza Frontiere Svizzera. Il programma comprende comicità, musica e giocoleria, è pensato per le famiglie e propone interventi in più lingue.",
+      "descriptionByLocale": {
+        "it": "L’evento teatrale al Teatro Dimitri di Verscio riunisce diversi artisti per sostenere Clown senza Frontiere Svizzera. Il programma comprende comicità, musica e giocoleria, è pensato per le famiglie e propone interventi in più lingue.",
+        "en": "The theatre event at Teatro Dimitri in Verscio brings together several artists to support Clowns Without Borders CH. The programme includes comedy, music and juggling, is suitable for families and features contributions in several languages.",
+        "de": "Die Theaterveranstaltung im Teatro Dimitri in Verscio bringt mehrere Künstlerinnen und Künstler zur Unterstützung von Clowns ohne Grenzen CH zusammen. Das Programm umfasst Komik, Musik und Jonglage, richtet sich an Familien und enthält Beiträge in mehreren Sprachen.",
+        "fr": "Le rendez-vous théâtral au Teatro Dimitri de Verscio réunit plusieurs artistes au profit de Clowns sans frontières CH. Le programme comprend de l’humour, de la musique et de la jonglerie, s’adresse aux familles et propose des prestations dans plusieurs langues."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T18:25:05.462Z"
+    },
     "tio-agenda:64758::5fe024b7ba33117d2e12187fe1241cd3b01408e9daedc22f0ed576f168ad1a58": {
       "id": "tio-agenda:64758",
       "sourceDescriptionHash": "5fe024b7ba33117d2e12187fe1241cd3b01408e9daedc22f0ed576f168ad1a58",
@@ -174837,6 +174907,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-28T13:36:40.258Z"
+    },
+    "tio-agenda:64759::599970361a7222ab40526d95fb7701a648436a6dcb7b9127f90e9282100a0be0": {
+      "id": "tio-agenda:64759",
+      "sourceDescriptionHash": "599970361a7222ab40526d95fb7701a648436a6dcb7b9127f90e9282100a0be0",
+      "description": "A Losone, il Centro La Torre ospita un’iniziativa per la donazione di sangue. Per partecipare è obbligatorio fissare prima un appuntamento online oppure per telefono.",
+      "descriptionByLocale": {
+        "it": "A Losone, il Centro La Torre ospita un’iniziativa per la donazione di sangue. Per partecipare è obbligatorio fissare prima un appuntamento online oppure per telefono.",
+        "en": "Centro La Torre in Losone is the venue for a blood donation session. Anyone wishing to take part must arrange an appointment in advance through the online portal or by phone.",
+        "de": "Im Centro La Torre in Losone steht eine Blutspende auf dem Programm. Eine Anmeldung vorab über das Internet oder telefonisch ist Voraussetzung für die Teilnahme.",
+        "fr": "À Losone, le Centro La Torre accueille une collecte de sang. La participation est soumise à une prise de rendez-vous préalable, en ligne ou par téléphone."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T18:20:29.939Z"
     },
     "tio-agenda:64761::a5d2431bee520064ad72838ba1f293016f7a3384c2dff31a03d9c8b142bf8abe": {
       "id": "tio-agenda:64761",
@@ -175302,8 +175386,8 @@
       "id": "ge-agenda:giff-projection-1518",
       "sourceDescriptionHash": "99b1ea852de62f7841b940d75f3026c6257ece203c2f8b4325086ecc28f2c20c",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:23:11.732Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:19:41.462Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175311,8 +175395,8 @@
       "id": "ge-agenda:giff-projection-black",
       "sourceDescriptionHash": "e2f7449485732761e64447f3435727c99d7b872c2859f87e079dd9e5f50a75b1",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:20:52.122Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:21:33.468Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175320,8 +175404,8 @@
       "id": "ge-agenda:giff-projection-coward",
       "sourceDescriptionHash": "d15e8570c40ac0cc1216f3ea1d17082f5ff28c8b235ebde70819ee9b73c0a11f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:26:10.869Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:19:52.545Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175329,17 +175413,8 @@
       "id": "ge-agenda:giff-projection-elsinore",
       "sourceDescriptionHash": "cea15b49596e17e9768fd18181375b3f89dbedc69c755721d43b361a1bd945bc",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:22:00.466Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:giff-projection-estranea::ffde7623a58d0eeb05c10cbe71e6e6781b9049405b24da689006da5b06306140": {
-      "id": "ge-agenda:giff-projection-estranea",
-      "sourceDescriptionHash": "ffde7623a58d0eeb05c10cbe71e6e6781b9049405b24da689006da5b06306140",
-      "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-28T17:23:25.782Z",
+      "lastAttemptAt": "2026-10-28T18:19:00.842Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175347,8 +175422,8 @@
       "id": "ge-agenda:giff-projection-glaxo",
       "sourceDescriptionHash": "b530858f960d92f25fe8ff1403ffaecd0818518a6f1a0b8a21dd07a8202daf5f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:25:32.440Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:26:23.231Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175356,17 +175431,8 @@
       "id": "ge-agenda:giff-projection-look-back",
       "sourceDescriptionHash": "6563cdb385375194e12e908b7ac772440cc39f4f61f44d18eb3027f29f69ed3c",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:19:44.136Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:giff-projection-opening-night-tangles::552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3": {
-      "id": "ge-agenda:giff-projection-opening-night-tangles",
-      "sourceDescriptionHash": "552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3",
-      "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-28T17:23:58.447Z",
+      "lastAttemptAt": "2026-10-28T18:21:08.639Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175374,26 +175440,8 @@
       "id": "ge-agenda:giff-projection-quelques-mots-amour",
       "sourceDescriptionHash": "a3e6cc7163baf9f4ab644ca56ea6974585e1a1fecb60b73c5c6d123ca324e4e7",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:26:15.219Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:giff-projection-singapura::6a481886e18e2a9e66f9ad5013c2771543addbf4a6b84bd9e832cdaeb3116036": {
-      "id": "ge-agenda:giff-projection-singapura",
-      "sourceDescriptionHash": "6a481886e18e2a9e66f9ad5013c2771543addbf4a6b84bd9e832cdaeb3116036",
-      "code": "new-name",
       "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-28T17:22:44.178Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "ge-agenda:giff-projection-tangles::552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3": {
-      "id": "ge-agenda:giff-projection-tangles",
-      "sourceDescriptionHash": "552e4cf6c0d1d18ac928f964cbc5978472de270bbbca94e514dd433fd77c6ce3",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:20:58.462Z",
+      "lastAttemptAt": "2026-10-28T18:20:40.242Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175401,8 +175449,8 @@
       "id": "ge-agenda:giff-projection-tender-loving-care",
       "sourceDescriptionHash": "53afc509a6713026f54dd480a62ca280c316bf261fd5447c45a30159e27a1596",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:21:45.075Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:22:07.440Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175410,8 +175458,8 @@
       "id": "ge-agenda:giff-projection-virages",
       "sourceDescriptionHash": "d5091ea53afdb38caf9b9e59f31e4e3aff0e8d4a2be7d0f45921e690a680f59a",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:24:54.244Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:25:40.084Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -176112,8 +176160,8 @@
       "id": "guidle:A8qtw6R",
       "sourceDescriptionHash": "0c5a33ce0a0bcb969ee1ac07cde41b309c2722cbc43b7ab7c040b164ed6610bc",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:27:20.480Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:21:06.641Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -176238,8 +176286,8 @@
       "id": "guidle:Aby6vbp",
       "sourceDescriptionHash": "ef04573753c539ef497667c654370212e9b47020330ee1db4fba843ba2fcfe09",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:27:30.935Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:24:23.825Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -176958,8 +177006,8 @@
       "id": "guidle:AMg2wDi",
       "sourceDescriptionHash": "2a1dd6c19920601d693da60dc2c44cbc382778336f656f5bc0aa4fb0a61c03b6",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:28:12.234Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:25:02.297Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -177470,9 +177518,9 @@
     "guidle:ASw2JkN::859081d2362578c0996cd96b085de86dcc9f66fbea2b87e97478568650bf7879": {
       "id": "guidle:ASw2JkN",
       "sourceDescriptionHash": "859081d2362578c0996cd96b085de86dcc9f66fbea2b87e97478568650bf7879",
-      "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:24:49.478Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:21:37.805Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178128,8 +178176,8 @@
       "id": "lu-stadt-agenda:7463716",
       "sourceDescriptionHash": "8c6c0807b13d80b5df6a4ae6f68d9b35e3820bde1fcecefd729fc01168911a11",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:25:19.005Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:25:45.809Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -181908,8 +181956,8 @@
       "id": "myswitzerland:ca8c42687883449ab1938139c138af5f",
       "sourceDescriptionHash": "7ca8e8c7e23c6cb6282575606f7b01734eeaa7bfa5ecb59cd8db5075b3334c23",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:25:27.710Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:22:12.734Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -183366,8 +183414,8 @@
       "id": "tio-agenda:63511",
       "sourceDescriptionHash": "e4b3689adfcfe9159acc69b87d8add65e10bcbc1877e8d06c50565529a9f1d94",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:27:38.570Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:24:24.266Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184068,8 +184116,8 @@
       "id": "tio-agenda:64740",
       "sourceDescriptionHash": "21c64194c8bf468ac9abb19cccfda18652406924b86b3f0fc76411c05f6da098",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:21:21.815Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:18:21.925Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184077,8 +184125,8 @@
       "id": "tio-agenda:64741",
       "sourceDescriptionHash": "21c64194c8bf468ac9abb19cccfda18652406924b86b3f0fc76411c05f6da098",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:26:12.099Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:17:46.774Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -184086,26 +184134,8 @@
       "id": "tio-agenda:64755",
       "sourceDescriptionHash": "6060359d6f325c58bee7b2cb0bc194c280a22f62ff91c28cf9d8f5e50e7ecd2c",
       "code": "source-ngram-8",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:21:52.542Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64756::06d5ae88c66ba990b2319db7a57abf4bfcec9797b9a3511378dbd3fd7e0f14cd": {
-      "id": "tio-agenda:64756",
-      "sourceDescriptionHash": "06d5ae88c66ba990b2319db7a57abf4bfcec9797b9a3511378dbd3fd7e0f14cd",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:24:34.032Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64759::599970361a7222ab40526d95fb7701a648436a6dcb7b9127f90e9282100a0be0": {
-      "id": "tio-agenda:64759",
-      "sourceDescriptionHash": "599970361a7222ab40526d95fb7701a648436a6dcb7b9127f90e9282100a0be0",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-28T15:20:17.117Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-28T18:22:08.343Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
