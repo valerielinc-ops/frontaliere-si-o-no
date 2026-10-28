@@ -58,6 +58,7 @@ case "$INTERVAL_S" in
 esac
 
 samples_file=$(mktemp)
+rss_file=$(mktemp)
 tick_dir=$(mktemp -d)
 mkfifo "${tick_dir}/tick"
 # Aperta in lettura-SCRITTURA: c'è sempre uno scrittore (noi), quindi la fifo
@@ -65,7 +66,7 @@ mkfifo "${tick_dir}/tick"
 # tornare subito. Nessuno ci scrive mai dentro: serve solo come sorgente che
 # non diventa mai pronta.
 exec 9<>"${tick_dir}/tick"
-cleanup_tmp() { rm -f "$samples_file"; rm -rf "$tick_dir"; }
+cleanup_tmp() { rm -f "$samples_file" "$rss_file"; rm -rf "$tick_dir"; }
 trap cleanup_tmp EXIT
 
 "$@" &
@@ -76,6 +77,29 @@ if [ -r "$MEMINFO" ]; then
   (
     while true; do
       awk '/^MemAvailable:/ { print int($2 / 1024); exit }' "$MEMINFO" 2>/dev/null >>"$samples_file"
+      # The wrapper starts npm, which starts the typecheck shell and Node. Sum
+      # VmRSS across that process tree so the log reports the peak of the
+      # observed gate, not only the short-lived npm parent. The tree is walked
+      # from /proc children without a fixed-duration timer; it terminates with
+      # the observed command below.
+      if [ -d "/proc/$cmd_pid" ]; then
+        pids="$cmd_pid"
+        seen=""
+        total_kb=0
+        while [ -n "$pids" ]; do
+          next_pids=""
+          for pid in $pids; do
+            case " $seen " in *" $pid "*) continue ;; esac
+            seen="$seen $pid"
+            rss_kb=$(awk '/^VmRSS:/ { print $2; exit }' "/proc/$pid/status" 2>/dev/null || true)
+            case "$rss_kb" in ''|*[!0-9]*) ;; *) total_kb=$((total_kb + rss_kb)) ;; esac
+            children=$(cat "/proc/$pid/task/$pid/children" 2>/dev/null || true)
+            next_pids="$next_pids $children"
+          done
+          pids="$next_pids"
+        done
+        printf '%s\n' "$total_kb" >>"$rss_file"
+      fi
       # Builtin, non `sleep`: niente processo figlio che sopravviva al kill del
       # subshell tenendosi lo stdout ereditato (vedi la testata).
       read -r -t "$INTERVAL_S" -u 9 _ || true
@@ -115,6 +139,16 @@ if [ -n "$min_mb" ]; then
   echo "${LOG_PREFIX} MemAvailable min=${min_mb}MB max=${max_mb}MB samples=${samples} intervalS=${INTERVAL_S}"
 else
   echo "${LOG_PREFIX} nessun campione raccolto"
+fi
+
+peak_rss_kb=""
+if [ -s "$rss_file" ]; then
+  peak_rss_kb=$(sort -n "$rss_file" | tail -n 1)
+fi
+if [ -n "$peak_rss_kb" ]; then
+  echo "${LOG_PREFIX} peak_rss=${peak_rss_kb}KB peak_rss_mb=$((peak_rss_kb / 1024))MB process_tree=observed_command"
+else
+  echo "${LOG_PREFIX} peak_rss non disponibile (process tree /proc non leggibile)"
 fi
 
 exit "$cmd_status"

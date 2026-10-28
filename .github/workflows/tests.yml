@@ -1471,162 +1471,11 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0
           filter: tree:0
-          # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
-          # che il profilo statico non può chiudere in modo affidabile.
-          sparse-checkout: |
-            /.github/
-            /.githooks/
-            /build-plugins/
-            /components/
-            /functions/
-            /hooks/
-            /infra/
-            /scripts/
-            /scripts/ci/check-below-floor-bridge.mjs
-            /scripts/ci/check-sibling-patterns.mjs
-            /scripts/ci/identical-twin-import-gate.mjs
-            /scripts/ci/sample-mem-during.sh
-            /server/
-            /services/
-            /tests/
-            /packages/*/engine/
-            /packages/*/src/
-            /packages/*/tests/
-            # Related tests read package manifests to verify the renderer's
-            # runtime dependency contract; keep manifests without materializing
-            # the article corpus itself.
-            /packages/*/package.json
-            # These are the two symlink targets needed by tsc and the related
-            # import graph. Keep them file-scoped: including the parent
-            # `packages/articles/content/` would materialize the full article
-            # corpus in this CI checkout.
-            /packages/articles/content/blog-articles-data.ts
-            /packages/articles/content/swiss-articles-data.ts
-            /packages/articles/content/blogArticleIds.ts
-            /packages/articles/content/routerBlogData.ts
-            /packages/articles/content/routerSwissData.ts
-            /packages/articles/content/blogImageCdnMirror.ts
-            /packages/articles/content/blog-meta-*.ts
-            /packages/articles/content/seo/seo-blog*.ts
-            # Runtime reads selected by the related-test graph when locale
-            # bundles change. The services/locales/blog-body symlink is in the
-            # checkout, but its corpus target is otherwise excluded.
-            /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
-            # The prompt-placeholder quarantine tests render this article's
-            # real body in every locale; keep their runtime input in the sparse
-            # checkout instead of silently exercising the generic SEO fallback.
-            /packages/articles/content/blog-body/*/como-fai-giornate-autunno.ts
-            /packages/articles/content/blog-body/de/simulazione-fiscale-frontaliere-2026.ts
-            /packages/articles/content/blog-body/en/simulazione-fiscale-frontaliere-2026.ts
-            /packages/articles/content/blog-body/fr/simulazione-fiscale-frontaliere-2026.ts
-            /packages/articles/content/blog-body/it/simulazione-fiscale-frontaliere-2026.ts
-            /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
-            /packages/articles/content/blog-body-ch/de/tassi-interesse-svizzera-bassi.ts
-            # The publication-policy tests exercise one real imageCredits record
-            # without materializing the rest of the article corpus.
-            /packages/articles/content/image-credits/**/*.json
-            # Type-only dependency imported by the SEO modules above; keep it
-            # file-scoped so the article corpus remains excluded.
-            /packages/articles/content/seo/seoMetadataType.ts
-            /packages/articles/index.ts
-            /packages/articles/articleSections.ts
-            /data/
-            !/data/translation-cache/
-            !/data/orphan-enriched-data/
-            !/data/jobs-snapshots-history/
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/evidence-index.json
-            # Global build/runtime inputs: keep both symlink names and the
-            # explicit public fuel snapshot visible to the sparse contract.
-            /data/blog-articles-data.ts
-            /data/swiss-articles-data.ts
-            /data/blogImageCdnMirror.ts
-            /data/fuel-prices.json
-            # related-search-candidates.json e slug-registry.json restano IN
-            # checkout: due test del suite blocking li leggono da filesystem
-            # con un path runtime (resolve(__dirname, ...)), invisibile
-            # all'analisi statica degli import di verify-checkout-profiles.mjs
-            # (lo stesso "punto cieco" gia' documentato per npm-run-chain in
-            # checkout-profile-analyzer.mjs:199-205, issue #6234). Escluderli
-            # qui fa fallire SEMPRE tests/seo/related-search-clusters-emitted.test.ts
-            # e tests/seo/cathedral-slug-registry-canton-backfill.test.ts non
-            # appena il selettore related li sceglie — indipendentemente dal
-            # contenuto del diff — bloccando PR che non c'entrano nulla con
-            # questi due file (osservato su PR #6661/#6662, 2026-08-29).
-            /public/
-            !/public/images/
-            /public/data/fuel-prices.json
-            # Stesso punto cieco di related-search-candidates.json/slug-registry.json
-            # sopra: send-job-alerts.mjs (usato dal test email di alert lavoro)
-            # fa fs.readdirSync('public/images/brands') a module-load per
-            # costruire la mappa slug->logo — un path runtime,
-            # invisibile a verify-checkout-profiles.mjs. Con la directory esclusa il
-            # readdirSync fallisce (try/catch silenzioso -> Map vuota) e OGNI test
-            # "brand logo" del file fallisce, indipendentemente dal diff (osservato
-            # su #6682 e #6686, 2026-08-30, nessuno dei due tocca questo codice).
-            # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
-            # di public/images/ escluse per il resto.
-            /public/images/brands/
-            # tests/authors.test.ts is part of the test-tree lint whenever a PR
-            # changes tests; keep its small runtime photo fixtures materialized.
-            /public/images/authors/
-            # The generated-image registry gate validates the full published
-            # place catalog and its responsive thumbnails as well.
-            /public/images/places/
-            /*.cjs
-            /*.js
-            /*.json
-            /*.md
-            /*.mjs
-            /*.ts
-            /*.tsx
-            /*.yaml
-            /*.yml
-            /*.config.*
-            # Stesso punto cieco di related-search-candidates.json sopra: i test
-            # leggono i doc sotto /docs/ con un path runtime
-            # (`readFileSync(join(process.cwd(), rel))`), invisibile a
-            # verify-checkout-profiles.mjs. `/*.md` sopra copre i doc di root
-            # (ISSUES.md, REVIEW.md, ecc., osservato rosso su #6699 2026-08-30:
-            # readFileSync ISSUES.md ENOENT). Per /docs/ servivano carve-out
-            # puntuali, uno per incidente: FIX-ISSUE-COMMAND.md,
-            # preferred-sources-checklist.md, gli invarianti doc<->renderer di
-            # #7359 (ads-placement-longform.md, editorial-longform-audit.md,
-            # ENOENT in import e «no tests» su #7555, 2026-09-05) e
-            # CF-5XX-TRIAGE.md (ENOENT su #11416, 2026-10-04). Quindi si
-            # materializzano TUTTI i markdown di /docs/: 129 file e 2,5 MB, contro
-            # 142,8 MB dell'intera cartella, di cui 140,3 MB sono gli artefatti
-            # di docs/newsletter-qa che restano esclusi. Un test nuovo che legge
-            # un doc non chiede piu' un carve-out.
-            /docs/**/*.md
-            # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
-            # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
-            # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
-            # resolves static imports, not runtime path strings), so this gap
-            # shipped silently until the sparse profile actually excluded them.
-            /index.html
-            /index.css
-            # Several related tests read this root file at runtime rather than
-            # importing it, so the dependency is invisible to the graph.
-            /firestore.rules
-            /storage.rules
-            /.gitignore
-            /.gitattributes
-            /.npmrc
-            /package-lock.json
-            /package.json
-            /tsconfig*.json
-            /vitest.config.ts
-            # The reviewer must be able to read the two repository contracts;
-            # keep them explicit so this job still excludes unrelated docs and
-            # the full article corpus.
-            /REVIEW.md
-            /AGENTS.md
-          sparse-checkout-cone-mode: false
+          # No sparse-checkout is intentional: the required related-test
+          # verdict must be produced from the complete event tree, including
+          # generated data, public assets and the article corpus. `tree:0`
+          # omits only historical tree objects; checkout still materializes
+          # every path at the tested HEAD.
 
       - name: Guard — storia precedente alla riscrittura
         if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
@@ -1690,7 +1539,7 @@ jobs:
         uses: actions/cache/restore@v6
         with:
           path: .cache/tsc
-          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'tsconfig.ci.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
           restore-keys: |
             tsc-incremental-${{ runner.os }}-
 
@@ -2872,7 +2721,7 @@ jobs:
         uses: actions/cache/save@v6
         with:
           path: .cache/tsc
-          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'tsconfig.ci.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
 
       - name: Save Vitest related graph
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && steps.vitest-cache.outputs.cache-hit != 'true') }}
