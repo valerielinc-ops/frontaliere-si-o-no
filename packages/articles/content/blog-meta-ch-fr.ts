@@ -8639,6 +8639,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sei-misure-cure-sanitarie.title': 'Coûts de santé : six nouvelles mesures adoptées à Berne',
     'blog.article.sei-misure-cure-sanitarie.excerpt': 'Six mesures adoptées lundi à Berne Soins à domicile et urgences parmi les domaines Les mesures s\'ajoutent aux 12 de 2025 Impact économique encore',
     'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.tavola-rotonda-sei-misure.title': 'Six nouvelles mesures visant à contenir les coûts dans le secteur de la santé',
+    'blog.article.tavola-rotonda-sei-misure.excerpt': 'Six nouvelles mesures entreront en vigueur à partir de 2027 La cinquième table ronde s’est réunie à Berne le 26 octobre 2026 Le paquet concerne les consultations ambulatoires, les services d’urgence et les soins',
+    'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.allarme-popolazione-165-milioni.title': 'Alerte à la population : 165,4 mln pour la modernisation',
+    'blog.article.allarme-popolazione-165-milioni.excerpt': 'Le Conseil fédéral demande 165,4 millions de francs.',
+    'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.norme-flessibilita-start-up.title': 'Conseil fédéral assouplit le temps de travail des start-up',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Le Conseil fédéral introduit des dérogations ciblées aux règles sur la durée du travail et du repos pour certains employés de start-up, avec une entrée en vigueur le 1er décembre 2026 et des conditions liées aux compétences spécifiques, à l’autonomie, à la participation au capital et aux projets de durée limitée.',
+    'blog.article.norme-flessibilita-start-up.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

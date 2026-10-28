@@ -37,7 +37,7 @@
  * consistent with the rest of the codebase, e.g. deloitte-job-parser.mjs
  * for a similarly-shaped genuinely-custom Avature scrape).
  *
- * Listing: https://career.valora.com/en/?criteria[jobCountry][]=1&page=N
+ * Listing: https://career.valora.com/en/?criteria[jobCountry][0]=1&page=N
  * (jobCountry option value "1" == Switzerland, confirmed against the
  * <select id="criteria_jobCountry"> filter facet on the listing page),
  * ~20 jobs/page, paginated via ?page=N. A page beyond the last one
@@ -81,8 +81,10 @@ export const VALORA_COMPANY_DOMAIN = 'valora.com';
 const LISTING_BASE = 'https://career.valora.com/en/';
 const CAREER_URL = 'https://career.valora.com/en/';
 // jobCountry option value "1" == Switzerland (from the listing page's
-// <select id="criteria_jobCountry"> filter facet — confirmed live).
-const LISTING_QS = 'criteria%5BjobCountry%5D%5B%5D=1';
+// <select id="criteria_jobCountry"> filter facet — confirmed live). The
+// current form serializes its multi-select criteria with an indexed slot;
+// the former `[]` spelling now yields the empty/JS shell response.
+const LISTING_QS = 'criteria%5BjobCountry%5D%5B0%5D=1';
 const MAX_PAGES = 15; // safety cap (~20/page; site currently lists 53 CH jobs across 3 pages)
 
 const SECTOR = 'Retail / Foodvenience';

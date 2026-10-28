@@ -168,7 +168,7 @@ const IT: ComparisonsHubCopy = {
   tCostColCh: 'Lugano (CHF)',
   tCostColIt: 'Varese/Como (EUR)',
   tCostFooter:
-    'Fonte: UST — Indice prezzi al consumo ([bfs.admin.ch](https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi.html)); ISTAT — Prezzi al consumo comuni capoluogo 2026 ([istat.it](https://www.istat.it/statistiche-per-temi/economia/prezzi/)); Numbeo 2026-Q1 per voci non coperte dagli istituti ufficiali (annotate come stima indipendente). Tasso CHF→EUR: 1,04.',
+    'Fonte: UST — Indice prezzi al consumo ([bfs.admin.ch](https://www.swissstats.bfs.admin.ch/data/webviewer/appId/ch.admin.bfs.swissstat/article/issue21055292100-02/package)); ISTAT — Prezzi al consumo comuni capoluogo 2026 ([istat.it](https://www.istat.it/statistiche-per-temi/economia/prezzi/)); Numbeo 2026-Q1 per voci non coperte dagli istituti ufficiali (annotate come stima indipendente). Tasso CHF→EUR: 1,04.',
   tCostRows: [
     { item: 'Affitto bilocale centrale (75 m²)', ch: 'CHF 1.800-2.200', it: '€750-950' },
     { item: 'Utenze mensili (elettricità + riscaldamento + internet)', ch: 'CHF 260-320', it: '€170-210' },
@@ -292,7 +292,7 @@ const EN: ComparisonsHubCopy = {
   tCostColCh: 'Lugano (CHF)',
   tCostColIt: 'Varese/Como (EUR)',
   tCostFooter:
-    'Source: UST/BFS — Consumer price index ([bfs.admin.ch](https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi.html)); ISTAT — Municipal consumer prices 2026 ([istat.it](https://www.istat.it/statistiche-per-temi/economia/prezzi/)); Numbeo 2026-Q1 for items not covered by the national institutes (flagged as independent estimate). CHF→EUR: 1.04.',
+    'Source: UST/BFS — Consumer price index ([bfs.admin.ch](https://www.swissstats.bfs.admin.ch/data/webviewer/appId/ch.admin.bfs.swissstat/article/issue21055292100-02/package)); ISTAT — Municipal consumer prices 2026 ([istat.it](https://www.istat.it/statistiche-per-temi/economia/prezzi/)); Numbeo 2026-Q1 for items not covered by the national institutes (flagged as independent estimate). CHF→EUR: 1.04.',
   tCostRows: [
     { item: 'Central 2-room rent (75 m²)', ch: 'CHF 1,800-2,200', it: '€750-950' },
     { item: 'Utilities/month (electricity + heating + internet)', ch: 'CHF 260-320', it: '€170-210' },
@@ -416,7 +416,7 @@ const DE: ComparisonsHubCopy = {
   tCostColCh: 'Lugano (CHF)',
   tCostColIt: 'Varese/Como (EUR)',
   tCostFooter:
-    'Quelle: BFS — Konsumentenpreisindex ([bfs.admin.ch](https://www.bfs.admin.ch/bfs/de/home.html)); ISTAT — Gemeindekonsumpreise 2026 ([istat.it](https://www.istat.it/)); Numbeo 2026-Q1 für nicht erfasste Positionen. CHF→EUR 1,04.',
+    'Quelle: BFS — Konsumentenpreisindex ([bfs.admin.ch](https://www.bfs.admin.ch/de/)); ISTAT — Gemeindekonsumpreise 2026 ([istat.it](https://www.istat.it/)); Numbeo 2026-Q1 für nicht erfasste Positionen. CHF→EUR 1,04.',
   tCostRows: [
     { item: '2-Zimmer-Miete zentral (75 m²)', ch: 'CHF 1.800-2.200', it: '€750-950' },
     { item: 'Nebenkosten/Monat (Strom + Heizung + Internet)', ch: 'CHF 260-320', it: '€170-210' },
@@ -540,7 +540,7 @@ const FR: ComparisonsHubCopy = {
   tCostColCh: 'Lugano (CHF)',
   tCostColIt: 'Varese/Côme (EUR)',
   tCostFooter:
-    'Source : OFS — Indice des prix à la consommation ([bfs.admin.ch](https://www.bfs.admin.ch/bfs/fr/home.html)) ; ISTAT — Prix communaux 2026 ([istat.it](https://www.istat.it/)) ; Numbeo 2026-Q1 pour les postes non couverts. CHF→EUR 1,04.',
+    'Source : OFS — Indice des prix à la consommation ([bfs.admin.ch](https://www.bfs.admin.ch/fr/)) ; ISTAT — Prix communaux 2026 ([istat.it](https://www.istat.it/)) ; Numbeo 2026-Q1 pour les postes non couverts. CHF→EUR 1,04.',
   tCostRows: [
     { item: 'Loyer 2 pièces central (75 m²)', ch: 'CHF 1.800-2.200', it: '€750-950' },
     { item: 'Charges/mois (électricité + chauffage + internet)', ch: 'CHF 260-320', it: '€170-210' },

@@ -53,6 +53,28 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Match NAGRA records across the legacy homepage identity migration.
+ *
+ * Before the vacancy-detail URL guard was added, stored rows could point at
+ * the careers homepage. The current parser emits the verified detail URL, so
+ * URL-only matching would retain the old row during the generic miss grace
+ * period and make the audit inspect both identities. The source title is the
+ * only identity shared by those legacy rows; use its exact normalized value
+ * as the bridge and return no key when the primary field is absent. The
+ * shared merge helper rejects non-injective keys, so duplicate titles remain
+ * fail-closed instead of being guessed together.
+ */
+export function kudelskiNagraMatchKey(job = {}) {
+  const title = normalizeSpace(job?.title || '')
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+  return title ? `kudelski-nagra:title:${title}` : '';
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**

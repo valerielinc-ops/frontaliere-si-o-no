@@ -1,5 +1,6 @@
 import { test, expect, type Page } from 'playwright/test';
 import { listActiveJobDetailPaths, resolveActiveJobDetailPath } from './lib/live-jobs';
+import { getLiveWithRetry } from './lib/live-request';
 import { JOB_DESCRIPTION_PREVIEW_LENGTH } from '../../services/jobs/descriptionPreview';
 
 /**
@@ -211,7 +212,11 @@ test('gated job detail: preview precedes access and follow, no fixed-widget coll
 });
 
 test('expired job detail: follow CTA sits above the auth gate, no fixed-widget collisions', async ({ page }) => {
-  const res = await page.request.get(`${LIVE_BASE_URL}${EXPIRED_JOB_PATH}`, { maxRedirects: 5, timeout: 15_000 }).catch(() => null);
+  const res = await getLiveWithRetry(
+    page.request.get.bind(page.request),
+    `${LIVE_BASE_URL}${EXPIRED_JOB_PATH}`,
+    { maxRedirects: 5, timeout: 15_000 },
+  ).catch(() => null);
   if (!res || res.status() === 404) {
     test.skip(true, `${EXPIRED_JOB_PATH} is no longer in expired-jobs.json (rotated out) — content churns over time.`);
     return;

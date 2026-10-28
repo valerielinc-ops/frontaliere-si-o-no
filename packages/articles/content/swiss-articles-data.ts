@@ -28903,6 +28903,36 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tavola-rotonda-sei-misure',
+    category: 'novita',
+    date: '2026-10-28T09:49:00.544Z',
+    image: '/images/blog/article-tavola-rotonda-sei-misure.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'allarme-popolazione-165-milioni',
+    category: 'novita',
+    date: '2026-10-28T16:52:57.192Z',
+    image: '/images/blog/article-allarme-popolazione-165-milioni.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'norme-flessibilita-start-up',
+    category: 'novita',
+    date: '2026-10-28T18:52:28.427Z',
+    image: '/images/blog/article-norme-flessibilita-start-up.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

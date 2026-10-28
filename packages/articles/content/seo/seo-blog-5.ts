@@ -111865,7 +111865,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-lamal-guida-2026-canton-argovia.webp`,
+        "url": `${BASE_URL}/images/blog/article-tutele-frontaliero-uscita-ticino.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -112606,7 +112606,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-canton-san-gallo-stabile-ricerca-lavoro-cala-disoccupazione.webp`,
+        "url": `${BASE_URL}/images/blog/article-ville-ponti-frontalieri-confronto.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine illustrativa pertinente al tema dell’articolo"
@@ -113441,6 +113441,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-via-motta-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-malnate-ristorni-500-mila-meno': {
+    title: 'Malnate: ristorni frontalieri in meno di quasi 500 mila euro',
+    description: 'Malnate avrà quasi 500 mila euro in meno dai ristorni. Quasi 1.700 residenti attraversano ogni giorno il confine. I fondi arriveranno ai primi',
+    keywords: 'frontalieri, ticino, svizzera, italia, malnate, ristorni, meno, quasi',
+    ogTitle: 'Malnate ristorni frontalieri in meno di 500 mila euro',
+    ogDescription: 'Malnate avrà quasi 500 mila euro in meno dai ristorni.',
+    canonicalPath: '/articoli-frontaliere/malnate-ristorni-500-mila-meno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malnate: ristorni frontalieri in meno di quasi 500 mila euro",
+      "description": "Malnate avrà quasi 500 mila euro in meno dai ristorni. Quasi 1.700 residenti attraversano ogni giorno il confine. I fondi arriveranno ai primi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-malnate-ristorni-500-mila-meno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T11:59:45+00:00",
+      "dateModified": "2026-10-28T11:59:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malnate-ristorni-500-mila-meno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mozione-ticino-ristorni-salute': {
+    title: 'Mozione in Ticino contro la tassa sulla salute',
+    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozione, contro, tassa, sulla',
+    ogTitle: 'Ticino: mozione contro la tassa sulla salute',
+    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    canonicalPath: '/articoli-frontaliere/mozione-ticino-ristorni-salute/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozione in Ticino contro la tassa sulla salute",
+      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mozione-ticino-ristorni-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T12:47:07+00:00",
+      "dateModified": "2026-10-28T12:47:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mozione-ticino-ristorni-salute/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ristorni-malnate-meno-500mila': {
+    title: 'Ristorni frontalieri, 500mila euro in meno a Malnate',
+    description: 'Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, 500mila, euro, meno',
+    ogTitle: 'Ristorni frontalieri Malnate: 500mila euro in meno',
+    ogDescription: 'Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700 malnatesi',
+    canonicalPath: '/articoli-frontaliere/ristorni-malnate-meno-500mila/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni frontalieri, 500mila euro in meno a Malnate",
+      "description": "Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ristorni-malnate-meno-500mila.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T15:40:27+00:00",
+      "dateModified": "2026-10-28T15:40:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-malnate-meno-500mila/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gaggiolo-articoli-lusso-non-dichiarati': {
+    title: 'A Gaggiolo articoli di lusso non dichiarati oltre 23.000 euro',
+    description: 'A Gaggiolo, una conducente è entrata in Italia con una borsa e un foulard di alta gamma non dichiarati, valutati oltre 23.000 euro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gaggiolo, articoli, lusso, dichiarati',
+    ogTitle: 'Articoli di lusso non dichiarati a Gaggiolo oltre 23.000 euro',
+    ogDescription: 'A Gaggiolo, una conducente è entrata in Italia con una borsa e un foulard di alta gamma non dichiarati, valutati oltre 23.000 euro. Il caso evidenzia il contrasto tra dichiarazione e ritrovamento.',
+    canonicalPath: '/articoli-frontaliere/gaggiolo-articoli-lusso-non-dichiarati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Gaggiolo articoli di lusso non dichiarati oltre 23.000 euro",
+      "description": "A Gaggiolo, una conducente è entrata in Italia con una borsa e un foulard di alta gamma non dichiarati, valutati oltre 23.000 euro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T15:59:33+00:00",
+      "dateModified": "2026-10-28T15:59:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gaggiolo-articoli-lusso-non-dichiarati/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -1,14 +1,14 @@
 {
   "crawlerKey": "rsbj",
-  "assembledAt": "2026-10-27T21:39:54.216Z",
-  "runId": "40586102797",
+  "assembledAt": "2026-10-28T21:39:58.718Z",
+  "runId": "40771123834",
   "jobs": [
     {
       "id": "rsbj-97f459a61e1e",
       "slug": "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
       "slugByLocale": {
         "it": "medici-con-titolo-post-laurea-federale-in-medicina-interna-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
-        "en": "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix",
+        "en": "doctors-carrying-the-post-graduate-federal-title-of-internal-medicine-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte",
         "de": "arzt-arztin-mit-federalem-postgraduierten-titel-in-innerer-medizin-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "fr": "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
       },
@@ -34,7 +34,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:39:48.107Z",
+      "crawledAt": "2026-10-28T21:39:50.931Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -55,15 +55,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix",
-        "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
-        "doctors-carrying-the-post-graduate-federal-title-of-internal-medicine-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte"
+        "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
       ],
       "previousSlugsByLocale": {
         "it": [
           "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
         ],
         "en": [
-          "doctors-carrying-the-post-graduate-federal-title-of-internal-medicine-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte"
+          "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-intern-rsbj-sainte-croix"
         ],
         "de": [
           "des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-praktikant-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
@@ -115,7 +114,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:39:47.300Z",
+      "crawledAt": "2026-10-28T21:39:49.568Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -188,7 +187,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:39:46.369Z",
+      "crawledAt": "2026-10-28T21:39:48.369Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -267,7 +266,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58809/fr/ergotherapeute-entre-40-et-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:39:45.578Z",
+      "crawledAt": "2026-10-28T21:39:47.154Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -350,7 +349,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58819/fr/assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:39:44.618Z",
+      "crawledAt": "2026-10-28T21:39:46.064Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -429,7 +428,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_59109/fr/un-e-physiotherapeute-entre-60-et-80",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:39:43.289Z",
+      "crawledAt": "2026-10-28T21:39:44.880Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",

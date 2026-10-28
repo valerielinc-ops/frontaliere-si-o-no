@@ -8639,6 +8639,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sei-misure-cure-sanitarie.title': 'Costi sanitari: sei nuove misure adottate a Berna',
     'blog.article.sei-misure-cure-sanitarie.excerpt': 'Sei misure adottate lunedì a Berna Cure a domicilio e pronto soccorso tra gli ambiti Le misure si aggiungono alle 12 del 2025 Impatto economico ancora',
     'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.tavola-rotonda-sei-misure.title': 'Sei nuove misure sul contenimento dei costi nel settore sanitario',
+    'blog.article.tavola-rotonda-sei-misure.excerpt': 'Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto soccorso e cure',
+    'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.allarme-popolazione-165-milioni.title': 'Allarme popolazione: 165,4 mln per modernizzazione',
+    'blog.article.allarme-popolazione-165-milioni.excerpt': 'Il Consiglio federale chiede 165,4 milioni di franchi.',
+    'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.norme-flessibilita-start-up.title': 'Consiglio federale concede flessibilità alle start-up per l\'orario di lavoro',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Il Consiglio federale introduce deroghe mirate all’orario di lavoro per alcuni dipendenti di start-up, con entrata in vigore il 1° dicembre 2026 e condizioni legate a competenze specifiche, autonomia, partecipazione al capitale e progetti di durata limitata.',
+    'blog.article.norme-flessibilita-start-up.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

@@ -1,18 +1,19 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-10-27T21:29:13.758Z",
-  "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "generatedAt": "2026-10-28T22:01:18.856Z",
+  "total": 1,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7493,
-  "avgDurationMs": 7493,
+  "unchangedCount": 0,
+  "durationMs": 7154,
+  "avgDurationMs": 7154,
   "durationHistory": [
-    7493
+    7154
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-50--60-215552",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-50--60-215552",
@@ -23,7 +24,7 @@
       "postalCode": "1950",
       "canton": "VS",
       "country": "CH",
-      "slug": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais",
+      "slug": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-wallis-sion",
       "category": "administration",
       "datePosted": "",
       "postedDate": "",
@@ -42,67 +43,16 @@
         "de": "https://www.hevs.ch/de/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-50--60-215552",
         "en": "https://www.hevs.ch/en/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-50--60-215552"
       },
-      "needsRetranslation": true,
-      "crawledAt": "2026-10-27T21:28:59.072Z",
       "id": "hes-so-valais-2f031ec3361d",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
       "firstSeenAt": "2026-09-29T21:13:13.966Z",
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 17
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://www.hevs.ch/fr/recruitee/apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-***-einen-lernenden-oder-eine-lernende-mediamatik-efz-215387",
-      "applyUrl": "https://www.hevs.ch/fr/recruitee/apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-***-einen-lernenden-oder-eine-lernende-mediamatik-efz-215387",
-      "title": "Apprenti médiamaticien CFC ou Apprentie médiamaticienne CFC ***",
-      "company": "HES-SO Valais-Wallis",
-      "companyKey": "hes-so-valais",
-      "location": "Sion",
-      "postalCode": "1950",
-      "canton": "VS",
-      "country": "CH",
-      "slug": "mediamaticien-cfc-ou-mediamaticienne-cfc-mediamatiker-cfc-hes-so-valais-wallis-sion",
-      "category": "general",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "source": "hes-so-valais-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Istruzione / Ricerca",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
-      },
-      "urlByLocale": {
-        "fr": "https://www.hevs.ch/fr/recruitee/apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-***-einen-lernenden-oder-eine-lernende-mediamatik-efz-215387",
-        "de": "https://www.hevs.ch/de/recruitee/apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-***-einen-lernenden-oder-eine-lernende-mediamatik-efz-215387",
-        "en": "https://www.hevs.ch/en/recruitee/apprenti-mediamaticien-cfc-ou-apprentie-mediamaticienne-cfc-***-einen-lernenden-oder-eine-lernende-mediamatik-efz-215387"
-      },
-      "id": "hes-so-valais-c4969ea7e334",
-      "firstSeenAt": "2026-09-28T21:22:36.996Z",
-      "crawledAt": "2026-10-27T09:30:07.782Z",
+      "crawledAt": "2026-10-28T22:01:03.549Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "crawlerMissStreak": 1,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -112,5 +62,7 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }

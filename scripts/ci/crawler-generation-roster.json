@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 655,
+  "crawlerCount": 658,
   "groups": {
     "10": [
       "atec-personal",
@@ -610,6 +610,7 @@
       "spital-uster",
       "srg-ssr",
       "swatchgroup",
+      "teo-jakob",
       "transgourmet"
     ],
     "07": [
@@ -629,6 +630,7 @@
       "lonza",
       "medtronic",
       "moncucco",
+      "mpa-praxisstellen-ch",
       "psgn",
       "riveneuve",
       "sobi",
@@ -655,6 +657,7 @@
       "dic-sa",
       "dxt-commodities",
       "ehc-vd",
+      "grund-ag-ch",
       "has-healthcare",
       "hes-so-valais",
       "josef-mueller",
@@ -953,6 +956,7 @@
     "grischapersonal": "data/jobs/by-crawler/grischapersonal.json",
     "groupe-e": "data/jobs/by-crawler/groupe-e.json",
     "groupe-mutuel": "data/jobs/by-crawler/groupe-mutuel.json",
+    "grund-ag-ch": "data/jobs/by-crawler/grund-ag-ch.json",
     "guess-europe": "data/jobs/by-crawler/guess-europe.json",
     "guggerbach": "data/jobs/by-crawler/guggerbach.json",
     "gz-dielsdorf": "data/jobs/by-crawler/gz-dielsdorf.json",
@@ -1109,6 +1113,7 @@
     "modellstation-somosa": "data/jobs/by-crawler/modellstation-somosa.json",
     "molecular-partners": "data/jobs/by-crawler/molecular-partners.json",
     "moncucco": "data/jobs/by-crawler/moncucco.json",
+    "mpa-praxisstellen-ch": "data/jobs/by-crawler/mpa-praxisstellen-ch.json",
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
     "mueller-frauenfeld": "data/jobs/by-crawler/mueller-frauenfeld.json",
@@ -1302,6 +1307,7 @@
     "tecan": "data/jobs/by-crawler/tecan.json",
     "technic-emplois": "data/jobs/by-crawler/technic-emplois.json",
     "temenos": "data/jobs/by-crawler/temenos.json",
+    "teo-jakob": "data/jobs/by-crawler/teo-jakob.json",
     "teo-jakob-ag": "data/jobs/by-crawler/teo-jakob-ag.json",
     "tertianum": "data/jobs/by-crawler/tertianum.json",
     "tether": "data/jobs/by-crawler/tether.json",
@@ -1364,5 +1370,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:64f65e641c0dd2a65a09f37d938693b22818feb5e6bbe8b6ef3b9a54436f7707"
+  "digest": "sha256:a39534fef97e71090b52650a1b8dc600d6712d5503faa0cb02e9bb8631acb807"
 }

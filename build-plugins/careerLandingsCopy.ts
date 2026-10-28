@@ -135,7 +135,7 @@ const IT_AGENZIE: CareerLandingCopy = {
     {
       label:
         'Registro SECO AVG — agenzie di collocamento e prestito di personale autorizzate',
-      href: 'https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend',
+      href: 'https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend/',
     },
     {
       label: 'SECO — Collocamento privato e prestito di personale',
@@ -194,7 +194,7 @@ const IT_AGENZIE: CareerLandingCopy = {
       question:
         'Dove trovo l\'elenco ufficiale delle agenzie del lavoro autorizzate a Lugano?',
       answer:
-        'Nel registro SECO AVG pubblico (vzavg1.admin.ch/vzavg-verzeichnis-frontend), filtrando per cantone TI e Comune Lugano. È l\'unica fonte autoritativa: include sia collocamento sia prestito di personale, con il tipo di autorizzazione e lo stato (attiva / sospesa / revocata).',
+        'Nel registro SECO AVG pubblico (vzavg1.admin.ch/vzavg-verzeichnis-frontend/), filtrando per cantone TI e Comune Lugano. È l\'unica fonte autoritativa: include sia collocamento sia prestito di personale, con il tipo di autorizzazione e lo stato (attiva / sospesa / revocata).',
     },
     {
       question:
@@ -1064,7 +1064,7 @@ const CONDENSED_FAQS: Record<
         question:
           'Where do I find the official list of SECO-authorised staffing agencies in Lugano?',
         answer:
-          'Use the SECO AVG public register at vzavg1.admin.ch/vzavg-verzeichnis-frontend, filter by canton TI and city Lugano. It is the only authoritative source.',
+          'Use the SECO AVG public register at vzavg1.admin.ch/vzavg-verzeichnis-frontend/, filter by canton TI and city Lugano. It is the only authoritative source.',
       },
       {
         question: 'Can I register with several staffing agencies at once?',
@@ -1136,7 +1136,7 @@ const CONDENSED_FAQS: Record<
         question:
           'Wo finde ich das offizielle Verzeichnis SECO-autorisierter Agenturen in Lugano?',
         answer:
-          'Im öffentlichen SECO AVG-Register unter vzavg1.admin.ch/vzavg-verzeichnis-frontend, gefiltert nach Kanton TI und Gemeinde Lugano. Einzige massgebliche Quelle.',
+          'Im öffentlichen SECO AVG-Register unter vzavg1.admin.ch/vzavg-verzeichnis-frontend/, gefiltert nach Kanton TI und Gemeinde Lugano. Einzige massgebliche Quelle.',
       },
       {
         question: 'Darf ich mich bei mehreren Agenturen gleichzeitig eintragen?',
@@ -1209,7 +1209,7 @@ const CONDENSED_FAQS: Record<
         question:
           "Où trouver le registre officiel des agences SECO autorisées à Lugano ?",
         answer:
-          "Dans le registre public SECO AVG sur vzavg1.admin.ch/vzavg-verzeichnis-frontend, filtré par canton TI et commune Lugano. Source unique faisant foi.",
+          "Dans le registre public SECO AVG sur vzavg1.admin.ch/vzavg-verzeichnis-frontend/, filtré par canton TI et commune Lugano. Source unique faisant foi.",
       },
       {
         question: "Puis-je m'inscrire simultanément auprès de plusieurs agences ?",

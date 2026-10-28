@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 930,
+      "5": 949,
       "6": 5061
     },
-    "publishedCovers": 7673,
+    "publishedCovers": 7692,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210552,6 +210552,633 @@
         "provider": "openai-codex",
         "assetId": "article-sistema-ferroviario-accordo-ue",
         "imageUrl": "/images/blog/article-sistema-ferroviario-accordo-ue.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ville-ponti-frontalieri-confronto": {
+      "cover": "/images/blog/article-ville-ponti-frontalieri-confronto.webp",
+      "hash": "47bb2483ad7d1295369817d10c86f7df01c2d471b741307d35d18ca1e9f25142",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ville-ponti-frontalieri-confronto",
+          "category": "novita",
+          "date": "2026-10-20T21:30:48.699Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ville-ponti-frontalieri-confronto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ville-ponti-frontalieri-confronto",
+        "imageUrl": "/images/blog/article-ville-ponti-frontalieri-confronto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tavola-rotonda-sei-misure": {
+      "cover": "/images/blog/article-tavola-rotonda-sei-misure.webp",
+      "hash": "b5c183b5b1687d288af6e8ce1b051c6ee96469521cc48e1b478a262f1442e63c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tavola-rotonda-sei-misure",
+          "category": "novita",
+          "date": "2026-10-28T09:49:00.544Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tavola-rotonda-sei-misure.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tavola-rotonda-sei-misure",
+        "imageUrl": "/images/blog/article-tavola-rotonda-sei-misure.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cham-moltiplicatore-fiscale-2027": {
+      "cover": "/images/blog/article-cham-moltiplicatore-fiscale-2027.webp",
+      "hash": "9c866b188d5c3a122223c597e82c7b03b205227e98b19b74de6d4ac5f7dc0b1d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "cham-moltiplicatore-fiscale-2027",
+          "category": "fiscale",
+          "date": "2026-10-28T11:33:27.848Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cham-moltiplicatore-fiscale-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cham-moltiplicatore-fiscale-2027",
+        "imageUrl": "/images/blog/article-cham-moltiplicatore-fiscale-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-fislisbach-acqua-potabile": {
+      "cover": "/images/blog/article-fislisbach-acqua-potabile.webp",
+      "hash": "afae0ffa8c34fca2f9a8e0683c8dc7c2f059d10aa51560d4d832d6ee2534be18",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "fislisbach-acqua-potabile",
+          "category": "pratico",
+          "date": "2026-10-28T11:31:41.205Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fislisbach-acqua-potabile.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fislisbach-acqua-potabile",
+        "imageUrl": "/images/blog/article-fislisbach-acqua-potabile.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mutazioni-lavoro-frontaliero-jura": {
+      "cover": "/images/blog/article-mutazioni-lavoro-frontaliero-jura.webp",
+      "hash": "3438f8db0cef11c2e4de9b715dba8d5729294fa0c57a5f93c1cf39e502deb11f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "mutazioni-lavoro-frontaliero-jura",
+          "category": "novita",
+          "date": "2026-10-28T11:22:42.284Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mutazioni-lavoro-frontaliero-jura.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mutazioni-lavoro-frontaliero-jura",
+        "imageUrl": "/images/blog/article-mutazioni-lavoro-frontaliero-jura.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-solothurn-sussidi-premi-2027": {
+      "cover": "/images/blog/article-solothurn-sussidi-premi-2027.webp",
+      "hash": "fe6d5dcba56fb9ce9c96eab54b4937f49deee26ea037411302a58cc2ce07263b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "solothurn-sussidi-premi-2027",
+          "category": "fiscale",
+          "date": "2026-10-28T11:42:42.148Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-solothurn-sussidi-premi-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-solothurn-sussidi-premi-2027",
+        "imageUrl": "/images/blog/article-solothurn-sussidi-premi-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mozione-ticino-ristorni-salute": {
+      "cover": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
+      "hash": "0d1dc6af0d3e15310cf0203523e02f14771ddfd773814df73624d86fe145c7b5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "mozione-ticino-ristorni-salute",
+          "category": "fiscale",
+          "date": "2026-10-28T12:47:07.552Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mozione-ticino-ristorni-salute.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mozione-ticino-ristorni-salute",
+        "imageUrl": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bains-ovronnaz-nuovo-sursis": {
+      "cover": "/images/blog/article-bains-ovronnaz-nuovo-sursis.webp",
+      "hash": "5ee5e7c432498246c57e8b9fd43ec27e1b548bd97ac743edc836eeb5f7f1942a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vs",
+          "id": "bains-ovronnaz-nuovo-sursis",
+          "category": "novita",
+          "date": "2026-10-28T15:29:18.560Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bains-ovronnaz-nuovo-sursis.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bains-ovronnaz-nuovo-sursis",
+        "imageUrl": "/images/blog/article-bains-ovronnaz-nuovo-sursis.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ristorni-malnate-meno-500mila": {
+      "cover": "/images/blog/article-ristorni-malnate-meno-500mila.webp",
+      "hash": "6c2c1e2c9c704b97ceef8d7ab347651c308b17efec25f8af760aa67f1559497b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ristorni-malnate-meno-500mila",
+          "category": "fiscale",
+          "date": "2026-10-28T15:40:26.747Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ristorni-malnate-meno-500mila.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ristorni-malnate-meno-500mila",
+        "imageUrl": "/images/blog/article-ristorni-malnate-meno-500mila.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-gaggiolo-articoli-lusso-non-dichiarati": {
+      "cover": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
+      "hash": "b0401ce903e7937e3a69103aa68d7ce30b30f4180a5bede623abbc6d1e142d68",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gaggiolo-articoli-lusso-non-dichiarati",
+          "category": "fiscale",
+          "date": "2026-10-28T15:59:32.918Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-gaggiolo-articoli-lusso-non-dichiarati.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-gaggiolo-articoli-lusso-non-dichiarati",
+        "imageUrl": "/images/blog/article-gaggiolo-articoli-lusso-non-dichiarati.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-allarme-popolazione-165-milioni": {
+      "cover": "/images/blog/article-allarme-popolazione-165-milioni.webp",
+      "hash": "60a7fbea6289e33a08e9d15ad3b15cd0d11240c268e3451022e35e0b7e633276",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "allarme-popolazione-165-milioni",
+          "category": "novita",
+          "date": "2026-10-28T16:52:57.192Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-allarme-popolazione-165-milioni.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-allarme-popolazione-165-milioni",
+        "imageUrl": "/images/blog/article-allarme-popolazione-165-milioni.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tutele-frontaliero-uscita-ticino": {
+      "cover": "/images/blog/article-tutele-frontaliero-uscita-ticino.webp",
+      "hash": "a1c34d00a22db9b569f31fde7c085dd371bb31147034cb2171573fa5d7e4004c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "tutele-frontaliero-uscita-ticino",
+          "category": "pratico",
+          "date": "2026-10-18T16:43:35.261Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tutele-frontaliero-uscita-ticino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tutele-frontaliero-uscita-ticino",
+        "imageUrl": "/images/blog/article-tutele-frontaliero-uscita-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-appenzello-deficit-budget": {
+      "cover": "/images/blog/article-appenzello-deficit-budget.webp",
+      "hash": "49abeb7f2c6a4e3461e29cd125f4851bec61be00af906188850e0936444f0047",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "appenzello-deficit-budget",
+          "category": "fiscale",
+          "date": "2026-10-28T18:13:37.671Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-appenzello-deficit-budget.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-appenzello-deficit-budget",
+        "imageUrl": "/images/blog/article-appenzello-deficit-budget.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-economia-neuchateloise-incertezza": {
+      "cover": "/images/blog/article-economia-neuchateloise-incertezza.webp",
+      "hash": "872cc6ebcc0499222c0fa988c0169f897cc3015cabe8a9a60a645a0892fd19d3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "economia-neuchateloise-incertezza",
+          "category": "novita",
+          "date": "2026-10-28T17:45:20.321Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-economia-neuchateloise-incertezza.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-economia-neuchateloise-incertezza",
+        "imageUrl": "/images/blog/article-economia-neuchateloise-incertezza.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-susten-furka-chiusura-invernale": {
+      "cover": "/images/blog/article-susten-furka-chiusura-invernale.webp",
+      "hash": "173c10391734847401a9171eadbe68563688b960364c69b47bf294d26e21b9c2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "susten-furka-chiusura-invernale",
+          "category": "pratico",
+          "date": "2026-10-28T17:45:24.471Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-susten-furka-chiusura-invernale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-susten-furka-chiusura-invernale",
+        "imageUrl": "/images/blog/article-susten-furka-chiusura-invernale.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tpf-bus-elettrici-friburgo": {
+      "cover": "/images/blog/article-tpf-bus-elettrici-friburgo.webp",
+      "hash": "f8e582518affdccba49c0678e45e302102795f953d6a986152689b98e11a178b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "tpf-bus-elettrici-friburgo",
+          "category": "novita",
+          "date": "2026-10-28T17:54:37.229Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tpf-bus-elettrici-friburgo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tpf-bus-elettrici-friburgo",
+        "imageUrl": "/images/blog/article-tpf-bus-elettrici-friburgo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-costi-sanita-meno-entrate": {
+      "cover": "/images/blog/article-costi-sanita-meno-entrate.webp",
+      "hash": "bc4a319e714d064615eb1c96554bccb344134dcf9d6f425558022fb4f5d2d0b5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "costi-sanita-meno-entrate",
+          "category": "fiscale",
+          "date": "2026-10-28T19:28:05.243Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-costi-sanita-meno-entrate.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-costi-sanita-meno-entrate",
+        "imageUrl": "/images/blog/article-costi-sanita-meno-entrate.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-malnate-ristorni-500-mila-meno": {
+      "cover": "/images/blog/article-malnate-ristorni-500-mila-meno.webp",
+      "hash": "f68d6eeada9151c555778c017ffac768501b2fca245192d1fef1143f2faf7cd7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "malnate-ristorni-500-mila-meno",
+          "category": "fiscale",
+          "date": "2026-10-28T11:59:45.372Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-malnate-ristorni-500-mila-meno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-malnate-ristorni-500-mila-meno",
+        "imageUrl": "/images/blog/article-malnate-ristorni-500-mila-meno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-norme-flessibilita-start-up": {
+      "cover": "/images/blog/article-norme-flessibilita-start-up.webp",
+      "hash": "8387949621413e739ab62a77e472243dc25c4a0734a024efd73cd84d1606f6b5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "norme-flessibilita-start-up",
+          "category": "novita",
+          "date": "2026-10-28T18:52:28.427Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-norme-flessibilita-start-up.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-norme-flessibilita-start-up",
+        "imageUrl": "/images/blog/article-norme-flessibilita-start-up.webp",
         "evidence": "generated-engine-record"
       }
     }

@@ -8,7 +8,7 @@
  * Why this is a curated list, not a live scrape
  * ---------------------------------------------
  * The authoritative SECO registry is served through a client-side SPA at
- *   https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend
+ *   https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend/
  * (migration URL from the historical servlet
  *  http://www.avg-seco.admin.ch/WebVerzeichnis/ServletWebVerzeichnis)
  * and requires a browser (React-rendered) to read. Any headless-HTML scrape
@@ -24,11 +24,11 @@
  * the SECO register search.
  *
  * Source of truth (cited in copy):
- *   https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend (SECO AVG directory)
+ *   https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend/ (SECO AVG directory)
  *
  * Output shape:
  *   {
- *     "source": "https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend",
+ *     "source": "https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend/",
  *     "sourceLabel": "Registro SECO AVG — agenzie di collocamento e prestito di personale autorizzate",
  *     "fetchedAt": "2026-04-23T00:00:00.000Z",
  *     "curated": true,
@@ -49,7 +49,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const OUT_PATH = path.join(ROOT, 'data', 'seco-staffing-registry.json');
-const SOURCE_URL = 'https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend';
+const SOURCE_URL = 'https://www.vzavg1.admin.ch/vzavg-verzeichnis-frontend/';
 const FORCE = process.argv.includes('--force');
 
 /**

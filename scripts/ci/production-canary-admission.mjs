@@ -16,6 +16,10 @@ import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 
 const API = 'https://api.github.com';
 const API_TIMEOUT_MS = 30_000;
+const PAGE_SIZE = 100;
+const MAX_PAGES = 50;
+const STATUS_PAGE_RETRY_ATTEMPTS = 3;
+const STATUS_PAGE_RETRY_DELAY_MS = 250;
 const ACTIVE_STATUSES = Object.freeze(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
 
 /**
@@ -75,6 +79,14 @@ function authToken(token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN) {
   return token;
 }
 
+function repositoryPath(repository) {
+  const parts = String(repository || '').trim().split('/');
+  if (parts.length !== 2 || parts.some((part) => part.length === 0)) {
+    throw new Error(`GITHUB_REPOSITORY must be in owner/repo form (got ${repository || '<empty>'})`);
+  }
+  return parts.map((part) => encodeURIComponent(part)).join('/');
+}
+
 async function readJson(url, token, fetchImpl) {
   const response = await fetchImpl(url, {
     headers: githubApiHeaders(authToken(token)),
@@ -85,7 +97,64 @@ async function readJson(url, token, fetchImpl) {
   if (!body || !Array.isArray(body.workflow_runs)) {
     throw new Error(`GitHub API ${url} returned no workflow_runs array`);
   }
-  return body.workflow_runs;
+  if (!Number.isInteger(body.total_count) || body.total_count < 0) {
+    throw new Error(`GitHub API ${url} returned an invalid total_count`);
+  }
+  if (body.workflow_runs.length > PAGE_SIZE) {
+    throw new Error(`GitHub API ${url} returned more than ${PAGE_SIZE} workflow runs`);
+  }
+  return body;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Actions can move a run between status buckets while a page is being read.
+ * GitHub may then return the old total_count with an empty/short page. Retry
+ * that inconsistent page briefly; a persistent mismatch still fails closed.
+ */
+async function readConsistentStatusPage({
+  repositoryPath: repoPath,
+  status,
+  token,
+  fetchImpl,
+  page,
+  alreadyRead,
+}) {
+  const url = `${API}/repos/${repoPath}/actions/runs?status=${encodeURIComponent(status)}&per_page=${PAGE_SIZE}&page=${page}`;
+  for (let attempt = 1; attempt <= STATUS_PAGE_RETRY_ATTEMPTS; attempt += 1) {
+    const body = await readJson(url, token, fetchImpl);
+    const complete = alreadyRead + body.workflow_runs.length >= body.total_count;
+    const fullPage = body.workflow_runs.length === PAGE_SIZE;
+    if (complete || fullPage) return body;
+    if (attempt < STATUS_PAGE_RETRY_ATTEMPTS) await sleep(STATUS_PAGE_RETRY_DELAY_MS);
+  }
+  throw new Error(`GitHub API ${status} run listing was truncated after ${STATUS_PAGE_RETRY_ATTEMPTS} retries`);
+}
+
+async function readStatusRuns({ repositoryPath: repoPath, status, token, fetchImpl }) {
+  const runs = [];
+  let page = 1;
+
+  while (true) {
+    const body = await readConsistentStatusPage({
+      repositoryPath: repoPath,
+      status,
+      token,
+      fetchImpl,
+      page,
+      alreadyRead: runs.length,
+    });
+    runs.push(...body.workflow_runs);
+
+    if (runs.length >= body.total_count) return runs;
+    page += 1;
+    if (page > MAX_PAGES) {
+      throw new Error(`GitHub API ${status} run listing exceeded ${MAX_PAGES} pages`);
+    }
+  }
 }
 
 /**
@@ -98,12 +167,14 @@ export async function readActiveProductionWriters({
   fetchImpl = fetch,
 } = {}) {
   if (!repository) throw new Error('GITHUB_REPOSITORY required');
+  const repoPath = repositoryPath(repository);
 
-  const batches = await Promise.all(ACTIVE_STATUSES.map((status) => readJson(
-    `${API}/repos/${encodeURIComponent(repository)}/actions/runs?status=${status}&per_page=100`,
+  const batches = await Promise.all(ACTIVE_STATUSES.map((status) => readStatusRuns({
+    repositoryPath: repoPath,
+    status,
     token,
     fetchImpl,
-  )));
+  })));
   const byId = new Map();
   for (const run of batches.flat()) {
     const selected = selectActiveProductionWriters([run]);

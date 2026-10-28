@@ -20,6 +20,7 @@ vi.mock('../scripts/jobs-url-helper.mjs', () => ({
 const { buildTichFetchProxyHosts, fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs');
 const {
   buildTichTranslateUrl,
+  OFFICIAL_LISTING_CANONICAL_URL,
   fetchTichOfficialListingViaTranslate,
 } = await import('../scripts/scrape-concorsi-ti.mjs');
 
@@ -174,7 +175,33 @@ describe('Ticino official listing transport', () => {
     expect(buildTichTranslateUrl(OFFICIAL_LISTING_URL)).toBe(
       'https://www4-ti-ch.translate.goog/index.php?id=147427&_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
     );
+    expect(buildTichTranslateUrl(OFFICIAL_LISTING_CANONICAL_URL)).toBe(
+      'https://www4-ti-ch.translate.goog/dfe/dr/sru/lavorare-per-lamministrazione-cantonale/concorsi-generali?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
+    );
     expect(buildTichTranslateUrl('https://www4.ti.ch/index.php?id=24469')).toBe('');
+    expect(buildTichTranslateUrl('https://www4.ti.ch/dfe/dr/sru/lavorare-per-lamministrazione-cantonale/concorsi-generali?cHash=untrusted')).toBe('');
+  });
+
+  it('tries the canonical official listing after the legacy Translate route times out', async () => {
+    const legacyTranslateUrl = buildTichTranslateUrl(OFFICIAL_LISTING_URL);
+    const canonicalTranslateUrl = buildTichTranslateUrl(OFFICIAL_LISTING_CANONICAL_URL);
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === legacyTranslateUrl) return new Response('', { status: 408 });
+      if (url === canonicalTranslateUrl) return new Response(translatedOfficialListingHtml, { status: 200 });
+      throw new Error(`unexpected URL: ${url}`);
+    });
+
+    await expect(fetchTichOfficialListingViaTranslate(OFFICIAL_LISTING_URL, {
+      fetchImpl,
+      attempts: 1,
+      retryDelayMs: 0,
+      timeoutMs: 1_000,
+    })).resolves.toContain('https://www.concorsi.ti.ch/offerte-d%27impieghi.html?yid=4059');
+
+    expect(fetchImpl.mock.calls.map(([url]) => url)).toEqual([
+      legacyTranslateUrl,
+      canonicalTranslateUrl,
+    ]);
   });
 
   it('keeps the bounded Google Translate rescue alive beyond the direct-source timeout', async () => {

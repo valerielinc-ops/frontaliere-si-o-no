@@ -67,6 +67,12 @@ const REF_RE = /^(f\d+)?e\d+$/;
 const KEYS = new Set(['Enter', 'Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', 'Backspace']);
 // A button with one of these words may send the application: only the runner presses it.
 export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm|apply|bewerb|candida|postul)/i;
+// Some legacy portals use a form submit for an intermediate action, such as
+// adding an uploaded resume to the application before the real Next button
+// (Talentsoft/RHB: «Hinzufügen»). Keep those actions available to the agent,
+// while the final/navigation guards below remain authoritative.
+const INTERMEDIATE_SUBMIT_RE = /^(?:add|insert|hinzufügen|hinzufuegen|einfügen|einfuegen|aggiungi|aggiungere|inserisci|ajouter|ajoutez|añadir|agregar|adicionar|upload|hochladen|carica|caricare|téléverser|televerser|save|salva|speichern|enregistrer)\b/i;
+const APPLICATION_ACTION_RE = /\b(?:application|bewerbung|candidatur\w*|candidature\w*|postulation\w*)\b/i;
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
 
 function normalizeOptionAnswer(value) {
@@ -502,7 +508,10 @@ export function refusal(action, info) {
   }
   // On buttons and links only: a box "I confirm my data is complete" is ticked like any other.
   if (info.button && (action.action === 'click' || action.action === 'press')) {
-    if (info.submits || FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) return 'final_submit_reserved';
+    const intermediateSubmit = info.submits
+      && INTERMEDIATE_SUBMIT_RE.test(info.name)
+      && !APPLICATION_ACTION_RE.test(info.name);
+    if ((info.submits && !intermediateSubmit) || FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) return 'final_submit_reserved';
     if (NEXT_RE.test(info.name)) return 'navigation_reserved';
     if (info.leaves) return 'link_reserved';
   }

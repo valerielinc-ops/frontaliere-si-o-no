@@ -629,7 +629,7 @@ function renderReport(opts: {
 }): RenderedReport {
   const { locale, agg, distDir } = opts;
   const copy = COPY[locale];
-  const bfsHomeUrl = `https://www.bfs.admin.ch/bfs/${locale}/home.html`;
+  const bfsHomeUrl = `https://www.bfs.admin.ch/${locale}/`;
 
   // Build canonical URL. REPORT_SLUG for non-IT locales already includes the
   // locale prefix (e.g. "en/report/..."), so we normalise on a leading "/".

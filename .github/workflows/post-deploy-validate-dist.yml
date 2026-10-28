@@ -487,6 +487,19 @@ jobs:
         run: |
           source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           build_skew_guard_run node scripts/ci/assert-dist-complete.mjs node scripts/ci/assert-dist-complete.mjs
+
+      # The build's sitemap-alias hook runs before locale/section shards are
+      # rehydrated. A shard can therefore replace a listed page with noindex or
+      # a non-self-canonical document after the build-time pass. Re-run the
+      # same final-dist reconciler on the assembled corpus before any validator
+      # reads it; this removes only sitemap XML entries and preserves the HTML.
+      - name: Reconcile rehydrated sitemaps against final dist
+        id: reconcile_rehydrated_sitemaps
+        if: steps.assert_dist_complete.outcome == 'success'
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run npm validate:rehydrated-sitemaps npm run validate:rehydrated-sitemaps
+
       # Source validators share the rehydrated dist and still run even when
       # a previous phase is red, so the report contains the complete verdict.
       - name: Run source validators (parallel — 4 vCPU)

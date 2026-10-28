@@ -1012,9 +1012,18 @@ async function probeOnce(url, {
   const location = header(response, 'location');
   const finalUrl = location ? normalizeUrl(location, url) || location : url;
   const contentType = header(response, 'content-type').toLowerCase();
-  const body = response.status >= 200 && response.status < 400 && (contentType.includes('html') || !contentType)
-    ? await readLimitedBody(response, maxBodyBytes)
-    : { text: '', truncated: false };
+  let body = { text: '', truncated: false };
+  if (response.status >= 200 && response.status < 400 && (contentType.includes('html') || !contentType)) {
+    try {
+      body = await readLimitedBody(response, maxBodyBytes);
+    } catch (error) {
+      // A response can be accepted by fetch() and still fail while its stream
+      // is read (for example, an edge reset reported as `TypeError: terminated`).
+      // Treat that transport failure like a failed fetch so probeWithRetries()
+      // can retry it instead of rejecting the whole partition worker.
+      return { url, status: 0, finalUrl: url, findings: [finding('fetch-error', url, error?.message || String(error))], links: [] };
+    }
+  }
   const classified = classifyDocument({
     url,
     status: response.status,

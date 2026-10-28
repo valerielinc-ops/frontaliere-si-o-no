@@ -58,6 +58,7 @@ vi.mock('@/services/userAlertsCache', () => ({
 const { analyticsMock } = vi.hoisted(() => ({
   analyticsMock: {
     trackJobAlertCtaClick: vi.fn(),
+    trackJobAlertAuthHandoff: vi.fn(),
     trackJobAlertCtaShown: vi.fn(),
     trackJobAlertCtaSkipped: vi.fn(),
     trackJobAlertPassiveView: vi.fn(),
@@ -472,6 +473,48 @@ describe('JobAlertForm — post-auth replay keeps the qualifying CTA origin (iss
     // The surface is one the goal's allowlist counts on BOTH sides of the ratio.
     expect(ALERT_CTA_SURFACES).toContain(created.surface);
     await waitFor(() => expect(ctaActions()).toContain('inline_card:success'));
+    expect(localStorage.getItem(PENDING_KEY)).toBeNull();
+  });
+
+  it('keeps the board-filter auth handoff observable through replay success', async () => {
+    localStorage.setItem(PENDING_KEY, JSON.stringify({
+      value: {
+        origin: 'job_board_filters',
+        config: {
+          keywords: ['Tecnologia'],
+          locations: ['lugano'],
+          contractTypes: ['part-time'],
+          sectors: ['healthcare'],
+          cantonFilter: ['TI'],
+          frequency: 'weekly',
+          locale: 'it',
+        },
+      },
+      savedAt: Date.now(),
+    }));
+
+    render(<JobAlertForm authUser={authUser} />);
+
+    await waitFor(() => expect(createAlertMock).toHaveBeenCalledTimes(1));
+    expect(createAlertMock).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      expect.objectContaining({
+        keywords: ['Tecnologia'],
+        locations: ['lugano'],
+        contractTypes: ['part-time'],
+        sectors: ['healthcare'],
+        cantonFilter: ['TI'],
+      }),
+    );
+    expect(analyticsMock.trackJobAlertAuthHandoff.mock.calls).toEqual(expect.arrayContaining([
+      ['job_board_filters', 'replay_started', 'Tecnologia'],
+      ['job_board_filters', 'replay_succeeded', 'Tecnologia'],
+    ]));
+    expect(analyticsMock.trackJobAlertCreated.mock.calls[0][0]).toMatchObject({
+      surface: 'job_board_filters',
+      authPath: 'post_auth_replay',
+    });
     expect(localStorage.getItem(PENDING_KEY)).toBeNull();
   });
 

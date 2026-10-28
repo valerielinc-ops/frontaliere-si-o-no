@@ -8639,6 +8639,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sei-misure-cure-sanitarie.title': 'Gesundheitskosten: sechs neue Maßnahmen in Bern beschlossen',
     'blog.article.sei-misure-cure-sanitarie.excerpt': 'Sechs am Montag in Bern beschlossene Maßnahmen Häusliche Pflege und Notfallversorgung unter den Bereichen Die Maßnahmen kommen zu den 12 aus dem Jahr 2025 hinzu Wirtschaftliche Auswirkungen noch',
     'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.tavola-rotonda-sei-misure.title': 'Sechs neue Maßnahmen zur Kostendämpfung im Gesundheitswesen',
+    'blog.article.tavola-rotonda-sei-misure.excerpt': 'Sechs neue Maßnahmen werden ab 2027 in Kraft treten Die fünfte Gesprächsrunde tagte am 26.',
+    'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.allarme-popolazione-165-milioni.title': 'Alarmierung der Bevölkerung: 165,4 Mio. für die Modernisierung',
+    'blog.article.allarme-popolazione-165-milioni.excerpt': 'Der Bundesrat beantragt 165,4 Millionen Franken.',
+    'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.norme-flessibilita-start-up.title': 'Bundesrat gewährt Start-ups Flexibilität bei der Arbeitszeit',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Der Bundesrat führt gezielte Ausnahmen von den Arbeits- und Ruhezeitregeln für bestimmte Start-up-Mitarbeitende ein; die neuen Bestimmungen treten am 1. Dezember 2026 in Kraft und gelten unter Bedingungen wie spezifischen Kompetenzen, weitgehender Autonomie, Kapitalbeteiligung und zeitlich begrenzten Projekten.',
+    'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

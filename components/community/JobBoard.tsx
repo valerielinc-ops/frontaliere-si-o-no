@@ -44,6 +44,7 @@ const AssistedApplicationUpload = lazyRetry(() => import('@/components/community
 const AssistedApplicationReview = lazyRetry(() => import('@/components/community/AssistedApplicationReview'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
+const JobAlertAuthPromptModal = lazyRetry(() => import('@/components/community/JobAlertAuthPromptModal'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 const PartnerRecommendations = lazyRetry(() => import('@/components/shared/PartnerRecommendations'));
 import { reportCaughtError } from '@/services/errorReporter';
@@ -2806,7 +2807,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
  // with ricerca-/search-/suche-/recherche- (measured on prod 2026-08-07) and
  // would otherwise seed the search box, filtering the listing on a job URL.
- const isSeededExpiredDetail = Boolean(initialJobSlug && seededJobMatchesSlug(initialJobSlug));
+ const isSeededExpiredDetail = Boolean(
+  initialJobSlug && onSeededDocument() && seededJobMatchesSlug(initialJobSlug),
+ );
  const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
  // Search input is uncontrolled (defaultValue, no `value` prop): keystrokes paint
@@ -2884,6 +2887,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // action here and opens SaveSignInPromptModal; the effect below replays it
  // once authUser.uid becomes truthy.
  const [saveAuthPromptOpen, setSaveAuthPromptOpen] = useState(false);
+ const [jobBoardAlertAuthPromptOpen, setJobBoardAlertAuthPromptOpen] = useState(false);
+ useEffect(() => {
+  if (!authUser?.uid) return;
+  releaseSlot('job-board-alert-auth-prompt');
+  setJobBoardAlertAuthPromptOpen(false);
+ }, [authUser?.uid]);
  const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null; savedCount: number; category: string } | null>(null);
  // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
  const savedNudgeArmedRef = useRef(false);
@@ -3953,6 +3962,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const selectedJob = useMemo(() => {
  if (companySlugFilter || locationSlugFilter || searchSlugFilter || editorialLandingDescriptor) return null;
  if (!initialJobSlug) return null;
+ // The SSG expired seed is authoritative for this URL. The live index can
+ // still contain the same slug (for example after an archive/active-data
+ // boundary), and letting it win here replaces the expired view during
+ // hydration with the old active-job layout.
+ if (isSeededExpiredDetail) return null;
  // When navigating via a previousSlug (bridge), use the current slug for job lookup
  const routeSlug = bridgeTargetSlug || initialJobSlug;
  const lookupSlug = aliasCanonical && aliasCanonical.alias === routeSlug
@@ -3971,7 +3985,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // fetch landing before the wholesale `setJobs` of the full load clobbers a merged
  // record), closing the timing race that intermittently showed the orphan banner.
  return unscopedJobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
- }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+ }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, isSeededExpiredDetail]);
 
  // Profession landing links use `?alert=1`; query state is reliable even if
  // SPA boot has already discarded the URL hash. Queue the open request before
@@ -5880,13 +5894,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
   (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
  ) || returnVisitResultsPending;
 
- // The canonical unfiltered listing has a deterministic first viewport: the
- // first page is `pageSize` cards when that footprint is available. During a
- // short/empty resolution, only the currently known result count is safe to
- // reserve; otherwise the loader would mount a full page and then collapse it
- // into a short list or empty state, recreating the CLS this branch fixes.
- // Filtered and editorial views keep their existing six-card loader because
- // their final result count is unknown.
+ // The canonical unfiltered TI/aggregate listing has a deterministic first
+ // viewport: its first-page asset is `pageSize` cards. Reserve that footprint
+ // while the asset is pending so the cards and in-feed ad slots do not arrive
+ // into an empty rail. Once the first response settles, use the known count so
+ // a short/empty result does not get a full-page reserve and then collapse.
+ // Filtered, editorial, and other canton views keep their existing loader
+ // footprint because their first response is not the canonical first page.
  const isUnfilteredListing = activeFilterCount === 0
   && salaryRangeFilter.min === null
   && !searchSlugFilter
@@ -5894,8 +5908,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   && !locationSlugFilter
   && !editorialLandingDescriptor
   && !clusterSeedApplies;
+ const isCanonicalFirstPageListing = isUnfilteredListing
+  && (initialFilterCanton === null
+   || initialFilterCanton === 'TI'
+   || initialFilterCanton === AGGREGATE_CANTON_CODE);
  const loadingCardCount = isUnfilteredListing
-  ? Math.min(pageSize, filteredJobs.length)
+  ? isCanonicalFirstPageListing && jobsLoading && filteredJobs.length === 0
+   ? pageSize
+   : Math.min(pageSize, filteredJobs.length)
   : 6;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
@@ -6350,7 +6370,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // When build-time seeded data exists (window.__EXPIRED_JOB_DATA__), pass the slug
  // eagerly — even while jobs.json is still loading — so the hook can return the
  // seeded data synchronously and we render JobExpiredView instead of a spinner.
- const seeded = useMemo(() => hasSeededExpiredData(), []);
+ const seeded = useMemo(() => hasSeededExpiredData() && onSeededDocument(), [seedPathname]);
  const notFoundSlug = initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !bridgeTargetSlug
  && (seeded || (!jobsLoading && !selectedJob))
  ? initialJobSlug
@@ -7185,7 +7205,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!preserveJourney) Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'list_select');
  // Public description first; sign-in is required only to continue to application.
  savedListState.current = { page, scrollY: window.scrollY, query: searchQuery.trim() };
- onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
+ // Defer the heavier detail render while the parent keeps URL/history synchronous.
+ startTransition(() => {
+  onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
+ });
  window.scrollTo({ top: 0, behavior: 'instant' });
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
  if (enablePersonalization && behaviorData) {
@@ -11488,10 +11511,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
+ const handleBoardFilterAlertAuthRequired = () => {
+  Analytics.trackJobAlertAuthHandoff(
+   'job_board_filters',
+   'pending_saved',
+   boardFilterAlertKeywordLabel,
+  );
+  requestSlot('job-board-alert-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
+  setJobBoardAlertAuthPromptOpen(true);
+  Analytics.trackJobAlertAuthHandoff(
+   'job_board_filters',
+   'prompt_shown',
+   boardFilterAlertKeywordLabel,
+  );
+ };
+
+ const handleBoardFilterAlertAuthPromptDismiss = () => {
+  Analytics.trackJobAlertAuthHandoff(
+   'job_board_filters',
+   'dismissed',
+   boardFilterAlertKeywordLabel,
+  );
+  releaseSlot('job-board-alert-auth-prompt');
+  setJobBoardAlertAuthPromptOpen(false);
+ };
+
  // This surface stays next to the filters so a category/sector intent is
- // actionable before the first result on mobile. Anonymous visitors are
- // handed to the already-mounted JobAlertForm; authenticated visitors keep
- // the one-tap create path below.
+ // actionable before the first result on mobile. Anonymous visitors keep the
+ // exact filter intent parked while the contextual auth gate is shown;
+ // authenticated visitors keep the one-tap create path below.
+ const boardFilterAlertAuthPromptJsx = jobBoardAlertAuthPromptOpen ? (
+ <Suspense fallback={null}>
+ <JobAlertAuthPromptModal
+ locale={locale}
+ keyword={boardFilterAlertKeywordLabel}
+ onDismiss={handleBoardFilterAlertAuthPromptDismiss}
+ />
+ </Suspense>
+ ) : null;
+
  const boardFilterAlertCtaJsx = boardFilterAlertVisible ? (
  <Suspense fallback={null}>
  <JobBoardFilterAlertCta
@@ -11508,7 +11566,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sectors: selectedSector === 'all' ? [] : [selectedSector],
  }}
  formOrigin="job_board_filters"
- onAnonymousAuthRequired={onRequireAuth}
+ onAnonymousAuthRequired={handleBoardFilterAlertAuthRequired}
  onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
  onAnonymousOpen={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
@@ -12005,6 +12063,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {boardFilterAlertCtaJsx}
+ {boardFilterAlertAuthPromptJsx}
 
  {/* A neutral, useful recommendation slot exists before Remote Config resolves.
      The flag only opts into popularity ranking; false keeps ordinary job cards. */}

@@ -191,7 +191,12 @@ export function extractIpersonalDescription(html = '') {
   if (!html) return '';
   const document = new JSDOM(String(html).replace(/<style\b[\s\S]*?<\/style>/gi, '')).window.document;
   const source = document.querySelector('.job-profile-section #Jobdetails')
-    || document.querySelector('.job-profile-section');
+    || document.querySelector('.job-profile-section')
+    // MediPersonal's newer "old ad" pages moved the authored body out of
+    // Simple Job Board's #Jobdetails wrapper. Prefer this article over the
+    // JSON-LD fallback: it retains the source's real <ul>/<li> structure,
+    // which is part of the rich-description quality contract.
+    || document.querySelector('.ins-koerper article.inserat');
   if (!source) return '';
 
   const detail = new JSDOM(`<body>${source.innerHTML}</body>`).window.document.body;
@@ -200,7 +205,7 @@ export function extractIpersonalDescription(html = '') {
   ).forEach((node) => node.remove());
 
   const applicationBoundary = [...detail.querySelectorAll('h2, h3, h4, p')].find((heading) =>
-    /^(?:bewerben sie sich jetzt|jetzt bewerben|kontakt und bewerbung|weitere bewerbungsm[oö]glichkeiten|neugierig geworden|interessiert\b)/i
+    /^(?:bewerben sie sich jetzt|jetzt bewerben|kontakt und bewerbung|weitere bewerbungsm[oö]glichkeiten|neugierig geworden|interessiert\b|anstellung und vertrag|ihre bewerbung\b)/i
       .test(String(heading.textContent || '').replace(/\s+/g, ' ').trim()));
   if (applicationBoundary) removeFromBoundary(detail, applicationBoundary);
   markParagraphLists(detail);

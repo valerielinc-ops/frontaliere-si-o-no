@@ -663,11 +663,12 @@ export const borderCrossings: BorderCrossing[] = [
  tips: 'border.tips.luinoFornasette',
  webcams: [
  {
- label: 'Lago Maggiore – Cannero Riviera (sponda lombarda, area Luino)',
- imageUrl: 'https://lagomaggiorexperience.it/webcam/public/canneroriviera.jpg',
- sourceName: 'Lago Maggiore Experience',
- sourceUrl: 'https://lagomaggiorexperience.it/webcam/',
- refreshIntervalMs: 300000,
+ label: 'Cannero Riviera – veduta da Oggiogno',
+ imageUrl: 'https://comune.canneroriviera.vb.it/wp-content/themes/design-comuni-wordpress-theme-main-child/assets/img/webcam_cannero.webp',
+ sourceName: 'Comune di Cannero Riviera – Veduta da Oggiogno',
+ sourceUrl: 'https://comune.canneroriviera.vb.it/vivere-il-comune/luoghi/oggiogno/',
+ // The municipal page advertises a 10-minute update cadence.
+ refreshIntervalMs: 600000,
  },
  ],
  },

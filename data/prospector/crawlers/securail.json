@@ -1,0 +1,21 @@
+{
+  "companyKey": "securail",
+  "companyName": "securail",
+  "companyHost": "company.sbb.ch",
+  "platform": "sbb.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://company.sbb.ch/fr/jobs-carriere/jobs/postes-vacants.html"
+  ],
+  "detailTemplate": "/fr/jobs-carriere/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Conseils aux candidats",
+    "Postes vacants dans nos filiales"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-28T12:14:09.549Z",
+  "candidateKey": "securail.ch"
+}

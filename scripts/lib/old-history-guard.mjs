@@ -445,7 +445,14 @@ function githubRepositoryForRemote({ cwd, remote }) {
 
 function compareAncestryOnGitHub({ cwd, repository, base, head }) {
   const env = { ...process.env, GIT_TERMINAL_PROMPT: '0' };
-  if (!env.GH_TOKEN && env.GITHUB_TOKEN) env.GH_TOKEN = env.GITHUB_TOKEN;
+  // Data-refresh workflows load the ruleset-bypass PAT through Remote Config
+  // as GITHUB_PAT, while GH_TOKEN is only wired on some callers. Reuse that
+  // credential for this read-only compare when no explicit gh token exists;
+  // this does not change the push identity configured by the main-push guard.
+  if (!env.GH_TOKEN) {
+    const readToken = env.GITHUB_TOKEN || env.GITHUB_PAT;
+    if (readToken) env.GH_TOKEN = readToken;
+  }
   const result = spawnSync('gh', [
     'api',
     `repos/${repository}/compare/${encodeURIComponent(`${base}...${head}`)}`,
@@ -472,7 +479,7 @@ function compareAncestryOnGitHub({ cwd, repository, base, head }) {
  * merge-base without downloading commit objects or writing a promisor remote.
  */
 function inspectShallowHistoryOnGitHub({ cwd, markerRef, headRef, remote, branch }) {
-  if (!process.env.GH_TOKEN && !process.env.GITHUB_TOKEN) return null;
+  if (!process.env.GH_TOKEN && !process.env.GITHUB_TOKEN && !process.env.GITHUB_PAT) return null;
   const repository = githubRepositoryForRemote({ cwd, remote });
   if (!repository) return null;
   const marker = /^[0-9a-f]{40,64}$/iu.test(markerRef) ? markerRef : resolveCommit(markerRef, cwd);

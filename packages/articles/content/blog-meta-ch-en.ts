@@ -8639,6 +8639,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sei-misure-cure-sanitarie.title': 'Healthcare costs: six new measures adopted in Bern',
     'blog.article.sei-misure-cure-sanitarie.excerpt': 'Six measures adopted Monday in Bern Home care and emergency care among the areas The measures are added to the 12 from 2025 Economic impact still',
     'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.tavola-rotonda-sei-misure.title': 'Six new measures to contain costs in the healthcare sector',
+    'blog.article.tavola-rotonda-sei-misure.excerpt': 'Six new measures will start in 2027 The fifth roundtable met in Bern on October 26, 2026 The package concerns outpatient clinics, emergency departments and care',
+    'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.allarme-popolazione-165-milioni.title': 'Population alert: 165,4 mln for modernization',
+    'blog.article.allarme-popolazione-165-milioni.excerpt': 'The Federal Council is requesting 165,4 million francs.',
+    'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.norme-flessibilita-start-up.title': 'Federal Council grants start-ups flexibility in working hours',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'The Federal Council is introducing targeted exemptions from working-time and rest-period rules for certain start-up employees, with the new provisions entering into force on December 1, 2026, subject to conditions including specific expertise, broad autonomy, equity participation and limited-duration projects.',
+    'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

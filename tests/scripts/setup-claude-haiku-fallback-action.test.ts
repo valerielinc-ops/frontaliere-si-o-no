@@ -7,6 +7,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const actionPath = path.resolve(process.cwd(), '.github/actions/setup-claude-haiku-fallback/action.yml');
+const fallbackActionPath = path.resolve(process.cwd(), '.github/actions/claude-codex-fallback/action.yml');
 const sandboxActionPath = path.resolve(process.cwd(), '.github/actions/setup-codex-sandbox/action.yml');
 const eventRewriteWorkflowPath = path.resolve(process.cwd(), '.github/workflows/event-description-rewrite.yml');
 const bashPath = fs.existsSync('/opt/homebrew/bin/bash') ? '/opt/homebrew/bin/bash' : '/bin/bash';
@@ -90,15 +91,51 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(resolver).toContain('path_components_trusted');
     expect(resolver).toContain('node_version=');
     expect(resolver).toContain('node_archive_sha256=');
-    // Download limitato: senza tetto un nodejs.org appeso blocca lo step fino
-    // al timeout del job (post-merge-followup run 35735836333, 32 minuti).
-    expect(resolver).toMatch(/\/usr\/bin\/curl [^\n]*\\\n\s+--connect-timeout \d+ --max-time \d+ --retry \d+/);
+    // Il download resta bounded e usa chunk HTTP espliciti con il checksum finale.
+    expect(resolver).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 60 15');
+    expect(resolver).toContain('local chunk_bytes=4194304');
+    expect(resolver).toContain('range_end_request=$((archive_size + chunk_bytes - 1))');
+    expect(resolver).toContain('--range "${archive_size}-${range_end_request}"');
+    expect(resolver).toContain('--dump-header "$headers_path"');
     expect(install).toContain('env -i');
     expect(install).toContain('PATH="$safe_path"');
     expect(install).toContain('NPM_CONFIG_USERCONFIG="$npmrc"');
     expect(install).toContain('npm_config_cache="$npm_cache"');
     expect(install).toContain('@openai/codex@0.153.4');
     expect(install).not.toContain('CLAUDE_CODE_OAUTH_TOKEN');
+  });
+
+  it('resumes the checksum-pinned Node download with validated HTTP ranges in both setup actions', () => {
+    for (const candidatePath of [actionPath, fallbackActionPath]) {
+      const document = YAML.parse(fs.readFileSync(candidatePath, 'utf8')) as {
+        runs?: { steps?: Array<{ id?: string; run?: string }> };
+      };
+      const resolver = document.runs?.steps?.find((step) =>
+        step.id === 'trusted_toolchain' || step.id === 'trusted_node'
+      )?.run ?? '';
+      const transferBudget = candidatePath === actionPath
+        ? 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 60 15'
+        : 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 12 120 20';
+      expect(resolver, candidatePath).toContain(transferBudget);
+      expect(resolver, candidatePath).toContain('download_pinned_node_archive()');
+      expect(resolver, candidatePath).toContain('local chunk_bytes=4194304');
+      expect(resolver, candidatePath).toContain('range_end_request=$((archive_size + chunk_bytes - 1))');
+      expect(resolver, candidatePath).toContain('--range "${archive_size}-${range_end_request}"');
+      expect(resolver, candidatePath).not.toContain('--range "${archive_size}-"');
+      expect(resolver, candidatePath).toContain('--dump-header "$headers_path"');
+      expect(resolver, candidatePath).toContain('content-range:*');
+      expect(resolver, candidatePath).toContain('range_start');
+      expect(resolver, candidatePath).toContain('[ "$range_end" -lt "$range_total" ]');
+      expect(resolver, candidatePath).toContain('/usr/bin/cat -- "$part_path" >> "$destination"');
+      expect(resolver, candidatePath).not.toContain('--continue-at -');
+      expect(resolver, candidatePath).toContain('node_archive_sha256=');
+      expect(resolver, candidatePath).toContain('sha256sum');
+      if (candidatePath === actionPath) {
+        expect(resolver).toContain('disable_codex_lane()');
+        expect(resolver).toContain('CODEX_ARTICLE_LANE_GATE=0');
+        expect(resolver).toContain('if ! download_pinned_node_archive');
+      }
+    }
   });
 
   it('keeps every sandbox prerequisite bounded and fail-closed', () => {

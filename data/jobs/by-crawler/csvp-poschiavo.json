@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-10-27T21:26:23.701Z",
-  "runId": "40585178441",
+  "assembledAt": "2026-10-28T21:26:18.465Z",
+  "runId": "40770223536",
   "jobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -35,7 +35,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-27T21:26:18.141Z",
+      "crawledAt": "2026-10-28T21:26:13.181Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -55,6 +55,71 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-07T09:42:22.201Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "csvp-poschiavo-797cd807e50d",
+      "slug": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
+      "slugByLocale": {
+        "it": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
+        "en": "technician-di-radiologia-medica-sss-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "de": "techniker-di-radiologia-medica-sss-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "fr": "technicien-di-radiologia-medica-sss-centro-sanitario-valposchiavo-csvp-poschiavo"
+      },
+      "company": "Centro Sanitario Valposchiavo (CSVP)",
+      "companyKey": "csvp-poschiavo",
+      "companyDomain": "csvp.ch",
+      "title": "Tecnico di radiologia medica SSS",
+      "titleByLocale": {
+        "it": "Tecnico di radiologia medica SSS",
+        "en": "Technician di radiologia medica SSS",
+        "de": "Techniker di radiologia medica SSS",
+        "fr": "Technicien di radiologia medica SSS"
+      },
+      "description": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Tecnico di radiologia medica SSS a ore, ca. 10-20% (m/f) Compiti principali Accogliere i pazienti Preparare ed eseguire esami radiologici convenzionali in collaborazione con il medico radiologo Assistere il medico radiologo nell’esecuzione di ecografie Gestire le immagini digitali Elaborare la documentazione necessaria \n• Requisiti Buona salute, equilibrio psicofisico Discrezione, flessibilità, accuratezza, sensibilità Esperienza lavorativa nel settore Competenze relazionali e comunicative Disponibilità al picchetto 24 h, lavoro nei fine settimana e festivi Conoscenza del tedesco auspicabile Conoscenze e abilità in campo informatico \n• Offriamo Buona introduzione Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva do- cumentazione è da inviare entro il 13 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 11",
+      "descriptionByLocale": {
+        "it": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 11 info@csvp.ch Tecnico di radiologia medica SSS a ore, ca. 10-20% (m/f) Compiti principali Accogliere i pazienti Preparare ed eseguire esami radiologici convenzionali in collaborazione con il medico radiologo Assistere il medico radiologo nell’esecuzione di ecografie Gestire le immagini digitali Elaborare la documentazione necessaria \n• Requisiti Buona salute, equilibrio psicofisico Discrezione, flessibilità, accuratezza, sensibilità Esperienza lavorativa nel settore Competenze relazionali e comunicative Disponibilità al picchetto 24 h, lavoro nei fine settimana e festivi Conoscenza del tedesco auspicabile Conoscenze e abilità in campo informatico \n• Offriamo Buona introduzione Team motivato, dinamico e aperto Aggiornamenti regolari Minimo 5 settimane di vacanza Inizio attività In data da convenire Candidatura La richiesta di lavoro accompagnata dalla rispettiva do- cumentazione è da inviare entro il 13 novembre 2026 per e-mail in formato PDF a: risorse.umane@csvp.ch\n\nInformazioni Possono essere richieste a:\n\nRisorse umane, Tel. 081 839 11 11",
+        "en": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Medical radiology technician SSS at hours, approx. 10-20% (m/f) Main tasks Allow patients Prepare and perform conventional radiological examinations in collaboration with the doctor radiologist Assist the doctor radiologist in the execution of ultrasound Manage digital images\n• Requirements Good health, psychophysical balance Discretion, flexibility, accuracy, sensitivity Work experience in relational and communicative skills Availability at the 24 h picket, work on weekends and holidays Knowledge of German desirable knowledge and skills in the field of computer science\n• We offer Good introduction Motivated, dynamic and open Team Regular updates Minimum 5 weeks of holiday Start of activities Date agreed Candidate Request of work accompanied by the respective do- cumentation is to be sent by 13 November 2026 per e-mail in PDF format to: resources.umane@csvp.ch\n\nInformation may be requested to:\n\nHuman resources, Tel. 081 839 11",
+        "de": "7742 Poschiavo Via S. Sisto 6i Tel. +41 81 839 11 info@csvp.ch Medizinische Radiologie Techniker SSS bei Stunden, ca. 10-20% (m/w) Hauptaufgaben Ermöglichen Patienten Vorbereitung und Durchführung konventioneller radiologischer Untersuchungen in Zusammenarbeit mit dem Arzt Radiologe Assist den Arzt Radiologe bei der Ausführung von Ultraschall Digitale Bilder verwalten\n• Anforderungen Gute Gesundheit, psychophysische Balance Diskretion, Flexibilität, Genauigkeit, Sensibilität Berufserfahrung in relationalen und kommunikativen Fähigkeiten Verfügbarkeit am 24h Streikposten, Arbeit an Wochenenden und Feiertagen Kenntnisse in Deutsch wünschenswerte Kenntnisse und Fertigkeiten im Bereich Informatik\n• Wir bieten gute Einführung Motivierte, dynamische und offene Team regelmäßige Updates Mindestens 5 Wochen Urlaub Beginn der Aktivitäten Das vereinbarte Kandidatenanfrage der Arbeit, begleitet von der jeweiligen Do-cumentation, ist bis zum 13. November 2026 per E-Mail im PDF-Format zu senden an: resources.umane@csvp.ch\n\nInformationen können angefordert werden, um\n\nPersonal, Tel. 081 839 11",
+        "fr": "7742 Poschiavo Via S. Sisto 6i Tél. +41 81 839 11 info@csvp.ch Technicien en radiologie médicale SSS à heures, approx. 10-20% (h/f) Principales tâches Permettre aux patients de préparer et d'effectuer des examens radiologiques conventionnels en collaboration avec le médecin radiologue Aider le médecin radiologue à exécuter des ultrasons Gérer les images numériques\n• Besoins Bonne santé, équilibre psychophysique Discrétion, flexibilité, précision, sensibilité Expérience de travail dans les compétences relationnelles et communicatives Disponibilité au piquet de 24 h, travail le week-end et les vacances Connaissance des connaissances et compétences souhaitables de l'allemand dans le domaine de l'informatique\n• Nous offrons une bonne introduction Motivée, dynamique et ouverte Équipe Mises à jour régulières Minimum 5 semaines de vacances Début des activités Date convenue Candidate La demande de travail accompagnée de la proposition respective doit être envoyée au plus tard le 13 novembre 2026 par e-mail en format PDF à: resources.umane@csvp.ch\n\nDes informations peuvent être demandées pour:\n\nRessources humaines, tél. 081 839 11"
+      },
+      "location": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
+      "source": "CSVP Dedicated Parser (Joomla HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-28T21:26:11.573Z",
+      "addressLocality": "Poschiavo",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7742",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-28T09:50:32.762Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",

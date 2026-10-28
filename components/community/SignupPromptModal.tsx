@@ -23,13 +23,15 @@ import { reportCaughtError } from '@/services/errorReporter';
 /** Last-touch attribution for a login started from this prompt (see authService). */
 const FOLLOW_PROMPT_AUTH_ATTRIBUTION = { cta: 'company_follow_social', component: 'CompanyFollowButton' } as const;
 const SAVE_PROMPT_AUTH_ATTRIBUTION = { cta: 'save_signin_prompt_social', component: 'SaveSignInPromptModal' } as const;
+const ALERT_PROMPT_AUTH_ATTRIBUTION = { cta: 'job_alert_filter_cta', component: 'JobAlertAuthPrompt' } as const;
 
-export type SignupPromptIntent = 'save' | 'follow';
+export type SignupPromptIntent = 'save' | 'follow' | 'alert';
 
 export interface SignupPromptModalProps {
   locale: string;
   intent: SignupPromptIntent;
   company?: string | null;
+  keyword?: string | null;
   onDismiss: () => void;
   /** Override the email write for a parent test seam or alternate flow. */
   submitEmail?: (email: string) => Promise<void>;
@@ -50,6 +52,7 @@ export default function SignupPromptModal({
   locale,
   intent,
   company,
+  keyword,
   onDismiss,
   submitEmail,
   onEmailRequested,
@@ -60,18 +63,28 @@ export default function SignupPromptModal({
   const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
   const [emailError, setEmailError] = useState('');
   const isFollow = intent === 'follow';
+  const isAlert = intent === 'alert';
   const companyName = company?.trim() || t('jobAlert.companyFollow.cta');
+  const keywordLabel = keyword?.trim() || t('jobAlert.cardTitle');
   const title = isFollow
     ? t('jobAlert.companyFollow.authPrompt.title', { company: companyName })
+    : isAlert
+    ? t('jobAlert.boardFilterAuthPrompt.title', { keyword: keywordLabel })
     : t('jobBoard.saveAuthPrompt.title');
   const body = isFollow
     ? t('jobAlert.companyFollow.authPrompt.body', { company: companyName })
+    : isAlert
+    ? t('jobAlert.boardFilterAuthPrompt.body', { keyword: keywordLabel })
     : t('jobBoard.saveAuthPrompt.body');
   const successBody = isFollow
     ? t('jobAlert.companyFollow.authPrompt.checkEmailBody', { company: companyName })
+    : isAlert
+    ? t('jobAlert.boardFilterAuthPrompt.checkEmailBody', { keyword: keywordLabel })
     : t('jobBoard.saveAuthPrompt.checkEmailBody');
   const emailLabel = isFollow
     ? t('jobAlert.companyFollow.emailLabel')
+    : isAlert
+    ? t('jobAlert.boardFilterAuthPrompt.emailLabel', { keyword: keywordLabel })
     : t('newsletter.emailPlaceholder');
   const titleId = `signup-prompt-${intent}-title`;
   const bodyId = `signup-prompt-${intent}-body`;
@@ -80,13 +93,13 @@ export default function SignupPromptModal({
     const firestore = getFirestore(await getApp());
     const upsert = await upsertUnifiedEmailSubscriber(firestore, {
       email: trimmed,
-      source: isFollow ? 'company_follow_button' : 'save_signin_prompt_email',
-      sourceChannel: isFollow ? 'company_follow_unified' : 'saved_job_unified',
+      source: isFollow ? 'company_follow_button' : isAlert ? 'job_alert_filter_cta' : 'save_signin_prompt_email',
+      sourceChannel: isFollow ? 'company_follow_unified' : isAlert ? 'job_alert_filter_unified' : 'saved_job_unified',
       sourcePage: pagePath(),
-      sourceCta: isFollow ? 'company_follow_button' : 'save_signin_prompt_email',
-      sourceComponent: isFollow ? 'CompanyFollowButton' : 'SaveSignInPromptModal',
-      sourceRouteFamily: isFollow ? 'company-follow' : 'community',
-      locale: isFollow ? locale : browserLocale(),
+      sourceCta: isFollow ? 'company_follow_button' : isAlert ? 'job_alert_filter_cta' : 'save_signin_prompt_email',
+      sourceComponent: isFollow ? 'CompanyFollowButton' : isAlert ? 'JobAlertAuthPrompt' : 'SaveSignInPromptModal',
+      sourceRouteFamily: isFollow ? 'company-follow' : isAlert ? 'job-board' : 'community',
+      locale: isFollow || isAlert ? locale : browserLocale(),
       accessOnly: true,
       ...(isFollow ? { jobContext: { company: companyName } } : {}),
     });
@@ -116,10 +129,14 @@ export default function SignupPromptModal({
       else await submitDefaultEmail(trimmed);
       await onEmailRequested?.(trimmed);
       setEmailStatus('sent');
-      Analytics.trackEvent(
-        isFollow ? 'company_follow_prompt_email_sent' : 'save_signin_prompt_email_sent',
-        { intent },
-      );
+      if (isAlert) {
+        Analytics.trackJobAlertAuthHandoff('job_board_filters', 'email_requested', keywordLabel);
+      } else {
+        Analytics.trackEvent(
+          isFollow ? 'company_follow_prompt_email_sent' : 'save_signin_prompt_email_sent',
+          { intent },
+        );
+      }
     } catch (error) {
       reportCaughtError(error, `signupPrompt.${intent}.emailSubmit`);
       onEmailError?.(error);
@@ -151,7 +168,7 @@ export default function SignupPromptModal({
         </button>
 
         <div className="mb-3 flex items-center gap-2 pr-8 text-accent">
-          {isFollow ? (
+          {isFollow || isAlert ? (
             <BellRing className="h-6 w-6 shrink-0" aria-hidden="true" />
           ) : (
             <Bookmark className="h-6 w-6 shrink-0" aria-hidden="true" />
@@ -179,7 +196,11 @@ export default function SignupPromptModal({
               locale={locale}
               errorContext={`signupPrompt.${intent}`}
               googleWidth={360}
-              attribution={isFollow ? FOLLOW_PROMPT_AUTH_ATTRIBUTION : SAVE_PROMPT_AUTH_ATTRIBUTION}
+              attribution={isFollow
+                ? FOLLOW_PROMPT_AUTH_ATTRIBUTION
+                : isAlert
+                ? ALERT_PROMPT_AUTH_ATTRIBUTION
+                : SAVE_PROMPT_AUTH_ATTRIBUTION}
             />
 
             <div className="flex items-center gap-3">

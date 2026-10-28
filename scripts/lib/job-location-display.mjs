@@ -248,6 +248,29 @@ export function isSlashSeparatedMultiLocation(location) {
 }
 
 /**
+ * A comma/slash-separated source label that names multiple cantons is an
+ * aggregate region, not a single canton marker. For example,
+ * `Graubünden, Thurgau, Zürich` is a valid multi-site label whose stored
+ * canton identifies the crawler's primary region; peeling only the final
+ * `Zürich` would manufacture a false conflict.
+ *
+ * @param {unknown} location
+ * @returns {boolean}
+ */
+function hasMultipleExplicitCantonSegments(location) {
+  const codes = new Set();
+  // Keep this separator family aligned with SEP_TAIL: an en/em dash is also
+  // a valid source-list separator and must not be peeled as one canton tail.
+  for (const segment of String(location || '').split(/[,;/|–—-]/)) {
+    const token = fold(segment);
+    if (CANTON_CODES.has(token.toUpperCase())) codes.add(token.toUpperCase());
+    const named = NAME_TO_CODE.get(token);
+    if (named) codes.add(named);
+  }
+  return codes.size > 1;
+}
+
+/**
  * Split a job location into the parts a UI should print.
  *
  * Pure, allocation-light and safe on anything: an empty location yields an
@@ -266,6 +289,12 @@ export function splitJobLocation(location, canton) {
   /** @type {LocationRedundancy[]} */
   const stripped = [];
   let conflict = false;
+
+  // A source-backed multi-site label must stay intact. It is not safe to
+  // interpret its final canton token as the one canton for the whole posting.
+  if (hasMultipleExplicitCantonSegments(city)) {
+    return { city, canton: validCanton, stripped, conflict: false };
+  }
 
   // Peel markers off the tail, outermost first. Bounded: a location cannot
   // carry more markers than it has separators, and 4 is far past anything

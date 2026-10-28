@@ -212,14 +212,23 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+/**
+ * A URL pair that proves the application belongs to the selected posting.
+ * This is stronger than the rendered posting text: Umantis can show a generic
+ * application form without repeating the employer or vacancy title.
+ */
+export function isVerifiedPostingEntry({ applyUrl, postingUrl } = {}) {
+  return isSuccessFactorsPostingEntry({ applyUrl, postingUrl })
+    || isDirectJobApplyEntry({ applyUrl, postingUrl })
+    || isUmantisPostingEntry({ applyUrl, postingUrl });
+}
+
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);
     const posting = new URL(String(postingUrl || ''));
-    if (isSuccessFactorsPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })
-      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })
-      || isUmantisPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
+    if (isVerifiedPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
@@ -717,6 +726,42 @@ const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
 const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
+const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
+
+function titleMatches(pageText, title) {
+  const words = normalizeWords(pageText).split(' ').filter(Boolean);
+  const titleWords = nameWords(title).filter((word) => word.length >= 4);
+  if (!titleWords.length) return false;
+  const variant = (word) => words.some((seen) => seen === word
+    || (word.length >= 6 && Math.abs(seen.length - word.length) <= 2 && seen.slice(0, word.length - 2) === word.slice(0, word.length - 2)));
+  return titleWords.every(variant);
+}
+
+/**
+ * Talentsoft employer tenants can use a short brand/acronym in their host
+ * while the posting data keeps the employer's localized legal name, e.g.
+ * `Ferrovia Retica (RhB)` → `rhb-career.talent-soft.com`. The host is only
+ * evidence when the job title is also present: a tenant alone must never turn
+ * a generic portal page into this posting's form.
+ */
+function talentSoftEmployerAliasMatches(pageText, job = {}, pageUrl = '') {
+  const aliases = [...String(job.company || '').matchAll(/\(([^)]+)\)/g)]
+    .flatMap(([, alias]) => nameWords(alias))
+    .filter((alias) => alias.length >= 3);
+  if (!aliases.length || !titleMatches(pageText, job.title)) return false;
+  const urls = [pageUrl, ...(String(pageText || '').match(/\bhttps?:\/\/[^\s"'<>]+/gi) || [])]
+    .filter(Boolean);
+  return urls.some((raw) => {
+    try {
+      const hostname = new URL(raw.replace(/[),.;]+$/, '')).hostname;
+      if (!TALENTSOFT_HOST_RE.test(hostname)) return false;
+      const tenantTokens = hostname.split('.')[0].split(/[^a-z0-9]+/i).filter(Boolean);
+      return aliases.some((alias) => tenantTokens.includes(alias));
+    } catch {
+      return false;
+    }
+  });
+}
 
 /**
  * Is this form the posting's (career-ops apply.md: company and role on the
@@ -728,19 +773,16 @@ const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => wor
  * ("Infermiere/a" = "Infermiera": same word but the last two letters).
  * 'unknown' when the order names neither.
  */
-export function postingMatch(pageText, job = {}) {
-  const words = normalizeWords(pageText).split(' ').filter(Boolean);
+export function postingMatch(pageText, job = {}, pageUrl = '') {
   const company = nameWords(job.company);
   const title = nameWords(job.title).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
     const named = ` ${nameWords(pageText).join(' ')} `;
-    return named.includes(` ${company.join(' ')} `) ? 'match' : 'mismatch';
+    return named.includes(` ${company.join(' ')} `) || talentSoftEmployerAliasMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
-  const variant = (word) => words.some((seen) => seen === word
-    || (word.length >= 6 && Math.abs(seen.length - word.length) <= 2 && seen.slice(0, word.length - 2) === word.slice(0, word.length - 2)));
-  return title.every(variant) ? 'match' : 'mismatch';
+  return titleMatches(pageText, job.title) ? 'match' : 'mismatch';
 }
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
@@ -865,13 +907,13 @@ export function namesAnotherEmployer(formText, job = {}) {
  * a URL pair that proves this exact posting's apply route; the route is
  * provenance, not a generic employer-site fallback.
  */
-export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false } = {}) {
-  const direct = postingMatch(formText, job);
+export function formPostingMatch(formText, job = {}, { postingMatched = false, postingEntry = false, pageUrl = '' } = {}) {
+  const direct = postingMatch(formText, job, pageUrl);
   if (direct !== 'mismatch' || !postingMatched) return direct;
   // A conflicting employer identity on the form: no fallback to the role.
   if (namesAnotherEmployer(formText, job)) return 'mismatch';
   if (postingEntry) return 'match';
-  return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
+  return postingMatch(formText, { title: job.title }, pageUrl) === 'match' ? 'match' : 'mismatch';
 }
 
 // A send button that names an application: «Submit final application»,
@@ -3160,7 +3202,7 @@ export async function submitViaPortal(ctx) {
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
     const entryUrl = portalEntryUrl(ctx);
-    const enteredFromMatchingPosting = entryUrl !== String(ctx.applyUrl || '');
+    const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
@@ -3184,21 +3226,23 @@ export async function submitViaPortal(ctx) {
     // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
     // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
     // the page: the posting is the order's.
-    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }) === 'match';
-    const postingNamed = postingMatch(postingSeen, ctx.job) === 'match' || namedByItsData;
+    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }, postingUrl) === 'match';
+    const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
     const formMatch = async () => {
-      const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
+      const pageUrl = page.url();
+      const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${pageUrl}`;
       const result = formPostingMatch(seen, ctx.job, {
-        postingMatched: postingNamed && (page.url() !== postingUrl || enteredFromMatchingPosting),
-        postingEntry: postingNamed && enteredFromMatchingPosting,
+        postingMatched: enteredFromMatchingPosting || (postingNamed && page.url() !== postingUrl),
+        postingEntry: enteredFromMatchingPosting,
+        pageUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
+      if (result === 'match' && postingMatch(seen, ctx.job, pageUrl) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
       return result;
     };
     const pendingOtpAccount = async (current) => {

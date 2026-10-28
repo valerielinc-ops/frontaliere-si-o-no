@@ -58,6 +58,7 @@ import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry } from './lib/jina-proxy.mjs';
 import {
   SOURCE_URL as OFFICIAL_LISTING_URL,
+  OFFICIAL_LISTING_URLS,
   fetchTichOfficialListingViaTranslate,
   isTichOfficialListingHtml,
   parseConcorsiHtml,
@@ -580,30 +581,31 @@ export async function fetchTichJobDetailUrls(options = {}) {
   };
 
   if (!listingSucceeded && !rssSucceeded) {
-    console.log(`🔍 Fetching Ti.CH official listing fallback: ${OFFICIAL_LISTING_URL}`);
-    try {
-      const { res, text: html } = await fetchTichDiscoverySource({
-        url: OFFICIAL_LISTING_URL,
-        fetchImpl,
-        timeoutMs,
-        headers: {
-          Accept: 'text/html, application/xhtml+xml',
-          'User-Agent': userAgent,
-        },
-        label: 'official listing fallback',
-        retries: options.retries,
-        retryBaseMs: options.retryBaseMs,
-      });
+    for (const officialUrl of OFFICIAL_LISTING_URLS) {
+      if (officialSucceeded) break;
+      console.log(`🔍 Fetching Ti.CH official listing fallback: ${officialUrl}`);
+      try {
+        const { res, text: html } = await fetchTichDiscoverySource({
+          url: officialUrl,
+          fetchImpl,
+          timeoutMs,
+          headers: {
+            Accept: 'text/html, application/xhtml+xml',
+            'User-Agent': userAgent,
+          },
+          label: 'official listing fallback',
+          retries: options.retries,
+          retryBaseMs: options.retryBaseMs,
+        });
 
-      if (!res.ok) {
-        console.warn(`⚠️ Official Ti.CH listing returned ${res.status} — no fallback available.`);
-      } else {
-        if (!consumeOfficialListingHtml(html, 'Official Ti.CH listing')) {
+        if (!res.ok) {
+          console.warn(`⚠️ Official Ti.CH listing returned ${res.status} — trying the next official endpoint.`);
+        } else if (!consumeOfficialListingHtml(html, 'Official Ti.CH listing')) {
           throw new Error('Official Ti.CH listing identity marker missing.');
         }
+      } catch (err) {
+        console.warn(`⚠️ Official Ti.CH listing fetch failed: ${err.message}`);
       }
-    } catch (err) {
-      console.warn(`⚠️ Official Ti.CH listing fetch failed: ${err.message}`);
     }
   }
 
@@ -614,22 +616,25 @@ export async function fetchTichJobDetailUrls(options = {}) {
   // response that is not the official page is rejected and the crawler still
   // fails closed rather than publishing an unproven zero.
   if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
-    console.log('🔍 Retrying Ti.CH official listing through the bounded Jina egress fallback');
-    try {
-      const html = await fetchHtmlViaJinaWithRetry(OFFICIAL_LISTING_URL, {
-        timeoutMs,
-        retries: options.proxyRetries ?? options.retries,
-        retryBaseMs: options.proxyRetryBaseMs ?? options.retryBaseMs,
-        fetchImpl,
-      });
-      if (html) {
-        const accepted = consumeOfficialListingHtml(html, 'Official Ti.CH listing via Jina');
-        if (!accepted) {
-          console.warn('⚠️ Jina Ti.CH response failed the official-listing identity check.');
+    for (const officialUrl of OFFICIAL_LISTING_URLS) {
+      if (officialSucceeded) break;
+      console.log(`🔍 Retrying Ti.CH official listing through the bounded Jina egress fallback: ${officialUrl}`);
+      try {
+        const html = await fetchHtmlViaJinaWithRetry(officialUrl, {
+          timeoutMs,
+          retries: options.proxyRetries ?? options.retries,
+          retryBaseMs: options.proxyRetryBaseMs ?? options.retryBaseMs,
+          fetchImpl,
+        });
+        if (html) {
+          const accepted = consumeOfficialListingHtml(html, 'Official Ti.CH listing via Jina');
+          if (!accepted) {
+            console.warn('⚠️ Jina Ti.CH response failed the official-listing identity check.');
+          }
         }
+      } catch (err) {
+        console.warn(`⚠️ Jina official Ti.CH listing fallback failed: ${err.message}`);
       }
-    } catch (err) {
-      console.warn(`⚠️ Jina official Ti.CH listing fallback failed: ${err.message}`);
     }
   }
 

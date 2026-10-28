@@ -1,19 +1,67 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-10-27T21:20:47.651Z",
-  "total": 2,
+  "generatedAt": "2026-10-28T21:22:10.743Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8737,
-  "avgDurationMs": 8737,
+  "durationMs": 11875,
+  "avgDurationMs": 11875,
   "durationHistory": [
-    8737
+    11875
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=278658815&Team=242459886",
+      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=278658815&Team=242459886",
+      "title": "Zegna Brand HQ Controlling Intern",
+      "company": "Ermenegildo Zegna Group",
+      "companyKey": "ermenegildo-zegna-logistica",
+      "location": "Stabio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "slug": "zegna-brand-hq-controlling-tirocinante-ermenegildo-zegna-group-stabio",
+      "department": "Other/Other",
+      "category": "Other/Other",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-28T21:21:53.759Z",
+      "source": "zegna-careers-crawler",
+      "employmentType": "INTERN",
+      "experienceLevel": "",
+      "sector": "Lusso & Moda",
+      "brand": "Zegna",
+      "contractType": "Internship",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Stabio"
+      },
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "id": "ermenegildo-zegna-logistica-f408b1e290e0",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Lugano 13",
+      "postalCode": "6855",
+      "firstSeenAt": "2026-10-28T20:04:47.969Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -43,7 +91,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:20:36.996Z",
+      "crawledAt": "2026-10-28T21:21:59.646Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -81,7 +129,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:20:33.875Z",
+      "crawledAt": "2026-10-28T21:21:55.816Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -110,5 +158,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

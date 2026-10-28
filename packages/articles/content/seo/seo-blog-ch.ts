@@ -109192,6 +109192,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tavola-rotonda-sei-misure': {
+    title: 'Sei nuove misure sul contenimento dei costi nel settore sanitario',
+    description: 'Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, misure, contenimento, costi',
+    ogTitle: 'Sei nuove misure sanitarie dal 2027',
+    ogDescription: 'Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto soccorso e cure',
+    canonicalPath: '/articoli-svizzera/tavola-rotonda-sei-misure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sei nuove misure sul contenimento dei costi nel settore sanitario",
+      "description": "Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tavola-rotonda-sei-misure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T09:49:00+00:00",
+      "dateModified": "2026-10-28T09:49:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tavola-rotonda-sei-misure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-allarme-popolazione-165-milioni': {
+    title: 'Allarme popolazione: 165,4 mln per modernizzazione',
+    description: 'Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, mentre competenze e finanziamento delle sirene passeranno ai Cantoni. La tecnologia di cell broadcast integrerà l’allerta esistente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, allarme, popolazione, modernizzazione, consiglio',
+    ogTitle: 'Allarme popolazione: 165,4 mln per modernizzazione',
+    ogDescription: 'Il Consiglio federale chiede 165,4 milioni di franchi.',
+    canonicalPath: '/articoli-svizzera/allarme-popolazione-165-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allarme popolazione: 165,4 mln per modernizzazione",
+      "description": "Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, mentre competenze e finanziamento delle sirene passeranno ai Cantoni. La tecnologia di cell broadcast integrerà l’allerta esistente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-allarme-popolazione-165-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T16:52:57+00:00",
+      "dateModified": "2026-10-28T16:52:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/allarme-popolazione-165-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-norme-flessibilita-start-up': {
+    title: 'Consiglio federale concede flessibilità alle start-up per l\'orario di lavoro',
+    description: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, concede, flessibilità',
+    ogTitle: 'Flessibilità oraria start-up: norme 2026',
+    ogDescription: 'Il Consiglio federale introduce deroghe mirate all’orario di lavoro per alcuni dipendenti di start-up, con entrata in vigore il 1° dicembre 2026 e condizioni legate a competenze specifiche, autonomia, partecipazione al capitale e progetti di durata limitata.',
+    canonicalPath: '/articoli-svizzera/norme-flessibilita-start-up/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale concede flessibilità alle start-up per l'orario di lavoro",
+      "description": "Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-norme-flessibilita-start-up.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T18:52:28+00:00",
+      "dateModified": "2026-10-28T18:52:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/norme-flessibilita-start-up/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

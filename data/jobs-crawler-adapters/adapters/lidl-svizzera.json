@@ -168,14 +168,13 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-brugg-757741",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-doettingen-757738",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-hunzenschwil-757739",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-oeschgen-752481",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-wettingen-757737",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-dietikon-738613",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-gretzenbach-708079",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-sarnen-760699",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-schlieren-756435",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-aegerten-740400",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-amriswil-765503",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-basel-bs-757903",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-biberist-751970",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-gwatt-733389",
@@ -254,12 +253,11 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303",
-    "https://team.lidl.ch/it/jobs/292_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lugano-759375",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-giubiasco-727553",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-10-27T21:54:32.784Z",
+  "updatedAt": "2026-10-28T21:59:12.422Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -1332,15 +1330,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-gretzenbach-708079": {
-      "location": "Gretzenbach",
-      "addressLocality": "Gretzenbach",
-      "canton": "SO",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-rueschlikon-759851": {
       "location": "Rüschlikon",
       "addressLocality": "Rüschlikon",
@@ -1881,15 +1870,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-oeschgen-752481": {
-      "location": "Oeschgen",
-      "addressLocality": "Oeschgen",
-      "canton": "AG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kloten-727528": {
       "location": "Kloten",
       "addressLocality": "Kloten",
@@ -2132,6 +2112,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-amriswil-765503": {
+      "location": "Amriswil",
+      "addressLocality": "Amriswil",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-schaffhausen-727504": {
       "location": "Schaffhausen",
@@ -2474,15 +2463,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/it/jobs/292_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lugano-759375": {
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     }
   }
 }

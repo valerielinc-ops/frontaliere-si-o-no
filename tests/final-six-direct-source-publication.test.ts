@@ -39,6 +39,10 @@ for (const provider of providers) {
       vi.stubGlobal('fetch', transport);
       const pending = provider.run(); await vi.runAllTimersAsync(); const jobs = await pending;
       expect(jobs).toHaveLength(1); expect(transport).toHaveBeenCalledTimes(provider.calls);
+      if (provider.name === 'Valora') {
+        expect(String(transport.mock.calls[0]?.[0])).toContain('criteria%5BjobCountry%5D%5B0%5D=1');
+        expect(String(transport.mock.calls[0]?.[0])).not.toContain('criteria%5BjobCountry%5D%5B%5D=1');
+      }
       const wanted = provider.name === 'Valora' && expected ? expected.slice(0, 10) : expected;
       const tuple = { postedDate: wanted, datePosted: wanted, postingDateSource: wanted ? 'reported' : 'unknown' };
       expect(jobs[0]).toMatchObject(tuple); expect(Number.isFinite(Date.parse(jobs[0].crawledAt))).toBe(true);

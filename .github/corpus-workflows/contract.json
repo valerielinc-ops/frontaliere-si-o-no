@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "6544a79796065cfac48f432f68b1244a5262c565",
+  "sourceCommit": "68135101849d5ce442706995cf2e9c53b170a9e9",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "6544a79796065cfac48f432f68b1244a5262c565"
+    "sourceCommit": "68135101849d5ce442706995cf2e9c53b170a9e9"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 655,
+  "crawlerCount": 658,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:64f65e641c0dd2a65a09f37d938693b22818feb5e6bbe8b6ef3b9a54436f7707",
+    "rosterDigest": "sha256:a39534fef97e71090b52650a1b8dc600d6712d5503faa0cb02e9bb8631acb807",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -259,6 +259,7 @@
     "scripts/update-grischapersonal-jobs.mjs",
     "scripts/update-groupe-e-jobs.mjs",
     "scripts/update-groupe-mutuel-jobs.mjs",
+    "scripts/update-grund-ag-ch-jobs.mjs",
     "scripts/update-guggerbach-jobs.mjs",
     "scripts/update-gz-dielsdorf-jobs.mjs",
     "scripts/update-gzo-wetzikon-jobs.mjs",
@@ -388,6 +389,7 @@
     "scripts/update-modellstation-somosa-jobs.mjs",
     "scripts/update-molecular-partners-jobs.mjs",
     "scripts/update-moncucco-jobs.mjs",
+    "scripts/update-mpa-praxisstellen-ch-jobs.mjs",
     "scripts/update-msc-cargo-jobs.mjs",
     "scripts/update-mueller-frauenfeld-jobs.mjs",
     "scripts/update-mueller-steinmaur-jobs.mjs",
@@ -562,6 +564,7 @@
     "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
     "scripts/update-teo-jakob-ag-jobs.mjs",
+    "scripts/update-teo-jakob-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
     "scripts/update-therapiezentrum-meggen-jobs.mjs",
@@ -842,8 +845,8 @@
     {
       "file": "crawler-group-06.yml",
       "sourceLogic": "crawler-group-06-logic.yml",
-      "sourceSha256": "5036d8adfa7d099e0923e85275644da43cd09dc1be469a03a2f8dcbf1f603b89",
-      "artifactSha256": "cb7d8bcbd738975ec43f33fa773b726f3dce22a96f3ca1292b5182ed564819b9",
+      "sourceSha256": "4e50697c5d6cf6642d188472c2ae6d632e43790102da16dbbfe1734996064b75",
+      "artifactSha256": "e4b45164c1848ce08f8f32cc0cb43654a4564db71d0d8cb11716c175d02602c7",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "merian-iselin",
@@ -874,14 +877,15 @@
         "abb",
         "ehnv",
         "mueller-steinmaur",
-        "siegfried"
+        "siegfried",
+        "teo-jakob"
       ]
     },
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "f801a3c6bdcf282775ebc0d8b0d98fdacdfe447db5b15ae5482fbbbb694d2f67",
-      "artifactSha256": "79c339bb435a6077fac7bfb42a4d9b050af573f3d05217c3ea8f2e9dcdb314d5",
+      "sourceSha256": "995d51701d3a2933f1e09976535e0c4156e5e42f5a1a24a029414dc3300aedc4",
+      "artifactSha256": "98ef334b10d17b476b2fedcc46e3716e7d4643861694abfa4f253666beb25241",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "spital-emmental",
@@ -912,14 +916,15 @@
         "anker-swiss",
         "guggerbach",
         "lonza",
-        "kita-summervogel"
+        "kita-summervogel",
+        "mpa-praxisstellen-ch"
       ]
     },
     {
       "file": "crawler-group-08.yml",
       "sourceLogic": "crawler-group-08-logic.yml",
-      "sourceSha256": "d3a165a8bc96a5e63bbde04d0234a599574f1f60556ba4c31d4420027aa007f1",
-      "artifactSha256": "49233fcd635571a47e3ecdec4f1048b1030220561237bde75ce9b685187bb64c",
+      "sourceSha256": "b670c155c882d9d8a9d2430882040294b3f02f69d0e5621852b4afbeddaceca2",
+      "artifactSha256": "7245ee20f2d420dbaf8a7487a7c0eabc5f38c38096ad0f4a4cc0c473acd1dfbb",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "salina-reha",
@@ -950,7 +955,8 @@
         "blatters-hotel",
         "ruag",
         "usz",
-        "c-and-a-schweiz"
+        "c-and-a-schweiz",
+        "grund-ag-ch"
       ]
     },
     {

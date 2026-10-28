@@ -13612,6 +13612,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 people out of work due to the closure of Via Motta',
     'blog.article.chiasso-via-motta-lavoro.excerpt': 'The closure of Via Motta in Chiasso leaves 28 people without work.',
     'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: nearly €500,000 less in cross-border tax rebates',
+    'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate will receive almost 500 thousand euros less in rebates.',
+    'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Motion in Ticino against the health tax',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparty motion submitted to the Grand Council The Italian measure is challenged over Article 9 Ticino threatens to block the tax revenue transfers Subject',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.ristorni-malnate-meno-500\u006dila.title': 'Cross-border tax rebates: €500,000 less for Malnate',
+    'blog.article.ristorni-malnate-meno-500\u006dila.excerpt': 'Malnate will receive nearly €500,000 less. The national fund rises from €89 million to €108 million, and the tax rebates are due in early November. Nearly 1,700 Malnate residents cross the border every day.',
+    'blog.article.ristorni-malnate-meno-500\u006dila.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'At Gaggiolo, undeclared luxury goods worth over 23.000 euro',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'A driver entering Italy at Gaggiolo declared that she had nothing to declare, but a high-end handbag and scarf worth over 23.000 euro were found in the trunk.',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

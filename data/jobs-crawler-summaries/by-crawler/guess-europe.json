@@ -1,18 +1,19 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-27T21:21:17.742Z",
+  "generatedAt": "2026-10-28T21:57:01.847Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 3972,
-  "avgDurationMs": 3972,
+  "durationMs": 4147,
+  "avgDurationMs": 4147,
   "durationHistory": [
-    3972
+    4147
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Key Account Amazon Marketplace Director",
       "slug": "responsabile-key-account-e-marketplace-amazon-e-nord-america-guess-europe-sagl-bioggio",
@@ -45,23 +46,21 @@
         "Discount on our products both online and in stores"
       ],
       "id": "guess-europe-8e36bea1353f",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6934",
       "firstSeenAt": "2026-10-27T21:21:01.753Z",
-      "_qualityScore": 93,
+      "needsRetranslation": true,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
       "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
@@ -514,5 +513,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }

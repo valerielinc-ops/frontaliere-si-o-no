@@ -1,5 +1,54 @@
 [
   {
+    "slug": "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan",
+    "title": "Lehrstelle Kauffrau / Kaufmann EFZ",
+    "titleByLocale": {
+      "it": "Apprendistato Impiegato /a di commercio AFC",
+      "en": "Apprenticeship as a businesswoman / businessman EFZ",
+      "de": "Lehrstelle Kauffrau / Kaufmann EFZ",
+      "fr": "Place d'apprentissage employée de commerce CFC"
+    },
+    "company": "Spital Oberengadin",
+    "companyKey": "spital-oberengadin",
+    "location": "Samedan",
+    "addressLocality": "Samedan",
+    "descriptionByLocale": {
+      "it": "La Spital Oberengadin AG di Samedan, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti. Sei curioso, apprezzi il contatto con le persone e con diversi professionisti? A partire dall'agosto 2027, offriamo una formazione commerciale versatile con un'alta quota pratica nel settore sanitario.\n\nSarete addestrati nelle aree\n\n• Amministrazione paziente\n• Servizi finanziari e contabili\n• Risorse umane (risorse umane)\n• Marketing e comunicazione\n\nIl tuo profilo\n\n• Istruzione secondaria\n• Ti piace lavorare insieme in una squadra\n• Ti piace il contatto con le persone in situazioni diverse\n• Si lavora con attenzione e in modo affidabile\n• Sei aperto a nuove cose e cambiamenti\n• Sei interessato alla sanità\n\nPensum: 100%",
+      "en": "The Spital Oberengadin AG in Samedan, a company of the KSGR Group, is responsible for basic medical care as well as emergency care for the population and guests. Are you curious, do you appreciate the contact with people and with different professionals? As of August 2027, we offer a versatile commercial education with a high practical share in the healthcare industry.\n\nYou will be trained in the areas\n\n• Patient administration\n• Financial and accounting services\n• Human resources (Human Resources)\n• Marketing and communication\n\nYour profile\n\n• Secondary education\n• You enjoy working together in a team\n• You like contact with people in different situations\n• You work carefully and reliably\n• You are open to new things and changes\n• You are interested in healthcare\n\nPensum: 100%",
+      "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Bist du neugierig, schätzt du den Kontakt mit Menschen und mit unterschiedlichen Berufsleuten? Wir bieten ab August 2027 eine vielseitige kaufmännische Ausbildung mit einem hohen Praxisanteil in der Gesundheitsbranche an.\n\nDu wirst ausgebildet in den Bereichen\n\n• Patientenadministration\n• Finanz- & Rechnungswesen\n• Personalwesen (Human Resources)\n• Marketing- & Kommunikation\n\nDein Profil\n\n• Sekundarschulabschluss\n• Du hast Spass an der Zusammenarbeit im Team\n• Du magst den Kontakt mit Menschen in verschiedenen Situationen\n• Du arbeitest sorgfältig und zuverlässig\n• Du bist offen für Neues und für Veränderungen\n• Du interessierst dich für das Gesundheitswesen\n\nPensum: 100%",
+      "fr": "La Spital Oberengadin AG de Samedan, une société du groupe KSGR, est responsable des soins médicaux de base ainsi que des soins d'urgence pour la population et les clients. Êtes-vous curieux, appréciez-vous le contact avec les gens et avec différents professionnels? En août 2027, nous offrons une éducation commerciale polyvalente avec une forte participation pratique dans le secteur de la santé.\n\nVous serez formé dans les domaines\n\n• Administration du patient\n• Services financiers et comptables\n• Ressources humaines (Ressources humaines)\n• Commercialisation et communication\n\nVotre profil\n\n• Enseignement secondaire\n• Vous aimez travailler ensemble dans une équipe\n• Vous aimez le contact avec les gens dans différentes situations\n• Vous travaillez avec soin et fiabilité\n• Vous êtes ouvert aux nouvelles choses et aux changements\n• Vous êtes intéressé par la santé\n\nPensum: 100%"
+    },
+    "slugByLocale": {
+      "it": "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan",
+      "en": "apprenticeship-as-a-businesswoman-businessman-efz-spital-oberengadin-samedan",
+      "de": "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
+      "fr": "place-d-apprentissage-employee-de-commerce-cfc-spital-oberengadin-samedan"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-28T21:23:15.766Z",
+    "previousSlugs": [
+      "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
+      ],
+      "en": [
+        "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
+      ],
+      "fr": [
+        "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
+      ]
+    },
+    "postalCode": "7503",
+    "salaryMin": 48000,
+    "salaryMax": 73000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4079045",
+    "firstSeenAt": "2026-10-03T09:19:43.010Z"
+  },
+  {
     "slug": "dipl-expert-expert-nds-emergency-care-o-dipl-infermiera-con-comprovata-esperienza-nell-assistenza-di-emergenza-spital",
     "title": "Dipl. Expertin / Experte NDS Notfallpflege oder Dipl. Pflegefachperson mit nachweisbarer Erfahrung in Notfallpflege",
     "titleByLocale": {
@@ -346,6 +395,18 @@
       "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-f7666be8",
       "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-d864effe",
       "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-20194f6f",
+      "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-ebaf0632",
+      "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-2f0d5197",
+      "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-5753ff31",
+      "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-5090221b",
+      "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-3c03607f",
+      "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-ffc12dc7",
+      "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-781d7cd4",
+      "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-306d3684",
+      "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-fc66f482",
+      "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-506c80bf",
+      "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-598cdf32",
+      "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-e6138d16",
       "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
       "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
     ],
@@ -386,6 +447,12 @@
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-162c0391",
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-32758cc1",
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-d864effe",
+        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-ebaf0632",
+        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-5753ff31",
+        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-3c03607f",
+        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-781d7cd4",
+        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-fc66f482",
+        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-598cdf32",
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital"
       ],
       "fr": [
@@ -421,6 +488,12 @@
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-761d0704",
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-f7666be8",
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-20194f6f",
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-2f0d5197",
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-5090221b",
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-ffc12dc7",
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-306d3684",
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-506c80bf",
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-e6138d16",
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
       ]
     },
@@ -655,6 +728,18 @@
       "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-bfe8114e",
       "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-f17eab3a",
       "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-6ba44d63",
+      "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-33361b03",
+      "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-9cf8532d",
+      "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-eec214dc",
+      "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-7b0e2e9c",
+      "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-cc6cdc18",
+      "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-7ba4f39f",
+      "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-a1978be4",
+      "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-79d51b91",
+      "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-7849b574",
+      "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-251312e2",
+      "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-1a1e975e",
+      "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-bc710eed",
       "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
       "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan"
     ],
@@ -709,6 +794,12 @@
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-5003a9af",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-824e9839",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-f17eab3a",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-33361b03",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-eec214dc",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-cc6cdc18",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-a1978be4",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-7849b574",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-1a1e975e",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
       ],
       "en": [
@@ -761,6 +852,12 @@
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-5003a9af",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-824e9839",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-f17eab3a",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-33361b03",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-eec214dc",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-cc6cdc18",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-a1978be4",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-7849b574",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-1a1e975e",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
       ],
       "fr": [
@@ -861,6 +958,18 @@
         "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-bfe8114e",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-f17eab3a",
         "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-6ba44d63",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-33361b03",
+        "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-9cf8532d",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-eec214dc",
+        "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-7b0e2e9c",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-cc6cdc18",
+        "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-7ba4f39f",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-a1978be4",
+        "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-79d51b91",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-7849b574",
+        "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-251312e2",
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan-1a1e975e",
+        "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan-bc710eed",
         "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
         "medecin-en-chef-medecin-en-chef-membre-de-la-direction-spital-oberengadin-samedan"
       ]

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bachtelen",
-  "assembledAt": "2026-10-27T21:47:53.825Z",
-  "runId": "40586555991",
+  "assembledAt": "2026-10-28T21:52:38.239Z",
+  "runId": "40771569350",
   "jobs": [
     {
       "id": "bachtelen-696d214df72c",
@@ -35,7 +35,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.815Z",
+      "crawledAt": "2026-10-28T21:52:30.491Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.bachtelen.ch/stelle/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.813Z",
+      "crawledAt": "2026-10-28T21:52:30.489Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.812Z",
+      "crawledAt": "2026-10-28T21:52:30.487Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       "url": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.795Z",
+      "crawledAt": "2026-10-28T21:52:30.470Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://www.bachtelen.ch/stelle/praktikantinnen-schulsozialpaedagogik-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.794Z",
+      "crawledAt": "2026-10-28T21:52:30.468Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -415,7 +415,7 @@
       "url": "https://www.bachtelen.ch/stelle/fruehlogopaedin-fruehlogopaede-50-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.792Z",
+      "crawledAt": "2026-10-28T21:52:30.467Z",
       "addressLocality": "Solothurn und Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -489,7 +489,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson-einer-zyklusdurchmischten-klasse-zyklus-1-und-2/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.789Z",
+      "crawledAt": "2026-10-28T21:52:30.465Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -571,7 +571,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.787Z",
+      "crawledAt": "2026-10-28T21:52:30.464Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -651,7 +651,7 @@
       "url": "https://www.bachtelen.ch/stelle/geschaeftsleiterin-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:47:48.785Z",
+      "crawledAt": "2026-10-28T21:52:30.462Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -698,6 +698,82 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "bachtelen-58298d2a2c1c",
+      "slug": "sozialpadagog-in-hf-fh-o-fachperson-betreuung-specializzazione-kinder-70-80-stiftung-bachtelen-hagendorf",
+      "slugByLocale": {
+        "de": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen",
+        "it": "sozialpadagog-in-hf-fh-o-fachperson-betreuung-specializzazione-kinder-70-80-stiftung-bachtelen-hagendorf",
+        "en": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen",
+        "fr": "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen"
+      },
+      "company": "Stiftung Bachtelen",
+      "companyKey": "bachtelen",
+      "companyDomain": "bachtelen.ch",
+      "title": "Sozialpädagog:in HF/FH oder Fachperson Betreuung Fachrichtung Kinder 70-80%",
+      "titleByLocale": {
+        "de": "Sozialpädagog:in HF/FH oder Fachperson Betreuung Fachrichtung Kinder 70-80%",
+        "it": "Sozialpädagog:in HF/FH o Fachperson Betreuung specializzazione Kinder 70-80%",
+        "en": "Sozialpädagog:in HF/FH oder Fachperson Betreuung Fachrichtung Kinder 70-80%",
+        "fr": "Sozialpädagog:in HF/FH oder Fachperson Betreuung Fachrichtung Kinder 70-80%"
+      },
+      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Das Huus am Schärme bietet 10 Kindern und Jugendlichen an 365 Tagen einen sicheren Ort zum Leben. Eingebettet in den Sozialraum von Hägendorf, ermöglicht das Haus eine alltagsnahe und lebensweltorientierte Begleitung. Durch die Integration in das Wohnquartier, die Nähe zu Schule, Freizeit- und Unterstützungsangeboten sowie die Zusammenarbeit mit Eltern, gesetzlichen Vertretungen und Fachstellen schaffen wir gute Voraussetzungen für Entwicklung, Teilhabe und Selbstständigkeit. Unsere Arbeit basiert auf Vertrauen, Partizipation und Beziehungsgestaltung auf Augenhöhe. Fachlich orientieren wir uns an traumapädagogischen Grundsätzen, an den Prinzipien der Lebensweltorientierung sowie am Empowerment und schaffen damit einen strukturierten, verlässlichen Rahmen und einen sicheren Ort, in dem Kinder wachsen und ihre Stärken entfalten können.\n Für die Wohngruppe Huus am Schärme in Hägendorf suchen wir ab sofort oder nach Vereinbarung als eine befristete Mutterschaftsvertretung von 12 Monaten\n ein:e Sozialpädagog:in HF/FH oder eine Fachperson Betreuung Fachrichtung Kinder 70–80%\n Im Anschluss an die Mutterschaftsvertretung besteht die Option auf Festanstellung.\n Das bringst du mit:\n\n• Leidenschaft für die Begleitung von Kindern und Jugendlichen in herausfordernden Lebenslagen\n\n• Freude an Beziehungsarbeit\n\n• Ein hohes Mass an Verantwortungsbewusstsein und Selbstorganisation\n\n• Teamorientierung, Kommunikationsstärke und die Fähigkeit, dich authentisch einzubringen\n\n• Eine strukturierte und verlässliche Arbeitsweise\n Das bieten wir dir:\n\n• Klare Rollen, Zuständigkeiten und Abläufe, die Orientierung geben und den Alltag gut strukturieren\n\n• Feste Gefässe für Alltagsroutinen, Partizipationsprozesse und traumapädagogische Ansätze\n\n• Ein Team, dass sich gegenseitig unterstützt und in dem gemeinsames Lachen, Reflektieren und Wachsen selbstverständlich sind\n\n• Sorgfältige Einarbeitung durch das Team, klare Ansprechpersonen und regelmässige Feedbacks\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zusätzlich 5 Ferientage pro Jahr\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Faire Zulagen für Nacht-, Wochenend- und Feiertagsdienste\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Stéphanie Ajila unter 062 216 17 47 oder stephanie.ajila@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nStéphanie\n\nAjila\n\nHuus am Schärme\n\n062 216 17 47\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+      "descriptionByLocale": {
+        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Das Huus am Schärme bietet 10 Kindern und Jugendlichen an 365 Tagen einen sicheren Ort zum Leben. Eingebettet in den Sozialraum von Hägendorf, ermöglicht das Haus eine alltagsnahe und lebensweltorientierte Begleitung. Durch die Integration in das Wohnquartier, die Nähe zu Schule, Freizeit- und Unterstützungsangeboten sowie die Zusammenarbeit mit Eltern, gesetzlichen Vertretungen und Fachstellen schaffen wir gute Voraussetzungen für Entwicklung, Teilhabe und Selbstständigkeit. Unsere Arbeit basiert auf Vertrauen, Partizipation und Beziehungsgestaltung auf Augenhöhe. Fachlich orientieren wir uns an traumapädagogischen Grundsätzen, an den Prinzipien der Lebensweltorientierung sowie am Empowerment und schaffen damit einen strukturierten, verlässlichen Rahmen und einen sicheren Ort, in dem Kinder wachsen und ihre Stärken entfalten können.\n Für die Wohngruppe Huus am Schärme in Hägendorf suchen wir ab sofort oder nach Vereinbarung als eine befristete Mutterschaftsvertretung von 12 Monaten\n ein:e Sozialpädagog:in HF/FH oder eine Fachperson Betreuung Fachrichtung Kinder 70–80%\n Im Anschluss an die Mutterschaftsvertretung besteht die Option auf Festanstellung.\n Das bringst du mit:\n\n• Leidenschaft für die Begleitung von Kindern und Jugendlichen in herausfordernden Lebenslagen\n\n• Freude an Beziehungsarbeit\n\n• Ein hohes Mass an Verantwortungsbewusstsein und Selbstorganisation\n\n• Teamorientierung, Kommunikationsstärke und die Fähigkeit, dich authentisch einzubringen\n\n• Eine strukturierte und verlässliche Arbeitsweise\n Das bieten wir dir:\n\n• Klare Rollen, Zuständigkeiten und Abläufe, die Orientierung geben und den Alltag gut strukturieren\n\n• Feste Gefässe für Alltagsroutinen, Partizipationsprozesse und traumapädagogische Ansätze\n\n• Ein Team, dass sich gegenseitig unterstützt und in dem gemeinsames Lachen, Reflektieren und Wachsen selbstverständlich sind\n\n• Sorgfältige Einarbeitung durch das Team, klare Ansprechpersonen und regelmässige Feedbacks\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zusätzlich 5 Ferientage pro Jahr\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Faire Zulagen für Nacht-, Wochenend- und Feiertagsdienste\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Stéphanie Ajila unter 062 216 17 47 oder stephanie.ajila@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nStéphanie\n\nAjila\n\nHuus am Schärme\n\n062 216 17 47\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "it": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Das Huus am Schärme bietet 10 Kindern und Jugendlichen an 365 Tagen einen sicheren Ort zum Leben. Eingebettet in den Sozialraum von Hägendorf, ermöglicht das Haus eine alltagsnahe und lebensweltorientierte Begleitung. Durch die Integration in das Wohnquartier, die Nähe zu Schule, Freizeit- und Unterstützungsangeboten sowie die Zusammenarbeit mit Eltern, gesetzlichen Vertretungen und Fachstellen schaffen wir gute Voraussetzungen für Entwicklung, Teilhabe und Selbstständigkeit. Unsere Arbeit basiert auf Vertrauen, Partizipation und Beziehungsgestaltung auf Augenhöhe. Fachlich orientieren wir uns an traumapädagogischen Grundsätzen, an den Prinzipien der Lebensweltorientierung sowie am Empowerment und schaffen damit einen strukturierten, verlässlichen Rahmen und einen sicheren Ort, in dem Kinder wachsen und ihre Stärken entfalten können.\n Für die Wohngruppe Huus am Schärme in Hägendorf suchen wir ab sofort oder nach Vereinbarung als eine befristete Mutterschaftsvertretung von 12 Monaten\n ein:e Sozialpädagog:in HF/FH oder eine Fachperson Betreuung Fachrichtung Kinder 70–80%\n Im Anschluss an die Mutterschaftsvertretung besteht die Option auf Festanstellung.\n Das bringst du mit:\n\n• Leidenschaft für die Begleitung von Kindern und Jugendlichen in herausfordernden Lebenslagen\n\n• Freude an Beziehungsarbeit\n\n• Ein hohes Mass an Verantwortungsbewusstsein und Selbstorganisation\n\n• Teamorientierung, Kommunikationsstärke und die Fähigkeit, dich authentisch einzubringen\n\n• Eine strukturierte und verlässliche Arbeitsweise\n Das bieten wir dir:\n\n• Klare Rollen, Zuständigkeiten und Abläufe, die Orientierung geben und den Alltag gut strukturieren\n\n• Feste Gefässe für Alltagsroutinen, Partizipationsprozesse und traumapädagogische Ansätze\n\n• Ein Team, dass sich gegenseitig unterstützt und in dem gemeinsames Lachen, Reflektieren und Wachsen selbstverständlich sind\n\n• Sorgfältige Einarbeitung durch das Team, klare Ansprechpersonen und regelmässige Feedbacks\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zusätzlich 5 Ferientage pro Jahr\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Faire Zulagen für Nacht-, Wochenend- und Feiertagsdienste\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Stéphanie Ajila unter 062 216 17 47 oder stephanie.ajila@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nStéphanie\n\nAjila\n\nHuus am Schärme\n\n062 216 17 47\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "en": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Das Huus am Schärme bietet 10 Kindern und Jugendlichen an 365 Tagen einen sicheren Ort zum Leben. Eingebettet in den Sozialraum von Hägendorf, ermöglicht das Haus eine alltagsnahe und lebensweltorientierte Begleitung. Durch die Integration in das Wohnquartier, die Nähe zu Schule, Freizeit- und Unterstützungsangeboten sowie die Zusammenarbeit mit Eltern, gesetzlichen Vertretungen und Fachstellen schaffen wir gute Voraussetzungen für Entwicklung, Teilhabe und Selbstständigkeit. Unsere Arbeit basiert auf Vertrauen, Partizipation und Beziehungsgestaltung auf Augenhöhe. Fachlich orientieren wir uns an traumapädagogischen Grundsätzen, an den Prinzipien der Lebensweltorientierung sowie am Empowerment und schaffen damit einen strukturierten, verlässlichen Rahmen und einen sicheren Ort, in dem Kinder wachsen und ihre Stärken entfalten können.\n Für die Wohngruppe Huus am Schärme in Hägendorf suchen wir ab sofort oder nach Vereinbarung als eine befristete Mutterschaftsvertretung von 12 Monaten\n ein:e Sozialpädagog:in HF/FH oder eine Fachperson Betreuung Fachrichtung Kinder 70–80%\n Im Anschluss an die Mutterschaftsvertretung besteht die Option auf Festanstellung.\n Das bringst du mit:\n\n• Leidenschaft für die Begleitung von Kindern und Jugendlichen in herausfordernden Lebenslagen\n\n• Freude an Beziehungsarbeit\n\n• Ein hohes Mass an Verantwortungsbewusstsein und Selbstorganisation\n\n• Teamorientierung, Kommunikationsstärke und die Fähigkeit, dich authentisch einzubringen\n\n• Eine strukturierte und verlässliche Arbeitsweise\n Das bieten wir dir:\n\n• Klare Rollen, Zuständigkeiten und Abläufe, die Orientierung geben und den Alltag gut strukturieren\n\n• Feste Gefässe für Alltagsroutinen, Partizipationsprozesse und traumapädagogische Ansätze\n\n• Ein Team, dass sich gegenseitig unterstützt und in dem gemeinsames Lachen, Reflektieren und Wachsen selbstverständlich sind\n\n• Sorgfältige Einarbeitung durch das Team, klare Ansprechpersonen und regelmässige Feedbacks\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zusätzlich 5 Ferientage pro Jahr\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Faire Zulagen für Nacht-, Wochenend- und Feiertagsdienste\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Stéphanie Ajila unter 062 216 17 47 oder stephanie.ajila@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nStéphanie\n\nAjila\n\nHuus am Schärme\n\n062 216 17 47\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "fr": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Das Huus am Schärme bietet 10 Kindern und Jugendlichen an 365 Tagen einen sicheren Ort zum Leben. Eingebettet in den Sozialraum von Hägendorf, ermöglicht das Haus eine alltagsnahe und lebensweltorientierte Begleitung. Durch die Integration in das Wohnquartier, die Nähe zu Schule, Freizeit- und Unterstützungsangeboten sowie die Zusammenarbeit mit Eltern, gesetzlichen Vertretungen und Fachstellen schaffen wir gute Voraussetzungen für Entwicklung, Teilhabe und Selbstständigkeit. Unsere Arbeit basiert auf Vertrauen, Partizipation und Beziehungsgestaltung auf Augenhöhe. Fachlich orientieren wir uns an traumapädagogischen Grundsätzen, an den Prinzipien der Lebensweltorientierung sowie am Empowerment und schaffen damit einen strukturierten, verlässlichen Rahmen und einen sicheren Ort, in dem Kinder wachsen und ihre Stärken entfalten können.\n Für die Wohngruppe Huus am Schärme in Hägendorf suchen wir ab sofort oder nach Vereinbarung als eine befristete Mutterschaftsvertretung von 12 Monaten\n ein:e Sozialpädagog:in HF/FH oder eine Fachperson Betreuung Fachrichtung Kinder 70–80%\n Im Anschluss an die Mutterschaftsvertretung besteht die Option auf Festanstellung.\n Das bringst du mit:\n\n• Leidenschaft für die Begleitung von Kindern und Jugendlichen in herausfordernden Lebenslagen\n\n• Freude an Beziehungsarbeit\n\n• Ein hohes Mass an Verantwortungsbewusstsein und Selbstorganisation\n\n• Teamorientierung, Kommunikationsstärke und die Fähigkeit, dich authentisch einzubringen\n\n• Eine strukturierte und verlässliche Arbeitsweise\n Das bieten wir dir:\n\n• Klare Rollen, Zuständigkeiten und Abläufe, die Orientierung geben und den Alltag gut strukturieren\n\n• Feste Gefässe für Alltagsroutinen, Partizipationsprozesse und traumapädagogische Ansätze\n\n• Ein Team, dass sich gegenseitig unterstützt und in dem gemeinsames Lachen, Reflektieren und Wachsen selbstverständlich sind\n\n• Sorgfältige Einarbeitung durch das Team, klare Ansprechpersonen und regelmässige Feedbacks\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zusätzlich 5 Ferientage pro Jahr\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Faire Zulagen für Nacht-, Wochenend- und Feiertagsdienste\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Verschiedene Mitarbeiterevents\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Stéphanie Ajila unter 062 216 17 47 oder stephanie.ajila@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nStéphanie\n\nAjila\n\nHuus am Schärme\n\n062 216 17 47\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn."
+      },
+      "needsRetranslation": true,
+      "location": "Hägendorf",
+      "canton": "SO",
+      "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder/",
+      "source": "Bachtelen Dedicated Parser (WP REST stelle)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:52:30.459Z",
+      "addressLocality": "Hägendorf",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4614",
+      "category": "IT",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28T11:17:32Z",
+      "postedDate": "2026-10-28T11:17:32Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.bachtelen.ch/stelle/sozialpaedagogin-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder-70-80-bachtelen"
+      ],
+      "salaryMin": 58400,
+      "salaryMax": 99600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58400,
+          "maxValue": 99600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-28T21:52:30.459Z"
     }
   ]
 }

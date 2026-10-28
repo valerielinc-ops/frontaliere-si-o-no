@@ -13614,6 +13614,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 personnes sans emploi après la fermeture de la via Motta',
     'blog.article.chiasso-via-motta-lavoro.excerpt': 'La fermeture de la via Motta à Chiasso laisse 28 personnes sans emploi.',
     'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate : près de 500 mila euro de moins en rétrocessions des frontaliers',
+    'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate aura près de 500 mila euro de moins au titre des rétrocessions.',
+    'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Motion au Tessin contre la taxe sur la santé',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des ristournes fiscales Objet',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.ristorni-malnate-meno-500\u006dila.title': 'Ristournes frontalières : 500 000 euros de moins pour Malnate',
+    'blog.article.ristorni-malnate-meno-500\u006dila.excerpt': 'Malnate recevra près de 500 000 euros de moins. Le fonds national passe de 89 à 108 millions et les ristournes devraient arriver début novembre. Près de 1 700 habitants de Malnate traversent chaque jour la frontière.',
+    'blog.article.ristorni-malnate-meno-500\u006dila.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'Gaggiolo : articles de luxe non déclarés > 23 000 euros',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Une conductrice entrant en Italie à Gaggiolo a déclaré n\'avoir rien à signaler, mais un sac et un foulard haut de gamme d\'une valeur de plus de 23.000 euros ont été trouvés dans le coffre.',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

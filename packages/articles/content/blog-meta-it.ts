@@ -13613,6 +13613,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 senza lavoro per la chiusura di via Motta',
     'blog.article.chiasso-via-motta-lavoro.excerpt': 'La chiusura di via Motta a Chiasso lascia senza lavoro 28 persone.',
     'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: ristorni frontalieri in meno di quasi 500 mila euro',
+    'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate avrà quasi 500 mila euro in meno dai ristorni.',
+    'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Mozione in Ticino contro la tassa sulla salute',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.ristorni-malnate-meno-500mila.title': 'Ristorni frontalieri, 500mila euro in meno a Malnate',
+    'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700 malnatesi',
+    'blog.article.ristorni-malnate-meno-500mila.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'A Gaggiolo articoli di lusso non dichiarati oltre 23.000 euro',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Una conducente in entrata in Italia a Gaggiolo ha dichiarato di non avere nulla da segnalare, ma nel bagagliaio sono stati trovati una borsa e un foulard di alta gamma per oltre 23.000 euro.',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

@@ -41,8 +41,8 @@ describe('production-canary-admission', () => {
       requests.push(url);
       const status = new URL(url).searchParams.get('status');
       const body = status === 'in_progress' || status === 'queued'
-        ? { workflow_runs: [run({ id: 321, status })] }
-        : { workflow_runs: [] };
+        ? { total_count: 1, workflow_runs: [run({ id: 321, status })] }
+        : { total_count: 0, workflow_runs: [] };
       return new Response(JSON.stringify(body), { status: 200 });
     };
 
@@ -53,7 +53,67 @@ describe('production-canary-admission', () => {
     });
 
     expect(requests).toHaveLength(5);
+    expect(new Set(requests.map((url) => new URL(url).pathname))).toEqual(new Set(['/repos/example/repo/actions/runs']));
     expect(selected.map((candidate) => candidate.id)).toEqual([321]);
+  });
+
+  it('reads every page before admitting a writer that is beyond the first page', async () => {
+    const requests: string[] = [];
+    const fetchImpl = async (url: string) => {
+      requests.push(url);
+      const parsed = new URL(url);
+      const status = parsed.searchParams.get('status');
+      const page = parsed.searchParams.get('page');
+      if (status === 'queued' && page === '1') {
+        return new Response(JSON.stringify({
+          total_count: 101,
+          workflow_runs: Array.from({ length: 100 }, (_, index) => ({
+            id: index + 1,
+            status,
+            path: '.github/workflows/unrelated.yml',
+            name: 'Unrelated workflow',
+          })),
+        }), { status: 200 });
+      }
+      if (status === 'queued' && page === '2') {
+        return new Response(JSON.stringify({ total_count: 101, workflow_runs: [run({ id: 321, status })] }), { status: 200 });
+      }
+      return new Response(JSON.stringify({ total_count: 0, workflow_runs: [] }), { status: 200 });
+    };
+
+    const selected = await readActiveProductionWriters({
+      repository: 'example/repo',
+      token: 'test-token',
+      fetchImpl,
+    });
+
+    expect(requests.some((url) => {
+      const parsed = new URL(url);
+      return parsed.searchParams.get('status') === 'queued' && parsed.searchParams.get('page') === '2';
+    })).toBe(true);
+    expect(selected.map((candidate) => candidate.id)).toEqual([321]);
+  });
+
+  it('retries a status page whose count is stale during a run transition', async () => {
+    let queuedRequests = 0;
+    const fetchImpl = async (url: string) => {
+      const parsed = new URL(url);
+      const status = parsed.searchParams.get('status');
+      if (status === 'queued') {
+        queuedRequests += 1;
+        if (queuedRequests === 1) {
+          return new Response(JSON.stringify({ total_count: 1, workflow_runs: [] }), { status: 200 });
+        }
+      }
+      return new Response(JSON.stringify({ total_count: 0, workflow_runs: [] }), { status: 200 });
+    };
+
+    await expect(readActiveProductionWriters({
+      repository: 'example/repo',
+      token: 'test-token',
+      fetchImpl,
+    })).resolves.toEqual([]);
+    expect(queuedRequests).toBe(2);
   });
 
   it('rejects an unreadable GitHub API response instead of admitting the probe', async () => {

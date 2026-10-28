@@ -21,6 +21,8 @@ const {
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
+const { candidateQuestionAnswerKey } = await import('../functions/src/assistedApplicationCandidateEdits.js');
+const { saveAnswersWithCv } = await import('../functions/src/assistedApplicationCvCommit.js');
 const { automationEmailKey, runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
 
 const T0 = Date.UTC(2026, 8, 30, 8, 0, 0);
@@ -67,6 +69,44 @@ beforeEach(() => {
 });
 
 describe('starting the flow', () => {
+  it('seeds a new order with the candidate-wide answer ledger', async () => {
+    const userId = 'candidate-1';
+    const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
+    const key = candidateQuestionAnswerKey(question);
+    store = createMemoryFirestore({
+      [ORDER_PATH]: paidOrder({ userId }),
+      [`user_cv_profiles/${userId}`]: { applicationQuestionAnswers: { [key]: 'Permit G' } },
+    });
+
+    await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
+
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({
+      questionAnswers: { [key]: 'Permit G' },
+    });
+  });
+
+  it('persists an explicit answer in the candidate-wide ledger when the order saves it', async () => {
+    const userId = 'candidate-1';
+    const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
+    const key = candidateQuestionAnswerKey(question);
+    store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ userId }) });
+
+    await saveAnswersWithCv({
+      db: store.db,
+      bucket: null,
+      orderId: ORDER,
+      order: paidOrder({ userId }),
+      flow: { state: 'submitted', round: 1, answers: {}, questionAnswers: {} },
+      draft: { round: 1, questions: [question] },
+      answers: { work_permit: 'Permit G' },
+      nowMs: T0,
+    });
+
+    expect(store.read(`user_cv_profiles/${userId}`)).toMatchObject({
+      applicationQuestionAnswers: { [key]: 'Permit G' },
+    });
+  });
+
   it('starts only when the flag is on and a CV has just been verified', async () => {
     const before = paidOrder({ cvFileCheck: null });
     const after = paidOrder();
@@ -569,6 +609,40 @@ describe('sweep', () => {
     });
     expect(store.read(ORDER_PATH)).toMatchObject({ automationState: 'submitting', automationDueAt: retryAt + RUN_WATCHDOG_MS });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+  });
+
+  it('reuses a candidate-wide answer when an older flow did not have the ledger yet', async () => {
+    const userId = 'candidate-1';
+    const question = { id: 'work_permit', question: 'Hai un permesso svizzero?', type: 'text' };
+    const key = candidateQuestionAnswerKey(question);
+    store = createMemoryFirestore({
+      [ORDER_PATH]: paidOrder({ userId }),
+      [`${ORDER_PATH}/automation/flow`]: {
+        state: 'submitting',
+        round: 1,
+        answers: {},
+        questionAnswers: {},
+        heldBy: [],
+        dispatch: { mode: 'submit', round: 1, attempts: 2 },
+      },
+      [`${ORDER_PATH}/ai_drafts/current`]: { ...readyDraft(), round: 1, questions: [] },
+      [`user_cv_profiles/${userId}`]: { applicationQuestionAnswers: { [key]: 'Permit G' } },
+    });
+
+    const result = await applyAutomationEvent({
+      db: store.db,
+      orderId: ORDER,
+      event: { type: 'submit_needs_candidate', questions: [{ id: question.id }], questionDetails: [question] },
+      runEffect,
+      nowMs: T0,
+    });
+
+    expect(result).toMatchObject({ ok: true, flow: {
+      state: 'owner_takeover',
+      heldBy: ['portal:portal_needs_candidate'],
+      questionAnswers: { [key]: 'Permit G' },
+    } });
+    expect(effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2 }]);
   });
 
   it('computes no due time for terminal flows', () => {

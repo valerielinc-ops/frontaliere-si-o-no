@@ -1,0 +1,21 @@
+{
+  "companyKey": "opacc-software-ag",
+  "companyName": "Opacc Software AG",
+  "companyHost": "my.jobalino.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/de/jobpreview/3197"
+  ],
+  "detailTemplate": "/de/jobpreview/3197",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Wir prüfen gerne, ob wir den passenden Job für Dich haben. / 80% - 100%"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-28T12:14:11.180Z",
+  "candidateKey": "opacc.ch"
+}

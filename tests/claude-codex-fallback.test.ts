@@ -922,9 +922,18 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain("node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'");
     expect(action).toContain('Linux:x86_64');
     expect(action).toContain('/usr/bin/curl --fail --silent --show-error --location');
-    // Download limitato: la run 35735836333 di post-merge-followup e' rimasta
-    // 32 minuti in questo step su una connessione appesa, fino al timeout.
-    expect(action).toMatch(/\/usr\/bin\/curl [^\n]*\\\n\s+--connect-timeout \d+ --max-time \d+ --retry \d+/);
+    // Ogni tentativo usa un chunk bounded e conserva solo byte con
+    // Content-Range coerente; il cap totale resta bounded per la CI.
+    expect(action).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 12 120 20');
+    expect(action).toContain('--max-time "$max_time"');
+    expect(action).toContain('local chunk_bytes=4194304');
+    expect(action).toContain('range_end_request=$((archive_size + chunk_bytes - 1))');
+    expect(action).toContain('--range "${archive_size}-${range_end_request}"');
+    expect(action).toContain('--dump-header "$headers_path"');
+    expect(action).toContain('content-range:*');
+    expect(action).toContain('[ "$range_end" -lt "$range_total" ]');
+    expect(action).not.toContain('--range "${archive_size}-"');
+    expect(action).not.toContain('--continue-at -');
     expect(action).toContain('/usr/bin/tar --extract --file "$archive_path"');
     expect(action).toContain('--use-compress-program=/usr/bin/xz');
     expect(action).toContain('node_realpath="$(realpath "$node_root/bin/node")"');

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "geberit",
-  "assembledAt": "2026-10-27T21:43:56.504Z",
-  "runId": "40586406642",
+  "assembledAt": "2026-10-28T21:59:15.484Z",
+  "runId": "40771418072",
   "jobs": [
     {
       "id": "geberit-1918",
@@ -34,7 +34,7 @@
       "url": "https://jobs.geberit.com/job-invite/1918/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.733Z",
+      "crawledAt": "2026-10-28T21:59:08.788Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -116,7 +116,7 @@
       "url": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.732Z",
+      "crawledAt": "2026-10-28T21:59:08.787Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -190,7 +190,7 @@
       "url": "https://jobs.geberit.com/job-invite/1968/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.731Z",
+      "crawledAt": "2026-10-28T21:59:08.786Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -239,6 +239,85 @@
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
     },
     {
+      "id": "geberit-1974",
+      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
+        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
+      "titleByLocale": {
+        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
+        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
+        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
+        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
+        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
+        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:59:08.785Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-19T11:19:08Z",
+      "postedDate": "2026-08-19T11:19:08Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "en": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "fr": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T09:49:50.660Z"
+    },
+    {
       "id": "geberit-1969",
       "slug": "apprendista-operatore-trice-d-impianto-a-inizio-dell-apprendistato-2027-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -269,7 +348,7 @@
       "url": "https://jobs.geberit.com/job-invite/1969/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.731Z",
+      "crawledAt": "2026-10-28T21:59:08.785Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -332,85 +411,6 @@
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
     },
     {
-      "id": "geberit-1974",
-      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
-        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-      "titleByLocale": {
-        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
-        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
-        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
-        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
-        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.730Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-19T11:19:08Z",
-      "postedDate": "2026-08-19T11:19:08Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "en": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "fr": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-20T09:49:50.660Z"
-    },
-    {
       "id": "geberit-1977",
       "slug": "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -441,7 +441,7 @@
       "url": "https://jobs.geberit.com/job-invite/1977/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.729Z",
+      "crawledAt": "2026-10-28T21:59:08.784Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -492,6 +492,82 @@
       "firstSeenAt": "2026-08-20T09:49:50.659Z"
     },
     {
+      "id": "geberit-2021",
+      "slug": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch",
+        "fr": "mecanicien-de-la-production-d-apprentissage-a-debut-de-l-apprentissage-2027-geberit-rapperswil-jona",
+        "it": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "en": "apprentice-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
+      "titleByLocale": {
+        "it": "Apprendista meccanico di produzione (a) - inizio apprendistato 2027",
+        "en": "Apprentice Production Mechanic (a) - Start of apprenticeship 2027",
+        "de": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
+        "fr": "Mécanicien de la production d'apprentissage (a) - Début de l'apprentissage 2027"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\n Anhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+      "descriptionByLocale": {
+        "it": "## PRINCIPALI RESPONSABILITÀ\n\nI meccanici di produzione producono pezzi e assemblaggi realizzati in metallo e altri materiali. I meccanici di produzione installano le macchine di produzione, le fanno funzionare e monitorano il processo produttivo. Lavorano con macchine convenzionali e controllate da computer.\nUtilizzando disegni tecnici e istruzioni di lavoro, producono componenti precisi e assemblano gli assemblaggi. Utilizzano apparecchiature di misura e test per controllare la qualità del loro lavoro e garantire che le dimensioni e gli standard di qualità richiesti vengano rispettati. Supportano inoltre la manutenzione e la manutenzione di macchine e sistemi. I compiti principali sono:\n\n- Produzione di pezzi e componenti\n- Installazione e funzionamento delle macchine di produzione\n- Assemblaggio degli assemblaggi e controllo qualità\n\n## PROFILO\n\nLe seguenti qualità e abilità ti distinguono:\n\n- Scuola secondaria\n- Realschule possibile\n- Buoni voti in matematica e geometria\n- Comprensione tecnica\n- Interesse per la meccanica e la lavorazione dei metalli\n- Capacità di lavorare in squadra\n- Maestria e diligenza",
+        "en": "## MAIN RESPONSIBILITIES\n\nProduction mechanics manufacture workpieces and assemblies made of metal and other materials. Production mechanics set up production machines, operate them and monitor the manufacturing process. They work with conventional and computer-controlled machines.\nUsing technical drawings and work instructions, they manufacture precise components and assemble assemblies. They use measuring and testing equipment to control the quality of their work and ensure that the required dimensions and quality standards are met. They also support the maintenance and servicing of machines and systems. The main tasks are:\n\n- Production of workpieces and components\n- Setting up and operating production machines\n- Assembly of assemblies and quality control\n\n## PROFILE\n\nThe following qualities and skills distinguish you:\n\n- Secondary school\n- Realschule possible\n- Good grades in mathematics and geometry\n- Technical understanding\n- Interest in mechanics and metalworking\n- Ability to work in a team\n- Craftsmanship and diligence",
+        "de": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\nAnhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+        "fr": "## PRINCIPALES RESPONSABILITÉS\n\nLes mécaniciens de production fabriquent des pièces et des assemblages en métal et autres matériaux. Les mécaniciens de production installent les machines de production, les font fonctionner et surveillent le processus de fabrication. Ils travaillent avec des machines conventionnelles et contrôlées par ordinateur.\nÀ l'aide de dessins techniques et d'instructions de travail, ils fabriquent des composants précis et assemblent des ensembles. Ils utilisent des équipements de mesure et de test pour contrôler la qualité de leur travail et garantir que les dimensions et normes de qualité requises sont respectées. Ils soutiennent également la maintenance et l'entretien des machines et des systèmes. Les principales tâches sont :\n\n- Production des pièces et composants\n- Installation et exploitation des machines de production\n- Assemblage des assemblages et contrôle qualité\n\n## PROFIL\n\nLes qualités et compétences suivantes vous distinguent :\n\n- Lycée\n- Realschule possible\n- Bonnes notes en mathématiques et en géométrie\n- Compréhension technique\n- Intérêt pour la mécanique et la métallurgie\n- Capacité à travailler en équipe\n- Savoir-faire et diligence"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:59:08.783Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-20T08:34:42Z",
+      "postedDate": "2026-08-20T08:34:42Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "en": [
+          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T09:49:50.655Z"
+    },
+    {
       "id": "geberit-2129",
       "slug": "apprendista-ict-fachmann-a-lehrbeginn-2027-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -522,7 +598,7 @@
       "url": "https://jobs.geberit.com/job-invite/2129/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.728Z",
+      "crawledAt": "2026-10-28T21:59:08.782Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -571,82 +647,6 @@
       "firstSeenAt": "2026-08-20T09:49:50.651Z"
     },
     {
-      "id": "geberit-2021",
-      "slug": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch",
-        "fr": "mecanicien-de-la-production-d-apprentissage-a-debut-de-l-apprentissage-2027-geberit-rapperswil-jona",
-        "it": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "en": "apprentice-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
-      "titleByLocale": {
-        "it": "Apprendista meccanico di produzione (a) - inizio apprendistato 2027",
-        "en": "Apprentice Production Mechanic (a) - Start of apprenticeship 2027",
-        "de": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
-        "fr": "Mécanicien de la production d'apprentissage (a) - Début de l'apprentissage 2027"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\n Anhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-      "descriptionByLocale": {
-        "it": "## PRINCIPALI RESPONSABILITÀ\n\nI meccanici di produzione producono pezzi e assemblaggi realizzati in metallo e altri materiali. I meccanici di produzione installano le macchine di produzione, le fanno funzionare e monitorano il processo produttivo. Lavorano con macchine convenzionali e controllate da computer.\nUtilizzando disegni tecnici e istruzioni di lavoro, producono componenti precisi e assemblano gli assemblaggi. Utilizzano apparecchiature di misura e test per controllare la qualità del loro lavoro e garantire che le dimensioni e gli standard di qualità richiesti vengano rispettati. Supportano inoltre la manutenzione e la manutenzione di macchine e sistemi. I compiti principali sono:\n\n- Produzione di pezzi e componenti\n- Installazione e funzionamento delle macchine di produzione\n- Assemblaggio degli assemblaggi e controllo qualità\n\n## PROFILO\n\nLe seguenti qualità e abilità ti distinguono:\n\n- Scuola secondaria\n- Realschule possibile\n- Buoni voti in matematica e geometria\n- Comprensione tecnica\n- Interesse per la meccanica e la lavorazione dei metalli\n- Capacità di lavorare in squadra\n- Maestria e diligenza",
-        "en": "## MAIN RESPONSIBILITIES\n\nProduction mechanics manufacture workpieces and assemblies made of metal and other materials. Production mechanics set up production machines, operate them and monitor the manufacturing process. They work with conventional and computer-controlled machines.\nUsing technical drawings and work instructions, they manufacture precise components and assemble assemblies. They use measuring and testing equipment to control the quality of their work and ensure that the required dimensions and quality standards are met. They also support the maintenance and servicing of machines and systems. The main tasks are:\n\n- Production of workpieces and components\n- Setting up and operating production machines\n- Assembly of assemblies and quality control\n\n## PROFILE\n\nThe following qualities and skills distinguish you:\n\n- Secondary school\n- Realschule possible\n- Good grades in mathematics and geometry\n- Technical understanding\n- Interest in mechanics and metalworking\n- Ability to work in a team\n- Craftsmanship and diligence",
-        "de": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\nAnhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-        "fr": "## PRINCIPALES RESPONSABILITÉS\n\nLes mécaniciens de production fabriquent des pièces et des assemblages en métal et autres matériaux. Les mécaniciens de production installent les machines de production, les font fonctionner et surveillent le processus de fabrication. Ils travaillent avec des machines conventionnelles et contrôlées par ordinateur.\nÀ l'aide de dessins techniques et d'instructions de travail, ils fabriquent des composants précis et assemblent des ensembles. Ils utilisent des équipements de mesure et de test pour contrôler la qualité de leur travail et garantir que les dimensions et normes de qualité requises sont respectées. Ils soutiennent également la maintenance et l'entretien des machines et des systèmes. Les principales tâches sont :\n\n- Production des pièces et composants\n- Installation et exploitation des machines de production\n- Assemblage des assemblages et contrôle qualité\n\n## PROFIL\n\nLes qualités et compétences suivantes vous distinguent :\n\n- Lycée\n- Realschule possible\n- Bonnes notes en mathématiques et en géométrie\n- Compréhension technique\n- Intérêt pour la mécanique et la métallurgie\n- Capacité à travailler en équipe\n- Savoir-faire et diligence"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.728Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20T08:34:42Z",
-      "postedDate": "2026-08-20T08:34:42Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "en": [
-          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-20T09:49:50.655Z"
-    },
-    {
       "id": "geberit-1989",
       "slug": "responsabile-rischi-e-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -677,7 +677,7 @@
       "url": "https://jobs.geberit.com/job-invite/1989/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.727Z",
+      "crawledAt": "2026-10-28T21:59:08.781Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -728,9 +728,9 @@
       "id": "geberit-2182",
       "slug": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
       "slugByLocale": {
-        "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
         "it": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
         "en": "plumber-building-physics-laboratory-a-100-geberit-rapperswil-jona",
+        "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
         "fr": "laboratoire-de-physique-des-batiments-pour-plombiers-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
@@ -755,7 +755,7 @@
       "url": "https://jobs.geberit.com/job-invite/2182/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.726Z",
+      "crawledAt": "2026-10-28T21:59:08.780Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -792,6 +792,7 @@
           "installation-sanitaire-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona"
         ]
       },
+      "firstSeenAt": "2026-08-27T20:14:41.323Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -804,8 +805,102 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "geberit-2186",
+      "slug": "responsabile-del-team-del-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "teamleiter-kunden-innendienst-a-100-geberit-ch",
+        "it": "responsabile-del-team-del-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
+        "en": "team-leader-customer-internal-service-a-100-geberit-rapperswil-jona",
+        "fr": "chef-d-equipe-service-client-interne-a-100-geberit-rapperswil-jona"
       },
-      "firstSeenAt": "2026-08-27T20:14:41.323Z"
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Teamleiter Kunden-Innendienst (a) 100%",
+      "titleByLocale": {
+        "it": "Responsabile del team del servizio clienti interno (a) 100%",
+        "en": "Team Leader Customer Internal Service (a) 100%",
+        "de": "Teamleiter Kunden-Innendienst (a) 100%",
+        "fr": "Chef d'équipe Service client interne (a) 100 %"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nDu führst ein engagiertes Innendienst-Team von rund 18 Mitarbeitenden und prägst mit deiner Persönlichkeit, deinem Führungsverständnis und deiner Kundenorientierung die Servicekultur nachhaltig. Gemeinsam mit deinem Team verantwortest du die professionelle Bearbeitung von Kundenanliegen per Telefon und E-Mail, die effiziente Disposition von Serviceeinsätzen sowie die zuverlässige Abwicklung der administrativen Prozesse im Kundeninnendienst. Dabei stellst du eine hohe Kundenzufriedenheit, Servicequalität und die kontinuierliche Weiterentwicklung des Kundeninnendienstes sicher. Zudem übernimmst du folgende Aufgaben:\n\n- Verantwortung für die fachliche und personelle Führung, Förderung und Weiterentwicklung des Teams\n- Sicherstellung einer kundenorientierten, leistungsstarken und wertschätzenden Servicekultur\n- Coaching und Entwicklung der Mitarbeitenden sowie Förderung von Eigenverantwortung und kontinuierlicher Verbesserung\n- Steuerung und Weiterentwicklung des operativen Tagesgeschäfts mit Fokus auf Effizienz, Qualität und Kundenzufriedenheit\n- Analyse relevanter Kennzahlen und Ableitung geeigneter Massnahmen zur kontinuierlichen Optimierung von Dienstleistungen, Prozessen und Ressourcen\n- Aktive Zusammenarbeit mit internen Schnittstellen\n- Wahrnehmung operativer Aufgaben im Tagesgeschäft zur Sicherstellung der Kundennähe und zur Unterstützung des Teams\n\n## PROFIL\n\nFür diese verantwortungsvolle Position suchen wir eine überzeugende Führungspersönlichkeit, die bereits erfolgreich Teams im Kundendienstumfeld geführt hat und Mitarbeitende mit Begeisterung, Klarheit und Wertschätzung entwickelt. Zudem bringst du Folgendes mit:\n\n- Abgeschlossene kaufmännische Grundausbildung mit Weiterbildung im Bereich Leadership und/oder Kundendienst\n- Mehrjährige erfolgreiche Führungs- und Entwicklungserfahrung in einem Kundeninnendienst-, Customer-Service- oder Contact-Center-Umfeld\n- Fundierte Praxiserfahrung im Kundendienst und ein ausgeprägtes Verständnis für kundenorientierte Prozesse und Servicequalität\n- Hohe Kunden-, Service- und Qualitätsorientierung sowie ausgeprägte Kommunikations-und Coachingkompetenzen\n- Freude daran, Verantwortung zu übernehmen sowie Veränderungen aktiv mitzugestalten und umzusetzen\n- Sehr gute Deutschkenntnisse (Englisch- und Französischkenntnisse von Vorteil)\n\nVerfügst du zudem über ausgezeichnete Umgangsformen und triffst auch in anspruchsvollen Situationen klare Entscheidungen? Dann freuen wir uns darauf, dich kennenzulernen.",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nConduci un team di assistenza in-house dedicato di circa 18 dipendenti e modella la cultura del servizio in modo sostenibile con la tua personalità, la tua comprensione di leadership e il tuo orientamento al cliente. Insieme al vostro team, siete responsabili della gestione professionale delle preoccupazioni dei clienti per telefono ed e-mail, della programmazione efficiente dei compiti di servizio e della gestione affidabile dei processi amministrativi nel servizio clienti. Garantisci un alto livello di soddisfazione del cliente, qualità del servizio e lo sviluppo continuo del servizio clienti. Si occupa anche dei seguenti compiti:\n\n- Responsabilità per la leadership professionale e umana, promozione e ulteriore sviluppo del team\n- Garantire una cultura del servizio orientata al cliente, ad alte prestazioni e apprezzata\n- Allenamento e sviluppo dei dipendenti e promozione della responsabilità personale e miglioramento continuo\n- Gestione e sviluppo delle operazioni quotidiane con particolare attenzione all'efficienza, alla qualità e alla soddisfazione dei clienti\n- Analisi dei dati chiave rilevanti e derivazione di misure adeguate per l'ottimizzazione continua di servizi, processi e risorse\n- Cooperazione attiva con le interfacce interne\n- Eseguire i compiti operativi nel business quotidiano per garantire la prossimità del cliente e sostenere il team\n\n## PROFESSIONALE\n\nPer questa posizione responsabile, stiamo cercando un leader convincente che ha già guidato con successo i team nell'ambiente del servizio clienti e sviluppa i dipendenti con entusiasmo, chiarezza e apprezzamento. Si riporta anche il seguente:\n\n- Formazione commerciale completa con ulteriore formazione nella leadership e/o nel servizio clienti\n- Diversi anni di esperienza di gestione e sviluppo di successo in un servizio clienti, servizio clienti o ambiente contact center\n- Esperienza pratica sonora nel servizio clienti e una forte comprensione dei processi orientati al cliente e della qualità dei servizi\n- Alto orientamento al cliente, al servizio e alla qualità, nonché forti capacità di comunicazione e coaching\n- Goditi la responsabilità e forma attivamente e implementa i cambiamenti\n- Ottima conoscenza del tedesco (inglese e francese è un vantaggio)\n\nAvete anche buone maniere e prendere decisioni chiare anche in situazioni difficili? Allora non vediamo l'ora di incontrarti.",
+        "en": "## MAIN TASKS\n\nYou lead a dedicated in-house service team of around 18 employees and shape the service culture sustainably with your personality, your leadership understanding and your customer orientation. Together with your team, you are responsible for the professional handling of customer concerns by telephone and e-mail, the efficient scheduling of service assignments and the reliable handling of administrative processes in customer service. You ensure a high level of customer satisfaction, service quality and the continuous development of customer service. You also take on the following tasks:\n\n- Responsibility for the professional and human leadership, promotion and further development of the team\n- Ensuring a customer-oriented, high-performance and appreciative service culture\n- Coaching and development of employees as well as promotion of personal responsibility and continuous improvement\n- Management and further development of day-to-day operations with focus on efficiency, quality and customer satisfaction\n- Analysis of relevant key figures and derivation of suitable measures for the continuous optimization of services, processes and resources\n- Active cooperation with internal interfaces\n- Perform operational tasks in day-to-day business to ensure customer proximity and support the team\n\n## PROFILE\n\nFor this responsible position, we are looking for a convincing leader who has already successfully led teams in the customer service environment and develops employees with enthusiasm, clarity and appreciation. You also bring the following:\n\n- Completed basic commercial training with further training in leadership and/or customer service\n- Several years of successful management and development experience in a customer service, customer service or contact center environment\n- Sound practical experience in customer service and a strong understanding of customer-oriented processes and service quality\n- High customer, service and quality orientation as well as strong communication and coaching skills\n- Enjoy taking responsibility and actively shaping and implementing changes\n- Very good knowledge of German (English and French is an advantage)\n\nDo you also have excellent manners and make clear decisions even in challenging situations? Then we look forward to meeting you.",
+        "de": "## HAUPTAUFGABEN​\n\nDu führst ein engagiertes Innendienst-Team von rund 18 Mitarbeitenden und prägst mit deiner Persönlichkeit, deinem Führungsverständnis und deiner Kundenorientierung die Servicekultur nachhaltig. Gemeinsam mit deinem Team verantwortest du die professionelle Bearbeitung von Kundenanliegen per Telefon und E-Mail, die effiziente Disposition von Serviceeinsätzen sowie die zuverlässige Abwicklung der administrativen Prozesse im Kundeninnendienst. Dabei stellst du eine hohe Kundenzufriedenheit, Servicequalität und die kontinuierliche Weiterentwicklung des Kundeninnendienstes sicher. Zudem übernimmst du folgende Aufgaben:\n\n- Verantwortung für die fachliche und personelle Führung, Förderung und Weiterentwicklung des Teams\n- Sicherstellung einer kundenorientierten, leistungsstarken und wertschätzenden Servicekultur\n- Coaching und Entwicklung der Mitarbeitenden sowie Förderung von Eigenverantwortung und kontinuierlicher Verbesserung\n- Steuerung und Weiterentwicklung des operativen Tagesgeschäfts mit Fokus auf Effizienz, Qualität und Kundenzufriedenheit\n- Analyse relevanter Kennzahlen und Ableitung geeigneter Massnahmen zur kontinuierlichen Optimierung von Dienstleistungen, Prozessen und Ressourcen\n- Aktive Zusammenarbeit mit internen Schnittstellen\n- Wahrnehmung operativer Aufgaben im Tagesgeschäft zur Sicherstellung der Kundennähe und zur Unterstützung des Teams\n\n## PROFIL\n\nFür diese verantwortungsvolle Position suchen wir eine überzeugende Führungspersönlichkeit, die bereits erfolgreich Teams im Kundendienstumfeld geführt hat und Mitarbeitende mit Begeisterung, Klarheit und Wertschätzung entwickelt. Zudem bringst du Folgendes mit:\n\n- Abgeschlossene kaufmännische Grundausbildung mit Weiterbildung im Bereich Leadership und/oder Kundendienst\n- Mehrjährige erfolgreiche Führungs- und Entwicklungserfahrung in einem Kundeninnendienst-, Customer-Service- oder Contact-Center-Umfeld\n- Fundierte Praxiserfahrung im Kundendienst und ein ausgeprägtes Verständnis für kundenorientierte Prozesse und Servicequalität\n- Hohe Kunden-, Service- und Qualitätsorientierung sowie ausgeprägte Kommunikations-und Coachingkompetenzen\n- Freude daran, Verantwortung zu übernehmen sowie Veränderungen aktiv mitzugestalten und umzusetzen\n- Sehr gute Deutschkenntnisse (Englisch- und Französischkenntnisse von Vorteil)\n\nVerfügst du zudem über ausgezeichnete Umgangsformen und triffst auch in anspruchsvollen Situationen klare Entscheidungen? Dann freuen wir uns darauf, dich kennenzulernen.",
+        "fr": "## PRINCIPALES TÂCHES\n\nVous dirigez une équipe de service interne dédiée d'environ 18 employés et façonnez la culture de service de façon durable avec votre personnalité, votre compréhension du leadership et votre orientation client. En collaboration avec votre équipe, vous êtes responsable de la gestion professionnelle des préoccupations des clients par téléphone et par courriel, de la planification efficace des tâches de service et du traitement fiable des processus administratifs dans le service à la clientèle. Vous assurez un haut niveau de satisfaction de la clientèle, la qualité du service et le développement continu du service à la clientèle. Vous assumez également les tâches suivantes:\n\n- Responsabilité du leadership professionnel et humain, promotion et perfectionnement de l'équipe\n- Assurer une culture de service axée sur le client, de haute performance et d'appréciation\n- Coaching et perfectionnement des employés ainsi que promotion de la responsabilité personnelle et amélioration continue\n- Gestion et développement ultérieur des opérations quotidiennes en mettant l'accent sur l'efficacité, la qualité et la satisfaction des clients\n- Analyse des chiffres clés pertinents et élaboration de mesures appropriées pour l'optimisation continue des services, des processus et des ressources\n- Coopération active avec les interfaces internes\n- Effectuer des tâches opérationnelles au quotidien pour assurer la proximité du client et soutenir l'équipe\n\n## PROFIL\n\nPour ce poste responsable, nous recherchons un leader convaincant qui a déjà dirigé avec succès des équipes dans l'environnement du service à la clientèle et développe les employés avec enthousiasme, clarté et appréciation. Vous apportez également ce qui suit:\n\n- Achevé la formation commerciale de base avec une formation complémentaire en leadership et/ou service à la clientèle\n- Plusieurs années d'expérience réussie de gestion et de développement dans un environnement de service à la clientèle, de service à la clientèle ou de centre de contact\n- Une bonne expérience pratique du service à la clientèle et une bonne compréhension des processus axés sur la clientèle et de la qualité du service\n- Haute orientation client, service et qualité ainsi que de solides compétences en communication et coaching\n- Profitez de la prise de responsabilité et de façonner et mettre en œuvre activement les changements\n- Très bonne connaissance de l'allemand (anglais et français est un avantage)\n\nAvez-vous aussi d'excellentes manières et prenez-vous des décisions claires même dans des situations difficiles? Alors nous avons hâte de vous rencontrer."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T21:59:08.779Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
+        "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
+        "leiter-kundeninnendienst-a-100-geberit-ch",
+        "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
+        "leiter-kundeninnendienst-a-100-geberit-rapperswil-jona",
+        "responsabile-del-team-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
+        "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona",
+        "teamleiter-kunden-innendienst-a-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-kundeninnendienst-a-100-geberit-rapperswil-jona",
+          "responsabile-del-team-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
+          "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona",
+          "teamleiter-kunden-innendienst-a-100-geberit-ch"
+        ],
+        "en": [
+          "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
+          "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
+          "teamleiter-kunden-innendienst-a-100-geberit-ch"
+        ],
+        "de": [
+          "leiter-kundeninnendienst-a-100-geberit-ch"
+        ],
+        "fr": [
+          "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
+          "teamleiter-kunden-innendienst-a-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T13:50:14.076Z"
     },
     {
       "id": "geberit-1669",
@@ -838,7 +933,7 @@
       "url": "https://jobs.geberit.com/job-invite/1669/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.725Z",
+      "crawledAt": "2026-10-28T21:59:08.779Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -924,7 +1019,7 @@
       "url": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.724Z",
+      "crawledAt": "2026-10-28T21:59:08.778Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -982,101 +1077,6 @@
       "firstSeenAt": "2026-09-08T13:53:23.828Z"
     },
     {
-      "id": "geberit-2186",
-      "slug": "responsabile-del-team-del-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "teamleiter-kunden-innendienst-a-100-geberit-ch",
-        "it": "responsabile-del-team-del-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
-        "en": "team-leader-customer-internal-service-a-100-geberit-rapperswil-jona",
-        "fr": "chef-d-equipe-service-client-interne-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Teamleiter Kunden-Innendienst (a) 100%",
-      "titleByLocale": {
-        "it": "Responsabile del team del servizio clienti interno (a) 100%",
-        "en": "Team Leader Customer Internal Service (a) 100%",
-        "de": "Teamleiter Kunden-Innendienst (a) 100%",
-        "fr": "Chef d'équipe Service client interne (a) 100 %"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nDu führst ein engagiertes Innendienst-Team von rund 18 Mitarbeitenden und prägst mit deiner Persönlichkeit, deinem Führungsverständnis und deiner Kundenorientierung die Servicekultur nachhaltig. Gemeinsam mit deinem Team verantwortest du die professionelle Bearbeitung von Kundenanliegen per Telefon und E-Mail, die effiziente Disposition von Serviceeinsätzen sowie die zuverlässige Abwicklung der administrativen Prozesse im Kundeninnendienst. Dabei stellst du eine hohe Kundenzufriedenheit, Servicequalität und die kontinuierliche Weiterentwicklung des Kundeninnendienstes sicher. Zudem übernimmst du folgende Aufgaben:\n\n- Verantwortung für die fachliche und personelle Führung, Förderung und Weiterentwicklung des Teams\n- Sicherstellung einer kundenorientierten, leistungsstarken und wertschätzenden Servicekultur\n- Coaching und Entwicklung der Mitarbeitenden sowie Förderung von Eigenverantwortung und kontinuierlicher Verbesserung\n- Steuerung und Weiterentwicklung des operativen Tagesgeschäfts mit Fokus auf Effizienz, Qualität und Kundenzufriedenheit\n- Analyse relevanter Kennzahlen und Ableitung geeigneter Massnahmen zur kontinuierlichen Optimierung von Dienstleistungen, Prozessen und Ressourcen\n- Aktive Zusammenarbeit mit internen Schnittstellen\n- Wahrnehmung operativer Aufgaben im Tagesgeschäft zur Sicherstellung der Kundennähe und zur Unterstützung des Teams\n\n## PROFIL\n\nFür diese verantwortungsvolle Position suchen wir eine überzeugende Führungspersönlichkeit, die bereits erfolgreich Teams im Kundendienstumfeld geführt hat und Mitarbeitende mit Begeisterung, Klarheit und Wertschätzung entwickelt. Zudem bringst du Folgendes mit:\n\n- Abgeschlossene kaufmännische Grundausbildung mit Weiterbildung im Bereich Leadership und/oder Kundendienst\n- Mehrjährige erfolgreiche Führungs- und Entwicklungserfahrung in einem Kundeninnendienst-, Customer-Service- oder Contact-Center-Umfeld\n- Fundierte Praxiserfahrung im Kundendienst und ein ausgeprägtes Verständnis für kundenorientierte Prozesse und Servicequalität\n- Hohe Kunden-, Service- und Qualitätsorientierung sowie ausgeprägte Kommunikations-und Coachingkompetenzen\n- Freude daran, Verantwortung zu übernehmen sowie Veränderungen aktiv mitzugestalten und umzusetzen\n- Sehr gute Deutschkenntnisse (Englisch- und Französischkenntnisse von Vorteil)\n\nVerfügst du zudem über ausgezeichnete Umgangsformen und triffst auch in anspruchsvollen Situationen klare Entscheidungen? Dann freuen wir uns darauf, dich kennenzulernen.",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nConduci un team di assistenza in-house dedicato di circa 18 dipendenti e modella la cultura del servizio in modo sostenibile con la tua personalità, la tua comprensione di leadership e il tuo orientamento al cliente. Insieme al vostro team, siete responsabili della gestione professionale delle preoccupazioni dei clienti per telefono ed e-mail, della programmazione efficiente dei compiti di servizio e della gestione affidabile dei processi amministrativi nel servizio clienti. Garantisci un alto livello di soddisfazione del cliente, qualità del servizio e lo sviluppo continuo del servizio clienti. Si occupa anche dei seguenti compiti:\n\n- Responsabilità per la leadership professionale e umana, promozione e ulteriore sviluppo del team\n- Garantire una cultura del servizio orientata al cliente, ad alte prestazioni e apprezzata\n- Allenamento e sviluppo dei dipendenti e promozione della responsabilità personale e miglioramento continuo\n- Gestione e sviluppo delle operazioni quotidiane con particolare attenzione all'efficienza, alla qualità e alla soddisfazione dei clienti\n- Analisi dei dati chiave rilevanti e derivazione di misure adeguate per l'ottimizzazione continua di servizi, processi e risorse\n- Cooperazione attiva con le interfacce interne\n- Eseguire i compiti operativi nel business quotidiano per garantire la prossimità del cliente e sostenere il team\n\n## PROFESSIONALE\n\nPer questa posizione responsabile, stiamo cercando un leader convincente che ha già guidato con successo i team nell'ambiente del servizio clienti e sviluppa i dipendenti con entusiasmo, chiarezza e apprezzamento. Si riporta anche il seguente:\n\n- Formazione commerciale completa con ulteriore formazione nella leadership e/o nel servizio clienti\n- Diversi anni di esperienza di gestione e sviluppo di successo in un servizio clienti, servizio clienti o ambiente contact center\n- Esperienza pratica sonora nel servizio clienti e una forte comprensione dei processi orientati al cliente e della qualità dei servizi\n- Alto orientamento al cliente, al servizio e alla qualità, nonché forti capacità di comunicazione e coaching\n- Goditi la responsabilità e forma attivamente e implementa i cambiamenti\n- Ottima conoscenza del tedesco (inglese e francese è un vantaggio)\n\nAvete anche buone maniere e prendere decisioni chiare anche in situazioni difficili? Allora non vediamo l'ora di incontrarti.",
-        "en": "## MAIN TASKS\n\nYou lead a dedicated in-house service team of around 18 employees and shape the service culture sustainably with your personality, your leadership understanding and your customer orientation. Together with your team, you are responsible for the professional handling of customer concerns by telephone and e-mail, the efficient scheduling of service assignments and the reliable handling of administrative processes in customer service. You ensure a high level of customer satisfaction, service quality and the continuous development of customer service. You also take on the following tasks:\n\n- Responsibility for the professional and human leadership, promotion and further development of the team\n- Ensuring a customer-oriented, high-performance and appreciative service culture\n- Coaching and development of employees as well as promotion of personal responsibility and continuous improvement\n- Management and further development of day-to-day operations with focus on efficiency, quality and customer satisfaction\n- Analysis of relevant key figures and derivation of suitable measures for the continuous optimization of services, processes and resources\n- Active cooperation with internal interfaces\n- Perform operational tasks in day-to-day business to ensure customer proximity and support the team\n\n## PROFILE\n\nFor this responsible position, we are looking for a convincing leader who has already successfully led teams in the customer service environment and develops employees with enthusiasm, clarity and appreciation. You also bring the following:\n\n- Completed basic commercial training with further training in leadership and/or customer service\n- Several years of successful management and development experience in a customer service, customer service or contact center environment\n- Sound practical experience in customer service and a strong understanding of customer-oriented processes and service quality\n- High customer, service and quality orientation as well as strong communication and coaching skills\n- Enjoy taking responsibility and actively shaping and implementing changes\n- Very good knowledge of German (English and French is an advantage)\n\nDo you also have excellent manners and make clear decisions even in challenging situations? Then we look forward to meeting you.",
-        "de": "## HAUPTAUFGABEN​\n\nDu führst ein engagiertes Innendienst-Team von rund 18 Mitarbeitenden und prägst mit deiner Persönlichkeit, deinem Führungsverständnis und deiner Kundenorientierung die Servicekultur nachhaltig. Gemeinsam mit deinem Team verantwortest du die professionelle Bearbeitung von Kundenanliegen per Telefon und E-Mail, die effiziente Disposition von Serviceeinsätzen sowie die zuverlässige Abwicklung der administrativen Prozesse im Kundeninnendienst. Dabei stellst du eine hohe Kundenzufriedenheit, Servicequalität und die kontinuierliche Weiterentwicklung des Kundeninnendienstes sicher. Zudem übernimmst du folgende Aufgaben:\n\n- Verantwortung für die fachliche und personelle Führung, Förderung und Weiterentwicklung des Teams\n- Sicherstellung einer kundenorientierten, leistungsstarken und wertschätzenden Servicekultur\n- Coaching und Entwicklung der Mitarbeitenden sowie Förderung von Eigenverantwortung und kontinuierlicher Verbesserung\n- Steuerung und Weiterentwicklung des operativen Tagesgeschäfts mit Fokus auf Effizienz, Qualität und Kundenzufriedenheit\n- Analyse relevanter Kennzahlen und Ableitung geeigneter Massnahmen zur kontinuierlichen Optimierung von Dienstleistungen, Prozessen und Ressourcen\n- Aktive Zusammenarbeit mit internen Schnittstellen\n- Wahrnehmung operativer Aufgaben im Tagesgeschäft zur Sicherstellung der Kundennähe und zur Unterstützung des Teams\n\n## PROFIL\n\nFür diese verantwortungsvolle Position suchen wir eine überzeugende Führungspersönlichkeit, die bereits erfolgreich Teams im Kundendienstumfeld geführt hat und Mitarbeitende mit Begeisterung, Klarheit und Wertschätzung entwickelt. Zudem bringst du Folgendes mit:\n\n- Abgeschlossene kaufmännische Grundausbildung mit Weiterbildung im Bereich Leadership und/oder Kundendienst\n- Mehrjährige erfolgreiche Führungs- und Entwicklungserfahrung in einem Kundeninnendienst-, Customer-Service- oder Contact-Center-Umfeld\n- Fundierte Praxiserfahrung im Kundendienst und ein ausgeprägtes Verständnis für kundenorientierte Prozesse und Servicequalität\n- Hohe Kunden-, Service- und Qualitätsorientierung sowie ausgeprägte Kommunikations-und Coachingkompetenzen\n- Freude daran, Verantwortung zu übernehmen sowie Veränderungen aktiv mitzugestalten und umzusetzen\n- Sehr gute Deutschkenntnisse (Englisch- und Französischkenntnisse von Vorteil)\n\nVerfügst du zudem über ausgezeichnete Umgangsformen und triffst auch in anspruchsvollen Situationen klare Entscheidungen? Dann freuen wir uns darauf, dich kennenzulernen.",
-        "fr": "## PRINCIPALES TÂCHES\n\nVous dirigez une équipe de service interne dédiée d'environ 18 employés et façonnez la culture de service de façon durable avec votre personnalité, votre compréhension du leadership et votre orientation client. En collaboration avec votre équipe, vous êtes responsable de la gestion professionnelle des préoccupations des clients par téléphone et par courriel, de la planification efficace des tâches de service et du traitement fiable des processus administratifs dans le service à la clientèle. Vous assurez un haut niveau de satisfaction de la clientèle, la qualité du service et le développement continu du service à la clientèle. Vous assumez également les tâches suivantes:\n\n- Responsabilité du leadership professionnel et humain, promotion et perfectionnement de l'équipe\n- Assurer une culture de service axée sur le client, de haute performance et d'appréciation\n- Coaching et perfectionnement des employés ainsi que promotion de la responsabilité personnelle et amélioration continue\n- Gestion et développement ultérieur des opérations quotidiennes en mettant l'accent sur l'efficacité, la qualité et la satisfaction des clients\n- Analyse des chiffres clés pertinents et élaboration de mesures appropriées pour l'optimisation continue des services, des processus et des ressources\n- Coopération active avec les interfaces internes\n- Effectuer des tâches opérationnelles au quotidien pour assurer la proximité du client et soutenir l'équipe\n\n## PROFIL\n\nPour ce poste responsable, nous recherchons un leader convaincant qui a déjà dirigé avec succès des équipes dans l'environnement du service à la clientèle et développe les employés avec enthousiasme, clarté et appréciation. Vous apportez également ce qui suit:\n\n- Achevé la formation commerciale de base avec une formation complémentaire en leadership et/ou service à la clientèle\n- Plusieurs années d'expérience réussie de gestion et de développement dans un environnement de service à la clientèle, de service à la clientèle ou de centre de contact\n- Une bonne expérience pratique du service à la clientèle et une bonne compréhension des processus axés sur la clientèle et de la qualité du service\n- Haute orientation client, service et qualité ainsi que de solides compétences en communication et coaching\n- Profitez de la prise de responsabilité et de façonner et mettre en œuvre activement les changements\n- Très bonne connaissance de l'allemand (anglais et français est un avantage)\n\nAvez-vous aussi d'excellentes manières et prenez-vous des décisions claires même dans des situations difficiles? Alors nous avons hâte de vous rencontrer."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.724Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
-        "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
-        "leiter-kundeninnendienst-a-100-geberit-ch",
-        "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
-        "leiter-kundeninnendienst-a-100-geberit-rapperswil-jona",
-        "responsabile-del-team-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
-        "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona",
-        "teamleiter-kunden-innendienst-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-kundeninnendienst-a-100-geberit-rapperswil-jona",
-          "responsabile-del-team-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
-          "teamleiter-kunden-servizio-interno-a-100-geberit-rapperswil-jona",
-          "teamleiter-kunden-innendienst-a-100-geberit-ch"
-        ],
-        "en": [
-          "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
-          "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
-          "teamleiter-kunden-innendienst-a-100-geberit-ch"
-        ],
-        "de": [
-          "leiter-kundeninnendienst-a-100-geberit-ch"
-        ],
-        "fr": [
-          "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona",
-          "teamleiter-kunden-innendienst-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-03T13:50:14.076Z"
-    },
-    {
       "id": "geberit-2229",
       "slug": "senior-it-system-ingegnere-platform-services-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -1107,7 +1107,7 @@
       "url": "https://jobs.geberit.com/job-invite/2229/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.723Z",
+      "crawledAt": "2026-10-28T21:59:08.777Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1186,7 +1186,7 @@
       "url": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.722Z",
+      "crawledAt": "2026-10-28T21:59:08.776Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1263,7 +1263,7 @@
       "url": "https://jobs.geberit.com/job-invite/2245/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.721Z",
+      "crawledAt": "2026-10-28T21:59:08.774Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1356,7 +1356,7 @@
       "url": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.720Z",
+      "crawledAt": "2026-10-28T21:59:08.773Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1444,7 +1444,7 @@
       "url": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.719Z",
+      "crawledAt": "2026-10-28T21:59:08.772Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1531,7 +1531,7 @@
       "url": "https://jobs.geberit.com/job-invite/2237/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.718Z",
+      "crawledAt": "2026-10-28T21:59:08.771Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1620,7 +1620,7 @@
       "url": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.717Z",
+      "crawledAt": "2026-10-28T21:59:08.770Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1693,7 +1693,7 @@
       "url": "https://jobs.geberit.com/job-invite/2279/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.716Z",
+      "crawledAt": "2026-10-28T21:59:08.769Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1772,7 +1772,7 @@
       "url": "https://jobs.geberit.com/job-invite/2093/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.715Z",
+      "crawledAt": "2026-10-28T21:59:08.768Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1848,7 +1848,7 @@
       "url": "https://jobs.geberit.com/job-invite/2001/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.715Z",
+      "crawledAt": "2026-10-28T21:59:08.768Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1927,7 +1927,7 @@
       "url": "https://jobs.geberit.com/job-invite/1635/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.714Z",
+      "crawledAt": "2026-10-28T21:59:08.767Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2006,7 +2006,7 @@
       "url": "https://jobs.geberit.com/job-invite/2271/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.713Z",
+      "crawledAt": "2026-10-28T21:59:08.766Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2082,7 +2082,7 @@
       "url": "https://jobs.geberit.com/job-invite/2172/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.660Z",
+      "crawledAt": "2026-10-28T21:59:08.718Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2131,22 +2131,22 @@
     },
     {
       "id": "geberit-2069",
-      "slug": "data-analista-a-geberit-rapperswil-jona",
+      "slug": "data-analista-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "data-analyst-a-geberit-ch",
-        "it": "data-analista-a-geberit-rapperswil-jona",
-        "en": "data-analyst-a-geberit-rapperswil-jona",
-        "fr": "data-analyste-a-geberit-rapperswil-jona"
+        "it": "data-analista-a-80-100-geberit-rapperswil-jona",
+        "en": "data-analyst-a-80-100-geberit-ch",
+        "de": "data-analyst-a-80-100-geberit-ch",
+        "fr": "data-analyste-a-80-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
       "companyDomain": "geberit.com",
-      "title": "Data Analyst (a)",
+      "title": "Data Analyst (a) 80 - 100%",
       "titleByLocale": {
-        "it": "Data Analista (a)",
-        "en": "Data Analyst (a)",
-        "de": "Data Analyst (a)",
-        "fr": "Data Analyste (a)"
+        "it": "Data Analista (a) 80 - 100%",
+        "en": "Data Analyst (a) 80 - 100%",
+        "de": "Data Analyst (a) 80 - 100%",
+        "fr": "Data Analyste (a) 80 - 100%"
       },
       "description": "## ZIEL DER POSITION\n\nGeberit ist ein internationales Industrieunternehmen «mit Herz und Seele». Als IT-fokussierter Arbeitgeber setzen wir auf State-of-the-Art-Technologien. Unsere Mitarbeitenden schätzen die Kollegialität und die Zusammenarbeit in den Teams. Als IT Data Analyst gestaltest du aktiv die Weiterentwicklung unserer innovativen Data Platform und arbeitest eng mit Business-Stakeholdern weltweit zusammen.\n\nDu möchtest mehr über unsere IT und die Menschen dahinter erfahren? Dann wirf gerne einen Blick in unser Video: https://youtu.be/no5GL-4_Nrc\n\n## HAUPTAUFGABEN​\n\n- Requirements Engineering: Unterstützung des Teams bei der kontinuierlichen Verbesserung und Weiterentwicklung unserer modernen Data Products und Analytical Applications.\n- Frontend Solution Design: Konzeption, Design und Umsetzung von Reporting‑, Dashboard‑ und Planungslösungen auf Basis von SAP Analytics Cloud und Microsoft PowerBI\n- Project-Management: Strukturierte Umsetzung entlang agiler Projektzyklen inklusive Definition und Steuerung von Timelines, Meilensteinen und Deliverables.\n- Business Partnership: Beratung zu Prozessen und Technologien auf Basis von SAP und Microsoft-Lösungen, z.B. SAP Business Warehouse oder Microsoft Fabric.\n- Kundenunterstützung: Aktives Erwartungsmanagement sowie kompetente Unterstützung unserer internen, internationalen Kunden bei der Umsetzung ihrer Anforderungen.\n\n## PROFIL\n\n- Erfolgreich abgeschlossenes Studium im Bereich Betriebswirtschaft oder IT oder eine vergleichbare Ausbildung.\n- Mehrjährige Erfahrung im SAP- und/oder Microsoft-Umfeld, idealerweise im Bereich Analytics und Daten.\n- Analytisches Denkvermögen, Kommunikationsstärke, Eigenverantwortlichkeit und Flexibilität.\n- Bereitschaft zur kontinuierlichen Weiterbildung sowie gute Englischkenntnisse.\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
       "descriptionByLocale": {
@@ -2160,7 +2160,7 @@
       "url": "https://jobs.geberit.com/job-invite/2069/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.659Z",
+      "crawledAt": "2026-10-28T21:59:08.717Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Heiligenberger Straße 47",
@@ -2179,18 +2179,33 @@
       "applyUrl": "https://jobs.geberit.com/job-invite/2069/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
-        "data-analyst-a-geberit-ch"
+        "data-analyst-a-geberit-ch",
+        "data-analista-a-geberit-rapperswil-jona",
+        "data-analyst-a-geberit-rapperswil-jona",
+        "data-analyste-a-geberit-rapperswil-jona",
+        "data-analyst-a-80-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "data-analyst-a-geberit-ch",
+          "data-analista-a-geberit-rapperswil-jona",
+          "data-analyst-a-80-100-geberit-ch"
+        ],
+        "en": [
+          "data-analyst-a-geberit-rapperswil-jona"
+        ],
+        "de": [
           "data-analyst-a-geberit-ch"
         ],
         "fr": [
-          "data-analyst-a-geberit-ch"
+          "data-analyst-a-geberit-ch",
+          "data-analyste-a-geberit-rapperswil-jona",
+          "data-analyst-a-80-100-geberit-ch"
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-20T21:42:05.353Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2203,8 +2218,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-20T21:42:05.353Z"
+      }
     },
     {
       "id": "geberit-2148",
@@ -2237,7 +2251,7 @@
       "url": "https://jobs.geberit.com/job-invite/2148/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.659Z",
+      "crawledAt": "2026-10-28T21:59:08.717Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2311,7 +2325,7 @@
       "url": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.658Z",
+      "crawledAt": "2026-10-28T21:59:08.716Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2390,7 +2404,7 @@
       "url": "https://jobs.geberit.com/job-invite/1560/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.657Z",
+      "crawledAt": "2026-10-28T21:59:08.715Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2469,7 +2483,7 @@
       "url": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:43:49.653Z",
+      "crawledAt": "2026-10-28T21:59:08.711Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",

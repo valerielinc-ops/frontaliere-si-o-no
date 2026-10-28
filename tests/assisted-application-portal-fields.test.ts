@@ -127,6 +127,22 @@ describe('portal field extraction', () => {
     expect(page.captcha).toBe(true);
   });
 
+  it('recognizes a silent Cloudflare challenge bootstrap without rendered copy', () => {
+    const page = extract(
+      '<script src="/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=test"></script>',
+      'https://www.alten.ch/jobs/879-google-cloud-platform/apply/',
+    );
+
+    expect(page.fields).toEqual([]);
+    expect(page.buttons).toEqual([]);
+    expect(page.captcha).toBe(true);
+  });
+
+  it('recognizes the visible challenge spinner and ignores ordinary JS detection', () => {
+    expect(extract('<div id="challenge-spinner"></div>').captcha).toBe(true);
+    expect(extract('<form><label>Name<input name="name" required></label><script src="/cdn-cgi/challenge-platform/scripts/jsd/main.js"></script></form>').captcha).toBe(false);
+  });
+
   it.each([
     ['a hidden challenge template', '<form><label>Name<input name="name" required></label><div id="challenge-stage" hidden></div></form>'],
     ['ordinary application copy', '<form><label>Name<input name="name" required></label><p>Our help text says checking your browser can take a moment.</p></form>'],

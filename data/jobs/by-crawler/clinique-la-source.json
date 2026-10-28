@@ -1,13 +1,13 @@
 {
   "crawlerKey": "clinique-la-source",
-  "assembledAt": "2026-10-27T21:19:26.096Z",
-  "runId": "40583951867",
+  "assembledAt": "2026-10-28T22:00:52.522Z",
+  "runId": "40774021048",
   "jobs": [
     {
       "id": "clinique-la-source-71b89c53db19",
       "slug": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne",
+        "it": "technologue-en-dispositifs-medicaux-clinique-de-la-source-lausanne",
         "en": "medical-device-technologist-clinique-de-la-source-lausanne",
         "de": "medizintechniker-clinique-de-la-source-lausanne",
         "fr": "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -35,7 +35,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:19.827Z",
+      "crawledAt": "2026-10-28T22:00:42.386Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -56,11 +56,13 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
-        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
+        "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
+        "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
+          "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne",
+          "tecnologo-del-dispositivo-medico-clinique-de-la-source-lausanne"
         ],
         "en": [
           "technologue-en-dispositifs-medicaux-clinique-la-source-lausanne"
@@ -93,7 +95,7 @@
       "slugByLocale": {
         "it": "mutua-clinique-de-la-source-lausanne",
         "en": "midwife-clinique-de-la-source-lausanne",
-        "de": "hebamme-clinique-de-la-source-lausanne",
+        "de": "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne",
         "fr": "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne"
       },
       "company": "Clinique de La Source",
@@ -119,7 +121,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=791",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:19.211Z",
+      "crawledAt": "2026-10-28T22:00:41.799Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,14 +143,14 @@
       "careerSiteUrl": "https://emploi.lasource.ch/",
       "previousSlugs": [
         "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne",
-        "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne"
+        "hebamme-clinique-de-la-source-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sage-femme-ou-infirmier-ere-sage-femme-clinique-la-source-lausanne"
         ],
         "de": [
-          "sage-femme-ou-infirmier-ere-sage-femme-clinique-de-la-source-lausanne"
+          "hebamme-clinique-de-la-source-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-06T21:14:04.729Z",
@@ -198,7 +200,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=783",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:18.583Z",
+      "crawledAt": "2026-10-28T22:00:41.222Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -272,7 +274,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=779",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:17.941Z",
+      "crawledAt": "2026-10-28T22:00:40.657Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -346,7 +348,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=789",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:17.289Z",
+      "crawledAt": "2026-10-28T22:00:40.092Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -421,7 +423,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=790",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:16.703Z",
+      "crawledAt": "2026-10-28T22:00:39.465Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -496,7 +498,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=793",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:16.141Z",
+      "crawledAt": "2026-10-28T22:00:38.862Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -577,7 +579,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=781",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:15.574Z",
+      "crawledAt": "2026-10-28T22:00:38.289Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -652,7 +654,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:14.984Z",
+      "crawledAt": "2026-10-28T22:00:37.675Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -757,7 +759,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=782",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:14.383Z",
+      "crawledAt": "2026-10-28T22:00:37.126Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -832,7 +834,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=788",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:13.770Z",
+      "crawledAt": "2026-10-28T22:00:36.589Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -906,7 +908,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=792",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:19:13.121Z",
+      "crawledAt": "2026-10-28T22:00:36.024Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -954,82 +956,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "clinique-la-source-87772a13da31",
-      "slug": "infermiera-presso-il-centro-di-chirurgia-estetica-clinique-de-la-source-lausanne",
-      "slugByLocale": {
-        "it": "infermiera-presso-il-centro-di-chirurgia-estetica-clinique-de-la-source-lausanne",
-        "en": "nurse-at-the-outpatient-surgery-centre-clinique-de-la-source-lausanne",
-        "de": "krankenschwester-im-ambulanzzentrum-clinique-de-la-source-lausanne",
-        "fr": "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
-      },
-      "company": "Clinique de La Source",
-      "companyKey": "clinique-la-source",
-      "companyDomain": "lasource.ch",
-      "title": "Infirmier·ère au Centre de chirurgie ambulatoire",
-      "titleByLocale": {
-        "it": "Infermiera presso il Centro di Chirurgia Estetica",
-        "en": "Nurse at the Outpatient Surgery Centre",
-        "de": "Krankenschwester im Ambulanzzentrum",
-        "fr": "Infirmier·ère au Centre de chirurgie ambulatoire"
-      },
-      "description": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\n  Nous recherchons\n\npour notre Centre de chirurgie ambulatoire\n\nun·e Infirmier·ère à 100%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.767 / Type de contrat : Contrat à Durée Indéterminée à 100% / Horaires : du lundi au vendredi de 6h30 au plus tôt à 19h30 au plus tard / Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nUn poste d’infirmier·ère en Centre de chirurgie ambulatoire se libère : rejoignez une équipe engagée en Clinique de jour où votre expertise est reconnue, votre autonomie valorisée et votre rôle au parcours patient pleinement soutenu.\n\nQue serez-vous amené·e à faire ?\n\n• Assurer la prise en charge globale des patient·es en chirurgie et médecine ambulatoire, en phase pré et postopératoire\n\n• Réaliser les évaluations cliniques, assurer une surveillance continue et adapter les soins en fonction de l’évolution de l’état des patient·es\n\n• Administrer et surveiller les traitements prescrits, y compris les perfusions complexes\n\n• Préparer, accompagner et surveiller les patient·es pour les actes en radiologie interventionnelle\n\n• Appliquer les soins infirmiers spécifiques au service tout en anticipant et en prévenant les complications potentielles liées aux traitements et interventions\n\n• Assurer une communication bienveillante et un soutien personnalisé aux patient·es et à leurs proches tout au long du parcours de soins\n\n• Collaborer étroitement avec les médecins et les équipes interdisciplinaires afin de garantir une prise en charge coordonnée et sécurisée\n\n• Assurer la transmission rigoureuse des informations et la traçabilité complète des soins dans les dossiers patients\n\n• Encadrer et accompagner les étudiant·es en soins infirmiers dans leur apprentissage clinique et leur développement professionnel\n\nAvec qui allez-vous travailler ?\n\nEn Clinique de jour, notre équipe compte 10 infirmier·ères et 1 aide-soignant·e en endoscopie et service ambulatoire. C'est une équipe solidaire, polyvalente, toujours souriante et dynamique. Les mots d’ordre du service sont « Entraide, empathie et gourmandise ».\n\nEn Interventionnel, notre équipe est composée de 8 infirmier·ères et 4 aides techniques en endoscopie et service ambulatoire. C'est une équipe solidaire et dynamique, expérimentée et toujours curieuse de développer de nouvelles compétences et activités. Les mots d’ordre du service sont « Bonne humeur, rigueur et douceurs ».\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• Diplôme en soins infirmiers HES ou titre reconnu par la Croix-Rouge suisse\n\n• Expérience confirmée d’au minimum 3 ans en milieu hospitalier\n\n• Maîtrise rigoureuse des règles de sécurité, d’hygiène et d’asepsie\n\n• Aisance relationnelle et réelle aptitude à collaborer au sein d’une équipe interdisciplinaire\n\nVos atouts :\n\n• Expérience en milieu ambulatoire, idéalement en chirurgie de jour\n\n• Polyvalence et capacité à évoluer dans un environnement technique et dynamique\n\n• Excellente capacité d’adaptation et intégration rapide au sein d’une équipe engagée\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud et évoluer dans un environnement dynamique, reconnu pour son expertise et son savoir-faire\n\n• Un centre de séjour doté de 24 lits pour la surveillance pluridisciplinaire des patient·es\n\n• 3 salles interventionnelles dédiées à l’endoscopie souple et la chirurgie non invasive\n\n• Profiter d’un cadre de travail à taille humaine, tout en bénéficiant de la richesse et de la diversité des activités d’une institution de santé tournée vers l’avenir\n\n• Bénéficier de conditions d’engagement attractives et de prestations sociales avantageuses (accueil et intégration, participation LaMal, LPP avantageuse, rabais, etc.)\n\n• Concilier vie professionnelle et vie privée, grâce à des possibilités de travail à temps partiel, jusqu’à plus de 7 semaines de vacances, des congés non payés, des jours fériés compensés et la valorisation du temps de change\n\n• Partager des valeurs qui nous ressemblent : une clinique Unique, Respectueuse, Innovatrice et Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous avez encore des questions sur le poste ? N'hésitez pas à contacter Madame  Cynthia Herny , ICUS adjointe du centre ambulatoire au 021 641 31 66.\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nPour des raisons de protection des données, les candidatures sont exclusivement traitées via notre plateforme en ligne . Les dossiers transmis par e-mail ou par courrier ne pourront pas être pris en considération. Vous rencontrez une difficulté technique ? Appelez-nous au 021 641 35 74 : notre équipe se fera un plaisir de vous accompagner.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne.",
-      "descriptionByLocale": {
-        "it": "La Clinique de La Source è una struttura di assistenza acuta multidisciplinare unica. Appartiene alla La Source Foundation, un'istituzione indipendente e privata senza scopo di lucro che sovrintende anche all'Institut et Haute École de la Santé La Source. L'indipendenza che questo status le conferisce le consente di investire continuamente negli aspetti umani e tecnologici per garantire ai suoi pazienti la migliore assistenza possibile.\nStiamo cercando\n\nper il nostro Centro di Chirurgia Ambulatoriale\n\nun'infermiera al 100%\n\nInformazioni chiave sulla posizione:\n\nRiferimento: CLS/RH/2026.767 / Tipo di contratto: contratto 100% a tempo indeterminato / Orari di apertura: dal lunedì al venerdì dalle 6:30 alle 19:30 al più tardi / Data di check-in: non appena troviamo la persona giusta / Luogo: nel cuore di Losanna (fermata M2 \"Riponne\" o fermata Bus 2, 3 o 21 \"Beaulieu-Jomini\")\n\nPerché abbiamo bisogno di te?\n\nSi sta sempre facendo disponibile una posizione da infermiere in un centro chirurgico ambulatoriale: unisciti a un team dedicato alla Clinica Diurna dove la tua competenza viene riconosciuta, la tua autonomia apprezzata e il tuo ruolo nel percorso del paziente pienamente supportato.\n\nCosa dovrai fare?\n\n• Garantire la cura completa dei pazienti in chirurgia e medicina ambulatoriale, sia nella fase pre che post-operatoria\n\n• Effettuare valutazioni cliniche, garantire un monitoraggio continuo e adattare le cure in base all'evoluzione delle condizioni dei pazienti\n\n• Somministrare e monitorare i trattamenti prescritti, comprese le infusioni complesse\n\n• Preparazione, accompagnamento e monitoraggio dei pazienti per procedure di radiologia interventistica\n\n• Applicare cure infermieristiche specifiche per dipartimento, anticipando e prevenendo potenziali complicazioni legate a trattamenti e interventi\n\n• Garantire una comunicazione premurosa e un supporto personalizzato per i pazienti e i loro cari durante tutto il percorso di cura\n\n• Lavorare a stretto contatto con medici e team interdisciplinari per garantire cure coordinate e sicure\n\n• Garantire la trasmissione rigorosa delle informazioni e la completa tracciabilità delle cure nei dati dei pazienti\n\n• Fare da mentore e supporto agli studenti infermieristici nel loro apprendimento clinico e sviluppo professionale\n\nCon chi lavorerai?\n\nNella Clinica Diurna, il nostro team conta 10 infermieri e 1 assistente infermieristico in endoscopia e servizi ambulatoriali. È un team di supporto e versatile, sempre sorridente e dinamico. Le parole d'ordine del dipartimento sono \"Mutuo aiuto, empatia e avidità\".\n\nNel settore interventista, il nostro team è composto da 8 infermieri e 4 assistenti tecnici in endoscopia e servizio ambulatoriale. È un team di supporto e dinamico, esperto e sempre curioso di sviluppare nuove competenze e attività. Le parole d'ordine del dipartimento sono \"Buon umore, rigore e gentilezza\".\n\nCosa ci aspettiamo da te?\n\nGli elementi essenziali:\n\n• Diploma in infermieristica presso l'Università delle Scienze Applicate o titolo riconosciuto dalla Croce Rossa Svizzera\n\n• Esperienza comprovata di almeno 3 anni in un contesto ospedaliero\n\n• Rigoroso controllo della sicurezza, dell'igiene e delle regole asettiche\n\n• Competenze interpersonali e reale capacità di collaborare all'interno di un team interdisciplinare\n\nI tuoi punti di forza:\n\n• Esperienza in ambulatorio, idealmente in sala operatoria diurna\n\n• Versatilità e capacità di evolversi in un ambiente tecnico e dinamico\n\n• Eccellente adattabilità e rapida integrazione in un team impegnato\n\nPerché scegliere la Clinique de La Source?\n\n• Unisciti alla più grande clinica privata del cantone di Vaud ed evolveti in un ambiente dinamico, riconosciuto per la sua competenza e competenza\n\n• Un centro notturno con 24 posti letto per il monitoraggio multidisciplinare dei pazienti\n\n• 3 sale interventisti dedicate all'endoscopia flessibile e alla chirurgia non invasiva\n\n• Beneficiare di un ambiente di lavoro a misura umana, beneficiando al contempo della ricchezza e della diversità delle attività di un'istituzione sanitaria orientata al futuro\n\n• Beneficiare di condizioni di lavoro attraenti e benefici sociali vantaggiosi (benvenuto e integrazione, partecipazione LaMal, BVG vantaggioso, sconti, ecc.)\n\n• Equilibrio tra lavoro e vita privata, con opportunità di lavoro part-time, fino a oltre 7 settimane di ferie, ferie non retribuite, giorni festivi retribuiti e la valutazione del tempo di scambio\n\n• Condividere valori che ci somigliano: una clinica unica, rispettosa, innovativa e responsabile\n\nScopri l'universo Source\n\nScopri il nostro video: Il segreto della fonte\n\nQuali sono i prossimi passi?\n\n• Hai ancora domande sulla posizione? Non esitare a contattare la signora Cynthia Herny, vice ICUS del centro ambulatoriale, al numero 021 641 31 66.\n\n• Ti riconosci in questa offerta? Sabine Sadowski, Specialista HR Recruiting, non vede l'ora di ricevere la tua candidatura completa (lettera di presentazione, CV, certificati e diplomi)\n\n• La posizione non ti fa caso, ma sei interessato a un'altra opportunità presso la Clinica? Clicca su Candidata per registrarti sulla nostra piattaforma e ricevere le nostre prossime offerte via email.\n\nInformazioni importanti!\n\nPer motivi di protezione dei dati, le domande vengono elaborate esclusivamente tramite la nostra piattaforma online. Le domande inviate via e-mail o posta non possono essere prese in considerazione. Stai riscontrando una difficoltà tecnica? Chiamaci al 021 641 35 74: il nostro team sarà lieto di assisterti.\n\nCandidati\n\nClinique de La Source — La più grande clinica privata del cantone di Vaud, Losanna.",
-        "en": "The Clinique de La Source is a unique multidisciplinary acute care facility. It belongs to the La Source Foundation, an independent and private non-profit institution that also oversees the Institut et Haute École de la Santé La Source. The independence that this status gives it allows it to continuously invest in human and technological aspects in order to guarantee its patients the best possible care.\nWe are looking for\n\nfor our Ambulatory Surgery Center\n\na 100% Nurse\n\nKey information about the position:\n\nReference: CLS/RH/2026.767 / Type of contract: 100% permanent contract / Opening hours: Monday to Friday from 6:30 a.m. to 7:30 p.m. at the latest / Check-in date: as soon as we find the right person / Location: in the heart of Lausanne (M2 stop \"Riponne\" or Bus 2, 3 or 21 stop \"Beaulieu-Jomini\")\n\nWhy do we need you?\n\nA nurse position in an outpatient surgery center is becoming available: join a team committed to the Day Clinic where your expertise is recognized, your autonomy valued and your role in the patient journey fully supported.\n\nWhat will you have to do?\n\n• Ensuring the comprehensive care of patients in surgery and outpatient medicine, in the pre- and post-operative phase\n\n• Perform clinical assessments, ensure continuous monitoring and adapt care according to the evolution of patients' conditions\n\n• Administer and monitor prescribed treatments, including complex infusions\n\n• Preparing, accompanying and monitoring patients for interventional radiology procedures\n\n• Apply department-specific nursing care while anticipating and preventing potential complications related to treatments and interventions\n\n• Ensuring caring communication and personalized support for patients and their loved ones throughout the care pathway\n\n• Work closely with physicians and interdisciplinary teams to ensure coordinated and safe care\n\n• Ensure the rigorous transmission of information and the complete traceability of care in patient records\n\n• Mentor and support nursing students in their clinical learning and professional development\n\nWho will you be working with?\n\nIn the Day Clinic, our team has 10 nurses and 1 nursing assistant in endoscopy and outpatient service. It is a supportive, versatile team, always smiling and dynamic. The department's watchwords are \"Mutual aid, empathy and greed\".\n\nIn Interventional, our team is made up of 8 nurses and 4 technical assistants in endoscopy and outpatient service. It is a supportive and dynamic team, experienced and always curious to develop new skills and activities. The watchwords of the department are \"Good mood, rigor and gentleness\".\n\nWhat do we expect from you?\n\nThe essentials:\n\n• Diploma in nursing from the University of Applied Sciences or title recognised by the Swiss Red Cross\n\n• Proven experience of at least 3 years in a hospital setting\n\n• Rigorous control of safety, hygiene and aseptic rules\n\n• Interpersonal skills and real ability to collaborate within an interdisciplinary team\n\nYour strengths:\n\n• Experience in an outpatient setting, ideally in day surgery\n\n• Versatility and ability to evolve in a technical and dynamic environment\n\n• Excellent adaptability and quick integration into a committed team\n\nWhy choose Clinique de La Source?\n\n• Join the largest private clinic in the canton of Vaud and evolve in a dynamic environment, recognized for its expertise and know-how\n\n• A 24-bed overnight centre for multidisciplinary patient monitoring\n\n• 3 interventional rooms dedicated to flexible endoscopy and non-invasive surgery\n\n• To benefit from a human-sized working environment, while benefiting from the richness and diversity of the activities of a future-oriented health institution\n\n• Benefit from attractive employment conditions and advantageous social benefits (welcome and integration, LaMal participation, advantageous BVG, discounts, etc.)\n\n• Work-life balance, with part-time work opportunities, up to more than 7 weeks of vacation, unpaid time off, compensated public holidays and the valuation of exchange time\n\n• Sharing values that resemble us: a Unique, Respectful, Innovative and Responsible clinic\n\nDiscover the Source universe\n\nDiscover our video: The Secret of The Source\n\nWhat are the next steps?\n\n• Do you still have questions about the position? Do not hesitate to contact Mrs. Cynthia Herny, ICUS deputy of the outpatient center on 021 641 31 66.\n\n• Do you recognize yourself in this offer? Sabine Sadowski, HR Recruitment Specialist, is looking forward to receiving your complete application (cover letter, CV, certificates and diplomas)\n\n• The position does not suit you but you are interested in another opportunity at the Clinic? Click on Apply to register on our platform to receive our next offers by email.\n\nImportant information!\n\nFor data protection reasons, applications are processed exclusively via our online platform. Applications sent by e-mail or post cannot be taken into consideration. Are you experiencing a technical difficulty? Call us on 021 641 35 74: our team will be happy to assist you.\n\nApply\n\nClinique de La Source — Largest private clinic in the canton of Vaud, Lausanne.",
-        "de": "Die Clinique de La Source ist eine einzigartige multidisziplinäre Akutversorgungseinrichtung. Sie gehört zur La Source Stiftung, einer unabhängigen und privaten gemeinnützigen Einrichtung, die auch das Institut et Haute École de la Santé La Source betreut. Die Unabhängigkeit, die dieser Status ihr verleiht, ermöglicht es ihm, kontinuierlich in menschliche und technologische Aspekte zu investieren, um ihren Patienten die bestmögliche Versorgung zu garantieren.\nWir suchen nach\n\nfür unser Ambulant Chirurgiezentrum\n\neine 100%ige Krankenschwester\n\nWichtige Informationen zur Position:\n\nReferenz: CLS/RH/2026.767 / Vertragsart: 100 % unbefristeter Vertrag / Öffnungszeiten: Montag bis Freitag spätestens 6:30 bis 19:30 Uhr / Check-in-Datum: sobald wir die richtige Person gefunden haben / Ort: im Herzen von Lausanne (M2 Halte \"Riponne\" oder Bus 2, 3 oder 21 Halte \"Beaulieu-Jomini\")\n\nWarum brauchen wir dich?\n\nEine Pflegestelle in einem ambulanten OP-Zentrum wird frei: Treten Sie einem Team bei, das sich der Tagesklinik verpflichtet hat, in dem Ihre Expertise anerkannt, Ihre Autonomie geschätzt und Ihre Rolle im Patientenverlauf voll unterstützt wird.\n\nWas musst du tun?\n\n• Sicherstellung der umfassenden Versorgung der Patienten in der Chirurgie und ambulanten Medizin in der prä- und postoperativen Phase\n\n• Führen Sie klinische Bewertungen durch, sorgen für kontinuierliche Überwachung und passen die Versorgung an die Entwicklung der Erkrankungen der Patienten an\n\n• Verabreichen und überwachen Sie verschriebene Behandlungen, einschließlich komplexer Infusionen,\n\n• Vorbereitung, Begleitung und Überwachung von Patienten für interventionelle radiologische Verfahren\n\n• Wenden Sie abteilungsspezifische Pflege an, während Sie potenzielle Komplikationen im Zusammenhang mit Behandlungen und Interventionen vorhersehen und verhindern\n\n• Sicherstellung einer fürsorglichen Kommunikation und individueller Unterstützung für Patienten und ihre Angehörigen während des gesamten Versorgungswegs\n\n• Arbeiten Sie eng mit Ärzten und interdisziplinären Teams zusammen, um eine koordinierte und sichere Versorgung sicherzustellen\n\n• Sicherstellen Sie die rigorose Übertragung von Informationen und die vollständige Rückverfolgbarkeit der Versorgung in Patientenakten\n\n• Betreuen und unterstützen Sie Pflegestudierende bei ihrem klinischen Lernen und ihrer beruflichen Weiterentwicklung\n\nMit wem wirst du zusammenarbeiten?\n\nIn der Tagesklinik besteht unser Team aus 10 Pflegekräften und einer Pflegeassistentin in der Endoskopie und ambulanten Versorgung. Es ist ein unterstützendes, vielseitiges Team, das immer lächelnd und dynamisch ist. Die Leitworte der Abteilung sind \"Gegenseitige Hilfe, Empathie und Gier\".\n\nIm Bereich Interventional besteht unser Team aus 8 Pflegekräften und 4 technischen Assistenten in der Endoskopie und ambulanten Versorgung. Es ist ein unterstützendes und dynamisches Team, erfahren und stets neugierig darauf, neue Fähigkeiten und Aktivitäten zu entwickeln. Die Leitworte der Abteilung sind \"Gute Stimmung, Strenge und Sanftmut\".\n\nWas erwarten wir von dir?\n\nDas Wesentliche:\n\n• Diplom in Pflege von der Fachhochschule oder ein vom Schweizerisches Rotes Kreuz anerkannter Titel\n\n• Nachgewiesene Erfahrung von mindestens 3 Jahren in einem Krankenhaus\n\n• Strenge Kontrolle von Sicherheits-, Hygiene- und aseptischen Regeln\n\n• Interpersonelle Fähigkeiten und die echte Fähigkeit, innerhalb eines interdisziplinären Teams zusammenzuarbeiten\n\nIhre Stärken:\n\n• Erfahrung in einer ambulanten Umgebung, idealerweise in der Tageschirurgie\n\n• Vielseitigkeit und Fähigkeit, sich in einer technischen und dynamischen Umgebung weiterzuentwickeln\n\n• Ausgezeichnete Anpassungsfähigkeit und schnelle Integration in ein engagiertes Team\n\nWarum die Clinique de La Source wählen?\n\n• Treten Sie der größten Privatklinik im Kanton Waadt bei und entwickeln Sie sich in einer dynamischen Umgebung weiter, die für ihre Expertise und ihr Know-how bekannt ist\n\n• Ein 24-Betten-Übernachtungszentrum für multidisziplinäre Patientenüberwachung\n\n• 3 Interventionsräume für flexible Endoskopie und nicht-invasive Chirurgie\n\n• Von einer menschengroßen Arbeitsumgebung zu profitieren und gleichzeitig von der Vielfalt und Vielfalt der Aktivitäten einer zukunftsorientierten Gesundheitseinrichtung zu profitieren\n\n• Profitiere von attraktiven Beschäftigungsbedingungen und vorteilhaften sozialen Vorteilen (Willkommen und Integration, LaMal-Beteiligung, vorteilhafte BVG, Rabatte usw.).\n\n• Work-Life-Balance mit Teilzeitmöglichkeiten, bis zu mehr als 7 Wochen Urlaub, unbezahlten Urlaub, entschädigten Feiertagen und der Bewertung von Austauschzeiten\n\n• Werte teilen, die uns ähneln: eine einzigartige, respektvolle, innovative und verantwortungsbewusste Klinik\n\nEntdecken Sie das Source-Universum\n\nEntdecke unser Video: Das Geheimnis der Quelle\n\nWas sind die nächsten Schritte?\n\n• Haben Sie noch Fragen zur Stelle? Zögern Sie nicht, Frau Cynthia Herny, Intensivstationsstellvertreterin des ambulanten Zentrums, unter 021 641 31 66 zu kontaktieren.\n\n• Erkennen Sie sich in diesem Angebot wieder? Sabine Sadowski, HR Recruitment Specialist, freut sich darauf, Ihre vollständige Bewerbung (Anschreiben, Lebenslauf, Zertifikate und Diplome) zu erhalten.\n\n• Die Position passt nicht zu Ihnen, aber Sie interessieren sich für eine weitere Möglichkeit in der Klinik? Klicken Sie auf Bewerben, um sich auf unserer Plattform zu registrieren und unsere nächsten Angebote per E-Mail zu erhalten.\n\nWichtige Informationen!\n\nAus Datenschutzgründen werden Anträge ausschließlich über unsere Online-Plattform bearbeitet. Anträge, die per E-Mail oder Post gesendet werden, werden nicht berücksichtigt. Haben Sie ein technisches Problem? Rufen Sie uns unter 021 641 35 74 an: Unser Team hilft Ihnen gerne weiter.\n\nBewerben Sie sich\n\nClinique de La Source — Die größte Privatklinik im Kanton Vaud, Lausanne.",
-        "fr": "La Clinique de La Source est un établissement de soins aigus pluridisciplinaires unique en son genre . Elle appartient à la Fondation La Source , une institution indépendante et privée à but non lucratif qui chapeaute également l’Institut et Haute École de la Santé La Source. L’indépendance que lui confère ce statut lui permet d’ investir continuellement sur les plans humains et technologiques afin de garantir à ses patient·es la meilleure prise en charge possible.\nNous recherchons\n\npour notre Centre de chirurgie ambulatoire\n\nun·e Infirmier·ère à 100%\n\nInformations clés sur le poste :\n\nRéférence : CLS/RH/2026.767 / Type de contrat : Contrat à Durée Indéterminée à 100% / Horaires : du lundi au vendredi de 6h30 au plus tôt à 19h30 au plus tard / Date d’entrée : dès que nous trouvons la bonne personne / Localisation : au cœur de Lausanne (M2 arrêt « Riponne » ou Bus 2, 3 ou 21 arrêt « Beaulieu-Jomini »)\n\nPourquoi avons-nous besoin de vous ?\n\nUn poste d’infirmier·ère en Centre de chirurgie ambulatoire se libère : rejoignez une équipe engagée en Clinique de jour où votre expertise est reconnue, votre autonomie valorisée et votre rôle au parcours patient pleinement soutenu.\n\nQue serez-vous amené·e à faire ?\n\n• Assurer la prise en charge globale des patient·es en chirurgie et médecine ambulatoire, en phase pré et postopératoire\n\n• Réaliser les évaluations cliniques, assurer une surveillance continue et adapter les soins en fonction de l’évolution de l’état des patient·es\n\n• Administrer et surveiller les traitements prescrits, y compris les perfusions complexes\n\n• Préparer, accompagner et surveiller les patient·es pour les actes en radiologie interventionnelle\n\n• Appliquer les soins infirmiers spécifiques au service tout en anticipant et en prévenant les complications potentielles liées aux traitements et interventions\n\n• Assurer une communication bienveillante et un soutien personnalisé aux patient·es et à leurs proches tout au long du parcours de soins\n\n• Collaborer étroitement avec les médecins et les équipes interdisciplinaires afin de garantir une prise en charge coordonnée et sécurisée\n\n• Assurer la transmission rigoureuse des informations et la traçabilité complète des soins dans les dossiers patients\n\n• Encadrer et accompagner les étudiant·es en soins infirmiers dans leur apprentissage clinique et leur développement professionnel\n\nAvec qui allez-vous travailler ?\n\nEn Clinique de jour, notre équipe compte 10 infirmier·ères et 1 aide-soignant·e en endoscopie et service ambulatoire. C'est une équipe solidaire, polyvalente, toujours souriante et dynamique. Les mots d’ordre du service sont « Entraide, empathie et gourmandise ».\n\nEn Interventionnel, notre équipe est composée de 8 infirmier·ères et 4 aides techniques en endoscopie et service ambulatoire. C'est une équipe solidaire et dynamique, expérimentée et toujours curieuse de développer de nouvelles compétences et activités. Les mots d’ordre du service sont « Bonne humeur, rigueur et douceurs ».\n\nQu’attendons-nous de vous ?\n\nLes indispensables :\n\n• Diplôme en soins infirmiers HES ou titre reconnu par la Croix-Rouge suisse\n\n• Expérience confirmée d’au minimum 3 ans en milieu hospitalier\n\n• Maîtrise rigoureuse des règles de sécurité, d’hygiène et d’asepsie\n\n• Aisance relationnelle et réelle aptitude à collaborer au sein d’une équipe interdisciplinaire\n\nVos atouts :\n\n• Expérience en milieu ambulatoire, idéalement en chirurgie de jour\n\n• Polyvalence et capacité à évoluer dans un environnement technique et dynamique\n\n• Excellente capacité d’adaptation et intégration rapide au sein d’une équipe engagée\n\nPourquoi choisir la Clinique de La Source ?\n\n• Rejoindre la plus grande Clinique privée du canton de Vaud et évoluer dans un environnement dynamique, reconnu pour son expertise et son savoir-faire\n\n• Un centre de séjour doté de 24 lits pour la surveillance pluridisciplinaire des patient·es\n\n• 3 salles interventionnelles dédiées à l’endoscopie souple et la chirurgie non invasive\n\n• Profiter d’un cadre de travail à taille humaine, tout en bénéficiant de la richesse et de la diversité des activités d’une institution de santé tournée vers l’avenir\n\n• Bénéficier de conditions d’engagement attractives et de prestations sociales avantageuses (accueil et intégration, participation LaMal, LPP avantageuse, rabais, etc.)\n\n• Concilier vie professionnelle et vie privée, grâce à des possibilités de travail à temps partiel, jusqu’à plus de 7 semaines de vacances, des congés non payés, des jours fériés compensés et la valorisation du temps de change\n\n• Partager des valeurs qui nous ressemblent : une clinique Unique, Respectueuse, Innovatrice et Responsable\n\nDécouvrez l’univers Source\n\nDécouvrez notre vidéo : Le Secret de La Source\n\nQuelles sont les prochaines étapes ?\n\n• Vous avez encore des questions sur le poste ? N'hésitez pas à contacter Madame Cynthia Herny , ICUS adjointe du centre ambulatoire au 021 641 31 66.\n\n• Vous vous reconnaissez dans cette offre ? Sabine Sadowski , Spécialiste RH Recrutement, se réjouit de recevoir votre candidature complète (lettre de motivation, CV, certificats et diplômes)\n\n• Le poste ne vous correspond pas mais vous êtes intéressé·e par une autre opportunité à la Clinique ? Cliquez sur Postuler pour vous inscrire sur notre plateforme afin de recevoir nos prochaines offres par email.\n\nInformation importante !\n\nPour des raisons de protection des données, les candidatures sont exclusivement traitées via notre plateforme en ligne . Les dossiers transmis par e-mail ou par courrier ne pourront pas être pris en considération. Vous rencontrez une difficulté technique ? Appelez-nous au 021 641 35 74 : notre équipe se fera un plaisir de vous accompagner.\n\npostuler\n\nClinique de La Source — Plus grande clinique privée du canton de Vaud, Lausanne."
-      },
-      "needsRetranslation": false,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
-      "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-27T09:24:53.557Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1003",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://emploi.lasource.ch/?page=advertisement_display&id=767",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "careerSiteUrl": "https://emploi.lasource.ch/",
-      "previousSlugs": [
-        "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-au-centre-de-chirurgie-ambulatoire-clinique-la-source-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T21:34:21.540Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }

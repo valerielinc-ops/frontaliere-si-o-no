@@ -1400,7 +1400,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(helper).toContain('run_push_with_token "$FALLBACK_PUSH_URL"');
     expect(helper).toContain('GITHUB_PAT fallback');
     // The cleanup deletes with a lease on the base commit; a REST delete has no such condition.
-    expect(helper).toContain('--force-with-lease="refs/heads/${BRANCH}:${REFRESH_BASE}"');
+    expect(helper).toContain('--force-with-lease="refs/heads/${BRANCH}:${REMOTE_BASE_SHA}"');
     expect(helper).not.toContain('-X DELETE');
   });
 

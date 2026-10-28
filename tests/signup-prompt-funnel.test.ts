@@ -18,6 +18,19 @@ describe('shared save/follow signup funnel', () => {
     expect(prompt).toContain("requestConfirmationEmail(trimmed, 'login')");
   });
 
+  it('keeps filter-alert auth on the same parked-intent gate', () => {
+    const prompt = read('components/community/SignupPromptModal.tsx');
+    const boardPrompt = read('components/community/JobAlertAuthPromptModal.tsx');
+    const board = read('components/community/JobBoard.tsx');
+
+    expect(prompt).toContain("intent === 'alert'");
+    expect(prompt).toContain("sourceChannel: isFollow ? 'company_follow_unified' : isAlert ? 'job_alert_filter_unified'");
+    expect(boardPrompt).toContain('intent="alert"');
+    expect(board).toContain('onAnonymousAuthRequired={handleBoardFilterAlertAuthRequired}');
+    expect(board).toContain("'job_board_filters',\n   'pending_saved'");
+    expect(board).toContain('JobAlertAuthPromptModal');
+  });
+
   it('routes save and follow through the same modal without an inline follow field', () => {
     const save = read('components/community/SaveSignInPromptModal.tsx');
     const follow = read('components/community/CompanyFollowButton.tsx');

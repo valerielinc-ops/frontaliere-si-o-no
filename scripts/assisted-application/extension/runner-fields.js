@@ -624,16 +624,33 @@
   // than a visible Turnstile iframe. Its error copy is the only rendered
   // control on the page (ALTEN, 2026-10-27), so without this branch it is
   // mistaken for a custom application widget and sent to the agent.
-  const CLOUDFLARE_PAGE_CHALLENGE_RE = /(?:performing security verification|checking your browser|verifying you are human|why is this verification taking longer|this verification can take longer|perch[eé] questa verifica richiede pi[ùu] tempo|la verifica pu[òo] richiedere pi[ùu] tempo|warum dauert diese verifizierung l[aä]nger|diese verifizierung kann .* l[aä]nger dauern|pourquoi cette v[eé]rification prend[- ]elle plus de temps|cette v[eé]rification peut prendre plus de temps)/i;
-  const CLOUDFLARE_PAGE_MARKER_SELECTOR = '#challenge-stage, #challenge-error-text, form#challenge-form, [data-cf-challenge]';
-  const CLOUDFLARE_INTERSTITIAL_CONTEXT_RE = /^(?:cloudflare\s+)?(?:just a moment(?:\.\.\.)?|attention required(?:\s*\|\s*cloudflare)?|security verification|checking your browser(?:\.\.\.)?|verifying you are human(?:\.\.\.)?|verifica(?:zione)? di sicurezza|v[eé]rification de s[eé]curit[eé]|sicherheits(?:überprüfung|prüfung))$/i;
+  const CLOUDFLARE_PAGE_CHALLENGE_RE = /(?:performing security verification|checking your browser(?: before accessing)?|verifying you are human|why is this verification taking longer|this verification can take longer|enable javascript and cookies to continue|just a moment|attention required|security verification|perch[eé] questa verifica richiede pi[ùu] tempo|la verifica pu[òo] richiedere pi[ùu] tempo|warum dauert diese verifizierung l[aä]nger|diese verifizierung kann .* l[aä]nger dauern|pourquoi cette v[eé]rification prend[- ]elle plus de temps|cette v[eé]rification peut prendre plus de temps)/i;
+  const CLOUDFLARE_PAGE_MARKER_SELECTOR = [
+    '#challenge-running', '#challenge-stage', '#challenge-spinner', '#challenge-error-text',
+    'form#challenge-form', '.cf-challenge', '#cf-chl-widget', '[data-testid="challenge-stage"]',
+    '[data-cf-challenge]',
+  ].join(', ');
+  const CLOUDFLARE_INTERSTITIAL_CONTEXT_RE = /^(?:cloudflare\s+)?(?:just a moment(?:\.\.\.)?|attention required(?:\s*\|\s*cloudflare)?|security verification|checking your browser(?:\.\.\.)?|verifying you are human(?:\.\.\.)?|enable javascript and cookies to continue|verifica(?:zione)? di sicurezza|v[eé]rification de s[eé]curit[eé]|sicherheits(?:überprüfung|prüfung))$/i;
+  // A normal Cloudflare-proxied page may load the JS-detection script. The
+  // orchestrated challenge routes are the page-level interstitial signal; do
+  // not classify every /cdn-cgi/challenge-platform/ request as a CAPTCHA.
+  const CLOUDFLARE_CHALLENGE_SCRIPT_RE = /\/cdn-cgi\/challenge-platform\/(?:[^/]+\/)*orchestrate\/(?:chl_page|managed|interactive|jsch)(?:\/|[?#])/i;
   const pageText = String(document.body?.innerText || '').slice(0, 12_000);
   const pageChallengeCopy = CLOUDFLARE_PAGE_CHALLENGE_RE.test(`${document.title} ${pageText}`);
   const visibleCloudflareMarker = [...document.querySelectorAll(CLOUDFLARE_PAGE_MARKER_SELECTOR)].some(shown);
   const visibleInterstitialContext = CLOUDFLARE_INTERSTITIAL_CONTEXT_RE.test(clean(document.title))
-    || [...document.querySelectorAll('h1, h2, [role="heading"]')]
+    || [...document.querySelectorAll('h1, h2, [role="heading"], [id*="challenge" i], [class*="cf-challenge" i]')]
       .some((element) => shown(element) && CLOUDFLARE_INTERSTITIAL_CONTEXT_RE.test(clean(element.innerText || element.textContent)));
-  const cloudflarePageChallenge = visibleCloudflareMarker || (pageChallengeCopy && visibleInterstitialContext);
+  const hasCloudflareChallengeScript = [...document.scripts].some((script) => CLOUDFLARE_CHALLENGE_SCRIPT_RE.test(
+    String(script.getAttribute('src') || script.src || ''),
+  ));
+  const hasCloudflareChallengeToken = /(?:^|[?&])__cf_chl_(?:tk|rt_tk)=/i.test(String(location.search || ''));
+  const hasCloudflareChallengeRuntime = Boolean(window._cf_chl_opt || window.__cf_chl_tk);
+  const cloudflarePageChallenge = visibleCloudflareMarker
+    || (pageChallengeCopy && visibleInterstitialContext)
+    || hasCloudflareChallengeScript
+    || hasCloudflareChallengeToken
+    || hasCloudflareChallengeRuntime;
   const captcha = [...document.querySelectorAll('iframe')].some((frame) => {
     const src = String(frame.getAttribute('src') || '');
     const rect = frame.getBoundingClientRect();

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T06:52:09.450Z",
+  "generatedAt": "2026-10-28T19:32:23.241Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-28T06:51:19.340Z",
+      "fetchedAt": "2026-10-28T19:31:34.240Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
@@ -102,7 +102,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-28T06:52:07.529Z",
+      "fetchedAt": "2026-10-28T19:32:22.065Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -213,6 +213,15 @@
           "startsAt": "2026-11-03T23:00:00.000Z",
           "endsAt": "2026-11-04T23:00:00.000Z",
           "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "Pharmacie du Museum",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "day",
+          "startsAt": "2026-11-04T07:00:00.000Z",
+          "endsAt": "2026-11-04T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
         }
       ],
       "unresolvedDuties": 0
@@ -222,7 +231,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-28T06:52:09.450Z",
+      "fetchedAt": "2026-10-28T19:32:23.241Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -243,15 +252,6 @@
           "startsAt": "2026-10-24T06:00:00.000Z",
           "endsAt": "2026-10-31T07:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/Plan-de-garde-des-pharmacies-dAjoie-de-mars-2026-a-fevrier-2027.pdf?download=1"
-        },
-        {
-          "pharmacy": "Centre Coop",
-          "city": "Moutier",
-          "coverageName": "Moutier",
-          "dutyType": "night",
-          "startsAt": "2026-10-27T17:30:00.000Z",
-          "endsAt": "2026-10-28T07:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         },
         {
           "pharmacy": "Centre Coop",
@@ -351,6 +351,15 @@
           "startsAt": "2026-11-03T17:30:00.000Z",
           "endsAt": "2026-11-04T07:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Gare",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "night",
+          "startsAt": "2026-11-04T17:30:00.000Z",
+          "endsAt": "2026-11-05T07:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         }
       ],
       "unresolvedDuties": 0
@@ -360,7 +369,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-28T06:52:09.450Z",
+      "fetchedAt": "2026-10-28T19:32:23.241Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -444,7 +453,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-28T06:52:09.450Z",
+      "fetchedAt": "2026-10-28T19:32:23.241Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -528,7 +537,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-28T06:52:09.450Z",
+      "fetchedAt": "2026-10-28T19:32:23.241Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [

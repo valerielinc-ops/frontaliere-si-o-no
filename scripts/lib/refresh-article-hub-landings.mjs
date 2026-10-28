@@ -34,6 +34,7 @@ import {
 } from '../../packages/articles/engine/blogImageCdnFinalize.ts';
 import { buildTwitterCardMetaTags } from '../../packages/articles/engine/shared/twitterCardMeta.ts';
 import { compareArticleSourceDates } from '../../services/articleSourceDates.ts';
+import { localizeOfficialSourceRootLinks } from '../../build-plugins/shared/officialSourceRootLinks.ts';
 
 export const ARTICLE_HUB_LANDING_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const ARTICLE_HUB_LANDING_TIMEOUT_MS = 20_000;
@@ -259,7 +260,12 @@ export async function refreshArticleHubLandings(opts) {
       continue;
     }
 
-    const withTwitterCard = ensureTwitterCardMeta(refreshed, {
+    // The fetched shell can predate the full-build root-link rewrite because
+    // this shard landing deliberately preserves its editorial HTML. Apply the
+    // same final-URL normalization at this boundary so a fast refresh cannot
+    // re-publish known official-source redirects from the preserved shell.
+    const localized = localizeOfficialSourceRootLinks(refreshed, locale);
+    const withTwitterCard = ensureTwitterCardMeta(localized, {
       locale,
       siteBase: normalizedSiteBase,
     });

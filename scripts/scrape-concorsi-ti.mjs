@@ -44,6 +44,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const OUT_PATH = path.join(ROOT, 'data', 'seo', 'concorsi-ti.json');
 export const SOURCE_URL = 'https://www4.ti.ch/index.php?id=147427';
+export const OFFICIAL_LISTING_CANONICAL_URL =
+  'https://www4.ti.ch/dfe/dr/sru/lavorare-per-lamministrazione-cantonale/concorsi-generali';
+export const OFFICIAL_LISTING_URLS = Object.freeze([
+  SOURCE_URL,
+  OFFICIAL_LISTING_CANONICAL_URL,
+]);
 const USER_AGENT =
   'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch; seo-research)';
 
@@ -77,12 +83,15 @@ export function buildTichTranslateUrl(url = SOURCE_URL) {
     return '';
   }
 
+  const isLegacyListing = source.pathname === '/index.php'
+    && source.searchParams.get('id') === '147427'
+    && [...source.searchParams.keys()].every((key) => key === 'id');
+  const isCanonicalListing = source.pathname === new URL(OFFICIAL_LISTING_CANONICAL_URL).pathname
+    && [...source.searchParams.keys()].length === 0;
   if (
     source.protocol !== 'https:'
     || source.hostname.toLowerCase() !== 'www4.ti.ch'
-    || source.pathname !== '/index.php'
-    || source.searchParams.get('id') !== '147427'
-    || [...source.searchParams.keys()].some((key) => key !== 'id')
+    || (!isLegacyListing && !isCanonicalListing)
   ) return '';
 
   source.hostname = 'www4-ti-ch.translate.goog';
@@ -171,8 +180,9 @@ export async function fetchTichOfficialListingViaTranslate(
     retryDelayMs = 1_500,
   } = {},
 ) {
-  const proxyUrl = buildTichTranslateUrl(sourceUrl);
-  if (!proxyUrl) return null;
+  const sourceUrls = sourceUrl === SOURCE_URL
+    ? OFFICIAL_LISTING_URLS
+    : [sourceUrl];
 
   const maxAttempts = Math.max(1, Number.isFinite(attempts) ? Math.floor(attempts) : 2);
   // Google Translate is a separate egress and can need longer than the
@@ -182,34 +192,39 @@ export async function fetchTichOfficialListingViaTranslate(
   const delayMs = Number.isFinite(retryDelayMs) ? Math.max(0, retryDelayMs) : 1_500;
   let lastReason = 'unknown Google Translate proxy failure';
 
-  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), requestTimeoutMs);
-    try {
-      const response = await fetchImpl(proxyUrl, {
-        headers: {
-          Accept: 'text/html,application/xhtml+xml',
-          'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
-          'User-Agent': USER_AGENT,
-        },
-        signal: controller.signal,
-      });
+  for (const candidateUrl of sourceUrls) {
+    const proxyUrl = buildTichTranslateUrl(candidateUrl);
+    if (!proxyUrl) continue;
 
-      if (!response.ok) {
-        lastReason = `HTTP ${response.status}`;
-      } else {
-        const html = normalizeTichTranslatedListingHtml(await response.text());
-        if (isTichOfficialListingHtml(html) && parseConcorsiHtml(html).length > 0) return html;
-        lastReason = 'response did not contain a verified official Ti.CH listing with rows';
+    for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), requestTimeoutMs);
+      try {
+        const response = await fetchImpl(proxyUrl, {
+          headers: {
+            Accept: 'text/html,application/xhtml+xml',
+            'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+            'User-Agent': USER_AGENT,
+          },
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          lastReason = `HTTP ${response.status}`;
+        } else {
+          const html = normalizeTichTranslatedListingHtml(await response.text());
+          if (isTichOfficialListingHtml(html) && parseConcorsiHtml(html).length > 0) return html;
+          lastReason = 'response did not contain a verified official Ti.CH listing with rows';
+        }
+      } catch (error) {
+        lastReason = error?.message || String(error);
+      } finally {
+        clearTimeout(timer);
       }
-    } catch (error) {
-      lastReason = error?.message || String(error);
-    } finally {
-      clearTimeout(timer);
-    }
 
-    if (attempt < maxAttempts) {
-      await new Promise((resolve) => setTimeout(resolve, delayMs * attempt));
+      if (attempt < maxAttempts) {
+        await new Promise((resolve) => setTimeout(resolve, delayMs * attempt));
+      }
     }
   }
 

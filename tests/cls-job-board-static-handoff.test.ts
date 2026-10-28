@@ -25,7 +25,9 @@ import {
   INITIAL_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_LARGEST_CONTENTFUL_PAINT_TIMEOUT_MS,
   INITIAL_PAINT_FRAME_TIMEOUT_MS,
+  JOB_BOARD_LCP_WAIT_MAX_WIDTH,
   LARGEST_CONTENTFUL_PAINT_QUIET_TIMEOUT_MS,
+  shouldWaitForJobBoardLcp,
   type InitialPaintBootstrapEnv,
   waitForInitialPaintOpportunity,
 } from '@/services/initialPaintBootstrap';
@@ -91,6 +93,7 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(entry).toContain('main.seo-static-content.job-board-static-hub');
     expect(entry).toContain('waitForLargestContentfulPaint: true');
     expect(entry).toContain('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR');
+    expect(entry).toContain('shouldWaitForJobBoardLcp(window.innerWidth)');
     expect(entry.indexOf('waitForLargestContentfulPaint: true')).toBeGreaterThan(paintGate);
     expect(entry.indexOf('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR')).toBeGreaterThan(paintGate);
     expect(entry.indexOf('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR')).toBeLessThan(entry.indexOf("import('react')"));
@@ -143,6 +146,14 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(settled).toBe(true);
     expect(clearedTimer).toBe(true);
     expect(timerCallback).toBeTypeOf('function');
+  });
+
+  it('keeps the static-LCP wait for sub-desktop handoffs only', () => {
+    expect(JOB_BOARD_LCP_WAIT_MAX_WIDTH).toBe(1024);
+    expect(shouldWaitForJobBoardLcp(375)).toBe(true);
+    expect(shouldWaitForJobBoardLcp(1023)).toBe(true);
+    expect(shouldWaitForJobBoardLcp(1024)).toBe(false);
+    expect(shouldWaitForJobBoardLcp(1440)).toBe(false);
   });
 
   it('waits for the static job-board LCP and ignores a later CMP candidate', async () => {
@@ -446,11 +457,14 @@ describe('static job-board root visibility — issue 13044', () => {
     expect(perf.mark).toHaveBeenCalledWith(STATIC_HANDOFF_PRESERVE_MARK);
   });
 
-  it('keeps the JobBoard branch out of the root opacity crossfade', () => {
+  it('crossfades the mobile JobBoard root after static LCP, preserving desktop handoff', () => {
     const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
     expect(entry).toContain('keepStaticRootVisible = staticHandoff.shouldKeepStaticRootVisible(rootElement, fallback)');
+    expect(entry).toContain('crossfadeStaticRoot = keepStaticRootVisible && shouldWaitForJobBoardStaticLcp');
     expect(entry).toContain('staticHandoff.preserveRootForPaint(rootElement)');
-    expect(entry).toMatch(/if \(keepStaticRootVisible\) \{[\s\S]*?preserveRootForPaint[\s\S]*?\} else \{[\s\S]*?hideRootForCrossfade/);
+    expect(entry).toContain('if (keepStaticRootVisible && !crossfadeStaticRoot) {');
+    expect(entry).toContain('staticHandoff.hideRootForCrossfade(rootElement)');
+    expect(entry).toContain('if (!keepStaticRootVisible || crossfadeStaticRoot) {');
   });
 });
 

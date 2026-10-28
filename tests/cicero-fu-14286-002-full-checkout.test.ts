@@ -14,7 +14,7 @@ describe('FU-2026-10-21-002 — related tests use the trusted full-checkout prof
     expect(checkout).toContain('actions/checkout@v7');
     expect(checkout).toMatch(/fetch-depth:\s*0/);
     expect(checkout).toMatch(/filter:\s*tree:0/);
-    expect(checkout).toContain('sparse-checkout:');
+    expect(checkout).not.toMatch(/^\s+sparse-checkout(?:-cone-mode)?:/m);
   });
 
   it('invokes the related selector both for planning and for the PR verdict', () => {

@@ -13611,6 +13611,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso: 28 Menschen wegen der Schließung von via Motta ohne Arbeit',
     'blog.article.chiasso-via-motta-lavoro.excerpt': 'Die Schließung von via Motta in Chiasso lässt 28 Menschen ohne Arbeit.',
     'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: fast 500 mila euro weniger an Grenzgänger-Rückvergütungen',
+    'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate wird fast 500.000 Euro weniger aus den Rückvergütungen haben.',
+    'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Motion im Tessin gegen die Gesundheitssteuer',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen Gegenstand',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.ristorni-malnate-meno-500\u006dila.title': 'Grenzgänger-Rückerstattungen: 500.000 Euro weniger für Malnate',
+    'blog.article.ristorni-malnate-meno-500\u006dila.excerpt': 'Malnate erhält fast 500.000 Euro weniger. Der nationale Fonds steigt von 89 auf 108 Millionen Euro, die Rückerstattungen sollen Anfang November eintreffen. Fast 1.700 Einwohner von Malnate überqueren täglich die Grenze.',
+    'blog.article.ristorni-malnate-meno-500\u006dila.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'In Gaggiolo nicht deklarierte Luxusartikel im Wert von über 23.000 Euro',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Eine Fahrerin, die in Gaggiolo nach Italien einreiste, erklärte, nichts anzumelden zu haben, doch im Kofferraum wurden eine hochwertige Tasche und ein hochwertiger Schal im Wert von über 23.000 Euro gefunden.',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
