@@ -58,6 +58,19 @@ function canonicalUrl(value = '') {
 }
 
 /**
+ * The iPersonal validator requires a source-backed rich body, not merely a
+ * long JSON-LD description. Keep the predicate next to the detail fallback so
+ * fresh and reused rows cannot disagree about what is publishable.
+ *
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+function hasRichIpersonalDescription(value = '') {
+  const description = String(value || '').trim();
+  return isSufficientVacancyDescription(description) && /^\s*[-•*]\s/m.test(description);
+}
+
+/**
  * Build a listing-shaped row from a previously published source row. This is
  * deliberately narrow: the URL must be the attempted detail identity and the
  * stored body must satisfy the same rich-body contract as a fresh detail.
@@ -76,9 +89,7 @@ function previousDetailFallbackRow(job = {}) {
   ).trim();
   const location = String(job?.location || job?.addressLocality || '').trim();
   const canton = String(job?.canton || job?.addressRegion || '').trim();
-  if (!url || !title || !location || !canton
-    || !isSufficientVacancyDescription(description)
-    || !/^\s*[-•*]\s/m.test(description)) return null;
+  if (!url || !title || !location || !canton || !hasRichIpersonalDescription(description)) return null;
 
   // The reuse policy admits this row only for its exact attempted URL identity.
   // A stored date without explicit source evidence must remain unknown.
@@ -408,6 +419,16 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
       { feedEndpointUnavailable: true, sourceUnavailableKind: 'maintenance' },
     );
   }
+  const detailEvidenceForAttempt = (attemptedUrl) => {
+    const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
+    const detail = parsedDetails.get(resolvedDetailUrl) || parsedDetails.get(attemptedUrl);
+    const sourceMarkup = successfulDetailAttempts.get(attemptedUrl)?.html || '';
+    return {
+      detail,
+      hasRichDescription: hasRichIpersonalDescription(detail?.description)
+        || hasRichIpersonalDescription(extractIpersonalDescription(sourceMarkup)),
+    };
+  };
   const enriched = rows.map((row) => {
     const attemptedUrl = canonicalUrl(row.url);
     const description = extractIpersonalDescription(pages.get(attemptedUrl) || '');
@@ -453,7 +474,15 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   // Count only source-proven quality rejections. Arithmetic based solely on
   // `attempted - returned` would also bless unrelated losses (dedup bugs,
   // redirect aliasing, or a later adapter filter).
-  const returnedUrls = new Set(rows.map((row) => canonicalUrl(row?.url)).filter(Boolean));
+  // A row can pass the generic prospector floor with a long but unstructured
+  // JSON-LD description. It is not publishable for this source: keep it out
+  // of the returned identity set so the iPersonal-specific rich-body gate can
+  // classify it as a bounded quality drop instead of letting the authoritative
+  // validator reject the whole batch later.
+  const returnedUrls = new Set(rows.filter((row) => {
+    const attemptedUrl = canonicalUrl(row?.url);
+    return attemptedUrl && detailEvidenceForAttempt(attemptedUrl).hasRichDescription;
+  }).map((row) => canonicalUrl(row?.url)).filter(Boolean));
   const responseIdentityCounts = new Map();
   for (const attemptedUrl of attemptedDetailUrls) {
     if (!successfulDetailAttempts.has(attemptedUrl)) continue;
@@ -468,20 +497,23 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   for (const attemptedUrl of attemptedDetailUrls) {
     const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
     if (returnedUrls.has(attemptedUrl) || returnedUrls.has(resolvedDetailUrl)) continue;
-    const detail = parsedDetails.get(resolvedDetailUrl) || parsedDetails.get(attemptedUrl);
+    const detail = detailEvidenceForAttempt(attemptedUrl).detail;
     const successfulAttempt = successfulDetailAttempts.get(attemptedUrl);
     if (!successfulAttempt || !detail) {
       detailFailureUrls.add(attemptedUrl);
       continue;
     }
     const geography = resolveDetailOrListingSwissGeography(detail, {}).geography;
-    const sourceMarkup = successfulAttempt.html;
-    const descriptionProven = isSufficientVacancyDescription(detail.description)
-      || isSufficientVacancyDescription(extractIpersonalDescription(sourceMarkup));
+    const descriptionProven = detailEvidenceForAttempt(attemptedUrl).hasRichDescription;
     if (!geography || !descriptionProven) qualityDroppedUrls.add(attemptedUrl);
   }
+  const publishableEnriched = enriched.filter((row) => {
+    const attemptedUrl = canonicalUrl(row?.url);
+    const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
+    return !qualityDroppedUrls.has(attemptedUrl) && !qualityDroppedUrls.has(resolvedDetailUrl);
+  });
   const detailReuse = applyDetailFailureReuse({
-    freshRows: enriched,
+    freshRows: publishableEnriched,
     failedIdentities: detailFailureUrls,
     attemptedCount: attemptedDetailUrls.size,
     previousRows: runtime.previousJobs,
