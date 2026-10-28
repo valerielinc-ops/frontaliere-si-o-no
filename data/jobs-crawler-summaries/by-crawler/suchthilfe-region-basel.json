@@ -1,7 +1,7 @@
 {
   "key": "suchthilfe-region-basel",
   "label": "Suchthilfe Region Basel",
-  "generatedAt": "2026-10-28T20:04:57.983Z",
+  "generatedAt": "2026-10-28T21:27:41.300Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5374,
-  "avgDurationMs": 5374,
+  "unchangedCount": 3,
+  "durationMs": 5992,
+  "avgDurationMs": 5992,
   "durationHistory": [
-    5374
+    5992
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "suchthilfe-region-basel-9ee6eb185429",
       "slug": "servizio-infermieristico-60-80-suchthilfe-region-basel-reinach",
@@ -36,7 +38,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/10/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:04:45.778Z",
+      "crawledAt": "2026-10-28T21:27:25.799Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -64,10 +66,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "suchthilfe-region-basel-43102fd8f94b",
       "slug": "gastfamilien-per-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel",
@@ -81,7 +80,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:04:45.205Z",
+      "crawledAt": "2026-10-28T21:27:25.159Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -123,7 +122,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:04:44.650Z",
+      "crawledAt": "2026-10-28T21:27:24.554Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -153,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

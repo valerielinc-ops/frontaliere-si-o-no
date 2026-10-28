@@ -1,7 +1,7 @@
 {
   "key": "cippatrasporti",
   "label": "Cippà Trasporti SA",
-  "generatedAt": "2026-10-28T20:07:54.149Z",
+  "generatedAt": "2026-10-28T21:33:39.552Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -16,54 +16,13 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4461,
-  "avgDurationMs": 4461,
+  "durationMs": 5559,
+  "avgDurationMs": 5559,
   "durationHistory": [
-    4461
+    5559
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "cippatrasporti-c38396f76831",
-      "slug": "customer-service-transport-specialist-cippatrasporti-ch",
-      "company": "Cippà Trasporti SA",
-      "companyKey": "cippatrasporti",
-      "companyDomain": "cippatrasporti.altamiraweb.com",
-      "title": "Customer Service Transport Specialist",
-      "location": "Chiasso",
-      "canton": "TI",
-      "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
-      "source": "Cippà Trasporti SA Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-10-28T20:07:43.702Z",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Logistica e trasporti",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-02T09:03:54+02:00",
-      "postedDate": "2026-07-02T09:03:54+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
-      "firstSeenAt": "2026-08-24T10:37:33.453Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "postalCode": "6830",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
     {
       "id": "cippatrasporti-5dd16ddc181a",
       "slug": "ocean-freight-operations-specialist-fcl-project-cargo-cippatrasporti-ch",
@@ -76,7 +35,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T20:07:43.679Z",
+      "crawledAt": "2026-10-28T21:33:26.793Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -104,6 +63,47 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "id": "cippatrasporti-c38396f76831",
+      "slug": "customer-service-transport-specialist-cippatrasporti-ch",
+      "company": "Cippà Trasporti SA",
+      "companyKey": "cippatrasporti",
+      "companyDomain": "cippatrasporti.altamiraweb.com",
+      "title": "Customer Service Transport Specialist",
+      "location": "Chiasso",
+      "canton": "TI",
+      "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
+      "source": "Cippà Trasporti SA Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-28T21:33:26.756Z",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Logistica e trasporti",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-02T09:03:54+02:00",
+      "postedDate": "2026-07-02T09:03:54+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
+      "firstSeenAt": "2026-08-24T10:37:33.453Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "postalCode": "6830",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
   "removedJobs": [],
@@ -120,7 +120,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T20:07:43.424Z",
+      "crawledAt": "2026-10-28T21:33:26.109Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -150,5 +150,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
