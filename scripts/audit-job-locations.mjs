@@ -86,7 +86,7 @@ import {
   isCantonRelevant,
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
-import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
+import { inferCantonFromJobEvidence, sourceLocationContainsCity } from './lib/canton-evidence.mjs';
 import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { cantonNamedByLocation, splitJobLocation } from './lib/job-location-display.mjs';
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
@@ -269,7 +269,12 @@ function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   // useful evidence for an ambiguous official locality only when the same
   // source row also names that locality; never let a missing or different
   // source place certify a published city by canton alone.
-  if (!sourceLocation || !sameRecordedPlace(sourceLocation, city)) return false;
+  const samePlace = sourceLocation && (
+    sameRecordedPlace(sourceLocation, city)
+    || (sourceLocationContainsCity(sourceLocation, city)
+      && isKnownSwissMunicipalityInCanton(city, storedCanton, { allowOfficialLocality: true }))
+  );
+  if (!samePlace) return false;
   const sourceCanton = crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation);
   // The source adapter may have preserved an explicit per-posting canton
   // marker that the assembled locality normalizer stripped from the public

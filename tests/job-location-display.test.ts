@@ -191,6 +191,16 @@ describe('splitJobLocation', () => {
       city: 'Reinach (AG)', canton: null, stripped: [], conflict: true,
     });
   });
+
+  it('keeps multi-site canton labels out of the single-canton conflict bucket', () => {
+    expect(splitJobLocation('Graubünden, Thurgau, Zürich', 'GR')).toEqual({
+      city: 'Graubünden, Thurgau, Zürich', canton: 'GR', stripped: [], conflict: false,
+    });
+    expect(splitJobLocation('Biel / Solothurn / Mittelland', 'BE')).toEqual({
+      city: 'Biel / Solothurn / Mittelland', canton: 'BE', stripped: [], conflict: false,
+    });
+    expect(splitJobLocation('Büren an der Aare, Bern', 'SO').conflict).toBe(true);
+  });
 });
 
 describe('jobLocationRedundancy', () => {

@@ -23,6 +23,32 @@ import {
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 
+/**
+ * Whether a source location names the published locality as a complete token
+ * sequence. Source rows often carry canton/country metadata or a spelling
+ * variant ("Brügg BE" → "Brugg"), while assembly keeps only the canonical
+ * locality. Token matching preserves that evidence without accepting a
+ * substring such as `Au` inside an unrelated word.
+ *
+ * @param {unknown} sourceLocation
+ * @param {unknown} city
+ * @returns {boolean}
+ */
+export function sourceLocationContainsCity(sourceLocation, city) {
+  const foldTokens = (value) => String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  const sourceTokens = foldTokens(sourceLocation);
+  const cityTokens = foldTokens(city);
+  if (sourceTokens.length === 0 || cityTokens.length === 0 || cityTokens.length > sourceTokens.length) return false;
+  return sourceTokens.some((_, index) => cityTokens.every((token, offset) => sourceTokens[index + offset] === token));
+}
+
 export function inferCantonFromJobEvidence({
   cityText = '',
   locationText = '',
