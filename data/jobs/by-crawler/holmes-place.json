@@ -1,7 +1,7 @@
 {
   "crawlerKey": "holmes-place",
-  "assembledAt": "2026-10-28T09:42:00.968Z",
-  "runId": "40663188221",
+  "assembledAt": "2026-10-28T20:42:57.327Z",
+  "runId": "40759275915",
   "jobs": [
     {
       "id": "holmes-place-2936eefd975e",
@@ -34,7 +34,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:41:56.003Z",
+      "crawledAt": "2026-10-28T20:42:49.705Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -61,8 +61,8 @@
           "personal-trainer-m-f-d-holmes-place-zurich-jel-personal-trainer-m-f-d"
         ]
       },
-      "firstSeenAt": "2026-10-03T21:22:53.197Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T21:22:53.197Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -108,7 +108,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:41:56.002Z",
+      "crawledAt": "2026-10-28T20:42:49.703Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -181,7 +181,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:41:55.998Z",
+      "crawledAt": "2026-10-28T20:42:49.699Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -241,9 +241,9 @@
       "companyDomain": "holmesplace.ch",
       "title": "Fitness Manager (m/f/d)",
       "titleByLocale": {
-        "de": "Fitness Manager (m/f/d)",
-        "en": "Fitness Manager (m/f/d)",
         "it": "Responsabile fitness (m/f/d)",
+        "en": "Fitness Manager (m/f/d)",
+        "de": "Fitness Manager (m/f/d)",
         "fr": "Responsable fitness (m/f/d)"
       },
       "description": "Verantworte den Fitnessbereich und führe unser Team aus Trainerinnen und Kursleiterinnen.\n\nVon Personal Trainern bis zu Verkaufsteams, von der Zentrale bis zu SPA-Managern – Ihre Karriere entwickelt sich hier weiter. Als Teil unseres Teams profitieren Sie von exklusiven Vorteilen auf Produkte, Dienstleistungen und Merchandise von Holmes Place – von Merchandising-Artikeln über Services bis hin zu SPA-Behandlungen und Personal Training. Bitte beachten Sie, dass wir nur Bewerbungen berücksichtigen können, die über unser Online-Tool eingehen.",
@@ -258,7 +258,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:41:55.992Z",
+      "crawledAt": "2026-10-28T20:42:49.691Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -277,7 +277,6 @@
       "applyUrl": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
       ],
@@ -286,6 +285,7 @@
           "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T21:22:53.181Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -332,7 +332,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:41:55.990Z",
+      "crawledAt": "2026-10-28T20:42:49.689Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",

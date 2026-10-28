@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-10-28T09:40:40.125Z",
-  "runId": "40663188221",
+  "assembledAt": "2026-10-28T20:39:07.294Z",
+  "runId": "40759275915",
   "jobs": [
     {
       "id": "siemens-healthineers-f64c15516f90",
@@ -35,7 +35,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:40:22.161Z",
+      "crawledAt": "2026-10-28T20:38:59.053Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:40:21.414Z",
+      "crawledAt": "2026-10-28T20:38:58.388Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:40:20.616Z",
+      "crawledAt": "2026-10-28T20:38:57.687Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -277,7 +277,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Systems-Verification-Engineer_R-31378-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:40:19.871Z",
+      "crawledAt": "2026-10-28T20:38:56.998Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -296,7 +296,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-31378",
-      "firstSeenAt": "2026-10-27T21:32:51.454Z",
+      "previousSlugs": [
+        "systems-verification-engineer-siemens-healthineers-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "systems-verification-engineer-siemens-healthineers-ch"
@@ -308,9 +310,7 @@
           "systems-verification-engineer-siemens-healthineers-ch"
         ]
       },
-      "previousSlugs": [
-        "systems-verification-engineer-siemens-healthineers-ch"
-      ],
+      "firstSeenAt": "2026-10-27T21:32:51.454Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
