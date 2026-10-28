@@ -192,13 +192,34 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+/**
+ * Umantis application URLs carry the vacancy id in the ATS route
+ * (`/Vacancies/<id>/Application/...`). Only a posting on the same origin is
+ * an explicit URL-level binding to that application; a numeric id on another
+ * host can belong to an unrelated job and must never replace the application
+ * entry point.
+ */
+function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    if (!/(?:^|\.)umantis\.com$/i.test(apply.hostname)) return false;
+    const applyId = /\/vacancies\/(\d+)\/application(?:\/|$)/i.exec(apply.pathname)?.[1];
+    const postingId = /\/vacancies\/(\d+)(?:\/description(?:\/[^/]+)?)?\/?$/i.exec(posting.pathname)?.[1];
+    return apply.origin === posting.origin && Boolean(applyId && postingId && applyId === postingId);
+  } catch {
+    return false;
+  }
+}
+
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);
     const posting = new URL(String(postingUrl || ''));
     if (isSuccessFactorsPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })
-      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
+      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })
+      || isUmantisPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
