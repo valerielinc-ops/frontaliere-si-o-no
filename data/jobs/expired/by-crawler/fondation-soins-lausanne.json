@@ -205,7 +205,7 @@
     "slugByLocale": {
       "it": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne-5dbe7f89",
       "en": "field-nurse-m-f-fondation-soins-lausanne-lausanne-597061c9",
-      "de": "infirmier-terrain-m-w-d-fondation-soins-lausanne",
+      "de": "infirmier-terrain-m-w-d-fondation-soins-lausanne-0fa43c85",
       "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-54a93679"
     },
     "sector": "Sanità / Ospedali",
@@ -214,7 +214,9 @@
       "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-54a93679",
       "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne-b4a3d597",
       "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne-f1a51b52",
-      "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
+      "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne-12eff73f",
+      "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+      "infirmier-terrain-m-w-d-fondation-soins-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -224,7 +226,9 @@
         "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne-54a93679",
         "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne-b4a3d597",
         "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne-f1a51b52",
-        "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
+        "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne-12eff73f",
+        "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+        "infirmier-terrain-m-w-d-fondation-soins-lausanne"
       ]
     },
     "postalCode": "1003",
@@ -257,7 +261,7 @@
     "slugByLocale": {
       "it": "infermiera-di-riferimento-m-f-fondation-soins-lausanne-lausanne-0824c3f7",
       "en": "reference-nurse-m-f-fondation-soins-lausanne-lausanne-4b1ade57",
-      "de": "infirmier-referent-m-w-d-fondation-soins-lausanne",
+      "de": "infirmier-referent-m-w-d-fondation-soins-lausanne-e02cc441",
       "fr": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-f3f36e46"
     },
     "sector": "Sanità / Ospedali",
@@ -266,7 +270,9 @@
       "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-f3f36e46",
       "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne-2365a7f4",
       "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne-99294d59",
-      "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
+      "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne-78db1401",
+      "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+      "infirmier-referent-m-w-d-fondation-soins-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -276,7 +282,9 @@
         "infirmier-referent-h-f-fondation-soins-lausanne-lausanne-f3f36e46",
         "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne-2365a7f4",
         "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne-99294d59",
-        "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
+        "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne-78db1401",
+        "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
+        "infirmier-referent-m-w-d-fondation-soins-lausanne"
       ]
     },
     "postalCode": "1003",
@@ -402,19 +410,23 @@
     "expiredAt": "2026-10-28T09:32:24.389Z",
     "previousSlugs": [
       "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-f0942c3e",
+      "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-510fbf32",
       "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-f0942c3e",
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-510fbf32",
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
       ],
       "en": [
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-f0942c3e",
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-510fbf32",
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
       ],
       "de": [
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-f0942c3e",
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne-510fbf32",
         "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
       ]
     },

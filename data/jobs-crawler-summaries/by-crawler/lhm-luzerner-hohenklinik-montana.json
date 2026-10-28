@@ -1,7 +1,7 @@
 {
   "key": "lhm-luzerner-hohenklinik-montana",
   "label": "Luzerner Höhenklinik Montana",
-  "generatedAt": "2026-10-28T20:16:07.279Z",
+  "generatedAt": "2026-10-28T21:28:16.311Z",
   "total": 6,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4953,
-  "avgDurationMs": 4953,
+  "durationMs": 7095,
+  "avgDurationMs": 7095,
   "durationHistory": [
-    4953
+    7095
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:15:52.031Z",
+      "crawledAt": "2026-10-28T21:27:55.524Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh-stationsleiterin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:51.634Z",
+      "crawledAt": "2026-10-28T21:27:55.125Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:53.240Z",
+      "crawledAt": "2026-10-28T21:27:56.753Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:52.849Z",
+      "crawledAt": "2026-10-28T21:27:56.340Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:52.463Z",
+      "crawledAt": "2026-10-28T21:27:55.919Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -279,5 +279,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

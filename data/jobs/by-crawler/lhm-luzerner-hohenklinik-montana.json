@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lhm-luzerner-hohenklinik-montana",
-  "assembledAt": "2026-10-28T20:15:58.530Z",
-  "runId": "40758820999",
+  "assembledAt": "2026-10-28T21:28:05.768Z",
+  "runId": "40770377121",
   "jobs": [
     {
       "id": "lhm-luzerner-hohenklinik-montana-4be678959842",
@@ -35,7 +35,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:53.240Z",
+      "crawledAt": "2026-10-28T21:27:56.753Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:52.849Z",
+      "crawledAt": "2026-10-28T21:27:56.340Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:52.463Z",
+      "crawledAt": "2026-10-28T21:27:55.919Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:15:52.031Z",
+      "crawledAt": "2026-10-28T21:27:55.524Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh-stationsleiterin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:15:51.634Z",
+      "crawledAt": "2026-10-28T21:27:55.125Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -478,7 +478,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
