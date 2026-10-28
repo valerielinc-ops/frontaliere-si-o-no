@@ -1454,7 +1454,7 @@
       "slugByLocale": {
         "it": "infermiera-crans-montana-80-hug-crans-montana",
         "en": "nurse-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana",
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
@@ -1499,8 +1499,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "krankenschwester-crans-montana-80-hug-crans-montana"
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1510,7 +1509,7 @@
           "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ],
         "de": [
-          "krankenschwester-crans-montana-80-hug-crans-montana"
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ]
       },
       "needsRetranslation": true,
@@ -3430,12 +3429,12 @@
     },
     {
       "id": "hug-c41fe9faeebf",
-      "slug": "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug",
+      "slug": "coordinatore-per-la-consulenza-sanitaria-cerebrale-e-mentale-70-hug-geneve",
       "slugByLocale": {
         "fr": "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug",
-        "it": "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug",
-        "en": "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug",
-        "de": "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug"
+        "it": "coordinatore-per-la-consulenza-sanitaria-cerebrale-e-mentale-70-hug-geneve",
+        "en": "coordinator-for-the-brain-and-mental-health-consultation-70-hug-geneve",
+        "de": "koordinator-fur-die-beratung-zu-gehirn-und-psychischer-gesundheit-70-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3494,16 +3493,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-28T09:30:43.734Z"
+      "firstSeenAt": "2026-10-28T09:30:43.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug"
+        ],
+        "en": [
+          "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug"
+        ],
+        "de": [
+          "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-ou-coordinatrice-pour-la-consultation-de-sante-cerebrale-et-mentale-70-hug"
+      ]
     },
     {
       "id": "hug-3caad283883b",
-      "slug": "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d",
+      "slug": "coordinatore-della-formazione-medica-in-gynaecology-and-obstetrics-services-50-hug-geneve",
       "slugByLocale": {
         "fr": "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d",
-        "it": "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d",
-        "en": "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d",
-        "de": "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d"
+        "it": "coordinatore-della-formazione-medica-in-gynaecology-and-obstetrics-services-50-hug-geneve",
+        "en": "coordinator-of-medical-training-in-gynaecology-and-obstetrics-services-50-hug-geneve",
+        "de": "koordinator-der-medizinischen-ausbildung-in-gynakologie-und-geburtshilfe-50-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3562,7 +3575,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-28T09:30:43.732Z"
+      "firstSeenAt": "2026-10-28T09:30:43.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d"
+        ],
+        "en": [
+          "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d"
+        ],
+        "de": [
+          "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-ou-coordinatrice-de-la-formation-medicale-aux-services-de-gynecologie-et-d"
+      ]
     },
     {
       "id": "hug-552e289c15f2",
@@ -3570,7 +3597,7 @@
       "slugByLocale": {
         "fr": "psychologue-psychotherapeute-40-hug-geneve",
         "it": "psicologo-psicoterapeuta-40-hug-geneve-1a20c2304e",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve",
         "de": "psychologe-psychotherapeut-40-hug-geneve"
       },
       "company": "HUG",
@@ -3619,6 +3646,9 @@
         "it": [
           "psychologue-psychotherapeute-40-hug-geneve",
           "psicologo-psicoterapeuta-40-hug-geneve"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-40-hug-geneve"
         ]
       },
       "previousSlugs": [
@@ -3643,12 +3673,12 @@
     },
     {
       "id": "hug-89cfe41e62b9",
-      "slug": "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug",
+      "slug": "chef-ou-cheff-de-groupe-masonnerie-painture-signalisation-sito-cluse-roseraie-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug",
-        "it": "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug",
+        "it": "chef-ou-cheff-de-groupe-masonnerie-painture-signalisation-sito-cluse-roseraie-100-hug-geneve",
         "en": "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug",
-        "de": "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug"
+        "de": "chef-ou-cheff-de-groupe-masonnerie-painture-signalisation-website-cluse-roseraie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3707,16 +3737,27 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-28T09:30:43.727Z"
+      "firstSeenAt": "2026-10-28T09:30:43.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-groupe-maconnerie-peinture-signalisation-site-cluse-roseraie-100-hug"
+      ]
     },
     {
       "id": "hug-88b82271169b",
-      "slug": "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve",
+      "slug": "segretario-medico-o-medico-presso-il-dipartimento-di-immunologia-e-allergologia-80-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve",
-        "it": "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve",
-        "en": "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve",
-        "de": "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve"
+        "it": "segretario-medico-o-medico-presso-il-dipartimento-di-immunologia-e-allergologia-80-hug-geneve",
+        "en": "medical-or-medical-secretary-at-the-department-of-immunology-and-allergology-80-hug-geneve",
+        "de": "medizinische-oder-medizinische-sekretarin-in-der-abteilung-fur-immunologie-und-allergologie-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3775,7 +3816,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-28T09:30:43.721Z"
+      "firstSeenAt": "2026-10-28T09:30:43.721Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-au-service-d-immunologie-et-d-allergologie-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-d48a0ee7bce4",
@@ -3945,7 +4000,7 @@
       "slug": "psicologo-psicoterapeuta-40-hug-geneve-bec3ee19fa",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-40-hug-geneve-bec3ee19fa",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve-af3940",
         "de": "psychologe-psychotherapeut-40-hug-geneve",
         "fr": "psychologue-psychotherapeute-40-hug-geneve"
       },
@@ -4001,7 +4056,8 @@
           "psicologo-psicoterapeuta-40-hug-geneve"
         ],
         "en": [
-          "psychologist-psychotherapist-40-hug-geneve"
+          "psychologist-psychotherapist-40-hug-geneve",
+          "psychologue-psychotherapeute-40-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-40-hug-geneve"

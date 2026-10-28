@@ -1156,12 +1156,12 @@
     },
     {
       "id": "postauto-b1289342517b",
-      "slug": "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern",
+      "slug": "addetto-a-agli-acquisti-di-servizi-di-trasporto-passeggeri-postauto-ag-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern",
-        "it": "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern",
-        "en": "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern",
-        "fr": "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern"
+        "it": "addetto-a-agli-acquisti-di-servizi-di-trasporto-passeggeri-postauto-ag-bern",
+        "en": "purchasing-clerk-passenger-transport-services-postauto-ag-bern",
+        "fr": "collaborateur-rice-administratif-ve-achats-de-prestations-de-transport-de-personnes-postauto-ag-bern"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1223,7 +1223,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:40:52.985Z"
+      "firstSeenAt": "2026-10-28T09:40:52.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-einkauf-personentransportdienstleistungen-postauto-bern"
+      ]
     }
   ]
 }

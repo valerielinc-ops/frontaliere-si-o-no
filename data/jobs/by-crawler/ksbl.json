@@ -2459,7 +2459,7 @@
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "slugByLocale": {
         "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
+        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       },
@@ -2511,7 +2511,7 @@
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2521,7 +2521,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "de": [
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g"
@@ -8016,12 +8016,12 @@
     },
     {
       "id": "ksbl-02cf1473a874",
-      "slug": "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal",
+      "slug": "nutrizionista-nutrizionista-hf-fh-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal",
-        "it": "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal",
-        "en": "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal",
-        "fr": "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal"
+        "it": "nutrizionista-nutrizionista-hf-fh-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "nutritionist-nutritionist-hf-fh-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "nutritionniste-nutritionniste-hf-fh-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8078,7 +8078,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal"
+        ],
+        "en": [
+          "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal"
+        ],
+        "fr": [
+          "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberaterin-ernahrungsberater-hf-fh-a-ksbl-liestal"
+      ]
     }
   ]
 }

@@ -806,12 +806,12 @@
     },
     {
       "id": "spital-nidwalden-ac5f13a44314",
-      "slug": "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans",
+      "slug": "infermiere-a-diplomato-a-hf-in-oncologia-90-spital-nidwalden-stans",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans",
-        "it": "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans",
-        "en": "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans",
-        "fr": "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans"
+        "it": "infermiere-a-diplomato-a-hf-in-oncologia-90-spital-nidwalden-stans",
+        "en": "nurse-hf-oncology-90-spital-nidwalden-stans",
+        "fr": "infirmier-ere-diplome-e-es-en-oncologie-90-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -870,7 +870,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:42:44.746Z"
+      "firstSeenAt": "2026-10-28T09:42:44.746Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-hf-onkologie-90-spital-nidwalden-stans"
+      ]
     },
     {
       "id": "spital-nidwalden-796f71c8e89a",

@@ -2267,12 +2267,12 @@
     },
     {
       "id": "livit-0cc9172179b4",
-      "slug": "gerant-e-d-immeubles-livit-ag-lausanne",
+      "slug": "direttore-della-costruzione-livit-ag-lausanne",
       "slugByLocale": {
         "fr": "gerant-e-d-immeubles-livit-lausanne",
-        "it": "gerant-e-d-immeubles-livit-ag-lausanne",
-        "en": "gerant-e-d-immeubles-livit-lausanne",
-        "de": "gerant-e-d-immeubles-livit-lausanne"
+        "it": "direttore-della-costruzione-livit-ag-lausanne",
+        "en": "building-manager-livit-ag-lausanne",
+        "de": "gebaudeverwalter-livit-ag-lausanne"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2320,11 +2320,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gerant-e-d-immeubles-livit-lausanne",
+          "gerant-e-d-immeubles-livit-ag-lausanne"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-livit-lausanne"
+        ],
+        "de": [
           "gerant-e-d-immeubles-livit-lausanne"
         ]
       },
       "previousSlugs": [
-        "gerant-e-d-immeubles-livit-lausanne"
+        "gerant-e-d-immeubles-livit-lausanne",
+        "gerant-e-d-immeubles-livit-ag-lausanne"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

@@ -173,7 +173,7 @@
         "it": "controllore-finanziario-senior-m-f-d-zurich-insurance-zurich-1375839057",
         "en": "senior-financial-controller-m-w-d-zurich-insurance-sede-ticino-zurich",
         "de": "senior-financial-controller-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "senior-financial-controller-m-w-d-zurich-insurance-zurich"
+        "fr": "controleur-financier-principal-h-f-d-zurich-insurance-zurich-1375839057"
       },
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -220,7 +220,7 @@
       "previousSlugs": [
         "senior-financial-controller-m-w-d-zurich-insurance-sede-ticino-zurich",
         "senior-financial-controller-m-w-d-zurich-insurance-zurich-1375839057",
-        "controleur-financier-principal-h-f-d-zurich-insurance-zurich-1375839057"
+        "senior-financial-controller-m-w-d-zurich-insurance-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -228,7 +228,7 @@
         ],
         "fr": [
           "senior-financial-controller-m-w-d-zurich-insurance-zurich-1375839057",
-          "controleur-financier-principal-h-f-d-zurich-insurance-zurich-1375839057"
+          "senior-financial-controller-m-w-d-zurich-insurance-zurich"
         ]
       },
       "slugDisambiguator": "1375839057",
@@ -408,12 +408,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1375453757",
-      "slug": "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757",
+      "slug": "bvg-personale-amministrazione-assicurazione-m-f-d-zurich-insurance-zurich-1375453757",
       "slugByLocale": {
         "de": "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757",
-        "en": "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757",
-        "fr": "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
+        "it": "bvg-personale-amministrazione-assicurazione-m-f-d-zurich-insurance-zurich-1375453757",
+        "en": "bvg-personnel-insurance-administration-m-f-d-zurich-insurance-zurich-1375453757",
+        "fr": "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757"
       },
       "slugDisambiguator": "1375453757",
       "company": "Zurich Insurance",
@@ -465,20 +465,24 @@
           "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-sede-ticino-zurich",
           "bvg-personale-amministrazione-assicurazione-m-f-d-zurich-insurance-zurich-1375453757",
           "bvg-personnel-insurance-administration-m-f-d-zurich-insurance-zurich-1375453757",
-          "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757"
+          "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757",
+          "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
         ],
         "en": [
-          "bvg-personnel-insurance-administration-m-f-d-zurich-insurance-zurich-1375453757"
+          "bvg-personnel-insurance-administration-m-f-d-zurich-insurance-zurich-1375453757",
+          "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
         ],
         "fr": [
-          "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757"
+          "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757",
+          "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
         ]
       },
       "previousSlugs": [
         "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-sede-ticino-zurich",
         "bvg-personale-amministrazione-assicurazione-m-f-d-zurich-insurance-zurich-1375453757",
         "bvg-personnel-insurance-administration-m-f-d-zurich-insurance-zurich-1375453757",
-        "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757"
+        "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757",
+        "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -1698,7 +1702,7 @@
       "slug": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
-        "en": "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757",
+        "en": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "de": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
       },
@@ -1746,14 +1750,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+        "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "en": [
-          "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
+          "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
         ]
       },
       "slugDisambiguator": "1373916757",

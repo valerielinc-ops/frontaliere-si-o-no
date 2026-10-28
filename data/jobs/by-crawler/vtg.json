@@ -11896,7 +11896,7 @@
     },
     {
       "id": "company-hllpav",
-      "slug": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav",
+      "slug": "polizia-penale-capo-swiss-armed-forces-vtg-sion",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Stv Chef Kriminalpolizei",
       "location": "Sion",
@@ -11936,10 +11936,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav",
-        "en": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav",
+        "it": "polizia-penale-capo-swiss-armed-forces-vtg-sion",
+        "en": "deputy-head-of-criminal-police-swiss-armed-forces-vtg-sion",
         "de": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav",
-        "fr": "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav"
+        "fr": "chef-adjoint-de-la-police-criminelle-swiss-armed-forces-vtg-sion"
       },
       "sourceLang": "de",
       "postalCode": "1950",
@@ -11948,11 +11948,19 @@
       "streetAddress": "Pont des Iles 2",
       "previousSlugsByLocale": {
         "it": [
-          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion"
+          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion",
+          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav"
+        ],
+        "en": [
+          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav"
+        ],
+        "fr": [
+          "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav"
         ]
       },
       "previousSlugs": [
-        "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion"
+        "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion",
+        "stv-chef-kriminalpolizei-swiss-armed-forces-vtg-sion-hllpav"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

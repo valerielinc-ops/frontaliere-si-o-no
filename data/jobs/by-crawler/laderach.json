@@ -10,7 +10,7 @@
         "de": "team-lead-it-standard-applications-laderach-bilten",
         "it": "team-lead-it-standard-applications-laderach-bilten",
         "en": "team-lead-it-standard-applications-laderach-bilten",
-        "fr": "team-lead-it-standard-applications-laderach-bilten"
+        "fr": "chef-d-equipe-it-standard-applications-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -69,12 +69,12 @@
     },
     {
       "id": "laderach-c7b0cad10348",
-      "slug": "it-infrastructure-architect-laderach-bilten",
+      "slug": "architetto-a-dell-infrastruttura-it-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "de": "it-infrastructure-architect-laderach-bilten",
-        "it": "it-infrastructure-architect-laderach-bilten",
+        "it": "architetto-a-dell-infrastruttura-it-laderach-schweiz-ag-bilten",
         "en": "it-infrastructure-architect-laderach-bilten",
-        "fr": "it-infrastructure-architect-laderach-bilten"
+        "fr": "it-infrastructure-architecte-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -130,7 +130,18 @@
       "postalCode": "8865",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68334738/IT-Infrastructure-Architect-/",
       "addressRegion": "GL",
-      "firstSeenAt": "2026-10-28T09:31:28.350Z"
+      "firstSeenAt": "2026-10-28T09:31:28.350Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-infrastructure-architect-laderach-bilten"
+        ],
+        "fr": [
+          "it-infrastructure-architect-laderach-bilten"
+        ]
+      },
+      "previousSlugs": [
+        "it-infrastructure-architect-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-0ddd51e42cc4",

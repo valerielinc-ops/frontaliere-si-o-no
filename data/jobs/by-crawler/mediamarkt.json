@@ -4110,12 +4110,12 @@
     },
     {
       "id": "mediamarkt-100835",
-      "slug": "aushilfe-black-friday-60-mediamarkt-bulach-ch",
+      "slug": "venerdi-nero-60-aiuto-mediamarkt-bulach",
       "slugByLocale": {
         "de": "aushilfe-black-friday-60-mediamarkt-bulach-ch",
-        "it": "aushilfe-black-friday-60-mediamarkt-bulach-ch",
+        "it": "venerdi-nero-60-aiuto-mediamarkt-bulach",
         "en": "aushilfe-black-friday-60-mediamarkt-bulach-ch",
-        "fr": "aushilfe-black-friday-60-mediamarkt-bulach-ch"
+        "fr": "vendredi-noir-60-d-aide-mediamarkt-bulach"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -4176,16 +4176,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:45:49.281Z"
+      "firstSeenAt": "2026-10-28T09:45:49.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-black-friday-60-mediamarkt-bulach-ch"
+        ],
+        "fr": [
+          "aushilfe-black-friday-60-mediamarkt-bulach-ch"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-black-friday-60-mediamarkt-bulach-ch"
+      ]
     },
     {
       "id": "mediamarkt-100836",
-      "slug": "collaboratore-trice-in-vendita-60-mediamarkt-steinhausen",
+      "slug": "addetto-a-alle-vendite-60-mediamarkt-steinhausen",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch",
-        "it": "collaboratore-trice-in-vendita-60-mediamarkt-steinhausen",
-        "en": "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch",
-        "fr": "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch"
+        "it": "addetto-a-alle-vendite-60-mediamarkt-steinhausen",
+        "en": "sales-employee-60-mediamarkt-steinhausen",
+        "fr": "employe-e-de-vente-60-mediamarkt-steinhausen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -4235,11 +4246,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch",
+          "collaboratore-trice-in-vendita-60-mediamarkt-steinhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch"
+        "mitarbeiter-in-verkauf-60-mediamarkt-steinhausen-ch",
+        "collaboratore-trice-in-vendita-60-mediamarkt-steinhausen"
       ],
       "salaryMin": 47400,
       "salaryMax": 72900,

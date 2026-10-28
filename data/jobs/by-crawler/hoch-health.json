@@ -17950,12 +17950,12 @@
     },
     {
       "id": "hoch-health-3af0df556086",
-      "slug": "gebaudetechniker-in-100-hoch-health-st-gallen",
+      "slug": "tecnico-a-degli-edifici-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "gebaudetechniker-in-100-hoch-health-st-gallen",
-        "it": "gebaudetechniker-in-100-hoch-health-st-gallen",
-        "en": "gebaudetechniker-in-100-hoch-health-st-gallen",
-        "fr": "gebaudetechniker-in-100-hoch-health-st-gallen"
+        "it": "tecnico-a-degli-edifici-100-hoch-health-ostschweiz-st-gallen",
+        "en": "building-services-technician-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "technicien-ne-en-technique-du-batiment-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18013,16 +18013,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T09:48:08.046Z"
+      "firstSeenAt": "2026-10-28T09:48:08.046Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gebaudetechniker-in-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "gebaudetechniker-in-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "gebaudetechniker-in-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "gebaudetechniker-in-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-797cbce0818d",
-      "slug": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
+      "slug": "impiegato-a-amministrativo-a-nella-gestione-dei-casi-ambulatoriali-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
-        "it": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
-        "en": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen",
-        "fr": "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+        "it": "impiegato-a-amministrativo-a-nella-gestione-dei-casi-ambulatoriali-100-hoch-health-ostschweiz-st-gallen",
+        "en": "case-administration-specialist-outpatient-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-trice-administratif-ve-en-gestion-des-cas-ambulatoires-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18079,7 +18093,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+        ],
+        "en": [
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-fallbewirtschaftung-ambulant-100-hoch-health-st-gallen"
+      ]
     }
   ]
 }

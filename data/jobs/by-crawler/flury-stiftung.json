@@ -1352,12 +1352,12 @@
     },
     {
       "id": "flury-stiftung-c251812a4881",
-      "slug": "hebamme-flury-stiftung-ch",
+      "slug": "mutua-flury-stiftung-schiers",
       "slugByLocale": {
         "de": "hebamme-flury-stiftung-ch",
-        "it": "hebamme-flury-stiftung-ch",
-        "en": "hebamme-flury-stiftung-ch",
-        "fr": "hebamme-flury-stiftung-ch"
+        "it": "mutua-flury-stiftung-schiers",
+        "en": "midwife-flury-stiftung-schiers",
+        "fr": "une-sage-femme-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1419,7 +1419,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-28T09:49:48.013Z"
+      "firstSeenAt": "2026-10-28T09:49:48.013Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-flury-stiftung-ch"
+        ],
+        "en": [
+          "hebamme-flury-stiftung-ch"
+        ],
+        "fr": [
+          "hebamme-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-flury-stiftung-ch"
+      ]
     },
     {
       "id": "flury-stiftung-6bd8c1330628",
