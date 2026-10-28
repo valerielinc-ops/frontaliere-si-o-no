@@ -37,15 +37,17 @@ jobs:
     steps:
       # Checkout BLOBLESS (filter=blob:none): scarica l'intero commit-graph (così
       # `$BEFORE` è sempre presente, anche a molti commit di distanza) MA NON i
-      # blob dei file upfront. I blob vengono recuperati on-demand solo quando il
-      # guard legge i pochi file toccati a BEFORE/AFTER. Il vecchio
-      # `fetch-depth: 0` full-clone scaricava TUTTI i blob dell'intera storia
-      # data-heavy (~GB) e sforava il timeout di 8 min in fase di checkout, prima
-      # ancora che il detector girasse (issue #4120: lo step "Detect" veniva
-      # saltato — il timeout era 100% nel checkout). Blobless → checkout in secondi.
-      # Il profilo sparse precedente escludeva però alberi oggi raggiunti dalla
-      # chiusura runtime del guard e lasciava comunque ~6,8 GB sopra la soglia
-      # di crossover: il checkout blobless completo è sicuro per costruzione.
+      # blob dei file upfront. Il guard legge i dati con `git cat-file` dai due
+      # ref e quindi recupera on-demand solo i file cambiati; il restore helper
+      # riattiva esplicitamente i path sparse-exclusi prima di committarli.
+      #
+      # Il working tree deve restare sparse: un checkout completo materializza
+      # tutti i blob del tree corrente nonostante `blob:none`, trasformando il
+      # vantaggio del partial clone in una fetch pigra di ~6,8 GB. In run
+      # 40733467703 (2026-10-28) il fetch del graph è terminato in ~143 s, ma
+      # `git checkout` è rimasto bloccato fino al cap di 8 minuti e il detector
+      # non è mai partito. Le esclusioni qui sotto sono solo dati pesanti; il
+      # codice, le fixture piccole e il commit graph restano disponibili.
       - name: Checkout (blobless — full commit graph, blob on demand)
         uses: actions/checkout@v7
         with:
@@ -53,6 +55,32 @@ jobs:
           fetch-depth: 0
           filter: blob:none
           persist-credentials: true
+          # Il guard non enumera questi alberi dal working tree: confronta i
+          # blob a BEFORE/AFTER via Git plumbing. `restore-data-integrity-files`
+          # usa --ignore-skip-worktree-bits + `git add --sparse` per il revert.
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
         # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
         # consuma l'intero budget e il job muore `cancelled` — stato invisibile
         # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
