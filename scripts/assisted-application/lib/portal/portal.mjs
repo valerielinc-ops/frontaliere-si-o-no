@@ -212,14 +212,23 @@ function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+/**
+ * A URL pair that proves the application belongs to the selected posting.
+ * This is stronger than the rendered posting text: Umantis can show a generic
+ * application form without repeating the employer or vacancy title.
+ */
+export function isVerifiedPostingEntry({ applyUrl, postingUrl } = {}) {
+  return isSuccessFactorsPostingEntry({ applyUrl, postingUrl })
+    || isDirectJobApplyEntry({ applyUrl, postingUrl })
+    || isUmantisPostingEntry({ applyUrl, postingUrl });
+}
+
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);
     const posting = new URL(String(postingUrl || ''));
-    if (isSuccessFactorsPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })
-      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })
-      || isUmantisPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
+    if (isVerifiedPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
@@ -3193,7 +3202,7 @@ export async function submitViaPortal(ctx) {
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
     const entryUrl = portalEntryUrl(ctx);
-    const enteredFromMatchingPosting = entryUrl !== String(ctx.applyUrl || '');
+    const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
@@ -3228,8 +3237,8 @@ export async function submitViaPortal(ctx) {
       const pageUrl = page.url();
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${pageUrl}`;
       const result = formPostingMatch(seen, ctx.job, {
-        postingMatched: postingNamed && (page.url() !== postingUrl || enteredFromMatchingPosting),
-        postingEntry: postingNamed && enteredFromMatchingPosting,
+        postingMatched: enteredFromMatchingPosting || (postingNamed && page.url() !== postingUrl),
+        postingEntry: enteredFromMatchingPosting,
         pageUrl,
       });
       // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.

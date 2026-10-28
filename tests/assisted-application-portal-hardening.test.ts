@@ -22,6 +22,7 @@ import {
   portalRequiredDocumentFromField,
   portalEntryUrl,
   localizePortalQuestions,
+  isVerifiedPostingEntry,
   isSafeEmployerSitePreread,
   readPortalQuestions,
   realisticUserAgent,
@@ -123,10 +124,15 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     ].join('\n');
 
     expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
+    expect(isVerifiedPostingEntry({ applyUrl, postingUrl })).toBe(true);
     expect(portalEntryUrl({ applyUrl, postingUrl: 'https://careers.kronenhof.com/en/vacancies/716' })).toBe(applyUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('/716', '/717') })).toBe(applyUrl);
     expect(formPostingMatch(form, job)).toBe('mismatch');
-    expect(formPostingMatch(form, job, { postingMatched: true, postingEntry: true })).toBe('match');
+    const enteredFromMatchingPosting = isVerifiedPostingEntry({ applyUrl, postingUrl });
+    expect(formPostingMatch(form, job, {
+      postingMatched: enteredFromMatchingPosting,
+      postingEntry: enteredFromMatchingPosting,
+    })).toBe('match');
   });
 
   it('requires a same-origin Umantis vacancy binding before changing the entry URL', () => {
