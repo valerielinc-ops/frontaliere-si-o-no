@@ -113445,6 +113445,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malnate-ristorni-500-mila-meno': {
+    title: 'Malnate: ristorni frontalieri in meno di quasi 500 mila euro',
+    description: 'Malnate avrà quasi 500 mila euro in meno dai ristorni. Quasi 1.700 residenti attraversano ogni giorno il confine. I fondi arriveranno ai primi',
+    keywords: 'frontalieri, ticino, svizzera, italia, malnate, ristorni, meno, quasi',
+    ogTitle: 'Malnate ristorni frontalieri in meno di 500 mila euro',
+    ogDescription: 'Malnate avrà quasi 500 mila euro in meno dai ristorni.',
+    canonicalPath: '/articoli-frontaliere/malnate-ristorni-500-mila-meno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malnate: ristorni frontalieri in meno di quasi 500 mila euro",
+      "description": "Malnate avrà quasi 500 mila euro in meno dai ristorni. Quasi 1.700 residenti attraversano ogni giorno il confine. I fondi arriveranno ai primi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontalieri-vendemmia-tasse-ristorni-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T11:59:45+00:00",
+      "dateModified": "2026-10-28T11:59:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malnate-ristorni-500-mila-meno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

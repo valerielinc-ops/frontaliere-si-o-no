@@ -45925,6 +45925,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'malnate-ristorni-500-mila-meno',
+ category: 'fiscale',
+ date: '2026-10-28T11:59:45.372Z',
+ image: '/images/blog/article-frontalieri-vendemmia-tasse-ristorni-settembre.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
