@@ -507,20 +507,27 @@ async function main() {
   }
 
   if (discoveries.length === 0) {
-    // Render succeeded but no Swiss roles are currently open (the common case —
-    // Armani usually has only IT roles). Keep existing data: do NOT call
-    // mergeJobs([]) (which would drop the existing Swiss entries), just refresh
-    // the adapter timestamp and re-validate.
-    console.log('\n⚠️  Rendered listing has 0 Swiss jobs. Preserving existing data.');
+    // A complete listing with no Swiss roles is a legitimate filtered-empty
+    // observation (the common case — Armani usually has only IT roles). Keep
+    // existing data: do NOT call mergeJobs([]), which would drop the existing
+    // Swiss entries; write a filtered-empty heartbeat instead. If detail
+    // extraction failed, keep the fail-closed exit receipt and do not claim
+    // that the source was empty.
+    const filteredEmpty = summaryCounts.lastFetchOutcome === 'filtered_empty';
+    console.log(filteredEmpty
+      ? '\n⚠️  Rendered listing has 0 Swiss jobs. Preserving existing data.'
+      : '\n⚠️  No publishable Swiss job details were returned. Preserving existing data.');
     const existingSwiss = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
     updateAdapterConfig(existingSwiss);
     validateLocales();
-    if (summaryCounts.lastFetchOutcome === 'filtered_empty') {
+    if (filteredEmpty) {
       writeGiorgioArmaniSummary({ counts: summaryCounts });
     } else {
       summaryCounts.abortKind ||= 'no-jobs-parsed';
     }
-    console.log('\n✅ Giorgio Armani crawler complete (0 Swiss jobs found, existing data preserved).');
+    console.log(filteredEmpty
+      ? '\n✅ Giorgio Armani crawler complete (0 Swiss jobs found, existing data preserved).'
+      : '\n⏩ Giorgio Armani update skipped — source extraction was incomplete.');
     return;
   }
 
