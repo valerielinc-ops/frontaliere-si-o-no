@@ -479,7 +479,7 @@ function compareAncestryOnGitHub({ cwd, repository, base, head }) {
  * merge-base without downloading commit objects or writing a promisor remote.
  */
 function inspectShallowHistoryOnGitHub({ cwd, markerRef, headRef, remote, branch }) {
-  if (!process.env.GH_TOKEN && !process.env.GITHUB_TOKEN) return null;
+  if (!process.env.GH_TOKEN && !process.env.GITHUB_TOKEN && !process.env.GITHUB_PAT) return null;
   const repository = githubRepositoryForRemote({ cwd, remote });
   if (!repository) return null;
   const marker = /^[0-9a-f]{40,64}$/iu.test(markerRef) ? markerRef : resolveCommit(markerRef, cwd);
