@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-zuerich",
-  "assembledAt": "2026-10-28T20:54:58.497Z",
-  "runId": "40759444491",
+  "assembledAt": "2026-10-28T21:41:50.274Z",
+  "runId": "40770971231",
   "jobs": [
     {
       "id": "kanton-zuerich-b71fc1f2992f",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086407/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:44.503Z",
+      "crawledAt": "2026-10-28T21:41:36.629Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087190/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:43.969Z",
+      "crawledAt": "2026-10-28T21:41:36.119Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4082453/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:43.471Z",
+      "crawledAt": "2026-10-28T21:41:35.606Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -303,7 +303,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087626/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:42.968Z",
+      "crawledAt": "2026-10-28T21:41:35.033Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -391,7 +391,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092543/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:42.431Z",
+      "crawledAt": "2026-10-28T21:41:34.431Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -414,11 +414,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
-        "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
-        "milieu-therapist-fixed-term-kantonale-verwaltung-zurich-regensdorf"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
@@ -428,7 +423,11 @@
           "milieu-therapist-fixed-term-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:26:56.238Z",
+      "previousSlugs": [
+        "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
+        "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
+        "milieu-therapist-fixed-term-kantonale-verwaltung-zurich-regensdorf"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -441,7 +440,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T21:26:56.238Z"
     },
     {
       "id": "kanton-zuerich-a7c57fcb6074",
@@ -474,7 +474,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087732/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:41.928Z",
+      "crawledAt": "2026-10-28T21:41:33.906Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -561,7 +561,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087527/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:41.390Z",
+      "crawledAt": "2026-10-28T21:41:33.394Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -642,13 +642,12 @@
         "de": "Kanton Zürich Sicherheitsdirektion Migrationsamt Fachspezialist/in Asyl&Vollzug 80 - 100% Das Migrationsamt des Kantons Zürich bewegt sich täglich im spannenden politischen Umfeld sämtlicher Migrationsfragen und den daraus resultierenden Aufgabenstellungen. Es ist zuständig für den Vollzug des schweizerischen Ausländer- und Asylrechts, des Abkommens über die Personenfreizügigkeit zwischen der Schweiz und den EU- und EFTA-Staaten sowie der Abkommen von Schengen und Dublin. Für die Abteilung Asyl&Vollzug suchen wir per 1. Februar 2027 oder nach Vereinbarung eine Fachspezialistin/einen Fachspezialisten Vollzug 80 - 100% . Als Fachspezialist/in im Team Vollzug bist Du zuständig für den Vollzug von Wegweisungsverfügungen aus den Bereichen des Asyl- und Ausländerrechts, den Vollzug von Landesverweisungen, die Beschaffung von Reisedokumenten sowie die Prüfung und Anordnung von ausländerrechtlichen Zwangsmassnahmen. Zudem verfasst Du Stellungnahmen zuhanden der richterlichen Haftprüfungsbehörden und führst Gespräche mit ausreisepflichtigen Personen durch. Für diese anspruchsvolle und vielseitige Aufgabe setzen wir mindestens eine kaufmännische Ausbildung (Kauffrau/Kaufmann EFZ) und einige Jahre Berufserfahrung oder einen abgeschlossenen Bachelor voraus. Du bist gewandt im schriftlichen Ausdruck und hast Interesse an rechtlichen Fragestellungen sowie am strukturierten Verfassen von komplexen Entscheiden. Zudem überzeugst Du durch Flexibilität, hohe Einsatzbereitschaft und Belastbarkeit. Angenehme Umgangsformen, Sinn für kollegiale Zusammenarbeit und eine Prise Humor runden Dein Profil ab. Ausserdem verfügst Du über das Schweizer Bürgerecht. Neben einer spannenden Tätigkeit mit hoher Eigenverantwortung garantieren wir Dir interessante Kontakte mit den Behörden von Bund, Kantonen und Gemeinden sowie mit privaten Interessenvertretern. Ausserdem profitierst Du von modernen Arbeitsformen, wie flexiblen Arbeitszeiten und Homeoffice. Zudem fördern und unterstützen wir Deine Aus- und Weiterbildung. Fühlst Du Dich von dieser herausfordernden Aufgabe angesprochen? Dann freuen wir uns auf Deine vollständige elektronische Bewerbung mit Foto bis spätestens 17. November 2026 . Für allfällige Fragen steht Dir die Teamchefin Marija Gajic (Telefon 043 259 87 13) gerne zur Verfügung. Mehr über das Migrationsamt erfährst Du auf unserer Homepage zh.ch/ma.\n\nPensum: 80-100%",
         "fr": "Canton de Zurich Direction de la sécurité Office des migrations Spécialiste/en Asile & Exécution 80 - 100% L'Office des migrations du Canton de Zurich opère quotidiennement dans l'environnement politique passionnant de toutes les questions de migration et les tâches qui en résultent. Il est responsable de la mise en œuvre de la législation suisse sur les étrangers et l'asile, de l'accord sur la libre circulation des personnes entre la Suisse et les États de l'UE et de l'AELE, ainsi que des accords de Schengen et de Dublin. Pour le département de l'Asile et de l'Exécution, nous recherchons un spécialiste 80 - 100% d'exécution au 1er février 2027 ou par accord. En tant que spécialiste de l'équipe chargée de l'application de la loi, vous êtes responsable de l'exécution des ordonnances d'expulsion dans les domaines de l'asile et de la loi sur les étrangers, de l'exécution des envois de fonds de l'État, de l'obtention de documents de voyage et de l'examen et de l'ordonnance de mesures coercitives en vertu de la loi sur les étrangers. En outre, vous rédigez des avis au nom des autorités judiciaires chargées de la détention et discutez avec les personnes soumises à l'expulsion. Pour cette tâche difficile et polyvalente, nous avons besoin au moins d'une formation commerciale (Kauffrau/Kaufmann EFZ) et de quelques années d'expérience professionnelle ou d'un baccalauréat. Vous êtes habile dans l'expression écrite et êtes intéressé par des questions juridiques ainsi que dans la rédaction structurée de décisions complexes. De plus, vous convainquez avec flexibilité, grande disponibilité opérationnelle et résilience. Des manières agréables, un sens de la collaboration et une pincée d'humour complètent votre profil. Vous avez également la citoyenneté suisse. En plus d'une activité passionnante avec un haut niveau de responsabilité personnelle, nous vous garantissons des contacts intéressants avec les autorités fédérales, cantonales et municipales ainsi qu'avec les acteurs privés. Vous bénéficiez également de formes modernes de travail, telles que les horaires flexibles et le bureau à domicile. Nous encourageons et soutenons également votre éducation et votre formation. Vous sentez - vous confronté à cette tâche difficile? Ensuite, nous attendons avec impatience votre demande électronique complète avec photo au plus tard 17. Novembre 2026. Pour toute question, le chef d'équipe Marija Gajic (téléphone 043 259 87 13) est à votre disposition. Vous pouvez en savoir plus sur le bureau des migrations sur notre page d'accueil zh.ch/ma.\n\nRécipient: 80-100 %"
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092618/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:40.845Z",
+      "crawledAt": "2026-10-28T21:41:32.875Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -671,9 +670,20 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "fachspezialist-in-asyl-vollzug-kanton-zuerich-zurich"
-      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-28T09:33:17.228Z",
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-asyl-vollzug-kanton-zuerich-zurich"
@@ -688,20 +698,10 @@
           "fachspezialist-in-asyl-vollzug-kanton-zuerich-zurich"
         ]
       },
-      "firstSeenAt": "2026-10-28T09:33:17.228Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "fachspezialist-in-asyl-vollzug-kanton-zuerich-zurich"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-3cf2ee7d38cc",
@@ -734,7 +734,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042763/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:40.346Z",
+      "crawledAt": "2026-10-28T21:41:32.367Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -835,7 +835,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4080421/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:39.844Z",
+      "crawledAt": "2026-10-28T21:41:31.855Z",
       "addressLocality": "8002 Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -915,7 +915,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089435/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:39.238Z",
+      "crawledAt": "2026-10-28T21:41:31.348Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1003,7 +1003,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086229/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:38.666Z",
+      "crawledAt": "2026-10-28T21:41:30.612Z",
       "addressLocality": "Feldmeilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1092,7 +1092,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042689/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:38.164Z",
+      "crawledAt": "2026-10-28T21:41:29.977Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1213,7 +1213,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4040232/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:37.657Z",
+      "crawledAt": "2026-10-28T21:41:29.466Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1313,7 +1313,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088759/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:37.147Z",
+      "crawledAt": "2026-10-28T21:41:28.914Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1396,7 +1396,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4040234/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:36.574Z",
+      "crawledAt": "2026-10-28T21:41:28.398Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1500,7 +1500,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088826/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:36.071Z",
+      "crawledAt": "2026-10-28T21:41:27.884Z",
       "addressLocality": "Andelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1588,7 +1588,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090836/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:35.563Z",
+      "crawledAt": "2026-10-28T21:41:27.374Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1677,7 +1677,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042754/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:35.062Z",
+      "crawledAt": "2026-10-28T21:41:26.866Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1761,7 +1761,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091542/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:34.499Z",
+      "crawledAt": "2026-10-28T21:41:26.356Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1849,7 +1849,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088679/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:33.995Z",
+      "crawledAt": "2026-10-28T21:41:25.841Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1929,7 +1929,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/3970271/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:33.373Z",
+      "crawledAt": "2026-10-28T21:41:25.326Z",
       "addressLocality": "8706 Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2011,7 +2011,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089897/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:32.861Z",
+      "crawledAt": "2026-10-28T21:41:24.813Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2034,10 +2034,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "wirtschaftsprufer-in-finanzanalyst-in-kanton-zuerich-zurich",
-        "wirtschaftsprufer-in-finanzanalyst-in-kantonale-verwaltung-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "wirtschaftsprufer-in-finanzanalyst-in-kanton-zuerich-zurich",
@@ -2053,7 +2049,10 @@
           "wirtschaftsprufer-in-finanzanalyst-in-kanton-zuerich-zurich"
         ]
       },
-      "firstSeenAt": "2026-10-28T09:33:09.913Z",
+      "previousSlugs": [
+        "wirtschaftsprufer-in-finanzanalyst-in-kanton-zuerich-zurich",
+        "wirtschaftsprufer-in-finanzanalyst-in-kantonale-verwaltung-zurich-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2066,7 +2065,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T09:33:09.913Z"
     },
     {
       "id": "kanton-zuerich-a8b9cb45a8e2",
@@ -2100,7 +2100,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4077384/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:32.359Z",
+      "crawledAt": "2026-10-28T21:41:24.299Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2190,7 +2190,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091803/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:31.855Z",
+      "crawledAt": "2026-10-28T21:41:23.786Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2278,7 +2278,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090074/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:31.316Z",
+      "crawledAt": "2026-10-28T21:41:23.276Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2371,7 +2371,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4079837/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:30.756Z",
+      "crawledAt": "2026-10-28T21:41:22.744Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2461,7 +2461,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4080670/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:30.253Z",
+      "crawledAt": "2026-10-28T21:41:22.231Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2525,7 +2525,7 @@
         "it": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich-a38393a55d",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich",
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2549,7 +2549,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089447/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:29.724Z",
+      "crawledAt": "2026-10-28T21:41:21.658Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2577,7 +2577,8 @@
         "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
         "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich-ec85ba",
         "polizeiaspirant-in-kantonale-verwaltung-zurich",
-        "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
+        "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich",
+        "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2587,7 +2588,8 @@
         "fr": [
           "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich-ec85ba",
           "polizeiaspirant-in-kantonale-verwaltung-zurich",
-          "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
+          "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich",
+          "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:26.443Z",
@@ -2637,7 +2639,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089827/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:29.230Z",
+      "crawledAt": "2026-10-28T21:41:21.155Z",
       "addressLocality": "8050 Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2701,7 +2703,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich-altstetten",
         "de": "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "fr": "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten"
+        "fr": "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2726,7 +2728,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4079468/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:28.726Z",
+      "crawledAt": "2026-10-28T21:41:20.646Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2753,7 +2755,8 @@
         "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten",
-        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
+        "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2762,7 +2765,8 @@
         "fr": [
           "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten",
-          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
+          "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:25.654Z",
@@ -2812,7 +2816,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088968/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:28.209Z",
+      "crawledAt": "2026-10-28T21:41:20.143Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2895,7 +2899,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090516/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:27.706Z",
+      "crawledAt": "2026-10-28T21:41:19.592Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2991,7 +2995,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089865/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:27.203Z",
+      "crawledAt": "2026-10-28T21:41:19.088Z",
       "addressLocality": "Obfelden",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3080,7 +3084,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4081748/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:26.695Z",
+      "crawledAt": "2026-10-28T21:41:18.501Z",
       "addressLocality": "8002 Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3163,7 +3167,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4076899/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:26.187Z",
+      "crawledAt": "2026-10-28T21:41:17.931Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3247,7 +3251,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4080697/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:25.681Z",
+      "crawledAt": "2026-10-28T21:41:17.428Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3334,7 +3338,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089835/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:25.087Z",
+      "crawledAt": "2026-10-28T21:41:16.918Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3423,7 +3427,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4054707/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:24.575Z",
+      "crawledAt": "2026-10-28T21:41:16.409Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3503,13 +3507,12 @@
         "de": "Kanton Zürich Sicherheitsdirektion Amt für Militär und Zivilschutz Technische/r Mitarbeiter/in mit Flair zu IT und Netzwerktechnik 100% Im Amt für Militär und Zivilschutz leisten gemeinsam rund 140 Mitarbeiterinnen und Mitarbeiter an den Standorten Zürich, Birmensdorf und Andelfingen einen wichtigen Beitrag zur Sicherheit der Bevölkerung. Die Abteilung Zivilschutz im Ausbildungszentrum in Andelfingen (AZA) ist für die Aus- und Weiterbildung der Schutzdienstpflichtigen im Kanton Zürich verantwortlich. Das AZA verfügt über eine vielseitige Ausbildungsinfrastruktur für ein- oder mehrtägige Kurse, Einsatzübungen und Seminare jeglicher Art. Unsere Infrastrukturen stehen dem Zivilschutz, Feuerwehren, Polizei, Sanität, Armee und auch zivilen Veranstaltern zur Verfügung. Ab 01.01.2027 oder nach Vereinbarung suchen wir ein neues engagiertes Teammitglied. Deine Aufgaben\n• Du betreibst und konzipierst das Netzwerk des Ausbildungszentrums und entwickelst es gezielt weiter\n• Du sorgst dafür, dass die gesamte Kursinfrastruktur einwandfrei läuft, von Notebooks über Drucker bis zur Multimedia-Technik\n• Als Bindeglied zwischen Fachbereich und Technik koordinierst du Anliegen und bringst die richtigen Partner zusammen\n• Du gestaltest spannende Digitalisierungsprojekte des Amts aktiv mit\n• Du bist die erste Anlaufstelle bei technischen Fragen und hilfst Mitarbeitenden und Kursteilnehmenden rasch und unkompliziert Dein Profil\n• Abgeschlossene Berufslehre als Informatiker/in EFZ oder Telematiker/in EFZ\n• Sehr gute Kenntnisse im technischen Support sowie im Netzwerk- und Serverbereich\n• Selbstständige, lösungs- und kundenorientierte Arbeitsweise\n• Bereitschaft zu gelegentlichen Sondereinsätzen\n• Sehr gute Deutschkenntnisse, Englisch von Vorteil\n• Kenntnisse über den Zivil- und Bevölkerungsschutz von Vorteil\n• Führerausweis Kat. B von Vorteil Wir bieten\n• Einen modernen Arbeitsplatz in einem der grössten Ausbildungszentren der Schweiz\n• Verpflegungsmöglichkeit im internen Restaurant\n• Gute Anbindung an den ÖV und das Verkehrsnetz\n• Anstellung nach kantonalen Richtlinien Auskünfte erteilt dir gerne Sacha Distel, Chef Zivilschutz, Telefon 043 259 72 19. Haben wir dein Interesse geweckt? Dann freuen wir uns auf deine vollständige Online-Direktbewerbung via Bewerbungslink (bitte keine Bewerbung per Post, E-Mail oder via Personalvermittlungs-/beratungsunternehmen). Weitere Informationen zum Amt für Militär und Zivilschutz und zum Ausbildungszentrum in Andelfingen findest du unter www.zh.ch/zivilschutz .\n\nPensum: 100%",
         "fr": "Canton de Zurich Direction de la sécurité Bureau de la protection militaire et civile Personnel technique avec flair sur les technologies de l'information et de réseau 100% Ensemble, environ 140 employés du Bureau de la protection militaire et civile à Zurich, Birmensdorf et Andelfingen apportent une contribution importante à la sécurité de la population. Le Département de la protection civile du Centre de formation d'Andelfingen (AZA) est chargé de la formation et du perfectionnement des personnes soumises à un service de protection dans le canton de Zurich. L'AZA dispose d'une infrastructure de formation polyvalente pour des cours d'une journée ou plusieurs, des exercices opérationnels et des séminaires de toutes sortes. Nos infrastructures sont disponibles pour la protection civile, les pompiers, la police, les services médicaux, l'armée et aussi les organisateurs civils. A partir du 01.01.2027 ou par accord nous recherchons un nouveau membre de l'équipe engagé. Vos tâches\n• Vous exploitez et concevez le réseau du centre de formation et le développez davantage\n• Vous veillez à ce que l'ensemble de l'infrastructure du cours fonctionne sans problème, des ordinateurs portables aux imprimantes aux technologies multimédias\n• En tant que lien entre le département et la technologie, vous coordonnez les préoccupations et rassemblez les bons partenaires\n• Vous participez activement à des projets passionnants de numérisation du Bureau\n• Vous êtes le premier point de contact pour les questions techniques et aider les employés et les participants à suivre rapidement et facilement votre profil\n• Apprentissage professionnel complété en informatique ou en télématique\n• Très bonne connaissance du support technique ainsi que du réseau et du serveur\n• Méthode de travail indépendante, axée sur la solution et le client\n• Préparation aux opérations spéciales occasionnelles\n• Très bonne connaissance de l'allemand, l'anglais est un avantage\n• La connaissance de la protection civile et civile est bénéfique\n• Permis de conduire Cat. B Avantage Nous offrons\n• Un lieu de travail moderne dans l'un des plus grands centres de formation en Suisse\n• Repas dans le restaurant interne\n• Bonne connexion au réseau de transport public\n• Les informations peuvent être fournies par Sacha Distel, chef de la protection civile, téléphone 043 259 72 19. On a eu votre intérêt ? Ensuite, nous attendons avec impatience votre candidature en ligne via le lien de candidature (s'il vous plaît ne pas postuler par la poste, e-mail ou par la société de recrutement / conseil). De plus amples informations sur le Bureau de la protection militaire et civile et le centre de formation d'Andelfingen sont disponibles à l'adresse www.zh.ch/civilschutz .\n\nPensum: 100%"
       },
-      "needsRetranslation": false,
       "location": "Andelfingen",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092152/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:24.072Z",
+      "crawledAt": "2026-10-28T21:41:15.908Z",
       "addressLocality": "Andelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3532,11 +3535,6 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "technische-r-mitarbeiter-in-mit-flair-zu-it-und-netzwerktechnik-kanton-zuerich-andelfingen",
-        "technische-r-mitarbeiter-in-mit-flair-zu-it-und-netzwerktechnik-kantonale-verwaltung-zurich-andelfingen",
-        "technische-r-collaboratore-trice-con-flair-zu-it-e-netzwerktechnik-kantonale-verwaltung-zurich-andelfingen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "technische-r-mitarbeiter-in-mit-flair-zu-it-und-netzwerktechnik-kanton-zuerich-andelfingen",
@@ -3552,7 +3550,11 @@
           "technische-r-mitarbeiter-in-mit-flair-zu-it-und-netzwerktechnik-kanton-zuerich-andelfingen"
         ]
       },
-      "firstSeenAt": "2026-10-27T22:05:20.069Z",
+      "previousSlugs": [
+        "technische-r-mitarbeiter-in-mit-flair-zu-it-und-netzwerktechnik-kanton-zuerich-andelfingen",
+        "technische-r-mitarbeiter-in-mit-flair-zu-it-und-netzwerktechnik-kantonale-verwaltung-zurich-andelfingen",
+        "technische-r-collaboratore-trice-con-flair-zu-it-e-netzwerktechnik-kantonale-verwaltung-zurich-andelfingen"
+      ],
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -3565,7 +3567,9 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-27T22:05:20.069Z",
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-90cfe53f5389",
@@ -3598,7 +3602,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4082854/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:23.527Z",
+      "crawledAt": "2026-10-28T21:41:15.402Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3680,7 +3684,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090924/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:22.974Z",
+      "crawledAt": "2026-10-28T21:41:14.869Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3763,7 +3767,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083591/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:22.384Z",
+      "crawledAt": "2026-10-28T21:41:14.354Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3851,7 +3855,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091669/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:21.821Z",
+      "crawledAt": "2026-10-28T21:41:13.833Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3939,7 +3943,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084544/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:21.283Z",
+      "crawledAt": "2026-10-28T21:41:13.269Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4028,7 +4032,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084111/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:20.785Z",
+      "crawledAt": "2026-10-28T21:41:12.761Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4115,7 +4119,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088449/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:20.287Z",
+      "crawledAt": "2026-10-28T21:41:12.256Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4205,7 +4209,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090141/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:19.784Z",
+      "crawledAt": "2026-10-28T21:41:11.717Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4294,7 +4298,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4077605/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:19.285Z",
+      "crawledAt": "2026-10-28T21:41:11.207Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4383,7 +4387,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4076234/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:18.770Z",
+      "crawledAt": "2026-10-28T21:41:10.702Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4464,7 +4468,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088769/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:18.273Z",
+      "crawledAt": "2026-10-28T21:41:10.199Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4552,7 +4556,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089526/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:17.770Z",
+      "crawledAt": "2026-10-28T21:41:09.679Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4629,13 +4633,12 @@
         "de": "Zur Verstärkung unseres Teams Business Services IT suchen wir eine engagierte Persönlichkeit, die unsere ServiceNow-Plattform mit Schwerpunkt Customer Service Management (CSM) weiterentwickelt. Gemeinsam treiben wir die Digitalisierung und Automatisierung kantonsweiter Prozesse voran. Deine Aufgaben:\n• Leitung oder Teilprojektleitung von anspruchsvollen ServiceNow-Projekten sowie Mitarbeit in zentralen Rollen bei strategischen Vorhaben\n• Analyse, Aufnahme und Abstimmung von Anforderungen mit Fachbereichen, Stakeholdern und externen Implementierungspartnern\n• Weiterentwicklung der ServiceNow-Plattform und ihrer Module mit Fokus auf CSM-Prozesse und -Funktionalitäten\n• Beratung und Unterstützung interner Kunden in fachlichen, prozessualen und technischen Fragestellungen\n• Verantwortung für die fachliche und technische Ausgestaltung von Lösungen sowie Steuerung der Umsetzung durch externe Partner\n• Mitarbeit beim Aufbau und der Weiterentwicklung von Betrieb, Support und Governance der ServiceNow-Plattform\n• Mitwirkung bei der Einführung und Weiterentwicklung von ITSM, ITOM, SAM, CSDM, KI-Funktionalitäten und weiteren innovativen ServiceNow-Initiativen Dein Profil:\n• Abgeschlossenes Studium (FH/HF) in Informatik, Wirtschaftsinformatik oder vergleichbare Ausbildung\n• Praktische Erfahrung in der Konzeption und Konfiguration von ServiceNow CSM sowie Erfahrung in der Integration von CSM und ITSM\n• Mehrjährige Erfahrung als Projektleiter/in, Business Analyst, Solution Designer oder Consultant\n• Erfahrung in der Analyse, Gestaltung und Optimierung von Geschäftsprozessen\n• Gutes technisches Verständnis moderner IT-Technologien, insbesondere im Bereich Identity & Access Management, Cloud-Plattformen (Azure) sowie Schnittstellen und Integrationen\n• Erfahrung in der Zusammenarbeit mit externen Providern und Implementierungspartnern\n• Ausgeprägte Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der Durchführung von Workshops\n• Hohes Verantwortungsbewusstsein, Eigeninitiative sowie ein gesundes Durchsetzungsvermögen Dein Kontakt Artur Gabor Teamleiter Business Services IT +41 43 259 48 76 Liebe Personaldienstleister! Bitte nehmen Sie mit uns Kontakt auf, bevor allfällige Dossier hochhgeladen werden. Ihr Kontakt: Julia Ernst (Recruiting Partner) unter +41 43 259 35 19. Über uns Das Amt für Informatik (AFI) ist das Informatik-Kompetenzzentrum des Kantons Zürich. Es erbringt umfassende Dienstleistungen im Bereich der zentralen Informatikinfrastruktur und kantonsweiter Applikationen für die Direktionen, Behörden, Rechtspflege und selbständige Anstalten. Beauftragt mit der Umsetzung der neuen Strategie Informations- und Kommunikationstechnologie (IKT) begleitet und unterstützt das Amt für Informatik den Kanton Zürich in die digitale Welt. In der Finanzdirektion arbeiten rund 1200 Menschen an vier Standorten in Zürich. Wir betreuen die Dossiers Finanzen, Steuern, Personal, Beschaffung und Informatik. Wer bei uns arbeitet, gestaltet den Kanton mit – vielseitig, verantwortungsvoll und mit Wirkung über den eigenen Aufgabenbereich hinaus. Wir bieten… Lunch-Check ein vielfältiges Verpflegungsangebot dank Lunch-Check Faire Gehälter einen fairen Lohn mit transparentem Lohnsystem und Zulagen nach Funktion Gestaltungsspielraum Raum für eigene Ideen und aktive Mitgestaltung Gutes und breites Aus- und Weiterbildungsangebot vielfältige Aus- und Weiterbildungsmöglichkeiten Verantwortungsvolle Tätigkeit die Chance, Verantwortung zu übernehmen und mitzugestalten Arbeitsort Nähe Bahnhof eine zentrale Lage mit guter ÖV-Anbindung Flexible Arbeitszeitmodelle flexible Arbeitszeitmodelle, die sich an Lebensphasen orientieren Dein Bewerbungsprozess Vorselektion Erstgespräch vor Ort Online Assessment Zweitgespräch vor Ort mit Team kennenlernen Finaler Entscheid Weitere interessante Stellen beim Kanton Zürich Alle offenen Stellen\n\nPensum: 80-100%",
         "fr": "Pour renforcer notre équipe informatique de Services aux entreprises, nous recherchons une personnalité dédiée au développement de notre plateforme ServiceNow en mettant l'accent sur la gestion du service à la clientèle (CSM). Ensemble, nous faisons avancer la numérisation et l'automatisation des processus cantonaux. Vos tâches:\n• Gestion ou gestion partielle de projets exigeants de ServiceNow ainsi que participation à des rôles centraux dans des projets stratégiques\n• Analyse, enregistrement et coordination des besoins avec les ministères, les intervenants et les partenaires externes de mise en oeuvre\n• Poursuite du développement de la plate-forme ServiceNow et de ses modules en mettant l'accent sur les processus et fonctionnalités CSM\n• Conseiller et soutenir les clients internes dans les domaines professionnel, procédural et technique\n• Responsabilité de la conception technique et technique des solutions et du contrôle de la mise en œuvre par les partenaires extérieurs\n• Participation à la mise en place et au développement du fonctionnement, de l ' appui et de la gouvernance de la plateforme ServiceNow\n• Participation à l'introduction et au développement des fonctionnalités ITSM, ITOM, SAM, CSDM, AI et autres initiatives innovantes de ServiceNow Votre profil:\n• Études terminées (FH/HF) en informatique, informatique commerciale ou formation comparable\n• Expérience pratique dans la conception et la configuration de ServiceNow CSM ainsi que expérience dans l'intégration de CSM et ITSM\n• Plusieurs années d'expérience en tant que gestionnaire de projet, analyste d'affaires, concepteur de solutions ou consultant\n• Expérience dans l'analyse, la conception et l'optimisation des processus opérationnels\n• Bonne compréhension technique des technologies informatiques modernes, en particulier dans le domaine de la gestion de l'identité et de l'accès, des plateformes cloud (Azure) ainsi que des interfaces et des intégrations\n• Expérience de travail avec des fournisseurs externes et des partenaires de mise en œuvre\n• Compétences solides en communication et en modération ainsi que expérience dans la conduite des ateliers\n• Haut sens des responsabilités, de l'initiative et de l'affirmation de soi Votre contact Artur Gabor Team Leader Business Services IT +41 43 259 48 76 Chers fournisseurs de services RH! Veuillez nous contacter avant de télécharger un dossier. Votre interlocuteur: Julia Ernst (partenaire de recrutement) au +41 43 259 35 19. L'Office for Computer Science (AFI) est le centre de compétence en informatique du canton de Zurich. Il fournit des services complets dans le domaine de l'infrastructure informatique centrale et des applications à l'échelle cantonale pour les directions, les autorités, l'administration de la justice et les institutions indépendantes. En charge de la mise en œuvre de la nouvelle stratégie des technologies de l'information et de la communication (TIC), l'Office de l'informatique accompagne et soutient le canton de Zurich dans le monde numérique. La Direction financière emploie environ 1200 personnes dans quatre localités de Zurich. Nous supervisons les dossiers finances, impôts, personnel, achats et informatique. Ceux qui travaillent avec nous aident à façonner le canton – polyvalent, responsable et efficace au-delà de leur propre mandat. Nous offrons... Lunch-Check une offre de restauration diversifiée grâce à Lunch-Check Fair salaires un salaire équitable avec un système de salaire transparent et des indemnités selon la fonction Espace de conception pour les idées propres et la co-création active Une bonne et large formation et des possibilités d'éducation complémentaire offrent diverses formations et possibilités d'éducation complémentaire Activité responsable la chance d'assumer la responsabilité et de co-créer l'emplacement de travail Près de la gare un emplacement central avec une bonne connexion de transport public Modèles de temps de travail flexibles modèles de temps de travail flexibles qui sont orientés vers les phases de vie Votre processus de candidature Pré-sélection Premier entretien sur place Entretien en ligne sur place avec l'équipe Découvrez la décision finale Autres postes intéressants au Canton de Zurich Toutes les offres d'emploi\n\nPensum: 80-100 %"
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092368/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:17.272Z",
+      "crawledAt": "2026-10-28T21:41:09.174Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4658,10 +4661,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "servicenow-spezialist-in-csm-und-projektleiter-in-kanton-zuerich-zurich",
-        "servicenow-spezialist-in-csm-e-projektleiter-in-kantonale-verwaltung-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "servicenow-spezialist-in-csm-und-projektleiter-in-kanton-zuerich-zurich",
@@ -4677,6 +4676,10 @@
           "servicenow-spezialist-in-csm-und-projektleiter-in-kanton-zuerich-zurich"
         ]
       },
+      "previousSlugs": [
+        "servicenow-spezialist-in-csm-und-projektleiter-in-kanton-zuerich-zurich",
+        "servicenow-spezialist-in-csm-e-projektleiter-in-kantonale-verwaltung-zurich"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4689,7 +4692,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-215cbe02d8bb",
@@ -4722,7 +4726,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/3999615/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:16.771Z",
+      "crawledAt": "2026-10-28T21:41:08.652Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4800,7 +4804,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086481/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:16.197Z",
+      "crawledAt": "2026-10-28T21:41:08.150Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4887,7 +4891,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084849/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:15.654Z",
+      "crawledAt": "2026-10-28T21:41:07.642Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4973,7 +4977,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4077657/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:15.112Z",
+      "crawledAt": "2026-10-28T21:41:07.139Z",
       "addressLocality": "Wetzikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5057,7 +5061,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4085928/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:14.567Z",
+      "crawledAt": "2026-10-28T21:41:06.545Z",
       "addressLocality": "Turbenthal",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5144,7 +5148,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4043286/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:14.066Z",
+      "crawledAt": "2026-10-28T21:41:06.039Z",
       "addressLocality": "Winterthur-Wülfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5243,7 +5247,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4082439/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:13.569Z",
+      "crawledAt": "2026-10-28T21:41:05.537Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5327,7 +5331,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090718/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:13.071Z",
+      "crawledAt": "2026-10-28T21:41:04.933Z",
       "addressLocality": "Rüti ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5416,7 +5420,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4072271/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:12.575Z",
+      "crawledAt": "2026-10-28T21:41:04.430Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5498,13 +5502,12 @@
         "de": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Mitarbeiter/in Hauswirtschaft & Cafeteria (MO bis DO/FR jeweils nachmittags) 40 - 50% Fürs Leben gut – so lautet unser Motto. Als Teil der Bildungsdirektion des Kantons Zürich ist das Amt für Jugend und Berufsberatung für die Angebote der Kinder- und Jugendhilfe sowie der Berufsberatung verantwortlich. Im Zentrum unserer Arbeit stehen Kinder, Jugendliche und Familien. Die Zentralstelle Support agiert im Herzen des Amtes für Jugend und Berufsberatung. Sie unterstützt administrativ die Amtsleitung und Stäbe. Zudem sichert sie einen reibungslosen Ablauf im Gebäude. Sie ist Anlaufstelle für Sicherheit, Kunst, IT-Koordination, Empfang, Telefonzentrale, Hauswirtschaft, Hauswartung sowie für den Betrieb der hauseigenen Cafeteria. Wir suchen per 1. Februar 2027 oder nach Vereinbarung eine engagierte und freundliche Person für die Mitarbeit Hauswirtschaft & Cafeteria, welche uns Montag bis Donnerstag bzw. Freitag jeweils nachmittags unterstützt. Ihre Aufgaben\n• Bewirtschaftung der internen Cafeteria und des Innenhofs\n• Reinigung der Tische und des Geschirrs\n• Seminarvorbereitungen und Kontrolle der Sitzungszimmer\n• Verwalten des Büromaterials auf den Etagen\n• Bearbeitung von E-Mails und Anfragen\n• Pflege und Bewässerung der Pflanzen im Hof und auf der Dachterrasse\n• Mithilfe bei Anlässen, Durchführung von Botengängen Ihr Profil\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Grundkenntnisse von Microsoft Outlook, Word, Excel und Teams\n• Kenntnisse und Freude an der Pflanzenpflege\n• Saubere und zuverlässige Arbeitsweise\n• Freundliches Auftreten\n• Interesse an den Belangen unseres Amtes\n• Sehr hohe Hilfsbereitschaft Der Kanton Zürich zeichnet sich als ein solider, fairer und verlässlicher Arbeitgeber aus. Sie werden Teil unserer Abteilung Zentralstelle Support und arbeiten während den fixen Öffnungszeiten. Der Arbeitsort befindet sich an zentraler Lage in der Nähe des Hauptbahnhofs Zürich. Wenn Sie sich angesprochen fühlen und gerne in einem aufgeschlossenen und professionellen Umfeld arbeiten möchten, freuen wir uns, noch heute Ihre Online-Bewerbung zu erhalten. Bewerbungen von Stellenvermittlungen wie auch Bewerbungen via E-Mail oder Post werden für diese Vakanz nicht berücksichtigt. Für zusätzliche Informationen steht Ihnen Simone Rossier, Leiterin Zentralstelle Support, Tel. 043 259 96 09, gerne zur Verfügung. Weitere Informationen erhalten Sie auch unter www.ajb.zh.ch\n\nPensum: 40-50%",
         "fr": "Canton de Zurich Direction de l'éducation Bureau de la jeunesse et des conseils professionnels Employés/dans le ménage et la cafétéria (MO à DO/FR chaque après-midi) 40 - 50% Bon pour la vie - c'est notre devise. Dans le cadre de la Direction de l'éducation du canton de Zurich, l'Office de la jeunesse et des conseils professionnels est responsable des services fournis par Kinder- und Jugendhilfe et Berufsberatung. Notre travail est axé sur les enfants, les jeunes et les familles. Le Bureau central d ' appui opère au cœur du Bureau de la jeunesse et des conseils professionnels. Il fournit un appui administratif à l'administration et au personnel. Il assure également le bon fonctionnement du bâtiment. C'est le point de contact pour la sécurité, l'art, la coordination informatique, la réception, l'échange téléphonique, l'entretien ménager et l'exploitation de la cafétéria interne. Nous recherchons une personne engagée et amicale pour la coopération Hauswirtschaft & Cafeteria avant le 1er février 2027 ou par accord, qui nous fournira du lundi au jeudi. Soutenu tous les vendredis après-midi. Leurs tâches\n• Gestion de la cafétéria et de la cour intérieures\n• Nettoyage des tables et des plats\n• Préparation et contrôle des salles de réunion\n• Gestion des fournitures de bureau sur les étages\n• Traitement des courriels et des demandes\n• Entretien et arrosage des plantes dans la cour et sur la terrasse du toit\n• Assistance lors d'événements, mise en œuvre de messagers votre profil\n• Très bonne connaissance orale et écrite de l'allemand\n• Connaissance de base de Microsoft Outlook, Word, Excel et les équipes\n• Connaissance et jouissance des soins aux plantes\n• Fonctionnement propre et fiable\n• Aspect amical\n• Intérêts dans les intérêts de notre bureau\n• Très haut niveau d'utilité Le canton de Zurich se distingue comme un employeur solide, équitable et fiable. Vous ferez partie de notre service d'appui au bureau central et travaillerez pendant les heures d'ouverture fixes. Le lieu de travail est situé à proximité de la gare centrale de Zurich. Si vous vous sentez adressé et souhaitez travailler dans un environnement ouvert et professionnel, nous nous réjouissons de recevoir votre candidature en ligne aujourd'hui. Les candidatures provenant de stages ainsi que les candidatures par courrier électronique ou par la poste ne seront pas prises en considération pour cette vacance. Pour plus d'informations, Simone Rossier, Chef du Soutien Central, Tél. 043 259 96 09, est à votre disposition. De plus amples informations sont également disponibles sur le site www.ajb.zh.ch\n\nPensum: 40-50 %"
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092528/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:12.027Z",
+      "crawledAt": "2026-10-28T21:41:03.925Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5527,11 +5530,6 @@
       "pensumMin": 40,
       "pensumMax": 50,
       "pensum": "40 - 50%",
-      "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kanton-zuerich",
-        "mitarbeiter-in-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kantonale-verwaltung-zurich-zurich",
-        "collaboratore-trice-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kantonale-verwaltung-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kanton-zuerich",
@@ -5547,7 +5545,11 @@
           "mitarbeiter-in-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kanton-zuerich"
         ]
       },
-      "firstSeenAt": "2026-10-27T22:05:07.121Z",
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kanton-zuerich",
+        "mitarbeiter-in-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kantonale-verwaltung-zurich-zurich",
+        "collaboratore-trice-hauswirtschaft-cafeteria-mo-bis-do-fr-jeweils-nachmittags-kantonale-verwaltung-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5560,7 +5562,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-27T22:05:07.121Z",
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-db23e0a8dd65",
@@ -5594,7 +5598,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089076/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:11.356Z",
+      "crawledAt": "2026-10-28T21:41:03.345Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5680,7 +5684,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089570/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:10.862Z",
+      "crawledAt": "2026-10-28T21:41:02.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5767,7 +5771,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086442/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:10.309Z",
+      "crawledAt": "2026-10-28T21:41:02.240Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5856,7 +5860,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4082443/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:09.812Z",
+      "crawledAt": "2026-10-28T21:41:01.735Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5945,7 +5949,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090174/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:09.124Z",
+      "crawledAt": "2026-10-28T21:41:01.224Z",
       "addressLocality": "8001",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6032,7 +6036,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083704/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:08.464Z",
+      "crawledAt": "2026-10-28T21:41:00.675Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6119,7 +6123,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4073435/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:07.966Z",
+      "crawledAt": "2026-10-28T21:41:00.089Z",
       "addressLocality": "Affoltern a",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6208,7 +6212,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084999/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:06.956Z",
+      "crawledAt": "2026-10-28T21:40:59.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6292,7 +6296,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092084/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:06.457Z",
+      "crawledAt": "2026-10-28T21:40:58.528Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6381,7 +6385,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090580/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:05.957Z",
+      "crawledAt": "2026-10-28T21:40:57.997Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6467,7 +6471,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4077518/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:05.456Z",
+      "crawledAt": "2026-10-28T21:40:57.498Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6554,7 +6558,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4086438/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:04.940Z",
+      "crawledAt": "2026-10-28T21:40:56.938Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6639,7 +6643,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4074683/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:04.403Z",
+      "crawledAt": "2026-10-28T21:40:56.432Z",
       "addressLocality": "8600",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6727,7 +6731,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087141/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:03.892Z",
+      "crawledAt": "2026-10-28T21:40:55.888Z",
       "addressLocality": "Affoltern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6813,7 +6817,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092106/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:03.378Z",
+      "crawledAt": "2026-10-28T21:40:55.380Z",
       "addressLocality": "8600",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6836,22 +6840,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "physiklaborant-in-kanton-zuerich-8600",
-        "laboratoire-de-physique-kantonale-verwaltung-zurich-8600"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiklaborant-in-kanton-zuerich-8600"
-        ],
-        "en": [
-          "physiklaborant-in-kanton-zuerich-8600"
-        ],
-        "fr": [
-          "laboratoire-de-physique-kantonale-verwaltung-zurich-8600"
-        ]
-      },
-      "firstSeenAt": "2026-10-27T09:38:26.678Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -6864,7 +6852,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-27T09:38:26.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiklaborant-in-kanton-zuerich-8600"
+        ],
+        "en": [
+          "physiklaborant-in-kanton-zuerich-8600"
+        ],
+        "fr": [
+          "laboratoire-de-physique-kantonale-verwaltung-zurich-8600"
+        ]
+      },
+      "previousSlugs": [
+        "physiklaborant-in-kanton-zuerich-8600",
+        "laboratoire-de-physique-kantonale-verwaltung-zurich-8600"
+      ]
     },
     {
       "id": "kanton-zuerich-39190bccabf7",
@@ -6898,7 +6902,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084266/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:02.880Z",
+      "crawledAt": "2026-10-28T21:40:54.733Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6986,7 +6990,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087623/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:02.381Z",
+      "crawledAt": "2026-10-28T21:40:54.217Z",
       "addressLocality": "Kleinandelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7069,7 +7073,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042902/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:01.881Z",
+      "crawledAt": "2026-10-28T21:40:53.682Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7164,7 +7168,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4085840/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:01.383Z",
+      "crawledAt": "2026-10-28T21:40:53.068Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7254,7 +7258,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087823/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:00.837Z",
+      "crawledAt": "2026-10-28T21:40:52.468Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7343,7 +7347,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084569/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:54:00.304Z",
+      "crawledAt": "2026-10-28T21:40:51.963Z",
       "addressLocality": "Kleinandelfingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7426,7 +7430,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089674/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:59.804Z",
+      "crawledAt": "2026-10-28T21:40:51.429Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7516,7 +7520,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084803/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:59.308Z",
+      "crawledAt": "2026-10-28T21:40:50.926Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7603,7 +7607,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/3989701/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:58.812Z",
+      "crawledAt": "2026-10-28T21:40:50.423Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7681,7 +7685,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089263/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:58.316Z",
+      "crawledAt": "2026-10-28T21:40:49.917Z",
       "addressLocality": "Wila",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7764,7 +7768,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084366/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:57.815Z",
+      "crawledAt": "2026-10-28T21:40:49.411Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7852,7 +7856,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088569/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:57.254Z",
+      "crawledAt": "2026-10-28T21:40:48.910Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -7942,7 +7946,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4074576/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:56.751Z",
+      "crawledAt": "2026-10-28T21:40:48.405Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8023,7 +8027,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083467/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:56.246Z",
+      "crawledAt": "2026-10-28T21:40:47.878Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8076,11 +8080,11 @@
     },
     {
       "id": "kanton-zuerich-1d4eacbf9b7c",
-      "slug": "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich-zurich",
+      "slug": "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich-zurich",
-        "en": "technical-expert-for-bankruptcy-bankruptcy-administrator-kantonale-verwaltung-zurich-zurich",
         "de": "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kanton-zuerich-zurich",
+        "it": "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich",
+        "en": "technical-expert-for-bankruptcy-bankruptcy-administrator-kantonale-verwaltung-zurich-zurich",
         "fr": "expert-technique-en-faillite-administrateur-de-faillite-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -8105,7 +8109,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092416/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:55.746Z",
+      "crawledAt": "2026-10-28T21:40:47.323Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8128,17 +8132,24 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kanton-zuerich-zurich",
-        "esperto-tecnico-per-la-bancarotta-amministratore-bancario-kantonale-verwaltung-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kanton-zuerich-zurich",
-          "esperto-tecnico-per-la-bancarotta-amministratore-bancario-kantonale-verwaltung-zurich-zurich"
+          "esperto-tecnico-per-la-bancarotta-amministratore-bancario-kantonale-verwaltung-zurich-zurich",
+          "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich-zurich"
         ]
       },
-      "firstSeenAt": "2026-10-27T22:04:48.199Z",
+      "previousSlugs": [
+        "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kanton-zuerich-zurich",
+        "esperto-tecnico-per-la-bancarotta-amministratore-bancario-kantonale-verwaltung-zurich-zurich",
+        "fachexpertin-fachexperte-konkurs-konkursverwalterin-konkursverwalter-kantonale-verwaltung-zurich-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -8151,7 +8162,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-27T22:04:48.199Z"
     },
     {
       "id": "kanton-zuerich-898ef62b02b8",
@@ -8185,7 +8197,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4078921/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:55.251Z",
+      "crawledAt": "2026-10-28T21:40:46.721Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8266,7 +8278,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091445/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:54.755Z",
+      "crawledAt": "2026-10-28T21:40:46.221Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8352,7 +8364,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4084291/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:54.253Z",
+      "crawledAt": "2026-10-28T21:40:45.718Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8435,7 +8447,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4081371/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:53.755Z",
+      "crawledAt": "2026-10-28T21:40:45.215Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8524,7 +8536,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089859/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:53.255Z",
+      "crawledAt": "2026-10-28T21:40:44.709Z",
       "addressLocality": "Uster oder Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8613,7 +8625,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089732/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:52.763Z",
+      "crawledAt": "2026-10-28T21:40:44.099Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8677,7 +8689,7 @@
         "it": "responsabile-di-progetto-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich",
         "en": "project-manager-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich-zurich",
         "de": "projektleiter-in-koordinationsstelle-teilhabe-kanton-zuerich-zurich",
-        "fr": "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich-zurich"
+        "fr": "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8701,7 +8713,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089270/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:52.267Z",
+      "crawledAt": "2026-10-28T21:40:43.596Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8739,7 +8751,8 @@
         ],
         "fr": [
           "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich",
-          "chef-fe-de-projet-du-service-de-coordination-de-la-participation-kantonale-verwaltung-zurich-zurich"
+          "chef-fe-de-projet-du-service-de-coordination-de-la-participation-kantonale-verwaltung-zurich-zurich",
+          "projektleiter-in-koordinationsstelle-teilhabe-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T21:29:02.963Z",
@@ -8789,7 +8802,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4079731/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:51.667Z",
+      "crawledAt": "2026-10-28T21:40:43.090Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8870,7 +8883,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4083700/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:51.063Z",
+      "crawledAt": "2026-10-28T21:40:42.506Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -8959,7 +8972,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092102/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:50.526Z",
+      "crawledAt": "2026-10-28T21:40:41.920Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9049,7 +9062,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042684/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:50.019Z",
+      "crawledAt": "2026-10-28T21:40:41.410Z",
       "addressLocality": "Wila",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9143,7 +9156,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4092465/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:49.470Z",
+      "crawledAt": "2026-10-28T21:40:40.902Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9166,10 +9179,6 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugs": [
-        "verfahrensassistentin-verfahrensassistent-der-abteilungsleitung-kanton-zuerich-dietikon",
-        "verfahrensassistentin-verfahrensassistent-der-abteilungsleitung-kantonale-verwaltung-zurich-dietikon"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verfahrensassistentin-verfahrensassistent-der-abteilungsleitung-kanton-zuerich-dietikon",
@@ -9185,7 +9194,10 @@
           "verfahrensassistentin-verfahrensassistent-der-abteilungsleitung-kanton-zuerich-dietikon"
         ]
       },
-      "firstSeenAt": "2026-10-27T22:04:41.048Z",
+      "previousSlugs": [
+        "verfahrensassistentin-verfahrensassistent-der-abteilungsleitung-kanton-zuerich-dietikon",
+        "verfahrensassistentin-verfahrensassistent-der-abteilungsleitung-kantonale-verwaltung-zurich-dietikon"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -9198,7 +9210,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-27T22:04:41.048Z"
     },
     {
       "id": "kanton-zuerich-63743efbc16e",
@@ -9232,7 +9245,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090639/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:48.968Z",
+      "crawledAt": "2026-10-28T21:40:40.390Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9315,7 +9328,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4074609/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:48.466Z",
+      "crawledAt": "2026-10-28T21:40:39.861Z",
       "addressLocality": "Winterthur-Wülflingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9393,7 +9406,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091598/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:47.969Z",
+      "crawledAt": "2026-10-28T21:40:39.348Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9477,13 +9490,12 @@
         "de": "Kanton Zürich Staatskanzlei Stab Weibel/in 80 - 100% Die Staatskanzlei agiert als Schnittstelle zwischen den Direktionen und erbringt als Stabsstelle Leistungen, die ein reibungsloses Funktionieren des Regierungsrates als Kollegialbehörde gewährleistet. Der Stab der Staatskanzlei vereinigt wichtige interne Dienstleistungen und verantwortet u.a. den Weibeldienst für Regierung und Parlament. Die Weibelinnen und Weibel leisten für den Regierungsrat, den Kantonsrat sowie weitere Parlamente im Kanton Zürich während deren Sitzungen Saaldienst, führen Botengänge oder Materialtransporte aus und kümmern sich um Infrastrukturanliegen. Sie wirken in der Betreuung von Anlässen mit. Die hauptsächlichen Arbeitsorte sind das Zürcher Rathaus am Limmatquai, das Rathausprovisorium in Zürich Hard sowie das Haus zum Rechberg. Wir suchen per sofort oder nach Vereinbarung eine Kollegin oder einen Kollegen als neues Teammitglied im Weibeldienst (80-100%). Deine Aufgaben\n• Sicherstellung eines reibungslosen Ablaufes der Ratssitzungen (Regierungsrat, Kantonsrat, Gemeinderat sowie Kirchenparlamente) sowie weiterer Versammlungen\n• Betreuungsaufgaben bei Kommissionssitzungen\n• Vorbereitung und Betreuung von Anlässen und Empfängen an den drei Standorten in Zusammenarbeit mit der Veranstaltungsabteilung der Staatskanzlei oder den Parlamentsdiensten des Kantonsrates\n• Zusammenarbeit mit den Objektverantwortlichen seitens Immobilienamt und/oder anderen externen Parteien bei Themen des Gebäudeunterhalts an den drei Standorten\n• Mithilfe bei organisatorischen Aufgaben gemäss Abstimmung Dein Profil\n• abgeschlossene Berufsausbildung (Stufe EFZ)\n• mehrjährige Berufserfahrung in ähnlichen Tätigkeiten, vorzugsweise aus der Hotellerie oder Gastronomie\n• dienstleistungsorientierte, erfahrene und integre Persönlichkeit mit Auftritts- und Sozialkompetenz, hohem Qualitätsbewusstsein und dem nötigen Gespür für unterschiedliche Personenkreise und ihre Ansprüche\n• rasche Auffassungsgabe und selbständige, vertrauenswürdige Arbeitsweise\n• Flexibilität, Belastbarkeit sowie die Bereitschaft auch an Abenden und/oder Wochenenden Einsätze zu leisten\n• Entwicklungs- und Lernbereitschaft\n• Freude an einem Arbeitsumfeld, in dem Flexibilität, Teamgeist und Dienstleistungssinn gefragt sind – Unerwartetes bringt dich nicht aus der Ruhe\n• Gute IT-Anwenderkenntnisse, insbesondere in Office 365, sowie Anwenderkenntnisse im Bereich audiovisueller Medien und technische Affinität\n• Führerschein Kat. B erwünscht Unser Angebot Wir bieten dir eine vielseitige und spannende Tätigkeit am Puls der Zürcher Politik und zeitgemässe Arbeitsbedingungen. Bewerbung Wir freuen uns auf deine Bewerbung!\n\nPensum: 80-100%",
         "fr": "Canton de Zurich Chancellerie d'État Stab Weibel/dans 80 - 100% La Chancellerie d'État sert d'interface entre les directions et fournit des services en tant que bureau du personnel qui assure le bon fonctionnement du Conseil gouvernemental en tant qu'autorité collégiale. Le personnel de la Chancellerie d'État combine d'importants services internes et est responsable de la Weibeldienst pour le gouvernement et le parlement. Au cours de leurs réunions, les femmes et les femmes effectuent des services de salle pour le Conseil gouvernemental, le Conseil cantonal et d ' autres parlements du canton de Zurich, effectuent des visites de messagers ou des transports matériels et s ' occupent des problèmes d ' infrastructure. Ils participent au soin des événements. Les principaux lieux de travail sont l'Hôtel de Ville de Zurich sur le Limmatquai, l'Hôtel de Ville temporaire à Zurich Hard et la Maison de Rechberg. Nous sommes à la recherche d'un collègue immédiatement ou d'un accord en tant que nouveau membre de l'équipe à Weibeldienst (80-100%). Vos tâches\n• Assurer le bon déroulement des réunions du Conseil (Conseil gouvernemental, Conseil cantonal, Conseil municipal et Parlements religieux) et des autres réunions\n• Supervision des réunions de la Commission\n• Préparation et supervision des manifestations et des réceptions dans les trois lieux en coopération avec le service de manifestation de la Chancellerie d'État ou les services parlementaires du Conseil cantonal\n• Coopération avec les gestionnaires immobiliers du Bureau immobilier et/ou d'autres parties externes sur les questions d'entretien des bâtiments dans les trois sites\n• Assistance aux tâches organisationnelles selon votre profil\n• Formation professionnelle terminée (niveau de la zone euro)\n• Plusieurs années d'expérience professionnelle dans des activités similaires, de préférence de l'hôtellerie ou de la restauration\n• la personnalité axée sur le service, expérimentée et intègre avec performance et compétence sociale, une sensibilisation de haute qualité et le sentiment nécessaire pour différents groupes de personnes et leurs exigences\n• une compréhension rapide et des méthodes de travail indépendantes et fiables\n• Flexibilité, résilience et volonté d'effectuer des missions également le soir et/ou le week-end\n• Volonté de développer et d'apprendre\n• Profitez d'un environnement de travail dans lequel la flexibilité, l'esprit d'équipe et le sens du service sont nécessaires – des choses inattendues ne vous feront pas sortir de la paix\n• Bonne connaissance de l'utilisateur informatique, en particulier dans Office 365, ainsi que connaissance de l'utilisateur dans le domaine des médias audiovisuels et de l'affinité technique\n• Permis de conduire Cat. Nous vous proposons une activité polyvalente et passionnante au rythme de la politique zurichoise et des conditions de travail contemporaines. Demande Nous nous réjouissons de votre candidature!\n\nPensum: 80-100 %"
       },
-      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092495/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:47.472Z",
+      "crawledAt": "2026-10-28T21:40:38.816Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9506,9 +9518,20 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "weibel-in-kanton-zuerich-zurich"
-      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-27T22:04:38.896Z",
       "previousSlugsByLocale": {
         "it": [
           "weibel-in-kanton-zuerich-zurich"
@@ -9523,20 +9546,10 @@
           "weibel-in-kanton-zuerich-zurich"
         ]
       },
-      "firstSeenAt": "2026-10-27T22:04:38.896Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "weibel-in-kanton-zuerich-zurich"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-0e9d2c0ab1a6",
@@ -9570,7 +9583,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088330/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:46.979Z",
+      "crawledAt": "2026-10-28T21:40:38.262Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9659,7 +9672,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087221/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:46.482Z",
+      "crawledAt": "2026-10-28T21:40:37.758Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9742,7 +9755,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4079670/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:45.987Z",
+      "crawledAt": "2026-10-28T21:40:37.218Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9832,7 +9845,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4075621/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:45.494Z",
+      "crawledAt": "2026-10-28T21:40:36.618Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -9923,7 +9936,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4076628/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:44.960Z",
+      "crawledAt": "2026-10-28T21:40:36.064Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10017,7 +10030,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4085810/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:44.465Z",
+      "crawledAt": "2026-10-28T21:40:35.562Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10098,7 +10111,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4042765/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:43.964Z",
+      "crawledAt": "2026-10-28T21:40:35.058Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10192,7 +10205,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090960/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:43.465Z",
+      "crawledAt": "2026-10-28T21:40:34.512Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10281,7 +10294,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4043148/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:42.965Z",
+      "crawledAt": "2026-10-28T21:40:33.975Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10372,13 +10385,12 @@
         "de": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiterin/Sozialarbeiter im kjz Uster, 60 - 100% Fürs Leben gut – so lautet unser Motto. Das Amt für Jugend und Berufsberatung (AJB) ist für die Kinder- und Jugendhilfe sowie die Berufsberatung verantwortlich. Im Zentrum unserer Arbeit stehen Kinder, Jugendliche und Familien. Für sie setzen wir uns täglich mit viel Herzblut und Engagement ein. Das kjz (Kinder- und Jugendhilfezentrum) ist eine polyvalente Beratungsstelle für Familien, Eltern, Jugendliche, Kinder und Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für die Abteilung Soziale Arbeit und Mandate im kjz Uster suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine Sozialarbeiterin oder einen Sozialarbeiter (60-100%) . Sie beraten und begleiten Kinder, Jugendliche, Mütter und Väter im Rahmen von Kindesschutzmassnahmen und auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Kindswohlgefährdung im Auftrag der KESB. Bei der Erfüllung Ihrer Aufgaben arbeiten Sie eng mit Behörden, Schulen, anderen Institutionen und Fachstellen zusammen. Sie bringen mit:\n• eine abgeschlossene Ausbildung in Sozialer Arbeit an einer Fachhochschule\n• Erfahrung in der Jugend- und Familienhilfe sowie der gesetzlichen Sozialen Arbeit\n• eine verhandlungsgewandte, zielorientierte und durchsetzungsfähige Persönlichkeit\n• Einfühlungsvermögen für Menschen in besonderen Lebenssituationen\n• systemisches Denkvermögen und Freude an administrativen Tätigkeiten Wir bieten Ihnen:\n• eine interessante, anspruchsvolle Tätigkeit in einem abwechslungsreichen und lebhaften Arbeitsumfeld\n• ein professionelles, kollegiales und unterstützendes Team, bestehend aus 12 Sozialarbeitenden\n• regelmässige Inter- und Supervisionen\n• eine gut begleitete Einarbeitung\n• eine sinnstiftende Arbeit für den Kanton Zürich inkl. kantonaler Anstellungsbedingungen und Sozialleistungen\n• einen zentral gelegenen Arbeitsplatz mit moderner Infrastruktur Können wir Ihnen weitere Fragen beantworten? Für weitere Auskünfte steht Ihnen Nico Zuberbühler, Abteilung Soziale Arbeit und Mandate, unter Tel. 043 257 57 39 gerne zur Verfügung. Wir freuen uns auf Ihre vollständige Bewerbung via Online-Tool an Frau Stefanie Porcelli, Human Resources, Geschäftsstelle der Bezirke Hinwil, Meilen, Pfäffikon und Uster in Wetzikon. Es können nur Bewerbungen bearbeitet werden, die über unsere Online-Plattform eingereicht werden.\n\nPensum: 60-100%",
         "fr": "Canton de Zurich Direction de l'éducation Bureau de la jeunesse et des conseils professionnels Travailleur social à Uster, 60 - 100% Bon pour la vie - voilà notre devise. Le Bureau de la jeunesse et du conseil professionnel (AJB) est chargé de la protection de l ' enfance et de la jeunesse ainsi que du conseil professionnel. Notre travail est axé sur les enfants, les jeunes et les familles. Nous travaillons pour eux tous les jours avec beaucoup de cœur et d'engagement. Le kjz (Centre d ' aide à l ' enfance et à la jeunesse) est un centre polyvalent d ' orientation destiné aux familles, aux parents, aux adolescents, aux enfants et aux tout-petits. Pour le département du travail social et des mandats à kjz Uster nous recherchons 1. Décembre 2026 ou par arrangement avec un travailleur social (60-100%). Ils conseillent et accompagnent les enfants, les adolescents, les mères et les pères dans le cadre des mesures de protection de l ' enfance et sur une base volontaire. De plus, vous apportez des précisions dans le cas de la protection de l'enfance au nom de KESB. Dans l'accomplissement de vos tâches, vous travaillez en étroite collaboration avec les autorités, les écoles, les autres institutions et les organismes spécialisés. Ils apportent avec eux:\n• Formation complète en travail social dans un collège technique\n• Expérience en matière d ' assistance aux jeunes et aux familles et de travail social statutaire\n• une personnalité négociable, orientée vers l'objectif et affirmée\n• Empathie pour les personnes en situation de vie particulière\n• réflexion systémique et jouissance des activités administratives Nous vous offrons:\n• un emploi intéressant et exigeant dans un environnement de travail varié et animé\n• une équipe professionnelle, collégiale et de soutien composée de 12 travailleurs sociaux\n• Interception et supervision régulières\n• Une familiarisation bien accompagnée\n• un travail significatif pour le canton de Zurich incluant les conditions d'emploi et les prestations sociales cantonales\n• un lieu de travail central doté d'une infrastructure moderne Peut-on répondre à d'autres questions? Pour de plus amples renseignements, veuillez contacter Nico Zuberbühler, Département du travail social et des mandats, tél. 043 257 57 39 est disponible. Nous attendons avec impatience votre candidature complète via l'outil en ligne à Mme Stefanie Porcelli, Ressources Humaines, Hinwil, Meilen, Pfäffikon et Uster bureau de district à Wetzikon. Seules les demandes soumises via notre plateforme en ligne peuvent être traitées.\n\nPensum: 60-100 %"
       },
-      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092894/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:42.443Z",
+      "crawledAt": "2026-10-28T21:40:33.469Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10401,10 +10413,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kanton-zuerich-uster",
-        "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kantonale-verwaltung-zurich-uster"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kanton-zuerich-uster",
@@ -10420,6 +10428,10 @@
           "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kanton-zuerich-uster"
         ]
       },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kanton-zuerich-uster",
+        "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kantonale-verwaltung-zurich-uster"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -10432,7 +10444,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-f043e6a8c31f",
@@ -10466,7 +10479,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090795/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:41.912Z",
+      "crawledAt": "2026-10-28T21:40:32.967Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10553,7 +10566,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091820/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:41.413Z",
+      "crawledAt": "2026-10-28T21:40:32.461Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10644,7 +10657,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4024198/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:40.867Z",
+      "crawledAt": "2026-10-28T21:40:31.953Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10697,7 +10710,7 @@
         "it": "hr-business-partner-kantonale-verwaltung-zurich-zurich",
         "en": "hr-business-partner-kantonale-verwaltung-zurich-zurich",
         "de": "hr-business-partner-in-kanton-zuerich-zurich",
-        "fr": "hr-business-partner-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "hr-business-partner-in-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10721,7 +10734,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4091465/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:40.373Z",
+      "crawledAt": "2026-10-28T21:40:31.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10747,7 +10760,8 @@
       "previousSlugs": [
         "hr-business-partner-in-kanton-zuerich-zurich",
         "hr-business-partner-in-kantonale-verwaltung-zurich",
-        "partenaire-rh-kantonale-verwaltung-zurich-zurich"
+        "partenaire-rh-kantonale-verwaltung-zurich-zurich",
+        "hr-business-partner-in-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10758,7 +10772,8 @@
         ],
         "fr": [
           "hr-business-partner-in-kantonale-verwaltung-zurich",
-          "partenaire-rh-kantonale-verwaltung-zurich-zurich"
+          "partenaire-rh-kantonale-verwaltung-zurich-zurich",
+          "hr-business-partner-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-26T09:36:05.749Z",
@@ -10783,7 +10798,7 @@
         "it": "applicazione-responsabile-r-sistema-di-gestione-dei-costi-di-costruzione-kantonale-verwaltung-zurich-zurich",
         "en": "application-responsible-r-construction-cost-management-system-kantonale-verwaltung-zurich-zurich",
         "de": "applikationsverantwortliche-r-baukostenmanagementsystem-kanton-zuerich-zurich",
-        "fr": "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich-zurich"
+        "fr": "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10807,7 +10822,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4089573/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:39.880Z",
+      "crawledAt": "2026-10-28T21:40:30.946Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10846,7 +10861,8 @@
         ],
         "fr": [
           "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich",
-          "application-responsable-r-systeme-de-gestion-des-couts-de-construction-kantonale-verwaltung-zurich-zurich"
+          "application-responsable-r-systeme-de-gestion-des-couts-de-construction-kantonale-verwaltung-zurich-zurich",
+          "applikationsverantwortliche-r-baukostenmanagementsystem-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-22T09:33:37.435Z",
@@ -10895,7 +10911,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088696/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:39.378Z",
+      "crawledAt": "2026-10-28T21:40:30.438Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10981,7 +10997,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090657/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:38.850Z",
+      "crawledAt": "2026-10-28T21:40:29.902Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11068,7 +11084,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088771/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:38.350Z",
+      "crawledAt": "2026-10-28T21:40:29.396Z",
       "addressLocality": "Vollzugszentrum Bachtel",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11151,7 +11167,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4087324/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:37.750Z",
+      "crawledAt": "2026-10-28T21:40:28.885Z",
       "addressLocality": "Zürich Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11228,13 +11244,12 @@
         "de": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiterin/Sozialarbeiter im kjz Dübendorf 60% Fürs Leben gut – so lautet unser Motto. Das Amt für Jugend und Berufsberatung (AJB) ist für die Kinder- und Jugendhilfe sowie die Berufsberatung verantwortlich. Im Zentrum unserer Arbeit stehen Kinder, Jugendliche und Familien. Für sie setzen wir uns täglich mit viel Herzblut und Engagement ein. Das kjz (Kinder- und Jugendhilfezentrum) ist eine polyvalente Beratungsstelle für Familien, Eltern, Jugendliche, Kinder und Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Haben Sie Lust, sich für das Wohl von Kindern und Jugendlichen zu engagieren? Dann werden Sie als Sozialarbeiterin oder Sozialarbeiter (60%) per 1. Januar 2027 oder nach Vereinbarung Teil unseres Teams. Sie beraten und begleiten Kinder, Jugendliche und Erziehungsberechtigte im Rahmen von Kindesschutzmassnahmen und auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Kindswohlgefährdung im Auftrag der KESB. Bei der Erfüllung Ihrer Aufgaben arbeiten Sie eng mit Behörden, Schulen, anderen Institutionen und Fachstellen zusammen. Sie bringen mit:\n• eine abgeschlossene Ausbildung in Sozialer Arbeit an einer Fachhochschule oder eine gleichwertige Ausbildung\n• Erfahrung in der Jugend- und Familienhilfe sowie in der Mandatsführung\n• eine verhandlungsgewandte, zielorientierte und durchsetzungsfähige Persönlichkeit\n• hohe Sozialkompetenz sowie sehr gute schriftliche und mündliche Ausdrucksfähigkeit\n• systemisches Denkvermögen und Freude an administrativen Tätigkeiten Wir bieten Ihnen:\n• eine interessante sowie anspruchsvolle Tätigkeit in einem abwechslungsreichen und lebhaften Arbeitsumfeld\n• ein unterstützendes, interdisziplinäres Team, regelmässiger kollegialer Fachaustausch und Supervisionen\n• eine sinnstiftende Arbeit für den Kanton Zürich inkl. kantonaler Anstellungsbedingungen und Sozialleistungen\n• einen zentral gelegenen Arbeitsplatz mit moderner Infrastruktur\n• die Möglichkeit, teilweise auch in den eigenen vier Wänden zu arbeiten Können wir Ihnen weitere Fragen beantworten? Für weitere Auskünfte steht Ihnen Frau Regula Schenk, Leiterin Soziale Arbeit und Mandate, unter Tel. 043 258 81 82 gerne zur Verfügung. Zögern Sie nicht und bewerben Sie sich bei uns. Wir freuen uns auf Ihre vollständige Bewerbung via Online-Tool an Frau Sandra Zahner, Human Resources, Geschäftsstelle der Bezirke Hinwil, Meilen, Pfäffikon und Uster in Wetzikon. Es können nur Bewerbungen bearbeitet werden, die über unsere Online-Plattform eingereicht werden.\n\nPensum: 60%",
         "fr": "Canton de Zurich Direction de l'éducation Bureau de la jeunesse et des conseils professionnels Travailleur social / travailleur social à kjz Dübendorf 60% Bon pour la vie – c'est notre devise. Le Bureau de la jeunesse et du conseil professionnel (AJB) est responsable de la protection de l'enfance et de la jeunesse ainsi que du conseil professionnel. Notre travail est axé sur les enfants, les jeunes et les familles. Nous travaillons pour eux tous les jours avec beaucoup de cœur et d'engagement. Le kjz (Centre d ' aide aux enfants et aux jeunes) est un centre polyvalent de conseil destiné aux familles, aux parents, aux adolescents, aux enfants et aux tout-petits et fonctionne sur la base de la loi sur l ' aide aux enfants et aux jeunes du canton de Zurich. Voulez-vous vous engager dans le bien-être des enfants et des jeunes? Ensuite, vous ferez partie de notre équipe en tant que travailleur social (60 %) à compter du 1er janvier 2027 ou d'un commun accord. Ils conseillent et accompagnent les enfants, les adolescents et les tuteurs dans le cadre des mesures de protection de l ' enfance et sur une base volontaire. En outre, vous effectuez des enquêtes sur la protection de l'enfance au nom de KESB. Dans l'accomplissement de vos tâches, vous travaillez en étroite collaboration avec les autorités, les écoles, les autres institutions et les organismes spécialisés. Ils apportent avec eux:\n• Formation au travail social terminée dans un collège technique ou un établissement équivalent\n• Expérience en matière d ' aide aux jeunes et aux familles et de gestion des mandats\n• une personnalité négociable, orientée vers l'objectif et affirmée\n• haute compétence sociale et très bonne capacité d'expression écrite et orale\n• réflexion systémique et jouissance des activités administratives Nous vous offrons:\n• un travail intéressant et stimulant dans un environnement de travail varié et animé\n• une équipe interdisciplinaire de soutien, un échange collégial régulier et une supervision\n• un travail significatif pour le canton de Zurich incluant les conditions d'emploi et les prestations sociales cantonales\n• un lieu de travail central avec une infrastructure moderne\n• l'occasion de travailler en partie dans vos propres quatre murs Pouvons-nous répondre à d'autres questions? Pour de plus amples renseignements, prière de prendre contact avec Mme Regula Schenk, Chef du service social et des mandats, à l'adresse suivante : tél. 043 258 81 82 est disponible. N'hésitez pas et appliquez avec nous. Nous sommes impatients de recevoir votre candidature complète via l'outil en ligne à Mme Sandra Zahner, Ressources humaines, Hinwil, Meilen, Pfäffikon et Uster bureau de district à Wetzikon. Seules les demandes soumises via notre plateforme en ligne peuvent être traitées.\n\nPensum: 60%"
       },
-      "needsRetranslation": false,
       "location": "Dübendorf",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092579/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:37.248Z",
+      "crawledAt": "2026-10-28T21:40:28.339Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11257,10 +11272,6 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-im-kjz-dubendorf-kanton-zuerich-dubendorf",
-        "sozialarbeiterin-sozialarbeiter-im-kjz-dubendorf-kantonale-verwaltung-zurich-dubendorf"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiterin-sozialarbeiter-im-kjz-dubendorf-kanton-zuerich-dubendorf",
@@ -11276,7 +11287,10 @@
           "sozialarbeiterin-sozialarbeiter-im-kjz-dubendorf-kanton-zuerich-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:54:16.256Z",
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-im-kjz-dubendorf-kanton-zuerich-dubendorf",
+        "sozialarbeiterin-sozialarbeiter-im-kjz-dubendorf-kantonale-verwaltung-zurich-dubendorf"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -11289,7 +11303,9 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:54:16.256Z",
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-7b6548ff555f",
@@ -11323,7 +11339,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090926/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:36.749Z",
+      "crawledAt": "2026-10-28T21:40:27.817Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11404,13 +11420,12 @@
         "de": "Kanton Zürich Bildungsdirektion Zentrum für Ausbildung im Gesundheitswesen Berufsschullehrperson berufliche Grundbildung, (11-21 Lektionen pro Woche) 40 - 80% Das ZAG Zentrum für Ausbildung im Gesundheitswesen, bietet Aus- und Weiterbildungen auf verschiedenen Bildungsstufen (berufliche Grundbildung, Höhere Berufsbildung und berufsorientierte Weiterbildung) an. Mit rund 3'600 Lernenden und Studierenden und 250 Mitarbeitenden ist es eines der grössten Ausbildungszentren der Schweiz für Berufe im Gesundheitswesen. Wir suchen auf Beginn des Schuljahres 2027/2028 (23. August 2027) neue Kolleginnen und Kollegen für den berufskundlichen Unterricht in der beruflichen Grundbildung. Ihre Aufgaben\n• Sie unterrichten den berufskundlichen Unterricht (BKU) in der beruflichen Grundbildung im Programm Fachfrau/Fachmann Gesundheit EFZ (FaGe EFZ) Ihr Profil\n• Fach-/Hochschulabschluss in der Pflege, mindestens HF-Abschluss\n• Lehrberechtigung als Berufsschullehrperson (PHZH/EHB) oder Bereitschaft zur Ausbildung - Mindestanforderung: Berufsbildnerin/Berufsbildner (SVEB 1, SVEB 2 oder einen vergleichbaren Abschluss)\n• Freude und Geschick im Umgang mit jungen Erwachsenen\n• Belastbare, teamfähige und aufgeschlossene Persönlichkeit\n• Sehr gute IT-Anwenderkenntnisse\n• Vertrautheit im Umgang mit digitalen Medien und modernen Unterrichtsformen Unser Angebot\n• Ein kompetentes und kollegiales Team\n• Ein interessantes und abwechslungsreiches Tätigkeitsgebiet\n• Moderne Infrastruktur\n• Zentraler Arbeitsort in der Nähe des Bahnhofs Winterthur\n• Anstellungsbedingungen entsprechend der Mittelschul- und Berufsschullehrerverordnung des Kantons Zürich\n• Weiterbildungsmöglichkeiten\n• Wir sind Mitglied im Schulnetz 21 und verfügen über das Prädikat UND Bewerbung Auskunft erteilt Ihnen gerne Herr Mathias Nef, mathias.nef@zag.zh.ch , Abteilungsleiter Grundbildung BKU. Unter www.zag.zh.ch finden Sie zusätzliche Informationen. Haben wir Ihr Interesse geweckt? Frau Claudia Nadler und Frau Tina Kühne, Personalverantwortliche, freuen sich auf Ihre Bewerbung. Bitte reichen Sie Ihre vollständigen Unterlagen über das Online-Tool ein. Für diese Stelle werden nur Direktbewerbungen berücksichtigt.\n\nPensum: 40-80%",
         "fr": "Canton de Zurich Direction de l'éducation Centre pour l'éducation aux soins de santé Professeur d'école professionnelle enseignement de base professionnel, (11-21 leçons par semaine) 40 - 80% Le Centre ZAG pour l'éducation dans le système de soins de santé offre l'éducation et la formation à différents niveaux d'enseignement (enseignement de base professionnel, formation professionnelle supérieure et formation professionnelle). Avec environ 3600 apprenants et étudiants et 250 employés, il est l'un des plus grands centres de formation en Suisse pour les professions du secteur de la santé. Au début de l'année scolaire 2027/2028 (23 août 2027), nous recherchons de nouveaux collègues pour l'enseignement professionnel de base. Leurs tâches\n• Ils enseignent l'enseignement professionnel (BKU) dans le cadre du programme Fachfrau/Fachmann Gesundheit EFZ (FaGe EFZ) Votre profil\n• Diplôme technique/universitaire en sciences infirmières, au moins HF\n• Certificat d'enseignement en tant qu'enseignant de l'école professionnelle (PHZH/EHB) ou préparation à la formation - Exigences minimales: formateur professionnel (SVEB 1, SVEB 2 ou équivalent)\n• La joie et la compétence dans le traitement des jeunes adultes\n• Personnalité résiliente, capable d'équipe et ouverte d'esprit\n• Très bonne connaissance de l'utilisateur informatique\n• Familiarité avec les médias numériques et les formes modernes d'enseignement Notre offre\n• Une équipe compétente et collaborative\n• Un domaine d'activité intéressant et varié\n• Infrastructures modernes\n• Situation centrale près de la station Winterthur\n• Conditions d'emploi conformément à l'ordonnance sur les enseignants des écoles secondaires et professionnelles du canton de Zurich\n• Possibilités de formation\n• Nous sommes membres du réseau scolaire 21 et avons les qualifications ET les informations sur les candidatures s'il vous plaît M. Mathias Nef, mathias.nef@zag.zh.ch, Chef du Département de l'éducation de base BKU. Des informations complémentaires sont disponibles à l'adresse www.zag.zh.ch. Avons-nous suscité votre intérêt ? Mme Claudia Nadler et Mme Tina Kühne, gestionnaires des RH, attendent avec impatience votre candidature. Veuillez soumettre vos documents complets via l'outil en ligne. Pour ce poste, seules les demandes directes seront prises en considération.\n\nPensum: 40-80 %"
       },
-      "needsRetranslation": false,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4092898/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:36.191Z",
+      "crawledAt": "2026-10-28T21:40:27.229Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11433,10 +11448,6 @@
       "pensumMin": 40,
       "pensumMax": 80,
       "pensum": "40 - 80%",
-      "previousSlugs": [
-        "berufsschullehrperson-berufliche-grundbildung-11-21-lektionen-pro-woche-kanton-zuerich",
-        "berufsschullehrperson-berufliche-grundbildung-11-21-lektionen-pro-woche-kantonale-verwaltung-zurich-winterthur"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "berufsschullehrperson-berufliche-grundbildung-11-21-lektionen-pro-woche-kanton-zuerich",
@@ -11452,7 +11463,10 @@
           "berufsschullehrperson-berufliche-grundbildung-11-21-lektionen-pro-woche-kanton-zuerich"
         ]
       },
-      "firstSeenAt": "2026-10-28T09:32:16.223Z",
+      "previousSlugs": [
+        "berufsschullehrperson-berufliche-grundbildung-11-21-lektionen-pro-woche-kanton-zuerich",
+        "berufsschullehrperson-berufliche-grundbildung-11-21-lektionen-pro-woche-kantonale-verwaltung-zurich-winterthur"
+      ],
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -11465,7 +11479,9 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T09:32:16.223Z",
+      "needsRetranslation": false
     },
     {
       "id": "kanton-zuerich-11643f4e5966",
@@ -11499,7 +11515,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4093449/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:35.694Z",
+      "crawledAt": "2026-10-28T21:40:26.723Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11577,7 +11593,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088041/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:35.141Z",
+      "crawledAt": "2026-10-28T21:40:26.214Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11662,7 +11678,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4090238/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:34.555Z",
+      "crawledAt": "2026-10-28T21:40:25.700Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11749,7 +11765,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4080162/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:34.054Z",
+      "crawledAt": "2026-10-28T21:40:25.152Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11838,7 +11854,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4079035/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:33.559Z",
+      "crawledAt": "2026-10-28T21:40:24.648Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -11927,7 +11943,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088685/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:33.062Z",
+      "crawledAt": "2026-10-28T21:40:24.141Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12016,7 +12032,7 @@
       "url": "https://live.solique.ch/ktzh/job/details/4088047/",
       "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:53:32.516Z",
+      "crawledAt": "2026-10-28T21:40:23.609Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
