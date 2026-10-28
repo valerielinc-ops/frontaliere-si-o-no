@@ -1,16 +1,16 @@
 {
   "key": "convit-holding",
   "label": "Convit Holding",
-  "generatedAt": "2026-10-28T20:32:57.988Z",
+  "generatedAt": "2026-10-28T21:47:01.606Z",
   "total": 48,
   "newCount": 13,
   "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 84080,
-  "avgDurationMs": 84080,
+  "durationMs": 90100,
+  "avgDurationMs": 90100,
   "durationHistory": [
-    84080
+    90100
   ],
   "newJobs": [
     {
@@ -44,7 +44,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6598",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -84,7 +84,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6963",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -124,7 +124,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6912",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -164,7 +164,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6948",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -204,7 +204,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6810",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -244,7 +244,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6986",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -284,7 +284,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6954",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -324,7 +324,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6986",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -364,7 +364,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6914",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -404,7 +404,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6943",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -444,7 +444,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6991",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -484,7 +484,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6612",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -525,7 +525,7 @@
       "salarySource": "estimated",
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-10-28T20:32:47.273Z",
+      "firstSeenAt": "2026-10-28T21:46:50.192Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1930,5 +1930,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

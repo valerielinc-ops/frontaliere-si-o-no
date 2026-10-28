@@ -1,7 +1,7 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-10-28T20:26:12.352Z",
+  "generatedAt": "2026-10-28T21:45:49.533Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9533,
-  "avgDurationMs": 9533,
+  "durationMs": 11122,
+  "avgDurationMs": 11122,
   "durationHistory": [
-    9533
+    11122
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:25:57.263Z",
+      "crawledAt": "2026-10-28T21:45:33.463Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-AngularJava/1440346933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:25:59.074Z",
+      "crawledAt": "2026-10-28T21:45:35.531Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:25:57.831Z",
+      "crawledAt": "2026-10-28T21:45:34.095Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://careers.medartis.com/job/Senior-Global-Product-Manager-CMF/1443182933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:25:55.086Z",
+      "crawledAt": "2026-10-28T21:45:30.708Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-%28Angular-Java%29/1440347033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:25:54.226Z",
+      "crawledAt": "2026-10-28T21:45:29.688Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -237,5 +237,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
