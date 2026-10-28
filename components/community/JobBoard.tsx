@@ -7199,10 +7199,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!preserveJourney) Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'list_select');
  // Public description first; sign-in is required only to continue to application.
  savedListState.current = { page, scrollY: window.scrollY, query: searchQuery.trim() };
- // The board runs its full listing pipeline before the detail branch. Keep the
- // route update non-urgent so the current list can paint the tap before React
- // renders that heavier detail tree; URL/history remain synchronous in the
- // parent callback.
+ // Defer the heavier detail render while the parent keeps URL/history synchronous.
  startTransition(() => {
   onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
  });
