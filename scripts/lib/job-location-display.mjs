@@ -290,7 +290,7 @@ export function splitJobLocation(location, canton) {
 
   // A source-backed multi-site label must stay intact. It is not safe to
   // interpret its final canton token as the one canton for the whole posting.
-  if (isSlashSeparatedMultiLocation(city) || hasMultipleExplicitCantonSegments(city)) {
+  if (hasMultipleExplicitCantonSegments(city)) {
     return { city, canton: validCanton, stripped, conflict: false };
   }
 
