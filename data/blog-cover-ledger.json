@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 942,
+      "5": 946,
       "6": 5061
     },
-    "publishedCovers": 7685,
+    "publishedCovers": 7689,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210948,6 +210948,138 @@
         "provider": "openai-codex",
         "assetId": "article-tutele-frontaliero-uscita-ticino",
         "imageUrl": "/images/blog/article-tutele-frontaliero-uscita-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-appenzello-deficit-budget": {
+      "cover": "/images/blog/article-appenzello-deficit-budget.webp",
+      "hash": "49abeb7f2c6a4e3461e29cd125f4851bec61be00af906188850e0936444f0047",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "appenzello-deficit-budget",
+          "category": "fiscale",
+          "date": "2026-10-28T18:13:37.671Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-appenzello-deficit-budget.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-appenzello-deficit-budget",
+        "imageUrl": "/images/blog/article-appenzello-deficit-budget.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-economia-neuchateloise-incertezza": {
+      "cover": "/images/blog/article-economia-neuchateloise-incertezza.webp",
+      "hash": "872cc6ebcc0499222c0fa988c0169f897cc3015cabe8a9a60a645a0892fd19d3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "economia-neuchateloise-incertezza",
+          "category": "novita",
+          "date": "2026-10-28T17:45:20.321Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-economia-neuchateloise-incertezza.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-economia-neuchateloise-incertezza",
+        "imageUrl": "/images/blog/article-economia-neuchateloise-incertezza.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-susten-furka-chiusura-invernale": {
+      "cover": "/images/blog/article-susten-furka-chiusura-invernale.webp",
+      "hash": "173c10391734847401a9171eadbe68563688b960364c69b47bf294d26e21b9c2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "susten-furka-chiusura-invernale",
+          "category": "pratico",
+          "date": "2026-10-28T17:45:24.471Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-susten-furka-chiusura-invernale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-susten-furka-chiusura-invernale",
+        "imageUrl": "/images/blog/article-susten-furka-chiusura-invernale.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tpf-bus-elettrici-friburgo": {
+      "cover": "/images/blog/article-tpf-bus-elettrici-friburgo.webp",
+      "hash": "f8e582518affdccba49c0678e45e302102795f953d6a986152689b98e11a178b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "tpf-bus-elettrici-friburgo",
+          "category": "novita",
+          "date": "2026-10-28T17:54:37.229Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tpf-bus-elettrici-friburgo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tpf-bus-elettrici-friburgo",
+        "imageUrl": "/images/blog/article-tpf-bus-elettrici-friburgo.webp",
         "evidence": "generated-engine-record"
       }
     }
