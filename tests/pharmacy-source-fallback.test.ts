@@ -1,9 +1,11 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import {
+  buildTicinoCatalogueSnapshot,
   fetchTicinoPdfBuffer,
   fetchTicinoPdfDocument,
 } from '../scripts/import-pharmacies-border.mjs';
+import { detectMissingSecondaryProvenance } from '../scripts/check-pharmacy-data-health.mjs';
 import {
   TICINO_PHARMACY_DIRECTORY_URL,
   TICINO_PHARMACY_PDF_MIRROR_URL,
@@ -12,6 +14,35 @@ import {
 } from '../scripts/lib/pharmacy-border-parser.mjs';
 
 describe('Ticino pharmacy PDF source fallback', () => {
+  it('rehydrates availability metadata when carrying forward an older catalogue', () => {
+    const previousPharmacies = Array.from({ length: 200 }, (_, index) => ({
+      id: `ti-previous-${index}`,
+      name: `Farmacia ${index}`,
+      address: `Via Roma ${index + 1}`,
+      postalCode: '6900',
+      city: 'Lugano',
+      country: 'CH',
+      canton: 'Ticino',
+      sourceType: 'official',
+      sourceUrl: 'https://www.ofct.ch/luganese/',
+      ...(index === 0 ? { phone: '+41 91 000 00 00' } : {}),
+    }));
+    const fallback = buildTicinoCatalogueSnapshot({
+      parsed: { rows: [], warnings: [] },
+      previous: { pharmacies: previousPharmacies },
+      fetchedAt: '2026-10-27T12:00:00.000Z',
+      sourceError: 'Ticino pharmacy catalogue refresh was not published after transient source failure: timeout',
+    });
+    const pharmacy = fallback.pharmacies[0];
+
+    expect(pharmacy.dataAvailability).toMatchObject({ phone: 'verified' });
+    expect(detectMissingSecondaryProvenance([{
+      jurisdiction: 'CH-TI',
+      sourceKey: 'ticino-complete',
+      pharmacy,
+    }])).toEqual([]);
+  });
+
   it('uses the official mirror after the primary transport budget is exhausted', async () => {
     const calls: string[] = [];
     const fetchSource = vi.fn(async (url: string) => {

@@ -42,6 +42,7 @@ import {
   buildOsmQuery,
   buildTicinoCompleteRecords,
   discoverTicinoPharmacyPdfUrls,
+  normalizePharmacyRecordsForFallback,
   parseTicinoPdfText,
   rebuildUrlAliasesAfterSlugChange,
   uniqueSlug,
@@ -526,7 +527,7 @@ function assertBorderRecords(records) {
  * freshness/health consumers see stale data rather than a false fresh fetch.
  */
 export function buildPreservedItalySnapshot(previous, sourceError) {
-  const pharmacies = Array.isArray(previous?.pharmacies) ? previous.pharmacies : [];
+  const pharmacies = normalizePharmacyRecordsForFallback(previous?.pharmacies);
   if (pharmacies.length < BORDER_MINIMUMS.italy) {
     throw new Error(`Cannot preserve the Italian snapshot: only ${pharmacies.length} records (minimum ${BORDER_MINIMUMS.italy})`);
   }
@@ -563,7 +564,7 @@ export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmE
 
   if (preserved) {
     warnings.push(sourceError || `PDF parse produced ${rows.length} records; preserving the previous ${previousPharmacies.length}-record dataset`);
-    pharmacies = previousPharmacies;
+    pharmacies = normalizePharmacyRecordsForFallback(previousPharmacies);
     publishedFetchedAt = typeof previous?._fetchedAt === 'string' ? previous._fetchedAt : null;
     errors = [sourceError || 'Ticino catalogue refresh was not published; previous snapshot preserved'];
   } else {
