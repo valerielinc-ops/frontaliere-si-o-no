@@ -1,18 +1,19 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-10-28T20:05:07.684Z",
+  "generatedAt": "2026-10-28T21:22:10.743Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 10031,
-  "avgDurationMs": 10031,
+  "durationMs": 11875,
+  "avgDurationMs": 11875,
   "durationHistory": [
-    10031
+    11875
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=278658815&Team=242459886",
       "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=278658815&Team=242459886",
@@ -25,13 +26,13 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "slug": "zegna-brand-hq-controlling-intern-zegna",
+      "slug": "zegna-brand-hq-controlling-tirocinante-ermenegildo-zegna-group-stabio",
       "department": "Other/Other",
       "category": "Other/Other",
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T20:04:47.969Z",
+      "crawledAt": "2026-10-28T21:21:53.759Z",
       "source": "zegna-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -61,7 +62,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -91,7 +91,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:04:52.451Z",
+      "crawledAt": "2026-10-28T21:21:59.646Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -129,7 +129,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T20:04:49.633Z",
+      "crawledAt": "2026-10-28T21:21:55.816Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -158,5 +158,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
