@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T15:33:57.706Z",
+  "generatedAt": "2026-10-28T16:30:33.758Z",
   "totalEvents": 15451,
   "events": [
     {
@@ -691272,7 +691272,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento è il concerto annuale della Musikgesellschaft Mattmark, una banda di ottoni. Si tiene presso lo Schulhaus Saas-Almagell, a Saas-Almagell.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è il concerto annuale della Musikgesellschaft Mattmark, una banda di ottoni. Si tiene presso lo Schulhaus Saas-Almagell, a Saas-Almagell.",
+        "en": "This event is the annual concert of the Musikgesellschaft Mattmark, a brass-band ensemble. It is held at Schulhaus Saas-Almagell in Saas-Almagell.",
+        "de": "Die Veranstaltung ist das Jahreskonzert der Musikgesellschaft Mattmark, einer Brassband. Sie findet im Schulhaus Saas-Almagell in Saas-Almagell statt.",
+        "fr": "Il s’agit du concert annuel de la Musikgesellschaft Mattmark, une formation de cuivres. Le rendez-vous a lieu au Schulhaus Saas-Almagell, à Saas-Almagell."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0bf8c20f82424d73877a40ff2d130117",
@@ -702464,7 +702472,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Grüezi Italia presenta uno spettacolo di musica pop italiana. L’appuntamento si svolge presso ENTRA / KK Zürisee nel cantone SG.",
+      "descriptionByLocale": {
+        "it": "Grüezi Italia presenta uno spettacolo di musica pop italiana. L’appuntamento si svolge presso ENTRA / KK Zürisee nel cantone SG.",
+        "en": "Grüezi Italia presents a pop music show with an Italian focus. The event takes place at ENTRA / KK Zürisee in canton SG.",
+        "de": "Grüezi Italia präsentiert eine Popmusikshow mit italienischem Schwerpunkt. Die Veranstaltung findet im ENTRA / KK Zürisee im Kanton SG statt.",
+        "fr": "Grüezi Italia propose un spectacle de musique pop italienne. Le rendez-vous a lieu à l’ENTRA / KK Zürisee, dans le canton de SG."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AVjqFN6",
