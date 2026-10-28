@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grund-ag-ch",
-  "assembledAt": "2026-10-28T21:18:46.693Z",
-  "runId": "40769462206",
+  "assembledAt": "2026-10-28T22:02:38.969Z",
+  "runId": "40774448537",
   "jobs": [
     {
       "id": "grund-ag-ch-d07ce0e95f63",
@@ -34,7 +34,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:18:41.044Z",
+      "crawledAt": "2026-10-28T22:02:30.129Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -54,16 +54,15 @@
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T20:14:05.194Z",
+      "previousSlugs": [
+        "lehrstelle-als-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+      ],
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -76,7 +75,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T20:14:05.194Z"
     },
     {
       "id": "grund-ag-ch-96bbd0d8e49e",
@@ -109,7 +109,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:18:41.042Z",
+      "crawledAt": "2026-10-28T22:02:30.127Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -129,16 +129,15 @@
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T20:14:05.193Z",
+      "previousSlugs": [
+        "lehrstelle-als-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-ch-ch"
+      ],
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -151,7 +150,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T20:14:05.193Z"
     }
   ]
 }

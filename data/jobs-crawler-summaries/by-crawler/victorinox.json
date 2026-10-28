@@ -1,7 +1,7 @@
 {
   "key": "victorinox",
   "label": "Victorinox",
-  "generatedAt": "2026-10-28T21:20:55.822Z",
+  "generatedAt": "2026-10-28T22:03:05.394Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 8729,
-  "avgDurationMs": 8729,
+  "durationMs": 10191,
+  "avgDurationMs": 10191,
   "durationHistory": [
-    8729
+    10191
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-application-integration-manager-erp-m-w-d_248.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:20:39.865Z",
+      "crawledAt": "2026-10-28T22:02:43.166Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -79,7 +79,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:20:38.063Z",
+      "crawledAt": "2026-10-28T22:02:41.462Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -126,7 +126,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:20:42.517Z",
+      "crawledAt": "2026-10-28T22:02:45.783Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -169,7 +169,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-m-w-d_259.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:20:42.005Z",
+      "crawledAt": "2026-10-28T22:02:45.263Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -213,7 +213,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-ibach-m-w-d_209.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:20:41.474Z",
+      "crawledAt": "2026-10-28T22:02:44.737Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -257,7 +257,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-in-schleiftechnik-100-m-w-d_261.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:20:40.960Z",
+      "crawledAt": "2026-10-28T22:02:44.215Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -301,7 +301,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-operateur-regleur-en-fours-de-trempe-h-f-d_263.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:20:40.436Z",
+      "crawledAt": "2026-10-28T22:02:43.673Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -344,7 +344,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-application-specialist-erp-m-w-d_249.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:20:39.226Z",
+      "crawledAt": "2026-10-28T22:02:42.633Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -388,7 +388,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-planificateur-de-production-60-70-h-f-d_266.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:20:37.533Z",
+      "crawledAt": "2026-10-28T22:02:40.908Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -420,5 +420,5 @@
       }
     }
   ],
-  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }
