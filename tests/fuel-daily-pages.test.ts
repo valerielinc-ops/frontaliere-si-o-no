@@ -196,13 +196,62 @@ describe('fuel-daily page generation — content quality', () => {
       html.indexOf(`${name}="${value}"`),
       html.indexOf(`${name}=${value}`),
     ].find((position) => position >= 0) ?? -1;
-    const top3 = attrPosition('id', 'top3');
+    const stations = attrPosition('id', 'stations');
     const driveby = attrPosition('data-ad-slot', AD_SLOTS.FT_DRIVEBY_ATF_DISPLAY.slot);
     const trend7 = attrPosition('id', 'trend7');
 
-    expect(top3).toBeGreaterThanOrEqual(0);
-    expect(driveby).toBeGreaterThan(top3);
+    expect(stations).toBeGreaterThanOrEqual(0);
+    expect(driveby).toBeGreaterThan(stations);
     expect(trend7).toBeGreaterThan(driveby);
+  });
+
+  it('renders every monitored station and inserts shared in-feed ads every three cards', () => {
+    const fullStationDataset = {
+      generatedAt: today.toISOString(),
+      municipalities: [{
+        municipality: 'Test',
+        province: 'TI',
+        swiss: {
+          nearbyStations: Array.from({ length: 7 }, (_, index) => ({
+            id: `lugano-full-${index + 1}`,
+            name: `Lugano monitored station ${index + 1}`,
+            brand: 'TEST',
+            address: `Via della Stazione ${index + 1}, 6900 Lugano`,
+            sp95PriceChf: 1.8 + index * 0.01,
+            dieselPriceChf: 2 + index * 0.01,
+            dieselSource: 'api' as const,
+          })),
+        },
+      }],
+    };
+    const html = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-all-stations-test',
+      dataset: fullStationDataset,
+      history: [],
+      today,
+    })['/prezzi-benzina/lugano/oggi/'];
+    const infeedSlot = AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot;
+    const infeedAdPattern = new RegExp(`data-ad-slot=(?:"${infeedSlot}"|${infeedSlot})(?=\\s|>)`, 'g');
+    const infeedAds = [...html.matchAll(infeedAdPattern)];
+
+    expect(html).toContain('7 stazioni monitorate a Lugano');
+    for (let index = 1; index <= 7; index += 1) {
+      expect(html).toContain(`Lugano monitored station ${index}`);
+    }
+    expect(infeedAds).toHaveLength(2);
+
+    const thirdStation = html.indexOf('Lugano monitored station 3');
+    const firstInfeedAd = infeedAds[0]?.index ?? -1;
+    const fourthStation = html.indexOf('Lugano monitored station 4');
+    const sixthStation = html.indexOf('Lugano monitored station 6');
+    const secondInfeedAd = infeedAds[1]?.index ?? -1;
+    const seventhStation = html.indexOf('Lugano monitored station 7');
+
+    expect(thirdStation).toBeLessThan(firstInfeedAd);
+    expect(firstInfeedAd).toBeLessThan(fourthStation);
+    expect(sixthStation).toBeLessThan(secondInfeedAd);
+    expect(secondInfeedAd).toBeLessThan(seventhStation);
+    expect(infeedAds.some(({ index }) => (index ?? -1) > seventhStation)).toBe(false);
   });
 
   it('renders the shared same-currency calculator on regional petrol and diesel pages with known sample prices', () => {
@@ -412,7 +461,7 @@ describe('fuel-daily page generation — content quality', () => {
     const bellinzona = pages['/prezzi-benzina/bellinzona/oggi/'];
     expect(bellinzona).toMatch(/<h1[^>]*>.*Prezzo Benzina oggi a Bellinzona: stazioni di servizio/i);
     expect(bellinzona).toContain('Valutazione editoriale del prezzo della benzina a Bellinzona');
-    expect(bellinzona).toContain('Le 3 stazioni più economiche per fare rifornimento di benzina a Bellinzona');
+    expect(bellinzona).toContain('2 stazioni monitorate a Bellinzona');
     expect(bellinzona).toContain('Andamento storico del prezzo della benzina a Bellinzona');
     expect(bellinzona).toContain('Domande frequenti sul prezzo della benzina a Bellinzona');
     expect(bellinzona).toContain('Fonte e metodo del confronto sul prezzo della benzina');
