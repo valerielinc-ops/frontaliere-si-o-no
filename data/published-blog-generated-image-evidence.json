@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "d13a5e488f33949badadcb8f897fedc74bb65740",
+  "commit": "aa1c55a006874ce93a953eb9698ef7e7f1ec7cf6",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -42199,6 +42199,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial landscape with financial documents and calculator; no readable text, logos, people, or specific event."
+      }
+    },
+    "/images/blog/article-sem-rinnovo-simic-paralisi.webp": {
+      "schema": 1,
+      "assetId": "article-sem-rinnovo-simic-paralisi",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "11979779fa9a704db6d1ad54d7e5f056a9d0cff6815df31af5705100f6b7fdc3",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "f4e50ba0b9461db31d9373d8938456b9b2fba27365fc54e4c8ca723b1c9621d8",
+      "bytes": 86630,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-28T22:15:24.396Z",
+      "verifiedAt": "2026-10-28T22:15:38.261Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-sem-rinnovo-simic-paralisi.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial office illustration with anonymized interfaces; no readable text, logos, identifiable faces, or specific real event."
       }
     },
     "/images/places/lugano-view.webp": {

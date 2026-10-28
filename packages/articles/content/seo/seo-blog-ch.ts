@@ -109233,7 +109233,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-allarme-popolazione-165-milioni': {
     title: 'Allarme popolazione: 165,4 mln per modernizzazione',
-    description: 'Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, le sirene passeranno ai Cantoni e la tecnologia Cell Broadcast completerà i canali esistenti.',
+    description: 'Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell',
     keywords: 'frontalieri, ticino, svizzera, italia, allarme, popolazione, modernizzazione, consiglio',
     ogTitle: 'Allarme popolazione: 165,4 mln per modernizzazione',
     ogDescription: 'Il Consiglio federale chiede 165,4 milioni di franchi.',
@@ -109242,7 +109242,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Allarme popolazione: 165,4 mln per modernizzazione",
-      "description": "Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, le sirene passeranno ai Cantoni e la tecnologia Cell Broadcast completerà i canali esistenti.",
+      "description": "Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -109272,16 +109272,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-norme-flessibilita-start-up': {
     title: 'Consiglio federale concede flessibilità alle start-up per l\'orario di lavoro',
-    description: 'Il Consiglio federale introduce nuove norme speciali per start-up e alcuni dipendenti: entreranno in vigore il 1° dicembre 2026 e consentiranno maggiore flessibilità nell’orario di lavoro a precise condizioni.',
+    description: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up',
     keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, concede, flessibilità',
     ogTitle: 'Flessibilità oraria start-up: norme 2026',
-    ogDescription: 'Nuove norme speciali per start-up e alcuni dipendenti: dal 1° dicembre 2026 più flessibilità nell’orario di lavoro a precise condizioni.',
+    ogDescription: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione',
     canonicalPath: '/articoli-svizzera/norme-flessibilita-start-up/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Consiglio federale concede flessibilità alle start-up per l'orario di lavoro",
-      "description": "Il Consiglio federale introduce nuove norme speciali per start-up e alcuni dipendenti: entreranno in vigore il 1° dicembre 2026 e consentiranno maggiore flessibilità nell’orario di lavoro a precise condizioni.",
+      "description": "Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -109305,6 +109305,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/norme-flessibilita-start-up/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sem-rinnovo-simic-paralisi': {
+    title: 'La SEM rischia la paralisi per il rinnovo di SIMIC',
+    description: 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima',
+    keywords: 'frontalieri, ticino, svizzera, italia, rischia, paralisi, rinnovo, simic',
+    ogTitle: 'SIMIC, la SEM rischia la paralisi senza nuove risorse',
+    ogDescription: 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032',
+    canonicalPath: '/articoli-svizzera/sem-rinnovo-simic-paralisi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La SEM rischia la paralisi per il rinnovo di SIMIC",
+      "description": "La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sem-rinnovo-simic-paralisi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T22:15:39+00:00",
+      "dateModified": "2026-10-28T22:15:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sem-rinnovo-simic-paralisi/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
