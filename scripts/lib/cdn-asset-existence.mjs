@@ -128,18 +128,39 @@ export function isSoftMissing(url, contentType) {
 /**
  * Un abort/timeout del probe puo' essere transitorio: undici usa sia
  * `AbortError` sia il messaggio "This operation was aborted" a seconda del
- * punto in cui il signal interrompe la richiesta. Gli errori DNS/di rete
- * generici restano non ritentati: un `ENOTFOUND` persistente non deve spendere
- * il budget intero per ripetere una diagnosi gia' fallita.
+ * punto in cui il signal interrompe la richiesta. Per gli errori di rete si
+ * ritentano solo i codici di trasporto noti come transitori; un `ENOTFOUND`
+ * o un `fetch failed` senza causa leggibile non deve spendere il budget
+ * intero per ripetere una diagnosi non classificabile.
  * @param {unknown} error
  * @returns {boolean}
  */
+const TRANSIENT_PROBE_ERROR_CODES = new Set([
+  'EAI_AGAIN',
+  'ECONNRESET',
+  'ETIMEDOUT',
+  'UND_ERR_CONNECT_TIMEOUT',
+  'UND_ERR_SOCKET',
+  'ERR_SOCKET_TIMEOUT',
+]);
+
+function probeErrorCode(error) {
+  return String(error?.cause?.code || error?.code || '');
+}
+
 function isRetryableProbeError(error) {
   const name = String(error?.name || '');
   const message = String(error?.message || error || '');
   return name === 'AbortError'
     || name === 'TimeoutError'
-    || /(?:operation was aborted|timed out|timeout)/i.test(message);
+    || /(?:operation was aborted|timed out|timeout)/i.test(message)
+    || TRANSIENT_PROBE_ERROR_CODES.has(probeErrorCode(error));
+}
+
+function probeErrorReason(error) {
+  const message = String(error?.message || error || '');
+  const code = probeErrorCode(error);
+  return code && !message.includes(code) ? `${message} (${code})` : message;
 }
 
 /**
@@ -151,7 +172,7 @@ function isRetryableProbeError(error) {
  * @param {number} [a.timeoutMs]
  * @param {number} [a.maxUrls]
  * @param {number} [a.budgetMs]
- * @param {number} [a.maxAttempts] tentativi per risposta HTTP 5xx o abort/timeout transitorio
+ * @param {number} [a.maxAttempts] tentativi per risposta HTTP 5xx o trasporto transitorio classificato
  * @param {number} [a.retryDelayMs] base del backoff esponenziale sui transienti
  * @param {() => number} [a.now] orologio iniettabile per i test
  * @returns {Promise<Array<{url: string, state: 'present'|'missing'|'unknown'|'skipped', status: number|null, reason: string|null}>>}
@@ -290,7 +311,7 @@ export async function verifyCdnAssetRefs({
         results.push({ url, state: 'unknown', status: res.status, reason: null });
       }
     } catch (err) {
-      results.push({ url, state: 'unknown', status: null, reason: err?.message ? String(err.message) : String(err) });
+      results.push({ url, state: 'unknown', status: null, reason: probeErrorReason(err) });
     }
   }
 
