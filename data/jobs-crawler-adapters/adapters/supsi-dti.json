@@ -13,11 +13,12 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-10-27T21:59:26.922Z",
+  "updatedAt": "2026-10-28T09:36:14.206Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/bando26_5045",
     "https://www.supsi.ch/bando26_1016",
     "https://www.supsi.ch/bando26_5040",
+    "https://www.supsi.ch/bando26_5044",
     "https://www.supsi.ch/bando26_4001",
     "https://www.supsi.ch/stagista-52-settimane-supsi-26_9001-",
     "https://www.supsi.ch/bando26_5046"
@@ -49,6 +50,15 @@
       "companyDomain": "supsi.ch",
       "contract": "Full-time",
       "expiresAt": "2026-11-15"
+    },
+    "https://www.supsi.ch/bando26_5044": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-11-22"
     },
     "https://www.supsi.ch/bando26_4001": {
       "location": "Ticino",
