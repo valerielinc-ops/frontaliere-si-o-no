@@ -1,7 +1,7 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-10-27T21:33:18.752Z",
+  "generatedAt": "2026-10-28T09:40:51.707Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7719,
-  "avgDurationMs": 7719,
+  "durationMs": 9783,
+  "avgDurationMs": 9783,
   "durationHistory": [
-    7719
+    9783
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "siemens-healthineers-a6ba76a2ad34",
-      "slug": "systems-verification-engineer-siemens-healthineers-ch",
+      "slug": "systems-verification-ingegnere-siemens-healthineers-baden",
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
       "title": "Systems Verification Engineer",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Baden",
       "canton": "AG",
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Systems-Verification-Engineer_R-31378-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:32:51.454Z",
+      "crawledAt": "2026-10-28T09:40:19.871Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -52,21 +53,20 @@
       "postingDateSource": "reported",
       "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Systems-Verification-Engineer_R-31378-2",
       "jobReqId": "R-31378",
+      "firstSeenAt": "2026-10-27T21:32:51.454Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
       "postalCode": "5400",
-      "firstSeenAt": "2026-10-27T21:32:51.454Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -82,7 +82,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:32:53.456Z",
+      "crawledAt": "2026-10-28T09:40:22.161Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:32:52.802Z",
+      "crawledAt": "2026-10-28T09:40:21.414Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:32:52.147Z",
+      "crawledAt": "2026-10-28T09:40:20.616Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -198,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }

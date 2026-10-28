@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-10-27T21:29:29.550Z",
+  "generatedAt": "2026-10-28T09:53:37.175Z",
   "total": 54,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 53,
-  "durationMs": 121057,
-  "avgDurationMs": 121057,
+  "durationMs": 124611,
+  "avgDurationMs": 124611,
   "durationHistory": [
-    121057
+    124611
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -56,48 +56,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Zeichner:in / Konstrukteur:in / BIM-Modellierer:in 80-100% - Chur",
-      "slug": "disegno-costruttore-bim-modeler-80-100-chur-afry-chur",
-      "url": "https://afry.com/en/careers/available-jobs/REF15432Q-zeichnerin-konstrukteurin-bim-modelliererin-80-100-chur",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000144688459-zeichner-in-konstrukteur-in-bim-modellierer-in-80-100-chur?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "validThrough": "2026-08-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-38cedb417412",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:01:35.571Z",
-      "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref15432q-zeichnerin-konstrukteurin-bim-modelliererin-80-100-chur",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "7000",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Bauleiter:in Bahnbau / Infrastrukturbau 80-100% - Bern",
@@ -1295,5 +1254,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }

@@ -1,21 +1,19 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-27T21:23:01.534Z",
+  "generatedAt": "2026-10-28T09:34:02.177Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 146505,
-  "avgDurationMs": 146505,
+  "unchangedCount": 1,
+  "durationMs": 199995,
+  "avgDurationMs": 199995,
   "durationHistory": [
-    146505
+    199995
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Apprendista Impiegato/a in logistica AFC 2027",
       "slug": "apprendista-impiegato-a-in-logistica-afc-2027",
@@ -87,6 +85,7 @@
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-09T09:22:42.256Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -136,6 +135,50 @@
       }
     },
     {
+      "title": "Apprendista (magazzino) Impiegato/a del comm. al dettaglio AFC After-Sales Automobile 2027 (m/f) - AMAG Breganzona",
+      "slug": "apprendista-magazzino-impiegato-a-del-comm-al-dettaglio-afc-after-sales-automobile-2027-m-f-amag-breganzona",
+      "url": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-j23660.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-f23660.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Breganzona",
+      "addressLocality": "Breganzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-04-01",
+      "id": "amag-group-635c94e01215",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:48:22.457Z",
+      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-magazzino-impiegatoa-del-comm-al-dettaglio-afc-it-j23660.html",
+      "datePosted": "2026-09-22",
+      "postingDateSource": "reported",
+      "postalCode": "6932",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
       "title": "Apprendisti meccatronici d'automobili AFC (m/f) - AMAG Ticino - estate 2027",
       "slug": "apprendisti-meccatronici-d-automobili-afc-m-f-amag-ticino-estate-2027",
       "url": "https://jobs.amag-group.ch/Apprendisti-meccatronici-dautomobili-AFC-mf-AMAG-Ticino-es-it-j23683.html",
@@ -173,47 +216,7 @@
         "translation": 25,
         "completeness": 19
       }
-    },
-    {
-      "title": "Apprendista (magazzino) Impiegato/a del comm. al dettaglio AFC After-Sales Automobile 2027 (m/f) - AMAG Breganzona",
-      "slug": "apprendista-magazzino-impiegato-a-del-comm-al-dettaglio-afc-after-sales-automobile-2027-m-f-amag-breganzona",
-      "url": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-j23660.html",
-      "applyUrl": "https://jobs.amag-group.ch/Apprendista-magazzino-Impiegatoa-del-comm-al-dettaglio-AFC-it-f23660.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Breganzona",
-      "addressLocality": "Breganzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-09-22",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2027-04-01",
-      "id": "amag-group-635c94e01215",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:48:22.457Z",
-      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-magazzino-impiegatoa-del-comm-al-dettaglio-afc-it-j23660.html",
-      "datePosted": "2026-09-22",
-      "postingDateSource": "reported",
-      "postalCode": "6932",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }

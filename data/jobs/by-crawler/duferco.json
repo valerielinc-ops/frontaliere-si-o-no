@@ -1,7 +1,7 @@
 {
   "crawlerKey": "duferco",
-  "assembledAt": "2026-10-27T21:27:44.815Z",
-  "runId": "40585330221",
+  "assembledAt": "2026-10-28T09:30:27.599Z",
+  "runId": "40662764055",
   "jobs": [
     {
       "id": "duferco-1cf7268a-a1ec-4fda-8e3a-94da072587c4",
@@ -34,7 +34,7 @@
       "url": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:27:38.237Z",
+      "crawledAt": "2026-10-28T09:30:21.684Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:27:38.220Z",
+      "crawledAt": "2026-10-28T09:30:21.664Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -224,7 +224,7 @@
         }
       },
       "postalCode": "6900",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "duferco-ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
@@ -305,7 +305,7 @@
         }
       },
       "postalCode": "6900",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

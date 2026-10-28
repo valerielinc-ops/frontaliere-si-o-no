@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rehaklinik-seewis",
-  "assembledAt": "2026-10-27T21:55:21.521Z",
-  "runId": "40586704438",
+  "assembledAt": "2026-10-28T09:46:09.189Z",
+  "runId": "40664010949",
   "jobs": [
     {
       "id": "rehaklinik-seewis-3893d44b24a8",
@@ -34,7 +34,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2087506-oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:55:15.505Z",
+      "crawledAt": "2026-10-28T09:46:05.286Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2561019-oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100?name=%C3%84rzteschaft",
       "source": "Kurhaus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:55:15.504Z",
+      "crawledAt": "2026-10-28T09:46:05.285Z",
       "addressLocality": "Dussnang",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -161,6 +161,86 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "rehaklinik-seewis-250cf050995a",
+      "slug": "psicologo-psicologo-a-80-100-kurhaus-seewis-im-prattigau",
+      "slugByLocale": {
+        "it": "psicologo-psicologo-a-80-100-kurhaus-seewis-im-prattigau",
+        "en": "psychologist-psychologist-a-80-100-kurhaus-seewis-im-prattigau",
+        "de": "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch",
+        "fr": "psychologue-psychologue-a-80-100-kurhaus-seewis-im-prattigau"
+      },
+      "company": "Kurhaus",
+      "companyKey": "rehaklinik-seewis",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Psychologe / Psychologin (a) 80-100%",
+      "titleByLocale": {
+        "it": "Psicologo/psicologo (a) 80-100 %",
+        "en": "Psychologist/psychologist (a) 80-100 %",
+        "de": "Psychologe / Psychologin (a) 80-100%",
+        "fr": "Psychologue/psychologue (a) 80-100 %"
+      },
+      "description": "Psychologe / Psychologin (a) 80-100%\nArbeitsort: Rehaklinik Seewis\nWo dein Job Reha macht.\nKardiologie, Innere Medizin / Onkologie und Psychiatrie/Psychosomatik. Erstklassige Rehabilitation, eingebettet in eine prächtige Berglandschaft. Und das mit über 50 Jahren Erfahrung. Das Umfeld in der Rehaklinik Seewis tut auch den rund 135 Mitarbeitenden gut.\nHier trifft fortschrittliche Medizin auf flache Hierarchien und viel Gestaltungsspielraum. Durch engen Austausch mit Pflege und Therapie kommen du und deine Ideen weiter.\nDarauf darfst du dich freuen:\n- Fallführende Behandlung von Patientinnen und Patienten mit psychosomatischen Erkrankungen (Schwerpunkt Depression, Angst sowie Traumafolgestörung)\n- Enge interdisziplinäre Zusammenarbeit im Team (Psychiater, Kunsttherapie, Physio- und Ergotherapie sowie Pflege)\n- Gemeinsam mit Patientinnen und Patienten eine für sie maximale Lebensqualität wiedergewinnen\n- Eigener Gestaltungsspielraum im Bereich Methodik im Einzel- und Gruppensetting\nDarüber freuen wir uns:\n- Abgeschlossenes Studium der Psychologie, nach Möglichkeit begonnene Ausbildung als Psychologischer Psychotherapeut / Psychotherapeutin FSP oder in fortgeschrittener Ausbildung\n- Eine empathische, flexibe sowie kreative Fachkraft mit einer hohen Teamfähigkeit\n- Eigenverantwortliches und selbstständiges Arbeiten sowie Bereitschaft zur aktiven Mitgestaltung\n- Interesse an individuellen Zielsetzungen der Patientinnen und Patienten, um während des Aufenthalts eine hohe Teilhabe sowie Lebensqualität sicher zu stellen\nDas bieten wir:\nUnterstützung bei Weiterbildung\nTeilzeit arbeiten\nVergünstigtes Essen\nZusätzlichen Urlaub kaufen\nDarum Rehaklinik Seewis:\nWir zählen zu den führenden Reha-Spezialisten der Schweiz und sind Teil der VITREA Schweiz. Für dich bedeutet das viel Abwechslung und interdisziplinäre Zusammenarbeit auf hohem fachlichem Niveau, gleichzeitig auf Augenhöhe. Wenn du also etwas bewegen und beruflich weiterkommen willst, bist du bei uns genau richtig. Denn bei uns können sich alle einbringen.\nJetzt bewerben Klicken Sie auf diesen Link, um sich für die Stelle zu bewerben.\nFragen zum Bewerbungsprozess:\nNadia Massafra\nHead Human Resources a.I.\nTel.: +41 81 307 52 52\nFragen zur Stelle:\nDr. med. Iris Klausmann\nChefärztin Psychiatrie\nTel.: +41 81 307 52 52\nBewerbungen können nur direkt über das Job-Portal übermittelt werden.",
+      "descriptionByLocale": {
+        "it": "Psicologo/psicologo (a) 80-100 %\nLuogo di lavoro: Seewis clinica di riabilitazione\nDove il tuo lavoro si riabilita.\nCardiologia, Medicina Interna / Oncologia e Psichiatria / Psicosomatica. Riabilitazione di prima classe, incastonata in un magnifico paesaggio montano. Con oltre 50 anni di esperienza. L'ambiente nella clinica di riabilitazione Seewis beneficia anche dei circa 135 dipendenti.\nQui, medicina avanzata incontra gerarchie piatte e un sacco di spazio per manovra. Attraverso uno scambio ravvicinato con cura e terapia, tu e le tue idee avanzate.\nSi può guardare avanti a questo:\n- Trattamento specifico del caso di pazienti con malattie psicosomatiche (attenzione sulla depressione, ansia e disturbi del trauma)\n- Chiudere la cooperazione interdisciplinare nel team (psichiatra, arteterapia, fisioterapia e terapia occupazionale, così come la cura)\n- Insieme ai pazienti, ritrovare la massima qualità di vita per loro\n- Campo di applicazione nel campo della metodologia nell'impostazione individuale e di gruppo\nSiamo lieti di questo:\n- Studio completo della psicologia, se possibile iniziato la formazione come psicoterapeuta psicologico / psicoterapeuta FSP o in formazione avanzata\n- Un professionista empatico, flessibile e creativo con un alto livello di lavoro di squadra\n- Lavoro autonomo e indipendente e disponibilità a partecipare attivamente\n- Interessi nei singoli obiettivi del paziente al fine di garantire un alto livello di partecipazione e qualità della vita durante il soggiorno\nQuesto è ciò che offriamo:\nSupporto per la formazione\nLavorazione a tempo parziale\nCibo scontato\nComprare vacanze aggiuntive\nPertanto, Seewis clinica di riabilitazione:\nSiamo uno dei principali specialisti della riabilitazione in Svizzera e facciamo parte della VITREA Svizzera. Per voi, questo significa un sacco di varietà e cooperazione interdisciplinare ad un alto livello professionale, allo stesso tempo a livello degli occhi. Quindi, se vuoi fare la differenza e progredire professionalmente, hai esattamente ragione con noi. Tutti possono essere coinvolti con noi.\nFare clic su questo link per richiedere il lavoro.\nDomande sul processo di applicazione:\nNadia Massafra\nCapo delle Risorse Umane a.I.\nTel. +41 81 307 52 52\nDomande sul lavoro:\nDottor Med. Iris Klausmann\nPsichiatria medico capo\nTel. +41 81 307 52 52\nLe domande possono essere presentate solo direttamente tramite il portale di lavoro.",
+        "en": "Psychologist/psychologist (a) 80-100 %\nPlace of work: Seewis rehabilitation clinic\nWhere your job does rehab.\nCardiology, Internal Medicine / Oncology and Psychiatry / Psychosomatics. First-class rehabilitation, embedded in a magnificent mountain landscape. With over 50 years of experience. The environment in the Seewis rehabilitation clinic also benefits the approximately 135 employees.\nHere, advanced medicine meets flat hierarchies and a lot of room for manoeuvre. Through close exchange with care and therapy, you and your ideas advance.\nYou can look forward to this:\n- Case-specific treatment of patients with psychosomatic diseases (focus on depression, anxiety and trauma disorder)\n- Close interdisciplinary cooperation in the team (psychiatrist, art therapy, physio- and occupational therapy as well as care)\n- Together with patients, regain a maximum quality of life for them\n- Own design scope in the field of methodology in individual and group setting\nWe are pleased about this:\n- Completed study of psychology, if possible started training as psychological psychotherapist / psychotherapist FSP or in advanced training\n- An empathetic, flexible and creative professional with a high level of teamwork\n- Self-responsible and independent work and willingness to actively participate\n- Interest in individual patient objectives in order to ensure a high level of participation and quality of life during the stay\nThis is what we offer:\nTraining support\nWorking part-time\nDiscounted food\nBuying additional holidays\nTherefore, Seewis rehabilitation clinic:\nWe are one of the leading rehabilitation specialists in Switzerland and are part of VITREA Switzerland. For you, this means a lot of variety and interdisciplinary cooperation at a high professional level, at the same time at eye level. So if you want to make a difference and progress professionally, you are exactly right with us. Everyone can get involved with us.\nApply now Click this link to apply for the job.\nQuestions about the application process:\nNadia Massafra\nHead of Human Resources a.I.\nTel: +41 81 307 52 52\nQuestions about the job:\nDr med. Iris Klausmann\nChief physician psychiatry\nTel: +41 81 307 52 52\nApplications can only be submitted directly via the job portal.",
+        "de": "Psychologe / Psychologin (a) 80-100%\nArbeitsort: Rehaklinik Seewis\nWo dein Job Reha macht.\nKardiologie, Innere Medizin / Onkologie und Psychiatrie/Psychosomatik. Erstklassige Rehabilitation, eingebettet in eine prächtige Berglandschaft. Und das mit über 50 Jahren Erfahrung. Das Umfeld in der Rehaklinik Seewis tut auch den rund 135 Mitarbeitenden gut.\nHier trifft fortschrittliche Medizin auf flache Hierarchien und viel Gestaltungsspielraum. Durch engen Austausch mit Pflege und Therapie kommen du und deine Ideen weiter.\nDarauf darfst du dich freuen:\n- Fallführende Behandlung von Patientinnen und Patienten mit psychosomatischen Erkrankungen (Schwerpunkt Depression, Angst sowie Traumafolgestörung)\n- Enge interdisziplinäre Zusammenarbeit im Team (Psychiater, Kunsttherapie, Physio- und Ergotherapie sowie Pflege)\n- Gemeinsam mit Patientinnen und Patienten eine für sie maximale Lebensqualität wiedergewinnen\n- Eigener Gestaltungsspielraum im Bereich Methodik im Einzel- und Gruppensetting\nDarüber freuen wir uns:\n- Abgeschlossenes Studium der Psychologie, nach Möglichkeit begonnene Ausbildung als Psychologischer Psychotherapeut / Psychotherapeutin FSP oder in fortgeschrittener Ausbildung\n- Eine empathische, flexibe sowie kreative Fachkraft mit einer hohen Teamfähigkeit\n- Eigenverantwortliches und selbstständiges Arbeiten sowie Bereitschaft zur aktiven Mitgestaltung\n- Interesse an individuellen Zielsetzungen der Patientinnen und Patienten, um während des Aufenthalts eine hohe Teilhabe sowie Lebensqualität sicher zu stellen\nDas bieten wir:\nUnterstützung bei Weiterbildung\nTeilzeit arbeiten\nVergünstigtes Essen\nZusätzlichen Urlaub kaufen\nDarum Rehaklinik Seewis:\nWir zählen zu den führenden Reha-Spezialisten der Schweiz und sind Teil der VITREA Schweiz. Für dich bedeutet das viel Abwechslung und interdisziplinäre Zusammenarbeit auf hohem fachlichem Niveau, gleichzeitig auf Augenhöhe. Wenn du also etwas bewegen und beruflich weiterkommen willst, bist du bei uns genau richtig. Denn bei uns können sich alle einbringen.\nJetzt bewerben Klicken Sie auf diesen Link, um sich für die Stelle zu bewerben.\nFragen zum Bewerbungsprozess:\nNadia Massafra\nHead Human Resources a.I.\nTel.: +41 81 307 52 52\nFragen zur Stelle:\nDr. med. Iris Klausmann\nChefärztin Psychiatrie\nTel.: +41 81 307 52 52\nBewerbungen können nur direkt über das Job-Portal übermittelt werden.",
+        "fr": "Psychologue/psychologue (a) 80-100 %\nLieu de travail: Clinique de réadaptation Seewis\nOù votre travail fait la désintox.\nCardiologie, Médecine interne / Oncologie et Psychiatrie / Psychosomatique. Remise en état de première classe, intégrée dans un magnifique paysage de montagne. Avec plus de 50 ans d'expérience. L'environnement de la clinique de réadaptation Seewis profite également aux quelque 135 employés.\nIci, la médecine avancée rencontre des hiérarchies plates et beaucoup de marge de manoeuvre. Grâce à un échange étroit avec les soins et la thérapie, vous et vos idées avancez.\nVous pouvez attendre avec impatience:\n- Traitement spécifique au cas des patients atteints de maladies psychosomatiques (accent sur la dépression, l'anxiété et les troubles traumatologiques)\n- Coopération interdisciplinaire étroite au sein de l'équipe (psychiatre, artothérapie, physiothérapie et ergothérapie ainsi que soins)\n- Avec les patients, retrouver une qualité de vie maximale pour eux\n- Champ d'application propre dans le domaine de la méthodologie dans le cadre individuel et collectif\nNous sommes heureux de ce qui suit :\n- Etude de psychologie terminée, si possible commencé la formation comme psychothérapeute psychologique / psychothérapeute FSP ou en formation avancée\n- Un professionnel empathique, flexible et créatif avec un haut niveau de travail d'équipe\n- Travail autonome et autonome et volonté de participer activement\n- Intérêt pour les objectifs individuels du patient afin d'assurer un niveau élevé de participation et de qualité de vie pendant le séjour\nVoici ce que nous offrons :\nAppui à la formation\nTravail à temps partiel\nAliments réduits\nAchat de vacances supplémentaires\nPar conséquent, la clinique de réadaptation Seewis:\nNous sommes l'un des principaux spécialistes de la réadaptation en Suisse et faisons partie de VITREA Suisse. Pour vous, cela signifie beaucoup de variété et de coopération interdisciplinaire au niveau professionnel élevé, en même temps au niveau des yeux. Donc, si vous voulez faire une différence et progresser professionnellement, vous avez exactement raison avec nous. Tout le monde peut s'impliquer avec nous.\nPostuler maintenant Cliquez sur ce lien pour postuler.\nQuestions concernant le processus de demande :\nNadia Massafra\nChef des Ressources humaines\nTél.: +41 81 307 52 52\nQuestions sur le travail:\nDr Med. Iris Klausmann\nMédecin en chef psychiatrie\nTél.: +41 81 307 52 52\nLes candidatures ne peuvent être soumises directement que via le portail d'emploi."
+      },
+      "location": "Seewis im Prättigau",
+      "canton": "GR",
+      "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
+      "source": "Kurhaus Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T09:46:05.283Z",
+      "addressLocality": "Seewis im Prättigau",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7212",
+      "streetAddress": "Seewis im Prättigau",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+        ],
+        "en": [
+          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+        ],
+        "fr": [
+          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-11T09:42:52.841Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -245,87 +325,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "rehaklinik-seewis-250cf050995a",
-      "slug": "psicologo-psicologo-a-80-100-kurhaus-seewis-im-prattigau",
-      "slugByLocale": {
-        "it": "psicologo-psicologo-a-80-100-kurhaus-seewis-im-prattigau",
-        "en": "psychologist-psychologist-a-80-100-kurhaus-seewis-im-prattigau",
-        "de": "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch",
-        "fr": "psychologue-psychologue-a-80-100-kurhaus-seewis-im-prattigau"
       },
-      "company": "Kurhaus",
-      "companyKey": "rehaklinik-seewis",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Psychologe / Psychologin (a) 80-100%",
-      "titleByLocale": {
-        "it": "Psicologo/psicologo (a) 80-100 %",
-        "en": "Psychologist/psychologist (a) 80-100 %",
-        "de": "Psychologe / Psychologin (a) 80-100%",
-        "fr": "Psychologue/psychologue (a) 80-100 %"
-      },
-      "description": "Psychologe / Psychologin (a) 80-100%\nArbeitsort: Rehaklinik Seewis\nWo dein Job Reha macht.\nKardiologie, Innere Medizin / Onkologie und Psychiatrie/Psychosomatik. Erstklassige Rehabilitation, eingebettet in eine prächtige Berglandschaft. Und das mit über 50 Jahren Erfahrung. Das Umfeld in der Rehaklinik Seewis tut auch den rund 135 Mitarbeitenden gut.\nHier trifft fortschrittliche Medizin auf flache Hierarchien und viel Gestaltungsspielraum. Durch engen Austausch mit Pflege und Therapie kommen du und deine Ideen weiter.\nDarauf darfst du dich freuen:\n- Fallführende Behandlung von Patientinnen und Patienten mit psychosomatischen Erkrankungen (Schwerpunkt Depression, Angst sowie Traumafolgestörung)\n- Enge interdisziplinäre Zusammenarbeit im Team (Psychiater, Kunsttherapie, Physio- und Ergotherapie sowie Pflege)\n- Gemeinsam mit Patientinnen und Patienten eine für sie maximale Lebensqualität wiedergewinnen\n- Eigener Gestaltungsspielraum im Bereich Methodik im Einzel- und Gruppensetting\nDarüber freuen wir uns:\n- Abgeschlossenes Studium der Psychologie, nach Möglichkeit begonnene Ausbildung als Psychologischer Psychotherapeut / Psychotherapeutin FSP oder in fortgeschrittener Ausbildung\n- Eine empathische, flexibe sowie kreative Fachkraft mit einer hohen Teamfähigkeit\n- Eigenverantwortliches und selbstständiges Arbeiten sowie Bereitschaft zur aktiven Mitgestaltung\n- Interesse an individuellen Zielsetzungen der Patientinnen und Patienten, um während des Aufenthalts eine hohe Teilhabe sowie Lebensqualität sicher zu stellen\nDas bieten wir:\nUnterstützung bei Weiterbildung\nTeilzeit arbeiten\nVergünstigtes Essen\nZusätzlichen Urlaub kaufen\nDarum Rehaklinik Seewis:\nWir zählen zu den führenden Reha-Spezialisten der Schweiz und sind Teil der VITREA Schweiz. Für dich bedeutet das viel Abwechslung und interdisziplinäre Zusammenarbeit auf hohem fachlichem Niveau, gleichzeitig auf Augenhöhe. Wenn du also etwas bewegen und beruflich weiterkommen willst, bist du bei uns genau richtig. Denn bei uns können sich alle einbringen.\nJetzt bewerben Klicken Sie auf diesen Link, um sich für die Stelle zu bewerben.\nFragen zum Bewerbungsprozess:\nNadia Massafra\nHead Human Resources a.I.\nTel.: +41 81 307 52 52\nFragen zur Stelle:\nDr. med. Iris Klausmann\nChefärztin Psychiatrie\nTel.: +41 81 307 52 52\nBewerbungen können nur direkt über das Job-Portal übermittelt werden.",
-      "descriptionByLocale": {
-        "it": "Psicologo/psicologo (a) 80-100 %\nLuogo di lavoro: Seewis clinica di riabilitazione\nDove il tuo lavoro si riabilita.\nCardiologia, Medicina Interna / Oncologia e Psichiatria / Psicosomatica. Riabilitazione di prima classe, incastonata in un magnifico paesaggio montano. Con oltre 50 anni di esperienza. L'ambiente nella clinica di riabilitazione Seewis beneficia anche dei circa 135 dipendenti.\nQui, medicina avanzata incontra gerarchie piatte e un sacco di spazio per manovra. Attraverso uno scambio ravvicinato con cura e terapia, tu e le tue idee avanzate.\nSi può guardare avanti a questo:\n- Trattamento specifico del caso di pazienti con malattie psicosomatiche (attenzione sulla depressione, ansia e disturbi del trauma)\n- Chiudere la cooperazione interdisciplinare nel team (psichiatra, arteterapia, fisioterapia e terapia occupazionale, così come la cura)\n- Insieme ai pazienti, ritrovare la massima qualità di vita per loro\n- Campo di applicazione nel campo della metodologia nell'impostazione individuale e di gruppo\nSiamo lieti di questo:\n- Studio completo della psicologia, se possibile iniziato la formazione come psicoterapeuta psicologico / psicoterapeuta FSP o in formazione avanzata\n- Un professionista empatico, flessibile e creativo con un alto livello di lavoro di squadra\n- Lavoro autonomo e indipendente e disponibilità a partecipare attivamente\n- Interessi nei singoli obiettivi del paziente al fine di garantire un alto livello di partecipazione e qualità della vita durante il soggiorno\nQuesto è ciò che offriamo:\nSupporto per la formazione\nLavorazione a tempo parziale\nCibo scontato\nComprare vacanze aggiuntive\nPertanto, Seewis clinica di riabilitazione:\nSiamo uno dei principali specialisti della riabilitazione in Svizzera e facciamo parte della VITREA Svizzera. Per voi, questo significa un sacco di varietà e cooperazione interdisciplinare ad un alto livello professionale, allo stesso tempo a livello degli occhi. Quindi, se vuoi fare la differenza e progredire professionalmente, hai esattamente ragione con noi. Tutti possono essere coinvolti con noi.\nFare clic su questo link per richiedere il lavoro.\nDomande sul processo di applicazione:\nNadia Massafra\nCapo delle Risorse Umane a.I.\nTel. +41 81 307 52 52\nDomande sul lavoro:\nDottor Med. Iris Klausmann\nPsichiatria medico capo\nTel. +41 81 307 52 52\nLe domande possono essere presentate solo direttamente tramite il portale di lavoro.",
-        "en": "Psychologist/psychologist (a) 80-100 %\nPlace of work: Seewis rehabilitation clinic\nWhere your job does rehab.\nCardiology, Internal Medicine / Oncology and Psychiatry / Psychosomatics. First-class rehabilitation, embedded in a magnificent mountain landscape. With over 50 years of experience. The environment in the Seewis rehabilitation clinic also benefits the approximately 135 employees.\nHere, advanced medicine meets flat hierarchies and a lot of room for manoeuvre. Through close exchange with care and therapy, you and your ideas advance.\nYou can look forward to this:\n- Case-specific treatment of patients with psychosomatic diseases (focus on depression, anxiety and trauma disorder)\n- Close interdisciplinary cooperation in the team (psychiatrist, art therapy, physio- and occupational therapy as well as care)\n- Together with patients, regain a maximum quality of life for them\n- Own design scope in the field of methodology in individual and group setting\nWe are pleased about this:\n- Completed study of psychology, if possible started training as psychological psychotherapist / psychotherapist FSP or in advanced training\n- An empathetic, flexible and creative professional with a high level of teamwork\n- Self-responsible and independent work and willingness to actively participate\n- Interest in individual patient objectives in order to ensure a high level of participation and quality of life during the stay\nThis is what we offer:\nTraining support\nWorking part-time\nDiscounted food\nBuying additional holidays\nTherefore, Seewis rehabilitation clinic:\nWe are one of the leading rehabilitation specialists in Switzerland and are part of VITREA Switzerland. For you, this means a lot of variety and interdisciplinary cooperation at a high professional level, at the same time at eye level. So if you want to make a difference and progress professionally, you are exactly right with us. Everyone can get involved with us.\nApply now Click this link to apply for the job.\nQuestions about the application process:\nNadia Massafra\nHead of Human Resources a.I.\nTel: +41 81 307 52 52\nQuestions about the job:\nDr med. Iris Klausmann\nChief physician psychiatry\nTel: +41 81 307 52 52\nApplications can only be submitted directly via the job portal.",
-        "de": "Psychologe / Psychologin (a) 80-100%\nArbeitsort: Rehaklinik Seewis\nWo dein Job Reha macht.\nKardiologie, Innere Medizin / Onkologie und Psychiatrie/Psychosomatik. Erstklassige Rehabilitation, eingebettet in eine prächtige Berglandschaft. Und das mit über 50 Jahren Erfahrung. Das Umfeld in der Rehaklinik Seewis tut auch den rund 135 Mitarbeitenden gut.\nHier trifft fortschrittliche Medizin auf flache Hierarchien und viel Gestaltungsspielraum. Durch engen Austausch mit Pflege und Therapie kommen du und deine Ideen weiter.\nDarauf darfst du dich freuen:\n- Fallführende Behandlung von Patientinnen und Patienten mit psychosomatischen Erkrankungen (Schwerpunkt Depression, Angst sowie Traumafolgestörung)\n- Enge interdisziplinäre Zusammenarbeit im Team (Psychiater, Kunsttherapie, Physio- und Ergotherapie sowie Pflege)\n- Gemeinsam mit Patientinnen und Patienten eine für sie maximale Lebensqualität wiedergewinnen\n- Eigener Gestaltungsspielraum im Bereich Methodik im Einzel- und Gruppensetting\nDarüber freuen wir uns:\n- Abgeschlossenes Studium der Psychologie, nach Möglichkeit begonnene Ausbildung als Psychologischer Psychotherapeut / Psychotherapeutin FSP oder in fortgeschrittener Ausbildung\n- Eine empathische, flexibe sowie kreative Fachkraft mit einer hohen Teamfähigkeit\n- Eigenverantwortliches und selbstständiges Arbeiten sowie Bereitschaft zur aktiven Mitgestaltung\n- Interesse an individuellen Zielsetzungen der Patientinnen und Patienten, um während des Aufenthalts eine hohe Teilhabe sowie Lebensqualität sicher zu stellen\nDas bieten wir:\nUnterstützung bei Weiterbildung\nTeilzeit arbeiten\nVergünstigtes Essen\nZusätzlichen Urlaub kaufen\nDarum Rehaklinik Seewis:\nWir zählen zu den führenden Reha-Spezialisten der Schweiz und sind Teil der VITREA Schweiz. Für dich bedeutet das viel Abwechslung und interdisziplinäre Zusammenarbeit auf hohem fachlichem Niveau, gleichzeitig auf Augenhöhe. Wenn du also etwas bewegen und beruflich weiterkommen willst, bist du bei uns genau richtig. Denn bei uns können sich alle einbringen.\nJetzt bewerben Klicken Sie auf diesen Link, um sich für die Stelle zu bewerben.\nFragen zum Bewerbungsprozess:\nNadia Massafra\nHead Human Resources a.I.\nTel.: +41 81 307 52 52\nFragen zur Stelle:\nDr. med. Iris Klausmann\nChefärztin Psychiatrie\nTel.: +41 81 307 52 52\nBewerbungen können nur direkt über das Job-Portal übermittelt werden.",
-        "fr": "Psychologue/psychologue (a) 80-100 %\nLieu de travail: Clinique de réadaptation Seewis\nOù votre travail fait la désintox.\nCardiologie, Médecine interne / Oncologie et Psychiatrie / Psychosomatique. Remise en état de première classe, intégrée dans un magnifique paysage de montagne. Avec plus de 50 ans d'expérience. L'environnement de la clinique de réadaptation Seewis profite également aux quelque 135 employés.\nIci, la médecine avancée rencontre des hiérarchies plates et beaucoup de marge de manoeuvre. Grâce à un échange étroit avec les soins et la thérapie, vous et vos idées avancez.\nVous pouvez attendre avec impatience:\n- Traitement spécifique au cas des patients atteints de maladies psychosomatiques (accent sur la dépression, l'anxiété et les troubles traumatologiques)\n- Coopération interdisciplinaire étroite au sein de l'équipe (psychiatre, artothérapie, physiothérapie et ergothérapie ainsi que soins)\n- Avec les patients, retrouver une qualité de vie maximale pour eux\n- Champ d'application propre dans le domaine de la méthodologie dans le cadre individuel et collectif\nNous sommes heureux de ce qui suit :\n- Etude de psychologie terminée, si possible commencé la formation comme psychothérapeute psychologique / psychothérapeute FSP ou en formation avancée\n- Un professionnel empathique, flexible et créatif avec un haut niveau de travail d'équipe\n- Travail autonome et autonome et volonté de participer activement\n- Intérêt pour les objectifs individuels du patient afin d'assurer un niveau élevé de participation et de qualité de vie pendant le séjour\nVoici ce que nous offrons :\nAppui à la formation\nTravail à temps partiel\nAliments réduits\nAchat de vacances supplémentaires\nPar conséquent, la clinique de réadaptation Seewis:\nNous sommes l'un des principaux spécialistes de la réadaptation en Suisse et faisons partie de VITREA Suisse. Pour vous, cela signifie beaucoup de variété et de coopération interdisciplinaire au niveau professionnel élevé, en même temps au niveau des yeux. Donc, si vous voulez faire une différence et progresser professionnellement, vous avez exactement raison avec nous. Tout le monde peut s'impliquer avec nous.\nPostuler maintenant Cliquez sur ce lien pour postuler.\nQuestions concernant le processus de demande :\nNadia Massafra\nChef des Ressources humaines\nTél.: +41 81 307 52 52\nQuestions sur le travail:\nDr Med. Iris Klausmann\nMédecin en chef psychiatrie\nTél.: +41 81 307 52 52\nLes candidatures ne peuvent être soumises directement que via le portail d'emploi."
-      },
-      "location": "Seewis im Prättigau",
-      "canton": "GR",
-      "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
-      "source": "Kurhaus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:55:15.500Z",
-      "addressLocality": "Seewis im Prättigau",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7212",
-      "streetAddress": "Seewis im Prättigau",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2570816-psychologe-psychologin-a-80-100?name=%C3%84rzteschaft",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
-        ],
-        "en": [
-          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
-        ],
-        "fr": [
-          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-11T09:42:52.841Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }

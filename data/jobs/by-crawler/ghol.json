@@ -1,15 +1,15 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-27T21:31:47.687Z",
-  "runId": "40585630858",
+  "assembledAt": "2026-10-28T09:43:08.838Z",
+  "runId": "40663046306",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.631Z",
+      "crawledAt": "2026-10-28T09:43:03.044Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -79,8 +79,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,10 +88,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -105,6 +105,77 @@
           "@type": "QuantitativeValue",
           "minValue": 65500,
           "maxValue": 82500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-cd19adb46d26",
+      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
+      "titleByLocale": {
+        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
+        "en": "Assistant physician in practice – FoRCab MFE, West Region",
+        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
+        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
+      },
+      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
+      "descriptionByLocale": {
+        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
+        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
+        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
+        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-medical",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/I_TEMIvLa",
+      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-28T09:43:03.043Z",
+      "previousSlugs": [
+        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:24:46.269Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -156,7 +227,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.630Z",
+      "crawledAt": "2026-10-28T09:43:03.043Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -228,7 +299,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.630Z",
+      "crawledAt": "2026-10-28T09:43:03.043Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -245,77 +316,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:59:27.233Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-cd19adb46d26",
-      "slug": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assistente-medico-in-pratica-forcab-mfe-regione-ovest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assistant-physician-in-practice-forcab-mfe-west-region-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "medecin-assistent-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest",
-      "titleByLocale": {
-        "it": "Assistente medico in pratica – FoRCab MFE, Regione Ovest",
-        "en": "Assistant physician in practice – FoRCab MFE, West Region",
-        "de": "Médecin Assistent-e en cabinet – FoRCab MFE, région Ouest",
-        "fr": "Médecin assistant-e en cabinet – FoRCab MFE, région Ouest"
-      },
-      "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
-      "descriptionByLocale": {
-        "it": "Descrizione del lavoro:\nIl programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\nLa regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\nProfilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\nIstruzione:\n\n• Una laurea in medicina svizzera o equivalente",
-        "en": "Job description:\nThe Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\nThe West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\nRequired profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\nEducation:\n\n• Swiss medical degree or equivalent",
-        "de": "Stellenbeschreibung:\nDas Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\nDie West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\nErforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\nAusbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
-        "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare-medical",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/I_TEMIvLa",
-      "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.629Z",
-      "previousSlugs": [
-        "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:24:46.269Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -377,7 +377,7 @@
       "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.628Z",
+      "crawledAt": "2026-10-28T09:43:03.042Z",
       "previousSlugs": [
         "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
       ],
@@ -454,7 +454,7 @@
       "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.627Z",
+      "crawledAt": "2026-10-28T09:43:03.041Z",
       "previousSlugs": [
         "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -531,7 +531,7 @@
       "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.626Z",
+      "crawledAt": "2026-10-28T09:43:03.040Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -548,84 +548,6 @@
         ]
       },
       "firstSeenAt": "2026-10-19T21:29:33.210Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-328ae8b07693",
-      "slug": "coordinatore-delle-ammissioni-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "coordinatore-delle-ammissioni-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "emergency-admissions-coordinator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "notaufnahmekoordinator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Collaborateur.trice des admissions des urgences",
-      "titleByLocale": {
-        "it": "Coordinatore delle ammissioni di emergenza",
-        "en": "Emergency admissions coordinator",
-        "de": "Notaufnahmekoordinator",
-        "fr": "Collaborateur.trice des admissions des urgences"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\n Niveau de formation :\n CFC Employé.e de commerce ou titre jugé équivalent\n Avantages :\n Intégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\n Un cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Essere responsabile del processo di ammissione di pazienti stazionari e ambulatoriale (variabili programmi, 7/7)\n\n• Aggiornamento delle informazioni amministrative relative ai soggiorni dei pazienti\n\n• Sii responsabile della raccolta e del monitoraggio della copertura assicurativa dei pazienti\n\n• Padroneggiare le procedure amministrative del vostro settore\n\n• Ospitare, dirigere e garantire comunicazioni interne ed esterne, nonché relazioni con i pazienti\n\n• Gestire chiamate telefoniche di servizio e casella e-mail\n\n• Collaborare con i servizi correlati (ricezione, fatturazione, debitore e fornitori di assistenza medica)\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• 3 anni di esperienza in una posizione equivalente\n\n• Settore sanitario\n\n• Senso di benvenuto\n\n• Buona gestione dello stress\n\n• Flessibilità e disponibilità\n\n• Auto-aiuto\n\n• La squadra\n\n• Forza di proposta\n\n• perfetta padronanza del francese (letto, scritto, parlato)\n\n• Buona conoscenza in inglese (minimo A2/B1)\n\n• Utilizzo di strumenti IT (MSOffice Pack)\n\n• Conoscenza Opale (un bene)\nLivello di formazione:\nSWC Dipendente commerciale o equivalente\nVantaggi:\nIntegrare il team di Nyon Admissions è un vero e proprio piano di integrazione per essere rapidamente operativo. Si evolverà in un ambiente di lavoro piacevole, sostenuto da una serie di procedure consolidate. Nyon Hospital si sta evolvendo per ospitare i pazienti in un'infrastruttura moderna e accogliente.\nUn ambiente di lavoro piacevole all'interno di un team di dimensioni umane che incoraggia gli scambi e i vostri progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Be in charge of the admission process of stationary and outpatient patients (variable schedules, 7/7)\n\n• Updating administrative information related to patient stays\n\n• Be responsible for collecting and monitoring patient insurance coverage\n\n• Mastering the administrative procedures of your sector\n\n• Hosting, directing and ensuring internal and external communications, as well as patient relations\n\n• Manage service phone calls and email box\n\n• Collaborate with related services (receipt, billing, debtor, and medical care providers)\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• 3 years of experience in an equivalent position\n\n• Health sector interest\n\n• Sense of welcome\n\n• Good stress management\n\n• Flexibility and availability\n\n• Self-help\n\n• Team will\n\n• Proposal Force\n\n• Perfect mastery of French (read, written, spoken)\n\n• Good knowledge in English (minimum A2/B1)\n\n• Use of IT Tools (MSOffice Pack)\n\n• Opal Knowledge (an asset)\nLevel of training:\nSWC Trade employee or equivalent\nBenefits:\nIntegrating the Nyon Admissions team is a real integration plan to be quickly operational. You will evolve in a pleasant working environment, supported by a series of well-established procedures. Nyon Hospital is evolving to accommodate patients in a modern and welcoming infrastructure.\nA pleasant working environment within a human-sized team that encourages exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Verantwortlich für den Aufnahmeprozess von stationären und ambulanten Patienten (variable Zeitpläne, 7/7)\n\n• Aktualisierung administrativer Informationen im Zusammenhang mit Patientenaufenthalten\n\n• Seien Sie verantwortlich für die Sammlung und Überwachung der Patientenversicherung\n\n• Beherrschung der Verwaltungsverfahren Ihrer Branche\n\n• Hosting, Leitung und Gewährleistung der internen und externen Kommunikation sowie der Patientenbeziehungen\n\n• Verwalten von Servicetelefonanrufen und E-Mail-Box\n\n• Zusammenarbeit mit verwandten Dienstleistungen (Empfang, Abrechnung, Schuldner und medizinische Dienstleister)\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• 3 Jahre Erfahrung in einer gleichwertigen Position\n\n• Interesse des Gesundheitssektors\n\n• Willkommensgefühl\n\n• Gutes Stressmanagement\n\n• Flexibilität und Verfügbarkeit\n\n• Selbsthilfe\n\n• Das Team wird\n\n• Vorschlagsgruppe\n\n• Perfekte Beherrschung des Französischen (gelesen, geschrieben, gesprochen)\n\n• Gute Englischkenntnisse (mindestens A2/B1)\n\n• Nutzung von IT Tools (MSOffice Pack)\n\n• Opal Knowledge (ein Asset)\nAusbildungsniveau:\nSWC gewerbliche Arbeitnehmer oder gleichwertige\nLeistungen:\nDie Integration des Nyon Admissions-Teams ist ein echter Integrationsplan, um schnell einsatzbereit zu sein. Sie werden sich in einem angenehmen Arbeitsumfeld entwickeln, unterstützt durch eine Reihe von gut etablierten Verfahren. Das Nyon Hospital entwickelt sich weiter, um Patienten in einer modernen und einladenden Infrastruktur unterzubringen.\nEin angenehmes Arbeitsumfeld in einem Team von menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\nNiveau de formation :\nCFC Employé.e de commerce ou titre jugé équivalent\nAvantages :\nIntégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\nUn cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/WkSW4quSz",
-      "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.625Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
-        ],
-        "en": [
-          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
-        ],
-        "de": [
-          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T09:22:44.283Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -687,7 +609,7 @@
       "applyUrl": "https://app.beehire.com/invite/kgMrU8wmj",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.624Z",
+      "crawledAt": "2026-10-28T09:43:03.039Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "technicien-de-maintenance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -719,11 +641,89 @@
       }
     },
     {
+      "id": "ghol-328ae8b07693",
+      "slug": "coordinatore-delle-ammissioni-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "coordinatore-delle-ammissioni-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "emergency-admissions-coordinator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "notaufnahmekoordinator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Collaborateur.trice des admissions des urgences",
+      "titleByLocale": {
+        "it": "Coordinatore delle ammissioni di emergenza",
+        "en": "Emergency admissions coordinator",
+        "de": "Notaufnahmekoordinator",
+        "fr": "Collaborateur.trice des admissions des urgences"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\n Niveau de formation :\n CFC Employé.e de commerce ou titre jugé équivalent\n Avantages :\n Intégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\n Un cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Essere responsabile del processo di ammissione di pazienti stazionari e ambulatoriale (variabili programmi, 7/7)\n\n• Aggiornamento delle informazioni amministrative relative ai soggiorni dei pazienti\n\n• Sii responsabile della raccolta e del monitoraggio della copertura assicurativa dei pazienti\n\n• Padroneggiare le procedure amministrative del vostro settore\n\n• Ospitare, dirigere e garantire comunicazioni interne ed esterne, nonché relazioni con i pazienti\n\n• Gestire chiamate telefoniche di servizio e casella e-mail\n\n• Collaborare con i servizi correlati (ricezione, fatturazione, debitore e fornitori di assistenza medica)\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• 3 anni di esperienza in una posizione equivalente\n\n• Settore sanitario\n\n• Senso di benvenuto\n\n• Buona gestione dello stress\n\n• Flessibilità e disponibilità\n\n• Auto-aiuto\n\n• La squadra\n\n• Forza di proposta\n\n• perfetta padronanza del francese (letto, scritto, parlato)\n\n• Buona conoscenza in inglese (minimo A2/B1)\n\n• Utilizzo di strumenti IT (MSOffice Pack)\n\n• Conoscenza Opale (un bene)\nLivello di formazione:\nSWC Dipendente commerciale o equivalente\nVantaggi:\nIntegrare il team di Nyon Admissions è un vero e proprio piano di integrazione per essere rapidamente operativo. Si evolverà in un ambiente di lavoro piacevole, sostenuto da una serie di procedure consolidate. Nyon Hospital si sta evolvendo per ospitare i pazienti in un'infrastruttura moderna e accogliente.\nUn ambiente di lavoro piacevole all'interno di un team di dimensioni umane che incoraggia gli scambi e i vostri progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Be in charge of the admission process of stationary and outpatient patients (variable schedules, 7/7)\n\n• Updating administrative information related to patient stays\n\n• Be responsible for collecting and monitoring patient insurance coverage\n\n• Mastering the administrative procedures of your sector\n\n• Hosting, directing and ensuring internal and external communications, as well as patient relations\n\n• Manage service phone calls and email box\n\n• Collaborate with related services (receipt, billing, debtor, and medical care providers)\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• 3 years of experience in an equivalent position\n\n• Health sector interest\n\n• Sense of welcome\n\n• Good stress management\n\n• Flexibility and availability\n\n• Self-help\n\n• Team will\n\n• Proposal Force\n\n• Perfect mastery of French (read, written, spoken)\n\n• Good knowledge in English (minimum A2/B1)\n\n• Use of IT Tools (MSOffice Pack)\n\n• Opal Knowledge (an asset)\nLevel of training:\nSWC Trade employee or equivalent\nBenefits:\nIntegrating the Nyon Admissions team is a real integration plan to be quickly operational. You will evolve in a pleasant working environment, supported by a series of well-established procedures. Nyon Hospital is evolving to accommodate patients in a modern and welcoming infrastructure.\nA pleasant working environment within a human-sized team that encourages exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Verantwortlich für den Aufnahmeprozess von stationären und ambulanten Patienten (variable Zeitpläne, 7/7)\n\n• Aktualisierung administrativer Informationen im Zusammenhang mit Patientenaufenthalten\n\n• Seien Sie verantwortlich für die Sammlung und Überwachung der Patientenversicherung\n\n• Beherrschung der Verwaltungsverfahren Ihrer Branche\n\n• Hosting, Leitung und Gewährleistung der internen und externen Kommunikation sowie der Patientenbeziehungen\n\n• Verwalten von Servicetelefonanrufen und E-Mail-Box\n\n• Zusammenarbeit mit verwandten Dienstleistungen (Empfang, Abrechnung, Schuldner und medizinische Dienstleister)\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• 3 Jahre Erfahrung in einer gleichwertigen Position\n\n• Interesse des Gesundheitssektors\n\n• Willkommensgefühl\n\n• Gutes Stressmanagement\n\n• Flexibilität und Verfügbarkeit\n\n• Selbsthilfe\n\n• Das Team wird\n\n• Vorschlagsgruppe\n\n• Perfekte Beherrschung des Französischen (gelesen, geschrieben, gesprochen)\n\n• Gute Englischkenntnisse (mindestens A2/B1)\n\n• Nutzung von IT Tools (MSOffice Pack)\n\n• Opal Knowledge (ein Asset)\nAusbildungsniveau:\nSWC gewerbliche Arbeitnehmer oder gleichwertige\nLeistungen:\nDie Integration des Nyon Admissions-Teams ist ein echter Integrationsplan, um schnell einsatzbereit zu sein. Sie werden sich in einem angenehmen Arbeitsumfeld entwickeln, unterstützt durch eine Reihe von gut etablierten Verfahren. Das Nyon Hospital entwickelt sich weiter, um Patienten in einer modernen und einladenden Infrastruktur unterzubringen.\nEin angenehmes Arbeitsumfeld in einem Team von menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Être en charge du processus d’admission des patients stationnaire et ambulatoire (horaires variables, 7/7)\n\n• Assurer la mise à jour des informations administratives liées aux séjours des patients\n\n• Être responsable du recueil et du contrôle de la couverture d’assurance des patients\n\n• Maitriser les procédures administratives de votre secteur\n\n• Accueillir, orienter et assurer les communications internes et externes, ainsi que les relations avec la patientèle\n\n• Gérer les appels téléphonique et boite mails du service\n\n• Collaborer avec les services connexes (réception, de facturation, débiteur, et médico-soignants)\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• 3 ans d’expérience dans un poste équivalent\n\n• Intérêt pour le secteur de la santé\n\n• Sens de l’accueil\n\n• Bonne gestion du stress\n\n• Flexibilité et disponibilité\n\n• Esprit d’entraide\n\n• Volonté de travail en équipe\n\n• Force de proposition\n\n• Parfaite maitrise du français (lu, écrit, parlé)\n\n• Bonne connaissance en anglais (A2/B1 minimum)\n\n• Aisance dans l’utilisation des outils informatiques (Pack MSOffice)\n\n• Connaissance Opale (un atout)\nNiveau de formation :\nCFC Employé.e de commerce ou titre jugé équivalent\nAvantages :\nIntégrer l’équipe des Admissions de Nyon, c’est bénéficier d’un véritable plan d’intégration pour être rapidement opérationnel.le dans une équipe à taille humaine. Vous évoluerez dans un environnement de travail agréable, soutenu par une série de procédures bien établies. L’Hôpital de Nyon évolue pour accueillir les patient.e.s au sein d’une infrastructure moderne et accueillante.\nUn cadre de travail agréable au sein d’une équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/WkSW4quSz",
+      "applyUrl": "https://app.beehire.com/invite/WkSW4quSz",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-28T09:43:03.039Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+        ],
+        "en": [
+          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+        ],
+        "de": [
+          "collaborateur-trice-des-admissions-des-urgences-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:22:44.283Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ghol-e70e7572db97",
       "slug": "fisioterapia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "fisioterapia-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "physiotherapy-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "de": "physiotherapie-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
@@ -765,16 +765,17 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:31:40.623Z",
+      "crawledAt": "2026-10-28T09:43:03.038Z",
       "previousSlugs": [
-        "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "physiotherapy-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "physiotherapy-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
           "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"

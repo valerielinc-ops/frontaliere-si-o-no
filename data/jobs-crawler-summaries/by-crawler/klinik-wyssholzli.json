@@ -1,7 +1,7 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-27T22:00:03.993Z",
+  "generatedAt": "2026-10-28T09:36:48.877Z",
   "total": 4,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2768,
-  "avgDurationMs": 2768,
+  "durationMs": 2552,
+  "avgDurationMs": 2552,
   "durationHistory": [
-    2768
+    2552
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -191,5 +191,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }

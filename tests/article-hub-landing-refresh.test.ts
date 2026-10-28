@@ -53,6 +53,9 @@ function writeFixture(root: string, omitItNewestTitle = false) {
 
 const SHELL =
   '<div class="s-wWmcGm"><article><h1>Editorial shell</h1></article>' +
+  '<p><a href="https://www.estv.admin.ch">ESTV</a> · ' +
+  '<a href="https://www.agenziaentrate.gov.it">Agenzia</a> · ' +
+  '<a href="https://www.bfs.admin.ch">BFS</a></p>' +
   '<div style="min-height:38rem"></div><nav class="s-eazYqN">nav</nav></div>';
 
 function fakeFetch(html: string, seen: string[]) {
@@ -100,6 +103,12 @@ describe('refreshArticleHubLandings', () => {
         expect(html).toContain(`href="/${prefix}${slug}/newest-${locale}/"`);
         expect(html).toContain('https://cdn.frontaliereticino.ch/images/blog/newest.webp');
         expect(html).not.toContain('src="/images/blog/');
+        expect(html).toContain(`https://www.estv.admin.ch/${locale}`);
+        expect(html).toContain(`https://www.agenziaentrate.gov.it/portale/`);
+        expect(html).toContain(`https://www.bfs.admin.ch/bfs/${locale}/home.html`);
+        expect(html).not.toContain('href="https://www.estv.admin.ch"');
+        expect(html).not.toContain('href="https://www.agenziaentrate.gov.it"');
+        expect(html).not.toContain('href="https://www.bfs.admin.ch"');
         expect(html).toContain('<nav class="s-eazYqN">nav</nav>');
       }
     } finally {

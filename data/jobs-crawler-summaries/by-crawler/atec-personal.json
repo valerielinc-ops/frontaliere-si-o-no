@@ -1,7 +1,7 @@
 {
   "key": "atec-personal",
   "label": "ATEC Personal AG",
-  "generatedAt": "2026-10-27T21:19:36.359Z",
+  "generatedAt": "2026-10-28T09:26:48.355Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5892,
-  "avgDurationMs": 5892,
+  "durationMs": 6283,
+  "avgDurationMs": 6283,
   "durationHistory": [
-    5892
+    6283
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29",
       "source": "ATEC Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:19:24.710Z",
+      "crawledAt": "2026-10-28T09:26:32.882Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }

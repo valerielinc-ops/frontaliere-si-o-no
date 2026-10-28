@@ -1,23 +1,23 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-10-27T22:00:42.326Z",
-  "total": 8,
+  "generatedAt": "2026-10-28T09:37:44.967Z",
+  "total": 7,
   "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "updatedCount": 6,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 69477,
-  "avgDurationMs": 69477,
+  "durationMs": 77859,
+  "avgDurationMs": 77859,
   "durationHistory": [
-    69477
+    77859
   ],
   "newJobs": [
     {
-      "id": "company-l4u55x",
-      "slug": "assistente-con-master-in-robotica-supsi-dti-manno",
+      "id": "company-l4u561",
+      "slug": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
       "company": "SUPSI / DTI",
-      "title": "Assistente con Master in Robotica",
+      "title": "Dottoranda / Dottorando in Intelligenza Artificiale – Modellazione causale e sistemi multi-agente",
       "location": "Manno",
       "canton": "TI",
       "category": "tech",
@@ -27,8 +27,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.supsi.ch/bando26_5040",
-      "applyUrl": "https://www.supsi.ch/bando26_5040",
+      "url": "https://www.supsi.ch/bando26_5044",
+      "applyUrl": "https://www.supsi.ch/bando26_5044",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -37,8 +37,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-27T22:00:22.154Z",
-      "firstSeenAt": "2026-10-27T22:00:22.154Z",
+      "crawledAt": "2026-10-28T09:37:15.628Z",
+      "firstSeenAt": "2026-10-28T09:37:15.628Z",
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
@@ -50,11 +50,11 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 23,
+        "translation": 21,
         "completeness": 23
       }
     }
@@ -81,7 +81,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-27T22:00:22.154Z",
+      "crawledAt": "2026-10-28T09:37:15.628Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -129,7 +129,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-27T22:00:22.154Z",
+      "crawledAt": "2026-10-28T09:37:15.628Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "country": "CH",
       "sourceLang": "it",
@@ -174,7 +174,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-27T22:00:22.154Z",
+      "crawledAt": "2026-10-28T09:37:15.628Z",
       "firstSeenAt": "2026-10-20T09:36:21.726Z",
       "country": "CH",
       "sourceLang": "it",
@@ -219,7 +219,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-27T22:00:22.154Z",
+      "crawledAt": "2026-10-28T09:37:15.628Z",
       "firstSeenAt": "2026-10-26T21:41:57.634Z",
       "country": "CH",
       "sourceLang": "it",
@@ -264,7 +264,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-27T22:00:22.154Z",
+      "crawledAt": "2026-10-28T09:37:15.628Z",
       "firstSeenAt": "2026-10-26T21:41:57.634Z",
       "country": "CH",
       "sourceLang": "it",
@@ -284,6 +284,53 @@
         "completeness": 20
       }
     },
+    {
+      "id": "company-l4u55x",
+      "slug": "assistente-con-master-in-robotica-supsi-dti-manno",
+      "company": "SUPSI / DTI",
+      "title": "Assistente con Master in Robotica",
+      "location": "Manno",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.supsi.ch/bando26_5040",
+      "applyUrl": "https://www.supsi.ch/bando26_5040",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-10-28T09:37:15.628Z",
+      "firstSeenAt": "2026-10-27T22:00:22.154Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 23
+      }
+    }
+  ],
+  "removedJobs": [
     {
       "id": "company-7dvau3",
       "slug": "dottoranda-dottorando-in-informatica-human-computer-interaction-con-focus-sulla-validita-e-sull-usabilita-di-strumenti-di-annotazione-semi-a-7dvau3",
@@ -321,12 +368,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -367,17 +413,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }
