@@ -4,6 +4,7 @@ import {
   isActiveJobDetailHtml,
   JOB_DETAIL_PATH_RE,
 } from '../../../scripts/ci/live-job-sitemap.mjs';
+import { getLiveWithRetry } from './live-request';
 export { extractJobDetailPathsFromSitemapXml, JOB_DETAIL_PATH_RE } from '../../../scripts/ci/live-job-sitemap.mjs';
 
 /**
@@ -48,8 +49,11 @@ export const COMPANY_HUB_HREF_RE = /\/(?:azienda|company|unternehmen|entreprise)
 export const COMPANY_HUB_LINK_SELECTOR = 'main a[href*="/azienda-"], main a[href*="/company-"], main a[href*="/unternehmen-"], main a[href*="/entreprise-"]';
 
 async function fetchJobSitemap(page: Page, path: string): Promise<string | null> {
-  const response = await page.request
-    .get(`${LIVE_BASE_URL}${path}`, { timeout: 15_000 })
+  const response = await getLiveWithRetry(
+    page.request.get.bind(page.request),
+    `${LIVE_BASE_URL}${path}`,
+    { timeout: 15_000 },
+  )
     .catch(() => null);
   if (!response || !response.ok()) return null;
   return response.text();
@@ -100,8 +104,11 @@ export async function listActiveJobDetailPaths(
   // few active ones and must not turn discovery into a slow crawl.
   for (const path of candidates) {
     if (active.length >= limit) break;
-    const res = await page.request
-      .get(`${LIVE_BASE_URL}${path}`, { maxRedirects: 5, timeout: 15_000 })
+    const res = await getLiveWithRetry(
+      page.request.get.bind(page.request),
+      `${LIVE_BASE_URL}${path}`,
+      { maxRedirects: 5, timeout: 15_000 },
+    )
       .catch(() => null);
     if (!res || res.status() !== 200) continue;
     const html = await res.text();
