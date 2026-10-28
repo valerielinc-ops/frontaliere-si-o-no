@@ -1,7 +1,7 @@
 {
   "key": "duferco",
   "label": "Duferco",
-  "generatedAt": "2026-10-27T21:27:52.909Z",
+  "generatedAt": "2026-10-28T09:30:35.694Z",
   "total": 4,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2939,
-  "avgDurationMs": 2939,
+  "durationMs": 3474,
+  "avgDurationMs": 3474,
   "durationHistory": [
-    2939
+    3474
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://duferco.talentics.ai/job/1cf7268a-a1ec-4fda-8e3a-94da072587c4",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:27:38.237Z",
+      "crawledAt": "2026-10-28T09:30:21.684Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T21:27:38.220Z",
+      "crawledAt": "2026-10-28T09:30:21.664Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "postalCode": "6900",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,7 +186,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "postalCode": "6900",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -196,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }
