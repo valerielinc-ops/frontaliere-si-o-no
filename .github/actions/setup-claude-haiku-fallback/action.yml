@@ -296,11 +296,14 @@ runs:
           node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/codex-luna-max-node.XXXXXX")"
           /usr/bin/chmod 700 "$node_runtime_root"
           archive_path="$node_runtime_root/$node_archive"
-          # Stesso tetto del gemello in claude-codex-fallback/action.yml: un
-          # download appeso a nodejs.org ha bloccato quello step 32 minuti
-          # (post-merge-followup run 35735836333).
+          # Keep every transfer attempt bounded, but resume a partial archive
+          # when nodejs.org is slow. The checksum below remains the final
+          # integrity gate, while the 15-minute retry window stays below the
+          # shard's 90-minute job timeout (run 40636386276 reached 15.3 MB of
+          # this 31.9 MB archive before the old three-attempt window expired).
           /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
-            --connect-timeout 20 --max-time 120 --retry 2 --retry-delay 5 \
+            --connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5 \
+            --retry-max-time 900 --continue-at - \
             --output "$archive_path" "$node_url"
           archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | "$cut_cmd" -d ' ' -f 1)"
           if [ "$archive_sha256" != "$node_archive_sha256" ]; then

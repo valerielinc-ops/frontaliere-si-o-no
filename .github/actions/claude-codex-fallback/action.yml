@@ -164,14 +164,14 @@ runs:
         /usr/bin/chmod 700 "$node_runtime_root"
         printf 'node_runtime_root=%s\n' "$node_runtime_root" >> "$GITHUB_OUTPUT"
         archive_path="$node_runtime_root/$node_archive"
-        # Download LIMITATO: senza tetto, una connessione appesa a nodejs.org ha
-        # tenuto questo step fermo 32 minuti fino al `timeout-minutes` del
-        # chiamante (post-merge-followup run 35735836333, 2026-09-22), senza
-        # log e senza il fallback. L'archivio (~30 MB) scende in pochi secondi:
-        # 120 s per tentativo e due retry sui guasti transitori bastano, e un
-        # blocco reale fallisce qui con un errore leggibile.
+        # Keep every transfer attempt bounded, but resume a partial archive
+        # when nodejs.org is slow. The checksum below remains the final
+        # integrity gate, while the 15-minute retry window stays bounded for
+        # callers that share this Codex setup class (the event-rewrite run
+        # 40636386276 reached 15.3 MB of 31.9 MB before the old window expired).
         /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
-          --connect-timeout 20 --max-time 120 --retry 2 --retry-delay 5 \
+          --connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5 \
+          --retry-max-time 900 --continue-at - \
           --output "$archive_path" "$node_url"
         archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | /usr/bin/cut -d ' ' -f 1)"
         if [ "$archive_sha256" != "$node_archive_sha256" ]; then
