@@ -2923,6 +2923,24 @@ export const Analytics = {
  },
 
  /**
+  * Auth-handoff diagnostics for a parked alert intent. These stages stay out
+  * of the shown→created goal denominator; they explain where an anonymous
+  * conversion stops without pretending that opening a sign-in prompt created
+  * an alert.
+  */
+ trackJobAlertAuthHandoff: (
+  surface: 'inline_card' | 'job_detail_button' | 'job_detail_anonymous' | 'job_board_filters' | 'end_card' | 'sticky_banner' | 'saved_jobs_nudge' | 'post_auth_auto',
+  stage: 'pending_saved' | 'prompt_shown' | 'dismissed' | 'replay_started' | 'replay_succeeded' | 'replay_failed',
+  keyword?: string,
+ ) => {
+  log('job_alert_auth_handoff', {
+   cta_surface: surface,
+   auth_stage: stage,
+   cta_keyword: redactPersonalData(keyword || '', { inferNamesFromCapitalisation: false }).text.slice(0, 80),
+  });
+ },
+
+ /**
   * Impression event: the surface became visible to the user without any
   * explicit action. Was previously folded into `job_alert_cta_click` with
   * `action='shown'` / `'auto_expand'`; split out so the click event stays
