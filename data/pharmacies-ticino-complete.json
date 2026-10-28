@@ -4715,8 +4715,8 @@
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "30bbe656147dce1117a538a013c610ef8f21351667e262be9cfec2685a635058",
-        "fetchedAt": "2026-10-27T21:54:14.063Z"
+        "sha256": "fc78f629d093c04adf93edcac172067d17353d1a3c97ea3d01f2f84f0e510e14",
+        "fetchedAt": "2026-10-28T01:03:23.769Z"
       }
     },
     "regions": {
@@ -4724,7 +4724,7 @@
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
         "dutyCount": 14,
-        "fetchedAt": "2026-10-27T21:54:14.063Z",
+        "fetchedAt": "2026-10-28T01:03:23.769Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4734,7 +4734,7 @@
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-27T21:54:14.063Z",
+        "fetchedAt": "2026-10-28T01:03:23.769Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4744,7 +4744,7 @@
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
         "dutyCount": 12,
-        "fetchedAt": "2026-10-27T21:54:14.063Z",
+        "fetchedAt": "2026-10-28T01:03:23.769Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4754,7 +4754,7 @@
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-27T21:54:14.063Z",
+        "fetchedAt": "2026-10-28T01:03:23.769Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -4764,13 +4764,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-27T21:54:14.063Z",
+        "fetchedAt": "2026-10-28T01:03:23.769Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-fd34c2e9d502b3d3604305c8845a2effd99bb5a8e0bf34dd63f3d0314245e40e"
+    "releaseId": "pharmacy-v1-4948e9b726bc66cbf3777336ad1e1fcea3f8ed48d4c999524bd9fa2a1285de16"
   }
 }
