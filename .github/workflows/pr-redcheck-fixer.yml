@@ -1306,6 +1306,7 @@ jobs:
             **Metodo:**
             - Capisci PERCHÉ fallisce prima di toccare qualcosa. Le due diagnosi possibili sono opposte: «il codice della PR viola un invariante reale» (→ fixa il codice) oppure «l'invariante ha una via di uscita dichiarata che questo caso soddisfa» (→ vedi l'eccezione sopra).
             - Riproduci in locale prima di fixare: `npx vitest run <file-del-test>`. Un fix non riprodotto non è un fix.
+            - Il sandbox espone `node`, `npm` e `npx` dal runtime Node pinnato e verificato dall'action. Usali direttamente; non spendere turni per reinstallare il runtime o per aggirare il sandbox.
             - **Verifica che il rosso sia davvero della PR.** Se lo stesso test fallisce anche su `main` (`git fetch origin main && git stash && git checkout FETCH_HEAD -- <file>`, o più semplicemente controlla se il test tocca file che la PR non ha cambiato), allora è un rosso EREDITATO: commenta dicendolo, con la prova, e TERMINA senza toccare la PR. Ripararlo qui lo nasconderebbe invece di risolverlo.
             - Fix CHIRURGICO alla CLASSE del difetto (AGENTS.md #6): se il fallimento segnala un pattern, `rg` i sibling e sweepa l'intera classe nella STESSA commit, o giustifica ogni sibling non toccato in `## Non implementato (ancora)`.
             - Mai disabilitare AdSense Auto Ads (#7). Mai path home assoluti o email personali (Privacy).
