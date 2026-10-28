@@ -33,6 +33,20 @@ describe('GSC Search Analytics bounded retries', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('fails closed after exhausting transient HTTP retries', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue(
+      new Response('busy', { status: 503 }),
+    );
+
+    await expect(
+      fetchGsc('https://gsc.test/query', { method: 'POST' }, {
+        fetchImpl,
+        retryDelayMs: 0,
+      }),
+    ).rejects.toThrow('GSC request failed after 3 attempts: HTTP 503');
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+  });
+
   it('fails with a clear error after repeated timeouts', async () => {
     const fetchImpl = vi.fn((_url, { signal }: { signal: AbortSignal }) =>
       new Promise<Response>((_resolve, reject) => {

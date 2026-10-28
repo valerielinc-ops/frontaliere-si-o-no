@@ -47,8 +47,13 @@ export async function fetchGsc(
         signal: AbortSignal.timeout(timeoutMs),
       });
 
-      if (!isRetryableStatus(response.status) || attempt === attempts) {
+      if (!isRetryableStatus(response.status)) {
         return response;
+      }
+
+      if (attempt === attempts) {
+        if (response.body?.cancel) await response.body.cancel();
+        throw new Error(`GSC request failed after ${attempts} attempts: HTTP ${response.status}`);
       }
 
       // Release a retryable response body before opening the next request.
