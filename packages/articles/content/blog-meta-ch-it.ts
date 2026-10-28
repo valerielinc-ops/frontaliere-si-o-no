@@ -8642,6 +8642,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tavola-rotonda-sei-misure.title': 'Sei nuove misure sul contenimento dei costi nel settore sanitario',
     'blog.article.tavola-rotonda-sei-misure.excerpt': 'Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto soccorso e cure',
     'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.allarme-popolazione-165-milioni.title': 'Allarme popolazione: 165,4 mln per modernizzazione',
+    'blog.article.allarme-popolazione-165-milioni.excerpt': 'Il Consiglio federale chiede 165,4 milioni di franchi.',
+    'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

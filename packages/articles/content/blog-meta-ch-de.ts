@@ -8642,6 +8642,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tavola-rotonda-sei-misure.title': 'Sechs neue Maßnahmen zur Kostendämpfung im Gesundheitswesen',
     'blog.article.tavola-rotonda-sei-misure.excerpt': 'Sechs neue Maßnahmen werden ab 2027 in Kraft treten Die fünfte Gesprächsrunde tagte am 26.',
     'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.allarme-popolazione-165-milioni.title': 'Alarmierung der Bevölkerung: 165,4 Mio. für die Modernisierung',
+    'blog.article.allarme-popolazione-165-milioni.excerpt': 'Der Bundesrat beantragt 165,4 Millionen Franken.',
+    'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
