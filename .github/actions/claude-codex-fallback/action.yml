@@ -164,29 +164,30 @@ runs:
         /usr/bin/chmod 700 "$node_runtime_root"
         printf 'node_runtime_root=%s\n' "$node_runtime_root" >> "$GITHUB_OUTPUT"
         archive_path="$node_runtime_root/$node_archive"
-        # Keep every transfer attempt bounded, but resume a partial archive
-        # with explicit HTTP ranges. curl's internal retry loop can replace a
-        # partial response with a fresh response, so it can spend all 15
-        # minutes without monotonic progress (run 40662122968). A partial
-        # 206 response is appended only after Content-Range proves that it
-        # starts at the current file size; the checksum below remains the
-        # final integrity gate.
+        # Keep every transfer attempt bounded and request a fixed 4 MiB range.
+        # Asking the mirror for the entire remaining tail made each retry wait
+        # for a large response even when only a partial 206 arrived (run
+        # 40682692004). A partial response is appended only after
+        # Content-Range proves that it starts at the current file size; the
+        # checksum below remains the final integrity gate.
         download_pinned_node_archive() {
           local url="$1" destination="$2" temp_root="$3" max_attempts="$4" max_time="$5" connect_timeout="$6"
           local attempt=1 archive_size part_path headers_path response_code curl_status
           local content_range range_spec range_start range_end range_total range_valid
-          local expected_chunk_size part_size new_size header_line
+          local range_end_request expected_chunk_size part_size new_size header_line
+          local chunk_bytes=4194304
           /usr/bin/touch -- "$destination"
           part_path="$temp_root/node-archive-part"
           headers_path="$temp_root/node-archive-headers"
           while [ "$attempt" -le "$max_attempts" ]; do
             archive_size="$(/usr/bin/stat -c '%s' -- "$destination" 2>/dev/null || printf '0')"
+            range_end_request=$((archive_size + chunk_bytes - 1))
             : > "$part_path"
             : > "$headers_path"
             set +e
             response_code="$(/usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
               --connect-timeout "$connect_timeout" --max-time "$max_time" \
-              --range "${archive_size}-" --dump-header "$headers_path" \
+              --range "${archive_size}-${range_end_request}" --dump-header "$headers_path" \
               --write-out '%{http_code}' --output "$part_path" "$url")"
             curl_status=$?
             set -e
@@ -223,7 +224,7 @@ runs:
                   esac
                 done
                 if [ "$range_valid" -eq 1 ] && [ "$range_start" = "$archive_size" ] && \
-                  [ "$range_end" -ge "$range_start" ]; then
+                  [ "$range_end" -ge "$range_start" ] && [ "$range_end" -lt "$range_total" ]; then
                   expected_chunk_size=$((range_end - range_start + 1))
                   part_size="$(/usr/bin/stat -c '%s' -- "$part_path" 2>/dev/null || printf '0')"
                   if [ "$part_size" -gt 0 ] && [ "$part_size" -le "$expected_chunk_size" ]; then
@@ -243,7 +244,7 @@ runs:
           done
           return 1
         }
-        download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 120 20
+        download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 12 120 20
         archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | /usr/bin/cut -d ' ' -f 1)"
         if [ "$archive_sha256" != "$node_archive_sha256" ]; then
           echo '::error::Pinned Node archive checksum mismatch.'

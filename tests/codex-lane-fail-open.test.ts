@@ -21,9 +21,13 @@ describe('Codex article lane bootstrap', () => {
   });
 
   it('bounds a slow Node mirror instead of holding a crawler group open', () => {
-    expect(RUNTIME).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 3 60 15');
+    expect(RUNTIME).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 60 15');
     expect(RUNTIME).toContain('--max-time "$max_time"');
-    expect(RUNTIME).toContain('--range "${archive_size}-"');
+    expect(RUNTIME).toContain('local chunk_bytes=4194304');
+    expect(RUNTIME).toContain('range_end_request=$((archive_size + chunk_bytes - 1))');
+    expect(RUNTIME).toContain('--range "${archive_size}-${range_end_request}"');
     expect(RUNTIME).toContain('content-range:*');
+    expect(RUNTIME).toContain('[ "$range_end" -lt "$range_total" ]');
+    expect(RUNTIME).not.toContain('--range "${archive_size}-"');
   });
 });
