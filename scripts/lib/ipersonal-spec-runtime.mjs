@@ -425,8 +425,10 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     const sourceMarkup = successfulDetailAttempts.get(attemptedUrl)?.html || '';
     return {
       detail,
-      hasRichDescription: hasRichIpersonalDescription(detail?.description)
-        || hasRichIpersonalDescription(extractIpersonalDescription(sourceMarkup)),
+      // Only the source boundary is authoritative for this quality verdict.
+      // A generic extractor may accept a long JSON-LD description with a
+      // bullet-looking line even when the authored detail body is absent.
+      hasRichDescription: hasRichIpersonalDescription(extractIpersonalDescription(sourceMarkup)),
     };
   };
   const enriched = rows.map((row) => {
@@ -492,6 +494,11 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
       (responseIdentityCounts.get(resolvedDetailUrl) || 0) + 1,
     );
   }
+  // Keep attempted identities for the metric, but keep both attempted and
+  // resolved identities for filtering. A thin detail may redirect from A to
+  // B while the generic row exposes B; counting aliases separately would
+  // inflate qualityDroppedCount, while filtering only A would publish B.
+  const qualityDroppedAttemptUrls = new Set();
   const qualityDroppedUrls = new Set();
   const detailFailureUrls = new Set();
   for (const attemptedUrl of attemptedDetailUrls) {
@@ -505,7 +512,11 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     }
     const geography = resolveDetailOrListingSwissGeography(detail, {}).geography;
     const descriptionProven = detailEvidenceForAttempt(attemptedUrl).hasRichDescription;
-    if (!geography || !descriptionProven) qualityDroppedUrls.add(attemptedUrl);
+    if (!geography || !descriptionProven) {
+      qualityDroppedAttemptUrls.add(attemptedUrl);
+      qualityDroppedUrls.add(attemptedUrl);
+      if (resolvedDetailUrl) qualityDroppedUrls.add(resolvedDetailUrl);
+    }
   }
   const publishableEnriched = enriched.filter((row) => {
     const attemptedUrl = canonicalUrl(row?.url);
@@ -562,7 +573,7 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     );
   }
   Object.defineProperty(outputRows, 'qualityDroppedCount', {
-    value: qualityDroppedUrls.size,
+    value: qualityDroppedAttemptUrls.size,
     enumerable: false,
   });
   Object.defineProperty(outputRows, 'detailFailureCount', {
