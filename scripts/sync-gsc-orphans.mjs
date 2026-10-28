@@ -46,24 +46,12 @@ import {
 } from './lib/orphan-enriched-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { fetchGsc } from './lib/gsc-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const SITE_URL = 'https://frontaliereticino.ch';
-const GSC_FETCH_TIMEOUT_MS = (() => {
-  const value = Number(process.env.GSC_FETCH_TIMEOUT_MS);
-  if (!Number.isFinite(value) || value <= 0) return 30_000;
-  return Math.min(Math.floor(value), 120_000);
-})();
-
-function fetchGsc(url, init = {}) {
-  return fetch(url, {
-    ...init,
-    signal: AbortSignal.timeout(GSC_FETCH_TIMEOUT_MS),
-  });
-}
-
 let resolvedSiteUrl = SITE_URL;
 const DRY_RUN = process.argv.includes('--dry-run');
 
