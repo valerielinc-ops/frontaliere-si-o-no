@@ -1,7 +1,7 @@
 {
   "key": "octapharma",
   "label": "Octapharma",
-  "generatedAt": "2026-10-28T20:11:07.685Z",
+  "generatedAt": "2026-10-28T21:25:51.259Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 7719,
-  "avgDurationMs": 7719,
+  "unchangedCount": 3,
+  "durationMs": 6288,
+  "avgDurationMs": 6288,
   "durationHistory": [
-    7719
+    6288
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "octapharma-bcf2f4b50027",
       "slug": "group-senior-analyst-quality-applications-octapharma-lachen",
@@ -35,7 +37,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Analyst-Quality-Applications/1451699233/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:10:47.860Z",
+      "crawledAt": "2026-10-28T21:25:32.255Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -63,10 +65,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "octapharma-db4e170aa042",
       "slug": "digital-marketing-manager-business-unit-internazionali-octapharma-lachen",
@@ -79,7 +78,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Digital-Marketing-Manager-International-Business-Units/1442919833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:10:47.067Z",
+      "crawledAt": "2026-10-28T21:25:31.722Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -121,7 +120,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Expert-Clinical-Trial-Documentation-Clinical-Trial-Associate-%28CTA%29/1425186833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:10:46.395Z",
+      "crawledAt": "2026-10-28T21:25:31.192Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -151,5 +150,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
