@@ -13618,7 +13618,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate aura près de 500 mila euro de moins au titre des rétrocessions.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.mozione-ticino-ristorni-salute.title': 'Motion au Tessin contre la taxe sur la santé',
-    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des restaurants Objet',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des ristournes fiscales Objet',
     'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.ristorni-malnate-meno-500\u006dila.title': 'Ristournes frontalières : 500 000 euros de moins pour Malnate',
     'blog.article.ristorni-malnate-meno-500\u006dila.excerpt': 'Malnate recevra près de 500 000 euros de moins. Le fonds national passe de 89 à 108 millions et les ristournes devraient arriver début novembre. Près de 1 700 habitants de Malnate traversent chaque jour la frontière.',
