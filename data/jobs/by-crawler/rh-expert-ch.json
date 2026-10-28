@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rh-expert-ch",
-  "assembledAt": "2026-10-28T09:51:01.360Z",
+  "assembledAt": "2026-10-28T11:08:47.495Z",
   "runId": "40663869566",
   "jobs": [
     {
@@ -66,85 +66,6 @@
         ]
       },
       "firstSeenAt": "2026-10-19T09:28:20.836Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "addressLocality": "Genève"
-    },
-    {
-      "id": "rh-expert-ch-debaefbfbbbe",
-      "slug": "hostesses-rh-expert-geneve-debaefbf",
-      "slugByLocale": {
-        "it": "hostesses-rh-expert-geneve-debaefbf",
-        "en": "hostesses-rh-expert-geneve-debaefbf",
-        "de": "hostessen-rh-expert-geneve-debaefbf",
-        "fr": "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
-      },
-      "slugDisambiguator": "debaefbf",
-      "company": "RH-Expert",
-      "companyKey": "rh-expert-ch",
-      "companyDomain": "rh-expert.ch",
-      "title": "Hôtesses d'accueil",
-      "titleByLocale": {
-        "it": "Hostesses",
-        "en": "Hostesses",
-        "de": "Hostessen",
-        "fr": "Hôtesses d'accueil"
-      },
-      "description": "Prendre le vestiaire\n• Orienter les clients\n• Remmettre les badges\n• Excellente présentation, souriante et avenante.\n• Flexible et dynamique.\n• Langues : Français et anglais courant Obligatoire.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT).\n• Horaires : Selon disponibilités.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir",
-      "descriptionByLocale": {
-        "it": "Prendi lo spogliatoio\n• Clienti orientali\n• Tassi di imballaggio\n• Ottima presentazione, sorridente e amichevole.\n• Flessibile e dinamico.\n• Lingue: Francese e attuale Mandatorio Inglese.\n• Vi offriamo:\n• Lavoro a lungo termine con stipendio in linea con la legislazione attuale (CCNT).\n• Ore : A seconda della disponibilità.\n• Tipo di contratto: Temporaneo.\n• Entrata in ufficio: Immediatamente o da concordare",
-        "en": "Take the locker room\n• Orient clients\n• Pack badges\n• Excellent presentation, smiling and friendly.\n• Flexible and dynamic.\n• Languages: French and current English Mandatory.\n• We offer you:\n• Long-term work with salary in line with current legislation (CCNT).\n• Hours : Depending on availability.\n• Type of contract: Temporary.\n• Entry into office: Immediately or to be agreed",
-        "de": "Nehmen Sie den Umkleideraum\n• Orientierte Kunden\n• Packabzeichen\n• Hervorragende Präsentation, lächelnd und freundlich.\n• Flexibel und dynamisch.\n• Sprachen: Französisch und aktuelles Englisch Mandatory.\n• Wir bieten Ihnen:\n• Langfristige Arbeit mit Gehalt im Einklang mit der geltenden Gesetzgebung (CCNT).\n• Stunden: Abhängig von der Verfügbarkeit.\n• Art des Vertrags: Befristet.\n• Amtsantritt: Sofort oder noch zu vereinbaren",
-        "fr": "Prendre le vestiaire\n• Orienter les clients\n• Remmettre les badges\n• Excellente présentation, souriante et avenante.\n• Flexible et dynamique.\n• Langues : Français et anglais courant Obligatoire.\n• Nous vous proposons :\n• Un travail sur du long terme avec un salaire en correspondance avec la législation en vigueur (CCNT).\n• Horaires : Selon disponibilités.\n• Type de contrat : Temporaire.\n• Entrée en fonction : De suite ou à convenir"
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://rh-expert.ch/fr/offres-demploi/hotes-et-hotesses-daccueil",
-      "source": "RH-Expert Official Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:50:54.678Z",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "employmentType": "OTHER",
-      "contract": "other",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://rh-expert.ch/fr/offres-demploi/hotes-et-hotesses-daccueil",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
-        ],
-        "en": [
-          "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
-        ],
-        "de": [
-          "hotesses-d-accueil-geneve-rh-expert-ch-debaefbf"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:38:06.681Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
