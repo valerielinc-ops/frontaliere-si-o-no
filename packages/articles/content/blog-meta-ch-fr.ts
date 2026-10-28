@@ -8646,7 +8646,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Le Conseil fédéral demande 165,4 millions de francs.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.norme-flessibilita-start-up.title': 'Conseil fédéral assouplit le temps de travail des start-up',
-    'blog.article.norme-flessibilita-start-up.excerpt': 'Le Conseil fédéral introduit des dérogations ciblées aux règles sur la durée du travail et du repos pour certains employés de start-up, avec une entrée en vigueur le 1er décembre 2026 et des conditions liées aux compétences spécifiques, à l’autonomie, à la participation au capital et aux projets de durée limitée.',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Le Conseil fédéral adopte de nouvelles dispositions spéciales pour les start-up et certains salariés; elles entreront en vigueur le 1er décembre 2026 et permettront davantage de flexibilité dans l’organisation du temps de travail sous des conditions précises.',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
