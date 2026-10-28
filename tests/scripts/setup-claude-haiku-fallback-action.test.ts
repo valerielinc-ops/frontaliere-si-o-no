@@ -113,13 +113,17 @@ describe('Codex Luna Max article lane setup action', () => {
       )?.run ?? '';
       const transferBudget = candidatePath === actionPath
         ? 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 3 60 15'
-        : 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 120 20';
+        : 'download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 12 120 20';
       expect(resolver, candidatePath).toContain(transferBudget);
       expect(resolver, candidatePath).toContain('download_pinned_node_archive()');
-      expect(resolver, candidatePath).toContain('--range "${archive_size}-"');
+      expect(resolver, candidatePath).toContain('local chunk_bytes=4194304');
+      expect(resolver, candidatePath).toContain('range_end_request=$((archive_size + chunk_bytes - 1))');
+      expect(resolver, candidatePath).toContain('--range "${archive_size}-${range_end_request}"');
+      expect(resolver, candidatePath).not.toContain('--range "${archive_size}-"');
       expect(resolver, candidatePath).toContain('--dump-header "$headers_path"');
       expect(resolver, candidatePath).toContain('content-range:*');
       expect(resolver, candidatePath).toContain('range_start');
+      expect(resolver, candidatePath).toContain('[ "$range_end" -lt "$range_total" ]');
       expect(resolver, candidatePath).toContain('/usr/bin/cat -- "$part_path" >> "$destination"');
       expect(resolver, candidatePath).not.toContain('--continue-at -');
       expect(resolver, candidatePath).toContain('node_archive_sha256=');

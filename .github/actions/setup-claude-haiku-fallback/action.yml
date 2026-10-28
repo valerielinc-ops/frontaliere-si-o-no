@@ -300,27 +300,29 @@ runs:
           node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/codex-luna-max-node.XXXXXX")"
           /usr/bin/chmod 700 "$node_runtime_root"
           archive_path="$node_runtime_root/$node_archive"
-          # Keep the optional transfer bounded. Each attempt asks for the
-          # exact remaining range and only appends bytes whose Content-Range
-          # starts at the current file size. curl's internal retry loop can
-          # replace a partial response with a fresh response, so it can spend
-          # the whole budget without monotonic progress (run 40662122968).
+          # Keep the optional transfer bounded and request a fixed 4 MiB range.
+          # Asking the mirror for the entire remaining tail made each retry
+          # wait for a large response even when only a partial 206 arrived (run
+          # 40682692004). Only a Content-Range starting at the current file
+          # size may be appended; the checksum below remains the final gate.
           download_pinned_node_archive() {
             local url="$1" destination="$2" temp_root="$3" max_attempts="$4" max_time="$5" connect_timeout="$6"
             local attempt=1 archive_size part_path headers_path response_code curl_status
             local content_range range_spec range_start range_end range_total range_valid
-            local expected_chunk_size part_size new_size header_line
+            local range_end_request expected_chunk_size part_size new_size header_line
+            local chunk_bytes=4194304
             /usr/bin/touch -- "$destination"
             part_path="$temp_root/node-archive-part"
             headers_path="$temp_root/node-archive-headers"
             while [ "$attempt" -le "$max_attempts" ]; do
               archive_size="$("$stat_cmd" -c '%s' -- "$destination" 2>/dev/null || printf '0')"
+              range_end_request=$((archive_size + chunk_bytes - 1))
               : > "$part_path"
               : > "$headers_path"
               set +e
               response_code="$(/usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
                 --connect-timeout "$connect_timeout" --max-time "$max_time" \
-                --range "${archive_size}-" --dump-header "$headers_path" \
+                --range "${archive_size}-${range_end_request}" --dump-header "$headers_path" \
                 --write-out '%{http_code}' --output "$part_path" "$url")"
               curl_status=$?
               set -e
@@ -357,7 +359,7 @@ runs:
                     esac
                   done
                   if [ "$range_valid" -eq 1 ] && [ "$range_start" = "$archive_size" ] && \
-                    [ "$range_end" -ge "$range_start" ]; then
+                    [ "$range_end" -ge "$range_start" ] && [ "$range_end" -lt "$range_total" ]; then
                     expected_chunk_size=$((range_end - range_start + 1))
                     part_size="$("$stat_cmd" -c '%s' -- "$part_path" 2>/dev/null || printf '0')"
                     if [ "$part_size" -gt 0 ] && [ "$part_size" -le "$expected_chunk_size" ]; then
