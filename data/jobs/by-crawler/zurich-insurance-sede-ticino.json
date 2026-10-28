@@ -415,6 +415,7 @@
         "de": "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757"
       },
+      "slugDisambiguator": "1375453757",
       "company": "Zurich Insurance",
       "companyKey": "zurich-insurance-sede-ticino",
       "companyDomain": "zurich.ch",
@@ -457,13 +458,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "bvg-personnel-insurance-administration-m-f-d-zurich-insurance-zurich-1375453757",
-        "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757",
-        "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-sede-ticino-zurich",
@@ -478,8 +472,12 @@
           "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
         ]
       },
-      "slugDisambiguator": "1375453757",
-      "firstSeenAt": "2026-10-22T09:31:28.847Z",
+      "previousSlugs": [
+        "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "bvg-personnel-insurance-administration-m-f-d-zurich-insurance-zurich-1375453757",
+        "bvg-administration-de-l-assurance-du-personnel-h-f-d-zurich-insurance-zurich-1375453757",
+        "bvg-sachbearbeiter-versichertenverwaltung-m-w-d-zurich-insurance-zurich-1375453757"
+      ],
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -492,7 +490,9 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:31:28.847Z",
+      "needsRetranslation": false
     },
     {
       "id": "zurich-insurance-sede-ticino-1375249057",

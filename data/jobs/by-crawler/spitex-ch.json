@@ -286,14 +286,14 @@
       "applyUrl": "https://www.spitexjobs.ch/job/ausbildung-fuer-hf-studium-ab-januar-2027/J966640",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "ausbildung-fur-hf-studium-ab-januar-2027-spitex-ch-goldau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-fur-hf-studium-ab-januar-2027-spitex-ch-goldau"
         ]
       },
+      "previousSlugs": [
+        "ausbildung-fur-hf-studium-ab-januar-2027-spitex-ch-goldau"
+      ],
       "salaryMin": 59500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -678,10 +678,6 @@
       "applyUrl": "https://www.spitexjobs.ch/job/bildungsverantwortlicher-und-fachverantwortlicher-pflege-pflegedienstleitung-100-prozent/J997139",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex",
-        "bildungsverantwortliche-r-e-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex-glattal-dietlikon"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex",
@@ -694,7 +690,10 @@
           "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex"
         ]
       },
-      "firstSeenAt": "2026-10-28T09:28:25.423Z",
+      "previousSlugs": [
+        "bildungsverantwortliche-r-und-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex",
+        "bildungsverantwortliche-r-e-fachverantwortliche-r-pflege-pflegedienstleitung-100-spitex-glattal-dietlikon"
+      ],
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -707,7 +706,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T09:28:25.423Z"
     },
     {
       "id": "spitex-ch-eb9830378051",
