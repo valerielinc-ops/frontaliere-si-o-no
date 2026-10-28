@@ -924,7 +924,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('/usr/bin/curl --fail --silent --show-error --location');
     // Ogni tentativo usa il range residuo e conserva solo byte con
     // Content-Range coerente; il cap totale resta bounded per la CI.
-    expect(action).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 6 120 20');
+    expect(action).toContain('download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 120 20');
     expect(action).toContain('--max-time "$max_time"');
     expect(action).toContain('--range "${archive_size}-"');
     expect(action).toContain('--dump-header "$headers_path"');

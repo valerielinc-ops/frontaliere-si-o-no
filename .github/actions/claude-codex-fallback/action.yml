@@ -243,7 +243,7 @@ runs:
           done
           return 1
         }
-        download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 6 120 20
+        download_pinned_node_archive "$node_url" "$archive_path" "$node_runtime_root" 8 120 20
         archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | /usr/bin/cut -d ' ' -f 1)"
         if [ "$archive_sha256" != "$node_archive_sha256" ]; then
           echo '::error::Pinned Node archive checksum mismatch.'
