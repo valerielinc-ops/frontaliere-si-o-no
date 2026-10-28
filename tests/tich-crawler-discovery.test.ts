@@ -98,6 +98,33 @@ describe('fetchTichJobDetailUrls', () => {
     expect(attempts.get(RSS_URL)).toBe(1);
   });
 
+  it('treats a valid empty listing as a successful zero-source result', async () => {
+    const emptyListingHtml = listingHtml.replace(
+      '<a href="/offerte-d\'impieghi.html?yid=4101&amp;sid=transient">Offerta</a>',
+      '',
+    );
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === LISTING_URL) return new Response(emptyListingHtml, { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+
+    const result = await fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      timeoutMs: 1_000,
+    });
+
+    expect(result).toMatchObject({
+      listingSucceeded: true,
+      rssSucceeded: false,
+      officialSucceeded: false,
+      morssSucceeded: false,
+      sourceZero: true,
+      urls: [],
+    });
+  });
+
   it('uses the validated official Canton listing when both portal sources are unavailable', async () => {
     const fetchImpl = vi.fn(async (url: string) => {
       if (url === OFFICIAL_LISTING_URL) return new Response(officialListingHtml, { status: 200 });

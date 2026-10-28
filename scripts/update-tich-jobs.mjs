@@ -508,7 +508,6 @@ export async function fetchTichJobDetailUrls(options = {}) {
     const hasMorssMarker = /id=["']jobslisting["']/i.test(source);
     if (!hasPortalIdentity || (!hasDirectMarker && !(allowMorssIdentity && hasMorssMarker))) return false;
 
-    const beforeCount = allUrls.size;
     let match;
     while ((match = JOB_DETAIL_HREF_RE.exec(source)) !== null) {
       discoveredOccurrences += 1;
@@ -516,7 +515,6 @@ export async function fetchTichJobDetailUrls(options = {}) {
       if (normalized) allUrls.add(normalized);
     }
     JOB_DETAIL_HREF_RE.lastIndex = 0;
-    if (allUrls.size === beforeCount) return false;
 
     listingSucceeded = true;
     console.log(`  📦 ${sourceLabel}: ${allUrls.size} job URL(s) found`);
