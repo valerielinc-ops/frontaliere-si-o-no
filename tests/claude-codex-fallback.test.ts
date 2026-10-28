@@ -944,8 +944,9 @@ describe('copertura workflow diretti', () => {
   it('rende npm e npx disponibili nel sandbox dal runtime attestato', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     const codexStep = codexActionStep('Run Codex primary (bounded capacity retry)').run!;
-    expect(codexStep).toContain('TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}');
-    expect(codexStep).toContain('TRUSTED_NPM_SHA256: ${{ steps.trusted_node.outputs.npm_sha256 }}');
+    const codexStepDefinition = codexActionStep('Run Codex primary (bounded capacity retry)');
+    expect(codexStepDefinition.env?.TRUSTED_NPM).toBe('${{ steps.trusted_node.outputs.npm_realpath }}');
+    expect(codexStepDefinition.env?.TRUSTED_NPM_SHA256).toBe('${{ steps.trusted_node.outputs.npm_sha256 }}');
     expect(codexStep).toContain('Trusted npm runtime escaped the pinned Node directory.');
     expect(codexStep).toContain('Attested npm runtime cannot be executed by attested Node.');
     expect(codexStep).toContain('trusted_node_root_toml=');
