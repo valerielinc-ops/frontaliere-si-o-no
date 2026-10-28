@@ -106,6 +106,13 @@ runs:
         CODEX_ACTION_PATH: ${{ github.action_path }}
       run: |
         set -euo pipefail
+        disable_codex_lane() {
+          local reason="$1"
+          echo "::warning::${reason} Codex Luna Max article lane disabled; the normal model cascade remains available"
+          printf 'available=false\n' >> "$GITHUB_OUTPUT"
+          printf 'CODEX_ARTICLE_LANE_GATE=0\nENABLE_CODEX_ARTICLE_FALLBACK=0\n' >> "$GITHUB_ENV"
+          exit 0
+        }
         workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
         action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
         runner_temp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
@@ -113,19 +120,19 @@ runs:
         for candidate_realpath in /usr/bin/realpath /bin/realpath; do
           if [ -x "$candidate_realpath" ]; then realpath_cmd="$candidate_realpath"; break; fi
         done
-        [ -n "$realpath_cmd" ] || { echo '::error::Trusted realpath utility is unavailable.'; exit 1; }
+        [ -n "$realpath_cmd" ] || disable_codex_lane 'Trusted realpath utility is unavailable.'
         tr_cmd=/usr/bin/tr
         [ -x "$tr_cmd" ] || tr_cmd=/bin/tr
-        [ -x "$tr_cmd" ] || { echo '::error::Trusted tr utility is unavailable.'; exit 1; }
+        [ -x "$tr_cmd" ] || disable_codex_lane 'Trusted tr utility is unavailable.'
         stat_cmd=/usr/bin/stat
         [ -x "$stat_cmd" ] || stat_cmd=/bin/stat
-        [ -x "$stat_cmd" ] || { echo '::error::Trusted stat utility is unavailable.'; exit 1; }
+        [ -x "$stat_cmd" ] || disable_codex_lane 'Trusted stat utility is unavailable.'
         id_cmd=/usr/bin/id
         [ -x "$id_cmd" ] || id_cmd=/bin/id
-        [ -x "$id_cmd" ] || { echo '::error::Trusted id utility is unavailable.'; exit 1; }
+        [ -x "$id_cmd" ] || disable_codex_lane 'Trusted id utility is unavailable.'
         cut_cmd=/usr/bin/cut
         [ -x "$cut_cmd" ] || cut_cmd=/bin/cut
-        [ -x "$cut_cmd" ] || { echo '::error::Trusted cut utility is unavailable.'; exit 1; }
+        [ -x "$cut_cmd" ] || disable_codex_lane 'Trusted cut utility is unavailable.'
         realpath() { "$realpath_cmd" "$@"; }
         workspace_root="$(realpath "$workspace_root")"
         action_path="$(realpath "$action_path")"
@@ -266,49 +273,44 @@ runs:
           report_runtime_candidates
           # Ubuntu's setup-node toolcache is runner-managed. It is intentionally
           # rejected by path_components_trusted(), so use a checksum-pinned
-          # release in a private RUNNER_TEMP directory as the fail-closed
-          # fallback instead of trusting a mutable toolcache path.
+          # release in a private RUNNER_TEMP directory. This lane is optional:
+          # a slow or unavailable nodejs.org transfer must not stop the crawler
+          # group, which can continue with its normal model cascade.
           node_version='v24.21.0'
           node_archive="node-${node_version}-linux-x64.tar.xz"
           node_url="https://nodejs.org/dist/${node_version}/${node_archive}"
           node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'
           uname_cmd=/usr/bin/uname
           [ -x "$uname_cmd" ] || uname_cmd=/bin/uname
-          [ -x "$uname_cmd" ] || { echo '::error::Trusted uname utility is unavailable.'; exit 1; }
+          [ -x "$uname_cmd" ] || disable_codex_lane 'Trusted uname utility is unavailable.'
           case "$($uname_cmd -s 2>/dev/null || true):$($uname_cmd -m 2>/dev/null || true)" in
             Linux:x86_64) ;;
-            *) echo '::error::Pinned Node fallback requires Linux x64.'; exit 1 ;;
+            *) disable_codex_lane 'Pinned Node fallback requires Linux x64.' ;;
           esac
           for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod; do
-            [ -x "$host_tool" ] || { echo "::error::Required root-owned host tool is unavailable: $host_tool"; exit 1; }
-            path_components_trusted "$host_tool" || {
-              echo "::error::Required host tool path is writable or untrusted: $host_tool"
-              exit 1
-            }
+            [ -x "$host_tool" ] || disable_codex_lane "Required root-owned host tool is unavailable: $host_tool"
+            path_components_trusted "$host_tool" || disable_codex_lane "Required host tool path is writable or untrusted: $host_tool"
           done
           case "$runner_temp" in
             "$workspace_root"|"$workspace_root"/*|"$action_path"|"$action_path"/*)
-              echo '::error::RUNNER_TEMP must be outside workspace and action directories.'
-              exit 1
+              disable_codex_lane 'RUNNER_TEMP must be outside workspace and action directories.'
               ;;
           esac
           /usr/bin/mkdir -p "$runner_temp"
           node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/codex-luna-max-node.XXXXXX")"
           /usr/bin/chmod 700 "$node_runtime_root"
           archive_path="$node_runtime_root/$node_archive"
-          # Keep every transfer attempt bounded, but resume a partial archive
-          # when nodejs.org is slow. The checksum below remains the final
-          # integrity gate, while the 15-minute retry window stays below the
-          # shard's 90-minute job timeout (run 40636386276 reached 15.3 MB of
-          # this 31.9 MB archive before the old three-attempt window expired).
-          /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
-            --connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5 \
-            --retry-max-time 900 --continue-at - \
-            --output "$archive_path" "$node_url"
+          # Keep the optional transfer bounded. Resume a partial archive for a
+          # short window, then disable only this lane if the mirror is slow.
+          if ! /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+            --connect-timeout 15 --max-time 60 --retry 2 --retry-delay 3 \
+            --retry-max-time 120 --continue-at - \
+            --output "$archive_path" "$node_url"; then
+            disable_codex_lane 'Pinned Node runtime download failed or timed out.'
+          fi
           archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | "$cut_cmd" -d ' ' -f 1)"
           if [ "$archive_sha256" != "$node_archive_sha256" ]; then
-            echo '::error::Pinned Node archive checksum mismatch.'
-            exit 1
+            disable_codex_lane 'Pinned Node archive checksum mismatch.'
           fi
           node_root="$node_runtime_root/node"
           /usr/bin/mkdir -p "$node_root"
@@ -320,36 +322,31 @@ runs:
           npm_realpath="$(realpath "$node_root/lib/node_modules/npm/bin/npm-cli.js")"
           case "$node_realpath:$npm_realpath" in
             "$node_root"/*:"$node_root"/*) ;;
-            *) echo '::error::Extracted Node/npm escaped the pinned runtime directory.'; exit 1 ;;
+            *) disable_codex_lane 'Extracted Node/npm escaped the pinned runtime directory.' ;;
           esac
           [ -f "$node_realpath" ] && [ -x "$node_realpath" ] && [ ! -L "$node_realpath" ] || {
-            echo '::error::Downloaded Node runtime is not an executable regular file.'
-            exit 1
+            disable_codex_lane 'Downloaded Node runtime is not an executable regular file.'
           }
           [ -f "$npm_realpath" ] && [ -x "$npm_realpath" ] && [ ! -L "$npm_realpath" ] || {
-            echo '::error::Downloaded npm runtime is not an executable regular file.'
-            exit 1
+            disable_codex_lane 'Downloaded npm runtime is not an executable regular file.'
           }
           node_version_actual="$("$node_realpath" --version 2>/dev/null || true)"
           [ "$node_version_actual" = "$node_version" ] || {
-            echo '::error::Downloaded Node runtime version mismatch.'
-            exit 1
+            disable_codex_lane 'Downloaded Node runtime version mismatch.'
           }
         fi
         if [ -z "$node_realpath" ] || [ -z "$npm_realpath" ]; then
-          echo '::error::Trusted Node/npm runtime must resolve outside writable runner trees.'
-          exit 1
+          disable_codex_lane 'Trusted Node/npm runtime must resolve outside writable runner trees.'
         fi
         node_version="$("$node_realpath" --version 2>/dev/null || true)"
         case "$node_version" in
           v[0-9]*.[0-9]*.[0-9]*) ;;
-          *) echo '::error::Trusted Node runtime returned an invalid version.'; exit 1 ;;
+          *) disable_codex_lane 'Trusted Node runtime returned an invalid version.' ;;
         esac
         node_major="${node_version#v}"
         node_major="${node_major%%.*}"
         [ "$node_major" -ge 18 ] || {
-          echo '::error::Trusted Node runtime is older than Node 18.'
-          exit 1
+          disable_codex_lane 'Trusted Node runtime is older than Node 18.'
         }
         toolchain_path="$(/usr/bin/dirname "$npm_realpath"):$("/usr/bin/dirname" "$node_realpath"):/usr/bin:/bin"
         npm_global_config="$(/usr/bin/mktemp "$runner_temp/codex-luna-max-toolchain.XXXXXX")"
@@ -358,7 +355,7 @@ runs:
         /bin/rm -f -- "$npm_global_config"
         case "$npm_version" in
           [0-9]*.[0-9]*.[0-9]*) ;;
-          *) echo '::error::Trusted npm launcher returned an invalid version.'; exit 1 ;;
+          *) disable_codex_lane 'Trusted npm launcher returned an invalid version.' ;;
         esac
         sha256_file() {
           if [ -x /usr/bin/sha256sum ]; then
@@ -375,8 +372,7 @@ runs:
         npm_sha256="$(sha256_file "$npm_realpath" || true)"
         if ! printf '%s' "$node_sha256" | /usr/bin/grep -Eq '^[a-f0-9]{64}$' || \
           ! printf '%s' "$npm_sha256" | /usr/bin/grep -Eq '^[a-f0-9]{64}$'; then
-          echo '::error::Unable to attest trusted Node/npm runtime.'
-          exit 1
+          disable_codex_lane 'Unable to attest trusted Node/npm runtime.'
         fi
         printf 'node_realpath=%s\nnode_version=%s\nnode_sha256=%s\nnpm_realpath=%s\nnpm_version=%s\nnpm_sha256=%s\n' \
           "$node_realpath" "$node_version" "$node_sha256" \
