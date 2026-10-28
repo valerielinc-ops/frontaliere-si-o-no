@@ -34,6 +34,11 @@ interface VisualCase {
   // last element to mount; waiting for `domcontentloaded` + fonts is not
   // enough on the live env (CDN + analytics scripts slow first paint).
   readySelector?: string;
+  // Required dynamic masks must be mounted before capture. Playwright's
+  // `mask` option silently ignores selectors with no match, which would let
+  // a partially hydrated widget escape the mask and make the live screenshot
+  // incomparable with the baseline.
+  requiredMaskSelectors?: string[];
   // Optional extra mask selectors, ON TOP of DYNAMIC_REGION_SELECTORS, for
   // dynamic widgets that only exist on THIS case's page (so adding them to
   // the global list would be dead weight everywhere else — mask() silently
@@ -64,7 +69,15 @@ const CASES: VisualCase[] = [
   // cards) was still empty, baking an empty-results-pane baseline that then
   // diffed ~11% against every fully-hydrated live render (run 26999410533).
   // Gate on the banner so the capture is always at full hydration.
-  { name: 'home', url: '/', readySelector: '[data-testid="results-advantage-banner"]' },
+  {
+    name: 'home',
+    url: '/',
+    readySelector: '[data-testid="results-advantage-banner"]',
+    requiredMaskSelectors: [
+      '[data-testid="news-ticker"]',
+      '[data-testid="daily-dialect-phrase"]',
+    ],
+  },
   {
     name: 'salary-calculator',
     url: '/calcola-stipendio/',
@@ -115,9 +128,9 @@ const CASES: VisualCase[] = [
 ];
 
 // Selectors for non-deterministic widgets that auto-rotate or depend on
-// time/cron data. Each must exist in the rendered DOM before the test takes
-// the screenshot — keep these in sync with the data-testid attributes in
-// the component sources. Missing selectors are silently ignored by mask().
+// time/cron data. Required selectors for a case are listed on that case so
+// optional/conditional widgets can remain safely absent. Missing selectors
+// are otherwise silently ignored by mask().
 // The anonymous live visitor cannot show the registered-only achievement
 // toast, so it must not leave a stale masked rectangle in the baseline.
 const DYNAMIC_REGION_SELECTORS = [
@@ -174,6 +187,15 @@ async function waitForNoAboveFoldSkeletons(
   );
 }
 
+async function waitForRequiredMaskSelectors(
+  page: import('playwright/test').Page,
+  selectors: string[] | undefined,
+): Promise<void> {
+  for (const selector of selectors ?? []) {
+    await page.locator(selector).first().waitFor({ state: 'visible', timeout: 20_000 });
+  }
+}
+
 // `salary-calculator` baseline is stale after commit 5f81803062
 // ("fix(seo): scope seo-static.css h1-h4 + main rules to main.seo-static-content"):
 // SPA H1/H2 sizes now correctly resolve via Tailwind preflight + per-component
@@ -201,6 +223,7 @@ for (const c of CASES) {
     if (c.readySelector) {
       await page.locator(c.readySelector).first().waitFor({ state: 'visible', timeout: 20_000 });
     }
+    await waitForRequiredMaskSelectors(page, c.requiredMaskSelectors);
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => window.scrollTo(0, 0));
     // Structural net: no above-the-fold loading skeleton may remain, on ANY
