@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-28T21:21:00.576Z",
+  "generatedAt": "2026-10-28T21:52:50.300Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 17918,
-  "avgDurationMs": 17918,
+  "durationMs": 18687,
+  "avgDurationMs": 18687,
   "durationHistory": [
-    17918
+    18687
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -201,7 +201,6 @@
       "postingDateSource": "reported",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-517095ac610e",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -281,18 +280,17 @@
       "postingDateSource": "reported",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-a8800a2c4e54",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8957",
       "firstSeenAt": "2026-07-23T22:11:34.118Z",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -336,5 +334,5 @@
       }
     }
   ],
-  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }
