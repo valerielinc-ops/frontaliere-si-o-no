@@ -201,6 +201,13 @@ function base(flow) {
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
     shownRounds: roundsShown(flow),
+    // Keep the semantic answer ledger across every transition.  Older flows
+    // may not have the field yet; a plain object is the only shape accepted by
+    // the candidate-answer projection and avoids leaking malformed data into
+    // the next persisted state.
+    questionAnswers: flow?.questionAnswers && typeof flow.questionAnswers === 'object' && !Array.isArray(flow.questionAnswers)
+      ? { ...flow.questionAnswers }
+      : {},
     // The last wait for the candidate that ended (round, since, until), and when the ad was found closed
     // during one: see the end of transition, and the tick.
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
