@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mpa-praxisstellen-ch",
-  "assembledAt": "2026-10-28T21:18:19.735Z",
-  "runId": "40769308426",
+  "assembledAt": "2026-10-28T21:58:49.115Z",
+  "runId": "40774305973",
   "jobs": [
     {
       "id": "mpa-praxisstellen-ch-445577b9d250",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:18:14.816Z",
+      "crawledAt": "2026-10-28T21:58:41.537Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:18:14.815Z",
+      "crawledAt": "2026-10-28T21:58:41.534Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/e5809283",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:18:14.814Z",
+      "crawledAt": "2026-10-28T21:58:41.532Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -201,16 +201,16 @@
       "applyUrl": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/e5809283",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T20:15:18.582Z",
+      "previousSlugs": [
+        "sachbearbeiter-in-spedition-export-100-die-rampensau-steht-im-rampenlicht-die-fleissbiene"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-spedition-export-100-die-rampensau-steht-im-rampenlicht-die-fleissbiene"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-spedition-export-100-die-rampensau-steht-im-rampenlicht-die-fleissbiene"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:15:18.582Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
