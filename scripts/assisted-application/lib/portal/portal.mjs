@@ -717,6 +717,41 @@ const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
 const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
+const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
+
+function titleMatches(pageText, title) {
+  const words = normalizeWords(pageText).split(' ').filter(Boolean);
+  const titleWords = nameWords(title).filter((word) => word.length >= 4);
+  if (!titleWords.length) return false;
+  const variant = (word) => words.some((seen) => seen === word
+    || (word.length >= 6 && Math.abs(seen.length - word.length) <= 2 && seen.slice(0, word.length - 2) === word.slice(0, word.length - 2)));
+  return titleWords.every(variant);
+}
+
+/**
+ * Talentsoft employer tenants can use a short brand/acronym in their host
+ * while the posting data keeps the employer's localized legal name, e.g.
+ * `Ferrovia Retica (RhB)` → `rhb-career.talent-soft.com`. The host is only
+ * evidence when the job title is also present: a tenant alone must never turn
+ * a generic portal page into this posting's form.
+ */
+function talentSoftEmployerAliasMatches(pageText, job = {}) {
+  const aliases = [...String(job.company || '').matchAll(/\(([^)]+)\)/g)]
+    .flatMap(([, alias]) => nameWords(alias))
+    .filter((alias) => alias.length >= 3);
+  if (!aliases.length || !titleMatches(pageText, job.title)) return false;
+  const urls = String(pageText || '').match(/\bhttps?:\/\/[^\s"'<>]+/gi) || [];
+  return urls.some((raw) => {
+    try {
+      const hostname = new URL(raw.replace(/[),.;]+$/, '')).hostname;
+      if (!TALENTSOFT_HOST_RE.test(hostname)) return false;
+      const tenantTokens = hostname.split('.')[0].split(/[^a-z0-9]+/i).filter(Boolean);
+      return aliases.some((alias) => tenantTokens.includes(alias));
+    } catch {
+      return false;
+    }
+  });
+}
 
 /**
  * Is this form the posting's (career-ops apply.md: company and role on the
@@ -729,18 +764,15 @@ const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => wor
  * 'unknown' when the order names neither.
  */
 export function postingMatch(pageText, job = {}) {
-  const words = normalizeWords(pageText).split(' ').filter(Boolean);
   const company = nameWords(job.company);
   const title = nameWords(job.title).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
     const named = ` ${nameWords(pageText).join(' ')} `;
-    return named.includes(` ${company.join(' ')} `) ? 'match' : 'mismatch';
+    return named.includes(` ${company.join(' ')} `) || talentSoftEmployerAliasMatches(pageText, job) ? 'match' : 'mismatch';
   }
-  const variant = (word) => words.some((seen) => seen === word
-    || (word.length >= 6 && Math.abs(seen.length - word.length) <= 2 && seen.slice(0, word.length - 2) === word.slice(0, word.length - 2)));
-  return title.every(variant) ? 'match' : 'mismatch';
+  return titleMatches(pageText, job.title) ? 'match' : 'mismatch';
 }
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
