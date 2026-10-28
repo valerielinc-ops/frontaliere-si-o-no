@@ -1,7 +1,7 @@
 {
   "crawlerKey": "geberit",
-  "assembledAt": "2026-10-28T09:51:09.521Z",
-  "runId": "40663733739",
+  "assembledAt": "2026-10-28T20:23:20.101Z",
+  "runId": "40759926775",
   "jobs": [
     {
       "id": "geberit-1918",
@@ -34,7 +34,7 @@
       "url": "https://jobs.geberit.com/job-invite/1918/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.382Z",
+      "crawledAt": "2026-10-28T20:23:12.263Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -116,7 +116,7 @@
       "url": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.381Z",
+      "crawledAt": "2026-10-28T20:23:12.262Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -190,7 +190,7 @@
       "url": "https://jobs.geberit.com/job-invite/1968/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.380Z",
+      "crawledAt": "2026-10-28T20:23:12.261Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -239,6 +239,85 @@
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
     },
     {
+      "id": "geberit-1974",
+      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
+        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
+      "titleByLocale": {
+        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
+        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
+        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
+        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
+        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
+        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T20:23:12.260Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-19T11:19:08Z",
+      "postedDate": "2026-08-19T11:19:08Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "en": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "fr": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T09:49:50.660Z"
+    },
+    {
       "id": "geberit-1969",
       "slug": "apprendista-operatore-trice-d-impianto-a-inizio-dell-apprendistato-2027-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -269,7 +348,7 @@
       "url": "https://jobs.geberit.com/job-invite/1969/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.380Z",
+      "crawledAt": "2026-10-28T20:23:12.260Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -332,85 +411,6 @@
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
     },
     {
-      "id": "geberit-1974",
-      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
-        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-      "titleByLocale": {
-        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
-        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
-        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
-        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
-        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.379Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-19T11:19:08Z",
-      "postedDate": "2026-08-19T11:19:08Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "en": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "fr": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-20T09:49:50.660Z"
-    },
-    {
       "id": "geberit-1977",
       "slug": "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -441,7 +441,7 @@
       "url": "https://jobs.geberit.com/job-invite/1977/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.379Z",
+      "crawledAt": "2026-10-28T20:23:12.259Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -492,6 +492,82 @@
       "firstSeenAt": "2026-08-20T09:49:50.659Z"
     },
     {
+      "id": "geberit-2021",
+      "slug": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch",
+        "fr": "mecanicien-de-la-production-d-apprentissage-a-debut-de-l-apprentissage-2027-geberit-rapperswil-jona",
+        "it": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "en": "apprentice-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
+      "titleByLocale": {
+        "it": "Apprendista meccanico di produzione (a) - inizio apprendistato 2027",
+        "en": "Apprentice Production Mechanic (a) - Start of apprenticeship 2027",
+        "de": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
+        "fr": "Mécanicien de la production d'apprentissage (a) - Début de l'apprentissage 2027"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\n Anhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+      "descriptionByLocale": {
+        "it": "## PRINCIPALI RESPONSABILITÀ\n\nI meccanici di produzione producono pezzi e assemblaggi realizzati in metallo e altri materiali. I meccanici di produzione installano le macchine di produzione, le fanno funzionare e monitorano il processo produttivo. Lavorano con macchine convenzionali e controllate da computer.\nUtilizzando disegni tecnici e istruzioni di lavoro, producono componenti precisi e assemblano gli assemblaggi. Utilizzano apparecchiature di misura e test per controllare la qualità del loro lavoro e garantire che le dimensioni e gli standard di qualità richiesti vengano rispettati. Supportano inoltre la manutenzione e la manutenzione di macchine e sistemi. I compiti principali sono:\n\n- Produzione di pezzi e componenti\n- Installazione e funzionamento delle macchine di produzione\n- Assemblaggio degli assemblaggi e controllo qualità\n\n## PROFILO\n\nLe seguenti qualità e abilità ti distinguono:\n\n- Scuola secondaria\n- Realschule possibile\n- Buoni voti in matematica e geometria\n- Comprensione tecnica\n- Interesse per la meccanica e la lavorazione dei metalli\n- Capacità di lavorare in squadra\n- Maestria e diligenza",
+        "en": "## MAIN RESPONSIBILITIES\n\nProduction mechanics manufacture workpieces and assemblies made of metal and other materials. Production mechanics set up production machines, operate them and monitor the manufacturing process. They work with conventional and computer-controlled machines.\nUsing technical drawings and work instructions, they manufacture precise components and assemble assemblies. They use measuring and testing equipment to control the quality of their work and ensure that the required dimensions and quality standards are met. They also support the maintenance and servicing of machines and systems. The main tasks are:\n\n- Production of workpieces and components\n- Setting up and operating production machines\n- Assembly of assemblies and quality control\n\n## PROFILE\n\nThe following qualities and skills distinguish you:\n\n- Secondary school\n- Realschule possible\n- Good grades in mathematics and geometry\n- Technical understanding\n- Interest in mechanics and metalworking\n- Ability to work in a team\n- Craftsmanship and diligence",
+        "de": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\nAnhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+        "fr": "## PRINCIPALES RESPONSABILITÉS\n\nLes mécaniciens de production fabriquent des pièces et des assemblages en métal et autres matériaux. Les mécaniciens de production installent les machines de production, les font fonctionner et surveillent le processus de fabrication. Ils travaillent avec des machines conventionnelles et contrôlées par ordinateur.\nÀ l'aide de dessins techniques et d'instructions de travail, ils fabriquent des composants précis et assemblent des ensembles. Ils utilisent des équipements de mesure et de test pour contrôler la qualité de leur travail et garantir que les dimensions et normes de qualité requises sont respectées. Ils soutiennent également la maintenance et l'entretien des machines et des systèmes. Les principales tâches sont :\n\n- Production des pièces et composants\n- Installation et exploitation des machines de production\n- Assemblage des assemblages et contrôle qualité\n\n## PROFIL\n\nLes qualités et compétences suivantes vous distinguent :\n\n- Lycée\n- Realschule possible\n- Bonnes notes en mathématiques et en géométrie\n- Compréhension technique\n- Intérêt pour la mécanique et la métallurgie\n- Capacité à travailler en équipe\n- Savoir-faire et diligence"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T20:23:12.258Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-20T08:34:42Z",
+      "postedDate": "2026-08-20T08:34:42Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "en": [
+          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T09:49:50.655Z"
+    },
+    {
       "id": "geberit-2129",
       "slug": "apprendista-ict-fachmann-a-lehrbeginn-2027-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -522,7 +598,7 @@
       "url": "https://jobs.geberit.com/job-invite/2129/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.377Z",
+      "crawledAt": "2026-10-28T20:23:12.257Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -571,82 +647,6 @@
       "firstSeenAt": "2026-08-20T09:49:50.651Z"
     },
     {
-      "id": "geberit-2021",
-      "slug": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch",
-        "fr": "mecanicien-de-la-production-d-apprentissage-a-debut-de-l-apprentissage-2027-geberit-rapperswil-jona",
-        "it": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "en": "apprentice-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
-      "titleByLocale": {
-        "it": "Apprendista meccanico di produzione (a) - inizio apprendistato 2027",
-        "en": "Apprentice Production Mechanic (a) - Start of apprenticeship 2027",
-        "de": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
-        "fr": "Mécanicien de la production d'apprentissage (a) - Début de l'apprentissage 2027"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\n Anhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-      "descriptionByLocale": {
-        "it": "## PRINCIPALI RESPONSABILITÀ\n\nI meccanici di produzione producono pezzi e assemblaggi realizzati in metallo e altri materiali. I meccanici di produzione installano le macchine di produzione, le fanno funzionare e monitorano il processo produttivo. Lavorano con macchine convenzionali e controllate da computer.\nUtilizzando disegni tecnici e istruzioni di lavoro, producono componenti precisi e assemblano gli assemblaggi. Utilizzano apparecchiature di misura e test per controllare la qualità del loro lavoro e garantire che le dimensioni e gli standard di qualità richiesti vengano rispettati. Supportano inoltre la manutenzione e la manutenzione di macchine e sistemi. I compiti principali sono:\n\n- Produzione di pezzi e componenti\n- Installazione e funzionamento delle macchine di produzione\n- Assemblaggio degli assemblaggi e controllo qualità\n\n## PROFILO\n\nLe seguenti qualità e abilità ti distinguono:\n\n- Scuola secondaria\n- Realschule possibile\n- Buoni voti in matematica e geometria\n- Comprensione tecnica\n- Interesse per la meccanica e la lavorazione dei metalli\n- Capacità di lavorare in squadra\n- Maestria e diligenza",
-        "en": "## MAIN RESPONSIBILITIES\n\nProduction mechanics manufacture workpieces and assemblies made of metal and other materials. Production mechanics set up production machines, operate them and monitor the manufacturing process. They work with conventional and computer-controlled machines.\nUsing technical drawings and work instructions, they manufacture precise components and assemble assemblies. They use measuring and testing equipment to control the quality of their work and ensure that the required dimensions and quality standards are met. They also support the maintenance and servicing of machines and systems. The main tasks are:\n\n- Production of workpieces and components\n- Setting up and operating production machines\n- Assembly of assemblies and quality control\n\n## PROFILE\n\nThe following qualities and skills distinguish you:\n\n- Secondary school\n- Realschule possible\n- Good grades in mathematics and geometry\n- Technical understanding\n- Interest in mechanics and metalworking\n- Ability to work in a team\n- Craftsmanship and diligence",
-        "de": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\nAnhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-        "fr": "## PRINCIPALES RESPONSABILITÉS\n\nLes mécaniciens de production fabriquent des pièces et des assemblages en métal et autres matériaux. Les mécaniciens de production installent les machines de production, les font fonctionner et surveillent le processus de fabrication. Ils travaillent avec des machines conventionnelles et contrôlées par ordinateur.\nÀ l'aide de dessins techniques et d'instructions de travail, ils fabriquent des composants précis et assemblent des ensembles. Ils utilisent des équipements de mesure et de test pour contrôler la qualité de leur travail et garantir que les dimensions et normes de qualité requises sont respectées. Ils soutiennent également la maintenance et l'entretien des machines et des systèmes. Les principales tâches sont :\n\n- Production des pièces et composants\n- Installation et exploitation des machines de production\n- Assemblage des assemblages et contrôle qualité\n\n## PROFIL\n\nLes qualités et compétences suivantes vous distinguent :\n\n- Lycée\n- Realschule possible\n- Bonnes notes en mathématiques et en géométrie\n- Compréhension technique\n- Intérêt pour la mécanique et la métallurgie\n- Capacité à travailler en équipe\n- Savoir-faire et diligence"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.378Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20T08:34:42Z",
-      "postedDate": "2026-08-20T08:34:42Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "en": [
-          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-20T09:49:50.655Z"
-    },
-    {
       "id": "geberit-1989",
       "slug": "responsabile-rischi-e-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -677,7 +677,7 @@
       "url": "https://jobs.geberit.com/job-invite/1989/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.377Z",
+      "crawledAt": "2026-10-28T20:23:12.256Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -726,10 +726,10 @@
     },
     {
       "id": "geberit-2182",
-      "slug": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
+      "slug": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
       "slugByLocale": {
         "de": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
-        "it": "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona",
+        "it": "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch",
         "en": "plumber-building-physics-laboratory-a-100-geberit-rapperswil-jona",
         "fr": "laboratoire-de-physique-des-batiments-pour-plombiers-a-100-geberit-rapperswil-jona"
       },
@@ -755,7 +755,7 @@
       "url": "https://jobs.geberit.com/job-invite/2182/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.376Z",
+      "crawledAt": "2026-10-28T20:23:12.256Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -778,12 +778,12 @@
         "installation-sanitaire-du-laboratoire-de-physique-du-batiment-a-100-geberit-rapperswil-jona",
         "sanitary-installer-of-building-physics-laboratory-a-100-geberit-rapperswil-jona",
         "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona-a6c094",
-        "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+        "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona-a6c094",
-          "sanitarinstallateur-bauphysikalisches-labor-a-100-geberit-ch"
+          "installatore-sanitario-del-laboratorio-di-fisica-dell-edificio-a-100-geberit-rapperswil-jona"
         ],
         "en": [
           "sanitary-installer-of-building-physics-laboratory-a-100-geberit-rapperswil-jona"
@@ -838,7 +838,7 @@
       "url": "https://jobs.geberit.com/job-invite/1669/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.376Z",
+      "crawledAt": "2026-10-28T20:23:12.255Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -894,94 +894,6 @@
       "firstSeenAt": "2026-08-31T17:40:41.665Z"
     },
     {
-      "id": "geberit-2201",
-      "slug": "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
-        "it": "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
-        "en": "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona",
-        "fr": "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Mechaniker Instandhaltung Feinmechanik (a) 100%",
-      "titleByLocale": {
-        "it": "Manutenzione Meccanica Meccanica di Precisione (a) 100%",
-        "en": "Mechanic Maintenance Precision Mechanics (a) 100%",
-        "de": "Mechaniker Instandhaltung Feinmechanik (a) 100%",
-        "fr": "Mécanique de précision de l'entretien mécanique (a) 100 %"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für die Wartung, Reparatur und Instandhaltung der Rohmaterialversorgung sowie der Produktionsanlagen und Maschinen. Du führst präventive Instandhaltungsmassnahmen zur Sicherstellung der Anlagenverfügbarkeit durch. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fehleranalyse und Störungsbehebung an mechanischen, hydraulischen und pneumatischen Systemen\n- Dokumentation der durchgeführten Arbeiten und Pflege der Instandhaltungsdatenbank\n- Mitarbeit bei der Optimierung und Verbesserung der Produktionsprozesse\n- Unterstützung bei der Installation und Inbetriebnahme neuer Anlagen\n\n## PROFIL\n\nDu bringst einen Abschluss als Polymechaniker EFZ oder eine vergleichbare Ausbildung mit und hast einige Jahre Berufserfahrung in den Bereichen der Instandhaltung. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Fundierte Kenntnisse in der Mechanik, Hydraulik und Pneumatik, sowie Fachwissen in Fertigungs- und Produktionsprozessen\n- Analytische Fähigkeiten und strukturiertes Vorgehen\n- Versierter Umgang mit MS-Office Programmen und gute SAP-Kenntnisse\n- Selbständigkeit, ein hohes Mass an Eigenverantwortung und Einsatzbereitschaft\n- Teamgeist und Zuverlässigkeit\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nNel vostro ruolo, siete responsabili per la manutenzione, la riparazione e la manutenzione della fornitura di materie prime, così come le strutture di produzione e macchine. Effettuate misure di manutenzione preventiva per garantire la disponibilità degli impianti. Questo include in particolare le seguenti attività:\n\n- Analisi e risoluzione dei guasti dei sistemi meccanici, idraulici e pneumatici\n- Documentazione dei lavori effettuati e manutenzione del database di manutenzione\n- Cooperazione nell'ottimizzazione e nel miglioramento dei processi produttivi\n- Supporto per l'installazione e la messa in servizio di nuovi impianti\n\n## PROFESSIONALE\n\nSi porta una laurea come EFZ polimeccanico o una formazione comparabile e hanno diversi anni di esperienza professionale nei settori di manutenzione. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Conoscenza approfondita della meccanica, dell'idraulica e della pneumatica, nonché competenza nei processi produttivi e produttivi\n- AbilitÃ analitiche e approccio strutturato\n- Gestione esperta dei programmi MS-Office e delle buone conoscenze SAP\n- Lavoro autonomo, alto grado di responsabilità personale e impegno\n- Spirito di squadra e affidabilità\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nIn your role, you are responsible for the maintenance, repair and maintenance of the raw material supply as well as the production facilities and machines. You carry out preventive maintenance measures to ensure plant availability. This includes in particular the following activities:\n\n- Fault analysis and troubleshooting of mechanical, hydraulic and pneumatic systems\n- Documentation of the work carried out and maintenance of the maintenance database\n- Cooperation in the optimization and improvement of production processes\n- Support for the installation and commissioning of new plants\n\n## PROFILE\n\nYou bring a degree as a polymechanic EFZ or a comparable education and have several years of professional experience in the areas of maintenance. In addition, the following characteristics and abilities characterize you:\n\n- In-depth knowledge in mechanics, hydraulics and pneumatics, as well as expertise in manufacturing and production processes\n- Analytical skills and structured approach\n- Experienced handling of MS-Office programs and good SAP knowledge\n- Self-employment, a high degree of personal responsibility and commitment\n- Team spirit and reliability\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für die Wartung, Reparatur und Instandhaltung der Rohmaterialversorgung sowie der Produktionsanlagen und Maschinen. Du führst präventive Instandhaltungsmassnahmen zur Sicherstellung der Anlagenverfügbarkeit durch. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fehleranalyse und Störungsbehebung an mechanischen, hydraulischen und pneumatischen Systemen\n- Dokumentation der durchgeführten Arbeiten und Pflege der Instandhaltungsdatenbank\n- Mitarbeit bei der Optimierung und Verbesserung der Produktionsprozesse\n- Unterstützung bei der Installation und Inbetriebnahme neuer Anlagen\n\n## PROFIL\n\nDu bringst einen Abschluss als Polymechaniker EFZ oder eine vergleichbare Ausbildung mit und hast einige Jahre Berufserfahrung in den Bereichen der Instandhaltung. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Fundierte Kenntnisse in der Mechanik, Hydraulik und Pneumatik, sowie Fachwissen in Fertigungs- und Produktionsprozessen\n- Analytische Fähigkeiten und strukturiertes Vorgehen\n- Versierter Umgang mit MS-Office Programmen und gute SAP-Kenntnisse\n- Selbständigkeit, ein hohes Mass an Eigenverantwortung und Einsatzbereitschaft\n- Teamgeist und Zuverlässigkeit\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## PRINCIPALES TÂCHES\n\nDans votre rôle, vous êtes responsable de l'entretien, de la réparation et de l'entretien de l'approvisionnement en matières premières ainsi que des installations de production et des machines. Vous effectuez des mesures de maintenance préventive pour assurer la disponibilité des installations. Cela comprend notamment les activités suivantes:\n\n- Analyse des défauts et dépannage des systèmes mécaniques, hydrauliques et pneumatiques\n- Documentation des travaux effectués et tenue à jour de la base de données de maintenance\n- Coopération dans l'optimisation et l'amélioration des processus de production\n- Soutien à l'installation et à la mise en service de nouvelles installations\n\n## PROFIL\n\nVous apportez un diplôme comme un EFZ polymécanique ou une formation comparable et avez plusieurs années d'expérience professionnelle dans les domaines de l'entretien. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Connaissance approfondie de la mécanique, de l'hydraulique et des pneumatiques, ainsi que de l'expertise dans les procédés de fabrication et de production\n- Compétences analytiques et approche structurée\n- Gestion expérimentée des programmes MS-Office et de bonnes connaissances SAP\n- Le travail indépendant, un degré élevé de responsabilité personnelle et d'engagement\n- Esprit d'équipe et fiabilité\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.374Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "meccanica-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
-        "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona",
-        "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
-        "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-6dfaab",
-        "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "meccanica-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
-          "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
-          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
-        ],
-        "en": [
-          "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-6dfaab",
-          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
-        ],
-        "fr": [
-          "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona",
-          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-08T13:53:23.828Z"
-    },
-    {
       "id": "geberit-2186",
       "slug": "responsabile-del-team-del-servizio-clienti-interno-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -1012,7 +924,7 @@
       "url": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.375Z",
+      "crawledAt": "2026-10-28T20:23:12.254Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1107,7 +1019,7 @@
       "url": "https://jobs.geberit.com/job-invite/2229/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.374Z",
+      "crawledAt": "2026-10-28T20:23:12.253Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1156,6 +1068,94 @@
       "firstSeenAt": "2026-09-19T23:21:07.767Z"
     },
     {
+      "id": "geberit-2201",
+      "slug": "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
+        "it": "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona",
+        "en": "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona",
+        "fr": "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Mechaniker Instandhaltung Feinmechanik (a) 100%",
+      "titleByLocale": {
+        "it": "Manutenzione Meccanica Meccanica di Precisione (a) 100%",
+        "en": "Mechanic Maintenance Precision Mechanics (a) 100%",
+        "de": "Mechaniker Instandhaltung Feinmechanik (a) 100%",
+        "fr": "Mécanique de précision de l'entretien mécanique (a) 100 %"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für die Wartung, Reparatur und Instandhaltung der Rohmaterialversorgung sowie der Produktionsanlagen und Maschinen. Du führst präventive Instandhaltungsmassnahmen zur Sicherstellung der Anlagenverfügbarkeit durch. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fehleranalyse und Störungsbehebung an mechanischen, hydraulischen und pneumatischen Systemen\n- Dokumentation der durchgeführten Arbeiten und Pflege der Instandhaltungsdatenbank\n- Mitarbeit bei der Optimierung und Verbesserung der Produktionsprozesse\n- Unterstützung bei der Installation und Inbetriebnahme neuer Anlagen\n\n## PROFIL\n\nDu bringst einen Abschluss als Polymechaniker EFZ oder eine vergleichbare Ausbildung mit und hast einige Jahre Berufserfahrung in den Bereichen der Instandhaltung. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Fundierte Kenntnisse in der Mechanik, Hydraulik und Pneumatik, sowie Fachwissen in Fertigungs- und Produktionsprozessen\n- Analytische Fähigkeiten und strukturiertes Vorgehen\n- Versierter Umgang mit MS-Office Programmen und gute SAP-Kenntnisse\n- Selbständigkeit, ein hohes Mass an Eigenverantwortung und Einsatzbereitschaft\n- Teamgeist und Zuverlässigkeit\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nNel vostro ruolo, siete responsabili per la manutenzione, la riparazione e la manutenzione della fornitura di materie prime, così come le strutture di produzione e macchine. Effettuate misure di manutenzione preventiva per garantire la disponibilità degli impianti. Questo include in particolare le seguenti attività:\n\n- Analisi e risoluzione dei guasti dei sistemi meccanici, idraulici e pneumatici\n- Documentazione dei lavori effettuati e manutenzione del database di manutenzione\n- Cooperazione nell'ottimizzazione e nel miglioramento dei processi produttivi\n- Supporto per l'installazione e la messa in servizio di nuovi impianti\n\n## PROFESSIONALE\n\nSi porta una laurea come EFZ polimeccanico o una formazione comparabile e hanno diversi anni di esperienza professionale nei settori di manutenzione. Inoltre, le seguenti caratteristiche e abilità ti caratterizzano:\n\n- Conoscenza approfondita della meccanica, dell'idraulica e della pneumatica, nonché competenza nei processi produttivi e produttivi\n- AbilitÃ analitiche e approccio strutturato\n- Gestione esperta dei programmi MS-Office e delle buone conoscenze SAP\n- Lavoro autonomo, alto grado di responsabilità personale e impegno\n- Spirito di squadra e affidabilità\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nIn your role, you are responsible for the maintenance, repair and maintenance of the raw material supply as well as the production facilities and machines. You carry out preventive maintenance measures to ensure plant availability. This includes in particular the following activities:\n\n- Fault analysis and troubleshooting of mechanical, hydraulic and pneumatic systems\n- Documentation of the work carried out and maintenance of the maintenance database\n- Cooperation in the optimization and improvement of production processes\n- Support for the installation and commissioning of new plants\n\n## PROFILE\n\nYou bring a degree as a polymechanic EFZ or a comparable education and have several years of professional experience in the areas of maintenance. In addition, the following characteristics and abilities characterize you:\n\n- In-depth knowledge in mechanics, hydraulics and pneumatics, as well as expertise in manufacturing and production processes\n- Analytical skills and structured approach\n- Experienced handling of MS-Office programs and good SAP knowledge\n- Self-employment, a high degree of personal responsibility and commitment\n- Team spirit and reliability\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "de": "## HAUPTAUFGABEN​\n\nIn deiner Funktion bist du verantwortlich für die Wartung, Reparatur und Instandhaltung der Rohmaterialversorgung sowie der Produktionsanlagen und Maschinen. Du führst präventive Instandhaltungsmassnahmen zur Sicherstellung der Anlagenverfügbarkeit durch. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Fehleranalyse und Störungsbehebung an mechanischen, hydraulischen und pneumatischen Systemen\n- Dokumentation der durchgeführten Arbeiten und Pflege der Instandhaltungsdatenbank\n- Mitarbeit bei der Optimierung und Verbesserung der Produktionsprozesse\n- Unterstützung bei der Installation und Inbetriebnahme neuer Anlagen\n\n## PROFIL\n\nDu bringst einen Abschluss als Polymechaniker EFZ oder eine vergleichbare Ausbildung mit und hast einige Jahre Berufserfahrung in den Bereichen der Instandhaltung. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Fundierte Kenntnisse in der Mechanik, Hydraulik und Pneumatik, sowie Fachwissen in Fertigungs- und Produktionsprozessen\n- Analytische Fähigkeiten und strukturiertes Vorgehen\n- Versierter Umgang mit MS-Office Programmen und gute SAP-Kenntnisse\n- Selbständigkeit, ein hohes Mass an Eigenverantwortung und Einsatzbereitschaft\n- Teamgeist und Zuverlässigkeit\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## PRINCIPALES TÂCHES\n\nDans votre rôle, vous êtes responsable de l'entretien, de la réparation et de l'entretien de l'approvisionnement en matières premières ainsi que des installations de production et des machines. Vous effectuez des mesures de maintenance préventive pour assurer la disponibilité des installations. Cela comprend notamment les activités suivantes:\n\n- Analyse des défauts et dépannage des systèmes mécaniques, hydrauliques et pneumatiques\n- Documentation des travaux effectués et tenue à jour de la base de données de maintenance\n- Coopération dans l'optimisation et l'amélioration des processus de production\n- Soutien à l'installation et à la mise en service de nouvelles installations\n\n## PROFIL\n\nVous apportez un diplôme comme un EFZ polymécanique ou une formation comparable et avez plusieurs années d'expérience professionnelle dans les domaines de l'entretien. De plus, les caractéristiques et les capacités suivantes vous caractérisent :\n\n- Connaissance approfondie de la mécanique, de l'hydraulique et des pneumatiques, ainsi que de l'expertise dans les procédés de fabrication et de production\n- Compétences analytiques et approche structurée\n- Gestion expérimentée des programmes MS-Office et de bonnes connaissances SAP\n- Le travail indépendant, un degré élevé de responsabilité personnelle et d'engagement\n- Esprit d'équipe et fiabilité\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T20:23:12.253Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "meccanica-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
+        "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona",
+        "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
+        "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-6dfaab",
+        "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "meccanica-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
+          "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona",
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
+        ],
+        "en": [
+          "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-6dfaab",
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
+        ],
+        "fr": [
+          "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona",
+          "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:53:23.828Z"
+    },
+    {
       "id": "geberit-1987",
       "slug": "regolatore-di-servizio-a-80-100-geberit-rapperswil-jona",
       "slugByLocale": {
@@ -1186,7 +1186,7 @@
       "url": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.373Z",
+      "crawledAt": "2026-10-28T20:23:12.252Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1263,7 +1263,7 @@
       "url": "https://jobs.geberit.com/job-invite/2245/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.372Z",
+      "crawledAt": "2026-10-28T20:23:12.250Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1331,7 +1331,7 @@
       "slugByLocale": {
         "de": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
         "it": "stratega-di-marketing-crm-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
-        "en": "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona",
+        "en": "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch",
         "fr": "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
@@ -1356,7 +1356,7 @@
       "url": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.371Z",
+      "crawledAt": "2026-10-28T20:23:12.249Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1380,6 +1380,7 @@
         "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona",
         "marketing-crm-strategist-con-focus-sul-portale-clienti-a-100-geberit-rapperswil-jona-bd3786828b",
         "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona-d7d8b7",
+        "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona",
         "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
       ],
       "previousSlugsByLocale": {
@@ -1390,7 +1391,7 @@
         ],
         "en": [
           "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-rapperswil-jona",
-          "marketing-crm-strategist-mit-fokus-kundenportal-a-100-geberit-ch"
+          "marketing-crm-strategist-with-focus-on-customer-portal-a-100-geberit-rapperswil-jona"
         ],
         "fr": [
           "marketing-crm-strategist-avec-l-accent-sur-le-portail-client-a-100-geberit-rapperswil-jona-d7d8b7",
@@ -1443,7 +1444,7 @@
       "url": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.371Z",
+      "crawledAt": "2026-10-28T20:23:12.248Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1530,7 +1531,7 @@
       "url": "https://jobs.geberit.com/job-invite/2237/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.370Z",
+      "crawledAt": "2026-10-28T20:23:12.247Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1619,7 +1620,7 @@
       "url": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.369Z",
+      "crawledAt": "2026-10-28T20:23:12.245Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1692,7 +1693,7 @@
       "url": "https://jobs.geberit.com/job-invite/2279/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.369Z",
+      "crawledAt": "2026-10-28T20:23:12.244Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1771,7 +1772,7 @@
       "url": "https://jobs.geberit.com/job-invite/2093/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.368Z",
+      "crawledAt": "2026-10-28T20:23:12.243Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1847,7 +1848,7 @@
       "url": "https://jobs.geberit.com/job-invite/2001/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.367Z",
+      "crawledAt": "2026-10-28T20:23:12.242Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1926,7 +1927,7 @@
       "url": "https://jobs.geberit.com/job-invite/1635/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.366Z",
+      "crawledAt": "2026-10-28T20:23:12.242Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2005,7 +2006,7 @@
       "url": "https://jobs.geberit.com/job-invite/2271/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.366Z",
+      "crawledAt": "2026-10-28T20:23:12.241Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2081,7 +2082,7 @@
       "url": "https://jobs.geberit.com/job-invite/2172/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.330Z",
+      "crawledAt": "2026-10-28T20:23:12.195Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2130,28 +2131,28 @@
     },
     {
       "id": "geberit-2069",
-      "slug": "data-analista-a-geberit-rapperswil-jona",
+      "slug": "data-analyst-a-80-100-geberit-ch",
       "slugByLocale": {
-        "de": "data-analyst-a-geberit-ch",
-        "it": "data-analista-a-geberit-rapperswil-jona",
-        "en": "data-analyst-a-geberit-rapperswil-jona",
-        "fr": "data-analyste-a-geberit-rapperswil-jona"
+        "de": "data-analyst-a-80-100-geberit-ch",
+        "it": "data-analyst-a-80-100-geberit-ch",
+        "en": "data-analyst-a-80-100-geberit-ch",
+        "fr": "data-analyst-a-80-100-geberit-ch"
       },
       "company": "Geberit",
       "companyKey": "geberit",
       "companyDomain": "geberit.com",
-      "title": "Data Analyst (a)",
+      "title": "Data Analyst (a) 80 - 100%",
       "titleByLocale": {
-        "it": "Data Analista (a)",
-        "en": "Data Analyst (a)",
-        "de": "Data Analyst (a)",
-        "fr": "Data Analyste (a)"
+        "de": "Data Analyst (a) 80 - 100%",
+        "en": "Data Analyst (a) 80 - 100%",
+        "it": "Data Analista (a) 80 - 100%",
+        "fr": "Data Analyste (a) 80 - 100%"
       },
       "description": "## ZIEL DER POSITION\n\nGeberit ist ein internationales Industrieunternehmen «mit Herz und Seele». Als IT-fokussierter Arbeitgeber setzen wir auf State-of-the-Art-Technologien. Unsere Mitarbeitenden schätzen die Kollegialität und die Zusammenarbeit in den Teams. Als IT Data Analyst gestaltest du aktiv die Weiterentwicklung unserer innovativen Data Platform und arbeitest eng mit Business-Stakeholdern weltweit zusammen.\n\nDu möchtest mehr über unsere IT und die Menschen dahinter erfahren? Dann wirf gerne einen Blick in unser Video: https://youtu.be/no5GL-4_Nrc\n\n## HAUPTAUFGABEN​\n\n- Requirements Engineering: Unterstützung des Teams bei der kontinuierlichen Verbesserung und Weiterentwicklung unserer modernen Data Products und Analytical Applications.\n- Frontend Solution Design: Konzeption, Design und Umsetzung von Reporting‑, Dashboard‑ und Planungslösungen auf Basis von SAP Analytics Cloud und Microsoft PowerBI\n- Project-Management: Strukturierte Umsetzung entlang agiler Projektzyklen inklusive Definition und Steuerung von Timelines, Meilensteinen und Deliverables.\n- Business Partnership: Beratung zu Prozessen und Technologien auf Basis von SAP und Microsoft-Lösungen, z.B. SAP Business Warehouse oder Microsoft Fabric.\n- Kundenunterstützung: Aktives Erwartungsmanagement sowie kompetente Unterstützung unserer internen, internationalen Kunden bei der Umsetzung ihrer Anforderungen.\n\n## PROFIL\n\n- Erfolgreich abgeschlossenes Studium im Bereich Betriebswirtschaft oder IT oder eine vergleichbare Ausbildung.\n- Mehrjährige Erfahrung im SAP- und/oder Microsoft-Umfeld, idealerweise im Bereich Analytics und Daten.\n- Analytisches Denkvermögen, Kommunikationsstärke, Eigenverantwortlichkeit und Flexibilität.\n- Bereitschaft zur kontinuierlichen Weiterbildung sowie gute Englischkenntnisse.\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
       "descriptionByLocale": {
+        "de": "## ZIEL DER POSITION\n\nGeberit ist ein internationales Industrieunternehmen «mit Herz und Seele». Als IT-fokussierter Arbeitgeber setzen wir auf State-of-the-Art-Technologien. Unsere Mitarbeitenden schätzen die Kollegialität und die Zusammenarbeit in den Teams. Als IT Data Analyst gestaltest du aktiv die Weiterentwicklung unserer innovativen Data Platform und arbeitest eng mit Business-Stakeholdern weltweit zusammen.\n\nDu möchtest mehr über unsere IT und die Menschen dahinter erfahren? Dann wirf gerne einen Blick in unser Video: https://youtu.be/no5GL-4_Nrc\n\n## HAUPTAUFGABEN​\n\n- Requirements Engineering: Unterstützung des Teams bei der kontinuierlichen Verbesserung und Weiterentwicklung unserer modernen Data Products und Analytical Applications.\n- Frontend Solution Design: Konzeption, Design und Umsetzung von Reporting‑, Dashboard‑ und Planungslösungen auf Basis von SAP Analytics Cloud und Microsoft PowerBI\n- Project-Management: Strukturierte Umsetzung entlang agiler Projektzyklen inklusive Definition und Steuerung von Timelines, Meilensteinen und Deliverables.\n- Business Partnership: Beratung zu Prozessen und Technologien auf Basis von SAP und Microsoft-Lösungen, z.B. SAP Business Warehouse oder Microsoft Fabric.\n- Kundenunterstützung: Aktives Erwartungsmanagement sowie kompetente Unterstützung unserer internen, internationalen Kunden bei der Umsetzung ihrer Anforderungen.\n\n## PROFIL\n\n- Erfolgreich abgeschlossenes Studium im Bereich Betriebswirtschaft oder IT oder eine vergleichbare Ausbildung.\n- Mehrjährige Erfahrung im SAP- und/oder Microsoft-Umfeld, idealerweise im Bereich Analytics und Daten.\n- Analytisches Denkvermögen, Kommunikationsstärke, Eigenverantwortlichkeit und Flexibilität.\n- Bereitschaft zur kontinuierlichen Weiterbildung sowie gute Englischkenntnisse.\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
         "it": "## OBIETTIVO DI POSIZIONE\n\nGeberit è un’azienda industriale internazionale “con cuore e anima”. Come datore di lavoro focalizzato sull'IT, ci affidiamo a tecnologie all'avanguardia. I nostri dipendenti apprezzano la collegialità e la collaborazione nelle squadre. In qualità di Data Analyst IT, si forma attivamente l'ulteriore sviluppo della nostra piattaforma dati innovativa e lavorare a stretto contatto con gli stakeholder aziendali in tutto il mondo.\n\nVuoi saperne di più sulla nostra IT e la gente dietro di esso? Dai un'occhiata al nostro video: https://youtu.be/no5GL-4 Nrc\n\n## TASK PRINCIPALI\n\n- Ingegneria: Sostenere il team nel continuo miglioramento e sviluppo dei nostri moderni prodotti di dati e applicazioni analitiche.\n- Frontend Solution Design: Concezione, progettazione e realizzazione di soluzioni di reporting, dashboard e pianificazione basate su SAP Analytics Cloud e Microsoft PowerBI\n- Project Management: implementazione strutturata lungo cicli di progetto agili tra cui definizione e controllo delle linee temporali, pietre miliari e consegnabili.\n- Business Partnership: consulenza su processi e tecnologie basate su soluzioni SAP e Microsoft, ad esempio SAP Business Warehouse o Microsoft Fabric.\n- Assistenza clienti: Gestione delle aspettative attiva e supporto competente dei nostri clienti interni e internazionali nell'attuazione delle loro esigenze.\n\n## PROFESSIONALE\n\n- Studi con successo completati in amministrazione aziendale o IT o una formazione comparabile.\n- Diversi anni di esperienza nell'ambiente SAP e/o Microsoft, idealmente nell'area di analisi e dati.\n- Analitica capacità di pensiero, capacità di comunicazione, auto-responsabilità e flessibilità.\n- Prontezza per un'ulteriore formazione continua e buona conoscenza dell'inglese.\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
         "en": "## POSITION OBJECTIVE\n\nGeberit is an international industrial company “with heart and soul”. As an IT-focused employer, we rely on state-of-the-art technologies. Our employees appreciate the collegiality and the cooperation in the teams. As an IT Data Analyst, you actively shape the further development of our innovative data platform and work closely with business stakeholders worldwide.\n\nWant to know more about our IT and the people behind it? Then take a look at our video: https://youtu.be/no5GL-4 Nrc\n\n## MAIN TASKS\n\n- Requirements Engineering: Supporting the team in the continuous improvement and development of our modern data products and analytical applications.\n- Frontend Solution Design: Conception, design and implementation of reporting, dashboard and planning solutions based on SAP Analytics Cloud and Microsoft PowerBI\n- Project Management: Structured implementation along agile project cycles including definition and control of timelines, milestones and deliverables.\n- Business Partnership: Advising on processes and technologies based on SAP and Microsoft solutions, e.g. SAP Business Warehouse or Microsoft Fabric.\n- Customer support: Active expectation management and competent support of our internal, international customers in the implementation of their requirements.\n\n## PROFILE\n\n- Successfully completed studies in business administration or IT or a comparable education.\n- Several years of experience in the SAP and/or Microsoft environment, ideally in the area of analytics and data.\n- Analytical thinking skills, communication skills, self-responsibility and flexibility.\n- Readiness for continuous further education and good knowledge of English.\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## ZIEL DER POSITION\n\nGeberit ist ein internationales Industrieunternehmen «mit Herz und Seele». Als IT-fokussierter Arbeitgeber setzen wir auf State-of-the-Art-Technologien. Unsere Mitarbeitenden schätzen die Kollegialität und die Zusammenarbeit in den Teams. Als IT Data Analyst gestaltest du aktiv die Weiterentwicklung unserer innovativen Data Platform und arbeitest eng mit Business-Stakeholdern weltweit zusammen.\n\nDu möchtest mehr über unsere IT und die Menschen dahinter erfahren? Dann wirf gerne einen Blick in unser Video: https://youtu.be/no5GL-4_Nrc\n\n## HAUPTAUFGABEN​\n\n- Requirements Engineering: Unterstützung des Teams bei der kontinuierlichen Verbesserung und Weiterentwicklung unserer modernen Data Products und Analytical Applications.\n- Frontend Solution Design: Konzeption, Design und Umsetzung von Reporting‑, Dashboard‑ und Planungslösungen auf Basis von SAP Analytics Cloud und Microsoft PowerBI\n- Project-Management: Strukturierte Umsetzung entlang agiler Projektzyklen inklusive Definition und Steuerung von Timelines, Meilensteinen und Deliverables.\n- Business Partnership: Beratung zu Prozessen und Technologien auf Basis von SAP und Microsoft-Lösungen, z.B. SAP Business Warehouse oder Microsoft Fabric.\n- Kundenunterstützung: Aktives Erwartungsmanagement sowie kompetente Unterstützung unserer internen, internationalen Kunden bei der Umsetzung ihrer Anforderungen.\n\n## PROFIL\n\n- Erfolgreich abgeschlossenes Studium im Bereich Betriebswirtschaft oder IT oder eine vergleichbare Ausbildung.\n- Mehrjährige Erfahrung im SAP- und/oder Microsoft-Umfeld, idealerweise im Bereich Analytics und Daten.\n- Analytisches Denkvermögen, Kommunikationsstärke, Eigenverantwortlichkeit und Flexibilität.\n- Bereitschaft zur kontinuierlichen Weiterbildung sowie gute Englischkenntnisse.\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
         "fr": "## POSITION OBJECTIF\n\nGeberit est une entreprise industrielle internationale avec cœur et âme. En tant qu'employeur axé sur les TI, nous comptons sur des technologies de pointe. Nos collaborateurs apprécient la collégialité et la coopération au sein des équipes. En tant qu'analyste de données informatiques, vous façonnez activement le développement de notre plate-forme de données innovante et travaillez en étroite collaboration avec les acteurs du monde entier.\n\nVous voulez en savoir plus sur nos TI et les gens derrière ? Ensuite, jetez un coup d'oeil à notre vidéo: https://youtu.be/no5GL-4 Nrc\n\n## PRINCIPAUX TÂCHES\n\n- Ingénierie des exigences: Soutenir l'équipe dans l'amélioration et le développement continus de nos produits de données modernes et applications analytiques.\n- Conception de solutions Frontend: Conception, conception et mise en œuvre de solutions de reporting, de tableau de bord et de planification basées sur SAP Analytics Cloud et Microsoft PowerBI\n- Gestion de projet : Mise en oeuvre structurée selon des cycles de projets agiles comprenant la définition et le contrôle des échéanciers, des jalons et des produits livrables.\n- Partenariat d'affaires : Conseils sur les processus et les technologies basés sur les solutions SAP et Microsoft, par exemple SAP Business Warehouse ou Microsoft Fabric.\n- Assistance client : Gestion active des attentes et soutien compétent de nos clients internes et internationaux dans la mise en œuvre de leurs exigences.\n\n## PROFIL\n\n- Études réussies en administration des affaires ou en TI ou études comparables.\n- Plusieurs années d'expérience dans l'environnement SAP et/ou Microsoft, idéalement dans le domaine de l'analyse et des données.\n- Compétences analytiques en pensée, en communication, en autoresponsabilité et en flexibilité.\n- Préparation à une formation continue et bonne connaissance de l'anglais.\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
       },
       "location": "Rapperswil-Jona",
@@ -2159,7 +2160,7 @@
       "url": "https://jobs.geberit.com/job-invite/2069/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.329Z",
+      "crawledAt": "2026-10-28T20:23:12.194Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Heiligenberger Straße 47",
@@ -2177,16 +2178,29 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.geberit.com/job-invite/2069/?locale=de_DE",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "needsRetranslation": true,
       "previousSlugs": [
-        "data-analyst-a-geberit-ch"
+        "data-analyst-a-geberit-ch",
+        "data-analista-a-geberit-rapperswil-jona",
+        "data-analyst-a-geberit-rapperswil-jona",
+        "data-analyste-a-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-analyst-a-geberit-ch"
+          "data-analyst-a-geberit-ch",
+          "data-analista-a-geberit-rapperswil-jona"
         ],
         "fr": [
+          "data-analyst-a-geberit-ch",
+          "data-analyste-a-geberit-rapperswil-jona"
+        ],
+        "en": [
+          "data-analyst-a-geberit-rapperswil-jona"
+        ],
+        "de": [
           "data-analyst-a-geberit-ch"
         ]
       },
@@ -2236,7 +2250,7 @@
       "url": "https://jobs.geberit.com/job-invite/2148/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.329Z",
+      "crawledAt": "2026-10-28T20:23:12.194Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2310,7 +2324,7 @@
       "url": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.328Z",
+      "crawledAt": "2026-10-28T20:23:12.193Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2389,7 +2403,7 @@
       "url": "https://jobs.geberit.com/job-invite/1560/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.327Z",
+      "crawledAt": "2026-10-28T20:23:12.191Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2468,7 +2482,7 @@
       "url": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:51:03.325Z",
+      "crawledAt": "2026-10-28T20:23:12.187Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",

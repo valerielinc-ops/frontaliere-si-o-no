@@ -1,7 +1,7 @@
 {
   "key": "galderma",
   "label": "Galderma",
-  "generatedAt": "2026-10-28T09:50:26.305Z",
+  "generatedAt": "2026-10-28T20:17:17.162Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,19 +13,21 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7526,
-  "avgDurationMs": 7526,
+  "unchangedCount": 1,
+  "durationMs": 7300,
+  "avgDurationMs": 7300,
   "durationHistory": [
-    7526
+    7300
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "galderma-58c28018924d",
-      "slug": "customer-service-specialist-galderma-ch",
+      "slug": "servizio-clienti-specialista-galderma-zug",
       "company": "Galderma",
       "companyKey": "galderma",
       "companyDomain": "galderma.com",
@@ -35,7 +37,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:50:14.444Z",
+      "crawledAt": "2026-10-28T20:17:02.805Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -66,7 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
