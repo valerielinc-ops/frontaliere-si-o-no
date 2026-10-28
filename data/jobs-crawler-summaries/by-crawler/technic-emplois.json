@@ -1,7 +1,7 @@
 {
   "key": "technic-emplois",
   "label": "Technic Emplois SA",
-  "generatedAt": "2026-10-28T20:40:12.851Z",
+  "generatedAt": "2026-10-28T21:45:05.380Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 15347,
-  "avgDurationMs": 15347,
+  "durationMs": 12679,
+  "avgDurationMs": 12679,
   "durationHistory": [
-    15347
+    12679
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +41,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:39:54.652Z",
+      "crawledAt": "2026-10-28T21:44:49.320Z",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -83,7 +83,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5edd81f1-0ca1-4303-a921-af73073f18cd/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:39:53.729Z",
+      "crawledAt": "2026-10-28T21:44:48.363Z",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

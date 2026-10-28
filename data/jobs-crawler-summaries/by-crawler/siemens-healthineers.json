@@ -1,7 +1,7 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-10-28T20:39:22.081Z",
+  "generatedAt": "2026-10-28T21:42:28.974Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7165,
-  "avgDurationMs": 7165,
+  "durationMs": 8098,
+  "avgDurationMs": 8098,
   "durationHistory": [
-    7165
+    8098
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:38:59.053Z",
+      "crawledAt": "2026-10-28T21:42:06.818Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:38:58.388Z",
+      "crawledAt": "2026-10-28T21:42:06.037Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:38:57.687Z",
+      "crawledAt": "2026-10-28T21:42:05.334Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Systems-Verification-Engineer_R-31378-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:38:56.998Z",
+      "crawledAt": "2026-10-28T21:42:04.625Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -197,5 +197,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
