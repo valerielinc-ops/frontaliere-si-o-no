@@ -1,7 +1,7 @@
 {
   "key": "planzer",
   "label": "Planzer",
-  "generatedAt": "2026-10-28T20:45:52.594Z",
+  "generatedAt": "2026-10-28T21:20:31.598Z",
   "total": 12,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 12935,
-  "avgDurationMs": 12935,
+  "durationMs": 11942,
+  "avgDurationMs": 11942,
   "durationHistory": [
-    12935
+    11942
   ],
   "newJobs": [
     {
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4093344",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:24.115Z",
+      "crawledAt": "2026-10-28T21:20:08.844Z",
       "addressLocality": "Domat/Ems",
       "addressRegion": "GR",
       "streetAddress": "Via Zups 2",
@@ -57,7 +57,7 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T20:45:24.115Z",
+      "firstSeenAt": "2026-10-28T21:20:08.844Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,7 +81,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4092171",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:45:25.792Z",
+      "crawledAt": "2026-10-28T21:20:10.576Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "streetAddress": "Chemin de l'Islettaz 7",
@@ -125,7 +125,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4092892",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:25.060Z",
+      "crawledAt": "2026-10-28T21:20:09.781Z",
       "addressLocality": "Dintikon",
       "addressRegion": "AG",
       "streetAddress": "Silostrasse 8",
@@ -172,7 +172,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4088392",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:30.789Z",
+      "crawledAt": "2026-10-28T21:20:15.610Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -216,7 +216,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4088389",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:30.077Z",
+      "crawledAt": "2026-10-28T21:20:14.901Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -260,7 +260,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4087892",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:29.369Z",
+      "crawledAt": "2026-10-28T21:20:14.158Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -303,7 +303,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4087839",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:28.640Z",
+      "crawledAt": "2026-10-28T21:20:13.441Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -345,7 +345,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4090023",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:27.928Z",
+      "crawledAt": "2026-10-28T21:20:12.725Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -388,7 +388,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4089688",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:27.223Z",
+      "crawledAt": "2026-10-28T21:20:12.017Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -431,7 +431,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4092159",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:45:26.504Z",
+      "crawledAt": "2026-10-28T21:20:11.286Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -552,5 +552,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }

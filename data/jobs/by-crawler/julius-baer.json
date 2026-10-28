@@ -1,7 +1,7 @@
 {
   "crawlerKey": "julius-baer",
-  "assembledAt": "2026-10-28T20:45:16.344Z",
-  "runId": "40757546918",
+  "assembledAt": "2026-10-28T21:20:08.171Z",
+  "runId": "40769156051",
   "jobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Front-Arena---Market-Making-Specialist---AMAS-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19317-1",
@@ -51,7 +51,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -66,7 +66,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
@@ -80,7 +79,8 @@
       ],
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3301
+      "localeMismatchSuppressedLen": 3301,
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Relationship-Manager-Global-NRI_r-20321",
@@ -126,8 +126,7 @@
         "location": "Zurich"
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T09:16:21.353Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "currency": "CHF",
@@ -141,7 +140,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T09:16:21.353Z"
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Project-Lead---FX--PM---ETDs-e-Trading-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19998-1",
@@ -190,8 +190,7 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-10-28T09:16:21.353Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -205,7 +204,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T09:16:21.353Z"
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Transformation-Manager-100---f-m-d-_r-20281-1",
@@ -263,7 +263,7 @@
         ]
       },
       "firstSeenAt": "2026-10-27T21:19:50.930Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -335,7 +335,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:53:25.040Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -410,7 +410,7 @@
         "t24-application-support-operation-engineer-100-f-m-d-julius-baer"
       ],
       "firstSeenAt": "2026-10-20T21:13:38.037Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -474,7 +474,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-30T21:10:36.349Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -538,7 +538,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-27T09:37:08.556Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -601,7 +601,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-27T09:37:08.556Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -669,7 +669,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-26T21:16:59.366Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -733,7 +733,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-26T21:16:59.366Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -797,7 +797,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-24T09:11:02.944Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -861,7 +861,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-23T21:11:23.814Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -924,16 +924,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "previousSlugsByLocale": {
-        "en": [
-          "business-owner-global-data-platform-analytical-data-products-80-100-m-f-d-julius-baer"
-        ]
-      },
-      "previousSlugs": [
-        "business-owner-global-data-platform-analytical-data-products-80-100-m-f-d-julius-baer"
-      ],
       "firstSeenAt": "2026-10-23T09:17:11.105Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -947,7 +939,15 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "business-owner-global-data-platform-analytical-data-products-80-100-m-f-d-julius-baer"
+        ]
+      },
+      "previousSlugs": [
+        "business-owner-global-data-platform-analytical-data-products-80-100-m-f-d-julius-baer"
+      ]
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Non-Financial-Risk-Expert-100---f-m-d-_r-19790-2",
@@ -997,7 +997,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-23T09:17:11.105Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1061,7 +1061,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-22T09:15:02.620Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1125,7 +1125,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-22T09:15:02.620Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -1188,7 +1188,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-22T09:15:02.620Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1252,7 +1252,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-15T09:16:14.905Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1316,7 +1316,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-20T21:13:38.037Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1379,7 +1379,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-19T09:14:22.817Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1443,7 +1443,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-15T21:16:45.339Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1510,7 +1510,7 @@
         "responsabile-della-piattaforma-dati-chiasso"
       ],
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1590,7 +1590,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1654,7 +1654,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-16T09:10:24.994Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1718,7 +1718,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-16T09:10:24.994Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "currency": "CHF",
@@ -1782,7 +1782,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-15T21:16:45.339Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 7400,
       "salaryMax": 11200,
       "currency": "CHF",
@@ -1846,7 +1846,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-14T21:14:43.872Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -1913,7 +1913,7 @@
       "localeMismatchSuppressedLen": 3264,
       "retranslationAttempts": 56,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -1978,7 +1978,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-13T09:13:52.039Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2042,7 +2042,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2106,7 +2106,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-09T21:11:04.933Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2170,7 +2170,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -2233,16 +2233,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "previousSlugsByLocale": {
-        "en": [
-          "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer"
-        ]
-      },
-      "previousSlugs": [
-        "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer"
-      ],
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -2256,7 +2248,15 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer"
+        ]
+      },
+      "previousSlugs": [
+        "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer"
+      ]
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Workplace-Safety---Physical-Security-Officer--Zrich--100----f-m-d-_r-19892",
@@ -2309,7 +2309,7 @@
       "localeMismatchSuppressedLen": 2997,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-21T15:57:50.187Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2373,7 +2373,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-12T09:14:18.277Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2440,7 +2440,7 @@
       "localeMismatchSuppressedLen": 5322,
       "retranslationAttempts": 56,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -2505,7 +2505,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-08T22:10:54.683Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -2577,7 +2577,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -2641,7 +2641,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-08T23:21:09.003Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -2705,7 +2705,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -2769,7 +2769,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -2833,7 +2833,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -2897,7 +2897,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-29T09:13:05.388Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -2961,7 +2961,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-26T13:54:14.518Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3025,7 +3025,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-23T23:36:02.791Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -3089,7 +3089,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -3153,7 +3153,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -3217,7 +3217,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-23T23:36:02.791Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3292,7 +3292,7 @@
         "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer"
       ],
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -3356,7 +3356,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-17T10:54:38.510Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -3420,7 +3420,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3484,7 +3484,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3548,7 +3548,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-07T15:04:01.668Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -3612,7 +3612,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "currency": "CHF",
@@ -3676,7 +3676,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-29T11:35:47.890Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -3751,7 +3751,7 @@
         "system-engineer-infrastructure-automation-100-f-m-d-julius-baer"
       ],
       "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -3815,7 +3815,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-08-12T10:17:21.830Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -3880,7 +3880,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:35:00.606Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "currency": "CHF",
@@ -3944,7 +3944,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-13T21:58:04.445Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -4008,7 +4008,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-09T12:13:07.375Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -4072,7 +4072,7 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-07-08T11:13:46.226Z",
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -4193,7 +4193,7 @@
         "location": "Zurich"
       },
       "needsRetranslation": true,
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -4208,7 +4208,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:44:58.844Z",
+      "firstSeenAt": "2026-10-28T21:19:47.960Z",
       "previousSlugs": [
         "junior-compliance-officer-employee-related-conflicts-100-f-m-d-julius-baer"
       ],
@@ -4258,7 +4258,7 @@
         "location": "Zurich"
       },
       "needsRetranslation": true,
-      "crawledAt": "2026-10-28T20:44:58.844Z",
+      "crawledAt": "2026-10-28T21:19:47.960Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -4273,7 +4273,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-28T20:44:58.844Z",
+      "firstSeenAt": "2026-10-28T21:19:47.960Z",
       "previousSlugs": [
         "junior-compliance-officer-employee-related-conflicts-100-f-m-d-julius-baer"
       ],
@@ -4282,6 +4282,62 @@
           "junior-compliance-officer-employee-related-conflicts-100-f-m-d-julius-baer"
         ]
       }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategic-Pricing---Revenue-Manager-100---Zurich-based--f-m-d-_r-20156-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategic-Pricing---Revenue-Manager-100---Zurich-based--f-m-d-_r-20156-1",
+      "title": "Strategic Pricing & Revenue Manager 100%, Zurich-based (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "description": "At Julius Baer, we celebrate and value the individual qualities you bring, enabling you to be impactful, to be entrepreneurial, to be empowered, and to create value beyond wealth. Let’s shape the future of wealth management together.\n\nAccelerate your career and become part of a renowned private bank in Switzerland. Contribute to the Bank's revenue generation in Julius Baer's Pricing and Revenue Management department.\n\nOur team drives strategic cross-divisional initiatives, identifies and conceptualises revenue optimisation measures, and reports insights to the Group Chief Financial Officer (CFO) and other members of the senior management team.\n\nWorking directly with senior leadership and key stakeholders across Front Regions, Products, Sales, and Finance, you will help define and deliver pricing strategies that enhance competitiveness, optimise profitability, and fuel long-term growth.\n\nYou will lead projects and initiatives independently while working with motivated and supportive colleagues. The team consists of energetic members with backgrounds in strategy consulting and banking. Your role will also provide exposure to key stakeholders across various divisions of the Bank, offering a great opportunity to build a network within Julius Baer.\n\nYOUR CHALLENGE\n\n• Pricing and revenue management: Take ownership of shaping Julius Baer's approach to pricing across services and client segments. As a trusted strategic partner, you will blend analytical insights with business judgement to help drive meaningful change\n\n• Pricing analysis and strategy: Conduct advanced quantitative and qualitative analyses on pricing performance, market trends, competitor pricing, and client behaviour (e.g. pricing situation, product and price model usage, price level enforcement) to inform executive-level decisions and uncover untapped revenue potential\n\n• Pricing platform and infrastructure: Lead the strategic evolution of our discount management platform, converting business needs into scalable process designs and tool requirements while partnering closely with Product Owners and Front Office stakeholders\n\n• Partnering across the organisation: Collaborate closely with regional Front teams, product specialists, legal, operations, and finance professionals to translate strategy into operationally effective solutions\n\n• Governance excellence: Support the team in developing and maintaining pricing governance frameworks, conducting regular reviews of pricing strategies and processes, and ensuring adherence to global and local minimum standards\n\n• Communication and stakeholder and change management: Prepare presentations and materials for senior management and stakeholder soundings, and coordinate the rollout and implementation of projects, including planning and tracking, budgeting, change management activities, and impact monitoring\n\nYOUR PROFILE\n\n• A Master's degree in Banking and Finance, Business Administration, Economics, Engineering, or a related field\n\n• A minimum of five years of professional experience, ideally in strategy consulting, corporate development, or a similar strategic function within the financial services sector\n\n• Sharpened analytical capabilities — comfortable analysing and interpreting complex datasets, building robust business cases, and translating findings into clear strategic recommendations\n\n• Outstanding communication and storytelling skills, particularly in crafting persuasive, board-ready presentations with precision and impact\n\n• Demonstrated project leadership: capable of managing multiple workstreams independently while navigating complex stakeholder requirements\n\n• A proactive, solution-oriented mindset — self-motivated, resilient under pressure, and committed to delivering high-quality outcomes on time\n\n• Attention to detail with high standards for quality and execution\n\n• A team player with the ability to interact professionally with stakeholders\n\n• Fluency in both German and English (written and spoken); additional languages are an asset\n\n• Eligibility to work in Switzerland\n\nWe are looking forward to receiving your full job application through our online application tool. Further interesting job opportunities can be found on our Career site.\nIs this not quite what you are looking for? Set up a job alert by creating a candidate account here.",
+      "descriptionByLocale": {
+        "en": "At Julius Baer, we celebrate and value the individual qualities you bring, enabling you to be impactful, to be entrepreneurial, to be empowered, and to create value beyond wealth. Let’s shape the future of wealth management together.\n\nAccelerate your career and become part of a renowned private bank in Switzerland. Contribute to the Bank's revenue generation in Julius Baer's Pricing and Revenue Management department.\n\nOur team drives strategic cross-divisional initiatives, identifies and conceptualises revenue optimisation measures, and reports insights to the Group Chief Financial Officer (CFO) and other members of the senior management team.\n\nWorking directly with senior leadership and key stakeholders across Front Regions, Products, Sales, and Finance, you will help define and deliver pricing strategies that enhance competitiveness, optimise profitability, and fuel long-term growth.\n\nYou will lead projects and initiatives independently while working with motivated and supportive colleagues. The team consists of energetic members with backgrounds in strategy consulting and banking. Your role will also provide exposure to key stakeholders across various divisions of the Bank, offering a great opportunity to build a network within Julius Baer.\n\nYOUR CHALLENGE\n\n• Pricing and revenue management: Take ownership of shaping Julius Baer's approach to pricing across services and client segments. As a trusted strategic partner, you will blend analytical insights with business judgement to help drive meaningful change\n\n• Pricing analysis and strategy: Conduct advanced quantitative and qualitative analyses on pricing performance, market trends, competitor pricing, and client behaviour (e.g. pricing situation, product and price model usage, price level enforcement) to inform executive-level decisions and uncover untapped revenue potential\n\n• Pricing platform and infrastructure: Lead the strategic evolution of our discount management platform, converting business needs into scalable process designs and tool requirements while partnering closely with Product Owners and Front Office stakeholders\n\n• Partnering across the organisation: Collaborate closely with regional Front teams, product specialists, legal, operations, and finance professionals to translate strategy into operationally effective solutions\n\n• Governance excellence: Support the team in developing and maintaining pricing governance frameworks, conducting regular reviews of pricing strategies and processes, and ensuring adherence to global and local minimum standards\n\n• Communication and stakeholder and change management: Prepare presentations and materials for senior management and stakeholder soundings, and coordinate the rollout and implementation of projects, including planning and tracking, budgeting, change management activities, and impact monitoring\n\nYOUR PROFILE\n\n• A Master's degree in Banking and Finance, Business Administration, Economics, Engineering, or a related field\n\n• A minimum of five years of professional experience, ideally in strategy consulting, corporate development, or a similar strategic function within the financial services sector\n\n• Sharpened analytical capabilities — comfortable analysing and interpreting complex datasets, building robust business cases, and translating findings into clear strategic recommendations\n\n• Outstanding communication and storytelling skills, particularly in crafting persuasive, board-ready presentations with precision and impact\n\n• Demonstrated project leadership: capable of managing multiple workstreams independently while navigating complex stakeholder requirements\n\n• A proactive, solution-oriented mindset — self-motivated, resilient under pressure, and committed to delivering high-quality outcomes on time\n\n• Attention to detail with high standards for quality and execution\n\n• A team player with the ability to interact professionally with stakeholders\n\n• Fluency in both German and English (written and spoken); additional languages are an asset\n\n• Eligibility to work in Switzerland\n\nWe are looking forward to receiving your full job application through our online application tool. Further interesting job opportunities can be found on our Career site.\nIs this not quite what you are looking for? Set up a job alert by creating a candidate account here."
+      },
+      "titleByLocale": {
+        "en": "Strategic Pricing & Revenue Manager 100%, Zurich-based (f/m/d)"
+      },
+      "slug": "strategic-pricing-revenue-manager-100-zurich-based-f-m-d-julius-baer",
+      "slugByLocale": {
+        "en": "strategic-pricing-revenue-manager-100-zurich-based-f-m-d-julius-baer"
+      },
+      "category": "management",
+      "datePosted": "2026-10-28",
+      "postedDate": "2026-10-28",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-28T21:19:47.960Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-28T21:19:47.960Z"
     }
   ]
 }

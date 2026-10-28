@@ -1,7 +1,7 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-10-28T20:51:28.874Z",
-  "runId": "40757546918",
+  "assembledAt": "2026-10-28T21:24:41.184Z",
+  "runId": "40769156051",
   "jobs": [
     {
       "id": "company-dy5k7r",
@@ -74,7 +74,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/00264ebe-d987-40c5-a0b1-bc9db456808a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:51.606Z",
+      "crawledAt": "2026-10-28T21:23:58.340Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -217,7 +217,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/technicienne-dexploitation-aclens/a117222b-ff47-4b0f-bed2-dbe10eee7363",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:51.600Z",
+      "crawledAt": "2026-10-28T21:23:58.336Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -250,7 +250,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:50:14.041Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -263,7 +262,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-891d82644ae6",
@@ -328,7 +328,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin/e78ee720-2a7f-49dd-80cf-c00d2b75f657",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:51.594Z",
+      "crawledAt": "2026-10-28T21:23:58.332Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -430,7 +430,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/b8556552-6007-4bb4-87ee-fa8cc8880716",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:51.014Z",
+      "crawledAt": "2026-10-28T21:23:57.723Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -534,7 +534,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/81e44653-64fc-4a07-99b1-5859bfd0537e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:51.011Z",
+      "crawledAt": "2026-10-28T21:23:57.719Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -631,7 +631,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/90d012e7-cdb6-41e3-9c4b-dba9e8948f2c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:51.005Z",
+      "crawledAt": "2026-10-28T21:23:57.716Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -735,7 +735,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/9be0e988-5902-425d-b1de-1ccb2e738845",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:50.498Z",
+      "crawledAt": "2026-10-28T21:23:57.115Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -839,7 +839,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin/67622df2-79f6-469c-a3fd-1dcba45260ed",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:50.490Z",
+      "crawledAt": "2026-10-28T21:23:57.112Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -943,7 +943,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/stv-filialleiterin/e686aa94-e573-41cc-be8d-e29d71709cbe",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:50.484Z",
+      "crawledAt": "2026-10-28T21:23:57.108Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -1045,7 +1045,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/9797a769-76f8-4a24-8848-d8bd2a18e485",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:49.861Z",
+      "crawledAt": "2026-10-28T21:23:56.621Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -1149,7 +1149,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin/d7ad24ce-234d-4684-a7a8-64e5575cd277",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:49.856Z",
+      "crawledAt": "2026-10-28T21:23:56.618Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -1253,7 +1253,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/1c8c0d37-507a-4e1c-9237-f2a72661c70a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:49.847Z",
+      "crawledAt": "2026-10-28T21:23:56.611Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -1361,7 +1361,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/4732f91d-f68b-41d0-97b7-7ce8ad8888b8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:49.432Z",
+      "crawledAt": "2026-10-28T21:23:56.139Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -1475,7 +1475,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bd31fa1d-3369-423e-968c-1ea8e603f55b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:49.423Z",
+      "crawledAt": "2026-10-28T21:23:56.134Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -1577,7 +1577,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/31d93b05-dc66-43fc-9bdf-d69eb7fd7a52",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:49.419Z",
+      "crawledAt": "2026-10-28T21:23:56.131Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -1684,7 +1684,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/055dc2ed-900f-49a7-91cd-d259678cd1db",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:48.989Z",
+      "crawledAt": "2026-10-28T21:23:55.649Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -1822,7 +1822,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/d52d0b92-f7a6-464d-aed8-49680fa9b68e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:48.973Z",
+      "crawledAt": "2026-10-28T21:23:55.647Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -1924,7 +1924,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/gerant-e/a2bd0858-080b-4695-8d03-ce8bd398b896",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:48.960Z",
+      "crawledAt": "2026-10-28T21:23:55.644Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -2019,7 +2019,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/2eac7765-078c-4981-ae32-63a82b08b125",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:48.354Z",
+      "crawledAt": "2026-10-28T21:23:55.050Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -2121,7 +2121,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/7d5e90d3-218d-4c5a-b8cf-0edc66757c97",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:48.351Z",
+      "crawledAt": "2026-10-28T21:23:55.047Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -2220,7 +2220,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/1d299862-9e2d-4ef5-b1f0-07bf478846ee",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:48.346Z",
+      "crawledAt": "2026-10-28T21:23:55.042Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -2319,7 +2319,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/15c0d63d-1007-44b6-8c08-cccf90324e9f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:47.882Z",
+      "crawledAt": "2026-10-28T21:23:54.565Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -2421,7 +2421,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/a5c0e787-4170-4411-b22c-ba4aa98fe811",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:47.880Z",
+      "crawledAt": "2026-10-28T21:23:54.563Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -2526,7 +2526,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/sicherheitsbeauftragter-region-baselwestschweiz/51ff7698-17f2-4ffe-a26f-249755b423a4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:47.877Z",
+      "crawledAt": "2026-10-28T21:23:54.560Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -2622,7 +2622,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/sicherheitsbeauftragter-region-80-bern/29fec1ff-ea99-44c1-a789-9dd381f929fd",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:47.272Z",
+      "crawledAt": "2026-10-28T21:23:53.957Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -2719,7 +2719,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/entwicklerin-dwh-und-bi/1b3ec9a5-2a17-4dfd-af09-43637850c7ca",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:47.269Z",
+      "crawledAt": "2026-10-28T21:23:53.954Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -2814,7 +2814,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/73b4c20c-460b-48f9-8244-6d6214041e5e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:47.261Z",
+      "crawledAt": "2026-10-28T21:23:53.949Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -2915,7 +2915,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/6cf442a8-2509-4bdb-8617-f1fb3b7bf38a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:46.815Z",
+      "crawledAt": "2026-10-28T21:23:53.466Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -3014,7 +3014,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin/f761b07a-e857-4d0f-94fa-ab81ae4ec080",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:46.812Z",
+      "crawledAt": "2026-10-28T21:23:53.463Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -3116,7 +3116,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/gerant-e/4e096ea1-d753-429b-b54e-de1e5da6f5f6",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:46.809Z",
+      "crawledAt": "2026-10-28T21:23:53.459Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -3216,7 +3216,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a9b7cbb2-992b-42ec-9d21-da8a38268642",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:46.316Z",
+      "crawledAt": "2026-10-28T21:23:52.861Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -3317,7 +3317,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/60486da1-ea32-4e6f-b332-b7b9a3a57288",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:46.313Z",
+      "crawledAt": "2026-10-28T21:23:52.858Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -3418,7 +3418,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/35fafbdd-d435-418c-88f4-fcf6af491719",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:46.309Z",
+      "crawledAt": "2026-10-28T21:23:52.855Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -3516,7 +3516,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/db0efd20-5349-410c-ad6f-def6d41c05d8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:45.844Z",
+      "crawledAt": "2026-10-28T21:23:52.400Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -3608,7 +3608,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/350efeac-1c42-4c53-bf97-a0bddb18078f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:45.841Z",
+      "crawledAt": "2026-10-28T21:23:52.397Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -3714,7 +3714,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/b9d983f0-a481-45ae-9c02-ce9b861f4a5a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:45.837Z",
+      "crawledAt": "2026-10-28T21:23:52.392Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -3820,7 +3820,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/a3dc6c5e-4b57-462e-80d8-a1e93d358e21",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:45.232Z",
+      "crawledAt": "2026-10-28T21:23:51.762Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -3923,7 +3923,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/db5bb911-72d7-41a0-b720-e52316c07905",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:45.225Z",
+      "crawledAt": "2026-10-28T21:23:51.757Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -4025,7 +4025,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/f64a6cb8-d078-460e-9ca6-5dc847a10ce5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:45.221Z",
+      "crawledAt": "2026-10-28T21:23:51.754Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -4129,7 +4129,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/6461e852-003d-426f-9870-41eb3c0a3036",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:44.760Z",
+      "crawledAt": "2026-10-28T21:23:51.310Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -4232,7 +4232,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3264b5ab-7e66-4cbf-9471-aa99ec72bffc",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:44.756Z",
+      "crawledAt": "2026-10-28T21:23:51.306Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -4325,7 +4325,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/1ab60c4d-aee1-4466-81c4-b26983efd488",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:44.751Z",
+      "crawledAt": "2026-10-28T21:23:51.301Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -4425,7 +4425,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/93d52b7f-8c9e-4b7d-9568-89f25edf572d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:44.113Z",
+      "crawledAt": "2026-10-28T21:23:50.660Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -4530,7 +4530,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/produkt-manager-tabak-nikotinprodukte/29012a34-b465-4ec8-8be1-1e2f18f8652c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:44.110Z",
+      "crawledAt": "2026-10-28T21:23:50.658Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -4635,7 +4635,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/franchisepartnerin-denner-partner/29ec4a49-6f92-4a3f-a121-cfaf93f8b93d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:44.105Z",
+      "crawledAt": "2026-10-28T21:23:50.652Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -4685,7 +4685,7 @@
       "slugByLocale": {
         "it": "commesso-a-denner-biel-bienne-43e4bd",
         "en": "salesperson-denner-biel-bienne-43e4bd",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-biel-bienne",
         "fr": "vendeur-euse-denner-biel-bienne-43e4bd"
       },
       "company": "Denner",
@@ -4736,7 +4736,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/444d7088-b094-42cf-946f-a448b643f19f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:43.654Z",
+      "crawledAt": "2026-10-28T21:23:50.197Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -4768,7 +4768,7 @@
         ],
         "de": [
           "verkaufer-in-denner-biel-bienne-hscp0z",
-          "verkaufer-in-denner-biel-bienne"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-biel-bienne"
@@ -4860,7 +4860,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/teamleiterin-betriebstechnik-frauenfeld/3e70796f-5c37-4d04-9ce0-e111f1f8a2aa",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:43.652Z",
+      "crawledAt": "2026-10-28T21:23:50.195Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -4905,7 +4905,7 @@
         "it": "partner-di-franchising-denner-partner-denner-val-de-charmey",
         "en": "franchise-partner-denner-partner-denner-val-de-charmey",
         "de": "franchisepartner-in-denner-partner-denner",
-        "fr": "partenaire-franchise-e-denner-partner-denner-val-de-charmey"
+        "fr": "franchisepartner-in-denner-partner-denner-val-de-charmey"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -4956,12 +4956,13 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/franchisepartnerin-denner-partner/ca230a29-7b25-469c-b2ee-20ef97c35025",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:43.648Z",
+      "crawledAt": "2026-10-28T21:23:50.191Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
         "franchisepartner-in-denner-partner-denner",
-        "franchisepartner-in-denner-partner-denner-val-de-charmey"
+        "franchisepartner-in-denner-partner-denner-val-de-charmey",
+        "partenaire-franchise-e-denner-partner-denner-val-de-charmey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4972,7 +4973,7 @@
           "franchisepartner-in-denner-partner-denner-val-de-charmey"
         ],
         "fr": [
-          "franchisepartner-in-denner-partner-denner-val-de-charmey"
+          "partenaire-franchise-e-denner-partner-denner-val-de-charmey"
         ]
       },
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
@@ -5061,7 +5062,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/aeb7adf8-5cf5-410b-b846-6f65d662c4e3",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:43.234Z",
+      "crawledAt": "2026-10-28T21:23:49.756Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -5175,7 +5176,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/d8648a98-ac76-4403-b678-34e75bb6917c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:43.232Z",
+      "crawledAt": "2026-10-28T21:23:49.753Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -5285,7 +5286,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/79f04196-7cfe-4a5b-89c4-5074f952a9be",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:43.229Z",
+      "crawledAt": "2026-10-28T21:23:49.751Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -5404,7 +5405,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e28fba91-1973-4fc2-905e-706e1df98b2a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:42.748Z",
+      "crawledAt": "2026-10-28T21:23:49.116Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -5516,7 +5517,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/314a4f2a-bce0-49b7-a94e-18b65ef2fc26",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:42.745Z",
+      "crawledAt": "2026-10-28T21:23:49.112Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -5575,7 +5576,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-worb",
         "en": "salesperson-denner-worb",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-worb",
         "fr": "vendeur-euse-denner-worb"
       },
       "company": "Denner",
@@ -5626,7 +5627,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/ad8217c7-17b4-4c1c-aac2-497a4ea77275",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:42.741Z",
+      "crawledAt": "2026-10-28T21:23:49.106Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -5660,7 +5661,7 @@
           "verkaufer-in-denner-worb"
         ],
         "de": [
-          "verkaufer-in-denner-worb"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
@@ -5693,7 +5694,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-worb",
         "en": "salesperson-denner-worb-675a07",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-worb",
         "fr": "vendeur-euse-denner-worb-675a07"
       },
       "company": "Denner",
@@ -5744,7 +5745,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/1e0d9d2f-ab27-490e-a781-71a2db803424",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:42.175Z",
+      "crawledAt": "2026-10-28T21:23:48.516Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -5767,6 +5768,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-worb"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -5796,7 +5800,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-laufen",
         "en": "salesperson-denner-laufen",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-laufen",
         "fr": "vendeur-euse-denner-laufen"
       },
       "company": "Denner",
@@ -5847,7 +5851,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/dfbb6b01-4036-4bd0-804d-834e40f21f8d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:42.172Z",
+      "crawledAt": "2026-10-28T21:23:48.513Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -5881,7 +5885,7 @@
           "verkaufer-in-denner-laufen"
         ],
         "de": [
-          "verkaufer-in-denner-laufen"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-laufen"
@@ -5914,7 +5918,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-laufen",
         "en": "salesperson-denner-laufen-b2b7e9",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-laufen",
         "fr": "vendeur-euse-denner-laufen-b2b7e9"
       },
       "company": "Denner",
@@ -5965,7 +5969,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/da4dd841-5ec2-44a1-945a-5ce4dc63e197",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:42.168Z",
+      "crawledAt": "2026-10-28T21:23:48.509Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -5988,6 +5992,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-laufen"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -6017,7 +6024,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-con-salario-orario-denner-laufen",
         "en": "salesperson-paid-hourly-denner-laufen",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-laufen",
         "fr": "vendeur-euse-remunere-e-a-l-heure-denner-laufen"
       },
       "company": "Denner",
@@ -6068,7 +6075,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/bcca9ae3-c5a2-4fc4-8d2c-4b835fc5a5de",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:41.733Z",
+      "crawledAt": "2026-10-28T21:23:48.038Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -6090,7 +6097,7 @@
           "verkaufer-in-im-stundenlohn-denner-laufen"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner-laufen"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-laufen"
@@ -6123,7 +6130,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-di-filiale-denner-binningen",
         "en": "assistant-branch-manager-denner-binningen",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-binningen",
         "fr": "assistant-e-de-direction-de-filiale-denner-binningen"
       },
       "company": "Denner",
@@ -6175,13 +6182,12 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d6c83174-9419-4b3d-b9e1-e04f038b9174",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:41.729Z",
+      "crawledAt": "2026-10-28T21:23:48.035Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-2",
-        "assistent-in-filialleitung-denner-binningen"
+        "assistent-in-filialleitung-denner-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6192,7 +6198,7 @@
           "assistent-in-filialleitung-denner-2"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-binningen"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-2"
@@ -6225,7 +6231,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-binningen",
         "en": "salesperson-denner-binningen",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-binningen",
         "fr": "vendeur-euse-denner-binningen"
       },
       "company": "Denner",
@@ -6276,7 +6282,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/e8e1fea4-ecc3-4fa6-9ad8-4b9c162122ae",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:41.725Z",
+      "crawledAt": "2026-10-28T21:23:48.032Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -6308,7 +6314,7 @@
           "verkaufer-in-denner-binningen"
         ],
         "de": [
-          "verkaufer-in-denner-binningen"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-binningen"
@@ -6400,7 +6406,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/482bed73-99bb-477b-a7bc-dc53ffb2a895",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:41.277Z",
+      "crawledAt": "2026-10-28T21:23:47.427Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -6505,7 +6511,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/da40e4d3-6017-4db1-b70a-08edb2919cf5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:41.273Z",
+      "crawledAt": "2026-10-28T21:23:47.423Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -6617,7 +6623,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/52bec962-4621-486c-a8f9-e68852c99fb2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:41.266Z",
+      "crawledAt": "2026-10-28T21:23:47.418Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -6728,7 +6734,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/19eaa524-de0a-42ea-b6e5-d54199a1a388",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:40.809Z",
+      "crawledAt": "2026-10-28T21:23:46.763Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -6841,7 +6847,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/646e1a8c-98fa-4f9b-a67b-8512f3d66a65",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:40.806Z",
+      "crawledAt": "2026-10-28T21:23:46.761Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -6954,7 +6960,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/65e20527-616f-485d-9313-c164d53093ad",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:40.804Z",
+      "crawledAt": "2026-10-28T21:23:46.758Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7069,7 +7075,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/db29eec3-674a-4f95-bb2d-4ea266addc71",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:40.240Z",
+      "crawledAt": "2026-10-28T21:23:46.142Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7265,7 +7271,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2c3a067a-6797-41cb-9cb5-8320e8603b91",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:40.235Z",
+      "crawledAt": "2026-10-28T21:23:46.137Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7374,7 +7380,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5261d816-1eef-463d-b675-c82835436ca8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:40.233Z",
+      "crawledAt": "2026-10-28T21:23:46.134Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7524,7 +7530,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/09bde9ef-1d14-4f32-91de-67fda792962f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:39.795Z",
+      "crawledAt": "2026-10-28T21:23:45.679Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7637,7 +7643,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/5548f6f5-b684-427d-bba3-e4bafed91606",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:39.793Z",
+      "crawledAt": "2026-10-28T21:23:45.677Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7751,7 +7757,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/864f323a-cbda-4158-955e-b2776fe8a71e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:39.788Z",
+      "crawledAt": "2026-10-28T21:23:45.672Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7861,7 +7867,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/f4eb4727-76e2-4968-9cd4-bbb7358f42ca",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:39.198Z",
+      "crawledAt": "2026-10-28T21:23:45.192Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -7976,7 +7982,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/349c5529-b07b-4f7f-9141-ad8af6d9cadb",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:39.196Z",
+      "crawledAt": "2026-10-28T21:23:45.189Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -8080,7 +8086,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/92eb6ad5-f6bb-4b63-b6eb-e58ae716521a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:39.191Z",
+      "crawledAt": "2026-10-28T21:23:45.186Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -8181,7 +8187,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/05c32ccd-ea6a-4f1b-8f4c-8ea68dba99f2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:38.753Z",
+      "crawledAt": "2026-10-28T21:23:44.567Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -8341,7 +8347,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/40d5ea8b-2613-4391-9af9-313f8fedba19",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:38.750Z",
+      "crawledAt": "2026-10-28T21:23:44.564Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -8434,7 +8440,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/6a1ed39c-d95d-461e-bd7f-9c7a94833222",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:38.747Z",
+      "crawledAt": "2026-10-28T21:23:44.561Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -8538,7 +8544,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/5227c98b-4cb1-49d7-9f95-7fc919e4d508",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:38.162Z",
+      "crawledAt": "2026-10-28T21:23:43.958Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -8650,7 +8656,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/05958354-f3e8-4ab9-808a-5033a09ab81e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:38.158Z",
+      "crawledAt": "2026-10-28T21:23:43.955Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -8750,7 +8756,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/b97e6382-b068-417e-8f19-3bf2e357fc59",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:38.153Z",
+      "crawledAt": "2026-10-28T21:23:43.951Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -8852,7 +8858,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/5f0d22c6-d2e4-452a-a944-5ddea6e54139",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:37.720Z",
+      "crawledAt": "2026-10-28T21:23:43.467Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -8962,7 +8968,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/8ae57917-80db-45f4-98ac-d9d557f62978",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:37.718Z",
+      "crawledAt": "2026-10-28T21:23:43.464Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -9067,7 +9073,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5a4c58fe-ae51-4f5d-8761-60409e5956f4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:37.715Z",
+      "crawledAt": "2026-10-28T21:23:43.462Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9169,7 +9175,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/d86830cf-d970-45c0-bbe5-2a27283c7c77",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:37.261Z",
+      "crawledAt": "2026-10-28T21:23:42.979Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9274,7 +9280,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3d6b0b84-66a6-41fe-8bfc-b151060d259b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:37.259Z",
+      "crawledAt": "2026-10-28T21:23:42.977Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9375,7 +9381,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/79de03d5-b5b3-4b17-bc8b-de9f331ba06c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:37.256Z",
+      "crawledAt": "2026-10-28T21:23:42.973Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9476,7 +9482,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/a364b6ad-8387-4966-87b8-ade396599df4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:36.814Z",
+      "crawledAt": "2026-10-28T21:23:42.491Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -9578,7 +9584,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/c3ba21b1-4b39-4e45-861e-56e6a7d4b524",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:36.809Z",
+      "crawledAt": "2026-10-28T21:23:42.486Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9680,7 +9686,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/fdcbdae9-03bc-45fa-888c-543da26a0325",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:36.806Z",
+      "crawledAt": "2026-10-28T21:23:42.483Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9782,7 +9788,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e841967e-ef79-44e4-bfec-f2df5881984a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:36.221Z",
+      "crawledAt": "2026-10-28T21:23:41.872Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9884,7 +9890,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3d588124-ea34-4430-a844-985808ea7041",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:36.216Z",
+      "crawledAt": "2026-10-28T21:23:41.867Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -9987,7 +9993,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/b2220385-5f1f-4aa1-9c1d-1c4435acc10b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:36.213Z",
+      "crawledAt": "2026-10-28T21:23:41.863Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10088,7 +10094,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5da088ba-4486-43e9-92fe-4d216a5534bd",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:35.755Z",
+      "crawledAt": "2026-10-28T21:23:41.391Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10138,7 +10144,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-einsiedeln",
         "en": "salesperson-denner-einsiedeln",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-einsiedeln",
         "fr": "vendeur-euse-denner-einsiedeln"
       },
       "company": "Denner",
@@ -10189,7 +10195,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/8f695db8-2b24-41c1-a3e5-e3e18cba9117",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:35.753Z",
+      "crawledAt": "2026-10-28T21:23:41.389Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10214,6 +10220,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-einsiedeln"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -10294,7 +10303,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/e5ed22ed-46f4-45a7-81b6-303fe24f626e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:35.748Z",
+      "crawledAt": "2026-10-28T21:23:41.384Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10395,7 +10404,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/betriebstechnikerin-schmitten/17f25749-a3ed-46fc-bf23-1f21683eac1a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:35.149Z",
+      "crawledAt": "2026-10-28T21:23:40.731Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10494,7 +10503,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/cheffe-dequipe-reception-des-marchandises-aclens/bb967f8d-ef0d-4f06-b3df-5904a9270162",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:35.145Z",
+      "crawledAt": "2026-10-28T21:23:40.727Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10593,7 +10602,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/cheffe-dequipe-preparation-des-commandes-aclens/d333ade2-991f-42e3-aeb3-4428ea191a64",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:35.139Z",
+      "crawledAt": "2026-10-28T21:23:40.722Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10692,7 +10701,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/cheffe-dequipe-centre-de-controle-aclens/0958ba5a-be23-487a-8eca-f01f830bee10",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:34.699Z",
+      "crawledAt": "2026-10-28T21:23:40.251Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10790,7 +10799,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/cheffe-dequipe-expedition-des-marchandises-aclens/73eeebcb-e7cd-407a-abd0-60dba6729683",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:34.695Z",
+      "crawledAt": "2026-10-28T21:23:40.247Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10888,7 +10897,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/cheffe-dequipe-retours-et-recyclage-aclens/b9fdcdf4-3e0f-4bae-b462-8e4c7a331d22",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:34.691Z",
+      "crawledAt": "2026-10-28T21:23:40.243Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -10983,7 +10992,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/604e933f-b664-4b21-9479-d7e510a33236",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:34.235Z",
+      "crawledAt": "2026-10-28T21:23:39.790Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -11038,7 +11047,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zug",
         "en": "assistant-branch-manager-denner-zug-6e6321",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zug",
         "fr": "assistant-e-de-direction-de-filiale-denner-zug"
       },
       "company": "Denner",
@@ -11090,13 +11099,12 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/60325208-2a40-458a-b627-b1c54949ae79",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:34.233Z",
+      "crawledAt": "2026-10-28T21:23:39.787Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-3",
-        "assistent-in-filialleitung-denner-zug"
+        "assistent-in-filialleitung-denner-3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11107,7 +11115,7 @@
           "assistent-in-filialleitung-denner-3"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-zug"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-3"
@@ -11140,7 +11148,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-in-formazione-denner-pratteln",
         "en": "branch-manager-in-training-denner-pratteln",
-        "de": "filialleiter-in-in-ausbildung-denner",
+        "de": "filialleiter-in-in-ausbildung-denner-pratteln",
         "fr": "responsable-de-filiale-en-formation-denner-pratteln"
       },
       "company": "Denner",
@@ -11191,7 +11199,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/7153ad60-2a38-4694-9c51-00a21a831775",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:34.230Z",
+      "crawledAt": "2026-10-28T21:23:39.784Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -11209,7 +11217,7 @@
           "filialleiter-in-in-ausbildung-denner-pratteln"
         ],
         "de": [
-          "filialleiter-in-in-ausbildung-denner-pratteln"
+          "filialleiter-in-in-ausbildung-denner"
         ],
         "fr": [
           "filialleiter-in-in-ausbildung-denner-pratteln"
@@ -11242,7 +11250,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-zug",
         "en": "salesperson-denner-zug",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-zug",
         "fr": "vendeur-euse-denner-zug-589d20"
       },
       "company": "Denner",
@@ -11293,7 +11301,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/b98846a4-b9f0-4732-839c-57a5cdd77e9f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:33.786Z",
+      "crawledAt": "2026-10-28T21:23:39.314Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -11319,7 +11327,7 @@
           "verkaufer-in-denner-zug"
         ],
         "de": [
-          "verkaufer-in-denner-zug"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-zug"
@@ -11352,7 +11360,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-binningen",
         "en": "deputy-branch-manager-denner-binningen",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-binningen",
         "fr": "responsable-adjoint-e-de-filiale-denner-binningen"
       },
       "company": "Denner",
@@ -11403,7 +11411,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/dfbeca20-1d11-4e7d-87c1-c42cb8109e94",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:33.783Z",
+      "crawledAt": "2026-10-28T21:23:39.311Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -11425,7 +11433,7 @@
           "stv-filialleiter-in-denner-binningen"
         ],
         "de": [
-          "stv-filialleiter-in-denner-binningen"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-binningen"
@@ -11458,7 +11466,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-pratteln",
         "en": "salesperson-denner-pratteln",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-pratteln",
         "fr": "vendeur-euse-denner-pratteln"
       },
       "company": "Denner",
@@ -11509,7 +11517,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/b4c43831-42b0-42e9-a7de-f84d7429caa8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:33.781Z",
+      "crawledAt": "2026-10-28T21:23:39.308Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -11533,7 +11541,7 @@
           "verkaufer-in-denner-pratteln"
         ],
         "de": [
-          "verkaufer-in-denner-pratteln"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-pratteln"
@@ -11567,7 +11575,7 @@
         "it": "partner-di-franchising-denner-partner-denner-mauren",
         "en": "franchise-partner-denner-partner-denner-mauren",
         "de": "franchisepartner-in-denner-partner-denner",
-        "fr": "partenaire-franchise-e-denner-partner-denner-mauren"
+        "fr": "franchisepartner-in-denner-partner-denner-mauren"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -11618,14 +11626,15 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/franchisepartnerin-denner-partner/6934304a-cf3d-4beb-a61a-1602035bf7a8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:33.359Z",
+      "crawledAt": "2026-10-28T21:23:38.801Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
         "franchisepartner-in-denner-partner-denner",
         "franchisepartner-in-denner-partner-denner-2",
         "denner-partner-franchise-partner-denner-mauren",
-        "franchisepartner-in-denner-partner-denner-mauren"
+        "franchisepartner-in-denner-partner-denner-mauren",
+        "partenaire-franchise-e-denner-partner-denner-mauren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11638,7 +11647,7 @@
           "franchisepartner-in-denner-partner-denner-mauren"
         ],
         "fr": [
-          "franchisepartner-in-denner-partner-denner-mauren"
+          "partenaire-franchise-e-denner-partner-denner-mauren"
         ]
       },
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
@@ -11668,7 +11677,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zurich-a76a7a",
         "en": "assistant-branch-manager-denner-zurich-a76a7a",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zurich",
         "fr": "assistant-e-de-direction-de-filiale-denner-zurich-a76a7a"
       },
       "company": "Denner",
@@ -11720,13 +11729,12 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d0d9db73-e859-454d-b5f9-14a2d274c78c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:33.357Z",
+      "crawledAt": "2026-10-28T21:23:38.799Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-4",
-        "assistent-in-filialleitung-denner-zurich"
+        "assistent-in-filialleitung-denner-4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11737,7 +11745,7 @@
           "assistent-in-filialleitung-denner-4"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-zurich"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-4"
@@ -11770,7 +11778,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zurich-54c5ba",
         "en": "assistant-branch-manager-denner-zurich-54c5ba",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zurich",
         "fr": "assistant-e-de-direction-de-filiale-denner-zurich-54c5ba"
       },
       "company": "Denner",
@@ -11822,13 +11830,12 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5678d0df-a9d7-4550-aba3-638e00776d9e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:33.354Z",
+      "crawledAt": "2026-10-28T21:23:38.796Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-5",
-        "assistent-in-filialleitung-denner-zurich"
+        "assistent-in-filialleitung-denner-5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11839,7 +11846,7 @@
           "assistent-in-filialleitung-denner-5"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-zurich"
+          "assistent-in-filialleitung-denner"
         ],
         "fr": [
           "assistent-in-filialleitung-denner-5"
@@ -11931,7 +11938,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/d7f53285-ea7b-4a18-a9a4-7174d4b255a4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.912Z",
+      "crawledAt": "2026-10-28T21:23:38.168Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -11979,7 +11986,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-kirchberg",
         "en": "deputy-branch-manager-denner-kirchberg",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-kirchberg",
         "fr": "responsable-adjoint-e-de-succursale-denner-kirchberg"
       },
       "company": "Denner",
@@ -12030,7 +12037,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/73d8defc-1e04-4b0d-b115-12c6bbf10b0e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.907Z",
+      "crawledAt": "2026-10-28T21:23:38.163Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -12056,7 +12063,7 @@
           "stv-filialleiter-in-denner-kirchberg"
         ],
         "de": [
-          "stv-filialleiter-in-denner-kirchberg"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-kirchberg"
@@ -12148,7 +12155,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/7dfd799e-c57d-4231-a231-cb1d0e004a98",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.905Z",
+      "crawledAt": "2026-10-28T21:23:38.160Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -12283,7 +12290,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-aubsildung/94970ef9-a9bc-4804-81a1-2781cd33b160",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.458Z",
+      "crawledAt": "2026-10-28T21:23:37.537Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -12389,7 +12396,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/b6e9786e-b1b3-4c95-b3ce-a57df7dadc5e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.454Z",
+      "crawledAt": "2026-10-28T21:23:37.532Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -12518,7 +12525,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/e2db60ff-76cf-42bd-a915-f26633472203",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.450Z",
+      "crawledAt": "2026-10-28T21:23:37.528Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -12678,7 +12685,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/cf2fcd3b-cb2a-4ebd-9f60-1963b3dfd7a3",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.015Z",
+      "crawledAt": "2026-10-28T21:23:37.057Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -12805,7 +12812,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/b41a8428-8807-4314-bc3f-a0a1536dfb4a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.011Z",
+      "crawledAt": "2026-10-28T21:23:37.053Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -12928,7 +12935,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/cdb708f7-4291-48a7-8089-2144704d8609",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:32.009Z",
+      "crawledAt": "2026-10-28T21:23:37.050Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13038,7 +13045,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/2a190c6e-bbc5-42db-b3d2-dc1638009a49",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:31.450Z",
+      "crawledAt": "2026-10-28T21:23:36.540Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13148,7 +13155,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3de771e2-aa38-4206-9ed8-43e1b81fec5b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:31.448Z",
+      "crawledAt": "2026-10-28T21:23:36.537Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13253,7 +13260,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/c7afddb5-21f1-4c69-884c-5cf1d901791c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:31.445Z",
+      "crawledAt": "2026-10-28T21:23:36.534Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13388,7 +13395,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/52db1c2c-6aba-4a31-9dc5-5925465684db",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:30.827Z",
+      "crawledAt": "2026-10-28T21:23:35.916Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13480,7 +13487,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/dd94b4bc-d892-461f-bfbc-e988236fa54f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:30.825Z",
+      "crawledAt": "2026-10-28T21:23:35.913Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13580,7 +13587,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/ae914db5-e019-4c60-9b0e-b0e4cf1c70d2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:30.822Z",
+      "crawledAt": "2026-10-28T21:23:35.908Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13691,7 +13698,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/a594a378-4246-4bf4-9bc6-5a8ad2d87144",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:30.379Z",
+      "crawledAt": "2026-10-28T21:23:35.461Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -13854,7 +13861,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/0541905f-766e-4112-aa32-c93336bf6f7e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:30.375Z",
+      "crawledAt": "2026-10-28T21:23:35.456Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -13970,7 +13977,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/80722585-10e3-4685-8cf3-32a3aca56798",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:30.372Z",
+      "crawledAt": "2026-10-28T21:23:35.453Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14079,7 +14086,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/e096c185-5f69-4547-b1e9-7f96d5f48c31",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:29.754Z",
+      "crawledAt": "2026-10-28T21:23:34.861Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14179,7 +14186,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/e542a4c2-dfcb-4256-a0d7-f3d774281709",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:29.752Z",
+      "crawledAt": "2026-10-28T21:23:34.859Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14295,7 +14302,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/08d53381-966b-4104-b61a-81a03b928bef",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:29.749Z",
+      "crawledAt": "2026-10-28T21:23:34.856Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14403,7 +14410,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/f30f0d50-90f4-456c-9b84-d65fbfda11e2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:29.311Z",
+      "crawledAt": "2026-10-28T21:23:34.394Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -14517,7 +14524,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/548e086d-fd26-4b31-8e8e-e12fd16e4608",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:29.308Z",
+      "crawledAt": "2026-10-28T21:23:34.391Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14647,7 +14654,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/6f936d74-93c6-42a7-a803-acdbb9615686",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:29.304Z",
+      "crawledAt": "2026-10-28T21:23:34.387Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14749,7 +14756,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/25458639-dcd7-4e8d-8506-1b347c2d9e79",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:28.698Z",
+      "crawledAt": "2026-10-28T21:23:33.765Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14855,7 +14862,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/d6add2cc-12ad-4c5f-b10a-538f56b80194",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:28.695Z",
+      "crawledAt": "2026-10-28T21:23:33.762Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -14972,7 +14979,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/24929c7e-a881-4366-9e46-d2ffe1f11e74",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:28.693Z",
+      "crawledAt": "2026-10-28T21:23:33.759Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -15019,7 +15026,7 @@
     },
     {
       "id": "denner-75dc332be45c",
-      "slug": "venditore-denner-zug",
+      "slug": "venditore-trice-denner-zug-a4dbd7e08d",
       "titleByLocale": {
         "it": "Venditore/trice",
         "en": "Salesperson",
@@ -15027,7 +15034,7 @@
         "fr": "Vendeur·euse"
       },
       "slugByLocale": {
-        "it": "venditore-denner-zug",
+        "it": "venditore-trice-denner-zug-a4dbd7e08d",
         "en": "salesperson-denner-zug",
         "de": "verkaufer-in-denner",
         "fr": "vendeur-denner-zug"
@@ -15080,7 +15087,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/32bafa91-9329-4e31-aaa2-1bf7873a650c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:28.260Z",
+      "crawledAt": "2026-10-28T21:23:33.288Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -15088,12 +15095,14 @@
         "verkaufer-in-denner-zug",
         "verkaufer-in-denner-zug-rtrz4s",
         "venditore-trice-denner-zug-a4dbd7e08d",
-        "shop-assistant-denner-zug"
+        "shop-assistant-denner-zug",
+        "venditore-denner-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-trice-denner-zug-a4dbd7e08d"
+          "venditore-trice-denner-zug-a4dbd7e08d",
+          "venditore-denner-zug"
         ],
         "en": [
           "verkaufer-in-denner-zug",
@@ -15191,7 +15200,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/50c7013b-146a-48d4-a38d-b33054f95caf",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:28.257Z",
+      "crawledAt": "2026-10-28T21:23:33.285Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -15244,7 +15253,7 @@
       "slugByLocale": {
         "it": "venditore-denner-kirchberg",
         "en": "shop-assistant-denner-kirchberg",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-kirchberg",
         "fr": "vendeur-denner-kirchberg"
       },
       "company": "Denner",
@@ -15295,7 +15304,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/ce9de0f5-c480-4874-acd5-607ac4b279f6",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:28.253Z",
+      "crawledAt": "2026-10-28T21:23:33.280Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -15324,7 +15333,7 @@
           "verkaufer-in-denner-kirchberg"
         ],
         "de": [
-          "verkaufer-in-denner-kirchberg"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-kirchberg"
@@ -15409,7 +15418,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/c067d163-67d0-4a41-b0c1-3016b36c89a3",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:27.632Z",
+      "crawledAt": "2026-10-28T21:23:32.847Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -15512,7 +15521,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/53513624-8bc1-458d-90e2-c186151e6177",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:27.629Z",
+      "crawledAt": "2026-10-28T21:23:32.845Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -15618,7 +15627,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/6e01e1a9-cb32-40f9-b199-26b7a6b59b82",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:27.627Z",
+      "crawledAt": "2026-10-28T21:23:32.842Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -15626,6 +15635,7 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-zug",
         "venditore-denner-zug-fb89b2",
+        "venditore-denner-zug-82746e21aa",
         "venditore-denner-zug"
       ],
       "previousSlugsByLocale": {
@@ -15634,6 +15644,7 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-zug",
           "venditore-denner-zug-fb89b2",
+          "venditore-denner-zug-82746e21aa",
           "venditore-denner-zug"
         ],
         "en": [
@@ -15721,7 +15732,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/74b0c2e6-201d-4ac0-80ea-a4ab2060c4c9",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:27.183Z",
+      "crawledAt": "2026-10-28T21:23:32.384Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -15819,7 +15830,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/f94e6a77-fc0d-4d1e-bcc5-6693b80bff82",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:27.180Z",
+      "crawledAt": "2026-10-28T21:23:32.381Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -15917,7 +15928,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/37b86008-9e91-4aef-99b9-e43e6c535255",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:27.178Z",
+      "crawledAt": "2026-10-28T21:23:32.378Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16026,7 +16037,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/927fdf7d-cf1d-4b68-81fa-c6a700dcc371",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:26.731Z",
+      "crawledAt": "2026-10-28T21:23:31.904Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -16128,7 +16139,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3716bce3-b3cc-4831-945b-29a04b17d9fd",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:26.728Z",
+      "crawledAt": "2026-10-28T21:23:31.902Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16229,7 +16240,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/71c622f8-145a-4519-8453-e72e99f70d0f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:26.725Z",
+      "crawledAt": "2026-10-28T21:23:31.898Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16332,7 +16343,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/e47536ec-c0b8-4a9e-aa05-94dcc93a7238",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:26.275Z",
+      "crawledAt": "2026-10-28T21:23:31.433Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16433,7 +16444,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/4e044cf0-c9d2-4464-9146-6dccbc2f7173",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:26.272Z",
+      "crawledAt": "2026-10-28T21:23:31.430Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16535,7 +16546,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5faa9e18-ba52-41af-88bb-d3e20e8520c7",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:26.268Z",
+      "crawledAt": "2026-10-28T21:23:31.426Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16637,7 +16648,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/d159e668-e57b-4031-9394-a8455308ce9c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:25.665Z",
+      "crawledAt": "2026-10-28T21:23:30.965Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16736,7 +16747,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/3914a22b-8035-4cf6-b985-b0e7223f4256",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:25.662Z",
+      "crawledAt": "2026-10-28T21:23:30.963Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16850,7 +16861,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/841c6f56-f86c-4a30-a265-5a8198d41be5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:25.659Z",
+      "crawledAt": "2026-10-28T21:23:30.960Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -16951,7 +16962,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/675feb1c-dea9-45d1-adc2-8cd3dcfc5dea",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:25.212Z",
+      "crawledAt": "2026-10-28T21:23:30.547Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17053,7 +17064,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/9d4f9b91-c07b-4205-9388-4b069f081625",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:25.209Z",
+      "crawledAt": "2026-10-28T21:23:30.544Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17157,7 +17168,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/90b48b03-d2d7-4c6d-8479-1444e51e7d9a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:25.204Z",
+      "crawledAt": "2026-10-28T21:23:30.539Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -17260,7 +17271,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/f34d2797-2166-4845-a7f3-56ac595f2e94",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:24.593Z",
+      "crawledAt": "2026-10-28T21:23:30.036Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17365,7 +17376,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/bf8429a8-8554-4fb7-b3b5-fd970e920bf7",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:24.585Z",
+      "crawledAt": "2026-10-28T21:23:30.030Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17473,7 +17484,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/70aa1df7-cfe0-4435-ae5b-7ab4bb5004f4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:24.582Z",
+      "crawledAt": "2026-10-28T21:23:30.026Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17516,7 +17527,7 @@
     },
     {
       "id": "denner-31ea5cf40ba0",
-      "slug": "venditore-denner-sissach",
+      "slug": "venditore-denner-sissach-05d5328f47",
       "titleByLocale": {
         "it": "Venditore",
         "en": "shop assistant",
@@ -17524,7 +17535,7 @@
         "fr": "Vendeur"
       },
       "slugByLocale": {
-        "it": "venditore-denner-sissach",
+        "it": "venditore-denner-sissach-05d5328f47",
         "en": "shop-assistant-denner-sissach",
         "de": "verkaufer-in-denner",
         "fr": "vendeur-denner-sissach"
@@ -17577,7 +17588,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/7ddbb8e1-47e8-4f9e-b82d-3b2339654ffc",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:24.101Z",
+      "crawledAt": "2026-10-28T21:23:29.572Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17586,7 +17597,8 @@
         "verkaufer-in-denner-43",
         "verkaufer-in-denner-sissach",
         "verkaufer-in-denner-sissach-31lvmi",
-        "venditore-denner-sissach-05d5328f47"
+        "venditore-denner-sissach-05d5328f47",
+        "venditore-denner-sissach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17594,7 +17606,8 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-43",
           "verkaufer-in-denner-sissach",
-          "venditore-denner-sissach-05d5328f47"
+          "venditore-denner-sissach-05d5328f47",
+          "venditore-denner-sissach"
         ],
         "en": [
           "verkaufer-in-denner-sissach"
@@ -17685,7 +17698,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/76edf780-7402-46a4-827e-52c6e25a72ee",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:24.096Z",
+      "crawledAt": "2026-10-28T21:23:29.568Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17787,7 +17800,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/86aea148-3374-4b2d-b84b-3490e967274a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:24.090Z",
+      "crawledAt": "2026-10-28T21:23:29.562Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17891,7 +17904,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/bfea5285-5bd8-47ef-9be8-781d807f5861",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:23.640Z",
+      "crawledAt": "2026-10-28T21:23:29.044Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -17899,6 +17912,7 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-sissach",
         "venditore-denner-sissach-e3e513",
+        "venditore-denner-sissach-7db8cd2069",
         "venditore-denner-sissach"
       ],
       "previousSlugsByLocale": {
@@ -17907,6 +17921,7 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-sissach",
           "venditore-denner-sissach-e3e513",
+          "venditore-denner-sissach-7db8cd2069",
           "venditore-denner-sissach"
         ],
         "en": [
@@ -17943,7 +17958,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-sissach",
         "en": "salesperson-denner-sissach",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-sissach",
         "fr": "vendeur-euse-denner-sissach"
       },
       "company": "Denner",
@@ -17994,7 +18009,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/3af924e2-e320-45c0-a538-8591eef3cf6e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:23.637Z",
+      "crawledAt": "2026-10-28T21:23:29.040Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18019,6 +18034,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-sissach"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -18100,7 +18118,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3f4e3315-11b3-41da-9342-ea356afeb112",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:23.634Z",
+      "crawledAt": "2026-10-28T21:23:29.037Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18201,7 +18219,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/8e7f1439-36ce-4595-bfb4-a6eca19d9218",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:23.208Z",
+      "crawledAt": "2026-10-28T21:23:28.574Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18305,7 +18323,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/0e09a389-1828-40a8-a9e7-57670da44cce",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:23.203Z",
+      "crawledAt": "2026-10-28T21:23:28.569Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18407,7 +18425,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/73fdfe97-f288-4c2a-ac47-c56a387c675f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:23.201Z",
+      "crawledAt": "2026-10-28T21:23:28.566Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18459,7 +18477,7 @@
       "slugByLocale": {
         "it": "commesso-a-pagato-a-a-ore-denner-zug",
         "en": "hourly-salesperson-denner-zug",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-zug",
         "fr": "vendeur-euse-paye-e-a-l-heure-denner-zug"
       },
       "company": "Denner",
@@ -18510,7 +18528,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/28e5731f-fdef-41b0-8277-9cb7418b7807",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:22.724Z",
+      "crawledAt": "2026-10-28T21:23:27.948Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18538,7 +18556,7 @@
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-zug-bgvgho",
-          "verkaufer-in-im-stundenlohn-denner-zug"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-zug"
@@ -18571,7 +18589,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-zug",
         "en": "salesperson-denner-zug",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-zug",
         "fr": "vendeur-euse-denner-zug"
       },
       "company": "Denner",
@@ -18622,7 +18640,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/88489757-1f0a-4061-a501-e831c89e5101",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:22.721Z",
+      "crawledAt": "2026-10-28T21:23:27.945Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18649,6 +18667,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-zug"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-02T21:37:00.850Z",
@@ -18730,7 +18751,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d65c684f-d30d-4b92-8eb4-00fda87beec4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:22.719Z",
+      "crawledAt": "2026-10-28T21:23:27.942Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -18779,7 +18800,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zollikofen",
         "en": "assistant-branch-manager-denner-zollikofen",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zollikofen",
         "fr": "assistant-e-a-la-direction-de-la-filiale-denner-zollikofen"
       },
       "company": "Denner",
@@ -18831,7 +18852,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/85c31e62-8f37-41a8-bc99-1d6063572fbb",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:22.275Z",
+      "crawledAt": "2026-10-28T21:23:27.467Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18848,6 +18869,9 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-6"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "firstSeenAt": "2026-09-21T16:05:08.450Z",
@@ -18877,7 +18901,7 @@
       "slugByLocale": {
         "it": "assistente-alla-direzione-della-filiale-denner-zurich-9681e2",
         "en": "assistant-branch-manager-denner-zurich-9681e2",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-zurich",
         "fr": "assistant-e-a-la-direction-de-la-filiale-denner-zurich"
       },
       "company": "Denner",
@@ -18929,7 +18953,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/cec04391-3be2-4c40-98e7-1ea983ac6b6a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:22.272Z",
+      "crawledAt": "2026-10-28T21:23:27.463Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -18946,6 +18970,9 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-7"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "firstSeenAt": "2026-06-18T22:40:00.067Z",
@@ -18975,7 +19002,7 @@
       "slugByLocale": {
         "it": "assistente-responsabile-di-filiale-denner-buchs-ag",
         "en": "branch-manager-s-assistant-denner-buchs-ag",
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-buchs-ag",
         "fr": "assistant-e-de-la-direction-de-filiale-denner-buchs-ag"
       },
       "company": "Denner",
@@ -19027,7 +19054,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/356b5b9a-06ed-4046-8947-a37c285976d4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:22.269Z",
+      "crawledAt": "2026-10-28T21:23:27.460Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19044,6 +19071,9 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-8"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
@@ -19073,7 +19103,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-con-retribuzione-oraria-denner-buchs-ag",
         "en": "hourly-paid-sales-assistant-denner-buchs-ag",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-buchs-ag",
         "fr": "vendeur-euse-paye-e-a-l-heure-denner-buchs-ag"
       },
       "company": "Denner",
@@ -19124,7 +19154,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/9920d8ff-f492-44a3-a9ca-4ec2092b903f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:21.648Z",
+      "crawledAt": "2026-10-28T21:23:27.031Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19145,6 +19175,9 @@
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-buchs-ag"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
@@ -19175,7 +19208,7 @@
         "it": "amministratore-delegato-denner-renens-vd",
         "en": "deputy-managing-officer-denner-renens-vd",
         "de": "stellvertretender-geschaftsfuhrer-denner-renens-vd",
-        "fr": "adjoint-e-gerant-e-denner"
+        "fr": "adjoint-e-gerant-e-denner-renens-vd"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -19223,7 +19256,7 @@
       "applyUrl": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/adjoint-e-gerant-e/6dc5fa7e-7155-49f9-87fa-79417fc78773",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:50:21.645Z",
+      "crawledAt": "2026-10-28T21:23:27.028Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19239,6 +19272,9 @@
           "adjoint-e-gerant-e-denner"
         ],
         "de": [
+          "adjoint-e-gerant-e-denner"
+        ],
+        "fr": [
           "adjoint-e-gerant-e-denner"
         ]
       },
@@ -19269,7 +19305,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-richterswil",
         "en": "sales-assistant-denner-richterswil",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-richterswil",
         "fr": "vendeur-euse-denner-richterswil"
       },
       "company": "Denner",
@@ -19320,7 +19356,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/97007ab5-b523-45b7-819a-aa73d4685c7e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:21.640Z",
+      "crawledAt": "2026-10-28T21:23:27.020Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19341,6 +19377,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-richterswil"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -19421,7 +19460,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/e1cc624f-f8ee-451e-b84f-75c8febad8de",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:21.214Z",
+      "crawledAt": "2026-10-28T21:23:26.538Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19529,7 +19568,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/ba7210aa-0b6b-4085-940a-a7ef1dcca31f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:21.209Z",
+      "crawledAt": "2026-10-28T21:23:26.533Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19641,7 +19680,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/6886c237-fb4a-4db0-bf85-aa6b9d0a6f31",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:21.205Z",
+      "crawledAt": "2026-10-28T21:23:26.528Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19689,7 +19728,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-con-paga-oraria-denner-emmenbrucke",
         "en": "sales-assistant-paid-hourly-denner-emmenbrucke",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
         "fr": "vendeur-euse-a-l-heure-denner-emmenbrucke"
       },
       "company": "Denner",
@@ -19740,7 +19779,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/e97a52ed-f295-494b-a2a1-2ea74348153f",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:20.591Z",
+      "crawledAt": "2026-10-28T21:23:26.045Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19763,6 +19802,9 @@
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-emmenbrucke"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
@@ -19792,7 +19834,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-con-paga-oraria-denner-emmenbrucke-505d3a",
         "en": "sales-assistant-paid-hourly-denner-emmenbrucke-505d3a",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
         "fr": "vendeur-euse-a-l-heure-denner-emmenbrucke-505d3a"
       },
       "company": "Denner",
@@ -19843,7 +19885,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/f1d047dc-7698-4915-aec3-9940ea9b1341",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:20.584Z",
+      "crawledAt": "2026-10-28T21:23:26.039Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19866,6 +19908,9 @@
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-emmenbrucke"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
@@ -19895,7 +19940,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-in-formazione-denner-bubendorf",
         "en": "branch-manager-trainee-denner-bubendorf",
-        "de": "filialleiter-in-in-ausbildung-denner",
+        "de": "filialleiter-in-in-ausbildung-denner-bubendorf",
         "fr": "responsable-de-filiale-en-formation-denner-bubendorf"
       },
       "company": "Denner",
@@ -19946,7 +19991,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/8a23322e-1800-4bbd-8137-543ca47da064",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:20.580Z",
+      "crawledAt": "2026-10-28T21:23:26.034Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -19965,6 +20010,9 @@
         ],
         "fr": [
           "filialleiter-in-in-ausbildung-denner-bubendorf"
+        ],
+        "de": [
+          "filialleiter-in-in-ausbildung-denner"
         ]
       },
       "firstSeenAt": "2026-06-01T14:22:11.295Z",
@@ -19994,7 +20042,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-con-paga-oraria-denner-bubendorf",
         "en": "sales-assistant-paid-hourly-denner-bubendorf",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-bubendorf",
         "fr": "vendeur-euse-a-l-heure-denner-bubendorf"
       },
       "company": "Denner",
@@ -20045,7 +20093,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/47f20e1d-9198-4afe-9f26-aeffaa6bcfdf",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:20.121Z",
+      "crawledAt": "2026-10-28T21:23:25.616Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -20066,6 +20114,9 @@
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-bubendorf"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
@@ -20095,7 +20146,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-eglisau",
         "en": "sales-assistant-denner-eglisau",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-eglisau",
         "fr": "vendeur-euse-denner-eglisau"
       },
       "company": "Denner",
@@ -20146,7 +20197,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/59877aba-2e37-46d9-afdf-6e8e7b3f1807",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:20.116Z",
+      "crawledAt": "2026-10-28T21:23:25.609Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -20167,6 +20218,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-eglisau"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -20196,7 +20250,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-rupperswil",
         "en": "sales-assistant-denner-rupperswil",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-rupperswil",
         "fr": "vendeur-euse-denner-rupperswil"
       },
       "company": "Denner",
@@ -20247,7 +20301,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin/773087ac-b1e7-45dd-8b69-11f74f8d1f03",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:20.113Z",
+      "crawledAt": "2026-10-28T21:23:25.605Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -20268,6 +20322,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-rupperswil"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
@@ -20356,7 +20413,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/18636b3a-3fc9-4f3f-b349-9916e2b18a9b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:19.512Z",
+      "crawledAt": "2026-10-28T21:23:25.154Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -20464,7 +20521,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/d7c16630-5c4c-447f-9d2e-b923551e8393",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:19.510Z",
+      "crawledAt": "2026-10-28T21:23:25.150Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -20581,7 +20638,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/db170b5d-6c0c-4310-bff7-c924c54eed23",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:19.506Z",
+      "crawledAt": "2026-10-28T21:23:25.143Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -20725,7 +20782,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/ef71c3c5-6dfe-48f5-b066-d1c6c3895ece",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:19.054Z",
+      "crawledAt": "2026-10-28T21:23:24.686Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -20828,7 +20885,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/92dac650-74f8-4800-a1b7-fb4884c7a60b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:19.051Z",
+      "crawledAt": "2026-10-28T21:23:24.683Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
@@ -20917,7 +20974,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/e0af7365-5a29-4211-adec-5d05734a868b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:19.047Z",
+      "crawledAt": "2026-10-28T21:23:24.679Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -21014,7 +21071,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/c2e78375-1cb0-4cb0-a2d2-cce0b9b81a58",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:18.348Z",
+      "crawledAt": "2026-10-28T21:23:24.239Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -21117,7 +21174,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f9226bb8-0c22-4730-8684-1df48bab82a2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:18.344Z",
+      "crawledAt": "2026-10-28T21:23:24.235Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -21228,7 +21285,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/5780cb47-1431-429e-9b3a-d9b7c48a82bb",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:18.341Z",
+      "crawledAt": "2026-10-28T21:23:24.232Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -21344,7 +21401,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/386bb465-8b81-48cf-a92b-62e8fbb14da4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:17.744Z",
+      "crawledAt": "2026-10-28T21:23:23.623Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -21505,7 +21562,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/f8d7b5e5-e670-4a86-abab-3f720d5d1560",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:17.741Z",
+      "crawledAt": "2026-10-28T21:23:23.620Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -21621,7 +21678,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/ae2f2883-3a78-4e0e-9ea9-d0626a9d10b1",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:17.736Z",
+      "crawledAt": "2026-10-28T21:23:23.615Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -21733,7 +21790,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/62828f0b-d2c9-4682-af03-7bcaf47f9836",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:17.274Z",
+      "crawledAt": "2026-10-28T21:23:23.152Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -21834,7 +21891,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/95a3e9b5-ab33-4071-9d79-3f8cba2089b5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:17.272Z",
+      "crawledAt": "2026-10-28T21:23:23.149Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -21938,7 +21995,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/1378dbcf-d85f-4527-9218-e337b138d7ec",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:17.269Z",
+      "crawledAt": "2026-10-28T21:23:23.146Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -22041,7 +22098,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/6807a54d-786c-4d32-a588-ad94dbcd56cb",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:16.661Z",
+      "crawledAt": "2026-10-28T21:23:22.522Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -22154,7 +22211,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/982c857a-27be-4643-9d45-d2d67b5ac83a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:16.657Z",
+      "crawledAt": "2026-10-28T21:23:22.517Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -22254,7 +22311,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/712c82e5-f9e0-4d4d-9282-b89ec084d8a9",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:16.654Z",
+      "crawledAt": "2026-10-28T21:23:22.514Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -22364,7 +22421,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/af97836d-fb13-4e66-846b-29fd595a4768",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:16.056Z",
+      "crawledAt": "2026-10-28T21:23:22.057Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -22463,7 +22520,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/bd63e18b-dc57-4067-bb38-bb60e554029a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:16.053Z",
+      "crawledAt": "2026-10-28T21:23:22.055Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -22567,7 +22624,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/eb796288-3a0e-4b34-bf9a-6da940f2eeae",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:16.051Z",
+      "crawledAt": "2026-10-28T21:23:22.052Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -22667,7 +22724,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/3a52c42b-41d1-4ee1-a5fe-cecc6eaa26cb",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:15.479Z",
+      "crawledAt": "2026-10-28T21:23:21.447Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -22771,7 +22828,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/65751f30-1de4-4f7b-a203-9790633c71cf",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:15.476Z",
+      "crawledAt": "2026-10-28T21:23:21.444Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -22823,7 +22880,7 @@
       "slugByLocale": {
         "it": "commesso-a-pagato-a-a-ore-denner-st-gallen",
         "en": "hourly-salesperson-denner-st-gallen",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-st-gallen",
         "fr": "vendeur-euse-paye-e-a-l-heure-denner-st-gallen"
       },
       "company": "Denner",
@@ -22874,7 +22931,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/174982ce-148e-4a2e-95e1-0252c19eecef",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:15.474Z",
+      "crawledAt": "2026-10-28T21:23:21.441Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -22900,7 +22957,7 @@
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-st-gallen-p3c9ng",
-          "verkaufer-in-im-stundenlohn-denner-st-gallen"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-st-gallen"
@@ -22985,7 +23042,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2825c241-ff9f-41ea-88ad-f345f60ab3a4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:14.846Z",
+      "crawledAt": "2026-10-28T21:23:20.958Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -23088,7 +23145,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/3d6ea38b-9e75-48cc-989a-882d6a8eb29b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:14.841Z",
+      "crawledAt": "2026-10-28T21:23:20.952Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -23202,7 +23259,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/a429b1e4-c4b5-44da-b278-57494ff940dd",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:14.837Z",
+      "crawledAt": "2026-10-28T21:23:20.947Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -23304,7 +23361,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/9bb873d1-216d-4661-b8c6-39c4224fcaaf",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:14.251Z",
+      "crawledAt": "2026-10-28T21:23:20.385Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -23474,7 +23531,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/071eef91-4bcd-4a9f-aff1-7e7d14ca486b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:14.249Z",
+      "crawledAt": "2026-10-28T21:23:20.383Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -23568,7 +23625,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ace1ff1e-c797-4d3b-86e2-a2d9c3269b95",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:14.246Z",
+      "crawledAt": "2026-10-28T21:23:20.379Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -23661,7 +23718,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/5bf47137-0e82-43ff-a818-136eb9400a7e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:13.648Z",
+      "crawledAt": "2026-10-28T21:23:19.768Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -23760,7 +23817,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/be0d22e8-a227-47dc-b159-70e70b3b8e92",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:13.645Z",
+      "crawledAt": "2026-10-28T21:23:19.765Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -23865,7 +23922,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3245ffd0-ba73-4cc4-b33a-155ff54a3d02",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:13.641Z",
+      "crawledAt": "2026-10-28T21:23:19.761Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -24045,7 +24102,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/f4f3e32a-8da9-4536-bc19-7af96b50805d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:13.035Z",
+      "crawledAt": "2026-10-28T21:23:19.137Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
@@ -24095,7 +24152,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-dubendorf",
         "en": "branch-manager-denner-dubendorf",
-        "de": "filialleiter-in-denner",
+        "de": "filialleiter-in-denner-dubendorf",
         "fr": "responsable-de-succursale-denner-dubendorf"
       },
       "company": "Denner",
@@ -24146,7 +24203,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/a88d7b0e-1eeb-4e93-875f-c732d61371d3",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:13.032Z",
+      "crawledAt": "2026-10-28T21:23:19.134Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24162,7 +24219,7 @@
           "filialleiter-in-denner-dubendorf"
         ],
         "de": [
-          "filialleiter-in-denner-dubendorf"
+          "filialleiter-in-denner"
         ],
         "fr": [
           "filialleiter-in-denner-dubendorf"
@@ -24195,7 +24252,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-dubendorf-eae33fd166",
         "en": "salesperson-denner-dubendorf",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-dubendorf",
         "fr": "vendeur-euse-denner-dubendorf"
       },
       "company": "Denner",
@@ -24246,7 +24303,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/eb33b05c-5195-4ec5-9f91-256113c79b84",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:13.030Z",
+      "crawledAt": "2026-10-28T21:23:19.131Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24282,7 +24339,7 @@
           "verkaufer-in-denner-dubendorf"
         ],
         "de": [
-          "verkaufer-in-denner-dubendorf"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-dubendorf"
@@ -24315,7 +24372,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-greifensee",
         "en": "deputy-branch-manager-denner-greifensee",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-greifensee",
         "fr": "responsable-adjoint-e-de-succursale-denner-greifensee"
       },
       "company": "Denner",
@@ -24366,7 +24423,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/905683b8-c851-4512-a3f0-536eac3985a8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:12.426Z",
+      "crawledAt": "2026-10-28T21:23:18.513Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24388,7 +24445,7 @@
           "stv-filialleiter-in-denner-greifensee"
         ],
         "de": [
-          "stv-filialleiter-in-denner-greifensee"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-greifensee"
@@ -24421,7 +24478,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-wetzikon",
         "en": "salesperson-denner-wetzikon",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-wetzikon",
         "fr": "vendeur-euse-denner-wetzikon"
       },
       "company": "Denner",
@@ -24472,7 +24529,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/533189e0-c4f8-4da5-92d3-15b96529b9df",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:12.424Z",
+      "crawledAt": "2026-10-28T21:23:18.511Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24504,7 +24561,7 @@
           "verkaufer-in-denner-wetzikon"
         ],
         "de": [
-          "verkaufer-in-denner-wetzikon"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-wetzikon"
@@ -24537,7 +24594,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-uster",
         "en": "deputy-branch-manager-denner-uster",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-uster",
         "fr": "responsable-adjoint-e-de-filiale-denner-uster"
       },
       "company": "Denner",
@@ -24588,7 +24645,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/77c1f75c-dde9-4c71-91b6-b2c0274eb39d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:12.421Z",
+      "crawledAt": "2026-10-28T21:23:18.507Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24610,7 +24667,7 @@
           "stv-filialleiter-in-denner-uster"
         ],
         "de": [
-          "stv-filialleiter-in-denner-uster"
+          "stv-filialleiter-in-denner"
         ],
         "fr": [
           "stv-filialleiter-in-denner-uster"
@@ -24643,7 +24700,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-wetzikon-816d35",
         "en": "salesperson-denner-wetzikon-816d35",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-wetzikon",
         "fr": "vendeur-euse-denner-wetzikon-816d35"
       },
       "company": "Denner",
@@ -24694,7 +24751,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/60e71a2d-867e-42bf-bc97-9967ea889c5e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:11.840Z",
+      "crawledAt": "2026-10-28T21:23:17.907Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24728,7 +24785,7 @@
           "verkaufer-in-denner-wetzikon"
         ],
         "de": [
-          "verkaufer-in-denner-wetzikon"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-wetzikon"
@@ -24761,7 +24818,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-con-paga-oraria-denner-pfaffikon-zh",
         "en": "salesperson-on-an-hourly-wage-denner-pfaffikon-zh",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh",
         "fr": "vendeur-euse-a-l-heure-denner-pfaffikon-zh"
       },
       "company": "Denner",
@@ -24812,7 +24869,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/8d2e1712-6287-4fcd-930f-5bb98333e190",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:11.838Z",
+      "crawledAt": "2026-10-28T21:23:17.905Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24834,7 +24891,7 @@
           "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-pfaffikon-zh"
@@ -24867,7 +24924,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-con-paga-oraria-denner-wetzikon",
         "en": "salesperson-on-an-hourly-wage-denner-wetzikon",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-wetzikon",
         "fr": "vendeur-euse-a-l-heure-denner-wetzikon"
       },
       "company": "Denner",
@@ -24918,7 +24975,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/a4549d6e-db3c-41b7-9ca7-a1b5686744aa",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:11.835Z",
+      "crawledAt": "2026-10-28T21:23:17.902Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -24940,7 +24997,7 @@
           "verkaufer-in-im-stundenlohn-denner-wetzikon"
         ],
         "de": [
-          "verkaufer-in-im-stundenlohn-denner-wetzikon"
+          "verkaufer-in-im-stundenlohn-denner"
         ],
         "fr": [
           "verkaufer-in-im-stundenlohn-denner-wetzikon"
@@ -24973,7 +25030,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-schaffhausen",
         "en": "branch-manager-denner-schaffhausen",
-        "de": "filialleiter-in-denner",
+        "de": "filialleiter-in-denner-schaffhausen",
         "fr": "responsable-de-filiale-denner-schaffhausen"
       },
       "company": "Denner",
@@ -25024,7 +25081,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/41018c72-8a05-4bf2-b507-81bd8f2e846c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:11.205Z",
+      "crawledAt": "2026-10-28T21:23:17.299Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -25042,7 +25099,7 @@
           "filialleiter-in-denner-schaffhausen"
         ],
         "de": [
-          "filialleiter-in-denner-schaffhausen"
+          "filialleiter-in-denner"
         ],
         "fr": [
           "filialleiter-in-denner-schaffhausen"
@@ -25075,7 +25132,7 @@
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-weinfelden",
         "en": "branch-manager-denner-weinfelden",
-        "de": "filialleiter-in-denner",
+        "de": "filialleiter-in-denner-weinfelden",
         "fr": "responsable-de-filiale-denner-weinfelden"
       },
       "company": "Denner",
@@ -25126,7 +25183,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/eca99f9e-7f75-485d-b6a6-0cabccbb2524",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:11.202Z",
+      "crawledAt": "2026-10-28T21:23:17.296Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -25144,7 +25201,7 @@
           "filialleiter-in-denner-weinfelden"
         ],
         "de": [
-          "filialleiter-in-denner-weinfelden"
+          "filialleiter-in-denner"
         ],
         "fr": [
           "filialleiter-in-denner-weinfelden"
@@ -25177,7 +25234,7 @@
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-denner-wetzikon-bae2e8",
         "en": "sales-assistant-denner-wetzikon",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-wetzikon",
         "fr": "vendeur-euse-denner-wetzikon-bae2e8"
       },
       "company": "Denner",
@@ -25228,7 +25285,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/36ce02b8-8583-4e67-9cdf-46ffcc820644",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:11.199Z",
+      "crawledAt": "2026-10-28T21:23:17.293Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "previousSlugs": [
@@ -25247,6 +25304,9 @@
         ],
         "fr": [
           "verkaufer-in-denner-wetzikon"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:17.111Z",
@@ -25328,7 +25388,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/c87cdd8c-4de6-4961-89bd-75fa8f3a0833",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:10.466Z",
+      "crawledAt": "2026-10-28T21:23:16.660Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -25432,7 +25492,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/7d884942-886f-49d3-8180-270d208a30bd",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:10.463Z",
+      "crawledAt": "2026-10-28T21:23:16.657Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -25526,7 +25586,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ec02de5f-484b-453d-9bfe-cad9568c13c4",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:10.460Z",
+      "crawledAt": "2026-10-28T21:23:16.654Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -25617,7 +25677,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/2c23844c-d0dc-41fc-b390-2cd70e01b584",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:09.683Z",
+      "crawledAt": "2026-10-28T21:23:16.083Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -25716,7 +25776,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/b514e475-6b32-4789-9bc5-291f4d9d937d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:09.677Z",
+      "crawledAt": "2026-10-28T21:23:16.079Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -25753,7 +25813,7 @@
         "fr": "Vendeur·euse"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-dubendorf",
         "it": "addetto-a-alle-vendite-denner-dubendorf-bd691f8220",
         "en": "salesperson-denner-dubendorf",
         "fr": "vendeur-euse-denner-dubendorf"
@@ -25806,7 +25866,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/e79122d3-b3df-444f-b93f-b8635b2b60fb",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:09.673Z",
+      "crawledAt": "2026-10-28T21:23:16.075Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -25815,6 +25875,9 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-20",
           "addetto-a-alle-vendite-denner-dubendorf"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
@@ -25847,7 +25910,7 @@
         "fr": "Verkäufer*in"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-kreuzlingen",
         "it": "verkaufer-in-denner-kreuzlingen-08690c340d",
         "en": "verkaufer-in-denner-kreuzlingen",
         "fr": "verkaufer-in-denner-kreuzlingen"
@@ -25901,7 +25964,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/22fa9bc0-f3b4-493f-8f61-ca4047333a09",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:08.904Z",
+      "crawledAt": "2026-10-28T21:23:15.481Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -25910,6 +25973,9 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-21",
           "verkaufer-in-denner-kreuzlingen"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
@@ -25942,7 +26008,7 @@
         "fr": "Verkäufer*in"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-weinfelden",
         "it": "verkaufer-in-denner-weinfelden",
         "en": "verkaufer-in-denner-weinfelden",
         "fr": "verkaufer-in-denner-weinfelden"
@@ -25996,7 +26062,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/3c6e1919-edd1-48dc-a070-1ebaf473e078",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:08.901Z",
+      "crawledAt": "2026-10-28T21:23:15.478Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26004,6 +26070,9 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-22"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
@@ -26035,7 +26104,7 @@
         "fr": "Assistent*in Filialleitung"
       },
       "slugByLocale": {
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-weinfelden",
         "it": "assistent-in-filialleitung-denner-9",
         "en": "assistent-in-filialleitung-denner-9",
         "fr": "assistent-in-filialleitung-denner-9"
@@ -26089,7 +26158,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/91c67463-b9dd-429e-9bb5-340e715826f5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:08.898Z",
+      "crawledAt": "2026-10-28T21:23:15.475Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26110,6 +26179,9 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
@@ -26126,7 +26198,7 @@
         "fr": "Verkäufer*in"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-amriswil",
         "it": "verkaufer-in-denner-amriswil",
         "en": "verkaufer-in-denner-amriswil",
         "fr": "verkaufer-in-denner-amriswil"
@@ -26180,7 +26252,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/8cf1f68f-9b46-4c3f-9810-8e6e61cd0d04",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:08.124Z",
+      "crawledAt": "2026-10-28T21:23:14.731Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26188,6 +26260,9 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-23"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
@@ -26273,7 +26348,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/spezialistin-arbeitssicherheit-und-gesundheitsschutz/a745267b-e9cc-4ede-8730-28f0d45cb3f6",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:08.121Z",
+      "crawledAt": "2026-10-28T21:23:14.727Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26310,7 +26385,7 @@
         "fr": "Verkäufer*in"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-kreuzlingen",
         "it": "verkaufer-in-denner-kreuzlingen-804d07b631",
         "en": "verkaufer-in-denner-kreuzlingen",
         "fr": "verkaufer-in-denner-kreuzlingen"
@@ -26364,7 +26439,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/fab2af70-3a35-456c-866c-09f81470f192",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:08.118Z",
+      "crawledAt": "2026-10-28T21:23:14.724Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26373,6 +26448,9 @@
           "verkaufer-in-denner",
           "verkaufer-in-denner-24",
           "verkaufer-in-denner-kreuzlingen"
+        ],
+        "de": [
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
@@ -26393,7 +26471,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T23:02:40.827Z"
+      "firstSeenAt": "2026-07-17T11:18:40.683Z"
     },
     {
       "id": "denner-40f5e3cd92c2",
@@ -26405,7 +26483,7 @@
         "fr": "Verkäufer*in im Stundenlohn"
       },
       "slugByLocale": {
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-kreuzlingen",
         "it": "verkaufer-in-im-stundenlohn-denner-kreuzlingen",
         "en": "verkaufer-in-im-stundenlohn-denner-kreuzlingen",
         "fr": "verkaufer-in-im-stundenlohn-denner-kreuzlingen"
@@ -26459,7 +26537,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/fa1b51dc-1abc-49ee-8618-87877b6f7580",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:07.046Z",
+      "crawledAt": "2026-10-28T21:23:13.641Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26467,6 +26545,9 @@
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-11"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
@@ -26486,7 +26567,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-17T10:11:32.549Z"
+      "firstSeenAt": "2026-06-25T10:59:13.898Z"
     },
     {
       "id": "denner-18a225abeae2",
@@ -26498,7 +26579,7 @@
         "fr": "Assistent*in Filialleitung"
       },
       "slugByLocale": {
-        "de": "assistent-in-filialleitung-denner",
+        "de": "assistent-in-filialleitung-denner-schiers",
         "it": "assistent-in-filialleitung-denner-10",
         "en": "assistent-in-filialleitung-denner-10",
         "fr": "assistent-in-filialleitung-denner-10"
@@ -26552,7 +26633,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d862c6d2-0289-442a-9e73-03154fc9adbd",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:07.033Z",
+      "crawledAt": "2026-10-28T21:23:13.628Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26573,6 +26654,9 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner"
+        ],
+        "de": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
@@ -26589,7 +26673,7 @@
         "fr": "Stv. Filialleiter*in"
       },
       "slugByLocale": {
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-embrach",
         "it": "stv-filialleiter-in-denner-embrach",
         "en": "stv-filialleiter-in-denner-embrach",
         "fr": "stv-filialleiter-in-denner-embrach"
@@ -26643,7 +26727,7 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/bbd768c9-32c3-45f4-b1b3-54e73f541d62",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:50:06.980Z",
+      "crawledAt": "2026-10-28T21:23:13.583Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
@@ -26651,6 +26735,9 @@
         "it": [
           "stv-filialleiter-in-denner",
           "stv-filialleiter-in-denner-6"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner"
         ]
       },
       "previousSlugs": [
@@ -26670,7 +26757,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T13:34:18.916Z"
+      "firstSeenAt": "2026-08-31T17:40:35.590Z"
     }
   ]
 }
