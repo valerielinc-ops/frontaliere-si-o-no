@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43677",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43677",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "64925",
+      "normalizedPlate": "ZH64925",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 720,
+      "bidCount": 28,
+      "endsAt": "2026-10-28T18:00:00.000Z",
+      "closedAt": "2026-10-28T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43677",
+      "sourceFetchedAt": "2026-10-28T12:53:37.263Z",
+      "lastVerifiedAt": "2026-10-28T12:53:37.263Z",
+      "firstSeenAt": "2026-10-22T11:52:11.061Z",
+      "lastSeenAt": "2026-10-28T12:53:37.263Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "5468892faff2"
+    }
+  ]
+}

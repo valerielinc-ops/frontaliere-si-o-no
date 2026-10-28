@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "sh-69574",
+      "id": "sh-69686",
       "sourceKey": "SH",
-      "sourceRecordId": "69574",
+      "sourceRecordId": "69686",
       "canton": "Sciaffusa",
       "platePrefix": "SH",
       "plateNumber": "5533",
@@ -14,16 +14,16 @@
       "auctionStatus": "closed",
       "currentBidChf": 100,
       "bidCount": 0,
-      "endsAt": "2026-10-07T20:00:00.000Z",
-      "closedAt": "2026-10-07T20:00:00.000Z",
-      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
-      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69574",
-      "sourceFetchedAt": "2026-10-07T06:05:28.005Z",
-      "lastVerifiedAt": "2026-10-07T06:05:28.005Z",
-      "firstSeenAt": "2026-10-01T05:59:26.915Z",
-      "lastSeenAt": "2026-10-07T06:05:28.005Z",
+      "endsAt": "2026-10-28T21:00:00.000Z",
+      "closedAt": "2026-10-28T21:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/de/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69686",
+      "sourceFetchedAt": "2026-10-28T12:52:22.273Z",
+      "lastVerifiedAt": "2026-10-28T12:52:22.273Z",
+      "firstSeenAt": "2026-10-22T04:43:40.272Z",
+      "lastSeenAt": "2026-10-28T12:52:22.273Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "de0e32c73bee"
+      "rawSnapshotHash": "9e9503d14434"
     }
   ]
 }

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43674",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43674",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "56879",
+      "normalizedPlate": "ZH56879",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 660,
+      "bidCount": 25,
+      "endsAt": "2026-10-28T18:00:00.000Z",
+      "closedAt": "2026-10-28T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43674",
+      "sourceFetchedAt": "2026-10-28T12:53:37.263Z",
+      "lastVerifiedAt": "2026-10-28T12:53:37.263Z",
+      "firstSeenAt": "2026-10-22T11:52:11.061Z",
+      "lastSeenAt": "2026-10-28T12:53:37.263Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "b28ab1cb59e6"
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "so-3349",
+      "id": "so-3376",
       "sourceKey": "SO",
-      "sourceRecordId": "3349",
+      "sourceRecordId": "3376",
       "canton": "Soletta",
       "platePrefix": "SO",
       "plateNumber": "10468",
@@ -12,20 +12,20 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 20000,
+      "currentBidChf": 240,
       "startingPriceChf": 200,
-      "bidCount": 1,
+      "bidCount": 2,
       "minimumIncrementChf": 20,
-      "endsAt": "2026-10-07T15:00:00.000Z",
-      "closedAt": "2026-10-07T15:00:00.000Z",
+      "endsAt": "2026-10-28T16:00:00.000Z",
+      "closedAt": "2026-10-28T16:00:00.000Z",
       "officialAuctionUrl": "https://eauktion.so.ch/ecari-auction/ui/app/init?locale=de_CH",
-      "officialDetailUrl": "https://eauktion.so.ch/ecari-auction/ui/app/details/app?id=3349",
-      "sourceFetchedAt": "2026-10-07T06:05:32.216Z",
-      "lastVerifiedAt": "2026-10-07T06:05:32.216Z",
-      "firstSeenAt": "2026-09-30T22:20:32.765Z",
-      "lastSeenAt": "2026-10-07T06:05:32.216Z",
+      "officialDetailUrl": "https://eauktion.so.ch/ecari-auction/ui/app/details/app?id=3376&locale=de_CH",
+      "sourceFetchedAt": "2026-10-28T12:52:25.137Z",
+      "lastVerifiedAt": "2026-10-28T12:52:25.137Z",
+      "firstSeenAt": "2026-10-21T17:13:47.700Z",
+      "lastSeenAt": "2026-10-28T12:52:25.137Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "c8cbe8f3aaa1"
+      "rawSnapshotHash": "aac46e8adf97"
     }
   ]
 }

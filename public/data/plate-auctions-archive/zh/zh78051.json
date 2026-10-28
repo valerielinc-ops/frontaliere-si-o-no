@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43680",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43680",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "78051",
+      "normalizedPlate": "ZH78051",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 620,
+      "bidCount": 15,
+      "endsAt": "2026-10-28T18:00:00.000Z",
+      "closedAt": "2026-10-28T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43680",
+      "sourceFetchedAt": "2026-10-28T12:53:37.263Z",
+      "lastVerifiedAt": "2026-10-28T12:53:37.263Z",
+      "firstSeenAt": "2026-10-22T11:52:11.061Z",
+      "lastSeenAt": "2026-10-28T12:53:37.263Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "ba9f5f88dcb4"
+    }
+  ]
+}

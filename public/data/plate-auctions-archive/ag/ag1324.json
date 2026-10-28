@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58801",
+      "sourceKey": "AG",
+      "sourceRecordId": "58801",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "1324",
+      "normalizedPlate": "AG1324",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 630,
+      "bidCount": 10,
+      "endsAt": "2026-10-28T20:00:00.000Z",
+      "closedAt": "2026-10-28T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch/de/",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58801",
+      "sourceFetchedAt": "2026-10-28T12:51:45.646Z",
+      "lastVerifiedAt": "2026-10-28T12:51:45.646Z",
+      "firstSeenAt": "2026-10-15T11:34:03.339Z",
+      "lastSeenAt": "2026-10-28T12:51:45.646Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "5ee14fd97a1a"
+    }
+  ]
+}

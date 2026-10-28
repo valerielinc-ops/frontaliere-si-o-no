@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109848",
+      "sourceKey": "TG",
+      "sourceRecordId": "109848",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "260215",
+      "normalizedPlate": "TG260215",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-28T18:00:00.000Z",
+      "closedAt": "2026-10-28T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109848",
+      "sourceFetchedAt": "2026-10-28T05:41:17.985Z",
+      "lastVerifiedAt": "2026-10-28T05:41:17.985Z",
+      "firstSeenAt": "2026-10-20T21:39:39.890Z",
+      "lastSeenAt": "2026-10-28T05:41:17.985Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "51ba35d5be99"
+    }
+  ]
+}

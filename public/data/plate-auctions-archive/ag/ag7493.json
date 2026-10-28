@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58790",
+      "sourceKey": "AG",
+      "sourceRecordId": "58790",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "7493",
+      "normalizedPlate": "AG7493",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 5000,
+      "bidCount": 14,
+      "endsAt": "2026-10-28T20:00:00.000Z",
+      "closedAt": "2026-10-28T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch/de/",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58790",
+      "sourceFetchedAt": "2026-10-28T12:51:45.646Z",
+      "lastVerifiedAt": "2026-10-28T12:51:45.646Z",
+      "firstSeenAt": "2026-10-15T11:34:03.339Z",
+      "lastSeenAt": "2026-10-28T12:51:45.646Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "80e1a3afebf9"
+    }
+  ]
+}
