@@ -1,7 +1,7 @@
 {
   "crawlerKey": "afry",
-  "assembledAt": "2026-10-27T21:29:21.703Z",
-  "runId": "40585178441",
+  "assembledAt": "2026-10-28T09:53:29.718Z",
+  "runId": "40662627763",
   "jobs": [
     {
       "title": "Bauleiter:in Bahnbau / Infrastrukturbau 80-100% - Bern",
@@ -4027,7 +4027,7 @@
       },
       "slugByLocale": {
         "it": "candidatura-spontanea-svizzera-afry-zurich",
-        "en": "spontaneous-application-switzerland-afry-zurich",
+        "en": "candidatura-spontanea-svizzera-afry-zurich",
         "de": "spontane-anwendung-schweiz-afry-zurich",
         "fr": "demande-spontanee-suisse-afry-zurich"
       },
@@ -4050,7 +4050,15 @@
       "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref1212e-candidatura-spontanea-svizzera",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "en": [
+          "spontaneous-application-switzerland-afry-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spontaneous-application-switzerland-afry-zurich"
+      ]
     },
     {
       "title": "Candidature spontanée - Suisse",
