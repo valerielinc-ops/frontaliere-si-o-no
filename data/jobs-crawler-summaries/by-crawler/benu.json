@@ -1,7 +1,7 @@
 {
   "key": "benu",
   "label": "benu",
-  "generatedAt": "2026-10-28T21:24:51.126Z",
+  "generatedAt": "2026-10-28T22:36:54.548Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 11151,
-  "avgDurationMs": 11151,
+  "durationMs": 12905,
+  "avgDurationMs": 12905,
   "durationHistory": [
-    11151
+    12905
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:24:40.044Z",
+      "crawledAt": "2026-10-28T22:36:40.506Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://job.benu.ch/de/jobs/7820959-pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:24:40.049Z",
+      "crawledAt": "2026-10-28T22:36:40.520Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://job.benu.ch/de/jobs/8044173-verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:24:40.048Z",
+      "crawledAt": "2026-10-28T22:36:40.517Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://job.benu.ch/de/jobs/8477321-pharma-assistent-w-m-20-40-benu-dudingen",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:24:40.047Z",
+      "crawledAt": "2026-10-28T22:36:40.515Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -209,7 +209,7 @@
       "url": "https://job.benu.ch/de/jobs/8505815-pharma-assistent-springer-w-m-60-80-benu-deutschschweiz",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:24:40.046Z",
+      "crawledAt": "2026-10-28T22:36:40.511Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "url": "https://job.benu.ch/de/jobs/8505962-drogist-in-w-m-60-80-benu-zurich-witikon",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:24:40.045Z",
+      "crawledAt": "2026-10-28T22:36:40.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -281,5 +281,5 @@
       }
     }
   ],
-  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
+  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
 }
