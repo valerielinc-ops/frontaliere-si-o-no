@@ -856,7 +856,14 @@ while :; do
     # The branch may have been closed and deleted between attempts. Recreate it
     # from this run's immutable refresh commit and let the next push establish
     # the stable ref again.
-    REMOTE_BASE_SHA=""
+    # When the remote still points at the base this run created,
+    # REMOTE_HEAD was intentionally cleared above so the retry can use the
+    # bounded new-branch path. Keep its lease value for the eventual cleanup;
+    # clear it only after the branch has actually disappeared (which also
+    # resets REMOTE_BASE_CREATED in the branch above).
+    if [ "$REMOTE_BASE_CREATED" = false ]; then
+      REMOTE_BASE_SHA=""
+    fi
     git checkout -B "$BRANCH" "$REFRESH_COMMIT"
   fi
 done
