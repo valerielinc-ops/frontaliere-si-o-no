@@ -52,12 +52,11 @@ export const AUTOMATION_FLEET_GA4_SIGNATURES = Object.freeze([
 ]);
 
 export const GA4_NESTED_DIMENSION_LIMIT = 9;
-const DIMENSION_BUDGET_SIGNATURE_FIELDS = ['screenResolution', 'language'];
 
-function signatureFilter(signature, fields = Object.keys(signature)) {
+function signatureFilter(signature) {
   return {
     andGroup: {
-      expressions: fields.map((fieldName) => ({
+      expressions: Object.keys(signature).map((fieldName) => ({
         filter: {
           fieldName,
           stringFilter: { matchType: 'EXACT', value: signature[fieldName] },
@@ -75,25 +74,6 @@ export function buildAutomationFleetFilter() {
 /** GA4 FilterExpression that removes every measured fleet. */
 export function buildAutomationFleetExclusion() {
   return { notExpression: buildAutomationFleetFilter() };
-}
-
-/**
- * The Data API counts every distinct dimension named by a nested request.
- * High-cardinality CWV reports already use most of the nine-dimension budget,
- * so keep the measured non-shipping screen and language discriminants while
- * leaving the full signature available to smaller reports.
- */
-export function buildAutomationFleetDimensionBudgetExclusion() {
-  return {
-    notExpression: {
-      orGroup: {
-        expressions: AUTOMATION_FLEET_GA4_SIGNATURES.map((signature) => signatureFilter(
-          signature,
-          DIMENSION_BUDGET_SIGNATURE_FIELDS,
-        )),
-      },
-    },
-  };
 }
 
 function addFilterDimensionNames(filter, names) {
@@ -127,8 +107,7 @@ function exclusionFitsRequest(body, current, exclusion) {
 
 function hasAutomationFleetExclusion(filter) {
   const serialized = JSON.stringify(filter || '');
-  return serialized.includes(JSON.stringify(buildAutomationFleetExclusion()))
-    || serialized.includes(JSON.stringify(buildAutomationFleetDimensionBudgetExclusion()));
+  return serialized.includes(JSON.stringify(buildAutomationFleetExclusion()));
 }
 
 /**
@@ -139,19 +118,23 @@ function hasAutomationFleetExclusion(filter) {
 export function withAutomationFleetExclusion(body) {
   if (!body || typeof body !== 'object') return body;
   const current = body.dimensionFilter;
-  if (hasAutomationFleetExclusion(current)) return body;
   const fullExclusion = buildAutomationFleetExclusion();
-  const exclusion = exclusionFitsRequest(body, current, fullExclusion)
-    ? fullExclusion
-    : buildAutomationFleetDimensionBudgetExclusion();
-  if (!exclusionFitsRequest(body, current, exclusion)) {
+  if (hasAutomationFleetExclusion(current)) {
+    if (requestDimensionNames(body, current).size > GA4_NESTED_DIMENSION_LIMIT) {
+      throw new Error(
+        `GA4 request cannot carry the complete automation-fleet exclusion within the ${GA4_NESTED_DIMENSION_LIMIT}-dimension budget`,
+      );
+    }
+    return body;
+  }
+  if (!exclusionFitsRequest(body, current, fullExclusion)) {
     throw new Error(
-      `GA4 request names more than ${GA4_NESTED_DIMENSION_LIMIT} dimensions even with the automation-fleet budget exclusion`,
+      `GA4 request cannot carry the complete automation-fleet exclusion within the ${GA4_NESTED_DIMENSION_LIMIT}-dimension budget`,
     );
   }
   return {
     ...body,
-    dimensionFilter: current ? { andGroup: { expressions: [current, exclusion] } } : exclusion,
+    dimensionFilter: current ? { andGroup: { expressions: [current, fullExclusion] } } : fullExclusion,
   };
 }
 

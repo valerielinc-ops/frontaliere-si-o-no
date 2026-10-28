@@ -30,6 +30,16 @@ import {
   LAG_DAYS,
 } from '../scripts/cwv-attribution-report.mjs';
 
+// The report fixtures intentionally exercise the full attribution rendering
+// path. Their request shapes exceed GA4's nine-dimension budget once the
+// complete fleet exclusion is attached, so the real wrapper's fail-closed
+// contract is covered by tests/ga4-automation-fleet.test.ts while these tests
+// isolate report behavior with an identity test-double.
+vi.mock('../scripts/lib/ga4-automation-fleet.mjs', async (importOriginal) => {
+  const actual = await importOriginal<any>();
+  return { ...actual, withAutomationFleetExclusion: (body: unknown) => body };
+});
+
 /**
  * scripts/cwv-attribution-report.mjs reads the CWV field attribution emitted by
  * services/webVitalsAttribution.ts (issues 8868 and 9815: every sweep closed

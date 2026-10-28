@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import {
   AUTOMATION_FLEET_GA4_SIGNATURE,
   AUTOMATION_FLEET_GA4_SIGNATURES,
-  buildAutomationFleetDimensionBudgetExclusion,
   buildAutomationFleetExclusion,
   GA4_NESTED_DIMENSION_LIMIT,
   withAutomationFleetExclusion,
@@ -38,41 +37,37 @@ describe('GA4 automation-fleet exclusion', () => {
     expect(withAutomationFleetExclusion(once)).toBe(once);
   });
 
-  it('uses the dimension-budget exclusion for a high-dimensional report', () => {
-    const body = withAutomationFleetExclusion({
+  it('fails closed instead of reducing the fleet signature for a high-dimensional report', () => {
+    const body = {
       dimensions: [
         { name: 'pagePath' },
         { name: 'customEvent:section' },
         { name: 'customEvent:component' },
         { name: 'customEvent:action' },
         { name: 'customEvent:details' },
+        { name: 'deviceCategory' },
       ],
-      dimensionFilter: {
-        andGroup: {
-          expressions: [
-            { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT', value: 'ui_interaction' } } },
-            { filter: { fieldName: 'customEvent:page', stringFilter: { matchType: 'EXACT', value: 'web_vitals' } } },
-            { filter: { fieldName: 'pagePath', stringFilter: { matchType: 'BEGINS_WITH', value: '/cerca-lavoro' } } },
-          ],
-        },
-      },
-    });
-    expect(body.dimensionFilter.andGroup.expressions[1]).toEqual(buildAutomationFleetDimensionBudgetExclusion());
-    const fields = JSON.stringify(body.dimensionFilter);
-    expect(fields).toContain('screenResolution');
-    expect(fields).toContain('language');
-    expect(fields).not.toContain('operatingSystem');
-    expect(fields).not.toContain('browser');
-    expect(fields).not.toContain('country');
-    expect(new Set([
-      ...body.dimensions.map((dimension) => dimension.name),
-      'eventName',
-      'customEvent:page',
-      'pagePath',
-      'screenResolution',
-      'language',
-    ]).size).toBeLessThanOrEqual(GA4_NESTED_DIMENSION_LIMIT);
-    expect(withAutomationFleetExclusion(body)).toBe(body);
+    };
+    expect(() => withAutomationFleetExclusion(body)).toThrow(
+      `complete automation-fleet exclusion within the ${GA4_NESTED_DIMENSION_LIMIT}-dimension budget`,
+    );
+  });
+
+  it('does not let idempotence bypass the dimension budget', () => {
+    const body = {
+      dimensions: [
+        { name: 'pagePath' },
+        { name: 'customEvent:section' },
+        { name: 'customEvent:component' },
+        { name: 'customEvent:action' },
+        { name: 'customEvent:details' },
+        { name: 'deviceCategory' },
+      ],
+      dimensionFilter: buildAutomationFleetExclusion(),
+    };
+    expect(() => withAutomationFleetExclusion(body)).toThrow(
+      `complete automation-fleet exclusion within the ${GA4_NESTED_DIMENSION_LIMIT}-dimension budget`,
+    );
   });
 
   it('rewrites runReport and batchRunReports bodies but leaves other Google APIs alone', () => {
