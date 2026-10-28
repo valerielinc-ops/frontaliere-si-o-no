@@ -20,7 +20,7 @@ import { extractJobPostingLd } from './jsonld-jobposting.mjs';
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { classAttrRx, slugify } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -60,23 +60,71 @@ export function isTrustedDomain(rawUrl = '') {
 export function parseDualooPortal(html) {
   const out = [];
   const seen = new Set();
-  const rx = /<a\s+class="row jobElement[^"]*"\s+data-eventData="([^"]+)"\s+href="([^"]+)"[\s\S]*?<span class="jobName">([\s\S]*?)<\/span>[\s\S]*?<span class="cityName">([\s\S]*?)<\/span>[\s\S]*?<span class="badge[^"]*jobCategory">([\s\S]*?)<\/span>[\s\S]*?<span class="badge[^"]*jobDate"\s+data-date="([^"]*)">([\s\S]*?)<\/span>/g;
+  // Dualoo has kept the `jobElement` card contract, but its attribute order
+  // and utility classes are not stable. Keep each card as the parsing unit so
+  // a harmless markup reorder cannot turn a live portal into a false empty.
+  const blockRe = new RegExp(
+    `<a\\b[^>]*${classAttrRx('jobElement')}[^>]*>[\\s\\S]*?<\\/a>`,
+    'gi',
+  );
+  const spanMatch = (block, className) => block.match(new RegExp(
+    `<span\\b[^>]*${classAttrRx(className)}[^>]*>([\\s\\S]*?)<\\/span>`,
+    'i',
+  ));
+  const attributeValue = (source, name) => {
+    const match = String(source || '').match(
+      new RegExp(`\\b${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
+    );
+    return match ? (match[1] ?? match[2] ?? match[3] ?? '') : '';
+  };
   let m;
-  while ((m = rx.exec(html))) {
-    const eventData = m[1];
-    const href = m[2];
-    const title = normalizeSpace(decodeEntities(m[3].replace(/<[^>]+>/g, '')));
-    const cityName = normalizeSpace(decodeEntities(m[4].replace(/<[^>]+>/g, '')));
-    const category = normalizeSpace(decodeEntities(m[5].replace(/<[^>]+>/g, '')));
-    const startDateMachine = normalizeSpace(decodeEntities(m[6]));
-    const startDateHuman = normalizeSpace(decodeEntities(m[7].replace(/<[^>]+>/g, '')));
+  while ((m = blockRe.exec(html))) {
+    const block = m[0];
+    const href = attributeValue(block, 'href');
+    if (!href) continue;
+    const eventData = attributeValue(block, 'data-eventData');
+    let meta = {};
+    if (eventData) {
+      try {
+        meta = JSON.parse(decodeEntities(eventData));
+      } catch {
+        meta = {};
+      }
+    }
+    const titleMatch = spanMatch(block, 'jobName');
+    const cityMatch = spanMatch(block, 'cityName');
+    const categoryMatch = spanMatch(block, 'jobCategory');
+    const dateTagMatch = block.match(new RegExp(
+      `<span\\b[^>]*${classAttrRx('jobDate')}[^>]*>`,
+      'i',
+    ));
+    const dateMatch = spanMatch(block, 'jobDate');
+    const spanTitle = titleMatch
+      ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ' ')))
+      : '';
+    const eventTitle = normalizeSpace(decodeEntities(String(meta.jobName || '')));
+    const title = spanTitle || eventTitle;
+    const cityName = cityMatch
+      ? normalizeSpace(decodeEntities(cityMatch[1].replace(/<[^>]+>/g, ' ')))
+      : '';
+    const category = categoryMatch
+      ? normalizeSpace(decodeEntities(categoryMatch[1].replace(/<[^>]+>/g, ' ')))
+      : '';
+    const startDateMachine = normalizeSpace(decodeEntities(
+      attributeValue(dateTagMatch?.[0], 'data-date') || String(meta.startDate || ''),
+    ));
+    const startDateHuman = dateMatch
+      ? normalizeSpace(decodeEntities(dateMatch[1].replace(/<[^>]+>/g, ' ')))
+      : '';
     if (!title || title.length < 3) continue;
     // UUID is in the href path: /s60emmh3/{UUID}/detail?lang=DE
     const uuidMatch = href.match(/\/([a-f0-9-]{36})\/detail/);
     const uuid = uuidMatch ? uuidMatch[1] : href;
     if (seen.has(uuid)) continue;
     seen.add(uuid);
-    const url = href.startsWith('http') ? href : `${DETAIL_BASE}/${href.replace(new RegExp(`^${DUALOO_PORTAL}/`), '')}`;
+    const normalizedHref = href.replace(/^\/+/, '');
+    const detailPath = normalizedHref.replace(new RegExp(`^${DUALOO_PORTAL}/`), '');
+    const url = href.startsWith('http') ? href : `${DETAIL_BASE}/${detailPath}`;
     out.push({ uuid, url, title, cityName, category, startDateMachine, startDateHuman });
   }
   return out;

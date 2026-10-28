@@ -1,6 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { fetchAllKlinikAadorfJobs } from '../scripts/lib/klinik-aadorf-job-parser.mjs';
-import { fetchAllKlinikArlesheimJobs } from '../scripts/lib/klinik-arlesheim-job-parser.mjs';
+import {
+  fetchAllKlinikArlesheimJobs,
+  parseDualooPortal,
+} from '../scripts/lib/klinik-arlesheim-job-parser.mjs';
 import { fetchAllKlinikAdelheidJobs } from '../scripts/lib/klinik-adelheid-job-parser.mjs';
 import { fetchAllKlinikBarmelweidJobs } from '../scripts/lib/klinik-barmelweid-job-parser.mjs';
 import { fetchAllKlinikGutJobs } from '../scripts/lib/klinik-gut-job-parser.mjs';
@@ -19,6 +22,27 @@ const cases: ReadonlyArray<readonly [string, unknown, string]> = [
   ['reported', '2026-10-02T08:30:00+02:00', '2026-10-02T08:30:00+02:00'],
   ['missing', undefined, ''], ['invalid', 'bad-date', ''], ['future', '2030-01-01', ''], ['invalid calendar', '2026-02-30', ''],
 ];
+
+describe('Klinik Arlesheim Dualoo listing parser', () => {
+  it('keeps cards when Dualoo reorders attributes or adds utility classes', () => {
+    const html = `<a href="s60emmh3/${uuid}/detail?lang=DE" data-eventData="{&quot;jobName&quot;:&quot;Pflegefachperson&quot;,&quot;startDate&quot;:&quot;ab sofort&quot;,&quot;location&quot;:&quot;Klinik Arlesheim AG - Arlesheim&quot;}" class="jobElement row">`
+      + '<span data-label="Titel" class="jobName text-truncate">Pflegefachperson</span>'
+      + '<span data-label="Ort" class="cityName">Arlesheim</span>'
+      + '<span class="jobCategory badge">Mitarbeitende</span>'
+      + '<span data-date="2026-10-28" class="jobDate badge">ab sofort</span></a>';
+
+    expect(parseDualooPortal(html)).toEqual([expect.objectContaining({
+      uuid,
+      title: 'Pflegefachperson',
+      cityName: 'Arlesheim',
+      category: 'Mitarbeitende',
+      startDateMachine: '2026-10-28',
+      startDateHuman: 'ab sofort',
+      url: `https://jobs.dualoo.com/portal/s60emmh3/${uuid}/detail?lang=DE`,
+    })]);
+  });
+});
+
 beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date('2026-10-04T12:00:00Z')); });
 afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers(); });
 for (const [name, producer, listingUrl, listingHtml, detailHtml] of profiles) {
