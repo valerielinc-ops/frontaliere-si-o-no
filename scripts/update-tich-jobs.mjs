@@ -833,7 +833,7 @@ export function ensureAdapterSeedUrls(
 // ──────────────────────────────────────────────────────────────
 
 export function buildTichFetchProxyHosts(
-  { officialSucceeded = false } = {},
+  { officialSucceeded = false, morssSucceeded = false } = {},
   inheritedProxyHosts = process.env.JOBS_CRAWLER_FETCH_PROXY,
 ) {
   // The official listing is used only when both direct portal endpoints fail;
@@ -844,7 +844,7 @@ export function buildTichFetchProxyHosts(
     .split(',')
     .map((host) => host.trim())
     .filter(Boolean);
-  if (!officialSucceeded) return existingProxyHosts.join(',');
+  if (!officialSucceeded && !morssSucceeded) return existingProxyHosts.join(',');
   return [...new Set([...existingProxyHosts, 'www.concorsi.ti.ch'])].join(',');
 }
 
@@ -861,7 +861,7 @@ export function buildTichMorssProxyHosts(
 }
 
 function runBaseCrawler({ officialSucceeded = false, morssSucceeded = false } = {}) {
-  const proxyHosts = buildTichFetchProxyHosts({ officialSucceeded });
+  const proxyHosts = buildTichFetchProxyHosts({ officialSucceeded, morssSucceeded });
   const morssProxyHosts = buildTichMorssProxyHosts({ morssSucceeded });
   return runDedicatedBaseCrawler({
     root: ROOT,

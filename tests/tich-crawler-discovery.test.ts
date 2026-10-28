@@ -409,6 +409,12 @@ describe('buildTichFetchProxyHosts', () => {
     );
   });
 
+  it('keeps Jina available when Morss supplied discovery as the primary egress', () => {
+    expect(buildTichFetchProxyHosts({ officialSucceeded: false, morssSucceeded: true }, '')).toBe(
+      'www.concorsi.ti.ch',
+    );
+  });
+
   it('routes detail pages through Morss only when Morss supplied discovery', () => {
     expect(buildTichMorssProxyHosts({ morssSucceeded: false }, 'other.example')).toBe('other.example');
     expect(buildTichMorssProxyHosts({ morssSucceeded: true }, 'other.example')).toBe(
