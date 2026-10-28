@@ -1,16 +1,16 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-10-28T09:38:05.853Z",
+  "generatedAt": "2026-10-28T20:30:36.590Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 126337,
-  "avgDurationMs": 126337,
+  "durationMs": 123323,
+  "avgDurationMs": 123323,
   "durationHistory": [
-    126337
+    123323
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "postingDateSource": "unknown",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:36:30.357Z",
+      "crawledAt": "2026-10-28T20:29:09.531Z",
       "id": "grace-la-margna-bbc2c160c4ea",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -82,7 +82,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:36:34.911Z",
+      "crawledAt": "2026-10-28T20:29:13.919Z",
       "id": "grace-la-margna-ed3bad146cb6",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -124,7 +124,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:36:39.293Z",
+      "crawledAt": "2026-10-28T20:29:18.059Z",
       "id": "grace-la-margna-904ca01fa2ea",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -166,7 +166,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:36:43.682Z",
+      "crawledAt": "2026-10-28T20:29:22.193Z",
       "id": "grace-la-margna-37be54b5c05d",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -208,7 +208,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:36:48.088Z",
+      "crawledAt": "2026-10-28T20:29:26.316Z",
       "id": "grace-la-margna-dbf5312cec63",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -250,7 +250,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:36:52.485Z",
+      "crawledAt": "2026-10-28T20:29:30.444Z",
       "id": "grace-la-margna-3a693cb7389a",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -292,7 +292,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:36:56.872Z",
+      "crawledAt": "2026-10-28T20:29:34.571Z",
       "id": "grace-la-margna-64964a3aeda8",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -334,7 +334,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-28T09:37:01.313Z",
+      "crawledAt": "2026-10-28T20:29:38.823Z",
       "id": "grace-la-margna-ba221949eef3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -354,5 +354,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
