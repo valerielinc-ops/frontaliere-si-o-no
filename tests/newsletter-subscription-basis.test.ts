@@ -221,6 +221,23 @@ describe('every newsletter_subscribers sender routes through the one predicate',
     expect(body('fetchTargetSubscriber')).toMatch(CALLS);
   });
 
+  it('keeps a visible bulk-audience breakdown instead of collapsing every exclusion into one count', () => {
+    const src = stripComments(read('scripts/send-newsletter.mjs'));
+    const start = src.indexOf('async function fetchSubscribers(');
+    const rest = src.slice(start + 1);
+    const next = rest.search(/\n(?:async )?function \w+\(/);
+    const body = next < 0 ? rest : rest.slice(0, next);
+    for (const marker of [
+      'scannedRows',
+      'excludedStatus',
+      'excludedStatusBy',
+      'excludedCrossChannel',
+      'excludedNewsletterOptOut',
+      'excludedNoBasis',
+      'excludedMalformed',
+    ]) expect(body).toContain(marker);
+  });
+
   it('no top-level script scans newsletter_subscribers for mail without a declared route', () => {
     const scripts = readdirSync(path.join(ROOT, 'scripts'), { withFileTypes: true })
       .filter((e) => e.isFile() && /\.mjs$/.test(e.name))

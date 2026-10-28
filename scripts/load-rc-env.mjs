@@ -425,10 +425,6 @@ export const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
-  // Deliverability ramp for the job-alert sender. Absent keeps the sender's
-  // safe 1,000-email/run default; the workflow also applies that default when
-  // Remote Config has no value.
-  JOB_ALERT_MAX_EMAILS_PER_RUN:   ['JOB_ALERT_MAX_EMAILS_PER_RUN'],
   // Site-owned static employer-profile ad test. Absent/control keeps the
   // extra unit off; the owner opts into the EOC treatment with `eoc_mid`.
   EMPLOYER_PROFILE_MID_AD_TEST_VARIANT: ['EMPLOYER_PROFILE_MID_AD_TEST_VARIANT'],

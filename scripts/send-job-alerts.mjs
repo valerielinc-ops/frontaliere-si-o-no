@@ -159,10 +159,9 @@ const MAX_JOB_CARDS = 10;
 const MAX_RETRY_COUNT = 2; // Max 2 retries (original + 2 = 3 total attempts)
 const RETRY_COLLECTION = 'job_alert_retry_queue';
 // Engagement-tier send priority: daily openers first, weekly last. Used both
-// to decide which alerts get their (network-cost) content built when the
-// shared cascade can't cover everyone today (see capacity check below), and
-// to re-sort the finished batch so a mid-send cap-out still favors the
-// most-engaged recipients.
+// to decide which alerts consume the shared cascade budget when it cannot
+// cover everyone today (see capacity check below), and to re-sort the finished
+// batch so a mid-send quota exhaustion still favors the most-engaged recipients.
 const ENGAGEMENT_SEND_PRIORITY = {
   [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 0,
   [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 1,
@@ -173,35 +172,23 @@ const ENGAGEMENT_SEND_PRIORITY = {
 // alerts into tomorrow's retry queue.
 const QUOTA_BUFFER_RATIO = 0.1;
 
-// A quota increase must not turn one cron invocation into a sudden bulk blast.
-// The default is deliberately above the largest recent successful run (367) but
-// far below the 9,449-alert catch-up that exposed the heap failure. The owner
-// can ramp this value through Remote Config after deliverability evidence; an
-// absent or malformed value always returns to this safe floor.
-export const DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN = 1000;
-
-export function resolveJobAlertRunLimit(rawValue = process.env.JOB_ALERT_MAX_EMAILS_PER_RUN) {
-  const value = Number(String(rawValue ?? '').trim());
-  return Number.isSafeInteger(value) && value > 0
-    ? value
-    : DEFAULT_JOB_ALERT_MAX_EMAILS_PER_RUN;
-}
-
+// The cascade quota is the only send budget. It must not be used as a
+// candidate-selection cap: zero-match, deduped and dead-link alerts do not
+// consume an email slot, so slicing the alert list before matching underfills
+// every run with a backlog. Memory safety is provided by the bounded planning
+// batches below, not by silently dropping eligible candidates.
 export function resolveJobAlertCapacity({
   alertCount,
   availableQuota,
-  maxEmailsPerRun = process.env.JOB_ALERT_MAX_EMAILS_PER_RUN,
 } = {}) {
   const count = Number.isSafeInteger(alertCount) && alertCount > 0 ? alertCount : 0;
   const quota = Number.isFinite(Number(availableQuota)) ? Math.max(0, Math.floor(Number(availableQuota))) : 0;
   const quotaBuffer = Math.ceil(quota * QUOTA_BUFFER_RATIO);
   const quotaCapacity = Math.max(0, quota - quotaBuffer);
-  const runLimit = resolveJobAlertRunLimit(maxEmailsPerRun);
   return {
     quotaBuffer,
     quotaCapacity,
-    runLimit,
-    capacity: Math.min(count, quotaCapacity, runLimit),
+    capacity: Math.min(count, quotaCapacity),
   };
 }
 
@@ -459,10 +446,23 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
   const queue = [];
   let head = 0;
   const queued = new Set();
+  let totalQueued = 0;
   let active = 0;
   let idleWaiters = [];
+  // Workers have already copied the URLs they are checking before an await,
+  // so consumed queue entries can be dropped safely. Without compaction the
+  // old queue array retained every URL from every alert batch until process
+  // exit, defeating the bounded-plan memory boundary on large catch-ups.
+  const compactQueue = () => {
+    if (head === 0) return;
+    if (head === queue.length || (head >= 1024 && head * 2 >= queue.length)) {
+      queue.splice(0, head);
+      head = 0;
+    }
+  };
   const settleIfIdle = () => {
     if (active !== 0 || head < queue.length) return;
+    compactQueue();
     const waiters = idleWaiters;
     idleWaiters = [];
     for (const resolve of waiters) resolve();
@@ -477,6 +477,11 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
           cache.set(url, await check(url));
         } catch {
           // Left uncached on purpose — filterLiveJobs checks it again.
+        } finally {
+          // The cache, not this set, is the durable de-duplication record once
+          // a check has completed. A thrown check is deliberately retryable.
+          queued.delete(url);
+          compactQueue();
         }
       }
     } finally {
@@ -491,6 +496,7 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
         if (!url || cache.has(url) || queued.has(url)) continue;
         queued.add(url);
         queue.push(url);
+        totalQueued += 1;
       }
       while (active < concurrency && head < queue.length) void worker();
     },
@@ -502,7 +508,11 @@ function createJobLivenessPrefetcher(cache, { concurrency = JOB_LIVE_CHECK_CONCU
     },
     /** URLs ever queued, and those not yet answered (waiting or in flight). */
     stats() {
-      return { queued: queue.length, pending: queue.length - head + active };
+      return {
+        queued: totalQueued,
+        pending: queue.length - head + active,
+        retained: queue.length,
+      };
     },
   };
 }
@@ -524,7 +534,11 @@ export async function forEachJobAlertPlanBatch(
     ? batchSize
     : JOB_ALERT_PLAN_BATCH_SIZE;
   for (let start = 0; start < alerts.length; start += size) {
-    await callback(alerts.slice(start, start + size));
+    // A sender can stop after exhausting the real provider budget without
+    // pretending that the unvisited tail did not exist. The callback's false
+    // return is intentionally optional so existing callers remain unchanged.
+    const continuePlanning = await callback(alerts.slice(start, start + size));
+    if (continuePlanning === false) break;
   }
 }
 
@@ -2803,29 +2817,23 @@ async function main() {
   }
   console.log(`   ⏳ Cadence ceiling ${JOB_ALERT_CADENCE_CEILING_DAYS}d: ${ceilingHeld.daily} tier-1 and ${ceilingHeld['every-other-day']} tier-3 alerts held to the ceiling today`);
 
-  // 2d. Pre-generation capacity check: the loop below does real work per
-  // alert (job scoring, live-link HEAD checks over the network, HTML
-  // building) — doing that for alerts the shared cascade cannot possibly
-  // send today just means it fails at send time and lands in tomorrow's
-  // retry queue, so the same work happens twice. Size the work to what's
-  // ACTUALLY left in the cascade today (after the retries already sent
-  // above), reserve a buffer for send-time errors, and only build content
-  // for that many alerts — most-engaged tier first, same priority the
-  // post-send sort below re-applies as a safety net. Alerts left over are
-  // simply untouched (no lastMatchedAt bump), so they're picked up again on
-  // tomorrow's run rather than lost.
+  // 2d. Resolve the real provider budget before matching, but do not slice the
+  // candidate list here. Matching can eliminate zero-match, already-sent and
+  // dead-link alerts; spending a slot on those only after the match is known
+  // lets the sender reach the next eligible recipient. The loop below scans
+  // the complete engagement-ordered list and stops only when this budget is
+  // actually consumed. Its bounded batches are the memory boundary.
   const { getAvailableCascadeQuota } = await import('./lib/email-cascade.mjs');
   const availableQuota = await getAvailableCascadeQuota();
   alerts.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
-  const { quotaBuffer, quotaCapacity, runLimit, capacity: sendableCapacity } = resolveJobAlertCapacity({
+  const { quotaBuffer, quotaCapacity, capacity: sendBudget } = resolveJobAlertCapacity({
     alertCount: alerts.length,
     availableQuota,
   });
-  if (alerts.length > sendableCapacity) {
-    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); run cap ${runLimit} → building ${sendableCapacity}/${alerts.length} alerts by engagement tier; ${alerts.length - sendableCapacity} deferred to next run`);
-    alerts = alerts.slice(0, sendableCapacity);
+  if (alerts.length > sendBudget) {
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); considering all ${alerts.length} eligible alerts in engagement order; matching until the send budget of ${sendBudget} emails remains after zero-match/dedup/live-link filtering`);
   } else {
-    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); run cap ${runLimit} — all ${alerts.length} alerts fit`);
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}, usable ${quotaCapacity}); matching all ${alerts.length} eligible alerts; send budget ${sendBudget} emails`);
   }
 
   // 3. Match alerts to jobs
@@ -2993,7 +3001,8 @@ async function main() {
   let cursorCandidateCount = 0;
   let planningMs = 0;
   let prefetchDrainMs = 0;
-  await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
+  let quotaExhausted = quotaCapacity <= 0;
+  if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
     const batchPlans = [];
     const batchPlanningStartedAt = Date.now();
     for (const alert of alertBatch) {
@@ -3074,6 +3083,13 @@ async function main() {
       preflightRanked,
       subjectAssignment,
     } of batchPlans) {
+      // A match is the unit that consumes provider quota, not an alert
+      // candidate. Stop inside the bounded batch as soon as the real budget is
+      // reached; the unvisited alert tail remains untouched for the next run.
+      if (runStats.planned + batchEmails.length >= quotaCapacity) {
+        quotaExhausted = true;
+        break;
+      }
       addZeroMatchPlanToSummary(zeroMatchAccumulator, {
         candidateCount,
         rankedCount,
@@ -3222,13 +3238,17 @@ async function main() {
     // forEachJobAlertPlanBatch, so no subsequent batch can observe these refs.
     batchEmails.length = 0;
     batchPlans.length = 0;
+    return !quotaExhausted && runStats.planned < quotaCapacity;
   });
+  if (quotaExhausted && alerts.length > runStats.planned) {
+    console.log(`   ⏸️ Send budget exhausted after ${runStats.planned} email(s); remaining eligible alerts stay untouched for the next run`);
+  }
 
   // #9314: `Capacity check` → `Total` mixes CPU (planning) and network (the
   // live-link prefetch drains). Log the split so a run shows which one bounds
   // the matching step. The prefetch queue is drained at every memory boundary.
   const prefetchAfterPlanning = livenessPrefetcher.stats();
-  console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} pending after the last batch, drained across batches in ${(prefetchDrainMs / 1000).toFixed(1)} s`);
+  console.log(`   ⏱️ Matching split: planning ${(planningMs / 1000).toFixed(1)} s for ${alerts.length} alerts; live-link prefetch ${prefetchAfterPlanning.queued} URL(s), ${prefetchAfterPlanning.pending} pending, ${prefetchAfterPlanning.retained} queue entries retained after the last batch, drained across batches in ${(prefetchDrainMs / 1000).toFixed(1)} s`);
   console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
   console.log(`   🎯 Job-email ranking: ${JSON.stringify(rankingVariantCounts)} alerts; ${rankingProfileCount} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
   console.log(`   🧪 Job-alert subject test: ${JSON.stringify(subjectCounts)} planned alerts; ${activeSubjectAssignments} in experiment (enabled=${JOB_ALERT_SUBJECT_CONFIG.enabled}, rollout=${JOB_ALERT_SUBJECT_CONFIG.rollout}, variants=${JOB_ALERT_SUBJECT_CONFIG.variantIds.join(',')})`);
