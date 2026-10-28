@@ -580,6 +580,42 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(report.statusCounts).toEqual({ 200: 1 });
   });
 
+  it('retries when a response body terminates during streaming', async () => {
+    let calls = 0;
+    const report = await crawlPartition({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/terminated-body/`] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 1,
+      rescueRetries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async () => {
+        calls += 1;
+        if (calls === 1) {
+          const body = new ReadableStream({
+            start(controller) {
+              controller.enqueue(new TextEncoder().encode('<title>Partial response</title>'));
+              controller.error(new TypeError('terminated'));
+            },
+          });
+          return new Response(body, {
+            status: 200,
+            headers: { 'content-type': 'text/html' },
+          });
+        }
+        return new Response(
+          '<title>Recovered</title><link rel="canonical" href="https://frontaliereticino.ch/terminated-body/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina recuperata dopo un reset del body durante il controllo SEO completo del sito e mantenere il contratto di crawling.">',
+          { status: 200, headers: { 'content-type': 'text/html' } },
+        );
+      },
+    });
+
+    expect(calls).toBe(2);
+    expect(report.findings).toEqual([]);
+    expect(report.statusCounts).toEqual({ 200: 1 });
+  });
+
   it('rescues a transient failure after the normal partition pass', async () => {
     let calls = 0;
     const report = await crawlPartition({
