@@ -93,7 +93,9 @@ function releaseCdnProbeResponse(response) {
  * The asset deadline includes HEAD, a possible GET fallback, backoff, and all
  * retries. `globalDeadline` is shared by the caller across the whole URL set,
  * so retrying one asset cannot extend the publish-path budget for the others.
- * Network errors remain fail-open and are deliberately not retried here.
+ * Errors without a classified transient cause remain fail-open and are
+ * deliberately not retried; the shared verifier retries only known transient
+ * transport codes (for example EAI_AGAIN) within its bounded run budget.
  */
 async function retryCdnAssetProbe(
   url,
@@ -1163,8 +1165,9 @@ async function main() {
     const results = await verifyCdnAssetRefs({
       urls: cdnAssetUrls,
       // The adapted site verifier keeps classification/reporting (including
-      // soft-404 HTML); this wrapper transports only the bounded 5xx retry from
-      // the corpus counterpart and shares one hard global deadline.
+      // soft-404 HTML) and retries known transient transport causes; this
+      // wrapper adds the bounded 5xx retry from the corpus counterpart and
+      // shares one hard global deadline.
       fetchImpl: (url, requestInit) => retryCdnAssetProbe(url, {
         requestInit,
         globalDeadline,

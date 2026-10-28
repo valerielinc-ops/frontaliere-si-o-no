@@ -176,6 +176,38 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('ritenta un errore DNS transitorio classificato e accetta una risposta live', async () => {
+    const temporaryDnsFailure = Object.assign(new TypeError('fetch failed'), {
+      cause: { code: 'EAI_AGAIN', message: 'temporary failure in name resolution' },
+    });
+    const fetchImpl = vi.fn()
+      .mockRejectedValueOnce(temporaryDnsFailure)
+      .mockResolvedValueOnce(res(200, 'text/javascript'));
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/gtag-init.js'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      retryDelayMs: 0,
+    });
+
+    expect(result).toMatchObject({ state: 'present', status: 200, reason: null });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('non ritenta un fetch failure senza causa classificabile', async () => {
+    const unclassifiedFailure = new TypeError('fetch failed');
+    const fetchImpl = vi.fn().mockRejectedValue(unclassifiedFailure);
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/gtag-init.js'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      retryDelayMs: 0,
+    });
+
+    expect(result).toMatchObject({ state: 'unknown', status: null, reason: 'fetch failed' });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
   it('limita i retry di abort persistenti e conserva il fail-open', async () => {
     const aborted = Object.assign(new Error('This operation was aborted'), { name: 'AbortError' });
     const fetchImpl = vi.fn().mockRejectedValue(aborted);
