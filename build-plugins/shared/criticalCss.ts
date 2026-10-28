@@ -558,6 +558,11 @@ export const SEO_STATIC_BODY_FONT_RESERVE_CSS = 'body{font-family:"Manrope",sans
  * paint-only declarations and interactive state variants are excluded by the
  * projection helper. The targeted reserves remain after this projection so
  * their measured mobile/CLS corrections win during the pre-swap frame.
+ *
+ * Byte audit (same-stage, 2026-10-28): the generated `CRITICAL_CSS` string is
+ * 126,787 bytes on merge-base `2131d6f1` and 126,802 bytes on this ref
+ * (`+15`, `+0.01%`). The refactor is therefore a first-paint coverage and
+ * layout/paint separation change, not an unverified raw byte-size reduction.
  */
 export const SEO_STATIC_SHEET_RESERVE_CSS =
   deriveSeoStaticFirstPaintReserve(readPublicAsset('seo-static.css'));
