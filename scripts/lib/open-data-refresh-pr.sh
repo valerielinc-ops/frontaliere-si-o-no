@@ -253,6 +253,10 @@ squash_compat_head_onto_publish_base() {
   merged_tree="$(git write-tree --missing-ok)"
   squashed_commit="$(git commit-tree "$merged_tree" -p "$PUBLISH_BASE" -m "$COMMIT_MESSAGE")"
   git update-ref HEAD "$squashed_commit" "$current_head"
+  # Keep the reconciled, single-parent publish snapshot separate from the
+  # producer commit. A retry may find the temporary remote base gone; in that
+  # case it must recreate the branch from this tree, not from REFRESH_COMMIT.
+  PUBLISH_COMMIT="$squashed_commit"
 }
 
 check_old_history_ref() {
@@ -294,6 +298,7 @@ REFRESH_BASE="$(git rev-parse HEAD)"
 # when the stable branch is new, publish it from that current tip instead of
 # asking the pre-push history guard to prove a branch from before main moved.
 PUBLISH_BASE="$REFRESH_BASE"
+PUBLISH_COMMIT=""
 REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""
 REFRESH_PUBLISH_WORKTREE=""
@@ -864,7 +869,11 @@ while :; do
     if [ "$REMOTE_BASE_CREATED" = false ]; then
       REMOTE_BASE_SHA=""
     fi
-    git checkout -B "$BRANCH" "$REFRESH_COMMIT"
+    RETRY_COMMIT="$REFRESH_COMMIT"
+    if [ "$RECONCILE_COMPAT" = true ] && [ -n "$PUBLISH_COMMIT" ]; then
+      RETRY_COMMIT="$PUBLISH_COMMIT"
+    fi
+    git checkout -B "$BRANCH" "$RETRY_COMMIT"
   fi
 done
 

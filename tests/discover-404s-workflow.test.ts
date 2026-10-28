@@ -110,6 +110,8 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(publisher).toContain('-f "ref=refs/heads/${BRANCH}" -f "sha=${PUBLISH_BASE}"');
     expect(publisher).toContain('REMOTE_BASE_SHA="$PUBLISH_BASE"');
     expect(publisher).toContain('git commit-tree "$merged_tree" -p "$PUBLISH_BASE" -m "$COMMIT_MESSAGE"');
+    expect(publisher).toContain('PUBLISH_COMMIT="$squashed_commit"');
+    expect(publisher).toContain('RETRY_COMMIT="$PUBLISH_COMMIT"');
     expect(publisher).toContain('git -C "$REFRESH_SOURCE_ROOT" reset --hard "$REFRESH_COMMIT"');
   });
 
