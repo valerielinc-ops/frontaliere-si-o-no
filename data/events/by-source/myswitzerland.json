@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-27T11:18:36.179Z",
+  "assembledAt": "2026-10-28T12:00:01.602Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -172090,6 +172090,15 @@
         "lng": 8.5251523
       },
       "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kappel am Albis"
+      },
       "sourceDescriptionHash": "07f971b9e3d31d55d6e6b56bd90f7707e3ce964bede62bb963e5b90d2eae4530"
     },
     {
@@ -271185,6 +271194,679 @@
         "name": "Grindelwald"
       },
       "sourceDescriptionHash": "16076baa7cdc6be9813e379fca6d0b663fd7a2726cc6fa72a68b84ea598ba8c7"
+    },
+    {
+      "id": "myswitzerland:cb9780484b3443579be7dbad8c2f6b23",
+      "title": "OJF – 4ème concert du dimanche",
+      "titleByLocale": {
+        "it": "OJF – 4ème concert du dimanche",
+        "en": "OJF – 4ème concert du dimanche",
+        "de": "OJF – 4ème concert du dimanche",
+        "fr": "OJF – 4ème concert du dimanche"
+      },
+      "startDate": "2027-02-28",
+      "endDate": "2027-02-28",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Villars-sur-Glâne",
+      "comune": "Villars-sur-Glâne",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ojf-4eme-concert-du-dimanche/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7909661,
+        "lng": 7.1157655
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Villars-sur-Glâne"
+      },
+      "sourceDescriptionHash": "798afe60d3a966cb9c1f8342a64863e38b55bc118b47cba13ec0f8e5672595ac"
+    },
+    {
+      "id": "myswitzerland:cb64073bbd1f4d43b66f834b33b06148",
+      "title": "Bien vivre dans les limites planétaires. Planifier la sobriété en Suisse",
+      "titleByLocale": {
+        "it": "Bien vivre dans les limites planétaires. Planifier la sobriété en Suisse",
+        "en": "Bien vivre dans les limites planétaires. Planifier la sobriété en Suisse",
+        "de": "Bien vivre dans les limites planétaires. Planifier la sobriété en Suisse",
+        "fr": "Bien vivre dans les limites planétaires. Planifier la sobriété en Suisse"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bien-vivre-dans-les-limites-planetaires-planifier-la-sobriete-en-suisse/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7933068,
+        "lng": 7.1590556
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      },
+      "sourceDescriptionHash": "cf2e758702c83d7b1b87a74b9377518dfecb175a6c8f61ec7a7872e4617a9f67"
+    },
+    {
+      "id": "myswitzerland:cb4a0309be0946b7874e8bd289cb9a0e",
+      "title": "8302 Sports (Turnhalle Hiwi)",
+      "titleByLocale": {
+        "it": "8302 Sports (Turnhalle Hiwi)",
+        "en": "8302 Sports (Turnhalle Hiwi)",
+        "de": "8302 Sports (Turnhalle Hiwi)",
+        "fr": "8302 Sports (Turnhalle Hiwi)"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2027-01-30",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Kloten",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/8302-sports-turnhalle-hiwi/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.446503,
+        "lng": 8.5755215
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Schnee bedeckt sind öffnen wir die Turnhallen für Sport, Spiel"
+        },
+        {
+          "name": "Spass"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "bced0084419d81c840fcada6335e857ca56ded9c29b57b99aeeeea0646e64fc8"
+    },
+    {
+      "id": "myswitzerland:cac510670d714654aa856b5fc07ee88c",
+      "title": "Spiele aus aller Welt",
+      "titleByLocale": {
+        "it": "Spiele aus aller Welt",
+        "en": "Spiele aus aller Welt",
+        "de": "Spiele aus aller Welt",
+        "fr": "Spiele aus aller Welt"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "startTime": "13:30",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/spiele-aus-aller-welt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.850395,
+        "lng": 9.5309629
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chur"
+      },
+      "sourceDescriptionHash": "c5c9685a245f08164485226d1f20e9b84713f2472c08239afe05d94a74122282"
+    },
+    {
+      "id": "myswitzerland:cac47f5feec145e983f251d79c235cba",
+      "title": "PopOphonics - Golden Seat - VIP Business Seat und Aftershow Party",
+      "titleByLocale": {
+        "it": "PopOphonics - Golden Seat - VIP Business Seat und Aftershow Party",
+        "en": "PopOphonics - Golden Seat - VIP Business Seat und Aftershow Party",
+        "de": "PopOphonics - Golden Seat - VIP Business Seat und Aftershow Party",
+        "fr": "PopOphonics - Golden Seat - VIP Business Seat und Aftershow Party"
+      },
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/popophonics-golden-seat-vip-business-seat-und-aftershow-party/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4113134,
+        "lng": 8.5517916
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "dcd93cf7b62f2cbe4c0e1e8f179b66d2efabe122f534b01c1a69985eba194e92"
+    },
+    {
+      "id": "myswitzerland:caa46cd0e80044afa264d51365df1d02",
+      "title": "12. EXPO Energietechnik 2027 (Elektrofachmesse)",
+      "titleByLocale": {
+        "it": "12. EXPO Energietechnik 2027 (Elektrofachmesse)",
+        "en": "12. EXPO Energietechnik 2027 (Elektrofachmesse)",
+        "de": "12. EXPO Energietechnik 2027 (Elektrofachmesse)",
+        "fr": "12. EXPO Energietechnik 2027 (Elektrofachmesse)"
+      },
+      "startDate": "2027-06-09",
+      "endDate": "2027-06-10",
+      "startTime": "09:15",
+      "category": "Event",
+      "venue": "Mollis",
+      "comune": "Glarus Nord",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/12-expo-energietechnik-2027-elektrofachmesse/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.085178,
+        "lng": 9.068211
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Mollis"
+      },
+      "sourceDescriptionHash": "b5f5fe8b1027291776765f58ce581350344726762765c982e64f6451a1bd3805"
+    },
+    {
+      "id": "myswitzerland:ca98db725c3c47cdb889d3e101c9e786",
+      "title": "Journée puzzles",
+      "titleByLocale": {
+        "it": "Journée puzzles",
+        "en": "Journée puzzles",
+        "de": "Puzzle-Tag",
+        "fr": "Journée puzzles"
+      },
+      "startDate": "2027-02-13",
+      "endDate": "2027-02-13",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/journee-puzzles/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8055338,
+        "lng": 7.1543774
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      },
+      "sourceDescriptionHash": "19a7719cc604681f78b04a96adcc06df74e64a154576607226af17ecaac50abd"
+    },
+    {
+      "id": "myswitzerland:ca8c42687883449ab1938139c138af5f",
+      "title": "Fokusführung: SCHAU Kantonale Jahresausstellung",
+      "titleByLocale": {
+        "it": "Fokusführung: SCHAU Kantonale Jahresausstellung",
+        "en": "Fokusführung: SCHAU Kantonale Jahresausstellung",
+        "de": "Fokusführung: SCHAU Kantonale Jahresausstellung",
+        "fr": "Fokusführung: SCHAU Kantonale Jahresausstellung"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/fokusfuehrung-schau-kantonale-jahresausstellung/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2103652,
+        "lng": 7.5374817
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Kunstschaffenden, Patricia Bieder, Präsidentin Kunstverein Solothurn"
+        },
+        {
+          "name": "Alexander Jaquemet, Jurymitglied"
+        },
+        {
+          "name": "Künstler"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "7ca8e8c7e23c6cb6282575606f7b01734eeaa7bfa5ecb59cd8db5075b3334c23"
+    },
+    {
+      "id": "myswitzerland:ca6b3300c6664f7497a1dbcfa528e253",
+      "title": "Erzählnacht: Ein Spaziergang voller Geschichten durch Küssnacht",
+      "titleByLocale": {
+        "it": "Erzählnacht: Ein Spaziergang voller Geschichten durch Küssnacht",
+        "en": "Erzählnacht: Ein Spaziergang voller Geschichten durch Küssnacht",
+        "de": "Erzählnacht: Ein Spaziergang voller Geschichten durch Küssnacht",
+        "fr": "Erzählnacht: Ein Spaziergang voller Geschichten durch Küssnacht"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Küssnacht am Rigi",
+      "comune": "Küssnacht (SZ)",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/erzaehlnacht-ein-spaziergang-voller-geschichten-durch-kuessnacht/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0820346317348,
+        "lng": 8.44098367456054
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Küssnacht am Rigi"
+      },
+      "sourceDescriptionHash": "e3a552ceaa531e092a3b31bffaf5fb1876b45458a4bc28657e1d96eb7c7434cc"
+    },
+    {
+      "id": "myswitzerland:ca24832655f544aeb1939db56c2212fe",
+      "title": "“Silentium est aurum”",
+      "titleByLocale": {
+        "it": "“Silentium est aurum”",
+        "en": "“Silentium est aurum”",
+        "de": "„Silentium est aurum“",
+        "fr": "“ Silentium est aurum “"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-12-26",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "St-Séverin",
+      "comune": "Conthey",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/silentium-est-aurum/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2324785,
+        "lng": 7.3016887
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St-Séverin"
+      },
+      "sourceDescriptionHash": "e4df847d2d5af9d6555944eee6863b442c57d544371e65c0f7b58dedf5340c65"
+    },
+    {
+      "id": "myswitzerland:c9ee11943726497e9b82064a96f4b13a",
+      "title": "Adventserwachen im Rauracher Zentrum",
+      "titleByLocale": {
+        "it": "Adventserwachen im Rauracher Zentrum",
+        "en": "Adventserwachen im Rauracher Zentrum",
+        "de": "Adventserwachen im Rauracher Zentrum",
+        "fr": "Adventserwachen im Rauracher Zentrum"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventserwachen-im-rauracher-zentrum/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.570585,
+        "lng": 7.633298
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Riehen"
+      },
+      "sourceDescriptionHash": "009a8ba4449c987135d5c50557c34d011e9e84731105640ef1619eab9736ab7d"
+    },
+    {
+      "id": "myswitzerland:c9bd130783184835a2fc4dcb719f3098",
+      "title": "Ari Hoenig Masterclass",
+      "titleByLocale": {
+        "it": "Ari Hoenig Masterclass",
+        "en": "Ari Hoenig Masterclass",
+        "de": "Ari Hoenig Masterclass",
+        "fr": "Ari Hoenig Masterclass"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-16",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ari-hoenig-masterclass/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2120031,
+        "lng": 6.1423601
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Geneva"
+      },
+      "sourceDescriptionHash": "431940dcc2e1a4418938a4281a431f8cf25f81b7d7c73af5102f0a379fdf0fd2"
+    },
+    {
+      "id": "myswitzerland:c983f10fa6f54424ae1f4420486977e4",
+      "title": "Gospel-Konzert",
+      "titleByLocale": {
+        "it": "Gospel-Konzert",
+        "en": "Gospel-Konzert",
+        "de": "Gospel-Konzert",
+        "fr": "Gospel-Konzert"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Ins",
+      "comune": "Ins",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/gospel-konzert/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0061675,
+        "lng": 7.1051563
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ins"
+      },
+      "sourceDescriptionHash": "f9242f4c5f79b3b995fc94dad78af0e5b604679dafc103097f00ac645ea1a8a2"
+    },
+    {
+      "id": "myswitzerland:c962188aaf534d83a451bec85988caa5",
+      "title": "Tag der offenen Tür",
+      "titleByLocale": {
+        "it": "Tag der offenen Tür",
+        "en": "Tag der offenen Tür",
+        "de": "Tag der offenen Tür",
+        "fr": "Tag der offenen Tür"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tag-der-offenen-tuer-4/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6521416,
+        "lng": 9.1694336
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Lehrpersonen• Bistro zum VerweilenOb Geige, Gitarre, Klavier, Schlagzeug oder ein Blasinstrument"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "d1cc63b3fd2d7cafb8595ea2127d3673d2d8621603435b1e5af1125e9409159d"
+    },
+    {
+      "id": "myswitzerland:c95c5416f37b4a248609ee70e1d88829",
+      "title": "«Wië bi üs im Ämmitau»",
+      "titleByLocale": {
+        "it": "«Wië bi üs im Ämmitau»",
+        "en": "«Wië bi üs im Ämmitau»",
+        "de": "«Wië bi üs im Ämmitau»",
+        "fr": "«Wië bi üs im Ämmitau»"
+      },
+      "startDate": "2027-01-18",
+      "endDate": "2027-01-19",
+      "startTime": "19:45",
+      "category": "Event",
+      "venue": "Stans",
+      "comune": "Stans",
+      "canton": "NW",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wie-bi-ues-im-aemmitau/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.955549,
+        "lng": 8.3691502
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Carl Bossard follows in the footsteps of Jeremias Gotthelf"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "2c747796cabd9185f50fe91bd17bcb79b43298bc3502b4845f1f37a438fdb3c0"
+    },
+    {
+      "id": "myswitzerland:c84f1f29741d412c91f7cbecd11e9d04",
+      "title": "DISCO KIDS «HALLOWEEN»",
+      "titleByLocale": {
+        "it": "DISCO KIDS «HALLOWEEN»",
+        "en": "DISCO KIDS «HALLOWEEN»",
+        "de": "DISCO KIDS «HALLOWEEN»",
+        "fr": "DISCO KIDS «HALLOWEEN»"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "14:30",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/disco-kids-halloween/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5200725,
+        "lng": 6.6315445
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "fcf1f35a006348bde68706c938a59c9d0205c7057949bd1baa4be4a1bf96ab0d"
+    },
+    {
+      "id": "myswitzerland:c7e78285488a433b85cc558ff996ecac",
+      "title": "Louis Chevrolet: Wie ein Schweizer Name die Autowelt eroberte",
+      "titleByLocale": {
+        "it": "Louis Chevrolet: Wie ein Schweizer Name die Autowelt eroberte",
+        "en": "Louis Chevrolet: Wie ein Schweizer Name die Autowelt eroberte",
+        "de": "Louis Chevrolet: Wie ein Schweizer Name die Autowelt eroberte",
+        "fr": "Louis Chevrolet: Wie ein Schweizer Name die Autowelt eroberte"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/louis-chevrolet-wie-ein-schweizer-name-die-autowelt-eroberte/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5653684,
+        "lng": 9.1055569
+      },
+      "recurring": false,
+      "performer": {
+        "name": "William C"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "688f4c710c34753ced61602b43d1e8fc8feea230c8536f486fb934d89bccafe5"
+    },
+    {
+      "id": "myswitzerland:c7e1eacc892e479aa44188ae069ee4b0",
+      "title": "HALLOMANIA - Soirée DJ Fluo Party au Domaine des Bossons à Satigny",
+      "titleByLocale": {
+        "it": "HALLOMANIA - Soirée DJ Fluo Party au Domaine des Bossons à Satigny",
+        "en": "HALLOMANIA - Soirée DJ Fluo Party au Domaine des Bossons à Satigny",
+        "de": "HALLOMANIA - Soirée DJ Fluo Party au Domaine des Bossons à Satigny",
+        "fr": "HALLOMANIA - Soirée DJ Fluo Party au Domaine des Bossons à Satigny"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Satigny",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/hallomania-soiree-dj-fluo-party-au-domaine-des-bossons-a-satigny/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.193878,
+        "lng": 6.145186
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Geneva"
+      },
+      "sourceDescriptionHash": "c90d79c8e837df69ae874ec248c4130ea53b17ef45f959647030f151b26ff7ff"
+    },
+    {
+      "id": "myswitzerland:c75e8a4d5abc4621823a170d47af59d4",
+      "title": "Candle Light Dinner",
+      "titleByLocale": {
+        "it": "Candle Light Dinner",
+        "en": "Candle Light Dinner",
+        "de": "Candle Light Dinner",
+        "fr": "Candle Light Dinner"
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-11-24",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/candle-light-dinner-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3711107,
+        "lng": 8.5417977
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "e47c748148dc30344e34014b6cda5efe553cdf1a015db63355f486ed8d326913"
     }
   ]
 }
