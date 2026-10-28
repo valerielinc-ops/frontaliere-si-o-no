@@ -13614,6 +13614,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: fast 500 mila euro weniger an Grenzgänger-Rückvergütungen',
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate wird fast 500.000 Euro weniger aus den Rückvergütungen haben.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Motion im Tessin gegen die Gesundheitssteuer',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparteiliche Motion im Grossen Rat eingereicht Die italienische Massnahme wird im Hinblick auf Artikel 9 beanstandet Das Tessin droht mit der Blockierung der Rückvergütungen Gegenstand',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

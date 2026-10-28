@@ -113484,6 +113484,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mozione-ticino-ristorni-salute': {
+    title: 'Mozione in Ticino contro la tassa sulla salute',
+    description: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozione, contro, tassa, sulla',
+    ogTitle: 'Ticino: mozione contro la tassa sulla salute',
+    ogDescription: 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    canonicalPath: '/articoli-frontaliere/mozione-ticino-ristorni-salute/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozione in Ticino contro la tassa sulla salute",
+      "description": "Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mozione-ticino-ristorni-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T12:47:07+00:00",
+      "dateModified": "2026-10-28T12:47:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mozione-ticino-ristorni-salute/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -13616,6 +13616,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: ristorni frontalieri in meno di quasi 500 mila euro',
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate avrà quasi 500 mila euro in meno dai ristorni.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Mozione in Ticino contro la tassa sulla salute',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Mozione interpartitica presentata in Gran Consiglio La misura italiana è contestata sull\'articolo 9 Il Ticino minaccia il blocco dei ristorni Oggetto',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

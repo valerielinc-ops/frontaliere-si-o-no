@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 936,
+      "5": 937,
       "6": 5061
     },
-    "publishedCovers": 7679,
+    "publishedCovers": 7680,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210750,6 +210750,39 @@
         "provider": "openai-codex",
         "assetId": "article-solothurn-sussidi-premi-2027",
         "imageUrl": "/images/blog/article-solothurn-sussidi-premi-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-mozione-ticino-ristorni-salute": {
+      "cover": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
+      "hash": "0d1dc6af0d3e15310cf0203523e02f14771ddfd773814df73624d86fe145c7b5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "mozione-ticino-ristorni-salute",
+          "category": "fiscale",
+          "date": "2026-10-28T12:47:07.552Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mozione-ticino-ristorni-salute.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mozione-ticino-ristorni-salute",
+        "imageUrl": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
         "evidence": "generated-engine-record"
       }
     }
