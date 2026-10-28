@@ -2806,7 +2806,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // segment is the job's OLD slug, not a search keyword. 13 historic slugs start
  // with ricerca-/search-/suche-/recherche- (measured on prod 2026-08-07) and
  // would otherwise seed the search box, filtering the listing on a job URL.
- const isSeededExpiredDetail = Boolean(initialJobSlug && seededJobMatchesSlug(initialJobSlug));
+ const isSeededExpiredDetail = Boolean(
+  initialJobSlug && onSeededDocument() && seededJobMatchesSlug(initialJobSlug),
+ );
  const [searchQuery, setSearchQuery] = useState(() => (readBridgeTargetSlug() || isSeededExpiredDetail ? null : parseJobRouteSearchFilter(initialJobSlug, jobs)) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
  // Search input is uncontrolled (defaultValue, no `value` prop): keystrokes paint
@@ -3953,6 +3955,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const selectedJob = useMemo(() => {
  if (companySlugFilter || locationSlugFilter || searchSlugFilter || editorialLandingDescriptor) return null;
  if (!initialJobSlug) return null;
+ // The SSG expired seed is authoritative for this URL. The live index can
+ // still contain the same slug (for example after an archive/active-data
+ // boundary), and letting it win here replaces the expired view during
+ // hydration with the old active-job layout.
+ if (isSeededExpiredDetail) return null;
  // When navigating via a previousSlug (bridge), use the current slug for job lookup
  const routeSlug = bridgeTargetSlug || initialJobSlug;
  const lookupSlug = aliasCanonical && aliasCanonical.alias === routeSlug
@@ -3971,7 +3978,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // fetch landing before the wholesale `setJobs` of the full load clobbers a merged
  // record), closing the timing race that intermittently showed the orphan banner.
  return unscopedJobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
- }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+ }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, isSeededExpiredDetail]);
 
  // Profession landing links use `?alert=1`; query state is reliable even if
  // SPA boot has already discarded the URL hash. Queue the open request before
@@ -6350,7 +6357,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // When build-time seeded data exists (window.__EXPIRED_JOB_DATA__), pass the slug
  // eagerly — even while jobs.json is still loading — so the hook can return the
  // seeded data synchronously and we render JobExpiredView instead of a spinner.
- const seeded = useMemo(() => hasSeededExpiredData(), []);
+ const seeded = useMemo(() => hasSeededExpiredData() && onSeededDocument(), [seedPathname]);
  const notFoundSlug = initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !bridgeTargetSlug
  && (seeded || (!jobsLoading && !selectedJob))
  ? initialJobSlug
