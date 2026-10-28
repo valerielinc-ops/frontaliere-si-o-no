@@ -35,6 +35,22 @@ describe('data-integrity conflict recovery', () => {
     expect(WORKFLOW_SOURCE).not.toContain('while IFS= read -r -u 9 f');
   });
 
+  it('keeps the full history but allow-lists the guard checkout', () => {
+    expect(WORKFLOW_SOURCE).toContain('fetch-depth: 0');
+    expect(WORKFLOW_SOURCE).toContain('filter: blob:none');
+    expect(WORKFLOW_SOURCE).toContain('sparse-checkout: |');
+    expect(WORKFLOW_SOURCE).toContain('sparse-checkout-cone-mode: false');
+    for (const materializedPath of [
+      '/scripts/',
+      '/data/canton-municipalities.json',
+      '/data/swiss-locality-postal-codes.json',
+    ]) {
+      expect(WORKFLOW_SOURCE).toContain(materializedPath);
+    }
+    expect(WORKFLOW_SOURCE).toContain('sparse-checkout: |\n            /scripts/');
+    expect(WORKFLOW_SOURCE).not.toContain('!/data/jobs/');
+  });
+
   it('pairs both directions only for real crawler slices and deduplicates them', () => {
     expect(pairedRestorePaths(active)).toEqual([active, expired]);
     expect(pairedRestorePaths(expired)).toEqual([expired, active]);
