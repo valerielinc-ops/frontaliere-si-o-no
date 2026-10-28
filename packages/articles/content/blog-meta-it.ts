@@ -13613,6 +13613,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 senza lavoro per la chiusura di via Motta',
     'blog.article.chiasso-via-motta-lavoro.excerpt': 'La chiusura di via Motta a Chiasso lascia senza lavoro 28 persone.',
     'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: ristorni frontalieri in meno di quasi 500 mila euro',
+    'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate avrà quasi 500 mila euro in meno dai ristorni.',
+    'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

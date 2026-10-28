@@ -13612,6 +13612,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 people out of work due to the closure of Via Motta',
     'blog.article.chiasso-via-motta-lavoro.excerpt': 'The closure of Via Motta in Chiasso leaves 28 people without work.',
     'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: nearly €500,000 less in cross-border tax rebates',
+    'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate will receive almost 500 thousand euros less in rebates.',
+    'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

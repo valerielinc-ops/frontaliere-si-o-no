@@ -13614,6 +13614,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 personnes sans emploi après la fermeture de la via Motta',
     'blog.article.chiasso-via-motta-lavoro.excerpt': 'La fermeture de la via Motta à Chiasso laisse 28 personnes sans emploi.',
     'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate : près de 500 mila euro de moins en rétrocessions des frontaliers',
+    'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate aura près de 500 mila euro de moins au titre des rétrocessions.',
+    'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
