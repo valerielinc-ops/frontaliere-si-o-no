@@ -7,6 +7,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const actionPath = path.resolve(process.cwd(), '.github/actions/setup-claude-haiku-fallback/action.yml');
+const fallbackActionPath = path.resolve(process.cwd(), '.github/actions/claude-codex-fallback/action.yml');
 const sandboxActionPath = path.resolve(process.cwd(), '.github/actions/setup-codex-sandbox/action.yml');
 const eventRewriteWorkflowPath = path.resolve(process.cwd(), '.github/workflows/event-description-rewrite.yml');
 const bashPath = fs.existsSync('/opt/homebrew/bin/bash') ? '/opt/homebrew/bin/bash' : '/bin/bash';
@@ -99,6 +100,22 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(install).toContain('npm_config_cache="$npm_cache"');
     expect(install).toContain('@openai/codex@0.153.4');
     expect(install).not.toContain('CLAUDE_CODE_OAUTH_TOKEN');
+  });
+
+  it('resumes the checksum-pinned Node download across bounded retries in both setup actions', () => {
+    for (const candidatePath of [actionPath, fallbackActionPath]) {
+      const document = YAML.parse(fs.readFileSync(candidatePath, 'utf8')) as {
+        runs?: { steps?: Array<{ id?: string; run?: string }> };
+      };
+      const resolver = document.runs?.steps?.find((step) =>
+        step.id === 'trusted_toolchain' || step.id === 'trusted_node'
+      )?.run ?? '';
+      expect(resolver, candidatePath).toMatch(/--connect-timeout 20 --max-time 120 --retry 5 --retry-delay 5/u);
+      expect(resolver, candidatePath).toContain('--retry-max-time 900');
+      expect(resolver, candidatePath).toContain('--continue-at -');
+      expect(resolver, candidatePath).toContain('node_archive_sha256=');
+      expect(resolver, candidatePath).toContain('sha256sum');
+    }
   });
 
   it('keeps every sandbox prerequisite bounded and fail-closed', () => {
