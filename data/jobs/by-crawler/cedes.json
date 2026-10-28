@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-10-28T09:16:53.913Z",
-  "runId": "40661538820",
+  "assembledAt": "2026-10-28T20:03:20.991Z",
+  "runId": "40757390688",
   "jobs": [
     {
       "id": "cedes-586f99785859",
@@ -10,7 +10,7 @@
         "it": "smd-assembly-operator-production-assistant-cedes-landquart",
         "en": "smd-assembly-operator-production-assistant-cedes-landquart",
         "de": "smd-assembly-operator-production-assistant-cedes-landquart",
-        "fr": "operateur-de-montage-smd-assistant-de-production-cedes-ag-landquart"
+        "fr": "smd-assembly-operator-production-assistant-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes-ag",
@@ -48,16 +48,16 @@
       "url": "https://www.cedes.com/en/career/jobs/production-assistant/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:16:48.388Z",
-      "firstSeenAt": "2026-10-27T21:19:40.726Z",
+      "crawledAt": "2026-10-28T20:03:14.569Z",
+      "previousSlugs": [
+        "operateur-de-montage-smd-assistant-de-production-cedes-ag-landquart"
+      ],
       "previousSlugsByLocale": {
         "fr": [
-          "smd-assembly-operator-production-assistant-cedes-ag-landquart"
+          "operateur-de-montage-smd-assistant-de-production-cedes-ag-landquart"
         ]
       },
-      "previousSlugs": [
-        "smd-assembly-operator-production-assistant-cedes-ag-landquart"
-      ],
+      "firstSeenAt": "2026-10-27T21:19:40.726Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -118,7 +118,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:16:48.043Z",
+      "crawledAt": "2026-10-28T20:03:14.280Z",
       "previousSlugs": [
         "hr-intern-60-100-cedes-landquart"
       ],
@@ -194,7 +194,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:16:47.710Z",
+      "crawledAt": "2026-10-28T20:03:13.993Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"

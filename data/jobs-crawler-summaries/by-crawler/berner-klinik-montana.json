@@ -1,7 +1,7 @@
 {
   "key": "berner-klinik-montana",
   "label": "Berner Klinik Montana",
-  "generatedAt": "2026-10-28T09:17:36.078Z",
+  "generatedAt": "2026-10-28T20:02:41.125Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 13338,
-  "avgDurationMs": 13338,
+  "durationMs": 13023,
+  "avgDurationMs": 13023,
   "durationHistory": [
-    13338
+    13023
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "berner-klinik-montana-15179945cb12",
-      "slug": "un-e-charge-e-de-communication-a-40-50-berner-klinik-montana-crans-montana",
+      "slug": "un-ufficiale-di-comunicazione-del-40-50-berner-klinik-montana-crans-montana",
       "company": "Berner Klinik Montana",
       "companyKey": "berner-klinik-montana",
       "companyDomain": "bernerklinik.ch",
       "title": "Un.e chargé.e de communication à 40-50%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Crans-Montana",
       "canton": "VS",
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-charge-e-de-communication-a-40-50-2917/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:17:18.593Z",
+      "crawledAt": "2026-10-28T20:02:23.197Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -52,20 +53,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-charge-e-de-communication-a-40-50-2917/",
+      "firstSeenAt": "2026-10-28T09:17:18.593Z",
       "salaryMin": 30800,
       "salaryMax": 54500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T09:17:18.593Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "berner-klinik-montana-fb815f2b592c",
       "slug": "100-fisioterapista-berner-klinik-montana-crans-montana",
@@ -79,7 +78,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/physiotherapeute-a-100-2872/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:17:17.382Z",
+      "crawledAt": "2026-10-28T20:02:22.163Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -121,7 +120,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/infirmier-ere-100-2074/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:17:14.910Z",
+      "crawledAt": "2026-10-28T20:02:20.032Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -165,7 +164,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/assistant-e-en-soins-et-sante-communautaire-80-100-2095/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:17:16.115Z",
+      "crawledAt": "2026-10-28T20:02:21.107Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -207,7 +206,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/un-e-medecin-chef-de-clinique-ou-chef-de-clinique-adjoint-e-2475/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:17:13.694Z",
+      "crawledAt": "2026-10-28T20:02:18.976Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -248,7 +247,7 @@
       "url": "https://www.bernerklinik.ch/fr/carriere/offres-d-emploi/medecin-chef-fe-adjoint-e-en-readaptation-neurologique-2852/",
       "source": "Berner Klinik Montana Dedicated Parser (WordPress bmg-page-list)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T09:17:12.504Z",
+      "crawledAt": "2026-10-28T20:02:17.924Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -278,5 +277,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }

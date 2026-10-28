@@ -1,21 +1,22 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-28T09:17:33.124Z",
+  "generatedAt": "2026-10-28T20:03:38.403Z",
   "total": 14,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 9079,
-  "avgDurationMs": 9079,
+  "durationMs": 19693,
+  "avgDurationMs": 19693,
   "durationHistory": [
-    9079
+    19693
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Laborant/in Umweltanalytik (80-100%)",
-      "slug": "laborant-in-umweltanalytik-80-100-agroscope-posieux",
+      "slug": "tecnico-a-di-laboratorio-in-analisi-ambientali-80-100-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/laborant-in-umweltanalytik/e0b43113-4900-400b-bcdd-28305053eab4",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20732",
       "company": "Agroscope",
@@ -39,22 +40,20 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-2315890300be",
-      "needsRetranslation": true,
       "salaryMin": 89000,
       "salaryMax": 147500,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-28T09:17:19.660Z",
-      "_qualityScore": 85,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "HR Business Partner/-in",
       "slug": "hr-business-partner-in-agroscope-posieux",
@@ -568,5 +567,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
