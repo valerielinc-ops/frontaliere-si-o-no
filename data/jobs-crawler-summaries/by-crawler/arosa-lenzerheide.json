@@ -1,7 +1,7 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-10-28T20:00:59.494Z",
+  "generatedAt": "2026-10-28T21:21:15.786Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5715,
-  "avgDurationMs": 5715,
+  "durationMs": 4650,
+  "avgDurationMs": 4650,
   "durationHistory": [
-    5715
+    4650
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T20:00:43.959Z",
+      "crawledAt": "2026-10-28T21:21:04.958Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -69,5 +69,5 @@
       }
     }
   ],
-  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
+  "codeCommit": "8ce11cdeca664e2bff3bdc23040ba5579cba6a0a"
 }
