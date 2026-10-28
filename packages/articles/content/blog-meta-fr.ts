@@ -13623,6 +13623,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-malnate-meno-500mila.title': 'Ristournes frontalières : 500 000 euros de moins pour Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate recevra près de 500 000 euros de moins. Le fonds national passe de 89 à 108 millions et les ristournes devraient arriver début novembre. Près de 1 700 habitants de Malnate traversent chaque jour la frontière.',
     'blog.article.ristorni-malnate-meno-500mila.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'Gaggiolo : articles de luxe non déclarés > 23 000 euros',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Une conductrice entrant en Italie à Gaggiolo a déclaré n\'avoir rien à signaler, mais un sac et un foulard haut de gamme d\'une valeur de plus de 23.000 euros ont été trouvés dans le coffre.',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

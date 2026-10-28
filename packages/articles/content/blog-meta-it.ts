@@ -13622,6 +13622,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-malnate-meno-500mila.title': 'Ristorni frontalieri, 500mila euro in meno a Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate riceverà quasi 500mila euro in meno Il fondo nazionale passa da 89 a 108 milioni I ristorni arriveranno ai primi di novembre Quasi 1.700 malnatesi',
     'blog.article.ristorni-malnate-meno-500mila.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'A Gaggiolo articoli di lusso non dichiarati oltre 23.000 euro',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'Una conducente in entrata in Italia a Gaggiolo ha dichiarato di non avere nulla da segnalare, ma nel bagagliaio sono stati trovati una borsa e un foulard di alta gamma per oltre 23.000 euro.',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

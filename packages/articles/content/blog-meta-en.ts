@@ -13621,6 +13621,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-malnate-meno-500mila.title': 'Cross-border tax rebates: €500,000 less for Malnate',
     'blog.article.ristorni-malnate-meno-500mila.excerpt': 'Malnate will receive nearly €500,000 less. The national fund rises from €89 million to €108 million, and the tax rebates are due in early November. Nearly 1,700 Malnate residents cross the border every day.',
     'blog.article.ristorni-malnate-meno-500mila.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.title': 'At Gaggiolo, undeclared luxury goods worth over 23.000 euro',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.excerpt': 'A driver entering Italy at Gaggiolo declared that she had nothing to declare, but a high-end handbag and scarf worth over 23.000 euro were found in the trunk.',
+    'blog.article.gaggiolo-articoli-lusso-non-dichiarati.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
