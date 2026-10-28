@@ -28,7 +28,9 @@ describe('JobBoard category pages — results-first ordering', () => {
   it('reserves the first-page ad footprint before the real cards mount', () => {
     expect(source).toContain('const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing && loadingCardCount > 0');
     expect(source).toContain('const loadingCardCount = isUnfilteredListing');
-    expect(source).toContain('? Math.min(pageSize, filteredJobs.length)');
+    expect(source).toContain('isCanonicalFirstPageListing && jobsLoading && filteredJobs.length === 0');
+    expect(source).toContain('? pageSize');
+    expect(source).toContain(': Math.min(pageSize, filteredJobs.length)');
     expect(source).toContain('cards={loadingCardCount}');
     expect(source).toContain('Array.from({ length: loadingCardCount }');
     expect(source).toContain('.filter((position) => position < loadingCardCount)');
@@ -80,6 +82,12 @@ describe('JobBoard category pages — results-first ordering', () => {
 
   it('keeps the first job link and filter CTA on mobile-sized tap targets', () => {
     expect(source).toContain('className="block min-h-[44px] cursor-pointer');
-    expect(source).toContain('min-h-11 text-xs font-medium rounded-full border');
+    const tapTargetClasses = source.match(/className="[^"]*min-h-11[^"]*"/g) ?? [];
+    expect(tapTargetClasses.some((classes) => (
+      classes.includes('text-xs')
+      && classes.includes('font-medium')
+      && classes.includes('rounded-full')
+      && classes.includes('border')
+    ))).toBe(true);
   });
 });

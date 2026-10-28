@@ -115,7 +115,9 @@ const bootstrapApp = async () => {
  await waitForInitialPaintOpportunity({
    waitForContentfulPaint: hasPreRenderedPaintContent(),
  });
- if (hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth)) {
+ const shouldWaitForJobBoardStaticLcp =
+   hasJobBoardPreRenderedPaintContent() && shouldWaitForJobBoardLcp(window.innerWidth);
+ if (shouldWaitForJobBoardStaticLcp) {
    // The job-board static main is emitted inside #root and is the intended
    // first LCP candidate on sub-desktop viewports. Let that candidate settle
    // before the large React runtime can replace the root; otherwise slow mobile
@@ -177,6 +179,7 @@ const bootstrapApp = async () => {
  const homeCritical = isHomeCriticalPath(window.location.pathname);
  let staticPage = hasStaticContent();
  let keepStaticRootVisible = false;
+ let crossfadeStaticRoot = false;
  // Let the browser present the static HTML once before anything below can
  // hide it (adoption into #root + opacity crossfade). Started now so the wait
  // overlaps the App chunk download; awaited right before the first hide.
@@ -288,7 +291,13 @@ const bootstrapApp = async () => {
  // the layout SHIFT. Reserve #root's prerendered height as a min-height floor so
  // its transient collapse can't move the blocks below; released after the React
  // content paints (heights match — same page — so the release is shift-free).
- if (keepStaticRootVisible) {
+ // On mobile the static JobBoard has already supplied its LCP by this point.
+ // Crossfade that settled snapshot before createRoot replaces it so its
+ // internal card/rail geometry is not swapped while visible. Desktop keeps
+ // the existing preserve path because it intentionally does not wait for the
+ // static LCP candidate (#15770).
+ crossfadeStaticRoot = keepStaticRootVisible && shouldWaitForJobBoardStaticLcp;
+ if (keepStaticRootVisible && !crossfadeStaticRoot) {
    // The job-board static main is already inside #root and is the useful LCP
    // candidate. Keep it visible while React takes over the same root.
    staticHandoff.preserveRootForPaint(rootElement);
@@ -326,7 +335,7 @@ const bootstrapApp = async () => {
  await waitForFirstPaint();
 
  if (staticPage) {
- if (!keepStaticRootVisible) {
+ if (!keepStaticRootVisible || crossfadeStaticRoot) {
    // Fade the React content back in
    rootElement.style.transition = 'opacity 120ms ease-in';
    rootElement.style.opacity = '1';
@@ -339,7 +348,7 @@ const bootstrapApp = async () => {
  // floor for the whole SPA session (prefers-reduced-motion, DOM removal,
  // or a chunk that never resolves).
  await waitForHeightStable(rootElement);
- if (!keepStaticRootVisible) {
+ if (!keepStaticRootVisible || crossfadeStaticRoot) {
    rootElement.style.transition = '';
    rootElement.style.opacity = '';
  }
