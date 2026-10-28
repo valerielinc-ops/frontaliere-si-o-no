@@ -18,6 +18,7 @@ describe('mpa-praxisstellen crawler parser', () => {
   describe('isMpaPraxisstellenChJob', () => {
     it('matches by companyKey', () => {
       expect(isMpaPraxisstellenChJob({ companyKey: 'mpa-praxisstellen-ch' })).toBe(true);
+      expect(isMpaPraxisstellenChJob({ companyKey: 'mpa-praxisstellen-ch-competitor' })).toBe(false);
     });
 
     it('matches by company name', () => {

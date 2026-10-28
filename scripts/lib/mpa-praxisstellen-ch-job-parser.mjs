@@ -55,7 +55,6 @@ export function isMpaPraxisstellenChJob(job) {
 
   return (
     key === MPA_PRAXISSTELLEN_CH_KEY ||
-    key.startsWith('mpa-praxisstellen-ch-') ||
     company === normalize(MPA_PRAXISSTELLEN_CH_COMPANY_NAME)
   );
 }
