@@ -13617,6 +13617,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate : près de 500 mila euro de moins en rétrocessions des frontaliers',
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate aura près de 500 mila euro de moins au titre des rétrocessions.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Motion au Tessin contre la taxe sur la santé',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Motion interpartite déposée au Grand Conseil La mesure italienne est contestée sur l\'article 9 Le Tessin menace le blocage des restaurants Objet',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

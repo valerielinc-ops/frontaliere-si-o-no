@@ -13615,6 +13615,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malnate-ristorni-500-mila-meno.title': 'Malnate: nearly €500,000 less in cross-border tax rebates',
     'blog.article.malnate-ristorni-500-mila-meno.excerpt': 'Malnate will receive almost 500 thousand euros less in rebates.',
     'blog.article.malnate-ristorni-500-mila-meno.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.mozione-ticino-ristorni-salute.title': 'Motion in Ticino against the health tax',
+    'blog.article.mozione-ticino-ristorni-salute.excerpt': 'Interparty motion submitted to the Grand Council The Italian measure is challenged over Article 9 Ticino threatens to block the tax revenue transfers Subject',
+    'blog.article.mozione-ticino-ristorni-salute.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

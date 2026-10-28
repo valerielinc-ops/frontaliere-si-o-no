@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "cb60fc112b74ed94272c37f1d08d653ba1493cbe",
+  "commit": "ef68ed4343663ab15963ef09f6a43664fe1a5e90",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -41640,6 +41640,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic landscape with rolling hills and residential architecture; no text, signage, logos, people, or identifiable event."
+      }
+    },
+    "/images/blog/article-mozione-ticino-ristorni-salute.webp": {
+      "schema": 1,
+      "assetId": "article-mozione-ticino-ristorni-salute",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "78d227df9935001b1bfbf6a0486cb154d9e8e38dfa9b437651d5a8ffa3a5685e",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "0d1dc6af0d3e15310cf0203523e02f14771ddfd773814df73624d86fe145c7b5",
+      "bytes": 130092,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-28T12:46:58.481Z",
+      "verifiedAt": "2026-10-28T12:47:06.645Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-mozione-ticino-ristorni-salute.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration of an institutional building in a Ticino-like setting; no readable text, signage, logos, people, or specific event."
       }
     },
     "/images/places/lugano-view.webp": {
