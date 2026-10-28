@@ -1,7 +1,7 @@
 {
   "crawlerKey": "arxada",
-  "assembledAt": "2026-10-28T21:45:55.293Z",
-  "runId": "40771273343",
+  "assembledAt": "2026-10-28T22:16:41.914Z",
+  "runId": "40776152799",
   "jobs": [
     {
       "id": "arxada-44a205bcd0da",
@@ -50,7 +50,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:45:50.224Z",
+      "crawledAt": "2026-10-28T22:16:35.399Z",
       "jobReqId": "R50117",
       "previousSlugs": [
         "operator-in-2-schicht-arxada-ch-2",
@@ -149,7 +149,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Manufacturing-Manager---Production-Engineering_R53702",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:45:49.564Z",
+      "crawledAt": "2026-10-28T22:16:34.772Z",
       "jobReqId": "R53702",
       "previousSlugs": [
         "manufacturing-manager-production-engineering-arxada-ch",
@@ -245,7 +245,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Mitarbeiter-in-Ab--und-Beladecenter--Site-Support_R54003",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:45:48.914Z",
+      "crawledAt": "2026-10-28T22:16:34.115Z",
       "jobReqId": "R54003",
       "previousSlugs": [
         "mitarbeiter-in-ab-und-beladecenter-site-support-arxada-ch"
@@ -319,7 +319,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Assistant-in---Junior-Chemist-R-T_R54033",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:45:48.264Z",
+      "crawledAt": "2026-10-28T22:16:33.422Z",
       "jobReqId": "R54033",
       "previousSlugs": [
         "assistente-in-laboratorio-junior-chemist-r-t-arxada-visp",
@@ -407,7 +407,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Process-Safety-Expert_R53194",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:45:47.586Z",
+      "crawledAt": "2026-10-28T22:16:32.765Z",
       "jobReqId": "R53194",
       "previousSlugs": [
         "fachperson-arbeitssicherheit-und-umweltschutz-arxada-ch",
@@ -495,7 +495,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Elektroinstallateur-Automatiker_R54072",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:45:46.911Z",
+      "crawledAt": "2026-10-28T22:16:32.085Z",
       "jobReqId": "R54072",
       "previousSlugs": [
         "elektroinstallateur-automatiker-arxada-ch",
@@ -576,11 +576,9 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lehrstelle-Elektroinstallateur-in-EFZ_R54071",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:45:46.254Z",
+      "crawledAt": "2026-10-28T22:16:31.269Z",
       "jobReqId": "R54071",
-      "previousSlugs": [
-        "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
@@ -592,8 +590,9 @@
           "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-16T09:22:32.498Z",
+      "previousSlugs": [
+        "lehrstelle-elektroinstallateur-in-efz-arxada-ch"
+      ],
       "salaryMin": 49000,
       "salaryMax": 74500,
       "salarySource": "estimated",
@@ -608,7 +607,8 @@
         }
       },
       "postalCode": "3930",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-04-16T09:22:32.498Z"
     },
     {
       "id": "arxada-b5337e86f671",
