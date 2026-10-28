@@ -37,6 +37,7 @@ const TYPECHECK_CONFIG = JSON.parse(readFileSync(resolve(ROOT, 'tsconfig.ci.json
     paths?: Record<string, string[]>;
   };
 };
+const ARTICLE_OVERLAY = readFileSync(resolve(ROOT, 'services/articlesOverlay.ts'), 'utf-8');
 
 function assembleDecision(
   input: Record<string, unknown>,
@@ -175,6 +176,7 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export interface Article');
     expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export declare const ARTICLES');
     expect(readFileSync(resolve(ROOT, boundary), 'utf8')).toContain('export declare const SWISS_ARTICLES');
+    expect(ARTICLE_OVERLAY).toContain("from '@/packages/articles/content/blog-articles-data'");
   });
 
   it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', () => {
