@@ -333,8 +333,8 @@ describe('newsletterMailerooWebhookCore', () => {
   });
 
   it('resolves recipient for opened/clicked events (no recipient/tags in payload) via newsletter_subscribers/_meta_/maileroo_refs', async () => {
-    // Maileroo opened/clicked webhooks carry only message_reference_id — the send
-    // pipeline pre-seeds the lookup record. Verify the click is attributed.
+    // The engagement payload may omit recipient/tags — the send pipeline
+    // pre-seeds the lookup record. Verify the click is attributed.
     const db = createFakeDb({
       'newsletter_subscribers/_meta_/maileroo_refs': {
         ref_abc: { email: 'resolved@example.com', campaign_id: 'weekly_2026-06-01', is_job_alert: false },
@@ -371,12 +371,18 @@ describe('newsletterMailerooWebhookCore', () => {
 
     const result = await persistMailerooEvent(db as any, {
       event_type: 'opened',
+      message_id: '<rfc-job-alert@maileroo>',
       message_reference_id: 'ref_ja',
       tags: null,
       event_data: { ip: '8.8.8.8' },
     });
 
     expect(result).toMatchObject({ processed: true, type: 'open', collection: 'job_alert_subscribers' });
+    const stored = db.__adds.find((entry) => entry.collection.includes('/events'));
+    expect(stored?.data).toMatchObject({
+      message_id: 'ref_ja',
+      metadata: { maileroo_message_id: '<rfc-job-alert@maileroo>' },
+    });
   });
 
   it('falls back to legacy maileroo_message_meta for in-flight refs', async () => {
