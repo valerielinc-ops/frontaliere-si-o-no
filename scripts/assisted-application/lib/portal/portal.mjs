@@ -192,13 +192,33 @@ function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+/**
+ * Umantis application URLs carry the vacancy id across the ATS and employer
+ * hosts (`/Vacancies/<id>/Application/...`). When the order also has the
+ * matching Umantis detail route or employer vacancy page, enter through that
+ * page so a generic application form inherits the posting's provenance.
+ */
+function isUmantisPostingEntry({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    if (!/(?:^|\.)umantis\.com$/i.test(apply.hostname)) return false;
+    const applyId = /\/vacancies\/(\d+)\/application(?:\/|$)/i.exec(apply.pathname)?.[1];
+    const postingId = /\/vacancies\/(\d+)(?:\/description(?:\/[^/]+)?)?\/?$/i.exec(posting.pathname)?.[1];
+    return Boolean(applyId && postingId && applyId === postingId);
+  } catch {
+    return false;
+  }
+}
+
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);
     const posting = new URL(String(postingUrl || ''));
     if (isSuccessFactorsPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })
-      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
+      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })
+      || isUmantisPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }

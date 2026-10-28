@@ -49,6 +49,48 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('www.alten.ch', 'alten.ch') })).toBe(applyUrl);
   });
 
+  it('opens an Umantis Application/New form from its matching vacancy page', () => {
+    const applyUrl = 'https://recruitingapp-2983.umantis.com/Vacancies/716/Application/CheckLogin/2?lang=eng';
+    const postingUrl = 'https://careers.kronenhof.com/en/vacancies/716';
+    const job = { company: 'Grand Hotel Kronenhof', title: 'Chef de Rang - immediate start (m/w/d)' };
+    const form = [
+      'Application Tracking System',
+      'Photo',
+      'First name',
+      'Last name',
+      'Email address/login',
+      'Password',
+      'Cell phone',
+      'Cover letter',
+      'Resume',
+      'Other documents',
+      'Press the Enter key to upload the document.',
+      'How did you hear about us?',
+      'I am a current employee of your company',
+      'I have worked for your company before',
+      'I agree to the Privacy Policy Statement',
+      'Title *:',
+      'User language *:',
+      'Data release *:',
+      'Personal data',
+      'User settings',
+      'Contact data',
+      'Documents',
+      'Relationship with our company',
+      'Data release',
+      'Privacy policy statement',
+      'Submit final application',
+      'https://recruitingapp-2983.umantis.com/Vacancies/716/Application/New/2',
+    ].join('\n');
+
+    expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: 'https://recruitingapp-2983.umantis.com/Vacancies/716/Description/1' }))
+      .toBe('https://recruitingapp-2983.umantis.com/Vacancies/716/Description/1');
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('/716', '/717') })).toBe(applyUrl);
+    expect(formPostingMatch(form, job)).toBe('mismatch');
+    expect(formPostingMatch(form, job, { postingMatched: true, postingEntry: true })).toBe('match');
+  });
+
   it('accepts ALTEN’s generic form only when the matching posting route was the entry', () => {
     const job = { company: 'ALTEN Switzerland', title: 'Project Manager – IT & Banking' };
     const genericForm = [
