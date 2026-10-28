@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-28T15:32:11.868Z",
+  "generatedAt": "2026-10-28T16:28:44.215Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -31268,6 +31268,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T15:22:05.771Z"
     },
+    "guidle:AgrrRmL::3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a": {
+      "id": "guidle:AgrrRmL",
+      "sourceDescriptionHash": "3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a",
+      "description": "Grüezi Italia presenta uno spettacolo di musica pop italiana. L’appuntamento si svolge presso ENTRA / KK Zürisee nel cantone SG.",
+      "descriptionByLocale": {
+        "it": "Grüezi Italia presenta uno spettacolo di musica pop italiana. L’appuntamento si svolge presso ENTRA / KK Zürisee nel cantone SG.",
+        "en": "Grüezi Italia presents a pop music show with an Italian focus. The event takes place at ENTRA / KK Zürisee in canton SG.",
+        "de": "Grüezi Italia präsentiert eine Popmusikshow mit italienischem Schwerpunkt. Die Veranstaltung findet im ENTRA / KK Zürisee im Kanton SG statt.",
+        "fr": "Grüezi Italia propose un spectacle de musique pop italienne. Le rendez-vous a lieu à l’ENTRA / KK Zürisee, dans le canton de SG."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T16:24:16.626Z"
+    },
     "guidle:AGrSfmE::ce4cf198c3d066ad2f8cdf9cc005633ca5a645540f319e81c6f1937d56019089": {
       "id": "guidle:AGrSfmE",
       "sourceDescriptionHash": "ce4cf198c3d066ad2f8cdf9cc005633ca5a645540f319e81c6f1937d56019089",
@@ -51455,6 +51469,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T12:27:07.478Z"
+    },
+    "guidle:AXRqVcn::006e8fb8a0cfc86e9207f59dbc5ab6ae01d8c15ca199b1c63cf522a43e457f49": {
+      "id": "guidle:AXRqVcn",
+      "sourceDescriptionHash": "006e8fb8a0cfc86e9207f59dbc5ab6ae01d8c15ca199b1c63cf522a43e457f49",
+      "description": "L’appuntamento è il concerto annuale della Musikgesellschaft Mattmark, una banda di ottoni. Si tiene presso lo Schulhaus Saas-Almagell, a Saas-Almagell.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento è il concerto annuale della Musikgesellschaft Mattmark, una banda di ottoni. Si tiene presso lo Schulhaus Saas-Almagell, a Saas-Almagell.",
+        "en": "This event is the annual concert of the Musikgesellschaft Mattmark, a brass-band ensemble. It is held at Schulhaus Saas-Almagell in Saas-Almagell.",
+        "de": "Die Veranstaltung ist das Jahreskonzert der Musikgesellschaft Mattmark, einer Brassband. Sie findet im Schulhaus Saas-Almagell in Saas-Almagell statt.",
+        "fr": "Il s’agit du concert annuel de la Musikgesellschaft Mattmark, une formation de cuivres. Le rendez-vous a lieu au Schulhaus Saas-Almagell, à Saas-Almagell."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-28T16:23:20.106Z"
     },
     "guidle:AXRU411::e269fe2b32a48d3e33c79f9ef4d70ae8ec5124aeafc04606ddbd3e347b184c2e": {
       "id": "guidle:AXRU411",
@@ -176557,15 +176585,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AgrrRmL::3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a": {
-      "id": "guidle:AgrrRmL",
-      "sourceDescriptionHash": "3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-28T14:21:14.678Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:Ah4KW1R::eab06cd91befb3425a5a1264817baa7f0d2d1a5c9d86ba58084732456cddae68": {
       "id": "guidle:Ah4KW1R",
       "sourceDescriptionHash": "eab06cd91befb3425a5a1264817baa7f0d2d1a5c9d86ba58084732456cddae68",
@@ -177074,8 +177093,8 @@
       "id": "guidle:AnBL7TT",
       "sourceDescriptionHash": "63b131b0289503ffc139a1b83607b5bd4e0a376dc235e8498b1bb5ea7744d1cf",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-28T14:18:50.022Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-28T16:21:22.367Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -177949,15 +177968,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T08:19:43.876Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AXRqVcn::006e8fb8a0cfc86e9207f59dbc5ab6ae01d8c15ca199b1c63cf522a43e457f49": {
-      "id": "guidle:AXRqVcn",
-      "sourceDescriptionHash": "006e8fb8a0cfc86e9207f59dbc5ab6ae01d8c15ca199b1c63cf522a43e457f49",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-28T14:20:14.489Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -181906,9 +181916,9 @@
     "myswitzerland:caa46cd0e80044afa264d51365df1d02::b5f5fe8b1027291776765f58ce581350344726762765c982e64f6451a1bd3805": {
       "id": "myswitzerland:caa46cd0e80044afa264d51365df1d02",
       "sourceDescriptionHash": "b5f5fe8b1027291776765f58ce581350344726762765c982e64f6451a1bd3805",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-28T14:22:17.233Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-28T16:24:03.907Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
