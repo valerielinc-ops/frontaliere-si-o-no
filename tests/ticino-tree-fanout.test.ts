@@ -147,4 +147,45 @@ describe('Ticino shard tree fan-out', () => {
       rmSync(temp, { recursive: true, force: true });
     }
   });
+
+  it('retries a transient layout probe timeout before publishing hashed paths', () => {
+    const temp = mkdtempSync(join(tmpdir(), 'ticino-layout-probe-retry-'));
+    const bin = join(temp, 'bin');
+    const fakeCurl = join(bin, 'curl');
+    const fakeSleep = join(bin, 'sleep');
+    const attemptsFile = join(temp, 'attempts.txt');
+    try {
+      mkdirSync(bin);
+      writeFileSync(
+        fakeCurl,
+        '#!/bin/sh\n' +
+          'attempts="$(cat "$TICINO_PROBE_ATTEMPTS" 2>/dev/null || printf 0)"\n' +
+          'attempts=$((attempts + 1))\n' +
+          'printf "%s" "$attempts" > "$TICINO_PROBE_ATTEMPTS"\n' +
+          'if [ "$attempts" -lt 2 ]; then exit 28; fi\n' +
+          'printf "HTTP/2 204\\nx-frontaliere-ticino-tree-layout: hash-v1\\n"\n',
+      );
+      writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
+      chmodSync(fakeCurl, 0o755);
+      chmodSync(fakeSleep, 0o755);
+
+      const output = execFileSync(
+        'bash',
+        ['-c', 'source "$1" && ticino_tree_require_worker_layout "$2" && echo probe-ok', 'probe-retry-test', HELPER, 'de/jobs-im-tessin'],
+        {
+          encoding: 'utf8',
+          env: {
+            ...process.env,
+            PATH: `${bin}:${process.env.PATH}`,
+            TICINO_PROBE_ATTEMPTS: attemptsFile,
+          },
+        },
+      );
+
+      expect(output).toContain('probe-ok');
+      expect(readFileSync(attemptsFile, 'utf8')).toBe('2');
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
+  });
 });
