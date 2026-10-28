@@ -109192,6 +109192,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tavola-rotonda-sei-misure': {
+    title: 'Sei nuove misure sul contenimento dei costi nel settore sanitario',
+    description: 'Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, misure, contenimento, costi',
+    ogTitle: 'Sei nuove misure sanitarie dal 2027',
+    ogDescription: 'Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto soccorso e cure',
+    canonicalPath: '/articoli-svizzera/tavola-rotonda-sei-misure/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sei nuove misure sul contenimento dei costi nel settore sanitario",
+      "description": "Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tavola-rotonda-sei-misure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T09:49:00+00:00",
+      "dateModified": "2026-10-28T09:49:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tavola-rotonda-sei-misure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

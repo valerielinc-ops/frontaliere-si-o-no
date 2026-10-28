@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "27e81c479da19c2e1073e3e5c20805770f00c7e9",
+  "commit": "5f3ada94d99933e8ac3795a4ba27e60324301a09",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -41425,6 +41425,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial meeting scene with Ticino-like mountains and public transit; no readable text, logos, or identifiable people."
+      }
+    },
+    "/images/blog/article-tavola-rotonda-sei-misure.webp": {
+      "schema": 1,
+      "assetId": "article-tavola-rotonda-sei-misure",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "6b3b1f5575597ec0512cbabc6465d0f562e29faadea606603884d48334aef66c",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "b5c183b5b1687d288af6e8ce1b051c6ee96469521cc48e1b478a262f1442e63c",
+      "bytes": 53868,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-28T09:48:53.244Z",
+      "verifiedAt": "2026-10-28T09:48:59.863Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tavola-rotonda-sei-misure.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic healthcare illustration with no readable text, logos, or identifiable people."
       }
     },
     "/images/places/lugano-view.webp": {

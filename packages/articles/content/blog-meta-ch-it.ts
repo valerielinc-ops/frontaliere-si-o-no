@@ -8639,6 +8639,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sei-misure-cure-sanitarie.title': 'Costi sanitari: sei nuove misure adottate a Berna',
     'blog.article.sei-misure-cure-sanitarie.excerpt': 'Sei misure adottate lunedì a Berna Cure a domicilio e pronto soccorso tra gli ambiti Le misure si aggiungono alle 12 del 2025 Impatto economico ancora',
     'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.tavola-rotonda-sei-misure.title': 'Sei nuove misure sul contenimento dei costi nel settore sanitario',
+    'blog.article.tavola-rotonda-sei-misure.excerpt': 'Sei nuove misure partiranno dal 2027 La quinta tavola rotonda si è riunita a Berna il 26 ottobre 2026 Il pacchetto riguarda ambulatori, pronto soccorso e cure',
+    'blog.article.tavola-rotonda-sei-misure.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 931,
+      "5": 932,
       "6": 5061
     },
-    "publishedCovers": 7674,
+    "publishedCovers": 7675,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210585,6 +210585,39 @@
         "provider": "openai-codex",
         "assetId": "article-ville-ponti-frontalieri-confronto",
         "imageUrl": "/images/blog/article-ville-ponti-frontalieri-confronto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tavola-rotonda-sei-misure": {
+      "cover": "/images/blog/article-tavola-rotonda-sei-misure.webp",
+      "hash": "b5c183b5b1687d288af6e8ce1b051c6ee96469521cc48e1b478a262f1442e63c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tavola-rotonda-sei-misure",
+          "category": "novita",
+          "date": "2026-10-28T09:49:00.544Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tavola-rotonda-sei-misure.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tavola-rotonda-sei-misure",
+        "imageUrl": "/images/blog/article-tavola-rotonda-sei-misure.webp",
         "evidence": "generated-engine-record"
       }
     }
