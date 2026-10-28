@@ -24,6 +24,8 @@
     "dist",
     "public",
     "packages/articles/content",
+    "data/blog-articles-data.ts",
+    "data/swiss-articles-data.ts",
     "services/locales/blog-body",
     "services/locales/blog-body-ch",
     "services/locales/blog-meta-*.ts"
