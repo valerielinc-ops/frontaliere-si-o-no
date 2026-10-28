@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 930,
+      "5": 931,
       "6": 5061
     },
-    "publishedCovers": 7673,
+    "publishedCovers": 7674,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -210552,6 +210552,39 @@
         "provider": "openai-codex",
         "assetId": "article-sistema-ferroviario-accordo-ue",
         "imageUrl": "/images/blog/article-sistema-ferroviario-accordo-ue.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ville-ponti-frontalieri-confronto": {
+      "cover": "/images/blog/article-ville-ponti-frontalieri-confronto.webp",
+      "hash": "47bb2483ad7d1295369817d10c86f7df01c2d471b741307d35d18ca1e9f25142",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ville-ponti-frontalieri-confronto",
+          "category": "novita",
+          "date": "2026-10-20T21:30:48.699Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ville-ponti-frontalieri-confronto.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-28",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ville-ponti-frontalieri-confronto",
+        "imageUrl": "/images/blog/article-ville-ponti-frontalieri-confronto.webp",
         "evidence": "generated-engine-record"
       }
     }
