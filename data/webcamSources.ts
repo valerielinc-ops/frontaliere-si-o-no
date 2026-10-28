@@ -72,9 +72,9 @@ export const WEBCAM_SOURCES: WebcamSource[] = [
   status: 'active',
  },
  {
-  id: 'lago-maggiore-experience',
-  entityName: 'Lago Maggiore Experience',
-  officialUrl: 'https://lagomaggiorexperience.it/webcam/',
+  id: 'comune-cannero-riviera',
+  entityName: 'Comune di Cannero Riviera – Veduta da Oggiogno',
+  officialUrl: 'https://comune.canneroriviera.vb.it/vivere-il-comune/luoghi/oggiogno/',
   accessMethod: 'hotlink',
   status: 'active',
  },
