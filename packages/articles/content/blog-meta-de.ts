@@ -13608,6 +13608,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.orari-tilo-re80-s90.title': 'Tilo-Fahrpläne Lugano-Chiasso: Änderungen und Ausfälle',
     'blog.article.orari-tilo-re80-s90.excerpt': 'Die Bauarbeiten zwischen Vezia und Capolago ändern die Tilo-Fahrpläne.',
     'blog.article.orari-tilo-re80-s90.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso: 28 Menschen wegen der Schließung von via Motta ohne Arbeit',
+    'blog.article.chiasso-via-motta-lavoro.excerpt': 'Die Schließung von via Motta in Chiasso lässt 28 Menschen ohne Arbeit.',
+    'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

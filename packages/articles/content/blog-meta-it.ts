@@ -13610,6 +13610,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.orari-tilo-re80-s90.title': 'Orari Tilo Lugano-Chiasso: modifiche e soppressioni',
     'blog.article.orari-tilo-re80-s90.excerpt': 'I lavori tra Vezia e Capolago modificano gli orari Tilo.',
     'blog.article.orari-tilo-re80-s90.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 senza lavoro per la chiusura di via Motta',
+    'blog.article.chiasso-via-motta-lavoro.excerpt': 'La chiusura di via Motta a Chiasso lascia senza lavoro 28 persone.',
+    'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

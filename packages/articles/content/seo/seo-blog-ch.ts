@@ -103476,10 +103476,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-offerte-formazione-federale.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Castelgrande a Bellinzona, immagine svizzera per il lavoro federale"
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
       },
       "datePublished": "2026-10-13T23:44:58+00:00",
       "dateModified": "2026-10-13T23:44:58+00:00",
@@ -109149,6 +109149,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pesca-zurigo-servizi-regolati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sei-misure-cure-sanitarie': {
+    title: 'Costi sanitari: sei nuove misure adottate a Berna',
+    description: 'Sei misure adottate lunedì a Berna Cure a domicilio e pronto soccorso tra gli ambiti Le misure si aggiungono alle 12 del 2025 Impatto economico ancora',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, sanitari, nuove, misure',
+    ogTitle: 'Berna, sei nuove misure sui costi sanitari',
+    ogDescription: 'Sei misure adottate lunedì a Berna Cure a domicilio e pronto soccorso tra gli ambiti Le misure si aggiungono alle 12 del 2025 Impatto economico ancora',
+    canonicalPath: '/articoli-svizzera/sei-misure-cure-sanitarie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costi sanitari: sei nuove misure adottate a Berna",
+      "description": "Sei misure adottate lunedì a Berna Cure a domicilio e pronto soccorso tra gli ambiti Le misure si aggiungono alle 12 del 2025 Impatto economico ancora",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sei-misure-cure-sanitarie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T02:51:00+00:00",
+      "dateModified": "2026-10-28T02:51:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sei-misure-cure-sanitarie/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -113406,6 +113406,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-via-motta-lavoro': {
+    title: 'Chiasso, 28 senza lavoro per la chiusura di via Motta',
+    description: 'Chiasso: la chiusura di via Motta lascia senza lavoro 28 persone. Il centro federale d\'asilo non riaprirà fino a metà 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, senza, lavoro, chiusura',
+    ogTitle: 'Chiasso: 28 senza lavoro per la chiusura di via Motta',
+    ogDescription: 'A Chiasso, la chiusura di via Motta è legata alla situazione di 28 persone senza lavoro. Raffaele De Rosa, informato dalla SEM, ha detto che il centro federale d\'asilo non riaprirà fino a metà 2027; dopo quella scadenza si valuterà il numero',
+    canonicalPath: '/articoli-frontaliere/chiasso-via-motta-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso, 28 senza lavoro per la chiusura di via Motta",
+      "description": "Chiasso: la chiusura di via Motta lascia senza lavoro 28 persone. Il centro federale d'asilo non riaprirà fino a metà 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-chiasso-via-motta-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-28T02:02:16+00:00",
+      "dateModified": "2026-10-28T02:02:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-via-motta-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
