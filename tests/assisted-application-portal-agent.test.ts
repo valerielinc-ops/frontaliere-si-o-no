@@ -823,6 +823,10 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(refusal({ action: 'click' }, { ...button, name: 'Invia candidatura' })).toBe('final_submit_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Bewerbung abschließen' })).toBe('final_submit_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Avanti', submits: true })).toBe('final_submit_reserved');
+    // Talentsoft/RHB uses a form submit for the intermediate attachment action;
+    // it must be available before the runner presses the separate «Weiter».
+    expect(refusal({ action: 'click' }, { ...button, name: 'Hinzufügen', submits: true })).toBe('');
+    expect(refusal({ action: 'click' }, { ...button, name: 'Add application', submits: true })).toBe('final_submit_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Continua' })).toBe('navigation_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Informativa', leaves: true })).toBe('link_reserved');
     expect(refusal({ action: 'click' }, { ...button, name: 'Choose sabato 12 maggio 1990' })).toBe('');
