@@ -188,7 +188,7 @@ export function renderTiHubLatestJobsBlock(input: TiHubLatestJobsInput): string 
     `<p class="s-ziawP1"><a class="s-yy370N" data-primary-cta href="${esc(input.todayHref)}">${esc(c.today)}</a> ` +
     `<a href="${esc(input.allHref)}">${esc(c.all)}</a></p>`;
   const grid =
-    `<div data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
+    `<div data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6 [content-visibility:auto] [contain-intrinsic-size:auto_1800px]">` +
     JOB_CARD_ICON_SYMBOLS +
     cards.map(({ job, href }) => renderJobCardHtml(job, { href, locale: input.locale })).join('') +
     `</div>`;
