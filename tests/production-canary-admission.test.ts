@@ -53,6 +53,7 @@ describe('production-canary-admission', () => {
     });
 
     expect(requests).toHaveLength(5);
+    expect(new Set(requests.map((url) => new URL(url).pathname))).toEqual(new Set(['/repos/example/repo/actions/runs']));
     expect(selected.map((candidate) => candidate.id)).toEqual([321]);
   });
 

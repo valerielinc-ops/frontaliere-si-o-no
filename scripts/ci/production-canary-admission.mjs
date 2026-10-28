@@ -77,6 +77,14 @@ function authToken(token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN) {
   return token;
 }
 
+function repositoryPath(repository) {
+  const parts = String(repository || '').trim().split('/');
+  if (parts.length !== 2 || parts.some((part) => part.length === 0)) {
+    throw new Error(`GITHUB_REPOSITORY must be in owner/repo form (got ${repository || '<empty>'})`);
+  }
+  return parts.map((part) => encodeURIComponent(part)).join('/');
+}
+
 async function readJson(url, token, fetchImpl) {
   const response = await fetchImpl(url, {
     headers: githubApiHeaders(authToken(token)),
@@ -96,13 +104,13 @@ async function readJson(url, token, fetchImpl) {
   return body;
 }
 
-async function readStatusRuns({ repository, status, token, fetchImpl }) {
+async function readStatusRuns({ repositoryPath: repoPath, status, token, fetchImpl }) {
   const runs = [];
   let page = 1;
 
   while (true) {
     const body = await readJson(
-      `${API}/repos/${encodeURIComponent(repository)}/actions/runs?status=${encodeURIComponent(status)}&per_page=${PAGE_SIZE}&page=${page}`,
+      `${API}/repos/${repoPath}/actions/runs?status=${encodeURIComponent(status)}&per_page=${PAGE_SIZE}&page=${page}`,
       token,
       fetchImpl,
     );
@@ -129,9 +137,10 @@ export async function readActiveProductionWriters({
   fetchImpl = fetch,
 } = {}) {
   if (!repository) throw new Error('GITHUB_REPOSITORY required');
+  const repoPath = repositoryPath(repository);
 
   const batches = await Promise.all(ACTIVE_STATUSES.map((status) => readStatusRuns({
-    repository,
+    repositoryPath: repoPath,
     status,
     token,
     fetchImpl,
