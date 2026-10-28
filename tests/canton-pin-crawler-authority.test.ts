@@ -37,6 +37,8 @@ import {
 import { inferAnyCanton, isTargetCanton } from '../scripts/lib/target-swiss-locations.mjs';
 // @ts-expect-error — plain .mjs lib, no type declarations
 import { createCrawlerLocationRecordIndex } from '../scripts/lib/crawler-location-record-index.mjs';
+// @ts-expect-error — plain .mjs lib, no type declarations
+import { sourceLocationContainsCity } from '../scripts/lib/canton-evidence.mjs';
 
 /** Test fixtures must never carry absolute dates (AGENTS.md → test fixtures). */
 const daysAgo = (n: number) => new Date(Date.now() - n * 86_400_000).toISOString();
@@ -124,6 +126,16 @@ describe('resolveCantonAgainstPin — the job outranks the ledger', () => {
 });
 
 describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () => {
+  it('matches normalized localities inside decorated source labels without substring guesses', () => {
+    expect(sourceLocationContainsCity('Brügg BE, Bern, Switzerland', 'Brugg')).toBe(true);
+    expect(sourceLocationContainsCity('Region Pfäffikon SZ', 'Pfäffikon')).toBe(true);
+    expect(sourceLocationContainsCity('Reinach Aargau', 'Reinach')).toBe(true);
+    expect(sourceLocationContainsCity('Seewen-Schwyz', 'Seewen')).toBe(true);
+    expect(sourceLocationContainsCity('Baden-Württemberg', 'Baden')).toBe(false);
+    expect(sourceLocationContainsCity('Baden-Württemberg, Aargau', 'Baden')).toBe(true);
+    expect(sourceLocationContainsCity('Laufental', 'Au')).toBe(false);
+  });
+
   it('keeps the source locality over a stale listing marker and crawler stamp (#11047)', () => {
     const source = {
       id: 'company-xesxqv',

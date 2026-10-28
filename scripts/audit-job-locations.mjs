@@ -86,7 +86,7 @@ import {
   isCantonRelevant,
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
-import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
+import { inferCantonFromJobEvidence, sourceLocationContainsCity } from './lib/canton-evidence.mjs';
 import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { cantonNamedByLocation, splitJobLocation } from './lib/job-location-display.mjs';
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
@@ -203,6 +203,11 @@ function sameRecordedPlace(crawlerCity, publishedCity) {
   const a = crawlerCity.toLowerCase();
   const b = publishedCity.toLowerCase();
   if (!a || !b) return false;
+  // `swissCityFromLocationField()` intentionally extracts known Swiss tokens
+  // from decorated fields, but a foreign field such as `Baden-Württemberg`
+  // contains the Swiss homonym `Baden` as well. Never let that fuzzy rescue
+  // certify a stored locality before the source-canton guard gets a chance.
+  if (isLocationExplicitlyForeign(crawlerCity)) return false;
   if (a === b) return true;
   // Strip only a trailing source canton/country marker before comparing. The
   // Galenica record is `Seewen SZ` while assembly publishes `Seewen`; feeding
@@ -261,16 +266,35 @@ function hirslandenCorrelationEntry({ job, id, company, city, rawLocation, canto
   };
 }
 
+function sourceBackedPlaceMatchesCanton(sourceLocation, city, sourceCanton, storedCanton) {
+  // A contiguous token match is only evidence when the source row independently
+  // carries the canton we are about to certify and the published city is an
+  // official locality in that canton. This keeps foreign compounds such as
+  // `Baden-Württemberg` from certifying the Swiss homonym `Baden`.
+  return Boolean(
+    sourceLocation
+    && sourceCanton === storedCanton
+    && sourceLocationContainsCity(sourceLocation, city)
+    && isKnownSwissMunicipalityInCanton(city, storedCanton, { allowOfficialLocality: true }),
+  );
+}
+
 function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   if (!crawlerRecord?.canton || !city || !storedCanton) return false;
   if (crawlerRecord.canton !== storedCanton) return false;
   const sourceLocation = crawlerRecord.location || crawlerRecord.city;
+  const sourceCanton = String(
+    crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation) || '',
+  ).trim().toUpperCase();
   // A crawler canton is frequently an employer-level stamp. It becomes
   // useful evidence for an ambiguous official locality only when the same
   // source row also names that locality; never let a missing or different
   // source place certify a published city by canton alone.
-  if (!sourceLocation || !sameRecordedPlace(sourceLocation, city)) return false;
-  const sourceCanton = crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation);
+  const samePlace = sourceLocation && (
+    sameRecordedPlace(sourceLocation, city)
+    || sourceBackedPlaceMatchesCanton(sourceLocation, city, sourceCanton, storedCanton)
+  );
+  if (!samePlace) return false;
   // The source adapter may have preserved an explicit per-posting canton
   // marker that the assembled locality normalizer stripped from the public
   // city field. It is valid evidence for a homonym only when it agrees with
