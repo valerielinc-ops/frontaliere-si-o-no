@@ -200,14 +200,14 @@ export async function persistMailerooEvent(db, event) {
 
   const refId = event.message_reference_id || event.message_id || '';
 
-  // Maileroo 'opened'/'clicked' events carry NEITHER the recipient nor tags —
-  // only message_reference_id. The send pipeline (persistDelivery) writes an
-  // authoritative lookup record at newsletter_subscribers/_meta_/maileroo_refs/
-  // {referenceId} with the real recipient, campaign id and job-alert flag. Read it
-  // (keyed by refId) to resolve the subscriber for opens/clicks and to enrich
-  // campaign/routing that the webhook payload itself omits. Falls back to the event
-  // fields when the record is absent (e.g. an 'accepted'/'delivered' event, which
-  // does carry the recipient in event_data.to).
+  // Maileroo engagement events may omit the recipient and tags. The send pipeline
+  // (persistDelivery) writes an authoritative lookup record at
+  // newsletter_subscribers/_meta_/maileroo_refs/{referenceId} with the real
+  // recipient, campaign id and job-alert flag. Read it (keyed by refId) to
+  // resolve the subscriber for opens/clicks and to enrich campaign/routing that
+  // the webhook payload itself may omit. Falls back to the event fields when the
+  // record is absent (e.g. an 'accepted'/'delivered' event, which carries the
+  // recipient in event_data.to).
   const metaDoc = refId ? await readMailerooRef(db, refId) : null;
   // The lookup record is only authoritative if it actually resolved an email.
   const meta = (metaDoc && typeof metaDoc.email === 'string' && metaDoc.email.includes('@')) ? metaDoc : null;
@@ -219,7 +219,12 @@ export async function persistMailerooEvent(db, event) {
 
   const isJobAlert = meta ? !!meta.is_job_alert : isJobAlertEvent(event);
   const campaignId = (meta && meta.campaign_id) ? meta.campaign_id : extractCampaignId(event);
-  const messageId = event.message_id || event.message_reference_id || '';
+  // Maileroo exposes two identifiers: message_reference_id is the 24-character
+  // reference returned by the send API and stored on campaign_deliveries;
+  // message_id is the provider's RFC Message-ID. Keep the reference as the
+  // canonical join key and retain the RFC id only for provider diagnostics.
+  const providerMessageId = String(event.message_id || '').trim();
+  const messageId = String(event.message_reference_id || providerMessageId || '').trim();
   const eventId = String(event.event_id || '').trim();
   const occurredAt = getOccurredAt(event);
   const data = event.event_data || {};
@@ -250,7 +255,17 @@ export async function persistMailerooEvent(db, event) {
   }
 
   if (isJobAlert) {
-    return persistJobAlertMailerooEvent(db, { email, type, event, eventId, messageId, occurredAt, clickedUrl, campaignId });
+    return persistJobAlertMailerooEvent(db, {
+      email,
+      type,
+      event,
+      eventId,
+      messageId,
+      providerMessageId,
+      occurredAt,
+      clickedUrl,
+      campaignId,
+    });
   }
 
   const subscriberRef = db.collection('newsletter_subscribers').doc(email);
@@ -318,6 +333,7 @@ export async function persistMailerooEvent(db, event) {
     provider: 'maileroo',
     metadata: {
       event_id: event.event_id || null,
+      maileroo_message_id: providerMessageId || null,
       reason: bounceReason || null,
       original_url: clickedUrl || null,
       ip: data.ip || null,
@@ -390,7 +406,16 @@ export async function persistMailerooEvent(db, event) {
 
 // ── Job alert event handler (mirrors newsletter pattern) ─────
 
-async function persistJobAlertMailerooEvent(db, { email, type, event, eventId, messageId, occurredAt, clickedUrl }) {
+async function persistJobAlertMailerooEvent(db, {
+  email,
+  type,
+  event,
+  eventId,
+  messageId,
+  providerMessageId,
+  occurredAt,
+  clickedUrl,
+}) {
   const subscriberRef = db.collection('job_alert_subscribers').doc(email);
 
   const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
@@ -421,6 +446,7 @@ async function persistJobAlertMailerooEvent(db, { email, type, event, eventId, m
     provider: 'maileroo',
     metadata: {
       event_id: event.event_id || null,
+      maileroo_message_id: providerMessageId || null,
       original_url: clickedUrl || null,
       tags: event.tags || null,
     },
