@@ -247,6 +247,14 @@ reconcile_compat_ref() {
     --base "$merge_base" --main "$theirs" --message "$COMMIT_MESSAGE"
 }
 
+squash_compat_head_onto_publish_base() {
+  local merged_tree squashed_commit current_head
+  current_head="$(git rev-parse HEAD)"
+  merged_tree="$(git write-tree --missing-ok)"
+  squashed_commit="$(git commit-tree "$merged_tree" -p "$PUBLISH_BASE" -m "$COMMIT_MESSAGE")"
+  git update-ref HEAD "$squashed_commit" "$current_head"
+}
+
 check_old_history_ref() {
   local head_ref="$1"
   node "$OLD_HISTORY_GUARD_SCRIPT" \
@@ -281,6 +289,11 @@ if [ "$REQUIRE_NEW_BRANCH" = true ]; then
   fi
 fi
 REFRESH_BASE="$(git rev-parse HEAD)"
+# The original checkout base remains immutable for merge/reconciler inputs.
+# A compat reconciliation can add the current main tip as a second parent;
+# when the stable branch is new, publish it from that current tip instead of
+# asking the pre-push history guard to prove a branch from before main moved.
+PUBLISH_BASE="$REFRESH_BASE"
 REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""
 REFRESH_PUBLISH_WORKTREE=""
@@ -574,6 +587,12 @@ if [ "$RECONCILE_COMPAT" = true ]; then
     COMPAT_MAIN_BASE="$(compat_merge_base "$REFRESH_BASE" "$COMPAT_MAIN_HEAD" "compatibility main compare")"
     reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main
   fi
+  # The semantic reconciler uses two parents so it can merge both snapshots,
+  # but publishing that merge would retain the old refresh history when main
+  # was rewritten. Keep its merged tree and give the data PR only the current
+  # main parent; the history guard can then verify the exact publish commit.
+  PUBLISH_BASE="$COMPAT_MAIN_HEAD"
+  squash_compat_head_onto_publish_base
 elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ] && [ "$RESET_STALE_STABLE_BRANCH" = false ]; then
   # The current refresh was committed from the workflow checkout before the
   # isolated stable-branch checkout was created. Reconcile with path-aware rules:
@@ -652,19 +671,22 @@ fi
 # (runs 37678484563 and 37697864009, both with a push to main inside the
 # guard's window; tests/open-data-refresh-checkout.test.ts replays it offline).
 #
-# So the branch is created on the remote first, at the commit this run started
-# from, which the remote necessarily has. The push is then a fast-forward from
-# a tip both sides know, whatever main does meanwhile, and the pack is this
-# run's commits and nothing else.
+# So the branch is created on the remote first, at the commit this run will
+# publish from, which the remote necessarily has. For compat reconciliation
+# that is the current main tip; otherwise it is the checkout base. The push is
+# then a fast-forward from a tip both sides know, whatever main does meanwhile,
+# and the pack is this run's commits and nothing else.
 REMOTE_BASE_CREATED=false
+REMOTE_BASE_SHA=""
 
 create_remote_branch_at_base() {
   local detail
   if detail="$(run_bounded "$API_TIMEOUT_SECONDS" "creating ${BRANCH} on the remote at the base commit" \
     gh api -X POST "repos/${REPOSITORY}/git/refs" \
-      -f "ref=refs/heads/${BRANCH}" -f "sha=${REFRESH_BASE}" --silent 2>&1)"; then
+      -f "ref=refs/heads/${BRANCH}" -f "sha=${PUBLISH_BASE}" --silent 2>&1)"; then
     REMOTE_BASE_CREATED=true
-    echo "Created ${BRANCH} on the remote at this run's base commit ${REFRESH_BASE}."
+    REMOTE_BASE_SHA="$PUBLISH_BASE"
+    echo "Created ${BRANCH} on the remote at this run's base commit ${PUBLISH_BASE}."
     return 0
   fi
   # Not fatal by itself. Another run may have created the branch a moment ago
@@ -697,12 +719,13 @@ push_new_stable_branch() {
 # remove that run's refresh in between. A deletion sends no objects.
 remove_unused_remote_base() {
   [ "$REMOTE_BASE_CREATED" = true ] || return 0
+  [ -n "$REMOTE_BASE_SHA" ] || return 0
   if push_with_fallback "git push that removes the unused base of ${BRANCH}" false \
-    --force-with-lease="refs/heads/${BRANCH}:${REFRESH_BASE}" \
+    --force-with-lease="refs/heads/${BRANCH}:${REMOTE_BASE_SHA}" \
     ":refs/heads/${BRANCH}"; then
     echo "Removed ${BRANCH} from the remote: it still pointed at this run's base commit and carried no refresh."
   else
-    echo "::warning::${BRANCH} was not removed from the remote: it no longer points at this run's base commit ${REFRESH_BASE}, or the deletion failed; the next run reconciles on top of what is there"
+    echo "::warning::${BRANCH} was not removed from the remote: it no longer points at this run's base commit ${REMOTE_BASE_SHA}, or the deletion failed; the next run reconciles on top of what is there"
   fi
 }
 
@@ -750,7 +773,7 @@ while :; do
     RESET_STALE_STABLE_BRANCH=false
   fi
   if [ "$REMOTE_BASE_CREATED" = true ]; then
-    if [ "$REMOTE_HEAD" = "$REFRESH_BASE" ]; then
+    if [ "$REMOTE_HEAD" = "$REMOTE_BASE_SHA" ]; then
       # Still the base this run created: no other run wrote to the branch, so
       # there is nothing to reconcile and the same commit is pushed again.
       REMOTE_HEAD=""
@@ -758,6 +781,7 @@ while :; do
       # The base is gone (an empty branch is fair game for a cleanup): the next
       # attempt must create it again, or it would push with no common base.
       REMOTE_BASE_CREATED=false
+      REMOTE_BASE_SHA=""
     fi
   fi
 
@@ -775,6 +799,15 @@ while :; do
       run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest stable refresh branch" \
         git fetch --no-tags --depth=1 "$PUSH_URL" \
         "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+      # The compat reconciler deliberately updates the index and HEAD with
+      # plumbing, then refreshes only compatibility files in the worktree.
+      # Reusing that dirty source checkout for a retry would make checkout
+      # reject the branch and lose the retry. All producer output is already
+      # in REFRESH_COMMIT, so restore that immutable snapshot before selecting
+      # the remote tip and recompute the reconciliation below.
+      if [ -n "$REFRESH_COMMIT" ]; then
+        git -C "$REFRESH_SOURCE_ROOT" reset --hard "$REFRESH_COMMIT"
+      fi
       check_old_history_ref "refs/remotes/refresh/${BRANCH}"
       # The tree-level reconciliation moved HEAD and the index, not the files.
       # Everything this run produced is in REFRESH_COMMIT, so nothing is lost.
@@ -800,6 +833,8 @@ while :; do
         COMPAT_MAIN_BASE="$(compat_merge_base "$REFRESH_BASE" "$COMPAT_MAIN_HEAD" "newest compatibility main compare")"
         reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main
       fi
+      PUBLISH_BASE="$COMPAT_MAIN_HEAD"
+      squash_compat_head_onto_publish_base
     else
       MERGE_ARGS=(
         --base "$REFRESH_BASE"
@@ -821,6 +856,7 @@ while :; do
     # The branch may have been closed and deleted between attempts. Recreate it
     # from this run's immutable refresh commit and let the next push establish
     # the stable ref again.
+    REMOTE_BASE_SHA=""
     git checkout -B "$BRANCH" "$REFRESH_COMMIT"
   fi
 done

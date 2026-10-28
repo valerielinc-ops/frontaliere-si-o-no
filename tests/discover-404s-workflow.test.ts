@@ -103,6 +103,16 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(reconciler).toContain("['--base', '--main', '--message']");
   });
 
+  it('anchors a new compat branch to reconciled main and cleans before retry checkout', () => {
+    const publisher = read('scripts/lib/open-data-refresh-pr.sh');
+
+    expect(publisher.match(/PUBLISH_BASE="\$COMPAT_MAIN_HEAD"/g)).toHaveLength(2);
+    expect(publisher).toContain('-f "ref=refs/heads/${BRANCH}" -f "sha=${PUBLISH_BASE}"');
+    expect(publisher).toContain('REMOTE_BASE_SHA="$PUBLISH_BASE"');
+    expect(publisher).toContain('git commit-tree "$merged_tree" -p "$PUBLISH_BASE" -m "$COMMIT_MESSAGE"');
+    expect(publisher).toContain('git -C "$REFRESH_SOURCE_ROOT" reset --hard "$REFRESH_COMMIT"');
+  });
+
   it.each(WORKFLOWS)('$path escapes Markdown backticks in its generated body', ({ path }) => {
     const workflow = read(path);
     const bodyStart = workflow.indexOf("cat <<'EOF'");
