@@ -18,6 +18,8 @@ const API = 'https://api.github.com';
 const API_TIMEOUT_MS = 30_000;
 const PAGE_SIZE = 100;
 const MAX_PAGES = 50;
+const STATUS_PAGE_RETRY_ATTEMPTS = 3;
+const STATUS_PAGE_RETRY_DELAY_MS = 250;
 const ACTIVE_STATUSES = Object.freeze(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
 
 /**
@@ -104,22 +106,50 @@ async function readJson(url, token, fetchImpl) {
   return body;
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Actions can move a run between status buckets while a page is being read.
+ * GitHub may then return the old total_count with an empty/short page. Retry
+ * that inconsistent page briefly; a persistent mismatch still fails closed.
+ */
+async function readConsistentStatusPage({
+  repositoryPath: repoPath,
+  status,
+  token,
+  fetchImpl,
+  page,
+  alreadyRead,
+}) {
+  const url = `${API}/repos/${repoPath}/actions/runs?status=${encodeURIComponent(status)}&per_page=${PAGE_SIZE}&page=${page}`;
+  for (let attempt = 1; attempt <= STATUS_PAGE_RETRY_ATTEMPTS; attempt += 1) {
+    const body = await readJson(url, token, fetchImpl);
+    const complete = alreadyRead + body.workflow_runs.length >= body.total_count;
+    const fullPage = body.workflow_runs.length === PAGE_SIZE;
+    if (complete || fullPage) return body;
+    if (attempt < STATUS_PAGE_RETRY_ATTEMPTS) await sleep(STATUS_PAGE_RETRY_DELAY_MS);
+  }
+  throw new Error(`GitHub API ${status} run listing was truncated after ${STATUS_PAGE_RETRY_ATTEMPTS} retries`);
+}
+
 async function readStatusRuns({ repositoryPath: repoPath, status, token, fetchImpl }) {
   const runs = [];
   let page = 1;
 
   while (true) {
-    const body = await readJson(
-      `${API}/repos/${repoPath}/actions/runs?status=${encodeURIComponent(status)}&per_page=${PAGE_SIZE}&page=${page}`,
+    const body = await readConsistentStatusPage({
+      repositoryPath: repoPath,
+      status,
       token,
       fetchImpl,
-    );
+      page,
+      alreadyRead: runs.length,
+    });
     runs.push(...body.workflow_runs);
 
     if (runs.length >= body.total_count) return runs;
-    if (body.workflow_runs.length === 0 || body.workflow_runs.length < PAGE_SIZE) {
-      throw new Error(`GitHub API ${status} run listing was truncated (${runs.length}/${body.total_count})`);
-    }
     page += 1;
     if (page > MAX_PAGES) {
       throw new Error(`GitHub API ${status} run listing exceeded ${MAX_PAGES} pages`);
