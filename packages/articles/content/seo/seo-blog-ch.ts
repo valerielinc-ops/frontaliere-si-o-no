@@ -109233,7 +109233,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-allarme-popolazione-165-milioni': {
     title: 'Allarme popolazione: 165,4 mln per modernizzazione',
-    description: 'Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, mentre competenze e finanziamento delle sirene passeranno ai Cantoni. La tecnologia di cell broadcast integrerà l’allerta esistente.',
+    description: 'Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell',
     keywords: 'frontalieri, ticino, svizzera, italia, allarme, popolazione, modernizzazione, consiglio',
     ogTitle: 'Allarme popolazione: 165,4 mln per modernizzazione',
     ogDescription: 'Il Consiglio federale chiede 165,4 milioni di franchi.',
@@ -109242,7 +109242,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Allarme popolazione: 165,4 mln per modernizzazione",
-      "description": "Il Consiglio federale chiede 165,4 milioni di franchi per modernizzare il sistema di allarme alla popolazione. Alertswiss sarà mantenuto e potenziato, mentre competenze e finanziamento delle sirene passeranno ai Cantoni. La tecnologia di cell broadcast integrerà l’allerta esistente.",
+      "description": "Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -109275,7 +109275,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up',
     keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, concede, flessibilità',
     ogTitle: 'Flessibilità oraria start-up: norme 2026',
-    ogDescription: 'Il Consiglio federale introduce deroghe mirate all’orario di lavoro per alcuni dipendenti di start-up, con entrata in vigore il 1° dicembre 2026 e condizioni legate a competenze specifiche, autonomia, partecipazione al capitale e progetti di durata limitata.',
+    ogDescription: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione',
     canonicalPath: '/articoli-svizzera/norme-flessibilita-start-up/',
     structuredData: {
       "@context": "https://schema.org",

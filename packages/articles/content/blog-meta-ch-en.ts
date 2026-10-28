@@ -8646,7 +8646,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'The Federal Council is requesting 165,4 million francs.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.norme-flessibilita-start-up.title': 'Federal Council grants start-ups flexibility in working hours',
-    'blog.article.norme-flessibilita-start-up.excerpt': 'The Federal Council is introducing targeted exemptions from working-time and rest-period rules for certain start-up employees, with the new provisions entering into force on December 1, 2026, subject to conditions including specific expertise, broad autonomy, equity participation and limited-duration projects.',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'New special rules adopted on October 28, 2026 Effective date set for December 1, 2026 Targeted exemptions for certain start-up employees The review',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
