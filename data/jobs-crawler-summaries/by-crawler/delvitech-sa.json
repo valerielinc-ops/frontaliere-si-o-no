@@ -1,20 +1,22 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-28T09:30:17.527Z",
-  "total": 10,
+  "generatedAt": "2026-10-28T20:16:55.623Z",
+  "total": 7,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 3,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 3,
   "unchangedCount": 7,
-  "durationMs": 15544,
-  "avgDurationMs": 15544,
+  "durationMs": 40816,
+  "avgDurationMs": 40816,
   "durationHistory": [
-    15544
+    40816
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Mechanical Engineer",
       "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
@@ -41,18 +43,17 @@
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-d624f7e54b9b",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-28T09:30:04.880Z",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -82,18 +83,17 @@
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-bfc600631968",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-28T09:30:04.880Z",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -123,24 +123,21 @@
       "validThrough": "",
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-572058706020",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6850",
       "firstSeenAt": "2026-10-28T09:30:04.880Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Application Engineer",
@@ -430,5 +427,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }
