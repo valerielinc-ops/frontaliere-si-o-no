@@ -35,35 +35,20 @@ describe('data-integrity conflict recovery', () => {
     expect(WORKFLOW_SOURCE).not.toContain('while IFS= read -r -u 9 f');
   });
 
-  it('keeps the full history but sparse-materializes the guard checkout', () => {
+  it('keeps the full history but allow-lists the guard checkout', () => {
     expect(WORKFLOW_SOURCE).toContain('fetch-depth: 0');
     expect(WORKFLOW_SOURCE).toContain('filter: blob:none');
     expect(WORKFLOW_SOURCE).toContain('sparse-checkout: |');
     expect(WORKFLOW_SOURCE).toContain('sparse-checkout-cone-mode: false');
-    for (const excludedPath of [
-      '/public/images/',
-      '/data/jobs/',
-      '/data/seo-404-compat/',
-      '/data/translation-cache/',
-      '/packages/articles/content/',
-      '/data/all-known-job-slugs/',
-      '/data/orphan-enriched-data/',
-      '/docs/',
-      '/public/data/',
-      '/data/related-search-candidates.json',
-      '/data/cf-hot-404s.json',
-      '/data/jobs-ai-cache.json',
-      '/data/dist-size-history.jsonl',
-      '/data/jobs-stats-history.json',
-      '/data/url-first-seen.json',
-      '/data/jobs-snapshots-history/',
-      '/data/slug-registry.json',
-      '/data/evidence-index.json',
-      '/data/health-premiums/',
-      '/data/jobs-crawler-summaries/',
+    for (const materializedPath of [
+      '/scripts/',
+      '/data/canton-municipalities.json',
+      '/data/swiss-locality-postal-codes.json',
     ]) {
-      expect(WORKFLOW_SOURCE).toContain(`!${excludedPath}`);
+      expect(WORKFLOW_SOURCE).toContain(materializedPath);
     }
+    expect(WORKFLOW_SOURCE).not.toContain('/*');
+    expect(WORKFLOW_SOURCE).not.toContain('!/data/jobs/');
   });
 
   it('pairs both directions only for real crawler slices and deduplicates them', () => {
