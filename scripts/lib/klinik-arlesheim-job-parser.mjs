@@ -73,7 +73,7 @@ export function parseDualooPortal(html) {
   ));
   const attributeValue = (source, name) => {
     const match = String(source || '').match(
-      new RegExp(`\\b${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
+      new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
     );
     return match ? (match[1] ?? match[2] ?? match[3] ?? '') : '';
   };

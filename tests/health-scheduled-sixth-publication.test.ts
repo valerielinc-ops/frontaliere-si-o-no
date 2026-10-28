@@ -41,6 +41,17 @@ describe('Klinik Arlesheim Dualoo listing parser', () => {
       url: `https://jobs.dualoo.com/portal/s60emmh3/${uuid}/detail?lang=DE`,
     })]);
   });
+
+  it('reads href instead of a preceding data-href attribute', () => {
+    const html = `<a class="row jobElement" data-eventData='{"jobName":"Nurse","startDate":"2026-01-01","location":"Arlesheim"}' data-href="/wrong" href="/s60emmh3/${uuid}/detail">`
+      + '<span class="jobName">Nurse</span>'
+      + '<span class="cityName">Arlesheim</span>'
+      + '<span class="badge jobCategory">Pflege</span>'
+      + '<span class="badge jobDate" data-date="2026-01-01">01.01.2026</span></a>';
+
+    expect(parseDualooPortal(html)[0]?.url)
+      .toBe(`https://jobs.dualoo.com/portal/s60emmh3/${uuid}/detail`);
+  });
 });
 
 beforeEach(() => { vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date('2026-10-04T12:00:00Z')); });
