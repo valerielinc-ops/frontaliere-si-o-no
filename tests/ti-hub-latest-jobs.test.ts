@@ -79,6 +79,8 @@ describe('renderTiHubLatestJobsBlock', () => {
     // Data area order (AGENTS.md landing order): tiles → CTA → listing.
     expect(html.indexOf('data-stat-tile-grid')).toBeLessThan(html.indexOf('data-primary-cta'));
     expect(html.indexOf('data-primary-cta')).toBeLessThan(html.indexOf('data-listing-grid'));
+    expect(html).toContain('[content-visibility:auto]');
+    expect(html).toContain('[contain-intrinsic-size:auto_1800px]');
   });
 
   it('escapes crawler-sourced stat values', () => {
