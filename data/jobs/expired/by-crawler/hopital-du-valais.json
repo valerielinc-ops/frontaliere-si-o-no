@@ -9243,5 +9243,48 @@
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "assistente-medico-efz-hopital-du-valais-brig",
+    "title": "Medizinische/-r Praxisassistent/-in EFZ",
+    "titleByLocale": {
+      "it": "Assistente medico EFZ",
+      "en": "Medical assistant EFZ",
+      "de": "Medizinische/-r Praxisassistent/-in EFZ",
+      "fr": "Assistant médical/praticien/en EFZ"
+    },
+    "company": "Hôpital du Valais",
+    "companyKey": "hopital-du-valais",
+    "location": "Brig",
+    "addressLocality": "Brig",
+    "descriptionByLocale": {
+      "it": "L'ospedale Wallis offre per il centro ospedaliero Oberwallis a:\n\nApprendistato come assistente medico/pratico/in EFZ\n\nMissione:\n• Ricevimento di pazienti, appuntamenti e gestione dell'ordine del giorno\n\n• Preparazione di locali e attrezzature mediche per esami\n\n• Manutenzione dei registri dei pazienti, documentazione dei dati di trattamento e gestione dei risultati\n\n• Consultazione e nomina del telefono, supporto per problemi di paziente\n\nProfilo:\n• Interessi nel lavoro sanitario e nella cura dei pazienti\n\n• Apertura e cordialità nel trattare con le persone\n\n• Cura e responsabilità\n\n• Lavoro di squadra e affidabilità\n\nOfferta:\n• Esperienza pratica nella cura del paziente, organizzazione e assistenza medica\n\n• Attività diverse: Dalla ricezione e dall'appuntamento al supporto in esami e trattamenti\n\n• Un team amichevole e disponibile che ti introduce e ti supporta nei tuoi compiti",
+      "en": "The hospital Wallis offers for the hospital center Oberwallis a:\n\nApprenticeship as medical/practice assistant/in EFZ\n\nMission:\n• Reception of patients, appointments and management of the agenda\n\n• Preparation of premises and medical equipment for examinations\n\n• Maintenance of patient records, documentation of treatment data and management of findings\n\n• Telephone consultation and appointment, support for patient issues\n\nProfile:\n• Interest in healthcare work and patient care\n\n• Openness and friendliness in dealing with people\n\n• Care and responsibility\n\n• Teamwork and reliability\n\nOffer:\n• Practical experience in patient care, organisation and medical assistance\n\n• Diverse tasks: From reception and appointment to support in examinations and treatments\n\n• A friendly, helpful team that introduces and supports you in your tasks",
+      "de": "Das Spital Wallis bietet für das Spitalzentrum Oberwallis eine:\n\nLehrstelle als Medizinische/-r Praxisassistent/-in EFZ\n\nIhre Aufgaben:\n• Empfang der Patienten, Terminvereinbarungen und Verwaltung der Agenda\n\n• Vorbereitung der Räumlichkeiten und des medizinischen Materials für die Untersuchungen\n\n• Pflege von Patientenakten, Dokumentation der Behandlungsdaten und Verwaltung von Befunden\n\n• Telefonische Beratung und Terminvereinbarung, Unterstützung bei Patientenfragen\n\nIhr Profil:\n• Interesse an der Arbeit im Gesundheitswesen und an der Patientenbetreuung\n\n• Offenheit und Freundlichkeit im Umgang mit Menschen\n\n• Sorgfalt und Verantwortungsbewusstsein\n\n• Teamfähigkeit und Zuverlässigkeit\n\nWir bieten:\n• Praktische Erfahrungen in der Patientenbetreuung, Organisation und medizinischen Assistenz\n\n• Vielfältige Aufgaben: Vom Empfang und der Terminvereinbarung bis hin zur Unterstützung bei Untersuchungen und Behandlungen\n\n• Ein freundliches, hilfsbereites Team, das dich in deine Aufgaben einführt und unterstützt",
+      "fr": "L'hôpital Wallis offre pour le centre hospitalier Oberwallis a:\n\nApprentissage en tant qu'assistant médical/de pratique/en EFZ\n\nMission :\n• Réception des patients, rendez-vous et gestion de l'agenda\n\n• Préparation des locaux et du matériel médical pour les examens\n\n• Tenue des dossiers des patients, documentation des données du traitement et gestion des résultats\n\n• Consultation téléphonique et rendez-vous, soutien pour les problèmes de patients\n\nProfil :\n• Intérêt pour le travail de santé et les soins aux patients\n\n• Ouverture et convivialité dans le traitement des personnes\n\n• Soins et responsabilité\n\n• Travail d'équipe et fiabilité\n\nOffre:\n• Expérience pratique en soins aux patients, organisation et assistance médicale\n\n• Tâches diverses : De la réception et du rendez-vous à l'aide aux examens et aux traitements\n\n• Une équipe amicale et serviable qui vous présente et vous accompagne dans vos tâches"
+    },
+    "slugByLocale": {
+      "it": "assistente-medico-efz-hopital-du-valais-brig",
+      "en": "medical-practice-assistant-in-efz-hopital-du-valais-brig",
+      "de": "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig",
+      "fr": "assistant-medical-praticien-en-efz-hopital-du-valais-brig"
+    },
+    "sector": "Santé / Hôpital",
+    "expiredAt": "2026-10-28T22:20:46.935Z",
+    "previousSlugs": [
+      "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig"
+      ]
+    },
+    "postalCode": "3900",
+    "salaryMin": 51000,
+    "salaryMax": 94500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7452983f87d18f54dbd6ebd30cbb3521/atsann0004724/params/language/fr",
+    "firstSeenAt": "2026-07-31T11:43:35.789Z"
   }
 ]
