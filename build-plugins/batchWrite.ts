@@ -60,6 +60,18 @@ function ensureDir(dir: string) {
 
 type WriteScheduler = (write: PendingWrite) => Promise<void>;
 
+/**
+ * Keep batch preparation inside the Promise returned by the ordered flush.
+ * Directory creation and path-shape checks are synchronous, but a background
+ * flush must report those failures through its existing `_firstError` path
+ * instead of throwing before `startBackgroundFlush()` can register the
+ * promise and release later path chains.
+ */
+async function prepareWriteBatchAsync(batch: PendingWrite[]): Promise<void> {
+ await Promise.resolve();
+ prepareWriteBatch(batch);
+}
+
 function prepareWriteBatch(writes: PendingWrite[]): void {
  // Check the whole batch before creating directories. This catches a file
  // emitted together with a nested `file/index.html` in milliseconds, instead
@@ -247,7 +259,7 @@ export class WriteCollector {
  }
 
  private async flushOrderedWrites(batch: PendingWrite[], concurrency: number): Promise<number> {
-  prepareWriteBatch(batch);
+  await prepareWriteBatchAsync(batch);
   const scheduled = batch.map((write) => {
    const previous = this._pathFlushChains.get(write.filePath) ?? Promise.resolve();
    let start!: () => void;
