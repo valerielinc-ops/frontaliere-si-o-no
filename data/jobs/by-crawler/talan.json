@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-28T20:03:13.210Z",
-  "runId": "40757390688",
+  "assembledAt": "2026-10-28T21:17:51.939Z",
+  "runId": "40769003973",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.554Z",
+      "crawledAt": "2026-10-28T21:17:44.160Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -110,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.552Z",
+      "crawledAt": "2026-10-28T21:17:44.159Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -186,7 +186,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.550Z",
+      "crawledAt": "2026-10-28T21:17:44.157Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -216,235 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-3d22739aef94",
-      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
-        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
-        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
-        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst – Enterprise Data Management (EDM)",
-      "titleByLocale": {
-        "it": "Business Analista – Enterprise Data Management (EDM)",
-        "en": "Business Analyst – Enterprise Data Management (EDM)",
-        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
-        "fr": "Business Analyste – Enterprise Data Management (EDM)"
-      },
-      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
-        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
-        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
-        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.548Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08T13:16:20.226Z",
-      "postedDate": "2026-09-08T13:16:20.226Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "jobReqId": "744000148235109",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:44.207Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
-      "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
-      },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-      "descriptionByLocale": {
-        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
-        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
-        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.546Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant Expert SAP CRM M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.544Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T09:11:46.418Z",
-      "postedDate": "2026-10-02T09:11:46.418Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -491,7 +262,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.541Z",
+      "crawledAt": "2026-10-28T21:17:44.154Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -552,6 +323,235 @@
       }
     },
     {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant Expert SAP CRM M/F",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-28T21:17:44.152Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T09:11:46.418Z",
+      "postedDate": "2026-10-02T09:11:46.418Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant SAP Basis",
+      "titleByLocale": {
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
+      },
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "descriptionByLocale": {
+        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
+        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
+        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-28T21:17:44.150Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1266,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-3d22739aef94",
+      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
+        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
+        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
+        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyst – Enterprise Data Management (EDM)",
+      "titleByLocale": {
+        "it": "Business Analista – Enterprise Data Management (EDM)",
+        "en": "Business Analyst – Enterprise Data Management (EDM)",
+        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
+        "fr": "Business Analyste – Enterprise Data Management (EDM)"
+      },
+      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
+        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
+        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-28T21:17:44.148Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-08T13:16:20.226Z",
+      "postedDate": "2026-09-08T13:16:20.226Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "jobReqId": "744000148235109",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:35:44.207Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-77288cd4a877",
       "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
       "slugByLocale": {
@@ -582,7 +582,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.540Z",
+      "crawledAt": "2026-10-28T21:17:44.146Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -669,7 +669,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.538Z",
+      "crawledAt": "2026-10-28T21:17:44.143Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -717,162 +717,6 @@
       }
     },
     {
-      "id": "talan-d42380bfcb29",
-      "slug": "senior-crm-data-analista-luxury-retail-talan-lausanne",
-      "slugByLocale": {
-        "it": "senior-crm-data-analista-luxury-retail-talan-lausanne",
-        "en": "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland",
-        "de": "senior-crm-data-analyst-luxus-einzelhandel-talan-lausanne",
-        "fr": "senior-crm-data-analyste-luxury-retail-talan-lausanne"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior CRM Data Analyst – Luxury / Retail",
-      "titleByLocale": {
-        "it": "Senior CRM Data Analista – Luxury / Retail",
-        "en": "Senior CRM Data Analyst – Luxury / Retail",
-        "de": "Senior CRM Data Analyst – Luxus / Einzelhandel",
-        "fr": "Senior CRM Data Analyste – Luxury / Retail"
-      },
-      "description": "We are looking for an experienced Data Analyst CRM to leverage customer, marketing and sales data and turn it into meaningful, actionable business insights.\n The role requires strong analytical autonomy , from data extraction and transformation through to dashboard development and executive-level presentation of findings.\n The successful candidate will combine strong SQL and Power BI expertise with solid business understanding , ideally gained within the luxury, watchmaking, retail, CRM, marketing or sales analytics environment.\n Key Responsibilities\n Data Analysis & Business Insights\n\n• Analyse CRM, marketing and sales data to identify trends, performance drivers, opportunities and areas for improvement.\n\n• Translate complex and raw data into clear, reliable and actionable insights .\n\n• Support CRM strategy and commercial performance through data-driven recommendations.\n\n• Monitor and analyse key business KPIs.\n Reporting & Dashboards\n\n• Design, develop and maintain relevant Power BI dashboards and reports .\n\n• Build effective performance monitoring tools for business teams and senior management.\n\n• Ensure consistency, accuracy and reliability of reported KPIs.\n Data Extraction & Transformation\n\n• Retrieve, manipulate and structure data using SQL .\n\n• Perform data preparation, transformation and ad-hoc analyses.\n\n• Use Python for scripting and analytical purposes when required.\n\n• Ideally work with Databricks or a similar modern data platform.\n CRM Analytics\n\n• Leverage Salesforce data to analyse customer, sales and marketing performance.\n\n• Identify relevant customer behaviours, trends and business opportunities.\n\n• Apply CRM analytics to improve customer understanding and support commercial decision-making.\n Stakeholder Management\n\n• Work closely with CRM, Marketing, Sales and Business Analysis teams .\n\n• Understand business priorities and translate them into relevant analytical requirements.\n\n• Communicate findings clearly to both technical and non-technical stakeholders.\n Executive Presentations\n\n• Prepare concise, structured and impactful presentations for senior management and top-level stakeholders .\n\n• Present analytical findings and recommendations in a clear and business-oriented manner.\n\n• Create high-quality PowerPoint presentations to support strategic discussions and decision-making.\n End-to-End Ownership\n\n• Independently manage analytical assignments from data extraction and analysis through to dashboard delivery and presentation of findings .\n\n• Take ownership of deliverables and ensure high-quality outputs without requiring extensive supervision.\n\nMust-Have Skills\n\n• Proven experience in Data Analysis / Business Analytics , ideally within CRM, marketing or sales analytics.\n\n• Experience within luxury, watchmaking or retail , ideally combined with strong exposure to CRM, marketing or sales analytics .\n\n• Strong hands-on expertise in SQL .\n\n• Strong proficiency in Power BI , including the ability to independently develop dashboards and analytical solutions end-to-end.\n\n• Strong analytical mindset and ability to translate data into meaningful business insights .\n\n• High level of autonomy and ownership.\n\n• Excellent communication and presentation skills.\n\n• Ability to interact confidently with senior and top management stakeholders .\n\n• Fluent English , including the ability to deliver presentations in an international environment.\n Nice-to-Have Skills\n\n• Experience with Salesforce / CRM data .\n\n• Python for data analysis or scripting.\n\n• Experience with Databricks .\n\n• Strong PowerPoint and executive presentation skills.\n\n• Previous experience within luxury, watchmaking or retail .\n\n• Knowledge of customer analytics, marketing performance and sales performance .\n\n• French B2",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto Data Analyst CRM per sfruttare i dati del cliente, del marketing e delle vendite e trasformarlo in insight aziendali significativi e fattibili.\nIl ruolo richiede una forte autonomia analitica, dall'estrazione e dalla trasformazione dei dati fino allo sviluppo del cruscotto e alla presentazione dei risultati a livello esecutivo.\nIl candidato di successo combina forti competenze SQL e Power BI con solida comprensione aziendale, idealmente guadagnato all'interno del lusso, orologeria, vendita al dettaglio, CRM, marketing o ambiente di analisi di vendita.\nPrincipali responsabilità\nAnalisi dei dati e informazioni aziendali\n\n• Analizzare i dati CRM, marketing e vendite per identificare tendenze, driver di performance, opportunità e aree di miglioramento.\n\n• Traduci dati complessi e grezzi in chiari, affidabili e fattibili approfondimenti .\n\n• Supporta la strategia CRM e le prestazioni commerciali attraverso raccomandazioni basate sui dati.\n\n• Monitorare e analizzare i KPI aziendali chiave.\nReporting & Dashboards\n\n• Progettare, sviluppare e mantenere pertinenti dashboard e report Power BI .\n\n• Costruire strumenti di monitoraggio delle prestazioni efficaci per i team aziendali e la gestione senior.\n\n• Assicurare coerenza, precisione e affidabilità dei KPI segnalati.\nEstrazione e trasformazione dei dati\n\n• Recuperare, manipolare e strutturare i dati utilizzando SQL .\n\n• Eseguire la preparazione dei dati, la trasformazione e le analisi ad-hoc.\n\n• Utilizzare Python per la scrittura e scopi analitici quando necessario.\n\n• Idealmente lavorare con Databricks o una simile piattaforma di dati moderna.\nC. Analisi\n\n• Leva i dati di Salesforce per analizzare le prestazioni del cliente, delle vendite e del marketing.\n\n• Identificare comportamenti dei clienti rilevanti, tendenze e opportunità di business.\n\n• Applicare analisi CRM per migliorare la comprensione del cliente e sostenere il processo decisionale commerciale.\nGestione Stakeholder\n\n• Lavorare a stretto contatto con CRM, Marketing, Vendite e Business Analysis team .\n\n• Comprendere le priorità aziendali e tradurle in requisiti analitici rilevanti.\n\n• Comunicare i risultati chiaramente sia a soggetti tecnici che non tecnici.\nPresentazione esecutiva\n\n• Prepara presentazioni concise, strutturate e d'impatto per la gestione senior e gli stakeholder di alto livello.\n\n• Presenti risultati analitici e raccomandazioni in modo chiaro e orientato al business.\n\n• Crea presentazioni PowerPoint di alta qualità per supportare discussioni strategiche e processi decisionali.\nProprietà end-to-End\n\n• Gestire in modo indipendente le assegnazioni analitiche dall'estrazione e dall'analisi dei dati attraverso la consegna del cruscotto e la presentazione dei risultati .\n\n• Assumere la proprietà dei prodotti e garantire uscite di alta qualità senza richiedere una supervisione estesa.\n\nCompetenze\n\n• Provata esperienza nell'analisi dei dati / Business Analytics , idealmente all'interno di analisi CRM, marketing o vendite.\n\n• Esperienza all'interno di lusso, orologeria o vendita al dettaglio, idealmente combinata con una forte esposizione a CRM, marketing o analisi di vendita.\n\n• Forte esperienza pratica in SQL .\n\n• Forte competenza in Power BI , compresa la capacità di sviluppare autonomamente dashboard e soluzioni analitiche end-to-end.\n\n• Forte mentalità analitica e capacità di tradurre i dati in insight aziendali significativi.\n\n• Alto livello di autonomia e proprietà.\n\n• Ottima capacità di comunicazione e presentazione.\n\n• Capacità di interagire con fiducia con gli stakeholder senior e top management .\n\n• Fluent English , compresa la capacità di fornire presentazioni in un ambiente internazionale.\nCompetenze di Nizza-Ave\n\n• Esperienza con dati Salesforce / CRM .\n\n• Python per l'analisi dei dati o la scrittura.\n\n• Esperienza con Databricks .\n\n• Forte PowerPoint e capacità di presentazione executive.\n\n• Esperienza precedente all'interno di lusso, orologeria o vendita al dettaglio .\n\n• Conoscenza dell'analisi dei clienti, delle prestazioni di marketing e delle prestazioni di vendita .\n\n• Francese B2",
-        "en": "We are looking for an experienced Data Analyst CRM to leverage customer, marketing and sales data and turn it into meaningful, actionable business insights.\nThe role requires strong analytical autonomy , from data extraction and transformation through to dashboard development and executive-level presentation of findings.\nThe successful candidate will combine strong SQL and Power BI expertise with solid business understanding , ideally gained within the luxury, watchmaking, retail, CRM, marketing or sales analytics environment.\nKey Responsibilities\nData Analysis & Business Insights\n\n• Analyse CRM, marketing and sales data to identify trends, performance drivers, opportunities and areas for improvement.\n\n• Translate complex and raw data into clear, reliable and actionable insights .\n\n• Support CRM strategy and commercial performance through data-driven recommendations.\n\n• Monitor and analyse key business KPIs.\nReporting & Dashboards\n\n• Design, develop and maintain relevant Power BI dashboards and reports .\n\n• Build effective performance monitoring tools for business teams and senior management.\n\n• Ensure consistency, accuracy and reliability of reported KPIs.\nData Extraction & Transformation\n\n• Retrieve, manipulate and structure data using SQL .\n\n• Perform data preparation, transformation and ad-hoc analyses.\n\n• Use Python for scripting and analytical purposes when required.\n\n• Ideally work with Databricks or a similar modern data platform.\nCRM Analytics\n\n• Leverage Salesforce data to analyse customer, sales and marketing performance.\n\n• Identify relevant customer behaviours, trends and business opportunities.\n\n• Apply CRM analytics to improve customer understanding and support commercial decision-making.\nStakeholder Management\n\n• Work closely with CRM, Marketing, Sales and Business Analysis teams .\n\n• Understand business priorities and translate them into relevant analytical requirements.\n\n• Communicate findings clearly to both technical and non-technical stakeholders.\nExecutive Presentations\n\n• Prepare concise, structured and impactful presentations for senior management and top-level stakeholders .\n\n• Present analytical findings and recommendations in a clear and business-oriented manner.\n\n• Create high-quality PowerPoint presentations to support strategic discussions and decision-making.\nEnd-to-End Ownership\n\n• Independently manage analytical assignments from data extraction and analysis through to dashboard delivery and presentation of findings .\n\n• Take ownership of deliverables and ensure high-quality outputs without requiring extensive supervision.\n\nMust-Have Skills\n\n• Proven experience in Data Analysis / Business Analytics , ideally within CRM, marketing or sales analytics.\n\n• Experience within luxury, watchmaking or retail , ideally combined with strong exposure to CRM, marketing or sales analytics .\n\n• Strong hands-on expertise in SQL .\n\n• Strong proficiency in Power BI , including the ability to independently develop dashboards and analytical solutions end-to-end.\n\n• Strong analytical mindset and ability to translate data into meaningful business insights .\n\n• High level of autonomy and ownership.\n\n• Excellent communication and presentation skills.\n\n• Ability to interact confidently with senior and top management stakeholders .\n\n• Fluent English , including the ability to deliver presentations in an international environment.\nNice-to-Have Skills\n\n• Experience with Salesforce / CRM data .\n\n• Python for data analysis or scripting.\n\n• Experience with Databricks .\n\n• Strong PowerPoint and executive presentation skills.\n\n• Previous experience within luxury, watchmaking or retail .\n\n• Knowledge of customer analytics, marketing performance and sales performance .\n\n• French B2",
-        "de": "Wir suchen ein erfahrenes Data Analyst CRM, um Kunden-, Marketing- und Vertriebsdaten zu nutzen und sie in sinnvolle, umsetzbare Business Insights umzuwandeln.\nDie Rolle erfordert eine starke analytische Autonomie, von der Datenextraktion und -transformation bis hin zur Dashboard-Entwicklung und Präsentation der Ergebnisse auf Führungsebene.\nDer erfolgreiche Kandidat wird eine starke SQL- und Power BI-Expertise mit einem soliden Geschäftsverständnis kombinieren, das idealerweise in der Luxus-, Uhrmacher-, Einzelhandels-, CRM-, Marketing- oder Vertriebsanalyseumgebung erworben wird.\nWichtigste Zuständigkeiten\nDatenanalyse & Business Insights\n\n• Analysieren Sie CRM-, Marketing- und Vertriebsdaten, um Trends, Leistungstreiber, Chancen und Verbesserungsbereiche zu identifizieren.\n\n• Übersetzen Sie komplexe und Rohdaten in klare, zuverlässige und umsetzbare Erkenntnisse.\n\n• Unterstützung der CRM-Strategie und der kommerziellen Leistung durch datengesteuerte Empfehlungen.\n\n• Überwachung und Analyse der wichtigsten Business KPIs.\nReporting & Dashboards\n\n• Entwerfen, entwickeln und pflegen Sie relevante Power BI Dashboards und Berichte.\n\n• Erstellen Sie effektive Performance-Monitoring-Tools für Geschäftsteams und Führungskräfte.\n\n• Gewährleistung der Konsistenz, Genauigkeit und Zuverlässigkeit der gemeldeten KPIs.\nDatenextraktion & Transformation\n\n• Abrufen, Manipulieren und Strukturieren von Daten mit SQL.\n\n• Durchführung von Datenvorbereitung, Transformation und Ad-hoc-Analysen.\n\n• Verwenden Sie Python für Skript- und Analysezwecke, wenn erforderlich.\n\n• Idealerweise arbeiten Sie mit Databricks oder einer ähnlichen modernen Datenplattform.\nCRM Analytik\n\n• Nutzen Sie Salesforce-Daten, um die Leistung von Kunden, Vertrieb und Marketing zu analysieren.\n\n• Identifizieren Sie relevantes Kundenverhalten, Trends und Geschäftsmöglichkeiten.\n\n• Verwenden Sie CRM-Analysen, um das Kundenverständnis zu verbessern und die kommerzielle Entscheidungsfindung zu unterstützen.\nStakeholder-Management\n\n• Arbeiten Sie eng mit CRM-, Marketing-, Vertriebs- und Business-Analyse-Teams zusammen.\n\n• Verstehen Sie Geschäftsprioritäten und übersetzen Sie sie in relevante analytische Anforderungen.\n\n• Kommunizieren Sie die Ergebnisse sowohl an technische als auch an nichttechnische Interessengruppen.\nExecutive Presentations\n\n• Bereiten Sie prägnante, strukturierte und wirkungsvolle Präsentationen für die Geschäftsleitung und hochrangige Stakeholder vor.\n\n• Präsentieren Sie analytische Ergebnisse und Empfehlungen auf klare und geschäftsorientierte Weise.\n\n• Erstellen Sie hochwertige PowerPoint-Präsentationen, um strategische Diskussionen und Entscheidungen zu unterstützen.\nEnd-to-End-Eigentum\n\n• Verwalten Sie unabhängig analytische Zuordnungen von der Datenextraktion und -analyse bis hin zur Dashboard-Bereitstellung und -Präsentation von Ergebnissen.\n\n• Übernehmen Sie die Verantwortung für die zu erbringenden Leistungen und sorgen Sie für qualitativ hochwertige Ergebnisse, ohne dass eine umfangreiche Überwachung erforderlich ist.\n\nMust-Have Fähigkeiten\n\n• Nachgewiesene Erfahrung in Datenanalyse / Business Analytics, idealerweise in CRM, Marketing oder Sales Analytics.\n\n• Erfahrung in Luxus, Uhrmacherei oder Einzelhandel, ideal kombiniert mit einem starken Engagement in CRM, Marketing oder Sales Analytics.\n\n• Starke praktische Expertise in SQL.\n\n• Starke Kenntnisse in Power BI, einschließlich der Fähigkeit, Dashboards und analytische Lösungen unabhängig voneinander zu entwickeln.\n\n• Starke analytische Denkweise und Fähigkeit, Daten in sinnvolle Business Insights zu übersetzen.\n\n• Hohes Maß an Autonomie und Eigenverantwortung.\n\n• Hervorragende Kommunikation und Präsentation Fähigkeiten.\n\n• Fähigkeit zur vertrauensvollen Interaktion mit Senior- und Top-Management-Stakeholdern.\n\n• Fließendes Englisch, einschließlich der Fähigkeit, Präsentationen in einem internationalen Umfeld zu liefern.\nNice-to-Have Fähigkeiten\n\n• Erfahrung mit Salesforce / CRM-Daten.\n\n• Python für Datenanalyse oder Scripting.\n\n• Erfahrung mit Databricks.\n\n• Starke PowerPoint und Executive Präsentation Fähigkeiten.\n\n• Frühere Erfahrungen in Luxus, Uhrmacherei oder Einzelhandel.\n\n• Wissen über Customer Analytics, Marketing Performance und Sales Performance.\n\n• Französisch B2",
-        "fr": "Nous sommes à la recherche d'un CRM expérimenté d'analyste de données pour tirer parti des données sur les clients, le marketing et les ventes et les transformer en perspectives d'affaires significatives et réalisables.\nCe rôle exige une forte autonomie analytique, de l'extraction et de la transformation des données jusqu'à l'élaboration du tableau de bord et à la présentation des résultats au niveau de la direction.\nLe candidat retenu combinera une solide expertise SQL et Power BI avec une solide compréhension des affaires, idéalement acquise dans l'environnement de luxe, horlogerie, de détail, CRM, marketing ou d'analyse des ventes.\nPrincipales responsabilités\nAnalyse des données et perspectives d'affaires\n\n• Analyser les données sur la CRM, le marketing et les ventes afin d'identifier les tendances, les facteurs de performance, les possibilités et les domaines à améliorer.\n\n• Traduire des données complexes et brutes en informations claires, fiables et exploitables.\n\n• Appuyer la stratégie de CRM et la performance commerciale au moyen de recommandations axées sur les données.\n\n• Surveiller et analyser les principaux KPI d'affaires.\nRapports et tableaux de bord\n\n• Concevoir, développer et tenir à jour des tableaux de bord et des rapports Power BI pertinents.\n\n• Élaborer des outils efficaces de surveillance du rendement pour les équipes d'affaires et la haute direction.\n\n• Assurer la cohérence, l'exactitude et la fiabilité des ICR déclarés.\nExtraction et transformation des données\n\n• Récupérer, manipuler et structurer les données en utilisant SQL .\n\n• Effectuer la préparation des données, la transformation et les analyses ad hoc.\n\n• Utilisez Python à des fins de script et d'analyse au besoin.\n\n• Idéalement travailler avec Databricks ou une plate-forme de données moderne similaire.\nCRM Analyse\n\n• Tirer parti des données Salesforce pour analyser les performances client, ventes et marketing.\n\n• Déterminer les comportements, les tendances et les occasions d'affaires des clients.\n\n• Appliquer l'analyse CRM pour améliorer la compréhension des clients et soutenir la prise de décision commerciale.\nGestion des parties prenantes\n\n• Travailler en étroite collaboration avec les équipes CRM, Marketing, Ventes et Analyse d'affaires .\n\n• Comprendre les priorités opérationnelles et les traduire en exigences analytiques pertinentes.\n\n• Communiquer clairement les conclusions aux intervenants techniques et non techniques.\nExposés exécutifs\n\n• Préparer des présentations concises, structurées et pertinentes pour la haute direction et les intervenants de haut niveau.\n\n• Présenter les conclusions et recommandations analytiques de façon claire et axée sur les activités.\n\n• Créer des présentations PowerPoint de haute qualité pour appuyer les discussions stratégiques et la prise de décisions.\nPropriété de bout en bout\n\n• Gérer indépendamment les tâches d'analyse de l'extraction et de l'analyse des données jusqu'au tableau de bord et présenter les résultats .\n\n• S'approprier les produits livrables et assurer des produits de haute qualité sans exiger de supervision approfondie.\n\nCompétences requises\n\n• Expérience éprouvée en analyse de données / Analyse d'affaires , idéalement dans le CRM, le marketing ou l'analyse de ventes.\n\n• Expérience dans le luxe, l'horlogerie ou la vente au détail, idéalement combiné avec une forte exposition à la CRM, le marketing ou l'analyse des ventes.\n\n• Une solide expertise pratique en SQL .\n\n• Forte compétence en Power BI , y compris la capacité de développer indépendamment des tableaux de bord et des solutions analytiques de bout en bout.\n\n• Forte capacité d'analyse et d'analyse pour traduire les données en données utiles .\n\n• Niveau élevé d'autonomie et de propriété.\n\n• Excellentes compétences en communication et présentation.\n\n• Capacité d'interagir avec confiance avec les intervenants des cadres supérieurs et supérieurs.\n\n• Anglais fluide , y compris la capacité de présenter des présentations dans un environnement international .\nBonnes compétences\n\n• Expérience avec les données Salesforce / CRM .\n\n• Python pour l'analyse de données ou le script.\n\n• Expérience avec Databricks .\n\n• Fortes compétences en présentation PowerPoint et cadre.\n\n• Expérience antérieure dans le luxe, l'horlogerie ou le détail.\n\n• Connaissance de l'analyse client, performance marketing et performance commerciale.\n\n• Français B2"
-      },
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000158237969-senior-crm-data-analyst-luxury-retail?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-28T20:03:06.535Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-28T09:13:35.331Z",
-      "postedDate": "2026-10-28T09:13:35.331Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000158237969-senior-crm-data-analyst-luxury-retail?oga=true",
-      "jobReqId": "744000158237969",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-28T09:17:49.956Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
-        ],
-        "fr": [
-          "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
-      ],
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-dbc24b5b3f3c",
-      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "de": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Tech Lead Fullstack .NET / C#",
-      "titleByLocale": {
-        "it": "Fullstack Technical Manager .NET / C#",
-        "en": "Fullstack Technical Manager .NET / C#",
-        "de": "Fullstack Technical Manager .NET / C#",
-        "fr": "Responsable technique Fullstack .NET / C#"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
-        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
-        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
-        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.532Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T13:35:09.147Z",
-      "postedDate": "2026-10-23T13:35:09.147Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "jobReqId": "744000157480029",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.471Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-9f5be93106bb",
       "slug": "senior-integration-ingegnere-talan-geneve",
       "slugByLocale": {
@@ -903,7 +747,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T20:03:06.526Z",
+      "crawledAt": "2026-10-28T21:17:44.138Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -951,37 +795,112 @@
       }
     },
     {
-      "id": "talan-50e5f8ddcbfd",
-      "slug": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
+      "id": "talan-dbc24b5b3f3c",
+      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
       "slugByLocale": {
-        "it": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
-        "en": "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland",
-        "de": "berater-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
-        "fr": "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "de": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Consultant.e Technico-fonctionnel SAP CRM Senior",
+      "title": "Tech Lead Fullstack .NET / C#",
       "titleByLocale": {
-        "it": "Consulente.e Technico-fonctionnel SAP CRM Senior",
-        "en": "Consultant.e Technico-functional SAP CRM Senior",
-        "de": "Berater.e Technico-fonctionnel SAP CRM Senior",
-        "fr": "Consultant.e Technico-fonctionnel SAP CRM Senior"
+        "it": "Fullstack Technical Manager .NET / C#",
+        "en": "Fullstack Technical Manager .NET / C#",
+        "de": "Fullstack Technical Manager .NET / C#",
+        "fr": "Responsable technique Fullstack .NET / C#"
       },
-      "description": "Vous contribuerez à la maintenance, à l’évolution et à l’optimisation des solutions SAP CRM, en veillant à la fiabilité des processus métiers, à la qualité des données et à l’intégration avec SAP S/4HANA. Vous interviendrez sur l’ensemble du cycle de vie applicatif, du cadrage des besoins jusqu’au support en production, dans un environnement exigeant en matière de sécurité, de conformité et de traçabilité.\n Vos missions\n\n• Assurer la maintenance corrective, évolutive et adaptative des applications SAP CRM, ainsi que le support opérationnel de niveaux 2 et 3.\n\n• Concevoir, paramétrer et faire évoluer les processus métiers liés aux prestations sociales, notamment autour du Social Service Management (SSM), du Case Management et de l’Activity Management.\n\n• Intervenir sur SAP CRM WebUI et les couches techniques BOL/GENIL.\n\n• Gérer et garantir la cohérence des données de référence, notamment les Master Data et les Business Partners.\n\n• Concevoir et maintenir les règles métier à l’aide de SAP BRF+.\n\n• Assurer la robustesse des interfaces et des échanges entre SAP CRM et SAP S/4HANA, en collaboration avec les équipes concernées.\n\n• Analyser les incidents, identifier les causes racines et mettre en œuvre des solutions pérennes.\n\n• Participer aux phases de conception, développement, tests, déploiement et mise en production des évolutions.\n\n• Garantir la qualité de la documentation, la sécurité applicative, la traçabilité et la conformité des solutions.\n\n• Collaborer avec les équipes techniques et métiers afin d’optimiser les processus, les workflows et les parcours utilisateurs.\n\n• Contribuer à l’amélioration continue des applications et au partage des connaissances.\n\n• Vous justifiez d’au moins 7 ans d’expérience sur SAP CRM , idéalement dans des environnements complexes, critiques et fortement intégrés.\n\n• Vous maîtrisez SAP CRM WebUI ainsi que les couches BOL et GENIL.\n\n• Vous disposez d’une expérience confirmée en Master Data / Business Partner, Case Management et Activity Management.\n\n• Vous connaissez le module Social Service Management (SSM).\n\n• Vous maîtrisez SAP BRF+, notamment la configuration des règles métier, des fonctions, des expressions et des tables de décision.\n\n• Vous avez une expérience concrète des intégrations entre SAP CRM et SAP S/4HANA.\n\n• Vous maîtrisez les activités de maintenance applicative, le support RUN et la résolution d’incidents N2/N3.\n\n• Vous êtes à l’aise avec les outils Jira, ChaRM, SAP Solution Manager et Confluence.\n\n• Vous êtes capable d’analyser des problématiques complexes, de documenter vos interventions et de sécuriser les évolutions applicatives.\n\n• Vous parlez français couramment , à l’oral comme à l’écrit.\n Compétences complémentaires appréciées\n\n• Certification SAP CRM ou SAP Customer Experience.\n\n• Connaissances en sécurité applicative SAP, gestion des autorisations, traçabilité et auditabilité.\n\n• Expérience des solutions Middleware SAP et des projets d’intégration complexes CRM/S/4HANA.\n\n• Connaissance des approches Standard First , Low Code et Keep the Core Clean .\n\n• Expérience dans l’animation d’ateliers Fit-to-Standard.\n\n• Capacité à accompagner le changement et à assurer le transfert de connaissances.\n\n• Expérience dans un environnement fortement réglementé.",
+      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
       "descriptionByLocale": {
-        "it": "Contribuirai alla manutenzione, all'evoluzione e all'ottimizzazione delle soluzioni SAP CRM, garantendo l'affidabilità dei processi aziendali, la qualità dei dati e l'integrazione con SAP S/4HANA. Interverrete durante l'intero ciclo di vita dell'applicazione, dalle necessità di scoping al supporto di produzione, in un ambiente che richiede sicurezza, conformità e tracciabilità.\nLe vostre missioni\n\n• Fornire la manutenzione correttiva, scalabile e adattativa delle applicazioni SAP CRM, nonché il supporto operativo di livello 2 e 3.\n\n• Progettazione, configurazione ed evoluzione dei processi aziendali relativi ai servizi sociali, tra cui Social Service Management (SSM), Case Management e Gestione delle attività.\n\n• Intervento su SAP CRM WebUI e strati tecnici BOL/GENIL.\n\n• Gestire e garantire la coerenza dei dati di base, inclusi Master Data e Business Partners.\n\n• Progettare e mantenere le regole aziendali utilizzando SAP BRF+.\n\n• Assicurare interfacce e scambi robusti tra SAP CRM e SAP S/4HANA, in collaborazione con i team competenti.\n\n• Analizzare gli incidenti, identificare le cause principali e implementare soluzioni sostenibili.\n\n• Partecipa alle fasi di progettazione, sviluppo, test, distribuzione e produzione delle evoluzioni.\n\n• Assicurare qualità della documentazione, sicurezza delle applicazioni, tracciabilità e conformità delle soluzioni.\n\n• Lavorare con team tecnici e commerciali per ottimizzare i processi, i flussi di lavoro e i percorsi degli utenti.\n\n• Contribuisci al miglioramento continuo delle applicazioni e alla condivisione delle conoscenze.\n\n• Si giustificano almeno 7 anni di esperienza su SAP CRM, idealmente in ambienti complessi, critici e altamente integrati.\n\n• Si padroneggia SAP CRM WebUI così come i livelli BOL e GENIL.\n\n• Hai un'esperienza comprovata in Master Data / Business Partner, Case Management e Gestione delle Attività.\n\n• Conosci il modulo Social Service Management (SSM).\n\n• Padroneggiare SAP BRF+, compresa la configurazione di regole aziendali, funzioni, espressioni e tabelle decisionali.\n\n• Hai un'esperienza concreta di integrazioni tra SAP CRM e SAP S/4HANA.\n\n• Si padroneggiano le attività di manutenzione delle applicazioni, il supporto RUN e la risoluzione degli incidenti N2/N3.\n\n• Sei a tuo agio con strumenti Jira, ChaRM, SAP Solution Manager e Confluence.\n\n• Siete in grado di analizzare problemi complessi, documentare i vostri interventi e garantire le evoluzioni delle applicazioni.\n\n• Parli inglese fluentemente, sia orale che scritta.\nComplementari competenze apprezzate\n\n• Certificazione SAP CRM o SAP Customer Experience.\n\n• SAP applicazione conoscenza della sicurezza, gestione delle autorizzazioni, tracciabilità e verificabilità.\n\n• Esperienza con soluzioni SAP Middleware e complessi progetti di integrazione CRM/S/4HANA.\n\n• Conoscenza degli approcci Standard First, Low Code e Keep the Core Clean.\n\n• Esperienza in animazione di laboratori Fit-to-Standard.\n\n• Capacità di supportare il cambiamento e garantire il trasferimento della conoscenza.\n\n• Esperienza in un ambiente altamente regolamentato.",
-        "en": "You will contribute to the maintenance, evolution and optimization of SAP CRM solutions, ensuring the reliability of business processes, data quality and integration with SAP S/4HANA. You will intervene throughout the entire application life cycle, from scoping needs to production support, in an environment demanding safety, compliance and traceability.\nYour missions\n\n• Provide corrective, scalable and adaptive maintenance of SAP CRM applications, as well as level 2 and 3 operational support.\n\n• Design, configure and evolve the business processes related to social services, including Social Service Management (SSM), Case Management and Activity Management.\n\n• Intervention on SAP CRM WebUI and technical layers BOL/GENIL.\n\n• Manage and ensure consistency of baseline data, including Master Data and Business Partners.\n\n• Design and maintain business rules using SAP BRF+.\n\n• Ensure robust interfaces and exchanges between SAP CRM and SAP S/4HANA, in collaboration with relevant teams.\n\n• Analyze incidents, identify root causes and implement sustainable solutions.\n\n• Participate in the design, development, testing, deployment and production phases of the evolutions.\n\n• Ensure quality of documentation, application security, traceability and compliance of solutions.\n\n• Work with technical and trade teams to optimize user processes, workflows and pathways.\n\n• Contribute to continuous application improvement and knowledge sharing.\n\n• You justify at least 7 years of experience on SAP CRM, ideally in complex, critical and highly integrated environments.\n\n• You master SAP CRM WebUI as well as BOL and GENIL layers.\n\n• You have a proven experience in Master Data / Business Partner, Case Management and Activity Management.\n\n• You know the Social Service Management (SSM) module.\n\n• You master SAP BRF+, including the configuration of business rules, functions, expressions and decision tables.\n\n• You have a concrete experience of integrations between SAP CRM and SAP S/4HANA.\n\n• You master application maintenance activities, RUN support and N2/N3 incident resolution.\n\n• You are comfortable with Jira, ChaRM, SAP Solution Manager and Confluence tools.\n\n• You are able to analyze complex issues, document your interventions and secure application evolutions.\n\n• You speak English fluently, both oral and written.\nComplementary competences appreciated\n\n• SAP CRM or SAP Customer Experience certification.\n\n• SAP application security knowledge, authorization management, traceability and auditability.\n\n• Experience with Middleware SAP solutions and complex CRM/S/4HANA integration projects.\n\n• Knowledge of the approaches Standard First, Low Code and Keep the Core Clean.\n\n• Experience in animation of Fit-to-Standard workshops.\n\n• Ability to support change and ensure knowledge transfer.\n\n• Experience in a highly regulated environment.",
-        "de": "Sie tragen zur Wartung, Weiterentwicklung und Optimierung von SAP CRM-Lösungen bei und gewährleisten die Zuverlässigkeit von Geschäftsprozessen, Datenqualität und Integration mit SAP S/4HANA. Sie werden während des gesamten Anwendungslebenszyklus, vom Scoping-Bedürfnis bis zur Produktionsunterstützung, in einer Umgebung eingreifen, die Sicherheit, Compliance und Rückverfolgbarkeit erfordert.\nIhre Missionen\n\n• Korrektive, skalierbare und adaptive Wartung von SAP CRM-Anwendungen sowie operative Unterstützung auf Ebene 2 und 3.\n\n• Design, Konfiguration und Weiterentwicklung der Geschäftsprozesse im Zusammenhang mit sozialen Dienstleistungen, einschließlich Social Service Management (SSM), Case Management und Activity Management.\n\n• Eingriff in SAP CRM WebUI und technische Schichten BOL/GENIL.\n\n• Verwalten und gewährleisten Sie die Konsistenz von Basisdaten, einschließlich Master Data und Geschäftspartnern.\n\n• Entwerfen und Pflegen von Geschäftsregeln mit SAP BRF+.\n\n• Gewährleistung robuster Schnittstellen und des Austauschs zwischen SAP CRM und SAP S/4HANA in Zusammenarbeit mit relevanten Teams.\n\n• Analysieren Sie Vorfälle, identifizieren Sie Ursachen und implementieren Sie nachhaltige Lösungen.\n\n• Beteiligen Sie sich an der Design-, Entwicklungs-, Test-, Bereitstellungs- und Produktionsphase der Entwicklungen.\n\n• Gewährleistung der Qualität der Dokumentation, der Anwendungssicherheit, der Rückverfolgbarkeit und der Konformität der Lösungen.\n\n• Arbeiten Sie mit technischen und Handelsteams zusammen, um Benutzerprozesse, Workflows und Pfade zu optimieren.\n\n• Beitrag zur kontinuierlichen Verbesserung der Anwendung und zum Wissensaustausch.\n\n• Sie rechtfertigen mindestens 7 Jahre Erfahrung im SAP CRM, idealerweise in komplexen, kritischen und hochintegrierten Umgebungen.\n\n• Sie beherrschen SAP CRM WebUI sowie BOL und GENIL Schichten.\n\n• Sie haben eine nachgewiesene Erfahrung in Master Data / Business Partner, Case Management und Activity Management.\n\n• Sie kennen das Modul Social Service Management (SSM).\n\n• Sie beherrschen SAP BRF+, einschließlich der Konfiguration von Geschäftsregeln, Funktionen, Ausdrücken und Entscheidungstabellen.\n\n• Sie haben konkrete Erfahrungen mit Integrationen zwischen SAP CRM und SAP S/4HANA.\n\n• Sie beherrschen Wartungsaktivitäten für Anwendungen, RUN-Unterstützung und N2/N3-Incident-Resolution.\n\n• Sie sind mit Jira, ChaRM, SAP Solution Manager und Confluence Tools vertraut.\n\n• Sie können komplexe Probleme analysieren, Ihre Interventionen dokumentieren und Anwendungsentwicklungen sichern.\n\n• Sie sprechen fließend Englisch, sowohl mündlich als auch schriftlich.\nKomplementäre Kompetenzen geschätzt\n\n• SAP CRM oder SAP Customer Experience Zertifizierung.\n\n• SAP Application Security Know-how, Authorization Management, Traceability und Auditability.\n\n• Erfahrung mit Middleware SAP Lösungen und komplexen CRM/S/4HANA Integrationsprojekten.\n\n• Kenntnis der Ansätze Standard First, Low Code und Keep the Core Clean.\n\n• Erfahrung in der Animation von Fit-to-Standard Workshops.\n\n• Fähigkeit, Veränderungen zu unterstützen und den Wissenstransfer sicherzustellen.\n\n• Erfahrung in einem stark regulierten Umfeld.",
-        "fr": "Vous contribuerez à la maintenance, à l’évolution et à l’optimisation des solutions SAP CRM, en veillant à la fiabilité des processus métiers, à la qualité des données et à l’intégration avec SAP S/4HANA. Vous interviendrez sur l’ensemble du cycle de vie applicatif, du cadrage des besoins jusqu’au support en production, dans un environnement exigeant en matière de sécurité, de conformité et de traçabilité.\nVos missions\n\n• Assurer la maintenance corrective, évolutive et adaptative des applications SAP CRM, ainsi que le support opérationnel de niveaux 2 et 3.\n\n• Concevoir, paramétrer et faire évoluer les processus métiers liés aux prestations sociales, notamment autour du Social Service Management (SSM), du Case Management et de l’Activity Management.\n\n• Intervenir sur SAP CRM WebUI et les couches techniques BOL/GENIL.\n\n• Gérer et garantir la cohérence des données de référence, notamment les Master Data et les Business Partners.\n\n• Concevoir et maintenir les règles métier à l’aide de SAP BRF+.\n\n• Assurer la robustesse des interfaces et des échanges entre SAP CRM et SAP S/4HANA, en collaboration avec les équipes concernées.\n\n• Analyser les incidents, identifier les causes racines et mettre en œuvre des solutions pérennes.\n\n• Participer aux phases de conception, développement, tests, déploiement et mise en production des évolutions.\n\n• Garantir la qualité de la documentation, la sécurité applicative, la traçabilité et la conformité des solutions.\n\n• Collaborer avec les équipes techniques et métiers afin d’optimiser les processus, les workflows et les parcours utilisateurs.\n\n• Contribuer à l’amélioration continue des applications et au partage des connaissances.\n\n• Vous justifiez d’au moins 7 ans d’expérience sur SAP CRM , idéalement dans des environnements complexes, critiques et fortement intégrés.\n\n• Vous maîtrisez SAP CRM WebUI ainsi que les couches BOL et GENIL.\n\n• Vous disposez d’une expérience confirmée en Master Data / Business Partner, Case Management et Activity Management.\n\n• Vous connaissez le module Social Service Management (SSM).\n\n• Vous maîtrisez SAP BRF+, notamment la configuration des règles métier, des fonctions, des expressions et des tables de décision.\n\n• Vous avez une expérience concrète des intégrations entre SAP CRM et SAP S/4HANA.\n\n• Vous maîtrisez les activités de maintenance applicative, le support RUN et la résolution d’incidents N2/N3.\n\n• Vous êtes à l’aise avec les outils Jira, ChaRM, SAP Solution Manager et Confluence.\n\n• Vous êtes capable d’analyser des problématiques complexes, de documenter vos interventions et de sécuriser les évolutions applicatives.\n\n• Vous parlez français couramment , à l’oral comme à l’écrit.\nCompétences complémentaires appréciées\n\n• Certification SAP CRM ou SAP Customer Experience.\n\n• Connaissances en sécurité applicative SAP, gestion des autorisations, traçabilité et auditabilité.\n\n• Expérience des solutions Middleware SAP et des projets d’intégration complexes CRM/S/4HANA.\n\n• Connaissance des approches Standard First , Low Code et Keep the Core Clean .\n\n• Expérience dans l’animation d’ateliers Fit-to-Standard.\n\n• Capacité à accompagner le changement et à assurer le transfert de connaissances.\n\n• Expérience dans un environnement fortement réglementé."
+        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
+        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
+        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
+        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-28T21:17:44.134Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T13:35:09.147Z",
+      "postedDate": "2026-10-23T13:35:09.147Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "jobReqId": "744000157480029",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.471Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-d42380bfcb29",
+      "slug": "senior-crm-data-analista-luxury-retail-talan-lausanne",
+      "slugByLocale": {
+        "it": "senior-crm-data-analista-luxury-retail-talan-lausanne",
+        "en": "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland",
+        "de": "senior-crm-data-analyst-luxus-einzelhandel-talan-lausanne",
+        "fr": "senior-crm-data-analyste-luxury-retail-talan-lausanne"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Senior CRM Data Analyst – Luxury / Retail",
+      "titleByLocale": {
+        "it": "Senior CRM Data Analista – Luxury / Retail",
+        "en": "Senior CRM Data Analyst – Luxury / Retail",
+        "de": "Senior CRM Data Analyst – Luxus / Einzelhandel",
+        "fr": "Senior CRM Data Analyste – Luxury / Retail"
+      },
+      "description": "We are looking for an experienced Data Analyst CRM to leverage customer, marketing and sales data and turn it into meaningful, actionable business insights.\n The role requires strong analytical autonomy , from data extraction and transformation through to dashboard development and executive-level presentation of findings.\n The successful candidate will combine strong SQL and Power BI expertise with solid business understanding , ideally gained within the luxury, watchmaking, retail, CRM, marketing or sales analytics environment.\n Key Responsibilities\n Data Analysis & Business Insights\n\n• Analyse CRM, marketing and sales data to identify trends, performance drivers, opportunities and areas for improvement.\n\n• Translate complex and raw data into clear, reliable and actionable insights .\n\n• Support CRM strategy and commercial performance through data-driven recommendations.\n\n• Monitor and analyse key business KPIs.\n Reporting & Dashboards\n\n• Design, develop and maintain relevant Power BI dashboards and reports .\n\n• Build effective performance monitoring tools for business teams and senior management.\n\n• Ensure consistency, accuracy and reliability of reported KPIs.\n Data Extraction & Transformation\n\n• Retrieve, manipulate and structure data using SQL .\n\n• Perform data preparation, transformation and ad-hoc analyses.\n\n• Use Python for scripting and analytical purposes when required.\n\n• Ideally work with Databricks or a similar modern data platform.\n CRM Analytics\n\n• Leverage Salesforce data to analyse customer, sales and marketing performance.\n\n• Identify relevant customer behaviours, trends and business opportunities.\n\n• Apply CRM analytics to improve customer understanding and support commercial decision-making.\n Stakeholder Management\n\n• Work closely with CRM, Marketing, Sales and Business Analysis teams .\n\n• Understand business priorities and translate them into relevant analytical requirements.\n\n• Communicate findings clearly to both technical and non-technical stakeholders.\n Executive Presentations\n\n• Prepare concise, structured and impactful presentations for senior management and top-level stakeholders .\n\n• Present analytical findings and recommendations in a clear and business-oriented manner.\n\n• Create high-quality PowerPoint presentations to support strategic discussions and decision-making.\n End-to-End Ownership\n\n• Independently manage analytical assignments from data extraction and analysis through to dashboard delivery and presentation of findings .\n\n• Take ownership of deliverables and ensure high-quality outputs without requiring extensive supervision.\n\nMust-Have Skills\n\n• Proven experience in Data Analysis / Business Analytics , ideally within CRM, marketing or sales analytics.\n\n• Experience within luxury, watchmaking or retail , ideally combined with strong exposure to CRM, marketing or sales analytics .\n\n• Strong hands-on expertise in SQL .\n\n• Strong proficiency in Power BI , including the ability to independently develop dashboards and analytical solutions end-to-end.\n\n• Strong analytical mindset and ability to translate data into meaningful business insights .\n\n• High level of autonomy and ownership.\n\n• Excellent communication and presentation skills.\n\n• Ability to interact confidently with senior and top management stakeholders .\n\n• Fluent English , including the ability to deliver presentations in an international environment.\n Nice-to-Have Skills\n\n• Experience with Salesforce / CRM data .\n\n• Python for data analysis or scripting.\n\n• Experience with Databricks .\n\n• Strong PowerPoint and executive presentation skills.\n\n• Previous experience within luxury, watchmaking or retail .\n\n• Knowledge of customer analytics, marketing performance and sales performance .\n\n• French B2",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto Data Analyst CRM per sfruttare i dati del cliente, del marketing e delle vendite e trasformarlo in insight aziendali significativi e fattibili.\nIl ruolo richiede una forte autonomia analitica, dall'estrazione e dalla trasformazione dei dati fino allo sviluppo del cruscotto e alla presentazione dei risultati a livello esecutivo.\nIl candidato di successo combina forti competenze SQL e Power BI con solida comprensione aziendale, idealmente guadagnato all'interno del lusso, orologeria, vendita al dettaglio, CRM, marketing o ambiente di analisi di vendita.\nPrincipali responsabilità\nAnalisi dei dati e informazioni aziendali\n\n• Analizzare i dati CRM, marketing e vendite per identificare tendenze, driver di performance, opportunità e aree di miglioramento.\n\n• Traduci dati complessi e grezzi in chiari, affidabili e fattibili approfondimenti .\n\n• Supporta la strategia CRM e le prestazioni commerciali attraverso raccomandazioni basate sui dati.\n\n• Monitorare e analizzare i KPI aziendali chiave.\nReporting & Dashboards\n\n• Progettare, sviluppare e mantenere pertinenti dashboard e report Power BI .\n\n• Costruire strumenti di monitoraggio delle prestazioni efficaci per i team aziendali e la gestione senior.\n\n• Assicurare coerenza, precisione e affidabilità dei KPI segnalati.\nEstrazione e trasformazione dei dati\n\n• Recuperare, manipolare e strutturare i dati utilizzando SQL .\n\n• Eseguire la preparazione dei dati, la trasformazione e le analisi ad-hoc.\n\n• Utilizzare Python per la scrittura e scopi analitici quando necessario.\n\n• Idealmente lavorare con Databricks o una simile piattaforma di dati moderna.\nC. Analisi\n\n• Leva i dati di Salesforce per analizzare le prestazioni del cliente, delle vendite e del marketing.\n\n• Identificare comportamenti dei clienti rilevanti, tendenze e opportunità di business.\n\n• Applicare analisi CRM per migliorare la comprensione del cliente e sostenere il processo decisionale commerciale.\nGestione Stakeholder\n\n• Lavorare a stretto contatto con CRM, Marketing, Vendite e Business Analysis team .\n\n• Comprendere le priorità aziendali e tradurle in requisiti analitici rilevanti.\n\n• Comunicare i risultati chiaramente sia a soggetti tecnici che non tecnici.\nPresentazione esecutiva\n\n• Prepara presentazioni concise, strutturate e d'impatto per la gestione senior e gli stakeholder di alto livello.\n\n• Presenti risultati analitici e raccomandazioni in modo chiaro e orientato al business.\n\n• Crea presentazioni PowerPoint di alta qualità per supportare discussioni strategiche e processi decisionali.\nProprietà end-to-End\n\n• Gestire in modo indipendente le assegnazioni analitiche dall'estrazione e dall'analisi dei dati attraverso la consegna del cruscotto e la presentazione dei risultati .\n\n• Assumere la proprietà dei prodotti e garantire uscite di alta qualità senza richiedere una supervisione estesa.\n\nCompetenze\n\n• Provata esperienza nell'analisi dei dati / Business Analytics , idealmente all'interno di analisi CRM, marketing o vendite.\n\n• Esperienza all'interno di lusso, orologeria o vendita al dettaglio, idealmente combinata con una forte esposizione a CRM, marketing o analisi di vendita.\n\n• Forte esperienza pratica in SQL .\n\n• Forte competenza in Power BI , compresa la capacità di sviluppare autonomamente dashboard e soluzioni analitiche end-to-end.\n\n• Forte mentalità analitica e capacità di tradurre i dati in insight aziendali significativi.\n\n• Alto livello di autonomia e proprietà.\n\n• Ottima capacità di comunicazione e presentazione.\n\n• Capacità di interagire con fiducia con gli stakeholder senior e top management .\n\n• Fluent English , compresa la capacità di fornire presentazioni in un ambiente internazionale.\nCompetenze di Nizza-Ave\n\n• Esperienza con dati Salesforce / CRM .\n\n• Python per l'analisi dei dati o la scrittura.\n\n• Esperienza con Databricks .\n\n• Forte PowerPoint e capacità di presentazione executive.\n\n• Esperienza precedente all'interno di lusso, orologeria o vendita al dettaglio .\n\n• Conoscenza dell'analisi dei clienti, delle prestazioni di marketing e delle prestazioni di vendita .\n\n• Francese B2",
+        "en": "We are looking for an experienced Data Analyst CRM to leverage customer, marketing and sales data and turn it into meaningful, actionable business insights.\nThe role requires strong analytical autonomy , from data extraction and transformation through to dashboard development and executive-level presentation of findings.\nThe successful candidate will combine strong SQL and Power BI expertise with solid business understanding , ideally gained within the luxury, watchmaking, retail, CRM, marketing or sales analytics environment.\nKey Responsibilities\nData Analysis & Business Insights\n\n• Analyse CRM, marketing and sales data to identify trends, performance drivers, opportunities and areas for improvement.\n\n• Translate complex and raw data into clear, reliable and actionable insights .\n\n• Support CRM strategy and commercial performance through data-driven recommendations.\n\n• Monitor and analyse key business KPIs.\nReporting & Dashboards\n\n• Design, develop and maintain relevant Power BI dashboards and reports .\n\n• Build effective performance monitoring tools for business teams and senior management.\n\n• Ensure consistency, accuracy and reliability of reported KPIs.\nData Extraction & Transformation\n\n• Retrieve, manipulate and structure data using SQL .\n\n• Perform data preparation, transformation and ad-hoc analyses.\n\n• Use Python for scripting and analytical purposes when required.\n\n• Ideally work with Databricks or a similar modern data platform.\nCRM Analytics\n\n• Leverage Salesforce data to analyse customer, sales and marketing performance.\n\n• Identify relevant customer behaviours, trends and business opportunities.\n\n• Apply CRM analytics to improve customer understanding and support commercial decision-making.\nStakeholder Management\n\n• Work closely with CRM, Marketing, Sales and Business Analysis teams .\n\n• Understand business priorities and translate them into relevant analytical requirements.\n\n• Communicate findings clearly to both technical and non-technical stakeholders.\nExecutive Presentations\n\n• Prepare concise, structured and impactful presentations for senior management and top-level stakeholders .\n\n• Present analytical findings and recommendations in a clear and business-oriented manner.\n\n• Create high-quality PowerPoint presentations to support strategic discussions and decision-making.\nEnd-to-End Ownership\n\n• Independently manage analytical assignments from data extraction and analysis through to dashboard delivery and presentation of findings .\n\n• Take ownership of deliverables and ensure high-quality outputs without requiring extensive supervision.\n\nMust-Have Skills\n\n• Proven experience in Data Analysis / Business Analytics , ideally within CRM, marketing or sales analytics.\n\n• Experience within luxury, watchmaking or retail , ideally combined with strong exposure to CRM, marketing or sales analytics .\n\n• Strong hands-on expertise in SQL .\n\n• Strong proficiency in Power BI , including the ability to independently develop dashboards and analytical solutions end-to-end.\n\n• Strong analytical mindset and ability to translate data into meaningful business insights .\n\n• High level of autonomy and ownership.\n\n• Excellent communication and presentation skills.\n\n• Ability to interact confidently with senior and top management stakeholders .\n\n• Fluent English , including the ability to deliver presentations in an international environment.\nNice-to-Have Skills\n\n• Experience with Salesforce / CRM data .\n\n• Python for data analysis or scripting.\n\n• Experience with Databricks .\n\n• Strong PowerPoint and executive presentation skills.\n\n• Previous experience within luxury, watchmaking or retail .\n\n• Knowledge of customer analytics, marketing performance and sales performance .\n\n• French B2",
+        "de": "Wir suchen ein erfahrenes Data Analyst CRM, um Kunden-, Marketing- und Vertriebsdaten zu nutzen und sie in sinnvolle, umsetzbare Business Insights umzuwandeln.\nDie Rolle erfordert eine starke analytische Autonomie, von der Datenextraktion und -transformation bis hin zur Dashboard-Entwicklung und Präsentation der Ergebnisse auf Führungsebene.\nDer erfolgreiche Kandidat wird eine starke SQL- und Power BI-Expertise mit einem soliden Geschäftsverständnis kombinieren, das idealerweise in der Luxus-, Uhrmacher-, Einzelhandels-, CRM-, Marketing- oder Vertriebsanalyseumgebung erworben wird.\nWichtigste Zuständigkeiten\nDatenanalyse & Business Insights\n\n• Analysieren Sie CRM-, Marketing- und Vertriebsdaten, um Trends, Leistungstreiber, Chancen und Verbesserungsbereiche zu identifizieren.\n\n• Übersetzen Sie komplexe und Rohdaten in klare, zuverlässige und umsetzbare Erkenntnisse.\n\n• Unterstützung der CRM-Strategie und der kommerziellen Leistung durch datengesteuerte Empfehlungen.\n\n• Überwachung und Analyse der wichtigsten Business KPIs.\nReporting & Dashboards\n\n• Entwerfen, entwickeln und pflegen Sie relevante Power BI Dashboards und Berichte.\n\n• Erstellen Sie effektive Performance-Monitoring-Tools für Geschäftsteams und Führungskräfte.\n\n• Gewährleistung der Konsistenz, Genauigkeit und Zuverlässigkeit der gemeldeten KPIs.\nDatenextraktion & Transformation\n\n• Abrufen, Manipulieren und Strukturieren von Daten mit SQL.\n\n• Durchführung von Datenvorbereitung, Transformation und Ad-hoc-Analysen.\n\n• Verwenden Sie Python für Skript- und Analysezwecke, wenn erforderlich.\n\n• Idealerweise arbeiten Sie mit Databricks oder einer ähnlichen modernen Datenplattform.\nCRM Analytik\n\n• Nutzen Sie Salesforce-Daten, um die Leistung von Kunden, Vertrieb und Marketing zu analysieren.\n\n• Identifizieren Sie relevantes Kundenverhalten, Trends und Geschäftsmöglichkeiten.\n\n• Verwenden Sie CRM-Analysen, um das Kundenverständnis zu verbessern und die kommerzielle Entscheidungsfindung zu unterstützen.\nStakeholder-Management\n\n• Arbeiten Sie eng mit CRM-, Marketing-, Vertriebs- und Business-Analyse-Teams zusammen.\n\n• Verstehen Sie Geschäftsprioritäten und übersetzen Sie sie in relevante analytische Anforderungen.\n\n• Kommunizieren Sie die Ergebnisse sowohl an technische als auch an nichttechnische Interessengruppen.\nExecutive Presentations\n\n• Bereiten Sie prägnante, strukturierte und wirkungsvolle Präsentationen für die Geschäftsleitung und hochrangige Stakeholder vor.\n\n• Präsentieren Sie analytische Ergebnisse und Empfehlungen auf klare und geschäftsorientierte Weise.\n\n• Erstellen Sie hochwertige PowerPoint-Präsentationen, um strategische Diskussionen und Entscheidungen zu unterstützen.\nEnd-to-End-Eigentum\n\n• Verwalten Sie unabhängig analytische Zuordnungen von der Datenextraktion und -analyse bis hin zur Dashboard-Bereitstellung und -Präsentation von Ergebnissen.\n\n• Übernehmen Sie die Verantwortung für die zu erbringenden Leistungen und sorgen Sie für qualitativ hochwertige Ergebnisse, ohne dass eine umfangreiche Überwachung erforderlich ist.\n\nMust-Have Fähigkeiten\n\n• Nachgewiesene Erfahrung in Datenanalyse / Business Analytics, idealerweise in CRM, Marketing oder Sales Analytics.\n\n• Erfahrung in Luxus, Uhrmacherei oder Einzelhandel, ideal kombiniert mit einem starken Engagement in CRM, Marketing oder Sales Analytics.\n\n• Starke praktische Expertise in SQL.\n\n• Starke Kenntnisse in Power BI, einschließlich der Fähigkeit, Dashboards und analytische Lösungen unabhängig voneinander zu entwickeln.\n\n• Starke analytische Denkweise und Fähigkeit, Daten in sinnvolle Business Insights zu übersetzen.\n\n• Hohes Maß an Autonomie und Eigenverantwortung.\n\n• Hervorragende Kommunikation und Präsentation Fähigkeiten.\n\n• Fähigkeit zur vertrauensvollen Interaktion mit Senior- und Top-Management-Stakeholdern.\n\n• Fließendes Englisch, einschließlich der Fähigkeit, Präsentationen in einem internationalen Umfeld zu liefern.\nNice-to-Have Fähigkeiten\n\n• Erfahrung mit Salesforce / CRM-Daten.\n\n• Python für Datenanalyse oder Scripting.\n\n• Erfahrung mit Databricks.\n\n• Starke PowerPoint und Executive Präsentation Fähigkeiten.\n\n• Frühere Erfahrungen in Luxus, Uhrmacherei oder Einzelhandel.\n\n• Wissen über Customer Analytics, Marketing Performance und Sales Performance.\n\n• Französisch B2",
+        "fr": "Nous sommes à la recherche d'un CRM expérimenté d'analyste de données pour tirer parti des données sur les clients, le marketing et les ventes et les transformer en perspectives d'affaires significatives et réalisables.\nCe rôle exige une forte autonomie analytique, de l'extraction et de la transformation des données jusqu'à l'élaboration du tableau de bord et à la présentation des résultats au niveau de la direction.\nLe candidat retenu combinera une solide expertise SQL et Power BI avec une solide compréhension des affaires, idéalement acquise dans l'environnement de luxe, horlogerie, de détail, CRM, marketing ou d'analyse des ventes.\nPrincipales responsabilités\nAnalyse des données et perspectives d'affaires\n\n• Analyser les données sur la CRM, le marketing et les ventes afin d'identifier les tendances, les facteurs de performance, les possibilités et les domaines à améliorer.\n\n• Traduire des données complexes et brutes en informations claires, fiables et exploitables.\n\n• Appuyer la stratégie de CRM et la performance commerciale au moyen de recommandations axées sur les données.\n\n• Surveiller et analyser les principaux KPI d'affaires.\nRapports et tableaux de bord\n\n• Concevoir, développer et tenir à jour des tableaux de bord et des rapports Power BI pertinents.\n\n• Élaborer des outils efficaces de surveillance du rendement pour les équipes d'affaires et la haute direction.\n\n• Assurer la cohérence, l'exactitude et la fiabilité des ICR déclarés.\nExtraction et transformation des données\n\n• Récupérer, manipuler et structurer les données en utilisant SQL .\n\n• Effectuer la préparation des données, la transformation et les analyses ad hoc.\n\n• Utilisez Python à des fins de script et d'analyse au besoin.\n\n• Idéalement travailler avec Databricks ou une plate-forme de données moderne similaire.\nCRM Analyse\n\n• Tirer parti des données Salesforce pour analyser les performances client, ventes et marketing.\n\n• Déterminer les comportements, les tendances et les occasions d'affaires des clients.\n\n• Appliquer l'analyse CRM pour améliorer la compréhension des clients et soutenir la prise de décision commerciale.\nGestion des parties prenantes\n\n• Travailler en étroite collaboration avec les équipes CRM, Marketing, Ventes et Analyse d'affaires .\n\n• Comprendre les priorités opérationnelles et les traduire en exigences analytiques pertinentes.\n\n• Communiquer clairement les conclusions aux intervenants techniques et non techniques.\nExposés exécutifs\n\n• Préparer des présentations concises, structurées et pertinentes pour la haute direction et les intervenants de haut niveau.\n\n• Présenter les conclusions et recommandations analytiques de façon claire et axée sur les activités.\n\n• Créer des présentations PowerPoint de haute qualité pour appuyer les discussions stratégiques et la prise de décisions.\nPropriété de bout en bout\n\n• Gérer indépendamment les tâches d'analyse de l'extraction et de l'analyse des données jusqu'au tableau de bord et présenter les résultats .\n\n• S'approprier les produits livrables et assurer des produits de haute qualité sans exiger de supervision approfondie.\n\nCompétences requises\n\n• Expérience éprouvée en analyse de données / Analyse d'affaires , idéalement dans le CRM, le marketing ou l'analyse de ventes.\n\n• Expérience dans le luxe, l'horlogerie ou la vente au détail, idéalement combiné avec une forte exposition à la CRM, le marketing ou l'analyse des ventes.\n\n• Une solide expertise pratique en SQL .\n\n• Forte compétence en Power BI , y compris la capacité de développer indépendamment des tableaux de bord et des solutions analytiques de bout en bout.\n\n• Forte capacité d'analyse et d'analyse pour traduire les données en données utiles .\n\n• Niveau élevé d'autonomie et de propriété.\n\n• Excellentes compétences en communication et présentation.\n\n• Capacité d'interagir avec confiance avec les intervenants des cadres supérieurs et supérieurs.\n\n• Anglais fluide , y compris la capacité de présenter des présentations dans un environnement international .\nBonnes compétences\n\n• Expérience avec les données Salesforce / CRM .\n\n• Python pour l'analyse de données ou le script.\n\n• Expérience avec Databricks .\n\n• Fortes compétences en présentation PowerPoint et cadre.\n\n• Expérience antérieure dans le luxe, l'horlogerie ou le détail.\n\n• Connaissance de l'analyse client, performance marketing et performance commerciale.\n\n• Français B2"
       },
       "location": "Lausanne, VD, Switzerland",
       "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000158237969-senior-crm-data-analyst-luxury-retail?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:16:42.398Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-28T21:17:44.124Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -995,25 +914,28 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-15T16:32:05.129Z",
-      "postedDate": "2026-10-15T16:32:05.129Z",
+      "datePosted": "2026-10-28T09:13:35.331Z",
+      "postedDate": "2026-10-28T09:13:35.331Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
-      "jobReqId": "744000155806134",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000158237969-senior-crm-data-analyst-luxury-retail?oga=true",
+      "jobReqId": "744000158237969",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+        "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+          "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
         ],
         "de": [
-          "consultant-e-technico-fonctionnel-sap-crm-senior-talan-lausanne-vd-switzerland"
+          "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
+        ],
+        "fr": [
+          "senior-crm-data-analyst-luxury-retail-talan-lausanne-vd-switzerland"
         ]
       },
-      "firstSeenAt": "2026-10-15T21:16:17.863Z",
+      "firstSeenAt": "2026-10-28T09:17:49.956Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -1026,88 +948,7 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "talan-1ab717d8d693",
-      "slug": "solution-architetto-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "solution-architetto-talan-geneve-switzerland",
-        "en": "solution-architect-talan-geneve-switzerland",
-        "de": "architektenlosung-talan-geneve-switzerland",
-        "fr": "solution-architect-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Solution Architect",
-      "titleByLocale": {
-        "it": "Solution Architetto",
-        "en": "Architect Solution",
-        "de": "Architektenlösung",
-        "fr": "Solution Architect"
-      },
-      "description": "Dans le cadre d’un programme majeur de transformation et de modernisation de son système d’information, notre client, acteur de référence de la Banque, renforce sa pratique Enterprise Solution Architecture .\n Nous recherchons un Solution Architect Senior capable de concevoir les architectures cibles, d’accompagner les équipes IT et métiers et de contribuer à la modernisation des plateformes vers des environnements Cloud, DevOps et API-driven .\n Vos responsabilités\n\n• Traduire les besoins métiers en solutions IT scalables, fiables, sécurisées et résilientes .\n\n• Définir les architectures fonctionnelles et techniques cibles et accompagner leur mise en œuvre.\n\n• Apporter un leadership technique aux équipes de développement et les accompagner dans les transformations DevOps, Cloud privé/public et containerisation .\n\n• Guider les Project Managers et équipes métiers vers l'architecture fonctionnelle cible.\n\n• Collaborer avec de nombreuses parties prenantes : Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture et équipes IT Delivery .\n\n• Assurer la cohérence des solutions avec les standards d’architecture d’entreprise.\n\n• Maintenir la documentation d’architecture et le référentiel Enterprise Architecture : Confluence, My-Carto , documentation de Solution Design.\n\n• Accompagner les initiatives de modernisation et l’intégration de technologies émergentes, notamment IA, Machine Learning et Blockchain .\n\n• Bachelor ou Master en informatique, IT ou domaine équivalent .\n\n• 5 à 10 ans d’expérience comme Solution Architect et/ou Tech Lead.\n\n• Solide expérience dans le Private Banking suisse et international .\n\n• Bonne compréhension fonctionnelle d’un ou plusieurs domaines :\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Capacité à travailler aussi bien avec les équipes métiers qu’avec les experts techniques et les fonctions de contrôle.\n\n• Excellente capacité à fédérer des équipes transverses autour d’une architecture cible.\n Compétences techniques\n Architecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• Architecture orientée API / BUS\n\n• Cloud privé et public\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\n Sécurité\n\n• Security by Design\n\n• Zero Trust\n Développement\n\n• Java\n\n• .NET\n\n• JavaScript / Vue.js\n\n• Python\n Bases de données\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\n DevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Approches Agile et Waterfall\n\n• Specification-driven development\n Technologies émergentes\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain",
-      "descriptionByLocale": {
-        "it": "Nell'ambito di un programma importante per trasformare e modernizzare il suo sistema informativo, il nostro cliente, il giocatore di riferimento della Banca, sta rafforzando la sua pratica Enterprise Solution Architecture.\nSiamo alla ricerca di una soluzione Senior Architect in grado di progettare architetture mirate, supportare team IT e business e contribuire alla modernizzazione delle piattaforme in ambienti cloud, DevOps e API-driven.\nLe tue responsabilità\n\n• Tradurre le esigenze aziendali in soluzioni IT scalabili, affidabili, sicure e resilienti.\n\n• Definire e supportare l'implementazione di architetture funzionali e tecniche di destinazione.\n\n• Fornire leadership tecnica ai team di sviluppo e supportarli nelle trasformazioni DevOps, Private/Public Cloud e Containerization.\n\n• Guidare i project manager e i team aziendali per individuare l'architettura funzionale.\n\n• Collabora con molti stakeholder: Sicurezza, Gestione dei dati, Resilienza Operativa, Protezione dei dati, Legale, Compliance, Architettura e IT Delivery team.\n\n• Assicurare la coerenza delle soluzioni con gli standard di architettura aziendale.\n\n• Mantenere la documentazione di architettura e il repository Enterprise Architecture: Confluence, My-Carto, Solution Design documentazione.\n\n• Supporta iniziative per modernizzare e integrare le tecnologie emergenti, tra cui IA, Machine Learning e Blockchain.\n\n• Bachelor o Master in Computer, IT o equivalente.\n\n• da 5 a 10 anni di esperienza come Solution Architect e/o Tech Lead.\n\n• Forte esperienza nel Private Banking svizzero e internazionale .\n\n• Buona comprensione funzionale di una o più aree:\n• Gestione della ricchezza\n\n• Gestione delle risorse\n\n• Trading\n\n• Tesoro\n\n• Back Office / Operazioni\n\n• Capacità di lavorare sia con team commerciali che con esperti tecnici e funzioni di controllo.\n\n• Ottima capacità di unire squadre trasversali intorno a un'architettura di destinazione.\nCompetenza tecnica\nArchitettura e infrastrutture\n\n• Architettura aziendale / Open Service Architecture\n\n• API / BUS architettura orientata\n\n• cloud privato e pubblico\n\n• Bare Metal, VMware ESX / vCenter\n\n• Macchine virtuali\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\nSicurezza\n\n• Sicurezza per Design\n\n• Zero Trust\nSviluppo\n\n• Java\n\n• .NET\n\n• JavaScript / View.js\n\n• Python\nDatabases\n\n• Oracle\n\n• Server SQL Server\n\n• Mongoli\n\n• Ricerca elastica\nDevOps\n\n• Azure DevOps\n\n• Gi\n\n• GitHub Copilota\n\n• Approcci Agile e Cascata\n\n• Sviluppo guidato da specifiche\nTecnologie emergenti\n\n• Intelligenza artificiale / apprendimento automatico\n\n• Blockchain",
-        "en": "As part of a major programme to transform and modernize its information system, our client, the Bank's reference player, is strengthening its Enterprise Solution Architecture practice.\nWe are looking for a Senior Architect Solution capable of designing target architectures, supporting IT and business teams and contributing to the modernization of platforms to Cloud, DevOps and API-driven environments.\nYour Responsibilities\n\n• Translate business needs into scalable, reliable, secure and resilient IT solutions.\n\n• Define and support the implementation of target functional and technical architectures.\n\n• Provide technical leadership to development teams and support them in DevOps, Private/Public Cloud and Containerization transformations.\n\n• Guide project managers and business teams to target functional architecture.\n\n• Collaborate with many stakeholders: Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture and IT Delivery teams.\n\n• Ensure consistency of solutions with business architecture standards.\n\n• Maintain the architecture documentation and the Enterprise Architecture repository: Confluence, My-Carto , Solution Design documentation.\n\n• Support initiatives to modernize and integrate emerging technologies, including IA, Machine Learning and Blockchain.\n\n• Bachelor or Master in Computer, IT or equivalent.\n\n• 5 to 10 years of experience as Solution Architect and/or Tech Lead.\n\n• Strong experience in Swiss and international Private Banking .\n\n• Good functional understanding of one or more areas:\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Ability to work with both trade teams and technical experts and control functions.\n\n• Excellent ability to unite transversal teams around a target architecture.\nTechnical expertise\nArchitecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• API / BUS oriented architecture\n\n• Private and public cloud\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\nSecurity\n\n• Security by Design\n\n• Zero Trust\nDevelopment\n\n• Java\n\n• .NET\n\n• JavaScript / View.js\n\n• Python\nDatabases\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\nDevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Agile and Waterfall approaches\n\n• Specification-driven development\nEmerging technologies\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain",
-        "de": "Als Teil eines großen Programms zur Transformation und Modernisierung seines Informationssystems stärkt unser Kunde, der Referenzakteur der Bank, seine Praxis der Enterprise Solution Architecture.\nWir suchen nach einer Senior Architect Solution, die in der Lage ist, Zielarchitekturen zu entwerfen, IT- und Geschäftsteams zu unterstützen und zur Modernisierung von Plattformen für Cloud-, DevOps- und API-basierte Umgebungen beizutragen.\nIhre Aufgaben\n\n• Übersetzen Sie Geschäftsanforderungen in skalierbare, zuverlässige, sichere und belastbare IT-Lösungen.\n\n• Definieren und unterstützen Sie die Implementierung von funktionalen und technischen Zielarchitekturen.\n\n• Bieten Sie Entwicklungsteams technische Führung und unterstützen Sie sie bei DevOps, Private/Public Cloud und Containerization Transformationen.\n\n• Führen Sie Projektmanager und Geschäftsteams an, um eine funktionale Architektur anzuvisieren.\n\n• Arbeiten Sie mit vielen Stakeholdern zusammen: Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture und IT Delivery Teams.\n\n• Gewährleistung der Konsistenz der Lösungen mit den Standards der Unternehmensarchitektur.\n\n• Pflegen Sie die Architekturdokumentation und das Enterprise Architecture Repository: Confluence, My-Carto, Solution Design Dokumentation.\n\n• Unterstützung von Initiativen zur Modernisierung und Integration neuer Technologien, einschließlich IA, Machine Learning und Blockchain.\n\n• Bachelor oder Master in Computer, IT oder gleichwertig.\n\n• 5 bis 10 Jahre Erfahrung als Solution Architect und/oder Tech Lead.\n\n• Starke Erfahrung im Schweizer und internationalen Private Banking.\n\n• Gutes funktionales Verständnis eines oder mehrerer Bereiche:\n• Vermögensverwaltung\n\n• Vermögensverwaltung\n\n• Handel\n\n• Schatzamt\n\n• Back Office / Operations\n\n• Fähigkeit, sowohl mit Handelsteams als auch mit technischen Experten und Kontrollfunktionen zu arbeiten.\n\n• Hervorragende Fähigkeit, transversale Teams um eine Zielarchitektur zu vereinen.\nTechnische Expertise\nArchitektur und Infrastruktur\n\n• Enterprise Architecture / Open Service Architektur\n\n• API / BUS orientierte Architektur\n\n• Private und Public Cloud\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtuelle Maschinen\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\nSicherheit\n\n• Sicherheit durch Design\n\n• Zero Trust\nEntwicklung\n\n• Java\n\n• .NET\n\n• JavaScript / View.js\n\n• Python\nDatenbanken\n\n• Orakel\n\n• SQL Server\n\n• MongoDB\n\n• Elastische Suche\nDevOps\n\n• Azure DevOps\n\n• Gips\n\n• GitHub Copilot\n\n• Agile und Waterfall Ansätze\n\n• Spezifikationsgetriebene Entwicklung\nNeue Technologien\n\n• Künstliche Intelligenz / Machine Learning\n\n• Blockchain",
-        "fr": "Dans le cadre d’un programme majeur de transformation et de modernisation de son système d’information, notre client, acteur de référence de la Banque, renforce sa pratique Enterprise Solution Architecture .\nNous recherchons un Solution Architect Senior capable de concevoir les architectures cibles, d’accompagner les équipes IT et métiers et de contribuer à la modernisation des plateformes vers des environnements Cloud, DevOps et API-driven .\nVos responsabilités\n\n• Traduire les besoins métiers en solutions IT scalables, fiables, sécurisées et résilientes .\n\n• Définir les architectures fonctionnelles et techniques cibles et accompagner leur mise en œuvre.\n\n• Apporter un leadership technique aux équipes de développement et les accompagner dans les transformations DevOps, Cloud privé/public et containerisation .\n\n• Guider les Project Managers et équipes métiers vers l'architecture fonctionnelle cible.\n\n• Collaborer avec de nombreuses parties prenantes : Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture et équipes IT Delivery .\n\n• Assurer la cohérence des solutions avec les standards d’architecture d’entreprise.\n\n• Maintenir la documentation d’architecture et le référentiel Enterprise Architecture : Confluence, My-Carto , documentation de Solution Design.\n\n• Accompagner les initiatives de modernisation et l’intégration de technologies émergentes, notamment IA, Machine Learning et Blockchain .\n\n• Bachelor ou Master en informatique, IT ou domaine équivalent .\n\n• 5 à 10 ans d’expérience comme Solution Architect et/ou Tech Lead.\n\n• Solide expérience dans le Private Banking suisse et international .\n\n• Bonne compréhension fonctionnelle d’un ou plusieurs domaines :\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Capacité à travailler aussi bien avec les équipes métiers qu’avec les experts techniques et les fonctions de contrôle.\n\n• Excellente capacité à fédérer des équipes transverses autour d’une architecture cible.\nCompétences techniques\nArchitecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• Architecture orientée API / BUS\n\n• Cloud privé et public\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\nSécurité\n\n• Security by Design\n\n• Zero Trust\nDéveloppement\n\n• Java\n\n• .NET\n\n• JavaScript / Vue.js\n\n• Python\nBases de données\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\nDevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Approches Agile et Waterfall\n\n• Specification-driven development\nTechnologies émergentes\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain"
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000156838401-solution-architect?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-27T21:16:42.394Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-21T15:28:57.106Z",
-      "postedDate": "2026-10-21T15:28:57.106Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000156838401-solution-architect?oga=true",
-      "jobReqId": "744000156838401",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "solution-architect-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-talan-geneve-switzerland"
-        ],
-        "de": [
-          "solution-architect-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:14:53.446Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
