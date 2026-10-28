@@ -129,10 +129,14 @@ export default function SignupPromptModal({
       else await submitDefaultEmail(trimmed);
       await onEmailRequested?.(trimmed);
       setEmailStatus('sent');
-      Analytics.trackEvent(
-        isFollow ? 'company_follow_prompt_email_sent' : isAlert ? 'job_alert_auth_prompt_email_sent' : 'save_signin_prompt_email_sent',
-        { intent },
-      );
+      if (isAlert) {
+        Analytics.trackJobAlertAuthHandoff('job_board_filters', 'email_requested', keywordLabel);
+      } else {
+        Analytics.trackEvent(
+          isFollow ? 'company_follow_prompt_email_sent' : 'save_signin_prompt_email_sent',
+          { intent },
+        );
+      }
     } catch (error) {
       reportCaughtError(error, `signupPrompt.${intent}.emailSubmit`);
       onEmailError?.(error);

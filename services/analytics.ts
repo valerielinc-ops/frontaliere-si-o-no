@@ -2930,10 +2930,12 @@ export const Analytics = {
   */
  trackJobAlertAuthHandoff: (
   surface: 'inline_card' | 'job_detail_button' | 'job_detail_anonymous' | 'job_board_filters' | 'end_card' | 'sticky_banner' | 'saved_jobs_nudge' | 'post_auth_auto',
-  stage: 'pending_saved' | 'prompt_shown' | 'dismissed' | 'replay_started' | 'replay_succeeded' | 'replay_failed',
+  stage: 'pending_saved' | 'prompt_shown' | 'email_requested' | 'dismissed' | 'replay_started' | 'replay_succeeded' | 'replay_failed',
   keyword?: string,
  ) => {
-  log('job_alert_auth_handoff', {
+  // This diagnostic is new measurement, so keep it Firebase/GA4-only. The
+  // generic `log` helper mirrors new events to the historical PostHog stream.
+  logFirebaseOnly('job_alert_auth_handoff', {
    cta_surface: surface,
    auth_stage: stage,
    cta_keyword: redactPersonalData(keyword || '', { inferNamesFromCapitalisation: false }).text.slice(0, 80),
