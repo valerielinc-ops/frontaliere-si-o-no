@@ -1,7 +1,7 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-10-27T09:56:42.158Z",
-  "runId": "40480273606",
+  "assembledAt": "2026-10-27T21:41:42.848Z",
+  "runId": "40586406642",
   "jobs": [
     {
       "id": "six-group-6383d5dc71c2",
@@ -34,7 +34,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Test-Engineer-%2880-100%29/1443323233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:56:34.918Z",
+      "crawledAt": "2026-10-27T21:41:35.040Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Specialist-Settlement-%2880%29/1391925233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:56:34.342Z",
+      "crawledAt": "2026-10-27T21:41:34.345Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Payment-Specialist-%2880-100%29/1422930133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:56:29.959Z",
+      "crawledAt": "2026-10-27T21:41:32.728Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -215,6 +215,138 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "six-group-b01eef4d68e2",
+      "slug": "senior-requirements-engineer-80-100-six-group-zurich",
+      "slugByLocale": {
+        "it": "senior-requirements-engineer-80-100-six-group-zurich",
+        "en": "senior-requirements-engineer-80-100-six-group-zurich",
+        "de": "senior-requirements-engineer-80-100-six-group-zurich",
+        "fr": "senior-requirements-engineer-80-100-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Senior Requirements Engineer (80-100%)",
+      "titleByLocale": {
+        "it": "Senior Requirements Ingegnere (80-100%)",
+        "en": "Senior Requirements Engineer (80-100%)",
+        "de": "Senior Requirements Ingenieur (80-100%)",
+        "fr": "Senior Requirements Ingénieur (80-100%)"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Requirements Engineer (80-100%)\n\nZurich |  Working from home up to 40% possible | Reference 8304\n\nDo you want to turn complex business needs into clear requirements that improve financial index services and enable smarter delivery?\n\nOur Index team in Zurich and India develops platforms for creating, calculating, and distributing financial indices, connecting data, engineering, and financial markets.\n\nAs a Senior Requirements Engineer, you will align business and technology stakeholders, define clear processes and specifications, and support specification-driven, AI-enabled delivery.\n\n`\n\nWhat You Will Do\n\n• Define clear end-to-end processes and requirements with business, product, engineering, architecture, and QA.\n\n• Translate complex needs into practical specifications, process models, acceptance criteria, and documentation.\n\n• Manage requirements from discovery to delivery, including scope, dependencies, business rules, changes, and traceability.\n\n• Embed quality, security, testability, and operational needs early through a shift-left approach.\n\n• Support specification-driven and AI-assisted delivery while simplifying and automating processes.\n\nWhat You Bring\n\n• Experience defining and managing requirements for complex digital products or platforms, including process models, business rules, acceptance criteria, and traceability.\n\n• Strong communication and facilitation skills across business, product, operations, engineering, architecture, QA, and security.\n\n• Structured analytical thinking to resolve ambiguity, assess impacts and dependencies, and create practical specifications.\n\n• Experience with shift-left practices, including quality, security, testability, and non-functional requirements.\n\n• Curiosity, quick domain learning, and a relevant degree or equivalent experience; fluent English, with German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di requisiti senior (80-100%)\n\nZurigo | Lavorare da casa fino al 40% possibile | Riferimento 8304\n\nVuoi trasformare le esigenze aziendali complesse in requisiti chiari che migliorano i servizi di indice finanziario e consentono una consegna più intelligente?\n\nIl nostro team Index di Zurigo e India sviluppa piattaforme per la creazione, il calcolo e la distribuzione di indici finanziari, la connessione di dati, ingegneria e mercati finanziari.\n\nCome Ingegnere di Requisiti Senior, allineerai le parti interessate di business e tecnologia, definirai processi e specifiche chiare e supporterai la consegna guidata dalle specifiche AI.\n\n`\n\nCosa farai\n\n• Definire chiari processi e requisiti end-to-end con business, prodotto, ingegneria, architettura e QA.\n\n• Traduci esigenze complesse in specifiche pratiche, modelli di processo, criteri di accettazione e documentazione.\n\n• Gestisci i requisiti dalla scoperta alla consegna, tra cui portata, dipendenze, regole aziendali, modifiche e tracciabilità.\n\n• Embed qualità, sicurezza, testabilità e esigenze operative presto attraverso un approccio a sinistra.\n\n• Supporta la consegna guidata da specifiche e assistita da AI, semplificando e automatizzando i processi.\n\nChe cosa porta\n\n• Scopri i requisiti di definizione e gestione di prodotti o piattaforme digitali complessi, inclusi modelli di processo, regole aziendali, criteri di accettazione e tracciabilità.\n\n• Forte capacità di comunicazione e facilitazione attraverso business, prodotto, operazioni, ingegneria, architettura, QA e sicurezza.\n\n• Il pensiero analitico strutturato per risolvere l'ambiguità, valutare gli impatti e le dipendenze e creare specifiche pratiche.\n\n• Esperienza con pratiche a turni, tra cui qualità, sicurezza, testabilità e requisiti non funzionali.\n\n• Curiosità, apprendimento a dominio rapido e un'esperienza di grado o equivalente rilevante; inglese fluente, con tedesco come un plus.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Requirements Engineer (80-100%)\n\nZurich | Working from home up to 40% possible | Reference 8304\n\nDo you want to turn complex business needs into clear requirements that improve financial index services and enable smarter delivery?\n\nOur Index team in Zurich and India develops platforms for creating, calculating, and distributing financial indices, connecting data, engineering, and financial markets.\n\nAs a Senior Requirements Engineer, you will align business and technology stakeholders, define clear processes and specifications, and support specification-driven, AI-enabled delivery.\n\n`\n\nWhat You Will Do\n\n• Define clear end-to-end processes and requirements with business, product, engineering, architecture, and QA.\n\n• Translate complex needs into practical specifications, process models, acceptance criteria, and documentation.\n\n• Manage requirements from discovery to delivery, including scope, dependencies, business rules, changes, and traceability.\n\n• Embed quality, security, testability, and operational needs early through a shift-left approach.\n\n• Support specification-driven and AI-assisted delivery while simplifying and automating processes.\n\nWhat You Bring\n\n• Experience defining and managing requirements for complex digital products or platforms, including process models, business rules, acceptance criteria, and traceability.\n\n• Strong communication and facilitation skills across business, product, operations, engineering, architecture, QA, and security.\n\n• Structured analytical thinking to resolve ambiguity, assess impacts and dependencies, and create practical specifications.\n\n• Experience with shift-left practices, including quality, security, testability, and non-functional requirements.\n\n• Curiosity, quick domain learning, and a relevant degree or equivalent experience; fluent English, with German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSenior Requirements Engineer (80-100%)\n\nZürich | Arbeiten von zu Hause bis zu 40% möglich | Referenz 8304\n\nMöchten Sie komplexe Geschäftsanforderungen in klare Anforderungen umwandeln, die Finanzindexdienstleistungen verbessern und eine intelligentere Lieferung ermöglichen?\n\nUnser Index-Team in Zürich und Indien entwickelt Plattformen für die Erstellung, Berechnung und Verteilung von Finanzindizes, die Verknüpfung von Daten, Engineering und Finanzmärkten.\n\nAls Senior Requirements Engineer richten Sie Geschäfts- und Technologieakteure zusammen, definieren klare Prozesse und Spezifikationen und unterstützen eine spezifikationsgesteuerte, KI-fähige Bereitstellung.\n\n`\n\nWas Sie tun werden\n\n• Definieren Sie klare End-to-End-Prozesse und -Anforderungen mit Business, Produkt, Engineering, Architektur und QA.\n\n• Übersetzen Sie komplexe Anforderungen in praktische Spezifikationen, Prozessmodelle, Akzeptanzkriterien und Dokumentation.\n\n• Verwalten Sie Anforderungen von der Entdeckung bis zur Lieferung, einschließlich Umfang, Abhängigkeiten, Geschäftsregeln, Änderungen und Rückverfolgbarkeit.\n\n• Betten Sie Qualität, Sicherheit, Testbarkeit und betriebliche Anforderungen frühzeitig durch einen Shift-left-Ansatz ein.\n\n• Unterstützen Sie die spezifikationsgesteuerte und KI-gestützte Bereitstellung bei gleichzeitiger Vereinfachung und Automatisierung von Prozessen.\n\nWas du mitbringst\n\n• Erfahrung in der Definition und Verwaltung von Anforderungen für komplexe digitale Produkte oder Plattformen, einschließlich Prozessmodellen, Geschäftsregeln, Akzeptanzkriterien und Rückverfolgbarkeit.\n\n• Starke Kommunikations- und Erleichterungskompetenzen in den Bereichen Business, Produkt, Operations, Engineering, Architektur, QA und Sicherheit.\n\n• Strukturiertes analytisches Denken, um Mehrdeutigkeiten zu lösen, Auswirkungen und Abhängigkeiten zu bewerten und praktische Spezifikationen zu erstellen.\n\n• Erfahrung mit Shift-left-Praktiken, einschließlich Qualität, Sicherheit, Testbarkeit und nicht-funktionalen Anforderungen.\n\n• Neugier, schnelles Domain-Lernen und ein relevanter Abschluss oder gleichwertige Erfahrung; fließend Englisch, mit Deutsch als Plus.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur principal des besoins (80-100%)\n\nZurich: travail à domicile jusqu'à 40 % possible.\n\nVoulez-vous transformer les besoins opérationnels complexes en exigences claires qui améliorent les services d'indice financier et permettent une prestation plus intelligente?\n\nNotre équipe Index à Zurich et en Inde développe des plateformes pour créer, calculer et distribuer des indices financiers, connecter les données, l'ingénierie et les marchés financiers.\n\nEn tant qu'ingénieur principal des exigences, vous alignerez les intervenants en affaires et en technologie, définirez des processus et des spécifications clairs, et supporterez la prestation axée sur les spécifications, compatible avec l'IA.\n\n`\n\nCe que vous ferez\n\n• Définir clairement les processus et les exigences de bout en bout avec les activités, les produits, l'ingénierie, l'architecture et l'AQ.\n\n• Traduire les besoins complexes en spécifications pratiques, modèles de processus, critères d'acceptation et documentation.\n\n• Gérer les exigences de la découverte à la livraison, y compris la portée, les dépendances, les règles opérationnelles, les changements et la traçabilité.\n\n• Intégrer la qualité, la sécurité, la testabilité et les besoins opérationnels dès le début par une approche à gauche.\n\n• Soutenir la prestation axée sur les spécifications et l'aide à l'IA tout en simplifiant et en automatisant les processus.\n\nCe que vous apportez\n\n• Expérience en matière de définition et de gestion des exigences pour les produits ou plateformes numériques complexes, y compris les modèles de processus, les règles d'affaires, les critères d'acceptation et la traçabilité.\n\n• Fortes compétences en communication et en facilitation dans les domaines des affaires, des produits, des opérations, de l'ingénierie, de l'architecture, de l'AQ et de la sécurité.\n\n• Une réflexion analytique structurée pour résoudre l'ambiguïté, évaluer les impacts et les dépendances et créer des spécifications pratiques.\n\n• Expérience des pratiques de déplacement à gauche, y compris la qualité, la sécurité, la testabilité et les exigences non fonctionnelles.\n\n• Curiosité, apprentissage rapide du domaine, et un diplôme pertinent ou une expérience équivalente; anglais couramment, avec l'allemand comme un plus.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Senior-Requirements-Engineer-%2880-100%29/1443871133/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-27T21:41:32.066Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T00:00:00Z",
+      "postedDate": "2026-10-02T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1443871133/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-30T21:34:42.710Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "six-group-ebc759fb7566",
+      "slug": "senior-software-engineer-data-six-group-zurich",
+      "slugByLocale": {
+        "it": "senior-software-engineer-data-six-group-zurich",
+        "en": "senior-software-engineer-data-six-group-zurich",
+        "de": "senior-software-engineer-data-six-group-zurich",
+        "fr": "senior-software-engineer-data-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Senior Software Engineer - Data",
+      "titleByLocale": {
+        "it": "Senior Software Ingegnere - Data",
+        "en": "Senior Software Engineer - Data",
+        "de": "Senior Software Ingenieur - Data",
+        "fr": "Senior Software Ingénieur - Data"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Software Engineer - Data\n\nZurich |  Working from home 40% possible | Reference 8303\n\nDo you want to build reliable, data-intensive systems that power financial index services? Our distributed Index team is based in Zurich and India, where data, engineering, and financial markets come together.\n\nAs a Senior Software Engineer focused on data, you will develop Python-based pipelines and services and take end-to-end ownership of market, reference, configuration, and index data. Working with engineering, product, architecture, QA, and SRE teams, you will ensure accurate, traceable, and resilient processing from ingestion to distribution.\n\nWhat You Will Do\n\n• Design, build, and operate Python-based data pipelines and services for market, reference, and index data across batch and real-time processing.\n\n• Own the data lifecycle from ingestion and validation to transformation, orchestration, reconciliation, replay, and recovery.\n\n• Deliver modular, testable, maintainable, and observable solutions with automated testing and reliable deployment pipelines.\n\n• Build scalable and resilient distributed systems that handle large volumes, late or duplicate data, performance, and operational support.\n\n• Collaborate with product, domain, architecture, QA, and SRE teams to improve data platforms, engineering standards, and modern development practices.\n\nWhat You Bring\n\n• Strong hands-on Python experience developing, testing, deploying, and operating production-grade data pipelines and services; Java is an advantage.\n\n• Solid knowledge of data engineering, including extract-transform-load patterns, data modelling, transformation, lineage, data quality, orchestration, and batch and real-time processing.\n\n• Experience with distributed, data-intensive systems, including scalability, resilience, performance, observability, idempotency, reconciliation, and recovery.\n\n• Strong software engineering practices, including modular design, automated testing, version control, continuous integration, and technical documentation.\n\n• Experience with Apache Airflow or Metaflow and financial-market, time-series, or index data is an advantage; relevant degree or equivalent experience, fluent English, and German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di software senior - Dati\n\nZurigo | Lavorare da casa 40% possibile | Riferimento 8303\n\nVuoi costruire sistemi affidabili e ad alta intensità di dati che alimentano i servizi di indice finanziario? Il nostro team di Indice distribuito si trova a Zurigo e in India, dove i dati, l'ingegneria e i mercati finanziari si fondono.\n\nIn qualità di Senior Software Engineer focalizzato sui dati, svilupperai pipeline e servizi basati su Python e acquisirai la proprietà end-to-end dei dati di mercato, riferimento, configurazione e indice. Lavorando con i team di ingegneria, prodotto, architettura, QA e SRE, garantirai un'elaborazione accurata, tracciabile e resiliente dall'ingestione alla distribuzione.\n\nCosa farai\n\n• Progettazione, costruzione e gestione di datadotti basati su Python e servizi per i dati di mercato, riferimento e indice attraverso l'elaborazione batch e in tempo reale.\n\n• Possedere il ciclo di vita dei dati dall'ingestione e dalla validazione alla trasformazione, orchestrazione, riconciliazione, ripetizione e recupero.\n\n• Fornire soluzioni modulari, testabili, manutenbili e osservabili con test automatizzati e condutture di distribuzione affidabili.\n\n• Costruire sistemi distribuiti scalabili e resilienti che gestiscono grandi volumi, dati, prestazioni e supporto operativo in ritardo o duplicati.\n\n• Collabora con i team di prodotto, dominio, architettura, QA e SRE per migliorare le piattaforme di dati, gli standard di ingegneria e le pratiche di sviluppo moderne.\n\nChe cosa porta\n\n• Forte esperienza di Python nello sviluppo, nella sperimentazione, nella distribuzione e nella gestione di data pipeline e servizi di livello di produzione; Java è un vantaggio.\n\n• Conoscenza solida dell'ingegneria dei dati, compresi i modelli di estrazione-trasforma-carico, modellazione dei dati, trasformazione, lineage, qualità dei dati, orchestrazione e elaborazione batch e in tempo reale.\n\n• Esperienza con sistemi distribuiti e intensivi di dati, tra cui scalabilità, resilienza, performance, osservabilità, idempotency, riconciliazione e recupero.\n\n• Forti pratiche di ingegneria del software, tra cui progettazione modulare, test automatizzati, controllo della versione, integrazione continua e documentazione tecnica.\n\n• L'esperienza con Apache Airflow o Metaflow e finanziaria-mercato, time-series o dati indice è un vantaggio; esperienza di grado o equivalente, inglese fluente e tedesco come un plus.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Software Engineer - Data\n\nZurich | Working from home 40% possible | Reference 8303\n\nDo you want to build reliable, data-intensive systems that power financial index services? Our distributed Index team is based in Zurich and India, where data, engineering, and financial markets come together.\n\nAs a Senior Software Engineer focused on data, you will develop Python-based pipelines and services and take end-to-end ownership of market, reference, configuration, and index data. Working with engineering, product, architecture, QA, and SRE teams, you will ensure accurate, traceable, and resilient processing from ingestion to distribution.\n\nWhat You Will Do\n\n• Design, build, and operate Python-based data pipelines and services for market, reference, and index data across batch and real-time processing.\n\n• Own the data lifecycle from ingestion and validation to transformation, orchestration, reconciliation, replay, and recovery.\n\n• Deliver modular, testable, maintainable, and observable solutions with automated testing and reliable deployment pipelines.\n\n• Build scalable and resilient distributed systems that handle large volumes, late or duplicate data, performance, and operational support.\n\n• Collaborate with product, domain, architecture, QA, and SRE teams to improve data platforms, engineering standards, and modern development practices.\n\nWhat You Bring\n\n• Strong hands-on Python experience developing, testing, deploying, and operating production-grade data pipelines and services; Java is an advantage.\n\n• Solid knowledge of data engineering, including extract-transform-load patterns, data modelling, transformation, lineage, data quality, orchestration, and batch and real-time processing.\n\n• Experience with distributed, data-intensive systems, including scalability, resilience, performance, observability, idempotency, reconciliation, and recovery.\n\n• Strong software engineering practices, including modular design, automated testing, version control, continuous integration, and technical documentation.\n\n• Experience with Apache Airflow or Metaflow and financial-market, time-series, or index data is an advantage; relevant degree or equivalent experience, fluent English, and German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSenior Software Engineer - Daten\n\nZürich | Arbeiten von zu Hause aus 40% möglich | Referenz 8303\n\nMöchten Sie zuverlässige, datenintensive Systeme bauen, die Finanzindex-Services betreiben? Unser verteiltes Index-Team hat seinen Sitz in Zürich und Indien, wo Daten, Engineering und Finanzmärkte zusammenkommen.\n\nAls Senior Software Engineer, der sich auf Daten konzentriert, entwickeln Sie Python-basierte Pipelines und Dienste und übernehmen das End-to-End-Eigentum für Markt-, Referenz-, Konfigurations- und Indexdaten. In Zusammenarbeit mit Engineering-, Produkt-, Architektur-, QA- und SRE-Teams sorgen Sie für eine genaue, rückverfolgbare und belastbare Verarbeitung von der Einnahme bis zur Verteilung.\n\nWas Sie tun werden\n\n• Entwerfen, erstellen und betreiben Sie Python-basierte Datenpipelines und Dienste für Markt-, Referenz- und Indexdaten über Batch- und Echtzeitverarbeitung.\n\n• Besitzen Sie den Datenlebenszyklus von der Aufnahme und Validierung bis hin zur Transformation, Orchestrierung, Abstimmung, Wiedergabe und Wiederherstellung.\n\n• Liefern Sie modulare, testbare, wartbare und beobachtbare Lösungen mit automatisierten Tests und zuverlässigen Bereitstellungspipelines.\n\n• Erstellen Sie skalierbare und belastbare verteilte Systeme, die große Mengen, späte oder doppelte Daten, Leistung und Betriebsunterstützung verarbeiten.\n\n• Arbeiten Sie mit Produkt-, Domänen-, Architektur-, QA- und SRE-Teams zusammen, um Datenplattformen, Engineering-Standards und moderne Entwicklungspraktiken zu verbessern.\n\nWas du mitbringst\n\n• Starke praktische Python-Erfahrung in der Entwicklung, dem Testen, der Bereitstellung und dem Betrieb von Datenpipelines und -diensten in Produktionsqualität; Java ist ein Vorteil.\n\n• Solides Wissen über Data Engineering, einschließlich Extrakt-Transformation-Lademuster, Datenmodellierung, Transformation, Abstammung, Datenqualität, Orchestrierung sowie Batch- und Echtzeitverarbeitung.\n\n• Erfahrung mit verteilten, datenintensiven Systemen, einschließlich Skalierbarkeit, Widerstandsfähigkeit, Leistung, Beobachtbarkeit, Idempotenz, Abgleich und Wiederherstellung.\n\n• Starke Software-Engineering-Praktiken, einschließlich modularem Design, automatisiertem Testen, Versionskontrolle, kontinuierlicher Integration und technischer Dokumentation.\n\n• Erfahrung mit Apache Airflow oder Metaflow und Finanzmarkt-, Zeitreihen- oder Indexdaten ist ein Vorteil; relevanter Abschluss oder gleichwertige Erfahrung, fließend Englisch und Deutsch als Plus.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur logiciel senior - Données\n\nZurich: travail à domicile 40% possible\n\nVoulez-vous construire des systèmes fiables et à forte intensité de données qui alimentent les services d'indice financier? Notre équipe d'index distribuée est basée à Zurich et en Inde, où les données, l'ingénierie et les marchés financiers se réunissent.\n\nEn tant qu'ingénieur logiciel principal axé sur les données, vous développerez des pipelines et des services basés sur Python et prendrez la propriété de bout en bout des données de marché, de référence, de configuration et d'index. En travaillant avec des équipes d'ingénierie, de produits, d'architecture, d'AQ et de SRE, vous assurerez un traitement précis, traçable et résistant de l'ingestion à la distribution.\n\nCe que vous ferez\n\n• Concevoir, construire et exploiter des pipelines et des services de données basés sur le Python pour les données de marché, de référence et d'index pour le traitement par lots et en temps réel.\n\n• Posséder le cycle de vie des données de l'ingestion et de la validation à la transformation, l'orchestration, la réconciliation, le replay et la récupération.\n\n• Fournir des solutions modulaires, testables, durables et observables avec des pipelines d'essais automatisés et de déploiement fiables.\n\n• Construisez des systèmes répartis évolutifs et résilients qui gèrent de grands volumes, des données tardives ou dupliquées, des performances et un soutien opérationnel.\n\n• Collaborer avec les équipes produit, domaine, architecture, QA et SRE pour améliorer les plateformes de données, les normes d'ingénierie et les pratiques de développement modernes.\n\nCe que vous apportez\n\n• Forte expérience pratique Python développant, testant, déployant et exploitant des pipelines de données et des services de production ; Java est un avantage.\n\n• Connaissance approfondie de l'ingénierie des données, y compris les modèles de charge de transformation des extraits, la modélisation des données, la transformation, la lignée, la qualité des données, l'orchestration et le traitement par lots et en temps réel.\n\n• Expérience des systèmes distribués à forte intensité de données, y compris l'évolutivité, la résilience, la performance, l'observabilité, l'idempotency, le rapprochement et la récupération.\n\n• De solides pratiques d'ingénierie logicielle, y compris la conception modulaire, les essais automatisés, le contrôle des versions, l'intégration continue et la documentation technique.\n\n• L'expérience avec Apache Airflow ou Metaflow et les données du marché financier, des séries chronologiques ou de l'indice est un avantage; diplôme pertinent ou expérience équivalente, l'anglais couramment et l'allemand comme un plus.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-Data/1443824333/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-27T21:41:31.370Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T00:00:00Z",
+      "postedDate": "2026-10-02T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1443824333/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-16T09:37:46.825Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
           "unitText": "YEAR"
         }
       }
@@ -250,7 +382,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Technical-Integration-Manager-%2880-100%29/1444014133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:28.192Z",
+      "crawledAt": "2026-10-27T21:41:30.728Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,138 +428,6 @@
       }
     },
     {
-      "id": "six-group-ebc759fb7566",
-      "slug": "senior-software-engineer-data-six-group-zurich",
-      "slugByLocale": {
-        "it": "senior-software-engineer-data-six-group-zurich",
-        "en": "senior-software-engineer-data-six-group-zurich",
-        "de": "senior-software-engineer-data-six-group-zurich",
-        "fr": "senior-software-engineer-data-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Senior Software Engineer - Data",
-      "titleByLocale": {
-        "it": "Senior Software Ingegnere - Data",
-        "en": "Senior Software Engineer - Data",
-        "de": "Senior Software Ingenieur - Data",
-        "fr": "Senior Software Ingénieur - Data"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Software Engineer - Data\n\nZurich |  Working from home 40% possible | Reference 8303\n\nDo you want to build reliable, data-intensive systems that power financial index services? Our distributed Index team is based in Zurich and India, where data, engineering, and financial markets come together.\n\nAs a Senior Software Engineer focused on data, you will develop Python-based pipelines and services and take end-to-end ownership of market, reference, configuration, and index data. Working with engineering, product, architecture, QA, and SRE teams, you will ensure accurate, traceable, and resilient processing from ingestion to distribution.\n\nWhat You Will Do\n\n• Design, build, and operate Python-based data pipelines and services for market, reference, and index data across batch and real-time processing.\n\n• Own the data lifecycle from ingestion and validation to transformation, orchestration, reconciliation, replay, and recovery.\n\n• Deliver modular, testable, maintainable, and observable solutions with automated testing and reliable deployment pipelines.\n\n• Build scalable and resilient distributed systems that handle large volumes, late or duplicate data, performance, and operational support.\n\n• Collaborate with product, domain, architecture, QA, and SRE teams to improve data platforms, engineering standards, and modern development practices.\n\nWhat You Bring\n\n• Strong hands-on Python experience developing, testing, deploying, and operating production-grade data pipelines and services; Java is an advantage.\n\n• Solid knowledge of data engineering, including extract-transform-load patterns, data modelling, transformation, lineage, data quality, orchestration, and batch and real-time processing.\n\n• Experience with distributed, data-intensive systems, including scalability, resilience, performance, observability, idempotency, reconciliation, and recovery.\n\n• Strong software engineering practices, including modular design, automated testing, version control, continuous integration, and technical documentation.\n\n• Experience with Apache Airflow or Metaflow and financial-market, time-series, or index data is an advantage; relevant degree or equivalent experience, fluent English, and German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di software senior - Dati\n\nZurigo | Lavorare da casa 40% possibile | Riferimento 8303\n\nVuoi costruire sistemi affidabili e ad alta intensità di dati che alimentano i servizi di indice finanziario? Il nostro team di Indice distribuito si trova a Zurigo e in India, dove i dati, l'ingegneria e i mercati finanziari si fondono.\n\nIn qualità di Senior Software Engineer focalizzato sui dati, svilupperai pipeline e servizi basati su Python e acquisirai la proprietà end-to-end dei dati di mercato, riferimento, configurazione e indice. Lavorando con i team di ingegneria, prodotto, architettura, QA e SRE, garantirai un'elaborazione accurata, tracciabile e resiliente dall'ingestione alla distribuzione.\n\nCosa farai\n\n• Progettazione, costruzione e gestione di datadotti basati su Python e servizi per i dati di mercato, riferimento e indice attraverso l'elaborazione batch e in tempo reale.\n\n• Possedere il ciclo di vita dei dati dall'ingestione e dalla validazione alla trasformazione, orchestrazione, riconciliazione, ripetizione e recupero.\n\n• Fornire soluzioni modulari, testabili, manutenbili e osservabili con test automatizzati e condutture di distribuzione affidabili.\n\n• Costruire sistemi distribuiti scalabili e resilienti che gestiscono grandi volumi, dati, prestazioni e supporto operativo in ritardo o duplicati.\n\n• Collabora con i team di prodotto, dominio, architettura, QA e SRE per migliorare le piattaforme di dati, gli standard di ingegneria e le pratiche di sviluppo moderne.\n\nChe cosa porta\n\n• Forte esperienza di Python nello sviluppo, nella sperimentazione, nella distribuzione e nella gestione di data pipeline e servizi di livello di produzione; Java è un vantaggio.\n\n• Conoscenza solida dell'ingegneria dei dati, compresi i modelli di estrazione-trasforma-carico, modellazione dei dati, trasformazione, lineage, qualità dei dati, orchestrazione e elaborazione batch e in tempo reale.\n\n• Esperienza con sistemi distribuiti e intensivi di dati, tra cui scalabilità, resilienza, performance, osservabilità, idempotency, riconciliazione e recupero.\n\n• Forti pratiche di ingegneria del software, tra cui progettazione modulare, test automatizzati, controllo della versione, integrazione continua e documentazione tecnica.\n\n• L'esperienza con Apache Airflow o Metaflow e finanziaria-mercato, time-series o dati indice è un vantaggio; esperienza di grado o equivalente, inglese fluente e tedesco come un plus.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Software Engineer - Data\n\nZurich | Working from home 40% possible | Reference 8303\n\nDo you want to build reliable, data-intensive systems that power financial index services? Our distributed Index team is based in Zurich and India, where data, engineering, and financial markets come together.\n\nAs a Senior Software Engineer focused on data, you will develop Python-based pipelines and services and take end-to-end ownership of market, reference, configuration, and index data. Working with engineering, product, architecture, QA, and SRE teams, you will ensure accurate, traceable, and resilient processing from ingestion to distribution.\n\nWhat You Will Do\n\n• Design, build, and operate Python-based data pipelines and services for market, reference, and index data across batch and real-time processing.\n\n• Own the data lifecycle from ingestion and validation to transformation, orchestration, reconciliation, replay, and recovery.\n\n• Deliver modular, testable, maintainable, and observable solutions with automated testing and reliable deployment pipelines.\n\n• Build scalable and resilient distributed systems that handle large volumes, late or duplicate data, performance, and operational support.\n\n• Collaborate with product, domain, architecture, QA, and SRE teams to improve data platforms, engineering standards, and modern development practices.\n\nWhat You Bring\n\n• Strong hands-on Python experience developing, testing, deploying, and operating production-grade data pipelines and services; Java is an advantage.\n\n• Solid knowledge of data engineering, including extract-transform-load patterns, data modelling, transformation, lineage, data quality, orchestration, and batch and real-time processing.\n\n• Experience with distributed, data-intensive systems, including scalability, resilience, performance, observability, idempotency, reconciliation, and recovery.\n\n• Strong software engineering practices, including modular design, automated testing, version control, continuous integration, and technical documentation.\n\n• Experience with Apache Airflow or Metaflow and financial-market, time-series, or index data is an advantage; relevant degree or equivalent experience, fluent English, and German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSenior Software Engineer - Daten\n\nZürich | Arbeiten von zu Hause aus 40% möglich | Referenz 8303\n\nMöchten Sie zuverlässige, datenintensive Systeme bauen, die Finanzindex-Services betreiben? Unser verteiltes Index-Team hat seinen Sitz in Zürich und Indien, wo Daten, Engineering und Finanzmärkte zusammenkommen.\n\nAls Senior Software Engineer, der sich auf Daten konzentriert, entwickeln Sie Python-basierte Pipelines und Dienste und übernehmen das End-to-End-Eigentum für Markt-, Referenz-, Konfigurations- und Indexdaten. In Zusammenarbeit mit Engineering-, Produkt-, Architektur-, QA- und SRE-Teams sorgen Sie für eine genaue, rückverfolgbare und belastbare Verarbeitung von der Einnahme bis zur Verteilung.\n\nWas Sie tun werden\n\n• Entwerfen, erstellen und betreiben Sie Python-basierte Datenpipelines und Dienste für Markt-, Referenz- und Indexdaten über Batch- und Echtzeitverarbeitung.\n\n• Besitzen Sie den Datenlebenszyklus von der Aufnahme und Validierung bis hin zur Transformation, Orchestrierung, Abstimmung, Wiedergabe und Wiederherstellung.\n\n• Liefern Sie modulare, testbare, wartbare und beobachtbare Lösungen mit automatisierten Tests und zuverlässigen Bereitstellungspipelines.\n\n• Erstellen Sie skalierbare und belastbare verteilte Systeme, die große Mengen, späte oder doppelte Daten, Leistung und Betriebsunterstützung verarbeiten.\n\n• Arbeiten Sie mit Produkt-, Domänen-, Architektur-, QA- und SRE-Teams zusammen, um Datenplattformen, Engineering-Standards und moderne Entwicklungspraktiken zu verbessern.\n\nWas du mitbringst\n\n• Starke praktische Python-Erfahrung in der Entwicklung, dem Testen, der Bereitstellung und dem Betrieb von Datenpipelines und -diensten in Produktionsqualität; Java ist ein Vorteil.\n\n• Solides Wissen über Data Engineering, einschließlich Extrakt-Transformation-Lademuster, Datenmodellierung, Transformation, Abstammung, Datenqualität, Orchestrierung sowie Batch- und Echtzeitverarbeitung.\n\n• Erfahrung mit verteilten, datenintensiven Systemen, einschließlich Skalierbarkeit, Widerstandsfähigkeit, Leistung, Beobachtbarkeit, Idempotenz, Abgleich und Wiederherstellung.\n\n• Starke Software-Engineering-Praktiken, einschließlich modularem Design, automatisiertem Testen, Versionskontrolle, kontinuierlicher Integration und technischer Dokumentation.\n\n• Erfahrung mit Apache Airflow oder Metaflow und Finanzmarkt-, Zeitreihen- oder Indexdaten ist ein Vorteil; relevanter Abschluss oder gleichwertige Erfahrung, fließend Englisch und Deutsch als Plus.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur logiciel senior - Données\n\nZurich: travail à domicile 40% possible\n\nVoulez-vous construire des systèmes fiables et à forte intensité de données qui alimentent les services d'indice financier? Notre équipe d'index distribuée est basée à Zurich et en Inde, où les données, l'ingénierie et les marchés financiers se réunissent.\n\nEn tant qu'ingénieur logiciel principal axé sur les données, vous développerez des pipelines et des services basés sur Python et prendrez la propriété de bout en bout des données de marché, de référence, de configuration et d'index. En travaillant avec des équipes d'ingénierie, de produits, d'architecture, d'AQ et de SRE, vous assurerez un traitement précis, traçable et résistant de l'ingestion à la distribution.\n\nCe que vous ferez\n\n• Concevoir, construire et exploiter des pipelines et des services de données basés sur le Python pour les données de marché, de référence et d'index pour le traitement par lots et en temps réel.\n\n• Posséder le cycle de vie des données de l'ingestion et de la validation à la transformation, l'orchestration, la réconciliation, le replay et la récupération.\n\n• Fournir des solutions modulaires, testables, durables et observables avec des pipelines d'essais automatisés et de déploiement fiables.\n\n• Construisez des systèmes répartis évolutifs et résilients qui gèrent de grands volumes, des données tardives ou dupliquées, des performances et un soutien opérationnel.\n\n• Collaborer avec les équipes produit, domaine, architecture, QA et SRE pour améliorer les plateformes de données, les normes d'ingénierie et les pratiques de développement modernes.\n\nCe que vous apportez\n\n• Forte expérience pratique Python développant, testant, déployant et exploitant des pipelines de données et des services de production ; Java est un avantage.\n\n• Connaissance approfondie de l'ingénierie des données, y compris les modèles de charge de transformation des extraits, la modélisation des données, la transformation, la lignée, la qualité des données, l'orchestration et le traitement par lots et en temps réel.\n\n• Expérience des systèmes distribués à forte intensité de données, y compris l'évolutivité, la résilience, la performance, l'observabilité, l'idempotency, le rapprochement et la récupération.\n\n• De solides pratiques d'ingénierie logicielle, y compris la conception modulaire, les essais automatisés, le contrôle des versions, l'intégration continue et la documentation technique.\n\n• L'expérience avec Apache Airflow ou Metaflow et les données du marché financier, des séries chronologiques ou de l'indice est un avantage; diplôme pertinent ou expérience équivalente, l'anglais couramment et l'allemand comme un plus.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-Data/1443824333/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:28.785Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T00:00:00Z",
-      "postedDate": "2026-10-02T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1443824333/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-16T09:37:46.825Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "six-group-b01eef4d68e2",
-      "slug": "senior-requirements-engineer-80-100-six-group-zurich",
-      "slugByLocale": {
-        "it": "senior-requirements-engineer-80-100-six-group-zurich",
-        "en": "senior-requirements-engineer-80-100-six-group-zurich",
-        "de": "senior-requirements-engineer-80-100-six-group-zurich",
-        "fr": "senior-requirements-engineer-80-100-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Senior Requirements Engineer (80-100%)",
-      "titleByLocale": {
-        "it": "Senior Requirements Ingegnere (80-100%)",
-        "en": "Senior Requirements Engineer (80-100%)",
-        "de": "Senior Requirements Ingenieur (80-100%)",
-        "fr": "Senior Requirements Ingénieur (80-100%)"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Requirements Engineer (80-100%)\n\nZurich |  Working from home up to 40% possible | Reference 8304\n\nDo you want to turn complex business needs into clear requirements that improve financial index services and enable smarter delivery?\n\nOur Index team in Zurich and India develops platforms for creating, calculating, and distributing financial indices, connecting data, engineering, and financial markets.\n\nAs a Senior Requirements Engineer, you will align business and technology stakeholders, define clear processes and specifications, and support specification-driven, AI-enabled delivery.\n\n`\n\nWhat You Will Do\n\n• Define clear end-to-end processes and requirements with business, product, engineering, architecture, and QA.\n\n• Translate complex needs into practical specifications, process models, acceptance criteria, and documentation.\n\n• Manage requirements from discovery to delivery, including scope, dependencies, business rules, changes, and traceability.\n\n• Embed quality, security, testability, and operational needs early through a shift-left approach.\n\n• Support specification-driven and AI-assisted delivery while simplifying and automating processes.\n\nWhat You Bring\n\n• Experience defining and managing requirements for complex digital products or platforms, including process models, business rules, acceptance criteria, and traceability.\n\n• Strong communication and facilitation skills across business, product, operations, engineering, architecture, QA, and security.\n\n• Structured analytical thinking to resolve ambiguity, assess impacts and dependencies, and create practical specifications.\n\n• Experience with shift-left practices, including quality, security, testability, and non-functional requirements.\n\n• Curiosity, quick domain learning, and a relevant degree or equivalent experience; fluent English, with German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska  at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di requisiti senior (80-100%)\n\nZurigo | Lavorare da casa fino al 40% possibile | Riferimento 8304\n\nVuoi trasformare le esigenze aziendali complesse in requisiti chiari che migliorano i servizi di indice finanziario e consentono una consegna più intelligente?\n\nIl nostro team Index di Zurigo e India sviluppa piattaforme per la creazione, il calcolo e la distribuzione di indici finanziari, la connessione di dati, ingegneria e mercati finanziari.\n\nCome Ingegnere di Requisiti Senior, allineerai le parti interessate di business e tecnologia, definirai processi e specifiche chiare e supporterai la consegna guidata dalle specifiche AI.\n\n`\n\nCosa farai\n\n• Definire chiari processi e requisiti end-to-end con business, prodotto, ingegneria, architettura e QA.\n\n• Traduci esigenze complesse in specifiche pratiche, modelli di processo, criteri di accettazione e documentazione.\n\n• Gestisci i requisiti dalla scoperta alla consegna, tra cui portata, dipendenze, regole aziendali, modifiche e tracciabilità.\n\n• Embed qualità, sicurezza, testabilità e esigenze operative presto attraverso un approccio a sinistra.\n\n• Supporta la consegna guidata da specifiche e assistita da AI, semplificando e automatizzando i processi.\n\nChe cosa porta\n\n• Scopri i requisiti di definizione e gestione di prodotti o piattaforme digitali complessi, inclusi modelli di processo, regole aziendali, criteri di accettazione e tracciabilità.\n\n• Forte capacità di comunicazione e facilitazione attraverso business, prodotto, operazioni, ingegneria, architettura, QA e sicurezza.\n\n• Il pensiero analitico strutturato per risolvere l'ambiguità, valutare gli impatti e le dipendenze e creare specifiche pratiche.\n\n• Esperienza con pratiche a turni, tra cui qualità, sicurezza, testabilità e requisiti non funzionali.\n\n• Curiosità, apprendimento a dominio rapido e un'esperienza di grado o equivalente rilevante; inglese fluente, con tedesco come un plus.\n\nSe hai domande, controlla la nostra pagina FAQ o chiama Beata Czyzewska al numero +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nSenior Requirements Engineer (80-100%)\n\nZurich | Working from home up to 40% possible | Reference 8304\n\nDo you want to turn complex business needs into clear requirements that improve financial index services and enable smarter delivery?\n\nOur Index team in Zurich and India develops platforms for creating, calculating, and distributing financial indices, connecting data, engineering, and financial markets.\n\nAs a Senior Requirements Engineer, you will align business and technology stakeholders, define clear processes and specifications, and support specification-driven, AI-enabled delivery.\n\n`\n\nWhat You Will Do\n\n• Define clear end-to-end processes and requirements with business, product, engineering, architecture, and QA.\n\n• Translate complex needs into practical specifications, process models, acceptance criteria, and documentation.\n\n• Manage requirements from discovery to delivery, including scope, dependencies, business rules, changes, and traceability.\n\n• Embed quality, security, testability, and operational needs early through a shift-left approach.\n\n• Support specification-driven and AI-assisted delivery while simplifying and automating processes.\n\nWhat You Bring\n\n• Experience defining and managing requirements for complex digital products or platforms, including process models, business rules, acceptance criteria, and traceability.\n\n• Strong communication and facilitation skills across business, product, operations, engineering, architecture, QA, and security.\n\n• Structured analytical thinking to resolve ambiguity, assess impacts and dependencies, and create practical specifications.\n\n• Experience with shift-left practices, including quality, security, testability, and non-functional requirements.\n\n• Curiosity, quick domain learning, and a relevant degree or equivalent experience; fluent English, with German as a plus.\n\nIf you have any questions, check out our FAQ page or call Beata Czyzewska at +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nSenior Requirements Engineer (80-100%)\n\nZürich | Arbeiten von zu Hause bis zu 40% möglich | Referenz 8304\n\nMöchten Sie komplexe Geschäftsanforderungen in klare Anforderungen umwandeln, die Finanzindexdienstleistungen verbessern und eine intelligentere Lieferung ermöglichen?\n\nUnser Index-Team in Zürich und Indien entwickelt Plattformen für die Erstellung, Berechnung und Verteilung von Finanzindizes, die Verknüpfung von Daten, Engineering und Finanzmärkten.\n\nAls Senior Requirements Engineer richten Sie Geschäfts- und Technologieakteure zusammen, definieren klare Prozesse und Spezifikationen und unterstützen eine spezifikationsgesteuerte, KI-fähige Bereitstellung.\n\n`\n\nWas Sie tun werden\n\n• Definieren Sie klare End-to-End-Prozesse und -Anforderungen mit Business, Produkt, Engineering, Architektur und QA.\n\n• Übersetzen Sie komplexe Anforderungen in praktische Spezifikationen, Prozessmodelle, Akzeptanzkriterien und Dokumentation.\n\n• Verwalten Sie Anforderungen von der Entdeckung bis zur Lieferung, einschließlich Umfang, Abhängigkeiten, Geschäftsregeln, Änderungen und Rückverfolgbarkeit.\n\n• Betten Sie Qualität, Sicherheit, Testbarkeit und betriebliche Anforderungen frühzeitig durch einen Shift-left-Ansatz ein.\n\n• Unterstützen Sie die spezifikationsgesteuerte und KI-gestützte Bereitstellung bei gleichzeitiger Vereinfachung und Automatisierung von Prozessen.\n\nWas du mitbringst\n\n• Erfahrung in der Definition und Verwaltung von Anforderungen für komplexe digitale Produkte oder Plattformen, einschließlich Prozessmodellen, Geschäftsregeln, Akzeptanzkriterien und Rückverfolgbarkeit.\n\n• Starke Kommunikations- und Erleichterungskompetenzen in den Bereichen Business, Produkt, Operations, Engineering, Architektur, QA und Sicherheit.\n\n• Strukturiertes analytisches Denken, um Mehrdeutigkeiten zu lösen, Auswirkungen und Abhängigkeiten zu bewerten und praktische Spezifikationen zu erstellen.\n\n• Erfahrung mit Shift-left-Praktiken, einschließlich Qualität, Sicherheit, Testbarkeit und nicht-funktionalen Anforderungen.\n\n• Neugier, schnelles Domain-Lernen und ein relevanter Abschluss oder gleichwertige Erfahrung; fließend Englisch, mit Deutsch als Plus.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Beata Czyzewska unter +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre racines locales et pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur principal des besoins (80-100%)\n\nZurich: travail à domicile jusqu'à 40 % possible.\n\nVoulez-vous transformer les besoins opérationnels complexes en exigences claires qui améliorent les services d'indice financier et permettent une prestation plus intelligente?\n\nNotre équipe Index à Zurich et en Inde développe des plateformes pour créer, calculer et distribuer des indices financiers, connecter les données, l'ingénierie et les marchés financiers.\n\nEn tant qu'ingénieur principal des exigences, vous alignerez les intervenants en affaires et en technologie, définirez des processus et des spécifications clairs, et supporterez la prestation axée sur les spécifications, compatible avec l'IA.\n\n`\n\nCe que vous ferez\n\n• Définir clairement les processus et les exigences de bout en bout avec les activités, les produits, l'ingénierie, l'architecture et l'AQ.\n\n• Traduire les besoins complexes en spécifications pratiques, modèles de processus, critères d'acceptation et documentation.\n\n• Gérer les exigences de la découverte à la livraison, y compris la portée, les dépendances, les règles opérationnelles, les changements et la traçabilité.\n\n• Intégrer la qualité, la sécurité, la testabilité et les besoins opérationnels dès le début par une approche à gauche.\n\n• Soutenir la prestation axée sur les spécifications et l'aide à l'IA tout en simplifiant et en automatisant les processus.\n\nCe que vous apportez\n\n• Expérience en matière de définition et de gestion des exigences pour les produits ou plateformes numériques complexes, y compris les modèles de processus, les règles d'affaires, les critères d'acceptation et la traçabilité.\n\n• Fortes compétences en communication et en facilitation dans les domaines des affaires, des produits, des opérations, de l'ingénierie, de l'architecture, de l'AQ et de la sécurité.\n\n• Une réflexion analytique structurée pour résoudre l'ambiguïté, évaluer les impacts et les dépendances et créer des spécifications pratiques.\n\n• Expérience des pratiques de déplacement à gauche, y compris la qualité, la sécurité, la testabilité et les exigences non fonctionnelles.\n\n• Curiosité, apprentissage rapide du domaine, et un diplôme pertinent ou une expérience équivalente; anglais couramment, avec l'allemand comme un plus.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Beata Czyzewska au +48 22 104 6571 / +41 58 399 9800 / +34 91 330 51 49 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Senior-Requirements-Engineer-%2880-100%29/1443871133/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:29.357Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T00:00:00Z",
-      "postedDate": "2026-10-02T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1443871133/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:34:42.710Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "six-group-c90980c3db3a",
       "slug": "ingegnere-senior-di-osservabilita-six-group-zurich",
       "slugByLocale": {
@@ -458,7 +458,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Observability-Engineer/1293318201/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:27.191Z",
+      "crawledAt": "2026-10-27T21:41:29.564Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -531,7 +531,7 @@
       "url": "https://jobs.six-group.com/job/Geneva-Senior-Sales-&-Account-Managerin-Banking-Romandie-%2880-100%29/1433979833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:56:25.905Z",
+      "crawledAt": "2026-10-27T21:41:28.024Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -613,7 +613,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-PAM-&-Secrets-Management-Engineer/1445127533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:21.985Z",
+      "crawledAt": "2026-10-27T21:41:23.277Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -678,7 +678,7 @@
       "url": "https://jobs.six-group.com/job/Olten-Client-Service-Manager-%2880-100%29/1425295333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:56:20.670Z",
+      "crawledAt": "2026-10-27T21:41:21.757Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -751,7 +751,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-AI-Software-Architect/1435758133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:18.289Z",
+      "crawledAt": "2026-10-27T21:41:19.003Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -831,7 +831,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-%28Senior%29-IAM-Business-Analyst-%2880-100%29/1436066033/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:17.712Z",
+      "crawledAt": "2026-10-27T21:41:18.316Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -915,7 +915,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Regulatory-Data-Analyst-%2880-100%29/1446600433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:16.463Z",
+      "crawledAt": "2026-10-27T21:41:16.754Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -981,7 +981,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-CMC-Measurement-&-Insights-Lead/1447481733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:13.566Z",
+      "crawledAt": "2026-10-27T21:41:13.877Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1061,7 +1061,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Data-Licensing-Specialist-%28100%29/1448061833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:12.617Z",
+      "crawledAt": "2026-10-27T21:41:12.791Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1126,7 +1126,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Software-Engineer-%2880-100%29/1437516233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:56:11.325Z",
+      "crawledAt": "2026-10-27T21:41:11.180Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1211,7 +1211,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-IT-Manager-%28Focus-IT-Strategy-and-Operating-Model%29-CIO-Office-%2880-100%29/1448418433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:10.403Z",
+      "crawledAt": "2026-10-27T21:41:10.087Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1290,7 +1290,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Specialist-Business-&-Application-Support-%28100%29/1438283433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:08.780Z",
+      "crawledAt": "2026-10-27T21:41:07.993Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1370,7 +1370,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Internship-Project-&-Portfolio-Management-and-Project-Controlling-80-100/1449730833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:04.560Z",
+      "crawledAt": "2026-10-27T21:41:04.101Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1450,7 +1450,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Kubernetes-Platform-Engineer-%2880-100%29/1450290133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:03.604Z",
+      "crawledAt": "2026-10-27T21:41:01.565Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1516,7 +1516,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Data-Acquisition-Manager-%2880-100%29/1450317433/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:03.002Z",
+      "crawledAt": "2026-10-27T21:41:00.830Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1565,71 +1565,6 @@
       }
     },
     {
-      "id": "six-group-1160a9aa14d8",
-      "slug": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-      "slugByLocale": {
-        "it": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-        "en": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-        "de": "messaging-platform-engineer-cloud-containers-six-group-zurich",
-        "fr": "messaging-platform-engineer-cloud-containers-six-group-zurich"
-      },
-      "company": "SIX Group",
-      "companyKey": "six-group",
-      "companyDomain": "six-group.com",
-      "title": "Messaging Platform Engineer, Cloud & Containers",
-      "titleByLocale": {
-        "it": "Messaging Platform Ingegnere, Cloud & Containers",
-        "en": "Messaging Platform Engineer, Cloud & Containers",
-        "de": "Messaging Platform Ingenieur, Cloud & Containers",
-        "fr": "Messaging Platform Ingénieur, Cloud & Containers"
-      },
-      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich |  Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa  at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-      "descriptionByLocale": {
-        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di piattaforma di messaggistica, cloud & container\n\nZurigo | Lavorare da casa fino al 40% possibile | Riferimento 8165\n\nStiamo cercando un Ingegnere della Piattaforma di Messaging per unirsi al nostro team a Zurigo. Una responsabilità fondamentale di questo ruolo è il funzionamento in corso, la manutenzione e lo sviluppo del nostro business-critical on-premises IBM MQ Appliance ambiente. Accanto a questa piattaforma consolidata, il nostro prossimo passo è quello di espandere il nostro portafoglio di messaggistica in OpenShift e Microsoft Azure. Oltre a IBM MQ, stiamo anche valutando le tecnologie complementari di messaggistica cloud-native per il futuro portafoglio di messaggi ibridi. Questo ruolo combina l'ingegneria della piattaforma con lo sviluppo del software. La tua esperienza non deve essere limitata a IBM MQ.\n\nCosa farai\n\n• Operare e migliorare la piattaforma IBM MQ Appliance\n\n• Costruire automazione, capacità self-service e servizi di piattaforma\n\n• Progettazione e realizzazione dei servizi IBM MQ in OpenShift e Azure\n\n• Valutare le tecnologie di messaggistica complementari\n\n• Sviluppare l'automazione utilizzando API, CI/CD e infrastrutture come codice\n\n• Risoluzione dei problemi di produzione e partecipazione alla rotazione delle chiamate\n\nChe cosa porta\n\n• Enterprise messaging piattaforma di amministrazione o esperienza di ingegneria\n\n• Esperienza di produzione in ambienti OpenShift o cloud pubblici\n\n• Capacità di automazione o software in Java e Spring Boot\n\n• Forte Linux, container, networking e fondamentali di sicurezza\n\n• Esperienza con CI/CD, osservabilità e gestione degli incidenti\n\n• Conoscenza di Azure, Kubernetes, Terraform o messaggi cloud-native\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Mateusz Kozielec al numero +41583998611 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
-        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich | Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nMessaging Platform Engineer, Cloud & Container\n\nZürich | Arbeiten von zu Hause bis zu 40% möglich | Referenz 8165\n\nWir suchen einen praxisorientierten Messaging Platform Engineer für unser Team in Zürich. Eine zentrale Verantwortung dieser Rolle ist der laufende Betrieb, die Wartung und die Entwicklung unserer geschäftskritischen lokalen IBM MQ Appliance-Umgebung. Neben dieser etablierten Plattform besteht unser nächster Schritt darin, unser Messaging-Portfolio auf OpenShift und Microsoft Azure zu erweitern. Neben dem IBM MQ evaluieren wir auch ergänzende Cloud-native Messaging-Technologien für das zukünftige Hybrid-Messaging-Portfolio. Diese Rolle verbindet Platform Engineering mit Softwareentwicklung. Ihre Erfahrung muss nicht auf IBM MQ beschränkt sein.\n\nWas Sie tun werden\n\n• Betrieb und Verbesserung der IBM MQ Appliance Plattform\n\n• Build-Automatisierung, Self-Service-Funktionen und Plattformdienste\n\n• Entwerfen und Implementieren von IBM MQ Services in OpenShift und Azure\n\n• Bewerten Sie komplementäre Messaging-Technologien\n\n• Automatisierung mit APIs, CI/CD und Infrastruktur als Code entwickeln\n\n• Fehlerbehebung bei Produktionsproblemen und Beteiligung an der On-Call-Rotation\n\nWas du mitbringst\n\n• Enterprise Messaging Platform Administration oder Engineering Erfahrung\n\n• Produktionserfahrung in OpenShift- oder Public Cloud-Umgebungen\n\n• Automatisierungs- oder Software-Engineering-Fähigkeiten in Java und Spring Boot\n\n• Starkes Linux, Container, Netzwerk und Sicherheitsgrundlagen\n\n• Erfahrung mit CI/CD, Observability und Incident Management\n\n• Kenntnisse in Azure, Kubernetes, Terraform oder Cloud-nativem Messaging\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Mateusz Kozielec unter +41583998611 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur de plateforme de messagerie, Cloud & Containers\n\nZurich: travail à domicile jusqu'à 40% possible\n\nNous cherchons un ingénieur de plate-forme de messagerie pratique pour rejoindre notre équipe à Zürich. L'une des principales responsabilités de ce rôle est l'exploitation, la maintenance et le développement continus de notre environnement d'appareils IBM MQ sur site. Parallèlement à cette plateforme établie, notre prochaine étape est d'élargir notre portefeuille de messagerie à OpenShift et Microsoft Azure. Au-delà de IBM MQ, nous évaluons également les technologies de messagerie cloud-native complémentaires pour le futur portefeuille de messagerie hybride. Ce rôle combine l'ingénierie de la plate-forme avec le développement de logiciels. Votre expérience ne doit pas être limitée à IBM MQ.\n\nCe que vous ferez\n\n• Fonctionnement et amélioration de la plateforme IBM MQ Appliance\n\n• Construction d'automatisation, de capacités en libre-service et de services de plate-forme\n\n• Conception et mise en œuvre de services IBM MQ en OpenShift et Azure\n\n• Évaluer les technologies de messagerie complémentaires\n\n• Développer l'automatisation en utilisant les API, IC/CD et l'infrastructure comme code\n\n• Résoudre les problèmes de production et participer à la rotation sur appel\n\nCe que vous apportez\n\n• Expérience d'administration ou d'ingénierie de la plateforme de messagerie d'entreprise\n\n• Expérience de production dans les environnements OpenShift ou cloud public\n\n• Automatisation ou compétences en génie logiciel en Java et Spring Boot\n\n• Fort Linux, conteneur, réseau et fondamentaux de sécurité\n\n• Expérience de l'IC/DC, de l'observabilité et de la gestion des incidents\n\n• Connaissance de la messagerie azur, Kubernetes, Terraform ou cloud-native\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Mateusz Kozielec au +4158399861 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
-      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:01.775Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-23T02:00:00Z",
-      "postedDate": "2026-09-23T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1419165533/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-10T10:28:20.413Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "six-group-856d1af21c8d",
       "slug": "senior-web-access-management-engineer-80-100-six-group-zurich",
       "slugByLocale": {
@@ -1660,7 +1595,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Web-Access-Management-Engineer-80-100/1429528333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:02.386Z",
+      "crawledAt": "2026-10-27T21:41:00.145Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1690,6 +1625,71 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "six-group-1160a9aa14d8",
+      "slug": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+      "slugByLocale": {
+        "it": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+        "en": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+        "de": "messaging-platform-engineer-cloud-containers-six-group-zurich",
+        "fr": "messaging-platform-engineer-cloud-containers-six-group-zurich"
+      },
+      "company": "SIX Group",
+      "companyKey": "six-group",
+      "companyDomain": "six-group.com",
+      "title": "Messaging Platform Engineer, Cloud & Containers",
+      "titleByLocale": {
+        "it": "Messaging Platform Ingegnere, Cloud & Containers",
+        "en": "Messaging Platform Engineer, Cloud & Containers",
+        "de": "Messaging Platform Ingenieur, Cloud & Containers",
+        "fr": "Messaging Platform Ingénieur, Cloud & Containers"
+      },
+      "description": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich |  Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa  at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+      "descriptionByLocale": {
+        "it": "SIX guida la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo un mix unico di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti luminose e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro della finanza con noi.\n\nIngegnere di piattaforma di messaggistica, cloud & container\n\nZurigo | Lavorare da casa fino al 40% possibile | Riferimento 8165\n\nStiamo cercando un Ingegnere della Piattaforma di Messaging per unirsi al nostro team a Zurigo. Una responsabilità fondamentale di questo ruolo è il funzionamento in corso, la manutenzione e lo sviluppo del nostro business-critical on-premises IBM MQ Appliance ambiente. Accanto a questa piattaforma consolidata, il nostro prossimo passo è quello di espandere il nostro portafoglio di messaggistica in OpenShift e Microsoft Azure. Oltre a IBM MQ, stiamo anche valutando le tecnologie complementari di messaggistica cloud-native per il futuro portafoglio di messaggi ibridi. Questo ruolo combina l'ingegneria della piattaforma con lo sviluppo del software. La tua esperienza non deve essere limitata a IBM MQ.\n\nCosa farai\n\n• Operare e migliorare la piattaforma IBM MQ Appliance\n\n• Costruire automazione, capacità self-service e servizi di piattaforma\n\n• Progettazione e realizzazione dei servizi IBM MQ in OpenShift e Azure\n\n• Valutare le tecnologie di messaggistica complementari\n\n• Sviluppare l'automazione utilizzando API, CI/CD e infrastrutture come codice\n\n• Risoluzione dei problemi di produzione e partecipazione alla rotazione delle chiamate\n\nChe cosa porta\n\n• Enterprise messaging piattaforma di amministrazione o esperienza di ingegneria\n\n• Esperienza di produzione in ambienti OpenShift o cloud pubblici\n\n• Capacità di automazione o software in Java e Spring Boot\n\n• Forte Linux, container, networking e fondamentali di sicurezza\n\n• Esperienza con CI/CD, osservabilità e gestione degli incidenti\n\n• Conoscenza di Azure, Kubernetes, Terraform o messaggi cloud-native\n\nSe hai domande, consulta la nostra pagina FAQ o chiama Mateusz Kozielec al numero +41583998611 .\n\nPer questa vacanza accettiamo solo applicazioni dirette.\n\nLa diversità è importante per noi. Pertanto, stiamo cercando di ricevere applicazioni indipendentemente da qualsiasi background personale.",
+        "en": "SIX drives the transformation of financial markets.\n\nWhat sets us apart drives us ahead: between local roots and global relevance, we are a unique blend of tradition and future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of finance with us.\n\nMessaging Platform Engineer, Cloud & Containers\n\nZurich | Working from home up to 40% possible | Reference 8165\n\nWe are looking for a hands-on Messaging Platform Engineer to join our team in Zürich. A core responsibility of this role is the ongoing operation, maintenance and development of our business-critical on-premises IBM MQ Appliance environment. Alongside this established platform, our next step is to expand our messaging portfolio across OpenShift and Microsoft Azure. Beyond IBM MQ, we are also evaluating complementary cloud-native messaging technologies for the future hybrid messaging portfolio. This role combines platform engineering with software development. Your experience does not need to be limited to IBM MQ.\n\nWhat You Will Do\n\n• Operate and improve the IBM MQ Appliance platform\n\n• Build automation, self-service capabilities and platform services\n\n• Design and implement IBM MQ services in OpenShift and Azure\n\n• Evaluate complementary messaging technologies\n\n• Develop automation using APIs, CI/CD and infrastructure as code\n\n• Troubleshoot production issues and participate in on-call rotation\n\nWhat You Bring\n\n• Enterprise messaging platform administration or engineering experience\n\n• Production experience in OpenShift or public cloud environments\n\n• Automation or software engineering skills in Java and Spring Boot\n\n• Strong Linux, container, networking and security fundamentals\n\n• Experience with CI/CD, observability and incident management\n\n• Knowledge of Azure, Kubernetes, Terraform or cloud-native messaging\n\nIf you have any questions, check out our FAQ page or call Agnieszka Leputa at .\n\nFor this vacancy we only accept direct applications.\n\nDiversity is important to us. Therefore, we are looking to receiving applications regardless of any personal background.",
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nMessaging Platform Engineer, Cloud & Container\n\nZürich | Arbeiten von zu Hause bis zu 40% möglich | Referenz 8165\n\nWir suchen einen praxisorientierten Messaging Platform Engineer für unser Team in Zürich. Eine zentrale Verantwortung dieser Rolle ist der laufende Betrieb, die Wartung und die Entwicklung unserer geschäftskritischen lokalen IBM MQ Appliance-Umgebung. Neben dieser etablierten Plattform besteht unser nächster Schritt darin, unser Messaging-Portfolio auf OpenShift und Microsoft Azure zu erweitern. Neben dem IBM MQ evaluieren wir auch ergänzende Cloud-native Messaging-Technologien für das zukünftige Hybrid-Messaging-Portfolio. Diese Rolle verbindet Platform Engineering mit Softwareentwicklung. Ihre Erfahrung muss nicht auf IBM MQ beschränkt sein.\n\nWas Sie tun werden\n\n• Betrieb und Verbesserung der IBM MQ Appliance Plattform\n\n• Build-Automatisierung, Self-Service-Funktionen und Plattformdienste\n\n• Entwerfen und Implementieren von IBM MQ Services in OpenShift und Azure\n\n• Bewerten Sie komplementäre Messaging-Technologien\n\n• Automatisierung mit APIs, CI/CD und Infrastruktur als Code entwickeln\n\n• Fehlerbehebung bei Produktionsproblemen und Beteiligung an der On-Call-Rotation\n\nWas du mitbringst\n\n• Enterprise Messaging Platform Administration oder Engineering Erfahrung\n\n• Produktionserfahrung in OpenShift- oder Public Cloud-Umgebungen\n\n• Automatisierungs- oder Software-Engineering-Fähigkeiten in Java und Spring Boot\n\n• Starkes Linux, Container, Netzwerk und Sicherheitsgrundlagen\n\n• Erfahrung mit CI/CD, Observability und Incident Management\n\n• Kenntnisse in Azure, Kubernetes, Terraform oder Cloud-nativem Messaging\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Mateusz Kozielec unter +41583998611 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur de plateforme de messagerie, Cloud & Containers\n\nZurich: travail à domicile jusqu'à 40% possible\n\nNous cherchons un ingénieur de plate-forme de messagerie pratique pour rejoindre notre équipe à Zürich. L'une des principales responsabilités de ce rôle est l'exploitation, la maintenance et le développement continus de notre environnement d'appareils IBM MQ sur site. Parallèlement à cette plateforme établie, notre prochaine étape est d'élargir notre portefeuille de messagerie à OpenShift et Microsoft Azure. Au-delà de IBM MQ, nous évaluons également les technologies de messagerie cloud-native complémentaires pour le futur portefeuille de messagerie hybride. Ce rôle combine l'ingénierie de la plate-forme avec le développement de logiciels. Votre expérience ne doit pas être limitée à IBM MQ.\n\nCe que vous ferez\n\n• Fonctionnement et amélioration de la plateforme IBM MQ Appliance\n\n• Construction d'automatisation, de capacités en libre-service et de services de plate-forme\n\n• Conception et mise en œuvre de services IBM MQ en OpenShift et Azure\n\n• Évaluer les technologies de messagerie complémentaires\n\n• Développer l'automatisation en utilisant les API, IC/CD et l'infrastructure comme code\n\n• Résoudre les problèmes de production et participer à la rotation sur appel\n\nCe que vous apportez\n\n• Expérience d'administration ou d'ingénierie de la plateforme de messagerie d'entreprise\n\n• Expérience de production dans les environnements OpenShift ou cloud public\n\n• Automatisation ou compétences en génie logiciel en Java et Spring Boot\n\n• Fort Linux, conteneur, réseau et fondamentaux de sécurité\n\n• Expérience de l'IC/DC, de l'observabilité et de la gestion des incidents\n\n• Connaissance de la messagerie azur, Kubernetes, Terraform ou cloud-native\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Mateusz Kozielec au +4158399861 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.six-group.com/job/Zurich-Messaging-Platform-Engineer%2C-Cloud-&-Containers/1419165533/",
+      "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-27T21:40:59.455Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-23T02:00:00Z",
+      "postedDate": "2026-09-23T02:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1419165533/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-10T10:28:20.413Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1725,7 +1725,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Head-Fraud-Services-%28100%29/1440523333/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:56:00.752Z",
+      "crawledAt": "2026-10-27T21:40:58.341Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1804,7 +1804,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Senior-Application-Engineer/1440812533/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:55:58.110Z",
+      "crawledAt": "2026-10-27T21:40:56.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1869,7 +1869,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Chargeback-Specialist-%2880-100%29/1440913133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:55:57.145Z",
+      "crawledAt": "2026-10-27T21:40:55.548Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1935,7 +1935,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-Incident-&-Problem-Manager-%2880-100%29/1441446133/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:55:55.822Z",
+      "crawledAt": "2026-10-27T21:40:53.969Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1984,8 +1984,8 @@
       "id": "six-group-ee3c4a6b816b",
       "slug": "devops-ingegnere-six-group-zurich",
       "slugByLocale": {
-        "en": "devops-engineer-six-group-zurich",
         "it": "devops-ingegnere-six-group-zurich",
+        "en": "devops-engineer-six-group-zurich",
         "de": "devops-ingenieur-six-group-zurich",
         "fr": "devops-ingenieur-six-group-zurich"
       },
@@ -1994,8 +1994,8 @@
       "companyDomain": "six-group.com",
       "title": "DevOps Engineer",
       "titleByLocale": {
-        "en": "DevOps Engineer",
         "it": "DevOps Ingegnere",
+        "en": "DevOps Engineer",
         "de": "DevOps Ingenieur",
         "fr": "DevOps Ingénieur"
       },
@@ -2006,12 +2006,13 @@
         "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns auszeichnet, treibt uns voran: zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, von Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Kommen Sie und gestalten Sie mit uns die Zukunft der Finanzen.\n\nDevOps Engineer\n\nZürich | Arbeiten von zu Hause bis zu 40% | Referenz 8333\n\nSind Sie begeistert von der Möglichkeit, zuverlässige, leistungsstarke Anwendungsplattformen in einer modernen DevOps-Umgebung zu gestalten? Genießen Sie es, Automatisierung, Betrieb und Innovation zu kombinieren, um belastbare Dienstleistungen aufzubauen, die für die Produktion in großem Maßstab bereit sind? Wir suchen einen Application DevOps Engineer, der automatisierte Bereitstellungen, GitOps-basierte Bereitstellung und Infrastruktur-as-Code in Cloud- und On-Premise-Umgebungen unterstützt. In dieser Rolle arbeiten Sie eng mit Anwendungsentwicklungsteams zusammen, um einen stabilen, latenzarmen und sicheren Betrieb zu gewährleisten und gleichzeitig die Bereitstellungsworkflows, die Überwachung und die Belastbarkeit der Plattform kontinuierlich zu verbessern.\n\nWas Sie tun werden\n\n• Entwerfen, Implementieren und Pflegen automatisierter Bereitstellungs-Workflows mit Ansible und GitLab CI/CD.\n\n• Definieren und verbessern Sie kontinuierlich Überwachung, Alarmierung, Dashboards und Runbooks, um die Betriebsstabilität und die Reaktion auf Vorfälle zu stärken.\n\n• Entwickeln Sie Automatisierungs- und Integrationsskripte in PowerShell, Python, Perl, Bash und CMD und arbeiten Sie bei Bedarf mit strukturierten Formaten wie XML, JSON und XSL.\n\n• Betreiben und unterstützen Sie Überwachungs- und Jobplanungsplattformen wie Patrol, Elastic, Grafana und Airflow.\n\n• Übernahme des operativen Eigentums an Produktionsdienstleistungen während ihres gesamten Lebenszyklus, einschließlich Bereitstellung, Überwachung, Fehlerbehebung, Wartung, Wiederherstellung und kontinuierlicher Verbesserung.\n\n• Nehmen Sie an einer regelmäßigen On-Call-Rotation für geschäftskritische Produktionssysteme teil, reagieren Sie bei Bedarf auf Vorfälle außerhalb der regulären Geschäftszeiten und übernehmen Sie die Verantwortung für Fehlersuche, -minderung, Eskalation und Servicewiederherstellung.\n\n• Führen oder tragen Sie aktiv zur Reaktion auf Vorfälle, zur Ursachenanalyse und zu Überprüfungen nach Zwischenfällen bei und verwandeln Sie die gewonnenen Erkenntnisse in Überwachungs-, Automatisierungs- und Zuverlässigkeitsverbesserungen.\n\nWas du mitbringst\n\n• Starke DevOps-Mentalität mit Erfahrung im gesamten Software-Delivery-Lebenszyklus und im Betrieb von Produktionssystemen.\n\n• Starke Skriptkenntnisse in Python und Shell, zusammen mit praktischer Erfahrung mit GitLab CI / CD; Erfahrung mit Ansible und Infrastructure-as-Code wird sehr geschätzt.\n\n• Solides Verständnis von Linux, Netzwerkgrundlagen\n\n• Praktische Erfahrung beim Betrieb von Produktionssystemen und containerisierten Anwendungsplattformen wie Kubernetes oder OpenShift, einschließlich Bereitstellung, Überwachung und Fehlerbehebung.\n\n• Erfahrung mit Überwachungs-, Alarmierungs- und Protokollierungslösungen wie Prometheus, Grafana, ELK/EFK, Splunk oder ähnlichen Tools in containerisierten Umgebungen.\n\n• Klare Kommunikationsfähigkeiten mit der Fähigkeit, technische Themen sowohl dem technischen als auch dem nichttechnischen Publikum zu erklären.\n\n• Starke praktische Fehlerbehebungsfähigkeiten für Anwendungen, Linux / Windows, TCP / IP-Netzwerke, DNS, Firewalls, TLS und containerisierte Plattformen.\n\n• Fließendes Englisch; Deutsch und/oder Spanisch sind von Vorteil.\n\nWenn Sie Fragen haben, besuchen Sie unsere FAQ-Seite oder rufen Sie Yuliya Stoyko unter +34 917095993 an.\n\nFür diese Vakanz akzeptieren wir nur Direktbewerbungen.\n\nVielfalt ist uns wichtig. Daher suchen wir nach Bewerbungen unabhängig vom persönlichen Hintergrund.",
         "fr": "SIX stimule la transformation des marchés financiers.\n\nCe qui nous distingue nous pousse vers l'avenir : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits brillants et les inspirons à grandir avec leurs idées. Venez façonner l'avenir de la finance avec nous.\n\nIngénieur DevOps\n\nZurich: travail à domicile jusqu'à 40 % Référence 8333\n\nÊtes-vous excité par la possibilité de façonner des plateformes d'application fiables et performantes dans un environnement DevOps moderne? Vous aimez combiner l'automatisation, les opérations et l'innovation pour construire des services résilients prêts à la production à grande échelle ? Nous sommes à la recherche d'un ingénieur d'application DevOps pour aider à conduire des déploiements automatisés, la livraison basée sur GitOps, et l'infrastructure comme code dans les environnements cloud et sur site. Dans ce rôle, vous travaillerez en étroite collaboration avec les équipes de développement d'applications pour assurer des opérations stables, à faible latence et sécurisées tout en améliorant continuellement les flux de déploiement, le suivi et la résilience des plateformes.\n\nCe que vous ferez\n\n• Concevoir, mettre en œuvre et maintenir des workflows de déploiement automatisés en utilisant Ansible et GitLab CI/CD.\n\n• Définir et améliorer continuellement la surveillance, l'alerte, les tableaux de bord et les guides d'exécution afin de renforcer la stabilité opérationnelle et l'intervention en cas d'incident.\n\n• Développez des scripts d'automatisation et d'intégration dans PowerShell, Python, Perl, Bash et CMD, et travaillez avec des formats structurés tels que XML, JSON et XSL au besoin.\n\n• Exploiter et soutenir des plateformes de surveillance et de planification des tâches telles que Patrol, Elastic, Grafana et Airflow.\n\n• Prendre en main les services de production tout au long de leur cycle de vie, y compris le déploiement, la surveillance, le dépannage, la maintenance, la récupération et l'amélioration continue.\n\n• Participer à une rotation régulière sur appel pour les systèmes de production critiques pour les entreprises, réagir aux incidents en dehors des heures normales d'ouverture au besoin, et prendre en charge le dépannage, l'atténuation, l'escalade et la restauration du service.\n\n• Diriger ou contribuer activement à l'intervention en cas d'incident, à l'analyse des causes profondes et aux examens post-incident, en transformant les leçons apprises en améliorations de la surveillance, de l'automatisation et de la fiabilité.\n\nCe que vous apportez\n\n• Fort DevOps état d'esprit avec l'expérience dans le cycle de vie de la livraison de logiciels et les systèmes de production d'exploitation.\n\n• De solides compétences de script en Python et en shell, ainsi qu'une expérience pratique avec GitLab CI/CD; l'expérience avec Ansible et infrastructure-as-code est très appréciée.\n\n• Compréhension solide de Linux, fondamentaux du réseau\n\n• Expérience pratique des systèmes de production d'exploitation et des plates-formes d'application conteneurisées comme Kubernetes ou OpenShift, y compris le déploiement, la surveillance et le dépannage.\n\n• Expérience avec des solutions de surveillance, d'alerte et d'enregistrement telles que Prometheus, Grafana, ELK/EFK, Spunk ou des outils similaires dans des environnements containerizzato.\n\n• Compétences claires en communication avec la capacité d'expliquer des sujets techniques aux publics techniques et non techniques.\n\n• Fortes compétences de dépannage pratique à travers les applications, Linux/Windows, réseau TCP/IP, DNS, pare-feu, TLS et plateformes conteneurisées.\n\n• L'anglais, l'allemand et/ou l'espagnol sont un avantage.\n\nSi vous avez des questions, consultez notre page FAQ ou appelez Yuliya Stoyko au +34 917095993 .\n\nPour cette vacance, nous n'acceptons que les candidatures directes.\n\nLa diversité est importante pour nous. Par conséquent, nous cherchons à recevoir des demandes indépendamment de tout contexte personnel."
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.six-group.com/job/Zurich-DevOps-Engineer/1451213733/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-27T09:55:54.836Z",
+      "crawledAt": "2026-10-27T21:40:52.807Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2030,6 +2031,21 @@
       "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1451213733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "devops-engineer-six-group-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-six-group-zurich"
+        ],
+        "de": [
+          "devops-engineer-six-group-zurich"
+        ],
+        "fr": [
+          "devops-engineer-six-group-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-26T21:57:27.454Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2042,102 +2058,86 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-26T21:57:27.454Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "devops-engineer-six-group-zurich"
-        ],
-        "de": [
-          "devops-engineer-six-group-zurich"
-        ],
-        "fr": [
-          "devops-engineer-six-group-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "devops-engineer-six-group-zurich"
-      ],
-      "needsRetranslation": false
+      }
     },
     {
-      "id": "six-group-b80b9c13934c",
-      "slug": "servizi-fiscali-di-stage-six-group-olten",
+      "id": "six-group-f20a9a297319",
+      "slug": "servizio-attivo-degli-studenti-di-lavoro-40-60-six-group-olten",
       "slugByLocale": {
-        "it": "servizi-fiscali-di-stage-six-group-olten",
-        "en": "internship-tax-services-six-group-olten",
-        "de": "internship-tax-services-six-group-olten",
-        "fr": "services-fiscaux-aux-stagiaires-six-group-olten"
+        "de": "working-student-asset-servicing-40-60-six-group-olten",
+        "it": "servizio-attivo-degli-studenti-di-lavoro-40-60-six-group-olten",
+        "en": "working-student-asset-servicing-40-60-six-group-olten",
+        "fr": "service-aux-etudiants-qui-travaillent-40-60-six-group-olten"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
       "companyDomain": "six-group.com",
-      "title": "Internship Tax Services",
+      "title": "Working Student Asset Servicing 40-60%",
       "titleByLocale": {
-        "it": "Stage nei servizi fiscali",
-        "en": "Internship in tax consultancy",
-        "de": "Internship Tax Services",
-        "fr": "Stage en services fiscaux"
+        "de": "Working Student Asset Servicing 40-60%",
+        "en": "Working Student Asset Servicing 40-60%",
+        "it": "Servizio attivo degli studenti di lavoro 40-60 %",
+        "fr": "Service aux étudiants qui travaillent 40-60 %"
       },
-      "description": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nInternship Tax Services\n\nOlten |  100% | Referenz 8204\n\nSIX Securities Services nimmt als zentrale Verwahrstelle für Wertschriften in der Schweiz eine wichtige Rolle im Finanzmarkt ein und unterliegt deshalb zahlreichen regulatorischen Anforderungen – insbesondere im Steuerbereich. Um diesen Anforderungen sowie den stetig wachsenden Kundenbedürfnissen gerecht zu werden und gezielt Nachwuchstalente zu fördern, bieten wir ein einjähriges Internship im Bereich Tax Services an.\n\nWährend des Internships erhältst du einen umfassenden Einblick in die steuerlichen Aspekte des Wertschriftengeschäfts. Du lernst die wichtigsten Steuerarten im Wertschriftenbereich kennen, unterstützt bei der Depotdokumentation und Kontoeröffnung entlang der Verwahrkette und wirkst bei der Bearbeitung von Steuerrückforderungen in verschiedenen Märkten mit.\n\nDas sind deine Aufgaben\n\n• Du übernimmst die risikoarme und kundenorientierte Abwicklung des Tagesgeschäfts im Team Regulatory Tax mit Fokus auf US Tax, Transaction Based Taxes sowie Account Documentation.\n\n• Im Team Tax Processing Services lernst du, Steuerrückforderungsdienstleistungen für verschiedene internationale Märkte selbstständig abzuwickeln.\n\n• Du unterstützt bei operativen, administrativen und analytischen Tätigkeiten sowie bei steuerrelevanten Projekten und Publikationen.\n\n• Du bearbeitest Kundenanfragen eigenverantwortlich und führst fachliche Abklärungen mit Depotbanken, Steuerbehörden und weiteren externen Gegenparteien durch.\n\n• Du arbeitest aktiv an anspruchsvolleren steuerlichen Fragestellungen mit und baust dein Fachwissen kontinuierlich aus.\n\nDas brings du mit\n\n• Abgeschlossenes Bachelorstudium in Betriebswirtschaft, Wirtschaftsrecht, Wirtschaftsinformatik oder einer vergleichbaren Fachrichtung.\n\n• Erste Erfahrungen im Umgang mit Daten sowie in der Datenanalyse sind von Vorteil.\n\n• Du bist eine teamorientierte Persönlichkeit mit Eigeninitiative und überzeugenden Kommunikationsfähigkeiten.\n\n• Du verfügst über ausgeprägte analytische und konzeptionelle Fähigkeiten, eine strukturierte und selbstständige Arbeitsweise sowie sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint.\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Janine Reichling  unter der Nummer +41 58 399 42 99.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
+      "description": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nWorking Student Asset Servicing 40-60%\n\nOlten |  40-60% | Referenz 8384\n\nDu willst neben deinem Studium echte Einblicke in ein internationales Finanzumfeld gewinnen und aktiv mitgestalten, statt nur mitzulaufen? Dann bist du bei uns genau richtig!\n\nAsset Servicing ist eine fachlich vielseitige Abteilung mit spezialisierten Teams an den Standorten Schweiz und Spanien. Gemeinsam stellen wir sicher, dass unsere Dienstleistungen in den Bereichen Corporate Actions, Income Processing und Proxy Voting zuverlässig und effizient erbracht werden.  Als Werkstudent arbeitest du direkt im operativen Tagesgeschäft mit – und darüber hinaus bekommst du die Möglichkeit, Prozesse zu analysieren, Optimierungspotenziale zu identifizieren und eigene Ideen einzubringen.\n\nAls modernes, dynamisches und innovatives Unternehmen bieten wir eine Vielzahl von Möglichkeiten, dein Potenzial in der spannenden Welt von Technologie und Finanzen zu entfalten. Wir unterstützen dich bei deinem Berufseinstieg, investieren in deine Entwicklung und die Erweiterung deiner persönlichen Fähigkeiten. Als «Working Student» bis du Teil unserer Young Talents Community und bist Teil eines Netzwerks von engagierten Career Starter. Diese Anstellung ist auf zwei Jahre befristet.\n\nDas sind deine Aufgaben\n\n• Mitarbeit im Tagesgeschäft in verschiedenen Bereichen des Asset Servicings (Corporate Actions, Income, Proxy Voting)\n\n• Unterstützung bei der qualitativ hochwertigen und termingerechten Verarbeitung von Kundenaufträgen\n\n• Analyse von Abläufen und Mitarbeit an der Weiterentwicklung von Proezssen\n\n• Einbringen eigener Verbesserungsvorschläge und Unterstützung bei deren Umsetzung\n\n• Zusammenarbeit mit mehreren Teams sowie internationalen Schnittstellen\n\nDas brings du mit\n\n• Laufendes Bachelor  oder Masterstudium (z. B. Wirtschaft, Finance, Banking, Data/Analytics oder vergleichbar)\n\n• Eine abgeschlossene Banklehre, Erfahrung im Bereich Securities Services sind von Vorteil\n\n• Analytisches Denken und Freude daran, Dinge zu hinterfragen und zu verbessern\n\n• Überdurchschnittliche Kunden- und Serviceorientierung\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Maria Teresa Buchanan  unter der Nummer +41 58 399 8083.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
       "descriptionByLocale": {
-        "it": "Descrizione\n\nSIX porta avanti la trasformazione dei mercati finanziari.\n\nCiò che ci distingue ci spinge avanti: tra radici locali e rilevanza globale, siamo una combinazione unica di tradizione e futuro, di solide fondamenta e crescita. Apprezziamo le menti brillanti e le ispiriamo a crescere con le loro idee. Vieni a plasmare con noi il futuro dei mercati finanziari.\n\nTirocinio Tax Services\n\nOlten | 100% | Riferimento 8204\n\nSIX Securities Services, in qualità di depositaria centrale di titoli in Svizzera, svolge un ruolo importante nel mercato finanziario ed è pertanto soggetta a numerosi requisiti normativi, in particolare in ambito fiscale. Per soddisfare tali requisiti e le esigenze sempre crescenti della clientela, nonché per promuovere in modo mirato i giovani talenti, offriamo un tirocinio della durata di un anno nell'area Tax Services.\n\nDurante il tirocinio avrai una panoramica completa degli aspetti fiscali delle operazioni in titoli. Imparerai a conoscere le principali tipologie di imposte nell'ambito dei titoli, fornirai supporto nella documentazione dei depositi e nell'apertura dei conti lungo la catena di custodia e collaborerai alla gestione delle richieste di rimborso fiscale in diversi mercati.\n\nQueste sono le tue mansioni\n\n- Ti occuperai della gestione a basso rischio e orientata al cliente delle attività quotidiane nel team Regulatory Tax, con particolare attenzione a US Tax, Transaction Based Taxes e Account Documentation.\n- Nel team Tax Processing Services imparerai a gestire autonomamente i servizi di richiesta di rimborso fiscale per vari mercati internazionali.\n- Fornirai supporto nelle attività operative, amministrative e analitiche, nonché nei progetti e nelle pubblicazioni pertinenti sotto il profilo fiscale.\n- Gestirai in autonomia le richieste dei clienti e svolgerai approfondimenti tecnici con banche depositarie, autorità fiscali e altre controparti esterne.\n- Collaborerai attivamente alla gestione di questioni fiscali più complesse e amplierai costantemente le tue conoscenze specialistiche.\n\nCosa porti con te\n\n- Bachelor conseguito in economia aziendale, diritto economico, informatica gestionale o disciplina affine.\n- Una prima esperienza nella gestione e nell'analisi dei dati costituisce un vantaggio.\n- Sei una persona orientata al lavoro di squadra, dotata di spirito d'iniziativa e di ottime capacità comunicative.\n- Possiedi spiccate capacità analitiche e concettuali, un metodo di lavoro strutturato e autonomo, nonché un'ottima conoscenza di MS-Office, in particolare di Excel e PowerPoint.\n- Ottima padronanza del tedesco e dell'inglese, sia orale sia scritta.\n\nContatti\n\nIn caso di domande, consulta la nostra pagina FAQ o contatta Janine Reichling al numero +41 58 399 42 99.\n\nPer questa posizione prendiamo in considerazione esclusivamente candidature dirette.\n\nLa diversità è importante per noi; saremo pertanto lieti di ricevere candidature indipendentemente dal background personale.",
-        "en": "Description\n\nSIX is driving the transformation of the financial markets forward.\n\nWhat sets us apart drives us forward: Between local roots and global relevance, we are a unique blend of tradition and the future, of foundation and growth. We value bright minds and inspire them to grow with their ideas. Come and shape the future of the financial markets with us.\n\nInternship Tax Services\n\nOlten | 100% | Reference 8204\n\nAs the central securities depository for securities in Switzerland, SIX Securities Services plays an important role in the financial market and is therefore subject to numerous regulatory requirements – particularly in the area of taxation. To meet these requirements and the steadily growing needs of our clients, and to specifically promote young talent, we offer a one-year internship in Tax Services.\n\nDuring the internship, you will gain comprehensive insight into the tax aspects of the securities business. You will learn about the most important types of tax in the securities sector, support securities account documentation and account opening along the custody chain, and assist with processing tax reclaims in various markets.\n\nYour responsibilities\n\n- You will handle the low-risk, client-oriented processing of day-to-day business in the Regulatory Tax team, with a focus on US Tax, Transaction Based Taxes and Account Documentation.\n- In the Tax Processing Services team, you will learn to independently process tax reclaim services for various international markets.\n- You will support operational, administrative and analytical activities as well as tax-related projects and publications.\n- You will handle client inquiries independently and conduct subject-matter clarifications with custodian banks, tax authorities and other external counterparties.\n- You will actively contribute to more challenging tax-related matters and continuously expand your expertise.\n\nWhat you bring\n\n- Completed bachelor's degree in business administration, business law, business information systems or a comparable field.\n- Initial experience working with data and in data analysis is an advantage.\n- You are a team-oriented personality with initiative and convincing communication skills.\n- You have strong analytical and conceptual skills, a structured and independent way of working, and very good MS Office skills, particularly in Excel and PowerPoint.\n- Very good command of German and English, both written and spoken.\n\nContact\n\nIf you have any questions, visit our FAQ page or contact Janine Reichling at +41 58 399 42 99.\n\nFor this vacancy, we will consider direct applications only.\n\nDiversity is important to us, so we welcome applications regardless of personal background.",
-        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nInternship Tax Services\n\nOlten | 100% | Referenz 8204\n\nSIX Securities Services nimmt als zentrale Verwahrstelle für Wertschriften in der Schweiz eine wichtige Rolle im Finanzmarkt ein und unterliegt deshalb zahlreichen regulatorischen Anforderungen – insbesondere im Steuerbereich. Um diesen Anforderungen sowie den stetig wachsenden Kundenbedürfnissen gerecht zu werden und gezielt Nachwuchstalente zu fördern, bieten wir ein einjähriges Internship im Bereich Tax Services an.\n\nWährend des Internships erhältst du einen umfassenden Einblick in die steuerlichen Aspekte des Wertschriftengeschäfts. Du lernst die wichtigsten Steuerarten im Wertschriftenbereich kennen, unterstützt bei der Depotdokumentation und Kontoeröffnung entlang der Verwahrkette und wirkst bei der Bearbeitung von Steuerrückforderungen in verschiedenen Märkten mit.\n\nDas sind deine Aufgaben\n\n• Du übernimmst die risikoarme und kundenorientierte Abwicklung des Tagesgeschäfts im Team Regulatory Tax mit Fokus auf US Tax, Transaction Based Taxes sowie Account Documentation.\n\n• Im Team Tax Processing Services lernst du, Steuerrückforderungsdienstleistungen für verschiedene internationale Märkte selbstständig abzuwickeln.\n\n• Du unterstützt bei operativen, administrativen und analytischen Tätigkeiten sowie bei steuerrelevanten Projekten und Publikationen.\n\n• Du bearbeitest Kundenanfragen eigenverantwortlich und führst fachliche Abklärungen mit Depotbanken, Steuerbehörden und weiteren externen Gegenparteien durch.\n\n• Du arbeitest aktiv an anspruchsvolleren steuerlichen Fragestellungen mit und baust dein Fachwissen kontinuierlich aus.\n\nDas brings du mit\n\n• Abgeschlossenes Bachelorstudium in Betriebswirtschaft, Wirtschaftsrecht, Wirtschaftsinformatik oder einer vergleichbaren Fachrichtung.\n\n• Erste Erfahrungen im Umgang mit Daten sowie in der Datenanalyse sind von Vorteil.\n\n• Du bist eine teamorientierte Persönlichkeit mit Eigeninitiative und überzeugenden Kommunikationsfähigkeiten.\n\n• Du verfügst über ausgeprägte analytische und konzeptionelle Fähigkeiten, eine strukturierte und selbstständige Arbeitsweise sowie sehr gute MS-Office-Kenntnisse, insbesondere in Excel und PowerPoint.\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift.\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Janine Reichling unter der Nummer +41 58 399 42 99.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
-        "fr": "Description\n\nSIX fait avancer la transformation des marchés financiers.\n\nCe qui nous distingue nous fait avancer : entre racines locales et portée mondiale, nous sommes un mélange unique de tradition et d’avenir, de fondations et de croissance. Nous valorisons les esprits brillants et les inspirons à grandir grâce à leurs idées. Rejoins-nous et façonne avec nous l’avenir des marchés financiers.\n\nStage Tax Services\n\nOlten | 100% | Référence 8204\n\nSIX Securities Services joue un rôle important sur le marché financier en tant que dépositaire central de titres en Suisse et est donc soumise à de nombreuses exigences réglementaires, notamment dans le domaine fiscal. Afin de satisfaire à ces exigences ainsi qu’aux besoins toujours croissants de nos clients et de soutenir de manière ciblée les jeunes talents, nous proposons un stage d’un an dans le domaine de Tax Services.\n\nPendant le stage, tu acquerras une vue d’ensemble des aspects fiscaux des opérations sur titres. Tu te familiariseras avec les principaux types d’impôts dans le domaine des titres, tu apporteras ton soutien à la documentation des dépôts et à l’ouverture de comptes tout au long de la chaîne de conservation, et tu contribueras au traitement des demandes de remboursement d’impôts sur différents marchés.\n\nVoici tes tâches\n\n- Tu prends en charge le traitement quotidien à faible risque et orienté client au sein de l’équipe Regulatory Tax, avec un accent sur US Tax, Transaction Based Taxes ainsi que Account Documentation.\n- Au sein de l’équipe Tax Processing Services, tu apprends à traiter de manière autonome des services de récupération fiscale pour différents marchés internationaux.\n- Tu apportes ton soutien à des activités opérationnelles, administratives et analytiques ainsi qu’à des projets et publications liés à la fiscalité.\n- Tu traites de manière autonome les demandes des clients et procèdes à des clarifications techniques avec des banques dépositaires, des autorités fiscales et d’autres contreparties externes.\n- Tu participes activement à des problématiques fiscales plus complexes et développes continuellement tes connaissances spécialisées.\n\nCe que tu apportes\n\n- Diplôme de bachelor en gestion d'entreprise, droit des affaires, informatique de gestion ou dans une discipline comparable.\n- Une première expérience dans la manipulation des données ainsi que dans l'analyse de données constitue un avantage.\n- Tu es une personne orientée vers le travail en équipe, faisant preuve d'initiative et dotée d'excellentes compétences en communication.\n- Vous disposez de solides capacités analytiques et conceptuelles, d’une méthode de travail structurée et autonome ainsi que de très bonnes connaissances de MS Office, notamment d’Excel et de PowerPoint.\n- Très bonne maîtrise de l’allemand et de l’anglais, à l’oral comme à l’écrit.\n\nContact\n\nPour toute question, consulte notre page FAQ ou contacte Janine Reichling au numéro +41 58 399 42 99.\n\nPour ce poste, nous ne considérons que les candidatures directes.\n\nLa diversité nous tient à cœur, c’est pourquoi nous accueillons les candidatures quels que soient les parcours personnels."
+        "de": "SIX treibt die Transformation der Finanzmärkte voran.\n\nWas uns unterscheidet, treibt uns voran: Zwischen lokalen Wurzeln und globaler Relevanz sind wir eine einzigartige Mischung aus Tradition und Zukunft, aus Fundament und Wachstum. Wir schätzen kluge Köpfe und inspirieren sie, mit ihren Ideen zu wachsen. Komm und gestalte die Zukunft der Finanzmärkte mit uns.\n\nWorking Student Asset Servicing 40-60%\n\nOlten |  40-60% | Referenz 8384\n\nDu willst neben deinem Studium echte Einblicke in ein internationales Finanzumfeld gewinnen und aktiv mitgestalten, statt nur mitzulaufen? Dann bist du bei uns genau richtig!\n\nAsset Servicing ist eine fachlich vielseitige Abteilung mit spezialisierten Teams an den Standorten Schweiz und Spanien. Gemeinsam stellen wir sicher, dass unsere Dienstleistungen in den Bereichen Corporate Actions, Income Processing und Proxy Voting zuverlässig und effizient erbracht werden.  Als Werkstudent arbeitest du direkt im operativen Tagesgeschäft mit – und darüber hinaus bekommst du die Möglichkeit, Prozesse zu analysieren, Optimierungspotenziale zu identifizieren und eigene Ideen einzubringen.\n\nAls modernes, dynamisches und innovatives Unternehmen bieten wir eine Vielzahl von Möglichkeiten, dein Potenzial in der spannenden Welt von Technologie und Finanzen zu entfalten. Wir unterstützen dich bei deinem Berufseinstieg, investieren in deine Entwicklung und die Erweiterung deiner persönlichen Fähigkeiten. Als «Working Student» bis du Teil unserer Young Talents Community und bist Teil eines Netzwerks von engagierten Career Starter. Diese Anstellung ist auf zwei Jahre befristet.\n\nDas sind deine Aufgaben\n\n• Mitarbeit im Tagesgeschäft in verschiedenen Bereichen des Asset Servicings (Corporate Actions, Income, Proxy Voting)\n\n• Unterstützung bei der qualitativ hochwertigen und termingerechten Verarbeitung von Kundenaufträgen\n\n• Analyse von Abläufen und Mitarbeit an der Weiterentwicklung von Proezssen\n\n• Einbringen eigener Verbesserungsvorschläge und Unterstützung bei deren Umsetzung\n\n• Zusammenarbeit mit mehreren Teams sowie internationalen Schnittstellen\n\nDas brings du mit\n\n• Laufendes Bachelor  oder Masterstudium (z. B. Wirtschaft, Finance, Banking, Data/Analytics oder vergleichbar)\n\n• Eine abgeschlossene Banklehre, Erfahrung im Bereich Securities Services sind von Vorteil\n\n• Analytisches Denken und Freude daran, Dinge zu hinterfragen und zu verbessern\n\n• Überdurchschnittliche Kunden- und Serviceorientierung\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBei Fragen besuche unsere FAQ-Seite oder kontaktiere Maria Teresa Buchanan  unter der Nummer +41 58 399 8083.\n\nFür diese Vakanz berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nDiversität ist uns wichtig, daher freuen wir uns über Bewerbungen unabhängig vom persönlichen Hintergrund.",
+        "it": "SIX sta guidando la trasformazione dei mercati finanziari.\n\nCiò che ci rende diversi ci spinge avanti: tra radici locali e rilevanza globale, siamo una miscela unica di tradizione e futuro, di fondazione e crescita. Apprezziamo le menti intelligenti e le ispiramo a crescere con le loro idee. Vieni a plasmare il futuro dei mercati finanziari con noi.\n\nServizio attivo degli studenti di lavoro 40-60 %\n\nOlten | 40-60% | Riferimento 8384\n\nOltre ai tuoi studi, vuoi ottenere informazioni reali in un ambiente finanziario internazionale e formarlo attivamente invece di correre? Allora hai proprio ragione con noi!\n\nAsset servicing è un reparto tecnicamente versatile con team specializzati in Svizzera e Spagna. Insieme assicuriamo che i nostri servizi nei settori delle azioni aziendali, del trattamento dei redditi e del voto dei proxy siano forniti in modo affidabile ed efficiente. Come studente di lavoro, si lavora direttamente nelle operazioni quotidiane - e si ottiene anche l'opportunità di analizzare i processi, identificare il potenziale di ottimizzazione e contribuire le proprie idee.\n\nCome azienda moderna, dinamica e innovativa, offriamo una varietà di opportunità per scatenare il vostro potenziale nell'emozionante mondo della tecnologia e della finanza. Ti sosteniamo nella tua carriera, investiamo nel tuo sviluppo e nell'espansione delle tue capacità personali. Come “Working Student” fai parte della nostra comunità di Giovani Talenti e parte di una rete di starter di carriera impegnati. Questa occupazione è limitata a due anni.\n\nQuesti sono i tuoi compiti\n\n• Partecipazione alle attività quotidiane in vari settori di asset servicing (azioni societarie, reddito, delega di voto)\n\n• Supporto nell'elaborazione tempestiva e di alta qualità degli ordini del cliente\n\n• Analisi dei processi e della cooperazione nell'ulteriore sviluppo di Proezssen\n\n• Presentare i propri suggerimenti per migliorare e supportarli nella loro attuazione\n\n• Cooperazione con diverse squadre e interfacce internazionali\n\nQuesto ti porta con te\n\n• Corso di laurea o master in corso (ad esempio Economia, Finanza, Banking, Dati/Analitici o simili)\n\n• Un apprendistato bancario completato, l'esperienza nel settore dei servizi di titoli è un vantaggio\n\n• Il pensiero analitico e la gioia nel mettere in discussione e migliorare le cose\n\n• Assistenza clienti e orientamento superiore alla media\n\n• Metodo di lavoro indipendente, strutturato e affidabile\n\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nSe hai domande, visita la nostra pagina FAQ o contatta Maria Teresa Buchanan al numero +41 58 399 8083.\n\nPer questa vacanza, consideriamo solo applicazioni dirette.\n\nLa diversità è importante per noi, quindi accogliamo le applicazioni indipendentemente dal background personale.",
+        "en": "SIX is driving the transformation of financial markets.\n\nWhat makes us different drives us forward: between local roots and global relevance, we are a unique mixture of tradition and future, of foundation and growth. We value smart minds and inspire them to grow with their ideas. Come and shape the future of financial markets with us.\n\nWorking Student Asset Servicing 40-60 %\n\nOlten | 40-60% | Reference 8384\n\nIn addition to your studies, do you want to gain real insights into an international financial environment and actively shape it instead of just running? Then you are exactly right with us!\n\nAsset servicing is a technically versatile department with specialized teams in Switzerland and Spain. Together we ensure that our services in the areas of corporate actions, income processing and proxy voting are provided reliably and efficiently. As a working student, you work directly in day-to-day operations – and you also get the opportunity to analyze processes, identify optimization potential and contribute your own ideas.\n\nAs a modern, dynamic and innovative company, we offer a variety of opportunities to unleash your potential in the exciting world of technology and finance. We support you in your career, invest in your development and the expansion of your personal skills. As a “Working Student” you are part of our Young Talents community and part of a network of committed career starters. This employment is limited to two years.\n\nThese are your tasks\n\n• Participation in day-to-day business in various areas of asset servicing (corporate actions, income, proxy voting)\n\n• Support in the high-quality and timely processing of customer orders\n\n• Analysis of processes and cooperation in the further development of Proezssen\n\n• Submitting own suggestions for improvement and supporting them in their implementation\n\n• Cooperation with several teams and international interfaces\n\nThis you bring with you\n\n• Ongoing Bachelor's or Master's degree (e.g. Economics, Finance, Banking, Data/Analytics or similar)\n\n• A completed banking apprenticeship, experience in the field of securities services are an advantage\n\n• Analytical thinking and joy in questioning and improving things\n\n• Above-average customer and service orientation\n\n• Independent, structured and reliable working method\n\n• Very good knowledge of German and English in word and writing\n\nIf you have any questions, visit our FAQ page or contact Maria Teresa Buchanan on +41 58 399 8083.\n\nFor this vacancy, we only consider direct applications.\n\nDiversity is important to us, so we welcome applications regardless of personal background.",
+        "fr": "SIX dirige la transformation des marchés financiers.\n\nCe qui nous rend différents nous fait avancer : entre les racines locales et la pertinence mondiale, nous sommes un mélange unique de tradition et d'avenir, de fondement et de croissance. Nous apprécions les esprits intelligents et les inspirons à grandir avec leurs idées. Venez façonner l'avenir des marchés financiers avec nous.\n\nService aux étudiants qui travaillent 40-60 %\n\nRéférence 8384\n\nEn plus de vos études, voulez-vous acquérir de véritables connaissances sur un environnement financier international et le façonner activement au lieu de simplement fonctionner? Alors tu as raison avec nous !\n\nL'entretien des biens est un département techniquement polyvalent avec des équipes spécialisées en Suisse et en Espagne. Ensemble, nous veillons à ce que nos services dans les domaines des actions de l'entreprise, du traitement du revenu et du vote par procuration soient fournis de façon fiable et efficace. En tant qu'étudiant en activité, vous travaillez directement dans les opérations quotidiennes – et vous avez également la possibilité d'analyser les processus, d'identifier le potentiel d'optimisation et de contribuer à vos propres idées.\n\nEn tant qu'entreprise moderne, dynamique et innovante, nous offrons une variété d'opportunités pour libérer votre potentiel dans le monde passionnant de la technologie et de la finance. Nous vous accompagnons dans votre carrière, investissons dans votre développement et l'expansion de vos compétences personnelles. En tant qu'étudiant travailleur, vous faites partie de notre communauté de jeunes talents et d'un réseau d'entrepreneurs engagés. Cet emploi est limité à deux ans.\n\nCe sont vos tâches\n\n• Participation à des activités quotidiennes dans divers domaines du service des actifs (actions collectives, revenu, vote par procuration)\n\n• Soutien au traitement rapide et de qualité des commandes des clients\n\n• Analyse des processus et coopération pour le développement de Proezssen\n\n• Soumettre ses propres suggestions d'amélioration et les appuyer dans leur mise en œuvre\n\n• Coopération avec plusieurs équipes et interfaces internationales\n\nÇa, c'est avec toi.\n\n• Baccalauréat ou maîtrise en cours (p. ex. économie, finances, banques, données/analyses ou similaires)\n\n• Un apprentissage bancaire terminé, l'expérience dans le domaine des services de valeurs mobilières est un avantage\n\n• Pensée analytique et joie dans l'interrogation et l'amélioration des choses\n\n• Orientation des clients et des services supérieure à la moyenne\n\n• Méthode de travail indépendante, structurée et fiable\n\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nSi vous avez des questions, visitez notre page FAQ ou contactez Maria Teresa Buchanan au +41 58 399 8083.\n\nPour cette vacance, nous ne considérons que les candidatures directes.\n\nLa diversité est importante pour nous, et nous accueillons donc favorablement les applications sans égard à leurs antécédents personnels."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
-      "url": "https://jobs.six-group.com/job/Olten-Internship-Tax-Services/1430474233/",
+      "url": "https://jobs.six-group.com/job/Olten-Working-Student-Asset-Servicing-40-60/1451727833/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-26T09:47:51.678Z",
+      "crawledAt": "2026-10-27T21:40:51.229Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4600",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
       "sector": "Finanza",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-24T02:01:00Z",
-      "postedDate": "2026-09-24T02:01:00Z",
+      "datePosted": "2026-10-27T00:00:00Z",
+      "postedDate": "2026-10-27T00:00:00Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1430474233/?locale=de_DE",
+      "applyUrl": "https://jobs.six-group.com/talentcommunity/apply/1451727833/?locale=de_DE",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "internship-tax-services-six-group-olten",
-        "stage-en-fiscalite-six-group-olten"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "internship-tax-services-six-group-olten"
-        ],
-        "fr": [
-          "internship-tax-services-six-group-olten",
-          "stage-en-fiscalite-six-group-olten"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
-      "firstSeenAt": "2026-08-27T00:58:51.162Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 51000,
+      "salaryMax": 71400,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 51000,
+          "maxValue": 71400,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-10-27T21:40:51.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-asset-servicing-40-60-six-group-olten"
+        ],
+        "fr": [
+          "working-student-asset-servicing-40-60-six-group-olten"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-asset-servicing-40-60-six-group-olten"
+      ]
     }
   ]
 }

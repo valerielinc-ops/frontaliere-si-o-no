@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-10-27T09:38:09.149Z",
+  "generatedAt": "2026-10-27T21:33:41.775Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,59 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2556,
-  "avgDurationMs": 2556,
+  "durationMs": 5362,
+  "avgDurationMs": 5362,
   "durationHistory": [
-    2556
+    5362
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "clinique-generale-beaulieu-f5fd2f1ee0d8",
-      "slug": "ausiliario-a-di-sala-operatoria-clinique-generale-beaulieu-geneve",
-      "company": "Clinique Générale-Beaulieu",
-      "companyKey": "clinique-generale-beaulieu",
-      "companyDomain": "swissmedical.net",
-      "title": "Aide soignant(e) bloc opératoire",
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154361959-aide-soignant-e-bloc-operatoire",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154361959-aide-soignant-e-bloc-operatoire",
-      "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-25T21:40:27.911Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "streetAddress": "Chemin de Beau-Soleil 20, 1206 Genève",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-08T07:29:31.922Z",
-      "postedDate": "2026-10-08T07:29:31.922Z",
-      "postingDateSource": "reported",
-      "firstSeenAt": "2026-06-30T22:07:36.931Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "clinique-generale-beaulieu-68278b541382",
@@ -82,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154961499-sage-femme",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-27T09:37:59.856Z",
+      "crawledAt": "2026-10-27T21:33:22.179Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -111,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

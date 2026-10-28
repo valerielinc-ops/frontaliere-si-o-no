@@ -7,10 +7,10 @@
     "https://www.ofct.ch/biasca-e-valli/",
     "https://www.farmacielocarnese.ch/"
   ],
-  "_fetchedAt": "2026-10-27T17:59:26.596Z",
-  "_attemptedAt": "2026-10-27T17:59:26.596Z",
-  "_lastSuccessfulFetchAt": "2026-10-27T17:59:26.596Z",
-  "_lastStaticRefreshAt": "2026-10-27T17:59:26.596Z",
+  "_fetchedAt": "2026-10-28T06:51:19.340Z",
+  "_attemptedAt": "2026-10-28T06:51:19.340Z",
+  "_lastSuccessfulFetchAt": "2026-10-28T06:51:19.340Z",
+  "_lastStaticRefreshAt": "2026-10-28T06:51:19.340Z",
   "_successfulRegions": [
     "mendrisiotto",
     "luganese",
@@ -46,13 +46,13 @@
     "snapshots": {
       "catalogue": {
         "path": "data/pharmacies-ticino-complete.json",
-        "sha256": "ebc61e23f89d017c1aa1af83c07c526b5ac6a814e23d37e8de9bcb1964f879db",
+        "sha256": "7433bd9a4d36c3780be4a141b9e2bfbeaf7a37fdc6df6286e9d38ee2fe1c5e73",
         "fetchedAt": "2026-10-21T16:03:10.483Z"
       },
       "duties": {
         "path": "data/pharmacy-duties-ticino.json",
-        "sha256": "0e67568911214a746abe5d16fc564cc820d961a289f2230a541264135614c603",
-        "fetchedAt": "2026-10-27T17:59:26.596Z"
+        "sha256": "787654f153974d5b72f3b074f424c8085111e320794ddfcf1bd2663a9ddb9c73",
+        "fetchedAt": "2026-10-28T06:51:19.340Z"
       }
     },
     "regions": {
@@ -60,7 +60,7 @@
         "name": "Mendrisiotto",
         "sourceUrl": "https://www.ofct.ch/mendrisiotto/",
         "dutyCount": 14,
-        "fetchedAt": "2026-10-27T17:59:26.596Z",
+        "fetchedAt": "2026-10-28T06:51:19.340Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -70,7 +70,7 @@
         "name": "Luganese",
         "sourceUrl": "https://www.ofct.ch/luganese/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-27T17:59:26.596Z",
+        "fetchedAt": "2026-10-28T06:51:19.340Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -80,7 +80,7 @@
         "name": "Bellinzonese",
         "sourceUrl": "https://www.ofct.ch/bellinzonese/",
         "dutyCount": 12,
-        "fetchedAt": "2026-10-27T17:59:26.596Z",
+        "fetchedAt": "2026-10-28T06:51:19.340Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -90,7 +90,7 @@
         "name": "Biasca e Valli",
         "sourceUrl": "https://www.ofct.ch/biasca-e-valli/",
         "dutyCount": 10,
-        "fetchedAt": "2026-10-27T17:59:26.596Z",
+        "fetchedAt": "2026-10-28T06:51:19.340Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
@@ -100,13 +100,13 @@
         "name": "Locarnese",
         "sourceUrl": "https://www.farmacielocarnese.ch/",
         "dutyCount": 9,
-        "fetchedAt": "2026-10-27T17:59:26.596Z",
+        "fetchedAt": "2026-10-28T06:51:19.340Z",
         "freshness": "fresh",
         "coverage": "covered",
         "state": "fresh",
         "preserved": false
       }
     },
-    "releaseId": "pharmacy-v1-e2cc54d0838d4aaf34814fbd2d80868cdf0d1d6a6d7c6ded07ba679343a96718"
+    "releaseId": "pharmacy-v1-0e2d399cccfd1168bfcca4dc5acae2c15ca8798f65767c0c84ed479be0ce6654"
   }
 }

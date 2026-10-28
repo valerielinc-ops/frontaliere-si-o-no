@@ -1,7 +1,7 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-10-26T21:46:05.253Z",
+  "generatedAt": "2026-10-27T21:26:31.275Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3534,
-  "avgDurationMs": 3534,
+  "durationMs": 4452,
+  "avgDurationMs": 4452,
   "durationHistory": [
-    3534
+    4452
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-26T21:45:52.302Z",
+      "crawledAt": "2026-10-27T21:26:18.141Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "9dc54561cf45646aa5d3db879937f16070f4f96c"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

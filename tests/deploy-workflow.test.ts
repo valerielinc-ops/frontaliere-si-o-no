@@ -168,6 +168,22 @@ describe('post-deploy validation/report surface — audit wiring', () => {
     expect(VALIDATION_YML).toContain('Fail when a dist validator failed');
   });
 
+  it('reconciles sitemap XML after shard rehydration and before dist validators', () => {
+    const workflow = YAML.parse(VALIDATION_YML) as any;
+    const steps = workflow.jobs['validate-dist-postbuild']?.steps ?? [];
+    const assertIndex = steps.findIndex((step: any) => step.id === 'assert_dist_complete');
+    const reconcileIndex = steps.findIndex((step: any) => step.id === 'reconcile_rehydrated_sitemaps');
+    const sourceIndex = steps.findIndex((step: any) => step.name === 'Run source validators (parallel — 4 vCPU)');
+
+    expect(PACKAGE_JSON.scripts['validate:rehydrated-sitemaps'])
+      .toBe('npx tsx scripts/ci/reconcile-rehydrated-sitemaps.ts');
+    expect(reconcileIndex).toBeGreaterThan(assertIndex);
+    expect(sourceIndex).toBeGreaterThan(reconcileIndex);
+    expect(steps[reconcileIndex]?.run).toContain(
+      'build_skew_guard_run npm validate:rehydrated-sitemaps npm run validate:rehydrated-sitemaps',
+    );
+  });
+
   it('keeps report-only dist/live audits out of the publish dependency and lock', () => {
     const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
     const reportDist = workflow.jobs['audit-dist-report'];

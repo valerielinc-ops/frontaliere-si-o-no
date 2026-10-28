@@ -1,26 +1,64 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-10-27T09:23:02.488Z",
-  "total": 0,
-  "discovered": 0,
-  "parsed": 0,
-  "lastFetchOutcome": "ok",
-  "authoritativeEmptySnapshot": true,
-  "earlyExit": false,
-  "written": 0,
-  "newCount": 0,
+  "generatedAt": "2026-10-27T21:21:55.297Z",
+  "total": 1,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14983,
-  "avgDurationMs": 14983,
+  "durationMs": 8858,
+  "avgDurationMs": 8858,
   "durationHistory": [
-    14983
+    8858
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
+      "applyUrl": "https://dxt.com/careers/",
+      "title": "Natural Gas Analyst",
+      "company": "DXT Commodities S.A.",
+      "companyKey": "dxt-commodities",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "natural-gas-analyst-dxt",
+      "category": "finance",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-27T21:21:44.442Z",
+      "source": "dxt-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Energia / Trading materie prime",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "needsRetranslation": true,
+      "id": "dxt-commodities-c531c6e4c1f6",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Corso Elvezia 14",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-10-27T21:21:44.442Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

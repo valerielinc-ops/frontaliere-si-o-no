@@ -1,16 +1,16 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-10-27T09:41:12.965Z",
+  "generatedAt": "2026-10-27T21:26:05.843Z",
   "total": 55,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 50,
-  "durationMs": 81529,
-  "avgDurationMs": 81529,
+  "durationMs": 80863,
+  "avgDurationMs": 80863,
   "durationHistory": [
-    81529
+    80863
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -201,86 +201,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-1m6c6s",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-cham-jysk-cham-1m6c6s",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Cham",
-      "location": "Cham",
-      "canton": "ZG",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-cham",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-08-28T05:26:43.382Z",
-      "firstSeenAt": "2026-07-30T22:22:51.016Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Cham",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "ZG",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "salarySource": "reported",
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-cham",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "6330",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "company-smkhwb",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-amriswil-jysk-amriswil-smkhwb",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Amriswil",
-      "location": "Amriswil",
-      "canton": "TG",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-amriswil",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-08-28T05:26:43.382Z",
-      "firstSeenAt": "2026-07-30T22:22:51.016Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Amriswil",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "TG",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "reported",
-      "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-amriswil",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "8580",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-w76zez",
@@ -1393,5 +1314,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

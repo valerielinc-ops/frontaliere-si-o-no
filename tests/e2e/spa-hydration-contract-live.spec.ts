@@ -1,5 +1,6 @@
 import { test, expect } from 'playwright/test';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { getLiveWithRetry } from './lib/live-request';
 
 // Mobile-first per CLAUDE.md rule #15 — 75% of traffic is mobile, so the
 // "is anything visible above the fold" assertion must measure a mobile viewport.
@@ -97,7 +98,10 @@ for (const target of TARGETS) {
 
     test(`renders visible content above the fold (${target.path})`, async ({ page }) => {
       // Pre-flight: a 404 on a tolerated URL means content rotated, not a regression.
-      const head = await page.request.get(url, { maxRedirects: 5, timeout: 15_000 });
+      const head = await getLiveWithRetry(page.request.get.bind(page.request), url, {
+        maxRedirects: 5,
+        timeout: 15_000,
+      });
       if (head.status() === 404 && target.tolerate404) {
         test.skip(true, `${url} returned 404 (content rotated)`);
         return;

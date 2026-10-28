@@ -5799,6 +5799,16 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     /^\/(?:it|de|fr|en)\/jobs\/?$/.test(parsedUrl?.pathname || '') &&
     /^#job\.id=\d+(?:\.\d+)?$/i.test(parsedUrl?.hash || '');
   if (isGalenicaDetail) return true;
+  // Kudelski/NAGRA keeps its HTML vacancy pages on the listing root and uses
+  // the numeric `id` query parameter as the only detail identity. The root
+  // without this exact route is the careers homepage/listing and must remain
+  // rejected.
+  const isKudelskiNagraDetail =
+    host === 'careers.nagra.com' &&
+    (parsedUrl?.pathname || '/') === '/' &&
+    parsedUrl?.searchParams.get('page') === 'advertisement_display' &&
+    /^\d+$/.test(parsedUrl?.searchParams.get('id') || '');
+  if (isKudelskiNagraDetail) return true;
   if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;

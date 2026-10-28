@@ -184,6 +184,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-solothurn-761114",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-spiez-736184",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-uster-726334",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-winterthur-747298",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-zwingen-758344",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-biel-bienne-742967",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-kehrsatz-727582",
@@ -253,12 +254,12 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303",
+    "https://team.lidl.ch/it/jobs/292_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lugano-759375",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-giubiasco-727553",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062",
-    "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-riazzino-748675"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-10-27T09:54:21.661Z",
+  "updatedAt": "2026-10-27T21:54:32.784Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -1943,6 +1944,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-winterthur-747298": {
+      "location": "Winterthur",
+      "addressLocality": "Winterthur",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-doettingen-756289": {
       "location": "Döttingen",
       "addressLocality": "Döttingen",
@@ -2465,9 +2475,9 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-riazzino-748675": {
-      "location": "Riazzino",
-      "addressLocality": "Riazzino",
+    "https://team.lidl.ch/it/jobs/292_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lugano-759375": {
+      "location": "Lugano",
+      "addressLocality": "Lugano",
       "canton": "TI",
       "country": "CH",
       "company": "Lidl Svizzera",

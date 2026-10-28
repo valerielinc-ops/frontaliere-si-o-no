@@ -226,6 +226,20 @@ describe('collectWebcamUrls', () => {
     expect(collectWebcamUrls([crossing!]).size).toBe(0);
   });
 
+  it('uses the current municipal Cannero frame after the former endpoint died', () => {
+    const crossing = borderCrossings.find((candidate) => candidate.name === 'Luino-Fornasette');
+    const webcam = crossing?.webcams?.[0];
+
+    expect(webcam).toMatchObject({
+      imageUrl:
+        'https://comune.canneroriviera.vb.it/wp-content/themes/design-comuni-wordpress-theme-main-child/assets/img/webcam_cannero.webp',
+      sourceName: 'Comune di Cannero Riviera – Veduta da Oggiogno',
+      sourceUrl: 'https://comune.canneroriviera.vb.it/vivere-il-comune/luoghi/oggiogno/',
+      refreshIntervalMs: 600000,
+    });
+    expect(collectWebcamUrls([crossing!]).get(webcam!.imageUrl)?.crossings).toEqual(['Luino-Fornasette']);
+  });
+
   it('keeps the compact SITG camera family below the generic floor', () => {
     const sitg = [...collectWebcamUrls(borderCrossings).values()].filter(({ url }) =>
       url.startsWith('https://app2.ge.ch/tercameras/'),

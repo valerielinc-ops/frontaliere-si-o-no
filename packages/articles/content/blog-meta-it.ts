@@ -13607,6 +13607,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sondaggio-paga-colleghi-svizzeri.title': 'Frontalieri in Ticino: il 55,6% si sente pagato meno',
     'blog.article.sondaggio-paga-colleghi-svizzeri.excerpt': '1\'542 lavoratori hanno risposto al sondaggio 73% soddisfatto dello stipendio 55,6% si sente pagato meno di un residente 37,4% può fare telelavoro Campione →',
     'blog.article.sondaggio-paga-colleghi-svizzeri.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.orari-tilo-re80-s90.title': 'Orari Tilo Lugano-Chiasso: modifiche e soppressioni',
+    'blog.article.orari-tilo-re80-s90.excerpt': 'I lavori tra Vezia e Capolago modificano gli orari Tilo.',
+    'blog.article.orari-tilo-re80-s90.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.chiasso-via-motta-lavoro.title': 'Chiasso, 28 senza lavoro per la chiusura di via Motta',
+    'blog.article.chiasso-via-motta-lavoro.excerpt': 'La chiusura di via Motta a Chiasso lascia senza lavoro 28 persone.',
+    'blog.article.chiasso-via-motta-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

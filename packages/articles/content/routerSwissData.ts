@@ -2901,6 +2901,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'violazioni-sicurezza-svizzera-2026': { it: 'violazioni-sicurezza-svizzera-2026', en: 'swiss-security-violations-2026', de: 'sicherheitsverstoeerungen-schweiz-2026', fr: 'violations-securite-suisse-2026' },
  'inflazione-premi-rincaro-svizzera': { it: 'inflazione-premi-rincaro-svizzera', en: 'inflation-premi-cost-switzerland', de: 'inflation-pramie-kosten-schweiz', fr: 'inflation-primes-cout-suisse' },
  'pesca-zurigo-servizi-regolati': { it: 'pesca-zurigo-servizi-regolati', en: 'zurich-fishing-regulated-services', de: 'fischen-zuerich-regulierte-dienste', fr: 'pesche-zurich-services-reglementes' },
+ 'sei-misure-cure-sanitarie': { it: 'sei-misure-cure-sanitarie', en: 'six-health-cost-measures', de: 'sechs-massnahmen-gesundheitskosten', fr: 'six-mesures-couts-sanitaires' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

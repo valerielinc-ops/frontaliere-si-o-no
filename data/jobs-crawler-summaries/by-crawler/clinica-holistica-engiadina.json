@@ -1,7 +1,7 @@
 {
   "key": "clinica-holistica-engiadina",
   "label": "Clinica Holistica Engiadina",
-  "generatedAt": "2026-10-27T09:41:21.858Z",
+  "generatedAt": "2026-10-27T21:48:13.286Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 22569,
-  "avgDurationMs": 22569,
+  "durationMs": 25702,
+  "avgDurationMs": 25702,
   "durationHistory": [
-    22569
+    25702
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:41:12.653Z",
+      "crawledAt": "2026-10-27T21:48:00.037Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:31.365Z",
       "salaryMin": 110500,
@@ -95,7 +95,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:41:09.774Z",
+      "crawledAt": "2026-10-27T21:47:56.715Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:26.552Z",
       "salaryMin": 81500,
@@ -137,7 +137,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:41:07.165Z",
+      "crawledAt": "2026-10-27T21:47:53.773Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:24.218Z",
       "salaryMin": 62000,
@@ -179,7 +179,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:41:04.306Z",
+      "crawledAt": "2026-10-27T21:47:50.562Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T13:10:25.665Z",
       "salaryMin": 110500,
@@ -221,7 +221,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/tanz-und-bewegungstherapeutin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T09:41:00.354Z",
+      "crawledAt": "2026-10-27T21:47:44.811Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-24T14:43:36.062Z",
       "salaryMin": 81500,
@@ -236,5 +236,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

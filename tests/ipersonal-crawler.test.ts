@@ -287,6 +287,42 @@ describe('MediPersonal crawler parser', () => {
       expect(jobs[0].location).not.toContain('Zürich');
     });
 
+    it('prefers the vacancy workplace over a generic location element', async () => {
+      const seedUrl = 'https://ipersonal-location-priority.example/';
+      const detailUrl = `${seedUrl}jobs/pflegefachperson-opfikon/`;
+      const description = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${detailUrl}">Pflegefachperson Opfikon</a>`, { status: 200 });
+        return new Response(`
+          <h1>Pflegefachperson Opfikon</h1>
+          <div class="location">Wallisellen</div>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <div class="job-location">Glattpark (Opfikon)</div>
+            <p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Patientinnen kompetent betreuen</li><li>Pflege sorgfältig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        location: 'Glattpark (Opfikon)',
+        canton: 'ZH',
+      });
+      expect(jobs[0].location).not.toContain('Wallisellen');
+    });
+
     it('accounts for Jina-rescued seed and detail pages in the complete snapshot', async () => {
       const seedUrl = 'https://ipersonal-proxy-fixture.example/';
       const detailUrl = `${seedUrl}jobs/proxy-role/`;

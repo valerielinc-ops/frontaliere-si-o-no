@@ -14,13 +14,12 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._experte_expertin_an_sthesiefachpflege_80_100__22daeb9433.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_oberarzt___rztin_allg._innere_medizin__50_60__de7265de53.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_reha_80__402991314a.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/praktikant_in_buchhaltung_fce9843ec7.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_hotellerie_70_100__3e83ef1d95.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf__verk_rzt__65e531cb61.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__ec505ebaf2.pdf"
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_sportmedizin_80_100__b02c76d519.pdf"
   ],
   "notes": "Dedicated Berit Klinik crawler parses the Next.js careers page and extracts descriptions from CMS-hosted Stelleninserat PDFs.",
-  "updatedAt": "2026-10-27T09:24:43.278Z",
+  "updatedAt": "2026-10-27T21:20:44.815Z",
   "seedMetaByUrl": {
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf": {
       "location": "Speicher",
@@ -62,14 +61,6 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://cms-berit-klinik.deployco.de/api/media/file/praktikant_in_buchhaltung_fce9843ec7.pdf": {
-      "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_hotellerie_70_100__3e83ef1d95.pdf": {
       "location": "Speicher",
       "canton": "AR",
@@ -86,9 +77,9 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__ec505ebaf2.pdf": {
-      "location": "Wattwil",
-      "canton": "SG",
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_sportmedizin_80_100__b02c76d519.pdf": {
+      "location": "Speicher",
+      "canton": "AR",
       "company": "Berit Klinik",
       "datePosted": "",
       "postedDate": "",

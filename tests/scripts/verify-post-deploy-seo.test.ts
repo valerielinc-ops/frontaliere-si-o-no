@@ -123,15 +123,36 @@ describe('post-deploy SEO verification', () => {
 
   it('does not use the conservative detail fallback for a semantic listing page', () => {
     const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri/';
+    const careHomeUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/case-anziani/';
+
+    expect(isLikelyJobDetailUrl(pageUrl, new Map())).toBe(false);
+    expect(isLikelyJobDetailUrl(careHomeUrl, new Map())).toBe(false);
+    expect(classifyLiveJobCandidate(pageUrl, {
+      isJobPage: false,
+      isListingPage: true,
+      errors: [],
+    }, new Map([[
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/known-listing/',
+      false,
+    ]]))).toMatchObject({
+      shouldInspect: false,
+      issue: null,
+      skipped: true,
+    });
+  });
+
+  it('preserves the conservative fallback when the sitemap is unavailable', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/foo/';
 
     expect(classifyLiveJobCandidate(pageUrl, {
       isJobPage: false,
       isListingPage: true,
       errors: [],
-    }, new Map([[pageUrl, false]]))).toMatchObject({
-      shouldInspect: false,
-      issue: null,
-      skipped: true,
+    }, new Map())).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: 'missing-jobposting',
+      skipped: false,
     });
   });
 

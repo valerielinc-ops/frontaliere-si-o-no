@@ -28,6 +28,7 @@ import { createSign } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { validateMandatoryJobPostingFields } from './lib/jobposting-mandatory-fields.mjs';
+import { isJobDetailPath } from './lib/seo-health-contract.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const LISTING_PATH = '/cerca-lavoro-ticino/';
@@ -97,15 +98,19 @@ export function isLikelyJobDetailUrl(pageUrl, sitemapSignals = null) {
     return sitemapSignals.get(normalized) === true;
   }
 
-  try {
-    const { pathname } = new URL(normalized);
-    const match = pathname.match(/^\/cerca-lavoro-ticino\/([^/]+)\/$/i);
-    if (!match) return false;
-    const slug = match[1].toLowerCase();
-    return !/^(?:azienda-|ricerca-|pagina-\d+$|page-\d+$|seite-\d+$)/i.test(slug);
-  } catch {
-    return false;
-  }
+  // Keep the conservative fallback aligned with the closed-loop sampler.
+  // Editorial/sector hubs use the same two-segment shape as job details, but
+  // they intentionally carry CollectionPage/ItemList rather than JobPosting.
+  return isJobDetailPath(normalized, SITE_URL);
+}
+
+function hasAuthoritativeSitemapDetailSignal(pageUrl, sitemapSignals) {
+  const normalized = normalizedPublicUrl(pageUrl);
+  return Boolean(
+    normalized
+      && sitemapSignals instanceof Map
+      && sitemapSignals.get(normalized) === true,
+  );
 }
 
 function collectJobPostingRecords(value, records = []) {
@@ -281,13 +286,26 @@ async function inspectLivePage(pageUrl) {
 
 export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   const detailPageSignal = isLikelyJobDetailUrl(pageUrl, sitemapSignals);
+  const sitemapAvailable = sitemapSignals instanceof Map && sitemapSignals.size > 0;
+  const authoritativeSitemapDetailSignal = hasAuthoritativeSitemapDetailSignal(
+    pageUrl,
+    sitemapSignals,
+  );
   if (live?.error) {
     return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
   }
   if (live?.isJobPage === true) {
     return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
   }
-  if (live?.isListingPage === true && !detailPageSignal) {
+  // A semantic listing is stronger than the conservative path fallback. Keep
+  // it observable as a missing JobPosting only when the live sitemap explicitly
+  // identifies the URL as an active detail page, or when the sitemap is
+  // unavailable and the fallback cannot establish that this is a detail URL.
+  if (
+    live?.isListingPage === true
+    && !authoritativeSitemapDetailSignal
+    && (sitemapAvailable || !detailPageSignal)
+  ) {
     return { detailPageSignal, shouldInspect: false, issue: null, skipped: true };
   }
   if (detailPageSignal) {

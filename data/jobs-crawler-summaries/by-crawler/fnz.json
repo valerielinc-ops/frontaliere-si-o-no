@@ -1,16 +1,16 @@
 {
   "key": "fnz",
   "label": "FNZ",
-  "generatedAt": "2026-10-27T09:21:42.011Z",
+  "generatedAt": "2026-10-27T21:21:45.414Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 12602,
-  "avgDurationMs": 12602,
+  "durationMs": 11485,
+  "avgDurationMs": 11485,
   "durationHistory": [
-    12602
+    11485
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,7 +45,7 @@
       "jobReqId": "REQ-17649",
       "id": "fnz-b3397fe08d1c",
       "firstSeenAt": "2026-10-16T21:17:20.610Z",
-      "crawledAt": "2026-10-27T09:21:27.255Z",
+      "crawledAt": "2026-10-27T21:21:33.879Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -88,7 +88,7 @@
       "jobReqId": "REQ-17625",
       "id": "fnz-4ac7c8eee969",
       "firstSeenAt": "2026-10-08T21:16:03.321Z",
-      "crawledAt": "2026-10-27T09:21:27.255Z",
+      "crawledAt": "2026-10-27T21:21:33.879Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -131,7 +131,7 @@
       "jobReqId": "REQ-16005",
       "id": "fnz-addd1ea2604e",
       "firstSeenAt": "2026-09-04T13:28:24.249Z",
-      "crawledAt": "2026-10-27T09:21:27.255Z",
+      "crawledAt": "2026-10-27T21:21:33.879Z",
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -146,5 +146,5 @@
       }
     }
   ],
-  "codeCommit": "13a14d0af9132d361dd7555c470422b12385bdae"
+  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
 }

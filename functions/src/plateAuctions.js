@@ -518,22 +518,39 @@ async function readCollection(db, collection, options = {}) {
 
 async function readSourceRows(db, sourceKey) {
   const collectionRef = db.collection(PLATE_AUCTION_COLLECTION);
-  const filtered = collectionRef.where('sourceKey', '==', sourceKey);
-  if (typeof filtered.orderBy !== 'function') {
-    const snapshot = await filtered.limit(PLATE_AUCTION_MAX_ROWS).get();
-    if (Array.isArray(snapshot?.docs) && snapshot.docs.length >= PLATE_AUCTION_MAX_ROWS) {
-      throw new Error(`plate-auctions:${sourceKey} pagination unavailable`);
+  const canonicalSourceKey = canonicalPlateCode(sourceKey);
+  // Rows written by the current collector use the canonical uppercase code,
+  // while older Firestore documents can still carry the lowercase key. The
+  // full snapshot already normalizes both forms at its public boundary; the
+  // source-scoped relay must do the same or it can publish source metadata with
+  // no matching rows (rowCount > 0, auctions: []).
+  const storedKeys = [...new Set([canonicalSourceKey, canonicalSourceKey.toLowerCase()])];
+  const pages = await Promise.all(storedKeys.map(async (storedKey) => {
+    const filtered = collectionRef.where('sourceKey', '==', storedKey);
+    if (typeof filtered.orderBy !== 'function') {
+      const snapshot = await filtered.limit(PLATE_AUCTION_MAX_ROWS).get();
+      if (Array.isArray(snapshot?.docs) && snapshot.docs.length >= PLATE_AUCTION_MAX_ROWS) {
+        throw new Error(`plate-auctions:${sourceKey} pagination unavailable`);
+      }
+      return snapshot.docs || [];
     }
-    return snapshot.docs || [];
+    const ordered = filtered.orderBy('__name__');
+    return readPaginatedDocuments({
+      firstQuery: ordered.limit(PLATE_AUCTION_PAGE_SIZE),
+      nextQuery: (lastDocument) => ordered.startAfter(lastDocument).limit(PLATE_AUCTION_PAGE_SIZE),
+      pageSize: PLATE_AUCTION_PAGE_SIZE,
+      maxRows: PLATE_AUCTION_MAX_ROWS,
+      label: `plate-auctions:${sourceKey}`,
+    });
+  }));
+  const documents = new Map();
+  for (const page of pages) {
+    for (const document of page) documents.set(document.id, document);
   }
-  const ordered = filtered.orderBy('__name__');
-  return readPaginatedDocuments({
-    firstQuery: ordered.limit(PLATE_AUCTION_PAGE_SIZE),
-    nextQuery: (lastDocument) => ordered.startAfter(lastDocument).limit(PLATE_AUCTION_PAGE_SIZE),
-    pageSize: PLATE_AUCTION_PAGE_SIZE,
-    maxRows: PLATE_AUCTION_MAX_ROWS,
-    label: `plate-auctions:${sourceKey}`,
-  });
+  if (documents.size > PLATE_AUCTION_MAX_ROWS) {
+    throw new Error(`plate-auctions:${sourceKey} pagination limit`);
+  }
+  return [...documents.values()].sort((left, right) => String(left.id).localeCompare(String(right.id)));
 }
 
 export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {

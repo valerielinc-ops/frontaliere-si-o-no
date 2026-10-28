@@ -503,6 +503,18 @@ function availability(pharmacy, officialFieldsNotPublished = false) {
   };
 }
 
+/**
+ * Rebuild publication metadata when an older catalogue is carried forward.
+ * Fallback snapshots may predate `dataAvailability`; derive that status from
+ * the values already present, while leaving field-level provenance untouched.
+ */
+export function normalizePharmacyRecordsForFallback(records) {
+  return (Array.isArray(records) ? records : []).map((record) => ({
+    ...record,
+    dataAvailability: availability(record, true),
+  }));
+}
+
 export function uniqueSlug(base, used) {
   const safe = base || 'farmacia';
   let slug = safe;
@@ -781,10 +793,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       continue;
     }
 
-    const preserved = {
-      ...previousRecord,
-      dataAvailability: previousRecord.dataAvailability || availability(previousRecord, true),
-    };
+    const [preserved] = normalizePharmacyRecordsForFallback([previousRecord]);
     applyOsmEnrichment(preserved, osmElements, fetchedAt, usedOsmElementKeys);
     preserved.dataAvailability = availability(preserved, true);
     const slug = uniqueSlug(preserved.slug || slugifyPharmacy(`${preserved.name} ${preserved.city}`), usedSlugs);

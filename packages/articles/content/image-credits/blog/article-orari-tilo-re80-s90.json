@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/article-orari-tilo-re80-s90.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-10-27T18:36:32.950Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "family": "other-attribution",
+    "attributionRequired": true,
+    "url": "https://openai.com/policies/terms-of-use/"
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-10-27",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "article-orari-tilo-re80-s90",
+    "kind": "generated",
+    "provider": "openai-codex",
+    "model": "gpt-image-2.5",
+    "executorModel": "gpt-5.6-luna",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "3bfd5a9fad6458294215111b9864c153601b49ebbfae7ee03e164ffebc37d447",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "ea1f9ed20af65cc40e1d99cc307729df5e07116514c9051f66b7722171cc9996",
+    "bytes": 151196,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-10-27T18:36:32.950Z",
+    "verifiedAt": "2026-10-27T18:36:42.070Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/article-orari-tilo-re80-s90.webp",
+    "area": "Ticino e pendolarismo transfrontaliero",
+    "season": "all seasons",
+    "variant": "article hero",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "contains_recognizable_foreground_person": false,
+      "looks_like_specific_real_event": false,
+      "is_photograph": false,
+      "is_topic_relevant": true,
+      "notes": "Synthetic photorealistic railway illustration; no readable text, logos, people, or event-specific cues."
+    }
+  }
+}

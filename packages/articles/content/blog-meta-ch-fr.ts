@@ -8200,7 +8200,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bcg-consiglio-mueller.imageAlt': 'Renouvellement du conseil de la Banque cantonale des Grisons',
     'blog.article.offerte-formazione-federale.title': 'Administration fédérale : travail, stages et formation',
     'blog.article.offerte-formazione-federale.excerpt': 'L\'Administration fédérale propose un travail porteur de sens Les étudiants fraîchement diplômés ont un large choix de stages 50 formations sont disponibles',
-    'blog.article.offerte-formazione-federale.imageAlt': 'Castelgrande à Bellinzone, décor suisse pour le travail fédéral',
+    'blog.article.offerte-formazione-federale.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.divario-reddito-giovani-svizzera.title': 'Écart salarial des jeunes Suisse : l\'écart de revenu se réduit',
     'blog.article.divario-reddito-giovani-svizzera.excerpt': 'Parmi les nés en 1995, l\'écart de revenu est de 14% Parmi les nés en 1965, l\'écart était de 55% En 2025, le titre tertiaire concerne 54% des jeunes',
     'blog.article.divario-reddito-giovani-svizzera.imageAlt': 'Vue de Lugano avec de jeunes professionnels',
@@ -8636,6 +8636,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pesca-zurigo-servizi-regolati.title': 'Permis de pêche à Zurich : exigences et compétences',
     'blog.article.pesca-zurigo-servizi-regolati.excerpt': 'La pêche est un service réglementé au niveau cantonal ; les exigences, les délais et les montants doivent être vérifiés officiellement auprès de la source cantonale.',
     'blog.article.pesca-zurigo-servizi-regolati.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.sei-misure-cure-sanitarie.title': 'Coûts de santé : six nouvelles mesures adoptées à Berne',
+    'blog.article.sei-misure-cure-sanitarie.excerpt': 'Six mesures adoptées lundi à Berne Soins à domicile et urgences parmi les domaines Les mesures s\'ajoutent aux 12 de 2025 Impact économique encore',
+    'blog.article.sei-misure-cure-sanitarie.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
