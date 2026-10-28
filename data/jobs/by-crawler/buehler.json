@@ -1,7 +1,7 @@
 {
   "crawlerKey": "buehler",
-  "assembledAt": "2026-10-28T09:52:11.363Z",
-  "runId": "40662627763",
+  "assembledAt": "2026-10-28T20:18:26.648Z",
+  "runId": "40758659964",
   "jobs": [
     {
       "id": "buehler-0e4835288e97",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "rechtsberatung-buhler-group-uzwil",
+        "de": "rechtsberater-buhler-group-uzwil",
         "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -35,7 +35,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/legal-counsel/b5409f3c-72a6-42f9-b206-03990c61a7a6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.812Z",
+      "crawledAt": "2026-10-28T20:18:21.383Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -57,14 +57,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-buehler-uzwil",
-        "rechtsberater-buhler-group-uzwil"
+        "rechtsberatung-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-buehler-uzwil"
         ],
         "de": [
-          "rechtsberater-buhler-group-uzwil"
+          "rechtsberatung-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.078Z",
@@ -113,7 +113,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-entwickler-in-digitales-business-efz/16552bec-00c5-40ef-b104-93d212a0490e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.809Z",
+      "crawledAt": "2026-10-28T20:18:21.382Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-industrielackierer-in-efz/55cb4bc5-649a-4f85-b5f0-aa3372f6245e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.807Z",
+      "crawledAt": "2026-10-28T20:18:21.380Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-c4c-v2/f4d0350e-0c77-48e8-9d25-9af7c77e60fd",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.791Z",
+      "crawledAt": "2026-10-28T20:18:21.372Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/identity-access-management-architect/f03c7409-8d94-424f-acab-55e11f3a403f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.737Z",
+      "crawledAt": "2026-10-28T20:18:21.339Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -421,7 +421,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/bereichsleiter-in-berufsbildung-konstruktion-projektmanagement/76df488c-e2bf-4b07-910d-e5bcba99bbab",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.628Z",
+      "crawledAt": "2026-10-28T20:18:21.293Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -473,80 +473,6 @@
       }
     },
     {
-      "id": "buehler-97ce593659e9",
-      "slug": "rettificatore-trice-cnc-buhler-group-uzwil",
-      "slugByLocale": {
-        "it": "rettificatore-trice-cnc-buhler-group-uzwil",
-        "en": "cnc-grinder-buhler-group-uzwil",
-        "de": "cnc-schleifer-in-buehler-uzwil",
-        "fr": "ponceuse-cnc-buhler-group-uzwil"
-      },
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "CNC Schleifer:in",
-      "titleByLocale": {
-        "it": "Rettificatore/trice CNC",
-        "en": "CNC Grinder",
-        "de": "CNC Schleifer:in",
-        "fr": "Ponceuse CNC"
-      },
-      "description": "Die Hauptverantwortung von Manufacturing, Logistics & Supply Chain besteht darin, eine reibungslose Lieferkette für Bühler und unsere Kunden zu gewährleisten - in den Regionen für die Regionen. Unsere 29 Fabriken weltweit folgen dem BPS Bühler Produktionssystem mit seinen Total Synchro Prinzipien und SQCDP Zielen, und jede Fabrik in unserem Netzwerk hat einen klar definierten Fokus. Unsere 5000 Mitarbeiter:innen weltweit sind bestrebt, die Bühler Produkte jeden Tag zur richtigen Zeit, zu den richtigen Kosten und in der richtigen Qualität zu liefern. Polymechanik in Fachrichtung Drehen und/ oder Fräsen ist Ihre Leidenschaft und Sie arbeiten gerne in einem dynamischen Umfeld? Als Mitglied unseres Teams am Hauptstandort Uzwil erwartet Sie ein spannendes & lebhaftes Umfeld - wir freuen uns auf Sie!\n\nAufgaben:\n• Sie sind verantwortlich für das Einrichten, Programmieren und Bedienen von CNC-Rundschleifmaschinen Studer S31 und Studer S41\n\n• Sie übernehmen das Schleifen von Einzelteilen und Kleinserien mit hohen Qualitätsanforderungen\n\n• Sie haben Freude an der Auswahl und Einrichtung von Spannmitteln, Schleifscheiben und Prozessparametern\n\n• Sie sind verantwortlich für die Sicherstellung der Masshaltigkeit gemäss Zeichnung und Toleranzen (inkl. Form- und Lagetoleranzen)\n\n• Sie übernehmen die Optimierung der Schleifprozesse hinsichtlich Zykluszeit, Oberflächengüte und Werkzeugstandzeit\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Polymechaniker:in EFZ Fertigung oder gleichwertige Ausbildung\n\n• Mehrjährige Erfahrung im CNC-Rundschleifen, idealerweise auf Studer S31/S41\n\n• Selbstständige, effektive, präzise und qualitätsorientierte Arbeitsweise sowie teamorientierte, zuverlässige und motivierte Persönlichkeit\n\n• Gute Deutsch- sowie EDV-Kenntnisse\n\n• Bereitschaft sowohl in Normalarbeitszeit wie auch in schichtähnlichen Arbeitszeitmodell zu arbeiten\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
-      "descriptionByLocale": {
-        "it": "La responsabilità principale di Manufacturing, Logistics & Supply Chain è garantire una catena di fornitura liscia per Bühler e i nostri clienti - nelle regioni per le regioni. Le nostre 29 fabbriche in tutto il mondo seguono il sistema di produzione BPS Bühler con i suoi principi Total Synchro e obiettivi SQCDP, e ogni fabbrica della nostra rete ha un focus chiaramente definito. I nostri 5000 dipendenti in tutto il mondo si sforzano di fornire prodotti Bühler ogni giorno al momento giusto, al giusto costo e nella giusta qualità. La polimeccanica nel campo della tornitura e/o della fresatura è la vostra passione e vi piace lavorare in un ambiente dinamico? Come membro del nostro team nella sede di Uzwil, troverete un ambiente emozionante e vivace - non vediamo l'ora di vederti!\n\nCompiti:\n• Sei responsabile per l'installazione, la programmazione e l'uso di rettificatrici circolari CNC Studer S31 e Studer S41\n\n• Si prende il controllo della rettifica di singole parti e piccole serie con requisiti di alta qualità\n\n• Ti piace la selezione e la configurazione dei mezzi di bloccaggio, le molatrici e i parametri di processo\n\n• L'utente è responsabile di garantire la precisione dimensionale in base al disegno e alle tolleranze (comprese le tolleranze di forma e posizione)\n\n• Si prende il sopravvento dell'ottimizzazione dei processi di rettifica per quanto riguarda il tempo di ciclo, la qualità della superficie e la durata degli utensili\n\nRequisiti\n• Formazione completa come polimeccanica: nella produzione EFZ o formazione equivalente\n\n• Diversi anni di esperienza nella rettifica circolare CNC, idealmente su Studer S31/S41\n\n• Modo di lavoro indipendente, efficace, preciso e orientato alla qualità, nonché personalità orientata al team, affidabile e motivata\n\n• Buona conoscenza del tedesco e dell'IT\n\n• Volontà di lavorare sia in orari di lavoro normali che in un modello di tempo di lavoro a turni\n\nOffriamo:\nRistorante personale VIVA\nOffriamo ai nostri dipendenti un menu di fitness giornaliero da 9.00 CHF.\n\nConcetto di mobilità attraente\nOffriamo un OSTWIND ZVV / Z-Pass + Half-Tax per 365 CHF + 400CHF credito di trasporto pubblico e un attraente abbonamento di prima classe o parcheggio gratuito.\n\nPorta salute\nSiamo impegnati nella prevenzione della salute attraverso analisi di laboratorio, massaggi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale.\n\nAttraente diritto di vacanza\nTempo sufficiente per la ricreazione e gli interessi personali - offriamo da 25 a 30 giorni di vacanze all'anno a seconda dell'anno di vita.\n\nPiano pensionistico finanziato dal datore di lavoro\nBühler Pensionskasse offre ai propri dipendenti un fondo pensione indipendente che garantisce un pensionamento finanziario affidabile: www.pk-buhler.ch\n\nAbbonamenti mobili\nOffriamo condizioni speciali per gli abbonamenti mobili tramite Mobilezone a Sunrise e Swisscom.\n\nDue miliardi di persone mangiano cibo prodotto nelle piante di Bühler ogni giorno. Un miliardo di persone viaggiano in veicoli le cui parti sono state prodotte utilizzando le tecnologie Bühler.\nCon ogni decisione, Bühler persegue l'obiettivo di conciliare le esigenze dell'economia, delle persone e della natura. In questo modo, sviluppiamo soluzioni che aprono opportunità di business sostenibili nei settori alimentare, alimentare e mobilità globale.\nVogliamo innovare per un mondo migliore, con particolare attenzione alle soluzioni sane, sicure e sostenibili. Ecco perché lavoriamo con clienti, start-up, multinazionali e scienziati per ottenere un impatto più veloce insieme.",
-        "en": "The main responsibility of Manufacturing, Logistics & Supply Chain is to ensure a smooth supply chain for Bühler and our customers - in the regions for the regions. Our 29 factories worldwide follow the BPS Bühler production system with its Total Synchro principles and SQCDP goals, and every factory in our network has a clearly defined focus. Our 5000 employees worldwide strive to deliver Bühler products every day at the right time, at the right cost and in the right quality. Polymechanics in the field of turning and/or milling is your passion and you like working in a dynamic environment? As a member of our team at the Uzwil headquarters, you will find an exciting and lively environment - we look forward to seeing you!\n\nTasks:\n• You are responsible for setting up, programming and operating CNC circular grinding machines Studer S31 and Studer S41\n\n• You take over the grinding of individual parts and small series with high quality requirements\n\n• You enjoy the selection and setup of clamping means, grinding wheels and process parameters\n\n• You are responsible for ensuring dimensional accuracy according to the drawing and tolerances (including shape and position tolerances)\n\n• You take over the optimization of the grinding processes with regard to cycle time, surface quality and tool life\n\nRequirements\n• Completed training as a polymechanic:in EFZ production or equivalent training\n\n• Several years of experience in CNC circular grinding, ideally on Studer S31/S41\n\n• Independent, effective, precise and quality-oriented way of working as well as team-oriented, reliable and motivated personality\n\n• Good knowledge of German and IT\n\n• Willingness to work both in normal working hours and in a shift-like working time model\n\nWe offer:\nStaff restaurant VIVA\nWe offer our employees a daily fitness menu from 9.00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + Half-Tax for 365 CHF + 400CHF public transport credit as well as an attractive first-class subscription or free parking.\n\nHealth port\nWe are committed to health prevention through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nAttractive holiday entitlement\nSufficient time for recreation and personal interests - we offer from 25 to 30 days of holidays per year depending on the year of life.\n\nEmployer-funded pension plan\nBühler Pensionskasse offers its employees an independent pension fund that ensures reliable financial retirement: www.pk-buhler.ch\n\nMobile subscriptions\nWe offer special conditions for mobile subscriptions via Mobilezone at Sunrise and Swisscom.\n\nTwo billion people eat food produced at Bühler plants every day. One billion people travel in vehicles whose parts were produced using Bühler technologies.\nWith every decision, Bühler pursues the goal of reconciling the needs of the economy, people and nature. In this way, we develop solutions that open up sustainable business opportunities in the global food, feed and mobility industries.\nWe want to innovate for a better world, with a particular focus on healthy, safe and sustainable solutions. This is why we work with customers, start-ups, multinational corporations and scientists to achieve a faster impact together.",
-        "de": "Die Hauptverantwortung von Manufacturing, Logistics & Supply Chain besteht darin, eine reibungslose Lieferkette für Bühler und unsere Kunden zu gewährleisten - in den Regionen für die Regionen. Unsere 29 Fabriken weltweit folgen dem BPS Bühler Produktionssystem mit seinen Total Synchro Prinzipien und SQCDP Zielen, und jede Fabrik in unserem Netzwerk hat einen klar definierten Fokus. Unsere 5000 Mitarbeiter:innen weltweit sind bestrebt, die Bühler Produkte jeden Tag zur richtigen Zeit, zu den richtigen Kosten und in der richtigen Qualität zu liefern. Polymechanik in Fachrichtung Drehen und/ oder Fräsen ist Ihre Leidenschaft und Sie arbeiten gerne in einem dynamischen Umfeld? Als Mitglied unseres Teams am Hauptstandort Uzwil erwartet Sie ein spannendes & lebhaftes Umfeld - wir freuen uns auf Sie!\n\nAufgaben:\n• Sie sind verantwortlich für das Einrichten, Programmieren und Bedienen von CNC-Rundschleifmaschinen Studer S31 und Studer S41\n\n• Sie übernehmen das Schleifen von Einzelteilen und Kleinserien mit hohen Qualitätsanforderungen\n\n• Sie haben Freude an der Auswahl und Einrichtung von Spannmitteln, Schleifscheiben und Prozessparametern\n\n• Sie sind verantwortlich für die Sicherstellung der Masshaltigkeit gemäss Zeichnung und Toleranzen (inkl. Form- und Lagetoleranzen)\n\n• Sie übernehmen die Optimierung der Schleifprozesse hinsichtlich Zykluszeit, Oberflächengüte und Werkzeugstandzeit\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Polymechaniker:in EFZ Fertigung oder gleichwertige Ausbildung\n\n• Mehrjährige Erfahrung im CNC-Rundschleifen, idealerweise auf Studer S31/S41\n\n• Selbstständige, effektive, präzise und qualitätsorientierte Arbeitsweise sowie teamorientierte, zuverlässige und motivierte Persönlichkeit\n\n• Gute Deutsch- sowie EDV-Kenntnisse\n\n• Bereitschaft sowohl in Normalarbeitszeit wie auch in schichtähnlichen Arbeitszeitmodell zu arbeiten\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
-        "fr": "La principale responsabilité de la chaîne de fabrication, logistique et approvisionnement est d'assurer une chaîne d'approvisionnement en douceur pour Bühler et nos clients - dans les régions pour les régions. Nos 29 usines dans le monde suivent le système de production BPS Bühler avec ses principes Total Synchro et ses objectifs SQCDP, et chaque usine de notre réseau a un objectif clairement défini. Nos 5000 employés du monde entier s'efforcent de livrer des produits Bühler chaque jour au bon moment, au bon coût et dans la bonne qualité. La polymécanique dans le domaine du tournage et/ou du fraisage est votre passion et vous aimez travailler dans un environnement dynamique? En tant que membre de notre équipe au siège d'Uzwil, vous trouverez un environnement passionnant et animé - nous avons hâte de vous voir!\n\nTâches :\n• Vous êtes responsable de la mise en place, de la programmation et de l'exploitation des machines de rectification circulaire CNC Studer S31 et Studer S41\n\n• Vous prenez en charge le broyage de pièces individuelles et de petites séries avec des exigences de haute qualité\n\n• Vous profitez de la sélection et de la configuration des moyens de serrage, des meules et des paramètres de processus\n\n• Vous êtes responsable d'assurer la précision dimensionnelle selon le dessin et les tolérances (y compris les tolérances de forme et de position)\n\n• Vous prenez en charge l'optimisation des processus de broyage en ce qui concerne le temps de cycle, la qualité de surface et la durée de vie des outils\n\nExigences\n• Formation complétée en polymécanicien: en production EFZ ou formation équivalente\n\n• Plusieurs années d'expérience dans le broyage circulaire CNC, idéalement sur Studer S31/S41\n\n• Un mode de travail indépendant, efficace, précis et axé sur la qualité ainsi qu'une personnalité axée sur l'équipe, fiable et motivée\n\n• Bonne connaissance de l'allemand et de l'informatique\n\n• Volonté de travailler à la fois dans les heures normales de travail et dans un modèle de temps de travail par quart\n\nNous offrons:\nRestaurant du personnel VIVA\nNous offrons à nos employés un menu de fitness quotidien à partir de 9.00 CHF.\n\nConcept de mobilité attractive\nNous offrons un OSTWIND ZVV / Z-Pass + demi-taxe pour 365 CHF + 400CHF crédit de transport en commun ainsi qu'un abonnement de première classe attrayant ou un parking gratuit.\n\nPort sanitaire\nNous sommes engagés dans la prévention de la santé par des analyses de laboratoire, des massages, des conseils nutritionnels, la physiothérapie, des cours de groupe et un médecin d'entreprise.\n\nDroit aux congés annuels attractifs\nTemps suffisant pour les loisirs et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par an selon l'année de la vie.\n\nRégime de retraite financé par l'employeur\nBühler Pensionskasse offre à ses salariés une caisse de retraite indépendante qui assure une retraite financière fiable: www.pk-buhler.ch\n\nAbonnements mobiles\nNous offrons des conditions spéciales pour les abonnements mobiles via Mobilezone à Sunrise et Swisscom.\n\nDeux milliards de personnes mangent chaque jour des aliments produits dans les usines de Bühler. Un milliard de personnes voyagent dans des véhicules dont les pièces ont été produites grâce aux technologies Bühler.\nAvec chaque décision, Bühler poursuit l'objectif de concilier les besoins de l'économie, des personnes et de la nature. De cette manière, nous développons des solutions qui ouvrent des opportunités commerciales durables dans les industries mondiales des aliments pour animaux, des aliments pour animaux et de la mobilité.\nNous voulons innover pour un monde meilleur, avec un accent particulier sur des solutions saines, sûres et durables. C'est pourquoi nous travaillons avec les clients, les start-up, les multinationales et les scientifiques pour obtenir un impact plus rapide ensemble."
-      },
-      "location": "Uzwil",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/offene-stellen/cnc-schleifer-in/2c051c07-059e-4f91-80f0-a11c759cb7f6",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.557Z",
-      "addressLocality": "Uzwil",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "streetAddress": "Gupfenstrasse 5",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=2003",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "cnc-schleifer-in-buehler-uzwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cnc-schleifer-in-buehler-uzwil"
-        ]
-      },
-      "firstSeenAt": "2026-09-02T23:16:34.784Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "buehler-cf527cefec01",
       "slug": "senior-installation-supervisore-buhler-group-uzwil",
       "slugByLocale": {
@@ -578,7 +504,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-installation-supervisor/ed70c224-9726-4750-95f1-8fae588a973f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.555Z",
+      "crawledAt": "2026-10-28T20:18:21.257Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -667,7 +593,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lead-plc-engineer-r-d/8d6ca185-1f29-4058-8434-85ab531eed7b",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.552Z",
+      "crawledAt": "2026-10-28T20:18:21.256Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -758,7 +684,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/customer-relationship-manager/1e776704-ada6-4ac9-9265-8a21ffee48fc",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.444Z",
+      "crawledAt": "2026-10-28T20:18:21.190Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -805,6 +731,94 @@
       }
     },
     {
+      "id": "buehler-a56ee2ff6f8d",
+      "slug": "solution-architetto-sap-pm-bpt-buhler-group-uzwil",
+      "slugByLocale": {
+        "it": "solution-architetto-sap-pm-bpt-buhler-group-uzwil",
+        "en": "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
+        "de": "systemarchitekt-sap-pm-btp-buhler-group-uzwil",
+        "fr": "solution-architecte-sap-pm-bpt-buhler-group-uzwil"
+      },
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "System Architect SAP PM & BTP",
+      "titleByLocale": {
+        "it": "Architetto di sistema SAP PM e BTP",
+        "en": "System Architect SAP PM & BTP",
+        "de": "Systemarchitekt:in SAP PM & BTP",
+        "fr": "Architecte système SAP PM & BTP"
+      },
+      "description": "To strengthen our IT department, we are looking for a System Architect SAP S/4HANA PM & BTP<strong> </strong>to shape the future of digital asset lifecycle management for our global B2B customers. In this role, you will own the end-to-end architecture of our Installed Base & Asset Data Platform, driving integration across SAP and non-SAP ecosystems, data platforms, and IoT solutions. Working closely with Product Owners, development teams, and business stakeholders, you will design scalable, secure, and future-ready solutions that enable seamless service processes, high-quality asset data, and outstanding customer service outcomes.\n\nAufgaben:\n• You define and own the end-to-end solution architecture for the Installed Base & Asset Data Platform, ensuring scalability, resilience, and alignment with enterprise architecture standards\n\n• You design and optimize integration architectures across SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, data platforms, and IoT ecosystems\n\n• You translate business, functional, and non-functional requirements into robust architecture blueprints, solution designs, and implementation guidelines\n\n• You lead architectural governance by conducting design reviews, driving technical decisions, and ensuring compliance with integration, API, and data standards\n\n• You collaborate closely with Product Owners, engineering teams, and key stakeholders to deliver high-quality solutions aligned with the target architecture and strategic roadmap\n\nAnforderungen:\n• University degree in Computer Science, Engineering, Business Informatics, or a related discipline\n\n• Proven experience in solution architecture, enterprise application design, and system integration within complex SAP and non-SAP environments, including SAP S/4HANA service processes\n\n• Strong expertise in designing architectures for B2B Customer Service asset lifecycle management, with a focus on cross-system integration and scalable solution design\n\n• Deep understanding of data and integration architectures, including APIs, event-driven architectures, SAP BW/BDC, data platforms, IoT ecosystems, and cloud-based technologies\n\n• Excellent stakeholder management and communication skills in English, with the ability to translate complex technical concepts for business audiences and collaborate effectively in distributed agile teams\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+      "descriptionByLocale": {
+        "it": "Per rafforzare il nostro reparto IT, stiamo cercando un System Architect SAP S/4HANA PM & BTP </strong> per modellare il futuro della gestione del ciclo di vita degli asset digitali per i nostri clienti B2B globali. In questo ruolo, possederai l'architettura end-to-end della nostra piattaforma Installed Base & Asset Data, guidando l'integrazione tra ecosistemi SAP e non-SAP, piattaforme dati e soluzioni IoT. Lavorando a stretto contatto con i proprietari di prodotti, i team di sviluppo e gli stakeholder aziendali, progetta soluzioni scalabili, sicure e pronte per il futuro che consentono processi di servizio senza soluzione di continuità, dati di asset di alta qualità e risultati eccezionali del servizio clienti.\n\nAufgaben:\n• Definisci e possiedi l'architettura di soluzioni end-to-end per la piattaforma Installed Base & Asset Data, garantendo scalabilità, resilienza e allineamento con gli standard di architettura aziendale\n\n• Progetti e ottimizza le architetture di integrazione in SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, piattaforme dati e ecosistemi IoT\n\n• Traduci requisiti aziendali, funzionali e non funzionali in robusti progetti di architettura, progetti di soluzioni e linee guida per l'implementazione\n\n• Guida la governance architettonica conducendo recensioni di progettazione, guidando decisioni tecniche, e garantendo il rispetto dell'integrazione, API e standard di dati\n\n• Collaborate a stretto contatto con i proprietari di prodotti, i team di ingegneria e i principali stakeholder per fornire soluzioni di alta qualità allineate con l'architettura target e la roadmap strategica\n\nAnforderungen:\n• Laurea in Informatica, Ingegneria, Informatica aziendale, o una disciplina correlata\n\n• Esperienza comprovata nell'architettura delle soluzioni, nel design delle applicazioni aziendali e nell'integrazione del sistema in ambienti SAP e non-SAP complessi, compresi i processi di servizio SAP S/4HANA\n\n• Forte competenza nella progettazione di architetture per la gestione del ciclo di vita del B2B Customer Service, con particolare attenzione all'integrazione tra sistemi e alla progettazione di soluzioni scalabili\n\n• Profonda comprensione delle architetture di dati e di integrazione, tra cui API, architetture orientate agli eventi, SAP BW/BDC, piattaforme di dati, ecosistemi IoT e tecnologie basate sul cloud\n\n• Eccellente capacità di gestione e comunicazione degli stakeholder in inglese, con la capacità di tradurre concetti tecnici complessi per il pubblico aziendale e collaborare efficacemente in team agili distribuiti\n\nWir bieten:\nAttraente diritto di vacanza\nAbbastanza tempo per il relax e gli interessi personali - offriamo da 25 a 30 giorni di vacanza all'anno a seconda dell'età.\n\nConcetto di mobilità attraente\nOffriamo una tessera di viaggio OSTWIND ZV/Z-Pass + mezza strada per CHF 365 + CHF 400 credito di trasporto pubblico, nonché una attraente carta di viaggio di prima classe o un parcheggio gratuito.\n\nRistorante VIVA\nOffriamo ai nostri dipendenti un menu di fitness giornaliero da 9, 00 CHF.\n\nPiano pensionistico finanziato dal datore di lavoro\nIl Bühler Pension Fund offre ai dipendenti Bühler un fondo pensione indipendente che garantisce una sicurezza finanziaria affidabile in pensione: www.pk-buhler.ch\n\nSalute-Porto\nCi impegniamo nell'assistenza sanitaria preventiva attraverso analisi di laboratorio, massaggi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale.\n\nAttività sportive\nPromuoviamo l'attività fisica attraverso la formazione di circuiti auto-organizzati e gruppi in esecuzione, nonché buoni per l'aggiornamento e l'attivazione di fitness.\n\nDue miliardi di persone mangiano cibo ogni giorno che è stato prodotto con attrezzature Bühler. Un miliardo di persone guidano veicoli le cui parti sono state prodotte con le nostre macchine.\nBühler si propone di bilanciare l'umanità, la natura e l'economia in ogni decisione, sviluppando soluzioni che sbloccano opportunità di business sostenibili nei settori alimentare, alimentare e della mobilità globale.\nCi sforziamo di creare innovazioni per un mondo migliore, con un focus speciale su soluzioni sane, sicure e sostenibili. Pertanto, ci impegniamo con clienti, start-up, multinazionali e accademia per accelerare l'impatto insieme.",
+        "en": "To strengthen our IT department, we are looking for a System Architect SAP S/4HANA PM & BTP<strong> </strong>to shape the future of digital asset lifecycle management for our global B2B customers. In this role, you will own the end-to-end architecture of our Installed Base & Asset Data Platform, driving integration across SAP and non-SAP ecosystems, data platforms, and IoT solutions. Working closely with Product Owners, development teams, and business stakeholders, you will design scalable, secure, and future-ready solutions that enable seamless service processes, high-quality asset data, and outstanding customer service outcomes.\n\nAufgaben:\n• You define and own the end-to-end solution architecture for the Installed Base & Asset Data Platform, ensuring scalability, resilience, and alignment with enterprise architecture standards\n\n• You design and optimize integration architectures across SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, data platforms, and IoT ecosystems\n\n• You translate business, functional, and non-functional requirements into robust architecture blueprints, solution designs, and implementation guidelines\n\n• You lead architectural governance by conducting design reviews, driving technical decisions, and ensuring compliance with integration, API, and data standards\n\n• You collaborate closely with Product Owners, engineering teams, and key stakeholders to deliver high-quality solutions aligned with the target architecture and strategic roadmap\n\nAnforderungen:\n• University degree in Computer Science, Engineering, Business Informatics, or a related discipline\n\n• Proven experience in solution architecture, enterprise application design, and system integration within complex SAP and non-SAP environments, including SAP S/4HANA service processes\n\n• Strong expertise in designing architectures for B2B Customer Service asset lifecycle management, with a focus on cross-system integration and scalable solution design\n\n• Deep understanding of data and integration architectures, including APIs, event-driven architectures, SAP BW/BDC, data platforms, IoT ecosystems, and cloud-based technologies\n\n• Excellent stakeholder management and communication skills in English, with the ability to translate complex technical concepts for business audiences and collaborate effectively in distributed agile teams\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "de": "Um unsere IT-Abteilung zu stärken, suchen wir einen System Architect SAP S/4HANA PM & BTP, der die Zukunft des digitalen Asset Lifecycle Managements für unsere globalen B2B-Kunden mitgestaltet. In dieser Funktion besitzen Sie die durchgängige Architektur unserer Installed Base & Asset Data Platform, die die Integration über SAP- und Non-SAP-Ökosysteme, Datenplattformen und IoT-Lösungen hinweg vorantreibt.\n\nIn enger Zusammenarbeit mit Produkteigentümern, Entwicklungsteams und Business-Akteuren entwickeln Sie skalierbare, sichere und zukunftsfähige Lösungen, die nahtlose Serviceprozesse, hochwertige Asset-Daten und hervorragende Kunden-Service-Ergebnisse ermöglichen.\n\n• Sie definieren und besitzen die End-to-End-Lösungsarchitektur für die installierte Base & Asset Data Platform, die Skalierbarkeit, Widerstandsfähigkeit und Ausrichtung mit den Standards der Unternehmensarchitektur gewährleistet.\n\n• Sie entwerfen und optimieren Integrationsarchitekturen in SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, Datenplattformen und IoT-Ökosystemen\n\n• Sie übersetzen geschäftliche, funktionale und nicht-funktionale Anforderungen in robuste Architektur-Pläne, Lösungsentwürfe und Implementierungsrichtlinien\n\n• Sie führen die Architektur-Governance durch die Durchführung von Design-Reviews, die treibenden technischen Entscheidungen, und die Einhaltung der Integrations-, API- und Datenstandards\n\n• Sie arbeiten eng mit Produkteigentümern, Ingenieurteams und wichtigen Stakeholdern zusammen, um qualitativ hochwertige Lösungen zu liefern, die auf die Zielarchitektur und die strategische Roadmap abgestimmt sind.\n\n• Hochschulabschluss in Informatik, Ingenieurwesen, Wirtschaftsinformatik oder einer verwandten Fachrichtung\n\n• Bewährte Erfahrung in der Lösungsarchitektur, Enterprise Application Design und Systemintegration in komplexen SAP- und Nicht-SAP-Umgebungen, einschließlich SAP S/4HANA Service-Prozessen\n\n• Starke Expertise bei der Gestaltung von Architekturen für das B2B Customer Service Asset Lifecycle Management mit Fokus auf systemübergreifende Integration und skalierbarem Lösungsdesign\n\n• Tiefes Verständnis von Daten- und Integrationsarchitekturen, einschließlich APIs, ereignisgesteuerte Architekturen, SAP BW/BDC, Datenplattformen, IoT-Ökosystemen und Cloud-basierten Technologien\n\n• Ausgezeichnete Stakeholder Management- und Kommunikationskompetenzen in Englisch, mit der Fähigkeit, komplexe technische Konzepte für das Geschäftspublikum zu übersetzen und effektiv in verteilten agilen Teams zusammenzuarbeiten\n\nWirsid: Attraktiver Urlaubsrecht Genug Zeit für Entspannung und persönliche Interessen - wir bieten je nach Alter von 25 bis 30 Tagen Urlaub pro Jahr an.\n\nAttraktives Mobilitätskonzept Wir bieten eine OSTWIND ZVV / Z-Pass + Halbtarif-Reisekarte für CHF 365 + CHF 400 öffentliche Verkehrsmittel sowie eine attraktive First-Class-Reisekarte oder kostenlose Parkplätze an.\n\nVIVA Restaurant Wir bieten unseren Mitarbeitern ein tägliches Fitness-Menü ab 9, 00 CHF.\n\nArbeitgeberfinanzierte Pensionskasse Der Bühler Pensionsfonds bietet Bühler Mitarbeitern einen unabhängigen Pensionsfonds, der im Ruhestand eine zuverlässige finanzielle Sicherheit gewährleistet: www.pk-buhler.ch\n\nHealth-Port Wir engagieren uns für die präventive Gesundheitsversorgung durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse und einen Unternehmensarzt.\n\nSportaktivitäten Wir fördern körperliche Aktivität durch selbstorganisierte Circuit-Trainings- und Laufgruppen sowie Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die mit Bühler-Geräten hergestellt wurden. Eine Milliarde Menschen fahren Fahrzeuge, deren Teile mit unseren Maschinen hergestellt wurden. Bühler zielt darauf ab, Mensch, Natur und Wirtschaft in jeder Entscheidung zu balancieren, indem es Lösungen entwickelt, die nachhaltige Geschäftschancen in der globalen Lebensmittel-, Futtermittel- und Mobilitätsbranche erschließen. Wir bemühen uns, Innovationen für eine bessere Welt zu schaffen, mit einem besonderen Fokus auf gesunde, sichere und nachhaltige Lösungen. Daher arbeiten wir mit Kunden, Start-ups, multinationalen Unternehmen und Hochschulen zusammen, um gemeinsam die Wirkung zu beschleunigen.",
+        "fr": "Pour renforcer notre département informatique, nous recherchons un système d'architecte SAP S/4HANA PM & BTP pour façonner l'avenir de la gestion du cycle de vie numérique des actifs pour nos clients B2B mondiaux. Dans ce rôle, vous posséderez l'architecture de bout en bout de notre Base et plateforme de données d'actifs Installée, qui pilote l'intégration à travers les écosystèmes SAP et non-SAP, les plateformes de données et les solutions IoT.\n\nEn étroite collaboration avec les propriétaires de produits, les équipes de développement et les intervenants commerciaux, vous concevrez des solutions évolutives, sûres et prêtes à l'avenir qui permettent des processus de service sans faille, des données de haute qualité sur les actifs et des résultats exceptionnels en matière de service à la clientèle.\n\nAufgaben:\n• Vous définissez et possédez l'architecture de solution de bout en bout pour la Base et la Plateforme de données Installée, assurant l'évolutivité, la résilience et l'alignement avec les standards d'architecture d'entreprise\n\n• Vous concevez et optimisez les architectures d'intégration dans les écosystèmes SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, Data Platforms et IoT\n\n• Vous traduisez les exigences opérationnelles, fonctionnelles et non fonctionnelles en plans d'architecture robustes, conceptions de solutions et lignes directrices de mise en œuvre\n\n• Vous dirigez la gouvernance architecturale en effectuant des examens de conception, en conduisant des décisions techniques et en assurant le respect des normes d'intégration, d'API et de données\n\n• Vous collaborez étroitement avec les propriétaires de produits, les équipes d'ingénierie et les principaux intervenants pour fournir des solutions de haute qualité alignées sur l'architecture cible et la feuille de route stratégique\n\nAnforderungen:\n• Diplôme universitaire en informatique, en génie, en informatique commerciale ou dans une discipline connexe\n\n• Provenez une expérience dans l'architecture de solution, la conception d'applications d'entreprise et l'intégration de systèmes dans des environnements SAP complexes et non SAP, y compris les processus de service SAP S/4HANA\n\n• Une expertise solide dans la conception d'architectures pour la gestion du cycle de vie des actifs du service client B2B, avec un accent sur l'intégration cross-system et la conception de solutions évolutives\n\n• Une compréhension approfondie des architectures de données et d'intégration, y compris les API, les architectures axées sur les événements, les systèmes SAP BW/BDC, les plateformes de données, les écosystèmes IoT et les technologies basées sur le cloud\n\n• Excellente maîtrise de la gestion des parties prenantes et de la communication en anglais, avec la capacité de traduire des concepts techniques complexes pour les entreprises et de collaborer efficacement dans les équipes d'équipes d'électorat distribuées\n\nWir bieten: Des vacances attrayantes Temps suffisant pour se détendre et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par année selon l'âge.\n\nConcept de mobilité attractive Nous proposons une carte de voyage ZVV / Z-Pass + demi-tarif pour CHF 365 + CHF 400 crédit de transport en commun ainsi qu'une carte de voyage de première classe attrayante ou un parking gratuit.\n\nVIVA Restaurant Nous offrons à nos collaborateurs un menu de fitness quotidien à partir de 9,00 CHF.\n\nRégime de retraite financé par l'employeur La Caisse de retraite Bühler offre aux salariés de Bühler une caisse de retraite indépendante qui assure une sécurité financière fiable en retraite : www.pk-buhler.ch\n\nSanté-Port Nous nous engageons dans les soins de santé préventifs par des analyses de laboratoire, des massages, des conseils nutritionnels, la physiothérapie, des cours de groupe et un médecin d'entreprise.\n\nActivités sportives Nous encourageons l'activité physique par l'entraînement auto-organisé de circuits et de groupes de course ainsi que des bons de mise à jour et de fitness Activ.\n\nChaque jour, deux milliards de personnes consomment des aliments produits avec des équipements Bühler. Un milliard de personnes conduisent des véhicules dont les pièces ont été fabriquées avec nos machines. Bühler vise à équilibrer l'humanité, la nature et l'économie dans chaque décision en développant des solutions qui permettent de libérer des opportunités d'affaires durables dans les industries mondiales de l'alimentation, de l'alimentation animale et de la mobilité."
+      },
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/job-vacancies/system-architect-sap-pm-btp/1f3e4277-8043-4877-90e1-f91e4a6f8a58",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-28T20:18:21.186Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3240",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "solution-architect-sap-pm-amp-btp-buehler-uzwil",
+          "system-architect-sap-pm-amp-btp-buehler-uzwil"
+        ],
+        "it": [
+          "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
+          "solution-architect-sap-pm-amp-btp-buehler-uzwil",
+          "system-architect-sap-pm-amp-btp-buehler-uzwil"
+        ],
+        "de": [
+          "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
+        ],
+        "fr": [
+          "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
+        "solution-architect-sap-pm-amp-btp-buehler-uzwil",
+        "system-architect-sap-pm-amp-btp-buehler-uzwil"
+      ],
+      "firstSeenAt": "2026-07-02T21:32:07.730Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "buehler-076c171e5b40",
       "slug": "solution-architetto-servizio-clienti-systems-buhler-group-uzwil",
       "slugByLocale": {
@@ -835,7 +849,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-customer-service-systems/791d330b-f138-4919-9369-8e3d2d68dfb0",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.435Z",
+      "crawledAt": "2026-10-28T20:18:21.182Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -909,7 +923,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-ps-sd/d9f8f672-b00a-4174-9488-13ad38e8587d",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.431Z",
+      "crawledAt": "2026-10-28T20:18:21.179Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -953,94 +967,6 @@
       }
     },
     {
-      "id": "buehler-a56ee2ff6f8d",
-      "slug": "solution-architetto-sap-pm-bpt-buhler-group-uzwil",
-      "slugByLocale": {
-        "it": "solution-architetto-sap-pm-bpt-buhler-group-uzwil",
-        "en": "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
-        "de": "systemarchitekt-sap-pm-btp-buhler-group-uzwil",
-        "fr": "solution-architecte-sap-pm-bpt-buhler-group-uzwil"
-      },
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "System Architect SAP PM & BTP",
-      "titleByLocale": {
-        "it": "Architetto di sistema SAP PM e BTP",
-        "en": "System Architect SAP PM & BTP",
-        "de": "Systemarchitekt:in SAP PM & BTP",
-        "fr": "Architecte système SAP PM & BTP"
-      },
-      "description": "To strengthen our IT department, we are looking for a System Architect SAP S/4HANA PM & BTP<strong> </strong>to shape the future of digital asset lifecycle management for our global B2B customers. In this role, you will own the end-to-end architecture of our Installed Base & Asset Data Platform, driving integration across SAP and non-SAP ecosystems, data platforms, and IoT solutions. Working closely with Product Owners, development teams, and business stakeholders, you will design scalable, secure, and future-ready solutions that enable seamless service processes, high-quality asset data, and outstanding customer service outcomes.\n\nAufgaben:\n• You define and own the end-to-end solution architecture for the Installed Base & Asset Data Platform, ensuring scalability, resilience, and alignment with enterprise architecture standards\n\n• You design and optimize integration architectures across SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, data platforms, and IoT ecosystems\n\n• You translate business, functional, and non-functional requirements into robust architecture blueprints, solution designs, and implementation guidelines\n\n• You lead architectural governance by conducting design reviews, driving technical decisions, and ensuring compliance with integration, API, and data standards\n\n• You collaborate closely with Product Owners, engineering teams, and key stakeholders to deliver high-quality solutions aligned with the target architecture and strategic roadmap\n\nAnforderungen:\n• University degree in Computer Science, Engineering, Business Informatics, or a related discipline\n\n• Proven experience in solution architecture, enterprise application design, and system integration within complex SAP and non-SAP environments, including SAP S/4HANA service processes\n\n• Strong expertise in designing architectures for B2B Customer Service asset lifecycle management, with a focus on cross-system integration and scalable solution design\n\n• Deep understanding of data and integration architectures, including APIs, event-driven architectures, SAP BW/BDC, data platforms, IoT ecosystems, and cloud-based technologies\n\n• Excellent stakeholder management and communication skills in English, with the ability to translate complex technical concepts for business audiences and collaborate effectively in distributed agile teams\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro reparto IT, stiamo cercando un System Architect SAP S/4HANA PM & BTP </strong> per modellare il futuro della gestione del ciclo di vita degli asset digitali per i nostri clienti B2B globali. In questo ruolo, possederai l'architettura end-to-end della nostra piattaforma Installed Base & Asset Data, guidando l'integrazione tra ecosistemi SAP e non-SAP, piattaforme dati e soluzioni IoT. Lavorando a stretto contatto con i proprietari di prodotti, i team di sviluppo e gli stakeholder aziendali, progetta soluzioni scalabili, sicure e pronte per il futuro che consentono processi di servizio senza soluzione di continuità, dati di asset di alta qualità e risultati eccezionali del servizio clienti.\n\nAufgaben:\n• Definisci e possiedi l'architettura di soluzioni end-to-end per la piattaforma Installed Base & Asset Data, garantendo scalabilità, resilienza e allineamento con gli standard di architettura aziendale\n\n• Progetti e ottimizza le architetture di integrazione in SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, piattaforme dati e ecosistemi IoT\n\n• Traduci requisiti aziendali, funzionali e non funzionali in robusti progetti di architettura, progetti di soluzioni e linee guida per l'implementazione\n\n• Guida la governance architettonica conducendo recensioni di progettazione, guidando decisioni tecniche, e garantendo il rispetto dell'integrazione, API e standard di dati\n\n• Collaborate a stretto contatto con i proprietari di prodotti, i team di ingegneria e i principali stakeholder per fornire soluzioni di alta qualità allineate con l'architettura target e la roadmap strategica\n\nAnforderungen:\n• Laurea in Informatica, Ingegneria, Informatica aziendale, o una disciplina correlata\n\n• Esperienza comprovata nell'architettura delle soluzioni, nel design delle applicazioni aziendali e nell'integrazione del sistema in ambienti SAP e non-SAP complessi, compresi i processi di servizio SAP S/4HANA\n\n• Forte competenza nella progettazione di architetture per la gestione del ciclo di vita del B2B Customer Service, con particolare attenzione all'integrazione tra sistemi e alla progettazione di soluzioni scalabili\n\n• Profonda comprensione delle architetture di dati e di integrazione, tra cui API, architetture orientate agli eventi, SAP BW/BDC, piattaforme di dati, ecosistemi IoT e tecnologie basate sul cloud\n\n• Eccellente capacità di gestione e comunicazione degli stakeholder in inglese, con la capacità di tradurre concetti tecnici complessi per il pubblico aziendale e collaborare efficacemente in team agili distribuiti\n\nWir bieten:\nAttraente diritto di vacanza\nAbbastanza tempo per il relax e gli interessi personali - offriamo da 25 a 30 giorni di vacanza all'anno a seconda dell'età.\n\nConcetto di mobilità attraente\nOffriamo una tessera di viaggio OSTWIND ZV/Z-Pass + mezza strada per CHF 365 + CHF 400 credito di trasporto pubblico, nonché una attraente carta di viaggio di prima classe o un parcheggio gratuito.\n\nRistorante VIVA\nOffriamo ai nostri dipendenti un menu di fitness giornaliero da 9, 00 CHF.\n\nPiano pensionistico finanziato dal datore di lavoro\nIl Bühler Pension Fund offre ai dipendenti Bühler un fondo pensione indipendente che garantisce una sicurezza finanziaria affidabile in pensione: www.pk-buhler.ch\n\nSalute-Porto\nCi impegniamo nell'assistenza sanitaria preventiva attraverso analisi di laboratorio, massaggi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale.\n\nAttività sportive\nPromuoviamo l'attività fisica attraverso la formazione di circuiti auto-organizzati e gruppi in esecuzione, nonché buoni per l'aggiornamento e l'attivazione di fitness.\n\nDue miliardi di persone mangiano cibo ogni giorno che è stato prodotto con attrezzature Bühler. Un miliardo di persone guidano veicoli le cui parti sono state prodotte con le nostre macchine.\nBühler si propone di bilanciare l'umanità, la natura e l'economia in ogni decisione, sviluppando soluzioni che sbloccano opportunità di business sostenibili nei settori alimentare, alimentare e della mobilità globale.\nCi sforziamo di creare innovazioni per un mondo migliore, con un focus speciale su soluzioni sane, sicure e sostenibili. Pertanto, ci impegniamo con clienti, start-up, multinazionali e accademia per accelerare l'impatto insieme.",
-        "en": "To strengthen our IT department, we are looking for a System Architect SAP S/4HANA PM & BTP<strong> </strong>to shape the future of digital asset lifecycle management for our global B2B customers. In this role, you will own the end-to-end architecture of our Installed Base & Asset Data Platform, driving integration across SAP and non-SAP ecosystems, data platforms, and IoT solutions. Working closely with Product Owners, development teams, and business stakeholders, you will design scalable, secure, and future-ready solutions that enable seamless service processes, high-quality asset data, and outstanding customer service outcomes.\n\nAufgaben:\n• You define and own the end-to-end solution architecture for the Installed Base & Asset Data Platform, ensuring scalability, resilience, and alignment with enterprise architecture standards\n\n• You design and optimize integration architectures across SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, data platforms, and IoT ecosystems\n\n• You translate business, functional, and non-functional requirements into robust architecture blueprints, solution designs, and implementation guidelines\n\n• You lead architectural governance by conducting design reviews, driving technical decisions, and ensuring compliance with integration, API, and data standards\n\n• You collaborate closely with Product Owners, engineering teams, and key stakeholders to deliver high-quality solutions aligned with the target architecture and strategic roadmap\n\nAnforderungen:\n• University degree in Computer Science, Engineering, Business Informatics, or a related discipline\n\n• Proven experience in solution architecture, enterprise application design, and system integration within complex SAP and non-SAP environments, including SAP S/4HANA service processes\n\n• Strong expertise in designing architectures for B2B Customer Service asset lifecycle management, with a focus on cross-system integration and scalable solution design\n\n• Deep understanding of data and integration architectures, including APIs, event-driven architectures, SAP BW/BDC, data platforms, IoT ecosystems, and cloud-based technologies\n\n• Excellent stakeholder management and communication skills in English, with the ability to translate complex technical concepts for business audiences and collaborate effectively in distributed agile teams\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
-        "de": "Um unsere IT-Abteilung zu stärken, suchen wir einen System Architect SAP S/4HANA PM & BTP, der die Zukunft des digitalen Asset Lifecycle Managements für unsere globalen B2B-Kunden mitgestaltet. In dieser Funktion besitzen Sie die durchgängige Architektur unserer Installed Base & Asset Data Platform, die die Integration über SAP- und Non-SAP-Ökosysteme, Datenplattformen und IoT-Lösungen hinweg vorantreibt.\n\nIn enger Zusammenarbeit mit Produkteigentümern, Entwicklungsteams und Business-Akteuren entwickeln Sie skalierbare, sichere und zukunftsfähige Lösungen, die nahtlose Serviceprozesse, hochwertige Asset-Daten und hervorragende Kunden-Service-Ergebnisse ermöglichen.\n\n• Sie definieren und besitzen die End-to-End-Lösungsarchitektur für die installierte Base & Asset Data Platform, die Skalierbarkeit, Widerstandsfähigkeit und Ausrichtung mit den Standards der Unternehmensarchitektur gewährleistet.\n\n• Sie entwerfen und optimieren Integrationsarchitekturen in SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, Datenplattformen und IoT-Ökosystemen\n\n• Sie übersetzen geschäftliche, funktionale und nicht-funktionale Anforderungen in robuste Architektur-Pläne, Lösungsentwürfe und Implementierungsrichtlinien\n\n• Sie führen die Architektur-Governance durch die Durchführung von Design-Reviews, die treibenden technischen Entscheidungen, und die Einhaltung der Integrations-, API- und Datenstandards\n\n• Sie arbeiten eng mit Produkteigentümern, Ingenieurteams und wichtigen Stakeholdern zusammen, um qualitativ hochwertige Lösungen zu liefern, die auf die Zielarchitektur und die strategische Roadmap abgestimmt sind.\n\n• Hochschulabschluss in Informatik, Ingenieurwesen, Wirtschaftsinformatik oder einer verwandten Fachrichtung\n\n• Bewährte Erfahrung in der Lösungsarchitektur, Enterprise Application Design und Systemintegration in komplexen SAP- und Nicht-SAP-Umgebungen, einschließlich SAP S/4HANA Service-Prozessen\n\n• Starke Expertise bei der Gestaltung von Architekturen für das B2B Customer Service Asset Lifecycle Management mit Fokus auf systemübergreifende Integration und skalierbarem Lösungsdesign\n\n• Tiefes Verständnis von Daten- und Integrationsarchitekturen, einschließlich APIs, ereignisgesteuerte Architekturen, SAP BW/BDC, Datenplattformen, IoT-Ökosystemen und Cloud-basierten Technologien\n\n• Ausgezeichnete Stakeholder Management- und Kommunikationskompetenzen in Englisch, mit der Fähigkeit, komplexe technische Konzepte für das Geschäftspublikum zu übersetzen und effektiv in verteilten agilen Teams zusammenzuarbeiten\n\nWirsid: Attraktiver Urlaubsrecht Genug Zeit für Entspannung und persönliche Interessen - wir bieten je nach Alter von 25 bis 30 Tagen Urlaub pro Jahr an.\n\nAttraktives Mobilitätskonzept Wir bieten eine OSTWIND ZVV / Z-Pass + Halbtarif-Reisekarte für CHF 365 + CHF 400 öffentliche Verkehrsmittel sowie eine attraktive First-Class-Reisekarte oder kostenlose Parkplätze an.\n\nVIVA Restaurant Wir bieten unseren Mitarbeitern ein tägliches Fitness-Menü ab 9, 00 CHF.\n\nArbeitgeberfinanzierte Pensionskasse Der Bühler Pensionsfonds bietet Bühler Mitarbeitern einen unabhängigen Pensionsfonds, der im Ruhestand eine zuverlässige finanzielle Sicherheit gewährleistet: www.pk-buhler.ch\n\nHealth-Port Wir engagieren uns für die präventive Gesundheitsversorgung durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse und einen Unternehmensarzt.\n\nSportaktivitäten Wir fördern körperliche Aktivität durch selbstorganisierte Circuit-Trainings- und Laufgruppen sowie Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die mit Bühler-Geräten hergestellt wurden. Eine Milliarde Menschen fahren Fahrzeuge, deren Teile mit unseren Maschinen hergestellt wurden. Bühler zielt darauf ab, Mensch, Natur und Wirtschaft in jeder Entscheidung zu balancieren, indem es Lösungen entwickelt, die nachhaltige Geschäftschancen in der globalen Lebensmittel-, Futtermittel- und Mobilitätsbranche erschließen. Wir bemühen uns, Innovationen für eine bessere Welt zu schaffen, mit einem besonderen Fokus auf gesunde, sichere und nachhaltige Lösungen. Daher arbeiten wir mit Kunden, Start-ups, multinationalen Unternehmen und Hochschulen zusammen, um gemeinsam die Wirkung zu beschleunigen.",
-        "fr": "Pour renforcer notre département informatique, nous recherchons un système d'architecte SAP S/4HANA PM & BTP pour façonner l'avenir de la gestion du cycle de vie numérique des actifs pour nos clients B2B mondiaux. Dans ce rôle, vous posséderez l'architecture de bout en bout de notre Base et plateforme de données d'actifs Installée, qui pilote l'intégration à travers les écosystèmes SAP et non-SAP, les plateformes de données et les solutions IoT.\n\nEn étroite collaboration avec les propriétaires de produits, les équipes de développement et les intervenants commerciaux, vous concevrez des solutions évolutives, sûres et prêtes à l'avenir qui permettent des processus de service sans faille, des données de haute qualité sur les actifs et des résultats exceptionnels en matière de service à la clientèle.\n\nAufgaben:\n• Vous définissez et possédez l'architecture de solution de bout en bout pour la Base et la Plateforme de données Installée, assurant l'évolutivité, la résilience et l'alignement avec les standards d'architecture d'entreprise\n\n• Vous concevez et optimisez les architectures d'intégration dans les écosystèmes SAP S/4HANA, SAP BTP, Service Cloud, SAP FSM, Asset Manager, Data Platforms et IoT\n\n• Vous traduisez les exigences opérationnelles, fonctionnelles et non fonctionnelles en plans d'architecture robustes, conceptions de solutions et lignes directrices de mise en œuvre\n\n• Vous dirigez la gouvernance architecturale en effectuant des examens de conception, en conduisant des décisions techniques et en assurant le respect des normes d'intégration, d'API et de données\n\n• Vous collaborez étroitement avec les propriétaires de produits, les équipes d'ingénierie et les principaux intervenants pour fournir des solutions de haute qualité alignées sur l'architecture cible et la feuille de route stratégique\n\nAnforderungen:\n• Diplôme universitaire en informatique, en génie, en informatique commerciale ou dans une discipline connexe\n\n• Provenez une expérience dans l'architecture de solution, la conception d'applications d'entreprise et l'intégration de systèmes dans des environnements SAP complexes et non SAP, y compris les processus de service SAP S/4HANA\n\n• Une expertise solide dans la conception d'architectures pour la gestion du cycle de vie des actifs du service client B2B, avec un accent sur l'intégration cross-system et la conception de solutions évolutives\n\n• Une compréhension approfondie des architectures de données et d'intégration, y compris les API, les architectures axées sur les événements, les systèmes SAP BW/BDC, les plateformes de données, les écosystèmes IoT et les technologies basées sur le cloud\n\n• Excellente maîtrise de la gestion des parties prenantes et de la communication en anglais, avec la capacité de traduire des concepts techniques complexes pour les entreprises et de collaborer efficacement dans les équipes d'équipes d'électorat distribuées\n\nWir bieten: Des vacances attrayantes Temps suffisant pour se détendre et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par année selon l'âge.\n\nConcept de mobilité attractive Nous proposons une carte de voyage ZVV / Z-Pass + demi-tarif pour CHF 365 + CHF 400 crédit de transport en commun ainsi qu'une carte de voyage de première classe attrayante ou un parking gratuit.\n\nVIVA Restaurant Nous offrons à nos collaborateurs un menu de fitness quotidien à partir de 9,00 CHF.\n\nRégime de retraite financé par l'employeur La Caisse de retraite Bühler offre aux salariés de Bühler une caisse de retraite indépendante qui assure une sécurité financière fiable en retraite : www.pk-buhler.ch\n\nSanté-Port Nous nous engageons dans les soins de santé préventifs par des analyses de laboratoire, des massages, des conseils nutritionnels, la physiothérapie, des cours de groupe et un médecin d'entreprise.\n\nActivités sportives Nous encourageons l'activité physique par l'entraînement auto-organisé de circuits et de groupes de course ainsi que des bons de mise à jour et de fitness Activ.\n\nChaque jour, deux milliards de personnes consomment des aliments produits avec des équipements Bühler. Un milliard de personnes conduisent des véhicules dont les pièces ont été fabriquées avec nos machines. Bühler vise à équilibrer l'humanité, la nature et l'économie dans chaque décision en développant des solutions qui permettent de libérer des opportunités d'affaires durables dans les industries mondiales de l'alimentation, de l'alimentation animale et de la mobilité."
-      },
-      "location": "Uzwil",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/job-vacancies/system-architect-sap-pm-btp/1f3e4277-8043-4877-90e1-f91e4a6f8a58",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.427Z",
-      "addressLocality": "Uzwil",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "streetAddress": "Gupfenstrasse 5",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3240",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "solution-architect-sap-pm-amp-btp-buehler-uzwil",
-          "system-architect-sap-pm-amp-btp-buehler-uzwil"
-        ],
-        "it": [
-          "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
-          "solution-architect-sap-pm-amp-btp-buehler-uzwil",
-          "system-architect-sap-pm-amp-btp-buehler-uzwil"
-        ],
-        "de": [
-          "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
-        ],
-        "fr": [
-          "solution-architect-sap-pm-amp-bpt-buehler-uzwil"
-        ]
-      },
-      "previousSlugs": [
-        "solution-architect-sap-pm-amp-bpt-buehler-uzwil",
-        "solution-architect-sap-pm-amp-btp-buehler-uzwil",
-        "system-architect-sap-pm-amp-btp-buehler-uzwil"
-      ],
-      "firstSeenAt": "2026-07-02T21:32:07.730Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "buehler-a7f36a7e81ce",
       "slug": "instructor-feed-technology-buhler-group-uzwil",
       "slugByLocale": {
@@ -1071,7 +997,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/instructor-feed-technology/2ff2ae71-ee62-45ff-b3d1-23f7a4858d59",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.384Z",
+      "crawledAt": "2026-10-28T20:18:21.163Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1152,7 +1078,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/internship-marketing-events-die-casting/1a55fd49-3623-4dec-9569-ec95f024213a",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.380Z",
+      "crawledAt": "2026-10-28T20:18:21.161Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1230,7 +1156,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/sap-logistics-application-business-process-manager/f62e87ca-0eaa-486e-8c9f-582d3542bce8",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:52:04.377Z",
+      "crawledAt": "2026-10-28T20:18:21.159Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1313,7 +1239,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/senior-process-engineer-die-casting/e9a28721-0d61-4772-88ec-99c4f8f018df",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.328Z",
+      "crawledAt": "2026-10-28T20:18:21.124Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1391,7 +1317,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/trainer-in-futtermitteltechnik/c5688b03-2fdc-4590-817f-6459529aee05",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.318Z",
+      "crawledAt": "2026-10-28T20:18:21.117Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1479,7 +1405,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/project-manager-grinding-dispersing/23044bc3-2bc0-4e58-a952-a4b1f3e97776",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:52:04.293Z",
+      "crawledAt": "2026-10-28T20:18:21.094Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1524,6 +1450,150 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "buehler-bcddde4f7be5",
+      "slug": "trainee-electrical-safety-buehler-uzwil",
+      "slugByLocale": {
+        "de": "trainee-electrical-safety-buehler-uzwil",
+        "it": "trainee-electrical-safety-buehler-uzwil",
+        "en": "trainee-electrical-safety-buehler-uzwil",
+        "fr": "trainee-electrical-safety-buehler-uzwil"
+      },
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "Trainee Electrical Safety",
+      "titleByLocale": {
+        "de": "Trainee Electrical Safety",
+        "it": "Apprendista Electrical Safety",
+        "en": "Trainee Electrical Safety",
+        "fr": "Apprenti Electrical Safety"
+      },
+      "description": "Als Teil des lokalen EHS-Teams arbeitest du in einem globalen Umfeld an der Weiterentwicklung einer nachhaltigen Struktur für die Elektrosicherheit. Dabei stimmst du dich mit internen und externen Fachstellen sowie Stakeholdern auf dem gesamten Campus ab – unter anderem aus der Produktion, dem Kundenservice und der Entwicklung. So erhältst du Einblick in unterschiedliche Geschäftsbereiche und trägst dazu bei, Elektrosicherheit bereichsübergreifend und langfristig zu verankern.\n\nAufgaben:\n• Du bist verantwortlich für die Erstellung eines nachhaltigen Elektrosicherheitskonzepts\n\n• Du entwickelst risikobasierte Massnahmenpläne, legst Zuständigkeiten fest und dokumentierst die Prüfzyklen\n\n• Du übernimmst die Erfassung des Gerätebestands in einer digitalen Softwarelösung\n\n• Du erstellst einen Umsetzungsplan mit Prioritäten, Nachweisen und der Übergabe an die Linienorganisation\n\n• Du hast Freude an der Zusammenarbeit mit internen und externen Fachstellen sowie Stakeholdern aus verschiedenen Geschäftsbereichen\n\nAnforderungen:\n• Bachelor- oder Masterstudium in Elektrotechnik oder abgeschlossene Ausbildung in Elektrotechnik oder Elektroinstallation\n\n• Selbstständige Arbeitsweise und gutes Verständnis für komplexe Zusammenhänge\n\n• Teamfähigkeit sowie ein offenes, selbstbewusstes Auftreten und Freude am aktiven Austausch mit unterschiedlichen Stakeholdern\n\n• Kenntnisse in der Anwendung von MS Office\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+      "descriptionByLocale": {
+        "de": "Als Teil des lokalen EHS-Teams arbeitest du in einem globalen Umfeld an der Weiterentwicklung einer nachhaltigen Struktur für die Elektrosicherheit. Dabei stimmst du dich mit internen und externen Fachstellen sowie Stakeholdern auf dem gesamten Campus ab – unter anderem aus der Produktion, dem Kundenservice und der Entwicklung. So erhältst du Einblick in unterschiedliche Geschäftsbereiche und trägst dazu bei, Elektrosicherheit bereichsübergreifend und langfristig zu verankern.\n\nAufgaben:\n• Du bist verantwortlich für die Erstellung eines nachhaltigen Elektrosicherheitskonzepts\n\n• Du entwickelst risikobasierte Massnahmenpläne, legst Zuständigkeiten fest und dokumentierst die Prüfzyklen\n\n• Du übernimmst die Erfassung des Gerätebestands in einer digitalen Softwarelösung\n\n• Du erstellst einen Umsetzungsplan mit Prioritäten, Nachweisen und der Übergabe an die Linienorganisation\n\n• Du hast Freude an der Zusammenarbeit mit internen und externen Fachstellen sowie Stakeholdern aus verschiedenen Geschäftsbereichen\n\nAnforderungen:\n• Bachelor- oder Masterstudium in Elektrotechnik oder abgeschlossene Ausbildung in Elektrotechnik oder Elektroinstallation\n\n• Selbstständige Arbeitsweise und gutes Verständnis für komplexe Zusammenhänge\n\n• Teamfähigkeit sowie ein offenes, selbstbewusstes Auftreten und Freude am aktiven Austausch mit unterschiedlichen Stakeholdern\n\n• Kenntnisse in der Anwendung von MS Office\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "it": "Als Teil des lokalen EHS-Teams arbeitest du in einem globalen Umfeld an der Weiterentwicklung einer nachhaltigen Struktur für die Elektrosicherheit. Dabei stimmst du dich mit internen und externen Fachstellen sowie Stakeholdern auf dem gesamten Campus ab – unter anderem aus der Produktion, dem Kundenservice und der Entwicklung. So erhältst du Einblick in unterschiedliche Geschäftsbereiche und trägst dazu bei, Elektrosicherheit bereichsübergreifend und langfristig zu verankern.\n\nAufgaben:\n• Du bist verantwortlich für die Erstellung eines nachhaltigen Elektrosicherheitskonzepts\n\n• Du entwickelst risikobasierte Massnahmenpläne, legst Zuständigkeiten fest und dokumentierst die Prüfzyklen\n\n• Du übernimmst die Erfassung des Gerätebestands in einer digitalen Softwarelösung\n\n• Du erstellst einen Umsetzungsplan mit Prioritäten, Nachweisen und der Übergabe an die Linienorganisation\n\n• Du hast Freude an der Zusammenarbeit mit internen und externen Fachstellen sowie Stakeholdern aus verschiedenen Geschäftsbereichen\n\nAnforderungen:\n• Bachelor- oder Masterstudium in Elektrotechnik oder abgeschlossene Ausbildung in Elektrotechnik oder Elektroinstallation\n\n• Selbstständige Arbeitsweise und gutes Verständnis für komplexe Zusammenhänge\n\n• Teamfähigkeit sowie ein offenes, selbstbewusstes Auftreten und Freude am aktiven Austausch mit unterschiedlichen Stakeholdern\n\n• Kenntnisse in der Anwendung von MS Office\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "en": "Als Teil des lokalen EHS-Teams arbeitest du in einem globalen Umfeld an der Weiterentwicklung einer nachhaltigen Struktur für die Elektrosicherheit. Dabei stimmst du dich mit internen und externen Fachstellen sowie Stakeholdern auf dem gesamten Campus ab – unter anderem aus der Produktion, dem Kundenservice und der Entwicklung. So erhältst du Einblick in unterschiedliche Geschäftsbereiche und trägst dazu bei, Elektrosicherheit bereichsübergreifend und langfristig zu verankern.\n\nAufgaben:\n• Du bist verantwortlich für die Erstellung eines nachhaltigen Elektrosicherheitskonzepts\n\n• Du entwickelst risikobasierte Massnahmenpläne, legst Zuständigkeiten fest und dokumentierst die Prüfzyklen\n\n• Du übernimmst die Erfassung des Gerätebestands in einer digitalen Softwarelösung\n\n• Du erstellst einen Umsetzungsplan mit Prioritäten, Nachweisen und der Übergabe an die Linienorganisation\n\n• Du hast Freude an der Zusammenarbeit mit internen und externen Fachstellen sowie Stakeholdern aus verschiedenen Geschäftsbereichen\n\nAnforderungen:\n• Bachelor- oder Masterstudium in Elektrotechnik oder abgeschlossene Ausbildung in Elektrotechnik oder Elektroinstallation\n\n• Selbstständige Arbeitsweise und gutes Verständnis für komplexe Zusammenhänge\n\n• Teamfähigkeit sowie ein offenes, selbstbewusstes Auftreten und Freude am aktiven Austausch mit unterschiedlichen Stakeholdern\n\n• Kenntnisse in der Anwendung von MS Office\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "fr": "Als Teil des lokalen EHS-Teams arbeitest du in einem globalen Umfeld an der Weiterentwicklung einer nachhaltigen Struktur für die Elektrosicherheit. Dabei stimmst du dich mit internen und externen Fachstellen sowie Stakeholdern auf dem gesamten Campus ab – unter anderem aus der Produktion, dem Kundenservice und der Entwicklung. So erhältst du Einblick in unterschiedliche Geschäftsbereiche und trägst dazu bei, Elektrosicherheit bereichsübergreifend und langfristig zu verankern.\n\nAufgaben:\n• Du bist verantwortlich für die Erstellung eines nachhaltigen Elektrosicherheitskonzepts\n\n• Du entwickelst risikobasierte Massnahmenpläne, legst Zuständigkeiten fest und dokumentierst die Prüfzyklen\n\n• Du übernimmst die Erfassung des Gerätebestands in einer digitalen Softwarelösung\n\n• Du erstellst einen Umsetzungsplan mit Prioritäten, Nachweisen und der Übergabe an die Linienorganisation\n\n• Du hast Freude an der Zusammenarbeit mit internen und externen Fachstellen sowie Stakeholdern aus verschiedenen Geschäftsbereichen\n\nAnforderungen:\n• Bachelor- oder Masterstudium in Elektrotechnik oder abgeschlossene Ausbildung in Elektrotechnik oder Elektroinstallation\n\n• Selbstständige Arbeitsweise und gutes Verständnis für komplexe Zusammenhänge\n\n• Teamfähigkeit sowie ein offenes, selbstbewusstes Auftreten und Freude am aktiven Austausch mit unterschiedlichen Stakeholdern\n\n• Kenntnisse in der Anwendung von MS Office\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen."
+      },
+      "needsRetranslation": true,
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/offene-stellen/trainee-electrical-safety/4f27aaad-a2fa-47e1-aa86-5663fbf1e749",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T20:18:21.050Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3733",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-28T20:18:21.050Z"
+    },
+    {
+      "id": "buehler-97ce593659e9",
+      "slug": "rettificatore-trice-cnc-buhler-group-uzwil",
+      "slugByLocale": {
+        "it": "rettificatore-trice-cnc-buhler-group-uzwil",
+        "en": "cnc-grinder-buhler-group-uzwil",
+        "de": "cnc-schleifer-in-buehler-uzwil",
+        "fr": "ponceuse-cnc-buhler-group-uzwil"
+      },
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "CNC Schleifer:in",
+      "titleByLocale": {
+        "it": "Rettificatore/trice CNC",
+        "en": "CNC Grinder",
+        "de": "CNC Schleifer:in",
+        "fr": "Ponceuse CNC"
+      },
+      "description": "Die Hauptverantwortung von Manufacturing, Logistics & Supply Chain besteht darin, eine reibungslose Lieferkette für Bühler und unsere Kunden zu gewährleisten - in den Regionen für die Regionen. Unsere 29 Fabriken weltweit folgen dem BPS Bühler Produktionssystem mit seinen Total Synchro Prinzipien und SQCDP Zielen, und jede Fabrik in unserem Netzwerk hat einen klar definierten Fokus. Unsere 5000 Mitarbeiter:innen weltweit sind bestrebt, die Bühler Produkte jeden Tag zur richtigen Zeit, zu den richtigen Kosten und in der richtigen Qualität zu liefern. Polymechanik in Fachrichtung Drehen und/ oder Fräsen ist Ihre Leidenschaft und Sie arbeiten gerne in einem dynamischen Umfeld? Als Mitglied unseres Teams am Hauptstandort Uzwil erwartet Sie ein spannendes & lebhaftes Umfeld - wir freuen uns auf Sie!\n\nAufgaben:\n• Sie sind verantwortlich für das Einrichten, Programmieren und Bedienen von CNC-Rundschleifmaschinen Studer S31 und Studer S41\n\n• Sie übernehmen das Schleifen von Einzelteilen und Kleinserien mit hohen Qualitätsanforderungen\n\n• Sie haben Freude an der Auswahl und Einrichtung von Spannmitteln, Schleifscheiben und Prozessparametern\n\n• Sie sind verantwortlich für die Sicherstellung der Masshaltigkeit gemäss Zeichnung und Toleranzen (inkl. Form- und Lagetoleranzen)\n\n• Sie übernehmen die Optimierung der Schleifprozesse hinsichtlich Zykluszeit, Oberflächengüte und Werkzeugstandzeit\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Polymechaniker:in EFZ Fertigung oder gleichwertige Ausbildung\n\n• Mehrjährige Erfahrung im CNC-Rundschleifen, idealerweise auf Studer S31/S41\n\n• Selbstständige, effektive, präzise und qualitätsorientierte Arbeitsweise sowie teamorientierte, zuverlässige und motivierte Persönlichkeit\n\n• Gute Deutsch- sowie EDV-Kenntnisse\n\n• Bereitschaft sowohl in Normalarbeitszeit wie auch in schichtähnlichen Arbeitszeitmodell zu arbeiten\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+      "descriptionByLocale": {
+        "it": "La responsabilità principale di Manufacturing, Logistics & Supply Chain è garantire una catena di fornitura liscia per Bühler e i nostri clienti - nelle regioni per le regioni. Le nostre 29 fabbriche in tutto il mondo seguono il sistema di produzione BPS Bühler con i suoi principi Total Synchro e obiettivi SQCDP, e ogni fabbrica della nostra rete ha un focus chiaramente definito. I nostri 5000 dipendenti in tutto il mondo si sforzano di fornire prodotti Bühler ogni giorno al momento giusto, al giusto costo e nella giusta qualità. La polimeccanica nel campo della tornitura e/o della fresatura è la vostra passione e vi piace lavorare in un ambiente dinamico? Come membro del nostro team nella sede di Uzwil, troverete un ambiente emozionante e vivace - non vediamo l'ora di vederti!\n\nCompiti:\n• Sei responsabile per l'installazione, la programmazione e l'uso di rettificatrici circolari CNC Studer S31 e Studer S41\n\n• Si prende il controllo della rettifica di singole parti e piccole serie con requisiti di alta qualità\n\n• Ti piace la selezione e la configurazione dei mezzi di bloccaggio, le molatrici e i parametri di processo\n\n• L'utente è responsabile di garantire la precisione dimensionale in base al disegno e alle tolleranze (comprese le tolleranze di forma e posizione)\n\n• Si prende il sopravvento dell'ottimizzazione dei processi di rettifica per quanto riguarda il tempo di ciclo, la qualità della superficie e la durata degli utensili\n\nRequisiti\n• Formazione completa come polimeccanica: nella produzione EFZ o formazione equivalente\n\n• Diversi anni di esperienza nella rettifica circolare CNC, idealmente su Studer S31/S41\n\n• Modo di lavoro indipendente, efficace, preciso e orientato alla qualità, nonché personalità orientata al team, affidabile e motivata\n\n• Buona conoscenza del tedesco e dell'IT\n\n• Volontà di lavorare sia in orari di lavoro normali che in un modello di tempo di lavoro a turni\n\nOffriamo:\nRistorante personale VIVA\nOffriamo ai nostri dipendenti un menu di fitness giornaliero da 9.00 CHF.\n\nConcetto di mobilità attraente\nOffriamo un OSTWIND ZVV / Z-Pass + Half-Tax per 365 CHF + 400CHF credito di trasporto pubblico e un attraente abbonamento di prima classe o parcheggio gratuito.\n\nPorta salute\nSiamo impegnati nella prevenzione della salute attraverso analisi di laboratorio, massaggi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale.\n\nAttraente diritto di vacanza\nTempo sufficiente per la ricreazione e gli interessi personali - offriamo da 25 a 30 giorni di vacanze all'anno a seconda dell'anno di vita.\n\nPiano pensionistico finanziato dal datore di lavoro\nBühler Pensionskasse offre ai propri dipendenti un fondo pensione indipendente che garantisce un pensionamento finanziario affidabile: www.pk-buhler.ch\n\nAbbonamenti mobili\nOffriamo condizioni speciali per gli abbonamenti mobili tramite Mobilezone a Sunrise e Swisscom.\n\nDue miliardi di persone mangiano cibo prodotto nelle piante di Bühler ogni giorno. Un miliardo di persone viaggiano in veicoli le cui parti sono state prodotte utilizzando le tecnologie Bühler.\nCon ogni decisione, Bühler persegue l'obiettivo di conciliare le esigenze dell'economia, delle persone e della natura. In questo modo, sviluppiamo soluzioni che aprono opportunità di business sostenibili nei settori alimentare, alimentare e mobilità globale.\nVogliamo innovare per un mondo migliore, con particolare attenzione alle soluzioni sane, sicure e sostenibili. Ecco perché lavoriamo con clienti, start-up, multinazionali e scienziati per ottenere un impatto più veloce insieme.",
+        "en": "The main responsibility of Manufacturing, Logistics & Supply Chain is to ensure a smooth supply chain for Bühler and our customers - in the regions for the regions. Our 29 factories worldwide follow the BPS Bühler production system with its Total Synchro principles and SQCDP goals, and every factory in our network has a clearly defined focus. Our 5000 employees worldwide strive to deliver Bühler products every day at the right time, at the right cost and in the right quality. Polymechanics in the field of turning and/or milling is your passion and you like working in a dynamic environment? As a member of our team at the Uzwil headquarters, you will find an exciting and lively environment - we look forward to seeing you!\n\nTasks:\n• You are responsible for setting up, programming and operating CNC circular grinding machines Studer S31 and Studer S41\n\n• You take over the grinding of individual parts and small series with high quality requirements\n\n• You enjoy the selection and setup of clamping means, grinding wheels and process parameters\n\n• You are responsible for ensuring dimensional accuracy according to the drawing and tolerances (including shape and position tolerances)\n\n• You take over the optimization of the grinding processes with regard to cycle time, surface quality and tool life\n\nRequirements\n• Completed training as a polymechanic:in EFZ production or equivalent training\n\n• Several years of experience in CNC circular grinding, ideally on Studer S31/S41\n\n• Independent, effective, precise and quality-oriented way of working as well as team-oriented, reliable and motivated personality\n\n• Good knowledge of German and IT\n\n• Willingness to work both in normal working hours and in a shift-like working time model\n\nWe offer:\nStaff restaurant VIVA\nWe offer our employees a daily fitness menu from 9.00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + Half-Tax for 365 CHF + 400CHF public transport credit as well as an attractive first-class subscription or free parking.\n\nHealth port\nWe are committed to health prevention through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nAttractive holiday entitlement\nSufficient time for recreation and personal interests - we offer from 25 to 30 days of holidays per year depending on the year of life.\n\nEmployer-funded pension plan\nBühler Pensionskasse offers its employees an independent pension fund that ensures reliable financial retirement: www.pk-buhler.ch\n\nMobile subscriptions\nWe offer special conditions for mobile subscriptions via Mobilezone at Sunrise and Swisscom.\n\nTwo billion people eat food produced at Bühler plants every day. One billion people travel in vehicles whose parts were produced using Bühler technologies.\nWith every decision, Bühler pursues the goal of reconciling the needs of the economy, people and nature. In this way, we develop solutions that open up sustainable business opportunities in the global food, feed and mobility industries.\nWe want to innovate for a better world, with a particular focus on healthy, safe and sustainable solutions. This is why we work with customers, start-ups, multinational corporations and scientists to achieve a faster impact together.",
+        "de": "Die Hauptverantwortung von Manufacturing, Logistics & Supply Chain besteht darin, eine reibungslose Lieferkette für Bühler und unsere Kunden zu gewährleisten - in den Regionen für die Regionen. Unsere 29 Fabriken weltweit folgen dem BPS Bühler Produktionssystem mit seinen Total Synchro Prinzipien und SQCDP Zielen, und jede Fabrik in unserem Netzwerk hat einen klar definierten Fokus. Unsere 5000 Mitarbeiter:innen weltweit sind bestrebt, die Bühler Produkte jeden Tag zur richtigen Zeit, zu den richtigen Kosten und in der richtigen Qualität zu liefern. Polymechanik in Fachrichtung Drehen und/ oder Fräsen ist Ihre Leidenschaft und Sie arbeiten gerne in einem dynamischen Umfeld? Als Mitglied unseres Teams am Hauptstandort Uzwil erwartet Sie ein spannendes & lebhaftes Umfeld - wir freuen uns auf Sie!\n\nAufgaben:\n• Sie sind verantwortlich für das Einrichten, Programmieren und Bedienen von CNC-Rundschleifmaschinen Studer S31 und Studer S41\n\n• Sie übernehmen das Schleifen von Einzelteilen und Kleinserien mit hohen Qualitätsanforderungen\n\n• Sie haben Freude an der Auswahl und Einrichtung von Spannmitteln, Schleifscheiben und Prozessparametern\n\n• Sie sind verantwortlich für die Sicherstellung der Masshaltigkeit gemäss Zeichnung und Toleranzen (inkl. Form- und Lagetoleranzen)\n\n• Sie übernehmen die Optimierung der Schleifprozesse hinsichtlich Zykluszeit, Oberflächengüte und Werkzeugstandzeit\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Polymechaniker:in EFZ Fertigung oder gleichwertige Ausbildung\n\n• Mehrjährige Erfahrung im CNC-Rundschleifen, idealerweise auf Studer S31/S41\n\n• Selbstständige, effektive, präzise und qualitätsorientierte Arbeitsweise sowie teamorientierte, zuverlässige und motivierte Persönlichkeit\n\n• Gute Deutsch- sowie EDV-Kenntnisse\n\n• Bereitschaft sowohl in Normalarbeitszeit wie auch in schichtähnlichen Arbeitszeitmodell zu arbeiten\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "fr": "La principale responsabilité de la chaîne de fabrication, logistique et approvisionnement est d'assurer une chaîne d'approvisionnement en douceur pour Bühler et nos clients - dans les régions pour les régions. Nos 29 usines dans le monde suivent le système de production BPS Bühler avec ses principes Total Synchro et ses objectifs SQCDP, et chaque usine de notre réseau a un objectif clairement défini. Nos 5000 employés du monde entier s'efforcent de livrer des produits Bühler chaque jour au bon moment, au bon coût et dans la bonne qualité. La polymécanique dans le domaine du tournage et/ou du fraisage est votre passion et vous aimez travailler dans un environnement dynamique? En tant que membre de notre équipe au siège d'Uzwil, vous trouverez un environnement passionnant et animé - nous avons hâte de vous voir!\n\nTâches :\n• Vous êtes responsable de la mise en place, de la programmation et de l'exploitation des machines de rectification circulaire CNC Studer S31 et Studer S41\n\n• Vous prenez en charge le broyage de pièces individuelles et de petites séries avec des exigences de haute qualité\n\n• Vous profitez de la sélection et de la configuration des moyens de serrage, des meules et des paramètres de processus\n\n• Vous êtes responsable d'assurer la précision dimensionnelle selon le dessin et les tolérances (y compris les tolérances de forme et de position)\n\n• Vous prenez en charge l'optimisation des processus de broyage en ce qui concerne le temps de cycle, la qualité de surface et la durée de vie des outils\n\nExigences\n• Formation complétée en polymécanicien: en production EFZ ou formation équivalente\n\n• Plusieurs années d'expérience dans le broyage circulaire CNC, idéalement sur Studer S31/S41\n\n• Un mode de travail indépendant, efficace, précis et axé sur la qualité ainsi qu'une personnalité axée sur l'équipe, fiable et motivée\n\n• Bonne connaissance de l'allemand et de l'informatique\n\n• Volonté de travailler à la fois dans les heures normales de travail et dans un modèle de temps de travail par quart\n\nNous offrons:\nRestaurant du personnel VIVA\nNous offrons à nos employés un menu de fitness quotidien à partir de 9.00 CHF.\n\nConcept de mobilité attractive\nNous offrons un OSTWIND ZVV / Z-Pass + demi-taxe pour 365 CHF + 400CHF crédit de transport en commun ainsi qu'un abonnement de première classe attrayant ou un parking gratuit.\n\nPort sanitaire\nNous sommes engagés dans la prévention de la santé par des analyses de laboratoire, des massages, des conseils nutritionnels, la physiothérapie, des cours de groupe et un médecin d'entreprise.\n\nDroit aux congés annuels attractifs\nTemps suffisant pour les loisirs et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par an selon l'année de la vie.\n\nRégime de retraite financé par l'employeur\nBühler Pensionskasse offre à ses salariés une caisse de retraite indépendante qui assure une retraite financière fiable: www.pk-buhler.ch\n\nAbonnements mobiles\nNous offrons des conditions spéciales pour les abonnements mobiles via Mobilezone à Sunrise et Swisscom.\n\nDeux milliards de personnes mangent chaque jour des aliments produits dans les usines de Bühler. Un milliard de personnes voyagent dans des véhicules dont les pièces ont été produites grâce aux technologies Bühler.\nAvec chaque décision, Bühler poursuit l'objectif de concilier les besoins de l'économie, des personnes et de la nature. De cette manière, nous développons des solutions qui ouvrent des opportunités commerciales durables dans les industries mondiales des aliments pour animaux, des aliments pour animaux et de la mobilité.\nNous voulons innover pour un monde meilleur, avec un accent particulier sur des solutions saines, sûres et durables. C'est pourquoi nous travaillons avec les clients, les start-up, les multinationales et les scientifiques pour obtenir un impact plus rapide ensemble."
+      },
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/offene-stellen/cnc-schleifer-in/2c051c07-059e-4f91-80f0-a11c759cb7f6",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T09:52:04.557Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=2003",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "cnc-schleifer-in-buehler-uzwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-schleifer-in-buehler-uzwil"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T23:16:34.784Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

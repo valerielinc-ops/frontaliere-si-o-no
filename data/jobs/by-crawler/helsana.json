@@ -1,14 +1,14 @@
 {
   "crawlerKey": "helsana",
-  "assembledAt": "2026-10-28T09:50:09.690Z",
-  "runId": "40662627763",
+  "assembledAt": "2026-10-28T20:15:21.265Z",
+  "runId": "40758659964",
   "jobs": [
     {
       "id": "helsana-d2874870cc4c",
       "slug": "medico-a-nel-mandato-helsana-dubendorf-stettbach",
       "slugByLocale": {
         "it": "medico-a-nel-mandato-helsana-dubendorf-stettbach",
-        "en": "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach",
+        "en": "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
         "de": "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
         "fr": "medecin-a-du-mandat-helsana-dubendorf-stettbach"
       },
@@ -34,7 +34,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Vertrauensarzt-%28a%29-im-Mandat/1443881233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:50:02.722Z",
+      "crawledAt": "2026-10-28T20:15:16.068Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,7 +55,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physician-a-in-the-mandate-helsana-dubendorf-stettbach",
-        "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach"
+        "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach",
+        "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +64,7 @@
         ],
         "en": [
           "physician-a-in-the-mandate-helsana-dubendorf-stettbach",
-          "vertrauensarzt-a-im-mandat-helsana-dubendorf-stettbach"
+          "confidential-physician-a-in-the-mandate-helsana-dubendorf-stettbach"
         ]
       },
       "firstSeenAt": "2026-10-03T09:22:06.129Z",
@@ -113,7 +114,7 @@
       "url": "https://careers.helsana.ch/job/Baden-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100-Baden/1423353733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:50:02.055Z",
+      "crawledAt": "2026-10-28T20:15:15.460Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -195,7 +196,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Fach%C3%A4rztin-Medical-Pool-%28a%29-flexible-Eins%C3%A4tze-im-Stundenlohn/1434282433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:50:01.378Z",
+      "crawledAt": "2026-10-28T20:15:14.867Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -277,7 +278,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Mutationen-&-Antragsverarbeitung-%28a%29-80-100/1434502133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:50:00.707Z",
+      "crawledAt": "2026-10-28T20:15:14.226Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -354,7 +355,7 @@
       "url": "https://careers.helsana.ch/job/Solothurn-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100-Solothurn/1445073933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:50:00.007Z",
+      "crawledAt": "2026-10-28T20:15:13.612Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -427,7 +428,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Conseiller-Service-Client%C3%A8le-International-FRDE-%28t%29-80-100/1445654133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:58.898Z",
+      "crawledAt": "2026-10-28T20:15:12.658Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -504,7 +505,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Spontanbewerbungen/639608001/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:58.263Z",
+      "crawledAt": "2026-10-28T20:15:12.085Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -586,7 +587,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenberaterin-Contact-Center-mw-%2840-60%29/730311601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:57.209Z",
+      "crawledAt": "2026-10-28T20:15:11.117Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -659,7 +660,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Kundenbetreuer-Inkasso-DE-&-IT-wm-%2880-100%29/655242701/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:56.559Z",
+      "crawledAt": "2026-10-28T20:15:10.519Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -733,7 +734,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-IT-Management-Assistenz-%28a%29-80/1426391333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:55.907Z",
+      "crawledAt": "2026-10-28T20:15:09.859Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -807,7 +808,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Marketing-Stratege-%28mw%29-%2880-100%29/637016301/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:55.252Z",
+      "crawledAt": "2026-10-28T20:15:09.268Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -854,7 +855,7 @@
       "slug": "candidatura-spontanea-helsana-lausanne",
       "slugByLocale": {
         "it": "candidatura-spontanea-helsana-lausanne",
-        "en": "spontaneous-application-helsana-lausanne",
+        "en": "candidature-spontanee-helsana-lausanne",
         "de": "candidature-spontanee-helsana-lausanne",
         "fr": "candidature-spontanee-helsana-lausanne"
       },
@@ -880,7 +881,7 @@
       "url": "https://careers.helsana.ch/job/Lausanne-Candidature-Spontan%C3%A9e/637828601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:54.576Z",
+      "crawledAt": "2026-10-28T20:15:08.682Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -901,7 +902,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "candidatura-spontanee-helsana-lausanne",
-        "candidature-spontanee-helsana-lausanne"
+        "candidature-spontanee-helsana-lausanne",
+        "spontaneous-application-helsana-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -909,7 +911,7 @@
           "candidature-spontanee-helsana-lausanne"
         ],
         "en": [
-          "candidature-spontanee-helsana-lausanne"
+          "spontaneous-application-helsana-lausanne"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -962,7 +964,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-Praktikant-Ausbildung-wm/657978401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:53.917Z",
+      "crawledAt": "2026-10-28T20:15:08.065Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1035,7 +1037,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinischer-Codierer-%28a%29-60-80-befristet-bis-M%C3%A4rz-2027/1446748533/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:53.259Z",
+      "crawledAt": "2026-10-28T20:15:07.478Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1108,7 +1110,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-UVG-Normalschaden-%28a%29-80-100/1436772133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:52.556Z",
+      "crawledAt": "2026-10-28T20:15:06.871Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1192,7 +1194,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Teamleiter-UVG-Normalschaden-%28a%29-80-100/1436697833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:51.914Z",
+      "crawledAt": "2026-10-28T20:15:06.303Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1277,7 +1279,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Spezialistin-Fachstelle-Unternehmensgesch%C3%A4ft-%28a%29-80-100/861656201/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:51.271Z",
+      "crawledAt": "2026-10-28T20:15:05.714Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1379,7 +1381,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Fachspezialistin-Partnerschaften-Gesundheitsberatung-wm-%2880-100%29/652014801/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:50.627Z",
+      "crawledAt": "2026-10-28T20:15:05.089Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1453,7 +1455,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuerin-Antragsverarbeitung-%28a%29-80-100/1377417133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:49.959Z",
+      "crawledAt": "2026-10-28T20:15:04.443Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1541,7 +1543,7 @@
       "url": "https://careers.helsana.ch/job/Lausanne-&-Homeoffice-Teamleiter-Gesundheitsberatung-und-Case-Management-%28a%29-80-100/1437657733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:49.306Z",
+      "crawledAt": "2026-10-28T20:15:03.848Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1627,7 +1629,7 @@
       "url": "https://careers.helsana.ch/job/Lausanne-&-Homeoffice-Responsable-d'%C3%A9quipe-Conseils-de-sant%C3%A9-et-Case-Management-%28t%29-80-100/1437657133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:48.629Z",
+      "crawledAt": "2026-10-28T20:15:03.268Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1700,7 +1702,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Senior-Linux-Cloud-Engineer-%28a%29-80-100/791705601/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:47.129Z",
+      "crawledAt": "2026-10-28T20:15:01.959Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1766,7 +1768,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-Mitarbeiterin-Impfzentrum-wm-%2880-100%29/668203501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:46.493Z",
+      "crawledAt": "2026-10-28T20:15:01.343Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1842,7 +1844,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-Lernende-%28a%29-Informatikerin-EFZ-Plattformentwicklung-per-August-2023/840037501/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:45.842Z",
+      "crawledAt": "2026-10-28T20:15:00.736Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1916,7 +1918,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-IT-Security-Architect-Secure-Development%2C-Threat-&-Vulnerability-Management-%28a%29-80-100/1277473401/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:45.141Z",
+      "crawledAt": "2026-10-28T20:15:00.137Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1999,7 +2001,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Senior-CRM-&-Journey-Manager-%28a%29-80-100/1448940833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:44.484Z",
+      "crawledAt": "2026-10-28T20:14:59.552Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2065,7 +2067,7 @@
       "url": "https://careers.helsana.ch/job/Lausanne-&-Homeoffice-Case-Manager-%28a%29-80-100/1418638133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:43.844Z",
+      "crawledAt": "2026-10-28T20:14:58.976Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2144,7 +2146,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Mutationen-&-Antragsverarbeitung-%28a%29-80-100/1449240733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:43.170Z",
+      "crawledAt": "2026-10-28T20:14:58.394Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2224,7 +2226,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuer-Leistungen-Krankentaggeld-%28a%29-80-100/1449850233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:42.535Z",
+      "crawledAt": "2026-10-28T20:14:57.791Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2309,7 +2311,7 @@
       "url": "https://careers.helsana.ch/job/St_-Gallen-&-Homeoffice-Kundenbetreuer-Leistungen-SpitalPflege-%28a%29-80-100-befristet-vom-1_-Februar-bis-31_-Mai-2027/1449908933/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:41.865Z",
+      "crawledAt": "2026-10-28T20:14:57.197Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2391,7 +2393,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Beratende-%C3%84rztin-Krankentaggeld-%28a%29-10-20/1429174233/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:41.202Z",
+      "crawledAt": "2026-10-28T20:14:56.576Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2477,7 +2479,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Fachspezialistin-Anzeigepflichtverletzung-%28a%29-80/1450342433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:40.559Z",
+      "crawledAt": "2026-10-28T20:14:55.967Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2558,7 +2560,7 @@
       "url": "https://careers.helsana.ch/job/Winterthur-&-Homeoffice-Versicherungsberater-im-Aussendienst-%28a%29-80-100/1450142433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:39.921Z",
+      "crawledAt": "2026-10-28T20:14:55.376Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2637,7 +2639,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Lernende-%28a%29-KauffrauKaufmann-EFZ-in-Kranken-und-Sozialversicherungen-per-August-2027/1419303333/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:39.265Z",
+      "crawledAt": "2026-10-28T20:14:54.735Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2719,7 +2721,7 @@
       "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Tempor%C3%A4re-Mitarbeiterin-Leistungen-Ambulant-%28a%29-80-100-befristet-1_-Januar-bis-31_-M%C3%A4rz-2027/1450776133/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:38.603Z",
+      "crawledAt": "2026-10-28T20:14:54.130Z",
       "addressLocality": "Worblaufen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2798,7 +2800,7 @@
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Vertrauensarzt-%28a%29-80-100/1440839033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:37.243Z",
+      "crawledAt": "2026-10-28T20:14:52.961Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2882,7 +2884,7 @@
       "url": "https://careers.helsana.ch/job/Chur-&-Homeoffice-Case-Manager-Leistungen-Unternehmensgesch%C3%A4ft-Kanton-Graub%C3%BCnden-%28a%29-80-100/1441541633/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:36.568Z",
+      "crawledAt": "2026-10-28T20:14:52.361Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2930,12 +2932,148 @@
       }
     },
     {
+      "id": "helsana-64effb470b80",
+      "slug": "versicherungberater-im-aussendienst-a-zug-80-100-helsana-zug",
+      "slugByLocale": {
+        "de": "versicherungberater-im-aussendienst-a-zug-80-100-helsana-zug",
+        "it": "versicherungberater-im-aussendienst-a-zug-80-100-helsana-zug",
+        "en": "versicherungberater-im-aussendienst-a-zug-80-100-helsana-zug",
+        "fr": "versicherungberater-im-aussendienst-a-zug-80-100-helsana-zug"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Versicherungberater im Aussendienst (a) Zug 80-100%",
+      "titleByLocale": {
+        "de": "Versicherungberater im Aussendienst (a) Zug 80-100%",
+        "it": "Versicherungberater im Aussendienst (a) Zug 80-100%",
+        "en": "Versicherungberater im Aussendienst (a) Zug 80-100%",
+        "fr": "Versicherungberater im Aussendienst (a) Zug 80-100%"
+      },
+      "description": "Position: Versicherungberater im Aussendienst (a) Zug 80-100%\n- Standort: Zug, Kanton ZG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
+      "descriptionByLocale": {
+        "de": "Position: Versicherungberater im Aussendienst (a) Zug 80-100%\n- Standort: Zug, Kanton ZG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
+        "it": "Position: Versicherungberater im Aussendienst (a) Zug 80-100%\n- Standort: Zug, Kanton ZG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
+        "en": "Position: Versicherungberater im Aussendienst (a) Zug 80-100%\n- Standort: Zug, Kanton ZG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
+        "fr": "Position: Versicherungberater im Aussendienst (a) Zug 80-100%\n- Standort: Zug, Kanton ZG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana"
+      },
+      "needsRetranslation": true,
+      "location": "Zug",
+      "canton": "ZG",
+      "url": "https://careers.helsana.ch/job/Zug-&-Homeoffice-Versicherungberater-im-Aussendienst-%28a%29-Zug-80-100/1452185533/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T20:14:51.749Z",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6300",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28T00:00:00Z",
+      "postedDate": "2026-10-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1452185533/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-28T20:14:51.749Z"
+    },
+    {
+      "id": "helsana-0afba25d1227",
+      "slug": "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach",
+      "slugByLocale": {
+        "de": "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach",
+        "it": "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach",
+        "en": "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach",
+        "fr": "senior-ausbildnerin-a-80-100-helsana-dubendorf-stettbach"
+      },
+      "company": "Helsana",
+      "companyKey": "helsana",
+      "companyDomain": "helsana.ch",
+      "title": "Senior Ausbildnerin (a) 80-100%",
+      "titleByLocale": {
+        "de": "Senior Ausbildnerin (a) 80-100%",
+        "it": "Senior Ausbildnerin (a) 80-100%",
+        "en": "Senior Ausbildnerin (a) 80-100%",
+        "fr": "Senior Ausbildnerin (a) 80-100%"
+      },
+      "description": "Position: Senior Ausbildnerin (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
+      "descriptionByLocale": {
+        "de": "Position: Senior Ausbildnerin (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
+        "it": "Position: Senior Ausbildnerin (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
+        "en": "Position: Senior Ausbildnerin (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
+        "fr": "Position: Senior Ausbildnerin (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs"
+      },
+      "needsRetranslation": true,
+      "location": "Dübendorf-Stettbach",
+      "canton": "ZH",
+      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Senior-Ausbildnerin-%28a%29-80-100/1452216133/",
+      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T20:14:51.124Z",
+      "addressLocality": "Dübendorf-Stettbach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8600",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-28T00:00:00Z",
+      "postedDate": "2026-10-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1452216133/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-28T20:14:51.124Z"
+    },
+    {
       "id": "helsana-6f991296b10e",
       "slug": "assistente-di-pratica-medica-nella-piscina-medica-a-incarichi-flessibili-nel-salario-orario-helsana-zurich",
       "slugByLocale": {
-        "de": "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana",
         "it": "assistente-di-pratica-medica-nella-piscina-medica-a-incarichi-flessibili-nel-salario-orario-helsana-zurich",
         "en": "medical-practice-assistant-in-the-medical-pool-a-flexible-assignments-in-the-hourly-wage-helsana-zurich",
+        "de": "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana",
         "fr": "assistant-de-pratique-medicale-dans-le-bassin-medical-a-affectations-flexibles-dans-le-salaire-horaire-helsana-zurich"
       },
       "company": "Helsana",
@@ -2943,24 +3081,24 @@
       "companyDomain": "helsana.ch",
       "title": "Medizinische Praxisassistentin im Medical Pool (a) - flexible Einsätze im Stundenlohn",
       "titleByLocale": {
-        "de": "Medizinische Praxisassistentin im Medical Pool (a) - flexible Einsätze im Stundenlohn",
         "it": "Assistente di pratica medica nella piscina medica (a) - incarichi flessibili nel salario orario",
         "en": "Medical practice assistant in the Medical Pool (a) - flexible assignments in the hourly wage",
+        "de": "Medizinische Praxisassistentin im Medical Pool (a) - flexible Einsätze im Stundenlohn",
         "fr": "Assistant de pratique médicale dans le bassin médical a) - affectations flexibles dans le salaire horaire"
       },
       "description": "Position: Medizinische Praxisassistentin im Medical Pool (a) - flexible Einsätze im Stundenlohn\n- Standort: Zürich, Kanton ZH\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
       "descriptionByLocale": {
-        "de": "Position: Medizinische Praxisassistentin im Medical Pool (a) - flexible Einsätze im Stundenlohn\n- Standort: Zürich, Kanton ZH\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
-        "it": "Posizione: Assistente di pratica medica nella piscina medica (a) - assegnazioni flessibili nel salario orario\n- Posizione: Zurigo, Cantone di ZH\n- Datore di lavoro: Helsana\n\nBella,\n\nche vuoi plasmare il tuo futuro a Helsana!\n\nSe vuoi spostare il settore sanitario e progredire professionalmente, troverai molte opportunità per plasmare attivamente il tuo percorso di carriera.\n\nCi assumiamo la responsabilità di più di due milioni di clienti, per la società e per i nostri dipendenti. Noi attribuiamo grande importanza a un ambiente di lavoro caratterizzato da fiducia, cooperazione e sviluppo.\n\n.\n Attendiamo con ansia la vostra applicazione!\n\nhelsana.ch/jobs",
-        "en": "Position: Medical practice assistant in the Medical Pool (a) - flexible assignments in the hourly wage\n- Location: Zurich, Canton of ZH\n- Employer: Helsana\n\nBeautiful,\n\nthat you want to shape your future at Helsana!\n\nIf you want to move the healthcare sector and progress professionally, you will find many opportunities to actively shape your career path.\n\nWe take responsibility for more than two million customers, for society and for our employees. We attach great importance to a working environment characterized by trust, cooperation and development.\n\n.\n We look forward to your application!\n\nhelsana.ch/jobs",
-        "fr": "Fonction: Assistant à la pratique médicale dans le bassin médical (a) - affectations flexibles dans le salaire horaire\n- Lieu: Zurich, Canton de ZH\n- Employeur: Helsana\n\nMagnifique,\n\nque vous voulez façonner votre avenir à Helsana!\n\nSi vous voulez déplacer le secteur des soins de santé et progresser professionnellement, vous trouverez de nombreuses occasions de façonner activement votre cheminement de carrière.\n\nNous assumons la responsabilité de plus de deux millions de clients, de la société et de nos employés. Nous attachons une grande importance à un environnement de travail caractérisé par la confiance, la coopération et le développement.\n\n.\n Nous nous réjouissons de votre candidature!\n\nhelsana.ch/emplois"
+        "it": "Posizione: Assistente di pratica medica nella piscina medica (a) - assegnazioni flessibili nel salario orario\n- Posizione: Zurigo, Cantone di ZH\n- Datore di lavoro: Helsana\n\nBella,\n\nche vuoi plasmare il tuo futuro a Helsana!\n\nSe vuoi spostare il settore sanitario e progredire professionalmente, troverai molte opportunità per plasmare attivamente il tuo percorso di carriera.\n\nCi assumiamo la responsabilità di più di due milioni di clienti, per la società e per i nostri dipendenti. Noi attribuiamo grande importanza a un ambiente di lavoro caratterizzato da fiducia, cooperazione e sviluppo.\n\n.\nAttendiamo con ansia la vostra applicazione!\n\nhelsana.ch/jobs",
+        "en": "Position: Medical practice assistant in the Medical Pool (a) - flexible assignments in the hourly wage\n- Location: Zurich, Canton of ZH\n- Employer: Helsana\n\nBeautiful,\n\nthat you want to shape your future at Helsana!\n\nIf you want to move the healthcare sector and progress professionally, you will find many opportunities to actively shape your career path.\n\nWe take responsibility for more than two million customers, for society and for our employees. We attach great importance to a working environment characterized by trust, cooperation and development.\n\n.\nWe look forward to your application!\n\nhelsana.ch/jobs",
+        "de": "Position: Medizinische Praxisassistentin im Medical Pool (a) - flexible Einsätze im Stundenlohn\n- Standort: Zürich, Kanton ZH\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\nWir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
+        "fr": "Fonction: Assistant à la pratique médicale dans le bassin médical (a) - affectations flexibles dans le salaire horaire\n- Lieu: Zurich, Canton de ZH\n- Employeur: Helsana\n\nMagnifique,\n\nque vous voulez façonner votre avenir à Helsana!\n\nSi vous voulez déplacer le secteur des soins de santé et progresser professionnellement, vous trouverez de nombreuses occasions de façonner activement votre cheminement de carrière.\n\nNous assumons la responsabilité de plus de deux millions de clients, de la société et de nos employés. Nous attachons une grande importance à un environnement de travail caractérisé par la confiance, la coopération et le développement.\n\n.\nNous nous réjouissons de votre candidature!\n\nhelsana.ch/emplois"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://careers.helsana.ch/job/Z%C3%BCrich-&-Homeoffice-Medizinische-Praxisassistentin-im-Medical-Pool-%28a%29-flexible-Eins%C3%A4tze-im-Stundenlohn/1452044733/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:35.902Z",
+      "crawledAt": "2026-10-28T20:14:50.535Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2978,9 +3116,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1452044733/?locale=de_DE",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
+        ]
       },
+      "firstSeenAt": "2026-10-28T09:49:35.902Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2993,30 +3144,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-28T09:49:35.902Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
-        ],
-        "en": [
-          "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
-        ],
-        "fr": [
-          "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-praxisassistentin-im-medical-pool-a-flexible-einsatze-im-stundenlohn-helsana"
-      ]
+      }
     },
     {
       "id": "helsana-278e365abc20",
       "slug": "versicherungsberaterin-im-aussendienst-thurgau-o-schaffhausen-a-80-100-helsana-frauenfeld",
       "slugByLocale": {
-        "de": "versicherungsberaterin-im-aussendienst-thurgau-oder-schaffhausen-a-80-100-helsana",
         "it": "versicherungsberaterin-im-aussendienst-thurgau-o-schaffhausen-a-80-100-helsana-frauenfeld",
         "en": "insurance-consultant-in-the-field-service-thurgau-or-schaffhausen-a-80-100-helsana-frauenfeld",
+        "de": "versicherungsberaterin-im-aussendienst-thurgau-oder-schaffhausen-a-80-100-helsana",
         "fr": "consultant-en-assurance-dans-le-service-exterieur-thurgau-ou-schaffhausen-a-80-100-helsana-frauenfeld"
       },
       "company": "Helsana",
@@ -3024,24 +3160,25 @@
       "companyDomain": "helsana.ch",
       "title": "Versicherungsberaterin im Aussendienst Thurgau oder Schaffhausen (a) 80-100%",
       "titleByLocale": {
-        "de": "Versicherungsberaterin im Aussendienst Thurgau oder Schaffhausen (a) 80-100%",
         "it": "Consulente assicurativa nel servizio esterno Turgovia o Sciaffusa (a) 80-100%",
         "en": "Insurance consultant in the field service Thurgau or Schaffhausen (a) 80-100 %",
+        "de": "Versicherungsberaterin im Aussendienst Thurgau oder Schaffhausen (a) 80-100%",
         "fr": "Consultant en assurance dans le service extérieur Thurgau ou Schaffhausen (a) 80-100 %"
       },
       "description": "Position: Versicherungsberaterin im Aussendienst Thurgau oder Schaffhausen (a) 80-100%\n- Standort: Frauenfeld, Kanton TG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
       "descriptionByLocale": {
-        "de": "Position: Versicherungsberaterin im Aussendienst Thurgau oder Schaffhausen (a) 80-100%\n- Standort: Frauenfeld, Kanton TG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
-        "it": "Posizione: Consulente assicurativo nel servizio sul campo Thurgau o Schaffhausen (a) 80-100 %\n- Posizione: Frauenfeld, Canton TG\n- Pensum: 80-100 %\n- Datore di lavoro: Helsana\n\nCreare\n\nAndiamo.\n\nPiù successo!\n\nHelsana è un leader – e lo rende facile per i suoi clienti. Prendere la responsabilità per il leader del mercato e modellare il settore sanitario. Il vostro impegno vale la pena: Vi offriamo diverse sfide, un sacco di responsabilità personale e l'opportunità di sviluppare individualmente e flessibile.\n\n-\n Non vediamo l'ora della tua applicazione online!\n\nhelsana.ch/karriere\n\nPortaci alla nostra parola. Helsana",
-        "en": "Position: Insurance consultant in the field service Thurgau or Schaffhausen (a) 80-100 %\n- Location: Frauenfeld, Canton of TG\n- Pensum: 80-100 %\n- Employer: Helsana\n\nMaking\n\nLet us\n\nMore successful!\n\nHelsana is a leader – and makes it easy for its customers. Take responsibility for the market leader and shape the healthcare sector. Your commitment is worthwhile: We offer you varied challenges, a lot of personal responsibility and the opportunity to develop individually and flexibly.\n\n-\n We look forward to your online application!\n\nhelsana.ch/karriere\n\nTake us at our word. Helsana",
-        "fr": "Poste: Conseiller en assurance dans le service mobile Thurgau ou Schaffhausen (a) 80-100 %\n- Lieu: Frauenfeld, Canton de TG\n- Pensum: 80-100 %\n- Employeur: Helsana\n\nFabrication\n\nLaissez-nous\n\nPlus de succès !\n\nHelsana est un leader – et le rend facile pour ses clients. Prendre la responsabilité du leader du marché et façonner le secteur de la santé. Votre engagement vaut la peine : Nous vous offrons des défis variés, beaucoup de responsabilité personnelle et la possibilité de se développer individuellement et avec souplesse.\n\n-\n Nous nous réjouissons de votre candidature en ligne!\n\nhelsana.ch/karriere\n\nPrends-nous sur parole. Helsana"
+        "it": "Posizione: Consulente assicurativo nel servizio sul campo Thurgau o Schaffhausen (a) 80-100 %\n- Posizione: Frauenfeld, Canton TG\n- Pensum: 80-100 %\n- Datore di lavoro: Helsana\n\nCreare\n\nAndiamo.\n\nPiù successo!\n\nHelsana è un leader – e lo rende facile per i suoi clienti. Prendere la responsabilità per il leader del mercato e modellare il settore sanitario. Il vostro impegno vale la pena: Vi offriamo diverse sfide, un sacco di responsabilità personale e l'opportunità di sviluppare individualmente e flessibile.\n\n-\nNon vediamo l'ora della tua applicazione online!\n\nhelsana.ch/karriere\n\nPortaci alla nostra parola. Helsana",
+        "en": "Position: Insurance consultant in the field service Thurgau or Schaffhausen (a) 80-100 %\n- Location: Frauenfeld, Canton of TG\n- Pensum: 80-100 %\n- Employer: Helsana\n\nMaking\n\nLet us\n\nMore successful!\n\nHelsana is a leader – and makes it easy for its customers. Take responsibility for the market leader and shape the healthcare sector. Your commitment is worthwhile: We offer you varied challenges, a lot of personal responsibility and the opportunity to develop individually and flexibly.\n\n-\nWe look forward to your online application!\n\nhelsana.ch/karriere\n\nTake us at our word. Helsana",
+        "de": "Position: Versicherungsberaterin im Aussendienst Thurgau oder Schaffhausen (a) 80-100%\n- Standort: Frauenfeld, Kanton TG\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
+        "fr": "Poste: Conseiller en assurance dans le service mobile Thurgau ou Schaffhausen (a) 80-100 %\n- Lieu: Frauenfeld, Canton de TG\n- Pensum: 80-100 %\n- Employeur: Helsana\n\nFabrication\n\nLaissez-nous\n\nPlus de succès !\n\nHelsana est un leader – et le rend facile pour ses clients. Prendre la responsabilité du leader du marché et façonner le secteur de la santé. Votre engagement vaut la peine : Nous vous offrons des défis variés, beaucoup de responsabilité personnelle et la possibilité de se développer individuellement et avec souplesse.\n\n-\nNous nous réjouissons de votre candidature en ligne!\n\nhelsana.ch/karriere\n\nPrends-nous sur parole. Helsana"
       },
+      "needsRetranslation": false,
       "location": "Frauenfeld",
       "canton": "TG",
       "url": "https://careers.helsana.ch/job/Frauenfeld-&-Homeoffice-Versicherungsberaterin-im-Aussendienst-Thurgau-oder-Schaffhausen-%28a%29-80-100/1451979833/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:35.236Z",
+      "crawledAt": "2026-10-28T20:14:49.936Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -3059,9 +3196,10 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1451979833/?locale=de_DE",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "versicherungsberaterin-im-aussendienst-thurgau-oder-schaffhausen-a-80-100-helsana"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungsberaterin-im-aussendienst-thurgau-oder-schaffhausen-a-80-100-helsana"
@@ -3073,9 +3211,7 @@
           "versicherungsberaterin-im-aussendienst-thurgau-oder-schaffhausen-a-80-100-helsana"
         ]
       },
-      "previousSlugs": [
-        "versicherungsberaterin-im-aussendienst-thurgau-oder-schaffhausen-a-80-100-helsana"
-      ],
+      "firstSeenAt": "2026-10-28T09:49:35.236Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -3088,16 +3224,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-28T09:49:35.236Z"
+      }
     },
     {
       "id": "helsana-7731e31ec8af",
       "slug": "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach",
       "slugByLocale": {
-        "de": "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach",
         "it": "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach",
         "en": "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach",
+        "de": "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach",
         "fr": "digital-content-specialist-a-80-100-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
@@ -3105,16 +3240,16 @@
       "companyDomain": "helsana.ch",
       "title": "Digital Content Specialist (a) 80-100%",
       "titleByLocale": {
-        "de": "Digital Content Spezialist (a) 80-100%",
-        "en": "Digital Content Specialist (a) 80-100%",
         "it": "Digital Content Specialista (a) 80-100%",
+        "en": "Digital Content Specialist (a) 80-100%",
+        "de": "Digital Content Spezialist (a) 80-100%",
         "fr": "Digital Content Spécialiste (a) 80-100%"
       },
       "description": "Position: Digital Content Specialist (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich:\n• Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n.\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
       "descriptionByLocale": {
-        "de": "Position: Digital Content Specialist (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich:\n• Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n.\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
         "it": "Posizione: Digital Content Specialist (a) 80-100 %\n- Ubicazione: Dübendorf-Stettbach, Cantone di ZH\n- Pensum: 80-100 %\n- Datore di lavoro: Helsana\n\nCreare\n\nAndiamo.\n\nPiù successo!\n\nHelsana è un leader – e lo rende facile per i suoi clienti. Prendere la responsabilità per il leader del mercato e modellare il settore sanitario. Il vostro impegno vale la pena:\n• Vi offriamo diverse sfide, un sacco di responsabilità personale e l'opportunità di sviluppare individualmente e flessibile.\n\n.\n\nNon vediamo l'ora della tua applicazione online!\n\nhelsana.ch/karriere\n\nPortaci alla nostra parola. Helsana",
         "en": "Position: Digital Content Specialist (a) 80-100 %\n- Location: Dübendorf-Stettbach, Canton of ZH\n- Pensum: 80-100 %\n- Employer: Helsana\n\nMaking\n\nLet us\n\nMore successful!\n\nHelsana is a leader – and makes it easy for its customers. Take responsibility for the market leader and shape the healthcare sector. Your commitment is worthwhile:\n• We offer you varied challenges, a lot of personal responsibility and the opportunity to develop individually and flexibly.\n\n.\n\nWe look forward to your online application!\n\nhelsana.ch/karriere\n\nTake us at our word. Helsana",
+        "de": "Position: Digital Content Specialist (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich:\n• Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n.\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
         "fr": "Position: Spécialiste du contenu numérique (a) 80-100 %\n- Lieu: Dübendorf-Stettbach, Canton de ZH\n- Pensum: 80-100 %\n- Employeur: Helsana\n\nFabrication\n\nLaissez-nous\n\nPlus de succès !\n\nHelsana est un leader – et le rend facile pour ses clients. Prendre la responsabilité du leader du marché et façonner le secteur de la santé. Votre engagement vaut la peine :\n• Nous vous offrons des défis variés, beaucoup de responsabilité personnelle et la possibilité de se développer individuellement et avec souplesse.\n\n.\n\nNous nous réjouissons de votre candidature en ligne!\n\nhelsana.ch/karriere\n\nPrends-nous sur parole. Helsana"
       },
       "location": "Dübendorf-Stettbach",
@@ -3122,7 +3257,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Digital-Content-Specialist-%28a%29-80-100/1451959033/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:34.568Z",
+      "crawledAt": "2026-10-28T20:14:49.339Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3140,9 +3275,8 @@
       "postingDateSource": "reported",
       "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1451959033/?locale=de_DE",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-28T09:49:34.568Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3155,8 +3289,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-28T09:49:34.568Z"
+      }
     },
     {
       "id": "helsana-20104d691d06",
@@ -3190,7 +3323,7 @@
       "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Business-Analyst-Parametrierung-%28a%29-80-100/1431964433/",
       "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:49:33.873Z",
+      "crawledAt": "2026-10-28T20:14:48.657Z",
       "addressLocality": "Dübendorf-Stettbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3251,325 +3384,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "helsana-d463dc825eae",
-      "slug": "centro-di-contatto-del-team-leader-aggiunto-a-80-100-helsana-dubendorf-stettbach-homeoff",
-      "slugByLocale": {
-        "it": "centro-di-contatto-del-team-leader-aggiunto-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "deputy-team-leader-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "de": "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "centre-de-contact-du-chef-d-equipe-adjoint-a-80-100-helsana-dubendorf-stettbach-homeoff"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Stellvertretende Teamleiterin Contact Center (a) 80-100%",
-      "titleByLocale": {
-        "it": "Centro di contatto del Team Leader aggiunto (a) 80-100 %",
-        "en": "Deputy Team Leader Contact Center (a) 80-100 %",
-        "de": "Stellvertretende Teamleiterin Contact Center (a) 80-100%",
-        "fr": "Centre de contact du chef d'équipe adjoint (a) 80-100 %"
-      },
-      "description": "Position: Stellvertretende Teamleiterin Contact Center (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n Wir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
-      "descriptionByLocale": {
-        "it": "Posizione: Centro di contatto aggiunto (a) 80-100 %\n- Posizione: Dübendorf-Stettbach & Homeoff, Canton ZH\n- Penso: 80-100 %\n- Datore di lavoro: Helsana\n\nCreare\n\nAndiamo.\n\nPiù successo!\n\nHelsana è un leader – e lo rende facile per i suoi clienti. Prendere la responsabilità per il leader del mercato e modellare il settore sanitario. Il vostro impegno vale la pena: Vi offriamo diverse sfide, un sacco di responsabilità personale e l'opportunità di sviluppare individualmente e flessibile.\n\n-\nNon vediamo l'ora della tua applicazione online!\n\nhelsana.ch/karriere\n\nPortaci alla nostra parola. Helsana",
-        "en": "Position: Deputy Team Leader Contact Center (a) 80-100 %\n- Location: Dübendorf-Stettbach, Canton of ZH\n- Pensum: 80-100 %\n- Employer: Helsana\n\nMaking\n\nLet us\n\nMore successful!\n\nHelsana is a leader – and makes it easy for its customers. Take responsibility for the market leader and shape the healthcare sector. Your commitment is worthwhile: We offer you varied challenges, a lot of personal responsibility and the opportunity to develop individually and flexibly.\n\n-\nWe look forward to your online application!\n\nhelsana.ch/karriere\n\nTake us at our word. Helsana",
-        "de": "Position: Stellvertretende Teamleiterin Contact Center (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
-        "fr": "Fonction: Centre de contact du chef d'équipe adjoint (a) 80-100 %\n- Lieu: Dübendorf-Stettbach & Homeoff, Canton de ZH\n- Pensum: 80-100 %\n- Employeur: Helsana\n\nFabrication\n\nLaissez-nous\n\nPlus de succès !\n\nHelsana est un leader – et le rend facile pour ses clients. Prendre la responsabilité du leader du marché et façonner le secteur de la santé. Votre engagement vaut la peine : Nous vous offrons des défis variés, beaucoup de responsabilité personnelle et la possibilité de se développer individuellement et avec souplesse.\n\n-\nNous nous réjouissons de votre candidature en ligne!\n\nhelsana.ch/karriere\n\nPrends-nous sur parole. Helsana"
-      },
-      "needsRetranslation": false,
-      "location": "Dübendorf-Stettbach",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Stellvertretende-Teamleiterin-Contact-Center-%28a%29-80-100/1411835533/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:46:38.248Z",
-      "addressLocality": "Dübendorf-Stettbach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-01",
-      "postedDate": "2026-10-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1411835533/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff",
-          "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach"
-        ],
-        "en": [
-          "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff"
-        ],
-        "fr": [
-          "stellvertretende-teamleiterin-contact-center-a-80-100-helsana-dubendorf-stettbach-homeoff"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T13:44:21.686Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "helsana-678ee3bc83d7",
-      "slug": "servizio-di-assistenza-medica-a-80-100-helsana-worblaufen",
-      "slugByLocale": {
-        "it": "servizio-di-assistenza-medica-a-80-100-helsana-worblaufen",
-        "en": "customer-care-services-medical-day-allowance-a-80-100-helsana-worblaufen",
-        "de": "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen",
-        "fr": "services-a-la-clientele-indemnite-de-jour-pour-soins-medicaux-a-80-100-helsana-worblaufen"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100%",
-      "titleByLocale": {
-        "it": "Servizio di assistenza medica (a) 80-100 %",
-        "en": "Customer care services Medical day allowance (a) 80-100 %",
-        "de": "Kundenbetreuer Leistungen Krankentaggeld (a) 80-100%",
-        "fr": "Services à la clientèle Indemnité de jour pour soins médicaux (a) 80-100 %"
-      },
-      "description": "Position: Kundenbetreuer Leistungen Krankentaggeld (a) 80-100%\n- Standort: Worblaufen, Kanton BE\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
-      "descriptionByLocale": {
-        "it": "Posizione: Indennità di malattia del fornitore del servizio clienti (a) 80-100 %\n- Ubicazione: Worblauf, Canton BE\n- Penso: 80-100 %\n- Datore di lavoro: Helsana\n\nCreare\n\nAndiamo.\n\nPiù successo!\n\nHelsana è un leader – e lo rende facile per i suoi clienti. Prendere la responsabilità per il leader del mercato e modellare il settore sanitario. Il vostro impegno vale la pena: Vi offriamo diverse sfide, un sacco di responsabilità personale e l'opportunità di sviluppare individualmente e flessibile.\n\n-\n\nNon vediamo l'ora della tua applicazione online!\n\nhelsana.ch/karriere\n\nPortaci alla nostra parola. Helsana",
-        "en": "Position: Customer service provider sickness allowance (a) 80-100 %\n- Location: Worblauf, Canton BE\n- Pensum: 80-100 %\n- Employer: Helsana\n\nMaking\n\nLet us\n\nMore successful!\n\nHelsana is a leader – and makes it easy for its customers. Take responsibility for the market leader and shape the healthcare sector. Your commitment is worthwhile: We offer you varied challenges, a lot of personal responsibility and the opportunity to develop individually and flexibly.\n\n-\n\nWe look forward to your online application!\n\nhelsana.ch/karriere\n\nTake us at our word. Helsana",
-        "de": "Position: Kundenbetreuer Leistungen Krankentaggeld (a) 80-100%\n- Standort: Worblaufen, Kanton BE\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nMachen\n\nSie uns\n\nerfolgreicher!\n\nHelsana ist führend – und macht es ihren Kunden einfach. Übernehmen Sie beim Marktleader Verantwortung und prägen Sie das Gesundheitswesen mit. Ihr Engagement lohnt sich: Wir bieten Ihnen abwechslungsreiche Herausforderungen, viel Eigenverantwortung und die Möglichkeit, sich individuell und flexibel weiterzuentwickeln.\n\n-\n\nWir freuen uns auf Ihre Online-Bewerbung!\n\nhelsana.ch/karriere\n\nNehmen Sie uns beim Wort. Helsana",
-        "fr": "Position: Indemnité de maladie du prestataire de services à la clientèle (a) 80-100 %\n- Lieu: Worblauf, Canton BE\n- Pensum: 80-100 %\n- Employeur: Helsana\n\nFabrication\n\nLaissez-nous\n\nPlus de succès !\n\nHelsana est un leader – et le rend facile pour ses clients. Prendre la responsabilité du leader du marché et façonner le secteur de la santé. Votre engagement vaut la peine : Nous vous offrons des défis variés, beaucoup de responsabilité personnelle et la possibilité de se développer individuellement et avec souplesse.\n\n-\n\nNous nous réjouissons de votre candidature en ligne!\n\nhelsana.ch/karriere\n\nPrends-nous sur parole. Helsana"
-      },
-      "needsRetranslation": false,
-      "location": "Worblaufen",
-      "canton": "BE",
-      "url": "https://careers.helsana.ch/job/Worblaufen-&-Homeoffice-Kundenbetreuer-Leistungen-Krankentaggeld-%28a%29-80-100/1444318633/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:46:36.350Z",
-      "addressLocality": "Worblaufen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3048",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-05T00:00:00Z",
-      "postedDate": "2026-10-05T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1444318633/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuer-leistungen-krankentaggeld-a-80-100-helsana-worblaufen"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T21:28:00.235Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "helsana-ff047d826f2f",
-      "slug": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027-helsana-dubendorf-stettbach",
-      "slugByLocale": {
-        "it": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027-helsana-dubendorf-stettbach",
-        "en": "temporary-customer-support-de-fr-a-80-100-fridged-until-30-september-2027-helsana-dubendorf-stettbach",
-        "de": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027",
-        "fr": "support-client-temporaire-de-fr-a-80-100-refrigere-jusqu-a-30-septembre-2027-helsana-dubendorf-stettbach"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Temporäre Kundenbetreuerin Fachsupport DE/FR (a) 80-100% - befristet bis 30. September 2027",
-      "titleByLocale": {
-        "it": "Assistenza clienti temporanea DE/FR (a) 80-100% - frigo fino a 30. Settembre 2027",
-        "en": "Temporary customer support DE/FR (a) 80-100% - fridged until 30. September 2027",
-        "de": "Temporäre Kundenbetreuerin Fachsupport DE/FR (a) 80-100% - befristet bis 30. September 2027",
-        "fr": "Support client temporaire DE/FR (a) 80-100% - réfrigéré jusqu'à 30. Septembre 2027"
-      },
-      "description": "Position: Temporäre Kundenbetreuerin Fachsupport DE/FR (a) 80-100% - befristet bis 30. September 2027\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
-      "descriptionByLocale": {
-        "it": "Posizione: Servizio clienti temporaneo supporto DE/FR (a) 80-100% - frigo fino a 30. Settembre 2027\n- Ubicazione: Dübendorf-Stettbach, Cantone di ZH\n- Penso: 80-100 %\n- Datore di lavoro: Helsana\n\nBella,\n\nche vuoi plasmare il tuo futuro a Helsana!\n\nSe vuoi spostare il settore sanitario e progredire professionalmente, troverai molte opportunità per plasmare attivamente il tuo percorso di carriera.\n\nCi assumiamo la responsabilità di più di due milioni di clienti, per la società e per i nostri dipendenti. Noi attribuiamo grande importanza a un ambiente di lavoro caratterizzato da fiducia, cooperazione e sviluppo.\n\n.\nAttendiamo con ansia la vostra applicazione!\n\nhelsana.ch/jobs",
-        "en": "Position: Temporary customer service specialist support DE/FR (a) 80-100% - fridged until 30. September 2027\n- Location: Dübendorf-Stettbach, Canton of ZH\n- Pensum: 80-100 %\n- Employer: Helsana\n\nBeautiful,\n\nthat you want to shape your future at Helsana!\n\nIf you want to move the healthcare sector and progress professionally, you will find many opportunities to actively shape your career path.\n\nWe take responsibility for more than two million customers, for society and for our employees. We attach great importance to a working environment characterized by trust, cooperation and development.\n\n.\nWe look forward to your application!\n\nhelsana.ch/jobs",
-        "de": "Position: Temporäre Kundenbetreuerin Fachsupport DE/FR (a) 80-100% - befristet bis 30. September 2027\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\nWir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
-        "fr": "Position: Service à la clientèle temporaire assistance spécialisée DE/FR (a) 80-100% - réfrigéré jusqu'à 30. Septembre 2027\n- Lieu: Dübendorf-Stettbach, Canton de ZH\n- Pensum: 80-100 %\n- Employeur: Helsana\n\nMagnifique,\n\nque vous voulez façonner votre avenir à Helsana!\n\nSi vous voulez déplacer le secteur des soins de santé et progresser professionnellement, vous trouverez de nombreuses occasions de façonner activement votre cheminement de carrière.\n\nNous assumons la responsabilité de plus de deux millions de clients, de la société et de nos employés. Nous attachons une grande importance à un environnement de travail caractérisé par la confiance, la coopération et le développement.\n\n.\nNous nous réjouissons de votre candidature!\n\nhelsana.ch/emplois"
-      },
-      "needsRetranslation": false,
-      "location": "Dübendorf-Stettbach",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Tempor%C3%A4re-Kundenbetreuerin-Fachsupport-DEFR-%28a%29-80-100-befristet-bis-30_-September-2027/1444650933/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:46:35.716Z",
-      "addressLocality": "Dübendorf-Stettbach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-06T00:00:00Z",
-      "postedDate": "2026-10-06T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1444650933/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "temporare-kundenbetreuerin-fachsupport-de-fr-a-80-100-befristet-bis-30-september-2027"
-        ],
-        "it": [
-          "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027",
-          "temporare-kundenbetreuerin-fachsupport-de-fr-a-80-100-befristet-bis-30-september-2027"
-        ],
-        "en": [
-          "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027"
-        ],
-        "fr": [
-          "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027"
-        ]
-      },
-      "previousSlugs": [
-        "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027",
-        "temporare-kundenbetreuerin-fachsupport-de-fr-a-80-100-befristet-bis-30-september-2027"
-      ],
-      "firstSeenAt": "2026-10-06T09:22:33.830Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "helsana-4336518e8ea4",
-      "slug": "studente-di-lavoro-data-scientist-a-40-70-da-ora-fino-a-agosto-2028-helsana-dubendorf-stettbach-homeoff",
-      "slugByLocale": {
-        "it": "studente-di-lavoro-data-scientist-a-40-70-da-ora-fino-a-agosto-2028-helsana-dubendorf-stettbach-homeoff",
-        "en": "working-student-data-scientist-a-40-70-from-now-until-august-2028-helsana-dubendorf-stettbach-homeoff",
-        "de": "werkstudentin-data-scientist-a-40-70-ab-sofort-bis-august-2028-helsana-dubendorf-stettbach",
-        "fr": "chercheur-de-donnees-etudiant-a-40-70-jusqu-a-aout-2028-helsana-dubendorf-stettbach-homeoff"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Werkstudentin Data Scientist (a) 40-70% - ab sofort bis August 2028",
-      "titleByLocale": {
-        "it": "Studente di lavoro Data Scientist (a) 40-70% - da ora fino a agosto 2028",
-        "en": "Working student Data Scientist (a) 40-70% - from now until August 2028",
-        "de": "Werkstudentin Data Scientist (a) 40-70% - ab sofort bis August 2028",
-        "fr": "Chercheur de données étudiant (a) 40-70% - jusqu'à août 2028"
-      },
-      "description": "Position: Werkstudentin Data Scientist (a) 40-70% - ab sofort bis August 2028\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 40-70%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
-      "descriptionByLocale": {
-        "it": "Posizione: Studente di lavoro Data Scientist (a) 40-70% - da ora fino a agosto 2028\n- Posizione: Dübendorf-Stettbach & Homeoff, Canton ZH\n- Penso: 40-70 %\n- Datore di lavoro: Helsana\n\nBella,\n\nche vuoi plasmare il tuo futuro ad Helsana!\n\nSe si desidera spostare il settore sanitario e avanzare professionalmente, troverete molte opportunità con noi per plasmare attivamente il vostro percorso di carriera.\n\nCi assumiamo la responsabilità di più di due milioni di clienti, per la società e per i nostri dipendenti. Noi attribuiamo grande importanza a un ambiente di lavoro caratterizzato da fiducia, cooperazione e sviluppo.\n\n.\nAttendiamo con ansia la vostra applicazione!\n\nhelsana.ch/jobs",
-        "en": "Position: Working student Data Scientist (a) 40-70% - from now until August 2028\n- Location: Dübendorf-Stettbach & Homeoff, Canton of ZH\n- Pensum: 40-70 %\n- Employer: Helsana\n\nBeautiful,\n\nthat you want to shape your future at Helsana!\n\nIf you want to move the healthcare sector and advance professionally, you will find many opportunities with us to actively shape your career path.\n\nWe take responsibility for more than two million customers, for society and for our employees. We attach great importance to a working environment characterized by trust, cooperation and development.\n\n.\nWe look forward to your application!\n\nhelsana.ch/jobs",
-        "de": "Position: Werkstudentin Data Scientist (a) 40-70% - ab sofort bis August 2028\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 40-70%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\nWir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
-        "fr": "Fonction: Chercheur de données étudiant (a) 40-70% - à partir de maintenant jusqu'à août 2028\n- Lieu: Dübendorf-Stettbach & Homeoff, Canton de ZH\n- Pensum: 40-70 %\n- Employeur: Helsana\n\nMagnifique,\n\nque vous voulez façonner votre avenir à Helsana!\n\nSi vous voulez déplacer le secteur des soins de santé et progresser professionnellement, vous trouverez avec nous de nombreuses occasions de façonner activement votre cheminement de carrière.\n\nNous prenons la responsabilité de plus de deux millions de clients, de la société et de nos employés. Nous attachons une grande importance à un environnement de travail caractérisé par la confiance, la coopération et le développement.\n\n.\nNous attendons avec impatience votre candidature!\n\nhelsana.ch/emplois"
-      },
-      "needsRetranslation": false,
-      "location": "Dübendorf-Stettbach",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Werkstudentin-Data-Scientist-%28a%29-40-70-ab-sofort-bis-August-2028/1440995333/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-26T21:46:11.594Z",
-      "addressLocality": "Dübendorf-Stettbach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-24T00:00:00Z",
-      "postedDate": "2026-09-24T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1440995333/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "werkstudentin-data-scientist-a-40-70-ab-sofort-bis-august-2028-helsana-dubendorf-stettbach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "werkstudentin-data-scientist-a-40-70-ab-sofort-bis-august-2028-helsana-dubendorf-stettbach"
-        ]
-      },
-      "firstSeenAt": "2026-09-24T14:24:15.917Z",
-      "salaryMin": 51500,
-      "salaryMax": 78100,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 78100,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

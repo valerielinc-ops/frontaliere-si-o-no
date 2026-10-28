@@ -1,7 +1,7 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-10-28T09:50:46.180Z",
+  "generatedAt": "2026-10-28T20:15:34.316Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4240,
-  "avgDurationMs": 4240,
+  "durationMs": 4334,
+  "avgDurationMs": 4334,
   "durationHistory": [
-    4240
+    4334
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csvp-poschiavo-797cd807e50d",
       "slug": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
@@ -29,13 +30,12 @@
       "companyKey": "csvp-poschiavo",
       "companyDomain": "csvp.ch",
       "title": "Tecnico di radiologia medica SSS",
-      "needsRetranslation": true,
       "location": "Poschiavo",
       "canton": "GR",
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T09:50:32.762Z",
+      "crawledAt": "2026-10-28T20:15:21.779Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -52,20 +52,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
+      "firstSeenAt": "2026-10-28T09:50:32.762Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T09:50:32.762Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +80,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T09:50:33.155Z",
+      "crawledAt": "2026-10-28T20:15:21.970Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -111,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
+  "codeCommit": "7d90abf4d3370fe456232e103e41834dfcf857c4"
 }

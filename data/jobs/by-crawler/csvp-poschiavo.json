@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-10-28T09:50:37.789Z",
-  "runId": "40662627763",
+  "assembledAt": "2026-10-28T20:15:27.116Z",
+  "runId": "40758659964",
   "jobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -35,7 +35,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T09:50:33.155Z",
+      "crawledAt": "2026-10-28T20:15:21.970Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -74,9 +74,9 @@
       "slug": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
       "slugByLocale": {
         "it": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
-        "en": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
-        "de": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
-        "fr": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo"
+        "en": "technician-di-radiologia-medica-sss-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "de": "techniker-di-radiologia-medica-sss-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "fr": "technicien-di-radiologia-medica-sss-centro-sanitario-valposchiavo-csvp-poschiavo"
       },
       "company": "Centro Sanitario Valposchiavo (CSVP)",
       "companyKey": "csvp-poschiavo",
@@ -100,7 +100,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T09:50:32.762Z",
+      "crawledAt": "2026-10-28T20:15:21.779Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -118,9 +118,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-28T09:50:32.762Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -133,8 +132,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-28T09:50:32.762Z"
+      }
     }
   ]
 }
