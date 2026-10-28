@@ -103,7 +103,11 @@ async function readJson(url, token, fetchImpl) {
   if (body.workflow_runs.length > PAGE_SIZE) {
     throw new Error(`GitHub API ${url} returned more than ${PAGE_SIZE} workflow runs`);
   }
-  return body;
+  const linkHeader = response.headers.get('link') || '';
+  const hasNextPage = linkHeader
+    .split(/,\s*(?=<)/)
+    .some((link) => /<[^>]+>\s*;\s*rel="[^"]*\bnext\b[^"]*"/.test(link));
+  return { body, hasNextPage };
 }
 
 function sleep(ms) {
@@ -112,8 +116,10 @@ function sleep(ms) {
 
 /**
  * Actions can move a run between status buckets while a page is being read.
- * GitHub may then return the old total_count with an empty/short page. Retry
- * that inconsistent page briefly; a persistent mismatch still fails closed.
+ * GitHub may then return the old total_count with an empty/short page. The
+ * response's Link header is the pagination contract; total_count is only a
+ * fallback for a full page because it can remain stale during a transition.
+ * Retry a short page only when GitHub explicitly advertises another page.
  */
 async function readConsistentStatusPage({
   repositoryPath: repoPath,
@@ -125,10 +131,13 @@ async function readConsistentStatusPage({
 }) {
   const url = `${API}/repos/${repoPath}/actions/runs?status=${encodeURIComponent(status)}&per_page=${PAGE_SIZE}&page=${page}`;
   for (let attempt = 1; attempt <= STATUS_PAGE_RETRY_ATTEMPTS; attempt += 1) {
-    const body = await readJson(url, token, fetchImpl);
-    const complete = alreadyRead + body.workflow_runs.length >= body.total_count;
-    const fullPage = body.workflow_runs.length === PAGE_SIZE;
-    if (complete || fullPage) return body;
+    const { body, hasNextPage } = await readJson(url, token, fetchImpl);
+    const countSuggestsNextPage = body.workflow_runs.length === PAGE_SIZE
+      && alreadyRead + body.workflow_runs.length < body.total_count;
+    const needsNextPage = hasNextPage || countSuggestsNextPage;
+    if (!needsNextPage || body.workflow_runs.length === PAGE_SIZE) {
+      return { body, hasNextPage: needsNextPage };
+    }
     if (attempt < STATUS_PAGE_RETRY_ATTEMPTS) await sleep(STATUS_PAGE_RETRY_DELAY_MS);
   }
   throw new Error(`GitHub API ${status} run listing was truncated after ${STATUS_PAGE_RETRY_ATTEMPTS} retries`);
@@ -139,7 +148,7 @@ async function readStatusRuns({ repositoryPath: repoPath, status, token, fetchIm
   let page = 1;
 
   while (true) {
-    const body = await readConsistentStatusPage({
+    const { body, hasNextPage } = await readConsistentStatusPage({
       repositoryPath: repoPath,
       status,
       token,
@@ -149,7 +158,7 @@ async function readStatusRuns({ repositoryPath: repoPath, status, token, fetchIm
     });
     runs.push(...body.workflow_runs);
 
-    if (runs.length >= body.total_count) return runs;
+    if (!hasNextPage) return runs;
     page += 1;
     if (page > MAX_PAGES) {
       throw new Error(`GitHub API ${status} run listing exceeded ${MAX_PAGES} pages`);

@@ -73,7 +73,12 @@ describe('production-canary-admission', () => {
             path: '.github/workflows/unrelated.yml',
             name: 'Unrelated workflow',
           })),
-        }), { status: 200 });
+        }), {
+          status: 200,
+          headers: {
+            Link: '<https://api.github.com/repos/example/repo/actions/runs?status=queued&per_page=100&page=2>; rel="next"',
+          },
+        });
       }
       if (status === 'queued' && page === '2') {
         return new Response(JSON.stringify({ total_count: 101, workflow_runs: [run({ id: 321, status })] }), { status: 200 });
@@ -94,7 +99,7 @@ describe('production-canary-admission', () => {
     expect(selected.map((candidate) => candidate.id)).toEqual([321]);
   });
 
-  it('retries a status page whose count is stale during a run transition', async () => {
+  it('accepts a terminal page when total_count is stale during a run transition', async () => {
     let queuedRequests = 0;
     const fetchImpl = async (url: string) => {
       const parsed = new URL(url);
@@ -103,6 +108,33 @@ describe('production-canary-admission', () => {
         queuedRequests += 1;
         if (queuedRequests === 1) {
           return new Response(JSON.stringify({ total_count: 1, workflow_runs: [] }), { status: 200 });
+        }
+      }
+      return new Response(JSON.stringify({ total_count: 0, workflow_runs: [] }), { status: 200 });
+    };
+
+    await expect(readActiveProductionWriters({
+      repository: 'example/repo',
+      token: 'test-token',
+      fetchImpl,
+    })).resolves.toEqual([]);
+    expect(queuedRequests).toBe(1);
+  });
+
+  it('retries a short page that advertises another page before accepting it', async () => {
+    let queuedRequests = 0;
+    const fetchImpl = async (url: string) => {
+      const parsed = new URL(url);
+      const status = parsed.searchParams.get('status');
+      if (status === 'queued') {
+        queuedRequests += 1;
+        if (queuedRequests === 1) {
+          return new Response(JSON.stringify({ total_count: 1, workflow_runs: [] }), {
+            status: 200,
+            headers: {
+              Link: '<https://api.github.com/repos/example/repo/actions/runs?status=queued&per_page=100&page=2>; rel="next"',
+            },
+          });
         }
       }
       return new Response(JSON.stringify({ total_count: 0, workflow_runs: [] }), { status: 200 });
