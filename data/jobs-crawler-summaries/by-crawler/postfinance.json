@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-10-27T21:57:58.738Z",
-  "total": 19,
+  "generatedAt": "2026-10-28T09:42:38.103Z",
+  "total": 18,
   "newCount": 0,
-  "updatedCount": 9,
+  "updatedCount": 8,
   "removedCount": 1,
   "unchangedCount": 10,
-  "durationMs": 20056,
-  "avgDurationMs": 20056,
+  "durationMs": 19015,
+  "avgDurationMs": 19015,
   "durationHistory": [
-    20056
+    19015
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:42.057Z",
+      "crawledAt": "2026-10-28T09:42:23.649Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -83,7 +83,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:41.265Z",
+      "crawledAt": "2026-10-28T09:42:22.850Z",
       "validThrough": "13.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -131,7 +131,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:40.452Z",
+      "crawledAt": "2026-10-28T09:42:22.074Z",
       "validThrough": "13.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -179,7 +179,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:39.653Z",
+      "crawledAt": "2026-10-28T09:42:21.330Z",
       "validThrough": "13.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -227,7 +227,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:38.876Z",
+      "crawledAt": "2026-10-28T09:42:20.576Z",
       "validThrough": "12.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -276,7 +276,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:37.262Z",
+      "crawledAt": "2026-10-28T09:42:18.989Z",
       "validThrough": "06.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -324,7 +324,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:36.489Z",
+      "crawledAt": "2026-10-28T09:42:18.213Z",
       "validThrough": "06.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -373,7 +373,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:33.219Z",
+      "crawledAt": "2026-10-28T09:42:15.159Z",
       "validThrough": "18.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -401,7 +401,9 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Sales-Coach-Leadership-&-Sales-Development-%28mwd%29/74651-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Sales-Coach-Leadership-&-Sales-Development-%28mwd%29/74651-de_DE",
@@ -453,57 +455,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
-      "title": "IT-Einstiegsprogramm Tech-Unternehmer:in",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "programma-d-ingresso-nell-it-per-imprenditore-imprenditrice-tech-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-26T09:43:32.005Z",
-      "validThrough": "26.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "100-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-509e04b8f4f2",
-      "firstSeenAt": "2026-10-09T09:49:38.091Z",
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
   "unchangedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
@@ -525,7 +476,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:46.088Z",
+      "crawledAt": "2026-10-28T09:42:27.499Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -573,7 +524,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:45.294Z",
+      "crawledAt": "2026-10-28T09:42:26.736Z",
       "validThrough": "31.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -621,7 +572,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:44.499Z",
+      "crawledAt": "2026-10-28T09:42:25.982Z",
       "validThrough": "02.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -669,7 +620,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:43.708Z",
+      "crawledAt": "2026-10-28T09:42:25.207Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -717,7 +668,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:42.863Z",
+      "crawledAt": "2026-10-28T09:42:24.435Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -765,7 +716,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:38.061Z",
+      "crawledAt": "2026-10-28T09:42:19.786Z",
       "validThrough": "12.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -813,7 +764,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:35.664Z",
+      "crawledAt": "2026-10-28T09:42:17.456Z",
       "validThrough": "15.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -861,7 +812,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:34.858Z",
+      "crawledAt": "2026-10-28T09:42:16.678Z",
       "validThrough": "20.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -909,7 +860,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:34.012Z",
+      "crawledAt": "2026-10-28T09:42:15.915Z",
       "validThrough": "10.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -957,7 +908,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-27T21:57:32.430Z",
+      "crawledAt": "2026-10-28T09:42:14.376Z",
       "validThrough": "19.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -986,5 +937,5 @@
       }
     }
   ],
-  "codeCommit": "1fa6d122c69477d7ef872c9ab4714da6ddc97f0c"
+  "codeCommit": "6ba8b36844252a3eef5d55ea881e636c010fc804"
 }

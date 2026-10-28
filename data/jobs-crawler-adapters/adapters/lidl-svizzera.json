@@ -168,7 +168,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-brugg-757741",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-doettingen-757738",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-hunzenschwil-757739",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-oeschgen-752481",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-wettingen-757737",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-dietikon-738613",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-gretzenbach-708079",
@@ -259,7 +258,7 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-10-27T21:54:32.784Z",
+  "updatedAt": "2026-10-28T09:46:24.325Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -1873,15 +1872,6 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/ch_allrounder-verkauf-m-w-d-20-40-1-oeschgen-752485": {
-      "location": "Oeschgen",
-      "addressLocality": "Oeschgen",
-      "canton": "AG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-oeschgen-752481": {
       "location": "Oeschgen",
       "addressLocality": "Oeschgen",
       "canton": "AG",
