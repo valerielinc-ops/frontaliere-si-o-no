@@ -1,7 +1,7 @@
 {
   "crawlerKey": "privatklinik-obach",
-  "assembledAt": "2026-10-27T21:23:46.760Z",
-  "runId": "40585027131",
+  "assembledAt": "2026-10-28T09:23:04.512Z",
+  "runId": "40662491831",
   "jobs": [
     {
       "id": "privatklinik-obach-4ce9f3213ad1",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:23:41.864Z",
+      "crawledAt": "2026-10-28T09:22:59.636Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -68,86 +68,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:03.378Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "privatklinik-obach-02528c403a51",
-      "slug": "mpa-reception-60-100-privatklinik-obach-solothurn",
-      "slugByLocale": {
-        "it": "mpa-reception-60-100-privatklinik-obach-solothurn",
-        "en": "mpa-reception-60-100-privatklinik-obach-solothurn",
-        "de": "mpa-empfang-60-100-privatklinik-obach",
-        "fr": "mpa-reception-60-100-privatklinik-obach-solothurn"
-      },
-      "company": "Privatklinik Obach",
-      "companyKey": "privatklinik-obach",
-      "companyDomain": "swissmedical.net",
-      "title": "MPA/Empfang 60-100%",
-      "titleByLocale": {
-        "it": "MPA/reception 60-100 %",
-        "en": "MPA/reception 60-100 %",
-        "de": "MPA/Empfang 60-100%",
-        "fr": "MPA/réception 60-100 %"
-      },
-      "description": "• Organisation und Durchführung der Anästhesiesprechstunde inkl. präoperativen Untersuchungen (Blutentnahme und EKG)\n\n• Röntgen\n\n• Mitarbeit bei der Bettendisposition\n\n• Aktive Mitarbeit im Tagesgeschäft (Empfangen von elektiv eintretenden Patienten, einholen Kostengutsprachen, Organisation Rehab/Kur, postoperative Kontrollröntgen, Abrechnung austretender Patienten, u.ä.)\n\n• Bereitschaft zu Wochenenddienst\n\n• Abgeschlossene Ausbildung als medizinische Praxisassistentin/ Praxisassistent EFZ sowie zwingend ein Röntgen-Diplom\n\n• Berufserfahrung in einer Klinik oder Spital von Vorteil\n\n• Gute Kenntnisse des Schweizer Kranken- und Unfallversicherungswesens\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, von Vorteil auch Fremdsprachen\n\n• Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Organisationstalent und vernetztes Denken\n\n• Hohe Leistungs- und Lernbereitschaft, schnelle Auffassungsgabe, Belastbarkeit, Teamfähigkeit und eine selbständige Arbeitsweise\n\n• gute EDV-Kenntnisse\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
-      "descriptionByLocale": {
-        "it": "• Organizzazione e attuazione del tempo di consultazione dell'anestesia, compresi gli esami preoperativi (campione del sangue e ECG)\n\n• Raggi X\n\n• Cooperazione nella disposizione del letto\n\n• Partecipazione attiva al business di giorno per giorno (ricezione di entrare elettivamente nei pazienti, ottenere le lingue di costo-beneficio, l'organizzazione di rehab/cure, controllo postoperatorio raggi x, fatturazione di lasciare i pazienti, ecc.)\n\n• Prontezza per il servizio week-end\n\n• Formazione completa come assistente di pratica medica / assistente di pratica EFZ e diploma di raggi X obbligatorio\n\n• Esperienza professionale in una clinica o ospedale è benefico\n\n• Buona conoscenza dell'assicurazione malattia e infortuni svizzera\n\n• Molto buona conoscenza del tedesco nelle parole e nella scrittura, e anche lingue straniere\n\n• Affidabilità e responsabilità\n\n• Talenti organizzativi e pensiero in rete\n\n• Alta disponibilità a svolgere e imparare, comprensione veloce, resilienza, lavoro di squadra e un metodo di lavoro indipendente\n\n• Buone competenze informatiche\n\n• Un'atmosfera di lavoro piacevole in un team piccolo e ben lavorato\n\n• Lavoro emozionante e impegnativo in un ambiente vivace e gestibile\n\n• Pranzo per 5.- nel ristorante del personale\n\n• tè e caffè gratuiti\n\n• Vaccinazione dell'influenza libera e condizioni speciali sugli abbonamenti dei corsi nella fisioterapia Solothurn\n\n• molti altri benefici offerti dalla clinica privata Obach e dal gruppo Swiss Medical Network. A. sui vantaggi aziendali\n\n• 5 settimane vacanze e molte condizioni di lavoro più interessanti\n\nLa clinica privata Obach è qualcosa di molto speciale nel paesaggio ospedaliero svizzero: una piccola casa che è stata impegnata in cure mediche al più alto livello per 100 anni. Un'istituzione che, grazie alla sua posizione ideale, si trova simultaneamente sia in prossimità della città che in un ambiente rilassante e verde. Una piccola gemma che soddisfa il suo mandato di servizio cantonale con cura personale in un'atmosfera privata per i pazienti di tutte le classi di assicurazione. La clinica privata Obach offre una vasta gamma di servizi con particolare attenzione all'ortopedia e all'ureologia.",
-        "en": "• Organisation and implementation of the anesthesia consultation time including preoperative examinations (blood sampling and ECG)\n\n• X-rays\n\n• Cooperation in bed disposition\n\n• Active participation in day-to-day business (reception of electively entering patients, obtaining cost-benefit languages, organization of rehab/cure, postoperative control x-rays, billing of leaving patients, etc.)\n\n• Readiness for weekend service\n\n• Completed training as medical practice assistant/practice assistant EFZ and mandatory X-ray diploma\n\n• Professional experience in a clinic or hospital is beneficial\n\n• Good knowledge of Swiss health and accident insurance\n\n• Very good knowledge of German in words and writing, and also foreign languages\n\n• Reliability and responsibility\n\n• Organizational talent and networked thinking\n\n• High willingness to perform and learn, fast comprehension, resilience, teamwork and an independent working method\n\n• Good computer skills\n\n• A pleasant working atmosphere in a small and well-worked team\n\n• Exciting and demanding work in a lively and manageable environment\n\n• Lunch for 5.- in the staff restaurant\n\n• Free tea and coffee\n\n• Free flu vaccination as well as special conditions on course subscriptions in the physiotherapy Solothurn\n\n• many other benefits offered by the private clinic Obach and the Swiss Medical Network group. A. on Corporate Benefits\n\n• 5 weeks holidays and many more attractive working conditions\n\nThe private clinic Obach is something very special in the Swiss hospital landscape: a small house that has been committed to medical care at the highest level for 100 years. An institution that, thanks to its ideal location, is simultaneously located in both close to the city and relaxing, green surroundings. A small gem that fulfills its cantonal service mandate with personal care in a private atmosphere for patients from all insurance classes. The private clinic Obach offers a wide range of services with a special focus on orthopaedics and urology.",
-        "de": "• Organisation und Durchführung der Anästhesiesprechstunde inkl. präoperativen Untersuchungen (Blutentnahme und EKG)\n\n• Röntgen\n\n• Mitarbeit bei der Bettendisposition\n\n• Aktive Mitarbeit im Tagesgeschäft (Empfangen von elektiv eintretenden Patienten, einholen Kostengutsprachen, Organisation Rehab/Kur, postoperative Kontrollröntgen, Abrechnung austretender Patienten, u.ä.)\n\n• Bereitschaft zu Wochenenddienst\n\n• Abgeschlossene Ausbildung als medizinische Praxisassistentin/ Praxisassistent EFZ sowie zwingend ein Röntgen-Diplom\n\n• Berufserfahrung in einer Klinik oder Spital von Vorteil\n\n• Gute Kenntnisse des Schweizer Kranken- und Unfallversicherungswesens\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, von Vorteil auch Fremdsprachen\n\n• Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Organisationstalent und vernetztes Denken\n\n• Hohe Leistungs- und Lernbereitschaft, schnelle Auffassungsgabe, Belastbarkeit, Teamfähigkeit und eine selbständige Arbeitsweise\n\n• gute EDV-Kenntnisse\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
-        "fr": "• Organisation et mise en œuvre du temps de consultation en anesthésie, y compris les examens préopératoires (échantillonnage sanguin et ECG)\n\n• Rayons X\n\n• Coopération en matière de disposition des lits\n\n• Participation active aux activités quotidiennes (réception de l'entrée volontaire des patients, obtention de langues rentables, organisation de la réadaptation/guérison, radiographies de contrôle postopératoire, facturation du départ des patients, etc.)\n\n• Préparation au service du week-end\n\n• Achevé la formation en tant qu'assistant de pratique médicale/assistant de pratique EFZ et diplôme obligatoire de radiographie\n\n• L'expérience professionnelle dans une clinique ou un hôpital est bénéfique\n\n• Bonne connaissance de l'assurance maladie et accident suisse\n\n• Très bonne connaissance de l'allemand en mots et en écriture, ainsi que des langues étrangères\n\n• Fiabilité et responsabilité\n\n• Les talents organisationnels et la pensée en réseau\n\n• Haute volonté d'accomplir et d'apprendre, compréhension rapide, résilience, travail d'équipe et méthode de travail indépendante\n\n• Bonnes compétences en informatique\n\n• Une ambiance de travail agréable dans une petite équipe bien travaillée\n\n• Travail passionnant et exigeant dans un environnement animé et gérable\n\n• Déjeuner pour 5.- dans le restaurant du personnel\n\n• Thé et café gratuits\n\n• La vaccination gratuite contre la grippe ainsi que des conditions spéciales sur les abonnements à la physiothérapie Soleure\n\n• de nombreux autres avantages offerts par la clinique privée Obach et le groupe Swiss Medical Network. A. sur les avantages sociaux\n\n• 5 semaines de vacances et beaucoup plus attrayantes conditions de travail\n\nLa clinique privée Obach est quelque chose de très spécial dans le paysage hospitalier suisse : une petite maison qui s'est engagée dans des soins médicaux au plus haut niveau depuis 100 ans. Une institution qui, grâce à son emplacement idéal, est simultanément située à proximité de la ville et un environnement verdoyant et reposant. Un petit bijou qui remplit son mandat de service cantonal avec des soins personnels dans une atmosphère privée pour les patients de toutes les classes d'assurance. La clinique privée Obach offre un large éventail de services avec un accent particulier sur l'orthopédie et l'urologie."
-      },
-      "needsRetranslation": false,
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157387729-mpa-empfang-60-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157387729-mpa-empfang-60-100-",
-      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:23:41.863Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4500",
-      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
-      "category": "Sanità / Ospedali",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T06:00:12.599Z",
-      "postedDate": "2026-10-23T06:00:12.599Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mpa-empfang-60-100-privatklinik-obach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mpa-empfang-60-100-privatklinik-obach"
-        ],
-        "en": [
-          "mpa-empfang-60-100-privatklinik-obach"
-        ],
-        "fr": [
-          "mpa-empfang-60-100-privatklinik-obach"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T09:21:22.461Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -195,7 +115,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:23:41.862Z",
+      "crawledAt": "2026-10-28T09:22:59.636Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -269,7 +189,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000154931979-dipl-pflegefachperson-mit-berufsbildner-funktion",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-27T21:23:41.861Z",
+      "crawledAt": "2026-10-28T09:22:59.634Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -302,6 +222,86 @@
         ]
       },
       "firstSeenAt": "2026-10-12T09:23:10.072Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "privatklinik-obach-02528c403a51",
+      "slug": "mpa-reception-60-100-privatklinik-obach-solothurn",
+      "slugByLocale": {
+        "it": "mpa-reception-60-100-privatklinik-obach-solothurn",
+        "en": "mpa-reception-60-100-privatklinik-obach-solothurn",
+        "de": "mpa-empfang-60-100-privatklinik-obach",
+        "fr": "mpa-reception-60-100-privatklinik-obach-solothurn"
+      },
+      "company": "Privatklinik Obach",
+      "companyKey": "privatklinik-obach",
+      "companyDomain": "swissmedical.net",
+      "title": "MPA/Empfang 60-100%",
+      "titleByLocale": {
+        "it": "MPA/reception 60-100 %",
+        "en": "MPA/reception 60-100 %",
+        "de": "MPA/Empfang 60-100%",
+        "fr": "MPA/réception 60-100 %"
+      },
+      "description": "• Organisation und Durchführung der Anästhesiesprechstunde inkl. präoperativen Untersuchungen (Blutentnahme und EKG)\n\n• Röntgen\n\n• Mitarbeit bei der Bettendisposition\n\n• Aktive Mitarbeit im Tagesgeschäft (Empfangen von elektiv eintretenden Patienten, einholen Kostengutsprachen, Organisation Rehab/Kur, postoperative Kontrollröntgen, Abrechnung austretender Patienten, u.ä.)\n\n• Bereitschaft zu Wochenenddienst\n\n• Abgeschlossene Ausbildung als medizinische Praxisassistentin/ Praxisassistent EFZ sowie zwingend ein Röntgen-Diplom\n\n• Berufserfahrung in einer Klinik oder Spital von Vorteil\n\n• Gute Kenntnisse des Schweizer Kranken- und Unfallversicherungswesens\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, von Vorteil auch Fremdsprachen\n\n• Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Organisationstalent und vernetztes Denken\n\n• Hohe Leistungs- und Lernbereitschaft, schnelle Auffassungsgabe, Belastbarkeit, Teamfähigkeit und eine selbständige Arbeitsweise\n\n• gute EDV-Kenntnisse\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
+      "descriptionByLocale": {
+        "it": "• Organizzazione e attuazione del tempo di consultazione dell'anestesia, compresi gli esami preoperativi (campione del sangue e ECG)\n\n• Raggi X\n\n• Cooperazione nella disposizione del letto\n\n• Partecipazione attiva al business di giorno per giorno (ricezione di entrare elettivamente nei pazienti, ottenere le lingue di costo-beneficio, l'organizzazione di rehab/cure, controllo postoperatorio raggi x, fatturazione di lasciare i pazienti, ecc.)\n\n• Prontezza per il servizio week-end\n\n• Formazione completa come assistente di pratica medica / assistente di pratica EFZ e diploma di raggi X obbligatorio\n\n• Esperienza professionale in una clinica o ospedale è benefico\n\n• Buona conoscenza dell'assicurazione malattia e infortuni svizzera\n\n• Molto buona conoscenza del tedesco nelle parole e nella scrittura, e anche lingue straniere\n\n• Affidabilità e responsabilità\n\n• Talenti organizzativi e pensiero in rete\n\n• Alta disponibilità a svolgere e imparare, comprensione veloce, resilienza, lavoro di squadra e un metodo di lavoro indipendente\n\n• Buone competenze informatiche\n\n• Un'atmosfera di lavoro piacevole in un team piccolo e ben lavorato\n\n• Lavoro emozionante e impegnativo in un ambiente vivace e gestibile\n\n• Pranzo per 5.- nel ristorante del personale\n\n• tè e caffè gratuiti\n\n• Vaccinazione dell'influenza libera e condizioni speciali sugli abbonamenti dei corsi nella fisioterapia Solothurn\n\n• molti altri benefici offerti dalla clinica privata Obach e dal gruppo Swiss Medical Network. A. sui vantaggi aziendali\n\n• 5 settimane vacanze e molte condizioni di lavoro più interessanti\n\nLa clinica privata Obach è qualcosa di molto speciale nel paesaggio ospedaliero svizzero: una piccola casa che è stata impegnata in cure mediche al più alto livello per 100 anni. Un'istituzione che, grazie alla sua posizione ideale, si trova simultaneamente sia in prossimità della città che in un ambiente rilassante e verde. Una piccola gemma che soddisfa il suo mandato di servizio cantonale con cura personale in un'atmosfera privata per i pazienti di tutte le classi di assicurazione. La clinica privata Obach offre una vasta gamma di servizi con particolare attenzione all'ortopedia e all'ureologia.",
+        "en": "• Organisation and implementation of the anesthesia consultation time including preoperative examinations (blood sampling and ECG)\n\n• X-rays\n\n• Cooperation in bed disposition\n\n• Active participation in day-to-day business (reception of electively entering patients, obtaining cost-benefit languages, organization of rehab/cure, postoperative control x-rays, billing of leaving patients, etc.)\n\n• Readiness for weekend service\n\n• Completed training as medical practice assistant/practice assistant EFZ and mandatory X-ray diploma\n\n• Professional experience in a clinic or hospital is beneficial\n\n• Good knowledge of Swiss health and accident insurance\n\n• Very good knowledge of German in words and writing, and also foreign languages\n\n• Reliability and responsibility\n\n• Organizational talent and networked thinking\n\n• High willingness to perform and learn, fast comprehension, resilience, teamwork and an independent working method\n\n• Good computer skills\n\n• A pleasant working atmosphere in a small and well-worked team\n\n• Exciting and demanding work in a lively and manageable environment\n\n• Lunch for 5.- in the staff restaurant\n\n• Free tea and coffee\n\n• Free flu vaccination as well as special conditions on course subscriptions in the physiotherapy Solothurn\n\n• many other benefits offered by the private clinic Obach and the Swiss Medical Network group. A. on Corporate Benefits\n\n• 5 weeks holidays and many more attractive working conditions\n\nThe private clinic Obach is something very special in the Swiss hospital landscape: a small house that has been committed to medical care at the highest level for 100 years. An institution that, thanks to its ideal location, is simultaneously located in both close to the city and relaxing, green surroundings. A small gem that fulfills its cantonal service mandate with personal care in a private atmosphere for patients from all insurance classes. The private clinic Obach offers a wide range of services with a special focus on orthopaedics and urology.",
+        "de": "• Organisation und Durchführung der Anästhesiesprechstunde inkl. präoperativen Untersuchungen (Blutentnahme und EKG)\n\n• Röntgen\n\n• Mitarbeit bei der Bettendisposition\n\n• Aktive Mitarbeit im Tagesgeschäft (Empfangen von elektiv eintretenden Patienten, einholen Kostengutsprachen, Organisation Rehab/Kur, postoperative Kontrollröntgen, Abrechnung austretender Patienten, u.ä.)\n\n• Bereitschaft zu Wochenenddienst\n\n• Abgeschlossene Ausbildung als medizinische Praxisassistentin/ Praxisassistent EFZ sowie zwingend ein Röntgen-Diplom\n\n• Berufserfahrung in einer Klinik oder Spital von Vorteil\n\n• Gute Kenntnisse des Schweizer Kranken- und Unfallversicherungswesens\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift, von Vorteil auch Fremdsprachen\n\n• Zuverlässigkeit und Verantwortungsbewusstsein\n\n• Organisationstalent und vernetztes Denken\n\n• Hohe Leistungs- und Lernbereitschaft, schnelle Auffassungsgabe, Belastbarkeit, Teamfähigkeit und eine selbständige Arbeitsweise\n\n• gute EDV-Kenntnisse\n\n• Ein angenehmes Arbeitsklima in einem kleinen und gut eingespielten Team\n\n• Spannende und anspruchsvolle Tätigkeit in einem lebhaften und überschaubaren Umfeld\n\n• Mittagessen für 5.- im Personalrestaurant\n\n• Kostenloser Tee und Kaffee\n\n• Kostenlose Grippeimpfung sowie Spezialkonditionen auf Kursabonnemente bei der Physiotherapie Solothurn\n\n• viele weitere Vergünstigungen der Privatklinik Obach sowie der Gruppe Swiss Medical Network u. A. über Corporate Benefits\n\n• 5 Wochen Ferien und viele weitere attraktive Arbeitsbedingungen\n\nDie Privatklinik Obach ist in der Schweizer Spitallandschaft etwas ganz Besonderes: Ein kleines Haus, das sich seit 100 Jahren der medizinischen Versorgung auf höchstem Niveau verpflichtet. Eine Institution, die sich dank idealer Lage gleichzeitig in sowohl stadtnaher als auch erholsamer, grüner Umgebung befindet. Ein kleines Juwel, das seinen kantonalen Leistungsauftrag mit persönlicher Betreuung in privater Atmosphäre für Patientinnen und Patienten aus allen Versicherungsklassen erfüllt. Die Privatklinik Obach bietet ein breites Leistungsspektrum mit besonderem Fokus auf die Orthopädie und Urologie.",
+        "fr": "• Organisation et mise en œuvre du temps de consultation en anesthésie, y compris les examens préopératoires (échantillonnage sanguin et ECG)\n\n• Rayons X\n\n• Coopération en matière de disposition des lits\n\n• Participation active aux activités quotidiennes (réception de l'entrée volontaire des patients, obtention de langues rentables, organisation de la réadaptation/guérison, radiographies de contrôle postopératoire, facturation du départ des patients, etc.)\n\n• Préparation au service du week-end\n\n• Achevé la formation en tant qu'assistant de pratique médicale/assistant de pratique EFZ et diplôme obligatoire de radiographie\n\n• L'expérience professionnelle dans une clinique ou un hôpital est bénéfique\n\n• Bonne connaissance de l'assurance maladie et accident suisse\n\n• Très bonne connaissance de l'allemand en mots et en écriture, ainsi que des langues étrangères\n\n• Fiabilité et responsabilité\n\n• Les talents organisationnels et la pensée en réseau\n\n• Haute volonté d'accomplir et d'apprendre, compréhension rapide, résilience, travail d'équipe et méthode de travail indépendante\n\n• Bonnes compétences en informatique\n\n• Une ambiance de travail agréable dans une petite équipe bien travaillée\n\n• Travail passionnant et exigeant dans un environnement animé et gérable\n\n• Déjeuner pour 5.- dans le restaurant du personnel\n\n• Thé et café gratuits\n\n• La vaccination gratuite contre la grippe ainsi que des conditions spéciales sur les abonnements à la physiothérapie Soleure\n\n• de nombreux autres avantages offerts par la clinique privée Obach et le groupe Swiss Medical Network. A. sur les avantages sociaux\n\n• 5 semaines de vacances et beaucoup plus attrayantes conditions de travail\n\nLa clinique privée Obach est quelque chose de très spécial dans le paysage hospitalier suisse : une petite maison qui s'est engagée dans des soins médicaux au plus haut niveau depuis 100 ans. Une institution qui, grâce à son emplacement idéal, est simultanément située à proximité de la ville et un environnement verdoyant et reposant. Un petit bijou qui remplit son mandat de service cantonal avec des soins personnels dans une atmosphère privée pour les patients de toutes les classes d'assurance. La clinique privée Obach offre un large éventail de services avec un accent particulier sur l'orthopédie et l'urologie."
+      },
+      "needsRetranslation": false,
+      "location": "Solothurn",
+      "canton": "SO",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157387729-mpa-empfang-60-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000157387729-mpa-empfang-60-100-",
+      "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-28T09:22:59.633Z",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4500",
+      "streetAddress": "Leopoldstrasse 5, 4500 Solothurn",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T06:00:12.599Z",
+      "postedDate": "2026-10-23T06:00:12.599Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mpa-empfang-60-100-privatklinik-obach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-empfang-60-100-privatklinik-obach"
+        ],
+        "en": [
+          "mpa-empfang-60-100-privatklinik-obach"
+        ],
+        "fr": [
+          "mpa-empfang-60-100-privatklinik-obach"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T09:21:22.461Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
