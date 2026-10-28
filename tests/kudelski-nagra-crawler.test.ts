@@ -14,10 +14,12 @@ import {
   KUDELSKI_NAGRA_COMPANY_NAME,
   isKudelskiNagraJob,
   isTrustedDomain,
+  kudelskiNagraMatchKey,
   fetchAllKudelskiNagraJobs,
   extractNagraAdvertHtml,
 } from '../scripts/lib/kudelski-nagra-job-parser.mjs';
 import { slugify, fetchJson, fetchHtml } from '../scripts/lib/crawler-template.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('Kudelski NAGRA crawler parser', () => {
   // ── Constants ──
@@ -213,6 +215,50 @@ describe('Kudelski NAGRA crawler parser', () => {
       expect(jobs[0].postalCode).not.toBe('6900');
       expect(jobs[0].streetAddress).toBeTruthy();
     });
+  });
+});
+
+describe('Kudelski NAGRA legacy URL identity migration', () => {
+  it('bridges a stored homepage row to its verified detail URL by exact source title', () => {
+    const existing = {
+      id: 'kudelski-nagra-legacy-homepage',
+      slug: 'security-operations-engineer-kudelski-nagra-ch',
+      slugByLocale: { en: 'security-operations-engineer-kudelski-nagra-ch' },
+      company: KUDELSKI_NAGRA_COMPANY_NAME,
+      companyKey: KUDELSKI_NAGRA_KEY,
+      title: 'Security Operations Engineer',
+      titleByLocale: { en: 'Security Operations Engineer' },
+      description: 'A security operations role supporting incident response and monitoring for a major client team.',
+      descriptionByLocale: { en: 'A security operations role supporting incident response and monitoring for a major client team.' },
+      location: 'Zurich, Switzerland (Hybrid, onsite with client)',
+      canton: 'ZH',
+      url: 'https://careers.nagra.com/',
+      source: 'Kudelski NAGRA Dedicated Parser',
+      sourceLang: 'en',
+    };
+    const fresh = {
+      ...existing,
+      id: 'kudelski-nagra-verified-detail',
+      title: 'Security Operations Engineer.',
+      titleByLocale: { en: 'Security Operations Engineer.' },
+      location: 'Adliswil, Switzerland',
+      url: 'https://boards.greenhouse.io/kudelski/jobs/27182',
+      applyUrl: 'https://boards.greenhouse.io/kudelski/jobs/27182',
+    };
+
+    expect(kudelskiNagraMatchKey(existing)).toBe(kudelskiNagraMatchKey(fresh));
+    expect(mergePreserveLocaleData([existing], [fresh], {
+      matchKey: kudelskiNagraMatchKey,
+    })).toMatchObject([{
+      id: 'kudelski-nagra-legacy-homepage',
+      url: 'https://boards.greenhouse.io/kudelski/jobs/27182',
+      location: 'Adliswil, Switzerland',
+    }]);
+  });
+
+  it('does not invent a bridge key without the source title', () => {
+    expect(kudelskiNagraMatchKey({ url: 'https://careers.nagra.com/' })).toBe('');
+    expect(kudelskiNagraMatchKey(null as unknown as { title?: string })).toBe('');
   });
 });
 
