@@ -950,7 +950,8 @@ describe('copertura workflow diretti', () => {
     expect(codexStep).toContain('Trusted npm runtime escaped the pinned Node directory.');
     expect(codexStep).toContain('Attested npm runtime cannot be executed by attested Node.');
     expect(codexStep).toContain('trusted_node_root_toml=');
-    expect(codexStep).toContain('"$trusted_node_root_toml"={"."="read"}');
+    expect(codexStep).toContain('codex_filesystem_rules=');
+    expect(action).toContain('[permissions.codex-fallback.filesystem."$trusted_node_root_toml"]');
     expect(codexStep).toContain('command -v npm >/dev/null');
     expect(codexStep).toContain('command -v npx >/dev/null');
     expect(codexStep).toContain('CODEX_NPM_REAL=$npm_realpath');
