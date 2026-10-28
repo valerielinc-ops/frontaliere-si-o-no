@@ -1,6 +1,12 @@
 #!/usr/bin/env node
+import dns from 'node:dns';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
+
+// Some GitHub-hosted runners prefer a broken IPv6 route for Swiss public
+// infrastructure. Keep the direct path deterministic before falling back to
+// the clean-egress proxy below.
+dns.setDefaultResultOrder('ipv4first');
 /**
  * Dedicated Ti.CH (Cantone Ticino administration) crawler runner.
  * Runs only Amministrazione cantonale TI jobs and enforces full locale
@@ -56,6 +62,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry } from './lib/jina-proxy.mjs';
+import { fetchHtmlViaMorssWithRetry } from './lib/morss-proxy.mjs';
 import {
   SOURCE_URL as OFFICIAL_LISTING_URL,
   OFFICIAL_LISTING_URLS,
@@ -468,6 +475,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   let listingSucceeded = false;
   let rssSucceeded = false;
+  let morssSucceeded = false;
   let discoveredOccurrences = 0;
   const discoveryFailure = { transport: false, fatal: false };
   const noteDiscoveryFailure = (value) => {
@@ -493,6 +501,28 @@ export async function fetchTichJobDetailUrls(options = {}) {
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
+  const consumePortalListingHtml = (html, sourceLabel, { allowMorssIdentity = false } = {}) => {
+    const source = String(html || '');
+    const hasPortalIdentity = /<title[^>]*>[^<]*Amministrazione Cantonale Ticino Jobportal/i.test(source);
+    const hasDirectMarker = /\bjobsearch\b/i.test(source);
+    const hasMorssMarker = /id=["']jobslisting["']/i.test(source);
+    if (!hasPortalIdentity || (!hasDirectMarker && !(allowMorssIdentity && hasMorssMarker))) return false;
+
+    const beforeCount = allUrls.size;
+    let match;
+    while ((match = JOB_DETAIL_HREF_RE.exec(source)) !== null) {
+      discoveredOccurrences += 1;
+      const normalized = normalizeDetailUrl(match[1]);
+      if (normalized) allUrls.add(normalized);
+    }
+    JOB_DETAIL_HREF_RE.lastIndex = 0;
+    if (allUrls.size === beforeCount) return false;
+
+    listingSucceeded = true;
+    console.log(`  📦 ${sourceLabel}: ${allUrls.size} job URL(s) found`);
+    return true;
+  };
+
   // ── Step 1: Fetch the main listing page ──
   console.log(`🔍 Fetching Ti.CH listing page: ${LISTING_URL}`);
   try {
@@ -512,23 +542,8 @@ export async function fetchTichJobDetailUrls(options = {}) {
     if (!res.ok) {
       noteDiscoveryFailure(res);
       console.warn(`⚠️ Listing returned ${res.status} — will try RSS fallback.`);
-    } else {
-      if (!/<title[^>]*>[^<]*Amministrazione Cantonale Ticino Jobportal/i.test(html)
-          || !/\bjobsearch\b/i.test(html)) {
-        throw new Error('Ti.CH listing identity marker missing.');
-      }
-      listingSucceeded = true;
-
-      // Extract all job detail href paths from the table
-      let match;
-      while ((match = JOB_DETAIL_HREF_RE.exec(html)) !== null) {
-        discoveredOccurrences += 1;
-        const normalized = normalizeDetailUrl(match[1]);
-        if (normalized) allUrls.add(normalized);
-      }
-      JOB_DETAIL_HREF_RE.lastIndex = 0;
-
-      console.log(`  📦 Listing page: ${allUrls.size} job URL(s) found`);
+    } else if (!consumePortalListingHtml(html, 'Listing page')) {
+      throw new Error('Ti.CH listing identity marker missing.');
     }
   } catch (err) {
     noteDiscoveryFailure(err);
@@ -701,6 +716,30 @@ export async function fetchTichJobDetailUrls(options = {}) {
     }
   }
 
+  // Morss is the same clean-egress service already used by the Stadt Chur
+  // crawler. Its :get=page endpoint returns the complete Ti.CH HTML listing,
+  // unlike the RSS conversion endpoint which may cap the item count. Accept
+  // it only with the portal identity plus the jobslisting marker, then feed
+  // the same canonical URL extractor used by the direct source.
+  if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
+    console.log('🔍 Retrying Ti.CH listing through the bounded Morss egress fallback');
+    try {
+      const html = await fetchHtmlViaMorssWithRetry(LISTING_URL, {
+        timeoutMs: Math.max(timeoutMs, 30_000),
+        attempts: options.morssAttempts,
+        retryDelayMs: options.morssRetryDelayMs,
+        fetchImpl,
+      });
+      if (html && consumePortalListingHtml(html, 'Ti.CH listing via Morss', { allowMorssIdentity: true })) {
+        morssSucceeded = true;
+      } else {
+        console.warn('⚠️ Morss Ti.CH response failed the portal-listing identity check.');
+      }
+    } catch (err) {
+      console.warn(`⚠️ Morss Ti.CH listing fallback failed: ${err.message}`);
+    }
+  }
+
   if (!listingSucceeded && !rssSucceeded && !officialSucceeded) {
     const message =
       'Ti.CH discovery failed: both primary portal sources (SSR listing and RSS fallback) '
@@ -734,6 +773,7 @@ export async function fetchTichJobDetailUrls(options = {}) {
     listingSucceeded,
     rssSucceeded,
     officialSucceeded,
+    morssSucceeded,
     discoveredOccurrences,
     duplicateIdentity: Math.max(0, discoveredOccurrences - urls.length),
   };
@@ -810,8 +850,21 @@ export function buildTichFetchProxyHosts(
   return [...new Set([...existingProxyHosts, 'www.concorsi.ti.ch'])].join(',');
 }
 
-function runBaseCrawler({ officialSucceeded = false } = {}) {
+export function buildTichMorssProxyHosts(
+  { morssSucceeded = false } = {},
+  inheritedProxyHosts = process.env.JOBS_CRAWLER_MORSS_PROXY,
+) {
+  const existingProxyHosts = String(inheritedProxyHosts || '')
+    .split(',')
+    .map((host) => host.trim())
+    .filter(Boolean);
+  if (!morssSucceeded) return existingProxyHosts.join(',');
+  return [...new Set([...existingProxyHosts, 'www.concorsi.ti.ch'])].join(',');
+}
+
+function runBaseCrawler({ officialSucceeded = false, morssSucceeded = false } = {}) {
   const proxyHosts = buildTichFetchProxyHosts({ officialSucceeded });
+  const morssProxyHosts = buildTichMorssProxyHosts({ morssSucceeded });
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: TICH_KEY,
@@ -819,7 +872,10 @@ function runBaseCrawler({ officialSucceeded = false } = {}) {
     forceLocalizeKeys: TICH_KEY,
     disableWorkdayForce: true,
     forceLocalizationWhenAiEnabledOnly: true,
-    extraEnv: { JOBS_CRAWLER_FETCH_PROXY: proxyHosts },
+    extraEnv: {
+      JOBS_CRAWLER_FETCH_PROXY: proxyHosts,
+      JOBS_CRAWLER_MORSS_PROXY: morssProxyHosts,
+    },
   });
 }
 
@@ -885,7 +941,28 @@ function validateTichLocaleCoverage() {
 // Detail-page enrichment (FRO-70)
 // ──────────────────────────────────────────────────────────────
 
-async function fetchTichHtml(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12_000) {
+async function fetchTichHtml(
+  url,
+  {
+    timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12_000,
+    preferMorss = false,
+  } = {},
+) {
+  let morssAttempted = false;
+  const fetchViaMorss = async () => {
+    morssAttempted = true;
+    return fetchHtmlViaMorssWithRetry(url, {
+      timeoutMs: Math.max(timeoutMs, 30_000),
+      attempts: 2,
+      retryDelayMs: 500,
+    });
+  };
+
+  if (preferMorss) {
+    const proxied = await fetchViaMorss();
+    if (proxied) return proxied;
+  }
+
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -899,14 +976,16 @@ async function fetchTichHtml(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TI
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
-    if (!res.ok) { console.warn(`  ⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.text();
+    if (res.ok) return await res.text();
+    console.warn(`  ⚠️ HTTP ${res.status} for ${url}`);
   } catch (err) {
     console.warn(`  ⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return null;
   } finally {
     clearTimeout(timer);
   }
+
+  if (!morssAttempted) return fetchViaMorss();
+  return null;
 }
 
 /**
@@ -918,7 +997,7 @@ async function fetchTichHtml(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TI
  * Body guards  : currentDesc.length < MIN_TICH_DESC_LENGTH
  *                OR currentDesc.length < 0.25 * sourceBodyLength → replace body
  */
-async function enrichTichJobs() {
+async function enrichTichJobs({ preferMorss = false } = {}) {
   if (!fs.existsSync(DATA_JOBS)) return 0;
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const jobs = Array.isArray(raw) ? raw : [];
@@ -929,7 +1008,7 @@ async function enrichTichJobs() {
     const detailUrl = String(job.url || '').trim();
     if (!detailUrl || !isTrustedTichDomain(detailUrl)) continue;
 
-    const html = await fetchTichHtml(detailUrl);
+    const html = await fetchTichHtml(detailUrl, { preferMorss });
     if (!html) continue;
 
     const { title: extractedTitle, body, sourceBodyLength } = parseTichDetailPage(html);
@@ -1008,14 +1087,17 @@ async function main() {
 
   // Step 3: Run the base crawler which fetches each detail page
   // and parses the HTML content
-  await runBaseCrawler({ officialSucceeded: discovery.officialSucceeded });
+  await runBaseCrawler({
+    officialSucceeded: discovery.officialSucceeded,
+    morssSucceeded: discovery.morssSucceeded,
+  });
 
   // Step 3b: normalize Ti.CH company + clean legacy noisy descriptions
   postProcessTichJobs();
 
   // Step 3c: enrich titles and descriptions by parsing the HTML detail pages (FRO-70)
   console.log('\n🔍 Checking Ti.CH jobs for title mismatches and truncated descriptions...');
-  await enrichTichJobs();
+  await enrichTichJobs({ preferMorss: discovery.morssSucceeded });
 
   // Step 4: Log stats and validate
   const stats = logTichJobStats(_beforeSnapshot);
