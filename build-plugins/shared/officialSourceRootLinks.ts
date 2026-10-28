@@ -5,16 +5,16 @@ interface StaticSourceRootRewrite {
   hostname?: string;
 }
 
-// The audit found these bare official-source roots redirecting to landing
-// pages. Rewrite only exact root anchors after rendering; curated deep links
-// and links with query parameters stay untouched.
+// The audit found these official-source landing URLs redirecting to landing
+// pages. Rewrite exact roots and known legacy landing paths after rendering;
+// curated deep links and links with query parameters stay untouched.
 const STATIC_SOURCE_ROOT_REWRITES: Readonly<Record<string, StaticSourceRootRewrite>> = {
   'agenziaentrate.gov.it': { paths: { it: '/portale/', en: '/portale/', de: '/portale/', fr: '/portale/' } },
   'arcobaleno.ch': { hostname: 'arcobaleno.ch', paths: { it: '/home', en: '/home', de: '/home', fr: '/home' } },
   'arbeit.swiss': { paths: { it: '/it', en: '/en', de: '/de', fr: '/fr' } },
   'bag.admin.ch': { paths: { it: '/it', en: '/en', de: '/de', fr: '/fr' } },
   'bazg.admin.ch': { paths: { it: '/it', en: '/en', de: '/de', fr: '/fr' } },
-  'bfs.admin.ch': { paths: { it: '/bfs/it/home.html', en: '/bfs/en/home.html', de: '/bfs/de/home.html', fr: '/bfs/fr/home.html' } },
+  'bfs.admin.ch': { paths: { it: '/it/', en: '/en/', de: '/de/', fr: '/fr/' } },
   'bns.ch': { hostname: 'www.snb.ch', paths: { it: '/it/', en: '/en/', de: '/de/', fr: '/fr/' } },
   'bsv.admin.ch': { paths: { it: '/it', en: '/en', de: '/de', fr: '/fr' } },
   'edoeb.admin.ch': { paths: { it: '/it', en: '/en', de: '/de', fr: '/fr' } },
@@ -42,11 +42,16 @@ export function localizeOfficialSourceRootLinks(html: string, locale: string): s
   return html.replace(/(<a\b[^>]*\bhref\s*=\s*)(["'])([^"']*)\2/gi, (match, prefix: string, quote: string, href: string) => {
     try {
       const url = new URL(href);
-      if ((url.protocol !== 'https:' && url.protocol !== 'http:') || url.pathname !== '/' || url.search || url.hash) return match;
+      if ((url.protocol !== 'https:' && url.protocol !== 'http:') || url.search || url.hash) return match;
 
       const host = url.hostname.replace(/^www\./i, '').toLowerCase();
       const rewrite = STATIC_SOURCE_ROOT_REWRITES[host];
-      const path = rewrite?.paths[sourceLocale];
+      const legacyBfsLocale = host === 'bfs.admin.ch'
+        ? url.pathname.match(/^\/bfs\/(it|en|de|fr)\/home\.html\/?$/i)?.[1].toLowerCase() as StaticSourceLocale | undefined
+        : undefined;
+      if (url.pathname !== '/' && !legacyBfsLocale) return match;
+
+      const path = rewrite?.paths[legacyBfsLocale ?? sourceLocale];
       if (!rewrite || !path) return match;
 
       url.hostname = rewrite.hostname ?? `www.${host}`;

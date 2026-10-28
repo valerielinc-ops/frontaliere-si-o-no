@@ -105,7 +105,7 @@ describe('refreshArticleHubLandings', () => {
         expect(html).not.toContain('src="/images/blog/');
         expect(html).toContain(`https://www.estv.admin.ch/${locale}`);
         expect(html).toContain(`https://www.agenziaentrate.gov.it/portale/`);
-        expect(html).toContain(`https://www.bfs.admin.ch/bfs/${locale}/home.html`);
+        expect(html).toContain(`https://www.bfs.admin.ch/${locale}/`);
         expect(html).not.toContain('href="https://www.estv.admin.ch"');
         expect(html).not.toContain('href="https://www.agenziaentrate.gov.it"');
         expect(html).not.toContain('href="https://www.bfs.admin.ch"');

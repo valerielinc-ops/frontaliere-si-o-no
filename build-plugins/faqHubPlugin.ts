@@ -306,10 +306,10 @@ const CITATION_ROOT_PATHS_BY_HOST: Readonly<
   'edoeb.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
   'snb.ch': { it: '/it/', en: '/en/', de: '/de/', fr: '/fr/' },
   'bfs.admin.ch': {
-    it: '/bfs/it/home.html',
-    en: '/bfs/en/home.html',
-    de: '/bfs/de/home.html',
-    fr: '/bfs/fr/home.html',
+    it: '/it/',
+    en: '/en/',
+    de: '/de/',
+    fr: '/fr/',
   },
   'priminfo.admin.ch': {
     it: '/it/praemien',

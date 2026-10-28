@@ -24,7 +24,7 @@ export default function VitaTabContent() {
  <div data-speakable>
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t(vitaSubTab === 'municipalities' ? 'guide.tabs.municipalities' : 'seoContent.vita.title')}</h1>
  </div>
- <DataFreshness dateKind="reviewed" source={t('freshness.source.bfs')} sourceUrl={`https://www.bfs.admin.ch/bfs/${locale}/home.html`} variant="badge" />
+ <DataFreshness dateKind="reviewed" source={t('freshness.source.bfs')} sourceUrl={`https://www.bfs.admin.ch/${locale}/`} variant="badge" />
  <Suspense fallback={<div className="min-h-[44px]" />}>
  <SeoContentBlock context="vita" />
  </Suspense>

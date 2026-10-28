@@ -42,7 +42,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www.bfs.admin.ch/bfs/it/home/statistiche/prezzi.html',
+      'https://www.swissstats.bfs.admin.ch/data/webviewer/appId/ch.admin.bfs.swissstat/article/issue21055292100-02/package',
     ],
   },
   {

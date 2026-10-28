@@ -65,7 +65,7 @@ export default function StatsTabContent() {
  <div data-speakable>
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t('seoContent.stats.title')}</h1>
  </div>
- <DataFreshness lastUpdated="2026-04" source={t('freshness.source.bfs')} sourceUrl={`https://www.bfs.admin.ch/bfs/${locale}/home.html`} variant="badge" />
+ <DataFreshness lastUpdated="2026-04" source={t('freshness.source.bfs')} sourceUrl={`https://www.bfs.admin.ch/${locale}/`} variant="badge" />
  <Suspense fallback={<div className="min-h-[44px]" />}>
  <SeoContentBlock context="stats" />
  </Suspense>
