@@ -474,7 +474,15 @@ export async function fetchTichJobDetailUrls(options = {}) {
     if (isTichDiscoveryTransportFailure(value)) discoveryFailure.transport = true;
     else discoveryFailure.fatal = true;
   };
-  const noteJinaFailure = ({ status } = {}) => {
+  const noteJinaFailure = ({ status, kind, transport, fatal } = {}) => {
+    if (fatal || kind === 'fatal') {
+      discoveryFailure.fatal = true;
+      return;
+    }
+    if (transport || kind === 'transport') {
+      discoveryFailure.transport = true;
+      return;
+    }
     noteDiscoveryFailure(
       Number.isFinite(status) && status > 0
         ? { status }

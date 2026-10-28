@@ -310,6 +310,39 @@ describe('JOBS_JINA_RETRIES / JOBS_JINA_RETRY_BASE_MS env override (falsy-zero r
     });
 
     expect(html).toBeNull();
-    expect(exhausted).toHaveBeenCalledWith({ status: 404, reason: 'HTTP 404' });
+    expect(exhausted).toHaveBeenCalledWith({
+      status: 404,
+      reason: 'HTTP 404',
+      kind: 'response',
+      transport: false,
+      fatal: false,
+    });
+  });
+
+  it('classifies a body-read failure after HTTP 200 as transport', async () => {
+    const exhausted = vi.fn();
+    const bodyReadFailure = Object.assign(new Error('body read aborted'), { name: 'AbortError' });
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      text: async () => { throw bodyReadFailure; },
+      body: null,
+    }));
+
+    const html = await fetchHtmlViaJinaWithRetry('https://example.test/jobs', {
+      retries: 0,
+      retryBaseMs: 0,
+      fetchImpl: fetchMock as any,
+      onExhausted: exhausted,
+    });
+
+    expect(html).toBeNull();
+    expect(exhausted).toHaveBeenCalledWith({
+      status: 200,
+      reason: 'body read aborted',
+      kind: 'transport',
+      transport: true,
+      fatal: false,
+    });
   });
 });

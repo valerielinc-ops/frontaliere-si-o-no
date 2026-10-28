@@ -215,6 +215,33 @@ describe('fetchTichJobDetailUrls', () => {
     expect((thrown as { feedEndpointUnavailable?: boolean }).feedEndpointUnavailable).not.toBe(true);
   });
 
+  it('preserves the soft-exit when Jina returns 200 but its body read fails', async () => {
+    const bodyReadFailure = Object.assign(new Error('body read aborted'), { name: 'AbortError' });
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.startsWith('https://r.jina.ai/')) {
+        return {
+          ok: true,
+          status: 200,
+          text: async () => { throw bodyReadFailure; },
+          body: null,
+        } as unknown as Response;
+      }
+      if (url.includes('.translate.goog/')) return new Response('', { status: 408 });
+      throw new TypeError('fetch failed');
+    });
+
+    await expect(fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      proxyRetries: 0,
+      proxyRetryBaseMs: 0,
+      translateAttempts: 1,
+      translateRetryDelayMs: 0,
+      timeoutMs: 1_000,
+    })).rejects.toMatchObject({ feedEndpointUnavailable: true });
+  });
+
   it('does not soften a source identity response into a transport outage', async () => {
     const fetchImpl = vi.fn(async () => new Response('<html>wrong source</html>', { status: 200 }));
 

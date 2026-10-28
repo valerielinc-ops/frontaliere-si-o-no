@@ -318,8 +318,11 @@ const jinaSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * first call was blocked. Retries on: proxy throw (abort/network), non-ok
  * status, and a 200-but-not-target body (detectJinaErrorBody). Exponential
  * backoff + jitter. Tunable via JOBS_JINA_RETRIES / JOBS_JINA_RETRY_BASE_MS.
- * An optional `onExhausted({ status, reason })` observes the terminal response
- * without changing the null-return contract used by existing callers.
+ * An optional `onExhausted({ status, reason, kind, transport, fatal })` observes
+ * the terminal response without changing the null-return contract used by
+ * existing callers. `kind: 'transport'` also covers a 200 response whose body
+ * could not be read or whose proxy body was a known Jina error envelope; the
+ * HTTP status alone is not enough to classify those failures.
  */
 export async function fetchHtmlViaJinaWithRetry(
   targetUrl,
@@ -351,10 +354,13 @@ export async function fetchHtmlViaJinaWithRetry(
   );
   let lastReason = 'unknown';
   let lastStatus = 0;
+  let lastFailureKind = 'transport';
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    let responseStatus = 0;
     try {
       const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl });
-      lastStatus = res.status;
+      responseStatus = res.status;
+      lastStatus = responseStatus;
       if (res.ok) {
         const html = await res.text();
         const reason = detectJinaErrorBody(html);
@@ -363,6 +369,7 @@ export async function fetchHtmlViaJinaWithRetry(
           return html;
         }
         lastReason = reason;
+        lastFailureKind = 'transport';
       } else {
         // Cancel (don't read) the unused non-2xx body so undici releases the
         // connection before retrying (same leak fixed in fetchViaJinaWithRetry
@@ -370,9 +377,12 @@ export async function fetchHtmlViaJinaWithRetry(
         // that fetchViaJina's timeout is disarmed).
         try { await res.body?.cancel(); } catch { /* already aborted/closed */ }
         lastReason = `HTTP ${res.status}`;
+        lastFailureKind = 'response';
       }
     } catch (err) {
       lastReason = err?.message || String(err);
+      lastStatus = responseStatus;
+      lastFailureKind = 'transport';
     }
     if (attempt < maxRetries) {
       const delay = baseMs * 2 ** attempt + Math.floor(Math.random() * baseMs);
@@ -385,7 +395,13 @@ export async function fetchHtmlViaJinaWithRetry(
   console.warn(`⚠️ Jina egress exhausted ${maxRetries + 1} attempt(s) for ${targetUrl} (last: ${lastReason}).`);
   recordJinaFailure();
   if (typeof onExhausted === 'function') {
-    onExhausted({ status: lastStatus, reason: lastReason });
+    onExhausted({
+      status: lastStatus,
+      reason: lastReason,
+      kind: lastFailureKind,
+      transport: lastFailureKind === 'transport',
+      fatal: lastFailureKind === 'fatal',
+    });
   }
   return null;
 }
