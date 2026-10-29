@@ -7,9 +7,9 @@
  * by `osmium export`. Keeping the parser separate makes the source contract
  * testable without downloading the 500+ MB PBF locally.
  */
-import fs from 'node:fs';
+import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { cantonAtPoint } from './lib/swiss-canton-geo.mjs';
 import {
@@ -68,7 +68,15 @@ function main() {
   console.log(`[fuel-inventory] ${inventory.stationCount} Swiss OSM stations written to ${outputPath}`);
 }
 
-if (process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href === import.meta.url) {
+const invokedDirectly = (() => {
+  try {
+    return realpathSync(fileURLToPath(import.meta.url)) === realpathSync(process.argv[1] || '');
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
   try {
     main();
   } catch (error) {

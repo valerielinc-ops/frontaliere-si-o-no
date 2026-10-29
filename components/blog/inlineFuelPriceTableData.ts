@@ -79,8 +79,8 @@ export function prepareInlineFuelPriceSections(
       dieselSource: variant === 'diesel' ? station.dieselSource : null,
       // Diesel dates are product-specific: do not reuse the petrol timestamp.
       updatedAt: variant === 'diesel'
-        ? station.dieselUpdatedAt ?? station.updatedAt ?? station.observedAt ?? null
-        : station.updatedAt ?? station.observedAt ?? null,
+        ? station.dieselUpdatedAt ?? null
+        : station.updatedAt ?? null,
     };
     const key = stationKey(station);
     const current = deduped.get(key);
