@@ -145,7 +145,6 @@ jobs:
             --path public/data/fuel-prices.json \
             --path data/fuel-prices-history/ \
             --path data/fuel-prices-archive/ \
-            "${cantons_paths[@]}" \
             --branch chore/refresh-fuel-prices \
             --commit-message "chore(data): refresh fuel prices" \
             --title "chore(data): refresh fuel prices" \
