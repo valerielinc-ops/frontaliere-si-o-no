@@ -1,10 +1,10 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-10-29T09:28:56.642Z",
+  "generatedAt": "2026-10-29T14:59:33.946Z",
   "total": 5,
   "discovered": null,
-  "parsed": 5,
+  "parsed": 4,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3989,
-  "avgDurationMs": 3989,
+  "durationMs": 4176,
+  "avgDurationMs": 4176,
   "durationHistory": [
-    3989
+    4176
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000152841739-head-quality-hse-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:28:42.139Z",
+      "crawledAt": "2026-10-29T14:59:18.673Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -102,6 +102,7 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -125,7 +126,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000156570214-logistics-operator-switzerland-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:28:42.133Z",
+      "crawledAt": "2026-10-29T14:59:18.676Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -169,7 +170,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000149925798-leiter-einkauf-avor-pps-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:28:42.129Z",
+      "crawledAt": "2026-10-29T14:59:18.670Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -212,7 +213,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000150080009-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:28:42.105Z",
+      "crawledAt": "2026-10-29T14:59:18.646Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -244,5 +245,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "ec655f196b6b4671f70530d83dc02de16dd47346"
 }
