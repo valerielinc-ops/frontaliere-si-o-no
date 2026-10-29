@@ -1,0 +1,24 @@
+{
+  "companyKey": "asrer",
+  "companyName": "asrer",
+  "companyHost": "job.groupe-e.ch",
+  "platform": "groupe-e.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://job.groupe-e.ch/go/Postes-vacants/9063455/"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 25,
+  "sampleTitles": [
+    "Installatrice ou installateur-électricien 80-100%",
+    "Cheffe ou Chef de projets Industrielles",
+    "Installatrice ou installateur électricien·ne CFC 80-100%",
+    "Cheffe ou chef de chantier installations électriques 80-100%",
+    "Installatrice ou installateur électricien·ne CFC 80-100%"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-29T13:30:56.992Z",
+  "candidateKey": "asrer.ch"
+}

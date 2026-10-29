@@ -1,0 +1,20 @@
+{
+  "companyKey": "ase-ch",
+  "companyName": "ase",
+  "companyHost": "join.com",
+  "platform": "join.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://join.com/companies/aseag/16859688-cloud-platform-engineer"
+  ],
+  "detailTemplate": "/companies/aseag/16859688-cloud-platform-engineer",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Cloud Platform Engineer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-29T13:31:24.722Z",
+  "candidateKey": "ase.ch"
+}

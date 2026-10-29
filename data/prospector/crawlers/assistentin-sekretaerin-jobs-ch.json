@@ -1,0 +1,21 @@
+{
+  "companyKey": "assistentin-sekretaerin-jobs-ch",
+  "companyName": "assistentin-sekretaerin-jobs",
+  "companyHost": "pks-personal.ch",
+  "platform": "pks-personal.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
+  ],
+  "detailTemplate": "/stellen/*/basel/hrm/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "HR-Generalist/in 40 – 60% - Sie verwalten keine Vermögen. Dafür das wertvollste Kapital. HR-Generalist/in 40 – 60% in der Bankenbranche",
+    "Sachbearbeiter:in HR 50–80% (befristeter Einsatz bis ca. Sommer 2027) – operative Personalarbeit, die wirklich gebraucht wird… Sachbearbeiter:in HR 50–80% (befr"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-29T13:31:07.748Z",
+  "candidateKey": "assistentin-sekretaerin-jobs.ch"
+}
