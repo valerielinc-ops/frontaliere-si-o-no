@@ -84,12 +84,31 @@ function answerValueKey(value) {
 }
 
 function answerFitsQuestion(value, question) {
+  if (isPreferredWorkloadQuestion(question?.question)) {
+    const text = String(value ?? '').trim();
+    if (!/^\d{1,3}(?:[.,]\d{1,2})?\s*%?$/.test(text)) return false;
+    const percentage = Number(text.replace('%', '').trim().replace(',', '.'));
+    if (!Number.isFinite(percentage) || percentage < 0 || percentage > 100) return false;
+    const validation = validateAnswer(question?.type === 'number' ? String(percentage) : text, question);
+    if (!validation.ok) return false;
+  }
   const options = optionValues(question);
   if (!options.length) return true;
   const values = Array.isArray(value) ? value : [value];
   const normalized = values.map(normalizeQuestionValue).filter(Boolean);
   return normalized.length > 0 && normalized.every((answer) => options.includes(answer));
 }
+
+/** A percentage preference is portable; employer requirements and shift availability are not. */
+function isPreferredWorkloadQuestion(value) {
+  const text = normalizeQuestionValue(value);
+  if (!text || /\b(?:if|when|provided|falls|wenn|qualora|presso|pour|chez|weekends?|overtime|shifts?|night|turni|notturn|fine settimana|attuale|current|currently|required|minimum|maximum|mindestens|maximal)\b/.test(text)) return false;
+  const workload = /\b(?:workload|pensum|beschaftigungsgrad|grado di occupazione|percentuale di lavoro|disponibilita lavorativa|taux d activite|taux d occupation)\b/.test(text);
+  const preference = /\b(?:desired|preferred|prefer|desiderat[oa]|desideri|preferisci|gewunscht|gewunschtes|gewunschten|wunschen|souhaite|souhaitez|prefere)\b/.test(text);
+  return workload && preference;
+}
+
+const WORKLOAD_PREFERENCE_KEY = 'preference_workload_percentage_v1';
 
 /** Stable fact key for an answer, independent of a model or ATS field id. */
 export function candidateQuestionAnswerKey(question) {
@@ -105,6 +124,7 @@ export function candidateQuestionAnswerKey(question) {
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
+  if (isPreferredWorkloadQuestion(text)) return WORKLOAD_PREFERENCE_KEY;
   const context = questionContextKey(question?.context);
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
