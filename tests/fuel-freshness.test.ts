@@ -35,6 +35,7 @@ const day = (d: Date) => d.toISOString().slice(0, 10);
 
 const COMO = { name: 'Como', province: 'CO', lat: 45.81, lng: 9.08, distanceKm: 0, fascia: '0-10' };
 const CANTU = { name: 'Cantù', province: 'CO', lat: 45.74, lng: 9.13, distanceKm: 0, fascia: '0-10' };
+const VARESE = { name: 'Varese', province: 'VA', lat: 45.82, lng: 8.83, distanceKm: 0, fascia: '0-10' };
 
 function previousDataset(snapshotDay: string) {
   return {
@@ -149,14 +150,14 @@ describe('generator: MIMIT outage keeps the Swiss refresh', () => {
 });
 
 describe('generator: MIMIT Osservaprezzi API fallback', () => {
-  const apiStation = (observedAt: Date) => ({
-    id: 42,
-    lat: String(COMO.lat),
-    lon: String(COMO.lng),
+  const apiStation = (observedAt: Date, municipality = COMO) => ({
+    id: municipality.province === 'CO' ? 42 : 43,
+    lat: String(municipality.lat),
+    lon: String(municipality.lng),
     dIns: `${day(observedAt)} 08:00:00`,
-    addr: 'VIA ROMA 1 22100 COMO CO',
+    addr: `VIA ROMA 1 ${municipality.name.toUpperCase()} ${municipality.province}`,
     bnd: 'Eni',
-    name: 'ENI COMO',
+    name: `ENI ${municipality.name.toUpperCase()}`,
     carburanti: [
       { carb: 'Benzina', prezzo: '1.700', isSelf: 1 },
       { carb: 'Gasolio', prezzo: '1.650', isSelf: 1 },
@@ -252,37 +253,33 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(result.pricesRows).toHaveLength(2);
   });
 
-  it('retries an empty province lookup with the target municipality', async () => {
+  it('accepts a partial province lookup without a municipality fan-out', async () => {
     const observedAt = daysAgo(0.5);
     const requests: Array<{ url: string; init: RequestInit }> = [];
-    const result = await fetchMimitApiSource([COMO], {
+    const result = await fetchMimitApiSource([COMO, CANTU], {
       retries: 1,
       requestIntervalMs: 0,
       fetchImpl: async (url: string, init: RequestInit) => {
         requests.push({ url, init });
-        const body = JSON.parse(String(init.body));
         return {
           ok: true,
-          json: async () => body.town == null
-            ? { success: true, array: [] }
-            : { success: true, results: [apiStation(observedAt)] },
+          json: async () => ({ success: true, array: [apiStation(observedAt)] }),
         } as Response;
       },
     });
 
-    expect(requests).toHaveLength(2);
+    expect(requests).toHaveLength(1);
     expect(JSON.parse(String(requests[0].init.body))).toMatchObject({ province: 'CO', town: null, fuelType: '1-x' });
-    expect(JSON.parse(String(requests[1].init.body))).toMatchObject({ province: 'CO', town: 'Como', fuelType: '1-x' });
     expect(result.extractedAt).toBe(day(observedAt));
     expect(result.pricesRows).toHaveLength(2);
   });
 
-  it('serializes province and town retries to avoid API rate-limit bursts', async () => {
+  it('serializes province lookups to avoid API rate-limit bursts', async () => {
     const observedAt = daysAgo(0.5);
     const requestStarts: number[] = [];
     let inFlight = 0;
     let maxInFlight = 0;
-    const result = await fetchMimitApiSource([COMO], {
+    const result = await fetchMimitApiSource([COMO, VARESE], {
       retries: 1,
       requestIntervalMs: 50,
       fetchImpl: async (url: string, init: RequestInit) => {
@@ -294,9 +291,10 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
         const body = JSON.parse(String(init.body));
         return {
           ok: true,
-          json: async () => body.town == null
-            ? { success: true, array: [] }
-            : { success: true, array: [apiStation(observedAt)] },
+          json: async () => ({
+            success: true,
+            array: [apiStation(observedAt, body.province === 'VA' ? VARESE : COMO)],
+          }),
         } as Response;
       },
     });
@@ -307,25 +305,22 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(requestStarts[1] - requestStarts[0]).toBeGreaterThanOrEqual(45);
   });
 
-  it('fails closed when a target municipality remains uncovered after the town retries', async () => {
-    const observedAt = daysAgo(0.5);
+  it('fails closed when the province lookup has no valid target rows', async () => {
     const requests: Array<{ url: string; init: RequestInit }> = [];
-    await expect(fetchMimitApiSource([COMO, CANTU], {
+    await expect(fetchMimitApiSource([COMO], {
       retries: 1,
       requestIntervalMs: 0,
       fetchImpl: async (url: string, init: RequestInit) => {
         requests.push({ url, init });
-        const body = JSON.parse(String(init.body));
         return {
           ok: true,
-          json: async () => body.town === 'Como'
-            ? { success: true, results: [apiStation(observedAt)] }
-            : { success: true, array: [] },
+          json: async () => ({ success: true, array: [] }),
         } as Response;
       },
     })).rejects.toThrow('MIMIT API returned no valid Benzina rows for target municipalities');
 
-    expect(requests.map(({ init }) => JSON.parse(String(init.body)).town).sort()).toEqual([null, 'Cantù', 'Como'].sort());
+    expect(requests).toHaveLength(1);
+    expect(JSON.parse(String(requests[0].init.body))).toMatchObject({ province: 'CO', town: null, fuelType: '1-x' });
   });
 
   it('routes a live API result through the same source resolver as the CSV', () => {
