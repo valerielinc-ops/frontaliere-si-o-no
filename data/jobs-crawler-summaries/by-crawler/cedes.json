@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-29T09:14:29.713Z",
+  "generatedAt": "2026-10-29T14:35:32.788Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5623,
-  "avgDurationMs": 5623,
+  "durationMs": 5451,
+  "avgDurationMs": 5451,
   "durationHistory": [
-    5623
+    5451
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "url": "https://www.cedes.com/en/career/jobs/production-assistant/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:14:14.374Z",
+      "crawledAt": "2026-10-29T14:35:19.979Z",
       "firstSeenAt": "2026-10-27T21:19:40.726Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -80,7 +80,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:14:14.045Z",
+      "crawledAt": "2026-10-29T14:35:19.649Z",
       "firstSeenAt": "2026-10-09T09:13:37.313Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
@@ -118,7 +118,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:14:13.713Z",
+      "crawledAt": "2026-10-29T14:35:19.316Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -133,5 +133,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "ec655f196b6b4671f70530d83dc02de16dd47346"
 }
