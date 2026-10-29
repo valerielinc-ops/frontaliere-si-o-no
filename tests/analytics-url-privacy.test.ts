@@ -81,6 +81,54 @@ describe('email-link telemetry URL privacy', () => {
   expect(config.page_location).toContain('utm_source=email');
  });
 
+ it.each([
+  [' \u0000https://user:password@example.test/path?ac=secret', 'https://example.test/path'],
+  [' \t//user:password@example.test/path?ac=secret', '//example.test/path'],
+  ['https:\n//user:password@example.test/path?ac=secret', 'https://example.test/path'],
+  ['https://user:password@example.test/path', 'https://example.test/path'],
+  ['//user:password@example.test/path', '//example.test/path'],
+  ['https://user:p%40ss@example.test/path?utm_source=email', 'https://example.test/path?utm_source=email'],
+  ['//example.test:8443/path?ac=secret&utm_source=email#anchor', '//example.test:8443/path?utm_source=email#anchor'],
+  ['#route?ac=secret&utm_source=email', '#route?utm_source=email'],
+  ['#/route?ac=secret&utm_source=email', '#/route?utm_source=email'],
+  ['./route?ac=secret&utm_source=email', './route?utm_source=email'],
+  ['https://user:password@[broken/path?ac=secret', ''],
+ ])('removes credentials without changing URL form: %s', (input, expected) => {
+  expect(sanitizeTelemetryProperties({ page_location: input }).page_location).toBe(expected);
+ });
+
+ it.each(['./route', '../route', ' ./route'])('sanitizes nested relative URL %s', (relative) => {
+  const input = 'https://redirect.test/?url=' + encodeURIComponent(relative + '?ac=secret&utm_source=email');
+  const result = sanitizeTelemetryProperties({ page_location: input }).page_location;
+  const nested = new URL(result).searchParams.get('url')!;
+  expect(nested).toBe(relative.trim() + '?utm_source=email');
+ });
+
+ it.each(['https:user:password@example.test/path', 'https:/user:password@example.test/path', 'http:user:password@example.test/path'])('sanitizes nested slashless absolute URL %s', (reference) => {
+  const result = sanitizeTelemetryProperties({ page_location: 'https://redirect.test/?redirect=' + encodeURIComponent(reference + '?ac=secret&utm_source=email') }).page_location;
+  const nested = new URL(new URL(result).searchParams.get('redirect')!);
+  expect(nested.username).toBe('');
+  expect(nested.password).toBe('');
+  expect(nested.hostname).toBe('example.test');
+  expect(nested.search).toBe('?utm_source=email');
+ });
+
+ it('removes userinfo at the nesting limit while keeping outer campaign attribution', () => {
+  let nested = 'https://user:password@destination.test/path?ac=secret&utm_source=inner';
+  for (let i = 0; i < 4; i++) nested = 'https://redirect.test/?url=' + encodeURIComponent(nested) + '&utm_source=email';
+  let cleaned = sanitizeTelemetryProperties({ page_location: nested }).page_location;
+  for (let i = 0; i < 4; i++) {
+   const parsed = new URL(cleaned);
+   expect(parsed.searchParams.get('utm_source')).toBe('email');
+   cleaned = parsed.searchParams.get('url')!;
+  }
+  const destination = new URL(cleaned);
+  expect(destination.username).toBe('');
+  expect(destination.password).toBe('');
+  expect(destination.search).toBe('');
+  expect(destination.pathname).toBe('/path');
+ });
+
  it('keeps ordinary URLs byte-identical and embeds canonical code in static producers', () => {
   const ordinary = '/cerca-lavoro-ticino/?utm_campaign=a%20b&action=continue#details';
   expect(sanitizeTelemetryProperties({ page_path: ordinary }).page_path).toBe(ordinary);
