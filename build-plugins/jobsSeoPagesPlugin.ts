@@ -3994,8 +3994,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   currency: job.currency,
  });
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
- const fullRequirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, Infinity);
- const requirements = fullRequirements.slice(0, 8);
+ const rawRequirements = job?.requirementsByLocale?.[locale] || job?.requirements;
+ const fullRequirements = Array.isArray(rawRequirements)
+  ? rawRequirements.map((item: unknown) => String(item ?? '').trim()).filter(Boolean)
+  : [];
+ // Editorial summaries keep their existing budget; the visible source does not.
+ const requirements = firstItems(rawRequirements, 8);
  // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it
  // today — translate-pending.yml only relocalises text). Without a fallback,
  // every static job page emits an empty `<div class="timeline">` while the

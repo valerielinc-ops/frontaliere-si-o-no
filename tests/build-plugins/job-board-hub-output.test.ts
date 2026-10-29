@@ -34,6 +34,7 @@ const jobs = Array.from({ length: 8 }, (_, i) => ({
   location: i < 6 ? 'Zürich' : 'Lugano', addressLocality: i < 6 ? 'Zürich' : 'Lugano',
   description: semanticDescription, descriptionByLocale: Object.fromEntries(locales.map((locale) => [locale, semanticDescription])),
   previousSlugs: i === 0 ? ['old-audit-position'] : [],
+  requirements: ['IT', 'Go', ...Array.from({ length: 15 }, (_, item) => `Requisito originale ${item}`)],
   postingDateSource: i === 1 ? undefined : 'reported', datePosted: daysAgo(2), postedDate: daysAgo(2), crawledAt: daysAgo(1),
   tags: i === 4 ? ['infermiere'] : [],
   employmentType: 'FULL_TIME', contract: 'full-time', salaryMin: 70000, salaryMax: 90000,
@@ -138,6 +139,10 @@ describe('job-board emitted output', () => {
       expect(doc.querySelector('[data-job-description-full] ul li')?.textContent, route).toBe('Gestire il dossier completo');
       expect(doc.querySelector('[data-job-description-full] strong')?.textContent, route).toBe('Laurea riconosciuta');
       expect(doc.querySelector('#job-auth-gate, [data-job-description-preview]'), route).toBeNull();
+      if (route !== expiredPath) {
+        expect(doc.body.textContent).toContain('Requisito originale 14');
+        expect([...doc.querySelectorAll('li')].some((item) => item.textContent?.trim() === 'Go')).toBe(true);
+      }
       for (const name of ['description', 'robots', 'twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
         expect(doc.querySelector(`meta[name="${name}"]`)?.getAttribute('content'), `${route} ${name}`).toBeTruthy();
       }
