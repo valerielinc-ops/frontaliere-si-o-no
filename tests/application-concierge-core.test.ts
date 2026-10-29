@@ -235,6 +235,15 @@ describe('verified concierge recipient cannot impersonate registered owner', () 
 });
 
 describe('application concierge candidate API', () => {
+  it('returns checkout session state used by candidate payment recovery guards', async () => {
+    const key = 'application_concierge_services/service-1';
+    mocks.documents.set(key, { ...mocks.documents.get(key), paymentStatus: 'pending', checkoutSessionStatus: 'open' });
+    const result = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(result).toMatchObject({ status: 200, body: { ok: true, service: {
+      paymentStatus: 'pending', checkoutSessionStatus: 'open',
+    } } });
+  });
+
   it('creates a child assisted application only after explicit proposal acceptance', async () => {
     const result = await handleApplicationConcierge({
       method: 'POST',
