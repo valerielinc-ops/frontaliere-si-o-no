@@ -2495,9 +2495,9 @@ export function hasUntranslatedLocaleDescriptions(job = {}, ctx = {}) {
 export function hasUntranslatedLocaleTitles(job = {}, ctx = {}) {
   const LOCALES = ctx.LOCALES || DEFAULT_LOCALES;
   const ns = ctx.normalizeSpace || ((s) => String(s || '').replace(/\s+/g, ' ').trim());
-  const sourceTitle = ns(job?.title || '');
-  if (!sourceTitle) return false;
   const sourceLang = jobTitleSourceLang(job, detectLanguage(job?.description || '', 'en'));
+  const sourceTitle = ns(job?.titleByLocale?.[sourceLang] || '') || ns(job?.title || '');
+  if (!sourceTitle) return false;
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const localized = ns(job?.titleByLocale?.[locale] || '');
@@ -3198,7 +3198,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   }
   const forceLocalization = shouldForceLocalizationForJob(out, ctx);
   const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang }, sourceLang);
-  const sourceTitle = nsFn(titleByLocale[titleSourceLang] || out.title || '');
+  const sourceTitle = nsFn(titleByLocale[titleSourceLang] || '') || nsFn(out.title || '');
   if (sourceTitle) titleByLocale[titleSourceLang] = sourceTitle;
 
   const titleVerdictFor = (locale, text) => titleLooksUntranslated({
@@ -3345,7 +3345,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     const mainKey = bck(
       isUnsupportedSourceLang(sourceLang) ? 'localize-job-unsupported-source-v2' : 'localize-job-v3',
       [
-        nsFn(out.title || ''), titleSourceLocale, nsFn(out.company || ''), nsFn(out.location || ''),
+        nsFn(sourceTitle || ''), titleSourceLocale, nsFn(out.company || ''), nsFn(out.location || ''),
         sourceLang || 'en', targetLocales.join(','),
         JSON.stringify((out.requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
         cleanFn(resolvedSourceDescription),
@@ -3405,7 +3405,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
 
   const aiLocalized = shouldRunDescriptionLocalization && canUseAi
     ? await aiLocalizeJobContentDCC({
-        title: out.title, company: out.company, location: out.location,
+        title: sourceTitle, company: out.company, location: out.location,
         description: resolvedSourceDescription, requirements: out.requirements || [],
         sourceLang, titleSourceLang, minChars: localeDescFloor,
       }, ctx)

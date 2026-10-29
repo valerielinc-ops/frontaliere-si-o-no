@@ -53,17 +53,18 @@ export function titleRepairSourceLang(job) {
 }
 
 /**
- * The source title both lanes translate FROM: `job.title`, or the source
- * locale's slot when a crawler left `title` empty. The Argos handoff and the
- * Codex discovery must read the same value, or a slot Argos gives up is never
- * picked up by Codex.
+ * The source title both lanes translate FROM: prefer the resolved source
+ * locale's slot because the flat `job.title` can already be localized. Fall
+ * back to `job.title` only when the source slot is absent. The Argos handoff
+ * and Codex discovery must read the same value, or a slot Argos gives up is
+ * never picked up by Codex.
  */
 export function titleRepairSourceTitle(job) {
   const sourceLang = titleRepairSourceLang(job);
-  // Trim before choosing: a whitespace-only `title` is an empty title, not a
-  // reason to skip the source-locale slot.
-  return String(job?.title || '').trim()
-    || String(job?.titleByLocale?.[sourceLang] || '').trim();
+  // Trim before choosing: whitespace-only slots are empty. Prefer the source
+  // map over the flat display title, which may contain an existing translation.
+  return String(job?.titleByLocale?.[sourceLang] || '').trim()
+    || String(job?.title || '').trim();
 }
 
 /**

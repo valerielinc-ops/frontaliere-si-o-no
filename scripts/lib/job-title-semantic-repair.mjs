@@ -4,6 +4,7 @@
 const CREW_TITLE = /^crew$/i;
 const BAD_CREW = /^(?:United Nations|Nazioni Unite|Vereinte Nationen|Nations Unies|Besatzung)$/i;
 const MIGROS_SERVICE_COUNTER_TITLE = /^Verkäufer(?:[*:/]?in)?\s+Metzgerei\s+bedient$/iu;
+const MIGROS_KNOWN_BAD_IT_TITLE = 'Assistente vendita servita da macelleria';
 const MIGROS_SERVICE_COUNTER_TRANSLATIONS = {
   it: 'Addetto/a alla vendita al banco macelleria',
   en: 'Meat Counter Sales Assistant',
@@ -34,9 +35,12 @@ export function repairJobTitleSemanticsInPlace(job) {
 
 /**
  * "Metzgerei bedient" means a staffed butcher's counter. Require the complete
- * original German title and Migros employer evidence before canonicalizing its
- * locale slots. Qualified variants (for example "Stv." or a workload suffix)
- * are deliberately left alone so their extra meaning cannot be discarded.
+ * original German title and Migros employer evidence. Fill missing slots,
+ * replace source-language copies, and repair the one observed Italian
+ * mistranslation; preserve other existing translations, including valid
+ * stylistic variants. Qualified source variants (for example "Stv." or a
+ * workload suffix) are deliberately left alone so their extra meaning cannot
+ * be discarded.
  */
 export function repairMigrosServiceCounterTitleInPlace(job) {
   if (!job || typeof job !== 'object') return 0;
@@ -44,9 +48,17 @@ export function repairMigrosServiceCounterTitleInPlace(job) {
   const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale
     : (job.titleByLocale = {});
+  const sourceTitle = String(titleByLocale.de || job.title || '').trim();
+  const normalizedSourceTitle = normalizeTitleForMatch(sourceTitle);
+  const normalizedKnownBadItTitle = normalizeTitleForMatch(MIGROS_KNOWN_BAD_IT_TITLE);
   let changed = 0;
   for (const [locale, translation] of Object.entries(MIGROS_SERVICE_COUNTER_TRANSLATIONS)) {
-    if (titleByLocale[locale] === translation) continue;
+    const currentTitle = String(titleByLocale[locale] || '').trim();
+    if (currentTitle === translation) continue;
+    const normalizedCurrentTitle = normalizeTitleForMatch(currentTitle);
+    const isSourceCopy = normalizedCurrentTitle && normalizedCurrentTitle === normalizedSourceTitle;
+    const isKnownCorruption = locale === 'it' && normalizedCurrentTitle === normalizedKnownBadItTitle;
+    if (normalizedCurrentTitle && !isSourceCopy && !isKnownCorruption) continue;
     titleByLocale[locale] = translation;
     changed++;
   }
@@ -102,6 +114,10 @@ function isMigrosEmployer(job) {
   try { employerHost = new URL(job.url).hostname; } catch {}
   return /\bmigros\b/i.test(String(job.company || ''))
     || /(?:^|\.)jobs\.migros\.ch$/i.test(employerHost);
+}
+
+function normalizeTitleForMatch(value) {
+  return String(value || '').normalize('NFKC').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 function replaceBrandInProse(text, pattern, brand) {
