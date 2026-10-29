@@ -376,7 +376,7 @@ export function createAlbergoGardeniaCleanEgressTransport({
 } = {}) {
   let inventoryPromise = null;
 
-  async function loadAuthEmail() {
+  async function loadAuthEmail(signal) {
     if (gardeniaCfEmail) return gardeniaCfEmail;
     if (!gardeniaGithubToken) throw Object.assign(new Error('GitHub token missing for Cloudflare auth identity'), { status: 401 });
     const response = await fetchImpl('https://api.github.com/user/emails', {
@@ -385,6 +385,7 @@ export function createAlbergoGardeniaCleanEgressTransport({
         Accept: 'application/vnd.github+json',
         'User-Agent': UA,
       },
+      signal,
     });
     if (!response.ok) {
       throw Object.assign(new Error(`GitHub auth identity lookup failed (${response.status})`), {
@@ -439,7 +440,7 @@ export function createAlbergoGardeniaCleanEgressTransport({
           authAttempts.push({
             label: 'Cloudflare Global API Key',
             getHeaders: async () => ({
-              'X-Auth-Email': await loadAuthEmail(),
+              'X-Auth-Email': await loadAuthEmail(controller.signal),
               'X-Auth-Key': gardeniaCfKey,
             }),
           });

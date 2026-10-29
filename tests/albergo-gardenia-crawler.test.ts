@@ -760,6 +760,42 @@ describe('Albergo Gardenia authoritative crawler', () => {
     expect(options.headers).not.toHaveProperty('X-Auth-Key');
   });
 
+  it('bounds the GitHub identity lookup used by a Global API Key fallback', async () => {
+    vi.useFakeTimers();
+    try {
+      const fetchImpl = vi.fn(async (url: string, options: RequestInit = {}) => {
+        if (url !== 'https://api.github.com/user/emails') {
+          throw new Error(`unexpected Cloudflare request: ${url}`);
+        }
+        return new Promise((_resolve, reject) => {
+          options.signal?.addEventListener('abort', () => {
+            const error = new Error('GitHub auth identity lookup aborted');
+            error.name = 'AbortError';
+            reject(error);
+          }, { once: true });
+        });
+      });
+      const transport = createAlbergoGardeniaCleanEgressTransport({
+        fetchImpl,
+        gardeniaCfAccount: 'account-123',
+        gardeniaCfKey: 'global-key',
+        gardeniaGithubToken: 'github-token',
+      });
+
+      const responsePromise = transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+      await vi.advanceTimersByTimeAsync(ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS);
+      await expect(responsePromise).resolves.toMatchObject({
+        ok: false,
+        status: 0,
+        error: 'GitHub auth identity lookup aborted',
+      });
+      expect(fetchImpl).toHaveBeenCalledOnce();
+      expect(fetchImpl.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('falls back to the Global API Key when the configured API token is rejected', async () => {
     const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
     const snapshot = {
