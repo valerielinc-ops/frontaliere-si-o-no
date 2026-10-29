@@ -44,7 +44,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      GH_TOKEN: ${{ github.token }}
       CONTRACT_PATH: .github/corpus-workflows/contract.json
       REATTEST_BRANCH: automation/reattest-crawler-contract
       SOURCE_COMMIT: ${{ inputs.source_commit || github.sha }}
@@ -53,6 +52,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          persist-credentials: false
           sparse-checkout: |
             /.github/corpus-workflows/contract.json
             /scripts/ci/reattest-crawler-contract.mjs
@@ -66,6 +66,63 @@ jobs:
             /scripts/lib/pr-body-closes-check.mjs
             /scripts/lib/pr-body-sections-check.mjs
           sparse-checkout-cone-mode: false
+
+      - name: Checkout trusted GitHub identity helpers
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          path: .trusted-main
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /functions/src/githubApiHeaders.js
+            /scripts/ci/mint-app-token.mjs
+            /scripts/lib/githubApiHeaders.mjs
+            /scripts/lib/google-service-account-token.mjs
+            /scripts/load-rc-env.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Prepare Firebase credentials for PAT fallback
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo '::warning::FIREBASE_SERVICE_ACCOUNT_JSON assente; il fallback GITHUB_PAT non verrà caricato da Remote Config.'
+          fi
+
+      - name: Load trusted PAT fallback from Remote Config
+        continue-on-error: true
+        run: node .trusted-main/scripts/load-rc-env.mjs
+
+      - name: Mint trusted GitHub App token
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node .trusted-main/scripts/ci/mint-app-token.mjs
+
+      - name: Select trusted GitHub identity
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          token=''
+          if [ "${APP_TOKEN_DATA_REFRESH:-false}" = 'true' ] && [ -n "${APP_TOKEN:-}" ]; then
+            token="$APP_TOKEN"
+          elif [ -n "${GITHUB_PAT:-}" ]; then
+            token="$GITHUB_PAT"
+          else
+            echo '::error::nessuna identità App/PAT con permessi di push e pull request disponibile.'
+            exit 1
+          fi
+          echo "::add-mask::$token"
+          echo "GH_TOKEN=$token" >> "$GITHUB_ENV"
+          git remote set-url origin "https://x-access-token:${token}@github.com/${GITHUB_REPOSITORY}.git"
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
