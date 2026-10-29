@@ -1,19 +1,69 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-10-29T09:41:18.502Z",
-  "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
+  "generatedAt": "2026-10-29T21:39:07.269Z",
+  "total": 2,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5849,
-  "avgDurationMs": 5849,
+  "unchangedCount": 1,
+  "durationMs": 7989,
+  "avgDurationMs": 7989,
   "durationHistory": [
-    5849
+    7989
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
+      "title": "Apprenti employé de commerce CFC ou apprentie employée de",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "slug": "apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-hes-so-valais",
+      "category": "general",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
+        "de": "https://www.hevs.ch/de/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
+        "en": "https://www.hevs.ch/en/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-29T21:38:55.675Z",
+      "id": "hes-so-valais-6e6dcd0b615a",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-10-29T21:38:55.675Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-50--60-215552",
       "applyUrl": "https://www.hevs.ch/fr/recruitee/collaborateur-administratif-ou-collaboratrice-administrative-50--60-215552",
@@ -24,7 +74,7 @@
       "postalCode": "1950",
       "canton": "VS",
       "country": "CH",
-      "slug": "collaborateur-administratif-ou-collaboratrice-administrative-hes-so-valais-wallis-sion",
+      "slug": "collaboratore-amministrativo-o-collaboratore-amministrativo-hes-so-valais-wallis-sion",
       "category": "administration",
       "datePosted": "",
       "postedDate": "",
@@ -45,8 +95,7 @@
       },
       "id": "hes-so-valais-2f031ec3361d",
       "firstSeenAt": "2026-09-29T21:13:13.966Z",
-      "crawledAt": "2026-10-29T09:41:08.228Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-29T21:38:55.675Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -62,7 +111,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
