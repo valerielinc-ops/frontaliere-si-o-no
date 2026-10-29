@@ -106,9 +106,13 @@ function careerLinksFromPage(body, baseUrl) {
  * @property {'expected-filter'} [detailNotFoundPolicy] Treat definitive detail HTTP 404s as stale listing filters after enough valid detail rows prove the source
  * @property {number} [detailNotFoundMinimumPublished] Minimum valid detail rows required before 404s can be classified as expected filters
  * @property {number} [qualityContractVersion] Version of the quality evidence rules; bump to require fresh validations
- * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
+ * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, declaredPageCountPattern?: string, stopAfterDeclaredPageCount?: boolean, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
  *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
  *   collect `minCoverage` of the count the source declares, or the run fails closed;
+ *   `declaredPageCountPattern` can provide an explicit terminal page count for
+ *   sources whose generated `rel="next"` survives past the last real page;
+ *   `stopAfterDeclaredPageCount` opts into that terminal boundary and fails
+ *   closed when the source does not declare it;
  *   `pageStateParams` are stripped from detail URLs found on later pages;
  *   `selfNextIsTerminal` is a source-specific declaration that a self-link on
  *   the final page is an end marker rather than an incomplete listing

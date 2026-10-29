@@ -20,6 +20,7 @@ import {
   isLastAnnouncedListingPage,
   largestAnnouncedListingPage,
   normalizeSpecPagination,
+  readDeclaredListingPageCount,
   readDeclaredListingTotal,
   stripListingPageState,
 } from '../scripts/lib/prospector/spec-crawler.mjs';
@@ -332,6 +333,31 @@ describe('spec.pagination', () => {
     ]);
   });
 
+  it('si ferma al numero di pagine dichiarato anche con un rel=next residuo', async () => {
+    const pageCount = '<script type="application/json">{"total_pages":2}</script>';
+    const pages = {
+      [`${ORIGIN}/`]: `${listingPage({ ids: ['sa1'], page: 1, next: `${ORIGIN}/?sf_paged=2` })}${pageCount}`,
+      [`${ORIGIN}/?sf_paged=2`]: `${listingPage({ ids: ['sa2'], page: 2, next: `${ORIGIN}/?sf_paged=3` })}${pageCount}`,
+      [`${ORIGIN}/?sf_paged=3`]: `${listingPage({ ids: ['stale'], page: 3 })}${pageCount}`,
+    };
+    const { rows, fetched } = await collect(specWith({
+      pagination: {
+        maxPages: 10,
+        declaredPageCountPattern: '"total_pages"\\s*:\\s*(\\d+)',
+        stopAfterDeclaredPageCount: true,
+        pageStateParams: ['sf_paged'],
+      },
+    }), pages);
+    expect(rows.map((row) => row.url)).toEqual([
+      `${ORIGIN}/job/sa1/`,
+      `${ORIGIN}/job/sa2/`,
+    ]);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([
+      `${ORIGIN}/`,
+      `${ORIGIN}/?sf_paged=2`,
+    ]);
+  });
+
   it('fallisce chiuso quando maxPages si esaurisce con un next ancora presente', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1'], page: 1, total: 3, next: `${ORIGIN}/?sf_paged=2` }),
@@ -540,6 +566,10 @@ describe('helper di paginazione', () => {
   it('legge il totale con separatori delle migliaia e usa default prudenti', () => {
     const pagination = normalizeSpecPagination(specWith({ pagination: PAGINATION }));
     expect(readDeclaredListingTotal('<span class="jobs_number">1’103</span>', pagination, specWith())).toBe(1103);
+    expect(readDeclaredListingPageCount(
+      '<script type="application/json">{"total_pages":24}</script>',
+      normalizeSpecPagination(specWith({ pagination: { declaredPageCountPattern: '"total_pages":(\\d+)' } })),
+    )).toBe(24);
     expect(normalizeSpecPagination(specWith({ pagination: {} })))
       .toMatchObject({ maxPages: 50, minCoverage: 0.95, declaredTotalRx: null, pageStateParams: [] });
   });

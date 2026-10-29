@@ -982,9 +982,11 @@ function parseListingEndpointResponse(body, companyKey, endpoint = {}) {
  * shifts the next page up by one row. `pageStateParams` names the query
  * parameters the listing echoes into its detail links (`sf_paged`); only those
  * are stripped, so a real detail parameter (`lang`, a tenant id) survives.
+ * `declaredPageCountPattern` and `stopAfterDeclaredPageCount` are the
+ * corresponding source-backed terminal guard for generated `rel="next"` links.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, declaredPageCountRx: RegExp|null, stopAfterDeclaredPageCount: boolean, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
  */
 export function normalizeSpecPagination(spec) {
   const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
@@ -995,6 +997,10 @@ export function normalizeSpecPagination(spec) {
     ? raw.minCoverage
     : DEFAULT_PAGINATION_MIN_COVERAGE;
   const declaredTotalRx = raw.declaredTotalPattern ? new RegExp(String(raw.declaredTotalPattern), 'i') : null;
+  const declaredPageCountRx = raw.declaredPageCountPattern
+    ? new RegExp(String(raw.declaredPageCountPattern), 'i')
+    : null;
+  const stopAfterDeclaredPageCount = raw.stopAfterDeclaredPageCount === true;
   const pageStateParams = Array.isArray(raw.pageStateParams)
     ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
     : [];
@@ -1004,6 +1010,8 @@ export function normalizeSpecPagination(spec) {
     maxPages,
     minCoverage,
     declaredTotalRx,
+    declaredPageCountRx,
+    stopAfterDeclaredPageCount,
     pageStateParams,
     selfNextIsTerminal,
     countDuplicateRowsForCoverage,
@@ -1033,6 +1041,20 @@ export function readDeclaredListingTotal(html, pagination, spec) {
     ));
   }
   return total;
+}
+
+/**
+ * Read an optional source-declared number of listing pages.
+ *
+ * Unlike the vacancy total, this marker is used only as an explicit terminal
+ * boundary for providers that leave a generated `rel=next` link beyond their
+ * last real page. The caller decides whether its absence is fatal.
+ */
+export function readDeclaredListingPageCount(html, pagination) {
+  if (!pagination.declaredPageCountRx) return null;
+  const match = pagination.declaredPageCountRx.exec(String(html || ''));
+  const count = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
+  return Number.isInteger(count) && count > 0 ? count : null;
 }
 
 /**
@@ -1642,12 +1664,28 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     if (spec.pagination) {
       const pagination = normalizeSpecPagination(spec);
       const declaredTotal = readDeclaredListingTotal(html, pagination, spec);
+      let declaredPageCount = readDeclaredListingPageCount(html, pagination);
+      if (pagination.stopAfterDeclaredPageCount && declaredPageCount === null) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] numero di pagine dichiarato dalla fonte non trovato `
+          + `(declaredPageCountPattern ${pagination.declaredPageCountRx?.source || 'missing'})`,
+        ), bySlug.size);
+      }
       const visited = new Set([effectiveSeedUrl]);
       let pageUrl = effectiveSeedUrl;
       let nextUrl = findNextListingPageUrl(html, pageUrl);
       let pages = 1;
       let currentPageCandidateCount = candidates.length;
       while (nextUrl) {
+        if (pagination.stopAfterDeclaredPageCount
+          && declaredPageCount !== null
+          && pages >= declaredPageCount) {
+          console.warn(
+            `[prospector:${spec.companyKey}] listing paginata: ${pages} pagine dichiarate dalla fonte; `
+              + 'fine della paginazione accettata nonostante il rel=next residuo',
+          );
+          break;
+        }
         if (pagination.selfNextIsTerminal && isSameListingPageUrl(nextUrl, pageUrl)) {
           console.warn(
             `[prospector:${spec.companyKey}] listing paginata: rel=next punta alla stessa pagina dopo ${pages} pagine; fine dichiarata dalla spec`,
@@ -1745,6 +1783,16 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         const extracted = extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
         recordSourceFetchMetadata(extracted);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
+        const nextDeclaredPageCount = readDeclaredListingPageCount(body, pagination);
+        if (nextDeclaredPageCount !== null) {
+          if (declaredPageCount !== null && nextDeclaredPageCount !== declaredPageCount) {
+            throw markSpecListingFailure(new Error(
+              `[prospector:${spec.companyKey}] numero di pagine dichiarato cambiato durante la paginazione `
+              + `(${declaredPageCount}/${nextDeclaredPageCount})`,
+            ), bySlug.size);
+          }
+          declaredPageCount = nextDeclaredPageCount;
+        }
         const pageCoverageRowsBefore = listingRowsForCoverage;
         const pageDistinctRowsBefore = bySlug.size;
         await addListingCandidates(

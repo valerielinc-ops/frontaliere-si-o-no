@@ -5,6 +5,7 @@ import {
   ANKER_SWISS_HOST_DELAY_MS,
   isAnkerSwissJob,
   isTrustedDomain,
+  extractAnkerSwissDetailFields,
   buildSlugDisambiguator,
   buildAnkerSwissJobSlug,
 } from '../scripts/lib/anker-swiss-job-parser.mjs';
@@ -16,6 +17,57 @@ import { lookupSwissPostalCode } from '../scripts/lib/swiss-postal-code.mjs';
 describe('Anker Swiss Ticino AG crawler parser', () => {
   it('uses a source-specific cadence that avoids the live 429 threshold', () => {
     expect(ANKER_SWISS_HOST_DELAY_MS).toBe(2_500);
+  });
+
+  it('promotes the live municipality-in-addressRegion JSON-LD shape to Swiss evidence', () => {
+    const url = 'https://anker-swiss.ch/stellen/elektroinstallateur-1548643/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Elektroinstallateur 100%',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Lyss',
+        },
+      },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail).toMatchObject({
+      location: 'Lyss',
+      addressLocality: 'Lyss',
+      addressCountry: 'CH',
+      country: 'CH',
+    });
+    expect(detail.locationCandidates[0]).toMatchObject({
+      location: 'Lyss',
+      addressLocality: 'Lyss',
+      addressRegion: '',
+      addressCountry: 'CH',
+    });
+  });
+
+  it('does not promote an unknown addressRegion into a guessed Swiss location', () => {
+    const url = 'https://anker-swiss.ch/stellen/unknown/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Unknown role',
+      description: 'Eine ausführliche Stellenbeschreibung mit Aufgaben, Anforderungen und Angaben zur Bewerbung für diese konkrete Stelle.',
+      url,
+      jobLocation: { '@type': 'Place', address: { addressRegion: 'Unknown place' } },
+    })}</script>`;
+
+    const detail = extractAnkerSwissDetailFields(html, url);
+
+    expect(detail.locationCandidates[0]).toMatchObject({
+      addressRegion: 'Unknown place',
+      addressLocality: '',
+      addressCountry: '',
+    });
   });
 
   // ── Constants ──

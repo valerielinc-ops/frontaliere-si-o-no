@@ -15,11 +15,13 @@ import { createHash } from 'node:crypto';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
+import { extractDetailFields } from './prospector/extract.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { isKnownSwissMunicipality } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -151,9 +153,62 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
+/**
+ * Normalize Anker's current JobPosting geography contract.
+ *
+ * The live detail JSON-LD puts the municipality in `addressRegion` while
+ * leaving `addressLocality` and `addressCountry` empty (for example
+ * `addressRegion: "Lyss"`). The shared extractor correctly preserves that
+ * source evidence, but the generic geography guard interprets a non-canton
+ * region as an explicit foreign signal and drops the row. Promote the value
+ * only when it is a catalogue-backed Swiss municipality; unknown values stay
+ * untouched and therefore remain fail-closed.
+ */
+export function extractAnkerSwissDetailFields(html = '', pageUrl = '', opts = {}) {
+  const detail = extractDetailFields(html, pageUrl, opts);
+  const candidates = Array.isArray(detail.locationCandidates)
+    ? detail.locationCandidates
+    : [];
+  let promoted = false;
+  const locationCandidates = candidates.map((candidate) => {
+    const region = normalizeSpace(candidate?.addressRegion || '');
+    const hasExplicitAddress = Boolean(
+      candidate?.addressLocality
+      || candidate?.addressCountry
+      || candidate?.postalCode
+      || candidate?.streetAddress,
+    );
+    if (!region || hasExplicitAddress || !isKnownSwissMunicipality(region)) return candidate;
+    promoted = true;
+    return {
+      ...candidate,
+      location: candidate.location || region,
+      addressLocality: region,
+      addressRegion: '',
+      addressCountry: 'CH',
+      country: 'CH',
+    };
+  });
+  if (!promoted) return detail;
+
+  const primary = locationCandidates[0] || {};
+  return {
+    ...detail,
+    location: primary.location || detail.location || '',
+    addressLocality: primary.addressLocality || detail.addressLocality || '',
+    addressRegion: primary.addressRegion || '',
+    addressCountry: primary.addressCountry || 'CH',
+    country: primary.country || 'CH',
+    locationCandidates,
+  };
+}
+
 async function fetchJobListings() {
   const spec = loadSpec(ANKER_SWISS_KEY);
-  return runSpecInProduction(spec, { hostDelayMs: ANKER_SWISS_HOST_DELAY_MS });
+  return runSpecInProduction(spec, {
+    hostDelayMs: ANKER_SWISS_HOST_DELAY_MS,
+    detailExtractor: extractAnkerSwissDetailFields,
+  });
 }
 
 /**
