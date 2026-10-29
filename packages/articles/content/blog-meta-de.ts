@@ -1140,8 +1140,8 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.guida-pensione-frontaliere-avs-lpp.excerpt': 'Vollständiger Rentenratgeber für Grenzgänger: drei Säulen, Totalisierung Italien-Schweiz, Rentensimulation und häufige Fehler.',
  'blog.article.guida-pensione-frontaliere-avs-lpp.imageAlt': 'Rentnerehepaar spaziert am Luganer See mit den Alpen im Hintergrund',
 
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Leben in der Schweiz vs. Italien: Realer Vergleich für Grenzgänger',
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Bewilligung B oder G? Detaillierter Vergleich von Kosten, Steuern, Gesundheit, Lebensqualität mit praktischen Beispielen 2026.',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'In der Schweiz arbeiten, in Italien leben: Lohnt sich das?',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Vergleichen Sie Nettolohn, Steuerstatus, Wohnen, Krankenversicherung und Pendelkosten in zwei Jahresbudgets. Eurostat vergleicht nationale Preisniveaus, keine Stadtmieten.',
  'blog.article.vivere-svizzera-vs-italia-frontaliere.imageAlt': 'Panoramablick auf die italienisch-schweizerische Grenze mit dem Luganer See und italienischen Dorfhäusern',
 
  'blog.article.dumping-salariale-diritti-lavoratore-ticino.title': 'Lohndumping im Tessin: Erkennen und sich schützen',
