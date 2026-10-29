@@ -3194,7 +3194,7 @@ export async function submitViaPortal(ctx) {
   let finalClickAttempted = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
-    reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, finalClickAttempted });
+    reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
@@ -3240,6 +3240,7 @@ export async function submitViaPortal(ctx) {
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
     const entryUrl = portalEntryUrl(ctx);
     const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
+    await diagnostics.beginAttempt();
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
@@ -3443,7 +3444,10 @@ export async function submitViaPortal(ctx) {
       };
     };
 
+    let loopAttemptStarted = false;
     for (let step = 1; step <= maxSteps; step += 1) {
+      if (loopAttemptStarted) await diagnostics?.beginAttempt();
+      else loopAttemptStarted = true;
       snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);

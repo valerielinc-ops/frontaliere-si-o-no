@@ -139,10 +139,10 @@ describe('encrypted portal diagnostics', () => {
 
 
 describe('transient CAPTCHA provider failures', () => {
-  const responses = [{ host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 520 }];
+  const responses = [{ host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 520, attempt: 1 }];
   it.each(['captcha', 'portal_needs_candidate'])('classifies %s as a technical outage only before the final click', reason => {
-    expect(portalHandoffReason(reason, { diagnostics: { responses } })).toBe('captcha_provider_unavailable');
-    expect(portalHandoffReason(reason, { diagnostics: { responses }, finalClickAttempted: true })).toBe(reason);
+    expect(portalHandoffReason(reason, { diagnostics: { responses }, attempt: 1 })).toBe('captcha_provider_unavailable');
+    expect(portalHandoffReason(reason, { diagnostics: { responses }, attempt: 1, finalClickAttempted: true })).toBe(reason);
   });
   it.each([
     { host: 'api.nopecha.com.evil.test', path: '/v1/recognition/turnstile', status: 520 },
@@ -154,6 +154,26 @@ describe('transient CAPTCHA provider failures', () => {
     expect(portalHandoffReason('captcha', { diagnostics: { responses: [entry] } })).toBe('captcha');
   });
   it('never converts a candidate-only action into a technical retry', () => {
-    expect(portalHandoffReason('whatsapp', { diagnostics: { responses } })).toBe('whatsapp');
+    expect(portalHandoffReason('whatsapp', { diagnostics: { responses }, attempt: 1 })).toBe('whatsapp');
+  });
+  it('ignores a provider outage recorded by a previous portal attempt', () => {
+    expect(portalHandoffReason('portal_needs_candidate', {
+      diagnostics: { responses: [{ host: 'api.nopecha.com', path: '/v1/recognition/recaptcha', status: 503, attempt: 1 }] },
+      attempt: 2,
+    })).toBe('portal_needs_candidate');
+  });
+  it('tags a response with the attempt in which its request started', async () => {
+    const { context, request, response } = fixture();
+    const diagnostics = startPortalDiagnostics(context);
+    await diagnostics.beginAttempt();
+    context.emit('request', request);
+    context.emit('response', response({ errors: ['provider unavailable'] }, 503));
+    await diagnostics.beginAttempt();
+    expect(diagnostics.data.responses[0]).toMatchObject({ attempt: 1, status: 503 });
+    expect(portalHandoffReason('portal_needs_candidate', {
+      diagnostics: diagnostics.data,
+      attempt: diagnostics.currentAttempt(),
+    })).toBe('portal_needs_candidate');
+    await diagnostics.finish();
   });
 });
