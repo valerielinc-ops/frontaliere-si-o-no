@@ -16,8 +16,9 @@ export function repairJobTitleSemanticsInPlace(job) {
   // sourceLang describes the body; a borrowed source title may have a different
   // effective language. An original Crew must not be hidden by that locale slot.
   const originalTitle = String(job.title || '').trim();
-  const sourceTitle = CREW_TITLE.test(originalTitle) ? originalTitle
-    : String(job.titleByLocale?.[job.sourceLang] || originalTitle).trim();
+  const sourceTitle = [originalTitle, ...Object.values(job.titleByLocale || {})]
+    .map((value) => String(value || '').trim())
+    .find((value) => CREW_TITLE.test(value)) || '';
   if (!CREW_TITLE.test(sourceTitle)) return changed;
   // Require employer evidence, not the translated title itself. A real UN role
   // or an airline's Crew/Besatzung has no restaurant employer anchor.
@@ -59,10 +60,10 @@ export function repairMigrosServiceCounterTitleInPlace(job) {
  */
 export function migrosServiceCounterTitleSourceLang(job) {
   if (!job || typeof job !== 'object') return '';
-  const sourceTitles = [job.title, job.titleByLocale?.de]
-    .map((value) => String(value || '').trim())
-    .filter(Boolean);
-  if (!sourceTitles.length || sourceTitles.some((value) => !MIGROS_SERVICE_COUNTER_TITLE.test(value))) return '';
+  // The German slot is the source-backed title even when the display title has
+  // already been localized (or otherwise corrupted by a previous pass).
+  const sourceTitle = String(job.titleByLocale?.de || job.title || '').trim();
+  if (!sourceTitle || !MIGROS_SERVICE_COUNTER_TITLE.test(sourceTitle)) return '';
   return isMigrosEmployer(job) ? 'de' : '';
 }
 

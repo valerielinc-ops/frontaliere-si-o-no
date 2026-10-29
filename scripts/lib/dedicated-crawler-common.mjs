@@ -2911,7 +2911,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   return deterministicFallback();
 }
 
-export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {
+export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, titleSourceLang = sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {
   if (!aiLocalizeJobContentDCC._cacheStats) {
     aiLocalizeJobContentDCC._cacheStats = { busted: 0 };
   }
@@ -2926,6 +2926,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   const locales = LOCALES || DEFAULT_LOCALES;
   const floor = Math.max(minChars, 40);
   if (!description || description.length < Math.max(floor, 180)) return null;
+  const descriptionSourceLocale = String(sourceLang || 'en').trim().toLowerCase();
+  const titleSourceLocale = String(titleSourceLang || sourceLang || 'en').trim().toLowerCase();
+  const canTranslateTitle = titleSourceLocale === descriptionSourceLocale;
+  const titleForBodySource = canTranslateTitle ? title : '';
   const targetLocales = locales.slice(0, maxLocales).filter((l) => l !== sourceLang);
   const unsupportedSource = isUnsupportedSourceLang(sourceLang);
 
@@ -2933,14 +2937,14 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
   const localPipeline = unsupportedSource
     ? null
     : await localizeJobContentWithPipeline({
-        title, company, location, description, requirements, sourceLang, targetLocales,
+        title: titleForBodySource, company, location, description, requirements, sourceLang, targetLocales,
       });
   if (localPipeline) return localPipeline;
 
   if (!buildAiCacheKey || !getCachedAiResponse) return null;
 
-  const cacheKey = buildAiCacheKey(unsupportedSource ? 'localize-job-unsupported-source-v1' : 'localize-job-v2', [
-    nsFn(title || ''), nsFn(company || ''), nsFn(location || ''),
+  const cacheKey = buildAiCacheKey(unsupportedSource ? 'localize-job-unsupported-source-v2' : 'localize-job-v3', [
+    nsFn(title || ''), titleSourceLocale, nsFn(company || ''), nsFn(location || ''),
     sourceLang || 'en', targetLocales.join(','),
     JSON.stringify((requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
     cleanFn(description || ''),
@@ -2952,7 +2956,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     if (cleanedSource.length < floor) return null;
     const sentinelOut = {
       [sourceLang]: {
-        title,
+        title: titleForBodySource,
         description: cleanedSource,
         requirements: Array.isArray(requirements) ? requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8) : [],
       },
@@ -2962,8 +2966,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       const desc = await freeTranslateObserved(ctx, { text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
       if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
-        const localizedTitle = await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale });
-        sentinelOut[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
+        const localizedTitle = canTranslateTitle
+          ? await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale })
+          : '';
+        sentinelOut[locale] = { title: localizedTitle || titleForBodySource, description: desc, requirements: [] };
       }
     }
     if (Object.keys(sentinelOut).length > 1) {
@@ -2986,10 +2992,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       const localeData = fromCache[locale];
       if (!localeData?.description) return true; // missing = bad
       // A stored refusal/clarification as the title busts the entry too.
-      if (isModelMetaAnswer(nsFn(localeData.title || ''), title || '')) return true;
+      if (canTranslateTitle && isModelMetaAnswer(nsFn(localeData.title || ''), title || '')) return true;
       if (unsupportedSource) {
         const cachedTitle = nsFn(localeData.title || '');
-        if (!hasUsableTitle(cachedTitle) || cachedTitle.toLowerCase() === nsFn(title || '').toLowerCase()) return true;
+        if (canTranslateTitle && (!hasUsableTitle(cachedTitle) || cachedTitle.toLowerCase() === nsFn(title || '').toLowerCase())) return true;
       }
       const cleanLocale = cleanFn(localeData.description);
       // Exact copy check
@@ -3020,7 +3026,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     if (cleanedSource.length < floor) return null;
     const out = {
       [sourceLang]: {
-        title,
+        title: titleForBodySource,
         description: cleanedSource,
         requirements: Array.isArray(requirements) ? requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8) : [],
       },
@@ -3030,8 +3036,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       const desc = await freeTranslateObserved(ctx, { text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
       if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
-        const localizedTitle = await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale });
-        out[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
+        const localizedTitle = canTranslateTitle
+          ? await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale })
+          : '';
+        out[locale] = { title: localizedTitle || titleForBodySource, description: desc, requirements: [] };
       }
     }
     return Object.keys(out).length > 1 ? out : null;
@@ -3043,12 +3051,16 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     'CRITICAL: preserve the COMPLETE original content — every section, paragraph, bullet point, and detail MUST appear in each translation. Do NOT omit, condense, or truncate any part of the description.',
     'Keep company, role, location and requirements consistent with source.',
     `Return STRICT JSON only with keys: ${targetLocales.join(',')}.`,
-    'Each locale object must contain:',
-    '- title: localized job title in the TARGET locale language (do not keep source language title unless it is only brand/acronym), concise, no embellishments',
+    canTranslateTitle
+      ? 'Each locale object must contain:'
+      : 'Each locale object must contain description and requirements only:',
+    canTranslateTitle
+      ? '- title: localized job title in the TARGET locale language (do not keep source language title unless it is only brand/acronym), concise, no embellishments'
+      : `Do not translate or return a title; the title source is ${sourceLanguageLabel(titleSourceLocale)} and is localized separately.`,
     '- description: FULL translation of the complete description preserving all paragraphs and sections (use \\n\\n between paragraphs)',
     '- requirements: array of max 8 concise bullet strings',
     '',
-    `title: ${title}`,
+    ...(canTranslateTitle ? [`title: ${title}`] : []),
     `company: ${company}`,
     `location: ${location}`,
     `sourceLanguage: ${sourceLanguageLabel(sourceLang)}`,
@@ -3063,7 +3075,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length >= floor) {
       out[sourceLang] = {
-        title,
+        title: titleForBodySource,
         description: cleanedSource,
         requirements: Array.isArray(requirements) ? requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8) : [],
       };
@@ -3073,7 +3085,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       if (!item || typeof item !== 'object') continue;
       // A refusal or a request for the input is not a title: dropped here, the
       // source title stands in and the repair selector re-queues the slot.
-      const answeredTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      const answeredTitle = canTranslateTitle ? nsFn(sanitizeAiOutput(item.title || '')) : '';
       const localizedTitle = isModelMetaAnswer(answeredTitle, title || '') ? '' : answeredTitle;
       const desc = cleanFn(sanitizeAiOutput(item.description || ''));
       const req = Array.isArray(item.requirements)
@@ -3082,8 +3094,8 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       const titleIsUsable = hasUsableTitle(localizedTitle)
         && (!unsupportedSource || localizedTitle.toLowerCase() !== nsFn(title || '').toLowerCase());
       if (desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)
-          && (!unsupportedSource || titleIsUsable)) {
-        out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
+          && (!unsupportedSource || !canTranslateTitle || titleIsUsable)) {
+        out[locale] = { title: localizedTitle || titleForBodySource, description: desc, requirements: req };
       }
     }
     const missingLocales = targetLocales.filter((l) => !out[l]);
@@ -3093,8 +3105,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
         const desc = await freeTranslateObserved(ctx, { text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
         if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
           // eslint-disable-next-line no-await-in-loop
-          const localizedTitle = await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale });
-          out[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
+          const localizedTitle = canTranslateTitle
+            ? await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale })
+            : '';
+          out[locale] = { title: localizedTitle || titleForBodySource, description: desc, requirements: [] };
         }
       }
     }
@@ -3111,7 +3125,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     if (cleanedFallback.length >= floor) {
       const fallbackOut = {
         [sourceLang]: {
-          title,
+          title: titleForBodySource,
           description: cleanedFallback,
           requirements: Array.isArray(requirements) ? requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8) : [],
         },
@@ -3121,8 +3135,10 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
         const desc = await freeTranslateObserved(ctx, { text: cleanedFallback, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
         if (desc && desc.length >= floor && isAcceptableTranslation(cleanedFallback, desc)) {
           // eslint-disable-next-line no-await-in-loop
-          const localizedTitle = await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale });
-          fallbackOut[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
+          const localizedTitle = canTranslateTitle
+            ? await freeTranslateObserved(ctx, { text: title, sourceLang: sourceLang || 'en', targetLang: locale })
+            : '';
+          fallbackOut[locale] = { title: localizedTitle || titleForBodySource, description: desc, requirements: [] };
         }
       }
       if (Object.keys(fallbackOut).length > 1) {
@@ -3382,7 +3398,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     ? await aiLocalizeJobContentDCC({
         title: out.title, company: out.company, location: out.location,
         description: resolvedSourceDescription, requirements: out.requirements || [],
-        sourceLang, minChars: localeDescFloor,
+        sourceLang, titleSourceLang, minChars: localeDescFloor,
       }, ctx)
     : null;
   if (shouldRunDescriptionLocalization && ctx.incrAiLocalizationCalls) ctx.incrAiLocalizationCalls();

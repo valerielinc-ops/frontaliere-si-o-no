@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { repairJobTitleSemanticsInPlace, repairJobDescriptionBrandsInPlace, repairJobTranslationSemanticsInPlace } from '../scripts/lib/job-title-semantic-repair.mjs';
+import {
+  migrosServiceCounterTitleSourceLang,
+  repairJobTitleSemanticsInPlace,
+  repairJobDescriptionBrandsInPlace,
+  repairJobTranslationSemanticsInPlace,
+  repairMigrosServiceCounterTitleInPlace,
+} from '../scripts/lib/job-title-semantic-repair.mjs';
 import { enrichJobLocalesDCC } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { normalizeParsedJobsForSlice, normalizeAndPersistExpiredSlice } from '../scripts/assemble-jobs-dataset.mjs';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
@@ -69,6 +75,26 @@ describe('source-backed restaurant Crew semantic repair', () => {
       expect(JSON.parse(readFileSync(file, 'utf8'))[0].titleByLocale.it).toBe('Crew');
       expect(normalizeAndPersistExpiredSlice(file, jobs)).toBe(0);
     } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+});
+
+describe('source-backed Migros butcher-counter title repair', () => {
+  it('uses the German source slot when the display title is already localized', () => {
+    const job = {
+      title: 'Addetto/a alla vendita al banco macelleria',
+      company: 'Migros',
+      titleByLocale: { de: 'Verkäufer*in Metzgerei bedient' },
+    };
+
+    expect(migrosServiceCounterTitleSourceLang(job)).toBe('de');
+    expect(repairMigrosServiceCounterTitleInPlace(job)).toBe(3);
+    expect(job.titleByLocale).toMatchObject({
+      de: 'Verkäufer*in Metzgerei bedient',
+      it: 'Addetto/a alla vendita al banco macelleria',
+      en: 'Meat Counter Sales Assistant',
+      fr: 'Vendeur·euse au comptoir de boucherie',
+    });
+    expect(repairMigrosServiceCounterTitleInPlace(job)).toBe(0);
   });
 });
 

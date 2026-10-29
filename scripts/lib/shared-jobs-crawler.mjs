@@ -2317,6 +2317,7 @@ export function ensureLocaleFields(job) {
   const _preTitleByLocale = (job.titleByLocale && typeof job.titleByLocale === 'object') ? { ...job.titleByLocale } : {};
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
   out.titleByLocale = titleByLocale;
+  repairMigrosServiceCounterTitleInPlace(out);
   const descriptionByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
   const requirementsByLocale = (out.requirementsByLocale && typeof out.requirementsByLocale === 'object') ? { ...out.requirementsByLocale } : {};
   const slugByLocale = (out.slugByLocale && typeof out.slugByLocale === 'object') ? { ...out.slugByLocale } : {};
@@ -2345,11 +2346,9 @@ export function ensureLocaleFields(job) {
   // low-confidence re-detection that disagrees with the stored sourceLang must
   // not be allowed to move the slot (see holdSourceLang in job-locale-utils).
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
-  const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang, title: baseTitle || bestTitle }, sourceLang);
+  const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang, title: baseTitle }, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
   const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
-
-  repairMigrosServiceCounterTitleInPlace(out);
 
   // Detect the language of the raw base description separately — it may differ
   // from sourceLang when titleByLocale has wrong-language entries.
@@ -2705,8 +2704,8 @@ async function aiTranslateJobDescription({ description, locale, sourceLang = 'en
   return _aiTranslateJobDescriptionDCC({ description, locale, sourceLang, minChars }, _buildLocalizationCtx());
 }
 
-async function aiLocalizeJobContent({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }) {
-  return _aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales, minChars }, _buildLocalizationCtx());
+async function aiLocalizeJobContent({ title, company, location, description, requirements, sourceLang, titleSourceLang = sourceLang, maxLocales = 4, minChars = 120 }) {
+  return _aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, titleSourceLang, maxLocales, minChars }, _buildLocalizationCtx());
 }
 
 async function aiTranslateJobTitle({ title, locale, sourceLang = 'en' }) {
@@ -4156,21 +4155,23 @@ async function crawlWorkdayJobs(
           ) {
             aiLocalizationCalls += 1;
             // eslint-disable-next-line no-await-in-loop
+            const sourceLang = detailPayload.sourceLang || detectLang(descriptionSeed, 'en');
             const aiLocalized = await aiLocalizeJobContent({
               title,
               company: company.name,
               location,
               description: descriptionSeed,
               requirements: requirementsSeed,
-              sourceLang: detailPayload.sourceLang || detectLang(descriptionSeed, 'en'),
+              sourceLang,
+              titleSourceLang: jobTitleSourceLang({ title, company: company.name, sourceLang }, sourceLang),
             });
             if (aiLocalized) {
               for (const localeKey of Object.keys(aiLocalized)) {
                 const localizedTitle = aiLocalized[localeKey].title;
-                titleByLocale[localeKey] = hasUsableTitle(localizedTitle)
-                  ? String(localizedTitle).trim()
-                  : '';
-                descriptionByLocale[localeKey] = aiLocalized[localeKey].description;
+                if (hasUsableTitle(localizedTitle)) titleByLocale[localeKey] = String(localizedTitle).trim();
+                if (aiLocalized[localeKey].description) {
+                  descriptionByLocale[localeKey] = aiLocalized[localeKey].description;
+                }
                 requirementsByLocale[localeKey] = mergeRequirements(
                   requirementsByLocale[localeKey] || [],
                   aiLocalized[localeKey].requirements || []

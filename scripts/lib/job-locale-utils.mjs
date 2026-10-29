@@ -870,7 +870,21 @@ export function jobTitleSourceLang(job, fallback = '') {
   const bodyLang = normalizeJobLocale(job.sourceLang)
     || normalizeJobLocale(fallback)
     || 'it';
-  const title = String(job.title || '').trim()
-    || String(job.titleByLocale?.[bodyLang] || '').trim();
-  return detectJobTitleLang(title, bodyLang);
+  const title = String(job.title || '').trim();
+  if (title) return detectJobTitleLang(title, bodyLang);
+
+  const bodyTitle = String(job.titleByLocale?.[bodyLang] || '').trim();
+  if (bodyTitle) return detectJobTitleLang(bodyTitle, bodyLang);
+
+  for (const [locale, value] of Object.entries(job.titleByLocale || {})) {
+    const candidateLocale = normalizeJobLocale(locale);
+    if (!candidateLocale || candidateLocale === bodyLang) continue;
+    const candidate = String(value || '').trim();
+    if (!candidate) continue;
+    const detected = detectJobTitleLocaleDetails(candidate, bodyLang);
+    if (detected.lang === candidateLocale && detected.confidence >= TITLE_LANG_DECISION_CONFIDENCE) {
+      return candidateLocale;
+    }
+  }
+  return bodyLang;
 }
