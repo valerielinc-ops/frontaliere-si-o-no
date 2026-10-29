@@ -41,6 +41,7 @@ export const CONSERVATORIO_STREET = 'Via Soldino 9';
 
 export const MAX_LISTING_PAGES = 40;
 export const MAX_NO_DEADLINE_AGE_DAYS = 180;
+const FALLBACK_ROLE_TITLE = 'Posizione presso il Conservatorio';
 
 const ITALIAN_MONTHS = {
   gennaio: '01',
@@ -405,8 +406,14 @@ export function extractConservatorioValidThrough(pdfText = '', { roleTitle = '',
   const roleSpecific = roleTitle ? extractRoleSpecificDeadline(pdfText, roleTitle) : '';
   if (roleSpecific) return roleSpecific;
   const scoped = roleSection(pdfText, roleTitle, roleTitles);
-  return extractDeadlineFromText(scoped)
-    || (roleTitles.length <= 1 ? extractDeadlineFromText(pdfText) : '');
+  const scopedDeadline = extractDeadlineFromText(scoped);
+  if (scopedDeadline) return scopedDeadline;
+
+  // Some role headings are intentionally generic (for example "Docente di
+  // musica") and have no unique keyword to anchor a role-specific sentence.
+  // In that case, fall back to a deadline stated for the whole notice rather
+  // than silently publishing a multi-role posting without its expiry date.
+  return roleTitles.length > 1 ? extractDeadlineFromText(pdfText) : '';
 }
 
 /** Return whether a fully parsed notice should be published on this run. */
@@ -456,7 +463,8 @@ export function buildConservatorioJob({
   const title = cleanRoleTitle(roleTitle || roleTitleFromArticle(listing.title) || 'Posizione presso il Conservatorio');
   const description = buildPdfBackedDescription({ pdfText });
   const sourceLang = detectLang(description || title, 'it');
-  const employmentType = detectEmploymentType(title, pdfText);
+  const roleText = roleSection(pdfText, title, roleTitles);
+  const employmentType = detectEmploymentType(title, roleText);
   const slug = slugify(`${title} conservatorio ${CONSERVATORIO_CITY}`);
   const idHash = createHash('sha1').update(`${sourceUrl}|${normalizeSearchText(title).toLowerCase()}`).digest('hex').slice(0, 12);
   const validThrough = extractConservatorioValidThrough(pdfText, { roleTitle: title, roleTitles });
@@ -567,7 +575,14 @@ export async function fetchAllConservatorioJobs({
       if (pdfFailed) {
         const message = pdf?.error || pdf?.warning || 'official PDF has no usable text layer';
         console.warn(`  ⚠️ Conservatorio: ${pdfListing.pdfUrl}: ${message}`);
-        for (const roleTitle of roleTitles) {
+        const failureRoles = roleTitles.length > 0 ? roleTitles : [FALLBACK_ROLE_TITLE];
+        sourceBodyFailures.push({
+          title: failureRoles[0],
+          url: pdfListing.pdfUrl,
+          reason: SOURCE_BODY_FAILURE_REASON,
+          message,
+        });
+        for (const roleTitle of failureRoles) {
           const failedJob = buildConservatorioJob({
             listing: detailListing,
             roleTitle,
@@ -581,12 +596,6 @@ export async function fetchAllConservatorioJobs({
             sourceBodyFailureReason: SOURCE_BODY_FAILURE_REASON,
             sourceBodyFailureMessage: message,
             sourceBodyFailureKeepsStoredRecord: true,
-          });
-          sourceBodyFailures.push({
-            title: roleTitle,
-            url: pdfListing.pdfUrl,
-            reason: SOURCE_BODY_FAILURE_REASON,
-            message,
           });
         }
         continue;

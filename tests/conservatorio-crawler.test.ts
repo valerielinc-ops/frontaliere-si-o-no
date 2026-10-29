@@ -126,6 +126,19 @@ describe('Conservatorio della Svizzera italiana crawler parser', () => {
     expect(extractConservatorioValidThrough(text, { roleTitle: roles[1], roleTitles: roles })).toBe('2026-08-31');
   });
 
+  it('uses a shared notice deadline when a generic role has no unique keyword', () => {
+    const text = `
+      Docente di musica
+      Docente di violino
+      termine per la candidatura: 1 gennaio 2025
+    `;
+    const roles = ['Docente di musica', 'Docente di violino'];
+    expect(extractConservatorioValidThrough(text, {
+      roleTitle: roles[0],
+      roleTitles: roles,
+    })).toBe('2025-01-01');
+  });
+
   it('builds a source-only job with stable PDF identity and structured fields', () => {
     const job = buildConservatorioJob({
       listing: { detailUrl: DETAIL_DIRECTOR, publishedDate: '2026-09-15' },
@@ -146,6 +159,34 @@ describe('Conservatorio della Svizzera italiana crawler parser', () => {
     expect(job.description).toContain('La Fondazione cerca una persona');
     expect(job.description).not.toContain('Fonte (PDF):');
     expect(isCurrentConservatorioListing(job, NOW)).toBe(true);
+  });
+
+  it('scopes employment type to the role section in a multi-role PDF', () => {
+    const roles = ['Docente di musica', 'Docente di violino'];
+    const pdfText = `
+      Docente di musica 100%
+      attività didattica e concertistica
+      Docente di violino 50%
+      attività didattica individuale
+    `;
+    const fullTime = buildConservatorioJob({
+      listing: { detailUrl: DETAIL_DIRECTOR, publishedDate: '2026-09-15' },
+      roleTitle: roles[0],
+      roleTitles: roles,
+      pdfUrl: PDF_DIRECTOR,
+      pdfText,
+      now: NOW,
+    });
+    const partTime = buildConservatorioJob({
+      listing: { detailUrl: DETAIL_DIRECTOR, publishedDate: '2026-09-15' },
+      roleTitle: roles[1],
+      roleTitles: roles,
+      pdfUrl: PDF_DIRECTOR,
+      pdfText,
+      now: NOW,
+    });
+    expect(fullTime.employmentType).toBe('FULL_TIME');
+    expect(partTime.employmentType).toBe('PART_TIME');
   });
 
   it('walks all advertised pages, emits active roles and retires expired notices', async () => {
@@ -235,5 +276,31 @@ describe('Conservatorio della Svizzera italiana crawler parser', () => {
     expect(result.jobs).toHaveLength(1);
     expect(result.jobs[0].sourceBodyFailureReason).toBe('pdf-extraction-failed');
     expect(result.sourceBodyFailures[0].message).toBe('network timeout');
+  });
+
+  it('records an unreadable PDF even when no role heading is recognized', async () => {
+    const detailUrl = `${CONSERVATORIO_CAREER_URL}/dettaglio/id/57000/bando-concorso`;
+    const archive = archivePage([{
+      url: detailUrl,
+      date: '01.10.26',
+      title: 'Bando di concorso',
+    }]);
+    const result = await fetchAllConservatorioJobs({
+      now: NOW,
+      fetchPage: async (url) => url === CONSERVATORIO_CAREER_URL
+        ? archive
+        : detailPage({
+          title: 'Bando di concorso',
+          date: '01.10.26',
+          roleMarkup: 'Collaborazione artistica',
+          pdfUrl: PDF_DIRECTOR,
+        }),
+      extractPdfText: async () => ({ error: 'unreadable' }),
+    });
+    expect(result.jobs).toHaveLength(1);
+    expect(result.jobs[0].title).toBe('Posizione presso il Conservatorio');
+    expect(result.sourceBodyFailures).toHaveLength(1);
+    expect(result.sourceBodyFailures[0].message).toBe('unreadable');
+    expect(Reflect.get(result.jobs, 'authoritativeEmptyState')).toBeUndefined();
   });
 });
