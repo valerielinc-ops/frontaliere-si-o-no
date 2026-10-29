@@ -23,7 +23,7 @@ const PERSONAL_OR_NEGATED = /\b(?:ho|avevo|mio|mia|miei|mie|nostro|nostra|my|our
 const THIRD_PARTY_SUBJECT = /\b(?:partner|clienti?|customers?|suppliers?|fornitor\w*|altra|other|autre)\b/iu;
 const COMPANY_YEARS = /\b(?:(?:da|for|seit|depuis|von)\s+)?(?:(?:oltre|over|more than|über|plus de)\s+)?(\d+)\s+(?:anni|years|jahren|jahre|ans)\b/giu;
 const EXPERIENCE_YEARS = /\b(?:anni\s+di\s+esperienza|years?\s+of\s+experience|jahre?n?\s+(?:an\s+)?erfahrung|ans\s+d['’]expérience)\b/iu;
-const RECRUITING_OR_REQUIREMENT = /\b(?:cerca|cercano|ricerca|ricercano|richiede|richiedono|assume|assumono|seeks?|requires?|recruit(?:s|ed|ing)?|looking|hiring|sucht|suchen|fordert|fordern|cherche|recherche)\b/iu;
+const RECRUITING_OR_REQUIREMENT = /\b(?:cerc\w*|ricerc\w*|richied\w*|assum\w*|seeks?|requires?|recruit(?:s|ed|ing)?|looking|hiring|sucht|suchen|fordert|fordern|cherche|recherche)\b/iu;
 function companyAges(text) {
   return [...String(text).matchAll(COMPANY_YEARS)].flatMap((match) => {
     const sentence = sentenceAt(String(text), match.index);

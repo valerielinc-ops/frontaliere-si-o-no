@@ -1591,6 +1591,7 @@ describe('employer citations versus candidate facts', () => {
   it.each([
     'La società richiede 50 anni di esperienza.',
     'La società cerca consulenti con 50 anni di esperienza.',
+    'La società sta cercando un consulente di 50 anni.',
   ])('does not treat a recruiting requirement as employer age: %s', (text) => {
     expect(checkDraftFacts({ coverLetter: text }, sources).ok).toBe(false);
   });
