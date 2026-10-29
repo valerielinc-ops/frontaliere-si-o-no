@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-10-29T09:26:42.536Z",
-  "runId": "40847734300",
+  "assembledAt": "2026-10-29T21:21:48.278Z",
+  "runId": "40955665056",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:34.571Z",
+      "crawledAt": "2026-10-29T21:21:41.088Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -118,7 +120,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:33.534Z",
+      "crawledAt": "2026-10-29T21:21:40.109Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -206,7 +208,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:32.480Z",
+      "crawledAt": "2026-10-29T21:21:39.139Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -284,7 +286,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:31.453Z",
+      "crawledAt": "2026-10-29T21:21:38.180Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -425,7 +427,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:30.441Z",
+      "crawledAt": "2026-10-29T21:21:37.173Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -560,7 +562,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:29.392Z",
+      "crawledAt": "2026-10-29T21:21:36.147Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -658,7 +660,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:28.347Z",
+      "crawledAt": "2026-10-29T21:21:35.131Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -742,9 +744,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -769,7 +771,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:27.333Z",
+      "crawledAt": "2026-10-29T21:21:34.146Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -822,18 +824,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -884,7 +886,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:26.282Z",
+      "crawledAt": "2026-10-29T21:21:33.186Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -988,7 +990,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:25.265Z",
+      "crawledAt": "2026-10-29T21:21:32.177Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1087,7 +1089,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:24.201Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-10-29T21:21:31.187Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1194,7 +1197,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:23.170Z",
+      "crawledAt": "2026-10-29T21:21:30.239Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1304,7 +1307,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:22.172Z",
+      "crawledAt": "2026-10-29T21:21:29.273Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1411,7 +1414,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:21.148Z",
+      "crawledAt": "2026-10-29T21:21:28.311Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1520,7 +1523,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:20.096Z",
+      "crawledAt": "2026-10-29T21:21:27.325Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1617,7 +1620,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:19.063Z",
+      "crawledAt": "2026-10-29T21:21:26.369Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1728,7 +1731,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:18.047Z",
+      "crawledAt": "2026-10-29T21:21:25.430Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1833,7 +1836,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:17.016Z",
+      "crawledAt": "2026-10-29T21:21:24.435Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1940,7 +1943,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:15.989Z",
+      "crawledAt": "2026-10-29T21:21:23.456Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2045,7 +2048,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:14.977Z",
+      "crawledAt": "2026-10-29T21:21:22.487Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2165,7 +2168,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:13.974Z",
+      "crawledAt": "2026-10-29T21:21:21.568Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2274,7 +2277,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:12.972Z",
+      "crawledAt": "2026-10-29T21:21:20.582Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2357,7 +2360,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:11.922Z",
+      "crawledAt": "2026-10-29T21:21:19.609Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2439,7 +2442,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:10.913Z",
+      "crawledAt": "2026-10-29T21:21:18.640Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2521,7 +2524,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:09.870Z",
+      "crawledAt": "2026-10-29T21:21:17.700Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2602,7 +2605,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:08.810Z",
+      "crawledAt": "2026-10-29T21:21:16.718Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2657,7 +2660,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "nursingexpert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2683,7 +2686,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1283/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:07.801Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-10-29T21:21:15.766Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2706,7 +2710,8 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
-        "pflegeexpert-in-see-spital-horgen"
+        "pflegeexpert-in-see-spital-horgen",
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2714,7 +2719,8 @@
         ],
         "en": [
           "care-expert-see-spital-horgen",
-          "pflegeexpert-in-see-spital-horgen"
+          "pflegeexpert-in-see-spital-horgen",
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2768,7 +2774,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:06.798Z",
+      "crawledAt": "2026-10-29T21:21:14.775Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2851,7 +2857,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:05.793Z",
+      "crawledAt": "2026-10-29T21:21:13.822Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2948,7 +2954,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:04.755Z",
+      "crawledAt": "2026-10-29T21:21:12.828Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3030,7 +3036,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:03.736Z",
+      "crawledAt": "2026-10-29T21:21:11.852Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3111,7 +3117,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1298/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:26:02.733Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-10-29T21:21:10.882Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3193,7 +3200,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:01.731Z",
+      "crawledAt": "2026-10-29T21:21:09.925Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3275,7 +3282,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:26:00.710Z",
+      "crawledAt": "2026-10-29T21:21:08.916Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3357,7 +3364,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:25:59.704Z",
+      "crawledAt": "2026-10-29T21:21:07.909Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3441,7 +3448,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:25:58.704Z",
+      "crawledAt": "2026-10-29T21:21:06.881Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3525,7 +3532,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:25:57.670Z",
+      "crawledAt": "2026-10-29T21:21:05.876Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3608,7 +3615,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:25:56.660Z",
+      "crawledAt": "2026-10-29T21:21:04.897Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3666,7 +3673,7 @@
       "slugByLocale": {
         "it": "specialista-del-reclutamento-hr-see-spital-horgen",
         "en": "hr-recruitment-specialist-see-spital-horgen",
-        "de": "hr-rekrutierungsspezialist-in-see-spital-horgen",
+        "de": "hr-rekrutierungsspezialist-in-see-spital-ch",
         "fr": "specialiste-du-recrutement-rh-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -3692,7 +3699,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:25:55.653Z",
+      "crawledAt": "2026-10-29T21:21:03.896Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3712,11 +3719,10 @@
       "requirementsByLocale": {},
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "previousSlugs": [
-        "hr-rekrutierungsspezialist-in-see-spital-ch",
-        "hr-rekrutierungsspezialist-in-see-spital-horgen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "hr-rekrutierungsspezialist-in-see-spital-horgen"
+        ],
         "it": [
           "hr-rekrutierungsspezialist-in-see-spital-ch",
           "hr-rekrutierungsspezialist-in-see-spital-horgen"
@@ -3724,13 +3730,14 @@
         "en": [
           "hr-rekrutierungsspezialist-in-see-spital-horgen"
         ],
-        "de": [
-          "hr-rekrutierungsspezialist-in-see-spital-ch"
-        ],
         "fr": [
           "hr-rekrutierungsspezialist-in-see-spital-horgen"
         ]
       },
+      "previousSlugs": [
+        "hr-rekrutierungsspezialist-in-see-spital-ch",
+        "hr-rekrutierungsspezialist-in-see-spital-horgen"
+      ],
       "firstSeenAt": "2026-10-13T21:18:28.215Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3778,7 +3785,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:25:54.622Z",
+      "crawledAt": "2026-10-29T21:21:02.872Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3861,7 +3868,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:25:53.596Z",
+      "crawledAt": "2026-10-29T21:21:01.869Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3943,7 +3950,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:25:52.597Z",
+      "crawledAt": "2026-10-29T21:21:00.893Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4024,7 +4031,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:25:51.546Z",
+      "crawledAt": "2026-10-29T21:20:59.851Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4106,7 +4113,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-29T09:25:50.509Z",
+      "crawledAt": "2026-10-29T21:20:58.807Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4155,6 +4162,76 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-9042c5485dad",
+      "slug": "stellvertretende-r-apotheker-in-see-spital-ch",
+      "slugByLocale": {
+        "de": "stellvertretende-r-apotheker-in-see-spital-ch",
+        "it": "stellvertretende-r-apotheker-in-see-spital-ch",
+        "en": "stellvertretende-r-apotheker-in-see-spital-ch",
+        "fr": "stellvertretende-r-apotheker-in-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Stellvertretende*r Apotheker*in",
+      "titleByLocale": {
+        "de": "Stellvertretende*r Apotheker*in",
+        "it": "Stellvertretende*r Apotheker*in",
+        "en": "Stellvertretende*r Apotheker*in",
+        "fr": "Stellvertretende*r Apotheker*in"
+      },
+      "description": "Per 1. Januar 2027 oder nach Vereinbarung suchen wir eine*n Stellvertretende*r Apotheker*in\n50%\n\nDein Aufgabengebiet:\n\n• Du betreust und berätst unsere Kund*innen ganzheitlich, kompetent und individuell.\n• Du stellst die Arzneimittelversorgung im Rahmen der Austrittrezepte des See-Spitals Horgen im stationären Bereich sicher.\n• Du berätst Patient*innen beim Spitalaustritt kompetent und unterstützt eine sichere Weiterführung der medikamentösen Therapie.\n• Du vertrittst die verantwortliche Apothekerin im Tagesgeschäft der Apotheke.\n• Du unterstützt das Team im Tagesgeschäft.\n• Du wirkst bei der Weiterentwicklung und Aktualisierung des Qualitätsmanagementsystems (QMS) mit und stellst die Einhaltung der internen Qualitätsstandards sicher.\n• Du arbeitest an der Weiterentwicklung unseres Dienstleistungsangebots mit.\n• Du pflegst eine enge interdisziplinäre Zusammenarbeit mit den verschiedenen Abteilungen des See-Spitals sowie weiteren Gesundheitsfachpersonen.\n\nDein Profil:\n\n• Du verfügst über ein eidgenössisches Apothekerdiplom oder ein anerkanntes ausländisches Apothekerdiplom.\n• Eine eigene Berufsausübungsbewilligung (BAB) ist von Vorteil, jedoch keine Voraussetzung.\n• Du hast Freude an der Arbeit in einer öffentlichen Apotheke und am persönlichen Kontakt mit Patient*innen.\n• Du arbeitest selbstständig, verantwortungsbewusst und lösungsorientiert.\n• Du bist motiviert, dein Fachwissen kontinuierlich zu erweitern und dein Wissen mit dem Team zu teilen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und bringst dich aktiv ins Team ein.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+      "descriptionByLocale": {
+        "de": "Per 1. Januar 2027 oder nach Vereinbarung suchen wir eine*n Stellvertretende*r Apotheker*in\n50%\n\nDein Aufgabengebiet:\n\n• Du betreust und berätst unsere Kund*innen ganzheitlich, kompetent und individuell.\n• Du stellst die Arzneimittelversorgung im Rahmen der Austrittrezepte des See-Spitals Horgen im stationären Bereich sicher.\n• Du berätst Patient*innen beim Spitalaustritt kompetent und unterstützt eine sichere Weiterführung der medikamentösen Therapie.\n• Du vertrittst die verantwortliche Apothekerin im Tagesgeschäft der Apotheke.\n• Du unterstützt das Team im Tagesgeschäft.\n• Du wirkst bei der Weiterentwicklung und Aktualisierung des Qualitätsmanagementsystems (QMS) mit und stellst die Einhaltung der internen Qualitätsstandards sicher.\n• Du arbeitest an der Weiterentwicklung unseres Dienstleistungsangebots mit.\n• Du pflegst eine enge interdisziplinäre Zusammenarbeit mit den verschiedenen Abteilungen des See-Spitals sowie weiteren Gesundheitsfachpersonen.\n\nDein Profil:\n\n• Du verfügst über ein eidgenössisches Apothekerdiplom oder ein anerkanntes ausländisches Apothekerdiplom.\n• Eine eigene Berufsausübungsbewilligung (BAB) ist von Vorteil, jedoch keine Voraussetzung.\n• Du hast Freude an der Arbeit in einer öffentlichen Apotheke und am persönlichen Kontakt mit Patient*innen.\n• Du arbeitest selbstständig, verantwortungsbewusst und lösungsorientiert.\n• Du bist motiviert, dein Fachwissen kontinuierlich zu erweitern und dein Wissen mit dem Team zu teilen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und bringst dich aktiv ins Team ein.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "it": "Per 1. Januar 2027 oder nach Vereinbarung suchen wir eine*n Stellvertretende*r Apotheker*in\n50%\n\nDein Aufgabengebiet:\n\n• Du betreust und berätst unsere Kund*innen ganzheitlich, kompetent und individuell.\n• Du stellst die Arzneimittelversorgung im Rahmen der Austrittrezepte des See-Spitals Horgen im stationären Bereich sicher.\n• Du berätst Patient*innen beim Spitalaustritt kompetent und unterstützt eine sichere Weiterführung der medikamentösen Therapie.\n• Du vertrittst die verantwortliche Apothekerin im Tagesgeschäft der Apotheke.\n• Du unterstützt das Team im Tagesgeschäft.\n• Du wirkst bei der Weiterentwicklung und Aktualisierung des Qualitätsmanagementsystems (QMS) mit und stellst die Einhaltung der internen Qualitätsstandards sicher.\n• Du arbeitest an der Weiterentwicklung unseres Dienstleistungsangebots mit.\n• Du pflegst eine enge interdisziplinäre Zusammenarbeit mit den verschiedenen Abteilungen des See-Spitals sowie weiteren Gesundheitsfachpersonen.\n\nDein Profil:\n\n• Du verfügst über ein eidgenössisches Apothekerdiplom oder ein anerkanntes ausländisches Apothekerdiplom.\n• Eine eigene Berufsausübungsbewilligung (BAB) ist von Vorteil, jedoch keine Voraussetzung.\n• Du hast Freude an der Arbeit in einer öffentlichen Apotheke und am persönlichen Kontakt mit Patient*innen.\n• Du arbeitest selbstständig, verantwortungsbewusst und lösungsorientiert.\n• Du bist motiviert, dein Fachwissen kontinuierlich zu erweitern und dein Wissen mit dem Team zu teilen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und bringst dich aktiv ins Team ein.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "en": "Per 1. Januar 2027 oder nach Vereinbarung suchen wir eine*n Stellvertretende*r Apotheker*in\n50%\n\nDein Aufgabengebiet:\n\n• Du betreust und berätst unsere Kund*innen ganzheitlich, kompetent und individuell.\n• Du stellst die Arzneimittelversorgung im Rahmen der Austrittrezepte des See-Spitals Horgen im stationären Bereich sicher.\n• Du berätst Patient*innen beim Spitalaustritt kompetent und unterstützt eine sichere Weiterführung der medikamentösen Therapie.\n• Du vertrittst die verantwortliche Apothekerin im Tagesgeschäft der Apotheke.\n• Du unterstützt das Team im Tagesgeschäft.\n• Du wirkst bei der Weiterentwicklung und Aktualisierung des Qualitätsmanagementsystems (QMS) mit und stellst die Einhaltung der internen Qualitätsstandards sicher.\n• Du arbeitest an der Weiterentwicklung unseres Dienstleistungsangebots mit.\n• Du pflegst eine enge interdisziplinäre Zusammenarbeit mit den verschiedenen Abteilungen des See-Spitals sowie weiteren Gesundheitsfachpersonen.\n\nDein Profil:\n\n• Du verfügst über ein eidgenössisches Apothekerdiplom oder ein anerkanntes ausländisches Apothekerdiplom.\n• Eine eigene Berufsausübungsbewilligung (BAB) ist von Vorteil, jedoch keine Voraussetzung.\n• Du hast Freude an der Arbeit in einer öffentlichen Apotheke und am persönlichen Kontakt mit Patient*innen.\n• Du arbeitest selbstständig, verantwortungsbewusst und lösungsorientiert.\n• Du bist motiviert, dein Fachwissen kontinuierlich zu erweitern und dein Wissen mit dem Team zu teilen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und bringst dich aktiv ins Team ein.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "fr": "Per 1. Januar 2027 oder nach Vereinbarung suchen wir eine*n Stellvertretende*r Apotheker*in\n50%\n\nDein Aufgabengebiet:\n\n• Du betreust und berätst unsere Kund*innen ganzheitlich, kompetent und individuell.\n• Du stellst die Arzneimittelversorgung im Rahmen der Austrittrezepte des See-Spitals Horgen im stationären Bereich sicher.\n• Du berätst Patient*innen beim Spitalaustritt kompetent und unterstützt eine sichere Weiterführung der medikamentösen Therapie.\n• Du vertrittst die verantwortliche Apothekerin im Tagesgeschäft der Apotheke.\n• Du unterstützt das Team im Tagesgeschäft.\n• Du wirkst bei der Weiterentwicklung und Aktualisierung des Qualitätsmanagementsystems (QMS) mit und stellst die Einhaltung der internen Qualitätsstandards sicher.\n• Du arbeitest an der Weiterentwicklung unseres Dienstleistungsangebots mit.\n• Du pflegst eine enge interdisziplinäre Zusammenarbeit mit den verschiedenen Abteilungen des See-Spitals sowie weiteren Gesundheitsfachpersonen.\n\nDein Profil:\n\n• Du verfügst über ein eidgenössisches Apothekerdiplom oder ein anerkanntes ausländisches Apothekerdiplom.\n• Eine eigene Berufsausübungsbewilligung (BAB) ist von Vorteil, jedoch keine Voraussetzung.\n• Du hast Freude an der Arbeit in einer öffentlichen Apotheke und am persönlichen Kontakt mit Patient*innen.\n• Du arbeitest selbstständig, verantwortungsbewusst und lösungsorientiert.\n• Du bist motiviert, dein Fachwissen kontinuierlich zu erweitern und dein Wissen mit dem Team zu teilen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und bringst dich aktiv ins Team ein.\n\nWas wir dir bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der du dich wohlfühlen kannst – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der dir sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant"
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-29T21:20:57.791Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-29T21:20:57.791Z"
     }
   ]
 }

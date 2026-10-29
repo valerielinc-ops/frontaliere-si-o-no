@@ -1,7 +1,7 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-10-29T09:29:07.041Z",
+  "generatedAt": "2026-10-29T21:22:38.900Z",
   "total": 5,
   "discovered": 7,
   "parsed": 5,
@@ -10,13 +10,13 @@
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5116,
-  "avgDurationMs": 5116,
+  "unchangedCount": 2,
+  "durationMs": 5233,
+  "avgDurationMs": 5233,
   "durationHistory": [
-    5116
+    5233
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -94,55 +94,12 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/governante-housekeeping-lugano-724679/en",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
         "completeness": 20
-      }
-    },
-    {
-      "title": "Hospitality Manager – Luxury Hospitality",
-      "slug": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "real-estate",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "a-group-555f4c55dbc7",
-      "salaryMin": 73000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-28T05:26:25.994Z",
-      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
       }
     },
     {
@@ -170,7 +127,6 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "a-group-cf1b4e6d7133",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
@@ -179,6 +135,7 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -231,7 +188,48 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "title": "Hospitality Manager – Luxury Hospitality",
+      "slug": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "real-estate",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "a-group-555f4c55dbc7",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-28T05:26:25.994Z",
+      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/hospitality-manager-luxury-hospitality-724675/en",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
+      }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
