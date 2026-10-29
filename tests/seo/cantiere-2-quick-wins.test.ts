@@ -86,7 +86,7 @@ describe('cantiere 2 — SEO metadata quick wins', () => {
     const entry = entrySource('calcolatore', 'guide');
     const description = entry.match(/\n description: '([^']+)'/)?.[1] ?? '';
     const ogDescription = entry.match(/\n ogDescription: '([^']+)'/)?.[1] ?? '';
-    expect(description).toBe('Calcola lo stipendio netto da frontaliere in Svizzera: imposta alla fonte, AVS, LPP, IRPEF e franchigia di 10.000 €. Simulatore gratuito aggiornato al 2026.');
+    expect(description).toBe('Calcola lo stipendio netto da frontaliere: imposta alla fonte, AVS e LPP. La deduzione italiana di 10.000 € dipende dai requisiti di legge.');
     expect(ogDescription).toBe('Simula il reddito netto includendo imposta alla fonte, contributi e trattamento italiano quando applicabile; la deduzione di 10.000 € dipende dai requisiti di legge.');
     expect(description.length).toBeLessThanOrEqual(160);
     expect(ogDescription.length).toBeLessThanOrEqual(160);

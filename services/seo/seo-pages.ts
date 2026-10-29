@@ -606,7 +606,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
  // See docs/seo-semrush-growth-plan.md Task A.3.
  title: 'Calcolo stipendio netto Svizzera 2026',
- description: 'Calcola lo stipendio netto da frontaliere in Svizzera: imposta alla fonte, AVS, LPP, IRPEF e franchigia di 10.000 €. Simulatore gratuito aggiornato al 2026.',
+ description: 'Calcola lo stipendio netto da frontaliere: imposta alla fonte, AVS e LPP. La deduzione italiana di 10.000 € dipende dai requisiti di legge.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
  ogTitle: 'Calcolo stipendio netto Svizzera 2026',
  ogDescription: 'Simula il reddito netto includendo imposta alla fonte, contributi e trattamento italiano quando applicabile; la deduzione di 10.000 € dipende dai requisiti di legge.',
