@@ -6107,10 +6107,10 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       // owner render, the locale-shard sitemap skip, and this reciprocal map;
       // a noindex or non-canonical variant must never become an hreflang
       // member and force the manifest pass to strip the whole family.
-      const __tGroupHreflang = profileStart();
       const emissionByCtx = new Map<ClusterContext, ClusterEmissionDecision>();
       const byClusterFamily = new Map<string, Map<Locale, ClusterContext>>();
       const familyKeyByCtx = new Map<ClusterContext, string>();
+      const __tClusterDecide = profileStart();
       for (const ctx of contexts) {
         const emission = decideClusterEmission({
           ctx,
@@ -6121,6 +6121,15 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
           demand: gscDemand,
         });
         emissionByCtx.set(ctx, emission);
+      }
+      profileRecord('cluster-decide', __tClusterDecide);
+
+      const __tGroupHreflang = profileStart();
+      for (const ctx of contexts) {
+        const emission = emissionByCtx.get(ctx);
+        if (!emission) {
+          throw new Error(`missing cached cluster emission decision for ${ctx.candidate.locale}::${ctx.candidate.slug}`);
+        }
         const key = getRelatedSearchClusterFamilyKey(ctx.candidate);
         if (!key) continue;
         if (
@@ -6290,11 +6299,12 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
           // cannot vet what we push here — its cross-shard branch keeps
           // non-owned locs unconditionally, and correctly so (removing that
           // KEEP would truncate the merged sitemap to IT-only). Whatever this
-          // branch pushes SHIPS. It therefore asks the same question the owning
-          // shard asks, through the same function, instead of re-deriving a
-          // subset of it: that re-derivation is what leaked 31,624 below-floor
+          // branch pushes SHIPS. It therefore reads the same cached decision
+          // the owning shard uses instead of re-deriving a subset of it: that
+          // re-derivation is what leaked 31,624 below-floor
           // bridges in run 29636707053 and 106,276 inert-band URLs in run
-          // 31077435060. See `decideClusterEmission`.
+          // 31077435060. The prepass above has already computed the shared
+          // decision, so this path reads the same result as the owner.
           const __skEmission = emissionByCtx.get(ctx);
           if (!__skEmission) {
             throw new Error(`missing cached cluster emission decision for ${ctx.candidate.locale}::${ctx.candidate.slug}`);
@@ -6350,7 +6360,10 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         // with the same arguments. Nothing about "is this page noindex, and may
         // its URL enter a sitemap" is decided at this call site anymore.
         //
-        // Timed (issue #5130 follow-up, AGENTS.md #6). `render-cluster-page`
+        // The indexability decision was computed once in the prepass above;
+        // this path reuses it so the reciprocal map, sitemap and HTML robots
+        // directive cannot drift. Timed (issue #5130 follow-up, AGENTS.md #6).
+        // `render-cluster-page`
         // measured 111,523 ms over 80,368 pages on run 31036546298 as ONE
         // opaque bucket covering render + decide + thin conversion, and
         // `cluster tier: full=5601 thin=74767` says 93% take the thin path — so

@@ -131,48 +131,41 @@ describe('#5130 — the same split is applied to the cluster sibling (AGENTS.md 
   const EMIT_BLOCK = () =>
     sliceBetween('const out = renderClusterPage({', "profileRecord('render-cluster-page'");
   const SKIP_BLOCK = () =>
-    sliceBetween('if (!shouldEmitLocale(locale)) {', 'const altKey = altKeyByCtx.get(ctx)');
+    sliceBetween('if (!shouldEmitLocale(locale)) {', 'const altKey = familyKeyByCtx.get(ctx)');
+
+  const DECISION_PREPASS = () =>
+    sliceBetween('const __tClusterDecide = profileStart();', "profileRecord('cluster-decide', __tClusterDecide)");
 
   it('keeps the decision before the thin conversion and each timer on its own phase', () => {
     // The decision moved behind `decideClusterEmission()` (#5242) — it builds
     // the candidate paths and calls `decideMulti` itself — but the property
     // #5130 defends is unchanged: the tier is decided from candidate PATHS
     // before the HTML is touched, and neither timer swallows the other's phase.
+    const prepass = DECISION_PREPASS();
     const block = EMIT_BLOCK();
-    const decideAt = block.indexOf('const __clEmission = decideClusterEmission({');
-    const decideRecordAt = block.indexOf("profileRecord('cluster-decide'");
+    const decideAt = prepass.indexOf('const emission = decideClusterEmission({');
+    const decideRecordAt = prepass.indexOf("profileRecord('cluster-decide'");
     const thinAt = block.indexOf('buildClusterThinHtml(out.html, locale');
     const thinRecordAt = block.indexOf("profileRecord('cluster-thin'");
     expect(decideAt).toBeGreaterThan(-1);
-    expect(thinAt).toBeGreaterThan(-1);
     expect(decideAt).toBeLessThan(decideRecordAt);
-    expect(decideRecordAt).toBeLessThan(thinAt);
+    expect(block.indexOf('const __clEmission = emissionByCtx.get(ctx);')).toBeGreaterThan(-1);
+    expect(thinAt).toBeGreaterThan(-1);
     expect(thinAt).toBeLessThan(thinRecordAt);
   });
 
-  it('still decides exactly once', () => {
-    // Two levels, because the decision now has an indirection the old
-    // single-call-site count could not see through:
-    //
-    //   1. the emit block takes exactly ONE decision, and
-    //   2. that decision resolves to exactly ONE `decideMulti` in the whole
-    //      file — otherwise a duplicate hidden INSIDE `decideClusterEmission`
-    //      would keep (1) at one and re-introduce the double work #5130
-    //      exists to prevent.
-    expect(EMIT_BLOCK().split('decideClusterEmission(').length - 1).toBe(1);
+  it('decides once in the prepass and reuses the cached result', () => {
+    expect(DECISION_PREPASS().split('decideClusterEmission(').length - 1).toBe(1);
+    expect(EMIT_BLOCK().split('decideClusterEmission(').length - 1).toBe(0);
     expect(CLUSTER_CODE.split('.decideMulti(').length - 1).toBe(1);
   });
 
-  it('times the render-skip path decision on its own phase, and takes it once', () => {
+  it('reuses the prepass decision in the render-skip path', () => {
     // The second producer runs the same decision for the locales this shard
-    // does not render, so it carries the same per-page cost — it gets its own
-    // phase name rather than hiding inside the untimed remainder, which is the
-    // whole point of #5130.
+    // does not render. It reads the cached result so it cannot diverge from
+    // the owner path while the decision remains timed in the prepass.
     const block = SKIP_BLOCK();
-    expect(block.split('decideClusterEmission(').length - 1).toBe(1);
-    const decideAt = block.indexOf('decideClusterEmission({');
-    const recordAt = block.indexOf("profileRecord('cluster-decide-skip'");
-    expect(decideAt).toBeGreaterThan(-1);
-    expect(recordAt).toBeGreaterThan(decideAt);
+    expect(block.split('decideClusterEmission(').length - 1).toBe(0);
+    expect(block).toContain('const __skEmission = emissionByCtx.get(ctx);');
   });
 });
