@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({ prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
 import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
 import {
   proposalDocumentId,
@@ -650,7 +651,7 @@ describe('application concierge matching', () => {
       expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
-        matchingVersion: 'cv-relevance-v5',
+        matchingVersion: 'cv-relevance-v6-full-requirements',
         matchScore: expect.any(Number),
       }));
       expect((relevant?.matchScore as number)).toBeLessThan(99);

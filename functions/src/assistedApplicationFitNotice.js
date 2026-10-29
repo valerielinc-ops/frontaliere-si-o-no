@@ -14,7 +14,8 @@
  * the fact warnings.
  */
 
-const DECISIVE = ['critical', 'high'];
+export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
+const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
 const OPEN = ['missing', 'partial'];
 export const MAX_FIT_GAPS = 6;
 
@@ -55,4 +56,31 @@ export function fitNoticeWording(fit, { questions = false, edit = true } = {}) {
   if (!fit) return null;
   const kind = fit.level === 'low' && !(fit.gaps || []).length ? 'far' : fit.level;
   return { kind, via: questions ? 'answers' : edit ? 'edit' : null };
+}
+
+
+/** The proposal funnel uses the same decisive rows as review, and requires verified positive evidence. */
+export function conciergeProposalEligibility(requirements, match) {
+  const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
+  if (!rows.length || !Array.isArray(match?.matches)) return { status: 'unverified', gaps: [] };
+  const found = new Map();
+  for (const row of match.matches) {
+    if (found.has(row.index)) return { status: 'unverified', gaps: [] };
+    found.set(row.index, row);
+  }
+  const gaps = rows.flatMap((row, index) => {
+    if (!DECISIVE.includes(row.importance)) return [];
+    const evidence = found.get(index);
+    if (row.basis !== 'stated' || !row.quote || row.quoteUnverified || !evidence || evidence.evidenceUnverified
+      || evidence.status !== 'met' || !String(evidence.evidence || '').trim()) {
+      return [{ index, requirement: row.requirement, importance: row.importance, status: evidence?.status || 'unknown' }];
+    }
+    return [];
+  });
+  const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });
+  if (gaps.length || notice) {
+    return { status: match.verdict === 'poor' ? 'incompatible' : 'clarification_required', gaps, questions: match.questions || [] };
+  }
+  if (!['strong', 'good'].includes(match.verdict)) return { status: 'unverified', gaps: [] };
+  return { status: 'compatible', gaps: [] };
 }

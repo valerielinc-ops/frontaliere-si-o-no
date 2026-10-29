@@ -106,11 +106,22 @@ export async function handleGeminiGenerate(req) {
     return { status: 400, body: { ok: false, error: 'missing_prompt' } };
   }
 
+  return generateServerText({ systemPrompt, userPrompt, maxTokens, temperature, model });
+}
+
+/** Internal trusted callers can send complete source text; the HTTP endpoint keeps its original caps. */
+export async function generateServerText({ systemPrompt = '', userPrompt = '', maxTokens = 2048, temperature = 0.7,
+  model = DEFAULT_MODEL, maxProviderAttempts = Infinity, allowCodexFallback = true } = {}) {
+  if (!userPrompt || userPrompt.length > 100_000 || systemPrompt.length > 40_000) {
+    return { status: 400, body: { ok: false, error: 'generation_input_out_of_bounds' } };
+  }
+  let attempts = 0;
   const failures = [];
 
   // 1. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
   const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
-  if (geminiKey) {
+  if (geminiKey && attempts < maxProviderAttempts) {
+    attempts += 1;
     try {
       const text = await callGemini({ apiKey: geminiKey, model, systemPrompt, userPrompt, maxTokens, temperature });
       return { status: 200, body: { ok: true, text, provider: 'gemini' } };
@@ -123,11 +134,13 @@ export async function handleGeminiGenerate(req) {
 
   // 2. Fallbacks: free OpenAI-compatible providers (keys already in Remote Config).
   for (const fb of OPENAI_FALLBACKS) {
+    if (attempts >= maxProviderAttempts) break;
     const key = await getRemoteConfigValue(fb.rcKey);
     if (!key) {
       failures.push(`${fb.label}: no_key`);
       continue;
     }
+    attempts += 1;
     try {
       const text = await callOpenAiCompatible({ base: fb.base, apiKey: key, model: fb.model, systemPrompt, userPrompt, maxTokens, temperature });
       console.log(`[geminiGenerate] served by fallback ${fb.label}`);
@@ -141,10 +154,10 @@ export async function handleGeminiGenerate(req) {
   //    (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
   //    exception in AGENTS.md (issue #4495). Only reached once every free
   //    provider above has failed.
-  const codexResult = await tryCodexFallback({
+  const codexResult = allowCodexFallback ? await tryCodexFallback({
     systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
-  });
+  }) : { ok: false, notConfigured: true };
   if (codexResult.ok) {
     console.log('[geminiGenerate] served by fallback codex');
     return { status: 200, body: { ok: true, text: codexResult.text, provider: 'codex' } };

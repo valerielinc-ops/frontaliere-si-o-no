@@ -49,6 +49,7 @@ import {
   requirementsUserText,
   resolveLetterLanguage,
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
+import { vettedConciergeDraftInputs } from '../../../functions/src/applicationConciergeEligibility.js';
 import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
 import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
 import { candidateType } from '../../../functions/src/assistedApplicationCandidateType.js';
@@ -129,7 +130,7 @@ export async function buildDraft(ctx) {
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   maskValues(personalValuesOf(order));
 
-  const posting = await fetchJobPosting(order, { fetchImpl });
+  const posting = await fetchJobPosting(order, { fetchImpl, maxPostingChars: MAX_SOURCE_CHARS });
   const liveness = await checkPostingLiveness({ order, posting, fetchImpl, resolve: ctx.resolve });
   log('liveness', liveness.page?.result || 'n/a', liveness.page?.code || '', liveness.closed ? 'CLOSED' : '');
   if (liveness.closed) throw new DraftAbort('posting_closed', `posting_closed:${liveness.page?.code || 'dataset'}`);
@@ -146,6 +147,7 @@ export async function buildDraft(ctx) {
     // So is a profile read before the kinds of experience: an internship would count as a job.
     && profileOfThisVersion(previousDraft.profile);
 
+  const qualification = !reuse && ctx.db ? await vettedConciergeDraftInputs({ db: ctx.db, order, cvBuffer, postingText }).catch(() => null) : null;
   let cvText = previousDraft?.factSources?.text && reuse ? previousDraft.factSources.text : '';
   let cvMethod = reuse ? previousDraft.cvTextMethod : 'none';
   let profile;
@@ -161,7 +163,7 @@ export async function buildDraft(ctx) {
     cvMethod = cv.method;
     log('cv text', cv.method, `${cv.text.length} chars`);
     if (cv.text.length < 80) throw new DraftAbort('draft_failed', `cv_unreadable:${cv.method}`);
-    const [profileRaw, requirementsRaw] = await Promise.all([
+    const [profileRaw, requirementsRaw] = qualification ? [qualification.profile, qualification.requirements] : await Promise.all([
       codex({ prompt: codexPrompt(PROFILE_SYSTEM_PROMPT, profileUserText(cv.text)), schema: PROFILE_SCHEMA, timeoutMs: CODEX_TIMEOUT_MS }),
       codex({
         prompt: codexPrompt(REQUIREMENTS_SYSTEM_PROMPT, requirementsUserText({
@@ -205,9 +207,11 @@ export async function buildDraft(ctx) {
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT), flow,
     cvBuffer, cvType, cvKey: order.cvStorageKey, inPlace: ctx.inPlace,
   });
-  const matchRaw = await codex({
+  const reuseQualifiedMatch = qualification && !candidateNotes && !Object.keys(edited.overrides).length
+    && !Object.keys(answers).some(key => key !== 'salutation') && !flow?.feedback?.length;
+  const matchRaw = reuseQualifiedMatch ? qualification.match : await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
-      profile, requirements, answers, candidateNotes, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+      profile, requirements, answers, candidateNotes, postingExcerpt: postingText, sourceText: cvText,
     })),
     schema: MATCH_SCHEMA,
     timeoutMs: CODEX_TIMEOUT_MS,

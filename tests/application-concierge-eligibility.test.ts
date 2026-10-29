@@ -1,0 +1,77 @@
+import { describe, expect, it, vi } from 'vitest';
+vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
+vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
+const { prepareConciergeEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
+const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
+
+const requirements = { requirements: [{ requirement: 'Tedesco fluente', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] };
+const rawProfile = { fullName: 'Candidate Example', languages: [{ language: 'English', level: 'B2' }, { language: 'French', level: 'B2' }], languagesExplicitList: true, experience: [] };
+function fixture(match: any) {
+  const records = new Map<string, any>();
+  function ref(path: string): any {
+    return { id: path.split('/').at(-1), get: async () => ({ exists: records.has(path), data: () => records.get(path) }),
+      set: async (value: any) => { records.set(path, value); }, collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }) };
+  }
+  const serviceRef = ref('application_concierge_services/service');
+  const service = { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/service/cv.pdf', locale: 'it' };
+  records.set('application_concierge_services/service', service);
+  records.set('user_cv_profiles/candidate', {});
+  const bytes = Buffer.from('%PDF-1.7 test CV');
+  const bucket: any = { file: () => ({ getMetadata: async () => [{ size: bytes.length }], download: async () => [bytes] }) };
+  const generate = vi.fn(async (system: string, _user: string, _schema: any) => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? requirements : match);
+  const readPosting = vi.fn(async () => ({ text: `Fluent German required. ${'IT operations and infrastructure. '.repeat(400)}`, source: 'job_detail', textTruncated: false }));
+  const db: any = { collection: (name: string) => ({ doc: (id: string) => ref(`${name}/${id}`) }) };
+  return { records, serviceRef, service, bytes, bucket, generate, readPosting, db };
+}
+
+describe('qualification before proposal publication', () => {
+  it.each(['missing', 'partial'])('rejects title relevance when a decisive requirement is %s in both funnels', async status => {
+    const match = { matches: [{ index: 0, status, evidence: 'Languages: English B2, French B2' }], verdict: 'poor', questions: [] };
+    const f = fixture(match);
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const result = await check({ id: 'it-lead', title: 'IT Manager', company: 'Example', url: 'https://example.test/jobs/it/' });
+    expect(result.status).toBe('incompatible');
+    expect(fitNoticeOf({ ...match, requirements: requirements.requirements })).not.toBeNull();
+    // The late requirement at >8,000 chars is preserved, unlike the old public generation endpoint cap.
+    expect(f.generate.mock.calls[1][1].length).toBeGreaterThan(8000);
+    expect(f.readPosting).toHaveBeenCalledWith(expect.anything(), { maxPostingChars: 30_000 });
+  });
+  it('does not treat a silent CV or unverified evidence as a positive match', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    expect((await check({ id: 'it-lead', title: 'IT Manager', company: 'Example' })).status).toBe('clarification_required');
+  });
+  it('does not truncate a long posting into a compatible proposal', async () => {
+    const f = fixture({ matches: [], verdict: 'strong' });
+    f.readPosting.mockResolvedValue({ text: 'Posting text '.repeat(100), textTruncated: true, source: 'job_detail' });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    expect(await check({ id: 'long-posting' })).toMatchObject({ status: 'unverified', reason: 'posting_incomplete' });
+    expect(f.generate).toHaveBeenCalledTimes(1);
+  });
+  it('reuses a verified positive only for identical CV, posting and answer memory', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    const required = { requirements: [{ requirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'English B2' }] };
+    f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? rawProfile : system === REQUIREMENTS_SYSTEM_PROMPT ? required : { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
+    f.readPosting.mockResolvedValue({ text: `English B2 ${'IT operations and infrastructure. '.repeat(20)}`, textTruncated: false, source: 'job_detail' });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    const job = { id: 'job', title: 'IT Manager', company: 'Example' };
+    const result = await check(job);
+    expect(result.status).toBe('compatible');
+    await check(job);
+    expect(f.generate).toHaveBeenCalledTimes(3);
+    f.records.set('application_concierge_services/service/proposals/proposal', { eligibilityCacheId: result.cacheId, eligibilityFingerprint: result.fingerprint });
+    const order = { userId: 'candidate', parentServiceId: 'service', parentProposalId: 'proposal' };
+    const input = { db: f.db, order, cvBuffer: f.bytes, postingText: (await f.readPosting()).text };
+    expect(await vettedConciergeDraftInputs(input)).toMatchObject({ result: { status: 'compatible' } });
+    expect(await vettedConciergeDraftInputs({ ...input, cvBuffer: Buffer.from('different CV') })).toBeNull();
+    expect(await vettedConciergeDraftInputs({ ...input, postingText: `${input.postingText} changed` })).toBeNull();
+    f.records.set('user_cv_profiles/candidate', { applicationQuestionAnswers: { language_en_any_proficiency: 'C1' } });
+    expect(await vettedConciergeDraftInputs(input)).toBeNull();
+  });
+  it('requires all decisive rows and source-grounded positive evidence', () => {
+    expect(conciergeProposalEligibility(requirements, { matches: [], verdict: 'good' }).status).toBe('clarification_required');
+    expect(conciergeProposalEligibility(requirements, { matches: [{ index: 0, status: 'met', evidence: '' }], verdict: 'good' }).status).toBe('clarification_required');
+    expect(conciergeProposalEligibility({ requirements: [] }, { matches: [], verdict: 'strong' }).status).toBe('unverified');
+  });
+});

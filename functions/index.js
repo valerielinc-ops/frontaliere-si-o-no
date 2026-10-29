@@ -2913,7 +2913,7 @@ export const refreshCandidateCvProfile = onCall(
 // profile, then scan the published Swiss job index and create explainable
 // proposals. Every proposal remains pending until the candidate accepts it.
 export const processApplicationConciergeCv = onDocumentWritten(
-  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 120, document: 'application_concierge_services/{serviceId}' },
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 540, document: 'application_concierge_services/{serviceId}' },
   async (event) => {
     const after = event.data?.after;
     if (!after?.exists) return;
