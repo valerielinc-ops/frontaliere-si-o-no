@@ -134,6 +134,8 @@ import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import { hasConcatenatedWords, hasUsableTitle } from './translation-quality.mjs';
 import { assessComposedFromInputs, assessVerbatimRestructure } from './ai-output-fidelity.mjs';
 import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
+import { fetchViaMorssWithRetry } from './morss-proxy.mjs';
+import { isTichDetailHtmlForUrl, isTichDetailUrl } from './tich-detail-identity.mjs';
 import {
   extractMigrosStructuredData,
   extractMigrosSectionItems,
@@ -3000,6 +3002,15 @@ function fetchRetryDelayMs(attempt) {
   return Math.min(5000, expo + jitter);
 }
 
+async function isTrustedMorssResponse(url, response) {
+  if (!isTichDetailUrl(url)) return true;
+  const body = await response.clone().text().catch(() => '');
+  if (isTichDetailHtmlForUrl(body, url)) return true;
+  console.warn(`⚠️ Morss Ti.CH detail response failed the identity check for ${url} — falling back to direct fetch.`);
+  try { await response.body?.cancel(); } catch {}
+  return false;
+}
+
 async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userAgent, timeoutMs } = {}) {
   const upperMethod = normalizeSpace(method || 'GET').toUpperCase();
   const canRetry = (upperMethod === 'GET' || upperMethod === 'HEAD') && !body;
@@ -3017,6 +3028,22 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
   let targetUrl = url;
   let proxyHeaders = {};
   let postJinaFallback = false;
+  if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_MORSS_PROXY)) {
+    // Morss is an alternate clean-egress path for sources that block the
+    // runner's datacenter IPs. It returns the target HTML through :get=page,
+    // so keep the original URL as the crawler's identity and only replace the
+    // transport response. GET is the only safe method: Morss always performs a
+    // GET against the upstream page.
+    if (canRetry && upperMethod === 'GET') {
+      const morssRes = await fetchViaMorssWithRetry(url, {
+        timeoutMs: Math.max(REQUEST_TIMEOUT_MS, 30_000),
+        attempts: 2,
+        retryDelayMs: 800,
+      });
+      if (morssRes?.ok && await isTrustedMorssResponse(url, morssRes)) return morssRes;
+      if (!morssRes?.ok) console.warn(`⚠️ Morss proxy exhausted for ${url} — falling back to direct fetch.`);
+    }
+  }
   if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_FETCH_PROXY)) {
     // Route through Jina Reader, and for idempotent GET/HEAD retry on a fresh
     // Jina egress IP when the proxy lands on a WAF-flagged IP (the challenge

@@ -17,7 +17,13 @@ vi.mock('../scripts/jobs-url-helper.mjs', () => ({
   getCrawlerElapsedMs: vi.fn(() => 0),
 }));
 
-const { buildTichFetchProxyHosts, fetchTichJobDetailUrls } = await import('../scripts/update-tich-jobs.mjs');
+const {
+  buildTichFetchProxyHosts,
+  buildTichMorssProxyHosts,
+  fetchTichHtml,
+  fetchTichJobDetailUrls,
+  isTichDetailHtmlForUrl,
+} = await import('../scripts/update-tich-jobs.mjs');
 const {
   buildTichTranslateUrl,
   OFFICIAL_LISTING_CANONICAL_URL,
@@ -60,6 +66,14 @@ const translatedOfficialListingHtml = officialListingHtml.replace(
   'https://www.concorsi.ti.ch/offerte-d%27impieghi.html?yid=4059',
   'https://www-concorsi-ti-ch.translate.goog/offerte-d%27impieghi.html?yid=4059&_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp',
 );
+const morssListingHtml = listingHtml.replace('class="jobsearch"', 'id="jobslisting"');
+const TICH_DETAIL_URL = "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059";
+const validTichDetailHtml = `<!doctype html>
+<html><head><title>Offerta di lavoro Aiuto cucina presso Amministrazione Cantonale Ticino Jobportal</title>
+<meta name="generator" content="Rexx Recruitment - Portal7"></head>
+<body><div id="jobTplContainer">Concorso yid=4059</div>
+<a href="forma-di-lavoro.html?yid=4059&amp;sid=transient">candidatura</a></body></html>`;
+const morssInterstitialHtml = '<html><head><title>Checking your browser</title></head><body>Proxy unavailable</body></html>';
 
 describe('fetchTichJobDetailUrls', () => {
   it('retries a transient discovery failure before falling back to the RSS source', async () => {
@@ -91,6 +105,33 @@ describe('fetchTichJobDetailUrls', () => {
     ]);
     expect(attempts.get(LISTING_URL)).toBe(2);
     expect(attempts.get(RSS_URL)).toBe(1);
+  });
+
+  it('treats a valid empty listing as a successful zero-source result', async () => {
+    const emptyListingHtml = listingHtml.replace(
+      '<a href="/offerte-d\'impieghi.html?yid=4101&amp;sid=transient">Offerta</a>',
+      '',
+    );
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === LISTING_URL) return new Response(emptyListingHtml, { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+
+    const result = await fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      timeoutMs: 1_000,
+    });
+
+    expect(result).toMatchObject({
+      listingSucceeded: true,
+      rssSucceeded: false,
+      officialSucceeded: false,
+      morssSucceeded: false,
+      sourceZero: true,
+      urls: [],
+    });
   });
 
   it('uses the validated official Canton listing when both portal sources are unavailable', async () => {
@@ -167,6 +208,38 @@ describe('fetchTichJobDetailUrls', () => {
       "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
     ]);
     expect(fetchImpl.mock.calls.some(([url]) => url === translateUrl)).toBe(true);
+  });
+
+  it('uses the complete Ti.CH listing through Morss after every other egress fails', async () => {
+    const morssUrl = 'https://morss.it/:get=page/https://www.concorsi.ti.ch/';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === morssUrl) return new Response(morssListingHtml, { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+
+    const result = await fetchTichJobDetailUrls({
+      fetchImpl,
+      retries: 0,
+      retryBaseMs: 0,
+      proxyRetries: 0,
+      proxyRetryBaseMs: 0,
+      translateAttempts: 1,
+      translateRetryDelayMs: 0,
+      morssAttempts: 1,
+      morssRetryDelayMs: 0,
+      timeoutMs: 1_000,
+    });
+
+    expect(result).toMatchObject({
+      listingSucceeded: true,
+      rssSucceeded: false,
+      officialSucceeded: false,
+      morssSucceeded: true,
+    });
+    expect(result.urls).toEqual([
+      "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4101",
+    ]);
+    expect(fetchImpl.mock.calls.some(([url]) => url === morssUrl)).toBe(true);
   });
 
   it('tags an all-transport discovery outage for the crawler soft-exit guard', async () => {
@@ -264,6 +337,26 @@ describe('fetchTichJobDetailUrls', () => {
     expect(thrown).toBeInstanceOf(Error);
     expect((thrown as { feedEndpointUnavailable?: boolean }).feedEndpointUnavailable).not.toBe(true);
   });
+
+  it('rejects a Morss interstitial and falls back to the direct detail page', async () => {
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url === 'https://morss.it/:get=page/' + TICH_DETAIL_URL) {
+        return new Response(morssInterstitialHtml, { status: 200 });
+      }
+      if (url === TICH_DETAIL_URL) return new Response(validTichDetailHtml, { status: 200 });
+      throw new Error(`unexpected URL: ${url}`);
+    });
+
+    await expect(fetchTichHtml(TICH_DETAIL_URL, {
+      fetchImpl,
+      preferMorss: true,
+      timeoutMs: 1_000,
+    })).resolves.toBe(validTichDetailHtml);
+    expect(fetchImpl.mock.calls.map(([url]) => url)).toEqual([
+      'https://morss.it/:get=page/' + TICH_DETAIL_URL,
+      TICH_DETAIL_URL,
+    ]);
+  });
 });
 
 describe('Ticino official listing transport', () => {
@@ -343,5 +436,26 @@ describe('buildTichFetchProxyHosts', () => {
     expect(buildTichFetchProxyHosts({ officialSucceeded: true }, 'other.example')).toBe(
       'other.example,www.concorsi.ti.ch',
     );
+  });
+
+  it('keeps Jina available when Morss supplied discovery as the primary egress', () => {
+    expect(buildTichFetchProxyHosts({ officialSucceeded: false, morssSucceeded: true }, '')).toBe(
+      'www.concorsi.ti.ch',
+    );
+  });
+
+  it('routes detail pages through Morss only when Morss supplied discovery', () => {
+    expect(buildTichMorssProxyHosts({ morssSucceeded: false }, 'other.example')).toBe('other.example');
+    expect(buildTichMorssProxyHosts({ morssSucceeded: true }, 'other.example')).toBe(
+      'other.example,www.concorsi.ti.ch',
+    );
+  });
+});
+
+describe('Ti.CH detail identity', () => {
+  it('accepts only the requested canonical detail identity', () => {
+    expect(isTichDetailHtmlForUrl(validTichDetailHtml, TICH_DETAIL_URL)).toBe(true);
+    expect(isTichDetailHtmlForUrl(validTichDetailHtml, "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4101")).toBe(false);
+    expect(isTichDetailHtmlForUrl(morssInterstitialHtml, TICH_DETAIL_URL)).toBe(false);
   });
 });
