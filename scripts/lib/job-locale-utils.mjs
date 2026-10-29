@@ -855,14 +855,15 @@ export function pinnedTitleSourceLang(job) {
 }
 
 /**
- * Resolve the effective source language for title slots. `sourceLang` remains
- * the description language; crawler jobs can have a title in another language.
- * Explicit source pins and the source-backed Migros correction take precedence,
- * followed by locale-map evidence and decisive title-word hints. Statistical
- * language detection is too noisy to overrule a short title's stored locale.
+ * Resolve the title source locale when the job carries evidence for one.
+ * `sourceLang` remains the description language; crawler jobs can have a title
+ * in another language. Explicit source pins and the source-backed Migros
+ * correction take precedence, followed by locale-map evidence and decisive
+ * title-word hints. Statistical language detection is too noisy to overrule a
+ * short title's stored locale. Returns null when the source locale is unknown.
  */
-export function jobTitleSourceLang(job, fallback = '') {
-  if (!job || typeof job !== 'object') return normalizeJobLocale(fallback) || 'it';
+export function jobTitleSourceLangEvidence(job, fallback = '') {
+  if (!job || typeof job !== 'object') return null;
   const semantic = migrosServiceCounterTitleSourceLang(job);
   if (semantic) return semantic;
   const pinned = pinnedTitleSourceLang(job);
@@ -872,7 +873,9 @@ export function jobTitleSourceLang(job, fallback = '') {
   const fallbackLang = normalizeJobLocale(fallback);
   const bodyLang = DEFAULT_JOB_LOCALES.includes(declaredBodyLang)
     ? declaredBodyLang
-    : (DEFAULT_JOB_LOCALES.includes(fallbackLang) ? fallbackLang : 'it');
+    : (DEFAULT_JOB_LOCALES.includes(fallbackLang) ? fallbackLang : '');
+  const hasUnsupportedDeclaredLang = !!String(job.sourceLang || '').trim()
+    && !DEFAULT_JOB_LOCALES.includes(declaredBodyLang);
   const title = String(job.title || '').trim();
   const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale
@@ -888,7 +891,7 @@ export function jobTitleSourceLang(job, fallback = '') {
     if (matchingLocales.length === 1) return matchingLocales[0];
     // Repeated identical titles are ambiguous (common for international job
     // names); keep the declared body locale instead of guessing from copies.
-    if (matchingLocales.length > 1) return bodyLang;
+    if (matchingLocales.length > 1) return bodyLang || null;
 
     const detected = detectJobTitleLocaleDetails(title, bodyLang);
     if (
@@ -896,11 +899,12 @@ export function jobTitleSourceLang(job, fallback = '') {
       && detected.confidence >= TITLE_LANG_DECISION_CONFIDENCE
       && detected.method.startsWith('title-hints')
     ) return detected.lang;
-    return bodyLang;
+    return bodyLang || null;
   }
 
-  const bodyTitle = String(titleByLocale[bodyLang] || '').trim();
+  const bodyTitle = bodyLang ? String(titleByLocale[bodyLang] || '').trim() : '';
   if (bodyTitle) return bodyLang;
+  if (hasUnsupportedDeclaredLang && !bodyLang) return null;
 
   for (const [locale, value] of Object.entries(titleByLocale)) {
     const candidateLocale = normalizeJobLocale(locale);
@@ -916,5 +920,12 @@ export function jobTitleSourceLang(job, fallback = '') {
       return candidateLocale;
     }
   }
-  return bodyLang;
+  return bodyLang || null;
+}
+
+/** Resolve the title source locale, using the caller fallback and then `it`. */
+export function jobTitleSourceLang(job, fallback = '') {
+  return jobTitleSourceLangEvidence(job, fallback)
+    || normalizeJobLocale(fallback)
+    || 'it';
 }

@@ -35,6 +35,7 @@ import {
   detectTextLocale,
   holdSourceLang,
   jobTitleSourceLang,
+  jobTitleSourceLangEvidence,
   isDescriptionSourceCopy,
   normalizeJobLocale,
   pinnedTitleSourceLang,
@@ -8053,13 +8054,13 @@ export function buildSourceTitleBridge(existingJobs, freshJobs, matchKey, ambigu
  */
 function carryLocaleTextFromSameSourceTitle(fresh, previous) {
   const srcLang = fresh.sourceLang || previous.sourceLang || null;
-  const titleSrcLang = jobTitleSourceLang({
+  const titleSrcLang = jobTitleSourceLangEvidence({
     ...previous,
     ...fresh,
     sourceLang: srcLang,
     title: fresh.title || previous.title,
     titleByLocale: { ...(previous.titleByLocale || {}), ...(fresh.titleByLocale || {}) },
-  }, srcLang || 'it');
+  }, srcLang || '');
   fresh.titleByLocale = mergeLocaleTextMap(previous.titleByLocale, fresh.titleByLocale || {}, 3, titleSrcLang);
   fresh.descriptionByLocale = mergeLocaleTextMap(previous.descriptionByLocale, fresh.descriptionByLocale || {}, 30, srcLang);
   if (previous.requirementsByLocale && !fresh.requirementsByLocale) {
@@ -8201,13 +8202,13 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
 
     // Determine source language for locale-aware merging
     const srcLang = fresh.sourceLang || old.sourceLang || null;
-    const titleSrcLang = jobTitleSourceLang({
+    const titleSrcLang = jobTitleSourceLangEvidence({
       ...old,
       ...fresh,
       sourceLang: srcLang,
       title: fresh.title || old.title,
       titleByLocale: { ...(old.titleByLocale || {}), ...(fresh.titleByLocale || {}) },
-    }, srcLang || 'it');
+    }, srcLang || '');
 
     // Merge locale maps: keep existing translations, update source-locale slot
     fresh.titleByLocale = mergeLocaleTextMap(
@@ -9281,13 +9282,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       jobId: mergeJobId, source: 'dedicated-crawler-common.mergeAndDeduplicate',
     });
     const mergedBodySourceLang = next.sourceLang || prev.sourceLang || null;
-    const mergedTitleSourceLang = jobTitleSourceLang({
+    const mergedTitleSourceLang = jobTitleSourceLangEvidence({
       ...prev,
       ...next,
       sourceLang: mergedBodySourceLang,
       title: next.title || prev.title,
       titleByLocale: { ...(prev.titleByLocale || {}), ...(next.titleByLocale || {}) },
-    }, mergedBodySourceLang || 'it');
+    }, mergedBodySourceLang || '');
     const best = {
       ...prev,
       ...next,
