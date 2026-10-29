@@ -21,6 +21,16 @@ vi.mock('@/services/i18n', () => ({
       'jobBoard.assisted.copy.portal_relief.body': 'Ci occupiamo del portale quando possibile.',
       'jobBoard.assisted.copy.handled_for_you.title': 'Vuoi che ce ne occupiamo noi?',
       'jobBoard.assisted.copy.handled_for_you.body': 'Affidaci questa candidatura.',
+      'jobBoard.assisted.benefit.hiringText': 'maggiori possibilità di essere assunto',
+      'jobBoard.assisted.benefit.zeroSpam': 'Zero spam sulla tua email personale',
+      'jobBoard.assisted.benefit.tailoredCv': 'CV su misura',
+      'jobBoard.assisted.dossierTitle': 'Il tuo dossier, su misura',
+      'jobBoard.assisted.dossierReady': 'Da approvare prima dell’invio',
+      'jobBoard.assisted.jobDetails': 'Dettagli dell’annuncio',
+      'jobBoard.assisted.jobLocation': 'Luogo',
+      'jobBoard.assisted.jobSalary': 'Retribuzione',
+      'jobBoard.assisted.jobContract': 'Contratto',
+      'jobBoard.assisted.jobNotListed': 'Non indicato',
       'jobBoard.assisted.stepsLabel': 'Come funziona',
       'jobBoard.assisted.step1': 'Ci invii il CV',
       'jobBoard.assisted.step2': 'Prepariamo la candidatura',
@@ -86,20 +96,46 @@ describe('AssistedApplicationOffer', () => {
   });
 
   it.each([
-    ['control', 'Vuoi delegare questa candidatura?', 'Invia il CV e i dati necessari.'],
-    ['time_saved', 'Risparmia tempo sulla candidatura', 'Inviaci il CV e risparmia tempo.'],
-    ['portal_relief', 'Preferisci non gestire il portale?', 'Ci occupiamo del portale quando possibile.'],
-    ['handled_for_you', 'Vuoi che ce ne occupiamo noi?', 'Affidaci questa candidatura.'],
-  ] as const)('renders the %s copy arm without changing the offer choices', (copyVariant, title, body) => {
-    renderOffer({ copyVariant });
+    ['control', false],
+    ['variant_7', true],
+    ['proposal_5', true],
+    ['proposal_b', true],
+  ] as const)('renders the fixed Delega completa copy and %s layout', (layoutVariant, layoutExperimentActive) => {
+    renderOffer({
+      copyVariant: 'handled_for_you',
+      layoutVariant,
+      layoutExperimentActive,
+      jobDetails: {
+        location: 'Lugano',
+        salary: 'CHF 6.000 / mese',
+        contract: 'Tempo pieno',
+        description: 'Una descrizione sintetica della posizione.',
+      },
+    });
 
-    expect(screen.getByRole('heading', { name: title })).toBeTruthy();
-    expect(screen.getByText(body)).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Vuoi che ce ne occupiamo noi?' })).toBeTruthy();
+    expect(screen.getByText('Affidaci questa candidatura.')).toBeTruthy();
+    expect(screen.getByText(/3×/)).toBeTruthy();
+    expect(screen.getByText('Zero spam sulla tua email personale')).toBeTruthy();
+    expect(screen.getByTestId('assisted-application-job-details')).toHaveTextContent('Lugano');
+    expect(screen.getByTestId('assisted-application-job-details')).toHaveTextContent('CHF 6.000 / mese');
+    expect(screen.getByTestId('assisted-application-job-details')).toHaveTextContent('Tempo pieno');
+    expect(screen.getByTestId('assisted-application-job-details')).toHaveTextContent('Una descrizione sintetica della posizione.');
+    expect(screen.getByRole('dialog')).toHaveAttribute('data-layout-variant', layoutVariant);
     expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 1,99 €');
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
       'assisted_application_offer_viewed',
-      expect.objectContaining({ copy_variant: copyVariant }),
+      expect.objectContaining({
+        copy_variant: 'handled_for_you',
+        ...(layoutExperimentActive ? { layout_variant: layoutVariant } : {}),
+      }),
     );
+    if (layoutVariant === 'variant_7') {
+      expect(screen.getByTestId('assisted-application-steps-timeline')).toBeTruthy();
+    }
+    if (layoutVariant === 'proposal_b') {
+      expect(screen.getByTestId('assisted-application-job-details')).toHaveAttribute('data-job-panel-style', 'proposal_c');
+    }
   });
 
   it('routes both choices and closes with Escape', () => {
@@ -177,7 +213,7 @@ describe('AssistedApplicationOffer', () => {
       .toHaveTextContent('Candidati da solo, gratis con un breve video');
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith('assisted_application_offer_viewed', {
       variant: 'rewarded_ad',
-      copy_variant: 'control',
+      copy_variant: 'handled_for_you',
       jobId: 'job-42',
       companyId: 'company-acme',
       price_eur_cents: 199,

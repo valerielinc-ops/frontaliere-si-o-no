@@ -14,8 +14,10 @@ import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   normalizeAssistedApplicationCopyVariant,
+  normalizeAssistedApplicationLayoutVariant,
   trackAssistedApplicationEvent,
   type AssistedApplicationCopyVariant,
+  type AssistedApplicationLayoutVariant,
   type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 
@@ -32,6 +34,7 @@ interface AssistedApplicationOrder {
   jobTitle?: string;
   experimentVariant?: AssistedApplicationVariant | 'offerwall_fallback';
   copyVariant?: AssistedApplicationCopyVariant;
+  layoutVariant?: AssistedApplicationLayoutVariant;
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
   paymentFailureReason?: string | null;
@@ -125,9 +128,11 @@ function variantForOrder(order: AssistedApplicationOrder | null): AssistedApplic
 
 function orderEventContext(order: AssistedApplicationOrder | null) {
   const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant);
+  const layoutVariant = normalizeAssistedApplicationLayoutVariant(order?.layoutVariant);
   return {
     variant: variantForOrder(order),
     ...(copyVariant ? { copy_variant: copyVariant } : {}),
+    ...(layoutVariant ? { layout_variant: layoutVariant } : {}),
     jobId: order?.jobId || 'unknown',
     companyId: order?.companyId || order?.companyName || 'unknown',
   };

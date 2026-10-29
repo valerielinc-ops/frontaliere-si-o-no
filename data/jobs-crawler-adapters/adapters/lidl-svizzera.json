@@ -84,7 +84,6 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-emmenbruecke-727535",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-frauenfeld-727499",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-gretzenbach-727525",
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-herisau-727537",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-horgen-727542",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kloten-727528",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482",
@@ -152,6 +151,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-schluein-747389",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-staad-589218",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-thusis-747396",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-widnau-756511",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-50-kuessnacht-a.-r-706643",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-buchs-756505",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-buetzberg-755298",
@@ -162,7 +162,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-samstagern-711248",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-sevelen-756510",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-wetzikon-697094",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-widnau-756511",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-zuerich-754674",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-baden-757740",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-80-1-brugg-757741",
@@ -247,17 +246,15 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-givisiez-723025",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-695473",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-721192",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-759293",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-724853",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-neuchatel-758613",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-giubiasco-727553",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-10-28T22:37:47.791Z",
+  "updatedAt": "2026-10-29T10:21:25.059Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -403,15 +400,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-spiez-759462": {
-      "location": "Spiez",
-      "addressLocality": "Spiez",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-spiez-760851": {
       "location": "Spiez",
       "addressLocality": "Spiez",
@@ -420,6 +408,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-spiez-759462": {
+      "location": "Spiez",
+      "addressLocality": "Spiez",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-gwatt-733389": {
       "location": "Gwatt",
@@ -1888,15 +1885,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-herisau-727537": {
-      "location": "Herisau",
-      "addressLocality": "Herisau",
-      "canton": "AR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-bachenbuelach-727551": {
       "location": "Bachenbülach",
       "addressLocality": "Bachenbülach",
@@ -2005,7 +1993,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-widnau-756511": {
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-widnau-756511": {
       "location": "Widnau",
       "addressLocality": "Widnau",
       "canton": "SG",
@@ -2251,24 +2239,6 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-etoy-763548": {
       "location": "Etoy",
       "addressLocality": "Etoy",
-      "canton": "VD",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303": {
-      "location": "Morges",
-      "addressLocality": "Morges",
-      "canton": "VD",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-759293": {
-      "location": "Morges",
-      "addressLocality": "Morges",
       "canton": "VD",
       "country": "CH",
       "company": "Lidl Svizzera",

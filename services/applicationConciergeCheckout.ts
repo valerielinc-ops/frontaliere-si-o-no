@@ -6,6 +6,8 @@ export interface ApplicationConciergeCheckoutInput {
   cancelUrl: string;
   locale: 'it' | 'en' | 'de' | 'fr';
   requestKey?: string;
+  serviceId?: string;
+  customerEmail?: string;
 }
 
 export type ApplicationConciergeCheckoutResult =

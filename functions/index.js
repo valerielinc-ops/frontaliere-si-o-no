@@ -97,6 +97,10 @@ import {
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { handleCreateApplicationConciergeCheckout } from './src/applicationConciergeCheckout.js';
 import {
+  handleApplicationConciergePaymentReminderUnsubscribe,
+  runApplicationConciergePaymentReminderSweep,
+} from './src/applicationConciergePaymentReminders.js';
+import {
   handleApplicationConcierge,
   handleManageApplicationConcierge,
   expireApplicationConciergeServices,
@@ -1752,6 +1756,40 @@ export const inboundBounceReport = onRequest(
   },
 );
 
+export const applicationConciergePaymentReminderUnsubscribe = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: true,
+  },
+  async (req, res) => {
+    if (req.method !== 'GET' && req.method !== 'POST') {
+      res.status(405).send('Method not allowed');
+      return;
+    }
+
+    const params = resolveRequestParams(req, res);
+    try {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      const result = await handleApplicationConciergePaymentReminderUnsubscribe({
+        uid: String(params.uid || '').trim(),
+        token: String(params.token || '').trim(),
+        secret: newsletterSecret,
+        forensics: buildUnsubscribeForensics(req),
+      });
+      if (req.method === 'POST') {
+        res.status(result.status).type('text').send(result.status === 200 ? 'OK' : 'Error');
+      } else {
+        res.status(result.status).type('html').send(result.html);
+      }
+    } catch (error) {
+      console.error('[applicationConciergePaymentReminderUnsubscribe] Error:', error instanceof Error ? error.name : 'unknown');
+      res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
+    }
+  },
+);
+
 /**
  * outreachReplyTrack — records ANY inbound cold-email reply (not just STOP) so
  * the admin dashboard can show whether a company replied. The Cloudflare Email
@@ -2158,6 +2196,30 @@ export const sweepApplicationConciergeServices = onSchedule(
       if (summary.expired) console.log('[sweepApplicationConciergeServices]', summary);
     } catch (error) {
       console.error('[sweepApplicationConciergeServices]', error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+export const sweepApplicationConciergePaymentReminders = onSchedule(
+  {
+    region: 'europe-west6',
+    schedule: 'every 60 minutes',
+    timeZone: 'Europe/Zurich',
+    memory: '512MiB',
+    timeoutSeconds: 540,
+  },
+  async () => {
+    try {
+      const summary = await runApplicationConciergePaymentReminderSweep({ db: getAdminDb() });
+      if (summary.sent || summary.failed || summary.reason) {
+        console.log('[sweepApplicationConciergePaymentReminders]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[sweepApplicationConciergePaymentReminders]',
+        error instanceof Error ? error.name : 'unknown',
+      );
+      throw error;
     }
   },
 );

@@ -1,6 +1,14 @@
 {
   "indexes": [
     {
+      "collectionGroup": "application_concierge_services",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "serviceStatus", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "admin_audit_log",
       "queryScope": "COLLECTION",
       "fields": [

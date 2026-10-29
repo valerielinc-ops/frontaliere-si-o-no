@@ -34,6 +34,7 @@ const mocks = vi.hoisted(() => {
       return callback({
         get: (ref: any) => ref.get(),
         set: (ref: any, data: Record<string, unknown>, options?: { merge?: boolean }) => ref.set(data, options),
+        update: (ref: any, data: Record<string, unknown>) => ref.set(data, { merge: true }),
       });
     },
   };
