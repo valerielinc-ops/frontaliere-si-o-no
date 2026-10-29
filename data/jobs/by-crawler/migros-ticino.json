@@ -2829,6 +2829,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 99000,
+      "salaryMax": 174000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2850,7 +2852,8 @@
         "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
         "cook-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
+        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
+        "cuisson-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2865,9 +2868,7 @@
         "fr": [
           "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen"
         ]
-      },
-      "salaryMin": 99000,
-      "salaryMax": 174000
+      }
     },
     {
       "id": "company-3xkudb",
@@ -47677,7 +47678,6 @@
         "it": [
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
           "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-          "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
           "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
@@ -47691,7 +47691,6 @@
       "previousSlugs": [
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen",
         "koch-kochin-genossenschaft-migros-ostschweiz-st-gallen-xh656n",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2",
         "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "salarySource": "estimated",
@@ -81384,7 +81383,8 @@
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
         "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
         "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen",
-        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
+        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen",
+        "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
