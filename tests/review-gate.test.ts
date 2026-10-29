@@ -1875,6 +1875,23 @@ describe('review gate: a fallback tree proves scope without tightening anchors',
     expect(unavailable).toBe(1);
     expect(fallback).toBe(unavailable);
   });
+
+  it('uses an exact-head fallback tree to declassify a resolved companion outside the diff', () => {
+    const openedWithCompanion = bot(
+      '## Findings (Important: 1, Nit: 0)\n\n`src/changed.mjs:L4` e `lib/ghost-helper.mjs`: 🔴 Important: rotto.\n',
+    );
+    const stableId = stableFindingId(importantFindings(openedWithCompanion.body)[0]);
+    const confirmedAnchor = bot(
+      `## Findings (Important: 0, Nit: 0)\n\nFix di \`${stableId}\`: ok.\nFix di \`src/changed.mjs:L4\`: ok.\n\n## LGTM`,
+    );
+
+    expect(historicalImportantFindings([openedWithCompanion, confirmedAnchor], {
+      includeLatest: true,
+      repositoryPaths: ['src/changed.mjs', 'lib/ghost-helper.mjs'],
+      repositoryPathsFromFallback: true,
+      changedFiles: ['src/changed.mjs'],
+    })).toHaveLength(0);
+  });
 });
 
 describe('review gate: the ignore carve-out is narrow', () => {

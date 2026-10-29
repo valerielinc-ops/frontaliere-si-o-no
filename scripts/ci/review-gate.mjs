@@ -1213,7 +1213,12 @@ function findingConfirmed(
     const hasPreciseAnchor = finding.citations.some((citation) => citation.line !== null);
     const outOfDiffContext = (path) => {
       if (!approvingReview || !hasPreciseAnchor) return false;
-      if (!Array.isArray(changedFiles) || !Array.isArray(repositoryPaths) || repositoryPathsFromFallback) return false;
+      // A local `git ls-tree` fallback is authoritative for this narrow
+      // question: the exact HEAD tree contains the cited companion and the
+      // complete PR file list proves that companion is outside the diff. It
+      // must not resolve a precise anchor or relax any other finding path;
+      // those checks remain fail-closed below when the API tree is absent.
+      if (!Array.isArray(changedFiles) || !Array.isArray(repositoryPaths)) return false;
       if (finding.citations.some((citation) => citation.path === path && citation.line !== null)) return false;
       const resolved = resolveCitedPath({ path }, repositoryPaths);
       return resolved.status === 'resolved' && !changedContains(changedFiles, resolved.path);
