@@ -1,7 +1,7 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-10-28T22:09:23.069Z",
+  "generatedAt": "2026-10-29T10:04:27.389Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -14,12 +14,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 13714,
-  "avgDurationMs": 13714,
+  "durationMs": 15200,
+  "avgDurationMs": 15200,
   "durationHistory": [
-    13714
+    15200
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8333/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:01.706Z",
+      "crawledAt": "2026-10-29T10:04:01.551Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -71,56 +71,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "huber-suhner-9fedb779b568",
-      "slug": "pianificatore-di-produzione-con-responsabilita-di-team-huber-suhner-ag-pfaffikon",
-      "company": "Huber+Suhner AG",
-      "companyKey": "huber-suhner",
-      "companyDomain": "hubersuhner.com",
-      "title": "Produktionsplaner mit Teamverantwortung",
-      "needsRetranslation": false,
-      "location": "Pfäffikon",
-      "canton": "ZH",
-      "url": "https://recruiting.hubersuhner.com/Vacancies/7975/Description/1",
-      "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-27T22:02:06.073Z",
-      "addressLocality": "Pfäffikon",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8330",
-      "streetAddress": "Tumbelenstrasse 20",
-      "category": "Produzione",
-      "contract": "full-time",
-      "contractDuration": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21",
-      "postedDate": "2026-09-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/7975/Application/CheckLogin/1",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "firstSeenAt": "2026-07-16T11:46:32.935Z",
-      "salaryMin": 76000,
-      "salaryMax": 102500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "huber-suhner-dc95c9b6a90f",
@@ -135,7 +86,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8112/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:09.123Z",
+      "crawledAt": "2026-10-29T10:04:08.702Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -179,7 +130,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8194/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:07.936Z",
+      "crawledAt": "2026-10-29T10:04:07.585Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -226,7 +177,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7957/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:06.777Z",
+      "crawledAt": "2026-10-29T10:04:06.430Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -272,7 +223,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7542/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:05.572Z",
+      "crawledAt": "2026-10-29T10:04:05.457Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -319,7 +270,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8259/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:04.577Z",
+      "crawledAt": "2026-10-29T10:04:04.498Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -365,7 +316,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7783/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:03.543Z",
+      "crawledAt": "2026-10-29T10:04:03.844Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -412,7 +363,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8273/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:09:02.882Z",
+      "crawledAt": "2026-10-29T10:04:02.709Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -447,5 +398,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
