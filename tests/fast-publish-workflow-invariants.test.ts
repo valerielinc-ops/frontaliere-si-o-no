@@ -15,6 +15,25 @@ const read = (p: string) => readFileSync(resolve(p), 'utf8');
 
 describe('fast-publish workflow invariants', () => {
   const workflow = read('.github/workflows/fast-publish-article.yml');
+  const fastDriver = read('scripts/publish-article-fast.mjs');
+
+  it('validates the adapted-twin receipt before any publication side effect', () => {
+    const renderIdx = workflow.indexOf('- name: Render article (fast path)');
+    const receiptIdx = workflow.indexOf('- name: Validate fast-publish twin parity receipt');
+    const uploadIdx = workflow.indexOf('- name: Upload CDN assets (images)');
+    const lockIdx = workflow.indexOf('- name: Acquire article chunk section lock');
+
+    expect(renderIdx).toBeGreaterThan(-1);
+    expect(receiptIdx).toBeGreaterThan(renderIdx);
+    expect(receiptIdx).toBeLessThan(uploadIdx);
+    expect(receiptIdx).toBeLessThan(lockIdx);
+    expect(workflow.slice(receiptIdx, uploadIdx)).toContain('fast-publish-twin-parity/v1');
+    expect(workflow.slice(receiptIdx, uploadIdx)).toContain('.twinParity.sitePolicy.imagePostcondition == "withhold"');
+    expect(workflow.slice(uploadIdx, lockIdx)).toContain("steps.verify_twin_parity.outcome == 'success'");
+    expect(fastDriver).toContain('const twinParity = createTwinParityReceipt({');
+    expect(fastDriver).toContain('twinParity,');
+    expect(fastDriver).toContain("receipt.sitePolicy.imagePostcondition !== 'withhold'");
+  });
 
   it('serializes per article, not per section', () => {
     // A per-section group cannot keep batched dispatches: GitHub holds exactly
@@ -107,6 +126,23 @@ describe('fast-publish workflow invariants', () => {
     expect(workflow.slice(pushIdx, workflow.indexOf('Verify shard URLs are live'))).toContain(
       "steps.check_chunk_source.outputs.current == 'true'",
     );
+  });
+
+  it('revalidates the twin receipt after every stale-source rerender', () => {
+    const freshnessIdx = workflow.indexOf('Check article chunk source is current');
+    const recheckIdx = workflow.indexOf('Recheck article chunk source before publication');
+    const publishIdx = workflow.indexOf('Publish client article chunks');
+    const firstRefresh = workflow.indexOf('scripts/publish-article-fast.mjs', freshnessIdx);
+    const secondRefresh = workflow.indexOf('scripts/publish-article-fast.mjs', recheckIdx);
+    const firstReceiptCheck = workflow.indexOf('.twinParity.sitePolicy.imagePostcondition == "withhold"', firstRefresh);
+    const secondReceiptCheck = workflow.indexOf('.twinParity.sitePolicy.imagePostcondition == "withhold"', secondRefresh);
+
+    expect(firstReceiptCheck).toBeGreaterThan(firstRefresh);
+    expect(firstReceiptCheck).toBeLessThan(recheckIdx);
+    expect(secondReceiptCheck).toBeGreaterThan(secondRefresh);
+    expect(secondReceiptCheck).toBeLessThan(publishIdx);
+    expect(workflow.slice(firstRefresh, recheckIdx)).toContain('fast-publish-twin-parity/v1');
+    expect(workflow.slice(secondRefresh, publishIdx)).toContain('fast-publish-twin-parity/v1');
   });
 
   it('publishes the topic sitemap through a checked stable PR, never direct main', () => {

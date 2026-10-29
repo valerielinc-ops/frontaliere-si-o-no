@@ -85,6 +85,10 @@
 //   `sitemap-topics-<section>.xml`, written by step 6b from the very pages it
 //   rendered. The workflow publishes it to R2 (EDGE_PUSHED_FILES) and commits
 //   it into public/ so the next build's sitemap index names it.
+//   `twinParity` = a small, fail-closed receipt for the adapted site copy. It
+//   records the deliberate site-side policies and the shared hub pipeline; the
+//   workflow validates it before any CDN or shard side effect. It is a receipt
+//   of reconciliation, not a claim that the corpus copy is byte-identical.
 //
 // Known gap fixed here, not in the shared renderer: ogPagesPlugin's
 // resolveImagePath() verifies a candidate hero image exists by checking
@@ -126,6 +130,60 @@ import { filterEntriesByImagePostcondition } from './lib/article-image-postcondi
 import { keepPublishable, screenShardPaths } from './lib/control-char-publish-gate.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+// This publisher is an adapted twin, not a byte-identical copy. Keep the
+// reconciliation decision executable at the output boundary so a future
+// corpus-side change cannot silently replace the site's refusal policy, hub
+// ordering, freshness gate, or workflow leases with the other copy's variant.
+// The receipt is intentionally declarative: the source observers below still
+// prove each invariant at its actual call site.
+const FAST_PUBLISH_TWIN_PARITY = Object.freeze({
+  schema: 'fast-publish-twin-parity/v1',
+  status: 'site-adapted',
+  counterpart: Object.freeze({
+    repository: 'nanakokyobashi-rgb/frontaliere-articles',
+    path: 'scripts/publish-article-fast.mjs',
+  }),
+  sitePolicy: Object.freeze({
+    controlCharacters: 'refuse',
+    corpusFreshness: 'required',
+    imagePostcondition: 'withhold',
+  }),
+  pipeline: Object.freeze({
+    hubOrder: Object.freeze(['landing', 'archive', 'topic-hubs', 'cdn-offload']),
+    implementation: 'renderHubsAndOffload',
+  }),
+  workflow: Object.freeze({
+    imageNamespaceLease: 'required-v1',
+    sectionLock: 'required',
+  }),
+});
+
+function createTwinParityReceipt({ contentRevision, readOnlyAudit, screening, imagePostcondition }) {
+  const receipt = {
+    ...FAST_PUBLISH_TWIN_PARITY,
+    contentRevision: contentRevision ?? null,
+    observed: {
+      freshness: readOnlyAudit ? 'skipped-read-only-audit' : 'passed',
+      screenedFiles: screening.checked,
+      refusedFiles: screening.refused.length,
+      imageExcludedPages: imagePostcondition.excludedPages,
+    },
+  };
+
+  if (
+    receipt.schema !== 'fast-publish-twin-parity/v1'
+    || receipt.status !== 'site-adapted'
+    || receipt.sitePolicy.controlCharacters !== 'refuse'
+    || receipt.sitePolicy.imagePostcondition !== 'withhold'
+    || receipt.pipeline.implementation !== 'renderHubsAndOffload'
+    || receipt.workflow.imageNamespaceLease !== 'required-v1'
+    || receipt.workflow.sectionLock !== 'required'
+  ) {
+    throw new Error('[publish-article-fast] invalid twin parity receipt contract');
+  }
+  return receipt;
+}
 
 function parseArgs(argv) {
   const out = { readOnlyAudit: false };
@@ -493,11 +551,18 @@ async function main() {
     codes: [...new Set(findings.map((f) => `0x${f.code.toString(16).padStart(2, '0')}`))],
     count: findings.length,
   }));
+  const twinParity = createTwinParityReceipt({
+    contentRevision: corpusOverlay.contentRevision,
+    readOnlyAudit: args.readOnlyAudit,
+    screening,
+    imagePostcondition,
+  });
   const summary = {
     id: args.id,
     requestedId: args.id,
     section: args.section,
     contentRevision: corpusOverlay.contentRevision,
+    twinParity,
     shards,
     cdnUploads,
     edgeFiles,
