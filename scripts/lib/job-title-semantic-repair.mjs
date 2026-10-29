@@ -48,7 +48,7 @@ export function repairMigrosServiceCounterTitleInPlace(job) {
   const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale
     : (job.titleByLocale = {});
-  const sourceTitle = String(titleByLocale.de || job.title || '').trim();
+  const sourceTitle = String(titleByLocale.de ?? job.title ?? '').trim();
   const normalizedSourceTitle = normalizeTitleForMatch(sourceTitle);
   const normalizedKnownBadItTitle = normalizeTitleForMatch(MIGROS_KNOWN_BAD_IT_TITLE);
   let changed = 0;
@@ -75,7 +75,7 @@ export function migrosServiceCounterTitleSourceLang(job) {
   if (!job || typeof job !== 'object') return '';
   // The German slot is the source-backed title even when the display title has
   // already been localized (or otherwise corrupted by a previous pass).
-  const sourceTitle = String(job.titleByLocale?.de || job.title || '').trim();
+  const sourceTitle = String(job.titleByLocale?.de ?? job.title ?? '').trim();
   if (!sourceTitle || !MIGROS_SERVICE_COUNTER_TITLE.test(sourceTitle)) return '';
   return isMigrosEmployer(job) ? 'de' : '';
 }

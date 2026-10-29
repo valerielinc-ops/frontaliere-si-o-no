@@ -81,9 +81,12 @@ describe('source-backed restaurant Crew semantic repair', () => {
 describe('source-backed Migros butcher-counter title repair', () => {
   it('uses the German source slot when the display title is already localized', () => {
     const job = {
-      title: 'Addetto/a alla vendita al banco macelleria',
+      title: 'Assistente vendita servita da macelleria',
       company: 'Migros',
-      titleByLocale: { de: 'Verkäufer*in Metzgerei bedient' },
+      titleByLocale: {
+        de: 'Verkäufer*in Metzgerei bedient',
+        it: 'Assistente vendita servita da macelleria',
+      },
     };
 
     expect(migrosServiceCounterTitleSourceLang(job)).toBe('de');
