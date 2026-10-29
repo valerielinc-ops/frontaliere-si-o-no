@@ -170,7 +170,7 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
-const LOCALE_PATH_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
+const LOCALE_PATH_SEGMENT_RE = /^(?:it|en|de|fr)(?:-[a-z]{2})?$/i;
 
 /**
  * Read an employer-hosted `/jobs/<slug>` route, allowing one locale segment
@@ -179,7 +179,11 @@ const LOCALE_PATH_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
  * the host and complete slug still bind the two URLs to one posting.
  */
 function directJobRoute(pathname, isApply) {
-  const segments = String(pathname || '').split('/').filter(Boolean);
+  const rawSegments = String(pathname || '').split('/');
+  const start = rawSegments[0] === '' ? 1 : 0;
+  const end = rawSegments.at(-1) === '' ? -1 : rawSegments.length;
+  const segments = rawSegments.slice(start, end);
+  if (segments.some((segment) => segment === '')) return null;
   if (isApply && segments.pop()?.toLowerCase() !== 'apply') return null;
   if (segments.length < 2 || segments.at(-2)?.toLowerCase() !== 'jobs') return null;
   const prefix = segments.slice(0, -2);
@@ -189,19 +193,11 @@ function directJobRoute(pathname, isApply) {
 
 function sameDirectJobPrefix(first, second) {
   if (first.length === second.length && first.every((segment, index) => segment === second[index])) return true;
-  const withoutLocale = (prefix) => {
-    const localeIndexes = prefix.reduce((indexes, segment, index) => {
-      if (LOCALE_PATH_SEGMENT_RE.test(segment)) indexes.push(index);
-      return indexes;
-    }, []);
-    if (localeIndexes.length > 1) return null;
-    const localeIndex = localeIndexes[0];
-    return localeIndex === undefined
-      ? prefix
-      : [...prefix.slice(0, localeIndex), ...prefix.slice(localeIndex + 1)];
-  };
-  const firstBase = withoutLocale(first);
-  const secondBase = withoutLocale(second);
+  const withoutLeadingLocale = (prefix) => LOCALE_PATH_SEGMENT_RE.test(prefix[0] || '')
+    ? prefix.slice(1)
+    : prefix;
+  const firstBase = withoutLeadingLocale(first);
+  const secondBase = withoutLeadingLocale(second);
   return Boolean(firstBase && secondBase)
     && firstBase.length === secondBase.length
     && firstBase.every((segment, index) => segment === secondBase[index]);

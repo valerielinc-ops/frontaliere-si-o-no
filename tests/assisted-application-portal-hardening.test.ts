@@ -110,6 +110,25 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe(false);
   });
 
+  it('rejects non-locale prefixes, moved locale segments, and duplicate slashes', () => {
+    expect(isVerifiedPostingEntry({
+      applyUrl: 'https://h/hr/jobs/a/apply',
+      postingUrl: 'https://h/jobs/a/',
+    })).toBe(false);
+    expect(isVerifiedPostingEntry({
+      applyUrl: 'https://h/de/careers/jobs/a/apply',
+      postingUrl: 'https://h/careers/fr/jobs/a/',
+    })).toBe(false);
+    expect(isVerifiedPostingEntry({
+      applyUrl: 'https://h/jobs//a/apply',
+      postingUrl: 'https://h/jobs/a/',
+    })).toBe(false);
+    expect(isVerifiedPostingEntry({
+      applyUrl: 'https://h/jobs/a/apply//',
+      postingUrl: 'https://h/jobs/a/',
+    })).toBe(false);
+  });
+
   it('opens an Umantis Application/New form from its matching vacancy page', () => {
     const applyUrl = 'https://recruitingapp-2983.umantis.com/Vacancies/716/Application/CheckLogin/2?lang=eng';
     const postingUrl = 'https://recruitingapp-2983.umantis.com/Vacancies/716/Description/1';
