@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-29T14:32:59.323Z",
+  "updatedAt": "2026-10-29T14:36:38.362Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -552907,12 +552907,12 @@
     },
     "grund-ag.ch": {
       "key": "grund-ag.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-23T04:13:00.143Z",
-      "updatedAt": "2026-10-27T12:25:10.420Z",
+      "updatedAt": "2026-10-29T14:36:38.299Z",
       "name": "Grund AG Fahrzeuge",
       "domain": "grund-ag.ch",
       "city": "Triengen",
@@ -553161,7 +553161,13 @@
         }
       ],
       "promotionPr": "15653",
-      "promotionBranch": "prospector/promote-2026-10-27"
+      "promotionBranch": "prospector/promote-2026-10-27",
+      "promotedAt": "2026-10-28T13:55:44Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-29T09:31:44.411Z",
+      "firstCrawlerJobCount": 2
     },
     "grund-und-tiefbau-basel@basel": {
       "key": "grund-und-tiefbau-basel@basel",
@@ -870738,12 +870744,12 @@
     },
     "mpa-praxisstellen.ch": {
       "key": "mpa-praxisstellen.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-15T16:07:40.330Z",
-      "updatedAt": "2026-10-27T12:25:10.419Z",
+      "updatedAt": "2026-10-29T14:36:38.299Z",
       "name": "mpa-praxisstellen",
       "domain": "mpa-praxisstellen.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -870994,7 +871000,13 @@
         }
       ],
       "promotionPr": "15653",
-      "promotionBranch": "prospector/promote-2026-10-27"
+      "promotionBranch": "prospector/promote-2026-10-27",
+      "promotedAt": "2026-10-28T13:55:44Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-29T09:23:41.986Z",
+      "firstCrawlerJobCount": 3
     },
     "mpb-recruitment@basel": {
       "key": "mpb-recruitment@basel",
@@ -1268463,13 +1268475,13 @@
     },
     "teojakob.ch": {
       "key": "teojakob.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-09-16T08:53:47.423Z",
-      "updatedAt": "2026-10-27T12:25:10.420Z",
+      "updatedAt": "2026-10-29T14:36:38.299Z",
       "name": "Teo Jakob",
       "domain": "teojakob.ch",
       "city": "Carouge GE",
@@ -1268689,7 +1268701,13 @@
         }
       ],
       "promotionPr": "15653",
-      "promotionBranch": "prospector/promote-2026-10-27"
+      "promotionBranch": "prospector/promote-2026-10-27",
+      "promotedAt": "2026-10-28T13:55:44Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-10-29T09:31:43.470Z",
+      "firstCrawlerJobCount": 1
     },
     "teoxane@geneve": {
       "key": "teoxane@geneve",
