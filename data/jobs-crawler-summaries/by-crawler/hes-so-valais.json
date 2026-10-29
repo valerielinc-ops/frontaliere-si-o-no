@@ -1,16 +1,16 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-10-28T22:01:18.856Z",
+  "generatedAt": "2026-10-29T09:41:18.502Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7154,
-  "avgDurationMs": 7154,
+  "durationMs": 5849,
+  "avgDurationMs": 5849,
   "durationHistory": [
-    7154
+    5849
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,7 @@
       },
       "id": "hes-so-valais-2f031ec3361d",
       "firstSeenAt": "2026-09-29T21:13:13.966Z",
-      "crawledAt": "2026-10-28T22:01:03.549Z",
+      "crawledAt": "2026-10-29T09:41:08.228Z",
       "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -64,5 +64,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
