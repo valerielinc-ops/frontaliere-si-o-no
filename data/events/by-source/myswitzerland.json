@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-28T12:00:01.602Z",
+  "assembledAt": "2026-10-29T12:07:21.255Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -33180,6 +33180,14 @@
         "lng": 9.9037114
       },
       "recurring": false,
+      "performer": {
+        "name": "Christian Klucker and singers from Ensemble Incantanti, participants explore how uplifting group singing can be"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
       "sourceDescriptionHash": "e5183111d7cafd1d4132e3f63196bb63b32f1e0d6349c2e91d28cffe740652df"
     },
     {
@@ -85683,8 +85691,8 @@
         "de": "Die Mausefalle",
         "fr": "Die Mausefalle"
       },
-      "startDate": "2026-10-03",
-      "endDate": "2026-10-14",
+      "startDate": "2027-01-29",
+      "endDate": "2027-02-02",
       "startTime": "19:00",
       "category": "Event",
       "venue": "Zurich",
@@ -85698,7 +85706,23 @@
         "lng": 8.519124
       },
       "recurring": true,
-      "sourceDescriptionHash": "932ae846d3ce3258dc58619335e6a4c6d352466737c4fed9606b463bbfbb158d"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "932ae846d3ce3258dc58619335e6a4c6d352466737c4fed9606b463bbfbb158d",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "Zürich",
+          "slug": "die-mausefalle-2026-10-03"
+        }
+      ]
     },
     {
       "id": "myswitzerland:ce09a0412ba94bfeb5587f84194db312",
@@ -141232,6 +141256,15 @@
         "lng": 6.9492474
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Monthey"
+      },
       "sourceDescriptionHash": "0d163482ef99a85b6b1cac2acf080cd7980bc201ddd94b439e6ddb295c730d40"
     },
     {
@@ -271867,6 +271900,392 @@
         "name": "Zurich"
       },
       "sourceDescriptionHash": "e47c748148dc30344e34014b6cda5efe553cdf1a015db63355f486ed8d326913"
+    },
+    {
+      "id": "myswitzerland:cf876775544c460d8f9dbbf50fe0f10b",
+      "title": "Top of Europe Magic Park",
+      "titleByLocale": {
+        "it": "Top of Europe Magic Park",
+        "en": "Top of Europe Magic Park",
+        "de": "Top of Europe Magic Park",
+        "fr": "Top of Europe Magic Park"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2027-02-28",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Interlaken",
+      "comune": "Interlaken",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/top-of-europe-magic-park/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.688105,
+        "lng": 7.858532
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Interlaken"
+      },
+      "sourceDescriptionHash": "8fd7f4bf056222f535d4747ff19223efc41b2141f906abfcf4c947fee7342bcf"
+    },
+    {
+      "id": "myswitzerland:cf86338b578e480e8ebbfeb689279699",
+      "title": "Nougaro",
+      "titleByLocale": {
+        "it": "Nougaro",
+        "en": "Nougaro",
+        "de": "Nougaro",
+        "fr": "Nougaro"
+      },
+      "startDate": "2027-02-12",
+      "endDate": "2027-05-29",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Le Locle",
+      "comune": "Le Locle",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/nougaro/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0556862,
+        "lng": 6.7431467
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Le Locle"
+      },
+      "sourceDescriptionHash": "f5ec759129383250b313880326f114be0935479fd3e05141e4459f69da691a5f"
+    },
+    {
+      "id": "myswitzerland:cdf19b08f72a406fae87f16ce533a938",
+      "title": "Buchvernissage & Dinner: Das Kochbuch \"Les Quatre Couteau\"",
+      "titleByLocale": {
+        "it": "Buchvernissage & Dinner: Das Kochbuch \"Les Quatre Couteau\"",
+        "en": "Buchvernissage & Dinner: Das Kochbuch \"Les Quatre Couteau\"",
+        "de": "Buchvernissage & Dinner: Das Kochbuch \"Les Quatre Couteau\"",
+        "fr": "Buchvernissage & Dinner: Das Kochbuch \"Les Quatre Couteau\""
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-11",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/buchvernissage-dinner-das-kochbuch-les-quatre-couteau/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.38872,
+        "lng": 8.5190587
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "2b618799fea71410989e1d49a4c5f5d26db7d102cebde5305d7f7fcc400c4d23"
+    },
+    {
+      "id": "myswitzerland:cd887a777fea45d7bb7e6982bc237291",
+      "title": "ANAIS BETWEEN THE SKY AND THE STAGE",
+      "titleByLocale": {
+        "it": "ANAIS BETWEEN THE SKY AND THE STAGE",
+        "en": "ANAIS BETWEEN THE SKY AND THE STAGE",
+        "de": "ANAIS ZWISCHEN HIMMEL UND BÜHNE",
+        "fr": "ANAIS ENTRE CIEL ET SCENE"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/anais-entre-ciel-et-scene/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2266375,
+        "lng": 7.347722
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Sion / Sitten"
+      },
+      "sourceDescriptionHash": "8680c390cf9e6c177b5b979959d4dc99366c3e51826be9f80b53223c709d03b5"
+    },
+    {
+      "id": "myswitzerland:cd42ef67dd8446c58161d95a06d077f2",
+      "title": "MALENA CANTA EL TANGO",
+      "titleByLocale": {
+        "it": "MALENA CANTA EL TANGO",
+        "en": "MALENA CANTA EL TANGO",
+        "de": "MALENA CANTA EL TANGO",
+        "fr": "MALENA CANTA EL TANGO"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/malena-canta-el-tango/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.376991,
+        "lng": 8.566522
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Olivia Milagro - GesangLuciano Jungman - Bandoneon"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "0345e512909365f399073b71dc09964eb95e5f5cf59e2bf5d65d55bc8064468b"
+    },
+    {
+      "id": "myswitzerland:cd29970c7c4047acb04aa0c05b4f8c13",
+      "title": "Famiglia Rossi",
+      "titleByLocale": {
+        "it": "Famiglia Rossi",
+        "en": "Famiglia Rossi",
+        "de": "Famiglia Rossi",
+        "fr": "Famiglia Rossi"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "20:15",
+      "category": "Event",
+      "venue": "Reinach AG",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/famiglia-rossi/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.25022,
+        "lng": 8.1854575
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Reinach AG"
+      },
+      "sourceDescriptionHash": "07427c5c5e0b38652fc2557a41da5e034a3dc2a32eda5b1288ac30ecdd421b0b"
+    },
+    {
+      "id": "myswitzerland:ccf2d3cddd0e42618e13ce32e6374d06",
+      "title": "Theater Musikgesellschaft",
+      "titleByLocale": {
+        "it": "Theater Musikgesellschaft",
+        "en": "Theater Musikgesellschaft",
+        "de": "Theater Musikgesellschaft",
+        "fr": "Theater Musikgesellschaft"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "St. Stephan",
+      "comune": "St. Stephan",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/theater-musikgesellschaft/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5066407,
+        "lng": 7.4021779
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St. Stephan"
+      },
+      "sourceDescriptionHash": "c2cd6f735f0a7eafae0245ca129c5923b0d842c2bd9b0150d806fea4ae0ef300"
+    },
+    {
+      "id": "myswitzerland:cce6d5392b8a40e88b00227dd062d6ba",
+      "title": "Discovering Gemstones!",
+      "titleByLocale": {
+        "it": "Discovering Gemstones!",
+        "en": "Discovering Gemstones!",
+        "de": "Entdecken Sie die Welt der Edelsteine!",
+        "fr": "A la découverte des pierres précieuses !"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "17:30",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/a-la-decouverte-des-pierres-precieuses/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2343627,
+        "lng": 7.3622862
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Sion / Sitten"
+      },
+      "sourceDescriptionHash": "f4d08ace8804489de243f53ed6cf0aa826a191978a3c3a5cd41801fe2037a460"
+    },
+    {
+      "id": "myswitzerland:ccbef5e74b3446328123d806e4e730e8",
+      "title": "Grittibänz und Märli",
+      "titleByLocale": {
+        "it": "Grittibänz und Märli",
+        "en": "Grittibänz und Märli",
+        "de": "Grittibänz und Märli",
+        "fr": "Grittibänz et Contes"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Biel",
+      "comune": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/grittibaenz-und-maerli/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1405713,
+        "lng": 7.2420646
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Biel"
+      },
+      "sourceDescriptionHash": "8083644ba74d8331d21284d9b577d52e74f91b182530f2d3ed8ee408c9316156"
+    },
+    {
+      "id": "myswitzerland:cc446dd83c174f03b2976b822169d60a",
+      "title": "CD-Vorstellung Jodlergruppe Echo vom Flösch",
+      "titleByLocale": {
+        "it": "CD-Vorstellung Jodlergruppe Echo vom Flösch",
+        "en": "CD-Vorstellung Jodlergruppe Echo vom Flösch",
+        "de": "CD-Vorstellung Jodlergruppe Echo vom Flösch",
+        "fr": "CD-Vorstellung Jodlergruppe Echo vom Flösch"
+      },
+      "startDate": "2027-04-03",
+      "endDate": "2027-04-03",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "St. Stephan",
+      "comune": "St. Stephan",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/cd-vorstellung-jodlergruppe-echo-vom-floesch/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5066407,
+        "lng": 7.4021779
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St. Stephan"
+      },
+      "sourceDescriptionHash": "0294ee0ea30e3750637fa757c3ea4f2fbdea15c220e18cf1ce78f80cbb801846"
+    },
+    {
+      "id": "myswitzerland:cbf75cc045f149d5ae54a03972976f23",
+      "title": "Adventsverkauf Effingerhort",
+      "titleByLocale": {
+        "it": "Adventsverkauf Effingerhort",
+        "en": "Adventsverkauf Effingerhort",
+        "de": "Adventsverkauf Effingerhort",
+        "fr": "Adventsverkauf Effingerhort"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-15",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Holderbank AG",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventsverkauf-effingerhort/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4320423,
+        "lng": 8.1776161
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Geschenken, Märchenstunde im Tipi-Zelt"
+        },
+        {
+          "name": "Kerzenziehen"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "042833853826385572954462116ddc824362d390263edf1166b8ec614889af92"
     }
   ]
 }
