@@ -814,8 +814,9 @@ index 7ccfe25..3c3b0ff 100644
    return out;
  }
  
--export function loadExistingItTitles(metaPath = 'services/locales/blog-meta-it.ts') {
-+export function loadExistingItTitles(metaPath = corpusPath('services/locales/blog-meta-it.ts')) {
+-export const SITE_IT_META_PATH = 'services/locales/blog-meta-it.ts';
++export const SITE_IT_META_PATH = corpusPath('services/locales/blog-meta-it.ts');
+ export function loadExistingItTitles(metaPath = SITE_IT_META_PATH) {
    try {
      if (!existsSync(metaPath)) return [];
      return extractItTitlesFromMeta(readFileSync(metaPath, 'utf-8'));
