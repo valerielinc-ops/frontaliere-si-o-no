@@ -19,6 +19,7 @@ export function employerReferenceSpans(text, employerName = '') {
 }
 
 const COMPANY_NOUN = /(?<![\p{L}\p{N}])(?:società|societa|azienda|gruppo|company|unternehmen|entreprise|société)(?![\p{L}\p{N}])/iu;
+const COMPANY_NAME = new RegExp(`${COMPANY_NOUN.source}\\s+((?:[\\p{Lu}][\\p{L}\\p{M}\\p{N}&'’.-]*)(?:\\s+[\\p{Lu}][\\p{L}\\p{M}\\p{N}&'’.-]*){0,2})`, 'gu');
 const PERSONAL_OR_NEGATED = /\b(?:ho|avevo|mio|mia|miei|mie|nostro|nostra|my|our|i have|i had|ich habe|mein\w*|j['’]ai|mon|mes|non|not|never|nicht|kein\w*|pas|candidate|candidat\w*|richiest\w*|required|must|you|votre|vostri)\b/iu;
 const THIRD_PARTY_SUBJECT = /\b(?:partner|clienti?|customers?|suppliers?|fornitor\w*|altra|other|autre)\b/iu;
 const COMPANY_YEARS = /\b(?:(?:da|for|seit|depuis|von)\s+)?(?:(?:oltre|over|more than|über|plus de)\s+)?(\d+)\s+(?:anni|years|jahren|jahre|ans)\b/giu;
@@ -32,12 +33,21 @@ function companyAges(text) {
     if (PERSONAL_OR_NEGATED.test(sentence) || THIRD_PARTY_SUBJECT.test(sentenceBefore)
       || EXPERIENCE_YEARS.test(sentence) || RECRUITING_OR_REQUIREMENT.test(sentence)
       || !COMPANY_NOUN.test(sentenceBefore)) return [];
-    return [{ value: match[1], index: match.index + match[0].indexOf(match[1]), length: match[1].length }];
+    return [{ value: match[1], index: match.index + match[0].indexOf(match[1]), length: match[1].length, sentence }];
   });
 }
 
-/** A number about the employer's age must have that same employer-age meaning in the posting. */
-export function quotedEmployerAge(text, index, posting = '') {
+function sameCanonicalEmployer(sentence, employerName) {
+  const normalize = (value) => String(value).normalize('NFKC').toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  const canonical = normalize(employerName);
+  const aliases = new Set(String(employerName).match(/\b[A-Z][A-Z0-9]{2,}\b/g) || []);
+  const names = [...String(sentence).matchAll(COMPANY_NAME)].map((match) => match[1]);
+  return names.every((name) => normalize(name) === canonical || (aliases.has(name) && normalize(name) === normalize(name.toUpperCase())));
+}
+
+/** A number about the employer's age must cite the canonical employer and same fact in the posting. */
+export function quotedEmployerAge(text, index, posting = '', employerName = '') {
   const age = companyAges(text).find((item) => index >= item.index && index < item.index + item.length);
-  return Boolean(age && companyAges(posting).some((item) => item.value === age.value));
+  return Boolean(age && sameCanonicalEmployer(age.sentence, employerName)
+    && companyAges(posting).some((item) => item.value === age.value && sameCanonicalEmployer(item.sentence, employerName)));
 }

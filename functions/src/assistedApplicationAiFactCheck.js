@@ -629,7 +629,7 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
       if (!digits) continue;
       const parts = token.split(/[^\d]+/).filter(Boolean);
       const supported = index.claimNumbers && claimField
-        ? inSet(index.claimNumbers, digits, parts) || (inSet(index.numbers, digits, parts) && (quotesRequirement(text, match.index) || quotedEmployerAge(text, match.index, index.employerPosting)))
+        ? inSet(index.claimNumbers, digits, parts) || (inSet(index.numbers, digits, parts) && (quotesRequirement(text, match.index) || quotedEmployerAge(text, match.index, index.employerPosting, index.employerName)))
         : inSet(index.numbers, digits, parts);
       if (!supported) flag(field, 'number', token, contextAround(text, match.index, match[0].length));
     }

@@ -1588,6 +1588,16 @@ describe('employer citations versus candidate facts', () => {
     expect(checkDraftFacts({ coverLetter: 'La società è attiva da 50 anni.' }, { ...sources, posting: 'La società cerca personale.' }).ok).toBe(false);
   });
 
+  it('does not transfer an employer age between explicitly named companies', () => {
+    const order = 'Sales consultant\nAlfa SA\nCandidate Example';
+    expect(checkDraftFacts({ coverLetter: 'La società Alfa SA è attiva da 50 anni.' }, {
+      ...sources, order, posting: 'La società Beta SA è attiva da 50 anni.',
+    }).ok).toBe(false);
+    expect(checkDraftFacts({ coverLetter: 'La società Beta SA è attiva da 50 anni.' }, {
+      ...sources, order, posting: 'La società Alfa SA è attiva da 50 anni.',
+    }).ok).toBe(false);
+  });
+
   it.each([
     'La società richiede 50 anni di esperienza.',
     'La società cerca consulenti con 50 anni di esperienza.',
