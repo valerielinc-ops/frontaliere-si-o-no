@@ -44,6 +44,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
       : null
   ),
   trackAssistedApplicationEvent: mocks.trackEvent,
+  shouldSuppressAssistedApplicationEvent: () => false,
 }));
 vi.mock('@/services/i18n', async () => {
   const { default: strings } = await import('@/services/locales/it-core');
@@ -148,6 +149,18 @@ describe('assisted application consent and CV upload flow', () => {
     expect(mocks.updateDoc).toHaveBeenCalledTimes(2);
     expect(screen.getByText('cv.pdf').closest('[role="status"]')).not.toBeNull();
     expect(fileInput).toBeDisabled();
+  });
+
+  it('does not count reopening the same paid order as another checkout completion', async () => {
+    const completionCount = () => mocks.trackEvent.mock.calls.filter(([event]) => event === 'checkout_completed').length;
+    const firstVisit = render(<AssistedApplicationUpload orderId="order-completion-reopen" />);
+    await screen.findByRole('button', { name: itCore['jobBoard.assisted.confirmConsent'] });
+    expect(completionCount()).toBe(1);
+    firstVisit.unmount();
+
+    render(<AssistedApplicationUpload orderId="order-completion-reopen" />);
+    await screen.findByRole('button', { name: itCore['jobBoard.assisted.confirmConsent'] });
+    expect(completionCount()).toBe(1);
   });
 
   it('does not ask again when the order already contains a valid mandate', async () => {
