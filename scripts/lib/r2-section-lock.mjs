@@ -49,12 +49,20 @@ function nonNegativeDuration(value, name) {
   return value;
 }
 
-function isSafeTimestamp(value) {
+const DECIMAL_SAFE_LEASE_TIMESTAMP_RE = /^(?:0|[1-9]\d*)$/u;
+
+export function isSafeLeaseTimestamp(value) {
   return Number.isSafeInteger(value) && value >= 0;
 }
 
+export function parseSafeLeaseTimestamp(raw) {
+  if (typeof raw !== 'string' || !DECIMAL_SAFE_LEASE_TIMESTAMP_RE.test(raw)) return null;
+  const timestamp = Number(raw);
+  return isSafeLeaseTimestamp(timestamp) ? timestamp : null;
+}
+
 function safeTimestamp(value, name) {
-  if (!isSafeTimestamp(value)) {
+  if (!isSafeLeaseTimestamp(value)) {
     throw new Error(`[r2-section-lock] ${name} must be a safe non-negative integer timestamp`);
   }
   return value;
@@ -91,8 +99,8 @@ export function isLockPayload(value) {
       && typeof value.owner === 'string'
       && value.owner.length > 0
       && ARTICLE_SECTIONS.includes(value.section)
-      && isSafeTimestamp(value.acquiredAt)
-      && isSafeTimestamp(value.expiresAt)
+      && isSafeLeaseTimestamp(value.acquiredAt)
+      && isSafeLeaseTimestamp(value.expiresAt)
       && value.expiresAt > value.acquiredAt
       && (value.leaseId === undefined
         || (typeof value.leaseId === 'string' && value.leaseId.length > 0)),
