@@ -113,13 +113,16 @@ function stripEmployerSuffix(value) {
 
 function profileEvidence(profile) {
   const skillTokens = new Set((profile?.skills || []).flatMap((value) => [...tokenize(value)]));
-  const titleText = [profile?.workPosition, profile?.headline, ...(profile?.previousPositions || [])].map(stripEmployerSuffix).filter(Boolean);
+  const currentTitleText = [profile?.workPosition, profile?.headline].map(stripEmployerSuffix).filter(Boolean);
+  const previousPositionText = (profile?.previousPositions || []).map(stripEmployerSuffix).filter(Boolean);
+  const titleText = [...currentTitleText, ...previousPositionText];
   const titleTokens = new Set(titleText.flatMap((value) => [...tokenize(value)]));
-  const experienceTokens = new Set([...(profile?.experienceSummary || []), ...(profile?.previousPositions || [])]
+  const experienceTokens = new Set([...(profile?.experienceSummary || []), ...previousPositionText]
     .flatMap((value) => [...tokenize(stripEmployerSuffix(value))]));
   const allTokens = new Set([...skillTokens, ...titleTokens, ...experienceTokens]);
   const profileText = normalize([
-    ...titleText,
+    ...currentTitleText,
+    ...previousPositionText,
     ...(profile?.skills || []),
     ...(profile?.experienceSummary || []).map(stripEmployerSuffix),
   ].join(' '));

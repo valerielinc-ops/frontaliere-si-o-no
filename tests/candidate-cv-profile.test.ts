@@ -732,4 +732,9 @@ describe('dated historical positions as matching evidence', () => {
     expect(scoreJobForProfile({ title: 'Senior Manager Business Tax Advisory Tax Legal', category: 'tax' }, profile).score).toBe(0);
     expect(scoreJobForProfile({ title: 'Intern Transfer Pricing Tax Legal', category: 'tax' }, profile).score).toBe(0);
   });
+
+  it('includes an earlier position in specialty mismatch evidence', () => {
+    const profile = { previousPositions: ['Sales Manager'], skills: [], experienceSummary: [] };
+    expect(scoreJobForProfile({ title: 'Sales Manager' }, profile).score).toBeGreaterThanOrEqual(28);
+  });
 });
