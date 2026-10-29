@@ -878,6 +878,7 @@ const translations: Record<string, string> = {
  'jobBoard.concierge.portalIntro': 'Il servizio resta attivo fino alla scadenza dei 30 giorni anche se non rispondi subito alle proposte.',
  'jobBoard.concierge.paymentPending': 'Pagamento in verifica. Questa pagina si aggiornerà automaticamente dopo la conferma.',
  'jobBoard.concierge.paymentFailed': 'Il pagamento non è stato confermato. Non caricare dati e riprova dal link del servizio.',
+  'jobBoard.concierge.errors.proposal_requires_verification': "Questa proposta richiede una nuova verifica dei requisiti. Aggiorna le proposte prima di accettarla.",
  'jobBoard.concierge.expired': 'Il periodo di 30 giorni è terminato. Non puoi accettare nuove posizioni.',
  'jobBoard.concierge.profileTitle': 'Dati e consenso',
  'jobBoard.concierge.profileIntro': 'Salva i dati che useremo per le candidature. Il consenso vale per il servizio e per ogni posizione che accetti.',

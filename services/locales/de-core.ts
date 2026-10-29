@@ -842,6 +842,7 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.portalIntro': 'Der Dienst bleibt bis zum festen Ablauf nach 30 Tagen aktiv, auch wenn du nicht sofort auf einen Vorschlag antwortest.',
  'jobBoard.concierge.paymentPending': 'Die Zahlung wird geprüft. Diese Seite aktualisiert sich nach der Bestätigung automatisch.',
  'jobBoard.concierge.paymentFailed': 'Die Zahlung wurde nicht bestätigt. Lade keine Daten hoch und versuche es über den Servicelink erneut.',
+  'jobBoard.concierge.errors.proposal_requires_verification': "Die Anforderungen dieses Vorschlags müssen erneut geprüft werden. Aktualisiere die Vorschläge vor der Annahme.",
  'jobBoard.concierge.expired': 'Der Zeitraum von 30 Tagen ist abgelaufen. Du kannst keine neuen Stellen annehmen.',
  'jobBoard.concierge.profileTitle': 'Daten und Einwilligung',
  'jobBoard.concierge.profileIntro': 'Speichere die Daten, die wir für Bewerbungen verwenden. Deine Einwilligung gilt für den Dienst und jede Stelle, die du annimmst.',

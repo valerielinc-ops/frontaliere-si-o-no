@@ -430,6 +430,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
   const service = serviceSnapshot.data() || {};
   if (!service.userId || service.paymentStatus !== 'paid' || !serviceIsActive(service)) return { status: 'skipped', reason: 'service_inactive' };
 
+  if (acceptedPositionsCount(service) >= (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) return { status: 'skipped', reason: 'position_limit_reached' };
+
   const profileSnapshot = await db.collection('user_cv_profiles').doc(service.userId).get();
   const profileRecord = profileSnapshot.exists ? profileSnapshot.data() || {} : {};
   const profile = profileRecord.profile || {};

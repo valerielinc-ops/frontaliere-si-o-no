@@ -842,6 +842,7 @@ const frCore: Record<string, string> = {
  'jobBoard.concierge.portalIntro': 'Le service reste actif jusqu’à l’échéance fixe de 30 jours, même si vous ne répondez pas immédiatement à une proposition.',
  'jobBoard.concierge.paymentPending': 'Le paiement est en cours de vérification. Cette page se mettra à jour automatiquement après confirmation.',
  'jobBoard.concierge.paymentFailed': 'Le paiement n’a pas été confirmé. N’envoyez pas de données et réessayez depuis le lien du service.',
+  'jobBoard.concierge.errors.proposal_requires_verification': "Les exigences de cette proposition doivent être revérifiées. Actualise les propositions avant de l’accepter.",
  'jobBoard.concierge.expired': 'La période de 30 jours est terminée. Vous ne pouvez plus accepter de poste.',
  'jobBoard.concierge.profileTitle': 'Informations et consentement',
  'jobBoard.concierge.profileIntro': 'Enregistrez les informations que nous utiliserons pour les candidatures. Votre consentement couvre le service et chaque poste accepté.',

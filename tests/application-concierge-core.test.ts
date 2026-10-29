@@ -159,6 +159,7 @@ vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({
   ASSISTED_APPLICATION_STORAGE_BUCKET: 'test-bucket',
 }));
 
+vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({ prepareConciergeEligibility: vi.fn() }));
 const { handleApplicationConcierge } = await import('../functions/src/applicationConciergeCore.js');
 
 function seedService() {
@@ -187,6 +188,7 @@ function seedService() {
     location: 'Lugano',
     applyMode: 'portal',
     status: 'proposed',
+    eligibilityStatus: 'compatible',
   });
   mocks.files.add('application-concierge-uploads/service-1/cv.pdf');
 }
@@ -371,6 +373,7 @@ describe('application concierge candidate API', () => {
       companyName: 'Nearby SA',
       jobTitle: 'Developer',
       status: 'proposed',
+    eligibilityStatus: 'compatible',
       matchScore: 53,
       matchRankingScore: 53,
     });
@@ -432,4 +435,17 @@ describe('application concierge candidate API', () => {
     expect((result.body as any).services).toHaveLength(1);
     expect((result.body as any).services[0].serviceId).toBe('service-1');
   });
+});
+
+
+it('blocks accepting an unverified legacy proposal while still allowing the candidate to decline it', async () => {
+  seedService();
+  const proposal = mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!;
+  delete proposal.eligibilityStatus;
+  const base = { serviceId: 'service-1', proposalId: 'proposal-1' };
+  const accepted = await handleApplicationConcierge({ method: 'POST', body: { ...base, action: 'acceptProposal' }, get: () => 'Bearer candidate-token' });
+  expect(accepted).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+  expect([...mocks.documents.keys()].filter(path => path.startsWith('assisted_applications/'))).toHaveLength(0);
+  const declined = await handleApplicationConcierge({ method: 'POST', body: { ...base, action: 'declineProposal' }, get: () => 'Bearer candidate-token' });
+  expect(declined.status).toBe(200);
 });

@@ -11,7 +11,7 @@ function fixture(match: any) {
   const records = new Map<string, any>();
   function ref(path: string): any {
     return { id: path.split('/').at(-1), get: async () => ({ exists: records.has(path), data: () => records.get(path) }),
-      set: async (value: any) => { records.set(path, value); }, collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }) };
+      set: async (value: any, options?: any) => { records.set(path, options?.merge ? { ...records.get(path), ...value } : value); }, collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }) };
   }
   const serviceRef = ref('application_concierge_services/service');
   const service = { userId: 'candidate', cvStorageKey: 'application-concierge-uploads/service/cv.pdf', locale: 'it' };
