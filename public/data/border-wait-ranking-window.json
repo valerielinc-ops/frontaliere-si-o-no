@@ -1,9 +1,9 @@
 {
-  "generatedFor": "2026-10-28",
+  "generatedFor": "2026-10-29",
   "windowDays": 7,
   "current": {
-    "weekStart": "2026-10-21",
-    "weekEnd": "2026-10-27",
+    "weekStart": "2026-10-22",
+    "weekEnd": "2026-10-28",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -21,7 +21,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 4.125,
+        "weightedAvgMinutes": 4.166666666666667,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -131,7 +131,7 @@
         "canton": "TI"
       },
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 0.8333333333333334,
+        "weightedAvgMinutes": 0,
         "totalSamples": 48,
         "canton": "TI"
       },
@@ -151,17 +151,17 @@
         "canton": "VD"
       },
       "chiasso-brogeda": {
-        "weightedAvgMinutes": 0.16666666666666666,
+        "weightedAvgMinutes": 0,
         "totalSamples": 48,
         "canton": "TI"
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 0.16666666666666666,
+        "weightedAvgMinutes": 0,
         "totalSamples": 48,
         "canton": "TI"
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 0.16666666666666666,
+        "weightedAvgMinutes": 0,
         "totalSamples": 48,
         "canton": "TI"
       },
@@ -491,7 +491,7 @@
         "canton": "SH"
       },
       "meyrin-cern": {
-        "weightedAvgMinutes": 0.3333333333333333,
+        "weightedAvgMinutes": 0.5,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -531,7 +531,7 @@
         "canton": "GR"
       },
       "perly": {
-        "weightedAvgMinutes": 1,
+        "weightedAvgMinutes": 1.5,
         "totalSamples": 48,
         "canton": "GE"
       },
@@ -713,8 +713,8 @@
     }
   },
   "previous": {
-    "weekStart": "2026-10-14",
-    "weekEnd": "2026-10-20",
+    "weekStart": "2026-10-15",
+    "weekEnd": "2026-10-21",
     "perCrossing": {
       "anieres": {
         "weightedAvgMinutes": 0,
@@ -732,7 +732,7 @@
         "canton": "AG"
       },
       "bardonnex": {
-        "weightedAvgMinutes": 4.680851063829787,
+        "weightedAvgMinutes": 4.595744680851064,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -842,7 +842,7 @@
         "canton": "TI"
       },
       "campione-d-italia-bissone": {
-        "weightedAvgMinutes": 6.9787234042553195,
+        "weightedAvgMinutes": 7.319148936170213,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -867,12 +867,12 @@
         "canton": "TI"
       },
       "chiasso-centro": {
-        "weightedAvgMinutes": 0.3404255319148936,
+        "weightedAvgMinutes": 0.5106382978723404,
         "totalSamples": 47,
         "canton": "TI"
       },
       "chiasso-strada": {
-        "weightedAvgMinutes": 0.3404255319148936,
+        "weightedAvgMinutes": 0.5106382978723404,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -962,7 +962,7 @@
         "canton": "GR"
       },
       "gaggiolo": {
-        "weightedAvgMinutes": 2.723404255319149,
+        "weightedAvgMinutes": 2.0425531914893615,
         "totalSamples": 47,
         "canton": "TI"
       },
@@ -1242,7 +1242,7 @@
         "canton": "GR"
       },
       "perly": {
-        "weightedAvgMinutes": 0.6808510638297872,
+        "weightedAvgMinutes": 0.3404255319148936,
         "totalSamples": 47,
         "canton": "GE"
       },
@@ -1327,7 +1327,7 @@
         "canton": "GR"
       },
       "san-pietro": {
-        "weightedAvgMinutes": 2.723404255319149,
+        "weightedAvgMinutes": 2.0425531914893615,
         "totalSamples": 47,
         "canton": "TI"
       },
