@@ -8,6 +8,7 @@ import {
   COOKIE_REJECT_RE,
   formPostingMatch,
   hasApplicationSurface,
+  initialPortalHandoffReason,
   namesAnotherEmployer,
   pageControls,
   sameEmployerFamily,
@@ -205,6 +206,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
     expect(formPostingMatch('Project Manager — Other Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
+  });
+
+  it('hands an unresolved initial anti-bot page to CAPTCHA, not posting mismatch', () => {
+    expect(initialPortalHandoffReason({ snapshot: { captcha: true }, liveness: { code: 'bot_challenge' } })).toBe('captcha');
+    expect(initialPortalHandoffReason({ snapshot: { captcha: false }, liveness: { code: 'bot_challenge' } })).toBe('captcha');
+    expect(initialPortalHandoffReason({ snapshot: { captcha: false }, liveness: { code: 'no_apply_control' } })).toBeNull();
   });
 
   it('stops before filling a form that names neither the company nor the role', () => {
