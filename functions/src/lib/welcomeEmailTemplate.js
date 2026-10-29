@@ -33,6 +33,7 @@
  * only consumes the segment string, it does not import that module.
  */
 
+import { renderEmailPreview } from './emailPreview.js';
 import { LOCALE_PATH_MAP } from './newsletterUrlPaths.js';
 import { renderRecommendedBlock } from './recommendedBlock.js';
 import { renderEmailEngagementBanners } from './emailEngagementBanners.js';
@@ -621,10 +622,6 @@ const SEGMENT_BUILDERS = {
   general: buildGeneralContent,
 };
 
-// Hidden-preheader padding: enough zero-width/nbsp filler that mail clients
-// don't spill the real body copy into the inbox preview snippet.
-const PREHEADER_PAD = '&#847;&zwnj;&nbsp;'.repeat(40);
-
 /**
  * Build the welcome email sent within seconds of signup.
  * @param {{
@@ -731,7 +728,7 @@ export function buildWelcomeEmail({
   </style>
 </head>
 <body style="margin:0;padding:0;background:${LIGHT_BG};">
-  <div style="display:none;font-size:0;line-height:0;max-height:0;max-width:0;overflow:hidden;mso-hide:all;opacity:0;">${escapeHtml(content.preheader)}${PREHEADER_PAD}</div>
+  ${renderEmailPreview(content.preheader)}
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${LIGHT_BG}" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table role="presentation" width="620" cellpadding="0" cellspacing="0" bgcolor="${WHITE}" style="width:100%;max-width:620px;background:${WHITE};">
