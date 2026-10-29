@@ -432,11 +432,27 @@ describe('handleGeminiGenerate — rung Codex', () => {
 
     expect(res).toEqual({ status: 200, body: { ok: true, text: 'dal rung codex', provider: 'codex' } });
     const urls = fetchMock.mock.calls.map(([url]) => String(url));
-    expect(urls).toHaveLength(5); // gemini, groq-70b, nvidia-70b, groq-8b, codex
+    expect(urls).toHaveLength(4); // gemini, groq GPT-OSS 120B, groq GPT-OSS 20B, codex
     expect(urls.at(-1)).toBe(CODEX_URL);
     expect(urls.slice(0, -1)).not.toContain(CODEX_URL);
     expect(JSON.parse(codexCalls()[0][1].body).input[0]).toEqual({ type: 'message', role: 'developer', content: [{ type: 'input_text', text: 'sys' }] });
     for (const key of ['ANTHROPIC_API_KEY', 'OPENAI_API_KEY']) expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith(key);
+  });
+
+  it('uses the supported Groq fallback after primary quota failure, preserving the prompt and budget', async () => {
+    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q' };
+    fetchMock.mockImplementation(async (url: string, init: any) => {
+      if (String(url).includes('generativelanguage.googleapis.com')) return new Response('quota', { status: 429 });
+      const body = JSON.parse(init.body);
+      expect(body).toMatchObject({ model: 'openai/gpt-oss-120b', max_completion_tokens: 300, reasoning_effort: 'low',
+        messages: [{ role: 'system', content: 'sys' }, { role: 'user', content: 'scrivi' }] });
+      expect(body.max_tokens).toBeUndefined();
+      return new Response(JSON.stringify({ choices: [{ message: { content: 'supported fallback' } }] }));
+    });
+    const { handleGeminiGenerate } = await import('../../functions/src/geminiGenerate.js');
+    expect(await handleGeminiGenerate(req)).toMatchObject({ status: 200, body: { text: 'supported fallback', provider: 'groq-gpt-oss-120b' } });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith('NVIDIA_API_KEY');
   });
 
   it('senza CODEX_AUTH_JSON risponde all_providers_failed con codex: not_configured', async () => {
@@ -497,6 +513,23 @@ describe('handleChatbotInference — rung Codex', () => {
     expect(developer.role).toBe('developer');
     expect(developer.content[0].text).toContain('searchJobs');
     for (const key of ['ANTHROPIC_API_KEY', 'OPENAI_API_KEY']) expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith(key);
+  });
+
+  it('uses the same supported fallback order for chat and survives one model quota', async () => {
+    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q' };
+    const models: string[] = [];
+    fetchMock.mockImplementation(async (url: string, init: any) => {
+      if (String(url).includes('generativelanguage.googleapis.com')) return new Response('down', { status: 500 });
+      const body = JSON.parse(init.body);
+      models.push(body.model);
+      expect(body).toMatchObject({ max_completion_tokens: 1024, reasoning_effort: 'low' });
+      if (body.model === 'openai/gpt-oss-120b') return new Response('quota', { status: 429 });
+      return new Response(JSON.stringify({ choices: [{ message: { content: 'chat fallback' } }] }));
+    });
+    const { handleChatbotInference } = await import('../../functions/src/chatbotInference.js');
+    expect(await handleChatbotInference(params)).toMatchObject({ text: 'chat fallback', model: 'openai/gpt-oss-20b', source: 'openai-compat' });
+    expect(models).toEqual(['openai/gpt-oss-120b', 'openai/gpt-oss-20b']);
+    expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith('NVIDIA_API_KEY');
   });
 
   it('senza CODEX_AUTH_JSON lancia ALL_FAILED con codex: not_configured', async () => {

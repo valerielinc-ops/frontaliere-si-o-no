@@ -6,10 +6,9 @@
  *
  * Provider chain (free-first):
  * 1. Gemini (gemini-flash-lite-latest → gemini-flash-latest) — primary
- * 2. Groq llama-3.3-70b-versatile — first OpenAI-compatible fallback
- * 3. NVIDIA meta/llama-3.1-70b-instruct — second OpenAI-compatible fallback
- * 4. Groq llama-3.1-8b-instant — last-resort free fallback
- * 5. Codex Luna Max with the CI's Codex ChatGPT login — last-resort of last
+ * 2. Groq GPT-OSS 120B — first OpenAI-compatible fallback
+ * 3. Groq GPT-OSS 20B — second OpenAI-compatible fallback
+ * 4. Codex Luna Max with the CI's Codex ChatGPT login — last-resort of last
  *    resort (see codexFallback.js — scoped exception, #4495)
  *
  * Tools (searchJobs) are embedded as text in the system prompt; no native
@@ -21,6 +20,7 @@
 
 import { createHash } from 'node:crypto';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { SERVER_TEXT_FALLBACKS as OPENAI_FALLBACKS, serverTextFallbackBody } from './serverAiFallbacks.js';
 import { tryCodexFallback } from './codexFallback.js';
 
 // ── Model chain (free-first, non-deprecated) ────────────────────────────────
@@ -42,12 +42,8 @@ const PROVIDER_TIMEOUT_MS = 18000;
 
 // Free OpenAI-compatible fallbacks tried when all Gemini models fail.
 // Keys already live in Remote Config (same pool as geminiGenerate / translation chain).
-// Diversity across providers matters: a per-key 429 on one must not take down siblings.
-const OPENAI_FALLBACKS = [
-  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.3-70b-versatile', label: 'groq-70b' },
-  { rcKey: 'NVIDIA_API_KEY', base: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'meta/llama-3.1-70b-instruct', label: 'nvidia-70b' },
-  { rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.1-8b-instant', label: 'groq-8b' },
-];
+// The catalog is shared with geminiGenerate so provider retirements cannot drift.
+
 
 // ── Available client-side tools ─────────────────────────────────────────────
 // Tools the LLM may request. Execution happens client-side (AiChatbot.tsx)
@@ -204,7 +200,7 @@ async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, sy
   const res = await fetch(base, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-    body: JSON.stringify({ model, messages: msgs, max_tokens: 1024, temperature: 0.7 }),
+    body: JSON.stringify(serverTextFallbackBody({ model, messages: msgs, maxTokens: 1024, temperature: 0.7 })),
     signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
   });
 
