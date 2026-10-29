@@ -1,3 +1,5 @@
+import { buildBridgeThinHtml } from '../build-plugins/shared/bridgeThinShell';
+import { buildSoftLandingThinHtml } from '../build-plugins/shared/softLandingThinShell';
 // @vitest-environment jsdom
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
@@ -37,6 +39,12 @@ describe('anonymous job description budget', () => {
     expect(document.querySelector('h1')).toBeNull();
     expect(document.querySelector('script, [onerror]')).toBeNull();
     expect(document.querySelector('li')?.textContent).toContain(privateTail);
+  });
+  it('protects full source content even if an alias or archive is offered to the thinning helpers', () => {
+    const content = renderJobDescriptionContent(`${body}${privateTail}`, 'it');
+    const page = `<html><head></head><body><main class="seo-static-content"><article class="ft-static-article"><h1>Offerta originale</h1>${content}</article></main></body></html>`;
+    expect(buildBridgeThinHtml(page, 'current-job', 'it')).toBe(page);
+    expect(buildSoftLandingThinHtml(page, 'it')).toBe(page);
   });
   it('uses the complete renderer in all static detail writers and keeps application links functional', () => {
     const source = readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');

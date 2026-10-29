@@ -127,6 +127,8 @@ function canonicalPathFromUrl(url: string): string {
  * @returns           Thin bridge HTML (~3-5 KB instead of ~30-50 KB).
  */
 export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, locale: string): string {
+  // Owner contract: a complete job detail must survive every thinning pass.
+  if (cachedHtml.includes('data-job-description-full')) return cachedHtml;
   const h1Text = htmlEscape(extractH1(cachedHtml));
   const canonicalUrl = extractCanonicalUrl(cachedHtml);
   const canonicalPath = canonicalPathFromUrl(canonicalUrl);
