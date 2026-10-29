@@ -36,12 +36,12 @@ const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
   TN: 4,
   BZ: 4,
 });
-// Osservaprezzi answers concurrent bursts with HTTP 429. Keep province lookups
-// serial and enforce the same spacing through the request wrapper. A province
-// response is deliberately not expanded into one request per target town:
-// missing towns are normal for the partial search response, and that fan-out
-// can exhaust the upstream rate limit before a live snapshot is assembled.
+// Osservaprezzi answers concurrent bursts with HTTP 429. Keep both lookup
+// levels serial and enforce the same spacing through the request wrapper. A
+// province response that already contains a target row stays bounded; only an
+// empty target result falls back to the same official endpoint per town.
 const MIMIT_API_CONCURRENCY = 1;
+const MIMIT_API_TOWN_CONCURRENCY = 1;
 const MIMIT_API_MIN_INTERVAL_MS = 1_000;
 const MIMIT_API_RATE_LIMIT_DEFAULT_COOLDOWN_MS = 15_000;
 const MIMIT_API_RATE_LIMIT_MAX_COOLDOWN_MS = 60_000;
@@ -619,8 +619,14 @@ export async function fetchMimitApiSource(
       return [provinceResponse];
     } catch (error) {
       if (!(error instanceof Error) || error.message !== 'MIMIT API returned no valid Benzina rows for target municipalities') throw error;
-      console.warn(`::warning::[fuel] MIMIT area lookup returned no target Benzina rows for ${province}; skipping municipality fan-out to avoid API rate limiting`);
-      return [];
+      console.warn(`::warning::[fuel] MIMIT area lookup returned no target Benzina rows for ${province}; retrying ${targetMunicipalities.length} target municipalities`);
+      return mapWithConcurrency(targetMunicipalities, MIMIT_API_TOWN_CONCURRENCY, async (municipality) => fetchMimitApiArea({
+        region,
+        province,
+        town: municipality.name,
+        fetchImpl: rateLimitedFetch,
+        retries,
+      }));
     }
   });
   const responses = responsesByProvince.flat();

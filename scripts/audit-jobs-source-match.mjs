@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import { jobTitleSourceLang } from './lib/job-locale-utils.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -486,9 +487,11 @@ async function checkLocalePage(job, locale, opts) {
 
 function buildPublishedText(job) {
   const sourceLang = normalizeSpace(job.sourceLang || 'it') || 'it';
+  const titleSourceLang = jobTitleSourceLang(job, sourceLang);
   return {
     sourceLang,
-    title: pickNonEmpty(job.titleByLocale?.[sourceLang], job.title),
+    titleSourceLang,
+    title: pickNonEmpty(job.titleByLocale?.[titleSourceLang], job.title),
     description: pickNonEmpty(job.descriptionByLocale?.[sourceLang], job.description),
   };
 }
@@ -558,6 +561,7 @@ function analyzeJob(job, sourceResult, localeChecks) {
     company: job.company,
     companyKey: job.companyKey,
     sourceLang: published.sourceLang,
+    titleSourceLang: published.titleSourceLang,
     publishedTitle,
     sourceTitle,
     status: classification.status,

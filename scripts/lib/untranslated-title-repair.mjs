@@ -1,4 +1,4 @@
-import { titleLooksUntranslated } from './job-locale-utils.mjs';
+import { jobTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 
 // Reasons that send a title to the Codex repair lane. Gender codes are
 // reported by titleLooksUntranslated(), but are not an untranslated verdict
@@ -42,28 +42,29 @@ export function isTitleRepairQueueVerdict(verdict) {
 }
 
 /**
- * Source locale of a job as the base language code the locale maps are keyed
+ * Source locale of a title as the base language code the locale maps are keyed
  * by: a stored regional tag (`de-CH`, `fr_CH`) must still find the `de`/`fr`
- * slot and must still exclude it from the target locales. One place for the
- * default, so lookup, exclusion and the detector cannot drift.
+ * slot and must still exclude it from target locales. Explicit source pins,
+ * source-backed corrections, and title detection are shared with crawler
+ * localization, without changing `job.sourceLang` for the description.
  */
 export function titleRepairSourceLang(job) {
-  const base = String(job?.sourceLang || '').trim().toLowerCase().split(/[-_]/u)[0];
-  return base || 'it';
+  return jobTitleSourceLang(job);
 }
 
 /**
- * The source title both lanes translate FROM: `job.title`, or the source
- * locale's slot when a crawler left `title` empty. The Argos handoff and the
- * Codex discovery must read the same value, or a slot Argos gives up is never
- * picked up by Codex.
+ * The source title both lanes translate FROM: prefer the resolved source
+ * locale's slot because the flat `job.title` can already be localized. Fall
+ * back to `job.title` only when the source slot is absent. The Argos handoff
+ * and Codex discovery must read the same value, or a slot Argos gives up is
+ * never picked up by Codex.
  */
 export function titleRepairSourceTitle(job) {
   const sourceLang = titleRepairSourceLang(job);
-  // Trim before choosing: a whitespace-only `title` is an empty title, not a
-  // reason to skip the source-locale slot.
-  return String(job?.title || '').trim()
-    || String(job?.titleByLocale?.[sourceLang] || '').trim();
+  // Trim before choosing: whitespace-only slots are empty. Prefer the source
+  // map over the flat display title, which may contain an existing translation.
+  return String(job?.titleByLocale?.[sourceLang] || '').trim()
+    || String(job?.title || '').trim();
 }
 
 /**

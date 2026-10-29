@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 664,
+  "crawlerCount": 665,
   "groups": {
     "10": [
       "atec-personal",
@@ -380,6 +380,7 @@
       "omega",
       "orell-fuessli-thalia",
       "pdag",
+      "policelavaux-ch",
       "ricola",
       "seniorenzentrum-engelhof",
       "six-group",
@@ -407,7 +408,7 @@
       "mks-pamp",
       "oerlikon",
       "otis",
-      "policelavaux-ch",
+      "pks-bewerbung-ch",
       "project-interim",
       "reha-bellikon",
       "rh-expert-ch",
@@ -467,6 +468,7 @@
       "chicco-doro",
       "cordenpharma",
       "fart",
+      "fondazione-san-gottardo",
       "galenica",
       "globus",
       "grischapersonal",
@@ -477,7 +479,6 @@
       "lups",
       "mcm-group",
       "microsoft",
-      "opacc-software-ag",
       "oscam",
       "privatklinik-wyss",
       "prosenectute-ti",
@@ -543,9 +544,9 @@
       "klinik-im-hasel",
       "medimeo",
       "nant",
+      "opacc-software-ag",
       "parmag",
       "pemsa",
-      "pks-bewerbung-ch",
       "pole-sante-pays-enhaut",
       "puk-zuerich",
       "spital-limmattal",
@@ -933,6 +934,7 @@
     "fnz": "data/jobs/by-crawler/fnz.json",
     "fondation-domus": "data/jobs/by-crawler/fondation-domus.json",
     "fondation-soins-lausanne": "data/jobs/by-crawler/fondation-soins-lausanne.json",
+    "fondazione-san-gottardo": "data/jobs/by-crawler/fondazione-san-gottardo.json",
     "forel-klinik": "data/jobs/by-crawler/forel-klinik.json",
     "franklin-university": "data/jobs/by-crawler/franklin-university.json",
     "fusalp": "data/jobs/by-crawler/fusalp.json",
@@ -1382,5 +1384,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:d5749d68502d4154c7966847d842745ce0cc0e4a3e7bbf47bd1f248efdaebdb8"
+  "digest": "sha256:b80ebba0ab838e1c80a678b3441a7447c7785ec5f3674c0bb030f0552d721e24"
 }

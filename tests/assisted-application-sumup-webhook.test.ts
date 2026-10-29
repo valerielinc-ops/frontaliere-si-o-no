@@ -36,6 +36,7 @@ vi.mock('../functions/src/applicationConciergeCheckout.js', () => ({
 
 const {
   handleAssistedApplicationSumUpWebhook,
+  applyAssistedApplicationSumUpCheckout,
   runAssistedApplicationSumUpReconciliation,
 } = await import('../functions/src/assistedApplicationSumupWebhook.js');
 
@@ -108,6 +109,24 @@ beforeEach(() => {
 });
 
 describe('SumUp assisted-application webhook', () => {
+  it('maps a renewed reference to its parent order and rejects callbacks from the replaced checkout', async () => {
+    mocks.db.mockReturnValue(makeDb({ paymentProvider: 'sumup', sumupCheckoutId: 'current', paymentStatus: 'pending' }));
+    const checkout = { id: 'current', checkout_reference: 'order-1~sumup~2', amount: 1.99, currency: 'EUR', status: 'PAID' };
+    expect(await applyAssistedApplicationSumUpCheckout(checkout)).toMatchObject({ handled: true, paymentStatus: 'paid' });
+    expect(mocks.handleAssistedApplicationWebhookEvent.mock.calls[0][0].data.object.metadata.orderId).toBe('order-1');
+    mocks.handleAssistedApplicationWebhookEvent.mockClear();
+    expect(await applyAssistedApplicationSumUpCheckout({ ...checkout, id: 'replaced', checkout_reference: 'order-1' }))
+      .toEqual({ handled: false, reason: 'order_reference_mismatch' });
+    expect(mocks.handleAssistedApplicationWebhookEvent).not.toHaveBeenCalled();
+  });
+
+  it('keeps the replacement reservation intact when a late expiry callback arrives', async () => {
+    mocks.db.mockReturnValue(makeDb({ paymentProvider: 'sumup', sumupCheckoutId: 'expired', paymentStatus: 'pending', checkoutSessionStatus: 'creating' }));
+    expect(await applyAssistedApplicationSumUpCheckout({ id: 'expired', checkout_reference: 'order-1', status: 'EXPIRED' }))
+      .toEqual({ handled: false, reason: 'checkout_replacement_in_progress' });
+    expect(mocks.handleAssistedApplicationWebhookEvent).not.toHaveBeenCalled();
+  });
+
   it('retrieves and dispatches a paid checkout only for its own pending order', async () => {
     mocks.db.mockReturnValue(makeDb({
       paymentProvider: 'sumup',

@@ -14,6 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, isAnyModelAvailable, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { jobTitleSourceLang } from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { reduceSalaryToPartTime, matchesEstimateFingerprint } from './lib/structured-salary.mjs';
 import { sameLocalityAsHq } from './lib/dedicated-crawler-common.mjs';
@@ -67,10 +68,11 @@ function stripCopyPasteLocales(job) {
   if (out.titleByLocale && typeof out.titleByLocale === 'object') {
     const tbl = { ...out.titleByLocale };
     const baseTitle = String(out.title || '').trim();
-    const sourceTitleNorm = String(tbl[sourceLang] || baseTitle).trim().toLowerCase();
+    const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang }, sourceLang);
+    const sourceTitleNorm = String(tbl[titleSourceLang] || baseTitle).trim().toLowerCase();
     if (sourceTitleNorm.length > 25) {
       for (const locale of LOCALES) {
-        if (locale === sourceLang) continue;
+        if (locale === titleSourceLang) continue;
         const localized = String(tbl[locale] || '').trim();
         if (localized && localized.toLowerCase() === sourceTitleNorm) tbl[locale] = '';
       }

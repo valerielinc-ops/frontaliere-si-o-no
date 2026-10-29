@@ -68,7 +68,7 @@ jobs:
       CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
-      CRAWLER_GROUP_MAX_PARALLEL: "4"
+      CRAWLER_GROUP_MAX_PARALLEL: "3"
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
       - name: Checkout frontaliere-si-o-no (attempt 1/2, sparse)
@@ -371,7 +371,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -571,7 +571,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -771,7 +771,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -971,7 +971,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1171,7 +1171,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1371,7 +1371,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1571,7 +1571,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1771,7 +1771,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -1971,7 +1971,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2171,7 +2171,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2371,7 +2371,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2571,7 +2571,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2771,7 +2771,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -2971,7 +2971,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3171,7 +3171,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3371,7 +3371,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3571,7 +3571,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3771,7 +3771,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -3971,7 +3971,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -4171,7 +4171,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -4371,7 +4371,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -4571,7 +4571,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -4771,7 +4771,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -4971,7 +4971,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -5171,7 +5171,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -5371,7 +5371,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -5571,7 +5571,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -5771,7 +5771,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -5971,7 +5971,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"
@@ -6171,7 +6171,7 @@ jobs:
             fi
             printf '\''%s\n'\'' "$terminal_exit"
           }
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-3}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
             terminal_exit="$(resolveCrawlerTerminalStatus 1)"

@@ -39,7 +39,13 @@ import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { fillUnsupportedSourceTitleSlots } from './lib/dedicated-crawler-common.mjs';
-import { isTitleRepairQueueVerdict, titleRepairQueueLocales, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
+import { repairJobTitleSemanticsInPlace } from './lib/job-title-semantic-repair.mjs';
+import {
+  isTitleRepairQueueVerdict,
+  titleRepairQueueLocales,
+  titleRepairSourceLang,
+  titleRepairSourceTitle,
+} from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -111,7 +117,7 @@ function readAttemptState() {
 
 function titleFixAttemptKey(file, job, jobIdx, locale) {
   const identity = job.id || job.url || job.slug || `${file}#${jobIdx}`;
-  return `${identity}|${job.sourceLang || 'it'}|${locale}`;
+  return `${identity}|${titleRepairSourceLang(job)}|${locale}`;
 }
 
 function dateMs(value) {
@@ -180,7 +186,7 @@ function codexCanAcceptMoreWork(getCodexStats) {
 function titleFixCandidateContext(job, sourceTitle, locale) {
   return {
     sourceTitle,
-    sourceLang: job.sourceLang || 'it',
+    sourceLang: titleRepairSourceLang(job),
     targetLang: locale,
     targetLocale: locale,
     company: job.company || '',
@@ -247,10 +253,23 @@ export function runTitleFixCandidatePool({
     const cached = titleTranslationMemo.get(key);
     if (cached) return cached;
     // Store the promise before awaiting it so candidates launched in the same
-    // pool turn share both an in-flight request and its empty result.
+    // pool turn share the result and the provider rung that produced it.
     const pending = Promise.resolve()
-      .then(() => translate(options))
-      .catch(() => '');
+      .then(async () => {
+        let rung = 'unattributed';
+        const text = await translate({
+          ...options,
+          _outcome: {
+            onAttribution: (attribution) => {
+              if (typeof attribution?.rung === 'string' && attribution.rung) {
+                rung = attribution.rung;
+              }
+            },
+          },
+        });
+        return { text, rung };
+      })
+      .catch(() => ({ text: '', rung: 'unserved' }));
     titleTranslationMemo.set(key, pending);
     return pending;
   };
@@ -259,7 +278,7 @@ export function runTitleFixCandidatePool({
     const sliceData = sliceCache?.get(candidate.file);
     const job = sliceData?.jobs?.[candidate.jobIdx];
     if (!job) return;
-    const sourceLang = job.sourceLang || 'it';
+    const sourceLang = titleRepairSourceLang(job);
     const sourceTitle = titleRepairSourceTitle(job);
     const table = job.titleByLocale || {};
     const existing = String(table[candidate.locale] || '').trim();
@@ -271,17 +290,18 @@ export function runTitleFixCandidatePool({
     });
     if (!isTitleRepairQueueVerdict(currentVerdict)) return;
 
-    let translated = '';
+    let translation = { text: '', rung: 'unattributed' };
     try {
-      translated = await memoizedTranslate({
+      translation = await memoizedTranslate({
         text: sourceTitle,
         sourceLang,
         targetLang: candidate.locale,
         maxRetries: 0,
       });
     } catch {
-      translated = '';
+      translation = { text: '', rung: 'unserved' };
     }
+    const translated = String(translation?.text || '');
 
     if (!dryRun) {
       const prior = attemptState.attempts[candidate.key] || {};
@@ -295,6 +315,7 @@ export function runTitleFixCandidatePool({
         attempts: (sameSource ? (Number(prior.attempts) || 0) : 0) + 1,
         lastAttemptAt: new Date().toISOString(),
         source,
+        rung: String(translation?.rung || 'unattributed'),
       };
       stateChanged = true;
     }
@@ -408,8 +429,9 @@ async function main() {
   const attemptState = readAttemptState();
   const candidates = [];
   const discoveryNowMs = Date.now();
-  const fallbackChangedFiles = new Set();
+  const prepassChangedFiles = new Set();
   let fallbackFilled = 0;
+  let semanticTitleFixes = 0;
   let backedOff = 0;
   const sliceCache = new Map();
 
@@ -424,9 +446,14 @@ async function main() {
     const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
     if (!DRY_RUN) {
       for (const job of jobs) {
+        const repairedTitles = repairJobTitleSemanticsInPlace(job);
+        if (repairedTitles > 0) {
+          prepassChangedFiles.add(file);
+          semanticTitleFixes += repairedTitles;
+        }
         const repaired = fillUnsupportedSourceTitleSlots(job, LOCALES);
         if (!repaired.changed) continue;
-        fallbackChangedFiles.add(file);
+        prepassChangedFiles.add(file);
         fallbackFilled += repaired.filled;
       }
     }
@@ -476,8 +503,11 @@ async function main() {
   if (fallbackFilled > 0) {
     console.log(`   🧩 ${fallbackFilled} unsupported-source title slot(s) repaired from reviewed mappings`);
   }
+  if (semanticTitleFixes > 0) {
+    console.log(`   🧭 ${semanticTitleFixes} known job-title translation(s) corrected from source evidence`);
+  }
   const slicesChanged = DRY_RUN ? 0 : persistTitleFixWork({
-    changedFiles: new Set([...fallbackChangedFiles, ...result.changedFiles]),
+    changedFiles: new Set([...prepassChangedFiles, ...result.changedFiles]),
     sliceCache,
     attemptState: result.attemptState,
     stateChanged: result.stateChanged,

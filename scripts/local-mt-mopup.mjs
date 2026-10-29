@@ -71,6 +71,7 @@ import { fillUnsupportedSourceTitleSlots } from './lib/dedicated-crawler-common.
 import {
   isTitleRepairQueueSlot,
   titleRepairDetectorVerdict,
+  titleRepairSourceLang,
 } from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
@@ -362,45 +363,49 @@ function negativeCacheBlocksMopupSlot(cache, key, { job, locale, field }, now) {
  * backlog on the 2026-08-18 snapshot.
  */
 export function missingSlots(job) {
-  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const titleSrcLang = mopupSourceLang(job, 'title');
+  const descriptionSrcLang = mopupSourceLang(job, 'description');
   const tbl = job.titleByLocale || {};
   const dbl = job.descriptionByLocale || {};
-  const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
+  const sourceTitle = mopupSourceText(job, 'title', MIN_TITLE_CHARS);
   const sourceDescCandidates = sourceLocaleTextCandidates(job, 'description');
   const slots = [];
 
   for (const locale of LOCALES) {
-    if (locale === srcLang) continue;
     const title = (tbl[locale] || '').trim();
     const desc = (dbl[locale] || '').trim();
 
-    // Title missing, too short, or an untranslated copy of the source title —
-    // these three need a meaningful sourceTitle to compare against, so they
-    // stay gated on the floor. titleLooksUntranslated() is lexical and does
-    // NOT depend on the source title's length (mirrors the un-gated call in
-    // mark-mistranslated-jobs.mjs's titleOffence(), the sibling that sets the
-    // SAME needsRetranslation flag this loop drains) — gating it on
-    // MIN_TITLE_CHARS would silently exempt any job whose source title is
-    // shorter than the floor from the lexical check too (issue #6539).
-    const tooShortOrCopy = sourceTitle.length >= MIN_TITLE_CHARS &&
-      (title.length < MIN_TITLE_CHARS || isTitleSourceCopy(title, sourceTitle));
-    const lexicallyUntranslated = titleRepairDetectorVerdict({ job, locale, title }).untranslated;
-    // A model's refusal or request for the input sitting in the slot (the
-    // same verdict as isIncomplete): long, not a copy, lexically "English".
-    if (tooShortOrCopy || lexicallyUntranslated || isModelMetaAnswer(title, sourceTitle)) {
-      slots.push({ locale, field: 'title' });
+    if (locale !== titleSrcLang) {
+      // Title missing, too short, or an untranslated copy of the source title —
+      // these three need a meaningful sourceTitle to compare against, so they
+      // stay gated on the floor. titleLooksUntranslated() is lexical and does
+      // NOT depend on the source title's length (mirrors the un-gated call in
+      // mark-mistranslated-jobs.mjs's titleOffence(), the sibling that sets the
+      // SAME needsRetranslation flag this loop drains) — gating it on
+      // MIN_TITLE_CHARS would silently exempt any job whose source title is
+      // shorter than the floor from the lexical check too (issue #6539).
+      const tooShortOrCopy = sourceTitle.length >= MIN_TITLE_CHARS &&
+        (title.length < MIN_TITLE_CHARS || isTitleSourceCopy(title, sourceTitle));
+      const lexicallyUntranslated = titleRepairDetectorVerdict({ job, locale, title }).untranslated;
+      // A model's refusal or request for the input sitting in the slot (the
+      // same verdict as isIncomplete): long, not a copy, lexically "English".
+      if (tooShortOrCopy || lexicallyUntranslated || isModelMetaAnswer(title, sourceTitle)) {
+        slots.push({ locale, field: 'title' });
+      }
     }
 
-    // Description missing, too short, or an untranslated copy of the source desc.
-    const descriptionNeedsRepair = sourceDescCandidates.some((source) =>
-      source.length >= MIN_DESC_CHARS && (
-        desc.length < MIN_DESC_CHARS
-        || isDescriptionSourceCopy(desc, source)
-        || isStructureFlattenedCopy(source, desc)
-        || isModelMetaAnswer(desc, source)
-      ));
-    if (descriptionNeedsRepair) {
-      slots.push({ locale, field: 'description' });
+    if (locale !== descriptionSrcLang) {
+      // Description missing, too short, or an untranslated copy of the source desc.
+      const descriptionNeedsRepair = sourceDescCandidates.some((source) =>
+        source.length >= MIN_DESC_CHARS && (
+          desc.length < MIN_DESC_CHARS
+          || isDescriptionSourceCopy(desc, source)
+          || isStructureFlattenedCopy(source, desc)
+          || isModelMetaAnswer(desc, source)
+        ));
+      if (descriptionNeedsRepair) {
+        slots.push({ locale, field: 'description' });
+      }
     }
   }
   return slots;
@@ -736,6 +741,33 @@ export function writeReserveMs(timeBudgetMs, override) {
 }
 
 /**
+ * Title-source evidence can differ from `job.sourceLang`, which describes the
+ * body. Keep this override scoped to title work; descriptions retain the stored
+ * body locale. The shallow source view lets the existing locale-text helpers
+ * select the title's source slot without mutating the job.
+ */
+function mopupSourceLang(job, field) {
+  return field === 'title'
+    ? titleRepairSourceLang(job)
+    : normalizeJobLocale(job?.sourceLang) || 'it';
+}
+
+function mopupSourceJob(job, field) {
+  if (field !== 'title') return job;
+  const sourceLang = mopupSourceLang(job, field);
+  const bodyLang = normalizeJobLocale(job?.sourceLang) || 'it';
+  return sourceLang === bodyLang ? job : { ...job, sourceLang };
+}
+
+function mopupSourceTextCandidates(job, field) {
+  return sourceLocaleTextCandidates(mopupSourceJob(job, field), field);
+}
+
+function mopupSourceText(job, field, minLength) {
+  return sourceLocaleTextForTranslation(mopupSourceJob(job, field), field, minLength);
+}
+
+/**
  * True when the stored value of a slot is too short or a copy of the source:
  * replacing it is a repair. A stored value that is NOT bad can only be replaced
  * by the language arm, i.e. it is an overwrite. One definition for the write
@@ -763,11 +795,11 @@ function existingSlotIsBad({ field, existing, normalizedSourceText, normalizedSo
  */
 export function isOverwriteSlot(job, { locale, field }) {
   if (field !== 'title') return false;
-  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const srcLang = mopupSourceLang(job, field);
   if (locale === srcLang) return false;
   const existing = String(job.titleByLocale?.[locale] || '').trim();
   if (!existing) return false;
-  const rawSourceTexts = sourceLocaleTextCandidates(job, 'title');
+  const rawSourceTexts = mopupSourceTextCandidates(job, 'title');
   const normalizedSourceTexts = rawSourceTexts.map((source) => normalizeArgosText(source, srcLang, 'title'));
   return !existingSlotIsBad({
     field,
@@ -803,17 +835,17 @@ export function shouldQueueArgosSlot(job, { locale, field }) {
  */
 export function queueableMopupSlots(job, slots, negativeCache, now = Date.now()) {
   if (!Array.isArray(slots)) return [];
-  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
   const tbl = job.titleByLocale || {};
   const dbl = job.descriptionByLocale || {};
-  const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
-  const sourceDesc = sourceLocaleTextForTranslation(job, 'description', MIN_DESC_CHARS);
+  const sourceTitle = mopupSourceText(job, 'title', MIN_TITLE_CHARS);
+  const sourceDesc = mopupSourceText(job, 'description', MIN_DESC_CHARS);
   const cache = negativeCache && typeof negativeCache === 'object' && negativeCache.entries
     && typeof negativeCache.entries === 'object'
     ? negativeCache
     : { entries: {} };
 
   return slots.filter(({ locale, field }) => {
+    const srcLang = mopupSourceLang(job, field);
     const text = field === 'title' ? sourceTitle : sourceDesc;
     if (!text) return false;
     const normalizedText = normalizeArgosText(text, srcLang, field);
@@ -904,14 +936,10 @@ export function classifyMopupStructure({
   protectedTokens = [],
   langAware = true,
 }) {
-  const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const srcLang = mopupSourceLang(job, field);
   const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
-  const rawSourceTexts = sourceLocaleTextCandidates(job, field);
-  const rawSourceText = sourceLocaleTextForTranslation(
-    job,
-    field,
-    field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS,
-  );
+  const rawSourceTexts = mopupSourceTextCandidates(job, field);
+  const rawSourceText = mopupSourceText(job, field, field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS);
   const normalizedSourceTexts = rawSourceTexts.map((source) => normalizeArgosText(source, srcLang, field));
   const normalizedSourceText = normalizeArgosText(rawSourceText, srcLang, field);
   const existing = String(job[bag]?.[locale] || '').trim();
@@ -1118,7 +1146,7 @@ function applyOverwritePolicy(structural, judged, { sourceLang, locale, rollback
 export function classifyMopupWrite({ semanticVerdict, ...options }) {
   const structural = classifyMopupStructure(options);
   return applyOverwritePolicy(structural, applySemanticVerdict(structural, semanticVerdict), {
-    sourceLang: normalizeJobLocale(options.job?.sourceLang) || 'it',
+    sourceLang: mopupSourceLang(options.job, options.field),
     locale: options.locale,
   });
 }
@@ -1186,7 +1214,7 @@ export async function commitMopupCandidate({
     if (reason) return { written: false, decision: `withheld:${reason}`, judged: candidate };
   }
   const judged = await judgeMopupWrite(candidate, {
-    sourceLang: normalizeJobLocale(job?.sourceLang) || 'it',
+    sourceLang: mopupSourceLang(job, field),
     locale,
     field,
     judge,
@@ -1406,7 +1434,7 @@ function semanticCandidateArtifactEntry({ job, locale, field, candidate, judged,
   const policy = judged?.semanticPolicy || null;
   return {
     jobKey: job?.url || job?.id || job?.slug || null,
-    sourceLang: normalizeJobLocale(job?.sourceLang) || 'it',
+    sourceLang: mopupSourceLang(job, field),
     targetLang: String(locale || ''),
     field,
     detectorReason: candidate?.existingDetectorReason || candidate?.reason || null,
@@ -1596,14 +1624,16 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
   let overwriteTitleHandoff = 0;
 
   for (const { file, jobIdx, job, slots } of selected) {
-    const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+    const titleSrcLang = mopupSourceLang(job, 'title');
+    const descriptionSrcLang = mopupSourceLang(job, 'description');
     const tbl = job.titleByLocale || {};
     const dbl = job.descriptionByLocale || {};
-    const sourceTitle = sourceLocaleTextForTranslation(job, 'title', MIN_TITLE_CHARS);
-    const sourceDesc = sourceLocaleTextForTranslation(job, 'description', MIN_DESC_CHARS);
+    const sourceTitle = mopupSourceText(job, 'title', MIN_TITLE_CHARS);
+    const sourceDesc = mopupSourceText(job, 'description', MIN_DESC_CHARS);
 
     let queued = 0;
     for (const { locale, field } of slots) {
+      const srcLang = field === 'title' ? titleSrcLang : descriptionSrcLang;
       const text = field === 'title' ? sourceTitle : sourceDesc;
       if (!text) continue;
       const normalizedText = normalizeArgosText(text, srcLang, field);
@@ -1828,7 +1858,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
     for (const { id, jobIdx, locale, field, text, protectedTokens, negativeCacheKey } of edits) {
       const job = data.jobs[jobIdx];
       if (!job) continue;
-      const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+      const srcLang = mopupSourceLang(job, field);
       if (locale === srcLang) continue; // never write the source locale
 
       const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';

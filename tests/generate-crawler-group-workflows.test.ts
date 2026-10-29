@@ -23,7 +23,7 @@ import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, crawlerGroupMaxParallel, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -47,6 +47,15 @@ function crawlerResultSteps(steps: any[]) {
     && /^crawler-[a-z0-9-]+$/.test(step.id)
     && !step.id.startsWith('crawler-launch-')
     && !step.id.startsWith('crawler-generation-'));
+}
+
+function projectedLaneDurationMs(durations: number[], workerCount: number) {
+  const slots = Array.from({ length: workerCount }, () => 0);
+  for (const duration of durations) {
+    const slot = slots.indexOf(Math.min(...slots));
+    slots[slot] += duration;
+  }
+  return Math.max(...slots);
 }
 
 function decodeFixtureScript(script: string): string {
@@ -1143,6 +1152,54 @@ describe('crawler generation state cleanup', () => {
     expect(body).toContain('terminal_exit=143');
   });
 
+  it('splits the host-sensitive groups into a three-worker resource lane without quarantining members', () => {
+    expect(crawlerGroupMaxParallel(15)).toBe(3);
+    expect(crawlerGroupMaxParallel(16)).toBe(3);
+    expect(crawlerGroupMaxParallel(14)).toBe(CRAWLER_GROUP_MAX_PARALLEL);
+
+    const group15Body = buildCrawlerLaunchShellBody({
+      slug: 'host-sensitive',
+      runStep: { env: {}, run: 'true' },
+      postSteps: [],
+    }, 15);
+    expect(group15Body).toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-3}"`);
+    expect(group15Body).not.toContain(`max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-4}"`);
+  });
+
+  it('benchmarks the committed group 15/16 rosters below the 340-minute job budget', () => {
+    const assignments = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-group-assignments.json'), 'utf8'));
+    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-workflow-duration-baseline.json'), 'utf8'));
+    const timeoutMs = 340 * 60 * 1000;
+    const reports = [15, 16].map((group) => {
+      const members = assignments.groups[group - 1];
+      const durations = members.map((slug: string) => (
+        baseline.crawlers[`update-jobs-${slug}`]?.avgDurationMs ?? baseline.medianDurationMs
+      ));
+      const baseline4Ms = projectedLaneDurationMs(durations, CRAWLER_GROUP_MAX_PARALLEL);
+      const capped2Ms = projectedLaneDurationMs(durations, 2);
+      const capped3Ms = projectedLaneDurationMs(durations, crawlerGroupMaxParallel(group));
+      return {
+        group,
+        members: members.length,
+        missingSamples: members.filter((slug: string) => !baseline.crawlers[`update-jobs-${slug}`]).length,
+        baseline4Minutes: Number((baseline4Ms / 60_000).toFixed(2)),
+        capped2Minutes: Number((capped2Ms / 60_000).toFixed(2)),
+        under340AtTwoWorkers: capped2Ms <= timeoutMs,
+        capped3Minutes: Number((capped3Ms / 60_000).toFixed(2)),
+        under340Minutes: capped3Ms <= timeoutMs,
+      };
+    });
+    console.info(`[crawler-lane-benchmark] ${JSON.stringify(reports)}`);
+    // cron-count-ok: il benchmark copre le due corsie speciali 15 e 16.
+    expect(reports).toHaveLength(2);
+    for (const report of reports) {
+      expect(report.members).toBe(30);
+      expect(report.under340AtTwoWorkers).toBe(false);
+      expect(report.capped3Minutes).toBeGreaterThan(report.baseline4Minutes);
+      expect(report.under340Minutes).toBe(true);
+    }
+  });
+
   it('keeps the timeout terminal when the worker publishes success after the deadline', () => {
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-terminal-race-'));
     const binDir = path.join(temp, 'bin');
@@ -1729,6 +1786,7 @@ describe('#6380 — one atomic commit per crawler group', () => {
     expect(files).toHaveLength(GROUP_COUNT);
 
     for (const file of files) {
+      const groupIndex = Number(file.match(/^crawler-group-(\d+)\.yml$/)?.[1]);
       const doc = YAML.parse(fs.readFileSync(path.join(workflowsDir, file), 'utf8'));
       const job = doc.jobs[Object.keys(doc.jobs)[0]];
       expect(job.env.CRAWLER_GROUP_COMMIT_DIR).toBe('crawler-generation/commit-batch');
@@ -1757,7 +1815,7 @@ describe('#6380 — one atomic commit per crawler group', () => {
       });
       expect(aggregate.run).toContain('no terminal status was published');
       expect(aggregate.run).toContain('Summary:');
-      expect(job.env.CRAWLER_GROUP_MAX_PARALLEL).toBe(String(CRAWLER_GROUP_MAX_PARALLEL));
+      expect(job.env.CRAWLER_GROUP_MAX_PARALLEL).toBe(String(crawlerGroupMaxParallel(groupIndex)));
 
       const batchIndexes = job.steps
         .map((step, index) => ({ step, index }))

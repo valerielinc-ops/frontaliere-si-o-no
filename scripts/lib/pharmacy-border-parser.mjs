@@ -746,8 +746,14 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       city: row.city,
       canton: 'Ticino',
       country: 'CH',
-      ...(previousRecord?.phone ? { phone: previousRecord.phone } : {}),
-      sourceUrl,
+      ...((row.phone || previousRecord?.phone)
+        ? { phone: row.phone || previousRecord.phone }
+        : {}),
+      // Secondary OFCT recovery rows carry the exact regional page that
+      // supplied them. Keeping that URL at record level lets the health gate
+      // distinguish a refreshed four-region subset from the preserved
+      // Locarnese records in the same complete snapshot.
+      sourceUrl: row.sourceUrl || sourceUrl,
       sourceType: 'official',
       lastVerifiedAt: fetchedAt,
       dataAvailability: {},
@@ -805,6 +811,35 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
     records.push(publishedPreserved);
   }
   return records.sort((a, b) => `${a.city} ${a.name}`.localeCompare(`${b.city} ${b.name}`, 'it'));
+}
+
+/**
+ * Merge a verified OFCT recovery subset into the last complete canton
+ * snapshot. OFCT has no Locarnese anagraphic page, so its rows can never
+ * replace the complete PDF snapshot on their own. They may refresh matching
+ * four-region records while every untouched (including Locarnese) identity is
+ * retained verbatim.
+ */
+export function mergeTicinoSecondaryRecords(rows, {
+  previous = [],
+  fetchedAt,
+  osmElements = [],
+  sourceUrl = TICINO_PHARMACY_PDF_URL,
+} = {}) {
+  const baseline = normalizePharmacyRecordsForFallback(previous);
+  const refreshed = buildTicinoCompleteRecords(rows, {
+    previous: baseline,
+    fetchedAt,
+    osmElements,
+    sourceUrl,
+  });
+  const refreshedById = new Map(refreshed.map((record) => [record.id, record]));
+  // A secondary page is a recovery/corroboration source, not a complete
+  // catalogue. Never publish an OFCT row that cannot be reconciled to the
+  // known-complete snapshot: an unknown identity could be a duplicate, a
+  // stale regional entry, or a parser drift artefact.
+  const merged = baseline.map((record) => refreshedById.get(record.id) || record);
+  return merged.sort((a, b) => `${a.city} ${a.name}`.localeCompare(`${b.city} ${b.name}`, 'it'));
 }
 
 export function buildOsmQuery() {

@@ -274,6 +274,31 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(result.pricesRows).toHaveLength(2);
   });
 
+  it('retries target municipalities when a province lookup has no target rows', async () => {
+    const observedAt = daysAgo(0.5);
+    const requests: Array<{ url: string; init: RequestInit }> = [];
+    const result = await fetchMimitApiSource([COMO], {
+      retries: 1,
+      requestIntervalMs: 0,
+      fetchImpl: async (url: string, init: RequestInit) => {
+        requests.push({ url, init });
+        const body = JSON.parse(String(init.body));
+        return {
+          ok: true,
+          json: async () => body.town == null
+            ? { success: true, array: [] }
+            : { success: true, results: [apiStation(observedAt)] },
+        } as Response;
+      },
+    });
+
+    expect(requests).toHaveLength(2);
+    expect(JSON.parse(String(requests[0].init.body))).toMatchObject({ province: 'CO', town: null, fuelType: '1-x' });
+    expect(JSON.parse(String(requests[1].init.body))).toMatchObject({ province: 'CO', town: 'Como', fuelType: '1-x' });
+    expect(result.extractedAt).toBe(day(observedAt));
+    expect(result.pricesRows).toHaveLength(2);
+  });
+
   it('serializes province lookups to avoid API rate-limit bursts', async () => {
     const observedAt = daysAgo(0.5);
     const requestStarts: number[] = [];
@@ -305,7 +330,7 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
     expect(requestStarts[1] - requestStarts[0]).toBeGreaterThanOrEqual(45);
   });
 
-  it('fails closed when the province lookup has no valid target rows', async () => {
+  it('fails closed when neither province nor target-town lookups have valid rows', async () => {
     const requests: Array<{ url: string; init: RequestInit }> = [];
     await expect(fetchMimitApiSource([COMO], {
       retries: 1,
@@ -319,8 +344,9 @@ describe('generator: MIMIT Osservaprezzi API fallback', () => {
       },
     })).rejects.toThrow('MIMIT API returned no valid Benzina rows for target municipalities');
 
-    expect(requests).toHaveLength(1);
+    expect(requests).toHaveLength(2);
     expect(JSON.parse(String(requests[0].init.body))).toMatchObject({ province: 'CO', town: null, fuelType: '1-x' });
+    expect(JSON.parse(String(requests[1].init.body))).toMatchObject({ province: 'CO', town: 'Como', fuelType: '1-x' });
   });
 
   it('routes a live API result through the same source resolver as the CSV', () => {

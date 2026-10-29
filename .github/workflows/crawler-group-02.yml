@@ -37,7 +37,7 @@
 #
 # Group 02: 30 crawlers, estimated wall-clock ~86min
 # (bounded by the slowest member; estimate from historical averages — actual
-# runs can vary). Members: roche (~86min), privatklinik-wyss (~48min), sintetica (~45min), spital-zollikerberg (~42min), sodexo (~40min), raiffeisen-vc (~37min), yapeal (~35min), sonova (~33min), sonnweid (~32min), helvetia (~29min), prosenectute-ti (~28min), ksw (~27min), stadt-bern (~25min), microsoft (~24min), lups (~21min), ikea (~18min), bkw (~16min), galenica (~14min), cler (~11min), breitling (~10min), globus (~8min), cordenpharma (~7min), kanton-gr (~6min), chicco-doro (~5min), belimo (~4min), fart (~3min), mcm-group (~24min), grischapersonal (~24min), oscam (~24min), opacc-software-ag (~24min)
+# runs can vary). Members: roche (~86min), privatklinik-wyss (~48min), sintetica (~45min), spital-zollikerberg (~42min), sodexo (~40min), raiffeisen-vc (~37min), yapeal (~35min), sonova (~33min), sonnweid (~32min), helvetia (~29min), prosenectute-ti (~28min), ksw (~27min), stadt-bern (~25min), microsoft (~24min), lups (~21min), ikea (~18min), bkw (~16min), galenica (~14min), cler (~11min), breitling (~10min), globus (~8min), cordenpharma (~7min), kanton-gr (~6min), chicco-doro (~5min), belimo (~4min), fart (~3min), mcm-group (~24min), grischapersonal (~24min), oscam (~24min), fondazione-san-gottardo (~24min)
 
 name: Crawler Group 02 (30 crawlers)
 on:
@@ -5982,19 +5982,19 @@ jobs:
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
-      - name: Launch opacc-software-ag
-        id: crawler-launch-opacc-software-ag
+      - name: Launch fondazione-san-gottardo
+        id: crawler-launch-fondazione-san-gottardo
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-opacc-software-ag.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-fondazione-san-gottardo.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_OPACC_SOFTWARE_AG_STRICT: ${{ inputs.strict_localization || '1' }}
+          JOBS_FONDAZIONE_SAN_GOTTARDO_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: opacc-software-ag
-          JOBS_SLICE_FILE: data/jobs/by-crawler/opacc-software-ag.json
+          JOBS_HOUSEKEEPING_SCOPE: fondazione-san-gottardo
+          JOBS_SLICE_FILE: data/jobs/by-crawler/fondazione-san-gottardo.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
@@ -6002,72 +6002,72 @@ jobs:
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-02"
           mkdir -p "$state_dir/slots"
-          script_path="$state_dir/opacc-software-ag.sh"
-          launcher_path="$state_dir/opacc-software-ag.launcher.sh"
-          worker_path="$state_dir/opacc-software-ag.worker.sh"
-          log_path="$state_dir/opacc-software-ag.log"
-          pid_path="$state_dir/opacc-software-ag.pid"
-          status_path="$state_dir/opacc-software-ag.status"
-          started_path="$state_dir/opacc-software-ag.started"
-          watchdog_path="$state_dir/opacc-software-ag.watchdog"
+          script_path="$state_dir/fondazione-san-gottardo.sh"
+          launcher_path="$state_dir/fondazione-san-gottardo.launcher.sh"
+          worker_path="$state_dir/fondazione-san-gottardo.worker.sh"
+          log_path="$state_dir/fondazione-san-gottardo.log"
+          pid_path="$state_dir/fondazione-san-gottardo.pid"
+          status_path="$state_dir/fondazione-san-gottardo.status"
+          started_path="$state_dir/fondazione-san-gottardo.started"
+          watchdog_path="$state_dir/fondazione-san-gottardo.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/opacc-software-ag.crawl-exit"
+          rm -f "$state_dir/fondazione-san-gottardo.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- opacc-software-ag: run crawler (verbatim from original workflow) ----
-          node scripts/update-opacc-software-ag-jobs.mjs
+          # ---- fondazione-san-gottardo: run crawler (verbatim from original workflow) ----
+          node scripts/update-fondazione-san-gottardo-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
             crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
             if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
               rm -f "$crawl_exit_tmp" 2>/dev/null
-              echo "::warning::opacc-software-ag: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+              echo "::warning::fondazione-san-gottardo: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
             fi
           fi
           git_commit_exit=0
           report_exit=0
 
-          # ---- opacc-software-ag: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- fondazione-san-gottardo: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- opacc-software-ag: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- fondazione-san-gottardo: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Opacc Software AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Fondazione San Gottardo jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- opacc-software-ag: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          # ---- fondazione-san-gottardo: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
-              --title "Crawler Failure: Run opacc-software-ag" \
+              --title "Crawler Failure: Run fondazione-san-gottardo" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run opacc-software-ag"
-            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed opacc-software-ag"
+              --workflow "Run fondazione-san-gottardo"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed fondazione-san-gottardo"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::opacc-software-ag: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ opacc-software-ag: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+            echo "::warning::fondazione-san-gottardo: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ fondazione-san-gottardo: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::opacc-software-ag: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
-            echo "⚠️ opacc-software-ag: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::fondazione-san-gottardo: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ fondazione-san-gottardo: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::opacc-software-ag: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
-            echo "❌ opacc-software-ag: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::error::fondazione-san-gottardo: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ fondazione-san-gottardo: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
-            echo "::warning::opacc-software-ag: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
-            echo "⚠️ opacc-software-ag: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::fondazione-san-gottardo: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ fondazione-san-gottardo: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
 
@@ -6077,12 +6077,12 @@ jobs:
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.log"
+          script_path="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.sh"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.worker.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -6091,12 +6091,12 @@ jobs:
           exit "$crawler_exit"' > "$worker_path"
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-02"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-02/opacc-software-ag.watchdog"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.worker.status"
+          started_file="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-02/fondazione-san-gottardo.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7778,43 +7778,43 @@ jobs:
             exit 1
           fi
           exit "$status"
-      - name: Run opacc-software-ag
-        id: crawler-opacc-software-ag
+      - name: Run fondazione-san-gottardo
+        id: crawler-fondazione-san-gottardo
         if: always()
         continue-on-error: true
         env:
-          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-opacc-software-ag'].outcome }}
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-fondazione-san-gottardo'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-02"
-          status_file="$state_dir/opacc-software-ag.status"
-          pid_file="$state_dir/opacc-software-ag.pid"
-          log_file="$state_dir/opacc-software-ag.log"
+          status_file="$state_dir/fondazione-san-gottardo.status"
+          pid_file="$state_dir/fondazione-san-gottardo.pid"
+          log_file="$state_dir/fondazione-san-gottardo.log"
           launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
           if [ "$launch_outcome" != "success" ]; then
-            echo "::error::opacc-software-ag: launch step outcome is $launch_outcome; detached crawler was not started"
+            echo "::error::fondazione-san-gottardo: launch step outcome is $launch_outcome; detached crawler was not started"
             exit 1
           fi
           if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::opacc-software-ag: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            echo "::error::fondazione-san-gottardo: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::opacc-software-ag: detached crawler did not publish a status before the 340 minute group budget"
+              echo "::error::fondazione-san-gottardo: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
               if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::opacc-software-ag: invalid detached crawler PID: $pid"
+                echo "::error::fondazione-san-gottardo: invalid detached crawler PID: $pid"
                 exit 1
               fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
-                  echo "::error::opacc-software-ag: detached crawler exited without publishing its status"
+                  echo "::error::fondazione-san-gottardo: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
@@ -7824,12 +7824,12 @@ jobs:
           if [ -f "$log_file" ]; then
             cat "$log_file"
           else
-            echo "::error::opacc-software-ag: crawler log is missing"
+            echo "::error::fondazione-san-gottardo: crawler log is missing"
             exit 1
           fi
           status="$(cat "$status_file" 2>/dev/null || true)"
           if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::opacc-software-ag: invalid crawler status: $status"
+            echo "::error::fondazione-san-gottardo: invalid crawler status: $status"
             exit 1
           fi
           exit "$status"
@@ -7924,7 +7924,7 @@ jobs:
           aggregate_crawler_member 'mcm-group'
           aggregate_crawler_member 'grischapersonal'
           aggregate_crawler_member 'oscam'
-          aggregate_crawler_member 'opacc-software-ag'
+          aggregate_crawler_member 'fondazione-san-gottardo'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -7995,7 +7995,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"banca-cler","primarySlice":"data/jobs/by-crawler/banca-cler.json"},{"crawlerId":"banca-raiffeisen-vedeggio-cassarate","primarySlice":"data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json"},{"crawlerId":"belimo","primarySlice":"data/jobs/by-crawler/belimo.json"},{"crawlerId":"bkw","primarySlice":"data/jobs/by-crawler/bkw.json"},{"crawlerId":"breitling","primarySlice":"data/jobs/by-crawler/breitling.json"},{"crawlerId":"chicco-doro","primarySlice":"data/jobs/by-crawler/chicco-doro.json"},{"crawlerId":"cordenpharma","primarySlice":"data/jobs/by-crawler/cordenpharma.json"},{"crawlerId":"fart","primarySlice":"data/jobs/by-crawler/fart.json"},{"crawlerId":"galenica","primarySlice":"data/jobs/by-crawler/galenica.json"},{"crawlerId":"globus","primarySlice":"data/jobs/by-crawler/globus.json"},{"crawlerId":"grischapersonal","primarySlice":"data/jobs/by-crawler/grischapersonal.json"},{"crawlerId":"helvetia","primarySlice":"data/jobs/by-crawler/helvetia.json"},{"crawlerId":"ikea","primarySlice":"data/jobs/by-crawler/ikea.json"},{"crawlerId":"kanton-gr","primarySlice":"data/jobs/by-crawler/kanton-gr.json"},{"crawlerId":"ksw","primarySlice":"data/jobs/by-crawler/ksw.json"},{"crawlerId":"lups","primarySlice":"data/jobs/by-crawler/lups.json"},{"crawlerId":"mcm-group","primarySlice":"data/jobs/by-crawler/mcm-group.json"},{"crawlerId":"microsoft","primarySlice":"data/jobs/by-crawler/microsoft.json"},{"crawlerId":"opacc-software-ag","primarySlice":"data/jobs/by-crawler/opacc-software-ag.json"},{"crawlerId":"oscam","primarySlice":"data/jobs/by-crawler/oscam.json"},{"crawlerId":"privatklinik-wyss","primarySlice":"data/jobs/by-crawler/privatklinik-wyss.json"},{"crawlerId":"prosenectute-ti","primarySlice":"data/jobs/by-crawler/prosenectute-ti.json"},{"crawlerId":"roche","primarySlice":"data/jobs/by-crawler/roche.json"},{"crawlerId":"sintetica","primarySlice":"data/jobs/by-crawler/sintetica.json"},{"crawlerId":"sodexo","primarySlice":"data/jobs/by-crawler/sodexo.json"},{"crawlerId":"sonnweid","primarySlice":"data/jobs/by-crawler/sonnweid.json"},{"crawlerId":"sonova","primarySlice":"data/jobs/by-crawler/sonova.json"},{"crawlerId":"spital-zollikerberg","primarySlice":"data/jobs/by-crawler/spital-zollikerberg.json"},{"crawlerId":"stadt-bern","primarySlice":"data/jobs/by-crawler/stadt-bern.json"},{"crawlerId":"yapeal","primarySlice":"data/jobs/by-crawler/yapeal.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"banca-cler","primarySlice":"data/jobs/by-crawler/banca-cler.json"},{"crawlerId":"banca-raiffeisen-vedeggio-cassarate","primarySlice":"data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json"},{"crawlerId":"belimo","primarySlice":"data/jobs/by-crawler/belimo.json"},{"crawlerId":"bkw","primarySlice":"data/jobs/by-crawler/bkw.json"},{"crawlerId":"breitling","primarySlice":"data/jobs/by-crawler/breitling.json"},{"crawlerId":"chicco-doro","primarySlice":"data/jobs/by-crawler/chicco-doro.json"},{"crawlerId":"cordenpharma","primarySlice":"data/jobs/by-crawler/cordenpharma.json"},{"crawlerId":"fart","primarySlice":"data/jobs/by-crawler/fart.json"},{"crawlerId":"fondazione-san-gottardo","primarySlice":"data/jobs/by-crawler/fondazione-san-gottardo.json"},{"crawlerId":"galenica","primarySlice":"data/jobs/by-crawler/galenica.json"},{"crawlerId":"globus","primarySlice":"data/jobs/by-crawler/globus.json"},{"crawlerId":"grischapersonal","primarySlice":"data/jobs/by-crawler/grischapersonal.json"},{"crawlerId":"helvetia","primarySlice":"data/jobs/by-crawler/helvetia.json"},{"crawlerId":"ikea","primarySlice":"data/jobs/by-crawler/ikea.json"},{"crawlerId":"kanton-gr","primarySlice":"data/jobs/by-crawler/kanton-gr.json"},{"crawlerId":"ksw","primarySlice":"data/jobs/by-crawler/ksw.json"},{"crawlerId":"lups","primarySlice":"data/jobs/by-crawler/lups.json"},{"crawlerId":"mcm-group","primarySlice":"data/jobs/by-crawler/mcm-group.json"},{"crawlerId":"microsoft","primarySlice":"data/jobs/by-crawler/microsoft.json"},{"crawlerId":"oscam","primarySlice":"data/jobs/by-crawler/oscam.json"},{"crawlerId":"privatklinik-wyss","primarySlice":"data/jobs/by-crawler/privatklinik-wyss.json"},{"crawlerId":"prosenectute-ti","primarySlice":"data/jobs/by-crawler/prosenectute-ti.json"},{"crawlerId":"roche","primarySlice":"data/jobs/by-crawler/roche.json"},{"crawlerId":"sintetica","primarySlice":"data/jobs/by-crawler/sintetica.json"},{"crawlerId":"sodexo","primarySlice":"data/jobs/by-crawler/sodexo.json"},{"crawlerId":"sonnweid","primarySlice":"data/jobs/by-crawler/sonnweid.json"},{"crawlerId":"sonova","primarySlice":"data/jobs/by-crawler/sonova.json"},{"crawlerId":"spital-zollikerberg","primarySlice":"data/jobs/by-crawler/spital-zollikerberg.json"},{"crawlerId":"stadt-bern","primarySlice":"data/jobs/by-crawler/stadt-bern.json"},{"crawlerId":"yapeal","primarySlice":"data/jobs/by-crawler/yapeal.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-02-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

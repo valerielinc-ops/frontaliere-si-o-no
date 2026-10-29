@@ -197,6 +197,7 @@ describe('SumUp assisted-application payment client', () => {
       }]) })
       .mockResolvedValueOnce({ ok: true, json: async () => ({
         id: 'sumup_checkout_existing',
+        checkout_reference: 'order-1', amount: 1.99, currency: 'EUR',
         status: 'PENDING',
       }) });
 
@@ -208,6 +209,32 @@ describe('SumUp assisted-application payment client', () => {
     });
     expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(fetchMock.mock.calls[1][0]).toBe('https://api.sumup.com/v0.1/checkouts?checkout_reference=order-1');
+  });
+
+  it.each(['assisted', 'concierge'])('creates a fresh deterministic reference for expired %s checkouts', async (product) => {
+    fetchMock.mockResolvedValue({ ok: true, json: async () => ({ id: 'replacement' }) });
+    if (product === 'assisted') await createSumUpAssistedApplicationCheckout({ orderId: 'entity-1', checkoutAttempt: 2, redirectUrl: 'https://example.test/' });
+    else await createSumUpApplicationConciergeCheckout({ serviceId: 'entity-1', checkoutAttempt: 2, redirectUrl: 'https://example.test/' });
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body).checkout_reference).toBe('entity-1~sumup~2');
+  });
+
+  it('does not recover an expired checkout from a duplicate-reference conflict', async () => {
+    fetchMock.mockResolvedValueOnce({ ok: false, status: 409, json: async () => ({}) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ([{
+        id: 'expired', checkout_reference: 'order-1', amount: 1.99, currency: 'EUR', status: 'EXPIRED',
+      }]) });
+    await expect(createSumUpAssistedApplicationCheckout({ orderId: 'order-1', redirectUrl: 'https://example.test/' })).rejects.toThrow('sumup_api_request_failed');
+  });
+
+  it('revalidates the retrieved checkout after listing a duplicate reference', async () => {
+    fetchMock.mockResolvedValueOnce({ ok: false, status: 409, json: async () => ({}) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ([{
+        id: 'existing', checkout_reference: 'order-1', amount: 1.99, currency: 'EUR', status: 'PENDING',
+      }]) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({
+        id: 'existing', checkout_reference: 'other-order', amount: 1.99, currency: 'EUR', status: 'PENDING',
+      }) });
+    await expect(createSumUpAssistedApplicationCheckout({ orderId: 'order-1', redirectUrl: 'https://example.test/' })).rejects.toThrow('sumup_api_request_failed');
   });
 
   it('fails closed when SumUp credentials are incomplete', async () => {

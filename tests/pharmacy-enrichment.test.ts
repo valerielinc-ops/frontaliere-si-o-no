@@ -300,6 +300,30 @@ describe('pharmacy enrichment', () => {
     ))).toEqual([]);
   });
 
+  it('stops the Google lane after a credential/project 403 instead of burning the free quota', async () => {
+    const secondPharmacy = { ...pharmacy, id: 'it-msal-3908', name: 'Farmacia seconda' };
+    let requestCount = 0;
+    const result = await enrichPharmacyRecords([pharmacy, secondPharmacy], localConfig({
+      providers: {
+        googlePlaces: { enabled: true, pharmacyIds: [pharmacy.id, secondPharmacy.id] },
+        facebook: { enabled: false, pharmacyIds: [] },
+      },
+    }), {
+      checkedAt,
+      googleApiKey: 'owner-kept-key',
+      fetchJson: async () => {
+        requestCount += 1;
+        throw Object.assign(new Error('HTTP 403 for restricted API key'), { status: 403 });
+      },
+    });
+
+    expect(requestCount).toBe(1);
+    expect(result.providerUsage.googlePlaces.requests).toBe(1);
+    expect(result.warnings).toEqual([
+      'googlePlaces: disabled for this run after HTTP 403; API key/project restriction requires owner action',
+    ]);
+  });
+
   it('rejects a same-street Google candidate without name and civic-number anchors', async () => {
     const wrongNumber = pharmacy.address.replace(/\b\d+[a-z]?\b/i, '99');
     const result = await enrichPharmacyRecords([pharmacy], localConfig({

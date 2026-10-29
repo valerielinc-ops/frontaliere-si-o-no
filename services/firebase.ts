@@ -12,6 +12,7 @@ import type { FirebaseApp } from "firebase/app";
 import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
 import type { FirebasePerformance, PerformanceTrace } from "firebase/performance";
 import type { AppCheck } from "firebase/app-check";
+import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
 import { reportCaughtError } from './errorReporter';
 import { isIndexedDbError } from './benignErrorPatterns';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from './recaptchaReady';
@@ -192,7 +193,10 @@ let _analyticsBlocked = false;
 // same object also keeps `initializeAnalytics` idempotent: the SDK mutates
 // `config` in place and compares options with `deepEqual`, which is true by
 // identity. Guarded by tests/page-view-producer-inventory.test.ts.
-const FIREBASE_ANALYTICS_SETTINGS = { config: { send_page_view: false } };
+const FIREBASE_ANALYTICS_SETTINGS = { config: {
+ send_page_view: false,
+ ...(typeof window === 'undefined' ? {} : sanitizeTelemetryProperties({ page_location: window.location.href, page_referrer: typeof document === 'undefined' ? '' : document.referrer })),
+} };
 
 // Firebase Installations is a dependency of Analytics. Its SDK opens this
 // database at version 1 and only creates the store during oldVersion === 0;

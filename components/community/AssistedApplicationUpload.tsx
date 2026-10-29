@@ -223,7 +223,11 @@ export default function AssistedApplicationUpload({
         }
         return true;
       }
-      if (data.paymentStatus === 'failed' && data.paymentFailureReason === 'checkout_session_expired') {
+      const retryableSumUp = (data.paymentProvider === 'sumup'
+        || (!data.paymentProvider && Boolean(data.sumupCheckoutId)))
+        && data.paymentFailureReason === 'payment_not_confirmed';
+      if (data.paymentStatus === 'failed'
+        && (data.paymentFailureReason === 'checkout_session_expired' || retryableSumUp)) {
         setStatus('pending');
         return false;
       }

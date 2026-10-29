@@ -9,7 +9,10 @@ import {
   ensureLocaleFields,
   __testables,
 } from '../scripts/lib/shared-jobs-crawler.mjs';
-import { isLikelyJobDetailUrl } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  getMergeExclusionReasons,
+  isLikelyJobDetailUrl,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const { buildKnownJobUrlsSet } = __testables;
 
@@ -48,6 +51,20 @@ describe('central job-board detail URLs', () => {
     expect(isLikelyJobDetailUrl('https://careers.nagra.com/?page=advertisement_display&id=')).toBe(false);
     expect(isLikelyJobDetailUrl('https://careers.nagra.com/?page=advertisement')).toBe(false);
     expect(isLikelyJobDetailUrl('https://careers.nagra.com/')).toBe(false);
+  });
+
+  it('recognizes NCore jobposition routes before the merge URL gate', () => {
+    const url = 'https://app.ncoreplat.com/jobposition/811972/business-developer-ch/csc-costruzioni-sa';
+    expect(isLikelyJobDetailUrl(url)).toBe(true);
+
+    const reasons = getMergeExclusionReasons({
+      title: 'Business Developer',
+      company: 'CSC Costruzioni SA',
+      location: 'Lugano, TI',
+      description: 'Coordinate customer relationships and construction projects in the Canton Ticino with the commercial team.',
+      url,
+    }, { minQualityScore: 0, minDescriptionChars: 0 });
+    expect(reasons).not.toContain('non_detail_url');
   });
 
   it('allows the shared JSON-LD parser to consume the detail page', () => {

@@ -357,8 +357,12 @@ const STATIC_INFEED_AD_EXPERIMENT_ACTIVE = isInfeedAdExperimentActiveFromEnv(pro
  * applies the job-board-only cap before the shell escapes and emits it.
  */
 function buildSeoPageHtml(opts: Parameters<typeof buildSeoPageHtmlBase>[0]): string {
+ const seoMainClass = opts.seoMainClass?.split(/\s+/u).includes('job-board-static-content')
+   ? opts.seoMainClass
+   : `${opts.seoMainClass ?? 'seo-static-content'} job-board-static-content`;
  return buildSeoPageHtmlBase({
   ...opts,
+  seoMainClass,
   title: finalizeJobBoardTitle(opts.title),
  });
 }

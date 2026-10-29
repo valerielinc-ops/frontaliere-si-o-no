@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-10-29T09:28:03.976Z",
+  "generatedAt": "2026-10-29T16:16:01.286Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 10557,
-  "avgDurationMs": 10557,
+  "durationMs": 9774,
+  "avgDurationMs": 9774,
   "durationHistory": [
-    10557
+    9774
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,7 +43,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:27:48.178Z",
+      "crawledAt": "2026-10-29T16:15:50.211Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -81,7 +81,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T09:27:44.940Z",
+      "crawledAt": "2026-10-29T16:15:47.036Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -127,7 +127,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T09:27:43.684Z",
+      "crawledAt": "2026-10-29T16:15:45.552Z",
       "source": "zegna-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -156,5 +156,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "a102718e52077fc28f8b6c0f43e0b34a14b2336f"
 }

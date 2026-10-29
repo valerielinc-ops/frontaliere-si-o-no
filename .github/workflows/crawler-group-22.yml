@@ -37,7 +37,7 @@
 #
 # Group 22: 31 crawlers, estimated wall-clock ~56min
 # (bounded by the slowest member; estimate from historical averages — actual
-# runs can vary). Members: rittmeyer (~56min), saint-gobain-weber-isover (~54min), spital-davos (~48min), lindenhofgruppe (~45min), scandit (~42min), spital-thusis (~40min), reha-bellikon (~37min), heineken-ch (~35min), mkspamp (~33min), ferring (~31min), mistral-ai (~29min), stadt-zuerich (~28min), klinik-seeschau (~27min), huntsman (~25min), med-ipersonal (~24min), kudelski-nagra (~24min), tl-lausanne (~21min), otis (~18min), oerlikon (~15min), corner (~14min), eth-zurich (~11min), giardino (~8min), bossard (~7min), clinica-holistica-engiadina (~6min), ariston (~5min), bachtelen (~4min), alcon (~3min), yellowshark (~24min), rh-expert-ch (~24min), project-interim (~24min), policelavaux-ch (~24min)
+# runs can vary). Members: rittmeyer (~56min), saint-gobain-weber-isover (~54min), spital-davos (~48min), lindenhofgruppe (~45min), scandit (~42min), spital-thusis (~40min), reha-bellikon (~37min), heineken-ch (~35min), mkspamp (~33min), ferring (~31min), mistral-ai (~29min), stadt-zuerich (~28min), klinik-seeschau (~27min), huntsman (~25min), med-ipersonal (~24min), kudelski-nagra (~24min), tl-lausanne (~21min), otis (~18min), oerlikon (~15min), corner (~14min), eth-zurich (~11min), giardino (~8min), bossard (~7min), clinica-holistica-engiadina (~6min), ariston (~5min), bachtelen (~4min), alcon (~3min), yellowshark (~24min), rh-expert-ch (~24min), project-interim (~24min), pks-bewerbung-ch (~24min)
 
 name: Crawler Group 22 (31 crawlers)
 on:
@@ -5914,45 +5914,45 @@ jobs:
           fi
           launcher_pid=$!
           printf '%s\n' "$launcher_pid" > "$pid_path"
-      - name: Launch policelavaux-ch
-        id: crawler-launch-policelavaux-ch
+      - name: Launch pks-bewerbung-ch
+        id: crawler-launch-pks-bewerbung-ch
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-policelavaux-ch.txt
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pks-bewerbung-ch.txt
           JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_POLICELAVAUX_CH_STRICT: ${{ inputs.strict_localization || '1' }}
+          JOBS_PKS_BEWERBUNG_CH_STRICT: ${{ inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: "1"
           SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: policelavaux-ch
-          JOBS_SLICE_FILE: data/jobs/by-crawler/policelavaux-ch.json
+          JOBS_HOUSEKEEPING_SCOPE: pks-bewerbung-ch
+          JOBS_SLICE_FILE: data/jobs/by-crawler/pks-bewerbung-ch.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
           mkdir -p "$state_dir/slots"
-          script_path="$state_dir/policelavaux-ch.sh"
-          launcher_path="$state_dir/policelavaux-ch.launcher.sh"
-          worker_path="$state_dir/policelavaux-ch.worker.sh"
-          log_path="$state_dir/policelavaux-ch.log"
-          pid_path="$state_dir/policelavaux-ch.pid"
-          status_path="$state_dir/policelavaux-ch.status"
-          started_path="$state_dir/policelavaux-ch.started"
-          watchdog_path="$state_dir/policelavaux-ch.watchdog"
+          script_path="$state_dir/pks-bewerbung-ch.sh"
+          launcher_path="$state_dir/pks-bewerbung-ch.launcher.sh"
+          worker_path="$state_dir/pks-bewerbung-ch.worker.sh"
+          log_path="$state_dir/pks-bewerbung-ch.log"
+          pid_path="$state_dir/pks-bewerbung-ch.pid"
+          status_path="$state_dir/pks-bewerbung-ch.status"
+          started_path="$state_dir/pks-bewerbung-ch.started"
+          watchdog_path="$state_dir/pks-bewerbung-ch.watchdog"
           rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
-          rm -f "$state_dir/policelavaux-ch.crawl-exit"
+          rm -f "$state_dir/pks-bewerbung-ch.crawl-exit"
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          node scripts/update-policelavaux-ch-jobs.mjs
+          node scripts/update-pks-bewerbung-ch-jobs.mjs
           crawler_exit=$?
           if [ -n "${CRAWLER_MEMBER_CRAWL_EXIT_FILE:-}" ]; then
             crawl_exit_tmp="${CRAWLER_MEMBER_CRAWL_EXIT_FILE}.tmp.$$"
             if ! { printf '\''%s\n'\'' "$crawler_exit" > "$crawl_exit_tmp" && mv -f "$crawl_exit_tmp" "${CRAWLER_MEMBER_CRAWL_EXIT_FILE}"; } 2>/dev/null; then
               rm -f "$crawl_exit_tmp" 2>/dev/null
-              echo "::warning::policelavaux-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
+              echo "::warning::pks-bewerbung-ch: could not record the crawl exit for the delivery gate; the finalizer will treat this member as unknown"
             fi
           fi
           git_commit_exit=0
@@ -5963,38 +5963,38 @@ jobs:
           fi
 
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Police Lavaux jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update pks-bewerbung jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
             node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
-              --title "Crawler Failure: Run policelavaux-ch" \
+              --title "Crawler Failure: Run pks-bewerbung-ch" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \
               --priority 2 \
               --label Bug \
-              --workflow "Run policelavaux-ch"
-            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed policelavaux-ch"
+              --workflow "Run pks-bewerbung-ch"
+            report_exit=$?; [ "$report_exit" -eq 0 ] || echo "::error::alert reporter failed pks-bewerbung-ch"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::policelavaux-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ policelavaux-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+            echo "::warning::pks-bewerbung-ch: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ pks-bewerbung-ch: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::policelavaux-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
-            echo "⚠️ policelavaux-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::pks-bewerbung-ch: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ pks-bewerbung-ch: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::policelavaux-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
-            echo "❌ policelavaux-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::error::pks-bewerbung-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ pks-bewerbung-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
-            echo "::warning::policelavaux-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
-            echo "⚠️ policelavaux-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            echo "::warning::pks-bewerbung-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ pks-bewerbung-ch: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
 
@@ -6004,12 +6004,12 @@ jobs:
           fi
           exit 0' > "$script_path"
           printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.sh"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.worker.status"
-          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.worker.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.started"
-          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.crawl-exit"
-          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.log"
+          script_path="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.sh"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.status"
+          worker_status_tmp="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.started"
+          export CRAWLER_MEMBER_CRAWL_EXIT_FILE="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.crawl-exit"
+          export CRAWLER_MEMBER_LOG_FILE="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.log"
           : > "$started_file"
           bash "$script_path"
           crawler_exit=$?
@@ -6018,12 +6018,12 @@ jobs:
           exit "$crawler_exit"' > "$worker_path"
           printf '%s\n' 'set +e
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.status.tmp.$$"
-          worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.worker.status"
-          started_file="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.started"
-          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/policelavaux-ch.watchdog"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.status.tmp.$$"
+          worker_status_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.worker.status"
+          started_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-22/pks-bewerbung-ch.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -7756,43 +7756,43 @@ jobs:
             exit 1
           fi
           exit "$status"
-      - name: Run policelavaux-ch
-        id: crawler-policelavaux-ch
+      - name: Run pks-bewerbung-ch
+        id: crawler-pks-bewerbung-ch
         if: always()
         continue-on-error: true
         env:
-          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-policelavaux-ch'].outcome }}
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-pks-bewerbung-ch'].outcome }}
         run: |-
           set -uo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-22"
-          status_file="$state_dir/policelavaux-ch.status"
-          pid_file="$state_dir/policelavaux-ch.pid"
-          log_file="$state_dir/policelavaux-ch.log"
+          status_file="$state_dir/pks-bewerbung-ch.status"
+          pid_file="$state_dir/pks-bewerbung-ch.pid"
+          log_file="$state_dir/pks-bewerbung-ch.log"
           launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
           if [ "$launch_outcome" != "success" ]; then
-            echo "::error::policelavaux-ch: launch step outcome is $launch_outcome; detached crawler was not started"
+            echo "::error::pks-bewerbung-ch: launch step outcome is $launch_outcome; detached crawler was not started"
             exit 1
           fi
           if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::policelavaux-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            echo "::error::pks-bewerbung-ch: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
             exit 1
           fi
           deadline=$((SECONDS + 340 * 60))
           while [ ! -s "$status_file" ]; do
             if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::policelavaux-ch: detached crawler did not publish a status before the 340 minute group budget"
+              echo "::error::pks-bewerbung-ch: detached crawler did not publish a status before the 340 minute group budget"
               exit 1
             fi
             if [ -s "$pid_file" ]; then
               pid="$(cat "$pid_file" 2>/dev/null || true)"
               if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::policelavaux-ch: invalid detached crawler PID: $pid"
+                echo "::error::pks-bewerbung-ch: invalid detached crawler PID: $pid"
                 exit 1
               fi
               if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
                 sleep 1
                 if [ ! -s "$status_file" ]; then
-                  echo "::error::policelavaux-ch: detached crawler exited without publishing its status"
+                  echo "::error::pks-bewerbung-ch: detached crawler exited without publishing its status"
                   exit 1
                 fi
               fi
@@ -7802,12 +7802,12 @@ jobs:
           if [ -f "$log_file" ]; then
             cat "$log_file"
           else
-            echo "::error::policelavaux-ch: crawler log is missing"
+            echo "::error::pks-bewerbung-ch: crawler log is missing"
             exit 1
           fi
           status="$(cat "$status_file" 2>/dev/null || true)"
           if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::policelavaux-ch: invalid crawler status: $status"
+            echo "::error::pks-bewerbung-ch: invalid crawler status: $status"
             exit 1
           fi
           exit "$status"
@@ -7903,7 +7903,7 @@ jobs:
           aggregate_crawler_member 'yellowshark'
           aggregate_crawler_member 'rh-expert-ch'
           aggregate_crawler_member 'project-interim'
-          aggregate_crawler_member 'policelavaux-ch'
+          aggregate_crawler_member 'pks-bewerbung-ch'
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -7974,7 +7974,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"alcon","primarySlice":"data/jobs/by-crawler/alcon.json"},{"crawlerId":"ariston-group","primarySlice":"data/jobs/by-crawler/ariston-group.json"},{"crawlerId":"bachtelen","primarySlice":"data/jobs/by-crawler/bachtelen.json"},{"crawlerId":"bossard","primarySlice":"data/jobs/by-crawler/bossard.json"},{"crawlerId":"clinica-holistica-engiadina","primarySlice":"data/jobs/by-crawler/clinica-holistica-engiadina.json"},{"crawlerId":"corner-banca","primarySlice":"data/jobs/by-crawler/corner-banca.json"},{"crawlerId":"eth-zurich","primarySlice":"data/jobs/by-crawler/eth-zurich.json"},{"crawlerId":"ferring","primarySlice":"data/jobs/by-crawler/ferring.json"},{"crawlerId":"giardino","primarySlice":"data/jobs/by-crawler/giardino.json"},{"crawlerId":"heineken-ch","primarySlice":"data/jobs/by-crawler/heineken-ch.json"},{"crawlerId":"huntsman","primarySlice":"data/jobs/by-crawler/huntsman.json"},{"crawlerId":"klinik-seeschau","primarySlice":"data/jobs/by-crawler/klinik-seeschau.json"},{"crawlerId":"kudelski-nagra","primarySlice":"data/jobs/by-crawler/kudelski-nagra.json"},{"crawlerId":"lindenhofgruppe","primarySlice":"data/jobs/by-crawler/lindenhofgruppe.json"},{"crawlerId":"med-ipersonal","primarySlice":"data/jobs/by-crawler/med-ipersonal.json"},{"crawlerId":"mistral-ai","primarySlice":"data/jobs/by-crawler/mistral-ai.json"},{"crawlerId":"mks-pamp","primarySlice":"data/jobs/by-crawler/mks-pamp.json"},{"crawlerId":"oerlikon","primarySlice":"data/jobs/by-crawler/oerlikon.json"},{"crawlerId":"otis","primarySlice":"data/jobs/by-crawler/otis.json"},{"crawlerId":"policelavaux-ch","primarySlice":"data/jobs/by-crawler/policelavaux-ch.json"},{"crawlerId":"project-interim","primarySlice":"data/jobs/by-crawler/project-interim.json"},{"crawlerId":"reha-bellikon","primarySlice":"data/jobs/by-crawler/reha-bellikon.json"},{"crawlerId":"rh-expert-ch","primarySlice":"data/jobs/by-crawler/rh-expert-ch.json"},{"crawlerId":"rittmeyer-ag","primarySlice":"data/jobs/by-crawler/rittmeyer-ag.json"},{"crawlerId":"saint-gobain-weber-isover","primarySlice":"data/jobs/by-crawler/saint-gobain-weber-isover.json"},{"crawlerId":"scandit","primarySlice":"data/jobs/by-crawler/scandit.json"},{"crawlerId":"spital-davos","primarySlice":"data/jobs/by-crawler/spital-davos.json"},{"crawlerId":"spital-thusis","primarySlice":"data/jobs/by-crawler/spital-thusis.json"},{"crawlerId":"stadt-zuerich","primarySlice":"data/jobs/by-crawler/stadt-zuerich.json"},{"crawlerId":"tl-lausanne","primarySlice":"data/jobs/by-crawler/tl-lausanne.json"},{"crawlerId":"yellowshark","primarySlice":"data/jobs/by-crawler/yellowshark.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"alcon","primarySlice":"data/jobs/by-crawler/alcon.json"},{"crawlerId":"ariston-group","primarySlice":"data/jobs/by-crawler/ariston-group.json"},{"crawlerId":"bachtelen","primarySlice":"data/jobs/by-crawler/bachtelen.json"},{"crawlerId":"bossard","primarySlice":"data/jobs/by-crawler/bossard.json"},{"crawlerId":"clinica-holistica-engiadina","primarySlice":"data/jobs/by-crawler/clinica-holistica-engiadina.json"},{"crawlerId":"corner-banca","primarySlice":"data/jobs/by-crawler/corner-banca.json"},{"crawlerId":"eth-zurich","primarySlice":"data/jobs/by-crawler/eth-zurich.json"},{"crawlerId":"ferring","primarySlice":"data/jobs/by-crawler/ferring.json"},{"crawlerId":"giardino","primarySlice":"data/jobs/by-crawler/giardino.json"},{"crawlerId":"heineken-ch","primarySlice":"data/jobs/by-crawler/heineken-ch.json"},{"crawlerId":"huntsman","primarySlice":"data/jobs/by-crawler/huntsman.json"},{"crawlerId":"klinik-seeschau","primarySlice":"data/jobs/by-crawler/klinik-seeschau.json"},{"crawlerId":"kudelski-nagra","primarySlice":"data/jobs/by-crawler/kudelski-nagra.json"},{"crawlerId":"lindenhofgruppe","primarySlice":"data/jobs/by-crawler/lindenhofgruppe.json"},{"crawlerId":"med-ipersonal","primarySlice":"data/jobs/by-crawler/med-ipersonal.json"},{"crawlerId":"mistral-ai","primarySlice":"data/jobs/by-crawler/mistral-ai.json"},{"crawlerId":"mks-pamp","primarySlice":"data/jobs/by-crawler/mks-pamp.json"},{"crawlerId":"oerlikon","primarySlice":"data/jobs/by-crawler/oerlikon.json"},{"crawlerId":"otis","primarySlice":"data/jobs/by-crawler/otis.json"},{"crawlerId":"pks-bewerbung-ch","primarySlice":"data/jobs/by-crawler/pks-bewerbung-ch.json"},{"crawlerId":"project-interim","primarySlice":"data/jobs/by-crawler/project-interim.json"},{"crawlerId":"reha-bellikon","primarySlice":"data/jobs/by-crawler/reha-bellikon.json"},{"crawlerId":"rh-expert-ch","primarySlice":"data/jobs/by-crawler/rh-expert-ch.json"},{"crawlerId":"rittmeyer-ag","primarySlice":"data/jobs/by-crawler/rittmeyer-ag.json"},{"crawlerId":"saint-gobain-weber-isover","primarySlice":"data/jobs/by-crawler/saint-gobain-weber-isover.json"},{"crawlerId":"scandit","primarySlice":"data/jobs/by-crawler/scandit.json"},{"crawlerId":"spital-davos","primarySlice":"data/jobs/by-crawler/spital-davos.json"},{"crawlerId":"spital-thusis","primarySlice":"data/jobs/by-crawler/spital-thusis.json"},{"crawlerId":"stadt-zuerich","primarySlice":"data/jobs/by-crawler/stadt-zuerich.json"},{"crawlerId":"tl-lausanne","primarySlice":"data/jobs/by-crawler/tl-lausanne.json"},{"crawlerId":"yellowshark","primarySlice":"data/jobs/by-crawler/yellowshark.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-22-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

@@ -7,6 +7,7 @@
  * assisted-application payment state handler is invoked.
  */
 
+import { sumUpCheckoutEntityId, matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { db } from './stripePublisherCore.js';
 import {
@@ -102,7 +103,7 @@ export async function applyAssistedApplicationSumUpCheckout(
   { db: dbFn = db, ts = FieldValue.serverTimestamp() } = {},
 ) {
   const checkoutId = boundedString(checkout?.id, 200);
-  const orderId = boundedString(checkout?.checkout_reference, 200);
+  const orderId = sumUpCheckoutEntityId(checkout?.checkout_reference);
   if (!checkoutId || !orderId) {
     return { handled: false, reason: 'checkout_reference_mismatch' };
   }
@@ -120,6 +121,9 @@ export async function applyAssistedApplicationSumUpCheckout(
     && service.paymentProvider === SUMUP_PAYMENT_PROVIDER
     && service.sumupCheckoutId === checkoutId
   ) {
+    if (service.checkoutSessionStatus === 'creating' && String(checkout.status || '').toUpperCase() !== 'PAID') {
+      return { handled: false, reason: 'checkout_replacement_in_progress' };
+    }
     await handleApplicationConciergeWebhookEvent(
       paymentEventForCheckout(checkout, orderId, '', APPLICATION_CONCIERGE_PRODUCT),
       { db: dbFactory, ts },
@@ -143,6 +147,10 @@ export async function applyAssistedApplicationSumUpCheckout(
     || order.sumupCheckoutId !== checkoutId
   ) {
     return { handled: false, reason: 'order_reference_mismatch' };
+  }
+
+  if (order.checkoutSessionStatus === 'creating' && String(checkout.status || '').toUpperCase() !== 'PAID') {
+    return { handled: false, reason: 'checkout_replacement_in_progress' };
   }
 
   const event = paymentEventForCheckout(
@@ -270,7 +278,7 @@ export async function runAssistedApplicationSumUpReconciliation({
       const checkout = await retrieve(checkoutId);
       if (
         boundedString(checkout.id, 200) !== checkoutId
-        || boundedString(checkout.checkout_reference, 200) !== doc.id
+        || !matchesSumUpCheckoutReference(checkout.checkout_reference, doc.id)
         || String(checkout.status || '').toUpperCase() !== 'PAID'
       ) {
         summary.skipped += 1;

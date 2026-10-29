@@ -27,6 +27,7 @@ import {
   isConnectionLevelFetchError,
   isRetryBudgetExhausted,
   transportErrorKind,
+  WAF_IP_BLOCK_STATUS,
 } from './lib/transient-fetch.mjs';
 import {
   BORDER_MINIMUMS,
@@ -48,11 +49,13 @@ import {
   buildTicinoCompleteRecords,
   discoverTicinoPharmacyPdfUrls,
   isTicinoPharmacyPdfUrl,
+  mergeTicinoSecondaryRecords,
   normalizePharmacyRecordsForFallback,
   parseTicinoPdfText,
   rebuildUrlAliasesAfterSlugChange,
   uniqueSlug,
 } from './lib/pharmacy-border-parser.mjs';
+import { OFCT_REGIONS, parsePharmacyListTable } from './lib/pharmacy-ticino-parser.mjs';
 import {
   buildPharmacyEnrichmentSnapshot,
   enrichPharmacyRecords,
@@ -85,6 +88,8 @@ const CATALOGUE_MAX_AGE_MS = 35 * DAY_MS;
 const DUTIES_MAX_AGE_MS = 2 * DAY_MS;
 
 export { BORDER_MINIMUMS, pharmacySnapshotSha256, verifyPharmacyReleaseContract };
+
+export const TICINO_SECONDARY_SOURCE_URLS = Object.freeze(OFCT_REGIONS.map((region) => region.url));
 
 function freshnessFor(fetchedAt, evaluatedAt, maxAgeMs) {
   const fetchedMs = typeof fetchedAt === 'string' ? Date.parse(fetchedAt) : NaN;
@@ -455,6 +460,98 @@ async function readOsmInput() {
   }
 }
 
+function ticinoSourceStatus(error) {
+  return Number(error?.status ?? error?.response?.status);
+}
+
+function canUseTicinoSecondarySource(error) {
+  const status = ticinoSourceStatus(error);
+  return isRetryBudgetExhausted(error)
+    || isConnectionLevelFetchError(error)
+    || status === 404
+    || WAF_IP_BLOCK_STATUS.has(status);
+}
+
+const sleep = (milliseconds) => new Promise((resolveSleep) => setTimeout(resolveSleep, milliseconds));
+
+/**
+ * Fetch the four OFCT anagraphic pages as a bounded secondary source.
+ *
+ * This connector is intentionally sequential and honours OFCT's published
+ * crawl delay. It is a recovery/corroboration source: because Locarnese has
+ * no equivalent OFCT anagraphic table, callers must merge these rows into a
+ * known-complete snapshot instead of publishing this subset as a replacement.
+ */
+export async function fetchTicinoOfctCatalogue(
+  fetchRegion = (url, options) => fetchText(url, options),
+  { regions = OFCT_REGIONS, delayMs = 10_000, sleepFn = sleep } = {},
+) {
+  const rows = [];
+  const sourceRegions = [];
+  const warnings = [];
+  const failures = [];
+
+  for (let index = 0; index < regions.length; index += 1) {
+    const region = regions[index];
+    try {
+      const html = await fetchRegion(region.url, { accept: 'text/html' });
+      const parsed = parsePharmacyListTable(html);
+      if (parsed.rows.length === 0) {
+        throw new Error(`${region.key}: OFCT anagraphic table was empty or changed`);
+      }
+      rows.push(...parsed.rows.map((row) => ({ ...row, sourceUrl: region.url })));
+      sourceRegions.push(region.key);
+      if (parsed.skipped > 0) {
+        warnings.push(`${region.key}: OFCT skipped ${parsed.skipped} malformed row(s)`);
+      }
+    } catch (error) {
+      failures.push({
+        region: region.key,
+        sourceUrl: region.url,
+        error,
+        canPreserve: canUseTicinoSecondarySource(error),
+      });
+    }
+    if (index < regions.length - 1 && delayMs > 0) await sleepFn(delayMs);
+  }
+
+  if (rows.length === 0) {
+    const summary = failures
+      .map(({ region, error }) => `${region}: ${transportErrorKind(error)}`)
+      .join('; ');
+    const aggregate = new Error(`All OFCT Ticino secondary sources failed: ${summary || 'no rows published'}`, {
+      cause: failures.at(-1)?.error,
+    });
+    aggregate.sourceFailures = failures.map(({ region, sourceUrl, error, canPreserve }) => ({
+      region,
+      sourceUrl,
+      status: ticinoSourceStatus(error) || null,
+      message: error instanceof Error ? error.message : String(error),
+      canPreserve,
+    }));
+    if (failures.length > 0 && failures.every(({ canPreserve }) => canPreserve)) {
+      aggregate.retryBudgetExhausted = true;
+    }
+    throw aggregate;
+  }
+
+  if (failures.length > 0) {
+    warnings.push(`OFCT secondary source partial: ${failures.map(({ region }) => region).join(', ')} unavailable`);
+  }
+  return {
+    rows,
+    sourceRegions,
+    sourceUrls: sourceRegions.map((key) => regions.find((region) => region.key === key)?.url).filter(Boolean),
+    warnings,
+    failures: failures.map(({ region, sourceUrl, error }) => ({
+      region,
+      sourceUrl,
+      status: ticinoSourceStatus(error) || null,
+      message: error instanceof Error ? error.message : String(error),
+    })),
+  };
+}
+
 async function readTicinoPdfText() {
   if (localTicinoText) return { text: await readFile(resolve(localTicinoText), 'utf8'), source: localTicinoText };
   if (noTicinoPdf) return { text: '', source: null };
@@ -466,11 +563,29 @@ async function readTicinoPdfText() {
     const { stdout } = await execFileAsync('pdftotext', ['-layout', pdfPath, '-'], { maxBuffer: 4 * 1024 * 1024 });
     return { text: stdout, source: document.sourceUrl };
   } catch (error) {
-    if (!isRetryBudgetExhausted(error)) throw error;
-    const message = error instanceof Error ? error.message : String(error);
-    const sourceError = `Ticino pharmacy catalogue refresh was not published after transient source failure: ${message}`;
-    console.warn(`[import-pharmacies-border] ${sourceError}; preserving the previous snapshot`);
-    return { text: '', source: null, sourceError };
+    if (!canUseTicinoSecondarySource(error)) throw error;
+    try {
+      const secondary = await fetchTicinoOfctCatalogue();
+      const message = error instanceof Error ? error.message : String(error);
+      const sourceError = `Ticino PDF unavailable; recovered ${secondary.rows.length} rows from OFCT: ${message}`;
+      console.warn(`[import-pharmacies-border] ${sourceError}`);
+      return {
+        text: '',
+        source: null,
+        sourceError,
+        secondaryRows: secondary.rows,
+        secondarySourceRegions: secondary.sourceRegions,
+        secondarySourceUrls: secondary.sourceUrls,
+        secondaryWarnings: secondary.warnings,
+        secondaryAttempted: true,
+      };
+    } catch (secondaryError) {
+      const message = error instanceof Error ? error.message : String(error);
+      const secondaryMessage = secondaryError instanceof Error ? secondaryError.message : String(secondaryError);
+      const sourceError = `Ticino catalogue refresh was not published after bounded source failures: ${message}; ${secondaryMessage}`;
+      console.warn(`[import-pharmacies-border] ${sourceError}; preserving the previous snapshot`);
+      return { text: '', source: null, sourceError, secondaryAttempted: true };
+    }
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
@@ -605,16 +720,46 @@ export function buildPreservedItalySnapshot(previous, sourceError) {
  * `_fetchedAt`; the explicit marker makes the resulting release partial (or
  * stale when that preserved timestamp has aged out).
  */
-export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmElements = [], requiredIds = [], sourceError = null, sourceUrl = TICINO_PHARMACY_PDF_URL }) {
+export function buildTicinoCatalogueSnapshot({
+  parsed,
+  previous,
+  fetchedAt,
+  osmElements = [],
+  requiredIds = [],
+  sourceError = null,
+  sourceUrl = TICINO_PHARMACY_PDF_URL,
+  secondaryRows = [],
+  secondarySourceRegions = [],
+  secondarySourceUrls = [],
+  secondaryWarnings = [],
+}) {
   const rows = Array.isArray(parsed?.rows) ? parsed.rows : [];
-  const warnings = Array.isArray(parsed?.warnings) ? [...parsed.warnings] : [];
+  const warnings = [
+    ...(Array.isArray(parsed?.warnings) ? parsed.warnings : []),
+    ...secondaryWarnings,
+  ];
   const previousPharmacies = Array.isArray(previous?.pharmacies) ? previous.pharmacies : [];
   const preserved = rows.length < BORDER_MINIMUMS.ticino;
+  const secondaryRecovery = preserved
+    && secondaryRows.length > 0
+    && previousPharmacies.length >= BORDER_MINIMUMS.ticino;
   let pharmacies;
   let publishedFetchedAt = fetchedAt;
   let errors = [];
 
-  if (preserved) {
+  if (secondaryRecovery) {
+    pharmacies = mergeTicinoSecondaryRecords(secondaryRows, {
+      previous: previousPharmacies,
+      fetchedAt,
+      osmElements,
+      sourceUrl,
+    });
+    publishedFetchedAt = typeof previous?._fetchedAt === 'string' ? previous._fetchedAt : null;
+    const recoveryMessage = sourceError
+      || `PDF parse produced ${rows.length} records; refreshed ${secondaryRows.length} records from OFCT and preserved the complete snapshot`;
+    warnings.push(recoveryMessage);
+    errors = [recoveryMessage];
+  } else if (preserved) {
     warnings.push(sourceError || `PDF parse produced ${rows.length} records; preserving the previous ${previousPharmacies.length}-record dataset`);
     pharmacies = normalizePharmacyRecordsForFallback(previousPharmacies);
     publishedFetchedAt = typeof previous?._fetchedAt === 'string' ? previous._fetchedAt : null;
@@ -636,7 +781,10 @@ export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmE
   return {
     _source: preserved ? (previous?._source || sourceUrl) : sourceUrl,
     _sourceCanonical: TICINO_PHARMACY_PDF_URL,
-    _sourceRegions: previous?._sourceRegions || [],
+    _sourceRegions: secondaryRecovery
+      ? [...TICINO_SECONDARY_SOURCE_URLS]
+      : (previous?._sourceRegions || []),
+    ...(secondarySourceUrls.length > 0 ? { _sourceSecondary: [...secondarySourceUrls] } : {}),
     _sourcePublishedAt: previous?._sourcePublishedAt || '2026-01-15',
     _fetchedAt: publishedFetchedAt,
     _userAgent: USER_AGENT,
@@ -704,16 +852,41 @@ async function main() {
 
   if (!allDutiesFailed) {
     const ticinoParsed = parseTicinoPdfText(ticinoInput.text);
+    let secondaryRows = ticinoInput.secondaryRows || [];
+    let secondarySourceRegions = ticinoInput.secondarySourceRegions || [];
+    let secondarySourceUrls = ticinoInput.secondarySourceUrls || [];
+    let secondaryWarnings = ticinoInput.secondaryWarnings || [];
+    let sourceError = ticinoInput.sourceError || null;
+    if (ticinoParsed.rows.length < BORDER_MINIMUMS.ticino
+      && secondaryRows.length === 0
+      && !ticinoInput.secondaryAttempted
+      && !noTicinoPdf) {
+      try {
+        const secondary = await fetchTicinoOfctCatalogue();
+        secondaryRows = secondary.rows;
+        secondarySourceRegions = secondary.sourceRegions;
+        secondarySourceUrls = secondary.sourceUrls;
+        secondaryWarnings = secondary.warnings;
+        sourceError ||= `Ticino PDF parse produced only ${ticinoParsed.rows.length} records; OFCT secondary recovery supplied ${secondaryRows.length} rows`;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        sourceError ||= `Ticino PDF parse produced only ${ticinoParsed.rows.length} records and OFCT recovery failed: ${message}`;
+      }
+    }
     ticinoOutput = buildTicinoCatalogueSnapshot({
       parsed: ticinoParsed,
       previous,
       fetchedAt,
       osmElements: osm.elements,
       requiredIds: dutyPharmacyIds,
-      sourceError: ticinoInput.sourceError,
+      sourceError,
       sourceUrl: isTicinoPharmacyPdfUrl(ticinoInput.source || '')
         ? ticinoInput.source
         : (previous?._source || TICINO_PHARMACY_PDF_URL),
+      secondaryRows,
+      secondarySourceRegions,
+      secondarySourceUrls,
+      secondaryWarnings,
     });
   }
   const ticinoPharmacies = ticinoOutput.pharmacies;

@@ -91,6 +91,8 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(entry).toContain('waitForContentfulPaint: hasPreRenderedPaintContent()');
     expect(entry).toContain('#loading-shell, main.seo-static-content, main.cluster-seo-prose');
     expect(entry).toContain('main.seo-static-content.job-board-static-hub');
+    expect(entry).toContain('main.seo-static-content.job-board-static-content');
+    expect(entry).toContain('main.seo-static-content[data-sector-hub]');
     expect(entry).toContain('waitForLargestContentfulPaint: true');
     expect(entry).toContain('largestContentfulPaintSelector: JOB_BOARD_STATIC_CONTENT_SELECTOR');
     expect(entry).toContain('shouldWaitForJobBoardLcp(window.innerWidth)');
@@ -183,19 +185,24 @@ describe('initial SPA bootstrap — mobile first paint', () => {
       clearTimer: () => {},
     };
     document.body.innerHTML = `
-      <main class="seo-static-content job-board-static-hub"><p id="static-candidate">Offerte</p></main>
+      <main class="seo-static-content s-Ziv1Xn" data-sector-hub="infermieri"><p id="static-candidate">Offerte</p></main>
+      <main class="seo-static-content job-board-static-content"><p id="generic-candidate">Svizzera</p></main>
       <div class="fc-footer"><p id="cmp-candidate">Consent</p></div>`;
     const staticCandidate = document.getElementById('static-candidate')!;
+    const genericCandidate = document.getElementById('generic-candidate')!;
     const cmpCandidate = document.getElementById('cmp-candidate')!;
 
     const ready = waitForInitialPaintOpportunity({
       waitForLargestContentfulPaint: true,
-      largestContentfulPaintSelector: 'main.seo-static-content.job-board-static-hub',
+      largestContentfulPaintSelector:
+        'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]',
     }, env);
     expect(deadlineTimerCallback).toBeTypeOf('function');
     reportLcp?.(cmpCandidate);
     expect(quietTimerCallback).toBeUndefined();
     reportLcp?.(staticCandidate);
+    expect(quietTimerCallback).toBeTypeOf('function');
+    reportLcp?.(genericCandidate);
     expect(quietTimerCallback).toBeTypeOf('function');
     quietTimerCallback?.();
     await expect(ready).resolves.toBeUndefined();

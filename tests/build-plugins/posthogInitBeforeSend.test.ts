@@ -108,6 +108,22 @@ function extractBeforeSend(): (event: unknown) => unknown {
   return opts.before_send as (event: unknown) => unknown;
 }
 
+describe('POSTHOG_INIT_CONTENT email URL privacy', () => {
+ it('sanitizes SDK-added page and referrer URLs before quota exemptions', () => {
+  const beforeSend = extractBeforeSend();
+  const event = { event: '$pageview', $set: { $referrer: 'https://frontaliereticino.ch/?authToken=secret&utm_source=email' }, $set_once: { $initial_current_url: 'https://frontaliereticino.ch/?ac=secret&utm_source=email' }, properties: {
+   $current_url: 'https://frontaliereticino.ch/?ac=secret&ne=candidate%40example.test&utm_source=email',
+   $initial_current_url: 'https://frontaliereticino.ch/?authToken=secret&utm_source=email',
+   $referrer: 'https://frontaliereticino.ch/?at=secret&utm_source=email',
+  } };
+  const result = beforeSend(event) as typeof event;
+  expect(result).toBe(event);
+  expect(JSON.stringify(result)).not.toContain('secret');
+  expect(JSON.stringify(result)).not.toContain('candidate');
+  expect(result.properties.$current_url).toContain('utm_source=email');
+ });
+});
+
 describe('POSTHOG_INIT_CONTENT local dev gate', () => {
   const realLocation = window.location;
 
