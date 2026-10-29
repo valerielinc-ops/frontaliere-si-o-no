@@ -1140,8 +1140,8 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.guida-pensione-frontaliere-avs-lpp.excerpt': 'Complete pension guide for those working in Switzerland: three pillars, Italy-Switzerland totalization, benefit simulation and mistakes to avoid.',
  'blog.article.guida-pensione-frontaliere-avs-lpp.imageAlt': 'Retired couple walking along Lake Lugano with the Alps in the background',
 
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Living in Switzerland vs Italy: Real Comparison for Cross-Border Workers',
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Permit B or Permit G? Detailed comparison of costs, taxes, healthcare, quality of life and economic convenience with 2026 practical examples.',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Work in Switzerland, Live in Italy? A Cross-Border Guide',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Compare take-home pay, tax status, housing, healthcare and commuting costs in two annual budgets. Eurostat compares national price levels, not city rents.',
  'blog.article.vivere-svizzera-vs-italia-frontaliere.imageAlt': 'Panoramic view of the Italian-Swiss border with Lake Lugano and Italian village rooftops',
 
  'blog.article.dumping-salariale-diritti-lavoratore-ticino.title': 'Wage Dumping in Ticino: How to Recognize It and Protect Yourself',

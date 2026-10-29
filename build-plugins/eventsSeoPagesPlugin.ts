@@ -3716,6 +3716,56 @@ function eventDetailMetaTitle(
     }
   }
   if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
+  // Preserve the disambiguator in overflow cases. Truncating the complete
+  // composition from the right can erase an ordinal while probing long
+  // place/date suffixes, causing distinct candidates to normalize alike.
+  // Keep a locality token and date when they fit, then verify the shell's
+  // actual output too because it may add the site brand.
+  if (metadataQualifier) {
+    const barePlaceSuffix = suffixes[suffixes.length - 1] || '';
+    const locality = barePlaceSuffix.replace(/^\s*[—–-]\s*/u, '').trim();
+    const localityWords = locality.split(/\s+/u).filter(Boolean);
+    const localityVariants = [
+      locality,
+      localityWords.slice(-2).join(' '),
+      localityWords.slice(-1).join(' '),
+      '',
+    ].filter((value, index, all) => all.indexOf(value) === index);
+    const dateVariants = dateToken ? [dateToken, ''] : [''];
+    const qualifierVariants = qualifier ? [qualifier, ''] : [''];
+    const fallbackSuffixes: string[] = suffixCandidates.map(({ suffix }) => suffix);
+    for (const date of dateVariants) {
+      for (const place of localityVariants) {
+        for (const titleQualifier of qualifierVariants) {
+          fallbackSuffixes.push(
+            `${metadataQualifier}${titleQualifier}${place ? ` — ${place}` : ''}${date ? ` · ${date}` : ''}`,
+          );
+        }
+      }
+    }
+
+    for (const fallbackSuffix of fallbackSuffixes.filter((value, index, all) => all.indexOf(value) === index)) {
+      const titleBudget = EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(fallbackSuffix).length;
+      if (titleBudget < 0) continue;
+      const titleCandidates: string[] = [];
+      if (esc(completeTitle).length <= titleBudget) {
+        titleCandidates.push(completeTitle);
+      } else {
+        for (let max = titleBudget; max > 0; max -= 1) {
+          const candidate = truncateHeadline(completeTitle, max);
+          if (!titleCandidates.includes(candidate)) titleCandidates.push(candidate);
+        }
+      }
+      titleCandidates.push('');
+
+      for (const fallbackTitle of titleCandidates) {
+        const fallback = `${fallbackTitle}${fallbackSuffix}`;
+        if (esc(fallback).length > EVENT_DETAIL_META_TITLE_MAX_CHARS) continue;
+        const shellFallback = normalizeShellTitle(fallback, (value) => esc(value).length);
+        if (esc(shellFallback).length <= TITLE_TARGET_CHARS) return fallback;
+      }
+    }
+  }
   // Unreachable for gazetteer/canton-label comuni (the bare ` — ${comune}`
   // candidate always leaves budget); guards pathological place names so the
   // deploy-blocking audit:title-length gate can never trip on this page type.
@@ -3723,7 +3773,14 @@ function eventDetailMetaTitle(
   for (let max = EVENT_DETAIL_META_TITLE_MAX_CHARS; esc(out).length > EVENT_DETAIL_META_TITLE_MAX_CHARS && max > 0; max -= 1) {
     out = truncateHeadline(composed, max);
   }
-  return out;
+  if (esc(normalizeShellTitle(out, (value) => esc(value).length)).length <= TITLE_TARGET_CHARS) return out;
+  for (let max = EVENT_DETAIL_META_TITLE_MAX_CHARS - 1; max > 0; max -= 1) {
+    const candidate = truncateHeadline(out, max);
+    if (esc(normalizeShellTitle(candidate, (value) => esc(value).length)).length <= TITLE_TARGET_CHARS) {
+      return candidate;
+    }
+  }
+  throw new Error('Unable to fit an event detail title within the 60-character shell-normalized limit');
 }
 
 /** Compact, locale-aware date token for event headings and SERP titles.
@@ -3941,6 +3998,7 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
 }
 
 const EVENT_TITLE_STATUS_MARKER = /\s+\*+\s*(COMPLET|COMPLETA|ANNUL(?:É|E)|ANNULLAT[OA]|CANCEL(?:LED|ED)|ABGESAGT|AUSVERKAUFT|SOLD\s+OUT|FULL)\s*\*+\s*$/iu;
+const MAX_EVENT_TITLE_ORDINAL = 64;
 
 function eventDetailDisplayComune(event: SiteEvent, comune: string, locale: Locale): string {
   const canton = (event.canton || UNRESOLVED_CANTON_KEY).toUpperCase();
@@ -4011,7 +4069,6 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
   const out = new Map<string, string>();
 
   for (const locale of LOCALES) {
-    if (!shouldEmitLocale(locale)) continue;
     const records = events.map((event) => ({
       event,
       comune: event.comune || OTHER_EVENTS_COMUNE_KEY,
@@ -4052,19 +4109,103 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
           // the last rejected candidate here would reintroduce the collision
           // this pass is meant to remove.
           const token = stableTitleToken(record.event.id);
-          for (let ordinal = 2; ; ordinal += 1) {
+          let resolved = false;
+          const maxOrdinal = Math.max(MAX_EVENT_TITLE_ORDINAL, claimed.size + 2);
+          for (let ordinal = 2; ordinal <= maxOrdinal; ordinal += 1) {
             const candidate = `rif. ${token}-${ordinal}`;
             const candidateTitle = eventDetailTitleProbe(record.event, locale, record.comune, candidate);
             const candidateKey = candidateTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
             if (claimed.has(candidateKey)) continue;
             chosen = candidate;
             finalKey = candidateKey;
+            resolved = true;
             break;
+          }
+          if (!resolved) {
+            throw new Error(
+              `Unable to disambiguate event detail title within ${EVENT_DETAIL_META_TITLE_MAX_CHARS} characters: ${locale}|${record.event.id}`,
+            );
           }
         }
         out.set(`${locale}|${record.event.id}`, chosen);
         claimed.add(finalKey);
       }
+    }
+  }
+
+  // A locale-specific suffix can disappear when the shell enforces its title
+  // budget. Check every event/locale pair together after that normalization:
+  // grouping only by locale misses collisions between different events in
+  // different locales.
+  const localeLabels: Record<Locale, string> = {
+    it: 'Italiano',
+    en: 'English',
+    de: 'Deutsch',
+    fr: 'Français',
+  };
+  const titleKey = (title: string) => title.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+  const emittedTitle = (event: SiteEvent, locale: Locale, disambiguator: string) => {
+    const comune = event.comune || OTHER_EVENTS_COMUNE_KEY;
+    const rawTitle = eventDetailTitleProbe(event, locale, comune, disambiguator);
+    return normalizeShellTitle(rawTitle, (value) => esc(value).length);
+  };
+  const claimedTitles = new Set<string>();
+  // Locale-major order keeps the Italian title as the stable primary when a
+  // title from any locale collides after shell normalization. Compute this
+  // over all locales even in a single-locale shard build so each shard emits
+  // the same deterministic disambiguators.
+  for (const locale of LOCALES) {
+    for (const event of events) {
+      const key = `${locale}|${event.id}`;
+      const existing = out.get(key) || '';
+      let chosenTitle = emittedTitle(event, locale, existing);
+      let chosenKey = titleKey(chosenTitle);
+      if (claimedTitles.has(chosenKey)) {
+        const factualToken = pickEventDetailTitleDisambiguator(event, locale);
+        const routeToken = `rif. ${stableTitleToken(event.id)}`;
+        const candidates = [
+          [localeLabels[locale], existing].filter(Boolean).join(' · '),
+          [localeLabels[locale], factualToken].filter(Boolean).join(' · '),
+          existing,
+          factualToken,
+          routeToken,
+          `${localeLabels[locale]} · ${routeToken}`,
+        ].filter((candidate, index, all) => candidate && all.indexOf(candidate) === index);
+
+        let resolved = false;
+        for (const candidate of candidates) {
+          const candidateTitle = emittedTitle(event, locale, candidate);
+          const candidateKey = titleKey(candidateTitle);
+          if (claimedTitles.has(candidateKey)) continue;
+          out.set(key, candidate);
+          chosenTitle = candidateTitle;
+          chosenKey = candidateKey;
+          resolved = true;
+          break;
+        }
+
+        if (!resolved) {
+          const token = stableTitleToken(event.id);
+          const maxOrdinal = Math.max(MAX_EVENT_TITLE_ORDINAL, claimedTitles.size + 2);
+          for (let ordinal = 2; ordinal <= maxOrdinal; ordinal += 1) {
+            const candidate = `${localeLabels[locale]} · rif. ${token}-${ordinal}`;
+            const candidateTitle = emittedTitle(event, locale, candidate);
+            const candidateKey = titleKey(candidateTitle);
+            if (claimedTitles.has(candidateKey)) continue;
+            out.set(key, candidate);
+            chosenTitle = candidateTitle;
+            chosenKey = candidateKey;
+            resolved = true;
+            break;
+          }
+          if (!resolved) {
+            throw new Error(
+              `Unable to disambiguate event detail title within ${EVENT_DETAIL_META_TITLE_MAX_CHARS} characters: ${locale}|${event.id}`,
+            );
+          }
+        }
+      }
+      claimedTitles.add(chosenKey);
     }
   }
 

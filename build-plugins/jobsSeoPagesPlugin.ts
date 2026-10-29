@@ -3174,6 +3174,37 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
  jobsSeoMemContext.titleCollisionByLocale = titleCollisionByLocale;
+ // SE Ranking compares titles across locale URLs. When two rendered locales
+ // produce the exact same SERP title, keep the primary locale's title clean
+ // and reserve a readable language label in every other colliding locale.
+ // Compare the final composed title (including truncation) so this changes
+ // only real cross-locale collisions.
+ const titleLocaleLabels: Record<(typeof JOB_SEO_LOCALES)[number], string> = {
+  it: 'Italiano',
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+ };
+ const localeTitleBits = new Map<(typeof JOB_SEO_LOCALES)[number], number>(
+  localeList.map((locale, index) => [locale, 1 << index] as const),
+ );
+ const crossLocaleTitleMasks = new Map<string, number>();
+ for (const job of validJobs) {
+  const title = jobDisplayTitle(job);
+  const location = String(job.location || '').trim();
+  for (const locale of localeList) {
+   const baseTitle = composeJobPageTitle(title, String(job.company || ''), location, locale, undefined, undefined, (s) => esc(s).length);
+   const key = titleCompareKey(baseTitle);
+   crossLocaleTitleMasks.set(key, (crossLocaleTitleMasks.get(key) || 0) | (localeTitleBits.get(locale) || 0));
+  }
+ }
+ const titleLocaleQualifiersByJob = new WeakMap<object, Partial<Record<(typeof JOB_SEO_LOCALES)[number], string>>>();
+ const titleLocaleQualifierForJob = (job: any, locale: string): string =>
+  titleLocaleQualifiersByJob.get(job)?.[locale as (typeof JOB_SEO_LOCALES)[number]] || '';
+ const combineTitleDisambiguators = (...tokens: Array<string | undefined>): string | undefined => {
+  const combined = tokens.map((token) => String(token || '').trim()).filter(Boolean).join(' · ');
+  return combined || undefined;
+ };
  // ── No-city title-collision map (#1932) ──
  // Parallel map keyed on the CITY-LESS composed title ("role — company", no
  // city tail). Used to decide whether the city is safe to DROP on a
@@ -3192,10 +3223,24 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const locale of localeList) {
  const lt = jobDisplayTitle(job);
  const loc = String(job.location || '').trim();
- const baseTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, undefined, (s) => esc(s).length);
+ const unqualifiedTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, undefined, (s) => esc(s).length);
+ const mask = crossLocaleTitleMasks.get(titleCompareKey(unqualifiedTitle)) || 0;
+ let localeQualifier = '';
+ if ((mask & (mask - 1)) !== 0) {
+  const primaryLocale = localeList.find((candidate) => (mask & (localeTitleBits.get(candidate) || 0)) !== 0);
+  if (primaryLocale && locale !== primaryLocale) {
+   localeQualifier = titleLocaleLabels[locale];
+   const qualifiers = titleLocaleQualifiersByJob.get(job) || {};
+   qualifiers[locale] = localeQualifier;
+   titleLocaleQualifiersByJob.set(job, qualifiers);
+  }
+ }
+ const baseTitle = localeQualifier
+  ? composeJobPageTitle(lt, String(job.company || ''), loc, locale, localeQualifier, undefined, (s) => esc(s).length)
+  : unqualifiedTitle;
  const bucket = titleCollisionByLocale[locale];
  bucket.set(baseTitle, (bucket.get(baseTitle) || 0) + 1);
- const noCityTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, true, (s) => esc(s).length);
+ const noCityTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, localeQualifier || undefined, true, (s) => esc(s).length);
  const noCityBucket = noCityTitleCollisionByLocale[locale];
  noCityBucket.set(noCityTitle, (noCityBucket.get(noCityTitle) || 0) + 1);
  }
@@ -3893,6 +3938,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const localizedTitle = stripLiteralMarkdownFromTitle(jobDisplayTitle(job));
  const jobLocation = perJob_jobLocation;
  const dc = getCantonDisplayLabel(perJob_cantonCode, locale);
+ const titleLocaleQualifier = titleLocaleQualifierForJob(job, locale);
+ const composeLocalizedJobTitle = (disambiguator?: string, cityOptional?: boolean): string =>
+  composeJobPageTitle(
+   localizedTitle,
+   String(job.company || ''),
+   jobLocation,
+   locale,
+   combineTitleDisambiguators(titleLocaleQualifier, disambiguator),
+   cityOptional,
+   (s) => esc(s).length,
+  );
  // City-aware title: always includes location when available, then truncates
  // the core before appending the fixed brand suffix. This prevents duplicate
  // titles on multi-sede jobs (same role × N cities) — the city differentiates
@@ -3909,7 +3965,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // locale. The non-disambiguated probe doubles as `ogTitle` (social
  // cards omit the disambiguator by design — see comment below). Saves
  // 1 call per page always, 2 when no collision (the common case).
- const baseTitleProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, undefined, undefined, (s) => esc(s).length);
+ const baseTitleProbe = composeLocalizedJobTitle();
  const collidesInLocale = (titleCollisionByLocale[locale].get(baseTitleProbe) || 0) > 1;
  // City-drop decision (#1932): drop the city ONLY when this page does not
  // collide on the full (with-city) title AND its city-less "role — company"
@@ -3917,7 +3973,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // collapse two multi-sede pages into a duplicate <title> (audit:title-
  // uniqueness). On the residual mid-`…` pages (role+city > 66 char) this lets
  // the bare role fill the budget verbatim instead of truncating mid-word.
- const noCityProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, undefined, true, (s) => esc(s).length);
+ const noCityProbe = composeLocalizedJobTitle(undefined, true);
  const cityIsDroppable = !collidesInLocale
   && (noCityTitleCollisionByLocale[locale].get(noCityProbe) || 0) <= 1;
  // Build a HUMAN-READABLE disambiguator from the job's metadata (cascade:
@@ -3932,7 +3988,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `cityIsDroppable` only ever holds when the page does NOT collide, so
  // `disambiguatorToken` is empty here and the droppable branch is `noCityProbe`.
  let title = disambiguatorToken
- ? composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken, undefined, (s) => esc(s).length)
+ ? composeLocalizedJobTitle(disambiguatorToken)
  : (cityIsDroppable ? noCityProbe : baseTitleProbe);
  // <title> must differ from the <h1> (audit:h1-title-duplicates). With the
  // role>city>company cascade the title normally carries the city or brand
@@ -3942,11 +3998,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const __h1Key = titleCompareKey(composeJobPageH1(localizedTitle, String(job.company || '')));
  if (titleCompareKey(title) === __h1Key) {
  const h1AvoidToken = pickJobDisambiguator(job as Record<string, unknown>, locale, title);
- title = composeJobPageTitle(
-  localizedTitle, String(job.company || ''), jobLocation, locale,
+ title = composeLocalizedJobTitle(
   h1AvoidToken || `${REF_LABEL[locale] || REF_LABEL.it} ${fnv8(String(job.slug || job.id || localizedTitle))}`,
   cityIsDroppable,
-  (s) => esc(s).length,
  );
  }
  // Cross-corpus uniqueness net (see claimUniqueTitle above): guarantees no
@@ -3954,7 +4008,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The recompose preserves the city-drop decision so a clash falls back to a
  // disambiguator on the SAME (city-less or city-bearing) headline shape.
  title = claimUniqueTitle(locale, title, `${String(job.slug || job.id || '')}::${locale}`,
- (d) => composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, d, cityIsDroppable, (s) => esc(s).length));
+ (d) => composeLocalizedJobTitle(d, cityIsDroppable));
  // Clean variant for og:title — the city-bearing probe minus any trailing
  // " · {disambiguator}". The disambig is needed in the HTML <title> for SEO
  // uniqueness, but social cards look better without the trailing metadata.

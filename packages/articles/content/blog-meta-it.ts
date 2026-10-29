@@ -1141,8 +1141,8 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.guida-pensione-frontaliere-avs-lpp.excerpt': 'Guida completa alla pensione per chi lavora in Svizzera: tre pilastri, totalizzazione Italia-Svizzera, simulazione della rendita e errori da evitare.',
  'blog.article.guida-pensione-frontaliere-avs-lpp.imageAlt': 'Coppia di pensionati che passeggia lungo il lago di Lugano con le Alpi sullo sfondo',
 
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Conviene fare il frontaliere? Svizzera o Italia, il confronto 2026',
- 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Permesso B o Permesso G? Confronto dettagliato su costi, tasse, sanità, qualità della vita e convenienza economica con esempi pratici 2026.',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.title': 'Conviene lavorare in Svizzera e vivere in Italia? Guida 2026',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.excerpt': 'Confronta reddito netto, regime fiscale, abitazione, sanità e spostamenti con due budget annuali. L’indice Eurostat è nazionale, non un prezzo per città.',
  'blog.article.vivere-svizzera-vs-italia-frontaliere.imageAlt': 'Vista panoramica del confine italo-svizzero con il lago di Lugano e i tetti di un villaggio italiano',
 
  'blog.article.dumping-salariale-diritti-lavoratore-ticino.title': 'Dumping salariale in Ticino: come riconoscerlo e difendersi',
