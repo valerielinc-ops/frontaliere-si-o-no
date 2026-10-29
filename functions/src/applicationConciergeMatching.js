@@ -424,6 +424,7 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
 }
 
 export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl, eligibility = null } = {}) {
+  const runStartedAt = Date.now();
   const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   const serviceSnapshot = await serviceRef.get();
   if (!serviceSnapshot.exists) return { status: 'skipped', reason: 'service_not_found' };
@@ -467,10 +468,9 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const pendingJobs = existing.filter(doc => ['proposed', 'retracted'].includes(doc.data()?.status))
       .map(doc => jobsByUrl.get(doc.data().jobUrl)).filter(Boolean);
     const checks = new Map();
-    const startedAt = Date.now();
     const work = [...new Map([...pendingJobs, ...rankedCandidates.map(candidate => candidate.job)].map(job => [jobUrl(job), job])).values()];
     for (let offset = 0; offset < work.length; offset += 4) {
-      if (Date.now() - startedAt > 350_000) break;
+      if (Date.now() - runStartedAt > 400_000) break;
       await Promise.all(work.slice(offset, offset + 4).map(async job => {
         try { checks.set(jobUrl(job), await evaluate(job)); }
         catch { checks.set(jobUrl(job), { status: 'unverified', reason: 'analysis_unavailable' }); }
@@ -482,6 +482,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       eligibilityStatus: result.status,
       eligibilityFingerprint: result.fingerprint || null,
       eligibilityCacheId: result.cacheId || null,
+      eligibilityCvStorageKey: service.cvStorageKey || null,
       eligibilityCheckedAt: Timestamp.now(),
     });
     let refreshedProposals = 0;
@@ -565,7 +566,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }
     await serviceRef.set({
       matchingStatus: 'complete',
-      matchingUnverifiedCount: [...checks.values()].filter(result => result.status === 'unverified').length,
+      matchingUnverifiedCount: Math.max(0, work.length - checks.size) + [...checks.values()].filter(result => result.status === 'unverified').length,
       matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,
       matchingJobCount: createdProposals + refreshedProposals,
       matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
