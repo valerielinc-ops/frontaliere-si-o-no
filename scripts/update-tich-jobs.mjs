@@ -63,6 +63,9 @@ import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry } from './lib/jina-proxy.mjs';
 import { fetchHtmlViaMorssWithRetry } from './lib/morss-proxy.mjs';
+import { isTichDetailHtmlForUrl } from './lib/tich-detail-identity.mjs';
+
+export { isTichDetailHtmlForUrl };
 import {
   SOURCE_URL as OFFICIAL_LISTING_URL,
   OFFICIAL_LISTING_URLS,
@@ -938,29 +941,6 @@ function validateTichLocaleCoverage() {
 // ──────────────────────────────────────────────────────────────
 // Detail-page enrichment (FRO-70)
 // ──────────────────────────────────────────────────────────────
-
-export function isTichDetailHtmlForUrl(html, rawUrl) {
-  const source = String(html || '')
-    .replace(/&amp;/gi, '&')
-    .replace(/%3d/gi, '=');
-  if (!source) return false;
-
-  let yid = '';
-  try {
-    const parsed = new URL(rawUrl);
-    const host = parsed.hostname.toLowerCase();
-    const decodedPath = decodeURIComponent(parsed.pathname);
-    if (!host.endsWith('concorsi.ti.ch') || decodedPath !== "/offerte-d'impieghi.html") return false;
-    yid = parsed.searchParams.get('yid') || '';
-  } catch {
-    return false;
-  }
-  if (!/^\d+$/.test(yid)) return false;
-
-  const hasPortalIdentity = /Amministrazione Cantonale Ticino Jobportal|rexx\s+Recruitment\s+-\s+Portal7/i.test(source);
-  const hasRequestedYid = new RegExp(`(?:[?&])yid=${yid}(?:[&"'<>\\s]|$)`, 'i').test(source);
-  return hasPortalIdentity && hasRequestedYid;
-}
 
 export async function fetchTichHtml(
   url,

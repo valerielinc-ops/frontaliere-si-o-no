@@ -10,7 +10,7 @@ const { __testables } = await import('../../scripts/lib/shared-jobs-crawler.mjs'
 const { fetchWithTimeout } = __testables;
 
 const TARGET_URL = "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4324";
-const REAL_MORSS_BODY = `<html><body>${'Real Ti.CH job posting read through Morss. '.repeat(8)}</body></html>`;
+const REAL_MORSS_BODY = `<html><head><title>Amministrazione Cantonale Ticino Jobportal</title></head><body><a href="forma-di-lavoro.html?yid=4324">job</a>${'Real Ti.CH job posting read through Morss. '.repeat(8)}</body></html>`;
 
 describe('fetchWithTimeout — JOBS_CRAWLER_MORSS_PROXY', () => {
   const originalFetch = global.fetch;
@@ -46,6 +46,18 @@ describe('fetchWithTimeout — JOBS_CRAWLER_MORSS_PROXY', () => {
 
   it('falls back to the original URL when Morss is exhausted', async () => {
     fetchViaMorssWithRetry.mockResolvedValue(null);
+    global.fetch = vi.fn(async () => new Response(REAL_MORSS_BODY, { status: 200 })) as unknown as typeof fetch;
+
+    const response = await fetchWithTimeout(TARGET_URL);
+
+    expect(response.ok).toBe(true);
+    expect(await response.text()).toBe(REAL_MORSS_BODY);
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect((global.fetch as ReturnType<typeof vi.fn>).mock.calls[0][0]).toBe(TARGET_URL);
+  });
+
+  it('falls back when Morss returns an interstitial instead of the requested detail page', async () => {
+    fetchViaMorssWithRetry.mockResolvedValue(new Response('<html><title>Checking your browser</title></html>', { status: 200 }));
     global.fetch = vi.fn(async () => new Response(REAL_MORSS_BODY, { status: 200 })) as unknown as typeof fetch;
 
     const response = await fetchWithTimeout(TARGET_URL);

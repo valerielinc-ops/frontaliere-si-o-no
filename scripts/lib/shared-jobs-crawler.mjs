@@ -135,6 +135,7 @@ import { hasConcatenatedWords, hasUsableTitle } from './translation-quality.mjs'
 import { assessComposedFromInputs, assessVerbatimRestructure } from './ai-output-fidelity.mjs';
 import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { fetchViaMorssWithRetry } from './morss-proxy.mjs';
+import { isTichDetailHtmlForUrl, isTichDetailUrl } from './tich-detail-identity.mjs';
 import {
   extractMigrosStructuredData,
   extractMigrosSectionItems,
@@ -3030,8 +3031,18 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
         attempts: 2,
         retryDelayMs: 800,
       });
-      if (morssRes?.ok) return morssRes;
-      console.warn(`⚠️ Morss proxy exhausted for ${url} — falling back to direct fetch.`);
+      if (morssRes?.ok) {
+        const morssBody = await morssRes.text();
+        if (!isTichDetailUrl(url) || isTichDetailHtmlForUrl(morssBody, url)) {
+          return new Response(morssBody, {
+            status: morssRes.status,
+            headers: Object.fromEntries(morssRes.headers.entries()),
+          });
+        }
+        console.warn(`⚠️ Morss proxy returned a non-matching Ti.CH detail page for ${url} — falling back to the existing fetch chain.`);
+      } else {
+        console.warn(`⚠️ Morss proxy exhausted for ${url} — falling back to direct fetch.`);
+      }
     }
   }
   if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_FETCH_PROXY)) {
