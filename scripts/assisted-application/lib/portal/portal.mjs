@@ -553,6 +553,16 @@ export function hasApplicationSurface(snapshot) {
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
 }
 
+/**
+ * An anti-bot interstitial is not evidence that the application belongs to a
+ * different posting. The initial page is checked before the form loop, so an
+ * unresolved challenge must take the same CAPTCHA handoff as a challenge
+ * discovered on a later form step.
+ */
+export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
+  return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
+}
+
 export function needsPortalOptionRead(snapshot = {}) {
   return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
 }
@@ -3253,6 +3263,8 @@ export async function submitViaPortal(ctx) {
     });
     evidence.liveness = { result: rendered.result, code: rendered.code };
     if (isHardClosed(rendered)) return { event: { type: 'posting_closed', reason: rendered.code }, evidence };
+    const initialHandoff = initialPortalHandoffReason({ snapshot, liveness: rendered });
+    if (initialHandoff) return await handoff(initialHandoff);
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
     const postingUrl = page.url();
@@ -3265,6 +3277,8 @@ export async function submitViaPortal(ctx) {
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
+    const formHandoff = initialPortalHandoffReason({ snapshot });
+    if (formHandoff) return await handoff(formHandoff);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
