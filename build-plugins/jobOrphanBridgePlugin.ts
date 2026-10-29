@@ -270,6 +270,14 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   const canonicalUrl = buildCanonicalForMatched(locale, entry.currentSlug!);
   const orphanAbsoluteUrl = `${BASE_URL}${orphanPath}`;
 
+  // Reuse the real detail, including semantic content and SEO metadata, when
+  // this matched orphan is an alias of an emitted job. The rewrite script
+  // still boots the SPA on the canonical URL; no anonymous static teaser.
+  const canonicalFile = path.join(distDir, currentPath.replace(/^\//, ''), 'index.html');
+  if (fs.existsSync(canonicalFile)) {
+    return fs.readFileSync(canonicalFile, 'utf8').replace('</head>', `${buildMatchedRewriteScript(orphanPath, currentPath)}</head>`);
+  }
+
   // Shared bridge-page prose appended BELOW the CTA so the link stays
   // first interactive on mobile (CLAUDE.md non-negotiables #15-17).
   // Closes the `audit:text-html-ratio` Semrush gate (~5 % → ~13 %) for

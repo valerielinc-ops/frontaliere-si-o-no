@@ -1,3 +1,4 @@
+import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { jobDisplayTitle } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 /**
@@ -188,7 +189,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
- const alreadySignedIn = hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
+ const isCrawlerVisitor = isCrawlerVisitorAgent(navigator.userAgent || '');
+ const alreadySignedIn = isCrawlerVisitor || hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
   const jobGate = useJobGateExperiment(shouldBypassJobGateExperiment() || alreadySignedIn);
   const gateVariant = jobGate.enrolled ? jobGate.arm : headlineVariant;
   const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;

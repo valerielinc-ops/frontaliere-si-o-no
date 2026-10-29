@@ -1,10 +1,11 @@
+import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
 import { hasSameJobSourcePosting } from '../scripts/lib/job-identity.mjs';
 import { resolveRolloutPostingDate, resolveRolloutSchemaPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { createActiveJobPostingCoverage } from '../scripts/lib/active-jobposting-coverage.mjs';
 import { validateMandatoryJobPostingFields } from '../scripts/lib/jobposting-mandatory-fields.mjs';
 import { G_PERMIT_FACTS, CROSS_BORDER_TAX_FACTS, G_PERMIT_SOURCE, CROSS_BORDER_TAX_SOURCE, type EmploymentFactsLocale } from '../services/crossBorderEmploymentFacts';
-import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
+import { renderJobDescriptionContent } from './shared/jobDescriptionContent';
 import { buildArchiveJobRecommendations } from './shared/archiveJobRecommendations';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
@@ -75,7 +76,6 @@ import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { hasRecordedJobIdentity, unverifiedJobCopy } from './shared/jobArchiveEvidence';
 import { augmentExpiredSliceIndex, ExpiredSliceOverflow } from './shared/expiredSliceOverflow';
 import { truncateCodeUnits } from './shared/safeTruncate';
-import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -3865,7 +3865,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
      location: localeCopy[locale].location,
      contract: localeCopy[locale].contract,
     },
-    referralUrl: () => '#job-auth-gate',
+    referralUrl,
     esc,
     now: jobsSeoReuseBuildNow,
    }),
@@ -3994,7 +3994,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   currency: job.currency,
  });
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
- const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
+ const fullRequirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, Infinity);
+ const requirements = fullRequirements.slice(0, 8);
  // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it
  // today — translate-pending.yml only relocalises text). Without a fallback,
  // every static job page emits an empty `<div class="timeline">` while the
@@ -4101,7 +4102,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .join('');
  recordPhase('related-pool', __tPh_related);
  const __tPh_summary = phaseTimer();
- // Full structured content remains available to JobPosting and signed-in readers.
+ // Structured fields supplement the full source description in JobPosting.
  const timelineBlocks: Array<{ heading: string; paragraphs: string[]; bullets: string[] }> = [];
  if (canonicalResponsibilities.length > 0) {
  timelineBlocks.push({ heading: localeCopy[locale].responsibilitiesLabel, paragraphs: [], bullets: canonicalResponsibilities });
@@ -4326,7 +4327,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  de: 'Fragen zu dieser Stellenanzeige',
  fr: 'Questions sur cette offre',
  };
- const jobFaqHtml = `<section class="section"><h4>${esc(jobFaqHeadingByLocale[locale])}</h4>${jobFaqPairs.map((f) => `<details class="s-TdgkK3"><summary class="s-HBR0NM">${esc(f.q)}</summary><p class="s-bOIp6r">${esc(f.a)}</p></details>`).join('')}</section>`;
+ const jobFaqHtml = `<section class="section"><h2>${esc(jobFaqHeadingByLocale[locale])}</h2>${jobFaqPairs.map((f) => `<details class="s-TdgkK3"><summary class="s-HBR0NM">${esc(f.q)}</summary><p class="s-bOIp6r">${esc(f.a)}</p></details>`).join('')}</section>`;
  recordPhase('jsonld', __tPh_jsonld);
 
  const __tPh_template = phaseTimer();
@@ -4346,17 +4347,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // that reuse ROBOTS_INDEX_ENHANCED unconditionally, this per-job page's
  // indexability must be gated on the actual rendered summary/description/
  // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
- const jobBodyHtml = `${renderJobDescriptionGate(localizedDescriptionRaw, locale)}${jobFaqHtml}`;
- const previewRobotsTag = localizedDescription
+ const jobBodyHtml = `${renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements)}${jobFaqHtml}`;
+ const contentRobotsTag = localizedDescription
   ? robotsMetaEnhancedForContent(jobBodyHtml)
   : ROBOTS_NOINDEX_FOLLOW;
  const selfCanonicalDetail = effectiveCanonicalUrl === canonicalUrl;
  const completeCanonicalDetail = sourceDetailWordCount >= MIN_INDEXABLE_WORDS;
  // Recover only a complete, self-canonical detail. An active page whose
  // canonical resolves to an employer hub or another canton remains noindex;
- // an already-good anonymous preview keeps its existing indexable behavior.
+ // a complete static body keeps its existing indexable behavior.
  const jobRobotsTag = selfCanonicalDetail && (
-  previewRobotsTag === ROBOTS_INDEX_ENHANCED || completeCanonicalDetail
+  contentRobotsTag === ROBOTS_INDEX_ENHANCED || completeCanonicalDetail
  )
   ? ROBOTS_INDEX_ENHANCED
   : ROBOTS_NOINDEX_FOLLOW;
@@ -4379,6 +4380,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
  <meta property="og:image:alt" content="${esc(ogTitle)}">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="${esc(ogTitle)}">
+ <meta name="twitter:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
+ <meta name="twitter:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
 ${hreflangHtml}
  <!-- jobs-seo-reuse:job-posting:start --><script type="application/ld+json">${jobLd}</script><!-- jobs-seo-reuse:job-posting:end -->
@@ -4411,12 +4416,12 @@ ${staticAnalyticsHtml}
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
- <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl: () => '#job-auth-gate', esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
- ${renderJobDescriptionGate(localizedDescriptionRaw, locale)}
- <a href="#job-auth-gate" class="cta">${esc(localeCopy[locale].applyNow)}</a>
+ <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
+ ${renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements)}
+ <a href="${referralUrl(job.applyUrl || job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
  ${jobFaqHtml}
  </article>
- ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords: [], esc })}
+ ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
  </div>
  </div>
  <aside class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>
@@ -13658,13 +13663,21 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width, initial-scale=1">
  ${FAVICON_LINKS}
  <title>${pageTitle}</title>
- <meta name="description" content="${metaDescription}">${robotsTag}
+ <meta name="description" content="${esc(metaDescription)}">${robotsTag}
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${pageTitle}">
- <meta property="og:description" content="${metaDescription}">
+ <meta property="og:description" content="${esc(metaDescription)}">
  <meta property="og:url" content="${selfUrl}">
+ <meta property="og:image" content="${BASE_URL}/og-image.png">
+ <meta property="og:image:width" content="1200">
+ <meta property="og:image:height" content="630">
+ <meta property="og:image:alt" content="${pageTitle}">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="${pageTitle}">
+ <meta name="twitter:description" content="${esc(metaDescription)}">
+ <meta name="twitter:image" content="${BASE_URL}/og-image.png">
  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
  <link rel="canonical" href="${selfUrl}">
@@ -14063,7 +14076,7 @@ ${staticAnalyticsHtml}
  const __descPlace = __descCity
   ? ` ${__descConnector} ${__descCity}${displayCanton && !__descSplit.conflict && displayCanton !== __descCity ? ` (${displayCanton})` : ''}`
   : '';
- const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${esc(__descPlace)}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
+ const pageDesc = `${jobTitle}${jobCompany ? ` — ${jobCompany}` : ''}${__descPlace}. ${archiveRelatedLabel[locale] || archiveRelatedLabel.it}.`;
 
  // Seed expired job data as window global so the SPA can render
  // rich content (title, company, description) without depending on
@@ -14179,8 +14192,9 @@ ${staticAnalyticsHtml}
  const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
  const __tEjpDecide = phaseTimer();
  const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
+ // Owner contract: traffic volume cannot remove a recorded job's content.
  const __slAction: 'full' | 'thin' =
- __slDecision.action === 'thin' ? 'thin' : 'full';
+ hasRealTitle ? 'full' : __slDecision.action === 'thin' ? 'thin' : 'full';
  recordPhase('ejp:decide', __tEjpDecide);
  // `expiredPayloadJson` is the SAME string the template below interpolates into
  // `<script>window.__EXPIRED_JOB_DATA__=…</script>`, and `postalCode` the same
@@ -14236,7 +14250,7 @@ ${staticAnalyticsHtml}
 
  // Keep the crawler-first-paint version visually aligned with the hydrated
  // JobExpiredView: one readable column, a clear identity block, then the
- // preview/gate and the supporting facts. The class names are intentionally
+ // full description and the supporting facts. The class names are intentionally
  // stable hooks for seo-static.css; the text contract stays unchanged.
  staticBodyParts.push('<div class="ft-expired-shell">');
  staticBodyParts.push('<header class="ft-expired-intro">');
@@ -14250,10 +14264,10 @@ ${staticAnalyticsHtml}
  // the archived vacancy. Do not manufacture uniqueness with URL tokens or
  // infer tax/permit facts from a location parsed out of a historical slug.
 
- // Archived pages use the same anonymous preview as active listings.
+ // Static archives retain the full original description, just like active details.
  staticBodyParts.push('<div class="ft-expired-description">');
- if (jobDescription && jobDescription.length > 30) {
- staticBodyParts.push(renderJobDescriptionGate(jobDescription, locale));
+ if (jobDescription.trim()) {
+ staticBodyParts.push(renderJobDescriptionContent(jobDescription, locale));
  }
  staticBodyParts.push('</div>');
 
@@ -14451,45 +14465,11 @@ ${staticAnalyticsHtml}
  const realTitle = String(jobDisplayTitle(ejData)
  || jobDisplayTitle(gscInfo) || '').trim();
  const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
- const archiveNowMs = Date.now();
- const realValidThrough = [ejData?.expiredAt, ejData?.crawledAt, ejData?.datePosted, ejData?.postedDate]
- .map(safeIsoDate)
- .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
- if (!realTitle || !realValidThrough || !realCompany) return '';
- const validThroughMs = Date.parse(realValidThrough);
- // Expired pages intentionally do NOT use the active builder's build-clock
- // fallback. Without a publication date declared by the source there is no
- // verifiable historical JobPosting, so keep the archive as WebPage-only.
- const expiredDatePosted = resolveReportedPostingDate(ejData || {});
- if (typeof expiredDatePosted !== 'string' || expiredDatePosted.trim() === '') return '';
- if (Date.parse(expiredDatePosted) >= validThroughMs) return '';
- // Match the builder's 50-character guarantee after visible-text normalization,
- // so short historical copy never falls back to an active application prompt.
- const archivedDescription = capJsonLdDescription(jobDescription);
- const finalDescription = archivedDescription.length >= 50 ? archivedDescription : capJsonLdDescription((() => {
- const parts: string[] = [];
- if (archivedDescription) parts.push(`<p>${esc(archivedDescription)}</p>`);
- parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
- if (locale === 'it') {
- parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
- } else if (locale === 'en') {
- parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
- } else if (locale === 'de') {
- parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
- } else {
- parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
- }
- parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
- if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
- return parts.join('');
- })());
- // Build the canonical JobPosting schema via the shared builder. The
- // explicit past deadline bypasses the active-posting future-date fallback.
  const expiredInput: JobInput = {
  id: ejData?.id,
  slug,
  title: realTitle,
- description: finalDescription,
+ description: jobDescription,
  company: realCompany,
  companyKey: ejData?.companyKey || slugInfo?.companyKey,
  companySlug: ejData?.companySlug || ejData?.companyKey || slugInfo?.companyKey,
@@ -14501,8 +14481,10 @@ ${staticAnalyticsHtml}
  postalCode: ejData?.postalCode || slugInfo?.postalCode,
  streetAddress: ejData?.streetAddress,
  postingDateSource: ejData?.postingDateSource,
- datePosted: expiredDatePosted,
- validThrough: realValidThrough,
+ datePosted: ejData?.datePosted,
+ postedDate: ejData?.postedDate,
+ crawledAt: ejData?.crawledAt,
+ expiredAt: ejData?.expiredAt,
  employmentType: ejData?.employmentType,
  contract: ejData?.contract,
  contractType: ejData?.contractType,
@@ -14514,14 +14496,14 @@ ${staticAnalyticsHtml}
  sector: ejData?.category,
  url: undefined,
  };
- const expiredSchema = buildJobPostingSchema(expiredInput, {
+ const expiredSchema = buildArchivedJobPosting(expiredInput, copy.banner, {
  locale,
  url: selfUrl,
  baseUrl: BASE_URL,
  knownSlugs: knownEmployerProfileSlugs,
  });
 
- return `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>`;
+ return expiredSchema ? `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>` : '';
  })();
 
  const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
@@ -15159,20 +15141,10 @@ ${staticAnalyticsHtml}
  // passes over the ~30-50 KB cachedHtml don't depend on `oldSlug`. Lazy
  // (computed only on the first oldSlug that actually emits a bridge) so
  // the case where every prevSlug is filtered out below stays a no-op.
- // Tiered cache: 'full' (today's behavior) and 'thin' (artifact-shrink
- // Fase 1, ~9 KB smaller, same SEO signals — see bridgeThinShell.ts).
+ // Every previous-slug alias preserves the canonical job's full static body.
  let bridgeIndexHtml: string | null = null;
  let bridgeFlatHtml: string | null = null;
- let bridgeThinIndexHtml: string | null = null;
- let bridgeThinFlatHtml: string | null = null;
- const ensureBridgeHtml = (action: 'full' | 'thin'): { indexHtml: string; flatHtml: string } => {
- if (action === 'thin') {
- if (bridgeThinIndexHtml === null || bridgeThinFlatHtml === null) {
- bridgeThinIndexHtml = buildBridgeThinHtml(cachedHtml, currentSlug, locale);
- bridgeThinFlatHtml = bridgeThinIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
- }
- return { indexHtml: bridgeThinIndexHtml, flatHtml: bridgeThinFlatHtml };
- }
+ const ensureBridgeHtml = (): { indexHtml: string; flatHtml: string } => {
  if (bridgeIndexHtml === null || bridgeFlatHtml === null) {
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${inlineScriptJson(currentSlug)};</script>`;
  bridgeIndexHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
@@ -15252,38 +15224,8 @@ ${staticAnalyticsHtml}
  // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
  // use the current slug for data lookup instead of parsing the old URL, then
  // force noindex on the alias after either a fresh render or cache reuse.
- // Tiered emission: filter consults evidence-index.json + hourly
- // thin-page-promotions-active.json. Decision applies to BOTH the
- // primary emit and the legacy-TI mirror emit below so the bridge
- // pair stays consistent.
- // PR #743 lesson: GSC + GA4 see traffic at the legacy-TI mirror more
- // often than the freshly-promoted canton-aware canonical (Google
- // remembers the pre-PR-159 URL). Check both candidate paths via
- // decideMulti so a hit at the mirror keeps the bridge full.
- const __brBridgeUrlPath = oldPath.startsWith('/') ? oldPath : `/${oldPath}`;
- const __brCandidatePaths: string[] = [__brBridgeUrlPath];
- if (jobCantonForBridge !== 'TI') {
- const __brLegacyTIPath = `/${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/');
- __brCandidatePaths.push(__brLegacyTIPath);
- }
- // Reviewer HIGH #1: gsc-job-urls.json is IT-only — non-IT locale
- // bridges miss the safety net unless we also probe their IT-locale
- // equivalent. Cross-locale candidates use the SAME oldSlug at every
- // other locale's canton-aware section (an oldSlug observed in IT GSC
- // is the strongest historical signal we have for the job).
- for (const __brOtherLocale of localeList) {
- if (__brOtherLocale === locale) continue;
- const __brOtherPath = `/${localePrefix[__brOtherLocale]}/${buildCantonAwareSection(__brOtherLocale, jobCantonForBridge)}/${oldSlug}`.replace(/\/+/g, '/');
- __brCandidatePaths.push(__brOtherPath);
- if (jobCantonForBridge !== 'TI') {
- // Also the legacy-TI mirror in the other locale.
- __brCandidatePaths.push(`/${localePrefix[__brOtherLocale]}/${buildCantonAwareSection(__brOtherLocale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/'));
- }
- }
- const __brDecision = trafficFilter.decideMulti(__brCandidatePaths, 'previousSlug');
- const __brAction: 'full' | 'thin' =
- __brDecision.action === 'thin' ? 'thin' : 'full';
- if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
+ // A job alias has the same complete content irrespective of traffic.
+ bridgeFullCount++;
  const previousSlugReuseInput = incrementalManifests
   ? {
    source: 'active-job',
@@ -15294,7 +15236,7 @@ ${staticAnalyticsHtml}
    oldSlug,
    currentSlug,
    winnerId,
-   action: __brAction,
+   action: 'full',
   }
   : null;
  const previousSlugReuse = jobsSeoReuse?.lookup(
@@ -15311,16 +15253,10 @@ ${staticAnalyticsHtml}
  if (previousSlugReuse?.hit && !jobsSeoReuse?.shouldRender(previousSlugReuse)) {
   indexHtml = jobsSeoReuse.reusedHtml(previousSlugReuse, STATIC_PAGE_BUILD_ID) || previousSlugReuse.html;
  } else {
-  indexHtml = ensureBridgeHtml(__brAction).indexHtml;
+  indexHtml = ensureBridgeHtml().indexHtml;
  }
  indexHtml = noindexJobAliasHtml(indexHtml);
  jobsSeoReuse?.finish(previousSlugReuse, indexHtml);
- // Real bytes saved per file emit (counter above tracks decisions
- // only, not byte deltas — see PR #729 lesson).
- const __brDelta = __brAction === 'thin'
- ? (cachedHtml.length - indexHtml.length)
- : 0;
-
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), indexHtml);
  if (incrementalManifests) {
@@ -15330,7 +15266,7 @@ ${staticAnalyticsHtml}
  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, indexHtml);
- bridgeBytesSaved += __brDelta * 2;
+
  bridgeCount++;
  recordEmit('previous-slug-bridge', __tPrevSlugBridge);
 
@@ -15384,7 +15320,7 @@ ${staticAnalyticsHtml}
    currentSlug,
    winnerId,
    bridgeType: 'legacy-ti',
-   action: __brAction,
+   action: 'full',
   }
   : null;
  const legacyTIReuse = jobsSeoReuse?.lookup(
@@ -15410,7 +15346,7 @@ ${staticAnalyticsHtml}
  const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
  _md(np.dirname(legacyTIFlatFile));
  _qwFlat(legacyTIFlatFile, noindexLegacyTIHtml);
- bridgeBytesSaved += __brDelta * 2;
+
  bridgeCount++;
  recordEmit('previous-slug-bridge-legacy-ti', __tPrevSlugLegacyTIBridge);
  }
@@ -15899,7 +15835,7 @@ ${staticAnalyticsHtml}
   });
   const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));
   const description = stripLeadingSectionLabel(String(archive?.description || ''));
-  const descriptionHtml = description.length > 30 ? renderJobDescriptionGate(description, locale) : '';
+  const descriptionHtml = description.trim() ? renderJobDescriptionContent(description, locale) : '';
   const detailItems = [
    company ? `<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Arbeitgeber' : 'Employeur'}:</strong> ${esc(company)}</li>` : '',
    `<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(titleRaw)}</li>`,
@@ -15922,7 +15858,7 @@ ${staticAnalyticsHtml}
    `<section><h2>${copy.next}</h2><p>${recordedIdentity ? `${copy.nextBody} ` : ''}<a href="${withSlash(listingPath)}">${copy.cta}</a>.</p></section>`,
    `<p><small>Historical slug: <code>${esc(slugKey)}</code></small></p>`,
   ].join('\n');
-  const pageDescription = esc(`${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${notice}`);
+  const pageDescription = `${titleRaw}${company ? ` — ${company}` : ''}${location ? `, ${location}` : ''}. ${notice}`;
   const expiredPayload = inlineScriptJson({
    slug: recordedIdentity ? slugKey : relPath.replace(/\/+$/, '').split('/').pop() || slugKey,
    title: recordedIdentity ? titleRaw : undefined,
@@ -15940,6 +15876,16 @@ ${staticAnalyticsHtml}
     { '@type': 'ListItem', position: 3, name: titleRaw },
    ],
   });
+  const archivePageLd = inlineScriptJson({
+   '@context': 'https://schema.org', '@type': 'WebPage',
+   name: pageTitleRaw, description: `${titleRaw}${company ? ` — ${company}` : ''}. ${notice}`,
+   url: historicalUrl, inLanguage: locale,
+  });
+  const archivedPosting = recordedIdentity ? buildArchivedJobPosting({
+   ...archive, slug: slugKey, title: titleRaw, company, description,
+   addressLocality: location || undefined, addressRegion: canton,
+  }, notice, { locale, url: historicalUrl, baseUrl: BASE_URL, knownSlugs: knownEmployerProfileSlugs }) : null;
+  const archivePostingLd = archivedPosting ? `<script type="application/ld+json">${inlineScriptJson(archivedPosting)}</script>` : '';
   return buildSoftLandingHtml(
    locale,
    pageTitle,
@@ -15947,7 +15893,7 @@ ${staticAnalyticsHtml}
    recordedIdentity && countHtmlBodyWords(staticBody) >= MIN_INDEXABLE_WORDS ? ROBOTS_INDEX_ENHANCED : ROBOTS_NOINDEX_FOLLOW,
    historicalUrl,
    hreflangLinks,
-   `<script type="application/ld+json">${breadcrumb}</script>`,
+   `<script type="application/ld+json">${breadcrumb}</script><script type="application/ld+json">${archivePageLd}</script>${archivePostingLd}`,
    expiredPayload,
    staticBody,
    '',

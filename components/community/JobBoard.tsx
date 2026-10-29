@@ -1,3 +1,5 @@
+import { renderJobDescriptionContent } from '@/build-plugins/shared/jobDescriptionContent';
+import { buildJobPostingEditorialFields } from '@/services/jobs/jobPostingEditorial';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { jobDisplayTitle, jobSearchTitleText } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
@@ -6561,7 +6563,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // missing or belongs to another place (#9108, #9841).
  const postalCode = String(job.postalCode || '').trim();
  const rawStreet = String(job.streetAddress || '').trim();
- return buildJobPostingSchema({
+ const schema = buildJobPostingSchema({
  id: job.id,
  slug: job.slug,
  title: localizedTitle,
@@ -6599,6 +6601,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  url: canonicalUrl,
  baseUrl: window.location.origin,
  });
+ return {
+ ...schema,
+ ...buildJobPostingEditorialFields(description, job.requirementsByLocale?.[locale] || job.requirements || [], locale),
+ };
  }).filter((p): p is NonNullable<typeof p> => p !== null);
 
  // FRO: If viewing a single job but we can't generate a valid schema
@@ -10015,7 +10021,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
 
  if (selectedJob) {
- if (!authResolved || newsletterAutologinInFlight) {
+ if (!isCrawlerVisitor && (!authResolved || newsletterAutologinInFlight)) {
  // Use a layout-matching skeleton instead of a tiny spinner to prevent CLS:
  // the spinner occupies ~80px but the full detail layout is 800-1200px,
  // causing a large measurable layout shift when auth resolves.
@@ -11210,8 +11216,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {companyFollowCta(selectedJob, 'company_follow_button')}
  </header>
 
+ {isCrawlerVisitor ? (
+ <div data-testid="job-crawler-description" dangerouslySetInnerHTML={{ __html: renderJobDescriptionContent(descriptionCandidate || '', locale, Array.isArray(requirements) ? requirements : []) }} />
+ ) : <>
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
- <h4 className="text-base font-bold text-heading">{canonicalCopy.summary}</h4>
+ <h2 className="text-base font-bold text-heading">{canonicalCopy.summary}</h2>
  {enrichmentLoading && canonicalSummary.length === 0 && !detailDescription ? (
  <div className="space-y-2">
  <div className="animate-pulse bg-surface-raised rounded h-4 w-full" />
@@ -11250,7 +11259,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {enrichmentLoading && timelineSections.length === 0 && !detailDescription ? (
  <>
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
- <h4 className="text-base font-bold text-heading">{canonicalCopy.details}</h4>
+ <h2 className="text-base font-bold text-heading">{canonicalCopy.details}</h2>
  <div className="space-y-2">
  <div className="animate-pulse bg-surface-raised rounded h-4 w-full" />
  <div className="animate-pulse bg-surface-raised rounded h-4 w-full" />
@@ -11273,9 +11282,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div key={`${section.id}-${index}`} className="timeline-step relative">
  <span className="absolute -left-[23px] top-2 w-3 h-3 rounded-full bg-accent ring-2 ring-surface" />
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
- <h4 className="text-base font-semibold text-heading mb-1">
+ <h2 className="text-base font-semibold text-heading mb-1">
  {section.heading}
- </h4>
+ </h2>
  {section.paragraphs.length > 0 && section.paragraphs.map((line, i) => (
  <p key={i} className="text-sm leading-relaxed text-body">
  {isContactSection(section) ? renderContactRichText(line, selectedJob, locale, detailPageUrl) : line}
@@ -11302,12 +11311,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  ) : (
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
- <h4 className="text-base font-bold text-heading">{canonicalCopy.details}</h4>
+ <h2 className="text-base font-bold text-heading">{canonicalCopy.details}</h2>
  <div className="space-y-2">
  {renderFormattedDescription(detailDescription)}
  </div>
  </section>
  )}
+
+ </>}
 
  {/* S6 — Mobile-only action block below the description. CTA + money-signal
   *   after the prose so meaty job description leads above the fold per CLAUDE.md #15.

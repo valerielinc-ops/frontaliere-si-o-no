@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const translations: Record<string, string> = {
+ "whatsNew.v3998.title": "Dettagli delle offerte più completi",
+ "whatsNew.v3998.jobDetails.title": "Descrizioni e requisiti conservati",
+ "whatsNew.v3998.jobDetails.desc": "Le pagine delle offerte conservano il testo originale e la formattazione, anche quando sono archiviate. L’accesso gratuito continua a sbloccare tutti i dettagli durante la navigazione.",
  'whatsNew.v3997.title': 'Riprendi la tua ricerca quando torni',
  'whatsNew.v3997.resumeSearch.title': 'La ricerca resta pronta',
  'whatsNew.v3997.resumeSearch.desc': 'Puoi conservare in questo browser l’ultima ricerca con parola chiave, cantone e filtri, e riprenderla quando torni.',

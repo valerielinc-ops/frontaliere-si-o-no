@@ -53,6 +53,7 @@ describe('Offer status gated behind auth (logged-out)', () => {
  afterEach(() => {
   cleanup();
   localStorage.clear();
+  vi.restoreAllMocks();
  });
 
  it('JobExpiredView hides "no longer active" banner and expiry until sign-in', () => {
@@ -86,6 +87,29 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.queryByText(new RegExp(tail))).not.toBeInTheDocument();
   rerender(<JobExpiredView job={job} hasAccess={true} />);
   expect(screen.getByText(new RegExp(tail))).toBeInTheDocument();
+ });
+
+ it.each(['Googlebot', 'bingbot', 'SemrushBot', 'AhrefsBot'])('shows complete semantic expired content without a gate to %s', (userAgent) => {
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue(userAgent);
+  const prefix = 'Descrizione del lavoro in ambito sanitario. '.repeat(20);
+  const job = { ...expiredJob, descriptionByLocale: { it: `## Requisiti\n${prefix}\n\n- Laurea SUPSI richiesta` } };
+  const { container } = render(<JobExpiredView job={job} hasAccess={false} />);
+  expect(container.querySelector('#job-auth-gate')).toBeNull();
+  expect(screen.getByText('Laurea SUPSI richiesta')).toBeInTheDocument();
+  expect(screen.getByText(/non è più attiva/i)).toBeInTheDocument();
+ });
+
+ it('shows the historical body to a crawler without adding a duplicate H1', () => {
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('Googlebot');
+  const seeded = window as unknown as { __STATIC_BODY_HTML__?: string };
+  seeded.__STATIC_BODY_HTML__ = '<h1>Original identity</h1><section><h2>Dettagli originali</h2><ul><li>Requisiti storici completi</li></ul></section>';
+  try {
+   const { container } = render(<JobOrphanView slug="software-engineer-acme-sa-lugano" hasAccess={false} />);
+   expect(container.querySelector('#job-auth-gate')).toBeNull();
+   expect(container.querySelectorAll('h1')).toHaveLength(1);
+   expect(screen.getByText('Requisiti storici completi')).toBeInTheDocument();
+   expect(screen.getByText('Requisiti storici completi').closest('details')).toHaveAttribute('open');
+  } finally { delete seeded.__STATIC_BODY_HTML__; }
  });
 
  it('JobOrphanView hides "no longer available" banner until sign-in', () => {

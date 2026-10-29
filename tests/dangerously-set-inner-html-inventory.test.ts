@@ -30,6 +30,7 @@ const INVENTORY: Record<string, ReadonlyArray<{ html: RegExp; why: string }>> = 
     { html: /^staticBodyHtml$/, why: 'innerHTML di .ft-static-article della pagina statica stessa, già sanitizzata al build' },
   ],
   'components/community/JobBoard.tsx': [
+    { html: /^renderJobDescriptionContent\(/, why: 'descrizione crawler completa serializzata da jobDescriptionTextToHtml e sanitizer allowlist condiviso' },
     { html: /^renderPublisherMarkdown\(/, why: 'markdown dei publisher: escape di tutto il testo PRIMA delle trasformazioni' },
   ],
   'components/pages/PublisherPublishPage.tsx': [

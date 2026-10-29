@@ -17,13 +17,13 @@ describe('jobs SEO soft-landing social metadata', () => {
       'const metaDescription = clampMetaDescription(pageDesc, undefined, locale)',
     );
     expect(SOFT_LANDING_TEMPLATE).toContain(
-      '<meta name="description" content="${metaDescription}">${robotsTag}',
+      '<meta name="description" content="${esc(metaDescription)}">${robotsTag}',
     );
     expect(SOFT_LANDING_TEMPLATE).toContain(
       '<meta property="og:title" content="${pageTitle}">',
     );
     expect(SOFT_LANDING_TEMPLATE).toContain(
-      '<meta property="og:description" content="${metaDescription}">',
+      '<meta property="og:description" content="${esc(metaDescription)}">',
     );
     expect(SOFT_LANDING_TEMPLATE).toContain(
       '<meta property="og:url" content="${selfUrl}">',

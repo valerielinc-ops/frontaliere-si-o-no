@@ -225,18 +225,18 @@ test('expired job detail: follow CTA sits above the auth gate, no fixed-widget c
 });
 
 
-test('anonymous job descriptions stay bounded before and after hydration', async ({ browser, page }) => {
+test('static jobs are complete and only hydrated human previews stay bounded', async ({ browser, page }) => {
   test.setTimeout(120_000);
   const path = await resolveActiveJobDetailPath(page);
   const staticContext = await browser.newContext({ javaScriptEnabled: false });
   try {
     const staticPage = await staticContext.newPage();
     await staticPage.goto(`${LIVE_BASE_URL}${path}`, { waitUntil: 'domcontentloaded' });
-    const staticPreview = staticPage.locator('[data-job-description-preview]');
-    await expect(staticPreview).toHaveCount(1);
-    await expect(staticPreview).not.toHaveText('');
-    expect((await staticPreview.innerText()).trim().length).toBeLessThanOrEqual(JOB_DESCRIPTION_PREVIEW_LENGTH + 1);
-    await expect(staticPage.locator('.proposal .timeline, .proposal .highlights')).toHaveCount(0);
+    const full = staticPage.locator('[data-job-description-full]');
+    await expect(full).toHaveCount(1);
+    await expect(full).not.toHaveText('');
+    await expect(staticPage.locator('#job-auth-gate, [data-job-description-preview]')).toHaveCount(0);
+    await expect(staticPage.locator('h1')).toHaveCount(1);
   } finally {
     await staticContext.close();
   }
@@ -249,4 +249,18 @@ test('anonymous job descriptions stay bounded before and after hydration', async
   expect((await preview.innerText()).trim().length).toBeLessThanOrEqual(JOB_DESCRIPTION_PREVIEW_LENGTH + 1);
   await expect(page.locator('#main-content #job-auth-gate')).toBeVisible();
   await expect(page.locator('main.seo-static-content')).toBeHidden();
+});
+
+
+test('SEO crawlers keep the full description and no auth gate after hydration', async ({ browser, page }) => {
+  test.setTimeout(120_000);
+  const path = await resolveActiveJobDetailPath(page);
+  const crawlerContext = await browser.newContext({ userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' });
+  try {
+    const crawlerPage = await crawlerContext.newPage();
+    await crawlerPage.goto(`${LIVE_BASE_URL}${path}`, { waitUntil: 'domcontentloaded' });
+    await expect(crawlerPage.locator('#main-content [data-job-description-full]')).toBeVisible({ timeout: 60_000 });
+    await expect(crawlerPage.locator('#main-content #job-auth-gate')).toHaveCount(0);
+    await expect(crawlerPage.locator('#main-content h1')).toHaveCount(1);
+  } finally { await crawlerContext.close(); }
 });

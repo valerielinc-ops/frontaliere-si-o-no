@@ -6,6 +6,9 @@
 // the What's New modal reads them. scripts/generate-whats-new.mjs appends new
 // releases here; tests/whats-new-namespace.test.ts keeps them out of core.
 const enWhatsnew: Record<string, string> = {
+ "whatsNew.v3998.title": "More complete job details",
+ "whatsNew.v3998.jobDetails.title": "Descriptions and requirements preserved",
+ "whatsNew.v3998.jobDetails.desc": "Job pages preserve the original text and formatting, including archived listings. Free access continues to unlock all details while browsing.",
  'whatsNew.v3997.title': 'Pick up your search when you return',
  'whatsNew.v3997.resumeSearch.title': 'Your search is ready when you return',
  'whatsNew.v3997.resumeSearch.desc': 'Save your latest search in this browser, including its keyword, canton and filters, then resume it when you come back.',
