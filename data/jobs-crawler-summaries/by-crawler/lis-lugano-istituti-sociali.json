@@ -1,20 +1,20 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-10-29T09:27:30.266Z",
+  "generatedAt": "2026-10-29T21:29:13.419Z",
   "total": 13,
   "discovered": 13,
   "parsed": 13,
   "lastFetchOutcome": "ok",
   "abortKind": null,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 43800,
-  "avgDurationMs": 43800,
+  "unchangedCount": 7,
+  "durationMs": 42264,
+  "avgDurationMs": 42264,
   "durationHistory": [
-    43800
+    42264
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-29T09:26:49.963Z",
+      "crawledAt": "2026-10-29T21:28:37.142Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -88,7 +88,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-29T09:26:44.621Z",
+      "crawledAt": "2026-10-29T21:28:31.973Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -137,7 +137,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-29T09:26:43.297Z",
+      "crawledAt": "2026-10-29T21:28:30.674Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -187,7 +187,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-10-29T09:26:40.609Z",
+      "crawledAt": "2026-10-29T21:28:28.074Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -236,7 +236,7 @@
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
-      "crawledAt": "2026-10-29T09:26:39.274Z",
+      "crawledAt": "2026-10-29T21:28:26.783Z",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
@@ -285,7 +285,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-29T09:26:37.962Z",
+      "crawledAt": "2026-10-29T21:28:25.491Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -305,57 +305,6 @@
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
       "postedDate": "2026-01-25",
       "postingDateSource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Capireparto",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
-      "slug": "capireparto-lis-lugano-istituti-sociali-pregassona",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-25",
-      "validThrough": "2026-12-13",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Sanità",
-      "source": "arca24",
-      "salaryMin": 92920,
-      "salaryMax": 109645,
-      "salaryCurrency": "CHF",
-      "salaryClass": "16",
-      "crawledAt": "2026-10-29T09:26:34.280Z",
-      "sourceLang": "it",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "f764159368679325e7a2",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-05-15T11:24:04.342Z"
-      },
-      "id": "lis-lugano-istituti-sociali-141ef52d04c5",
-      "addressLocality": "Pregassona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z",
-      "salarySource": "reported",
-      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
-      "postedDate": "2026-01-25",
-      "postingDateSource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -388,7 +337,7 @@
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
-      "crawledAt": "2026-10-29T09:26:48.634Z",
+      "crawledAt": "2026-10-29T21:28:35.855Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -437,7 +386,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-29T09:26:47.296Z",
+      "crawledAt": "2026-10-29T21:28:34.554Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -486,7 +435,7 @@
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
-      "crawledAt": "2026-10-29T09:26:45.951Z",
+      "crawledAt": "2026-10-29T21:28:33.260Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -535,7 +484,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-29T09:26:41.940Z",
+      "crawledAt": "2026-10-29T21:28:29.366Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -584,7 +533,7 @@
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
-      "crawledAt": "2026-10-29T09:26:36.639Z",
+      "crawledAt": "2026-10-29T21:28:24.206Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -633,7 +582,7 @@
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
-      "crawledAt": "2026-10-29T09:26:35.449Z",
+      "crawledAt": "2026-10-29T21:28:22.921Z",
       "sourceLang": "it",
       "currency": "CHF",
       "salaryExtraction": {
@@ -660,7 +609,56 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Capireparto",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
+      "slug": "capireparto-lis-lugano-istituti-sociali-pregassona",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "datePosted": "2026-01-25",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Sanità",
+      "source": "arca24",
+      "salaryMin": 92920,
+      "salaryMax": 109645,
+      "salaryCurrency": "CHF",
+      "salaryClass": "16",
+      "crawledAt": "2026-10-29T21:28:21.764Z",
+      "sourceLang": "it",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "f764159368679325e7a2",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-05-15T11:24:04.342Z"
+      },
+      "id": "lis-lugano-istituti-sociali-141ef52d04c5",
+      "addressLocality": "Pregassona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "salarySource": "reported",
+      "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=25-capireparto-pregassona&language=it",
+      "postedDate": "2026-01-25",
+      "postingDateSource": "reported",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

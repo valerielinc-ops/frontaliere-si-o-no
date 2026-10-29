@@ -1,7 +1,7 @@
 {
   "key": "teo-jakob-ag",
   "label": "Teo Jakob AG",
-  "generatedAt": "2026-10-29T09:29:18.534Z",
+  "generatedAt": "2026-10-29T21:30:29.029Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4279,
-  "avgDurationMs": 4279,
+  "durationMs": 4287,
+  "avgDurationMs": 4287,
   "durationHistory": [
-    4279
+    4287
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://my.jobalino.ch/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w",
       "source": "Teo Jakob AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:02.798Z",
+      "crawledAt": "2026-10-29T21:30:14.343Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
