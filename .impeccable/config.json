@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-10-22T09:36:57.609Z",
         "reason": "Agent: accento superiore intenzionale per distinguere sezioni del template email preesistente; git blame lo attribuisce al 2026-07-29 e la modifica corrente non cambia questi blocchi."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "functions/src/lib/emailPreview.js"
+        ],
+        "createdAt": "2026-10-29T20:17:06.515Z",
+        "reason": "Project DESIGN.md Typography explicitly prescribes Inter for body text; agent preserves the documented system during email deliverability fixes"
       }
     ]
   }
