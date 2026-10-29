@@ -1,7 +1,7 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-10-29T09:37:43.995Z",
+  "generatedAt": "2026-10-29T21:32:49.382Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6294,
-  "avgDurationMs": 6294,
+  "durationMs": 5159,
+  "avgDurationMs": 5159,
   "durationHistory": [
-    6294
+    5159
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,13 +30,12 @@
       "companyKey": "visionapartments",
       "companyDomain": "visionapartments.com",
       "title": "HR Business Partner & Payroll Spezialist/in 100%",
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:37:29.278Z",
+      "crawledAt": "2026-10-29T21:32:36.280Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -82,7 +81,7 @@
       "url": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:37:28.485Z",
+      "crawledAt": "2026-10-29T21:32:35.384Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

@@ -13,7 +13,7 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-10-29T09:38:57.789Z",
+  "updatedAt": "2026-10-29T21:34:13.271Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/bando26_5045",
     "https://www.supsi.ch/bando26_1016",
@@ -84,7 +84,7 @@
       "company": "SUPSI / DTI",
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
-      "expiresAt": "2027-02-15"
+      "expiresAt": "2027-02-01"
     }
   }
 }
