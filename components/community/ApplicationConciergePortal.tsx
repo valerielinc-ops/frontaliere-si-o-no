@@ -207,8 +207,13 @@ export default function ApplicationConciergePortal({
     return translated === key ? t('jobBoard.concierge.errors.generic') : translated;
   }, [error, t]);
 
-  const startCheckout = async () => {
+  const startCheckout = async (resumeServiceId: string | null = null) => {
     if (busy === 'checkout') return;
+    const checkoutEmail = email.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(checkoutEmail)) {
+      setError('application_concierge_email_required');
+      return;
+    }
     Analytics.trackApplicationConciergeCheckoutClick();
     setBusy('checkout');
     setError(null);
@@ -232,6 +237,8 @@ export default function ApplicationConciergePortal({
         cancelUrl: base.toString(),
         locale,
         requestKey: requestKeyForUser(String(user.uid)),
+        customerEmail: checkoutEmail,
+        ...(resumeServiceId ? { serviceId: resumeServiceId } : {}),
       }, user);
       if (result.paymentProvider === 'sumup') {
         const returnUrl = new URL(base.toString());
@@ -407,6 +414,25 @@ export default function ApplicationConciergePortal({
                   <Info icon={<BriefcaseBusiness size={17} />} label={t('jobBoard.concierge.quota')} />
                   <Info icon={<ShieldCheck size={17} />} label={t('jobBoard.concierge.noRenewal')} />
                 </div>
+                <label className="mt-8 block max-w-md text-sm font-semibold text-body">
+                  {t('jobBoard.concierge.email')}
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                      setError((current) => current === 'application_concierge_email_required' ? null : current);
+                    }}
+                    required
+                    maxLength={320}
+                    autoComplete="email"
+                    aria-describedby="concierge-checkout-email-hint"
+                    className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm font-normal text-heading"
+                  />
+                  <span id="concierge-checkout-email-hint" className="mt-2 block text-xs font-normal leading-5 text-subtle">
+                    {t('jobBoard.concierge.checkoutEmailHint')}
+                  </span>
+                </label>
                 <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
                   <button
                     type="button"
@@ -532,6 +558,9 @@ export default function ApplicationConciergePortal({
   if (!service) return <PortalShell><p role="alert" className="text-sm text-danger">{displayError || t('jobBoard.concierge.errors.service_not_found')}</p></PortalShell>;
 
   const pending = isPending(service);
+  const retryablePayment = service.paymentStatus === 'failed' && service.checkoutSessionStatus === 'expired';
+  const canResumePayment = retryablePayment
+    || (pending && !['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase()));
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
   const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
 
@@ -554,8 +583,50 @@ export default function ApplicationConciergePortal({
             <div><p className="text-xs font-semibold uppercase tracking-wide text-accent">{t('jobBoard.concierge.remaining')}</p><p className="text-xl font-bold tabular-nums text-heading">{service.remainingPositions}<span className="text-sm font-medium text-subtle">/{service.maxPositions}</span></p></div>
           </div>
         </header>
-        {pending && <Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.paymentPending')} />}
-        {service.paymentStatus === 'failed' && <Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.paymentFailed')} />}
+        {canResumePayment && (
+          <div
+            role={retryablePayment ? 'alert' : 'status'}
+            className="flex flex-col gap-3 rounded-xl border border-info-border bg-info-subtle p-4 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div className="flex items-start gap-2 text-sm leading-6 text-info">
+              {pending ? <Clock3 size={17} className="mt-1 shrink-0" aria-hidden="true" /> : <XCircle size={17} className="mt-1 shrink-0" aria-hidden="true" />}
+              <span>{pending ? t('jobBoard.concierge.paymentPending') : t('jobBoard.concierge.paymentFailed')}</span>
+            </div>
+            {!email.trim() && (
+              <label className="block w-full text-sm font-semibold text-body sm:max-w-xs">
+                {t('jobBoard.concierge.email')}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                    setError((current) => current === 'application_concierge_email_required' ? null : current);
+                  }}
+                  required
+                  maxLength={320}
+                  autoComplete="email"
+                  className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm font-normal text-heading"
+                />
+                <span className="mt-2 block text-xs font-normal leading-5 text-subtle">
+                  {t('jobBoard.concierge.checkoutEmailHint')}
+                </span>
+              </label>
+            )}
+            <button
+              type="button"
+              onClick={() => { void startCheckout(serviceId); }}
+              disabled={busy === 'checkout'}
+              aria-busy={busy === 'checkout'}
+              className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-bold text-on-accent transition-colors hover:bg-accent-strong disabled:cursor-wait disabled:opacity-60"
+            >
+              {busy === 'checkout' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}
+              {t('jobBoard.concierge.resumePayment')} · {formattedPrice}
+              <ArrowRight size={16} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+        {pending && !canResumePayment && <Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.paymentPending')} />}
+        {service.paymentStatus === 'failed' && !retryablePayment && <Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.paymentFailed')} />}
         {expired && <Notice icon={<Clock3 size={17} />} tone="warning" text={t('jobBoard.concierge.expired')} />}
         {message && <Notice icon={<CheckCircle2 size={17} />} tone="success" text={message} />}
         {displayError && <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-3 text-sm text-danger">{displayError}</p>}
