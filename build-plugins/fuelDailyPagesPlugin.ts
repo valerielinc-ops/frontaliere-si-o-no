@@ -300,7 +300,7 @@ interface SwissStation {
   name?: string;
   brand?: string;
   address?: string;
-  sp95PriceChf?: number;
+  sp95PriceChf?: number | null;
   sp95PriceEur?: number;
   /** Real per-station diesel price (CHF/L) populated from the TCS Firestore feed. */
   dieselPriceChf?: number | null;
@@ -309,12 +309,26 @@ interface SwissStation {
   dieselSource?: 'api' | 'derived' | 'unknown' | 'monthly_average' | 'scraped';
   updatedAt?: string;
   dieselUpdatedAt?: string;
+  /** Retrieval timestamp for the provider snapshot; not a pump-change time. */
+  observedAt?: string | null;
   nearestMunicipality?: string | null;
   nearestMunicipalityDistanceKm?: number;
   distanceKm?: number;
   /** Geo coordinates (populated for all TCS feed stations). */
   lat?: number;
   lng?: number;
+  /** National snapshot metadata; absent in legacy comparator rows. */
+  canton?: string | null;
+  priceStatus?: {
+    sp95?: 'available' | 'unavailable' | string;
+    diesel?: 'available' | 'unavailable' | string;
+  };
+  sp95SourceQuality?: string | null;
+  dieselSourceQuality?: string | null;
+  inventorySource?: string;
+  inventoryId?: string;
+  inventoryObservedAt?: string | null;
+  fuelTypes?: string[];
 }
 
 interface MunicipalityRow {
@@ -334,7 +348,47 @@ interface MunicipalityRow {
 
 interface FuelPricesDataset {
   generatedAt?: string;
+  /**
+   * Renderer contract for the national TCS snapshot. The canonical Swiss
+   * index consumes this unfiltered source list and groups every row nationally;
+   * category/detail/map pages still restrict their routeable links to the five
+   * Ticino zones below. It must not be used for the cross-border comparator:
+   * `municipalities[].swiss.nearbyStations` is the generator's explicit 25 km
+   * frontier projection for that consumer. Stations outside a routeable zone
+   * remain data-only until a route contract exists; this prevents fabricated
+   * national URLs.
+   */
+  national?: {
+    scope?: 'national' | string;
+    coverageType?: 'provider-snapshot' | 'registry-plus-price-snapshot' | string;
+    inventoryCompleteness?: 'not-verified' | string;
+    anchorFuel?: 'SP95' | string;
+    stationCount?: number;
+    observedAt?: string | null;
+    source?: {
+      provider?: string;
+      sourceId?: string;
+      endpoint?: string;
+      providerUrl?: string;
+      timestampKind?: string;
+      observedAt?: string | null;
+      inventoryProvider?: string;
+      inventorySourceId?: string;
+      inventoryDataUrl?: string;
+      inventoryAttributionUrl?: string;
+      inventoryLicense?: string;
+      inventoryAttribution?: string;
+      inventoryObservedAt?: string | null;
+      inventoryStationCount?: number;
+      inventoryMatchedStationCount?: number;
+      inventoryOnlyStationCount?: number;
+    };
+    stations?: SwissStation[];
+  };
   sources?: {
+    switzerland?: {
+      latestObservedUpdate?: string | null;
+    };
     exchangeRate?: {
       provider?: string;
       sourceUrl?: string;
@@ -344,6 +398,17 @@ interface FuelPricesDataset {
     };
   };
   municipalities?: MunicipalityRow[];
+}
+
+/**
+ * Resolve the source for Swiss category pages. The national snapshot is the
+ * canonical, unfiltered provider snapshot when available; the municipality rows are a
+ * backwards-compatible fallback for older snapshots.
+ */
+function swissCategoryStations(dataset: FuelPricesDataset): SwissStation[] {
+  const national = dataset.national?.stations;
+  if (Array.isArray(national) && national.length > 0) return national;
+  return (dataset.municipalities ?? []).flatMap((row) => row.swiss?.nearbyStations ?? []);
 }
 
 const FUEL_DAILY_TRIP_TRANSLATIONS: Record<FuelDailyLocale, Record<string, string>> = {
@@ -454,16 +519,13 @@ function stationBelongsToZone(station: SwissStation, zone: FuelZone): boolean {
 function collectZoneStations(dataset: FuelPricesDataset, zone: FuelZone): SwissStation[] {
   const seen = new Set<string>();
   const out: SwissStation[] = [];
-  for (const row of dataset.municipalities ?? []) {
-    const nearby = row.swiss?.nearbyStations ?? [];
-    for (const s of nearby) {
-      if (!s || !pricesFromStation(s)) continue;
-      if (!stationBelongsToZone(s, zone)) continue;
-      const key = `${s.id ?? s.name ?? ''}:${s.address ?? ''}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push(s);
-    }
+  for (const s of swissCategoryStations(dataset)) {
+    if (!s || !pricesFromStation(s)) continue;
+    if (!stationBelongsToZone(s, zone)) continue;
+    const key = `${s.id ?? s.name ?? ''}:${s.address ?? ''}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(s);
   }
   return out;
 }
@@ -471,21 +533,18 @@ function collectZoneStations(dataset: FuelPricesDataset, zone: FuelZone): SwissS
 function collectAllStations(dataset: FuelPricesDataset): SwissStation[] {
   const seen = new Set<string>();
   const out: SwissStation[] = [];
-  for (const row of dataset.municipalities ?? []) {
-    const nearby = row.swiss?.nearbyStations ?? [];
-    for (const s of nearby) {
-      if (!s || !pricesFromStation(s)) continue;
-      // Only include stations whose address resolves to a known Ticino zone:
-      // the regional /oggi hub is implicitly Ticino, and only Ticino stations
-      // have dedicated detail pages (see generateFuelStationPages). Stations
-      // outside the zone map (e.g. Müstair, Bever) would render as non-clickable
-      // <div> cards and confuse cross-border-worker readers.
-      if (!zoneForAddress(s.address)) continue;
-      const key = `${s.id ?? s.name ?? ''}:${s.address ?? ''}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push(s);
-    }
+  for (const s of swissCategoryStations(dataset)) {
+    if (!s || !pricesFromStation(s)) continue;
+    // Only include stations whose address resolves to a known Ticino zone:
+    // the regional /oggi hub is implicitly Ticino, and only Ticino stations
+    // have dedicated detail pages (see generateFuelStationPages). Stations
+    // outside the zone map (e.g. Müstair, Bever) would render as non-clickable
+    // <div> cards and confuse cross-border-worker readers.
+    if (!zoneForAddress(s.address)) continue;
+    const key = `${s.id ?? s.name ?? ''}:${s.address ?? ''}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(s);
   }
   return out;
 }
@@ -511,7 +570,9 @@ function computeZonePrice(stations: SwissStation[], fuel: FuelType): ZonePrice {
     const price = p?.[fuel];
     if (price === null || price === undefined) continue;
     prices.push(price);
-    const observedAt = fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt;
+    const observedAt = fuel === 'diesel'
+      ? s.dieselUpdatedAt ?? s.updatedAt ?? s.observedAt
+      : s.updatedAt ?? s.observedAt;
     stationPrices.push({
       name: String(s.name || s.brand || '—').trim(),
       brand: String(s.brand || '').trim(),
@@ -1605,7 +1666,15 @@ function renderPage(inp: PageInputs): string {
   const stations = zone ? collectZoneStations(dataset, zone) : collectAllStations(dataset);
   const zonePrice = computeZonePrice(stations, fuel);
   const avg = zonePrice.avg;
-  const observation = fuelObservation(stations.filter((station) => pricesFromStation(station)?.[fuel] != null), fuel, dataset.generatedAt);
+  const snapshotObservedAt = dataset.national?.observedAt
+    ?? dataset.sources?.switzerland?.latestObservedUpdate
+    ?? dataset.generatedAt
+    ?? null;
+  const observation = fuelObservation(
+    stations.filter((station) => pricesFromStation(station)?.[fuel] != null),
+    fuel,
+    snapshotObservedAt,
+  );
   const observationDate = observation.collectedAt ? new Date(observation.collectedAt) : null;
   const referenceDate = observationDate ?? today;
   const dateStamp = referenceDate.toISOString().slice(0, 10);
@@ -2298,25 +2367,23 @@ function stationPluginDedupKey(s: SwissStation): string {
 }
 
 /** Collect every Swiss station with a known Ticino zone + compute its slug. */
-function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext[] {
+export function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext[] {
   const seen = new Set<string>();
   const out: StationContext[] = [];
   const slugSeen = new Set<string>();
-  for (const row of dataset.municipalities ?? []) {
-    const nearby = row.swiss?.nearbyStations ?? [];
-    for (const s of nearby) {
-      if (!s || !pricesFromStation(s)) continue;
-      // Skip totally-empty stations (no brand + no name = unidentifiable)
-      if (!s.brand && !s.name) continue;
-      const dedupKey = stationPluginDedupKey(s);
-      if (seen.has(dedupKey)) continue;
-      seen.add(dedupKey);
-      const zone = zoneForAddress(s.address);
-      if (!zone) continue; // outside the 5 Ticino zones
-      const prices = pricesFromStation(s);
-      if (!prices) continue;
-      const baseSlug = buildStationSlug({ brand: s.brand, name: s.name, address: s.address });
-      if (!baseSlug) continue;
+  for (const s of swissCategoryStations(dataset)) {
+    if (!s || !pricesFromStation(s)) continue;
+    // Skip totally-empty stations (no brand + no name = unidentifiable)
+    if (!s.brand && !s.name) continue;
+    const dedupKey = stationPluginDedupKey(s);
+    if (seen.has(dedupKey)) continue;
+    seen.add(dedupKey);
+    const zone = zoneForAddress(s.address);
+    if (!zone) continue; // outside the 5 Ticino zones
+    const prices = pricesFromStation(s);
+    if (!prices) continue;
+    const baseSlug = buildStationSlug({ brand: s.brand, name: s.name, address: s.address });
+    if (!baseSlug) continue;
       // Ensure slug uniqueness across the full set (rare collision possible)
       let slug = baseSlug;
       let suffix = 2;
@@ -2342,16 +2409,15 @@ function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext
         return m ? m[1] : '';
       })();
       const brandDisplay = slugTailNum ? `${baseBrandDisplay} ${slugTailNum}` : baseBrandDisplay;
-      out.push({
-        station: s,
-        zone,
-        city: cityFromAddr,
-        slug,
-        brandDisplay,
-        streetDisplay: street,
-        prices,
-      });
-    }
+    out.push({
+      station: s,
+      zone,
+      city: cityFromAddr,
+      slug,
+      brandDisplay,
+      streetDisplay: street,
+      prices,
+    });
   }
   return out;
 }
@@ -2561,7 +2627,9 @@ function buildStationSignaturePargaraph(inp: StationSignatureInput): string {
   const { locale, brand, street, city, zone, fuelLabel, priceFmt, zoneAvgFmt, rankIndex, total, station, slug } = inp;
   const rankText = total > 0 ? `${rankIndex + 1}/${total}` : '—';
   const streetText = street && street.length > 0 ? street : (station.address ?? '');
-  const updatedText = station.updatedAt ? String(station.updatedAt).slice(0, 10) : '';
+  const updatedText = station.updatedAt ?? station.observedAt
+    ? String(station.updatedAt ?? station.observedAt).slice(0, 10)
+    : '';
   const coords =
     typeof station.lat === 'number' && typeof station.lng === 'number'
       ? `${station.lat.toFixed(4)}, ${station.lng.toFixed(4)}`
@@ -3102,7 +3170,9 @@ function renderStationPage(opts: {
   const zoneLabel = FUEL_ZONE_DISPLAY[ctx.zone];
   // TCS observation day of this fuel's price, never the build clock (same
   // rule as the zone /oggi/ pages and the Italian station pages).
-  const observedAtRaw = fuel === 'diesel' ? ctx.station.dieselUpdatedAt ?? ctx.station.updatedAt : ctx.station.updatedAt;
+  const observedAtRaw = fuel === 'diesel'
+    ? ctx.station.dieselUpdatedAt ?? ctx.station.updatedAt ?? ctx.station.observedAt
+    : ctx.station.updatedAt ?? ctx.station.observedAt;
   const observedAtMs = typeof observedAtRaw === 'string' ? Date.parse(observedAtRaw) : Number.NaN;
   const dateStamp = Number.isFinite(observedAtMs) ? new Date(observedAtMs).toISOString().slice(0, 10) : '';
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -3336,7 +3406,7 @@ function renderStationPage(opts: {
     <dl class="s-RPPdPW">
       <dt class="s-bovPrI">${esc(copy.infoBrand)}</dt><dd class="s-q3nqK4">${esc(ctx.brandDisplay)}</dd>
       <dt class="s-bovPrI">${esc(copy.infoAddress)}</dt><dd class="s-q3nqK4">${esc(ctx.station.address ?? '—')}</dd>
-      ${ctx.station.updatedAt ? `<dt class="s-bovPrI">${esc(copy.infoUpdated)}</dt><dd class="s-q3nqK4">${esc(String(ctx.station.updatedAt).slice(0, 10))}</dd>` : ''}
+      ${dateStamp ? `<dt class="s-bovPrI">${esc(copy.infoUpdated)}</dt><dd class="s-q3nqK4">${esc(dateStamp)}</dd>` : ''}
     </dl>
   </section>
   <section class="s-ziawP1" aria-labelledby="stationContext">
@@ -3961,7 +4031,14 @@ function renderItalianCityPage(opts: {
         referenceSource: cheapest?.stationName ? `MIMIT · ${cheapest.stationName}` : 'MIMIT',
         referenceDate: cheapest ? formatFuelObservationDate(italianStationObservationAt(cheapest, fuel), locale) : null,
         alternativeSource: crossBorder ? `TCS · ${crossBorder.swissStation.name || crossBorder.swissStation.brand || 'station'}` : null,
-        alternativeDate: crossBorder ? formatFuelObservationDate(fuel === 'diesel' ? crossBorder.swissStation.dieselUpdatedAt || crossBorder.swissStation.updatedAt : crossBorder.swissStation.updatedAt, locale) : null,
+        alternativeDate: crossBorder
+          ? formatFuelObservationDate(
+            fuel === 'diesel'
+              ? crossBorder.swissStation.dieselUpdatedAt || crossBorder.swissStation.updatedAt || crossBorder.swissStation.observedAt
+              : crossBorder.swissStation.updatedAt || crossBorder.swissStation.observedAt,
+            locale,
+          )
+          : null,
         exchangeRateDate: crossBorder ? formatFuelObservationDate(crossBorder.exchangeRateDate, locale) : null,
         copy: fuelTripCopy(locale),
       })
@@ -5551,6 +5628,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const swissLeaves: SwissStationLeaf[] = swissContexts.map((c) => ({
         zone: c.zone,
         slug: c.slug,
+        canton: c.station.canton ?? null,
         name: c.station.name ?? c.brandDisplay,
         brand: c.brandDisplay,
         address: c.station.address ?? '',
@@ -5559,8 +5637,53 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         benzinaPriceChf: c.prices.benzina,
         dieselPriceChf: c.prices.diesel,
         updatedAt: c.station.updatedAt ?? null,
-        dieselUpdatedAt: c.station.dieselUpdatedAt ?? c.station.updatedAt ?? null,
+        dieselUpdatedAt: c.station.dieselUpdatedAt ?? null,
+        observedAt: c.station.observedAt ?? null,
+        priceStatus: c.station.priceStatus,
       }));
+      // The national index uses every canonical provider row. Reuse the
+      // already-emitted Ticino contexts only to attach an approved detail
+      // contract; rows outside those contexts deliberately get no URL.
+      const contextById = new Map<string, StationContext>();
+      const contextByDedupKey = new Map<string, StationContext>();
+      for (const context of swissContexts) {
+        if (context.station.id) contextById.set(String(context.station.id), context);
+        contextByDedupKey.set(stationPluginDedupKey(context.station), context);
+      }
+      const nationalSwissLeaves: SwissStationLeaf[] = (dataset.national?.stations ?? []).map((station) => {
+        const context = (station.id ? contextById.get(String(station.id)) : undefined)
+          ?? contextByDedupKey.get(stationPluginDedupKey(station));
+        const fallbackBrand = station.brand && station.brand.toUpperCase() !== 'UNDEFINED' ? station.brand : '';
+        return {
+          zone: context?.zone ?? null,
+          slug: context?.slug ?? null,
+          canton: station.canton ?? null,
+          name: station.name ?? fallbackBrand ?? 'Stazione',
+          brand: context?.brandDisplay ?? fallbackBrand,
+          address: station.address ?? '',
+          lat: typeof station.lat === 'number' ? station.lat : null,
+          lng: typeof station.lng === 'number' ? station.lng : null,
+          benzinaPriceChf: typeof station.sp95PriceChf === 'number' && Number.isFinite(station.sp95PriceChf) ? station.sp95PriceChf : null,
+          dieselPriceChf: typeof station.dieselPriceChf === 'number' && Number.isFinite(station.dieselPriceChf) ? station.dieselPriceChf : null,
+          updatedAt: station.updatedAt ?? null,
+          dieselUpdatedAt: station.dieselUpdatedAt ?? null,
+          observedAt: station.observedAt ?? null,
+          priceStatus: station.priceStatus,
+        };
+      });
+      const swissNationalSnapshot = dataset.national
+        ? {
+          scope: 'national' as const,
+          provider: dataset.national.source?.provider ?? 'TCS Benzinpreis',
+          coverageType: dataset.national.coverageType ?? 'provider-snapshot',
+          inventoryCompleteness: dataset.national.inventoryCompleteness ?? 'not-verified',
+          anchorFuel: dataset.national.anchorFuel ?? 'SP95',
+          stationCount: dataset.national.stationCount ?? nationalSwissLeaves.length,
+          observedAt: dataset.national.observedAt ?? null,
+          source: dataset.national.source,
+          stations: nationalSwissLeaves,
+        }
+        : undefined;
       // Per-fuel Italian leaves — derived from the SAME contexts emitted as
       // station pages, so the index links exactly what we publish (and the
       // diesel index only appears once Gasolio coverage exists).
@@ -5717,6 +5840,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         rootDir,
         today,
         swissStations: swissLeaves,
+        swissNationalSnapshot,
         italianStations: italianStationsByFuel.benzina ?? [],
         italianStationsByFuel,
         italianCities: buildItalianCityEntries(dataset),

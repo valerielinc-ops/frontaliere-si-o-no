@@ -601,8 +601,8 @@ export default function FuelPriceStats() {
   const swissPriceChf = view.swiss.minPriceChf;
   const italyDate = italianStation ? italyStationObservationDate(italianStation, fuelType) : null;
   const swissDate = fuelType === 'diesel'
-   ? swissStation?.dieselUpdatedAt || swissStation?.updatedAt || data.sources.switzerland.latestObservedUpdate
-   : swissStation?.updatedAt || data.sources.switzerland.latestObservedUpdate;
+   ? swissStation?.dieselUpdatedAt || swissStation?.updatedAt || swissStation?.observedAt || data.sources.switzerland.latestObservedUpdate
+   : swissStation?.updatedAt || swissStation?.observedAt || data.sources.switzerland.latestObservedUpdate;
   const italySource = italianStation ? `MIMIT · ${italianStation.stationName}` : 'MIMIT';
   const swissSource = swissStation ? `TCS · ${swissStation.name || swissStation.brand}` : data.sources.switzerland.provider;
   const prefilledPrices = fuelTripPrefillPrices(italianPriceEur, swissPriceChf, tripCurrency, datedExchangeRate);

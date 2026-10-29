@@ -37,7 +37,9 @@ export const CRON_MANAGED_GLOBS = Object.freeze([
 
   // Daily refresh feeds
   'data/fuel-prices.json',
+  'data/fuel-station-inventory.json',
   'public/data/fuel-prices.json',
+  'public/data/fuel-station-inventory.json',
   'data/health-premiums.json',
   'public/data/health-premiums.json',
   'data/health-premiums/*',

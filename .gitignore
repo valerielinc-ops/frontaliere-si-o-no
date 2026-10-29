@@ -96,6 +96,8 @@ public/data/jobs-stats.json
 # Fuel prices — daily cache, primary data lives in Firestore
 data/fuel-prices.json
 public/data/fuel-prices.json
+data/fuel-station-inventory.json
+public/data/fuel-station-inventory.json
 # Per-canton fuel averages (P9b) — same cache contract, published via the fuel refresh PR
 data/fuel-prices-cantons.json
 public/data/fuel-prices-cantons.json

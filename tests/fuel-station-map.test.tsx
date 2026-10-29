@@ -114,6 +114,44 @@ describe('FuelStationMap', () => {
     expect(screen.queryByText('Nuova')).not.toBeInTheDocument();
     expect(screen.getAllByTestId('circle-marker')).toHaveLength(2);
   });
+
+  it('hydrates the category map from the national snapshot when available', async () => {
+    vi.mocked(fetchFuelPrices).mockResolvedValueOnce({
+      generatedAt: '2026-09-08T08:00:00.000Z',
+      national: {
+        schemaVersion: 1,
+        country: 'CH',
+        scope: 'national',
+        stationCount: 1,
+        observedAt: '2026-09-08T08:00:00.000Z',
+        source: {
+          provider: 'TCS Benzinpreis', sourceId: 'tcs-test', endpoint: 'https://example.test',
+          providerUrl: 'https://benzin.tcs.ch/de/map/SP95', timestampKind: 'retrieved-snapshot',
+          observedAt: '2026-09-08T08:00:00.000Z',
+        },
+        coverage: {},
+        stations: [{
+          id: 'eni-national',
+          name: 'Eni Chiasso',
+          brand: 'Eni',
+          address: 'Via Foo 1, 6830 Chiasso',
+          lat: 45.842,
+          lng: 9.022,
+          sp95PriceChf: 1.83,
+          dieselPriceChf: 1.97,
+          updatedAt: '2026-09-08T08:00:00.000Z',
+          observedAt: '2026-09-08T08:00:00.000Z',
+          source: 'tcs-test',
+        }],
+      },
+      municipalities: [],
+    } as never);
+
+    render(<FuelStationMap payload={PAYLOAD} />);
+
+    await waitFor(() => expect(screen.getAllByText(/1[,.]83 CHF\/L/)).not.toHaveLength(0));
+    expect(screen.queryByText(/1[,.]89 CHF\/L/)).not.toBeInTheDocument();
+  });
 });
 
 

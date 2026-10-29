@@ -43,6 +43,8 @@ import {
   buildFuelIndexPath,
   buildFuelIndexPaginationPath,
   ITALIAN_STATIONS_INDEX_PAGE_SIZE,
+  SWISS_STATIONS_INDEX_PAGE_SIZE,
+  type SwissNationalIndexSnapshot,
   type SwissStationLeaf,
   type ItalianStationLeaf,
 } from '../../build-plugins/fuelStationIndexPages';
@@ -74,6 +76,61 @@ const SYNTHETIC_SWISS: SwissStationLeaf[] = [
   { zone: 'lugano', slug: 'tamoil-via-bar', name: 'Tamoil Lugano', brand: 'Tamoil', address: 'Via Bar 2, 6900 Lugano', lat: 46.01, lng: 8.95, benzinaPriceChf: 1.94, dieselPriceChf: 2.04 },
   { zone: 'mendrisio', slug: 'avia-via-baz', name: 'Avia Mendrisio', brand: 'Avia', address: 'Via Baz 3, 6850 Mendrisio' },
 ];
+
+const NATIONAL_SWISS: SwissStationLeaf[] = [
+  {
+    zone: 'lugano',
+    slug: 'tamoil-via-bar',
+    canton: 'TI',
+    name: 'Tamoil Lugano',
+    brand: 'Tamoil',
+    address: 'Via Bar 2, 6900 Lugano',
+    lat: 46.01,
+    lng: 8.95,
+    benzinaPriceChf: 1.94,
+    dieselPriceChf: 2.04,
+    updatedAt: '2026-10-29T12:00:00.000Z',
+    dieselUpdatedAt: '2026-10-29T12:00:00.000Z',
+    priceStatus: { sp95: 'available', diesel: 'available' },
+  },
+  {
+    canton: 'ZH',
+    name: 'TCS Zürich Nord',
+    brand: 'TCS',
+    address: 'Zürichstrasse 1, 8001 Zürich',
+    lat: 47.38,
+    lng: 8.54,
+    benzinaPriceChf: 1.88,
+    dieselPriceChf: null,
+    updatedAt: '2026-10-29T12:00:00.000Z',
+    dieselUpdatedAt: null,
+    priceStatus: { sp95: 'available', diesel: 'unavailable' },
+  },
+  {
+    canton: 'GE',
+    name: 'Diesel Only Genève',
+    brand: 'Provider',
+    address: 'Route de Meyrin 1, 1217 Meyrin',
+    lat: 46.23,
+    lng: 6.08,
+    benzinaPriceChf: null,
+    dieselPriceChf: 1.91,
+    updatedAt: '2026-10-29T12:00:00.000Z',
+    dieselUpdatedAt: '2026-10-29T12:00:00.000Z',
+    priceStatus: { sp95: 'unavailable', diesel: 'available' },
+  },
+];
+
+const NATIONAL_SNAPSHOT: SwissNationalIndexSnapshot = {
+  scope: 'national',
+  provider: 'TCS Benzinpreis',
+  coverageType: 'provider-snapshot',
+  inventoryCompleteness: 'not-verified',
+  anchorFuel: 'SP95',
+  stationCount: NATIONAL_SWISS.length,
+  observedAt: '2026-10-29T12:00:00.000Z',
+  stations: NATIONAL_SWISS,
+};
 
 const SYNTHETIC_ITALIAN: ItalianStationLeaf[] = [
   { citySlug: 'como', cityDisplay: 'Como', stationSlug: 'eni-via-cavour-1', name: 'Eni Como', brand: 'Eni', address: 'Via Cavour 1, 22100 Como' },
@@ -218,7 +275,7 @@ describe('fuel-station orphans — every emitted leaf is linked from its index',
       for (const locale of FUEL_DAILY_LOCALES) {
         const html = pages[buildFuelIndexPath(locale, fuel, 'swissStations')]!;
         const emittedPaths = SYNTHETIC_SWISS
-          .map((station) => buildFuelStationPath(locale, fuel, station.zone, station.slug))
+          .map((station) => buildFuelStationPath(locale, fuel, station.zone!, station.slug!))
           .filter((path) => swissStationPages[path] && !swissStationPages[path].includes('noindex,follow'));
         // Both priced stations are real emitted leaves. The unpriced fixture
         // never enters the emitter's station contexts and has no indexable URL.
@@ -226,7 +283,7 @@ describe('fuel-station orphans — every emitted leaf is linked from its index',
         for (const path of emittedPaths) {
           expect(countAnchors(html, path), `orphaned leaf: ${path}`).toBeGreaterThanOrEqual(1);
         }
-        const unpricedPath = buildFuelStationPath(locale, fuel, SYNTHETIC_SWISS[2].zone, SYNTHETIC_SWISS[2].slug);
+        const unpricedPath = buildFuelStationPath(locale, fuel, SYNTHETIC_SWISS[2].zone!, SYNTHETIC_SWISS[2].slug!);
         expect(swissStationPages[unpricedPath]).toBeUndefined();
         expect(countAnchors(html, unpricedPath)).toBe(0);
       }
@@ -254,6 +311,99 @@ describe('fuel-station orphans — every emitted leaf is linked from its index',
     for (const leaf of SYNTHETIC_ITALIAN) {
       expect(countAnchors(html, `/italia/${leaf.citySlug}/stazioni/${leaf.stationSlug}/`)).toBeGreaterThanOrEqual(1);
     }
+  });
+});
+
+describe('Swiss national snapshot index', () => {
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: SYNTHETIC_SWISS,
+    swissNationalSnapshot: NATIONAL_SNAPSHOT,
+    italianStations: [],
+  });
+
+  it('shows an outside-Ticino station in the canonical national index without inventing a detail URL', () => {
+    const html = pages[buildFuelIndexPath('it', 'benzina', 'swissStations')]!;
+    expect(html).toContain('TCS Zürich Nord');
+    expect(html).toContain('Gruppo cantonale ZH');
+    expect(html).toMatch(/TCS Benzinpreis.*provider-snapshot/);
+    expect(html).toContain('inventoryCompleteness: not-verified');
+    expect(html).toContain('Acquisizione snapshot: 29.10.2026');
+    expect(extractAnchorHrefs(html).some((href) => href.includes('zürich') || href.includes('zurich'))).toBe(false);
+  });
+
+  it('keeps missing fuel prices visible with an explicit unavailable status', () => {
+    const html = pages[buildFuelIndexPath('it', 'diesel', 'swissStations')]!;
+    expect(html).toContain('TCS Zürich Nord');
+    expect(html).toContain('Prezzo non disponibile per questo carburante');
+    expect(html).toContain('Diesel Only Genève');
+    expect(html).toMatch(/Prezzo 1[.,]91 CHF\/l/);
+  });
+
+  it('suppresses the Ticino-only map on the national index', () => {
+    const html = pages[buildFuelIndexPath('it', 'benzina', 'swissStations')]!;
+    expect(html).toContain('TCS Zürich Nord');
+    expect(html).toMatch(/id=(?:"|')?browseAll/);
+    expect(html).not.toContain('data-fuel-map-section');
+    expect(html).not.toContain('fuel-station-map-root');
+    expect(html).not.toContain('Mappa prezzi carburante in Ticino');
+  });
+
+  it('uses the shared every-three in-feed cadence globally per page, never after the last row', () => {
+    const sevenStations = Array.from({ length: 7 }, (_, index) => ({
+      canton: 'ZH',
+      name: `Ad cadence station ${index}`,
+      brand: 'Provider',
+      address: `Zürichstrasse ${index}, 8001 Zürich`,
+      lat: 47.38 + index / 100_000,
+      lng: 8.54 + index / 100_000,
+      benzinaPriceChf: 1.8,
+      dieselPriceChf: 1.9,
+      updatedAt: '2026-10-29T12:00:00.000Z',
+      dieselUpdatedAt: '2026-10-29T12:00:00.000Z',
+    } satisfies SwissStationLeaf));
+    const adPages = generateFuelIndexPages({
+      today: TODAY,
+      swissStations: [],
+      swissNationalSnapshot: { ...NATIONAL_SNAPSHOT, stationCount: sevenStations.length, stations: sevenStations },
+      italianStations: [],
+    });
+    const html = adPages[buildFuelIndexPath('it', 'benzina', 'swissStations')]!;
+    expect((html.match(/class="[^"]*ft-infeed-ad/g) ?? [])).toHaveLength(2);
+    expect(html).toMatch(/data-ad-slot=(?:"|')?4390537615/);
+    expect(generateFuelIndexPages({
+      today: TODAY,
+      swissStations: [],
+      swissNationalSnapshot: NATIONAL_SNAPSHOT,
+      italianStations: [],
+    })[buildFuelIndexPath('it', 'benzina', 'swissStations')]).not.toContain('ft-infeed-ad');
+  });
+
+  it('paginates the full national station list without dropping rows', () => {
+    const stations = Array.from({ length: SWISS_STATIONS_INDEX_PAGE_SIZE + 1 }, (_, index) => ({
+      canton: 'ZH',
+      name: `National station ${index}`,
+      brand: 'Provider',
+      address: `Zürichstrasse ${index}, 8001 Zürich`,
+      lat: 47.38 + index / 100_000,
+      lng: 8.54 + index / 100_000,
+      benzinaPriceChf: 1.8,
+      dieselPriceChf: null,
+      updatedAt: '2026-10-29T12:00:00.000Z',
+      dieselUpdatedAt: null,
+    } satisfies SwissStationLeaf));
+    const nationalPages = generateFuelIndexPages({
+      today: TODAY,
+      swissStations: [],
+      swissNationalSnapshot: { ...NATIONAL_SNAPSHOT, stationCount: stations.length, stations },
+      italianStations: [],
+    });
+    const root = buildFuelIndexPath('it', 'benzina', 'swissStations');
+    const page2 = buildFuelIndexPaginationPath('it', 'benzina', 'swissStations', 2);
+    expect(nationalPages[root]).toBeDefined();
+    expect(nationalPages[page2]).toBeDefined();
+    const html = `${nationalPages[root]}\n${nationalPages[page2]}`;
+    for (const station of stations) expect(html).toContain(station.name);
   });
 });
 

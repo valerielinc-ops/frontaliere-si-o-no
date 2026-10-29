@@ -13,8 +13,10 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   buildStationDedupKey,
   dedupStations,
+  normaliseFuelStationObservation,
   normaliseText,
   roundCoord,
+  sortStationsStable,
 } from '../scripts/lib/fuel-station-dedup.mjs';
 
 interface FakeStation {
@@ -74,14 +76,55 @@ describe('normaliseText', () => {
     expect(normaliseText(once)).toBe(once);
   });
 
-  it('applies NFKC so full-width variants collide with ASCII', () => {
+  it('applies compatibility decomposition so full-width variants collide with ASCII', () => {
     // Full-width "Eni" would otherwise survive as a separate key.
     expect(normaliseText('Ｅｎｉ')).toBe('eni');
+    expect(normaliseText('Éni')).toBe('eni');
   });
 
   it('handles null / undefined safely', () => {
     expect(normaliseText(null as unknown as string)).toBe('');
     expect(normaliseText(undefined as unknown as string)).toBe('');
+  });
+});
+
+describe('normaliseFuelStationObservation', () => {
+  it('keeps missing diesel null and records retrieval/source metadata', () => {
+    expect(normaliseFuelStationObservation({
+      id: 'tcs-1',
+      name: 'Éni',
+      brand: 'Eni',
+      address: 'Via Roma 1',
+      lat: 46.0,
+      lng: 8.0,
+      sp95PriceChf: 1.8,
+      dieselPriceChf: null,
+      observedAt: '2026-10-29T12:00:00.000Z',
+      source: 'fixture-provider',
+    })).toMatchObject({
+      id: 'tcs-1',
+      sp95PriceChf: 1.8,
+      dieselPriceChf: null,
+      priceStatus: { sp95: 'available', diesel: 'unavailable' },
+      dieselSource: 'unknown',
+      dieselUpdatedAt: null,
+      observedAt: '2026-10-29T12:00:00.000Z',
+      source: 'fixture-provider',
+    });
+  });
+
+  it('rejects observations without coordinates or a usable fuel price', () => {
+    expect(normaliseFuelStationObservation({ id: 'missing-price', lat: 46, lng: 8 })).toBeNull();
+    expect(normaliseFuelStationObservation({ id: 'missing-coordinates', sp95PriceChf: 1.8 })).toBeNull();
+    expect(normaliseFuelStationObservation({ id: 'blank-diesel', lat: 46, lng: 8, dieselPriceChf: ' ' })).toBeNull();
+  });
+});
+
+describe('sortStationsStable', () => {
+  it('does not depend on provider enumeration order', () => {
+    const first = sortStationsStable([UNIQUE_STATION, ENI_CASLANO_A]).map((station) => station.id);
+    const second = sortStationsStable([ENI_CASLANO_A, UNIQUE_STATION]).map((station) => station.id);
+    expect(second).toEqual(first);
   });
 });
 
@@ -154,6 +197,74 @@ describe('dedupStations — Eni Caslano regression', () => {
       logger: vi.fn(),
     });
     expect(unique[0]?.id).toBe(withDiesel.id);
+  });
+
+  it('merges independent fuel observations when duplicate ids share an address', () => {
+    const sameTs = '2026-10-29T12:00:00.000Z';
+    const sp95Only = {
+      ...ENI_CASLANO_A,
+      id: 'sp95-only',
+      updatedAt: sameTs,
+      dieselPriceChf: null,
+      priceStatus: { sp95: 'available', diesel: 'unavailable' },
+    };
+    const dieselOnly = {
+      ...ENI_CASLANO_B,
+      id: 'diesel-only',
+      updatedAt: sameTs,
+      sp95PriceChf: null,
+      dieselPriceChf: 1.91,
+      priceStatus: { sp95: 'unavailable', diesel: 'available' },
+    };
+    const { unique } = dedupStations([sp95Only, dieselOnly], { logger: vi.fn() });
+
+    expect(unique).toHaveLength(1);
+    expect(unique[0]).toMatchObject({
+      sp95PriceChf: ENI_CASLANO_A.sp95PriceChf,
+      dieselPriceChf: 1.91,
+      priceStatus: { sp95: 'available', diesel: 'available' },
+    });
+  });
+
+  it('keeps a priced TCS row as the canonical record when it collides with price-less OSM inventory', () => {
+    const tcs = {
+      id: 'tcs-priced',
+      name: 'AVIA',
+      address: 'Via Roma 1, 6900 Lugano',
+      lat: 46.01,
+      lng: 8.95,
+      sp95PriceChf: 1.9,
+      dieselPriceChf: null,
+      updatedAt: null,
+      observedAt: '2026-10-29T12:00:00.000Z',
+      source: 'tcs-benzinpreis-cloud-function',
+    };
+    const osm = {
+      id: 'osm:node/1',
+      name: 'AVIA',
+      address: 'Via Roma 1, 6900 Lugano',
+      lat: 46.01,
+      lng: 8.95,
+      sp95PriceChf: null,
+      dieselPriceChf: null,
+      updatedAt: null,
+      observedAt: '2026-10-29T04:17:00.000Z',
+      source: 'openstreetmap-amenity-fuel',
+      inventorySource: 'openstreetmap-amenity-fuel',
+      inventoryId: 'osm:node/1',
+      canton: 'TI',
+    };
+    const { unique } = dedupStations([osm, tcs], { logger: vi.fn() });
+
+    expect(unique).toHaveLength(1);
+    expect(unique[0]).toMatchObject({
+      id: 'tcs-priced',
+      source: 'tcs-benzinpreis-cloud-function',
+      sp95PriceChf: 1.9,
+      inventorySource: 'openstreetmap-amenity-fuel',
+      inventoryId: 'osm:node/1',
+      canton: 'TI',
+    });
   });
 
   it('returns a stable id tiebreak when everything else matches', () => {
