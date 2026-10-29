@@ -273,7 +273,7 @@ describe('close-recovered history reads', () => {
     }));
   });
 
-  it('uses the stricter branch proof and rejects a still-red PR in the gate window', () => {
+  it('uses the scoped branch proof and rejects a still-red PR in the gate window', () => {
     const clean = assessBranchRecovery([
       run(12, '2026-10-06T19:30:00Z', 'success'),
       run(11, '2026-10-06T19:00:00Z', 'success'),
@@ -326,22 +326,20 @@ describe('close-recovered history reads', () => {
     expect(realReporterShape).toEqual({ branch: 'feat/canton-hubs-producer', event: 'push' });
   });
 
-  it('declares the strict branch proof and the green run ids in the close comment', () => {
+  it('declares the scoped branch proof and the green run ids in the close comment', () => {
     const note = branchRecoveryNote({
       workflow: 'Orphan push warn',
       repo: 'nanakokyobashi-rgb/frontaliere-articles',
       evidence: {
         scope: { branch: 'feat/canton-hubs-producer', event: 'push' },
-        greenStreak: 3,
+        greenStreak: 1,
         windowHours: 8,
         history: [
           run(37382984159, '2026-10-06T19:00:00Z', 'success'),
-          run(37374204436, '2026-10-06T18:00:00Z', 'success'),
-          run(37373257362, '2026-10-06T17:00:00Z', 'success'),
         ],
       },
     });
-    expect(note).toContain('3 verdi consecutive');
+    expect(note).toContain('run verde nel perimetro corretto');
     expect(note).toContain('#37382984159');
     expect(note).toContain('feat/canton-hubs-producer');
   });

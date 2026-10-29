@@ -22,7 +22,12 @@ import { fileURLToPath } from 'node:url';
 
 import { PHARMACY_TIME_ZONE } from '../services/pharmacies/time.mjs';
 import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
-import { httpFetchWithRetry, isRetryBudgetExhausted, transportErrorKind } from './lib/transient-fetch.mjs';
+import {
+  httpFetchWithRetry,
+  isConnectionLevelFetchError,
+  isRetryBudgetExhausted,
+  transportErrorKind,
+} from './lib/transient-fetch.mjs';
 import {
   BORDER_MINIMUMS,
   CATALOGUE_SNAPSHOT_PATH,
@@ -42,6 +47,7 @@ import {
   buildOsmQuery,
   buildTicinoCompleteRecords,
   discoverTicinoPharmacyPdfUrls,
+  isTicinoPharmacyPdfUrl,
   normalizePharmacyRecordsForFallback,
   parseTicinoPdfText,
   rebuildUrlAliasesAfterSlugChange,
@@ -326,30 +332,76 @@ async function fetchBuffer(url) {
  * transport budget is exhausted. Persistent HTTP errors still fail closed.
  */
 export async function fetchTicinoPdfDocument(fetchSource = fetchBuffer, fetchDirectory = fetchText) {
+  const failures = [];
   let lastError;
   for (const [index, sourceUrl] of TICINO_PHARMACY_PDF_URLS.entries()) {
     try {
       return { buffer: await fetchSource(sourceUrl), sourceUrl };
     } catch (error) {
       lastError = error;
-      const status = Number(error?.status ?? error?.response?.status);
-      const isLegacyPdfMissing = status === 404;
-      if (!isRetryBudgetExhausted(error) && !isLegacyPdfMissing) throw error;
+      const isLegacyPdfMissing = Number(error?.status ?? error?.response?.status) === 404;
+      const canTryAnotherOfficialSource = isLegacyPdfMissing
+        || isRetryBudgetExhausted(error)
+        || isConnectionLevelFetchError(error);
+      failures.push({ sourceUrl, error, canTryAnotherOfficialSource });
+      if (!canTryAnotherOfficialSource) throw error;
       if (index === TICINO_PHARMACY_PDF_URLS.length - 1) break;
-      const reason = isLegacyPdfMissing ? 'is no longer published' : 'exhausted its transient retry budget';
+      const reason = isLegacyPdfMissing
+        ? 'is no longer published'
+        : 'failed at the transport layer after its bounded retry policy';
       console.warn(`[import-pharmacies-border] ${sourceUrl} ${reason}; trying the official Ticino mirror`);
     }
   }
 
-  const directoryHtml = await fetchDirectory(TICINO_PHARMACY_DIRECTORY_URL, { accept: 'text/html' });
+  let directoryHtml;
+  try {
+    directoryHtml = await fetchDirectory(TICINO_PHARMACY_DIRECTORY_URL, { accept: 'text/html' });
+  } catch (error) {
+    lastError = error;
+    const canPreserveAfterFailure = isRetryBudgetExhausted(error) || isConnectionLevelFetchError(error);
+    failures.push({
+      sourceUrl: TICINO_PHARMACY_DIRECTORY_URL,
+      error,
+      canTryAnotherOfficialSource: canPreserveAfterFailure,
+    });
+    if (!canPreserveAfterFailure) throw error;
+    throw aggregateTicinoSourceFailure(failures);
+  }
   const discoveredUrls = discoverTicinoPharmacyPdfUrls(directoryHtml, TICINO_PHARMACY_DIRECTORY_URL);
   const sourceUrl = discoveredUrls.at(-1);
   try {
     return { buffer: await fetchSource(sourceUrl), sourceUrl };
   } catch (error) {
     lastError = error;
+    const isLegacyPdfMissing = Number(error?.status ?? error?.response?.status) === 404;
+    const canPreserveAfterFailure = isLegacyPdfMissing
+      || isRetryBudgetExhausted(error)
+      || isConnectionLevelFetchError(error);
+    failures.push({ sourceUrl, error, canTryAnotherOfficialSource: canPreserveAfterFailure });
+    if (!canPreserveAfterFailure) throw error;
   }
-  throw lastError;
+  throw aggregateTicinoSourceFailure(failures, lastError);
+}
+
+function aggregateTicinoSourceFailure(failures, lastError = failures.at(-1)?.error) {
+  const summary = failures
+    .map(({ sourceUrl, error }) => `${sourceUrl}: ${transportErrorKind(error)}`)
+    .join('; ');
+  const aggregate = new Error(`All official Ticino pharmacy sources failed: ${summary}`, { cause: lastError });
+  aggregate.sourceFailures = failures.map(({ sourceUrl, error, canTryAnotherOfficialSource }) => ({
+    sourceUrl,
+    kind: transportErrorKind(error),
+    message: error instanceof Error ? error.message : String(error),
+    canTryAnotherSource: canTryAnotherOfficialSource,
+  }));
+  // The caller may safely preserve the previous snapshot only when every
+  // failure was a bounded transport/missing-document outcome. A 403/401 or a
+  // parse/validation error must remain a hard failure instead of becoming a
+  // misleading stale-data success.
+  if (failures.length > 0 && failures.every(({ canTryAnotherOfficialSource }) => canTryAnotherOfficialSource)) {
+    aggregate.retryBudgetExhausted = true;
+  }
+  return aggregate;
 }
 
 export async function fetchTicinoPdfBuffer(fetchSource = fetchBuffer, fetchDirectory = fetchText) {
@@ -418,7 +470,7 @@ async function readTicinoPdfText() {
     const message = error instanceof Error ? error.message : String(error);
     const sourceError = `Ticino pharmacy catalogue refresh was not published after transient source failure: ${message}`;
     console.warn(`[import-pharmacies-border] ${sourceError}; preserving the previous snapshot`);
-    return { text: '', source: TICINO_PHARMACY_PDF_URL, sourceError };
+    return { text: '', source: null, sourceError };
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
@@ -582,7 +634,8 @@ export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmE
   }
 
   return {
-    _source: TICINO_PHARMACY_PDF_URL,
+    _source: preserved ? (previous?._source || sourceUrl) : sourceUrl,
+    _sourceCanonical: TICINO_PHARMACY_PDF_URL,
     _sourceRegions: previous?._sourceRegions || [],
     _sourcePublishedAt: previous?._sourcePublishedAt || '2026-01-15',
     _fetchedAt: publishedFetchedAt,
@@ -658,9 +711,9 @@ async function main() {
       osmElements: osm.elements,
       requiredIds: dutyPharmacyIds,
       sourceError: ticinoInput.sourceError,
-      sourceUrl: /^https:\/\/(?:www4|m4)\.ti\.ch\/fileadmin\//i.test(ticinoInput.source || '')
+      sourceUrl: isTicinoPharmacyPdfUrl(ticinoInput.source || '')
         ? ticinoInput.source
-        : TICINO_PHARMACY_PDF_URL,
+        : (previous?._source || TICINO_PHARMACY_PDF_URL),
     });
   }
   const ticinoPharmacies = ticinoOutput.pharmacies;

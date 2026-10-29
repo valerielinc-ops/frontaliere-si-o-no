@@ -288,29 +288,29 @@ describe('the decision is actually WIRED into the close path', () => {
   const mainBody = SRC.slice(SRC.indexOf('function main()'));
   // LC-20: the decision moved out of main() into the exported, pure
   // decideFailureIssueClose(). The wiring is now two hops — main() → the decision →
-  // decideStructuralHold — and each hop is pinned here, so the chain cannot be cut in
-  // the middle without a red test.
+  // decideStructuralHold — but a structural observation is no longer a second close
+  // gate: one successful run closes the issue.
   const decisionBody = SRC.slice(
     SRC.indexOf('export function decideFailureIssueClose('),
     SRC.indexOf('export function verdictRecord('),
   );
-  const HOLD_BRANCH = "if (verdict.action === 'structural-hold')";
-
-  it('main() consults the decision, and the decision decideStructuralHold, before resolveGithubIssue', () => {
+  it('main() consults the decision, and the decision records structural context, before resolveGithubIssue', () => {
     const decide = mainBody.indexOf('decideFailureIssueClose(');
     const resolve = mainBody.indexOf('resolveGithubIssue(');
     expect(decide).toBeGreaterThan(-1);
     expect(resolve).toBeGreaterThan(-1);
     expect(decide).toBeLessThan(resolve);
     expect(decisionBody).toContain('decideStructuralHold(comments,');
-    expect(decisionBody).toMatch(/if \(structural\.hold\) \{\s*return \{\s*action: 'structural-hold'/);
+    expect(decisionBody).toContain('action: \'close\'');
+    expect(decisionBody).toContain('one successful run');
+    expect(decisionBody).not.toContain("action: 'structural-hold'");
   });
 
-  it('a hold short-circuits the close instead of falling through to it', () => {
-    const at = mainBody.indexOf(HOLD_BRANCH);
-    expect(at).toBeGreaterThan(-1);
-    expect(at).toBeLessThan(mainBody.indexOf('resolveGithubIssue('));
-    expect(mainBody.slice(at, at + 900)).toMatch(/continue;/);
+  it('the close path does not contain a chronic, recurrence, or structural hold branch', () => {
+    expect(mainBody).not.toContain("verdict.action === 'chronic-hold'");
+    expect(mainBody).not.toContain("verdict.action === 'chronic-escalate'");
+    expect(mainBody).not.toContain("verdict.action === 'recurrence-hold'");
+    expect(mainBody).not.toContain("verdict.action === 'structural-hold'");
   });
 
   it('a failed comment fetch stays null — it must not degrade to an empty list', () => {
@@ -327,18 +327,6 @@ describe('the decision is actually WIRED into the close path', () => {
     // non e' esportata, quindi si asserisce sul sorgente.
     const fetchFn = SRC.slice(SRC.indexOf('function fetchIssueComments'));
     expect(fetchFn.slice(0, 600)).toMatch(/if \(out === null\) return null;/);
-  });
-
-  it('the hold branch does not ALSO close — the continue must be the only exit', () => {
-    // F2, secondo falso verde: aggiungendo `resolveGithubIssue(...)` PRIMA del
-    // `continue;` dentro il ramo hold, la suite passava 33/33, il log diceva
-    // `closed=0 held=1` e l'issue veniva chiusa lo stesso. Le asserzioni per
-    // indice e la regex `if (decision.hold)[\s\S]{0,900}continue;` reggevano
-    // entrambe: prendevano «manca il continue», non «chiude comunque».
-    const at = mainBody.indexOf(HOLD_BRANCH);
-    expect(at).toBeGreaterThan(-1);
-    const branch = mainBody.slice(at, mainBody.indexOf('continue;', at));
-    expect(branch).not.toContain('resolveGithubIssue(');
   });
 
   it('comments are fetched lazily, for branch evidence or the recovered decision', () => {
