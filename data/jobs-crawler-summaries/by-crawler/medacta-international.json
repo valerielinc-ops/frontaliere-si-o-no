@@ -1,16 +1,16 @@
 {
   "key": "medacta-international",
   "label": "Medacta",
-  "generatedAt": "2026-10-28T22:02:56.939Z",
+  "generatedAt": "2026-10-29T09:30:40.279Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 40565,
-  "avgDurationMs": 40565,
+  "unchangedCount": 3,
+  "durationMs": 45145,
+  "avgDurationMs": 45145,
   "durationHistory": [
-    40565
+    45145
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-28T22:02:27.916Z",
+      "crawledAt": "2026-10-29T09:30:10.163Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro/Rancate",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-28T22:02:25.024Z",
+      "crawledAt": "2026-10-29T09:30:06.979Z",
       "sourceLang": "it",
       "addressLocality": "Rancate",
       "addressCountry": "CH",
@@ -99,10 +99,50 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
+    {
+      "id": "medacta-96190",
+      "slug": "tornitore-medacta-international-sa-castel-san-pietro",
+      "company": "Medacta International SA",
+      "companyKey": "medacta-international",
+      "title": "Tornitore",
+      "location": "Castel San Pietro",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "department": "Production",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "isUrgent": true,
+      "postedDate": "",
+      "url": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=96190&LN=IT&FT=455&SG=2",
+      "source": "Allibo ATS detail page",
+      "companyDomain": "medacta.com",
+      "sector": "Dispositivi medici",
+      "crawledAt": "2026-10-29T09:30:02.337Z",
+      "sourceLang": "it",
+      "addressLocality": "Castel San Pietro",
+      "addressCountry": "CH",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Strada Regina",
+      "postalCode": "6874",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-07-06T15:24:02.682Z",
+      "salarySource": "estimated",
+      "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=96190&LN=IT&FT=455&SG=2",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
     {
       "id": "medacta-108271",
       "slug": "industrial-costing-technician-medacta-international-sa-castel-san-pietro-wv9jtz",
@@ -144,7 +184,10 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medacta-106347",
       "slug": "accounting-specialista-medacta-operations-medacta-international-sa-castel-san-pietro-p00x24",
@@ -167,7 +210,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-28T22:02:23.588Z",
+      "crawledAt": "2026-10-29T09:30:05.243Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -180,49 +223,6 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=106347&LN=IT&FT=457&SG=2",
       "firstSeenAt": "2026-09-04T13:33:38.057Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "medacta-96190",
-      "slug": "tornitore-medacta-international-sa-castel-san-pietro",
-      "company": "Medacta International SA",
-      "companyKey": "medacta-international",
-      "title": "Tornitore",
-      "location": "Castel San Pietro",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "department": "Production",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "isUrgent": true,
-      "postedDate": "",
-      "url": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=96190&LN=IT&FT=455&SG=2",
-      "source": "Allibo ATS detail page",
-      "companyDomain": "medacta.com",
-      "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-28T22:02:21.725Z",
-      "sourceLang": "it",
-      "addressLocality": "Castel San Pietro",
-      "addressCountry": "CH",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Strada Regina",
-      "postalCode": "6874",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-07-06T15:24:02.682Z",
-      "salarySource": "estimated",
-      "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=96190&LN=IT&FT=455&SG=2",
-      "datePosted": "",
-      "postingDateSource": "unknown",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -251,7 +251,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-28T22:02:20.708Z",
+      "crawledAt": "2026-10-29T09:30:01.039Z",
       "sourceLang": "en",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-10-28T22:02:20.500Z",
+      "crawledAt": "2026-10-29T09:30:00.798Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -318,5 +318,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
