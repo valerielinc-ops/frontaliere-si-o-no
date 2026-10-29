@@ -173,6 +173,27 @@ describe('fixed bottom chrome follows the anchor ad with translate, not bottom',
   });
 });
 
+describe('border-wait top Auto Ad keeps the header geometry reserved', () => {
+  const css = read('index.css');
+
+  it('transfers the route-scoped reserve to the inserted ad sibling', () => {
+    expect(css).toContain('--border-wait-top-ad-reserve: 250px;');
+    expect(css).toContain(
+      'main.seo-static-content:has([data-bw-crossing]) > article > nav[aria-label="Breadcrumb"]',
+    );
+    expect(css).toContain(
+      'main.seo-static-content:has([data-bw-crossing]) > article:has(> .google-auto-placed + header) > nav[aria-label="Breadcrumb"]',
+    );
+    expect(css).toContain(
+      'main.seo-static-content:has([data-bw-crossing]) > article > .google-auto-placed:has(+ header)',
+    );
+
+    const routeReserve = css.slice(css.indexOf('--border-wait-top-ad-reserve'));
+    expect(routeReserve).toMatch(/margin-block-end:\s*var\(--border-wait-top-ad-reserve\)/u);
+    expect(routeReserve).toMatch(/min-height:\s*var\(--border-wait-top-ad-reserve\)/u);
+  });
+});
+
 describe('SkeletonFallback on a job-detail URL', () => {
   const w = window as unknown as { __JOB_SEED__?: unknown };
 
