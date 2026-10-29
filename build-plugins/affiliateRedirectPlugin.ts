@@ -30,6 +30,7 @@ import {
  ANALYTICS_EMISSION_ID_FACTORY_JS,
  GA4_BOT_GATE_FN,
  GTAG_LOADER_SNIPPET,
+ TELEMETRY_SANITIZER_JS,
  PARTNERIZE_TAG_SNIPPET,
  POSTHOG_SNIPPET,
  SEO_STATIC_CSS_LINK,
@@ -132,7 +133,7 @@ if((${GA4_BOT_GATE_FN})()){go();return;}
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
-gtag('config',${JSON.stringify(GA4_MEASUREMENT_ID)},{transport_type:'beacon',send_page_view:false});
+gtag('config',${JSON.stringify(GA4_MEASUREMENT_ID)},Object.assign({transport_type:'beacon',send_page_view:false},(${TELEMETRY_SANITIZER_JS})({page_location:location.href,page_referrer:document.referrer})));
 var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();
 gtag('event','page_view',{emission_id:emissionId,event_callback:go,event_timeout:${REDIRECT_TRACKING_TIMEOUT_MS}});
 setTimeout(go,${REDIRECT_TRACKING_TIMEOUT_MS});

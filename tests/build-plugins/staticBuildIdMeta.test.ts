@@ -28,6 +28,11 @@ async function loadTemplate(flag: string | undefined) {
 }
 
 describe('STATIC_BUILD_ID_META', () => {
+  it('loads canonical telemetry source when the global URL belongs to the DOM', async () => {
+    vi.stubGlobal('URL', window.URL);
+    const { constants } = await loadTemplate(undefined);
+    expect(constants.TELEMETRY_SANITIZER_JS).toContain('function sanitizeTelemetryProperties');
+  });
   it('keeps the per-build marker on static pages when unset', async () => {
     const { constants, headPrefix } = await loadTemplate(undefined);
     expect(constants.STATIC_PAGE_BUILD_ID).toBe(constants.BUILD_ID);
