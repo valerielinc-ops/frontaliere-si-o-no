@@ -74,6 +74,7 @@ const CASES: VisualCase[] = [
     url: '/',
     readySelector: '[data-testid="results-advantage-banner"]',
     requiredMaskSelectors: [
+      // The dialect phrase is conditional; it remains an optional global mask.
       '[data-testid="news-ticker"]',
     ],
   },
