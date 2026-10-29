@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-10-29T09:31:03.540Z",
+  "generatedAt": "2026-10-29T21:19:51.631Z",
   "total": 15,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 20875,
-  "avgDurationMs": 20875,
+  "durationMs": 20155,
+  "avgDurationMs": 20155,
   "durationHistory": [
-    20875
+    20155
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -605,5 +604,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

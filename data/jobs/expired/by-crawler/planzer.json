@@ -1361,13 +1361,13 @@
     "slugByLocale": {
       "it": "consegna-del-parco-m-f-d-planzer-seewen",
       "en": "parcel-delivery-m-f-d-planzer-seewen",
-      "de": "paketzusteller-m-w-d-planzer-seewen",
+      "de": "paketzusteller-m-w-d-planzer-seewen-cafe0356",
       "fr": "livraison-de-colis-h-f-d-planzer-seewen"
     },
     "sector": "Trasporti / Logistica",
     "expiredAt": "2026-10-23T21:18:50.693Z",
     "previousSlugs": [
-      "paketzusteller-m-w-d-planzer-seewen",
+      "paketzusteller-m-w-d-planzer-seewen-cafe0356",
       "consegna-del-pacchetto-m-f-d-planzer-seewen",
       "paketzusteller-m-w-d-planzer-seewen-2eb97d04",
       "paketzusteller-m-w-d-planzer-seewen-9d10a199",
@@ -1412,7 +1412,8 @@
       "livraison-de-colis-h-f-d-planzer-seewen-ff3bd3d5",
       "livraison-de-colis-h-f-d-planzer-seewen-d2683934",
       "livraison-de-colis-h-f-d-planzer-seewen-4ec513a9",
-      "livraison-de-colis-h-f-d-planzer-seewen-ac175f8b"
+      "livraison-de-colis-h-f-d-planzer-seewen-ac175f8b",
+      "paketzusteller-m-w-d-planzer-seewen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1425,8 +1426,9 @@
         "paketzusteller-m-w-d-planzer-seewen-def5b61b",
         "paketzusteller-m-w-d-planzer-seewen-cbf4dc8a",
         "paketzusteller-m-w-d-planzer-seewen-d5d21fc5",
-        "paketzusteller-m-w-d-planzer-seewen",
-        "consegna-del-pacchetto-m-f-d-planzer-seewen"
+        "paketzusteller-m-w-d-planzer-seewen-cafe0356",
+        "consegna-del-pacchetto-m-f-d-planzer-seewen",
+        "paketzusteller-m-w-d-planzer-seewen"
       ],
       "en": [
         "paketzusteller-m-w-d-planzer-seewen-bc67ee0f",
@@ -1438,6 +1440,7 @@
         "paketzusteller-m-w-d-planzer-seewen-def5b61b",
         "paketzusteller-m-w-d-planzer-seewen-cbf4dc8a",
         "paketzusteller-m-w-d-planzer-seewen-d5d21fc5",
+        "paketzusteller-m-w-d-planzer-seewen-cafe0356",
         "paketzusteller-m-w-d-planzer-seewen"
       ],
       "fr": [
@@ -1460,6 +1463,7 @@
         "livraison-de-colis-h-f-d-planzer-seewen-4ec513a9",
         "paketzusteller-m-w-d-planzer-seewen-d5d21fc5",
         "livraison-de-colis-h-f-d-planzer-seewen-ac175f8b",
+        "paketzusteller-m-w-d-planzer-seewen-cafe0356",
         "paketzusteller-m-w-d-planzer-seewen"
       ]
     },
@@ -2238,6 +2242,14 @@
       "tri-de-l-employe-h-f-d-planzer-villmergen-0404d2e2",
       "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-f51bcf45",
       "mitarbeiter-sortierung-m-w-d-planzer-villmergen-aeb27e7d",
+      "employee-picking-m-f-d-planzer-villmergen-c311ecda",
+      "selection-des-employes-h-f-d-planzer-villmergen-3f4ffe28",
+      "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen-01bec1f1",
+      "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-67c3191a",
+      "employee-sorting-m-f-d-planzer-villmergen-6d0ad83c",
+      "tri-de-l-employe-h-f-d-planzer-villmergen-b4d929a9",
+      "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-c60f2f72",
+      "mitarbeiter-sortierung-m-w-d-planzer-villmergen-6a66dcea",
       "employee-picking-m-f-d-planzer-villmergen",
       "selection-des-employes-h-f-d-planzer-villmergen",
       "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
@@ -2454,6 +2466,12 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-531af6d0",
         "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-f51bcf45",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-aeb27e7d",
+        "employee-picking-m-f-d-planzer-villmergen-c311ecda",
+        "selection-des-employes-h-f-d-planzer-villmergen-3f4ffe28",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen-01bec1f1",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-67c3191a",
+        "collaboratore-trice-sortierung-m-w-d-planzer-villmergen-c60f2f72",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-6a66dcea",
         "employee-picking-m-f-d-planzer-villmergen",
         "selection-des-employes-h-f-d-planzer-villmergen",
         "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
@@ -2574,6 +2592,9 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-531af6d0",
         "employee-sorting-m-f-d-planzer-villmergen-d3b1c550",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-aeb27e7d",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-67c3191a",
+        "employee-sorting-m-f-d-planzer-villmergen-6d0ad83c",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-6a66dcea",
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
         "employee-sorting-m-f-d-planzer-villmergen",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
@@ -2721,6 +2742,10 @@
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-531af6d0",
         "tri-de-l-employe-h-f-d-planzer-villmergen-0404d2e2",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-aeb27e7d",
+        "selection-des-employes-h-f-d-planzer-villmergen-3f4ffe28",
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen-67c3191a",
+        "tri-de-l-employe-h-f-d-planzer-villmergen-b4d929a9",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-6a66dcea",
         "selection-des-employes-h-f-d-planzer-villmergen",
         "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
         "tri-de-l-employe-h-f-d-planzer-villmergen",
@@ -2768,6 +2793,7 @@
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-62ad430f",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-a463122e",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen-aeb27e7d",
+        "mitarbeiter-sortierung-m-w-d-planzer-villmergen-6a66dcea",
         "mitarbeiter-sortierung-m-w-d-planzer-villmergen"
       ]
     },
@@ -3687,6 +3713,9 @@
       "chauffeur-cat-ce-m-f-d-z-planzer-zurich-9e68d38b",
       "chauffeur-cat-ce-h-f-d-z-planzer-zurich-77066950",
       "chauffeur-kat-ce-m-w-d-planzer-zurich-2c08a702",
+      "chauffeur-cat-ce-m-f-d-z-planzer-zurich-27d9d0e3",
+      "chauffeur-cat-ce-h-f-d-z-planzer-zurich-8291eb48",
+      "chauffeur-kat-ce-m-w-d-planzer-zurich-557b3606",
       "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
       "chauffeur-cat-ce-h-f-d-z-planzer-zurich",
       "chauffeur-kat-ce-m-w-d-planzer-zurich"
@@ -3716,6 +3745,9 @@
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich-9e68d38b",
         "chauffeur-cat-ce-h-f-d-z-planzer-zurich-77066950",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-2c08a702",
+        "chauffeur-cat-ce-m-f-d-z-planzer-zurich-27d9d0e3",
+        "chauffeur-cat-ce-h-f-d-z-planzer-zurich-8291eb48",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-557b3606",
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
         "chauffeur-cat-ce-h-f-d-z-planzer-zurich",
         "chauffeur-kat-ce-m-w-d-planzer-zurich"
@@ -3735,6 +3767,8 @@
         "chauffeur-kat-ce-m-w-d-planzer-zurich-5b3793a7",
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich-9e68d38b",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-2c08a702",
+        "chauffeur-cat-ce-m-f-d-z-planzer-zurich-27d9d0e3",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-557b3606",
         "chauffeur-cat-ce-m-f-d-z-planzer-zurich",
         "chauffeur-kat-ce-m-w-d-planzer-zurich"
       ],
@@ -3757,6 +3791,8 @@
         "chauffeur-kat-ce-m-w-d-planzer-zurich-5b3793a7",
         "chauffeur-cat-ce-h-f-d-z-planzer-zurich-77066950",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-2c08a702",
+        "chauffeur-cat-ce-h-f-d-z-planzer-zurich-8291eb48",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-557b3606",
         "chauffeur-cat-ce-h-f-d-z-planzer-zurich",
         "chauffeur-kat-ce-m-w-d-planzer-zurich"
       ],
@@ -3770,6 +3806,7 @@
         "chauffeur-kat-ce-m-w-d-planzer-zurich-816a429b",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-5b3793a7",
         "chauffeur-kat-ce-m-w-d-planzer-zurich-2c08a702",
+        "chauffeur-kat-ce-m-w-d-planzer-zurich-557b3606",
         "chauffeur-kat-ce-m-w-d-planzer-zurich"
       ]
     },
@@ -5317,6 +5354,8 @@
       "logisticien-efz-h-f-d-planzer-seewen-2c8d710c",
       "logistician-efz-m-f-d-planzer-seewen-4a1bccae",
       "logisticien-efz-h-f-d-planzer-seewen-5f5e0cdc",
+      "logistician-efz-m-f-d-planzer-seewen-56b45b54",
+      "logisticien-efz-h-f-d-planzer-seewen-a4b659a9",
       "logistician-efz-m-f-d-planzer-seewen",
       "logisticien-efz-h-f-d-planzer-seewen"
     ],
@@ -5349,6 +5388,7 @@
         "logistician-efz-m-f-d-planzer-seewen-e14d28d2",
         "logistician-efz-m-f-d-planzer-seewen-2d650447",
         "logistician-efz-m-f-d-planzer-seewen-4a1bccae",
+        "logistician-efz-m-f-d-planzer-seewen-56b45b54",
         "logistician-efz-m-f-d-planzer-seewen"
       ],
       "fr": [
@@ -5375,6 +5415,7 @@
         "logisticien-efz-h-f-d-planzer-seewen-984660d5",
         "logisticien-efz-h-f-d-planzer-seewen-2c8d710c",
         "logisticien-efz-h-f-d-planzer-seewen-5f5e0cdc",
+        "logisticien-efz-h-f-d-planzer-seewen-a4b659a9",
         "logisticien-efz-h-f-d-planzer-seewen"
       ]
     },
