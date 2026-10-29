@@ -1,6 +1,6 @@
 import { EventEmitter } from 'node:events';
 import { describe, expect, it, vi } from 'vitest';
-import { diagnosticLocation, diagnosticText, isChallengeRequest, responseErrors, startPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
+import { diagnosticLocation, diagnosticText, isChallengeRequest, portalHandoffReason, responseErrors, startPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
 
 function fixture() {
   const page = Object.assign(new EventEmitter(), {
@@ -134,5 +134,26 @@ describe('encrypted portal diagnostics', () => {
     await diagnostics.finish();
     expect(large.body).not.toHaveBeenCalled();
     expect(diagnostics.data.responses[0].bodySkipped).toBe('size_not_bounded');
+  });
+});
+
+
+describe('transient CAPTCHA provider failures', () => {
+  const responses = [{ host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 520 }];
+  it.each(['captcha', 'portal_needs_candidate'])('classifies %s as a technical outage only before the final click', reason => {
+    expect(portalHandoffReason(reason, { diagnostics: { responses } })).toBe('captcha_provider_unavailable');
+    expect(portalHandoffReason(reason, { diagnostics: { responses }, finalClickAttempted: true })).toBe(reason);
+  });
+  it.each([
+    { host: 'api.nopecha.com.evil.test', path: '/v1/recognition/turnstile', status: 520 },
+    { host: 'jobs.example.test', path: '/v1/recognition/turnstile', status: 520 },
+    { host: 'api.nopecha.com', path: '/unrelated', status: 520 },
+    { host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 200 },
+    { host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 401 },
+  ])('does not infer a provider outage from unrelated or non-transient responses: %j', entry => {
+    expect(portalHandoffReason('captcha', { diagnostics: { responses: [entry] } })).toBe('captcha');
+  });
+  it('never converts a candidate-only action into a technical retry', () => {
+    expect(portalHandoffReason('whatsapp', { diagnostics: { responses } })).toBe('whatsapp');
   });
 });

@@ -28,6 +28,20 @@ export function isChallengeRequest(url) {
     || (/(^|\.)(google\.com|recaptcha\.net)$/.test(location.host) && /^\/recaptcha\/(api2|enterprise)\/payload(\/|$)/.test(location.path));
 }
 
+/** A provider outage before the final click is technical, not an unanswered candidate question. */
+export function portalHandoffReason(reason, { diagnostics, finalClickAttempted = false } = {}) {
+  if (finalClickAttempted || !['captcha', 'portal_needs_candidate'].includes(reason)) return reason;
+  const unavailable = (Array.isArray(diagnostics?.responses) ? diagnostics.responses : []).some(entry => {
+    const host = String(entry?.host || '').toLowerCase();
+    const path = String(entry?.path || '');
+    const status = Number(entry?.status);
+    return /^api\.nopecha\.com(?::443)?$/.test(host)
+      && /^\/v1\/(?:recognition|token)\/(?:turnstile|recaptcha|hcaptcha)(?:\/|$)/.test(path)
+      && (status === 429 || (status >= 500 && status < 600));
+  });
+  return unavailable ? 'captcha_provider_unavailable' : reason;
+}
+
 /** Read validity without checkValidity/reportValidity, which would change the page. */
 export async function validationDiagnostics(page) {
   const frames = typeof page.frames === 'function' ? page.frames() : [page];

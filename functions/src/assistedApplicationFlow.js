@@ -47,7 +47,8 @@ export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
 // The portal-stop issue fixer usually lands within hours. Retry only this
 // unsupported-page stop after time for a fix; CAPTCHA/account/answer stops are
-// not recoverable by blindly running the same portal flow again.
+// not recoverable by blindly running the same portal flow again. A measured
+// 429/5xx from the solver before the final click can recover after backoff.
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const MAX_REVIEW_ROUNDS = 3;
 // A draft or submit run that failed on a transient error is dispatched again
@@ -71,6 +72,7 @@ function transientRetry(flow, event, mode) {
 
 /** The owner's e-mail says which step stopped and after how many runs. */
 function takeoverEmail(flow, event, stage) {
+  if (reason === 'captcha_provider_unavailable' && next.portalAutoRetryAt) return null;
   return {
     type: 'email',
     kind: 'owner_takeover',
@@ -396,9 +398,10 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   const reason = String(event.reason || 'portal_needs_candidate');
   const attempts = Number(current.portalAutoRetryCount) || 0;
   next.portalAutoRetryCount = attempts;
-  next.portalAutoRetryAt = reason === 'portal_needs_candidate' && PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+  next.portalAutoRetryAt = ['portal_needs_candidate', 'captcha_provider_unavailable'].includes(reason) && PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
     ? nowMs + PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
     : null;
+  if (reason === 'captcha_provider_unavailable' && next.portalAutoRetryAt) return null;
   return {
     type: 'email',
     kind: 'owner_takeover',
@@ -567,9 +570,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'submit_handoff':
       // CAPTCHA, account verification and candidate-only steps stay with
       // Valerie. A generic unsupported page gets two delayed retries so the
-      // portal-stop fixer can teach the runner before the order stays held.
+      // portal-stop fixer can teach the runner before the order stays held. A
+      // measured solver outage waits and retries without asking for personal data.
       if (state !== 'submitting') return ignore('not_submitting');
-      effects = [portalTakeover(next, current, event, nowMs)];
+      effects = [portalTakeover(next, current, event, nowMs)].filter(Boolean);
       break;
     case 'owner_retry_submit':
       // The approved application is sent again by the robot (after a runner
@@ -585,7 +589,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'portal_auto_retry': {
       if (state !== 'owner_takeover') return ignore('not_taken_over');
-      if (!(current.heldBy || []).includes('portal:portal_needs_candidate')) return ignore('not_auto_retryable');
+      if (!(current.heldBy || []).some(reason => ['portal:portal_needs_candidate', 'portal:captcha_provider_unavailable'].includes(reason))) return ignore('not_auto_retryable');
       if (!Number(current.portalAutoRetryAt) || Number(current.portalAutoRetryAt) > nowMs) return ignore('portal_retry_not_due');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
