@@ -21,7 +21,7 @@ const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-ind
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
 const MIN_MATCH_SCORE = 28;
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v4';
+export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v5';
 const LOCATION_MATCH_POINTS = Object.freeze({
   sameLocality: 8,
   sameThreeDigitPostcode: 6,
@@ -43,12 +43,16 @@ const STOP_WORDS = new Set([
 ]);
 const SHORT_TECH_TOKENS = new Set(['it', 'ict', 'cio', 'sap', 'aws', 'gcp', 'erp', 'crm', 'sql', 'api', 'qa', 'hr', 'ai', 'ml']);
 const ROLE_SIGNAL_POINTS = Object.freeze({
+  commercial_sales: 22,
+  recruiting: 22,
   technology_management: 28,
   enterprise_applications: 16,
   application_management: 28,
   technology_strategy: 14,
 });
 const ROLE_SIGNAL_LABELS = Object.freeze({
+  commercial_sales: 'vendite e sviluppo commerciale',
+  recruiting: 'selezione del personale',
   technology_management: 'gestione IT',
   enterprise_applications: 'applicazioni aziendali',
   application_management: 'gestione applicazioni',
@@ -109,13 +113,16 @@ function stripEmployerSuffix(value) {
 
 function profileEvidence(profile) {
   const skillTokens = new Set((profile?.skills || []).flatMap((value) => [...tokenize(value)]));
-  const titleText = [profile?.workPosition, profile?.headline].map(stripEmployerSuffix).filter(Boolean);
+  const currentTitleText = [profile?.workPosition, profile?.headline].map(stripEmployerSuffix).filter(Boolean);
+  const previousPositionText = (profile?.previousPositions || []).map(stripEmployerSuffix).filter(Boolean);
+  const titleText = [...currentTitleText, ...previousPositionText];
   const titleTokens = new Set(titleText.flatMap((value) => [...tokenize(value)]));
-  const experienceTokens = new Set((profile?.experienceSummary || [])
+  const experienceTokens = new Set([...(profile?.experienceSummary || []), ...previousPositionText]
     .flatMap((value) => [...tokenize(stripEmployerSuffix(value))]));
   const allTokens = new Set([...skillTokens, ...titleTokens, ...experienceTokens]);
   const profileText = normalize([
-    ...titleText,
+    ...currentTitleText,
+    ...previousPositionText,
     ...(profile?.skills || []),
     ...(profile?.experienceSummary || []).map(stripEmployerSuffix),
   ].join(' '));
@@ -170,6 +177,8 @@ function roleSignals(value) {
   const hasApplications = /\b(?:application|applications|applicativo|applicativi|applicative|business systems|enterprise systems)\b/.test(text);
   const hasStrategy = /\b(?:strategy|strategic|operating model|governance|portfolio)\b/.test(text);
   const signals = new Set();
+  if (/\b(?:sales|commerciale|commerciali|venditore|venditrice|consulente vendita|addett[oa] vendite|account executive|business development|vertrieb)\b/.test(text)) signals.add('commercial_sales');
+  if (/\b(?:hr|human resources|risorse umane|recruiter|recruiting|consulente del personale|personalberater)\b/.test(text)) signals.add('recruiting');
   if (hasTechnology && hasManagement) signals.add('technology_management');
   if (hasTechnology && hasApplications) signals.add('enterprise_applications');
   if (hasApplications && hasManagement) signals.add('application_management');

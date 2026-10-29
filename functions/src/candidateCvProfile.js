@@ -22,12 +22,14 @@ const MAX_SKILLS = 40;
 const MAX_EXPERIENCE_LINES = 12;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const SKILL_HEADING_RE = /^(?:skills?|core skills?|key skills?|technical skills?|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze(?: tecniche| chiave| professionali)?|compétences?(?: techniques| clés| cles| informatiques)?|competences(?: techniques| cles| informatiques)?|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen)\s*:?$/i;
-const EXPERIENCE_HEADING_RE = /^(?:esperienza(?: professionale)?|esperienze(?: professionali)?|experience|work experience|professional experience|employment history|work history|professional background|career history|expérience professionnelle|berufserfahrung)\s*:?$/i;
+const SKILL_HEADING_RE = /^(?:skills?|core skills?|key skills?|digital skills?|technical skills?|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze(?: tecniche| chiave| professionali)?|compétences?(?: techniques| clés| cles| informatiques)?|competences(?: techniques| cles| informatiques)?|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen)\s*:?$/i;
+const EXPERIENCE_HEADING_RE = /^(?:esperienz[ae](?: lavorativ[ae])?(?: e)?(?: professional[ei])?|experience|work experience|professional experience|employment history|work history|professional background|career history|expérience professionnelle|berufserfahrung)\s*:?$/i;
 const PROFILE_SECTION_HEADING_RE = /^(?:informazioni personali|dati personali|personal information|personal details|personal data|persönliche daten|donnees personnelles|données personnelles|résidence|residenza|domicilio|wohnort|wohnsitz|family members|family composition|familiari|composizione familiare|familienmitglieder|membres de la famille)\s*:?$/i;
 const FAMILY_MEMBER_SECTION_RE = /^(?:family members|family composition|familiari|composizione familiare|familienmitglieder|membres de la famille)\s*:?$/i;
 const PROFILE_FIELD_LABEL_RE = /^(?:age|età|âge|alter|date of birth|birth date|dob|data di nascita|nato il|nata il|date de naissance|geburtsdatum|gender|sex|sesso|genere|geschlecht|marital status|family situation|civil status|stato civile|situazione familiare|familienstand|état civil|situation familiale|frontaliere type|border worker permit|work permit|residence permit|permit type|permesso di lavoro|tipo di permesso|bewilligung|permis de travail|permit expiry|permit expiration|expiry date|valid until|scadenza permesso|scadenza del permesso|permesso valido fino al|gültig bis|date d’expiration du permis|expiration du permis|current residence|residential municipality|residence municipality|municipality of residence|comune di residenza|indirizzo di residenza|residential address|home address|residence|residenza|domicilio|wohnort|wohnsitz|adresse|address|number of children|number of kids|children count|children|kids|figli|numero di figli|enfants|kinder|household size|number of household members|number of family members|family members count|componenti del nucleo familiare|numero componenti nucleo familiare|membri della famiglia|household members|annual gross salary|gross annual salary|annual salary|salary per year|salary per annum|gross salary|salary|retribuzione annua lorda|retribuzione annuale lorda|stipendio lordo annuo|stipendio annuo|salario annuo|ral|bruttojahresgehalt|jahresgehalt|preferred language|preferred language for communication|lingua preferita|langue préférée|langue de préférence|bevorzugte sprache|preferred border crossing|preferred customs crossing|preferred frontier crossing|dogana preferita|passaggio di frontiera preferito|grenzübergang bevorzugt|poste-frontière préféré|workplace|work location|office location|luogo di lavoro|sede di lavoro|standort|lieu de travail)\s*[:：=]?\s*$/i;
 const SECTION_HEADING_RE = /^(?:curriculum vitae|cv|profilo|profile|summary|professional summary|esperienza|esperienze|experience|work experience|professional experience|employment history|work history|professional background|career history|expérience professionnelle|berufserfahrung|competenze|skills|core skills|key skills|technical competencies|core competencies|key competencies|professional competencies|competencies|skills and expertise|areas of expertise|expertise|competenze tecniche|competenze chiave|competenze professionali|compétences|compétences techniques|compétences clés|compétences cles|compétences informatiques|competences techniques|competences cles|competences informatiques|kenntnisse|fachkenntnisse|informatikkenntnisse|fähigkeiten|fahigkeiten|kompetenzen|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung|istruzione|references|referenze)\s*:?$/i;
+const ADDITIONAL_SECTION_HEADING_RE = /^(?:profilo professionale|capacità e competenze|capacita e competenze|certificazioni|certifications|certificates|zertifikate|certificats|trattamento dati|privacy|data protection|datenschutz|istruzione e formazione|education and training|contatti|contacts?|linkedin|linkedln)\s*:?$/i;
+const PRIVACY_DECLARATION_RE = /^(?:autorizzo|acconsento)\b.*\btrattamento\b.*\bdati personali\b/i;
 const CONTACT_RE = /(?:@|\+?\d[\d\s()./-]{6,})/;
 const YEAR_RE = /(?:19|20)\d{2}/;
 const STOP_LINE_RE = /^(?:curriculum vitae|cv|profilo|profile|esperienza|esperienze|experience|work experience|employment history|work history|competenze|skills|lingue|languages|langues|sprachen|formazione|education|éducation|ausbildung|istruzione|references|referenze)\s*:?[\s]*$/i;
@@ -55,12 +57,18 @@ function unique(values, max = MAX_SKILLS) {
   return result;
 }
 
+function isSectionBoundary(line) {
+  return STOP_LINE_RE.test(line) || SECTION_HEADING_RE.test(line)
+    || PROFILE_SECTION_HEADING_RE.test(line) || SKILL_HEADING_RE.test(line)
+    || EXPERIENCE_HEADING_RE.test(line) || ADDITIONAL_SECTION_HEADING_RE.test(line) || PRIVACY_DECLARATION_RE.test(line);
+}
+
 function sectionLines(lines, headingPattern) {
   const start = lines.findIndex((line) => headingPattern.test(line));
   if (start < 0) return [];
   const result = [];
   for (let index = start + 1; index < lines.length; index += 1) {
-    if (STOP_LINE_RE.test(lines[index]) || SECTION_HEADING_RE.test(lines[index]) || PROFILE_SECTION_HEADING_RE.test(lines[index]) || SKILL_HEADING_RE.test(lines[index])) break;
+    if (isSectionBoundary(lines[index])) break;
     result.push(lines[index]);
   }
   return result;
@@ -91,7 +99,7 @@ function likelyHeadline(lines, name) {
 }
 
 function languageValues(lines) {
-  const languageText = sectionLines(lines, /^(?:lingue|languages|langues|sprachen)\s*:?$/i).join(' ');
+  const languageLines = sectionLines(lines, /^(?:lingue|languages|langues|sprachen)\s*:?$/i);
   const candidates = [
     [/\bdeutschkenntnis(?:se|sen)?\b/gi, 'deutsch'],
     [/\benglischkenntnis(?:se|sen)?\b/gi, 'englisch'],
@@ -106,6 +114,17 @@ function languageValues(lines) {
       'portoghese', 'portuguese', 'português', 'portugiesisch',
     ].map((value) => [new RegExp('\\b' + value + '\\b', 'gi'), value]),
   ];
+  // A PDF often keeps the heading and first entries on the same line.
+  const inline = lines.findIndex((line) => /^(?:lingue|languages|langues|sprachen)\s*:\s*\S/i.test(line));
+  if (!languageLines.length && inline >= 0) {
+    languageLines.push(lines[inline].replace(/^[^:]+:\s*/, ''));
+    const entryStart = new RegExp('^(?:' + candidates.map(([pattern]) => pattern.source).join('|') + ')', 'i');
+    for (let index = inline + 1; index < lines.length; index += 1) {
+      if (isSectionBoundary(lines[index]) || !entryStart.test(lines[index])) break;
+      languageLines.push(lines[index]);
+    }
+  }
+  const languageText = languageLines.join(' ');
   const found = [];
   for (const [pattern, language] of candidates) {
     for (const match of languageText.matchAll(pattern)) found.push({ index: match.index ?? 0, language });
@@ -317,9 +336,29 @@ function familyMemberValues(lines) {
 }
 
 function skillValues(lines) {
-  const skillLines = sectionLines(lines, SKILL_HEADING_RE);
-  const values = skillLines.flatMap((line) => line.split(/[,;:]\s*|\s+\/\s+/));
+  // Two-column PDFs may put the contact sidebar immediately after this heading.
+  // Stop there rather than promote contact fields or everything below them to skills.
+  const section = sectionLines(lines, SKILL_HEADING_RE);
+  const contactStart = section.findIndex((line) => CONTACT_RE.test(line) || PROFILE_FIELD_LABEL_RE.test(line));
+  const skillLines = contactStart < 0 ? section : section.slice(0, contactStart);
+  const inlineSkills = lines.flatMap((line) => {
+    const inline = /^([^:]{1,80}):\s*(.+)$/.exec(line);
+    return inline && SKILL_HEADING_RE.test(inline[1].trim()) && !CONTACT_RE.test(inline[2]) ? [inline[2]] : [];
+  });
+  const values = [...skillLines, ...inlineSkills].flatMap((line) => line.split(/[,;:]\s*|\s+\/\s+/));
   return unique(values.filter((value) => value.length >= 2 && value.length <= 80));
+}
+
+function previousPositions(lines) {
+  const section = sectionLines(lines, EXPERIENCE_HEADING_RE);
+  const roles = [];
+  for (let index = 1; index < section.length; index += 1) {
+    if (!YEAR_RE.test(section[index - 1])) continue;
+    // Only the role immediately following a dated employment entry, never arbitrary prose.
+    const role = likelyHeadline([section[index]], '');
+    if (role) roles.push(role);
+  }
+  return unique(roles, 12);
 }
 
 function experienceValues(lines) {
@@ -377,6 +416,7 @@ function normalizedSearchText(profile) {
     ...(profile.skills || []),
     ...(profile.languages || []),
     ...(profile.experienceSummary || []),
+    ...(profile.previousPositions || []),
   ].filter(Boolean).join(' '), MAX_SEARCH_TEXT);
 }
 
@@ -416,6 +456,7 @@ export function parseCandidateCvText(text, { nowMs = Date.now() } = {}) {
     skills,
     languages,
     experienceSummary,
+    previousPositions: previousPositions(lines),
     extractedTextAvailable: Boolean(normalizedText),
   };
   return { ...profile, searchText: normalizedSearchText(profile) };

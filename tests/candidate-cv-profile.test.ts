@@ -650,7 +650,7 @@ describe('application concierge matching', () => {
       expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
-        matchingVersion: 'cv-relevance-v4',
+        matchingVersion: 'cv-relevance-v5',
         matchScore: expect.any(Number),
       }));
       expect((relevant?.matchScore as number)).toBeLessThan(99);
@@ -681,3 +681,60 @@ describe('application concierge matching', () => {
   });
 });
 // End of focused CV workflow coverage.
+
+
+describe('CV section boundaries in extracted PDF text', () => {
+  it('keeps contact sidebars, certifications and privacy declarations out of matching evidence', () => {
+    const year = new Date().getUTCFullYear();
+    const profile = parseCandidateCvText([
+      'Example Candidate', 'Consulente commerciale', 'CAPACITÀ E', 'COMPETENZE',
+      '+41 00 000 00 00', 'candidate@example.com', 'Exampletown', 'Data di nascita',
+      `01/01/${year - 30}`, 'ESPERIENZE LAVORATIVE E PROFESSIONALI',
+      `${year - 3} - ${year}`, 'Consulente commerciale',
+      'Acquisizione e gestione clienti B2B e sviluppo del portafoglio commerciale',
+      'Autorizzo il trattamento dei dati personali contenuti nel mio CV',
+      'CERTIFICAZIONI', 'Attestato commerciale', 'TRATTAMENTO DATI',
+      `Acconsento al trattamento ai sensi del regolamento ${year - 10}/123`,
+      'ISTRUZIONE E FORMAZIONE', 'Diploma commerciale',
+      'Lingue: Inglese (B2), Francese (A2),', 'Tedesco (A2)',
+      'Digital skills: MS Office',
+    ].join('\n'));
+    expect(profile.skills).toEqual(['MS Office']);
+    expect(profile.languages).toEqual(['inglese', 'francese', 'tedesco']);
+    expect(profile.experienceSummary).toContain('Acquisizione e gestione clienti B2B e sviluppo del portafoglio commerciale');
+    expect(profile.searchText).not.toMatch(/candidate@example|Exampletown|Data di nascita|regolamento|Diploma commerciale/i);
+  });
+
+  it('retains skills before a personal field without absorbing the following sidebar', () => {
+    const profile = parseCandidateCvText('Example Candidate\nSkills\nSAP; CRM\nData di nascita\nExampletown\nWork Experience\nSales account');
+    expect(profile.skills).toEqual(['SAP', 'CRM']);
+    expect(profile.searchText).not.toContain('Exampletown');
+  });
+});
+
+
+describe('dated historical positions as matching evidence', () => {
+  it('keeps earlier commercial roles relevant when the latest position is HR without suggesting tax specialties', () => {
+    const year = new Date().getUTCFullYear();
+    const profile = parseCandidateCvText([
+      'Example Candidate', 'Consulente HR', 'ESPERIENZE LAVORATIVE E PROFESSIONALI',
+      `${year - 1} - ${year}`, 'Consulente HR',
+      `${year - 5} - ${year - 1}`, 'Consulente commerciale Legale',
+      `${year - 10} - ${year - 5}`, 'Sales account',
+      'Acquisizione e gestione clienti commerciali B2B con utilizzo di CRM',
+      'TRATTAMENTO DATI', 'Autorizzo il trattamento dei dati personali',
+    ].join('\n'));
+    expect(profile.previousPositions).toEqual(['Consulente HR', 'Consulente commerciale Legale', 'Sales account']);
+    expect(scoreJobForProfile({ title: 'Sales Representative B2B', category: 'sales' }, profile).score).toBeGreaterThan(0);
+    expect(scoreJobForProfile({ title: 'Consulente del personale nel settore delle finiture' }, profile).score).toBeGreaterThan(0);
+    expect(scoreJobForProfile({ title: 'Responsabile manutenzione e assistenza post-vendita tecnica edile' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Salesforce Developer' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Senior Manager Business Tax Advisory Tax Legal', category: 'tax' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Intern Transfer Pricing Tax Legal', category: 'tax' }, profile).score).toBe(0);
+  });
+
+  it('includes an earlier position in specialty mismatch evidence', () => {
+    const profile = { previousPositions: ['Sales Manager'], skills: [], experienceSummary: [] };
+    expect(scoreJobForProfile({ title: 'Sales Manager' }, profile).score).toBeGreaterThanOrEqual(28);
+  });
+});
