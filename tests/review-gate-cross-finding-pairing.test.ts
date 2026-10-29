@@ -453,10 +453,13 @@ describe('review gate: file citato senza riga fuori dal diff dopo un LGTM (#1235
     expect(stillOpen).toContain(ID);
   });
 
-  it('resta aperto senza tree autorevole: assente o di fallback', () => {
+  it('resta aperto senza tree: l’assenza blocca, il fallback esatto può provare il companion fuori diff', () => {
     expect(openAfter(history(), { changedFiles: CHANGED })).toHaveLength(1);
-    expect(openAfter(history(), { repositoryPaths: TREE, repositoryPathsFromFallback: true, changedFiles: CHANGED }))
-      .toHaveLength(1);
+    expect(openAfter(history(), {
+      repositoryPaths: TREE,
+      repositoryPathsFromFallback: true,
+      changedFiles: CHANGED,
+    })).toHaveLength(0);
   });
 
   it('resta aperto quando il file senza riga è l’unica citazione', () => {
