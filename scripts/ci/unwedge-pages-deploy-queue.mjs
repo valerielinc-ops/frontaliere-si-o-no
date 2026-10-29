@@ -115,6 +115,63 @@ const DEFAULT_WEDGE_MINUTES = 45;
 const PUBLISH_BRANCH = 'main';
 const PAGES_ENVIRONMENT = 'github-pages';
 
+function isRecord(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasReadableTimestamp(value) {
+  return typeof value === 'string' && Number.isFinite(Date.parse(value));
+}
+
+/**
+ * A run response must be complete enough to prove both its identity and age.
+ * A partial API object is not a healthy "nothing to do" response: treating it
+ * as one would hide a queue that the reaper could not inspect.
+ */
+function isWorkflowRun(value, expectedId) {
+  return isRecord(value)
+    && Number.isInteger(value.id)
+    && value.id > 0
+    && (expectedId === undefined || String(value.id) === String(expectedId))
+    && typeof value.status === 'string'
+    && typeof value.head_branch === 'string'
+    && hasReadableTimestamp(value.created_at);
+}
+
+function validateRunListing(runs) {
+  if (!Array.isArray(runs)) throw new Error('response has no workflow_runs array');
+  if (runs.some((run) => !isWorkflowRun(run))) {
+    throw new Error('workflow_runs contains a malformed run record');
+  }
+  return runs;
+}
+
+function validateJobsResponse(jobsBody) {
+  if (!isRecord(jobsBody) || !Array.isArray(jobsBody.jobs)) {
+    throw new Error('jobs response has no jobs array');
+  }
+  for (const job of jobsBody.jobs) {
+    if (!isRecord(job) || typeof job.status !== 'string') {
+      throw new Error('jobs response contains a malformed job record');
+    }
+    if (job.status === 'waiting' && !hasReadableTimestamp(job.created_at)) {
+      throw new Error('waiting job has no readable created_at');
+    }
+  }
+  return jobsBody.jobs;
+}
+
+function validateGateEvidence(run, jobs, pendingDeployments) {
+  // A run that has already moved on is a safe race, not an API error. For a
+  // still-waiting main run, however, a positive Pages deployment without a
+  // readable waiting job is incomplete evidence and must be announced.
+  if (run.status !== 'waiting' || run.head_branch !== PUBLISH_BRANCH) return;
+  if (!parkedAtPagesGate(pendingDeployments)) return;
+  if (!Number.isFinite(gateEntryMs(jobs))) {
+    throw new Error(`run ${run.id}: pending ${PAGES_ENVIRONMENT} deployment has no readable waiting job timestamp`);
+  }
+}
+
 // ── Pure logic (unit-tested; NO network/IO) ─────────────────────────
 
 /**
@@ -252,9 +309,11 @@ async function rereadCandidate(runId) {
     ghJson(`/repos/${REPO}/actions/runs/${runId}/jobs?filter=latest&per_page=100`),
     ghJson(`/repos/${REPO}/actions/runs/${runId}/pending_deployments`),
   ]);
-  if (!Array.isArray(jobsBody?.jobs)) throw new Error('jobs response has no jobs array');
+  if (!isWorkflowRun(run, runId)) throw new Error('run response is malformed or has a different id');
+  const jobs = validateJobsResponse(jobsBody);
   if (!Array.isArray(pendingDeployments)) throw new Error('pending_deployments response is not an array');
-  return { run, jobs: jobsBody.jobs, pendingDeployments };
+  validateGateEvidence(run, jobs, pendingDeployments);
+  return { run, jobs, pendingDeployments };
 }
 
 // ── Orchestration ───────────────────────────────────────────────────
@@ -270,8 +329,7 @@ async function main() {
     const body = await ghJson(
       `/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/runs?status=waiting&per_page=50`,
     );
-    if (!Array.isArray(body?.workflow_runs)) throw new Error('response has no workflow_runs array');
-    runs = body.workflow_runs;
+    runs = validateRunListing(body?.workflow_runs);
   } catch (err) {
     // Nothing is cancelled, but an unreadable queue may be hiding the very
     // wedge this exists for: say so and exit 1.
@@ -307,8 +365,12 @@ async function main() {
     console.log(
       `::warning::Run ${fresh.run.id} (${fresh.run.head_sha?.slice(0, 8) ?? '?'}) has been ${verdict.reason} — cancelling to release the pages-deploy group.`,
     );
-    if (await cancelRun(fresh.run.id)) cancelled += 1;
-    else failures.push(`run ${fresh.run.id}: GitHub refused the cancel`);
+    try {
+      if (await cancelRun(fresh.run.id)) cancelled += 1;
+      else failures.push(`run ${fresh.run.id}: GitHub refused the cancel`);
+    } catch (err) {
+      failures.push(`run ${fresh.run.id}: cancel failed (${err.message})`);
+    }
   }
 
   // The next queued publish starting is the real signal, and the lag watchdog
