@@ -8,6 +8,7 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
+import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
 import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';
 import {
@@ -110,7 +111,12 @@ function timestampMillis(value) {
   return Number(value) || 0;
 }
 
-function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, customerEmail }) {
+function expectedPriceOf(service) {
+  const value = Number(service?.expectedAmountTotal);
+  return [2999, APPLICATION_CONCIERGE_PRICE_EUR_CENTS].includes(value) ? value : APPLICATION_CONCIERGE_PRICE_EUR_CENTS;
+}
+
+function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, customerEmail, renewalOfServiceId = null, amountTotal = APPLICATION_CONCIERGE_PRICE_EUR_CENTS, discountExpiresAt = null }) {
   return {
     serviceId,
     serviceType: APPLICATION_CONCIERGE_PRODUCT,
@@ -122,7 +128,11 @@ function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, c
     checkoutSessionStatus: 'creating',
     checkoutAttempt: 1,
     checkoutClaimedAt: FieldValue.serverTimestamp(),
-    renewal: false,
+    renewal: Boolean(renewalOfServiceId),
+    renewalOfServiceId,
+    renewalConsentedAt: renewalOfServiceId ? FieldValue.serverTimestamp() : null,
+    renewalDiscountExpiresAt: discountExpiresAt,
+    expectedAmountTotal: amountTotal,
     maxPositions: APPLICATION_CONCIERGE_MAX_POSITIONS,
     acceptedPositionsCount: 0,
     locale,
@@ -137,7 +147,7 @@ function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, c
     cvUploadedAt: null,
     paidAt: null,
     expiresAt: null,
-    amountTotal: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+    amountTotal,
     currency: APPLICATION_CONCIERGE_CURRENCY,
     createdAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
@@ -187,7 +197,19 @@ export async function handleCreateApplicationConciergeCheckout(req) {
 
   const configuredPaymentProvider = await getAssistedApplicationPaymentProvider();
   const firestore = db();
-  const requestKeyHash = sha256(`${userId}:${requestKey}`);
+  const renewalOfServiceId = boundedString(body.renewalOfServiceId, 200);
+  let renewalOffer = null;
+  if (body.renewalOfServiceId) {
+    if (resumeServiceId || body.acceptRenewalTerms !== true || !/^[A-Za-z0-9_-]{1,200}$/.test(renewalOfServiceId)) return { status: 400, body: { ok: false, error: 'invalid_service_id' } };
+    const original = await firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(renewalOfServiceId).get();
+    const source = original.data();
+    if (!original.exists || source.userId !== userId) return { status: 404, body: { ok: false, error: 'application_concierge_service_not_found' } };
+    if (source.renewedByServiceId) return { status: 200, body: { ok: true, url: appendServiceId(successUrl, source.renewedByServiceId), serviceId: source.renewedByServiceId } };
+    renewalOffer = conciergeRenewalOffer(source);
+    if (!renewalOffer) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_not_available' } };
+  }
+  // One checkout per source service prevents duplicate renewal purchases from repeated clicks.
+  const requestKeyHash = sha256(renewalOfServiceId ? `${userId}:renewal:${renewalOfServiceId}` : `${userId}:${requestKey}`);
   const requestRef = firestore.collection(APPLICATION_CONCIERGE_CHECKOUT_REQUESTS_COLLECTION).doc(requestKeyHash);
   const serviceCollection = firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION);
   // A cached landing-page request must receive the same provider verification
@@ -261,7 +283,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         try {
           const checkout = await retrieveSumUpCheckout(resumeService.sumupCheckoutId);
           if (checkout.id !== resumeService.sumupCheckoutId || !matchesSumUpCheckoutReference(checkout.checkout_reference, resumeServiceId)
-            || Math.round(Number(checkout.amount) * 100) !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS
+            || Math.round(Number(checkout.amount) * 100) !== expectedPriceOf(resumeService)
             || String(checkout.currency || '').toLowerCase() !== APPLICATION_CONCIERGE_CURRENCY) {
             return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
           }
@@ -304,7 +326,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
             return { status: 200, body: { ok: true, url: session.url, serviceId: resumeServiceId } };
           }
           if (session.status === 'complete' || session.payment_status === 'paid') {
-            if (Number(session.amount_total) !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS
+            if (Number(session.amount_total) !== expectedPriceOf(resumeService)
               || String(session.currency || '').toLowerCase() !== APPLICATION_CONCIERGE_CURRENCY) {
               return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
             }
@@ -401,6 +423,12 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         throw new ApplicationConciergeCheckoutConflictError();
       }
 
+      if (renewalOfServiceId) {
+        const source = (await transaction.get(serviceCollection.doc(renewalOfServiceId))).data();
+        const currentOffer = conciergeRenewalOffer(source);
+        if (source?.userId !== userId || !currentOffer) throw new ApplicationConciergeCheckoutConflictError();
+        renewalOffer = currentOffer;
+      }
       serviceRef = serviceCollection.doc();
       requestRecord = {
         requestKeyHash,
@@ -422,6 +450,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           locale,
           successUrl,
           customerEmail,
+          renewalOfServiceId: renewalOfServiceId || null,
+          amountTotal: renewalOffer?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+          discountExpiresAt: renewalOffer?.discountExpiresAt || null,
         }),
       );
     });
@@ -440,12 +471,15 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   }
   const serviceId = serviceRef.id;
   const paymentProvider = requestRecord?.paymentProvider || configuredPaymentProvider;
+  const checkoutService = (await serviceRef.get()).data();
+  const checkoutPrice = expectedPriceOf(checkoutService);
   const successRedirect = appendServiceId(successUrl, serviceId);
   let checkoutUrl;
   if (paymentProvider === SUMUP_PAYMENT_PROVIDER) {
     const checkout = await createSumUpApplicationConciergeCheckout({
       serviceId,
       redirectUrl: successRedirect,
+      ...(checkoutPrice !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS ? { amountCents: checkoutPrice } : {}),
       checkoutAttempt,
     });
     if (terminalSumUpCheckoutId && checkout.id === terminalSumUpCheckoutId) {
@@ -477,7 +511,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       line_items: [{
         price_data: {
           currency: APPLICATION_CONCIERGE_CURRENCY,
-          unit_amount: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+          unit_amount: checkoutPrice,
           product_data: { name: 'Servizio candidature assistite' },
         },
         quantity: 1,
@@ -572,7 +606,9 @@ export async function handleApplicationConciergeWebhookEvent(
   const serviceId = boundedString(obj.metadata?.serviceId || obj.client_reference_id, 200);
   if (!serviceId) return true;
 
-  const amountValid = Number(obj.amount_total) === APPLICATION_CONCIERGE_PRICE_EUR_CENTS;
+  const observedService = await firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId).get();
+  if (!observedService.exists) return true;
+  const amountValid = Number(obj.amount_total) === expectedPriceOf(observedService.data());
   const currencyValid = String(obj.currency || '').toLowerCase() === APPLICATION_CONCIERGE_CURRENCY;
   const paymentConfirmed = (isAsyncSucceeded || obj.payment_status === 'paid') && amountValid && currencyValid;
   const paymentStatus = isExpired || isAsyncFailed || !amountValid || !currencyValid
@@ -623,6 +659,11 @@ export async function handleApplicationConciergeWebhookEvent(
     if (paymentProvider === SUMUP_PAYMENT_PROVIDER
       && String(service.checkoutSessionStatus || '').toLowerCase() === 'creating'
       && paymentStatus !== 'paid') return;
+    if (paymentStatus === 'paid' && service.renewalOfServiceId) {
+      const parentRef = firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(service.renewalOfServiceId);
+      const parent = (await transaction.get(parentRef)).data();
+      if (parent?.userId === service.userId) transaction.set(parentRef, { renewedByServiceId: serviceId, renewedAt: paidAt, updatedAt: ts }, { merge: true });
+    }
     transaction.set(serviceRef, update, { merge: true });
   });
   return true;

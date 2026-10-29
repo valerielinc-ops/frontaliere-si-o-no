@@ -246,13 +246,13 @@ export async function createSumUpHostedCheckout(
 }
 
 export async function createSumUpApplicationConciergeCheckout(
-  { serviceId, redirectUrl, checkoutAttempt = 1 },
+  { serviceId, redirectUrl, checkoutAttempt = 1, amountCents = APPLICATION_CONCIERGE_PRICE_EUR_CENTS },
   read = getRemoteConfigValue,
 ) {
   return createSumUpCheckout({
     checkoutReference: sumUpCheckoutReference(serviceId, checkoutAttempt),
     redirectUrl,
-    amountCents: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
+    amountCents,
     description: 'Servizio candidature assistite',
     hostedCheckout: false,
   }, read);

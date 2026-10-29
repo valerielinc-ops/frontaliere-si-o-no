@@ -110,6 +110,8 @@ import {
   runApplicationConciergeMatching,
   shouldRunApplicationConciergeMatchingForServiceUpdate,
 } from './src/applicationConciergeMatching.js';
+import { inheritConciergeRenewalMaterials } from './src/applicationConciergeRenewalMaterials.js';
+import { runConciergeLifecycleSweep } from './src/applicationConciergeLifecycle.js';
 import { handleConciergeServiceWritten, sweepConciergePaidNotifications } from './src/applicationConciergeNotifications.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
@@ -2191,6 +2193,11 @@ export const resumeAssistedApplicationPayment = onRequest(
 // Application concierge endpoints use their own parent service and proposal API.
 // Expire active concierge entitlements after their fixed 30-day window. The
 // candidate endpoints enforce the same timestamp, so this is only a backstop.
+export const sweepApplicationConciergeLifecycle = onSchedule(
+  { region: 'europe-west6', schedule: 'every 60 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 540 },
+  async () => { await runConciergeLifecycleSweep({ db: getAdminDb() }); },
+);
+
 export const sweepApplicationConciergeServices = onSchedule(
   { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich', memory: '256MiB' },
   async () => {
@@ -2837,6 +2844,7 @@ export const notifyApplicationConciergeService = onDocumentWritten(
       event.data.before?.exists ? event.data.before.data() : null,
       event.data.after.data(), event.params.serviceId, { db: getAdminDb() },
     );
+    await inheritConciergeRenewalMaterials({ db: getAdminDb(), serviceId: event.params.serviceId });
   },
 );
 
