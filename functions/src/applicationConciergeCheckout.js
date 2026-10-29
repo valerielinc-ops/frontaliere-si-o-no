@@ -12,6 +12,7 @@ import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js'
 import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';
 import {
+  APPLICATION_CONCIERGE_CONSENT_VERSION,
   APPLICATION_CONCIERGE_CURRENCY,
   APPLICATION_CONCIERGE_DURATION_DAYS,
   APPLICATION_CONCIERGE_MAX_POSITIONS,
@@ -131,6 +132,7 @@ function serviceData({ serviceId, userId, paymentProvider, locale, successUrl, c
     renewal: Boolean(renewalOfServiceId),
     renewalOfServiceId,
     renewalConsentedAt: renewalOfServiceId ? FieldValue.serverTimestamp() : null,
+    renewalConsentVersion: renewalOfServiceId ? APPLICATION_CONCIERGE_CONSENT_VERSION : null,
     renewalDiscountExpiresAt: discountExpiresAt,
     expectedAmountTotal: amountTotal,
     maxPositions: APPLICATION_CONCIERGE_MAX_POSITIONS,

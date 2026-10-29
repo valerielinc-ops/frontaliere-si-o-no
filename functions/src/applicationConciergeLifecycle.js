@@ -50,7 +50,7 @@ export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match
   for (const document of snapshot.docs || []) {
     const ref = document.ref;
     try {
-      await inheritConciergeRenewalMaterials({ db, serviceId: ref.id });
+      await inheritConciergeRenewalMaterials({ db, serviceId: ref.id, nowMs });
       // Retry a failed notice before a later refresh can replace its pending batch.
       if (await deliverNewProposals({ db, ref, nowMs, send })) summary.newJobEmails += 1;
       if (await claimRefresh(db, ref, nowMs)) {
