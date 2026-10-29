@@ -45,8 +45,15 @@ function sameCanonicalEmployer(sentence, employerName) {
   const nouns = new RegExp(COMPANY_NOUN.source, 'giu');
   const names = [...String(sentence).matchAll(nouns)].flatMap((match) => {
     const afterNoun = String(sentence).slice(match.index + match[0].length);
-    const name = afterNoun.match(COMPANY_NAME_AFTER_NOUN)?.[1];
-    return name && (/\p{Lu}/u.test(name) || /[\p{Ll}][\p{Lu}]/u.test(name) || COMPANY_LEGAL_SUFFIX.test(name)) ? [name] : [];
+    const tokens = afterNoun.match(COMPANY_NAME_AFTER_NOUN)?.[1]?.split(/\s+/u) || [];
+    if (!tokens.length) return [];
+    const suffixIndex = tokens.findIndex((token) => COMPANY_LEGAL_SUFFIX.test(token));
+    let lastNameToken = suffixIndex;
+    if (lastNameToken < 0 && (/^\p{Lu}/u.test(tokens[0]) || /[\p{Ll}][\p{Lu}]/u.test(tokens[0]))) {
+      lastNameToken = 0;
+      while (lastNameToken + 1 < tokens.length && /^\p{Lu}/u.test(tokens[lastNameToken + 1])) lastNameToken += 1;
+    }
+    return lastNameToken < 0 ? [] : [tokens.slice(0, lastNameToken + 1).join(' ')];
   });
   return names.every((name) => normalize(name) === canonical || (aliases.has(name) && normalize(name) === normalize(name.toUpperCase())));
 }
