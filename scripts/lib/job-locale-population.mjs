@@ -38,7 +38,7 @@
  * Everything here is pure and detector-injected, so `tests/job-locale-population-guard.test.ts`
  * can drive both failure modes from synthetic fixtures with no dataset.
  */
-import { normalizeJobLocale } from './job-locale-utils.mjs';
+import { jobTitleSourceLang, normalizeJobLocale } from './job-locale-utils.mjs';
 
 /**
  * @typedef {object} PopulationSpec
@@ -118,7 +118,7 @@ export const DESCRIPTION_POPULATION = {
 export const TITLE_POPULATION = {
   id: 'titles-wrong-locale',
   source: POPULATION_SOURCE,
-  filter: 'non-empty titleByLocale[locale] for every locale !== sourceLang, for every job, independent of needsRetranslation',
+  filter: 'non-empty titleByLocale[locale] for every locale !== effective title source language, for every job, independent of needsRetranslation',
   expectedSlots: 90712,
   tolerance: 0.15,
   measuredOn: '2026-09-30',
@@ -232,12 +232,18 @@ export function measureDescriptionLocales(jobs, detect, locales, minConfidence =
  * @param {number} [maxOffenders]
  * @returns {{ slots: number, flagged: number, offenders: string[] }}
  */
-export function measureTitleLocales(jobs, looksUntranslated, locales, maxOffenders = 20) {
+export function measureTitleLocales(
+  jobs,
+  looksUntranslated,
+  locales,
+  maxOffenders = 20,
+  resolveTitleSourceLang = jobTitleSourceLang,
+) {
   let slots = 0;
   let flagged = 0;
   const offenders = [];
   for (const job of jobs) {
-    const normalizedSourceLang = normalizeJobLocale(job?.sourceLang || 'it');
+    const normalizedSourceLang = normalizeJobLocale(resolveTitleSourceLang(job) || job?.sourceLang || 'it');
     const sourceLang = locales.includes(normalizedSourceLang) ? normalizedSourceLang : 'it';
     const titles = job?.titleByLocale || {};
     const sourceTitle = String(titles[sourceLang] || job?.title || '');

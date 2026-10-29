@@ -33,6 +33,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractDeclaredIdentity } from './crawler-company-identity.mjs';
 import { replaceActiveSlug } from './dedicated-crawler-common.mjs';
+import { jobTitleSourceLang } from './job-locale-utils.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
 
 const LIB_DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -145,7 +146,7 @@ export function refreshDeclaredBrandSlugs(jobs, labels = declaredBrandLabels()) 
     const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
       ? job.titleByLocale
       : {};
-    const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
+    const titleSourceLang = jobTitleSourceLang(job);
     const location = String(job.location || job.addressLocality || '').trim();
     const disambiguator = String(job.slugDisambiguator || '').trim();
     const currentMaster = String(job.slug || '').trim();
@@ -157,7 +158,7 @@ export function refreshDeclaredBrandSlugs(jobs, labels = declaredBrandLabels()) 
     const validatedLocales = new Set();
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const title = String(
-        titleByLocale[locale] || (locale === sourceLang ? job.title : '') || '',
+        titleByLocale[locale] || (locale === titleSourceLang ? job.title : '') || '',
       ).trim();
       if (!title) continue;
       const canonical = buildSlug(title, declared, location, disambiguator);

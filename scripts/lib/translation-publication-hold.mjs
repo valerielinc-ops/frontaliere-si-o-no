@@ -48,9 +48,9 @@ import { fileURLToPath } from 'node:url';
 import {
   DEFAULT_JOB_LOCALES,
   isTitleSourceCopy,
-  normalizeJobLocale,
   titleContainsLlmReasoning,
 } from './job-locale-core.mjs';
+import { jobTitleSourceLang } from './job-locale-utils.mjs';
 import { hasUsableTitle } from './translation-quality.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
 import { previousRunSliceJobs } from './crawler-previous-run-slice.mjs';
@@ -96,11 +96,6 @@ export function isTranslationGatedJob(job) {
   return HOLD_KEY_SET.has(normalizeKey(job?.companyKey));
 }
 
-function resolveSourceLang(job) {
-  const lang = normalizeJobLocale(job?.sourceLang || 'it');
-  return DEFAULT_JOB_LOCALES.includes(lang) ? lang : 'it';
-}
-
 /**
  * Locale il cui titolo non è ancora pubblicabile: slot assente o troppo corto,
  * copia del titolo sorgente, oppure ragionamento di un LLM al posto del titolo.
@@ -110,7 +105,7 @@ function resolveSourceLang(job) {
  */
 export function untranslatedTitleLocales(job) {
   const titles = job?.titleByLocale && typeof job.titleByLocale === 'object' ? job.titleByLocale : {};
-  const sourceLang = resolveSourceLang(job);
+  const sourceLang = jobTitleSourceLang(job);
   const crawledTitle = String(job?.title || '').trim();
   const sourceTitle = String(titles[sourceLang] || crawledTitle).trim();
   const pending = [];

@@ -25,6 +25,7 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 
 import { needsWork, missingSlots } from './local-mt-mopup.mjs';
+import { titleRepairSourceLang } from './lib/untranslated-title-repair.mjs';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
 import {
   MAX_TRANSLATION_SCHEDULER_INPUT_JOBS_V2,
@@ -149,7 +150,7 @@ function jobUnitContext(job, slot) {
   return {
     identity,
     fieldPath: slot.field,
-    sourceLang: job.sourceLang || 'it',
+    sourceLang: slot.field === 'title' ? titleRepairSourceLang(job) : (job.sourceLang || 'it'),
     sourceText,
     targetLocale: slot.locale,
     memory: null,
