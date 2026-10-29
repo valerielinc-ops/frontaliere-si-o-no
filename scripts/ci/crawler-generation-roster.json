@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 660,
+  "crawlerCount": 665,
   "groups": {
     "10": [
       "atec-personal",
@@ -380,6 +380,7 @@
       "omega",
       "orell-fuessli-thalia",
       "pdag",
+      "policelavaux-ch",
       "ricola",
       "seniorenzentrum-engelhof",
       "six-group",
@@ -407,6 +408,7 @@
       "mks-pamp",
       "oerlikon",
       "otis",
+      "pks-bewerbung-ch",
       "project-interim",
       "reha-bellikon",
       "rh-expert-ch",
@@ -429,6 +431,7 @@
       "confederazione-ticino",
       "csd-engineers",
       "ecam",
+      "elektriker-elektromonteur-jobs-ch",
       "fachkraft",
       "fisba",
       "fust",
@@ -507,6 +510,7 @@
       "ksa",
       "linnea",
       "mobiliar",
+      "nishcom",
       "oscam-castelrotto",
       "rss-surselva",
       "schindler",
@@ -540,6 +544,7 @@
       "klinik-im-hasel",
       "medimeo",
       "nant",
+      "opacc-software-ag",
       "parmag",
       "pemsa",
       "pole-sante-pays-enhaut",
@@ -885,6 +890,7 @@
     "efg-international": "data/jobs/by-crawler/efg-international.json",
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
     "ehnv": "data/jobs/by-crawler/ehnv.json",
+    "elektriker-elektromonteur-jobs-ch": "data/jobs/by-crawler/elektriker-elektromonteur-jobs-ch.json",
     "elettra-1938": "data/jobs/by-crawler/elettra-1938.json",
     "elite-interim": "data/jobs/by-crawler/elite-interim.json",
     "elprom": "data/jobs/by-crawler/elprom.json",
@@ -1127,6 +1133,7 @@
     "neoproconseils": "data/jobs/by-crawler/neoproconseils.json",
     "nestle": "data/jobs/by-crawler/nestle.json",
     "new-yorker": "data/jobs/by-crawler/new-yorker.json",
+    "nishcom": "data/jobs/by-crawler/nishcom.json",
     "nord-anglia": "data/jobs/by-crawler/nord-anglia.json",
     "novartis": "data/jobs/by-crawler/novartis.json",
     "novelis": "data/jobs/by-crawler/novelis.json",
@@ -1139,6 +1146,7 @@
     "okjob": "data/jobs/by-crawler/okjob.json",
     "omega": "data/jobs/by-crawler/omega.json",
     "on-running": "data/jobs/by-crawler/on-running.json",
+    "opacc-software-ag": "data/jobs/by-crawler/opacc-software-ag.json",
     "ophtalmique": "data/jobs/by-crawler/ophtalmique.json",
     "opus-personal": "data/jobs/by-crawler/opus-personal.json",
     "orell-fuessli-thalia": "data/jobs/by-crawler/orell-fuessli-thalia.json",
@@ -1162,8 +1170,10 @@
     "pictet": "data/jobs/by-crawler/pictet.json",
     "pigna": "data/jobs/by-crawler/pigna.json",
     "pkb-private-bank": "data/jobs/by-crawler/pkb-private-bank.json",
+    "pks-bewerbung-ch": "data/jobs/by-crawler/pks-bewerbung-ch.json",
     "planzer": "data/jobs/by-crawler/planzer.json",
     "pole-sante-pays-enhaut": "data/jobs/by-crawler/pole-sante-pays-enhaut.json",
+    "policelavaux-ch": "data/jobs/by-crawler/policelavaux-ch.json",
     "posta-svizzera-centro-regionale": "data/jobs/by-crawler/posta-svizzera-centro-regionale.json",
     "postauto": "data/jobs/by-crawler/postauto.json",
     "postfinance": "data/jobs/by-crawler/postfinance.json",
@@ -1374,5 +1384,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:45a23855d7e5a01bae186af942fa6b61e358df599a7be26923113410997df61d"
+  "digest": "sha256:b80ebba0ab838e1c80a678b3441a7447c7785ec5f3674c0bb030f0552d721e24"
 }

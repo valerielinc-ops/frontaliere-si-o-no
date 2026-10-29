@@ -19,6 +19,11 @@ import {
   hasKnownForeignSubdivisionSuffix,
   isKnownForeignSubdivision,
 } from './subdivision-inventory.mjs';
+import {
+  getCantonLocationFallback,
+  getCantonPostalFallback,
+  getDefaultCantonLocationFallback,
+} from '../canton-postal-fallback.mjs';
 
 export const JOB_LOCATION_CLASS_TOKENS = new Set([
   'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
@@ -419,6 +424,36 @@ export function sourceBackedSwissGeographyFields(value, resolved = null) {
     ...(postalCode ? { postalCode } : {}),
     ...(streetAddress ? { streetAddress } : {}),
   };
+}
+
+/**
+ * Project source-backed geography into the complete address shape required by
+ * the JobPosting producer. Source address values win; when a listing only
+ * carries a verified locality/canton, use the reviewed canton-level fallback
+ * for the postal code and the known locality as the non-fictional street value.
+ * The schema builder applies its own source-provenance checks downstream.
+ *
+ * @param {unknown} value source location or structured source evidence
+ * @param {{location: string, canton: string, addressCountry?: string}|null} [resolved]
+ * @returns {{location: string, canton: string, addressLocality: string, addressRegion: string, addressCountry?: string, postalCode: string, streetAddress: string}|null}
+ */
+export function sourceBackedSwissJobAddressFields(value, resolved = null) {
+  const fields = sourceBackedSwissGeographyFields(value, resolved);
+  if (!fields) return null;
+
+  const locality = String(fields.addressLocality || fields.location || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const cantonFallback = getCantonLocationFallback(fields.canton)
+    || getDefaultCantonLocationFallback();
+  const postalCode = String(fields.postalCode || '').replace(/\s+/g, ' ').trim()
+    || getCantonPostalFallback(fields.canton, locality)
+    || String(cantonFallback?.postalCode || '').trim();
+  const streetAddress = String(fields.streetAddress || '').replace(/\s+/g, ' ').trim()
+    || locality
+    || String(cantonFallback?.city || '').trim();
+
+  return { ...fields, postalCode, streetAddress };
 }
 
 /**
