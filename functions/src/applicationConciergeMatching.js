@@ -470,7 +470,8 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     const checks = new Map();
     const work = [...new Map([...pendingJobs, ...rankedCandidates.map(candidate => candidate.job)].map(job => [jobUrl(job), job])).values()];
     for (let offset = 0; offset < work.length; offset += 4) {
-      if (Date.now() - runStartedAt > 400_000) break;
+      // Leave time for a last batch with three bounded provider attempts and final ledger writes.
+      if (Date.now() - runStartedAt > 280_000) break;
       await Promise.all(work.slice(offset, offset + 4).map(async job => {
         try { checks.set(jobUrl(job), await evaluate(job)); }
         catch { checks.set(jobUrl(job), { status: 'unverified', reason: 'analysis_unavailable' }); }

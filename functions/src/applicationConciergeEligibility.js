@@ -30,7 +30,7 @@ export function normalizeConciergeJobRecord(job = {}) {
 
 async function generateJson(systemPrompt, userPrompt, schema) {
   const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
-    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 2, allowCodexFallback: false });
+    userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false });
   if (!response.body?.ok) throw new Error('eligibility_provider_unavailable');
   const text = response.body.text.replace(/^\s*```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '');
   const result = JSON.parse(text);

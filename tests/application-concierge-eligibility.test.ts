@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
+vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn() }));
+const { generateServerText } = await import('../functions/src/geminiGenerate.js');
 vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
 const { prepareConciergeEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
@@ -26,6 +28,19 @@ function fixture(match: any) {
 }
 
 describe('qualification before proposal publication', () => {
+  it('allows all three bounded primary/fallback attempts without the long-running Codex rung', async () => {
+    const match = { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] };
+    const f = fixture(match);
+    vi.mocked(generateServerText).mockImplementation(async ({ systemPrompt }: any) => ({ status: 200, body: {
+      ok: true, text: JSON.stringify(systemPrompt.startsWith(PROFILE_SYSTEM_PROMPT) ? rawProfile : systemPrompt.startsWith(REQUIREMENTS_SYSTEM_PROMPT) ? requirements : match),
+    } }));
+    const { generate: _unused, ...input } = f;
+    const check = await prepareConciergeEligibility({ ...input, profileRecord: {} });
+    await check({ id: 'job', title: 'IT Lead', company: 'Example' });
+    expect(generateServerText).toHaveBeenCalledTimes(3);
+    for (const [options] of vi.mocked(generateServerText).mock.calls) expect(options).toMatchObject({ maxProviderAttempts: 3, allowCodexFallback: false, maxTokens: 8192 });
+  });
+
   it.each(['missing', 'partial'])('rejects title relevance when a decisive requirement is %s in both funnels', async status => {
     const match = { matches: [{ index: 0, status, evidence: 'Languages: English B2, French B2' }], verdict: 'poor', questions: [] };
     const f = fixture(match);
