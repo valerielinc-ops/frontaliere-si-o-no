@@ -1,7 +1,7 @@
 {
   "key": "pianorm",
   "label": "pianorm",
-  "generatedAt": "2026-10-29T10:19:25.900Z",
+  "generatedAt": "2026-10-29T11:30:47.579Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5644,
-  "avgDurationMs": 5644,
+  "durationMs": 4335,
+  "avgDurationMs": 4335,
   "durationHistory": [
-    5644
+    4335
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T10:19:09.181Z",
+      "crawledAt": "2026-10-29T11:30:34.463Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "452b761203be361e850a449fcc970f9d252906ad"
+  "codeCommit": "2db72d0984e283c55db9d360cff10398f8cbe9b0"
 }
