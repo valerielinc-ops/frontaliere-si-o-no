@@ -252,10 +252,11 @@ test('static jobs are complete and only hydrated human previews stay bounded', a
 });
 
 
-test('SEO crawlers keep the full description and no auth gate after hydration', async ({ browser, page }) => {
+for (const crawler of ['Googlebot/2.1', 'Google-InspectionTool/1.0']) {
+test(`${crawler} keeps the full description and no auth gate after hydration`, async ({ browser, page }) => {
   test.setTimeout(120_000);
   const path = await resolveActiveJobDetailPath(page);
-  const crawlerContext = await browser.newContext({ userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' });
+  const crawlerContext = await browser.newContext({ userAgent: `Mozilla/5.0 (compatible; ${crawler})` });
   try {
     const crawlerPage = await crawlerContext.newPage();
     await crawlerPage.goto(`${LIVE_BASE_URL}${path}`, { waitUntil: 'domcontentloaded' });
@@ -264,3 +265,5 @@ test('SEO crawlers keep the full description and no auth gate after hydration', 
     await expect(crawlerPage.locator('#main-content h1')).toHaveCount(1);
   } finally { await crawlerContext.close(); }
 });
+
+}

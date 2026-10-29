@@ -117,6 +117,8 @@ describe('scanners and bots do not come back', () => {
     const crawlers = [
       'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
       'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
+      'Mozilla/5.0 (compatible; Google-InspectionTool/1.0)',
+      'Mozilla/5.0 (compatible; GoogleOther)',
       'facebookexternalhit/1.1',
       'LinkedInBot/1.0 (compatible; Mozilla/5.0)',
       'WhatsApp/2.19.81 A',

@@ -74,7 +74,9 @@ export { isAutomationAgent, isOptOutLink, isPreferencesLink, isScannerIp };
  * link in an email but does load pages. Keeping both is the union, and the union
  * is the direction it is safe to be wrong in.
  */
-export const CRAWLER_UA_RE = /bot|crawler|spider|crawling|googlebot|bingbot|yandexbot|duckduckbot|baiduspider|semrushbot|ahrefsbot|applebot|slurp|facebookexternalhit|linkedinbot|twitterbot|whatsapp/i;
+// Google-InspectionTool (Search Console/Rich Results) and GoogleOther do
+// not contain "bot". Official tokens: developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers
+export const CRAWLER_UA_RE = /bot|crawler|spider|crawling|googlebot|google-inspectiontool|googleother|bingbot|yandexbot|duckduckbot|baiduspider|semrushbot|ahrefsbot|applebot|slurp|facebookexternalhit|linkedinbot|twitterbot|whatsapp/i;
 
 /** True when this user-agent is a crawler or a social unfurler, not a reader. */
 export function isCrawlerVisitorAgent(userAgent) {

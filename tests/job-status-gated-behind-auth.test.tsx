@@ -90,7 +90,7 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.getByText(new RegExp(tail))).toBeInTheDocument();
  });
 
- it.each(['Googlebot', 'bingbot', 'SemrushBot', 'AhrefsBot'])('shows complete semantic expired content without a gate to %s', (userAgent) => {
+ it.each(['Googlebot', 'Google-InspectionTool/1.0', 'GoogleOther', 'bingbot', 'SemrushBot', 'AhrefsBot'])('shows complete semantic expired content without a gate to %s', (userAgent) => {
   vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue(userAgent);
   const prefix = 'Descrizione del lavoro in ambito sanitario. '.repeat(20);
   const job = { ...expiredJob, descriptionByLocale: { it: `## Requisiti\n${prefix}\n\n- Laurea SUPSI richiesta` } };
