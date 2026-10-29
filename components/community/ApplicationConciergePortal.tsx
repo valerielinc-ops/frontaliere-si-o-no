@@ -112,6 +112,7 @@ export default function ApplicationConciergePortal({
   const [busy, setBusy] = useState<string | null>(null);
   const [sumUpPayment, setSumUpPayment] = useState<{
     checkoutId: string;
+    amountTotal: number;
     serviceId: string;
     userId: string;
     successUrl: string;
@@ -126,6 +127,8 @@ export default function ApplicationConciergePortal({
   const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
   const [consent, setConsent] = useState(false);
+  const [renewalConsent, setRenewalConsent] = useState(false);
+  useEffect(() => { setRenewalConsent(false); }, [serviceId]);
   const conciergeViewTracked = useRef(false);
   const autoResumedService = useRef<string | null>(null);
   const checkoutInFlight = useRef(false);
@@ -169,6 +172,7 @@ export default function ApplicationConciergePortal({
       setSumUpPaymentBusy(false);
       setSumUpPaymentError(null);
       setError(null);
+      setRenewalConsent(false);
       setName(String(authUser?.displayName || ''));
       setEmail(String(authUser?.email || ''));
     }
@@ -265,8 +269,8 @@ export default function ApplicationConciergePortal({
     return translated === key ? t('jobBoard.concierge.errors.generic') : translated;
   }, [error, t]);
 
-  const startCheckout = useCallback(async (resumeServiceId: string | null = null, automatic = false) => {
-    if (checkoutInFlight.current) return;
+  const startCheckout = useCallback(async (resumeServiceId: string | null = null, automatic = false, renewal = false) => {
+    if (checkoutInFlight.current || (renewal && (!renewalConsent || !service?.renewalOffer))) return;
     const contextVersion = checkoutContext.current.version;
     const path = window.location.pathname;
     const linkedService = new URLSearchParams(window.location.search).get('application_concierge_service_id');
@@ -303,13 +307,14 @@ export default function ApplicationConciergePortal({
       if (!isCurrentOwner()) return;
       // Cached widget state is presentation only; every reopen must verify
       // the provider session before exposing another payment form.
-      const effectiveServiceId = resumeServiceId
+      const effectiveServiceId = renewal ? null : resumeServiceId
         || (sumUpPayment?.userId === user.uid ? sumUpPayment.serviceId : null);
 
       const base = new URL(window.location.href);
       base.searchParams.delete('application_concierge');
       base.searchParams.delete('application_concierge_service_id');
       base.searchParams.delete('application_concierge_payment_return');
+      base.searchParams.delete('application_concierge_renewal');
       const success = new URL(base.toString());
       success.searchParams.set('application_concierge_payment_return', '1');
       const result = await createApplicationConciergeCheckout({
@@ -318,7 +323,8 @@ export default function ApplicationConciergePortal({
         locale,
         requestKey: requestKeyForUser(String(user.uid)),
         customerEmail: checkoutEmail,
-        ...(effectiveServiceId ? { serviceId: effectiveServiceId } : {}),
+        ...(effectiveServiceId ? { serviceId: effectiveServiceId, expectedAmountTotal: service?.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS } : {}),
+        ...(renewal ? { renewalOfServiceId: serviceId!, acceptRenewalTerms: true, expectedAmountTotal: service!.renewalOffer!.amountTotal } : {}),
       }, user);
       if (!isCurrentOwner()) return;
       if (result.paymentProvider === 'sumup') {
@@ -327,6 +333,7 @@ export default function ApplicationConciergePortal({
         returnUrl.searchParams.set('application_concierge_payment_return', '1');
         const payment = {
           checkoutId: result.checkoutId, serviceId: result.serviceId,
+          amountTotal: result.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
           userId: String(user.uid), successUrl: returnUrl.toString(),
         };
         sumUpResponseIsActive.current = (candidate) => candidate === payment && isCurrentOwner();
@@ -337,14 +344,20 @@ export default function ApplicationConciergePortal({
       }
       window.location.assign(result.url);
     } catch (checkoutError) {
-      if (isActive()) setError(errorKey(checkoutError));
+      if (isActive()) {
+        setError(errorKey(checkoutError));
+        if (errorKey(checkoutError) === 'application_concierge_renewal_price_changed') {
+          setRenewalConsent(false);
+          await loadService();
+        }
+      }
     } finally {
       if (isActive()) {
         checkoutInFlight.current = false;
         setBusy(null);
       }
     }
-  }, [email, service, serviceId, ensureUser, onRequireAuth, sumUpPayment, locale]);
+  }, [email, service, serviceId, ensureUser, onRequireAuth, sumUpPayment, locale, renewalConsent, loadService]);
 
   useEffect(() => {
     const recoverable = service && (isPending(service) || isRetryablePayment(service));
@@ -493,7 +506,7 @@ export default function ApplicationConciergePortal({
         <SumUpPaymentWidget
           checkoutId={sumUpPayment.checkoutId}
           locale={locale}
-          amountCents={APPLICATION_CONCIERGE_PRICE_EUR_CENTS}
+          amountCents={sumUpPayment.amountTotal}
           title={t('jobBoard.concierge.paymentTitle')}
           onResponse={handleSumUpResponse}
           onError={() => setSumUpPaymentError(t('jobBoard.concierge.paymentError'))}
@@ -723,7 +736,7 @@ export default function ApplicationConciergePortal({
               className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-bold text-on-accent transition-colors hover:bg-accent-strong disabled:cursor-wait disabled:opacity-60"
             >
               {busy === 'checkout' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}
-              {t('jobBoard.concierge.resumePayment')} · {formattedPrice}
+              {t('jobBoard.concierge.resumePayment')} · {new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format((service.amountTotal || APPLICATION_CONCIERGE_PRICE_EUR_CENTS) / 100)}
               <ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>
@@ -731,6 +744,26 @@ export default function ApplicationConciergePortal({
         {pending && !canResumePayment && <Notice icon={<Clock3 size={17} />} text={t('jobBoard.concierge.paymentPending')} />}
         {service.paymentStatus === 'failed' && !retryablePayment && <Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.paymentFailed')} />}
         {expired && <Notice icon={<Clock3 size={17} />} tone="warning" text={t('jobBoard.concierge.expired')} />}
+        {expired && service.renewalOffer && (
+          <section className="rounded-2xl border border-accent bg-accent-subtle p-5" aria-labelledby="concierge-renewal-title">
+            <p className="text-xs font-bold uppercase tracking-wider text-accent">{t('jobBoard.concierge.renewalEyebrow')}</p>
+            <h2 id="concierge-renewal-title" className="mt-2 text-2xl font-bold font-display text-heading">{t('jobBoard.concierge.renewalTitle')}</h2>
+            <p className="mt-2 text-sm leading-6 text-subtle">{t('jobBoard.concierge.renewalBody')}</p>
+            <p className="mt-4 text-3xl font-extrabold text-heading">
+              {new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(service.renewalOffer.amountTotal / 100)}
+              {service.renewalOffer.discounted && <s className="ml-3 text-base font-normal text-subtle">{formattedPrice}</s>}
+            </p>
+            {service.renewalOffer.discounted && <p className="mt-2 text-sm font-semibold text-accent">{t('jobBoard.concierge.renewalDeadline', { date: new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Zurich' }).format(new Date(service.renewalOffer.discountExpiresAt)) })}</p>}
+            <label className="mt-4 flex cursor-pointer items-start gap-3 text-sm leading-6 text-body">
+              <input type="checkbox" checked={renewalConsent} onChange={(event) => setRenewalConsent(event.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-accent" />
+              <span>{t('jobBoard.concierge.renewalConsent')}</span>
+            </label>
+            <button type="button" disabled={!renewalConsent || busy === 'checkout'} onClick={() => { void startCheckout(null, false, true); }} className="mt-4 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-bold text-on-accent transition-colors hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-60">
+              {busy === 'checkout' ? <Loader2 size={16} className="animate-spin" aria-hidden="true" /> : <ArrowRight size={16} aria-hidden="true" />}
+              {t('jobBoard.concierge.renewalCta')}
+            </button>
+          </section>
+        )}
         {message && <Notice icon={<CheckCircle2 size={17} />} tone="success" text={message} />}
         {displayError && <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-3 text-sm text-danger">{displayError}</p>}
         {!pending && service.paymentStatus === 'paid' && (

@@ -15,7 +15,11 @@ export const CONCIERGE_RENEWAL_PRICE_EUR_CENTS = 2999;
 export function conciergeRefreshDue(service, nowMs = Date.now()) {
   if (!serviceIsActive(service, nowMs) || !service.cvStorageKey || !service.consentedAt) return false;
   const cap = Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
-  if (acceptedPositionsCount(service) >= cap || service.matchingStatus === 'running') return false;
+  if (acceptedPositionsCount(service) >= cap) return false;
+  if (service.matchingStatus === 'running') {
+    const started = timestampMillis(service.matchingStartedAt);
+    if (!started || nowMs - started < 10 * 60 * 1000) return false;
+  }
   const lastRefresh = timestampMillis(service.matchingCompletedAt)
     || timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt);
   return lastRefresh > 0 && nowMs >= lastRefresh + CONCIERGE_REFRESH_INTERVAL_MS;

@@ -364,6 +364,7 @@ describe('application concierge checkout', () => {
       body: {
         ok: true,
         paymentProvider: 'sumup',
+        amountTotal: 3999,
         checkoutId: 'sumup_concierge_1',
         serviceId: 'application_concierge_services-1',
       },
@@ -523,5 +524,55 @@ describe('concierge SumUp callback during replacement', () => {
     expect(mocks.store.get(key)).toMatchObject(payment_status === 'paid'
       ? { checkoutSessionStatus: 'completed', paymentStatus: 'paid', serviceStatus: 'active' }
       : { checkoutSessionStatus: 'creating', paymentStatus: 'pending', serviceStatus: 'awaiting_payment' });
+  });
+});
+
+
+describe('explicit paid concierge renewal', () => {
+  const day = 24 * 60 * 60 * 1000;
+  function source(expiresAt = Date.now() - day) {
+    mocks.store.set('application_concierge_services/original-service', {
+      userId: 'candidate-42', paymentStatus: 'paid', serviceStatus: 'expired', expiresAt,
+    });
+    return request({ body: { ...request().body, renewalOfServiceId: 'original-service', acceptRenewalTerms: true, expectedAmountTotal: 2999 } });
+  }
+  it('charges the server discount and stores explicit consent independently from the old purchase', async () => {
+    const result = await handleCreateApplicationConciergeCheckout(source());
+    expect(result.status).toBe(200);
+    expect(mocks.stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
+      line_items: [expect.objectContaining({ price_data: expect.objectContaining({ unit_amount: 2999 }) })],
+    }), expect.anything());
+    expect(mocks.store.get(`application_concierge_services/${result.body.serviceId}`)).toMatchObject({
+      expectedAmountTotal: 2999, amountTotal: 2999, renewalOfServiceId: 'original-service',
+      renewal: true, renewalConsentVersion: 'application-concierge-v1', serviceStatus: 'awaiting_payment',
+    });
+    expect(mocks.store.get('application_concierge_services/original-service')?.renewedByServiceId).toBeUndefined();
+  });
+  it('rejects a stale discounted quote instead of charging the regular price silently', async () => {
+    const result = await handleCreateApplicationConciergeCheckout(source(Date.now() - 3 * day));
+    expect(result).toMatchObject({ status: 409, body: { error: 'application_concierge_renewal_price_changed' } });
+    expect(mocks.stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+  it('requires fresh consent and ownership', async () => {
+    const req = request({ body: { ...source().body, acceptRenewalTerms: false } });
+    expect((await handleCreateApplicationConciergeCheckout(req)).status).toBe(400);
+    const valid = source(); mocks.verifyCaller.mockResolvedValue({ uid: 'other-candidate', email: 'other@example.test' });
+    expect((await handleCreateApplicationConciergeCheckout(valid)).status).toBe(404);
+  });
+  it('passes the actual discounted amount to the embedded provider', async () => {
+    mocks.getAssistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const result = await handleCreateApplicationConciergeCheckout(source());
+    expect(result.body).toMatchObject({ paymentProvider: 'sumup', amountTotal: 2999 });
+    expect(mocks.createSumUpApplicationConciergeCheckout).toHaveBeenCalledWith(expect.objectContaining({ amountCents: 2999 }));
+  });
+  it('accepts only the stored expected price when activating a renewed service', async () => {
+    const created = await handleCreateApplicationConciergeCheckout(source());
+    const serviceId = created.body.serviceId;
+    await handleApplicationConciergeWebhookEvent({ type: 'checkout.session.completed', data: { object: {
+      id: 'cs_concierge_1', payment_status: 'paid', amount_total: 2999, currency: 'eur',
+      metadata: { product: 'application_concierge', serviceId, paymentProvider: 'stripe' },
+    } } }, { db: mocks.db });
+    expect(mocks.store.get(`application_concierge_services/${serviceId}`)).toMatchObject({ paymentStatus: 'paid', serviceStatus: 'active' });
+    expect(mocks.store.get('application_concierge_services/original-service')).toMatchObject({ renewedByServiceId: serviceId });
   });
 });

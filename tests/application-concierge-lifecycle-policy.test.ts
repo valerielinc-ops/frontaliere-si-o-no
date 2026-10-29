@@ -18,6 +18,11 @@ describe('three-day proposal refresh', () => {
   });
 });
 
+it('recovers a stale matching run only after the bounded lease', () => {
+  expect(conciergeRefreshDue(active({ matchingStatus: 'running', matchingStartedAt: now - 11 * 60 * 1000 }), now)).toBe(true);
+  expect(conciergeRefreshDue(active({ matchingStatus: 'running', matchingStartedAt: now - 5 * 60 * 1000 }), now)).toBe(false);
+});
+
 describe('three-day renewal discount', () => {
   it('uses the original expiry as a fixed deadline, including exact boundaries', () => {
     const service = active({ expiresAt: now });

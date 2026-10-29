@@ -1,10 +1,13 @@
 /** Scheduled lifecycle: refresh active services, deliver new proposals, then offer a renewal on expiry. */
 import { inheritConciergeRenewalMaterials } from './applicationConciergeRenewalMaterials.js';
+import { getNewsletterSecrets } from './remoteConfigSecrets.js';
+import { paymentReminderUrl } from './applicationConciergePaymentReminders.js';
 import { createHash } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { APPLICATION_CONCIERGE_SERVICES_COLLECTION, APPLICATION_CONCIERGE_MAX_POSITIONS, acceptedPositionsCount, serviceIsActive, timestampMillis } from './applicationConciergeConstants.js';
 import { conciergeRefreshDue, conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
-import { runApplicationConciergeMatching } from './applicationConciergeMatching.js';
+import * as conciergeMatcher from './applicationConciergeMatching.js';
+const { runApplicationConciergeMatching } = conciergeMatcher;
 import { buildConciergeNewJobsEmail, buildConciergeRenewalEmail } from './applicationConciergeLifecycleEmails.js';
 import { sendOrderNotification } from './assistedApplicationNotifications.js';
 
@@ -36,6 +39,7 @@ async function deliverNewProposals({ db, ref, nowMs, send }) {
     return false;
   }
   const result = await send({ db, recordRef: ref, orderId: ref.id, key: pending.key, audience: 'customer', nowMs,
+    eligible: (current) => serviceIsActive(current, nowMs) && underCap(current),
     build: (current, options) => buildConciergeNewJobsEmail(current, ref.id, proposals, options),
   });
   if (result.ok || ['already_sent', 'already_ambiguous'].includes(result.reason)) {
@@ -44,7 +48,8 @@ async function deliverNewProposals({ db, ref, nowMs, send }) {
   return result.ok;
 }
 
-export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification }) {
+export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match = runApplicationConciergeMatching, send = sendOrderNotification, unsubscribeSecret = null }) {
+  const secret = unsubscribeSecret ?? (await getNewsletterSecrets()).newsletterSecret;
   const snapshot = await db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).where('paymentStatus', '==', 'paid').get();
   const summary = { refreshed: 0, newJobEmails: 0, renewalEmails: 0, failed: 0 };
   for (const document of snapshot.docs || []) {
@@ -53,7 +58,9 @@ export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match
       await inheritConciergeRenewalMaterials({ db, serviceId: ref.id, nowMs });
       // Retry a failed notice before a later refresh can replace its pending batch.
       if (await deliverNewProposals({ db, ref, nowMs, send })) summary.newJobEmails += 1;
-      if (await claimRefresh(db, ref, nowMs)) {
+      // A rolling deployment must never email lexical-only matches as verified proposals.
+      const verifiedMatcherAvailable = match !== runApplicationConciergeMatching || conciergeMatcher.APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED === true;
+      if (verifiedMatcherAvailable && await claimRefresh(db, ref, nowMs)) {
         try {
           const before = await ref.collection('proposals').get();
           const known = new Set(before.docs.map(d => d.id));
@@ -79,9 +86,15 @@ export async function runConciergeLifecycleSweep({ db, nowMs = Date.now(), match
       }
       const current = (await ref.get()).data();
       const offer = conciergeRenewalOffer(current, nowMs);
-      if (offer?.discounted && !current.lifecycleEmailsUnsubscribedAt) {
+      if (offer?.discounted && secret && current.userId) {
         const result = await send({ db, recordRef: ref, orderId: ref.id, key: `renewal_day_${offer.reminderStage}`, audience: 'customer', nowMs,
-          build: (service, options) => buildConciergeRenewalEmail(service, ref.id, { ...options, nowMs }),
+          eligible: async (service, tx) => {
+            const liveOffer = conciergeRenewalOffer(service, nowMs);
+            if (!liveOffer?.discounted || liveOffer.reminderStage !== offer.reminderStage || !service.userId) return false;
+            const user = await tx.get(db.collection('users').doc(service.userId));
+            return user.data()?.applicationConciergePaymentReminder?.optedOut !== true;
+          },
+          build: (service, options) => buildConciergeRenewalEmail(service, ref.id, { ...options, nowMs, unsubscribeUrl: paymentReminderUrl(service.userId, secret) }),
         });
         if (result.ok) summary.renewalEmails += 1;
       }

@@ -1,5 +1,5 @@
 /** Lifecycle messages use the existing branded service email shell. */
-import { brandButton, brandCallout, brandFinePrint, brandJobCard, brandParagraph, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
+import { brandButton, brandCallout, brandFinePrint, brandJobCard, brandLink, brandParagraph, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { conciergeServiceUrl } from './applicationConciergeNotifications.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
 
@@ -20,7 +20,8 @@ export function buildConciergeNewJobsEmail(service, serviceId, proposals, { auto
     html: renderBrandedEmail({ locale, heroTitle: copy.newTitle, preheader: copy.newSubject, bodyHtml: brandParagraph(esc(copy.newBody)) + cards + brandButton(href, copy.newCta) }) };
 }
 
-export function buildConciergeRenewalEmail(service, serviceId, { nowMs = Date.now(), autologin = null } = {}) {
+export function buildConciergeRenewalEmail(service, serviceId, { nowMs = Date.now(), autologin = null, unsubscribeUrl } = {}) {
+  if (!unsubscribeUrl) throw new Error('concierge_renewal_unsubscribe_required');
   const offer = conciergeRenewalOffer(service, nowMs);
   if (!offer?.discounted) throw new Error('concierge_renewal_offer_expired');
   const locale = Object.hasOwn(COPY, service.locale) ? service.locale : 'it';
@@ -34,6 +35,7 @@ export function buildConciergeRenewalEmail(service, serviceId, { nowMs = Date.no
     + brandCallout(`<div style="font-size:30px;font-weight:800;color:#0f172a;line-height:1.2">${esc(money(offer.amountTotal))} <span style="font-size:16px;color:#64748b;font-weight:400;text-decoration:line-through">${esc(money(3999))}</span></div><div style="margin-top:8px;font-weight:700;color:#c2410c">${esc(copy.savings)}</div>`)
     + brandButton(href, copy.renewalCta)
     + brandParagraph(`<strong>${esc(copy.deadline)} ${esc(deadline)} (${esc(zoneLabel)}).</strong>`)
-    + brandFinePrint(esc(copy.terms));
-  return { subject, text: `${copy.renewalBody}\n\n${copy.savings}\n${copy.deadline} ${deadline} (${zoneLabel}).\n\n${copy.renewalCta}: ${href}\n\n${copy.terms}`, html: renderBrandedEmail({ locale, heroTitle: copy.renewalTitle, preheader: subject, bodyHtml }) };
+    + brandFinePrint(esc(copy.terms))
+    + brandFinePrint(brandLink(unsubscribeUrl, { it: 'Non vuoi altri promemoria? Disiscriviti', en: 'Unsubscribe from reminders', de: 'Keine weiteren Erinnerungen: abmelden', fr: 'Se désinscrire des rappels' }[locale]));
+  return { subject, headers: { 'List-Unsubscribe': `<${unsubscribeUrl}>`, 'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click' }, text: `${copy.renewalBody}\n\n${copy.savings}\n${copy.deadline} ${deadline} (${zoneLabel}).\n\n${copy.renewalCta}: ${href}\n\n${copy.terms}\n\n${unsubscribeUrl}`, html: renderBrandedEmail({ locale, heroTitle: copy.renewalTitle, preheader: subject, bodyHtml }) };
 }

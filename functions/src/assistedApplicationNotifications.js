@@ -1078,11 +1078,12 @@ function orderRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
 }
 
-async function claimNotification(db, orderRef, key, nowMs, { force = false } = {}) {
+async function claimNotification(db, orderRef, key, nowMs, { force = false, eligible = null } = {}) {
   return db.runTransaction(async (transaction) => {
     const snapshot = await transaction.get(orderRef);
     if (!snapshot.exists) return { ok: false, reason: 'order_not_found' };
     const order = snapshot.data() || {};
+    if (eligible && !(await eligible(order, transaction))) return { ok: false, reason: 'ineligible' };
     const current = order.notifications?.[key] || null;
     if (current?.status === 'sent' || current?.status === 'ambiguous') {
       return { ok: false, reason: `already_${current.status}`, order };
@@ -1128,8 +1129,9 @@ async function ensureEmailProviders() {
  *   outside NOTIFICATION_KEYS (the automated flow's per-round messages)
  * @param {number} [args.nowMs]
  * @param {FirebaseFirestore.DocumentReference} [args.recordRef] parent-service ledger; disables order-specific tracking
+ * @param {(order:object, transaction:object)=>Promise<boolean>|boolean} [args.eligible] rechecks lifecycle eligibility inside the claim transaction
  */
-export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, audience = null, nowMs = Date.now(), recordRef = null }) {
+export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, audience = null, nowMs = Date.now(), recordRef = null, eligible = null }) {
   const orderRef = recordRef || orderRefFor(db, orderId);
   const testMode = Boolean(recipientOverride);
 
@@ -1139,7 +1141,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     if (!snapshot.exists) return { ok: false, key, reason: 'order_not_found' };
     order = snapshot.data() || {};
   } else {
-    const claim = await claimNotification(db, orderRef, key, nowMs);
+    const claim = await claimNotification(db, orderRef, key, nowMs, { eligible });
     if (!claim.ok) return { ok: false, key, skipped: true, reason: claim.reason };
     order = claim.order;
   }
@@ -1171,6 +1173,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     subject: testMode ? `[TEST] ${message.subject}` : message.subject,
     html: message.html,
     text: message.text,
+    ...(message.headers ? { headers: message.headers } : {}),
     // The candidate's e-mails report opens and clicks to the admin panel
     // (assistedApplicationEmailEvents.js); the owner's and test copies do not.
     ...(isCustomer && !testMode && !recordRef ? assistedEmailTracking(orderId, key) : { tracking: false }),

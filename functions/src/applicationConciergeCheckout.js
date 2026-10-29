@@ -233,6 +233,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   let checkoutAttempt = 1;
   let resumePaidServiceId = null;
   let terminalSumUpCheckoutId = null;
+  let renewalPriceChanged = false;
   const publishCheckout = async (serviceUpdate, requestUpdate) => firestore.runTransaction(async (transaction) => {
     const [serviceSnapshot, requestSnapshot] = await Promise.all([
       transaction.get(serviceRef), transaction.get(requestRef),
@@ -294,7 +295,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           if (status === 'PENDING' || status === 'OPEN' || status === 'FAILED') {
             return { status: 200, body: {
               ok: true, paymentProvider: SUMUP_PAYMENT_PROVIDER,
-              checkoutId: checkout.id, serviceId: resumeServiceId,
+              checkoutId: checkout.id, serviceId: resumeServiceId, amountTotal: expectedPriceOf(resumeService),
             } };
           }
           if (status === 'PAID') {
@@ -384,6 +385,19 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         ) {
           throw new ApplicationConciergeCheckoutConflictError();
         }
+        let renewalPrice = null;
+        if (existingService.renewalOfServiceId) {
+          const parent = (await transaction.get(serviceCollection.doc(existingService.renewalOfServiceId))).data();
+          const offer = conciergeRenewalOffer(parent);
+          if (parent?.userId !== userId || !offer) throw new ApplicationConciergeCheckoutConflictError();
+          renewalPrice = offer.amountTotal;
+          if (Number(body.expectedAmountTotal) !== renewalPrice) {
+            // Expose the new quote without modifying the expected amount of an old provider attempt.
+            transaction.set(serviceRef, { nextAmountTotal: renewalPrice }, { merge: true });
+            renewalPriceChanged = true;
+            return;
+          }
+        }
         checkoutAttempt = Math.max(
           Number(existingService.checkoutAttempt) || 0,
           Number(existingRecord.checkoutAttempt) || 0,
@@ -410,6 +424,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         transaction.update(serviceRef, {
           paymentStatus: 'pending',
           serviceStatus: 'awaiting_payment',
+          ...(renewalPrice ? { amountTotal: renewalPrice, expectedAmountTotal: renewalPrice, nextAmountTotal: FieldValue.delete() } : {}),
           customerEmail,
           paymentFailureReason: null,
           checkoutSessionStatus: 'creating',
@@ -466,6 +481,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     throw error;
   }
 
+  if (renewalPriceChanged) return { status: 409, body: { ok: false, error: 'application_concierge_renewal_price_changed' } };
   if (resumePaidServiceId) {
     return {
       status: 200,
@@ -482,7 +498,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     const checkout = await createSumUpApplicationConciergeCheckout({
       serviceId,
       redirectUrl: successRedirect,
-      ...(checkoutPrice !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS ? { amountCents: checkoutPrice } : {}),
+      ...(checkoutPrice !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS ? { amountCents: checkoutPrice, validUntil: timestampMillis(checkoutService.renewalDiscountExpiresAt) } : {}),
       checkoutAttempt,
     });
     if (terminalSumUpCheckoutId && checkout.id === terminalSumUpCheckoutId) {
@@ -503,6 +519,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         ok: true,
         paymentProvider: SUMUP_PAYMENT_PROVIDER,
         checkoutId: checkout.id,
+        amountTotal: checkoutPrice,
         serviceId,
       },
     };
@@ -511,6 +528,10 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     const metadata = metadataForService(serviceId, userId, locale, 'stripe');
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
+      // Stripe accepts 30 minutes–24 hours. A quote accepted in the final 30 minutes
+      // stays bounded by Stripe's minimum; recreating it always re-evaluates the current price.
+      ...(checkoutPrice === 2999 ? { expires_at: Math.floor(Math.max(Date.now() + 31 * 60 * 1000,
+        Math.min(timestampMillis(checkoutService.renewalDiscountExpiresAt), Date.now() + 23 * 60 * 60 * 1000)) / 1000) } : {}),
       line_items: [{
         price_data: {
           currency: APPLICATION_CONCIERGE_CURRENCY,
@@ -662,6 +683,7 @@ export async function handleApplicationConciergeWebhookEvent(
     if (paymentProvider === SUMUP_PAYMENT_PROVIDER
       && String(service.checkoutSessionStatus || '').toLowerCase() === 'creating'
       && paymentStatus !== 'paid') return;
+    if (paymentStatus === 'paid' && Number(obj.amount_total) !== expectedPriceOf(service)) return;
     if (paymentStatus === 'paid' && service.renewalOfServiceId) {
       const parentRef = firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(service.renewalOfServiceId);
       const parent = (await transaction.get(parentRef)).data();
