@@ -18,6 +18,7 @@ import { realpathSync } from 'node:fs';
 // acquired Firestore lease still serializes both entry points. If Firestore
 // credentials are unavailable, the script logs the explicit fail-open path and
 // retains the API probe fallback.
+// This module is a crawler-contract source input; changes trigger reattestation.
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import {

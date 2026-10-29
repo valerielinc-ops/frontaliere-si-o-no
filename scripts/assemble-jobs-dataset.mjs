@@ -17,6 +17,7 @@ import { hasPostingDateProvenance, mergeSourcePostingDates } from './lib/source-
  *   data/jobs.json
  *   public/data/jobs.json
  *   data/jobs-crawler-summaries.json
+ * This module is a crawler-contract source input; changes trigger reattestation.
  *
  * Merge rules:
  *   1. Stable identity: url → id/externalId → slug → title+company+location fallback.

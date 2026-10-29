@@ -2,6 +2,7 @@
 # Retry only deterministic crawler setup: `npm ci` clears node_modules first;
 # Playwright verifies completed browsers, discards partial downloads, and its
 # dependency installation converges when repeated.
+# This helper is a crawler-contract source input; changes trigger reattestation.
 set -euo pipefail
 
 attempts="${CRAWLER_RETRY_CMD_ATTEMPTS:-3}"
