@@ -19,6 +19,7 @@ import {
 } from './applicationConciergeConstants.js';
 import {
   createSumUpApplicationConciergeCheckout,
+  retrieveSumUpCheckout,
   getAssistedApplicationPaymentProvider,
   SUMUP_PAYMENT_PROVIDER,
 } from './sumupAssistedApplicationCore.js';
@@ -191,6 +192,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   let serviceRef = null;
   let checkoutAttempt = 1;
   let resumePaidServiceId = null;
+  let terminalSumUpCheckoutId = null;
 
   if (resumeServiceId) {
     const resumeServiceRef = serviceCollection.doc(resumeServiceId);
@@ -218,17 +220,40 @@ export async function handleCreateApplicationConciergeCheckout(req) {
 
     if (String(resumeService.checkoutSessionStatus || '').toLowerCase() === 'open') {
       if (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.sumupCheckoutId) {
-        return {
-          status: 200,
-          body: {
-            ok: true,
-            paymentProvider: SUMUP_PAYMENT_PROVIDER,
-            checkoutId: resumeService.sumupCheckoutId,
-            serviceId: resumeServiceId,
-          },
-        };
+        try {
+          const checkout = await retrieveSumUpCheckout(resumeService.sumupCheckoutId);
+          if (checkout.id !== resumeService.sumupCheckoutId || checkout.checkout_reference !== resumeServiceId
+            || Math.round(Number(checkout.amount) * 100) !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS
+            || String(checkout.currency || '').toLowerCase() !== APPLICATION_CONCIERGE_CURRENCY) {
+            return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+          }
+          const status = String(checkout.status || '').toUpperCase();
+          if (status === 'PENDING' || status === 'OPEN') {
+            return { status: 200, body: {
+              ok: true, paymentProvider: SUMUP_PAYMENT_PROVIDER,
+              checkoutId: checkout.id, serviceId: resumeServiceId,
+            } };
+          }
+          if (status === 'PAID') {
+            const { applyAssistedApplicationSumUpCheckout } = await import('./assistedApplicationSumupWebhook.js');
+            await applyAssistedApplicationSumUpCheckout(checkout, { db: () => firestore, ts: FieldValue.serverTimestamp() });
+            const fresh = await resumeServiceRef.get();
+            if (fresh.data()?.paymentStatus === 'paid') {
+              return { status: 200, body: { ok: true, url: appendServiceId(successUrl, resumeServiceId), serviceId: resumeServiceId } };
+            }
+            return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
+          }
+          if (!['EXPIRED', 'FAILED', 'CANCELLED'].includes(status)) {
+            return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
+          }
+          terminalSumUpCheckoutId = checkout.id;
+          // Explicit terminal provider state falls through to the existing
+          // transaction-backed renewal; unknown or paid state never does.
+        } catch {
+          return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+        }
       }
-      if (resumeService.stripeCheckoutSessionId) {
+      if (resumeService.paymentProvider !== SUMUP_PAYMENT_PROVIDER && resumeService.stripeCheckoutSessionId) {
         try {
           const stripe = await getStripe();
           const session = await stripe.checkout.sessions.retrieve(resumeService.stripeCheckoutSessionId);
@@ -456,6 +481,11 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       serviceId,
       redirectUrl: successRedirect,
     });
+    if (terminalSumUpCheckoutId && checkout.id === terminalSumUpCheckoutId) {
+      // A duplicate-reference recovery must not hand a terminal checkout to the widget.
+      await serviceRef.set({ checkoutSessionStatus: 'open', checkoutClaimedAt: null }, { merge: true });
+      return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+    }
     await serviceRef.set({
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,

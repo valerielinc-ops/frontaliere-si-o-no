@@ -14,6 +14,7 @@ import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
 import { writeAdminAuditLog } from './adminAudit.js';
+import { getAuth } from 'firebase-admin/auth';
 import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATION_CONSENT_VERSION } from './assistedApplicationCheckout.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
@@ -481,6 +482,28 @@ export async function handleApplicationConcierge(req) {
     if (method === 'GET') return await handleCandidateGet(db, req, decoded.uid);
     const serviceId = serviceIdFromRequest(req);
     const action = boundedString(req.body?.action, 40);
+    if (action === 'recoverPaymentSession') {
+      if (!validId(serviceId)) throw new ApplicationConciergeError('service_not_found', 404);
+      const snapshot = await serviceRefFor(db, serviceId).get();
+      const service = snapshot.exists ? snapshot.data() || {} : null;
+      const recipient = String(service?.customerEmail || service?.applicantEmail || '').trim().toLowerCase();
+      const callerEmail = String(decoded.email || '').trim().toLowerCase();
+      if (!service || decoded.email_verified !== true || !callerEmail || callerEmail !== recipient
+        || !service.userId || service.paymentStatus === 'paid'
+        || !['awaiting_payment', 'payment_failed'].includes(service.serviceStatus)) {
+        throw new ApplicationConciergeError('service_not_found', 404);
+      }
+      // Historic unsigned links need an independently verified account first.
+      // Preserve the checkout owner instead of transferring records to a new UID.
+      const owner = await getAuth().getUser(String(service.userId));
+      const ownerEmail = String(owner.email || '').trim().toLowerCase();
+      const anonymousOwner = !owner.email && !owner.phoneNumber && !(owner.providerData || []).length;
+      if (owner.disabled || (!anonymousOwner && ownerEmail !== callerEmail)) {
+        throw new ApplicationConciergeError('service_not_found', 404);
+      }
+      const authToken = await getAuth().createCustomToken(owner.uid);
+      return { status: 200, body: { ok: true, authToken } };
+    }
     if (action === 'saveProfile') {
       const service = await saveCandidateProfile(db, serviceId, decoded.uid, req.body || {});
       return { status: 200, body: { ok: true, service } };

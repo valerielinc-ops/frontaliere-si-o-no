@@ -793,6 +793,7 @@ const App: React.FC = () => {
  // Normalize the recipient email read by the shared parser.
  const email = normalizeNewsletterEmail(rawEmail);
  const assistedApplicationOrderId = url.searchParams.get('assisted_application_order_id');
+ const applicationConciergeServiceId = url.searchParams.get('application_concierge_service_id');
 
  if (!autologinCode && !legacyAuthToken) return;
  if (!email || !email.includes('@')) return;
@@ -806,7 +807,7 @@ const App: React.FC = () => {
  if (autologinCode) {
  // New flow: exchange HMAC code for a fresh custom token via Cloud Function
  const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
- const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId);
+ const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId, applicationConciergeServiceId);
  if (result.success && result.authToken) {
  user = await signInWithCustomAuthToken(result.authToken);
  }
@@ -3286,12 +3287,12 @@ const App: React.FC = () => {
    || isApplicationConciergePath(window.location.pathname);
  })()) ? (
  <ApplicationConciergePortal
-  key={authUser?.uid ?? 'anonymous'}
+  key={`${authUser?.uid ?? 'anonymous'}:${typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') || 'entry' : 'entry'}`}
   serviceId={typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('application_concierge_service_id') : null}
   entry={typeof window !== 'undefined' && (new URLSearchParams(window.location.search).get('application_concierge') === '1' || isApplicationConciergePath(window.location.pathname))}
   authUser={authUser}
-  authLoading={authLoading}
-  onRequireAuth={() => navigateTo('profile' as any)}
+  authLoading={authLoading || newsletterAutologinInFlight}
+  onRequireAuth={() => void googleSignIn()}
  />
  ) : <JobBoard
  key={authUser?.uid ?? 'anonymous'}
