@@ -1,19 +1,21 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-10-29T09:30:04.564Z",
+  "generatedAt": "2026-10-29T21:50:35.033Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 132505,
-  "avgDurationMs": 132505,
+  "unchangedCount": 8,
+  "durationMs": 114668,
+  "avgDurationMs": 114668,
   "durationHistory": [
-    132505
+    114668
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Assistant Waiter / Waitress (m/w) - be the hero in the restaurant",
       "slug": "assistente-cameriere-cameriera-m-w-sii-l-eroe-del-ristorante-grace-la-margna-st-moritz-st-moritz",
@@ -39,7 +41,7 @@
       "postingDateSource": "unknown",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:28:24.959Z",
+      "crawledAt": "2026-10-29T21:49:25.834Z",
       "id": "grace-la-margna-bbc2c160c4ea",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -47,7 +49,6 @@
       "salarySource": "estimated",
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -55,10 +56,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "F&B Administrative Executive – be the protector of F&B excellence",
       "slug": "f-b-administrative-executive-sii-il-protettore-dell-eccellenza-f-b-grace-la-margna-st-moritz-st-moritz",
@@ -82,7 +80,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:28:29.958Z",
+      "crawledAt": "2026-10-29T21:49:30.891Z",
       "id": "grace-la-margna-ed3bad146cb6",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -124,7 +122,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:28:34.640Z",
+      "crawledAt": "2026-10-29T21:49:36.085Z",
       "id": "grace-la-margna-904ca01fa2ea",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -166,7 +164,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:28:39.541Z",
+      "crawledAt": "2026-10-29T21:49:48.463Z",
       "id": "grace-la-margna-37be54b5c05d",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -208,7 +206,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:28:44.148Z",
+      "crawledAt": "2026-10-29T21:49:53.122Z",
       "id": "grace-la-margna-dbf5312cec63",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -250,7 +248,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:28:48.880Z",
+      "crawledAt": "2026-10-29T21:50:05.490Z",
       "id": "grace-la-margna-3a693cb7389a",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -292,7 +290,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:29:00.592Z",
+      "crawledAt": "2026-10-29T21:50:10.121Z",
       "id": "grace-la-margna-64964a3aeda8",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -334,7 +332,7 @@
       "postedDate": "2026-09-30",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-10-29T09:29:05.282Z",
+      "crawledAt": "2026-10-29T21:50:21.892Z",
       "id": "grace-la-margna-ba221949eef3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -354,5 +352,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

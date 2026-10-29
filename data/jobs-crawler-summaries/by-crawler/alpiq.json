@@ -1,18 +1,59 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-10-29T09:27:37.810Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-10-29T21:53:07.898Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 11484,
-  "avgDurationMs": 11484,
+  "durationMs": 11240,
+  "avgDurationMs": 11240,
   "durationHistory": [
-    11484
+    11240
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "alpiq-5e759a112ffc",
+      "slug": "power-gas-trader-alpiq-lausanne",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Power & Gas Trader",
+      "location": "Lausanne",
+      "canton": "VD",
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/261",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=261&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-29T21:52:53.782Z",
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-29T21:52:53.782Z",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "alpiq-98de3cfe5599",
@@ -40,7 +81,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=222&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:27:23.675Z",
+      "crawledAt": "2026-10-29T21:52:53.779Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
@@ -55,48 +96,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "alpiq-8ca59717291e",
-      "slug": "project-manager-hydropower-alpiq-switzerland",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Project Manager Hydropower",
-      "location": "Lausanne",
-      "canton": "VD",
-      "postalCode": "1003",
-      "streetAddress": "Chemin de Mornex 10",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/141",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:35:02.428Z",
-      "firstSeenAt": "2026-09-24T00:02:12.812Z",
-      "salaryMin": 117500,
-      "salaryMax": 179500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "alpiq-24db5dc75d88",
@@ -124,7 +124,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:27:23.643Z",
+      "crawledAt": "2026-10-29T21:52:53.760Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -163,7 +163,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:27:23.660Z",
+      "crawledAt": "2026-10-29T21:52:53.772Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -202,7 +202,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=138&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:27:23.663Z",
+      "crawledAt": "2026-10-29T21:52:53.774Z",
       "firstSeenAt": "2026-10-07T09:41:55.800Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -241,7 +241,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=196&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:27:23.666Z",
+      "crawledAt": "2026-10-29T21:52:53.775Z",
       "firstSeenAt": "2026-10-05T09:28:37.523Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -255,5 +255,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
