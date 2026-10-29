@@ -4,6 +4,7 @@ const mocks = vi.hoisted(() => {
   const documents = new Map<string, Record<string, unknown>>();
   const files = new Set<string>();
   let childSequence = 0;
+  let copyHook: (() => void) | null = null;
 
   function pathKey(path: string) {
     return path.replace(/^\/+|\/+$/g, '');
@@ -92,6 +93,7 @@ const mocks = vi.hoisted(() => {
         },
         async copy(target: { path: string }) {
           files.add(target.path);
+          copyHook?.();
         },
         async delete() {
           files.delete(path);
@@ -105,6 +107,7 @@ const mocks = vi.hoisted(() => {
     getUser: vi.fn(async (uid: string) => ({ uid })),
     documents,
     files,
+    setCopyHook(hook: (() => void) | null) { copyHook = hook; },
     firestore,
     bucket,
     getAdminDb: vi.fn(() => firestore),
@@ -115,6 +118,7 @@ const mocks = vi.hoisted(() => {
       documents.clear();
       files.clear();
       childSequence = 0;
+      copyHook = null;
     },
   };
 });
@@ -151,15 +155,13 @@ vi.mock('../functions/src/assistedApplicationCheckout.js', () => ({
   ASSISTED_APPLICATION_CONSENT_VERSION: 'assisted-application-v1',
 }));
 
-vi.mock('../functions/src/assistedApplicationConstants.js', () => ({
-  ASSISTED_APPLICATIONS_COLLECTION: 'assisted_applications',
-  ASSISTED_APPLICATION_ORDER_ID_RE: /^[A-Za-z0-9_-]{6,128}$/,
-}));
+
 
 vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({
   ASSISTED_APPLICATION_STORAGE_BUCKET: 'test-bucket',
 }));
 
+vi.mock('../functions/src/applicationConciergeEligibility.js', () => ({ prepareConciergeEligibility: vi.fn() }));
 vi.mock('../functions/src/assistedApplicationReviewToken.js', async (original) => ({ ...await original<typeof import('../functions/src/assistedApplicationReviewToken.js')>(), getReviewTokenSecret: vi.fn(async () => 'test-review-secret-for-candidate-access-123456') }));
 const { handleApplicationConcierge, handleManageApplicationConcierge } = await import('../functions/src/applicationConciergeCore.js');
 
@@ -189,6 +191,8 @@ function seedService() {
     location: 'Lugano',
     applyMode: 'portal',
     status: 'proposed',
+    eligibilityStatus: 'compatible',
+    eligibilityCvStorageKey: 'application-concierge-uploads/service-1/cv.pdf',
   });
   mocks.files.add('application-concierge-uploads/service-1/cv.pdf');
 }
@@ -306,6 +310,38 @@ describe('application concierge candidate API', () => {
     expect([...mocks.files].some((path) => path.startsWith('assisted-application-uploads/child-1/'))).toBe(true);
   });
 
+  it('rejects a compatible verdict tied to an older CV before copying it', async () => {
+    const service = mocks.documents.get('application_concierge_services/service-1')!;
+    service.cvStorageKey = 'application-concierge-uploads/service-1/new-cv.pdf';
+    mocks.files.add(service.cvStorageKey as string);
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
+  it('rejects an acceptance when the service CV changes while the proposal CV is being copied', async () => {
+    mocks.setCopyHook(() => {
+      mocks.documents.get('application_concierge_services/service-1')!.cvStorageKey = 'application-concierge-uploads/service-1/new-cv.pdf';
+    });
+
+    const result = await handleApplicationConcierge({
+      method: 'POST',
+      body: { serviceId: 'service-1', action: 'acceptProposal', proposalId: 'proposal-1' },
+      get: () => 'Bearer candidate-token',
+    });
+
+    expect(result).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+    expect([...mocks.files].some(path => path.startsWith('assisted-application-uploads/'))).toBe(false);
+    expect([...mocks.documents.keys()].some(path => path.startsWith('assisted_applications/'))).toBe(false);
+  });
+
   it('does not create a child application for a declined proposal', async () => {
     const result = await handleApplicationConcierge({
       method: 'POST',
@@ -382,6 +418,7 @@ describe('application concierge candidate API', () => {
       companyName: 'Nearby SA',
       jobTitle: 'Developer',
       status: 'proposed',
+    eligibilityStatus: 'compatible',
       matchScore: 53,
       matchRankingScore: 53,
     });
@@ -445,6 +482,18 @@ describe('application concierge candidate API', () => {
   });
 });
 
+
+it('blocks accepting an unverified legacy proposal while still allowing the candidate to decline it', async () => {
+  seedService();
+  const proposal = mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!;
+  delete proposal.eligibilityStatus;
+  const base = { serviceId: 'service-1', proposalId: 'proposal-1' };
+  const accepted = await handleApplicationConcierge({ method: 'POST', body: { ...base, action: 'acceptProposal' }, get: () => 'Bearer candidate-token' });
+  expect(accepted).toMatchObject({ status: 409, body: { error: 'proposal_requires_verification' } });
+  expect([...mocks.documents.keys()].filter(path => path.startsWith('assisted_applications/'))).toHaveLength(0);
+  const declined = await handleApplicationConcierge({ method: 'POST', body: { ...base, action: 'declineProposal' }, get: () => 'Bearer candidate-token' });
+  expect(declined.status).toBe(200);
+});
 
 describe('owned child status and private review access from the service', () => {
   function acceptedChild(patch: Record<string, unknown> = {}) {

@@ -228,7 +228,7 @@ async function main() {
     const started = Date.now();
     try {
       const draft = await buildDraft({
-        order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
+        db, order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
         // A portal form read ahead: its questions and required file fields reach the first review.

@@ -14,7 +14,10 @@
  * the fact warnings.
  */
 
-const DECISIVE = ['critical', 'high'];
+import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion } from './lib/languageFacts.js';
+
+export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
+const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
 const OPEN = ['missing', 'partial'];
 export const MAX_FIT_GAPS = 6;
 
@@ -55,4 +58,61 @@ export function fitNoticeWording(fit, { questions = false, edit = true } = {}) {
   if (!fit) return null;
   const kind = fit.level === 'low' && !(fit.gaps || []).length ? 'far' : fit.level;
   return { kind, via: questions ? 'answers' : edit ? 'edit' : null };
+}
+
+
+/** The proposal funnel uses the same decisive rows as review, and requires verified positive evidence. */
+export function conciergeProposalEligibility(requirements, match, { profile = null, answers = {} } = {}) {
+  const rows = Array.isArray(requirements?.requirements) ? requirements.requirements : [];
+  if (!rows.length || !Array.isArray(match?.matches)) return { status: 'unverified', gaps: [] };
+  const found = new Map();
+  for (const row of match.matches) {
+    if (found.has(row.index)) return { status: 'unverified', gaps: [] };
+    found.set(row.index, row);
+  }
+  const gaps = rows.flatMap((row, index) => {
+    if (!DECISIVE.includes(row.importance)) return [];
+    const evidence = found.get(index);
+    if (row.basis !== 'stated' || !row.quote || row.quoteUnverified || !evidence || evidence.evidenceUnverified
+      || evidence.status !== 'met' || !String(evidence.evidence || '').trim()) {
+      return [{ index, requirement: row.requirement, importance: row.importance, status: evidence?.status || 'unknown' }];
+    }
+    return [];
+  });
+  // A one-language must-have cannot be satisfied by evidence about a different language.
+  // Multi-language alternatives and combined clauses remain with the two-pass evaluator.
+  for (const [index, row] of rows.entries()) {
+    if (!profile || !DECISIVE.includes(row.importance) || !isLanguageAbilityQuestion(row.quote)) continue;
+    const codes = languageCodesIn(row.quote || '');
+    if (codes.length !== 1) continue;
+    const code = codes[0];
+    const entry = explicitLanguageEntry(profile, code);
+    const remembered = answers[`language_${code}_any_proficiency`];
+    const level = String(remembered || entry?.level || '');
+    const rank = value => {
+      const label = String(value);
+      const cefr = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(label.toUpperCase().match(/\b[ABC][12]\b/)?.[0]);
+      if (cefr >= 0) return cefr;
+      if (/\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(label)) return 5;
+      return /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(label) ? 4 : -1;
+    };
+    const requested = rank(row.quote);
+    const fluent = /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(row.quote || '');
+    const native = /\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(row.quote || '');
+    const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
+    if (minimum < 0 && !/(?:knowledge|proficien|kenntnis|conoscenz|maîtrise|parlato|written|spoken)/iu.test(row.quote || '')) continue;
+    const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
+    if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
+      const knownMissing = knownAbsent || (minimum >= 0 && rank(level) >= 0 && rank(level) < minimum);
+      const existing = gaps.find(gap => gap.index === index);
+      if (existing) existing.knownMissing = knownMissing;
+      else gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown', knownMissing });
+    }
+  }
+  const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });
+  if (gaps.length || notice) {
+    return { status: match.verdict === 'poor' || gaps.some(gap => gap.knownMissing) ? 'incompatible' : 'clarification_required', gaps, questions: match.questions || [] };
+  }
+  if (!['strong', 'good'].includes(match.verdict)) return { status: 'unverified', gaps: [] };
+  return { status: 'compatible', gaps: [] };
 }

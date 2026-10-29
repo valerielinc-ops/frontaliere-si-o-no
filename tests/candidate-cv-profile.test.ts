@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+vi.mock('../functions/src/applicationConciergeEligibility.js', async original => ({ ...await original<typeof import('../functions/src/applicationConciergeEligibility.js')>(), prepareConciergeEligibility: vi.fn(async () => async () => ({ status: 'compatible' })) }));
 import { parseCandidateCvText } from '../functions/src/candidateCvProfile.js';
 import {
   proposalDocumentId,
@@ -10,6 +11,7 @@ import {
 function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
   const documents = new Map(Object.entries(seed));
   let autoId = 0;
+  let transactionQueue = Promise.resolve();
   const normalize = (path: string) => path.replace(/^\/+|\/+$/g, '');
   const write = (path: string, data: Record<string, unknown>, merge = false) => {
     const key = normalize(path);
@@ -66,6 +68,7 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
         };
       },
       async runTransaction(callback: (transaction: any) => Promise<unknown>) {
+        const queued = transactionQueue.then(async () => {
         const operations: Array<() => void> = [];
         const transaction = {
           get: (target: any) => target.get(),
@@ -76,6 +79,9 @@ function createMatchingDb(seed: Record<string, Record<string, unknown>>) {
         const result = await callback(transaction);
         operations.forEach((operation) => operation());
         return result;
+        });
+        transactionQueue = queued.then(() => undefined, () => undefined);
+        return queued;
       },
     },
     documents,
@@ -295,10 +301,8 @@ describe('application concierge matching', () => {
       const proposalPrefix = 'application_concierge_services/service-1/proposals/';
       const proposals = [...documents.entries()].filter(([path]) => path.startsWith(proposalPrefix));
 
-      expect(results).toEqual([
-        { status: 'complete', proposals: 2, retracted: 0 },
-        { status: 'complete', proposals: 2, retracted: 0 },
-      ]);
+      expect(results.map(result => result.proposals).sort()).toEqual([0, 2]);
+      expect(results.every(result => result.status === 'complete' && result.retracted === 0)).toBe(true);
       expect(proposals).toHaveLength(2);
       expect(new Set(proposals.map(([path]) => path)).size).toBe(2);
     } finally {
@@ -650,7 +654,7 @@ describe('application concierge matching', () => {
       expect(result).toEqual({ status: 'complete', proposals: 1, retracted: 1 });
       expect(relevant).toEqual(expect.objectContaining({
         status: 'proposed',
-        matchingVersion: 'cv-relevance-v5',
+        matchingVersion: 'cv-relevance-v6-full-requirements',
         matchScore: expect.any(Number),
       }));
       expect((relevant?.matchScore as number)).toBeLessThan(99);

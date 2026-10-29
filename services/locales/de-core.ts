@@ -842,6 +842,7 @@ const deCore: Record<string, string> = {
  'jobBoard.concierge.portalIntro': 'Der Dienst bleibt bis zum festen Ablauf nach 30 Tagen aktiv, auch wenn du nicht sofort auf einen Vorschlag antwortest.',
  'jobBoard.concierge.paymentPending': 'Die Zahlung wird geprüft. Diese Seite aktualisiert sich nach der Bestätigung automatisch.',
  'jobBoard.concierge.paymentFailed': 'Die Zahlung wurde nicht bestätigt. Lade keine Daten hoch und versuche es über den Servicelink erneut.',
+  'jobBoard.concierge.errors.proposal_requires_verification': "Die Anforderungen dieses Vorschlags müssen erneut geprüft werden. Aktualisiere die Vorschläge vor der Annahme.",
   'jobBoard.concierge.backToService': "Zurück zu deinen Vorschlägen",
   'jobBoard.concierge.childNeedsAnswers': "Deine Antwort ist erforderlich",
   'jobBoard.concierge.childNeedsReview': "Bereit zur Prüfung",

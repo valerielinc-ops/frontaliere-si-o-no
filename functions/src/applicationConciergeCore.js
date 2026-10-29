@@ -10,6 +10,7 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
+import { prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
@@ -368,6 +369,9 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
   if (!proposalSnapshot.exists) throw new ApplicationConciergeError('proposal_not_found', 404);
   const proposal = proposalSnapshot.data() || {};
   if (proposal.status !== 'proposed') throw new ApplicationConciergeError('proposal_already_decided', 409);
+  if (proposal.eligibilityStatus !== 'compatible' || proposal.eligibilityCvStorageKey !== service.cvStorageKey) {
+    throw new ApplicationConciergeError('proposal_requires_verification', 409);
+  }
 
   const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc();
   const extension = extensionForCvKey(sourceKey);
@@ -390,6 +394,11 @@ async function acceptProposal(db, serviceId, proposalId, uid) {
       assertActive(currentService);
       if (!currentProposalSnapshot.exists || currentProposal.status !== 'proposed') {
         throw new ApplicationConciergeError('proposal_already_decided', 409);
+      }
+      if (currentProposal.eligibilityStatus !== 'compatible'
+        || currentProposal.eligibilityCvStorageKey !== currentService.cvStorageKey
+        || currentService.cvStorageKey !== service.cvStorageKey) {
+        throw new ApplicationConciergeError('proposal_requires_verification', 409);
       }
       const accepted = acceptedPositionsCount(currentService);
       const maxPositions = Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS;
@@ -584,10 +593,17 @@ async function createProposal(db, raw, adminEmail) {
     const data = doc.data() || {};
     return data.status !== 'declined' && (data.jobId === job.jobId || data.jobUrl === job.jobUrl);
   })) throw new ApplicationConciergeError('duplicate_proposal', 409);
+  const profileRecord = (await db.collection('user_cv_profiles').doc(service.userId).get()).data() || {};
+  const evaluate = await prepareConciergeEligibility({ db, serviceRef, service, profileRecord });
+  const qualification = await evaluate({ id: job.jobId, url: job.jobUrl, title: job.jobTitle, company: job.companyName });
+  if (qualification.status !== 'compatible') throw new ApplicationConciergeError('proposal_requires_verification', 409);
   const proposalRef = serviceRef.collection('proposals').doc();
   await proposalRef.set({
     ...job,
     status: 'proposed',
+    eligibilityStatus: qualification.status, eligibilityCacheId: qualification.cacheId, eligibilityFingerprint: qualification.fingerprint,
+    eligibilityCvStorageKey: service.cvStorageKey,
+    eligibilityCheckedAt: Timestamp.now(),
     createdBy: adminEmail,
     createdAt: FieldValue.serverTimestamp(),
     proposedAt: FieldValue.serverTimestamp(),

@@ -839,6 +839,7 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.portalIntro': 'The service stays active until the fixed 30-day expiry even if you do not answer a proposal immediately.',
  'jobBoard.concierge.paymentPending': 'Payment is being verified. This page will update automatically after confirmation.',
  'jobBoard.concierge.paymentFailed': 'Payment was not confirmed. Do not upload data; try again from the service link.',
+  'jobBoard.concierge.errors.proposal_requires_verification': "This proposal needs its requirements checked again. Refresh your proposals before accepting it.",
   'jobBoard.concierge.backToService': "Back to your proposals",
   'jobBoard.concierge.childNeedsAnswers': "Your answer is needed",
   'jobBoard.concierge.childNeedsReview': "Ready for your review",

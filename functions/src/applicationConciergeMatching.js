@@ -7,11 +7,13 @@
  * application child is created.
  */
 
+import { normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { createHash } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import {
   APPLICATION_CONCIERGE_MAX_POSITIONS,
+  APPLICATION_CONCIERGE_MATCHING_VERSION,
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
   acceptedPositionsCount,
   serviceIsActive,
@@ -21,7 +23,8 @@ const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-ind
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
 const MIN_MATCH_SCORE = 28;
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v5';
+export { APPLICATION_CONCIERGE_MATCHING_VERSION } from './applicationConciergeConstants.js';
+export const APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED = true;
 const LOCATION_MATCH_POINTS = Object.freeze({
   sameLocality: 8,
   sameThreeDigitPostcode: 6,
@@ -365,7 +368,7 @@ function validJobUrl(value) {
 }
 
 function jobUrl(job) {
-  return job?.applyUrl || job?.url || '';
+  return job?.applyUrl || job?.url || job?.jobUrl || job?.canonicalUrl || '';
 }
 
 async function fetchJobs(url = process.env.APPLICATION_CONCIERGE_JOB_INDEX_URL || DEFAULT_JOB_INDEX_URL) {
@@ -414,19 +417,22 @@ async function updateExistingProposal(db, ref, update, expectedStatus, nextStatu
     transaction.set(ref, {
       ...update,
       ...(nextStatus ? { status: nextStatus } : {}),
-      ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: 'match_below_threshold' } : {}),
+      ...(nextStatus === 'retracted' ? { retractedAt: FieldValue.serverTimestamp(), retractionReason: update.eligibilityStatus && update.eligibilityStatus !== 'compatible' ? 'decisive_requirements_unverified' : 'match_below_threshold' } : {}),
       ...(nextStatus === 'proposed' && current.status === 'retracted' ? { reactivatedAt: FieldValue.serverTimestamp() } : {}),
     }, { merge: true });
     return true;
   });
 }
 
-export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl } = {}) {
+export async function runApplicationConciergeMatching({ db = getAdminDb(), serviceId, jobIndexUrl, eligibility = null } = {}) {
+  const runStartedAt = Date.now();
   const serviceRef = db.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION).doc(serviceId);
   const serviceSnapshot = await serviceRef.get();
   if (!serviceSnapshot.exists) return { status: 'skipped', reason: 'service_not_found' };
   const service = serviceSnapshot.data() || {};
   if (!service.userId || service.paymentStatus !== 'paid' || !serviceIsActive(service)) return { status: 'skipped', reason: 'service_inactive' };
+
+  if (acceptedPositionsCount(service) >= (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) return { status: 'skipped', reason: 'position_limit_reached' };
 
   const profileSnapshot = await db.collection('user_cv_profiles').doc(service.userId).get();
   const profileRecord = profileSnapshot.exists ? profileSnapshot.data() || {} : {};
@@ -438,7 +444,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
 
   await serviceRef.set({ matchingStatus: 'running', matchingStartedAt: FieldValue.serverTimestamp(), matchingError: null, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   try {
-    const jobs = await fetchJobs(jobIndexUrl);
+    const jobs = (await fetchJobs(jobIndexUrl)).map(normalizeConciergeJobRecord);
     const existingSnapshot = await serviceRef.collection('proposals').get();
     const existing = existingSnapshot.docs || [];
     const known = new Set(existing.map((doc) => {
@@ -447,7 +453,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
     }));
     const available = Math.max(0, (Number(service.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(service));
     const candidateLocation = String(service.applicantLocation || '').trim();
-    const candidates = jobs.map((job) => {
+    const rankedCandidates = jobs.map((job) => {
       const url = jobUrl(job);
       const scored = scoreJobForProfile(job, profile, candidateLocation);
       return { job, url, ...scored };
@@ -456,23 +462,46 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         || right.score - left.score
         || right.evidenceStrength - left.evidenceStrength
         || String(right.job.datePosted || '').localeCompare(String(left.job.datePosted || '')))
-      .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
+      .slice(0, 40);
 
     const jobsByUrl = new Map(jobs.map((job) => [jobUrl(job), job]).filter(([url]) => Boolean(url)));
+    const evaluate = eligibility || await prepareConciergeEligibility({ db, serviceRef, service, profileRecord });
+    const pendingJobs = existing.filter(doc => ['proposed', 'retracted'].includes(doc.data()?.status))
+      .map(doc => jobsByUrl.get(doc.data().jobUrl)).filter(Boolean);
+    const checks = new Map();
+    const work = [...new Map([...pendingJobs, ...rankedCandidates.map(candidate => candidate.job)].map(job => [jobUrl(job), job])).values()];
+    for (let offset = 0; offset < work.length; offset += 4) {
+      // Leave time for a last batch with three bounded provider attempts and final ledger writes.
+      if (Date.now() - runStartedAt > 280_000) break;
+      await Promise.all(work.slice(offset, offset + 4).map(async job => {
+        try { checks.set(jobUrl(job), await evaluate(job)); }
+        catch { checks.set(jobUrl(job), { status: 'unverified', reason: 'analysis_unavailable' }); }
+      }));
+    }
+    const candidates = rankedCandidates.filter(candidate => checks.get(candidate.url)?.status === 'compatible')
+      .slice(0, Math.min(available, MAX_PROPOSALS_PER_RUN));
+    const eligibilityFields = (result = { status: 'unverified' }) => ({
+      eligibilityStatus: result.status,
+      eligibilityFingerprint: result.fingerprint || null,
+      eligibilityCacheId: result.cacheId || null,
+      eligibilityCvStorageKey: service.cvStorageKey || null,
+      eligibilityCheckedAt: Timestamp.now(),
+    });
     let refreshedProposals = 0;
     let retractedProposals = 0;
     for (const doc of existing) {
       const data = doc.data() || {};
       if (!['proposed', 'retracted'].includes(data.status)) continue;
       const job = jobsByUrl.get(data.jobUrl);
-      if (!job) continue;
-      const rescored = scoreJobForProfile(job, profile, candidateLocation);
+      const rescored = job ? scoreJobForProfile(job, profile, candidateLocation) : { score: 0, reasons: [] };
+      const result = checks.get(data.jobUrl) || { status: 'unverified' };
       const proposalRef = doc.ref || doc;
-      if (rescored.score >= MIN_MATCH_SCORE) {
+      if (rescored.score >= MIN_MATCH_SCORE && result.status === 'compatible') {
         const changed = await updateExistingProposal(
           db,
           proposalRef,
           {
+            ...eligibilityFields(result),
             matchScore: rescored.score,
             matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
@@ -490,6 +519,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
           proposalRef,
           {
             matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
+            ...eligibilityFields(result),
             matchScore: rescored.score,
             matchRankingScore: rescored.rankScore ?? rescored.score,
             matchReasons: rescored.reasons,
@@ -502,10 +532,10 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
       }
     }
 
-    const batch = db.batch();
+    let createdProposals = 0;
     for (const candidate of candidates) {
       const ref = serviceRef.collection('proposals').doc(proposalDocumentId(serviceId, candidate.job, candidate.url));
-      batch.set(ref, {
+      const proposal = {
         jobId: String(candidate.job.id || candidate.job.jobId || candidate.job.slug || candidate.job.canonicalUrl || candidate.url).slice(0, 200),
         jobUrl: candidate.url,
         companyId: String(candidate.job.companyKey || candidate.job.company || 'company').slice(0, 200),
@@ -514,6 +544,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         location: candidate.job.location || candidate.job.canton || null,
         applyMode: candidate.job.applyMode || 'portal',
         status: 'proposed',
+        ...eligibilityFields(checks.get(candidate.url)),
         matchScore: candidate.score,
         matchRankingScore: candidate.rankScore,
         matchReasons: candidate.reasons,
@@ -524,19 +555,34 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
         createdAt: FieldValue.serverTimestamp(),
         proposedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
+      };
+      const created = await db.runTransaction(async transaction => {
+        const [currentServiceDoc, currentProposalDoc] = await Promise.all([transaction.get(serviceRef), transaction.get(ref)]);
+        const currentService = currentServiceDoc.data();
+        if (currentProposalDoc.exists || !serviceIsActive(currentService) || currentService.cvStorageKey !== service.cvStorageKey
+          || acceptedPositionsCount(currentService) >= (Number(currentService.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS)) return false;
+        transaction.set(ref, proposal);
+        return true;
       });
+      if (created) createdProposals += 1;
     }
-    if (candidates.length) await batch.commit();
     await serviceRef.set({
       matchingStatus: 'complete',
-      matchingJobCount: candidates.length + refreshedProposals,
+      matchingUnverifiedCount: Math.max(0, work.length - checks.size) + [...checks.values()].filter(result => result.status === 'unverified').length,
+      matchingClarificationCount: [...checks.values()].filter(result => result.status === 'clarification_required').length,
+      matchingJobCount: createdProposals + refreshedProposals,
       matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION,
       matchingCompletedAt: FieldValue.serverTimestamp(),
       matchingError: null,
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
-    return { status: 'complete', proposals: candidates.length + refreshedProposals, retracted: retractedProposals };
+    return { status: 'complete', proposals: createdProposals + refreshedProposals, retracted: retractedProposals };
   } catch (error) {
+    const pending = await serviceRef.collection('proposals').get();
+    for (const doc of pending.docs || []) {
+      if (doc.data()?.status === 'proposed') await updateExistingProposal(db, doc.ref || doc,
+        { eligibilityStatus: 'unverified', updatedAt: FieldValue.serverTimestamp() }, 'proposed', 'retracted');
+    }
     await serviceRef.set({ matchingStatus: 'failed', matchingError: 'job_search_failed', matchingCompletedAt: FieldValue.serverTimestamp(), updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     throw error;
   }

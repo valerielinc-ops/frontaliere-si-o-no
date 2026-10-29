@@ -70,7 +70,7 @@ const LANGUAGE_CONTEXT_LABEL_SUFFIXES = [
 function includesName(text, name) {
   const normalizedName = fold(name).replace(/\s+/g, ' ');
   const escaped = normalizedName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
-  return new RegExp(`(?<![\\p{L}])${escaped}(?![\\p{L}])`, 'u').test(text);
+  return new RegExp(`(?:^|[^\\p{L}])${escaped}(?![\\p{L}])`, 'u').test(text);
 }
 
 /** Language codes named in a question or CV entry. */

@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: 'test-only-secret' })), getRemoteConfigValue: vi.fn(async () => '') }));
 vi.mock('../functions/src/applicationConciergeMatching.js', () => ({ runApplicationConciergeMatching: vi.fn() }));
@@ -38,7 +39,7 @@ const db: any = { collection, runTransaction: (callback: any) => {
 function active(patch = {}) {
   return { userId: 'candidate', customerEmail: 'candidate@example.test', paymentStatus: 'paid', serviceStatus: 'active',
     locale: 'it', expiresAt: now + DAY, paidAt: now - 29 * DAY, cvStorageKey: 'private/cv.pdf', consentedAt: now - 29 * DAY,
-    matchingCompletedAt: now - 3 * DAY, acceptedPositionsCount: 2, ...patch };
+    matchingCompletedAt: now - 3 * DAY, matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION, acceptedPositionsCount: 2, ...patch };
 }
 const deliveries: string[] = [];
 const send = vi.fn(async ({ recordRef, key, build, eligible }: any) => db.runTransaction(async (transaction: any) => {
@@ -52,7 +53,7 @@ const send = vi.fn(async ({ recordRef, key, build, eligible }: any) => db.runTra
 }));
 const match = vi.fn(async ({ serviceId }: any) => {
   await ref(`application_concierge_services/${serviceId}/proposals/new-job`).set({ status: 'proposed', jobTitle: 'Commerciale', companyName: 'Example' });
-  await ref(`application_concierge_services/${serviceId}`).set({ matchingCompletedAt: new Date(now), matchingStatus: 'complete' });
+  await ref(`application_concierge_services/${serviceId}`).set({ matchingCompletedAt: new Date(now), matchingStatus: 'complete', matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION });
   return { status: 'complete' };
 });
 const sweep = (options = {}) => runConciergeLifecycleSweep({ db, nowMs: now, match, send, unsubscribeSecret: 'test-only-secret', enqueueOnly: false, ...options });

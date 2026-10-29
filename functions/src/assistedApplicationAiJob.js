@@ -363,15 +363,15 @@ function salaryText(baseSalary) {
   return '';
 }
 
-function postingFromDetail(detail) {
+function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
   const description = String(detail?.description || '').trim();
   const requirements = Array.isArray(detail?.requirements) ? detail.requirements.map((item) => clean(item, 400)).filter(Boolean) : [];
   const text = [description, requirements.length ? requirements.map((item) => `- ${item}`).join('\n') : '']
     .filter(Boolean)
-    .join('\n\n')
-    .slice(0, MAX_POSTING_CHARS);
+    .join('\n\n');
   return {
-    text,
+    text: text.slice(0, maxPostingChars),
+    textTruncated: text.length > maxPostingChars,
     applyUrl: clean(detail?.applyUrl, 1000),
     titles: detail?.titleByLocale && typeof detail.titleByLocale === 'object' ? detail.titleByLocale : {},
     location: clean([detail?.addressLocality, detail?.addressRegion].filter(Boolean).join(', '), 200),
@@ -395,7 +395,8 @@ function postingFromDetail(detail) {
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
  *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string}>}
  */
-export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = lookup } = {}) {
+export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = lookup, maxPostingChars = MAX_POSTING_CHARS } = {}) {
+  maxPostingChars = Math.min(60_000, Math.max(MAX_POSTING_CHARS, Number(maxPostingChars) || MAX_POSTING_CHARS));
   const empty = {
     source: 'none', text: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
@@ -405,7 +406,7 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
     try {
       const response = await fetchWithTimeout(fetchImpl, `${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`);
       if (response.ok) {
-        const posting = postingFromDetail(await response.json());
+        const posting = postingFromDetail(await response.json(), maxPostingChars);
         if (posting.text) {
           return { ...empty, ...posting, applyUrl: posting.applyUrl || empty.applyUrl, source: 'job_detail' };
         }
@@ -419,20 +420,23 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
     try {
       // A Workday page has no text of its own: the posting is in Workday's JSON.
       const workday = await fetchWorkdayPosting(fetchImpl, order.jobUrl, resolve);
-      const description = workday?.info ? htmlToText(workday.info.jobDescription).slice(0, MAX_POSTING_CHARS) : '';
+      const description = workday?.info ? htmlToText(workday.info.jobDescription) : '';
       if (description.length > 200) {
         const startDate = clean(workday.info.startDate, 40);
         return {
-          ...empty, text: description, source: 'job_page', location: clean(workday.info.location, 200),
+          ...empty, text: description.slice(0, maxPostingChars), textTruncated: description.length > maxPostingChars, source: 'job_page', location: clean(workday.info.location, 200),
           datePosted: startDate, postingDateSource: startDate ? 'reported' : 'unknown',
         };
       }
       const response = await fetchPublicPage(fetchImpl, order.jobUrl, resolve);
       const contentType = String(response?.headers?.get?.('content-type') || '');
       if (response?.ok && contentType.includes('html')) {
-        const html = (await response.text()).slice(0, MAX_PAGE_BYTES);
-        const text = htmlToText(html).slice(0, MAX_POSTING_CHARS);
-        if (text.length > 200) return { ...empty, text, source: 'job_page' };
+        const pageHtml = await response.text();
+        const pageTruncated = pageHtml.length > MAX_PAGE_BYTES;
+        const html = pageHtml.slice(0, MAX_PAGE_BYTES);
+        const fullText = htmlToText(html);
+        const text = fullText.slice(0, maxPostingChars);
+        if (text.length > 200) return { ...empty, text, textTruncated: pageTruncated || fullText.length > maxPostingChars, source: 'job_page' };
       }
     } catch (error) {
       console.warn('[assistedApplicationAi] job page fetch failed', error instanceof Error ? error.message : String(error));

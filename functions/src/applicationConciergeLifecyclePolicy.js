@@ -1,6 +1,7 @@
 /** Shared server policy for refresh cadence and the time-limited renewal offer. */
 import {
   APPLICATION_CONCIERGE_MAX_POSITIONS,
+  APPLICATION_CONCIERGE_MATCHING_VERSION,
   APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
   acceptedPositionsCount,
   serviceIsActive,
@@ -18,8 +19,10 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
   if (acceptedPositionsCount(service) >= cap) return false;
   if (service.matchingStatus === 'running') {
     const started = timestampMillis(service.matchingStartedAt);
-    if (!started || nowMs - started < 10 * 60 * 1000) return false;
+    return started > 0 && nowMs - started >= 10 * 60 * 1000;
   }
+  // Revalidate existing proposals after an eligibility upgrade without asking the owner to re-upload a CV.
+  if (service.matchingStatus === 'complete' && service.matchingVersion !== APPLICATION_CONCIERGE_MATCHING_VERSION) return true;
   const lastRefresh = timestampMillis(service.matchingCompletedAt)
     || timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt);
   const interval = service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0 ? 60 * 60 * 1000 : CONCIERGE_REFRESH_INTERVAL_MS;
