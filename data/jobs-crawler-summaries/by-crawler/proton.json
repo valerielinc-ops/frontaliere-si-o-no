@@ -1,7 +1,7 @@
 {
   "key": "proton",
   "label": "Proton",
-  "generatedAt": "2026-10-29T09:31:19.691Z",
+  "generatedAt": "2026-10-29T21:36:50.522Z",
   "total": 13,
   "discovered": null,
   "parsed": 7,
@@ -14,59 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 6019,
-  "avgDurationMs": 6019,
+  "durationMs": 6907,
+  "avgDurationMs": 6907,
   "durationHistory": [
-    6019
+    6907
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "proton-aaf66c7623ea",
-      "slug": "responsabile-growth-proton-london-paris-geneva",
-      "company": "Proton",
-      "companyKey": "proton",
-      "companyDomain": "proton.me",
-      "title": "Head of Growth",
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4555348101",
-      "source": "Proton Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-28T09:40:18.772Z",
-      "addressLocality": "Geneva",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "IT & Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-03-11T17:38:11-04:00",
-      "postedDate": "2025-03-11T17:38:11-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4555348101",
-      "firstSeenAt": "2026-07-24T22:11:11.434Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "proton-3c306b854149",
@@ -80,7 +37,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:30:55.087Z",
+      "crawledAt": "2026-10-29T21:36:24.889Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -122,7 +79,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:30:54.778Z",
+      "crawledAt": "2026-10-29T21:36:24.586Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -164,7 +121,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:30:54.470Z",
+      "crawledAt": "2026-10-29T21:36:24.277Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,7 +162,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:30:54.134Z",
+      "crawledAt": "2026-10-29T21:36:23.947Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,7 +203,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:30:53.830Z",
+      "crawledAt": "2026-10-29T21:36:23.644Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -287,7 +244,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:30:53.479Z",
+      "crawledAt": "2026-10-29T21:36:23.270Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -331,7 +288,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4868059101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T09:30:53.168Z",
+      "crawledAt": "2026-10-29T21:36:22.958Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,7 +350,7 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -436,7 +393,7 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -478,7 +435,7 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -520,7 +477,7 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -562,7 +519,7 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -605,7 +562,7 @@
       "salarySource": "estimated",
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
@@ -615,5 +572,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

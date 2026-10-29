@@ -1,7 +1,7 @@
 {
   "crawlerKey": "new-yorker",
-  "assembledAt": "2026-10-29T09:34:44.065Z",
-  "runId": "40848568315",
+  "assembledAt": "2026-10-29T21:39:32.242Z",
+  "runId": "40956600189",
   "jobs": [
     {
       "id": "new-yorker-28095",
@@ -34,7 +34,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j28095.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:36.269Z",
+      "crawledAt": "2026-10-29T21:39:22.346Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 14",
@@ -107,7 +107,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j27706.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:35.513Z",
+      "crawledAt": "2026-10-29T21:39:21.373Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -182,7 +182,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Stellvertretende-Filialleitung-mwd-de-j27003.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:34.516Z",
+      "crawledAt": "2026-10-29T21:39:20.406Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Freie Strasse 68",
@@ -289,7 +289,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/REINIGUNGSKRAFT-MWD-de-j28307.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:33.698Z",
+      "crawledAt": "2026-10-29T21:39:19.680Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -368,7 +368,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/REINIGUNGSKRAFT-MWD-de-j27418.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:32.873Z",
+      "crawledAt": "2026-10-29T21:39:18.897Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
@@ -441,7 +441,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j28060.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:32.090Z",
+      "crawledAt": "2026-10-29T21:39:18.042Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Bälliz 24",
@@ -498,7 +498,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-bern",
-        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-bern",
+        "en": "cooperation-m-w-d-in-sale-80-new-yorker-bern",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-bern"
       },
@@ -524,7 +524,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27750.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:31.287Z",
+      "crawledAt": "2026-10-29T21:39:05.586Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -545,14 +545,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern",
-        "cooperation-m-w-d-in-sale-80-new-yorker-bern"
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-80-new-yorker-bern"
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-bern"
         ]
       },
       "firstSeenAt": "2026-08-23T21:38:33.295Z",
@@ -575,7 +575,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-zurich-sihlcity",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-zurich-sihlcity",
-        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-zurich-sihlcity",
+        "en": "cooperation-m-w-d-in-sale-80-new-yorker-zurich-sihlcity",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-zurich-sihlcity"
       },
@@ -601,7 +601,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27743.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:30.505Z",
+      "crawledAt": "2026-10-29T21:39:04.810Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -622,14 +622,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity",
-        "cooperation-m-w-d-in-sale-80-new-yorker-zurich-sihlcity"
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-zurich-sihlcity"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-80-new-yorker-zurich-sihlcity"
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-zurich-sihlcity"
         ]
       },
       "firstSeenAt": "2026-08-23T09:49:16.749Z",
@@ -652,7 +652,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-rapperswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-rapperswil",
-        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-rapperswil",
+        "en": "cooperation-m-w-d-in-sale-80-new-yorker-rapperswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-rapperswil"
       },
@@ -678,7 +678,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j27707.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:29.716Z",
+      "crawledAt": "2026-10-29T21:39:04.062Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "SG",
       "streetAddress": "Zürcherstrasse 4",
@@ -699,14 +699,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil",
-        "cooperation-m-w-d-in-sale-80-new-yorker-rapperswil"
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-80-new-yorker-rapperswil"
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-rapperswil"
         ]
       },
       "firstSeenAt": "2026-08-17T21:38:16.312Z",
@@ -729,7 +729,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon",
-        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon",
+        "en": "cooperation-m-w-d-in-sale-80-new-yorker-ebikon",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-ebikon"
       },
@@ -755,7 +755,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26482.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:28.905Z",
+      "crawledAt": "2026-10-29T21:39:03.239Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "streetAddress": "Mall of Switzerland, Ebisquare-Strasse 1",
@@ -776,14 +776,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
-        "cooperation-m-w-d-in-sale-80-new-yorker-ebikon"
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-80-new-yorker-ebikon"
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon"
         ]
       },
       "firstSeenAt": "2026-09-07T15:18:34.505Z",
@@ -806,7 +806,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-volketswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-volketswil",
-        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-volketswil",
+        "en": "cooperation-m-w-d-in-sale-80-new-yorker-volketswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-volketswil"
       },
@@ -832,7 +832,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26477.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:28.178Z",
+      "crawledAt": "2026-10-29T21:39:02.391Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -853,14 +853,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil",
-        "cooperation-m-w-d-in-sale-80-new-yorker-volketswil"
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-80-new-yorker-volketswil"
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-volketswil"
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:31.474Z",
@@ -883,7 +883,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-spreitenbach",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-spreitenbach",
-        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-spreitenbach",
+        "en": "cooperation-m-w-d-in-sale-80-new-yorker-spreitenbach",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-spreitenbach"
       },
@@ -909,7 +909,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-80-de-j26245.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:27.338Z",
+      "crawledAt": "2026-10-29T21:39:01.468Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -930,14 +930,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach",
-        "cooperation-m-w-d-in-sale-80-new-yorker-spreitenbach"
+        "mitarbeiter-m-w-d-im-sales-80-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-80-new-yorker-spreitenbach"
+          "mitarbeiter-m-w-d-im-sales-80-new-yorker-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:30.635Z",
@@ -986,7 +986,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j28061.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:26.521Z",
+      "crawledAt": "2026-10-29T21:39:00.730Z",
       "addressLocality": "Chur (City West)",
       "addressRegion": "GR",
       "streetAddress": "EKZ City West, Raschärenstrasse 7",
@@ -1061,7 +1061,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j26043.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:25.637Z",
+      "crawledAt": "2026-10-29T21:39:00.007Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -1138,7 +1138,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-spreitenbach",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-spreitenbach",
-        "en": "mitarbeiter-m-w-d-im-sales-70-new-yorker-spreitenbach",
+        "en": "cooperation-m-w-d-in-sale-70-new-yorker-spreitenbach",
         "de": "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach",
         "fr": "mitarbeiter-m-w-d-im-vente-70-new-yorker-spreitenbach"
       },
@@ -1164,7 +1164,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-70-de-j25735.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:24.811Z",
+      "crawledAt": "2026-10-29T21:38:59.337Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -1185,14 +1185,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach",
-        "cooperation-m-w-d-in-sale-70-new-yorker-spreitenbach"
+        "mitarbeiter-m-w-d-im-sales-70-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-70-new-yorker-spreitenbach"
+          "mitarbeiter-m-w-d-im-sales-70-new-yorker-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:27.493Z",
@@ -1241,7 +1241,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j28246.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:24.035Z",
+      "crawledAt": "2026-10-29T21:38:58.567Z",
       "addressLocality": "Zürich (Sihlcity)",
       "addressRegion": "ZH",
       "streetAddress": "Kalanderplatz 1",
@@ -1288,7 +1288,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-spreitenbach",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-spreitenbach",
-        "en": "mitarbeiter-m-w-d-im-sales-60-new-yorker-spreitenbach",
+        "en": "cooperation-m-w-d-in-sale-60-new-yorker-spreitenbach",
         "de": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach",
         "fr": "mitarbeiter-m-w-d-im-vente-60-new-yorker-spreitenbach"
       },
@@ -1314,7 +1314,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j27745.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:23.290Z",
+      "crawledAt": "2026-10-29T21:38:57.816Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -1335,14 +1335,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach",
-        "cooperation-m-w-d-in-sale-60-new-yorker-spreitenbach"
+        "mitarbeiter-m-w-d-im-sales-60-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-60-new-yorker-spreitenbach"
+          "mitarbeiter-m-w-d-im-sales-60-new-yorker-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-08-23T09:49:10.352Z",
@@ -1365,7 +1365,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-bern",
-        "en": "mitarbeiter-m-w-d-im-sales-60-new-yorker-bern",
+        "en": "cooperation-m-w-d-in-sale-60-new-yorker-bern",
         "de": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern",
         "fr": "mitarbeiter-m-w-d-im-vente-60-new-yorker-bern"
       },
@@ -1391,7 +1391,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j26860.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:22.514Z",
+      "crawledAt": "2026-10-29T21:38:57.095Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1412,14 +1412,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern",
-        "cooperation-m-w-d-in-sale-60-new-yorker-bern"
+        "mitarbeiter-m-w-d-im-sales-60-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern"
         ],
         "en": [
-          "cooperation-m-w-d-in-sale-60-new-yorker-bern"
+          "mitarbeiter-m-w-d-im-sales-60-new-yorker-bern"
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:25.058Z",
@@ -1442,7 +1442,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-volketswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-volketswil",
-        "en": "mitarbeiter-m-w-d-im-sales-70-new-yorker-volketswil",
+        "en": "cooperation-m-w-d-in-sale-70-new-yorker-volketswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
         "fr": "mitarbeiter-m-w-d-im-vente-70-new-yorker-volketswil"
       },
@@ -1468,7 +1468,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-60-de-j25733.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:21.711Z",
+      "crawledAt": "2026-10-29T21:38:56.372Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -1490,7 +1490,7 @@
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
         "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-volketswil",
-        "cooperation-m-w-d-in-sale-70-new-yorker-volketswil"
+        "mitarbeiter-m-w-d-im-sales-70-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1499,7 +1499,7 @@
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
-          "cooperation-m-w-d-in-sale-70-new-yorker-volketswil"
+          "mitarbeiter-m-w-d-im-sales-70-new-yorker-volketswil"
         ],
         "fr": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil"
@@ -1551,7 +1551,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j28247.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:20.920Z",
+      "crawledAt": "2026-10-29T21:38:55.634Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -1598,9 +1598,9 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-volketswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-volketswil",
-        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-volketswil",
+        "en": "cooperation-m-w-d-for-sale-50-new-yorker-volketswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil",
-        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-volketswil"
+        "fr": "cooperation-m-w-d-a-vendre-50-new-yorker-volketswil"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -1624,7 +1624,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j27744.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:20.097Z",
+      "crawledAt": "2026-10-29T21:38:54.907Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -1645,18 +1645,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil",
-        "cooperation-m-w-d-for-sale-50-new-yorker-volketswil",
-        "cooperation-m-w-d-a-vendre-50-new-yorker-volketswil"
+        "mitarbeiter-m-w-d-im-sales-50-new-yorker-volketswil",
+        "mitarbeiter-m-w-d-im-vente-50-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil"
         ],
         "en": [
-          "cooperation-m-w-d-for-sale-50-new-yorker-volketswil"
+          "mitarbeiter-m-w-d-im-sales-50-new-yorker-volketswil"
         ],
         "fr": [
-          "cooperation-m-w-d-a-vendre-50-new-yorker-volketswil"
+          "mitarbeiter-m-w-d-im-vente-50-new-yorker-volketswil"
         ]
       },
       "firstSeenAt": "2026-08-23T09:49:06.181Z",
@@ -1705,7 +1705,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26861.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:19.306Z",
+      "crawledAt": "2026-10-29T21:38:54.148Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestraße 85",
@@ -1757,9 +1757,9 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-urtenen-schonbuhl",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-urtenen-schonbuhl",
-        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-urtenen-schonbuhl",
+        "en": "cooperation-m-w-d-for-sale-50-new-yorker-urtenen-schonbuhl",
         "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl",
-        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-urtenen-schonbuhl"
+        "fr": "cooperation-m-w-d-a-vendre-50-new-yorker-urtenen-schonbuhl"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -1783,7 +1783,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-50-de-j26244.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:18.391Z",
+      "crawledAt": "2026-10-29T21:38:53.351Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -1804,18 +1804,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl",
-        "cooperation-m-w-d-for-sale-50-new-yorker-urtenen-schonbuhl",
-        "cooperation-m-w-d-a-vendre-50-new-yorker-urtenen-schonbuhl"
+        "mitarbeiter-m-w-d-im-sales-50-new-yorker-urtenen-schonbuhl",
+        "mitarbeiter-m-w-d-im-vente-50-new-yorker-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl"
         ],
         "en": [
-          "cooperation-m-w-d-for-sale-50-new-yorker-urtenen-schonbuhl"
+          "mitarbeiter-m-w-d-im-sales-50-new-yorker-urtenen-schonbuhl"
         ],
         "fr": [
-          "cooperation-m-w-d-a-vendre-50-new-yorker-urtenen-schonbuhl"
+          "mitarbeiter-m-w-d-im-vente-50-new-yorker-urtenen-schonbuhl"
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:21.125Z",
@@ -1864,7 +1864,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j28148.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:17.542Z",
+      "crawledAt": "2026-10-29T21:38:52.607Z",
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "streetAddress": "EKZ Shoppyland, Industriestrasse 10",
@@ -1939,7 +1939,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j27749.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:16.672Z",
+      "crawledAt": "2026-10-29T21:38:51.834Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -2012,7 +2012,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/MITARBEITER-MWD-IM-VERKAUF-100-de-j27682.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:15.851Z",
+      "crawledAt": "2026-10-29T21:38:51.064Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 14",
@@ -2101,7 +2101,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Filialleitung-mwd-de-j27804.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:15.086Z",
+      "crawledAt": "2026-10-29T21:38:50.159Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofstrasse 14",
@@ -2174,7 +2174,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/Filialleitung-mwd-de-j27746.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:14.267Z",
+      "crawledAt": "2026-10-29T21:38:49.430Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -2254,7 +2254,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28421.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:13.453Z",
+      "crawledAt": "2026-10-29T21:38:48.682Z",
       "addressLocality": "Basel St. Jakob",
       "addressRegion": "BS",
       "streetAddress": "St. Jakobs-Strasse 397",
@@ -2334,7 +2334,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28415.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:12.633Z",
+      "crawledAt": "2026-10-29T21:38:47.970Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Riedbachstrasse",
@@ -2419,7 +2419,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28364.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:11.591Z",
+      "crawledAt": "2026-10-29T21:38:47.251Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "streetAddress": "EKZ shopi Tivoli Landstrasse",
@@ -2500,7 +2500,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j28062.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:10.809Z",
+      "crawledAt": "2026-10-29T21:38:46.471Z",
       "addressLocality": "Chur (City West)",
       "addressRegion": "GR",
       "streetAddress": "EKZ City West, Raschärenstrasse 7",
@@ -2590,7 +2590,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j26406.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:09.551Z",
+      "crawledAt": "2026-10-29T21:38:45.751Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Oberstadt 5/7",
@@ -2663,7 +2663,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25984.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:07.634Z",
+      "crawledAt": "2026-10-29T21:38:44.207Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Bälliz 24",
@@ -2736,7 +2736,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25476.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:06.653Z",
+      "crawledAt": "2026-10-29T21:38:43.510Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "EKZ Volkiland, Industriestrasse 1",
@@ -2809,7 +2809,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j25212.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:05.768Z",
+      "crawledAt": "2026-10-29T21:38:42.733Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Rugenparkstrasse 8-10",
@@ -2882,7 +2882,7 @@
       "url": "https://jobs.newyorker.de/karriere-schweiz/AUSHILFE-MWD-IM-VERKAUF-de-j24321.html",
       "source": "New Yorker Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:34:04.856Z",
+      "crawledAt": "2026-10-29T21:38:41.992Z",
       "addressLocality": "Lyssach",
       "addressRegion": "BE",
       "streetAddress": "Coop Fachmarkt, Bernstrasse 9",
