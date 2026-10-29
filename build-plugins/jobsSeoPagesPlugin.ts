@@ -12885,6 +12885,9 @@ ${staticAnalyticsHtml}
  title?: string;
  titleByLocale?: Record<string, string>;
  descriptionByLocale?: Record<string, string>;
+ requirements?: string[];
+ requirementsByLocale?: Record<string, string[]>;
+ postingDateSource?: string;
  company?: string;
  companyKey?: string;
  location?: string;
@@ -12924,6 +12927,9 @@ ${staticAnalyticsHtml}
  data.descriptionByLocale = entry.descriptionByLocale;
  withContent++;
  }
+ if (Array.isArray(entry.requirements)) data.requirements = entry.requirements;
+ if (entry.requirementsByLocale && typeof entry.requirementsByLocale === 'object') data.requirementsByLocale = entry.requirementsByLocale;
+ if (entry.postingDateSource) data.postingDateSource = entry.postingDateSource;
  if (entry.company) data.company = entry.company;
  if (entry.companyKey) data.companyKey = entry.companyKey;
  if (entry.location) data.location = entry.location;
