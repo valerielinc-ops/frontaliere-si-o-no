@@ -20,10 +20,14 @@
 
 import { realpathSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { join, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
 import { pathToFileURL } from 'node:url';
 
 import { buildNewsletter } from '../../services/newsletter-template.mjs';
+import { buildWelcomeEmail } from '../../functions/src/lib/welcomeEmailTemplate.js';
+import { brandParagraph, renderBrandedEmail } from '../../functions/src/assistedApplicationEmailLayout.js';
+import { withSingleFlightLockAsync } from '../lib/single-flight-lock.mjs';
 import {
   buildNewsletterConfirmationEmailHtml,
   confirmationConfirmUrl,
@@ -43,7 +47,7 @@ const INBOX_TTL_SECONDS = 900;
 const WAIT_TIMEOUT_MS = 40_000;
 const ANALYSIS_POLL_INTERVAL_MS = 1_000;
 const ANALYSIS_POLL_ATTEMPTS = 30;
-const REPORT_VERSION = 1; // CI fixture contract
+const REPORT_VERSION = 2; // Adds welcome, assisted layout and HTML hygiene checks.
 const TEST_LINK_SECRET = 'maileroo-email-testing-ci-fixture-secret';
 
 const CASE_CONFIG = Object.freeze([
@@ -68,6 +72,19 @@ const CASE_CONFIG = Object.freeze([
     from: { address: 'alerts@frontaliereticino.ch', display_name: 'Frontaliere Ticino' },
     subjectContains: 'Hai cliccato',
     requiresUnsubscribe: true,
+  },
+  {
+    name: 'welcome',
+    stream: 'transactional',
+    from: { address: 'confirmation@frontaliereticino.ch', display_name: 'Frontaliere Ticino' },
+    subjectContains: 'Iscrizione attiva',
+    requiresUnsubscribe: true,
+  },
+  {
+    name: 'assisted-application-retry',
+    stream: 'transactional',
+    from: { address: 'confirmation@frontaliereticino.ch', display_name: 'Candidatura assistita' },
+    subjectContains: 'Nuovo tentativo automatico previsto',
   },
 ]);
 
@@ -286,11 +303,46 @@ function buildApplicationIntentReminderCase(recipient, runId) {
 export function buildTestCases({ recipient, runId }) {
   const safeRecipient = assertNonEmpty(recipient, 'recipient');
   const safeId = safeRunId(runId);
+  const unsubscribeUrl = makeOneClickUnsubscribeUrl(safeRecipient, { secret: TEST_LINK_SECRET });
+  const welcome = buildWelcomeEmail({ segment: 'general', locale: 'it', unsubscribeUrl });
+  // Exercise the same shared shell as the retry notification without loading
+  // its submission engine, Firebase or portal dependencies into this QA runner.
+  const retry = {
+    subject: '[Candidatura] Nuovo tentativo automatico previsto: Analista QA',
+    text: 'Il candidato non deve fare nulla. Riproveremo automaticamente.',
+    html: renderBrandedEmail({
+      preheader: 'Nuovo tentativo automatico pianificato',
+      badge: 'Candidatura assistita · automazione',
+      heroTitle: 'Nuovo tentativo automatico pianificato',
+      heroSubtitle: 'Analista QA — Frontaliere Ticino',
+      bodyHtml: brandParagraph('Il candidato non deve fare nulla. Riproveremo automaticamente.'),
+    }),
+  };
   return [
     buildTransactionalCase(safeRecipient, safeId),
     buildNewsletterCase(safeRecipient, safeId),
     buildApplicationIntentReminderCase(safeRecipient, safeId),
+    ...[welcome, retry].map((content, index) => ({
+      ...CASE_CONFIG[index + 3], ...content, recipient: safeRecipient, runId: safeId,
+      headers: {
+        'X-Frontaliere-CI-Run': `${safeId}:${CASE_CONFIG[index + 3].name}`,
+        ...(index === 0 ? {
+          'List-Unsubscribe': `<${unsubscribeUrl}>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+        } : {}),
+      },
+    })),
   ];
+}
+
+/** Fail on the concrete HTML warnings observed in delivered production mail. */
+export function validateContentAnalysis(analysis, testCaseName) {
+  if (analysis?.rspamd?.status !== 'ok' || !Array.isArray(analysis.rspamd.symbols)) {
+    throw new Error(`Rspamd analysis unavailable for ${testCaseName}`);
+  }
+  const forbidden = new Set(['ZERO_FONT', 'MANY_INVISIBLE_PARTS']);
+  const warnings = (analysis.rspamd.symbols || []).filter((name) => forbidden.has(name));
+  if (warnings.length) throw new Error(`HTML hygiene failed for ${testCaseName}: ${warnings.join(', ')}`);
 }
 
 /** Build the Maileroo Email API v2 body for a rendered fixture. */
@@ -438,6 +490,7 @@ function compactAnalysis(analysis) {
     status: analysis?.status || null,
     rspamdScore: analysis?.rspamd?.score ?? null,
     rspamdAction: analysis?.rspamd?.action ?? null,
+    rspamdSymbols: analysis?.rspamd?.symbols || [],
     authentication: analysis?.authentication
       ? {
           spf: analysis.authentication.spf?.status || null,
@@ -500,11 +553,12 @@ export async function runMailerooEmailTesting({ fetchImpl = fetch, runId = proce
         const sentReference = await sendThroughApplication(testCase, fetchImpl);
         const message = await waitForMessage(apiKey, fetchImpl, testCase, inbox, caseStartedAt);
         const analysis = await waitForAnalysis(apiKey, fetchImpl, message.id);
+        result.messageId = message.id;
+        result.analysis = compactAnalysis(analysis);
+        validateContentAnalysis(analysis, testCase.name);
         const assertions = await runAssertions(apiKey, fetchImpl, testCase, message.id);
         result.status = 'passed';
-        result.messageId = message.id;
         result.sentReference = sentReference;
-        result.analysis = compactAnalysis(analysis);
         result.assertions = compactAssertions(assertions);
         console.log(`✅ Maileroo ${testCase.name}: ${result.assertions.length} assertions passed`);
       } catch (error) {
@@ -537,7 +591,11 @@ export async function runMailerooEmailTesting({ fetchImpl = fetch, runId = proce
 
 async function main() {
   const reportPath = optionValue(process.argv.slice(2), '--report') || process.env.MAILEROO_EMAIL_TESTING_REPORT;
-  await runMailerooEmailTesting({ reportPath });
+  const result = await withSingleFlightLockAsync(
+    join(tmpdir(), 'frontaliere-maileroo-email-testing.lock'),
+    () => runMailerooEmailTesting({ reportPath }),
+  );
+  if (!result.acquired) throw new Error('Another Maileroo Email Testing run is already active');
 }
 
 if (process.argv[1] && (() => {

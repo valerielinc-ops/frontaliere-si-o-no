@@ -1392,7 +1392,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1550,7 +1549,7 @@
       "id": "valora-021776e11c83",
       "slug": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern",
+        "de": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-tj2drk",
         "it": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
         "en": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2",
         "fr": "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern-2"
@@ -1616,6 +1615,9 @@
       "firstSeenAt": "2026-09-10T23:06:13.972Z",
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
+        ],
+        "de": [
           "verkauferin-verkaufer-k-kiosk-8-6-std-valora-bern"
         ]
       },
@@ -2041,7 +2043,7 @@
       "id": "valora-15fe425ea82d",
       "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-tj2cci",
         "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
         "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2",
         "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
@@ -2108,6 +2110,9 @@
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "de": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
         ]
       },
       "previousSlugs": [
@@ -2118,7 +2123,7 @@
       "id": "valora-f7d602042fe5",
       "slug": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-tj2cck",
         "it": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
         "en": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2",
         "fr": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-2"
@@ -2184,6 +2189,9 @@
       "firstSeenAt": "2026-07-04T12:43:13.456Z",
       "previousSlugsByLocale": {
         "it": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+        ],
+        "de": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
         ]
       },
@@ -2757,7 +2765,7 @@
       "slugByLocale": {
         "it": "venditore-k-chiosco-15-ore-valora-group-uetendorf",
         "en": "seller-k-kiosk-15-hours-valora-group-uetendorf",
-        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+        "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne",
         "fr": "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
@@ -2814,7 +2822,7 @@
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
         ],
         "de": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
         ],
         "fr": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-group-uetendorf"
@@ -3010,9 +3018,9 @@
       "slug": "agenturpartnerin-agenturpartner-canton-berna-valora-group-bern",
       "slugByLocale": {
         "it": "agenturpartnerin-agenturpartner-canton-berna-valora-group-bern",
-        "en": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
-        "de": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern",
-        "fr": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
+        "en": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern-jo2s3j",
+        "de": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern-jo2s3j",
+        "fr": "agenturpartnerin-agenturpartner-kanton-bern-valora-bern-jo2s3j"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3062,6 +3070,15 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
+        ],
+        "en": [
+          "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
+        ],
+        "de": [
+          "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
+        ],
+        "fr": [
           "agenturpartnerin-agenturpartner-kanton-bern-valora-bern"
         ]
       },

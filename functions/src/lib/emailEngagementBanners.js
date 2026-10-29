@@ -263,7 +263,7 @@ export function renderEmailEngagementBanners({ locale = 'it', socialLinks, teleg
     color: TEXT,
     padding: '18px 18px 14px',
     bottomPadding: '0',
-    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${socialIconTile()}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;font-weight:800;color:${BRAND_DARK};margin:0 0 4px;line-height:1.3;">${escapeHtml(copy.socialTitle)}</div><div style="font-size:13px;color:${TEXT};line-height:1.5;margin:0;">${escapeHtml(copy.socialBody)}</div></td></tr></table><div style="margin:14px 0 0;font-size:0;line-height:0;">${socialLinksHtml}</div>`,
+    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${socialIconTile()}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;font-weight:800;color:${BRAND_DARK};margin:0 0 4px;line-height:1.3;">${escapeHtml(copy.socialTitle)}</div><div style="font-size:13px;color:${TEXT};line-height:1.5;margin:0;">${escapeHtml(copy.socialBody)}</div></td></tr></table><div style="margin:14px 0 0;font-size:14px;line-height:1.5;">${socialLinksHtml}</div>`,
   });
 
   return `<tr><td data-email-component="engagement-banners" style="background:#ffffff;color:${TEXT};padding:8px 28px 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#ffffff;color:${TEXT};">${automation}${preferredSource}${social}</table></td></tr>`;

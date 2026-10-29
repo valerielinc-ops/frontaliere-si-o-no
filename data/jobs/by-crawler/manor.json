@@ -1135,7 +1135,6 @@
         "fr": "Employé·e de caisse 40%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-1b116c96e0f2",
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -1604,7 +1603,6 @@
         "fr": "Employé·e de vente en parfumerie 80%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-fa7e4f30ad6d",
       "salaryMin": 63200,
       "salaryMax": 97200,
@@ -17420,7 +17418,6 @@
           "manor-collaborateur-trice-visual-merchandising-non-food-60-80-morges-collaborateurtrice-visual-merchandising"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -25955,7 +25952,7 @@
       "slugByLocale": {
         "it": "dipendenti-in-cassa-40-manor-ag-hinwil-c1eb3a",
         "en": "employeecash-register-40-manor-ag-hinwil",
-        "de": "manor-mitarbeiter-in-kasse-40-hinwil",
+        "de": "manor-mitarbeiter-in-kasse-40-hinwil-tmq49k",
         "fr": "employe-e-caisse-40-manor-ag-hinwil"
       },
       "titleByLocale": {
@@ -25971,6 +25968,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-kasse-40-hinwil"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-40-hinwil"
         ]
       },

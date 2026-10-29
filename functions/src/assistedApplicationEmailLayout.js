@@ -15,6 +15,7 @@
  * block helpers' `html` arguments are trusted markup built by the caller.
  */
 
+import { renderEmailPreview } from './lib/emailPreview.js';
 import { dataControllerFooterLine } from './lib/dataControllerIdentity.js';
 
 const BRAND_ORANGE = '#f97316';
@@ -169,7 +170,7 @@ export function brandJobCard({
   const initial = companyName.charAt(0).toUpperCase() || '?';
   const avatar = safeLogoUrl
     ? `<img src="${esc(safeLogoUrl)}" alt="${esc(companyName)}" width="44" height="44" style="display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;">`
-    : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${esc(initial)}</div>`;
+    : `<div style="width:44px;height:44px;border-radius:10px;background:${BRAND_DARK};background-image:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${esc(initial)}</div>`;
   const locationLabel = String(location || canton || '').trim();
   const meta = `${companyName}${locationLabel ? ` · ${locationLabel}` : ''}`;
   const tags = [];
@@ -274,7 +275,7 @@ export function renderBrandedEmail({
     + `<style>body{margin:0;padding:0;background:${LIGHT_BG};font-family:${FONT};-webkit-text-size-adjust:100%;}table{border-collapse:collapse;}`
     + '@media only screen and (max-width:620px){.outer-table{width:100%!important;}.section-pad{padding-left:18px!important;padding-right:18px!important;}}</style>'
     + '</head><body>'
-    + (preheader ? `<div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${esc(preheader)}&nbsp;&#8203;&#8203;&#8203;&#8203;</div>` : '')
+    + renderEmailPreview(preheader)
     + `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:${LIGHT_BG};"><tr><td align="center" style="padding:0;">`
     + `<table class="outer-table" width="620" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;max-width:620px;font-family:${FONT};">`
     // Top bar
@@ -288,7 +289,7 @@ export function renderBrandedEmail({
     + (heroSubtitle ? `<div style="font-size:14px;line-height:1.45;color:${MUTED_ON_DARK};margin-top:8px;">${esc(heroSubtitle)}</div>` : '')
     + '</td></tr>'
     // Orange rule between hero and body
-    + `<tr><td style="background:${BRAND_ORANGE};height:4px;line-height:4px;font-size:0;">&nbsp;</td></tr>`
+    + `<tr><td style="background:${BRAND_ORANGE};height:4px;line-height:4px;"></td></tr>`
     // Body
     + `<tr><td style="background:${WHITE};padding:28px 28px 16px;" class="section-pad">${bodyHtml}</td></tr>`
     // Footer

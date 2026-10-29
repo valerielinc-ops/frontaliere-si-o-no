@@ -14,6 +14,7 @@
  * URL and passes them in.
  */
 
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
@@ -171,7 +172,7 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
 
   const avatarHtml = logoOk
     ? `<img src="${esc(logoUrl)}" alt="${esc(company)}" width="52" height="52" style="display:block;width:52px;height:52px;border-radius:12px;background:#fff;object-fit:contain;padding:5px;box-sizing:border-box;">`
-    : `<div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:52px;font-size:22px;font-weight:800;color:${BRAND_ORANGE};">${esc(initial)}</div>`;
+    : `<div style="width:52px;height:52px;border-radius:12px;background:${BRAND_DARK};background-image:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:52px;font-size:22px;font-weight:800;color:${BRAND_ORANGE};">${esc(initial)}</div>`;
 
   const html = `<!DOCTYPE html>
 <html lang="${loc}">
@@ -187,7 +188,7 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
   </style>
 </head>
 <body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${esc(s.preheader)}&nbsp;‌‌‌‌</div>
+  ${renderEmailPreview(s.preheader)}
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
