@@ -58,12 +58,12 @@ export function repairMigrosServiceCounterTitleInPlace(job) {
  * populated source-title field matches the complete, employer-anchored phrase.
  */
 export function migrosServiceCounterTitleSourceLang(job) {
-  if (!job || typeof job !== 'object' || !isMigrosEmployer(job)) return '';
+  if (!job || typeof job !== 'object') return '';
   const sourceTitles = [job.title, job.titleByLocale?.de]
     .map((value) => String(value || '').trim())
     .filter(Boolean);
   if (!sourceTitles.length || sourceTitles.some((value) => !MIGROS_SERVICE_COUNTER_TITLE.test(value))) return '';
-  return 'de';
+  return isMigrosEmployer(job) ? 'de' : '';
 }
 
 /** Repair only observed brand corruptions backed by the original employer copy. */
