@@ -1,7 +1,7 @@
 {
   "key": "technic-emplois",
   "label": "Technic Emplois SA",
-  "generatedAt": "2026-10-28T22:05:39.496Z",
+  "generatedAt": "2026-10-29T09:32:46.880Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 12217,
-  "avgDurationMs": 12217,
+  "unchangedCount": 0,
+  "durationMs": 13913,
+  "avgDurationMs": 13913,
   "durationHistory": [
-    12217
+    13913
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "technic-emplois-f77ae95a82d2",
       "slug": "apparecchi-elettrici-geneva-technic-emplois-sa-geneve",
@@ -41,7 +39,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:05:20.942Z",
+      "crawledAt": "2026-10-29T09:32:26.595Z",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -55,6 +53,7 @@
       "postedAt": "2026-10-26T01:42:39+01:00",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/ee9a274f-5f47-4cb2-b7ad-3ce9b1532b82/",
       "firstSeenAt": "2026-10-16T21:32:31.560Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -83,7 +82,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5edd81f1-0ca1-4303-a921-af73073f18cd/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:05:20.007Z",
+      "crawledAt": "2026-10-29T09:32:25.548Z",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -110,5 +109,7 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
