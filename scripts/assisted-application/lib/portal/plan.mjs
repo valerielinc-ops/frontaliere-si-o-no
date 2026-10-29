@@ -610,7 +610,7 @@ const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment 
 const CURRENT_WORKLOAD_RE = /\b(?:current|currently|present|actual|attuale|attualmente|derzeit|zurzeit|actuel(?:le)?|gegenw(?:ä|ae)rtig)\b/i;
 const REFERRAL_SOURCE_QUESTION_RE = /\b(?:how (?:did|do) you (?:hear|learn|find out)|where did you (?:hear|find out)|how did you find (?:the )?(?:job|position|role)|come (?:hai|ha|avete) (?:saputo|scoperto|trovato)|come (?:sei|è) venut[oa] a conoscenza|come (?:hai|ha) conosciuto|wie haben (?:sie|du) (?:von|über|ueber)|wie bist du auf|comment (?:avez-vous|as-tu) (?:entendu|découvert)|source (?:of|for) (?:your )?(?:application|candidature)|referral source)\b/i;
 const REFERRAL_SOURCE_DETAIL_RE = /^\s*(?:please specify|specify|indicate|enter|provide|describe)\s+(?:the\s+)?source\s*[?:]?\s*$/i;
-const START_DATE_QUESTION_RE = /\b(?:earliest (?:possible )?(?:start(?:ing)? date|date (?:you can|to) start)|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
+const START_DATE_QUESTION_RE = /\b(?:earliest (?:possible )?(?:start(?:ing)? date|date (?:you can|to) start)|when can you start|available to start|available from|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
 const CONTEXTUAL_START_DATE_LABEL_RE = /^\s*(?:start(?:ing)? date|date of starting|entry date|date d['’]entr[ée]e|data di inizio)(?:\s*(?::\s*)?\(?\s*(?:[dtgj]{1,4}[./-]m{1,4}[./-][ayj]{2,4}|[ayj]{4}[./-]m{1,2}[./-][dtgj]{1,2})\s*\)?)?\s*[?:]?\s*$/i;
 const AVAILABILITY_QUESTION_RE = /\b(?:availability|available for work|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée])\b/i;
 const NOTICE_PERIOD_QUESTION_RE = /\b(?:notice period|notice time|period of notice|preavviso|d['’]lai de pr(?:é|e)avis|k(?:ü|ue)ndigungsfrist|notice required)\b/i;
@@ -1142,9 +1142,11 @@ function isNoLanguageAnswer(value) {
 }
 const FIRST_NAME_FIELD_RE = /\b(?:first name|given name|forename|vorname|pr[ée]nom|nome|nombre)\b/i;
 const LAST_NAME_FIELD_RE = /\b(?:last name|surname|family name|nachname|nom de famille|cognome|apellido)\b/i;
+const BARE_FIRST_NAME_FIELD_RE = /^first$/i;
+const BARE_LAST_NAME_FIELD_RE = /^last$/i;
 const FULL_NAME_FIELD_RE = /^\s*(?:full name|complete name|vollst[äa]ndiger name|nome completo|nom complet)\s*$/i;
 const NON_CANDIDATE_NAME_RE = /\b(?:company|employer|organisation|organization|school|institution|university|azienda|datore|scuola|istituto|universit|entreprise|employeur|école|arbeitgeber|unternehmen|firma|reference|referee|emergency|contact person|supervisor|manager|recruiter|interviewer)\b/i;
-const AVAILABILITY_FIELD_RE = /availability|available for work|available to start|when can you start|earliest (?:possible )?start|possible start date|date you can start|starting date|data di inizio|data di assunzione|eintrittsdatum|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée]/i;
+const AVAILABILITY_FIELD_RE = /availability|available for work|available to start|available from|when can you start|earliest (?:possible )?start|possible start date|date you can start|starting date|data di inizio|data di assunzione|eintrittsdatum|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée]/i;
 const SALARY_FIELD_RE = /salary expectation|expected salary|desired salary|salary desired|salary requirement|expected annual compensation|wage expectation|aspettativ\w+ salarial\w+|retribuzione desiderat\w+|salario desiderat\w+|pretese salarial|pr[ée]tentions salariales|salaire souhait[ée]|lohnvorstellung|gehaltsvorstellung|r[eé]mun[ée]ration souhait[ée]e|salario esperado|expectativa salarial/i;
 const YES_NO_LANGUAGE_QUESTION_RE = /\b(?:do you|does the candidate|are you|can you|speak|spoken|parl\w*|sprech\w*|parlez|parli|connaiss\w*|kenntnis\w*|communicat\w*)\b/i;
 const LANGUAGE_PROFICIENCY_QUESTION_RE = /\b(?:level|niveau|livello|proficien(?:cy|t)|fluen(?:t|cy)|how well|wie gut|quel niveau|quel point|native|mother tongue|langue maternelle|madrelingua|muttersprache|written|oral|mündlich|schriftlich|écrit)\b/i;
@@ -1381,8 +1383,8 @@ export function candidateAnswerForField(candidate, field) {
   const identity = candidate?.identity || {};
   const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${label} ${field?.context || ''}`);
   let identityValue = '';
-  if (FIRST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.firstName || '';
-  else if (LAST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.lastName || '';
+  if ((FIRST_NAME_FIELD_RE.test(label) || BARE_FIRST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.firstName || '';
+  else if ((LAST_NAME_FIELD_RE.test(label) || BARE_LAST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.lastName || '';
   else if (FULL_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.fullName || '';
   else if (IDENTITY_EMAIL_RE.test(label) && !EMAIL_CONFIRMATION_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
   else if (PHONE_CODE_FIELD_RE.test(label) && !PHONE_COUNTRY_CODE_LABEL_RE.test(label) && !otherPersonField) identityValue = identity.phone || '';
