@@ -3185,7 +3185,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   de: 'Deutsch',
   fr: 'Français',
  };
- const localeTitleBits = new Map(localeList.map((locale, index) => [locale, 1 << index]));
+ const localeTitleBits = new Map<(typeof JOB_SEO_LOCALES)[number], number>(
+  localeList.map((locale, index) => [locale, 1 << index] as const),
+ );
  const crossLocaleTitleMasks = new Map<string, number>();
  for (const job of validJobs) {
   const title = jobDisplayTitle(job);
