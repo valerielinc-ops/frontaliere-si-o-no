@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-10-29T22:03:37.571Z",
+  "generatedAt": "2026-10-29T22:46:48.938Z",
   "total": 9,
   "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 252850,
-  "avgDurationMs": 252850,
+  "durationMs": 98477,
+  "avgDurationMs": 98477,
   "durationHistory": [
-    252850
+    98477
   ],
   "newJobs": [
     {
@@ -40,20 +40,21 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "id": "company-7dkqft",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "firstSeenAt": "2026-10-29T22:00:49.677Z",
+      "firstSeenAt": "2026-10-29T22:46:37.457Z",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
-      "_qualityScore": 97,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 18,
         "completeness": 25
       }
     }
@@ -61,7 +62,7 @@
   "updatedJobs": [
     {
       "id": "company-ynd49c",
-      "slug": "ingresso-nel-mondo-bancario-per-maturandi-o-studenti-di-scuola-commerciale-stage-bem-regione-di-neuchatel-inizio-2027-100-banque-cler-neucha-ynd49c",
+      "slug": "entree-dans-le-monde-bancaire-pour-les-maturant-e-s-ou-eleves-de-l-ecole-de-commerce-stage-bem-region-de-neuchatel-rentree-2027-100-banque-c-ynd49c",
       "company": "Banque Cler",
       "title": "Entrée dans le monde bancaire pour les maturant(e)s ou élèves de l'école de commerce: stage BEM - région de Neuchâtel (Rentrée 2027) 100%",
       "location": "Neuchâtel",
@@ -78,8 +79,9 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "firstSeenAt": "2026-10-08T21:23:38.346Z",
+      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 72500,
       "salaryMax": 127500,
@@ -88,17 +90,17 @@
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
       "postalCode": "2000",
-      "_qualityScore": 94,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
     {
       "id": "company-1l801",
-      "slug": "apprendistato-di-impiegato-a-di-commercio-afc-banca-regione-losanna-inizio-2027-100-banque-cler-lausanne-01l801",
+      "slug": "apprentissage-d-employe-e-de-commerce-cfc-banque-region-lausanne-rentree-2027-100-banque-cler-lausanne",
       "company": "Banque Cler",
       "title": "Apprentissage d'employé(e) de commerce CFC Banque – Région Lausanne (Rentrée 2027) 100%",
       "location": "Lausanne",
@@ -115,27 +117,28 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "firstSeenAt": "2026-10-08T21:23:38.346Z",
+      "needsRetranslation": true,
       "sourceLang": "fr",
-      "salaryMin": 73000,
-      "salaryMax": 128000,
+      "salaryMin": 104500,
+      "salaryMax": 183500,
       "salarySource": "estimated",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "_qualityScore": 97,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
     {
       "id": "company-27ardp",
-      "slug": "consulente-alla-clientela-immobiliare-regione-svizzera-romanda-100-banque-cler-lausanne-27ardp",
+      "slug": "conseiller-ere-a-la-clientele-immobiliere-region-romandie-100-banque-cler-lausanne-27ardp",
       "company": "Banque Cler",
       "title": "Conseiller/ère à la clientèle immobilière (Région Romandie) 100%",
       "location": "Lausanne",
@@ -152,8 +155,9 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "firstSeenAt": "2026-10-05T06:25:39.366Z",
+      "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -162,11 +166,11 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
-      "_qualityScore": 94,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -187,7 +191,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "firstSeenAt": "2026-09-25T14:44:02.065Z",
       "sourceLang": "de",
       "salaryMin": 96300,
@@ -245,7 +249,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "id": "company-4vbdrg",
       "contract": "full-time",
       "currency": "CHF",
@@ -289,7 +293,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "id": "company-bjh1s",
       "contract": "full-time",
       "currency": "CHF",
@@ -333,7 +337,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "id": "company-9eqbu6",
       "contract": "full-time",
       "currency": "CHF",
@@ -366,7 +370,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-10-29T22:00:49.677Z",
+      "crawledAt": "2026-10-29T22:46:37.457Z",
       "firstSeenAt": "2026-06-08T22:12:09.409Z",
       "sourceLang": "de",
       "salaryMin": 99000,
@@ -396,5 +400,5 @@
       }
     }
   ],
-  "codeCommit": "7995f4cde11a1c38f3cd16da462f27ee83cb1cc2"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

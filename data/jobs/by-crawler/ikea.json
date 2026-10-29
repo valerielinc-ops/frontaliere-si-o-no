@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-10-29T22:11:51.438Z",
-  "runId": "40950921231",
+  "assembledAt": "2026-10-29T22:47:54.484Z",
+  "runId": "40954247334",
   "jobs": [
     {
       "id": "ikea-4c343fdec708",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-logistique-cfc-80/24107/95356933312",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.715Z",
+      "crawledAt": "2026-10-29T22:47:47.954Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -113,7 +113,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-service-clientele-60/24107/101335170576",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.714Z",
+      "crawledAt": "2026-10-29T22:47:47.953Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -189,7 +189,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-verkauf-kuchenplanung-100/24107/102337086736",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.713Z",
+      "crawledAt": "2026-10-29T22:47:47.952Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -262,7 +262,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-zweite-chance-markt-60-80/24107/100753960496",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.711Z",
+      "crawledAt": "2026-10-29T22:47:47.950Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -335,7 +335,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/unit-facility-management-techniker-in-100/24107/102501903680",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.710Z",
+      "crawledAt": "2026-10-29T22:47:47.949Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "LU",
@@ -414,7 +414,7 @@
       "url": "https://jobs.ikea.com/en/job/vernier/collaborateur-trice-en-decoration-interieure-100/24107/102513140224",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.709Z",
+      "crawledAt": "2026-10-29T22:47:47.948Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -493,7 +493,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-in-der-geschirrabteilung-60-80/24107/102513149888",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.707Z",
+      "crawledAt": "2026-10-29T22:47:47.947Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -572,7 +572,7 @@
       "url": "https://jobs.ikea.com/en/job/vernier/collaborateur-trice-restaurant-and-cuisine-ikea-20/24107/102531402288",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.706Z",
+      "crawledAt": "2026-10-29T22:47:47.946Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -645,7 +645,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-de-vente-30/24107/101721633520",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.702Z",
+      "crawledAt": "2026-10-29T22:47:47.944Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -664,17 +664,16 @@
       "applyUrl": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-de-vente-30/24107/101721633520",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "collaborateur-trice-de-vente-30-ikea-ch",
-        "collaborateur-trice-de-vente-30-ikea-aubonne"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-de-vente-30-ikea-ch",
           "collaborateur-trice-de-vente-30-ikea-aubonne"
         ]
       },
-      "firstSeenAt": "2026-10-09T09:15:46.851Z",
+      "previousSlugs": [
+        "collaborateur-trice-de-vente-30-ikea-ch",
+        "collaborateur-trice-de-vente-30-ikea-aubonne"
+      ],
       "salaryMin": 25100,
       "salaryMax": 38000,
       "salarySource": "estimated",
@@ -687,7 +686,8 @@
           "maxValue": 38000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-09T09:15:46.851Z"
     },
     {
       "id": "ikea-ceede8658354",
@@ -720,7 +720,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-textilabteilung-20-40/24107/102555662336",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.701Z",
+      "crawledAt": "2026-10-29T22:47:47.943Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -739,9 +739,6 @@
       "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-textilabteilung-20-40/24107/102555662336",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
@@ -753,7 +750,9 @@
           "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
         ]
       },
-      "firstSeenAt": "2026-10-29T09:19:19.930Z",
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-textilabteilung-20-40-ikea-ch"
+      ],
       "salaryMin": 29600,
       "salaryMax": 45400,
       "salarySource": "estimated",
@@ -766,7 +765,8 @@
           "maxValue": 45400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-29T09:19:19.930Z"
     },
     {
       "id": "ikea-b7463c19bdfe",
@@ -818,15 +818,14 @@
       "applyUrl": "https://jobs.ikea.com/en/job/lucerne/mitabeiter-in-logistik-auffullteam-50/24107/102574457488",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitabeiter-in-logistik-auffullteam-50-ikea-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitabeiter-in-logistik-auffullteam-50-ikea-ch"
         ]
       },
-      "firstSeenAt": "2026-10-29T09:19:19.929Z",
+      "previousSlugs": [
+        "mitabeiter-in-logistik-auffullteam-50-ikea-ch"
+      ],
       "salaryMin": 34800,
       "salaryMax": 53000,
       "salarySource": "estimated",
@@ -839,7 +838,9 @@
           "maxValue": 53000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-29T09:19:19.929Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ikea-e023b6362578",
@@ -872,7 +873,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100/24107/102574457648",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.698Z",
+      "crawledAt": "2026-10-29T22:47:47.942Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -891,15 +892,14 @@
       "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100/24107/102574457648",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100-ikea-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100-ikea-ch"
         ]
       },
-      "firstSeenAt": "2026-10-03T21:09:41.871Z",
+      "previousSlugs": [
+        "mitarbeiter-in-logistik-nachtschicht-00-00-09-00-uhr-100-ikea-ch"
+      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -912,7 +912,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-03T21:09:41.871Z"
     },
     {
       "id": "ikea-b02d0a26c111",
@@ -945,7 +946,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/unit-people-planning-specialist-60/24107/102032359248",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:06:14.697Z",
+      "crawledAt": "2026-10-29T22:47:47.942Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -964,15 +965,14 @@
       "applyUrl": "https://jobs.ikea.com/en/job/riddes/unit-people-planning-specialist-60/24107/102032359248",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "unit-people-planning-specialist-60-ikea-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "unit-people-planning-specialist-60-ikea-ch"
         ]
       },
-      "firstSeenAt": "2026-10-17T09:16:49.303Z",
+      "previousSlugs": [
+        "unit-people-planning-specialist-60-ikea-ch"
+      ],
       "salaryMin": 36300,
       "salaryMax": 54900,
       "salarySource": "estimated",
@@ -985,7 +985,8 @@
           "maxValue": 54900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-17T09:16:49.303Z"
     },
     {
       "id": "ikea-a868f7213478",
@@ -1018,7 +1019,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/fulfilment-operations-team-leader-100/24107/102196893488",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:06:14.695Z",
+      "crawledAt": "2026-10-29T22:47:47.940Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1037,15 +1038,14 @@
       "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/fulfilment-operations-team-leader-100/24107/102196893488",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fulfilment-operations-team-leader-100-ikea-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fulfilment-operations-team-leader-100-ikea-ch"
         ]
       },
-      "firstSeenAt": "2026-10-20T21:18:43.692Z",
+      "previousSlugs": [
+        "fulfilment-operations-team-leader-100-ikea-ch"
+      ],
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1058,7 +1058,8 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-20T21:18:43.692Z"
     },
     {
       "id": "ikea-c1824890a1d1",
@@ -1091,7 +1092,7 @@
       "url": "https://jobs.ikea.com/en/job/grancia/unit-facility-manager-100/24107/102269061264",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:06:14.694Z",
+      "crawledAt": "2026-10-29T22:47:47.940Z",
       "addressLocality": "Grancia",
       "postalCode": "6916",
       "addressRegion": "TI",
@@ -1110,18 +1111,6 @@
       "applyUrl": "https://jobs.ikea.com/en/job/grancia/unit-facility-manager-100/24107/102269061264",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "unit-facility-manager-100-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "unit-facility-manager-100-ikea-ch"
-        ],
-        "de": [
-          "unit-facility-manager-100-ikea-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T09:12:18.397Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1134,7 +1123,19 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-23T09:12:18.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unit-facility-manager-100-ikea-ch"
+        ],
+        "de": [
+          "unit-facility-manager-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unit-facility-manager-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-defff7505a30",
@@ -1167,7 +1168,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-relations-clients-80/24107/92199982528",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.692Z",
+      "crawledAt": "2026-10-29T22:47:47.938Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -1240,7 +1241,7 @@
       "url": "https://jobs.ikea.com/en/job/vernier/store-graphic-communication-leader-80-100/24107/101316743440",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.689Z",
+      "crawledAt": "2026-10-29T22:47:47.937Z",
       "addressLocality": "Vernier",
       "postalCode": "1214",
       "addressRegion": "GE",
@@ -1336,7 +1337,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/cuisinier-e-ikea-80-100/24107/101269836912",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.687Z",
+      "crawledAt": "2026-10-29T22:47:47.936Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -1412,7 +1413,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-logistique-60/24107/102017254336",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.685Z",
+      "crawledAt": "2026-10-29T22:47:47.935Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "VD",
@@ -1491,7 +1492,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/collaborateur-trice-service-clientele-70/24107/101734341472",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T22:06:14.684Z",
+      "crawledAt": "2026-10-29T22:47:47.934Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "VS",
@@ -1570,7 +1571,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40/24107/94289960816",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.683Z",
+      "crawledAt": "2026-10-29T22:47:47.933Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -1652,7 +1653,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100/24107/96290294016",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.682Z",
+      "crawledAt": "2026-10-29T22:47:47.932Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -1730,7 +1731,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserleb/24107/98637312688",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.681Z",
+      "crawledAt": "2026-10-29T22:47:47.930Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -1809,7 +1810,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-verkauf-samstags-20-bis-ende-februar-2027/24107/99445726224",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.678Z",
+      "crawledAt": "2026-10-29T22:47:47.928Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -1903,15 +1904,14 @@
       "applyUrl": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-schlafzimmerabteilung-100/24107/99766122032",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:34:24.357Z",
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
+      ],
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1924,7 +1924,9 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:34:24.357Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "ikea-d75acabae724",
@@ -1957,7 +1959,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-verkauf-essplatzabteilung-samstags-20-befristet-bis-28-02-2027/24107/99797711696",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.674Z",
+      "crawledAt": "2026-10-29T22:47:47.926Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -2042,7 +2044,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-geschirrabteilung-20-40/24107/100448961712",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.671Z",
+      "crawledAt": "2026-10-29T22:47:47.925Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -2115,7 +2117,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-ikea-restaurant-40-80/24107/101845421648",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.670Z",
+      "crawledAt": "2026-10-29T22:47:47.925Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -2197,7 +2199,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/mitabeiter-in-logistik-fruhschicht-05-00-09-00-uhr-50/24107/100965598256",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.668Z",
+      "crawledAt": "2026-10-29T22:47:47.924Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "LU",
@@ -2285,7 +2287,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-verkauf-schlafzimmerabteilung-20-samstags/24107/100448962544",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.666Z",
+      "crawledAt": "2026-10-29T22:47:47.923Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -2358,7 +2360,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/unit-facility-management-spezialist-in-100/24107/101074405664",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.663Z",
+      "crawledAt": "2026-10-29T22:47:47.921Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "LU",
@@ -2437,7 +2439,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-ikea-restaurant-samstags-20/24107/101335184928",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.661Z",
+      "crawledAt": "2026-10-29T22:47:47.920Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -2510,7 +2512,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/mitarbeiter-in-ikea-restaurant-koch-in-100/24107/101466378768",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.659Z",
+      "crawledAt": "2026-10-29T22:47:47.919Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "LU",
@@ -2583,7 +2585,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitabeiter-in-logistik-auffullteam-40/24107/102184076368",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.657Z",
+      "crawledAt": "2026-10-29T22:47:47.918Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -2662,7 +2664,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100/24107/101745775344",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.655Z",
+      "crawledAt": "2026-10-29T22:47:47.916Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -2743,7 +2745,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-kundenservice-70/24107/102321885088",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.654Z",
+      "crawledAt": "2026-10-29T22:47:47.915Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "BE",
@@ -2816,7 +2818,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-kinderabteilung-80/24107/102311760656",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.652Z",
+      "crawledAt": "2026-10-29T22:47:47.914Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -2895,7 +2897,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/store-graphic-communication-leader-100/24107/102196915744",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.651Z",
+      "crawledAt": "2026-10-29T22:47:47.912Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -3003,7 +3005,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-verkauf-samstags-20-bis-ende-april-2027/24107/102299407824",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T22:06:14.645Z",
+      "crawledAt": "2026-10-29T22:47:47.908Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",

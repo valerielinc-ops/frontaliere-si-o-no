@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-10-29T22:05:29.858Z",
+  "generatedAt": "2026-10-29T22:47:32.327Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,15 +16,15 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 195667,
-  "avgDurationMs": 195667,
+  "durationMs": 6003,
+  "avgDurationMs": 6003,
   "durationHistory": [
-    195667
+    6003
   ],
   "newJobs": [
     {
       "id": "yapeal-1b9cf2600e1d",
-      "slug": "responsabile-it-operations-yapeal-zurich-hybrid",
+      "slug": "lead-it-operations-yapeal-zurich-hybrid",
       "company": "Yapeal",
       "companyKey": "yapeal",
       "companyDomain": "yapeal.ch",
@@ -34,7 +34,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2868333",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:02:06.159Z",
+      "crawledAt": "2026-10-29T22:47:21.447Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -57,12 +57,12 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T22:02:06.159Z",
-      "_qualityScore": 99,
+      "firstSeenAt": "2026-10-29T22:47:21.447Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     }
@@ -82,7 +82,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:02:06.161Z",
+      "crawledAt": "2026-10-29T22:47:21.449Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -125,7 +125,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-29T22:02:06.154Z",
+      "crawledAt": "2026-10-29T22:47:21.444Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -157,5 +157,5 @@
       }
     }
   ],
-  "codeCommit": "7995f4cde11a1c38f3cd16da462f27ee83cb1cc2"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }
