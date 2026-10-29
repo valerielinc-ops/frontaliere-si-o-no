@@ -1,7 +1,7 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-10-28T22:33:39.250Z",
+  "generatedAt": "2026-10-29T09:52:25.425Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 9495,
-  "avgDurationMs": 9495,
+  "durationMs": 9391,
+  "avgDurationMs": 9391,
   "durationHistory": [
-    9495
+    9391
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Practice-Solution-Manager--PSM----Strategic-Account-Manager--m-w-d---80-100--_R-2026-49838-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:33:26.406Z",
+      "crawledAt": "2026-10-29T09:52:10.558Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/R-2026-48937-Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-50191-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:33:25.729Z",
+      "crawledAt": "2026-10-29T09:52:09.887Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:33:29.071Z",
+      "crawledAt": "2026-10-29T09:52:13.443Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:33:28.413Z",
+      "crawledAt": "2026-10-29T09:52:12.794Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Compensation_R-2026-49416-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:33:27.758Z",
+      "crawledAt": "2026-10-29T09:52:12.144Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Freight-Costs-Control-Manager_R-2026-49866-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:33:27.072Z",
+      "crawledAt": "2026-10-29T09:52:11.214Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/E-commerce---Digital-Marketing-Sr-Brand-Manager--Contact-Lenses--IMG-VC_R-2026-50282",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:33:24.903Z",
+      "crawledAt": "2026-10-29T09:52:09.203Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Senior-Consolidation-and-Reporting-Analyst_R-2026-50440-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:33:23.963Z",
+      "crawledAt": "2026-10-29T09:52:08.247Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -370,5 +370,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
