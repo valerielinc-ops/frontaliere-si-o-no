@@ -28,6 +28,21 @@ export function isChallengeRequest(url) {
     || (/(^|\.)(google\.com|recaptcha\.net)$/.test(location.host) && /^\/recaptcha\/(api2|enterprise)\/payload(\/|$)/.test(location.path));
 }
 
+/** A provider outage before the final click is technical, not an unanswered candidate question. */
+export function portalHandoffReason(reason, { diagnostics, attempt, finalClickAttempted = false } = {}) {
+  if (finalClickAttempted || !['captcha', 'portal_needs_candidate'].includes(reason)) return reason;
+  const unavailable = (Array.isArray(diagnostics?.responses) ? diagnostics.responses : []).some(entry => {
+    if (entry?.attempt !== attempt) return false;
+    const host = String(entry?.host || '').toLowerCase();
+    const path = String(entry?.path || '');
+    const status = Number(entry?.status);
+    return /^api\.nopecha\.com(?::443)?$/.test(host)
+      && /^\/v1\/(?:recognition|token)\/(?:turnstile|recaptcha|hcaptcha)(?:\/|$)/.test(path)
+      && (status === 429 || (status >= 500 && status < 600));
+  });
+  return unavailable ? 'captcha_provider_unavailable' : reason;
+}
+
 /** Read validity without checkValidity/reportValidity, which would change the page. */
 export async function validationDiagnostics(page) {
   const frames = typeof page.frames === 'function' ? page.frames() : [page];
@@ -63,6 +78,7 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   const listeners = [];
   const pending = new Set();
   let phase = 'navigation';
+  let attempt = 0;
   let stopped = false;
   // Outside the capped lists: a challenge's own image fetches can fill them.
   // Armed by finalClick() at each attempt's own click, never earlier (review of #10810).
@@ -71,15 +87,16 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   let bodyReads = 0;
   let fetchInstalled = false;
   const push = (list, entry) => { if (!stopped && list.length < LIMIT) list.push({ phase, ...entry }); };
-  const controlFetch = async (method) => {
+  const controlFetch = async (method, value) => {
     if (!fetchInstalled) return;
     const frames = context.pages().flatMap((page) => page.frames());
-    await settleDiagnostics(frames.map((frame) => frame.evaluate(({ key, method }) => window[key]?.[method](), { key: FETCH_DIAGNOSTIC_CONTROL, method })));
+    await settleDiagnostics(frames.map((frame) => frame.evaluate(({ key, method, value }) => window[key]?.[method](value), { key: FETCH_DIAGNOSTIC_CONTROL, method, value })));
   };
   const listen = (target, event, handler) => { target.on(event, handler); listeners.push(() => target.off(event, handler)); };
   const tracked = (request) => ['xhr', 'fetch'].includes(request.resourceType()) || /^(POST|PUT|PATCH)$/.test(request.method());
   const metadata = (request) => ({ ...diagnosticLocation(request.url()), method: request.method(), resourceType: request.resourceType() });
   const pages = new WeakSet();
+  const requestAttempts = new WeakMap();
   const attach = (page) => {
     if (pages.has(page)) return;
     pages.add(page);
@@ -92,13 +109,16 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   for (const page of context.pages()) attach(page);
   listen(context, 'request', (request) => {
     if (clickArmed && !stopped && isChallengeRequest(request.url())) challengeAfterClick = true;
-    if (tracked(request)) push(data.requests, metadata(request));
+    if (tracked(request)) {
+      requestAttempts.set(request, attempt);
+      push(data.requests, { ...metadata(request), attempt });
+    }
   });
   listen(context, 'requestfailed', (request) => push(data.requestFailures, { ...metadata(request), error: diagnosticText(request.failure()?.errorText) }));
   listen(context, 'response', (response) => {
     const request = response.request();
     if (!tracked(request) || data.responses.length >= LIMIT || stopped) return;
-    const entry = { phase, ...metadata(request), status: response.status() };
+    const entry = { phase, ...metadata(request), status: response.status(), attempt: requestAttempts.get(request) };
     data.responses.push(entry);
     if (phase === 'submit' && response.status() >= 400 && /^(POST|PUT|PATCH)$/.test(request.method()) && httpFailures.length < 10) {
       httpFailures.push({ ...diagnosticLocation(response.url()), method: request.method(), status: response.status() });
@@ -125,6 +145,12 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   });
   return {
     data,
+    async beginAttempt() {
+      attempt += 1;
+      await controlFetch('setAttempt', attempt);
+      return attempt;
+    },
+    currentAttempt: () => attempt,
     /** Right before the final click of this attempt: only what follows it counts. */
     finalClick() {
       clickArmed = true;
@@ -143,6 +169,7 @@ export function startPortalDiagnostics(context, httpFailures = []) {
           ...location, method: /^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)$/.test(entry.method) ? entry.method : 'OTHER',
           resourceType: 'fetch', source: 'browser_stream',
           status: Number.isInteger(entry.status) && entry.status >= 100 && entry.status <= 599 ? entry.status : 0,
+          attempt: Number.isInteger(entry.attempt) && entry.attempt >= 0 ? entry.attempt : null,
           errors,
         });
       });

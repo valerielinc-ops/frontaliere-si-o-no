@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-10-29T09:30:21.616Z",
-  "runId": "40847734300",
+  "assembledAt": "2026-10-29T21:24:00.957Z",
+  "runId": "40955665056",
   "jobs": [
     {
       "id": "company-w76zez",
@@ -1541,7 +1541,7 @@
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Baden",
         "en": "Store Manager Trainee (a) 80-100% for the Baden region",
-        "de": "Store Manager Auszubildender (a) 80-100% für die Region Baden",
+        "de": "Store Manager Trainee (a) 80-100% für die Region Baden",
         "fr": "Stagiaire de magasin (a) 80-100% pour la région de Baden"
       },
       "descriptionByLocale": {
@@ -1571,7 +1571,8 @@
       "salaryMax": 78500,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "needsRetranslation": true
     },
     {
       "id": "company-qxtrop",
@@ -1747,7 +1748,7 @@
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 100% per la Region Aargau",
         "en": "Store Manager Trainee (a) 100% for the Aargau region",
-        "de": "Store Manager Auszubildender (a) 100% für die Region Aargau",
+        "de": "Store Manager Trainee (a) 100% für die Region Aargau",
         "fr": "Stagiaire responsable des magasins (a) 100% pour la région d'Argovie"
       },
       "descriptionByLocale": {
@@ -2515,7 +2516,7 @@
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Netstal",
         "en": "Store Manager Trainee (a) 80-100% for the Netstal region",
-        "de": "Store Manager Auszubildender (a) 80-100% für die Region Netstal",
+        "de": "Store Manager Trainee (a) 80-100% für die Region Netstal",
         "fr": "Stagiaire responsable des magasins (a) 80-100 % pour la région de Netstal"
       },
       "descriptionByLocale": {
@@ -2817,7 +2818,7 @@
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale St. Gallen",
         "en": "Store Manager Trainee (a) 80-100% for the St. Gallen branch",
-        "de": "Store Manager Auszubildender (a) 80-100% für die Filiale St. Gallen",
+        "de": "Store Manager Trainee (a) 80-100% für die Filiale St. Gallen",
         "fr": "Directeur de magasin Trainee (a) 80-100% pour la succursale St. Gallen"
       },
       "descriptionByLocale": {
@@ -2962,7 +2963,7 @@
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale Herisau",
         "en": "Store Manager Trainee (a) 80-100% for the Herisau branch",
-        "de": "Store Manager Auszubildender (a) 80-100% für die Filiale Herisau",
+        "de": "Store Manager Trainee (a) 80-100% für die Filiale Herisau",
         "fr": "Directeur de magasin Trainee (a) 80-100% pour la branche Herisau"
       },
       "descriptionByLocale": {
@@ -3084,8 +3085,7 @@
       "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lagerverantwortung-40-60-der-filiale-baden-daettwil",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "5400",
-      "needsRetranslation": true
+      "postalCode": "5400"
     },
     {
       "id": "company-3vx5m8",

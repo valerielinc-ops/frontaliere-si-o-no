@@ -221,4 +221,85 @@ describe('sitemap graph availability policy', () => {
     expect(crawl.records.get('sitemap-articles-canton-nw.xml')?.urls)
       .toEqual([`${BASE}/nw/articolo`]);
   });
+
+  it('keeps the live edge retry window open through four transient failures', async () => {
+    const fetchMock = vi.fn();
+    let childAttempts = 0;
+    fetchMock.mockImplementation((input: string) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-articles-canton-ti.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      if (url.endsWith('/sitemap-articles-canton-ti.xml')) {
+        childAttempts += 1;
+        if (childAttempts < 5) return Promise.resolve(new Response('edge warming', { status: 404 }));
+        return Promise.resolve(new Response(
+          `<urlset><url><loc>${BASE}/ti/articolo</loc></url></urlset>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const crawl = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchDelayMs: 0,
+    });
+
+    expect(childAttempts).toBe(5);
+    expect(crawl.missing).toEqual([]);
+    expect(crawl.records.get('sitemap-articles-canton-ti.xml')?.urls)
+      .toEqual([`${BASE}/ti/articolo`]);
+  });
+
+  it('accepts a provider Retry-After hint without weakening fail-closed crawling', async () => {
+    const fetchMock = vi.fn();
+    let childAttempts = 0;
+    fetchMock.mockImplementation((input: string) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-articles-canton-ti.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      if (url.endsWith('/sitemap-articles-canton-ti.xml')) {
+        childAttempts += 1;
+        if (childAttempts === 1) {
+          return Promise.resolve(new Response('rate limited', {
+            status: 429,
+            headers: { 'Retry-After': '0' },
+          }));
+        }
+        return Promise.resolve(new Response(
+          `<urlset><url><loc>${BASE}/ti/articolo</loc></url></urlset>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const crawl = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchDelayMs: 0,
+    });
+
+    expect(childAttempts).toBe(2);
+    expect(crawl.missing).toEqual([]);
+  });
 });

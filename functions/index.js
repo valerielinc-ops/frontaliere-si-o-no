@@ -2277,6 +2277,7 @@ export const applicationConcierge = onRequest(
   },
   async (req, res) => {
     try {
+      res.set('Cache-Control', 'no-store');
       const { status, body } = await handleApplicationConcierge(req);
       res.status(status).json(body);
     } catch (error) {

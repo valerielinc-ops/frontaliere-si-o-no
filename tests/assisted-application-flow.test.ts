@@ -603,3 +603,28 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     expect(transition({ state: 'owner_takeover', heldBy: ['portal_ambiguous'] }, { type: 'submit_succeeded' }, { nowMs: T0 }).ignored).toBe('terminal');
   });
 });
+
+
+describe('measured CAPTCHA provider outage recovery', () => {
+  it('waits without requesting human answers, retries the approved round, and remains bounded', () => {
+    const now = Date.now();
+    const draft = { ...cleanDraft, round: 1 };
+    const dispatch = { mode: 'submit', round: 1, attempts: 1 };
+    let result = transition({ state: 'submitting', round: 1, dispatch }, { type: 'submit_handoff', reason: 'captcha_provider_unavailable' }, { draft, nowMs: now });
+    expect(result.effects).toEqual([]);
+    expect(result.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: now + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    expect(transition({ ...result.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: now }).ignored).toBe('portal_retry_not_due');
+    result = transition({ ...result.flow, dispatch }, { type: 'portal_auto_retry' }, { draft, nowMs: now + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    expect(result.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+    expect(result.flow.portalAutoRetryCount).toBe(1);
+    const exhausted = transition({ state: 'submitting', round: 1, dispatch, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length }, { type: 'submit_handoff', reason: 'captcha_provider_unavailable' }, { draft, nowMs: now });
+    expect(exhausted.flow.portalAutoRetryAt).toBeNull();
+    expect(exhausted.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover' })]);
+  });
+  it('does not retry a draft that the candidate has not approved', () => {
+    const now = Date.now();
+    const result = transition({ state: 'owner_takeover', round: 1, heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: now - 1, dispatch: { mode: 'draft', round: 1 } }, { type: 'portal_auto_retry' }, { draft: { ...cleanDraft, round: 1 }, nowMs: now });
+    expect(result.ignored).toBe('not_approved');
+    expect(result.effects).toEqual([]);
+  });
+});
