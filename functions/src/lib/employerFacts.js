@@ -42,8 +42,13 @@ function sameCanonicalEmployer(sentence, employerName) {
   const normalize = (value) => String(value).normalize('NFKC').toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
   const canonical = normalize(employerName);
   const aliases = new Set(String(employerName).match(/\b[A-Z][A-Z0-9]{2,}\b/g) || []);
+  const names = explicitCompanyNames(sentence);
+  return names.every((name) => normalize(name) === canonical || (aliases.has(name) && normalize(name) === normalize(name.toUpperCase())));
+}
+
+function explicitCompanyNames(sentence) {
   const nouns = new RegExp(COMPANY_NOUN.source, 'giu');
-  const names = [...String(sentence).matchAll(nouns)].flatMap((match) => {
+  return [...String(sentence).matchAll(nouns)].flatMap((match) => {
     const afterNoun = String(sentence).slice(match.index + match[0].length);
     const tokens = afterNoun.match(COMPANY_NAME_AFTER_NOUN)?.[1]?.split(/\s+/u) || [];
     if (!tokens.length) return [];
@@ -55,7 +60,6 @@ function sameCanonicalEmployer(sentence, employerName) {
     }
     return lastNameToken < 0 ? [] : [tokens.slice(0, lastNameToken + 1).join(' ')];
   });
-  return names.every((name) => normalize(name) === canonical || (aliases.has(name) && normalize(name) === normalize(name.toUpperCase())));
 }
 
 const CANONICAL_LEGAL_SUFFIX = /\s+(?:SA|AG|GmbH|Sagl|Srl|SRL|SpA|Ltd|Inc|LLC)\.?$/iu;
@@ -63,6 +67,11 @@ const identityKey = value => String(value).trim().replace(CANONICAL_LEGAL_SUFFIX
 function containsCanonicalIdentity(sentence, employerName) {
   const canonical = identityKey(employerName);
   return canonical.length >= 3 && ` ${identityKey(sentence)} `.includes(` ${canonical} `);
+}
+function namesCanonicalEmployer(sentence, employerName) {
+  if (containsCanonicalIdentity(sentence, employerName)) return true;
+  const aliases = String(employerName).match(/\b[A-Z][A-Z0-9]{2,}\b/g) || [];
+  return aliases.some((alias) => new RegExp(`(?<![\\p{L}\\p{N}])${escaped(alias)}(?![\\p{L}\\p{N}])`, 'iu').test(sentence));
 }
 function hasOtherClosedEmployer(sentence, employerName) {
   const names = /(?:\p{Lu}[\p{L}\p{N}'’.-]*\s+){1,5}(?:SA|AG|GmbH|Sagl|Srl|SRL|SpA|Ltd|Inc|LLC)(?![\p{L}\p{N}])/gu;
@@ -75,7 +84,7 @@ export function quotedEmployerAge(text, index, posting = '', employerName = '') 
   return Boolean(employerName && age && sameCanonicalEmployer(age.sentence, employerName)
     && !hasOtherClosedEmployer(age.sentence, employerName)
     && companyAges(posting).some((item) => item.value === age.value
-      && containsCanonicalIdentity(item.sentence, employerName)
+      && (!namesCanonicalEmployer(item.sentence, employerName) || namesCanonicalEmployer(age.sentence, employerName))
       && !hasOtherClosedEmployer(item.sentence, employerName)
       && sameCanonicalEmployer(item.sentence, employerName)));
 }

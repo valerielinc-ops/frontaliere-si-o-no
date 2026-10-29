@@ -1561,10 +1561,10 @@ describe('employer citations versus candidate facts', () => {
   });
 
   it.each([
-    'Mi interessa una società solida e dinamica, attiva da oltre 50 anni nel trasporto.',
-    'The company has been active for over 50 years.',
-    'Das Unternehmen ist seit über 50 Jahren tätig.',
-    'Cette société est active depuis plus de 50 ans.',
+    'Mi interessa la società EXAMPLE Group, solida e dinamica, attiva da oltre 50 anni nel trasporto.',
+    'The company EXAMPLE Group has been active for over 50 years.',
+    'Das Unternehmen EXAMPLE Group ist seit über 50 Jahren tätig.',
+    'La société EXAMPLE Group est active depuis plus de 50 ans.',
   ])('accepts a sourced employer age: %s', (text) => {
     expect(checkDraftFacts({ coverLetter: text }, sources).ok).toBe(true);
   });
@@ -1627,7 +1627,8 @@ describe('employer age identity binding', () => {
     const sources = { text: '', order: 'Sales\nAlfa SA\nCandidate', posting: 'La società Beta SA ha 10 anni.' };
     expect(checkDraftFacts({ coverLetter: 'La società Alfa SA ha 10 anni.' }, sources).unsupported).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'number', token: '10' })]));
     expect(checkDraftFacts({ coverLetter: 'La società Beta SA ha 10 anni.' }, { ...sources, posting: 'Alfa SA è una società giovane. Beta SA è una società attiva da 10 anni.' }).ok).toBe(false);
-    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Una società ha 10 anni.' }).ok).toBe(false);
-    expect(checkDraftFacts({ coverLetter: 'La società è attiva da 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(true);
+    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(false);
+    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Una società ha 10 anni.' }).ok).toBe(true);
+    expect(checkDraftFacts({ coverLetter: 'La società Alfa SA è attiva da 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(true);
   });
 });
