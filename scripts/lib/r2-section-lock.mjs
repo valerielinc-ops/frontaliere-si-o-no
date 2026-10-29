@@ -49,7 +49,7 @@ function nonNegativeDuration(value, name) {
   return value;
 }
 
-const DECIMAL_SAFE_LEASE_TIMESTAMP_RE = /^(?:0|[1-9]\d*)$/u;
+export const DECIMAL_SAFE_LEASE_TIMESTAMP_RE = /^(?:0|[1-9]\d*)$/u;
 
 export function isSafeLeaseTimestamp(value) {
   return Number.isSafeInteger(value) && value >= 0;

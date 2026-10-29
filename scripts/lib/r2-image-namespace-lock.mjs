@@ -3,6 +3,7 @@ import { randomUUID } from 'node:crypto';
 import { isInvokedDirectly } from './is-invoked-directly.mjs';
 import {
   createR2Request,
+  DECIMAL_SAFE_LEASE_TIMESTAMP_RE,
   isSafeLeaseTimestamp,
   normalizeS3MatchEtag,
   parseSafeLeaseTimestamp,
@@ -17,6 +18,7 @@ export const IMAGE_LEASE_RELEASE_TIMEOUT_MS = 30_000;
 export const IMAGE_LOCK_RELEASE_RETRY_MS = 1_000;
 export const IMAGE_LOCK_POLL_MS = 5_000;
 export const IMAGE_LEASE_CONTEXT_ENV = 'FRONTALIERE_R2_IMAGE_LEASE_CONTEXT';
+export const DECIMAL_LEASE_TIMESTAMP_RE = DECIMAL_SAFE_LEASE_TIMESTAMP_RE;
 
 const CONTEXT_VERSION = 1;
 const IMAGE_LOCK_CLEANUP_ATTEMPTS = 4;
