@@ -1743,6 +1743,7 @@ describe('#6380 — one atomic commit per crawler group', () => {
     expect(files).toHaveLength(GROUP_COUNT);
 
     for (const file of files) {
+      const groupIndex = Number(file.match(/^crawler-group-(\d+)\.yml$/)?.[1]);
       const doc = YAML.parse(fs.readFileSync(path.join(workflowsDir, file), 'utf8'));
       const job = doc.jobs[Object.keys(doc.jobs)[0]];
       expect(job.env.CRAWLER_GROUP_COMMIT_DIR).toBe('crawler-generation/commit-batch');
@@ -1771,7 +1772,7 @@ describe('#6380 — one atomic commit per crawler group', () => {
       });
       expect(aggregate.run).toContain('no terminal status was published');
       expect(aggregate.run).toContain('Summary:');
-      expect(job.env.CRAWLER_GROUP_MAX_PARALLEL).toBe(String(CRAWLER_GROUP_MAX_PARALLEL));
+      expect(job.env.CRAWLER_GROUP_MAX_PARALLEL).toBe(String(crawlerGroupMaxParallel(groupIndex)));
 
       const batchIndexes = job.steps
         .map((step, index) => ({ step, index }))
