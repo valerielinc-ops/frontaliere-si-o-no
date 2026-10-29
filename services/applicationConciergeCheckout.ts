@@ -18,12 +18,15 @@ export type ApplicationConciergeCheckoutResult =
     ok: true;
     paymentProvider: 'sumup';
     amountTotal?: number;
+    paymentComplete?: boolean;
     checkoutId: string;
     serviceId: string;
   }
   | {
     ok: true;
     paymentProvider: 'stripe';
+    amountTotal?: number;
+    paymentComplete?: boolean;
     url: string;
     serviceId: string;
   };

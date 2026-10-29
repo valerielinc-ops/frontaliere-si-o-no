@@ -327,6 +327,9 @@ export default function ApplicationConciergePortal({
         ...(renewal ? { renewalOfServiceId: serviceId!, acceptRenewalTerms: true, expectedAmountTotal: service!.renewalOffer!.amountTotal } : {}),
       }, user);
       if (!isCurrentOwner()) return;
+      if (renewal && !result.paymentComplete && result.amountTotal !== service?.renewalOffer?.amountTotal) {
+        throw new Error('application_concierge_renewal_price_changed');
+      }
       if (result.paymentProvider === 'sumup') {
         const returnUrl = new URL(base.toString());
         returnUrl.searchParams.set('application_concierge_service_id', result.serviceId);

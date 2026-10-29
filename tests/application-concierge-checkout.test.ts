@@ -157,6 +157,7 @@ describe('application concierge checkout', () => {
       body: {
         ok: true,
         url: 'https://checkout.stripe.com/cs_concierge_1',
+        amountTotal: 3999,
         serviceId: 'application_concierge_services-1',
       },
     });

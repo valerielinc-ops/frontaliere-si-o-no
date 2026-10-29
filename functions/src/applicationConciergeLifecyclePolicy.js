@@ -22,7 +22,8 @@ export function conciergeRefreshDue(service, nowMs = Date.now()) {
   }
   const lastRefresh = timestampMillis(service.matchingCompletedAt)
     || timestampMillis(service.cvUploadedAt) || timestampMillis(service.paidAt);
-  return lastRefresh > 0 && nowMs >= lastRefresh + CONCIERGE_REFRESH_INTERVAL_MS;
+  const interval = service.matchingStatus === 'failed' || Number(service.matchingUnverifiedCount) > 0 ? 60 * 60 * 1000 : CONCIERGE_REFRESH_INTERVAL_MS;
+  return lastRefresh > 0 && nowMs >= lastRefresh + interval;
 }
 
 /** Eligibility and price are computed from the source purchase, never a client-supplied amount. */
