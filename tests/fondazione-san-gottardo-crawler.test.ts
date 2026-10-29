@@ -21,7 +21,9 @@ const EMPTY_HTML = `
         <hr>
         <p>Accettiamo candidature per:</p>
         <ul><li><strong>stage pre SUPSI (9 mesi)</strong></li></ul>
+    <p>Selezionare la dicitura corretta nel campo "tipo di candidatura".</p>
         <p>Candidature spontanee: invia il tuo curriculum alla Fondazione.</p>
+    <form><select name="Tipo_di_candidatura"><option>Stage pre SUPSI (9 mesi)</option></select></form>
       </div>
     </div>
   </main>
@@ -39,6 +41,7 @@ const LISTING_HTML = `
         </ul>
         <p>Accettiamo candidature per:</p>
         <ul><li><a href="/lavoro/stage">stage pre SUPSI (9 mesi)</a></li></ul>
+        <p>Selezionare la dicitura corretta nel campo "tipo di candidatura".</p>
       </div>
     </div>
   </main>
@@ -75,11 +78,17 @@ describe('Fondazione San Gottardo crawler', () => {
     expect(isTrustedDomain('https://example.org/concorsi/test')).toBe(false);
   });
 
-  it('records the official explicit zero without treating the stage link as a vacancy', () => {
+  it('records the official vacancy zero and keeps the stage as a separate opportunity', () => {
     const result = parseCareersPage(EMPTY_HTML);
 
     expect(result.status).toBe('empty');
     expect(result.candidates).toHaveLength(0);
+    expect(result.opportunities).toEqual([
+      expect.objectContaining({
+        title: 'Stage pre SUPSI (9 mesi)',
+        applicationLabel: 'Stage pre SUPSI (9 mesi)',
+      }),
+    ]);
     expect(result.evidence).toMatch(/non abbiamo posizioni disponibili/i);
   });
 
@@ -92,6 +101,9 @@ describe('Fondazione San Gottardo crawler', () => {
         title: 'Educatore/trice specializzato/a',
         url: 'https://www.fsangottardo.ch/concorsi/educatore-specializzato',
       }),
+    ]);
+    expect(result.opportunities).toEqual([
+      expect.objectContaining({ title: 'Stage pre SUPSI (9 mesi)' }),
     ]);
   });
 
@@ -157,16 +169,27 @@ describe('Fondazione San Gottardo crawler', () => {
     expect(job?.applyUrl).toBe('https://www.fsangottardo.ch/candidati/educatore');
   });
 
-  it('stamps an authoritative empty snapshot for the current live shape', async () => {
+  it('publishes the stage opportunity instead of stamping an empty snapshot', async () => {
     const result = await fetchAllFondazioneSanGottardoJobs({
       fetchPage: vi.fn().mockResolvedValue(EMPTY_HTML),
       fetchDetail: vi.fn(),
     });
 
-    expect(Array.isArray(result)).toBe(true);
-    expect(result).toHaveLength(0);
-    expect(result.authoritativeEmptyState).toBe('authoritative-source-zero');
-    expect(result.authoritativeEmptyEvidence).toMatch(/Fondazione San Gottardo/);
+    expect(result).toEqual(expect.objectContaining({
+      discoveredCount: 1,
+      fetchOutcome: 'ok',
+      jobs: [expect.objectContaining({
+        title: 'Stage pre SUPSI (9 mesi)',
+        contract: 'internship',
+        employmentType: 'INTERN',
+        experienceLevel: 'intern',
+        url: FONDAZIONE_SAN_GOTTARDO_CAREER_URL,
+        applyUrl: FONDAZIONE_SAN_GOTTARDO_CAREER_URL,
+      })],
+    }));
+    expect(result.jobs[0].description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    expect(result.authoritativeEmptyState).toBeUndefined();
+    expect(result.jobs[0].source).toMatch(/Internship Opportunity/);
   });
 
   it('fetches and returns each linked detail page', async () => {
@@ -177,11 +200,18 @@ describe('Fondazione San Gottardo crawler', () => {
     });
 
     expect(result).toEqual(expect.objectContaining({
-      discoveredCount: 1,
+      discoveredCount: 2,
       fetchOutcome: 'ok',
-      jobs: [expect.objectContaining({ title: 'Educatore/trice specializzato/a' })],
+      jobs: expect.arrayContaining([
+        expect.objectContaining({ title: 'Educatore/trice specializzato/a' }),
+        expect.objectContaining({
+          title: 'Stage pre SUPSI (9 mesi)',
+          contract: 'internship',
+        }),
+      ]),
     }));
     expect(fetchDetail).toHaveBeenCalledWith('https://www.fsangottardo.ch/concorsi/educatore-specializzato');
+    expect(fetchDetail).toHaveBeenCalledTimes(1);
   });
 
   it('returns selector_miss instead of publishing a guessed zero', async () => {
