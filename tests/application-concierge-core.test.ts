@@ -155,10 +155,7 @@ vi.mock('../functions/src/assistedApplicationCheckout.js', () => ({
   ASSISTED_APPLICATION_CONSENT_VERSION: 'assisted-application-v1',
 }));
 
-vi.mock('../functions/src/assistedApplicationConstants.js', () => ({
-  ASSISTED_APPLICATIONS_COLLECTION: 'assisted_applications',
-  ASSISTED_APPLICATION_ORDER_ID_RE: /^[A-Za-z0-9_-]{6,128}$/,
-}));
+
 
 vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({
   ASSISTED_APPLICATION_STORAGE_BUCKET: 'test-bucket',

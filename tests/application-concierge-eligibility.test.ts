@@ -32,7 +32,7 @@ describe('qualification before proposal publication', () => {
     const match = { matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] };
     const f = fixture(match);
     vi.mocked(generateServerText).mockImplementation(async ({ systemPrompt }: any) => ({ status: 200, body: {
-      ok: true, text: JSON.stringify(systemPrompt.startsWith(PROFILE_SYSTEM_PROMPT) ? rawProfile : systemPrompt.startsWith(REQUIREMENTS_SYSTEM_PROMPT) ? requirements : match),
+      ok: true, provider: 'test', text: JSON.stringify(systemPrompt.startsWith(PROFILE_SYSTEM_PROMPT) ? rawProfile : systemPrompt.startsWith(REQUIREMENTS_SYSTEM_PROMPT) ? requirements : match),
     } }));
     const { generate: _unused, ...input } = f;
     const check = await prepareConciergeEligibility({ ...input, profileRecord: {} });
