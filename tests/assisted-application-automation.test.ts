@@ -657,6 +657,11 @@ describe('sweep', () => {
 });
 
 describe('legacy portal retry schedule reconciliation', () => {
+  it('exposes the retry clock in the owner queue payload', async () => {
+    const { loadAutomationForAdmin } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1000 });
+    expect((await loadAutomationForAdmin(store.db, ORDER)).flow?.portalAutoRetryAt).toBe(T0 + 1000);
+  });
   it('previews then repairs only the stale mirror and is idempotent', async () => {
     const flow = { state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1000 };
     await store.db.collection('assisted_applications').doc(ORDER).set({ automationState: 'owner_takeover', automationDueAt: null }, { merge: true });

@@ -29,7 +29,8 @@ import { randomUUID } from 'node:crypto';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, isAutoRetryablePortalHold, transition } from './assistedApplicationFlow.js';
+import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
@@ -143,8 +144,7 @@ export function automationEligibility(order, orderId) {
 export function computeDueAt(flow) {
   if (!flow) return null;
   if (flow.state === 'owner_takeover') {
-    const retryAt = Number(flow.portalAutoRetryAt) || 0;
-    return isAutoRetryablePortalHold(flow) && Number.isFinite(retryAt) && retryAt > 0 ? retryAt : null;
+    return portalRetryDueAt(flow);
   }
   if (TERMINAL_STATES.has(flow.state)) return null;
   if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {

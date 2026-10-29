@@ -10,6 +10,7 @@ import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererS
 import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
 import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { useAdminConfirm } from '@/components/admin/ui/AdminConfirmDialog';
+import { portalRetryDueAt } from '../../functions/src/assistedApplicationPortalRetryPolicy.js';
 
 /**
  * Owner view of the automated assisted application for one order: flow
@@ -349,7 +350,7 @@ export default function AssistedApplicationAutomationPanel({
           <Bot size={16} className="text-info" aria-hidden="true" /> Automazione
         </h4>
         <span className="text-xs text-subtle">
-          {flow ? `${STATE_LABELS[flow.state || ''] || flow.state} · giro ${flow.round}` : 'Non avviata'}
+          {flow ? `${portalRetryDueAt(flow) ? 'Nuovo tentativo automatico programmato' : STATE_LABELS[flow.state || ''] || flow.state} · giro ${flow.round}` : 'Non avviata'}
         </span>
       </div>
 

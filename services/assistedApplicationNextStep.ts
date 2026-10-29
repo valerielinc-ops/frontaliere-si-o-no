@@ -9,6 +9,8 @@
  * draft), so the page and the tests share it.
  */
 
+import { portalRetryDueAt } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
+
 export type NextStepGroup = 'owner' | 'candidate' | 'fix' | 'robot' | 'done';
 
 export interface NextStep {
@@ -31,6 +33,7 @@ export interface NextStepOrder {
       heldBy: string[];
       deadlineAt: number | null;
       reminderAt?: number | null;
+      portalAutoRetryAt?: number | null;
       dispatch?: { requestedAt: number; mode?: string } | null;
       history?: Array<{ at: number; event: string; state: string }>;
     } | null;
@@ -229,6 +232,10 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
     case 'submitted':
       return { group: 'done', code: 'submitted', label: 'Inviata', detail: 'La candidatura è arrivata al datore.' };
     case 'owner_takeover':
+      if (portalRetryDueAt(flow)) return {
+        group: 'robot', code: 'portal_auto_retry', label: 'Nuovo tentativo programmato',
+        detail: `Il robot riproverà automaticamente ${clock(flow.portalAutoRetryAt)}. Non serve un intervento manuale mentre il tentativo è in attesa.`,
+      };
       return takeoverStep(heldBy);
     case 'failed':
       return { group: 'owner', code: 'resume', label: 'Da riprendere', detail: 'Il flusso si è interrotto: «Riprendi automazione» o completala tu.' };

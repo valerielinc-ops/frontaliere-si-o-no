@@ -28,6 +28,7 @@
  */
 
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
+import { isAutoRetryablePortalHold } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
   candidateQuestionAnswerKey,
@@ -50,9 +51,6 @@ export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
 // not recoverable by blindly running the same portal flow again. A measured
 // 429/5xx from the solver before the final click can recover after backoff.
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
-export function isAutoRetryablePortalHold(flow) {
-  return (flow?.heldBy || []).some(reason => ['portal:portal_needs_candidate', 'portal:captcha_provider_unavailable'].includes(reason));
-}
 export const MAX_REVIEW_ROUNDS = 3;
 // A draft or submit run that failed on a transient error is dispatched again
 // up to this many runs in all; the owner hears about it only after the last.
