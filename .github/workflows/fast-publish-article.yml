@@ -233,6 +233,7 @@ jobs:
             .twinParity.counterpart.path == "scripts/publish-article-fast.mjs" and
             .twinParity.sitePolicy.controlCharacters == "refuse" and
             .twinParity.sitePolicy.corpusFreshness == "required" and
+            .twinParity.sitePolicy.imagePostcondition == "withhold" and
             .twinParity.pipeline.hubOrder == ["landing", "archive", "topic-hubs", "cdn-offload"] and
             .twinParity.pipeline.implementation == "renderHubsAndOffload" and
             .twinParity.workflow.imageNamespaceLease == "required-v1" and
@@ -334,6 +335,19 @@ jobs:
               --section "$INPUT_SECTION" \
               --out /tmp/fast-publish/dist \
               --summary /tmp/fast-publish/summary.json
+            jq -e '
+              .twinParity.schema == "fast-publish-twin-parity/v1" and
+              .twinParity.status == "site-adapted" and
+              .twinParity.counterpart.path == "scripts/publish-article-fast.mjs" and
+              .twinParity.sitePolicy.controlCharacters == "refuse" and
+              .twinParity.sitePolicy.corpusFreshness == "required" and
+              .twinParity.sitePolicy.imagePostcondition == "withhold" and
+              .twinParity.pipeline.hubOrder == ["landing", "archive", "topic-hubs", "cdn-offload"] and
+              .twinParity.pipeline.implementation == "renderHubsAndOffload" and
+              .twinParity.workflow.imageNamespaceLease == "required-v1" and
+              .twinParity.workflow.sectionLock == "required" and
+              .twinParity.observed.freshness == "passed"
+            ' /tmp/fast-publish/summary.json >/dev/null
             CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$PUBLISH_SHA" --main-sha "$MAIN_SHA")"
             if [ "$CURRENT" != "true" ]; then
               echo "::error::article chunk source refresh did not reach origin/main $MAIN_SHA"
@@ -382,6 +396,19 @@ jobs:
               --section "$INPUT_SECTION" \
               --out /tmp/fast-publish/dist \
               --summary /tmp/fast-publish/summary.json
+            jq -e '
+              .twinParity.schema == "fast-publish-twin-parity/v1" and
+              .twinParity.status == "site-adapted" and
+              .twinParity.counterpart.path == "scripts/publish-article-fast.mjs" and
+              .twinParity.sitePolicy.controlCharacters == "refuse" and
+              .twinParity.sitePolicy.corpusFreshness == "required" and
+              .twinParity.sitePolicy.imagePostcondition == "withhold" and
+              .twinParity.pipeline.hubOrder == ["landing", "archive", "topic-hubs", "cdn-offload"] and
+              .twinParity.pipeline.implementation == "renderHubsAndOffload" and
+              .twinParity.workflow.imageNamespaceLease == "required-v1" and
+              .twinParity.workflow.sectionLock == "required" and
+              .twinParity.observed.freshness == "passed"
+            ' /tmp/fast-publish/summary.json >/dev/null
             CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
             if [ "$CURRENT" != "true" ]; then
               echo "::error::article chunk source refresh did not reach origin/main $MAIN_SHA"

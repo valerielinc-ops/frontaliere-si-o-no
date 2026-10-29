@@ -175,6 +175,7 @@ function createTwinParityReceipt({ contentRevision, readOnlyAudit, screening, im
     receipt.schema !== 'fast-publish-twin-parity/v1'
     || receipt.status !== 'site-adapted'
     || receipt.sitePolicy.controlCharacters !== 'refuse'
+    || receipt.sitePolicy.imagePostcondition !== 'withhold'
     || receipt.pipeline.implementation !== 'renderHubsAndOffload'
     || receipt.workflow.imageNamespaceLease !== 'required-v1'
     || receipt.workflow.sectionLock !== 'required'
