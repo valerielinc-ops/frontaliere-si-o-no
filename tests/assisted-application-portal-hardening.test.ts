@@ -902,3 +902,14 @@ describe('translated language answer reuse', () => {
       .toEqual({ value: 'Professional', source: 'answers' });
   });
 });
+
+
+describe('translated historical answer identity', () => {
+  it('preserves the original answer id when the ATS regenerates the current field id', () => {
+    const question = { id: 'portal_english_fluency_new', question: 'English proficiency?', options: ['Professional', 'Basic'] };
+    const candidate = candidateForForm({ identity: {}, answers: { portal_english_fluency_old: 'Professionale' },
+      portalQuestions: [question], draft: { portalAnswers: { answers: [{ answerId: 'portal_english_fluency_old', question: 'English fluency?', answer: 'Professional' }] } } });
+    expect(candidate.portalQuestionsAnswered).toEqual([expect.objectContaining({ answerId: 'portal_english_fluency_old', answer: 'Professional' })]);
+    expect(candidateAnswerForField(candidate, { label: question.question, kind: 'select', options: question.options.map(label => ({ label })) })).toEqual({ value: 'Professional', source: 'answers' });
+  });
+});
