@@ -878,7 +878,8 @@ export const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|
 // SuccessFactors' application page sends with a bare «Bewerben» (Coop, 2026-10-02).
 // Talentsoft/RhB uses the standalone German «Senden» for the final application.
 // Talentsoft inserts the offer reference and title between «Ihre Bewerbung»
-// and «wurde erfolgreich gesendet». Stop at a sentence or an earlier verb
+// and «wurde erfolgreich gesendet». The 240 limit counts JS UTF-16 code units.
+// Stop at a sentence or an earlier verb
 // so a refused send cannot borrow another application's success.
 // A confirmation speaks to the candidate («Sie haben sich / Du hast dich
 // erfolgreich beworben»): a page's prose about others never confirms (review of #10980).

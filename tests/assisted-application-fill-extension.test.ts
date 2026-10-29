@@ -257,6 +257,19 @@ describe('fill extension: JOIN steps', () => {
     expect(pressed).toBe(0);
   });
 
+  it('recognizes RhB Senden without pressing it and confirms the offer-title receipt', async () => {
+    const { F, document } = page('<form><button type="submit">Senden</button></form>');
+    let pressed = 0;
+    document.querySelector('button')!.addEventListener('click', () => { pressed += 1; });
+    await run(F, document);
+    expect(F.pageState(document, { sawForm: true }).kind).toBe('final');
+    expect(pressed).toBe(0);
+    const receipt = page('<p role="status">Ihre persönlichen Angaben wurden gespeichert. Ihre Bewerbung auf das Stellenangebot TEST-42 – Pflegefachperson (80%) wurde erfolgreich gesendet.</p><a href="/apply">Auf diese Stelle bewerben</a>');
+    expect(receipt.F.pageState(receipt.document, { sawForm: true }).kind).toBe('confirmed');
+    const refused = page('<p>Ihre Bewerbung auf das Stellenangebot TEST-42 wurde nicht gesendet.</p>');
+    expect(refused.F.pageState(refused.document, { sawForm: true }).kind).not.toBe('confirmed');
+  });
+
   it('knows JOIN’s «verify your e-mail» page after the send, never the e-mail step of the form', () => {
     const waiting = page('<main><p>Completare la domanda</p><h1>Verificare l\'indirizzo e-mail</h1><button type="button">Reinvio della mail di verifica</button></main>');
     expect(waiting.F.pageState(waiting.document, { sawForm: true }).kind).toBe('verify');
