@@ -1546,3 +1546,45 @@ describe('index without options keeps the old behaviour (interview prep, follow-
     expect(checkGeneratedFacts({ answer: 'Il team cerca 5 anni di esperienza con Kubernetes.' }, index)).toEqual({ ok: true, unsupported: [], advisories: [] });
   });
 });
+
+
+describe('employer citations versus candidate facts', () => {
+  const sources = { text: 'Commercial experience with customer relationships.', answers: '',
+    order: 'Sales consultant\nEXAMPLE Group\nCandidate Example',
+    posting: 'La società è solida e dinamica e da oltre 50 anni supporta aziende con soluzioni di trasporto.' };
+
+  it('recognizes a canonical employer acronym only in employer-reference wording', () => {
+    expect(checkDraftFacts({ coverLetter: 'La visione di EXAMPLE Retail mi interessa.' }, sources).ok).toBe(true);
+    expect(checkDraftFacts({ coverLetter: 'Ho utilizzato EXAMPLE per la gestione clienti.' }, sources).ok).toBe(false);
+    expect(checkDraftFacts({ coverLetter: 'La visione di EXAMPLE mi interessa. Ho utilizzato EXAMPLE.' }, sources).ok).toBe(false);
+    expect(checkDraftFacts({ coverLetter: 'La visione di UNKNOWN mi interessa.' }, sources).ok).toBe(false);
+  });
+
+  it.each([
+    'Mi interessa una società solida e dinamica, attiva da oltre 50 anni nel trasporto.',
+    'The company has been active for over 50 years.',
+    'Das Unternehmen ist seit über 50 Jahren tätig.',
+    'Cette société est active depuis plus de 50 ans.',
+  ])('accepts a sourced employer age: %s', (text) => {
+    expect(checkDraftFacts({ coverLetter: text }, sources).ok).toBe(true);
+  });
+
+  it.each([
+    'Ho 50 anni di esperienza nel trasporto.',
+    'La mia società è attiva da oltre 50 anni nel trasporto.',
+    'La società è dinamica e io ho 50 anni di esperienza.',
+    'The company is growing. I have 50 years of experience.',
+    'La società è dinamica e gestisco 50 persone.',
+    'La società non è attiva da 50 anni.',
+    'La società è attiva da oltre 51 anni.',
+  ])('keeps unsupported candidate, altered or ambiguous numbers blocked: %s', (text) => {
+    expect(checkDraftFacts({ coverLetter: text }, sources).ok).toBe(false);
+  });
+
+  it('does not promote a candidate requirement or a third-party age into an employer fact', () => {
+    for (const posting of ['La società cerca candidati con 50 anni di esperienza.', 'La società lavora con un partner attivo da 50 anni.']) {
+      expect(checkDraftFacts({ coverLetter: 'La società è attiva da 50 anni.' }, { ...sources, posting }).ok).toBe(false);
+    }
+    expect(checkDraftFacts({ coverLetter: 'La società è attiva da 50 anni.' }, { ...sources, posting: 'La società cerca personale.' }).ok).toBe(false);
+  });
+});
