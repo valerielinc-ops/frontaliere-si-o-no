@@ -109,6 +109,7 @@ export const COMPANY_HQ = {
   'caseificio-gottardo':          { city: 'Airolo',             canton: 'TI', postalCode: '6780', addressRegion: 'TI' },
   'centiel':                      { city: 'Cadro',              canton: 'TI', postalCode: '6965', addressRegion: 'TI' },
   'convit':                       { city: 'Massagno',           canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'conservatorio':                { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'cerbios-pharma':               { city: 'Barbengo',           canton: 'TI', postalCode: '6917', addressRegion: 'TI' },
   'citta-di-bellinzona':          { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
   'citta-di-locarno':             { city: 'Locarno',            canton: 'TI', postalCode: '6600', addressRegion: 'TI' },

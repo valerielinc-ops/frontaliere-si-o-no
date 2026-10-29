@@ -4,20 +4,20 @@
   "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "18c50c04e410ae4f7bc39027cbdd7c50131a4afa",
+  "sourceCommit": "60c8bddca59f8d1564e7ce2da612c2266a0ef231",
   "artifactObservation": {
     "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
     "sourceRef": "main",
-    "sourceCommit": "18c50c04e410ae4f7bc39027cbdd7c50131a4afa"
+    "sourceCommit": "60c8bddca59f8d1564e7ce2da612c2266a0ef231"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 658,
+  "crawlerCount": 659,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:a39534fef97e71090b52650a1b8dc600d6712d5503faa0cb02e9bb8631acb807",
+    "rosterDigest": "sha256:2a8739bd295795c8b4214e205c75ad8b66f4991ccef229a96ad14c618da7594c",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -177,6 +177,7 @@
     "scripts/update-cnp-jobs.mjs",
     "scripts/update-concara-jobs.mjs",
     "scripts/update-concordia-jobs.mjs",
+    "scripts/update-conservatorio-jobs.mjs",
     "scripts/update-constellium-jobs.mjs",
     "scripts/update-coopers-jobs.mjs",
     "scripts/update-cordenpharma-jobs.mjs",
@@ -807,8 +808,8 @@
     {
       "file": "crawler-group-05.yml",
       "sourceLogic": "crawler-group-05-logic.yml",
-      "sourceSha256": "67117029843f3692e1b3b6e4bf8b9da170f12714dfc6fcca43833473aca1043a",
-      "artifactSha256": "1113504cd83cccd5874bae55e41e03091aaef7f1472d99ea3102fc2b87be5aa1",
+      "sourceSha256": "1ab3a86518b60fad63342a36d3c5316c0d012145fe2960d01a3349fc1e8b066b",
+      "artifactSha256": "6bd483654e0f71af79e4cbdabc8182592d096d0a7ddce699e68bd1641b62d49d",
       "generatorSha256": "a2827755ed731ecaca53f80853b908ca664ce6e52a1b0d1caa76709d8634ef16",
       "members": [
         "klinik-schuetzen",
@@ -839,7 +840,8 @@
         "neoproconseils",
         "rituals-cosmetics",
         "vista",
-        "fmi"
+        "fmi",
+        "conservatorio"
       ]
     },
     {
