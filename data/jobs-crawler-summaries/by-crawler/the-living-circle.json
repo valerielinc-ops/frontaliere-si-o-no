@@ -1,19 +1,58 @@
 {
   "key": "the-living-circle",
   "label": "livingcircle",
-  "generatedAt": "2026-10-28T22:34:14.574Z",
+  "generatedAt": "2026-10-29T09:26:17.085Z",
   "total": 32,
   "newCount": 0,
-  "updatedCount": 9,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 23,
-  "durationMs": 1604,
-  "avgDurationMs": 1604,
+  "unchangedCount": 22,
+  "durationMs": 1588,
+  "avgDurationMs": 1588,
   "durationHistory": [
-    1604
+    1588
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
+      "slug": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/66045703/Lehrstelle-als-Fachfrau--mann-Hotellerie-Hauswirtschaft-EFZ/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/66045703/Lehrstelle-als-Fachfrau--mann-Hotellerie-Hauswirtschaft-EFZ/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-07-13T14:13:38.754+02:00",
+      "postedDate": "2026-07-13T14:13:38.754+02:00",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "the-living-circle-ae6046e52677",
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "salaryMin": 58000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "title": "Demi Chef de Partie Restaurant Buech 80-100% (all genders)",
       "slug": "demi-chef-de-partie-restaurant-buech-80-100-tutti-i-generi-the-living-circle-zurich",
@@ -374,45 +413,6 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
-      "slug": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/66045703/Lehrstelle-als-Fachfrau--mann-Hotellerie-Hauswirtschaft-EFZ/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/66045703/Lehrstelle-als-Fachfrau--mann-Hotellerie-Hauswirtschaft-EFZ/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-07-13T14:13:38.754+02:00",
-      "postedDate": "2026-07-13T14:13:38.754+02:00",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "the-living-circle-ae6046e52677",
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "salaryMin": 58000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
     {
       "title": "Head Chef La Rôtisserie 100% (all genders)",
       "slug": "head-chef-la-rotisserie-100-tutti-i-generi-the-living-circle-zurich",
@@ -1282,5 +1282,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
