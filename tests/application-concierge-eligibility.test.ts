@@ -39,7 +39,7 @@ describe('qualification before proposal publication', () => {
   });
   it('does not accept evidence for another language even if the model says met', () => {
     const result = conciergeProposalEligibility(requirements, { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'good' }, { profile: rawProfile });
-    expect(result.status).not.toBe('compatible');
+    expect(result.status).toBe('incompatible');
     expect(result.gaps).toContainEqual(expect.objectContaining({ status: 'missing' }));
   });
   it('does not treat a silent CV or unverified evidence as a positive match', async () => {

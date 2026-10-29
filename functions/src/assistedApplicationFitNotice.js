@@ -14,7 +14,7 @@
  * the fact warnings.
  */
 
-import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList } from './lib/languageFacts.js';
+import { languageCodesIn, explicitLanguageEntry, hasCompleteLanguageList, isLanguageAbilityQuestion } from './lib/languageFacts.js';
 
 export const DECISIVE_REQUIREMENT_IMPORTANCES = ['critical', 'high'];
 const DECISIVE = DECISIVE_REQUIREMENT_IMPORTANCES;
@@ -82,7 +82,7 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
   // A one-language must-have cannot be satisfied by evidence about a different language.
   // Multi-language alternatives and combined clauses remain with the two-pass evaluator.
   for (const [index, row] of rows.entries()) {
-    if (!profile || !DECISIVE.includes(row.importance)) continue;
+    if (!profile || !DECISIVE.includes(row.importance) || !isLanguageAbilityQuestion(row.quote)) continue;
     const codes = languageCodesIn(row.quote || '');
     if (codes.length !== 1) continue;
     const code = codes[0];
@@ -102,12 +102,12 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
     const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
     if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
-      if (!gaps.some(gap => gap.index === index)) gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown' });
+      if (!gaps.some(gap => gap.index === index)) gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown', knownMissing: knownAbsent || (minimum >= 0 && rank(level) >= 0 && rank(level) < minimum) });
     }
   }
   const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });
   if (gaps.length || notice) {
-    return { status: match.verdict === 'poor' ? 'incompatible' : 'clarification_required', gaps, questions: match.questions || [] };
+    return { status: match.verdict === 'poor' || gaps.some(gap => gap.knownMissing) ? 'incompatible' : 'clarification_required', gaps, questions: match.questions || [] };
   }
   if (!['strong', 'good'].includes(match.verdict)) return { status: 'unverified', gaps: [] };
   return { status: 'compatible', gaps: [] };
