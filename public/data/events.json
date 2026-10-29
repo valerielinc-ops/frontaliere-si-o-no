@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T14:34:36.767Z",
+  "generatedAt": "2026-10-29T15:31:36.718Z",
   "totalEvents": 15614,
   "events": [
     {
@@ -459030,7 +459030,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale all’Oratorio di Balerna segue Ernesto e Vittoria alle prese con la possibile rinuncia alla patente e riflette sul legame tra guida, autonomia e identità nella terza e quarta età. La partecipazione è gratuita, ma richiede una prenotazione e dipende dai posti disponibili.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale all’Oratorio di Balerna segue Ernesto e Vittoria alle prese con la possibile rinuncia alla patente e riflette sul legame tra guida, autonomia e identità nella terza e quarta età. La partecipazione è gratuita, ma richiede una prenotazione e dipende dai posti disponibili.",
+        "en": "The theatre production at the Oratorio in Balerna follows Ernesto and Vittoria as they consider giving up their driving licence, linking this issue to mobility, independence and personal identity in later life. Admission is free, but attendance requires a reservation and is subject to available capacity.",
+        "de": "Die Theateraufführung im Oratorio in Balerna begleitet Ernesto und Vittoria bei der möglichen Entscheidung, den Führerausweis abzugeben, und verbindet dieses Thema mit Mobilität, Selbstständigkeit und Identität im höheren Alter. Der Eintritt ist kostenlos; eine Reservation ist erforderlich, und die Teilnahme hängt von den verfügbaren Plätzen ab.",
+        "fr": "Cette représentation théâtrale à l’Oratorio de Balerna suit Ernesto et Vittoria face à la question d’un éventuel abandon du permis de conduire et examine les liens entre mobilité, autonomie et identité à un âge avancé. L’accès est gratuit, mais une réservation est nécessaire et dépend des places disponibles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6856a8084f3545b2a77d759ead951ff7",
@@ -678430,7 +678438,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento musicale presenta Loreena McKennitt al Palais de Beaulieu di Losanna. Il prezzo indicato per l’ingresso è di 79,80 CHF.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento musicale presenta Loreena McKennitt al Palais de Beaulieu di Losanna. Il prezzo indicato per l’ingresso è di 79,80 CHF.",
+        "en": "This music event features Loreena McKennitt at Palais de Beaulieu in Lausanne. The listed admission price is CHF 79.80.",
+        "de": "Bei dieser musikalischen Veranstaltung tritt Loreena McKennitt im Palais de Beaulieu in Lausanne auf. Der angegebene Eintrittspreis beträgt 79,80 CHF.",
+        "fr": "L’événement musical présente Loreena McKennitt au Palais de Beaulieu à Lausanne. Le prix indiqué pour l’entrée est de 79,80 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AKa5VVG",
