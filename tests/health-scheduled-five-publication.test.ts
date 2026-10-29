@@ -116,6 +116,46 @@ describe('OSC official listing transport fallback', () => {
     expect(jobs[0]).toMatchObject({ companyKey: 'canton-ticino-osc', title: 'Infermiere OSC Mendrisio' });
     expect(transport.mock.calls.some(([url]) => String(url) === translateUrl)).toBe(true);
   });
+
+  it('marks an all-transport Ti.CH outage so the standard pipeline preserves its slice', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubEnv('JOBS_JINA_RETRIES', '0');
+    vi.stubEnv('JOBS_JINA_RETRY_BASE_MS', '0');
+    const transport = vi.fn(async (input: RequestInfo | URL) => {
+      const url = input instanceof Request ? input.url : String(input);
+      if (url.startsWith('https://r.jina.ai/')) return new Response('', { status: 502 });
+      if (url.includes('.translate.goog/')) return new Response('', { status: 408 });
+      throw new TypeError('fetch failed');
+    });
+    vi.stubGlobal('fetch', transport);
+
+    await expect(fetchAllCantonTicinoOscJobs())
+      .rejects.toMatchObject({ feedEndpointUnavailable: true });
+  });
+
+  it('keeps an unverified Translate response hard after direct discovery transport failures', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubEnv('JOBS_JINA_RETRIES', '0');
+    vi.stubEnv('JOBS_JINA_RETRY_BASE_MS', '0');
+    const transport = vi.fn(async (input: RequestInfo | URL) => {
+      const url = input instanceof Request ? input.url : String(input);
+      if (url.includes('.translate.goog/')) return new Response('<html>wrong source</html>', { status: 200 });
+      throw new TypeError('fetch failed');
+    });
+    vi.stubGlobal('fetch', transport);
+
+    let thrown: unknown;
+    try {
+      await fetchAllCantonTicinoOscJobs();
+    } catch (error) {
+      thrown = error;
+    }
+
+    expect(thrown).toBeInstanceOf(Error);
+    expect((thrown as { feedEndpointUnavailable?: boolean }).feedEndpointUnavailable).not.toBe(true);
+  });
 });
 
 describe('PDF-only clinic offers have no verified publication field', () => {
