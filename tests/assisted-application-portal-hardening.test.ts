@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
@@ -857,5 +857,59 @@ describe('portal: an application in progress from an earlier run', () => {
     expect(removalsOf(buttons, ['Anschreiben_Luca_Bianchi.pdf'])).toEqual([]);
     expect(removalsOf(buttons, [''])).toEqual([]);
     expect(removalsOf(undefined as any, ['CV_Luca_Bianchi.pdf'])).toEqual([]);
+  });
+});
+
+
+describe('translated language answer reuse', () => {
+  it.each([['English', 'Professionale', 'Professional'], ['German', 'Conversazionale', 'Conversational']])(
+    'uses the mapped %s answer without treating its original as a conflict', (language, original, translated) => {
+      const id = `portal_${language.toLowerCase()}_fluency_required`;
+      const label = `${language} Fluency?* (required)`;
+      const question = { id, question: `Livello di ${language}?`, applicationQuestion: label,
+        options: ['Seleziona', original], applicationOptions: ['Please select', translated],
+        optionMap: [{ candidate: 'Seleziona', application: 'Please select' }, { candidate: original, application: translated }] };
+      const candidate = candidateForForm({ identity: {}, answers: { [id]: original }, portalQuestions: [question] });
+      const field = { label, kind: 'select', options: question.applicationOptions.map(label => ({ label })) };
+      expect(candidateAnswerForField(candidate, field)).toEqual({ value: translated, source: 'answers' });
+      // A genuinely different answer under another field id must still block reuse.
+      candidate.answers[`portal_${language.toLowerCase()}_proficiency`] = 'Basic';
+      expect(candidateAnswerForField(candidate, field)).toBeNull();
+    },
+  );
+
+  it('preserves the mapped answer id when a regenerated question reuses a previous answer', () => {
+    const candidate = candidateForForm({
+      identity: {},
+      answers: { portal_professionale: 'Professionale' },
+      portalQuestions: [{
+        id: 'portal_professionale_v2',
+        question: 'Livello di inglese?',
+        applicationQuestion: 'Professional',
+        options: ['Professionale'],
+        applicationOptions: ['Professional'],
+        optionMap: [{ candidate: 'Professionale', application: 'Professional' }],
+      }],
+      draft: { portalAnswers: { answers: [{
+        answerId: 'portal_professionale', question: 'Professional', answer: 'Professional',
+      }] } },
+    });
+
+    expect(candidate.portalQuestionsAnswered).toEqual(expect.arrayContaining([
+      expect.objectContaining({ answerId: 'portal_professionale', question: 'Professional', answer: 'Professional' }),
+    ]));
+    expect(candidateAnswerForField(candidate, { label: 'Professional', kind: 'select', options: [{ label: 'Professional' }] }))
+      .toEqual({ value: 'Professional', source: 'answers' });
+  });
+});
+
+
+describe('translated historical answer identity', () => {
+  it('preserves the original answer id when the ATS regenerates the current field id', () => {
+    const question = { id: 'portal_english_fluency_new', question: 'English proficiency?', options: ['Professional', 'Basic'] };
+    const candidate = candidateForForm({ identity: {}, answers: { portal_english_fluency_old: 'Professionale' },
+      portalQuestions: [question], draft: { portalAnswers: { answers: [{ answerId: 'portal_english_fluency_old', question: 'English fluency?', answer: 'Professional' }] } } });
+    expect(candidate.portalQuestionsAnswered).toEqual([expect.objectContaining({ answerId: 'portal_english_fluency_old', answer: 'Professional' })]);
+    expect(candidateAnswerForField(candidate, { label: question.question, kind: 'select', options: question.options.map(label => ({ label })) })).toEqual({ value: 'Professional', source: 'answers' });
   });
 });
