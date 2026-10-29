@@ -1,7 +1,7 @@
 {
   "key": "rehaklinik-hasliberg",
   "label": "Rehaklinik Hasliberg",
-  "generatedAt": "2026-10-28T22:02:07.748Z",
+  "generatedAt": "2026-10-29T01:24:39.165Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 7456,
-  "avgDurationMs": 7456,
+  "durationMs": 7898,
+  "avgDurationMs": 7898,
   "durationHistory": [
-    7456
+    7898
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://my.jobalino.ch/job/53ff50726a1e24bc7c44745ab07a30a4/assistenzaerztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation-oder-innere-medizin",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:51.692Z",
+      "crawledAt": "2026-10-29T01:24:26.690Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://my.jobalino.ch/job/0798fc0f23c3efe03549d0b768bf7c59/fachaerztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-zentr",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:51.207Z",
+      "crawledAt": "2026-10-29T01:24:26.136Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -127,7 +127,7 @@
       "url": "https://my.jobalino.ch/job/94c876ec822c2a7b70de4943e26ad1c0/fachaerztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:50.719Z",
+      "crawledAt": "2026-10-29T01:24:25.579Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "url": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:50.228Z",
+      "crawledAt": "2026-10-29T01:24:25.026Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://my.jobalino.ch/job/611a40b073396ed9ea3b6db4e77091d5/physiotherapeut-in",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:49.741Z",
+      "crawledAt": "2026-10-29T01:24:24.469Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -258,7 +258,7 @@
       "url": "https://my.jobalino.ch/job/ebe80785fa10d7addc9333b0c48d75fa/leitende-psychologin-leitender-psychologe_7363",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:49.251Z",
+      "crawledAt": "2026-10-29T01:24:23.915Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -302,7 +302,7 @@
       "url": "https://my.jobalino.ch/job/bcb20cce6d13caacab61a72c6f2b093c/medizinische-r-praxisasstistent-in-efz-medizinische-r-praxiskoordinator-in",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:48.760Z",
+      "crawledAt": "2026-10-29T01:24:23.363Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -346,7 +346,7 @@
       "url": "https://my.jobalino.ch/job/b4246b1d94ae1e13a94f401315f8d94c/craniosacraltherapeut-in",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:01:48.264Z",
+      "crawledAt": "2026-10-29T01:24:22.802Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -379,5 +379,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "4ca8ad27198ea34c1e91544236ff74871510b07f"
 }
