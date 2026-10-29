@@ -5836,6 +5836,14 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     parsedUrl?.searchParams.get('page') === 'advertisement_display' &&
     /^\d+$/.test(parsedUrl?.searchParams.get('id') || '');
   if (isKudelskiNagraDetail) return true;
+  // NCore Platform exposes individual vacancies on the shared app host. The
+  // tenant-specific parsers still validate the full route and source content;
+  // the generic classifier only needs to recognise the stable detail shape so
+  // a verified seed is not discarded later by the merge URL gate.
+  const isNcoreDetail =
+    host === 'app.ncoreplat.com' &&
+    /^\/jobposition\/[1-9]\d*(?:\/[^\/?#]+){1,2}\/?$/.test(parsedUrl?.pathname || '');
+  if (isNcoreDetail) return true;
   if (/\/job\b/.test(url) && /[?&]id=\d/.test(url)) return true;
   if (/\/vacanc(?:y|ies)\/?(?:[?#]|$)/.test(url)) return false;
   if (/\/(jobs?|careers?|karriere|offene-stellen|open-positions?)\/?(?:[?#]|$)/.test(url)) return false;
