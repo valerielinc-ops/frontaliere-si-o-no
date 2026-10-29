@@ -889,6 +889,8 @@ const enCore: Record<string, string> = {
  'jobBoard.concierge.matchingRunning': 'Finding positions that fit your CV…',
  'jobBoard.concierge.matchingRunningHint': 'Uploading your CV started the search. Proposals will appear here as soon as the check is complete.',
  'jobBoard.concierge.matchingNeedsReview': 'We received the CV, but it needs a review before automatic proposals can be generated.',
+ 'jobBoard.concierge.verificationPending': 'Some listings still need verification. We will retry automatically; positions with unconfirmed requirements are not proposed as compatible.',
+ 'jobBoard.concierge.qualificationNeedsDetails': 'For some listings, your CV does not confirm every main requirement. You can update it with relevant experience and skills to improve the selection.',
  'jobBoard.concierge.matchingFailed': 'The automatic search could not finish. Your service remains active; we will retry or review the profile manually.',
  'jobBoard.concierge.matchScore': 'Estimated match',
  'jobBoard.concierge.noProposals': 'We are looking for positions suited to your profile. New proposals will appear here.',

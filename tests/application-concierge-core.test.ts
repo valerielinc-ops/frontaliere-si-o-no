@@ -161,7 +161,7 @@ vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({
 }));
 
 vi.mock('../functions/src/assistedApplicationReviewToken.js', async (original) => ({ ...await original<typeof import('../functions/src/assistedApplicationReviewToken.js')>(), getReviewTokenSecret: vi.fn(async () => 'test-review-secret-for-candidate-access-123456') }));
-const { handleApplicationConcierge } = await import('../functions/src/applicationConciergeCore.js');
+const { handleApplicationConcierge, handleManageApplicationConcierge } = await import('../functions/src/applicationConciergeCore.js');
 
 function seedService() {
   mocks.documents.set('application_concierge_services/service-1', {
@@ -247,6 +247,15 @@ describe('verified concierge recipient cannot impersonate registered owner', () 
 });
 
 describe('application concierge candidate API', () => {
+  it('exposes incomplete verification separately from an empty matching result', async () => {
+    const key = 'application_concierge_services/service-1';
+    mocks.documents.set(key, { ...mocks.documents.get(key), matchingStatus: 'complete', matchingJobCount: 0,
+      matchingUnverifiedCount: 7, matchingClarificationCount: 3 });
+    const result = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(result).toMatchObject({ status: 200, body: { service: { matchingJobCount: 0,
+      matchingUnverifiedCount: 7, matchingClarificationCount: 3 } } });
+  });
+
   it('returns checkout session state used by candidate payment recovery guards', async () => {
     const key = 'application_concierge_services/service-1';
     mocks.documents.set(key, { ...mocks.documents.get(key), paymentStatus: 'pending', checkoutSessionStatus: 'open' });
@@ -457,6 +466,16 @@ describe('owned child status and private review access from the service', () => 
     const { verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
     expect(verifyReviewToken({ secret: 'test-review-secret-for-candidate-access-123456', token: access.body.token })).toMatchObject({ ok: true, orderId: 'child-accepted-1', round: 2 });
     expect(mocks.verifyCaller).toHaveBeenLastCalledWith(expect.anything(), { checkRevoked: true });
+  });
+  it('uses the same owned child status in candidate and admin summaries', async () => {
+    acceptedChild();
+    const candidate = await handleApplicationConcierge({ method: 'GET', query: {} });
+    const admin = await handleManageApplicationConcierge({ method: 'GET' });
+    for (const result of [candidate, admin]) expect(result).toMatchObject({ status: 200, body: {
+      services: [expect.objectContaining({ proposals: [expect.objectContaining({
+        childApplicationState: 'needs_candidate_action', childCandidateStatus: 'needs_candidate',
+      })] })],
+    } });
   });
   it.each([{ userId: 'different-candidate' }, { parentServiceId: 'different-service' }, { retentionPurgedAt: new Date() }])('does not expose a child outside the owned service or after purge: %j', async patch => {
     acceptedChild(patch);

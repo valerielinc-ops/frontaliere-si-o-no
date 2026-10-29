@@ -928,6 +928,8 @@ const translations: Record<string, string> = {
  'jobBoard.concierge.matchingRunning': 'Stiamo cercando le posizioni più adatte al tuo CV…',
  'jobBoard.concierge.matchingRunningHint': 'Il caricamento del CV ha avviato la ricerca. Le proposte appariranno qui appena il controllo è completato.',
  'jobBoard.concierge.matchingNeedsReview': 'Abbiamo ricevuto il CV, ma serve una verifica prima di generare proposte automatiche.',
+ 'jobBoard.concierge.verificationPending': 'Alcune offerte sono ancora da verificare. Riproveremo automaticamente: le posizioni con requisiti non confermati non vengono proposte come compatibili.',
+ 'jobBoard.concierge.qualificationNeedsDetails': 'Per alcune offerte il CV non permette di confermare tutti i requisiti principali. Puoi aggiornarlo con esperienze e competenze pertinenti per migliorare la selezione.',
  'jobBoard.concierge.matchingFailed': 'La ricerca automatica non è riuscita. Il servizio resta attivo: riproveremo oppure verificheremo il profilo manualmente.',
  'jobBoard.concierge.matchScore': 'Compatibilità stimata',
  'jobBoard.concierge.noProposals': 'Stiamo cercando posizioni adatte al tuo profilo. Ti mostreremo qui le nuove proposte.',

@@ -50,6 +50,8 @@ export interface ApplicationConciergeService {
   cvProfileStatus?: 'queued' | 'processing' | 'ready' | 'needs_review' | string | null;
   matchingStatus?: 'queued' | 'running' | 'complete' | 'needs_review' | 'failed' | string | null;
   matchingJobCount?: number | null;
+  matchingUnverifiedCount?: number;
+  matchingClarificationCount?: number;
   matchingStartedAt?: string | null;
   matchingCompletedAt?: string | null;
   matchingError?: string | null;
