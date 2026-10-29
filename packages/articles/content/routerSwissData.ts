@@ -2906,6 +2906,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'allarme-popolazione-165-milioni': { it: 'allarme-popolazione-165-milioni', en: 'population-alert-165-million', de: 'bevoelkerungswarnung-165-millionen', fr: 'alerte-population-165-millions' },
  'norme-flessibilita-start-up': { it: 'norme-flessibilita-start-up', en: 'flexibility-start-up-rules', de: 'flexibilitaet-startups-regeln', fr: 'regles-flexibilite-startups' },
  'sem-rinnovo-simic-paralisi': { it: 'sem-rinnovo-simic-paralisi', en: 'sem-simic-renewal-paralysis', de: 'sem-simic-erneuerung-blockade', fr: 'sem-renouvellement-simic-paralysie' },
+ 'farmaci-riserve-finanziamento': { it: 'farmaci-riserve-finanziamento', en: 'medicine-stock-funding', de: 'medikamente-reserven-finanzierung', fr: 'medicaments-reserves-financement' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

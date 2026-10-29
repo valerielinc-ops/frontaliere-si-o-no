@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 950,
+      "5": 956,
       "6": 5061
     },
-    "publishedCovers": 7693,
+    "publishedCovers": 7699,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211212,6 +211212,204 @@
         "provider": "openai-codex",
         "assetId": "article-sem-rinnovo-simic-paralisi",
         "imageUrl": "/images/blog/article-sem-rinnovo-simic-paralisi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-attrattivita-economica-zurigo-ticino": {
+      "cover": "/images/blog/article-attrattivita-economica-zurigo-ticino.webp",
+      "hash": "1da903a172ae6f38ce1c238345fed190d2b6b124eba0a8b9af27b5d7bedca00e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "attrattivita-economica-zurigo-ticino",
+          "category": "novita",
+          "date": "2026-10-29T08:24:27.655Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-attrattivita-economica-zurigo-ticino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-attrattivita-economica-zurigo-ticino",
+        "imageUrl": "/images/blog/article-attrattivita-economica-zurigo-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cff-cargo-rinuncia-legno-alle": {
+      "cover": "/images/blog/article-cff-cargo-rinuncia-legno-alle.webp",
+      "hash": "111f4d4c839ef379731137f30ae66e0c8e9035628c73aa5c653c1fe5c48c45f2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "cff-cargo-rinuncia-legno-alle",
+          "category": "novita",
+          "date": "2026-10-29T08:45:30.807Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cff-cargo-rinuncia-legno-alle.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cff-cargo-rinuncia-legno-alle",
+        "imageUrl": "/images/blog/article-cff-cargo-rinuncia-legno-alle.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-credito-volksschule-breitfeld": {
+      "cover": "/images/blog/article-credito-volksschule-breitfeld.webp",
+      "hash": "3865ca224bbd070565303309c88616abc1bf6f88194aa79eee3471d03ccb9a4f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "credito-volksschule-breitfeld",
+          "category": "novita",
+          "date": "2026-10-29T08:31:57.808Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-credito-volksschule-breitfeld.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-credito-volksschule-breitfeld",
+        "imageUrl": "/images/blog/article-credito-volksschule-breitfeld.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-farmaci-riserve-finanziamento": {
+      "cover": "/images/blog/article-farmaci-riserve-finanziamento.webp",
+      "hash": "ed3dd974cf0fee6921ad5d3bcdb2f6e454e92b9e9743037fdd3ba1517a7048f7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "farmaci-riserve-finanziamento",
+          "category": "novita",
+          "date": "2026-10-29T09:02:50.918Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-farmaci-riserve-finanziamento.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-farmaci-riserve-finanziamento",
+        "imageUrl": "/images/blog/article-farmaci-riserve-finanziamento.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-glarona-adesione-programma-perspecta": {
+      "cover": "/images/blog/article-glarona-adesione-programma-perspecta.webp",
+      "hash": "fc5eb46147c0cc4bf89613141532d306bc5c3255b22cc51580e6a4ecfdd86d42",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "glarona-adesione-programma-perspecta",
+          "category": "novita",
+          "date": "2026-10-29T07:33:02.883Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-glarona-adesione-programma-perspecta.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-glarona-adesione-programma-perspecta",
+        "imageUrl": "/images/blog/article-glarona-adesione-programma-perspecta.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-soletta-ratsleitung-puk-ospedali": {
+      "cover": "/images/blog/article-soletta-ratsleitung-puk-ospedali.webp",
+      "hash": "295289ddfea7129c466c1725ca09d0f4a575299813ef446c7f8380f104285ce5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "soletta-ratsleitung-puk-ospedali",
+          "category": "novita",
+          "date": "2026-10-29T10:41:25.882Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-soletta-ratsleitung-puk-ospedali.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-soletta-ratsleitung-puk-ospedali",
+        "imageUrl": "/images/blog/article-soletta-ratsleitung-puk-ospedali.webp",
         "evidence": "generated-engine-record"
       }
     }

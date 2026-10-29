@@ -8651,6 +8651,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sem-rinnovo-simic-paralisi.title': 'La SEM rischia la paralisi per il rinnovo di SIMIC',
     'blog.article.sem-rinnovo-simic-paralisi.excerpt': 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032',
     'blog.article.sem-rinnovo-simic-paralisi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.farmaci-riserve-finanziamento.title': 'Farmaci: scorte obbligatorie sotto pressione in Svizzera',
+    'blog.article.farmaci-riserve-finanziamento.excerpt': 'In Svizzera mancano da anni antibiotici e antidolorifici.',
+    'blog.article.farmaci-riserve-finanziamento.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;
