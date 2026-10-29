@@ -696,6 +696,95 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
     });
 
+    it('drops a detail that disappeared from the source without aborting live siblings (#7134)', async () => {
+      const staleTitle = 'Veraltete Stelle';
+      const liveTitle = 'Montage-Elektriker/in';
+      const cards = listingHtml(
+        listingCard({ title: staleTitle, path: 'veraltete-stelle-luzern-123' }),
+        listingCard({ title: liveTitle, path: 'montage-elektriker-in-luzern-456' }),
+      );
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(cards, { status: 200 });
+        if (target.includes('veraltete-stelle')) return new Response('gone', { status: 404 });
+        return new Response(detailHtml({ title: liveTitle, description: words(55, 'live') }), { status: 200 });
+      };
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+        detailWorkers: 1,
+      });
+
+      expect(snapshot).toHaveLength(1);
+      expect(snapshot[0].title).toBe(liveTitle);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        complete: true,
+        discovered: 2,
+        detailRequested: 2,
+        detailCompleted: 2,
+        qualityDropped: 0,
+        staleDropped: 1,
+        fetchFailures: 0,
+        accounted: 2,
+      });
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
+    it('drops a cached detail that disappeared from the source before reusing it (#7134)', async () => {
+      const staleTitle = 'Veraltete Stelle in cache';
+      const liveTitle = 'Montage-Elektriker/in in cache';
+      const staleUrl = 'https://www.fachkraft.ch/stellen/veraltete-stelle-in-cache-123/';
+      const liveUrl = 'https://www.fachkraft.ch/stellen/montage-elektriker-in-cache-456/';
+      const cards = listingHtml(
+        listingCard({ title: staleTitle, path: 'veraltete-stelle-in-cache-123' }),
+        listingCard({ title: liveTitle, path: 'montage-elektriker-in-cache-456' }),
+      );
+      const existingJobs = [staleTitle, liveTitle].map((title, index) => ({
+        url: index === 0 ? staleUrl : liveUrl,
+        title,
+        titleByLocale: { de: title },
+        sourceLang: 'de',
+        description: words(55, 'stored'),
+        descriptionByLocale: { de: words(55, 'stored') },
+        location: 'Luzern, Luzern',
+        addressLocality: 'Luzern',
+        canton: 'LU',
+        postedDate: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+        postingDateSource: 'reported',
+      }));
+      const fetchImpl = async (target: string, init: RequestInit = {}) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(cards, { status: 200 });
+        if (target === staleUrl && init.method === 'HEAD') return new Response('', { status: 404 });
+        if (target === liveUrl && init.method === 'HEAD') return new Response('', { status: 200 });
+        throw new Error(`unexpected cached detail request: ${init.method || 'GET'} ${target}`);
+      };
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs,
+        detailWorkers: 1,
+      });
+
+      expect(snapshot).toHaveLength(1);
+      expect(snapshot[0].title).toBe(liveTitle);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        complete: true,
+        discovered: 2,
+        published: 1,
+        reused: 1,
+        detailRequested: 0,
+        detailCompleted: 0,
+        staleDropped: 1,
+        fetchFailures: 0,
+        accounted: 2,
+      });
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
     it('rescues a 403 detail through Jina while remaining fail-closed if rescue is unavailable', async () => {
       const title = 'Polymechaniker/in';
       const detailUrl = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
