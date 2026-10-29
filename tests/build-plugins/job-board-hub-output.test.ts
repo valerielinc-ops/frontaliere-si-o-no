@@ -332,8 +332,8 @@ describe('job-board emitted output', () => {
       expect(posting?.datePosted).toBe(jobs[1].crawledAt);
       expect(document.querySelector('h1')?.textContent).toBeTruthy();
       expect(structured(document).some((entry) => entry['@type'] === 'FAQPage')).toBe(true);
-      expect(document.querySelector('a.mab-cta')?.getAttribute('href')).toBe('#job-auth-gate');
-      expect(document.querySelector('#job-auth-gate')?.textContent?.trim()).toBeTruthy();
+      expect(document.querySelector('a.mab-cta')?.getAttribute('href')).toMatch(/^https?:\/\//);
+      expect(document.querySelector('#job-auth-gate')).toBeNull();
     }
   });
 
@@ -371,8 +371,8 @@ describe('job-board emitted output', () => {
       expect(document.body.textContent).toContain('La posizione prevede');
       const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
       expect(applicationHref).toBeTruthy();
-      expect(applicationHref).toBe('#job-auth-gate');
-      expect(document.querySelector(applicationHref!)?.textContent?.trim()).toBeTruthy();
+      expect(applicationHref).toMatch(/^https?:\/\//);
+      expect(document.querySelector('#job-auth-gate')).toBeNull();
       const seed = [...document.scripts].find((script) => script.textContent?.includes('window.__JOB_SEED__'));
       expect(seed?.textContent).toContain('https://example.test/careers/0/');
     }
@@ -416,8 +416,8 @@ describe('job-board emitted output', () => {
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
       if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {
-        const unavailable = { it: 'non è più disponibile', en: 'no longer available', de: 'nicht mehr verfügbar', fr: "n'est plus disponible" };
-        expect(posting.description).toContain(unavailable[locale]);
+        expect(posting.description).toContain('Requisito originale 14');
+        expect(document.querySelector('.ft-expired-status')?.textContent?.trim()).toBeTruthy();
       }
       expect(posting.description).not.toMatch(/Candidatura diretta|Apply directly through|Direkte Bewerbung|Candidature directe/);
       expect(posting.description).not.toContain('source-role-description');

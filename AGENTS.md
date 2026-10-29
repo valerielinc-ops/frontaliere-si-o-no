@@ -164,7 +164,7 @@ CI required job `tests.yml` (`vitest (unit + integration)`): `npm ci`, source gu
 
 ## Static SEO Pages
 
-- **Contratto proprietario job detail (2026-10-29, prevale sulla PR #10937):** HTML statico/pre-idratazione sempre completo e visibile, per tutti gli utenti e user-agent. Vale per offerte attive, publisher, scadute, archiviate, storiche e alias con dati reali. Conservare heading, elenchi, requisiti e markup SEO/JSON-LD completo; nessun auth gate statico. Solo dopo idratazione, agli esseri umani senza accesso, mostrare l'anteprima di 220 caratteri e il gate esistenti. Autenticati/accesso email e crawler SEO vedono il contenuto completo senza gate. Il gate non deve ridurre metadati o dati strutturati. Un archivio resta scaduto (validThrough passato); un URL senza dati non deve inventare un'offerta. Testare entrambe le superfici e tutte le varianti prima di cambiare questo contratto. Dettaglio: `docs/JOB-DETAIL-RENDERING-CONTRACT.md`.
+- Job detail owner contract: `docs/JOB-DETAIL-RENDERING-CONTRACT.md` (#10937 superseded).
 
 - Static SSG page emit via build plugin DEVE usare `build-plugins/shared/seoPageShell.ts` → `buildSeoPageHtml`.
 - Static plugin contract: `apply: 'build'`, `enforce: 'post'`, emit in `closeBundle()`, pass `distDir`.

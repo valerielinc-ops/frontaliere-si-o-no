@@ -50,6 +50,8 @@ describe('recorded versus URL-inferred job identity', () => {
       expect.soft(normalHtml).toContain(expectedLabel);
       const historicalHtml = execute(`${safety}\nreturn buildHistoricalArchiveHtml('url-reference', '/historical-reference/', locale, archive);`, {
         ...bindings, archive, unverifiedJobCopy, buildArchivedJobPosting, renderJobDescriptionContent, knownEmployerProfileSlugs: new Set(),
+        finalizeJobBoardTitle: String, jobDisplayTitle: (job: { title?: string } | null | undefined) => job?.title || '',
+        expiredDemandIndexable: true,
         historicalArchiveCopy: { [locale]: { notice: 'Archived', original: 'Original', next: 'Browse', cta: 'Browse', details: 'Details' } },
         extractInfoFromSlug: () => ({}), stripLiteralMarkdownFromTitle: String,
         composeSerpJobTitle: String, esc: String, stripLeadingSectionLabel: String,
@@ -95,9 +97,9 @@ describe('recorded versus URL-inferred job identity', () => {
     expect(start).toBeGreaterThan(-1);
     expect(end).toBeGreaterThan(start);
     const code = ts.transpileModule(`${source.slice(start, end)} return expiredDataObj;`, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } }).outputText;
-    const run = new Function('hasRealTitle', 'ejData', 'gscInfo', 'slugInfo', 'locale', 'relPath', 'slug', 'jobCompany', 'jobLocation', code);
+    const run = new Function('hasRealTitle', 'ejData', 'gscInfo', 'slugInfo', 'locale', 'relPath', 'slug', 'jobCompany', 'jobLocation', 'jobDisplayTitle', code);
     const info = { title: 'Locale role', titleByLocale: { en: 'Locale role' }, descriptionByLocale: { en: 'Locale description' }, slugByLocale: { fr: 'another-reference' }, sector: 'Unverified sector' };
-    const seed = run(hasRealTitle, null, info, { companyKey: 'url-employer' }, 'en', '/en/find-jobs-zurich/own-route/', 'tracking-key', 'URL employer', 'URL place');
+    const seed = run(hasRealTitle, null, info, { companyKey: 'url-employer' }, 'en', '/en/find-jobs-zurich/own-route/', 'tracking-key', 'URL employer', 'URL place', (job: { title?: string } | null | undefined) => job?.title || '');
     if (hasRealTitle) {
       expect(seed.titleByLocale).toEqual(info.titleByLocale);
       expect(seed.descriptionByLocale).toEqual(info.descriptionByLocale);
@@ -163,8 +165,8 @@ describe('recorded versus URL-inferred job identity', () => {
     const code = ts.transpileModule(source.slice(start, end) + '\nreturn { tag: expiredRobotsTag, words: itBodyWordCount };', {
       compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
     }).outputText;
-    const execute = new Function('hasRealTitle', 'locale', 'countHtmlBodyWords', 'robotsMetaForContent', 'staticBody', 'MIN_INDEXABLE_WORDS', 'ROBOTS_INDEX_ENHANCED', 'ROBOTS_NOINDEX_FOLLOW', 'itBodyWordCount', code);
-    const run = (known: boolean) => execute(known, locale, () => 500, () => 'index', 'generic text', 50, 'index', 'noindex', 0);
+    const execute = new Function('hasRealTitle', 'expiredDemandIndexable', 'locale', 'countHtmlBodyWords', 'robotsMetaForContent', 'staticBody', 'MIN_INDEXABLE_WORDS', 'ROBOTS_INDEX_ENHANCED', 'ROBOTS_NOINDEX_FOLLOW', 'itBodyWordCount', code);
+    const run = (known: boolean) => execute(known, known, locale, () => 500, () => 'index', 'generic text', 50, 'index', 'noindex', 0);
     expect(run(false)).toEqual({ tag: 'noindex', words: 0 });
     expect(run(true).tag).toBe('index');
   });

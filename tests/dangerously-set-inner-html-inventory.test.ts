@@ -33,6 +33,9 @@ const INVENTORY: Record<string, ReadonlyArray<{ html: RegExp; why: string }>> = 
     { html: /^renderJobDescriptionContent\(/, why: 'descrizione crawler completa serializzata da jobDescriptionTextToHtml e sanitizer allowlist condiviso' },
     { html: /^renderPublisherMarkdown\(/, why: 'markdown dei publisher: escape di tutto il testo PRIMA delle trasformazioni' },
   ],
+  'components/comparators/HealthInsurance.tsx': [
+    { html: /^t\('health\.warningText'\)$/, why: 'traduzione di prima parte con markup controllato' },
+  ],
   'components/pages/PublisherPublishPage.tsx': [
     { html: /^renderPublisherMarkdown\(/, why: 'anteprima dello stesso renderer escape-first' },
   ],
@@ -43,7 +46,11 @@ const INVENTORY: Record<string, ReadonlyArray<{ html: RegExp; why: string }>> = 
     { html: /^JSON\.stringify\(jsonLd\)$/, why: 'JSON-LD di prima parte' },
   ],
   'components/pages/Correzioni.tsx': [
-    { html: /^JSON\.stringify\(jsonLd\)$/, why: 'JSON-LD di prima parte' },
+    { html: /^JSON\.stringify\(jsonLd\)\.replace\(/, why: 'JSON-LD di prima parte con escaping di < per proteggere il tag script' },
+  ],
+  'components/pages/LegalDocumentPage.tsx': [
+    { html: /^document\.introHtml$/, why: 'HTML statico revisionato di prima parte nei documenti legali' },
+    { html: /^block\.html$/, why: 'HTML statico revisionato di prima parte nelle sezioni legali' },
   ],
   'components/comparators/BankComparison.tsx': [
     { html: /^t\('/, why: 'stringa i18n di prima parte' },
