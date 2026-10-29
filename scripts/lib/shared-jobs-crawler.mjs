@@ -39,6 +39,10 @@ import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
 import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 import {
+  migrosServiceCounterTitleSourceLang,
+  repairMigrosServiceCounterTitleInPlace,
+} from './job-title-semantic-repair.mjs';
+import {
   heuristicTranslateJobTitle, safeUnsupportedSourceTitle, isUnsupportedSourceLang, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
   // FRO-231: slug utilities extracted from this file
   normalizeSpace as _normalizeSpace,
@@ -2313,6 +2317,7 @@ export function ensureLocaleFields(job) {
   // incident: 76%/51% of already-translated jobs re-flagged every run).
   const _preTitleByLocale = (job.titleByLocale && typeof job.titleByLocale === 'object') ? { ...job.titleByLocale } : {};
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
+  out.titleByLocale = titleByLocale;
   const descriptionByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
   const requirementsByLocale = (out.requirementsByLocale && typeof out.requirementsByLocale === 'object') ? { ...out.requirementsByLocale } : {};
   const slugByLocale = (out.slugByLocale && typeof out.slugByLocale === 'object') ? { ...out.slugByLocale } : {};
@@ -2341,9 +2346,13 @@ export function ensureLocaleFields(job) {
   // low-confidence re-detection that disagrees with the stored sourceLang must
   // not be allowed to move the slot (see holdSourceLang in job-locale-utils).
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
-  const titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
+  const titleSourceLang = migrosServiceCounterTitleSourceLang(out)
+    || pinnedLang
+    || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
   const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
+
+  repairMigrosServiceCounterTitleInPlace(out);
 
   // Detect the language of the raw base description separately — it may differ
   // from sourceLang when titleByLocale has wrong-language entries.
@@ -2571,8 +2580,8 @@ export function ensureLocaleFields(job) {
   // next AI translation attempt starts with a blank slate instead of being confused
   // by the corrupted previous translation (e.g. IT words in a DE title).
   {
-    const srcLang = out.sourceLang || 'it';
-    const srcTitle = normalizeSpace(out.titleByLocale?.[srcLang] || '');
+    const titleSrcLang = titleSourceLang;
+    const srcTitle = normalizeSpace(out.titleByLocale?.[titleSrcLang] || sourceTitle || '');
     const gateCompany = out.company || '';
     const gateLocation = out.addressLocality || out.location || '';
     for (const locale of LOCALES) {
@@ -2582,7 +2591,7 @@ export function ensureLocaleFields(job) {
       // re-flagging idempotent: a second pass over an already-flagged job is a
       // no-op, byte for byte.
       if (out.needsRetranslation) break;
-      if (locale === srcLang) continue; // Never clear or flag the source language
+      if (locale === titleSrcLang) continue; // Never clear or flag the source title language
       const title = normalizeSpace(out.titleByLocale?.[locale] || '');
       if (!title) continue;
       // Glued-together words (e.g. "Direttoredifiliale") are a static defect
@@ -2618,7 +2627,7 @@ export function ensureLocaleFields(job) {
         const verdict = titleLooksUntranslated({
           title,
           sourceTitle: srcTitle,
-          sourceLang: srcLang,
+          sourceLang: titleSrcLang,
           targetLocale: locale,
           company: gateCompany,
           location: gateLocation,
