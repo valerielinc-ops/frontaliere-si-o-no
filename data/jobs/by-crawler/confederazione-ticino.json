@@ -47,7 +47,6 @@
         "fr": "wissenschaftliche-r-mitarbeiter-in-confederazione-bern"
       },
       "id": "confederazione-ticino-8ea7f2fa6c93",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -117,7 +116,6 @@
         "fr": "verfahrensleiter-in-jurist-in-confederazione-bern"
       },
       "id": "confederazione-ticino-34eddf45d597",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -241,7 +239,6 @@
         "fr": "assistent-in-komm-vbs-confederazione-bern"
       },
       "id": "confederazione-ticino-3ae65417e49a",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -303,7 +300,6 @@
         "fr": "polizeiliche-r-sachbearbeiter-in-confederazione-bern"
       },
       "id": "confederazione-ticino-7e1836b6b7e5",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -4606,7 +4602,8 @@
       "firstSeenAt": "2026-09-25T15:09:20.522Z",
       "datePosted": "2026-09-24T13:11:11Z",
       "postingDateSource": "reported",
-      "postalCode": "3052"
+      "postalCode": "3052",
+      "needsRetranslation": true
     },
     {
       "title": "Gerichtsschreiber/-in",
@@ -16697,7 +16694,8 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-devops-engineer-data-analytics-senior/cc6f8275-0088-4fea-847a-f640949bc33b",
       "datePosted": "2026-07-22T11:14:23Z",
       "postingDateSource": "reported",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     }
   ]
 }

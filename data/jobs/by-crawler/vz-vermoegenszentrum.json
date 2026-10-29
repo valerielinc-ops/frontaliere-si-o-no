@@ -3526,7 +3526,6 @@
         ]
       },
       "firstSeenAt": "2026-10-09T21:22:45.386Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -3637,7 +3636,7 @@
         "it": "collaboratore-trice-in-operations-bvg-con-fachverantwortung-vz-vermogenszentrum-zurich",
         "en": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich",
         "de": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "fr": "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
+        "fr": "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3692,14 +3691,14 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch",
-        "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
+        "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "mitarbeiter-in-operations-bvg-mit-fachverantwortung-vz-vermogenszentrum-zurich"
+          "collaborateur-trice-operations-bvg-avec-responsabilite-technique-vz-vermogenszentrum-zurich"
         ]
       },
       "firstSeenAt": "2026-10-12T21:25:51.084Z",
@@ -5755,7 +5754,7 @@
       "id": "vz-vermoegenszentrum-4da8d7ab131e",
       "slug": "investment-consulente-vz-vermogenszentrum-lausanne",
       "slugByLocale": {
-        "it": "investment-consulente-vz-vermogenszentrum-lausanne",
+        "it": "investment-advisor-vz-vermogenszentrum-lausanne",
         "en": "investment-advisor-vz-vermogenszentrum-lausanne",
         "de": "investment-berater-vz-vermogenszentrum-lausanne-vaud",
         "fr": "investment-advisor-vz-vermoegenszentrum-ch"
@@ -5819,13 +5818,11 @@
         ]
       },
       "previousSlugs": [
-        "investment-advisor-vz-vermoegenszentrum-ch",
-        "investment-advisor-vz-vermogenszentrum-lausanne"
+        "investment-advisor-vz-vermoegenszentrum-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-advisor-vz-vermoegenszentrum-ch",
-          "investment-advisor-vz-vermogenszentrum-lausanne"
+          "investment-advisor-vz-vermoegenszentrum-ch"
         ],
         "de": [
           "investment-advisor-vz-vermoegenszentrum-ch"
@@ -6197,7 +6194,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -6258,7 +6255,8 @@
       },
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
-        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
+        "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6266,7 +6264,7 @@
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+          "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:16.194Z",

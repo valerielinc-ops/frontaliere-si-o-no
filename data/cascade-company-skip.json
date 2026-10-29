@@ -1,5 +1,5 @@
 {
-  "run": 262,
+  "run": 263,
   "companies": {
     "vaxcyte": {
       "sterile": 1,
@@ -10,8 +10,9 @@
       "signature": "b7c5f981ef83f8c3"
     },
     "fielmann": {
-      "sterile": 1,
-      "signature": "8d912bf111bc74eb"
+      "sterile": 0,
+      "signature": "8d912bf111bc74eb",
+      "skipUntilRun": 266
     }
   }
 }

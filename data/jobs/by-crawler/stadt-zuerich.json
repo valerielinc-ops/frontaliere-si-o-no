@@ -1964,7 +1964,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:45:09.507Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -8792,7 +8791,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "trampilot-in-stadt-zurich"
+        "fr": "pilote-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -8842,7 +8841,7 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "pilote-tram-stadt-zurich-zurich"
+        "trampilot-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8850,7 +8849,7 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "pilote-tram-stadt-zurich-zurich"
+          "trampilot-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.172Z",
@@ -8875,7 +8874,7 @@
         "it": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich",
         "en": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich",
         "de": "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "fr": "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
+        "fr": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -8924,14 +8923,14 @@
       "referenceNumber": "51803",
       "previousSlugs": [
         "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+        "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803"
         ],
         "fr": [
-          "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+          "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
@@ -11896,7 +11895,8 @@
       "referenceNumber": "51921",
       "previousSlugs": [
         "hochschulpraktikant-in-kommunikation-stadt-zuerich-zurigo-51921",
-        "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich"
+        "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich",
+        "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich-tcs0c0"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11905,6 +11905,9 @@
         ],
         "en": [
           "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich-tcs0c0"
         ]
       },
       "firstSeenAt": "2026-10-09T09:49:12.106Z",
@@ -18114,7 +18117,7 @@
       "slug": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "praticante-universitario-a-in-informatica-12-mesi-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-informatik-12-monate-stadt-zurich",
+        "en": "university-intern-computer-science-12-months-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "fr": "stagiaire-universitaire-en-informatique-12-mois-stadt-zurich-zurich"
       },
@@ -18166,7 +18169,7 @@
       "previousSlugs": [
         "hochschulpraktikant-in-informatik-12-monate-stadt-zuerich-zurigo-51997",
         "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
-        "university-intern-computer-science-12-months-stadt-zurich-zurich"
+        "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18175,7 +18178,7 @@
         ],
         "en": [
           "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich",
-          "university-intern-computer-science-12-months-stadt-zurich-zurich"
+          "hochschulpraktikant-in-informatik-12-monate-stadt-zurich"
         ],
         "fr": [
           "hochschulpraktikant-in-informatik-12-monate-stadt-zurich-zurich"
@@ -23299,7 +23302,7 @@
         "it": "gestione-del-progetto-di-stage-universitaria-stadt-zurich-zurich",
         "en": "university-internship-project-management-stadt-zurich-zurich",
         "de": "hochschulpraktikum-projektmanagement-stadt-zuerich-zurigo-52014",
-        "fr": "hochschulpraktikum-projektmanagement-stadt-zurich"
+        "fr": "gestion-de-projets-de-stages-universitaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -23349,7 +23352,7 @@
       "previousSlugs": [
         "hochschulpraktikum-projektmanagement-stadt-zuerich-zurigo-52014",
         "hochschulpraktikum-projektmanagement-stadt-zurich-zurich",
-        "gestion-de-projets-de-stages-universitaires-stadt-zurich-zurich"
+        "hochschulpraktikum-projektmanagement-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23361,7 +23364,7 @@
         ],
         "fr": [
           "hochschulpraktikum-projektmanagement-stadt-zurich-zurich",
-          "gestion-de-projets-de-stages-universitaires-stadt-zurich-zurich"
+          "hochschulpraktikum-projektmanagement-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T21:49:30.450Z",
@@ -23386,7 +23389,7 @@
         "it": "assemblaggio-automatico-stadt-zurich-zurich",
         "en": "automation-fitter-stadt-zurich",
         "de": "automatikmonteur-in-stadt-zuerich-zurigo-5465",
-        "fr": "automatikmonteur-in-stadt-zurich"
+        "fr": "monteur-automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -23436,8 +23439,7 @@
       "previousSlugs": [
         "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "automatikmonteur-in-stadt-zurich",
-        "automatic-assembler-stadt-zurich-zurich",
-        "monteur-automatique-stadt-zurich-zurich"
+        "automatic-assembler-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23448,7 +23450,7 @@
           "automatic-assembler-stadt-zurich-zurich"
         ],
         "fr": [
-          "monteur-automatique-stadt-zurich-zurich"
+          "automatikmonteur-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -27511,7 +27513,7 @@
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"
@@ -27562,15 +27564,11 @@
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51056",
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
@@ -30983,7 +30981,7 @@
       "id": "stadt-zuerich-424168fc48ff",
       "slug": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
       "slugByLocale": {
-        "it": "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-15ad59",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-15ad59"
@@ -31037,18 +31035,14 @@
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
         "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
-        "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
-        "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig",
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-17a07e188d",
-          "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d",
-          "specialista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-3c02da0aba",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "specialista-assistenza-bambini-afc-stadt-zurich-zurich-c42cb66c3d"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -31070,7 +31064,7 @@
       "id": "stadt-zuerich-bf97b1cf4fd8",
       "slug": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
       "slugByLocale": {
-        "it": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -31122,16 +31116,12 @@
       "referenceNumber": "51123",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-        "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
-          "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d0abacc042",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -31148,7 +31138,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 7,
+      "retranslationAttempts": 8,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2472,
       "needsRetranslation": true
@@ -31241,7 +31231,7 @@
       "id": "stadt-zuerich-7fbfffba9e11",
       "slug": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
       "slugByLocale": {
-        "it": "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10"
@@ -31293,16 +31283,12 @@
       "referenceNumber": "51137",
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-        "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-          "operatore-trice-socioassistenziale-per-l-infanzia-efz-stadt-zurich-zurich-d326345848",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:01.758Z",
@@ -31319,7 +31305,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 7,
+      "retranslationAttempts": 8,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2726,
       "needsRetranslation": true
@@ -33471,7 +33457,7 @@
       "id": "stadt-zuerich-04358cd59fd3",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
@@ -33526,15 +33512,11 @@
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ],
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
       ],
       "firstSeenAt": "2026-09-24T00:09:01.757Z",
       "salaryMin": 53500,
@@ -34968,7 +34950,6 @@
       "department": "Departement der Industriellen Betriebe",
       "unit": "Elektrizitätswerk",
       "referenceNumber": "52096",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-services-unterwerke-elektro-stadt-zuerich-zurigo-52096"
@@ -35046,7 +35027,6 @@
       "department": "Hochbaudepartement",
       "unit": "Immobilien Stadt Zürich",
       "referenceNumber": "51870",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-im-objektmanagement-stadt-zuerich-zurigo-51870"
@@ -35124,7 +35104,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Schulgesundheitsdienste",
       "referenceNumber": "52072",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistenzzahnarzt-in-stadt-zuerich-zurigo-52072"
@@ -35280,7 +35259,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "52091",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagog-in-fachperson-betreuung-als-springer-in-tagesschule-waidhalde-stadt-zuerich"
@@ -35358,7 +35336,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Waidberg",
       "referenceNumber": "52092",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -35466,7 +35443,7 @@
       "description": "Für die Personalcafeteria suchen wir per 01.03.2027 oder nach Vereinbarung, befristet bis 31.12.2027, eine engagierte und aufgestellte Person.\n\nWir führen die Personalcafeterias in Amtshaus IV und V, im Stadthaus, im Verwaltungszentrum Eggbühl und in der Walche. Täglich verpflegen wir dort rund 350 Mitarbeitende der Stadtverwaltung.\n\nKaffee und Gipfeli am Morgen, Mittagsservice, Verpflegung zwischendurch: Der Takt ist eng, die Gäste kommen jeden Tag wieder. Unsere Teilnehmenden lernen Verlässlichkeit und Tempo in einem Umfeld, das verzeiht, wenn es nötig ist, und fordert, wo es geht.\n\nAufgaben\n\n• Du arbeitest fachlich selbständig in der Küche und im Service mit direktem Kundenkontakt und bei Bedarf an verschiedenen Standorten in der Stadt Zürich.\n\n• Du stellst einen qualitativ gastronomischen Betrieb sowie einen reibungslosen Ablauf im Tagesgeschäft der Personalcafeteria sicher.\n\n• Du arbeitest in der Regel an einem Standort ohne Teilnehmende. Je nach Kapazität bist du jedoch an Standorten eingesetzt, wo du Teilnehmende anleitest, und unterstützt bei der Ausführung gastronomischer Tätigkeiten, ohne dabei einen agogischen Auftrag zu übernehmen.\n\n• Du arbeitest zum Teil eng mit den Arbeitsagog:innen zusammen, um den Arbeitsalltag optimal zu gestalten.\n\n• Die Pflege und der Unterhalt der Infrastruktur sowie der Arbeitsmittel gehören ebenfalls zu deinen Aufgaben.\n\n• Du übernimmst administrative Tätigkeiten im Rahmen des gastronomischen Betriebs, einschließlich Bestellwesen und Warenbewirtschaftung.\n\n• Du achtest stets auf die Einhaltung und Umsetzung der geltenden Hygiene- und Sicherheitsvorschriften nach HACCP.\n\nProfil\n\n• Abgeschlossene Ausbildung in der Gastronomie (z. B. Koch*Köchin EFZ, Restaurationsfachperson EFZ)\n\n• Berufserfahrung in der Gastronomie, idealerweise in einem sozialen oder integrativen Umfeld\n\n• Freude an der Arbeit mit Menschen in einem sinnstiftenden Kontext und hoher Sozialkompetenz\n\n• Belastbarkeit, Teamfähigkeit, strukturierte Arbeitsweise sowie Flexibilität und Bereitschaft bei Bedarf an verschiedenen Standorten in der Stadt Zürich zu arbeiten\n\n• Du bist sicher in Microsoft 365 und offen dafür, dich in neue digitale Werkzeuge einzuarbeiten - einchliesslich KI-Tools\n\n• Sehr gute Deutsch-Kenntnisse, mindestens B1\n\nWir bieten\n\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem interdisziplinären und motivierten Team\n\n• Geregelte Arbeitszeiten (Montag bis Freitag) ca. 07:15 Uhr bis ca. 16:30 Uhr\n\n• Eine Führungskultur, die auf Mitbestimmung setzt: Du wirst einbezogen und weisst, wo du mitentscheidest\n\n• Ein Umfeld, in dem Fachleute aus Handwerk, Gastronomie, Sozialer Arbeit, Beratung und Bildung zusammenarbeiten\n\n• Sehr gute Sozialleistungen sowie attraktive Anstellungsbedingungen z.B. Vergünstigungen wie Handy, Lunchchecks und Mobilitätsbeitrag\n\nÜber uns\n\nMit rund 2400 Mitarbeitenden setzt sich das Sozialdepartement der Stadt Zürich täglich für ein soziales Zürich ein. Wir sind für alle da und unterstützen Kinder, Jugendliche und Erwachsene in unterschiedlichen Lebenslagen. Wir leisten einen wichtigen Beitrag zum gesellschaftlichen Zusammenhalt. Und wir tragen zu einer hohen Lebensqualität in den Quartieren bei.\n\nDer Geschäftsbereich Arbeitsintegration der Dienstabteilung Soziale Einrichtungen und Betriebe (SEB) umfasst eine Reihe von Arbeitsintegrationsangeboten für Erwachsene und Jugendliche. Ziel der Programme ist die berufliche und soziale Integration der Teilnehmenden. Die Betriebsgruppe Gastronomie hat den Auftrag, sozialhilfebeziehende Erwachsene und Menschen mit IV-Massnahmen wieder ins Berufsleben zu integrieren. Über den Arbeitseinsatz erwerben sie die Fähigkeiten, die für den Sprung in den ersten Arbeitsmarkt wichtig sind.",
       "descriptionByLocale": {
         "de": "Für die Personalcafeteria suchen wir per 01.03.2027 oder nach Vereinbarung, befristet bis 31.12.2027, eine engagierte und aufgestellte Person.\n\nWir führen die Personalcafeterias in Amtshaus IV und V, im Stadthaus, im Verwaltungszentrum Eggbühl und in der Walche. Täglich verpflegen wir dort rund 350 Mitarbeitende der Stadtverwaltung.\n\nKaffee und Gipfeli am Morgen, Mittagsservice, Verpflegung zwischendurch: Der Takt ist eng, die Gäste kommen jeden Tag wieder. Unsere Teilnehmenden lernen Verlässlichkeit und Tempo in einem Umfeld, das verzeiht, wenn es nötig ist, und fordert, wo es geht.\n\nAufgaben\n\n• Du arbeitest fachlich selbständig in der Küche und im Service mit direktem Kundenkontakt und bei Bedarf an verschiedenen Standorten in der Stadt Zürich.\n\n• Du stellst einen qualitativ gastronomischen Betrieb sowie einen reibungslosen Ablauf im Tagesgeschäft der Personalcafeteria sicher.\n\n• Du arbeitest in der Regel an einem Standort ohne Teilnehmende. Je nach Kapazität bist du jedoch an Standorten eingesetzt, wo du Teilnehmende anleitest, und unterstützt bei der Ausführung gastronomischer Tätigkeiten, ohne dabei einen agogischen Auftrag zu übernehmen.\n\n• Du arbeitest zum Teil eng mit den Arbeitsagog:innen zusammen, um den Arbeitsalltag optimal zu gestalten.\n\n• Die Pflege und der Unterhalt der Infrastruktur sowie der Arbeitsmittel gehören ebenfalls zu deinen Aufgaben.\n\n• Du übernimmst administrative Tätigkeiten im Rahmen des gastronomischen Betriebs, einschließlich Bestellwesen und Warenbewirtschaftung.\n\n• Du achtest stets auf die Einhaltung und Umsetzung der geltenden Hygiene- und Sicherheitsvorschriften nach HACCP.\n\nProfil\n\n• Abgeschlossene Ausbildung in der Gastronomie (z. B. Koch*Köchin EFZ, Restaurationsfachperson EFZ)\n\n• Berufserfahrung in der Gastronomie, idealerweise in einem sozialen oder integrativen Umfeld\n\n• Freude an der Arbeit mit Menschen in einem sinnstiftenden Kontext und hoher Sozialkompetenz\n\n• Belastbarkeit, Teamfähigkeit, strukturierte Arbeitsweise sowie Flexibilität und Bereitschaft bei Bedarf an verschiedenen Standorten in der Stadt Zürich zu arbeiten\n\n• Du bist sicher in Microsoft 365 und offen dafür, dich in neue digitale Werkzeuge einzuarbeiten - einchliesslich KI-Tools\n\n• Sehr gute Deutsch-Kenntnisse, mindestens B1\n\nWir bieten\n\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem interdisziplinären und motivierten Team\n\n• Geregelte Arbeitszeiten (Montag bis Freitag) ca. 07:15 Uhr bis ca. 16:30 Uhr\n\n• Eine Führungskultur, die auf Mitbestimmung setzt: Du wirst einbezogen und weisst, wo du mitentscheidest\n\n• Ein Umfeld, in dem Fachleute aus Handwerk, Gastronomie, Sozialer Arbeit, Beratung und Bildung zusammenarbeiten\n\n• Sehr gute Sozialleistungen sowie attraktive Anstellungsbedingungen z.B. Vergünstigungen wie Handy, Lunchchecks und Mobilitätsbeitrag\n\nÜber uns\n\nMit rund 2400 Mitarbeitenden setzt sich das Sozialdepartement der Stadt Zürich täglich für ein soziales Zürich ein. Wir sind für alle da und unterstützen Kinder, Jugendliche und Erwachsene in unterschiedlichen Lebenslagen. Wir leisten einen wichtigen Beitrag zum gesellschaftlichen Zusammenhalt. Und wir tragen zu einer hohen Lebensqualität in den Quartieren bei.\n\nDer Geschäftsbereich Arbeitsintegration der Dienstabteilung Soziale Einrichtungen und Betriebe (SEB) umfasst eine Reihe von Arbeitsintegrationsangeboten für Erwachsene und Jugendliche. Ziel der Programme ist die berufliche und soziale Integration der Teilnehmenden. Die Betriebsgruppe Gastronomie hat den Auftrag, sozialhilfebeziehende Erwachsene und Menschen mit IV-Massnahmen wieder ins Berufsleben zu integrieren. Über den Arbeitseinsatz erwerben sie die Fähigkeiten, die für den Sprung in den ersten Arbeitsmarkt wichtig sind.",
-        "it": "Per la Personalcafeteria stiamo cercando una persona impegnata e stabilita entro il 01.03.2027 o per accordo, temporaneamente fino al 31.12.2027.\n\nGestiremo le mense del personale ad Amthaus IV e V, nello Stadthaus, nel centro amministrativo Eggbühl e nella Walche. Ogni giorno serviamo circa 350 dipendenti dell'amministrazione comunale.\n\nCaffÃ ̈ e vetta al mattino, servizio pranzo, cibo tra: Il battito è stretto, gli ospiti tornano ogni giorno. I nostri partecipanti imparano affidabilità e velocità in un ambiente che perdona quando necessario e richiede dove possibile.\n\nCompiti\n\n• Si lavora in modo indipendente in cucina e al servizio con contatto diretto con i clienti e, se necessario, in varie località della città di Zurigo.\n\n• Garantisci un'operazione gastronomica di alta qualità e un flusso regolare nel business quotidiano della caffetteria personale.\n\n• Di solito lavori in un luogo senza partecipanti. A seconda della vostra capacità, tuttavia, si sono schierati in luoghi dove si guida i partecipanti e assistere a svolgere attività gastronomiche senza assumere un compito agogico.\n\n• In alcuni casi, si lavora a stretto contatto con i dipendenti per rendere il lavoro quotidiano ottimale.\n\n• Anche la manutenzione e la manutenzione delle infrastrutture e delle attrezzature di lavoro fanno parte dei vostri compiti.\n\n• Si assume attività amministrative all'interno del business gastronomico, tra cui l'ordinazione e la gestione delle merci.\n\n• L'utente garantisce sempre la conformità e l'implementazione delle normative applicabili in materia di igiene e sicurezza secondo HACCP.\n\nProfilo\n\n• Formazione completa in gastronomia (ad esempio Koch*Köchin EFZ, specialista di restauro EFZ)\n\n• Esperienza professionale nella gastronomia, idealmente in un ambiente sociale o inclusivo\n\n• Divertiti a lavorare con le persone in un contesto significativo e ad alta competenza sociale\n\n• Resilienza, lavoro di squadra, metodi di lavoro strutturati e flessibilità e disponibilità a lavorare in diverse località della città di Zurigo se necessario\n\n• Sei sicuro in Microsoft 365 e aperto ad abituarti a nuovi strumenti digitali – compresi gli strumenti AI\n\n• Ottima conoscenza del tedesco, almeno B1\n\nOffriamo\n\n• Un'attività varia e significativa in un team interdisciplinare e motivato\n\n• Ore lavorative regolari (da lunedì a venerdì) circa 07:15 alle 16:30 circa.\n\n• Una cultura di leadership che si concentra sulla co-determinazione: Ti fai coinvolgere e sai dove codifica\n\n• Un ambiente in cui i professionisti dell'artigianato, della gastronomia, del lavoro sociale, della consulenza e dell'educazione lavorano insieme\n\n• Prestazioni sociali molto buone e condizioni di lavoro interessanti, ad esempio sconti quali telefono cellulare, assegni pranzo e contributo alla mobilità\n\nInformazioni su di noi\n\nCon circa 2.400 dipendenti, il Dipartimento Sociale della Città di Zurigo lavora ogni giorno per una Zurigo sociale. Siamo lì per tutti e sosteniamo bambini, giovani e adulti in diverse situazioni. Un contributo importante alla coesione sociale. E contribuiamo ad un'alta qualità di vita nei quartieri.\n\nLa divisione di integrazione del lavoro del Dipartimento dei servizi sociali e delle imprese (SEB) comprende una serie di servizi di integrazione del lavoro per adulti e adolescenti. L'obiettivo dei programmi è l'integrazione professionale e sociale dei partecipanti. Il gruppo di lavoro di catering ha il compito di reintegrare gli adulti e le persone con misure IV nella vita professionale. Attraverso l'occupazione, acquisiscono le competenze che sono importanti per saltare nel primo mercato del lavoro.",
+        "it": "Per la Personalcafeteria stiamo cercando una persona impegnata e stabilita entro il 01.03.2027 o per accordo, temporaneamente fino al 31.12.2027.\n\nGestiremo le mense del personale ad Amthaus IV e V, nello Stadthaus, nel centro amministrativo Eggbühl e nella Walche. Ogni giorno serviamo circa 350 dipendenti dell'amministrazione comunale.\n\nCaffè e vetta al mattino, servizio pranzo, cibo tra: Il battito è stretto, gli ospiti tornano ogni giorno. I nostri partecipanti imparano affidabilità e velocità in un ambiente che perdona quando necessario e richiede dove possibile.\n\nCompiti\n\n• Si lavora in modo indipendente in cucina e al servizio con contatto diretto con i clienti e, se necessario, in varie località della città di Zurigo.\n\n• Garantisci un'operazione gastronomica di alta qualità e un flusso regolare nel business quotidiano della caffetteria personale.\n\n• Di solito lavori in un luogo senza partecipanti. A seconda della vostra capacità, tuttavia, si sono schierati in luoghi dove si guida i partecipanti e assistere a svolgere attività gastronomiche senza assumere un compito agogico.\n\n• In alcuni casi, si lavora a stretto contatto con i dipendenti per rendere il lavoro quotidiano ottimale.\n\n• Anche la manutenzione e la manutenzione delle infrastrutture e delle attrezzature di lavoro fanno parte dei vostri compiti.\n\n• Si assume attività amministrative all'interno del business gastronomico, tra cui l'ordinazione e la gestione delle merci.\n\n• L'utente garantisce sempre la conformità e l'implementazione delle normative applicabili in materia di igiene e sicurezza secondo HACCP.\n\nProfilo\n\n• Formazione completa in gastronomia (ad esempio Koch*Köchin EFZ, specialista di restauro EFZ)\n\n• Esperienza professionale nella gastronomia, idealmente in un ambiente sociale o inclusivo\n\n• Divertiti a lavorare con le persone in un contesto significativo e ad alta competenza sociale\n\n• Resilienza, lavoro di squadra, metodi di lavoro strutturati e flessibilità e disponibilità a lavorare in diverse località della città di Zurigo se necessario\n\n• Sei sicuro in Microsoft 365 e aperto ad abituarti a nuovi strumenti digitali – compresi gli strumenti AI\n\n• Ottima conoscenza del tedesco, almeno B1\n\nOffriamo\n\n• Un'attività varia e significativa in un team interdisciplinare e motivato\n\n• Ore lavorative regolari (da lunedì a venerdì) circa 07:15 alle 16:30 circa.\n\n• Una cultura di leadership che si concentra sulla co-determinazione: Ti fai coinvolgere e sai dove codifica\n\n• Un ambiente in cui i professionisti dell'artigianato, della gastronomia, del lavoro sociale, della consulenza e dell'educazione lavorano insieme\n\n• Prestazioni sociali molto buone e condizioni di lavoro interessanti, ad esempio sconti quali telefono cellulare, assegni pranzo e contributo alla mobilità\n\nInformazioni su di noi\n\nCon circa 2.400 dipendenti, il Dipartimento Sociale della Città di Zurigo lavora ogni giorno per una Zurigo sociale. Siamo lì per tutti e sosteniamo bambini, giovani e adulti in diverse situazioni. Un contributo importante alla coesione sociale. E contribuiamo ad un'alta qualità di vita nei quartieri.\n\nLa divisione di integrazione del lavoro del Dipartimento dei servizi sociali e delle imprese (SEB) comprende una serie di servizi di integrazione del lavoro per adulti e adolescenti. L'obiettivo dei programmi è l'integrazione professionale e sociale dei partecipanti. Il gruppo di lavoro di catering ha il compito di reintegrare gli adulti e le persone con misure IV nella vita professionale. Attraverso l'occupazione, acquisiscono le competenze che sono importanti per saltare nel primo mercato del lavoro.",
         "en": "For the Personalcafeteria we are looking for a committed and established person by 01.03.2027 or by agreement, temporarily until 31.12.2027.\n\nWe run the staff cafeterias in Amthaus IV and V, in the Stadthaus, in the administrative centre Eggbühl and in the Walche. Every day we serve around 350 employees of the city administration.\n\nCoffee and summit in the morning, lunch service, food in between: The beat is tight, the guests come back every day. Our participants learn reliability and speed in an environment that forgives when necessary and demands wherever possible.\n\nTasks\n\n• You work independently in the kitchen and in the service with direct customer contact and if necessary at various locations in the city of Zurich.\n\n• You ensure a high-quality gastronomic operation as well as a smooth flow in the daily business of the personal cafeteria.\n\n• You usually work at a location without participants. Depending on your capacity, however, you are deployed at locations where you guide participants and assist in carrying out gastronomic activities without taking on an agogic task.\n\n• In some cases, you work closely with the employees in order to make the day-to-day work optimal.\n\n• The maintenance and maintenance of the infrastructure and work equipment are also part of your tasks.\n\n• You take on administrative activities within the gastronomic business, including ordering and goods management.\n\n• You always ensure compliance with and implementation of the applicable hygiene and safety regulations according to HACCP.\n\nProfile\n\n• Completed training in gastronomy (e.g. Koch*Köchin EFZ, restoration specialist EFZ)\n\n• Professional experience in gastronomy, ideally in a social or inclusive environment\n\n• Enjoy working with people in a meaningful context and high social competence\n\n• Resilience, teamwork, structured working methods as well as flexibility and willingness to work at different locations in the city of Zurich if necessary\n\n• You’re safe in Microsoft 365 and open to getting used to new digital tools – including AI tools\n\n• Very good knowledge of German, at least B1\n\nWe offer\n\n• A varied and meaningful activity in an interdisciplinary and motivated team\n\n• Regular working hours (Monday to Friday) approximately 07:15 a.m. to approximately 16:30 a.m.\n\n• A leadership culture that focuses on co-determination: You get involved and know where you codecide\n\n• An environment where professionals from crafts, gastronomy, social work, consulting and education work together\n\n• Very good social benefits as well as attractive employment conditions e.g. discounts such as mobile phone, lunch checks and mobility contribution\n\nAbout us\n\nWith around 2,400 employees, the Social Department of the City of Zurich works every day for a social Zurich. We are there for everyone and support children, young people and adults in different situations. We make an important contribution to social cohesion. And we contribute to a high quality of life in the neighbourhoods.\n\nThe work integration division of the Social Institutions and Enterprises Service Department (SEB) comprises a range of work integration services for adults and adolescents. The aim of the programmes is the professional and social integration of the participants. The catering business group has the task of reintegrating social assistance-related adults and people with IV measures into professional life. Through employment, they acquire the skills that are important for jumping into the first job market.",
         "fr": "Pour le Personalcafeteria nous recherchons une personne engagée et établie au 01.03.2027 ou par accord, temporairement jusqu'au 31.12.2027.\n\nNous gérons les cafétérias du personnel à Amthaus IV et V, dans le Stadthaus, dans le centre administratif Eggbühl et dans la Walche. Chaque jour, nous servons environ 350 employés de l'administration municipale.\n\nCafé et sommet le matin, service de repas, entre: Le rythme est serré, les invités reviennent tous les jours. Nos participants apprennent la fiabilité et la rapidité dans un environnement qui pardonne lorsque c'est nécessaire et exige autant que possible.\n\nTâches\n\n• Vous travaillez de manière indépendante dans la cuisine et dans le service avec contact client direct et si nécessaire à différents endroits de la ville de Zurich.\n\n• Vous assurez un fonctionnement gastronomique de haute qualité ainsi qu'un flux fluide dans les affaires quotidiennes de la cafétéria personnelle.\n\n• Vous travaillez habituellement à un endroit sans participants. Cependant, selon votre capacité, vous êtes déployé à des endroits où vous guidez les participants et aidez à mener des activités gastronomiques sans vous occuper d'une tâche agogique.\n\n• Dans certains cas, vous travaillez en étroite collaboration avec les employés afin de rendre le travail quotidien optimal.\n\n• L'entretien et l'entretien de l'infrastructure et des équipements de travail font également partie de vos tâches.\n\n• Vous prenez des activités administratives au sein de l'entreprise gastronomique, y compris la commande et la gestion des biens.\n\n• Vous assurez toujours le respect et la mise en œuvre des règlements d'hygiène et de sécurité applicables selon HACCP.\n\nProfil\n\n• Formation complète en gastronomie (par exemple Koch*Köchin EFZ, spécialiste de la restauration EFZ)\n\n• Expérience professionnelle en gastronomie, idéalement dans un environnement social ou inclusif\n\n• Profitez de travailler avec les gens dans un contexte significatif et une haute compétence sociale\n\n• Résilience, travail d'équipe, méthodes de travail structurées ainsi que flexibilité et volonté de travailler à différents endroits de la ville de Zurich si nécessaire\n\n• Vous êtes sûr dans Microsoft 365 et ouvert à l'utilisation de nouveaux outils numériques – y compris les outils d'IA\n\n• Très bonne connaissance de l'allemand, au moins B1\n\nNous offrons\n\n• Une activité variée et significative dans une équipe interdisciplinaire et motivée\n\n• Heures normales de travail (du lundi au vendredi) de 7 h 15 à 16 h 30 environ\n\n• Une culture du leadership axée sur la codétermination : Vous vous impliquez et savez où vous codecidez\n\n• Un environnement où les professionnels de l'artisanat, de la gastronomie, du travail social, du conseil et de l'éducation travaillent ensemble\n\n• De très bons avantages sociaux ainsi que des conditions d'emploi attrayantes, par exemple des réductions telles que le téléphone mobile, les contrôles des déjeuners et la contribution à la mobilité\n\nSur nous\n\nAvec environ 2 400 employés, le département social de la ville de Zurich travaille tous les jours pour un Zurich social. Nous sommes là pour tous et soutenons les enfants, les jeunes et les adultes dans différentes situations. Nous apportons une contribution importante à la cohésion sociale. Et nous contribuons à une qualité de vie élevée dans les quartiers.\n\nLa Division de l'intégration professionnelle du Service des institutions sociales et des entreprises (SEB) comprend une série de services d'intégration professionnelle pour les adultes et les adolescents. L'objectif des programmes est l'intégration professionnelle et sociale des participants. Le groupe d'entreprises de restauration a pour tâche de réinsérer les adultes et les personnes ayant des mesures IV dans la vie professionnelle. Grâce à l'emploi, ils acquièrent les compétences qui sont importantes pour accéder au premier marché du travail."
       },
@@ -35498,7 +35475,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "52037",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-cafeteria-amtshaus-v-befristet-bis-31-12-2027-stadt-zuerich-zurigo-52037"

@@ -2169,7 +2169,6 @@
         "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-heidiland-3m74zs",
         "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-heidiland"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -2312,7 +2311,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "previousSlugs": [
@@ -29245,7 +29243,6 @@
         "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-region-beromunster-aubc6o",
         "franchising-partner-in-coop-pronto-ohne-tankstelle-coop-pronto-region-beromunster"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500
     },
@@ -41108,7 +41105,6 @@
         "aspirant-in-stv-geschaftsfuhrer-in-coop-lenzburg",
         "aspirant-in-stv-geschaftsfuhrer-in-coop-aarau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -54998,6 +54994,8 @@
       "streetAddress": "Zentralstrasse 1",
       "addressRegion": "LU",
       "sourceLang": "de",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -55041,9 +55039,7 @@
         "seller-food-coop-genossenschaft-luzern-cf5f32",
         "aliments-pour-vendeurs-coop-genossenschaft-luzern-cf5f32",
         "verkaufer-in-food-coop-luzern-uygdt3"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000
+      ]
     },
     {
       "id": "company-j89aty",
@@ -58895,7 +58891,6 @@
           "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-bern"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -63071,7 +63066,6 @@
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-biel-solothurn-9cohxx",
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-region-biel-solothurn"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -87184,8 +87178,8 @@
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
         ],
         "en": [
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
@@ -87193,15 +87187,15 @@
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
           "deputy-managing-director-visp-brig-zermatt-and-goms-region-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "deputy-managing-director-of-the-visp-brig-zermatt-and-goms-region-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
         ],
         "de": [
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-fzbs32",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
         ],
         "fr": [
           "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-ma6lbw",
@@ -87215,8 +87209,8 @@
           "directeur-trice-adjoint-e-region-de-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "directeur-trice-adjoint-e-region-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
           "directeur-general-adjoint-des-regions-de-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
-          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
+          "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
         ]
       },
       "previousSlugs": [
@@ -87257,10 +87251,10 @@
         "directeur-trice-adjoint-e-region-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
         "deputy-managing-director-of-the-visp-brig-zermatt-and-goms-region-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
         "directeur-general-adjoint-des-regions-de-visp-brig-zermatt-et-goms-coop-genossenschaft-region-brig-visp-zermatt-und-goms",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
         "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
-        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po"
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-3pj8po",
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-e-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h",
+        "stv-geschaftsfuhrer-in-region-visp-brig-zermatt-und-goms-coop-region-brig-visp-zermatt-und-goms-9q6o7h"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/stv-geschaeftsfuehrer-in-region-visp-brig-zermatt-und-goms/0c32b215-3490-4f03-9651-64d1a1e0a0f6",
       "datePosted": "2026-09-24",
@@ -165858,7 +165852,6 @@
         "en": "## Personnel:in pensions and benefits, 50- 60 %\n\n**Coop Cooperative** — Basel, BS, Svizzera\n\n- Job opening: 01.01.2027\n- Specialization: Administration / Administration\n- Location: Coop, Dornacherstrasse 210, 4053 Basel\n- Pensum: 50-60 %\n\n## Tasks\n- Advice and determination of AHV pensions and pension forecasts\n- Calculation, fixing and payment of AHV/IV pensions, helplessness allowances and IV daily allowances\n- Examination of the obligation to pay contributions under AHV law and determination of contributions for inactive persons\n- Mutation of master data and general administrative tasks\n\n## Requirements\n- Commercial or equivalent education and, ideally, social security experience\n- Several years of professional experience in the commercial sector ideally in a compensation fund\n- Confident knowledge of German, French or Italian is advantageous\n- Independent working methods, flexibility and high customer and service orientation\n- Discounts: 5 times the number of super points in the supermarket, up to 20% discount in all formats of the Coop Group, Reka-Card: Discount on access, Discounts on cultural events\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Total Employment Contract (GAV)\n- Working hours: 5 weeks holidays\n- Training: Over 600 internal training courses\n- Sustainability: Commitment to people and animals and nature with over 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, in-house sports offers\n\n## Your contact person\nVeronica fertilisers\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Basel",
         "fr": "## Personnel:dans les pensions et prestations, de 50 à 60 %\n\n**Coopérative Coop** — Bâle, BS, Svizzera\n\n- Ouverture de l'emploi: 01.01.2027\n- Spécialisation : Administration / Administration\n- Lieu: Coop, Dornacherstrasse 210, 4053 Bâle\n- Pensum: 50-60 %\n\n## Tâches\n- Conseils et détermination des pensions de VHA et des prévisions de pension\n- Calcul, fixation et paiement des pensions AHV/IV, indemnités d'impuissance et indemnités journalières IV\n- Examen de l'obligation de verser des cotisations en vertu de la loi sur la santé et détermination des cotisations pour les personnes inactives\n- Mutation des données de base et tâches administratives générales\n\n## Exigences\n- Enseignement commercial ou équivalent et, idéalement, expérience en matière de sécurité sociale\n- Plusieurs années d'expérience professionnelle dans le secteur commercial idéalement dans un fonds de compensation\n- Une connaissance fiable de l'allemand, du français ou de l'italien est avantageuse\n- Méthodes de travail indépendantes, flexibilité et orientation client et service élevée\n- Réductions: 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction dans tous les formats du groupe Coop, Reka-Card: Réduction sur l'accès, Réductions sur les événements culturels\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attractives et Agrément de salaire égal, Contrat d'emploi total (GAV)\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne\n- Durabilité: Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, offres de sports internes\n\n## Votre personne à contacter\nEngrais Veronica\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Bâle"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "sachbearbeiter-in-renten-e-leistungen-50-60-coop-basel-t5sn6v",
         "en": "sachbearbeiter-in-renten-und-leistungen-50-60-coop-basel-t5sn6v",
@@ -168128,7 +168121,6 @@
         "en": "## Employee: in Sales/Administration/Customer Service\n\n**Coop Genossenschaft** — Zurich, ZH, Svizzera\n\n- Job opening: immediately or by agreement\n- Specialty: Sales Food\n- Location: Coop, Kalanderplatz 1, 8045 Zurich\n- Pensum: 80 - 100%\n\n## Tasks\n- Always smile nicely: For our customers, you are the open-minded contact person for the information.\n- It is clear that you are always friendly and professional when you take care of customer concerns.\n- Behind the checkout you also make your bet.\n- Everything is right with you when it comes to discounts, promotions and price changes.\n- No one has to tell you that you comply with legal and operational regulations.\n\n## Requirements\n- Great, you have a completed basic education in the retail trade.\n- With experience in administration, you collect further plus points with us.\n- You enjoy working in the service sector and give full commitment.\n- You can speak and write German well.\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personnel discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n- Working time: 5 weeks holidays, flexible working time models\n- Further education: More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n- Sustainability: Commitment to people, animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\n## Your contact person\nValeria Mazziari Randazzo\nHR Marketing\n\n**Tipo:** Part-time\n**Sede:** Zurich",
         "fr": "## Employé: en vente/administration/service à la clientèle\n\n**Coop Genossenschaft** — Zurich, ZH, Svizzera\n\n- Ouverture d'emploi: immédiatement ou par accord\n- Spécialité: Vente d'aliments\n- Lieu: Coop, Kalanderplatz 1, 8045 Zurich\n- Pensum: 80 - 100%\n\n## Tâches\n- Toujours bien sourire : Pour nos clients, vous êtes la personne de contact ouverte d'esprit pour l'information.\n- Il est clair que vous êtes toujours amical et professionnel quand vous prenez soin des préoccupations des clients.\n- Derrière la caisse, vous faites également votre pari.\n- Tout est juste avec vous quand il s'agit de réductions, de promotions et de changements de prix.\n- Personne ne doit vous dire que vous respectez les règlements juridiques et opérationnels.\n\n## Exigences\n- Super, vous avez une éducation de base complète dans le commerce de détail.\n- Avec de l'expérience en administration, vous collectez plus de points avec nous.\n- Vous aimez travailler dans le secteur des services et donner plein engagement.\n- Vous pouvez bien parler et écrire l'allemand.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Réduction sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Zurich"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-administration-kundendienst-coop-zurich-flh5il",
         "en": "associate-sales-administration-kundendienst-coop-zurich-flh5il",
