@@ -103,7 +103,10 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     if (minimum < 0 && !/(?:knowledge|proficien|kenntnis|conoscenz|maîtrise|parlato|written|spoken)/iu.test(row.quote || '')) continue;
     const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
     if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
-      if (!gaps.some(gap => gap.index === index)) gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown', knownMissing: knownAbsent || (minimum >= 0 && rank(level) >= 0 && rank(level) < minimum) });
+      const knownMissing = knownAbsent || (minimum >= 0 && rank(level) >= 0 && rank(level) < minimum);
+      const existing = gaps.find(gap => gap.index === index);
+      if (existing) existing.knownMissing = knownMissing;
+      else gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown', knownMissing });
     }
   }
   const notice = fitNoticeOf({ requirements: rows, matches: match.matches, verdict: match.verdict });

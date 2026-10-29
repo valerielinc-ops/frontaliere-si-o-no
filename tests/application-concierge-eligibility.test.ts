@@ -42,12 +42,20 @@ describe('qualification before proposal publication', () => {
     expect(result.status).toBe('incompatible');
     expect(result.gaps).toContainEqual(expect.objectContaining({ status: 'missing' }));
   });
+  it('keeps a proven language shortfall incompatible even when the model already marked it partial', () => {
+    const b2 = { requirements: [{ requirement: 'German B2', importance: 'critical', basis: 'stated', quote: 'Good German knowledge B2' }] };
+    const profile = { languages: [{ language: 'German', level: 'A2' }] };
+    const result = conciergeProposalEligibility(b2, { matches: [{ index: 0, status: 'partial', evidence: 'German A2' }], verdict: 'good' }, { profile });
+    expect(result.status).toBe('incompatible');
+    expect(result.gaps).toContainEqual(expect.objectContaining({ knownMissing: true }));
+  });
   it('does not convert a geographic reference into a language requirement', () => {
     const geographic = { requirements: [{ requirement: 'Office location', importance: 'critical', basis: 'stated', quote: 'Office in the German-speaking part of Switzerland' }] };
     expect(conciergeProposalEligibility(geographic, { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' }, { profile: rawProfile }).status).toBe('compatible');
   });
   it('does not treat a silent CV or unverified evidence as a positive match', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good', questions: [] });
+    f.generate.mockImplementation(async system => system === PROFILE_SYSTEM_PROMPT ? { ...rawProfile, languages: [], languagesExplicitList: false } : system === REQUIREMENTS_SYSTEM_PROMPT ? requirements : { matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good', questions: [] });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
     expect((await check({ id: 'it-lead', title: 'IT Manager', company: 'Example' })).status).toBe('clarification_required');
   });
