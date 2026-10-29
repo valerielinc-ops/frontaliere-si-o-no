@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-10-28T22:21:08.318Z",
-  "runId": "40775024633",
+  "assembledAt": "2026-10-29T09:28:50.798Z",
+  "runId": "40847873211",
   "jobs": [
     {
       "id": "klinik-gut-4367-59b216f06dc4",
@@ -35,7 +35,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:21:04.572Z",
+      "crawledAt": "2026-10-29T09:28:41.738Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4923",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:21:04.571Z",
+      "crawledAt": "2026-10-29T09:28:41.733Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -175,9 +175,9 @@
       "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
       "slugByLocale": {
         "it": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
-        "en": "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "en": "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
         "de": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "fr": "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+        "fr": "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -202,7 +202,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:21:04.570Z",
+      "crawledAt": "2026-10-29T09:28:41.727Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -223,18 +223,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
-        "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+        "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
         ],
         "en": [
-          "election-year-pj-sub-assistants-klinik-gut-ag-flasch"
+          "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch"
         ],
         "fr": [
-          "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+          "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
@@ -283,7 +283,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:21:04.569Z",
+      "crawledAt": "2026-10-29T09:28:41.721Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -359,7 +359,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:21:04.568Z",
+      "crawledAt": "2026-10-29T09:28:41.717Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -443,7 +443,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:21:04.561Z",
+      "crawledAt": "2026-10-29T09:28:41.689Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
