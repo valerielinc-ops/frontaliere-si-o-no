@@ -90,9 +90,12 @@ jobs:
           SAMPLES: ${{ github.event.inputs.samples || '20' }}
         run: |
           set -o pipefail
+          set +e
           node scripts/canary-article-content.mjs --samples="$SAMPLES" --json \
             > canary-result.json 2> canary.log
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          exit_code=$?
+          echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
+          exit "$exit_code"
 
       - name: Upload canary result artifact
         if: always()

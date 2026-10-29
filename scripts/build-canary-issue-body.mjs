@@ -47,6 +47,22 @@ if (!report) {
   process.exit(0);
 }
 
+if (report.error) {
+  const error = String(report.error).replace(/[`\r\n]/g, " ").replace(/\s+/g, " ").trim();
+  process.stdout.write(
+    [
+      "## Article content canary execution failure",
+      "",
+      `The canary could not obtain a sitemap/sample after bounded retries: ${error || "unknown error"}.`,
+      "No article-content regression verdict was produced for this run; inspect the canary log and confirm the next scheduled probe.",
+      "",
+      `**Workflow run:** ${runUrl}`,
+      "",
+    ].join("\n"),
+  );
+  process.exit(0);
+}
+
 const ts = report.timestamp || new Date().toISOString();
 const lines = [];
 lines.push("## Article content regression detected");
