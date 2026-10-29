@@ -154,6 +154,7 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     serviceType: 'application_concierge',
     plan: boundedString(data.plan, 80) || '30d-10-positions',
     paymentStatus: boundedString(data.paymentStatus, 40),
+    checkoutSessionStatus: boundedString(data.checkoutSessionStatus, 40),
     serviceStatus: expired && data.serviceStatus === 'active' ? 'expired' : boundedString(data.serviceStatus, 40),
     paymentProvider: boundedString(data.paymentProvider, 40),
     renewal: data.renewal === true,
