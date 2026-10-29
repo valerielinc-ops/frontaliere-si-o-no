@@ -90,7 +90,7 @@ jobs:
           - Include attribuzione ODbL a OpenStreetMap e il timestamp dello snapshot.
 
           ## Non implementato (ancora)
-          - per scelta: questa PR non tratta il registro OSM come fonte di prezzi e non dichiara la completezza censuaria.
+          - per scelta: questa PR non tratta il registro OSM come fonte di prezzi e non dichiara la completezza censuaria. **Motivo:** OSM è un inventario collaborativo senza garanzia di completezza o prezzo corrente. **Prossimo passo:** mantenere il refresh settimanale e valutare una fonte censuaria/licenziata quando disponibile.
           EOF
           bash scripts/lib/open-data-refresh-pr.sh \
             --force \
