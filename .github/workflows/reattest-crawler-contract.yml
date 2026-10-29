@@ -11,9 +11,17 @@ on:
     paths:
       - '.github/workflows/crawler-group-*-logic.yml'
       - '.github/workflows/translate-pending-logic.yml'
+      - 'functions/src/githubApiHeaders.js'
+      - 'scripts/assemble-jobs-dataset.mjs'
+      - 'scripts/check-crawler-generation-token.mjs'
+      - 'scripts/check-crawler-group-live-run.mjs'
       - 'scripts/generate-crawler-group-workflows.mjs'
       - 'scripts/ci/crawler-generation-roster.json'
+      - 'scripts/ci/crawler-retry-cmd.sh'
       - 'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs'
+      - 'scripts/ci/translate-recovery-successor-guard.mjs'
+      - 'scripts/ci/validate-workflow-data.mjs'
+      - 'scripts/cleanup-jobs.mjs'
       - 'scripts/lib/crawler-generation-*.mjs'
   workflow_dispatch:
     inputs:
@@ -75,6 +83,11 @@ jobs:
             git fetch --no-tags origin "$SOURCE_COMMIT"
           fi
           git cat-file -e "$SOURCE_COMMIT^{commit}"
+          git fetch --no-tags origin main
+          if ! git merge-base --is-ancestor "$SOURCE_COMMIT" origin/main; then
+            echo "::error::SOURCE_COMMIT is not an ancestor of origin/main"
+            exit 1
+          fi
           if ! git merge-base --is-ancestor "$SOURCE_COMMIT" HEAD; then
             echo "::error::SOURCE_COMMIT is not an ancestor of the checked-out main revision"
             exit 1
@@ -84,7 +97,8 @@ jobs:
         run: |
           set -euo pipefail
           current_source=$(node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync(process.env.CONTRACT_PATH, 'utf8')); process.stdout.write(String(c.sourceCommit || ''));" )
-          if [ "$current_source" = "$SOURCE_COMMIT" ]; then
+          current_artifact_source=$(node --input-type=module -e "import fs from 'node:fs'; const c=JSON.parse(fs.readFileSync(process.env.CONTRACT_PATH, 'utf8')); process.stdout.write(String(c.artifactObservation?.sourceCommit || ''));" )
+          if [ "$current_source" = "$SOURCE_COMMIT" ] && [ "$current_artifact_source" = "$SOURCE_COMMIT" ]; then
             echo "Contract already attested to $SOURCE_COMMIT"
             exit 0
           fi
