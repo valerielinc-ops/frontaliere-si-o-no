@@ -48,6 +48,14 @@ jobs:
           sparse-checkout: |
             /.github/corpus-workflows/contract.json
             /scripts/ci/reattest-crawler-contract.mjs
+            /scripts/ci/pr-body-check-gate.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
+            /scripts/ci/lib/hook-command-parser.mjs
+            /scripts/ci/lib/hook-exit-codes.mjs
+            /scripts/ci/lib/hook-stdin.mjs
+            /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/pr-body-closes-check.mjs
+            /scripts/lib/pr-body-sections-check.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -121,9 +129,11 @@ jobs:
 
           ## Non implementato (ancora)
 
-          - by construction: nessun dato, shard o workflow generato viene rigenerato in questa PR; il controllo dei byte resta affidato ai digest già presenti e ai gate di lockstep.
-          - per scelta: nessuna chiusura manuale di issue di tracking; la ricorrenza viene considerata risolta solo dopo una run del drift check verde.
+          - by construction: nessun dato, shard o workflow generato viene rigenerato in questa PR; il controllo dei byte resta affidato ai digest già presenti e ai gate di lockstep. **Motivo:** questa automazione aggiorna solo la provenienza del contratto dopo lo squash. **Prossimo passo:** i digest e i gate di lockstep verificano i byte dopo il merge.
+          - per scelta: nessuna chiusura manuale di issue di tracking; la ricorrenza viene considerata risolta solo dopo una run del drift check verde. **Motivo:** la chiusura dell'issue è una decisione di ciclo, non una modifica al contratto. **Prossimo passo:** chiudere la ricorrenza dopo una run verde del drift check e del trasporto corpus.
           EOF
+
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
 
           pr_number=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open \
             --head "$REATTEST_BRANCH" --base main --json number --jq '.[0].number // ""')

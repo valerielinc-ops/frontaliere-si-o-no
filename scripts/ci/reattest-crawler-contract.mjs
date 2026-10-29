@@ -113,7 +113,7 @@ function runCli(argv = process.argv.slice(2)) {
 const invokedDirectly = (() => {
   try {
     return Boolean(process.argv[1])
-      && fs.realpathSync(process.argv[1]) === fs.realpathSync(fileURLToPath(import.meta.url));
+      && fs.realpathSync(fileURLToPath(import.meta.url)) === fs.realpathSync(process.argv[1] || '');
   } catch {
     return false;
   }
