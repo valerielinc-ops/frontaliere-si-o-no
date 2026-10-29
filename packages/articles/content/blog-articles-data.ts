@@ -28020,7 +28020,7 @@ const RAW_ARTICLES_CHUNK_11: Article[] = [
  id: 'eventi-weekend-ticino',
  category: 'novita',
  date: '2026-06-29',
- updatedAt: '2026-10-22',
+ updatedAt: '2026-10-29',
  image: '/images/places/lugano-view.webp',
  hasCalculator: false,
  canton: ['TI'],

@@ -180,6 +180,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'colin-cie': '/images/brands/colin-cie.png',
  'concara': cLogo('concara.ch'),
  'confederazione-ticino': '/images/brands/confederazione-ticino.png',
+ 'conservatorio': cLogo('conservatorio.ch'),
  'convit-holding': 'https://convit.ch/images/convit-logo.png',
  'coop-ticino': gFavicon('coop.ch'),
  'coopers': '/images/brands/coopers.png',

@@ -251,10 +251,11 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-giubiasco-727553",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062",
+    "https://team.lidl.ch/it/jobs/ch_-tuttofare-vendita-m-f-d-20-40-locarno-766088"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-10-29T10:21:25.059Z",
+  "updatedAt": "2026-10-29T14:36:30.076Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -589,15 +590,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-sarnen-666226": {
-      "location": "Sarnen",
-      "addressLocality": "Sarnen",
-      "canton": "OW",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-sarnen-760696": {
       "location": "Sarnen",
       "addressLocality": "Sarnen",
@@ -615,6 +607,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-sarnen-666226": {
+      "location": "Sarnen",
+      "addressLocality": "Sarnen",
+      "canton": "OW",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-schluein-747400": {
       "location": "Schluein",
@@ -1651,15 +1652,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-duebendorf-755625": {
-      "location": "Dübendorf",
-      "addressLocality": "Dübendorf",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-duebendorf-727508": {
       "location": "Dübendorf",
       "addressLocality": "Dübendorf",
@@ -1668,6 +1660,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-duebendorf-755625": {
+      "location": "Dübendorf",
+      "addressLocality": "Dübendorf",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-zuerich-755616": {
       "location": "Zürich",
@@ -2433,6 +2434,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/it/jobs/ch_-tuttofare-vendita-m-f-d-20-40-locarno-766088": {
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     }
   }
 }
