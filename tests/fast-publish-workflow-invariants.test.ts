@@ -15,6 +15,23 @@ const read = (p: string) => readFileSync(resolve(p), 'utf8');
 
 describe('fast-publish workflow invariants', () => {
   const workflow = read('.github/workflows/fast-publish-article.yml');
+  const fastDriver = read('scripts/publish-article-fast.mjs');
+
+  it('validates the adapted-twin receipt before any publication side effect', () => {
+    const renderIdx = workflow.indexOf('- name: Render article (fast path)');
+    const receiptIdx = workflow.indexOf('- name: Validate fast-publish twin parity receipt');
+    const uploadIdx = workflow.indexOf('- name: Upload CDN assets (images)');
+    const lockIdx = workflow.indexOf('- name: Acquire article chunk section lock');
+
+    expect(renderIdx).toBeGreaterThan(-1);
+    expect(receiptIdx).toBeGreaterThan(renderIdx);
+    expect(receiptIdx).toBeLessThan(uploadIdx);
+    expect(receiptIdx).toBeLessThan(lockIdx);
+    expect(workflow.slice(receiptIdx, uploadIdx)).toContain('fast-publish-twin-parity/v1');
+    expect(workflow.slice(uploadIdx, lockIdx)).toContain("steps.verify_twin_parity.outcome == 'success'");
+    expect(fastDriver).toContain('const twinParity = createTwinParityReceipt({');
+    expect(fastDriver).toContain('twinParity,');
+  });
 
   it('serializes per article, not per section', () => {
     // A per-section group cannot keep batched dispatches: GitHub holds exactly

@@ -50,6 +50,18 @@ const PUBLISHER = readScript('scripts', 'publish-article-fast.mjs');
 const RERENDER = readScript('scripts', 'rerender-article-hubs.mjs');
 
 describe('hub render / CDN offload order', () => {
+  it('records the reconciled site-side hub order in the twin receipt', () => {
+    const receiptAt = PUBLISHER.indexOf('const FAST_PUBLISH_TWIN_PARITY =');
+    const orderAt = PUBLISHER.indexOf("hubOrder: Object.freeze(['landing', 'archive', 'topic-hubs', 'cdn-offload'])");
+    const implementationAt = PUBLISHER.indexOf("implementation: 'renderHubsAndOffload'");
+
+    expect(receiptAt, 'twin parity receipt is missing').toBeGreaterThan(-1);
+    expect(orderAt).toBeGreaterThan(receiptAt);
+    expect(implementationAt).toBeGreaterThan(orderAt);
+    expect(PUBLISHER).toContain("controlCharacters: 'refuse'");
+    expect(PUBLISHER).toContain("corpusFreshness: 'required'");
+  });
+
   it('renders the article-hub archive before running the CDN offload', () => {
     const archiveAt = LIB.indexOf('await renderArticleHubPages(');
     const offloadAt = LIB.indexOf("'offload-generated-images-cdn.mjs'");
