@@ -10,6 +10,8 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
+import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
+import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
 import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -128,6 +130,9 @@ function serializeProposal(doc) {
     acceptedAt: timestampToIso(data.acceptedAt),
     declinedAt: timestampToIso(data.declinedAt),
     childApplicationId: optionalString(data.childApplicationId, 200),
+    childApplicationState: optionalString(data.childApplicationState, 60),
+    childSubmissionStatus: optionalString(data.childSubmissionStatus, 60),
+    childCandidateStatus: optionalString(data.childCandidateStatus, 40),
     matchScore: Number.isFinite(Number(data.matchScore)) ? Number(data.matchScore) : null,
     matchReasons: Array.isArray(data.matchReasons) ? data.matchReasons.map((value) => boundedString(value, 180)).filter(Boolean).slice(0, 6) : [],
     matchedAt: timestampToIso(data.matchedAt),
@@ -199,7 +204,15 @@ async function loadService(db, serviceId) {
   const snapshot = await ref.get();
   if (!snapshot.exists) throw new ApplicationConciergeError('service_not_found', 404);
   const proposals = await ref.collection('proposals').get();
-  return { ref, snapshot, proposals: proposals.docs || [] };
+  const parent = snapshot.data() || {};
+  const enriched = await Promise.all((proposals.docs || []).map(async proposal => {
+    const data = proposal.data() || {};
+    if (data.status !== 'accepted' || !validId(data.childApplicationId)) return proposal;
+    const child = (await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(data.childApplicationId).get()).data();
+    if (child?.userId !== parent.userId || child.parentServiceId !== serviceId || child.parentProposalId !== proposal.id) return proposal;
+    return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data, childApplicationState: child.automationState || null, childSubmissionStatus: child.submissionStatus || null, childCandidateStatus: candidateStatusForAssistedApplication(child) }) };
+  }));
+  return { ref, snapshot, proposals: enriched };
 }
 
 function assertCandidateOwns(service, uid) {
@@ -476,11 +489,27 @@ async function handleCandidateGet(db, req, uid) {
   return { status: 200, body: { ok: true, service: serializeApplicationConciergeService(fresh.snapshot, fresh.proposals) } };
 }
 
+async function openChildReview(db, serviceId, proposalId, uid) {
+  if (!validId(serviceId) || !validId(proposalId)) throw new ApplicationConciergeError('service_not_found', 404);
+  const ref = serviceRefFor(db, serviceId);
+  const [parentDoc, proposalDoc] = await Promise.all([ref.get(), ref.collection('proposals').doc(proposalId).get()]);
+  const parent = parentDoc.data();
+  assertCandidateOwns(parent, uid);
+  const proposal = proposalDoc.data();
+  if (proposal?.status !== 'accepted' || !validId(proposal.childApplicationId)) throw new ApplicationConciergeError('proposal_not_found', 404);
+  const childRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(proposal.childApplicationId);
+  const [childDoc, flowDoc] = await Promise.all([childRef.get(), childRef.collection('automation').doc('flow').get()]);
+  const child = childDoc.data();
+  if (!childDoc.exists || child.userId !== uid || child.parentServiceId !== serviceId || child.parentProposalId !== proposalId
+    || child.paymentStatus !== 'paid' || child.retentionPurgedAt) throw new ApplicationConciergeError('proposal_not_found', 404);
+  return mintReviewToken({ secret: await getReviewTokenSecret(), orderId: childRef.id, round: Number(flowDoc.data()?.round) || 1, ttlMs: 60 * 60 * 1000 });
+}
+
 export async function handleApplicationConcierge(req) {
   const method = String(req.method || 'GET').toUpperCase();
   if (method !== 'GET' && method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   const action = method === 'POST' ? boundedString(req.body?.action, 40) : '';
-  const decoded = await verifyCaller(req, { checkRevoked: action === 'recoverPaymentSession' });
+  const decoded = await verifyCaller(req, { checkRevoked: ['recoverPaymentSession', 'openChildReview'].includes(action) });
   if (!decoded?.uid) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
   const db = getAdminDb();
   try {
@@ -517,6 +546,10 @@ export async function handleApplicationConcierge(req) {
       return { status: 200, body: { ok: true, service } };
     }
     const proposalId = proposalIdFromRequest(req);
+    if (action === 'openChildReview') {
+      const token = await openChildReview(db, serviceId, proposalId, decoded.uid);
+      return { status: 200, body: { ok: true, token } };
+    }
     if (action === 'acceptProposal') {
       const result = await acceptProposal(db, serviceId, proposalId, decoded.uid);
       return { status: 200, body: { ok: true, ...result } };

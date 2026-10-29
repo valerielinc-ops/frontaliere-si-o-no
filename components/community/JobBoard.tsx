@@ -1,3 +1,4 @@
+import { useConciergeProposalAction } from '@/hooks/useConciergeProposalAction';
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
 import { jobDisplayTitle, jobSearchTitleText } from '../../scripts/lib/job-title-identity.mjs';
 import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
@@ -4155,6 +4156,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Trigger: single-job-detail view, logged-in user with email, feature flag on,
  // localStorage gating allows it, AND no existing alert covers this category.
  const isJobDetailView = selectedJob !== null;
+ const conciergeAction = useConciergeProposalAction({ user: authUser, authLoading, onRequireAuth, locale });
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
@@ -8142,6 +8144,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [rewardedApplicationJob, authResolved, isJobDetailView]);
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
+  if (conciergeAction.apply(job)) return;
   // An application offer for this click is already open (double click, or a
   // click that reached the page behind the dialog): one gesture, one offer.
   if (applicationOfferOpenRef.current) return;
@@ -10122,6 +10125,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('jobBoard.backToList')}
  </button>
 
+ {conciergeAction.active && <div className="rounded-xl border border-accent-border bg-accent-subtle p-4 text-sm leading-6 text-body" role="status">
+  <p>{t(conciergeAction.error || (conciergeAction.busy ? 'jobBoard.concierge.acceptingProposal' : 'jobBoard.concierge.proposalDetailContext'))}</p>
+  {conciergeAction.serviceHref && <a href={conciergeAction.serviceHref} className="mt-1 inline-flex min-h-[44px] items-center font-semibold text-accent hover:underline">{t('jobBoard.concierge.backToService')}</a>}
+ </div>}
  {authPendingNoticeJsx}
 
  {/* 3-column rail grid: left rail | gate body | right rail. Re-enables the
@@ -10688,7 +10695,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const applyMode = (selectedJob as { applyMode?: string }).applyMode;
  const isInHouseApply = applyMode === 'in_house' || applyMode === 'forward_email';
  const renderApplicationIntentConsent = (className = 'mt-2 text-xs text-muted') => (
-  isExternalApplicationJob(selectedJob) ? (
+  !conciergeAction.active && isExternalApplicationJob(selectedJob) ? (
    <a
     href="#application-intent-disclosure"
     className={`${className} inline-block text-accent underline underline-offset-2 hover:text-accent-hover`}
@@ -10699,7 +10706,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   ) : null
  );
  const renderApplicationIntentDisclosure = () => (
-  isExternalApplicationJob(selectedJob) ? (
+  !conciergeAction.active && isExternalApplicationJob(selectedJob) ? (
    <section
     id="application-intent-disclosure"
     aria-labelledby="application-intent-disclosure-title"
@@ -10883,6 +10890,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('jobBoard.backToList')}
  </button>
 
+ {conciergeAction.active && <div className="rounded-xl border border-accent-border bg-accent-subtle p-4 text-sm leading-6 text-body" role="status">
+  <p>{t(conciergeAction.error || (conciergeAction.busy ? 'jobBoard.concierge.acceptingProposal' : 'jobBoard.concierge.proposalDetailContext'))}</p>
+  {conciergeAction.serviceHref && <a href={conciergeAction.serviceHref} className="mt-1 inline-flex min-h-[44px] items-center font-semibold text-accent hover:underline">{t('jobBoard.concierge.backToService')}</a>}
+ </div>}
  {authPendingNoticeJsx}
 
  {assistedApplicationOfferJsx}
@@ -10958,7 +10969,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="hybrid-ab-cta"
  onClick={() => handleApply(selectedJob)}
  >
- {t('jobBoard.apply')}
+ {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')}
  </button>
  {renderApplicationIntentConsent('mt-1.5 text-xs text-muted')}
  {rewardedCtaDisclosure && (
@@ -11044,6 +11055,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
 
+ {conciergeAction.active && <div className="rounded-xl border border-accent-border bg-accent-subtle p-4 text-sm leading-6 text-body" role="status">
+  <p>{t(conciergeAction.error || (conciergeAction.busy ? 'jobBoard.concierge.acceptingProposal' : 'jobBoard.concierge.proposalDetailContext'))}</p>
+  {conciergeAction.serviceHref && <a href={conciergeAction.serviceHref} className="mt-1 inline-flex min-h-[44px] items-center font-semibold text-accent hover:underline">{t('jobBoard.concierge.backToService')}</a>}
+ </div>}
  {authPendingNoticeJsx}
 
  {assistedApplicationOfferJsx}
@@ -11072,7 +11087,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={() => handleApply(selectedJob, 'job_board_apply_header_logo')}
- aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
+ aria-label={`${t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  >
  {logo ? (
@@ -11321,7 +11336,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[48px] text-base font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors"
  >
  <ArrowUpRight className="w-4 h-4" />
- {t('jobBoard.apply')}
+ {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')}
  </button>
  {renderApplicationIntentConsent()}
  {appliedNoticeJsx}
@@ -11389,7 +11404,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
+ onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t(conciergeAction.active ? conciergeAction.labelKey : 'jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {renderApplicationIntentConsent()}
  {isPublisherAd && userId && userEmail && (

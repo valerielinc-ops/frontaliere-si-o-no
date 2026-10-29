@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { useState } from 'react';
 const mocks = vi.hoisted(() => ({
-  fetchService: vi.fn(), recoverSession: vi.fn(), signIn: vi.fn(), checkout: vi.fn(),
+  openChild: vi.fn(), fetchService: vi.fn(), recoverSession: vi.fn(), signIn: vi.fn(), checkout: vi.fn(),
   widgetResponses: [] as Array<(type: string) => void>,
   view: vi.fn(), click: vi.fn(), resume: vi.fn(), ensureAuth: vi.fn(), auth: { currentUser: null as any },
 }));
@@ -20,6 +20,7 @@ vi.mock('@/services/analyticsProxy', () => ({ Analytics: {
   trackApplicationConciergeCheckoutResume: mocks.resume,
 } }));
 vi.mock('@/services/applicationConciergeService', () => ({
+  openApplicationConciergeChildReview: mocks.openChild,
   fetchApplicationConciergeService: mocks.fetchService, recoverApplicationConciergePaymentSession: mocks.recoverSession,
   acceptApplicationConciergeProposal: vi.fn(), declineApplicationConciergeProposal: vi.fn(),
   recordApplicationConciergeConsent: vi.fn(), saveApplicationConciergeProfile: vi.fn(),
@@ -235,4 +236,15 @@ describe('concierge reminder payment flow', () => {
     expect(mocks.signIn).toHaveBeenCalledWith('owner-token');
     expect(mocks.checkout).toHaveBeenCalledWith(expect.objectContaining({ serviceId: 'service-test' }), owner);
   });
+});
+
+
+it('links an accepted application needing answers to its owned service detail', async () => {
+  mocks.fetchService.mockResolvedValue({ ...service, paymentStatus: 'paid', serviceStatus: 'active', hasCv: true, hasConsent: true,
+    proposals: [{ proposalId: 'proposal', jobId: 'job', jobTitle: 'Example role', companyName: 'Example', status: 'accepted', childApplicationId: 'owned-child', childApplicationState: 'needs_candidate_action' }] });
+  render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+  const link = await screen.findByRole('link', { name: /jobBoard.concierge.answerChild/ });
+  expect(link.getAttribute('href')).toContain('application_concierge_application_id=owned-child');
+  expect(link.getAttribute('href')).not.toContain('assisted_application_review');
+  expect(mocks.checkout).not.toHaveBeenCalled();
 });
