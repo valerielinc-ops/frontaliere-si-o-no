@@ -1,3 +1,4 @@
+import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 /**
  * JobOrphanView — view for slugs with no metadata in expired-jobs.json.
@@ -205,6 +206,14 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
   const gateSkin = jobGateSkin(jobGate.arm);
 
  const [staticBodyHtml] = useState(() => getStaticBodyHtml());
+ const descriptionPreview = useMemo(() => {
+  if (!staticBodyHtml) return '';
+  const body = new DOMParser().parseFromString(staticBodyHtml, 'text/html').body;
+  const source = body.querySelector('[data-job-description-full]');
+  // Exclude the renderer's translated label from the anonymous text budget.
+  source?.querySelector('h2')?.remove();
+  return jobDescriptionPreview(source?.textContent || '');
+ }, [staticBodyHtml]);
 
  const prefix = PREFIX_BY_LOCALE[locale] ?? '';
  const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
@@ -767,6 +776,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  {/* Job header card */}
  {jobHeaderCard}
+ {descriptionPreview && <p data-job-description-preview className="text-sm leading-relaxed text-body">{descriptionPreview}</p>}
+
 
  {/* Company banner */}
  {companyBanner}
@@ -937,8 +948,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  />
  )}
 
- {/* Static content */}
- {staticContentDetails}
+ {/* The complete static source is rendered only in the unlocked branch. */}
 
  {/* Job alert opt-in */}
  <JobAlertSection initialKeyword={slugParts.title || ''} />

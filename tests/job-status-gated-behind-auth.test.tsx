@@ -100,6 +100,21 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.getByText(/non è più attiva/i)).toBeInTheDocument();
  });
 
+ it('does not republish a full static orphan description below the human gate', () => {
+  const seeded = window as unknown as { __STATIC_BODY_HTML__?: string };
+  const tail = 'Requisito originale oltre il budget pubblico';
+  seeded.__STATIC_BODY_HTML__ = `<section data-job-description-full><h2>Descrizione completa</h2><p>${'Descrizione storica completa. '.repeat(30)}${tail}</p></section>`;
+  try {
+   const { container, rerender } = render(<JobOrphanView slug="software-engineer-acme-sa-lugano" hasAccess={false} />);
+   expect(container.querySelector('#job-auth-gate')).not.toBeNull();
+   expect(container.querySelector('[data-job-description-preview]')?.textContent?.length).toBeLessThanOrEqual(221);
+   expect(container.textContent).not.toContain(tail);
+   rerender(<JobOrphanView slug="software-engineer-acme-sa-lugano" hasAccess />);
+   expect(container.querySelector('#job-auth-gate')).toBeNull();
+   expect(container.textContent).toContain(tail);
+  } finally { delete seeded.__STATIC_BODY_HTML__; }
+ });
+
  it('shows the historical body to a crawler without adding a duplicate H1', () => {
   vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('Googlebot');
   const seeded = window as unknown as { __STATIC_BODY_HTML__?: string };
