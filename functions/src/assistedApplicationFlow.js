@@ -28,7 +28,7 @@
  */
 
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
-import { isAutoRetryablePortalHold } from './assistedApplicationPortalRetryPolicy.js';
+import { isAutoRetryablePortalHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
   candidateQuestionAnswerKey,
@@ -590,7 +590,8 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'portal_auto_retry': {
       if (state !== 'owner_takeover') return ignore('not_taken_over');
       if (!isAutoRetryablePortalHold(current)) return ignore('not_auto_retryable');
-      if (!Number(current.portalAutoRetryAt) || Number(current.portalAutoRetryAt) > nowMs) return ignore('portal_retry_not_due');
+      const retryAt = portalRetryDueAt(current);
+      if (!retryAt || retryAt > nowMs) return ignore('portal_retry_not_due');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
       const attempts = Number(current.portalAutoRetryCount) || 0;

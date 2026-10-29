@@ -606,6 +606,11 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
 
 
 describe('measured CAPTCHA provider outage recovery', () => {
+  it.each([-1, 0, Infinity, NaN])('does not dispatch a retry with invalid clock %s', retryAt => {
+    const result = transition({ state: 'owner_takeover', round: 1, heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: retryAt, dispatch: { mode: 'submit', round: 1 } }, { type: 'portal_auto_retry' }, { draft: { ...cleanDraft, round: 1 }, nowMs: 1 });
+    expect(result.ignored).toBe('portal_retry_not_due');
+    expect(result.effects).toEqual([]);
+  });
   it('waits without requesting human answers, retries the approved round, and remains bounded', () => {
     const now = Date.now();
     const draft = { ...cleanDraft, round: 1 };

@@ -370,7 +370,7 @@ export default function AssistedApplicationAutomationPanel({
 
       {flow && (
         <dl className="grid gap-2 text-xs text-subtle sm:grid-cols-3">
-          <div><dt className="font-semibold uppercase tracking-wide text-muted">Prossima scadenza</dt><dd>{formatMs(flow.deadlineAt)}</dd></div>
+          <div><dt className="font-semibold uppercase tracking-wide text-muted">Prossima scadenza</dt><dd>{formatMs(portalRetryDueAt(flow) || flow.deadlineAt)}</dd></div>
           <div><dt className="font-semibold uppercase tracking-wide text-muted">Fermo per</dt><dd>{flow.heldBy.length ? flow.heldBy.map(heldLabel).join(', ') : '—'}</dd></div>
           <div><dt className="font-semibold uppercase tracking-wide text-muted">Ultimo run</dt><dd>{flow.dispatch ? `${flow.dispatch.mode} · ${formatMs(flow.dispatch.requestedAt)} · tentativi ${flow.dispatch.attempts}` : '—'}</dd></div>
         </dl>
