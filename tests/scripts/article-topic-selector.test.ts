@@ -7,10 +7,9 @@
 // Test plan: valerielinc-main-eng-review-test-plan-20260507-090000.md
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { execFileSync } from 'node:child_process';
-import { copyFileSync, dirname, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 
 import * as selectorMod from '../../scripts/lib/article-topic-selector.mjs';
 
@@ -87,31 +86,26 @@ describe('site-side adapted twin boundary', () => {
 
   it('applies only the corpus path adaptation without dropping the site ledger contract', () => {
     const siteRoot = resolve(process.cwd());
-    const tempRoot = mkdtempSync(join(tmpdir(), 'article-selector-rewire-'));
-    const stagedPath = join(tempRoot, 'generator/scripts/lib/article-topic-selector.mjs');
     const patchPath = join(siteRoot, '.github/transport/nanako-generator-rewire.patch');
+    const source = readFileSync(join(siteRoot, 'scripts/lib/article-topic-selector.mjs'), 'utf8');
+    const patchText = readFileSync(patchPath, 'utf8');
+    const start = patchText.indexOf('diff --git a/generator/scripts/lib/article-topic-selector.mjs');
+    const end = patchText.indexOf('\ndiff --git ', start + 1);
+    const selectorPatch = patchText.slice(start, end < 0 ? undefined : end);
+    const changedLines = selectorPatch
+      .split(/\r?\n/u)
+      .filter((line) => (/^[+-]/u.test(line) && !line.startsWith('+++') && !line.startsWith('---')));
 
-    try {
-      mkdirSync(dirname(stagedPath), { recursive: true });
-      copyFileSync(join(siteRoot, 'scripts/lib/article-topic-selector.mjs'), stagedPath);
-      execFileSync('git', ['init', '--quiet'], { cwd: tempRoot });
-      execFileSync(
-        'git',
-        ['apply', '--include=generator/scripts/lib/article-topic-selector.mjs', patchPath],
-        { cwd: tempRoot, stdio: 'pipe' },
-      );
-
-      const transported = readFileSync(stagedPath, 'utf8');
-      expect(transported).toContain("import { corpusPath } from './corpus-paths.mjs';");
-      expect(transported).toContain("export const SITE_IT_META_PATH = corpusPath('services/locales/blog-meta-it.ts');");
-      expect(transported).toContain('export const EVERGREEN_REJECTED_SCHEMA_VERSION');
-      expect(transported).toContain('function completeProvenance');
-      expect(transported).toContain('TOPIC_GATE_URL_TTL_MS');
-      expect(transported).toContain('EVERGREEN_REJECTED_MAX_IDS');
-      expect(transported).toContain('invalid: true');
-    } finally {
-      rmSync(tempRoot, { recursive: true, force: true });
-    }
+    expect(changedLines).toEqual([
+      "+import { corpusPath } from './corpus-paths.mjs';",
+      "-export const SITE_IT_META_PATH = 'services/locales/blog-meta-it.ts';",
+      "+export const SITE_IT_META_PATH = corpusPath('services/locales/blog-meta-it.ts');",
+    ]);
+    expect(source).toContain('export const EVERGREEN_REJECTED_SCHEMA_VERSION');
+    expect(source).toContain('function completeProvenance');
+    expect(source).toContain('TOPIC_GATE_URL_TTL_MS');
+    expect(source).toContain('EVERGREEN_REJECTED_MAX_IDS');
+    expect(source).toContain('invalid: true');
   });
 });
 

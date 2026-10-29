@@ -802,24 +802,25 @@ diff --git a/generator/scripts/lib/article-topic-selector.mjs b/generator/script
 index 7ccfe25..3c3b0ff 100644
 --- a/generator/scripts/lib/article-topic-selector.mjs
 +++ b/generator/scripts/lib/article-topic-selector.mjs
-@@ -38,6 +38,7 @@ import {
+@@ -38,7 +38,8 @@ import {
  } from './cluster-classifier-prompt.mjs';
  import { cascadedScore } from './scoring/cascadedScore.mjs';
  import { computeAdaptiveTopicCandidateDupJaccard } from './scoring/constants.mjs';
 +import { corpusPath } from './corpus-paths.mjs';
+ import { unescapeTsString } from './unescape-ts-string.mjs';
  
  // ── Paths (overridable via opts for tests) ─────────────────────
  export const PERFORMANCE_PATH = 'data/article-performance.json';
-@@ -201,7 +202,7 @@ export function extractItTitlesFromMeta(metaSrc) {
-   return out;
- }
- 
+@@ -218,8 +219,8 @@
+ // The corpus twin rewires this site-local default through `corpusPath()` after
+ // structural transport. Keep the layout choice at one boundary: copying that
+ // corpus import into the site would make this module unloadable, while copying
+ // the site default verbatim into the corpus would make title dedup read the
+ // wrong tree. The explicit argument remains the safe adapter seam for tests
+ // and other repository layouts.
 -export const SITE_IT_META_PATH = 'services/locales/blog-meta-it.ts';
 +export const SITE_IT_META_PATH = corpusPath('services/locales/blog-meta-it.ts');
  export function loadExistingItTitles(metaPath = SITE_IT_META_PATH) {
-   try {
-     if (!existsSync(metaPath)) return [];
-     return extractItTitlesFromMeta(readFileSync(metaPath, 'utf-8'));
 diff --git a/generator/scripts/lib/meta-field-regex.mjs b/generator/scripts/lib/meta-field-regex.mjs
 index b0e31ee..0394c10 100644
 --- a/generator/scripts/lib/meta-field-regex.mjs
