@@ -1,103 +1,22 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-29T09:31:43.332Z",
+  "generatedAt": "2026-10-29T21:26:24.415Z",
   "total": 7,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 42395,
-  "avgDurationMs": 42395,
+  "durationMs": 39386,
+  "avgDurationMs": 39386,
   "durationHistory": [
-    42395
+    39386
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Mechanical Engineer",
-      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
-      "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
-      "applyUrl": "https://legacy.delvi.tech/mechanical-engineer-2/",
-      "company": "Delvitech SA",
-      "companyKey": "delvitech-sa",
-      "companyDomain": "delvi.tech",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Tecnologia & IT",
-      "source": "delvitech-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2025-04-17T07:05:56+00:00",
-      "postedDate": "2025-04-17T07:05:56+00:00",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "contactEmail": "career@delvi.tech",
-      "id": "delvitech-sa-d624f7e54b9b",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-10-28T22:04:20.978Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Software Development and Validation Engineer",
-      "slug": "software-development-and-validation-engineer-delvitech-mendrisio",
-      "url": "https://legacy.delvi.tech/software-development-and-validation-engineer-2/",
-      "applyUrl": "https://legacy.delvi.tech/software-development-and-validation-engineer-2/",
-      "company": "Delvitech SA",
-      "companyKey": "delvitech-sa",
-      "companyDomain": "delvi.tech",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Tecnologia & IT",
-      "source": "delvitech-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2025-04-17T07:18:05+00:00",
-      "postedDate": "2025-04-17T07:18:05+00:00",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "contactEmail": "career@delvi.tech",
-      "id": "delvitech-sa-bfc600631968",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-10-28T22:04:20.978Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Application Engineer",
@@ -387,5 +306,5 @@
       }
     }
   ],
-  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
+  "codeCommit": "dd41de9d382369808ccc4f9d7e26f18a1c4eab8b"
 }

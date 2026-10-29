@@ -1,7 +1,7 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-10-29T09:29:53.052Z",
-  "runId": "40848150114",
+  "assembledAt": "2026-10-29T21:25:18.709Z",
+  "runId": "40956135184",
   "jobs": [
     {
       "id": "selecta-92850fd481d5",
@@ -34,7 +34,7 @@
       "url": "https://careers.selecta.ch/Job/4525",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:42.074Z",
+      "crawledAt": "2026-10-29T21:25:09.164Z",
       "addressLocality": "Basel / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -100,7 +100,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-tessin",
         "en": "service-technician-m-f-d-selecta-tessin",
         "de": "servicetechniker-m-w-d-selecta-region-tessin",
-        "fr": "servicetechniker-m-w-d-selecta-tessin"
+        "fr": "technicien-de-service-m-w-d-selecta-tessin"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -124,7 +124,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:41.932Z",
+      "crawledAt": "2026-10-29T21:25:09.030Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -164,7 +164,8 @@
           "servicetechniker-m-w-d-selecta-tessin"
         ],
         "fr": [
-          "technicien-de-service-h-f-d-selecta-tessin"
+          "technicien-de-service-h-f-d-selecta-tessin",
+          "servicetechniker-m-w-d-selecta-tessin"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:34.123Z",
@@ -213,7 +214,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:41.794Z",
+      "crawledAt": "2026-10-29T21:25:08.894Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -298,7 +299,7 @@
       "url": "https://careers.selecta.ch/Job/4628",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:41.655Z",
+      "crawledAt": "2026-10-29T21:25:08.763Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -354,7 +355,7 @@
         "it": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
         "en": "sales-support-associate-m-w-d-selecta-kirchberg-be-cjdx81",
         "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
-        "fr": "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+        "fr": "collaborateur-trice-au-support-commercial-m-w-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -378,7 +379,7 @@
       "url": "https://careers.selecta.ch/Job/4589",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:41.518Z",
+      "crawledAt": "2026-10-29T21:25:08.616Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -406,7 +407,7 @@
       },
       "previousSlugs": [
         "sales-support-associate-m-w-d-selecta-kirchberg-be",
-        "collaborateur-trice-au-support-commercial-m-w-d-selecta-kirchberg-be"
+        "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -414,7 +415,7 @@
         ],
         "fr": [
           "sales-support-associate-m-w-d-selecta-kirchberg-be",
-          "collaborateur-trice-au-support-commercial-m-w-d-selecta-kirchberg-be"
+          "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
         ]
       },
       "firstSeenAt": "2026-08-24T21:43:13.112Z",
@@ -436,10 +437,10 @@
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -463,7 +464,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:41.376Z",
+      "crawledAt": "2026-10-29T21:25:08.485Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -492,19 +493,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -518,86 +520,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "selecta-031285260b42",
-      "slug": "operatore-automatico-m-f-d-selecta-suhr-reiden",
-      "slugByLocale": {
-        "it": "operatore-automatico-m-f-d-selecta-suhr-reiden",
-        "en": "automatic-operator-m-f-d-selecta-suhr-reiden",
-        "de": "automatenbetreuer-m-w-d-selecta-region-suhr-reiden",
-        "fr": "operateur-automatique-m-f-d-selecta-suhr-reiden"
-      },
-      "company": "Selecta",
-      "companyKey": "selecta",
-      "companyDomain": "selecta.com",
-      "title": "Automatenbetreuer (m/w/d)",
-      "titleByLocale": {
-        "it": "Operatore automatico (m/f/d)",
-        "en": "Automatic operator (m/f/d)",
-        "de": "Automatenbetreuer (m/w/d)",
-        "fr": "Opérateur automatique (m/f/d)"
-      },
-      "description": "Automatenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Suhr / Reiden Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Heissgetränkezonen bei unseren Kunden.\n• Du engagierst dich für die Bedürfnisse der Kunden.\n• Du gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen im Raum Suhr / Reiden sicher. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du verfügst über den Führerausweis Kat. B (Handschaltung) und hast einen guten Orientierungssinn.\n• Du bist flexibel, stressresistent und behältst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
-      "descriptionByLocale": {
-        "it": "Fornitore automatico di servizi (m/f/d) 100% Il Gruppo Selecta, con sede in Svizzera dal 1957, è il fornitore leader in Europa di caffè e soluzioni tecnologiche innovative sul posto di lavoro e negli spazi pubblici. Ogni giorno, serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati: donne che creano milioni di momenti di gioia per i nostri clienti ogni giorno: donne e consumatori: donne. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro Regione Suhr / Reiden Inizio del lavoro immediatamente o con accordo\n• Si prende cura delle nostre zone di bevanda calda con i nostri clienti.\n• Siete impegnati alle esigenze dei clienti.\n• Siete socievoli ed eloquenti ai nostri ospiti.\n• Assicura il servizio di pulizia e riempimento orientato al consumatore delle nostre zone di pausa nella stanza Suhr / Reiden. Formazione\n• Formazione nell'ospitalità o nel commercio al dettaglio (industria alimentare) di vantaggio Profilo\n• Hai la patente di guida Cat. B (cambio manuale) e hai un buon senso di orientamento.\n• Sei flessibile, resistente allo stress e mantenere la calma e la panoramica anche in situazioni frenetiche.\n• Certamente padroneggi la lingua tedesca in parola e scrittura.\n• Buone maniere, un aspetto ben curato e un atteggiamento positivo alla vita sono una questione naturalmente per voi. Applicazione speciale Abbiamo suscitato il vostro interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
-        "en": "Automatic service provider (m/f/d) 100% The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day, we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly qualified, committed and passionate Selecta employees: women who create millions of moments of joy for our customers every day: women and their consumers: women. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Place of work Region Suhr / Reiden Start of work immediately or by agreement Main tasks\n• You look after our hot drink zones with our customers.\n• You are committed to the needs of customers.\n• You are sociable and eloquent to our guests.\n• You ensure the consumer-oriented cleaning and filling service of our break zones in the room Suhr / Reiden. Training\n• Training in the hospitality or retail trade (food industry) of advantage Profile\n• You have the driver's license Cat. B (hand shift) and have a good sense of orientation.\n• You are flexible, resistant to stress and keep calm and overview even in hectic situations.\n• You certainly master the German language in word and writing.\n• Good manners, a well-groomed appearance and a positive attitude to life are a matter of course for you. Special application Have we aroused your interest? Then we would like to meet you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
-        "de": "Automatenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Suhr / Reiden Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Heissgetränkezonen bei unseren Kunden.\n• Du engagierst dich für die Bedürfnisse der Kunden.\n• Du gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen im Raum Suhr / Reiden sicher. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du verfügst über den Führerausweis Kat. B (Handschaltung) und hast einen guten Orientierungssinn.\n• Du bist flexibel, stressresistent und behältst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
-        "fr": "Fournisseur de services automatiques (m/f/d) 100% Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de solutions de café et de technologies alimentaires innovantes sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec un café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 employés hautement qualifiés, engagés et passionnés : des femmes qui créent des millions de moments de joie pour nos clients chaque jour : des femmes et leurs consommateurs : des femmes. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail Région Suhr / Reiden Début du travail immédiatement ou d'un commun accord Principales tâches\n• Vous vous occupez de nos zones de boissons chaudes avec nos clients.\n• Vous êtes déterminé à répondre aux besoins des clients.\n• Vous êtes sociable et éloquent envers nos invités.\n• Vous assurez le service de nettoyage et de remplissage axé sur le consommateur de nos zones de pause dans la chambre Suhr / Reiden. Formation\n• Formation dans l'hôtellerie ou le commerce de détail (industrie alimentaire) d'avantage Profil\n• Vous avez le permis de conduire Cat. B (équipe manuelle) et avez un bon sens de l'orientation.\n• Vous êtes flexible, résistant au stress et gardez le calme et la vue d'ensemble même dans des situations mouvementées.\n• Vous maîtrisez certainement la langue allemande en paroles et en écritures.\n• Les bonnes manières, une apparence soignée et une attitude positive à la vie sont bien sûr une question pour vous. Demande spéciale Avons-nous suscité votre intérêt ? Alors nous aimerions vous rencontrer. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail de carrière Selecta. Aucune demande par courrier électronique ou par la poste ne sera examinée."
-      },
-      "location": "Suhr / Reiden",
-      "canton": "AG",
-      "url": "https://careers.selecta.ch/Job/4604",
-      "source": "Selecta Dedicated Parser (eRecruiter)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:41.240Z",
-      "addressLocality": "Suhr / Reiden",
-      "addressRegion": "AG",
-      "streetAddress": "",
-      "postalCode": "5034",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Assistenza Clienti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Vending / Food & Coffee Tech",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-05-27",
-      "postedDate": "2026-05-27",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.selecta.ch/Job/4604",
-      "department": "",
-      "jobReqId": "4604",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Suhr / Reiden"
-      },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-suhr-reiden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-region-suhr-reiden"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:56:50.146Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -633,7 +555,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:41.098Z",
+      "crawledAt": "2026-10-29T21:25:08.348Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -713,7 +635,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:40.954Z",
+      "crawledAt": "2026-10-29T21:25:08.209Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -796,7 +718,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:40.815Z",
+      "crawledAt": "2026-10-29T21:25:08.073Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "",
@@ -876,7 +798,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:40.667Z",
+      "crawledAt": "2026-10-29T21:25:07.939Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -956,7 +878,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:40.526Z",
+      "crawledAt": "2026-10-29T21:25:07.799Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1036,7 +958,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:40.388Z",
+      "crawledAt": "2026-10-29T21:25:07.665Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1116,7 +1038,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:40.249Z",
+      "crawledAt": "2026-10-29T21:25:07.524Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1204,7 +1126,7 @@
       "url": "https://careers.selecta.ch/Job/4614",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:40.108Z",
+      "crawledAt": "2026-10-29T21:25:07.360Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1292,7 +1214,7 @@
       "url": "https://careers.selecta.ch/Job/4592",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:39.960Z",
+      "crawledAt": "2026-10-29T21:25:07.218Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1377,7 +1299,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:39.822Z",
+      "crawledAt": "2026-10-29T21:25:07.086Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1457,7 +1379,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:39.672Z",
+      "crawledAt": "2026-10-29T21:25:06.944Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1537,7 +1459,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:39.530Z",
+      "crawledAt": "2026-10-29T21:25:06.790Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1617,7 +1539,7 @@
       "url": "https://careers.selecta.ch/Job/4637",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:39.390Z",
+      "crawledAt": "2026-10-29T21:25:06.653Z",
       "addressLocality": "Oberwallis und Berner Oberland",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1703,7 +1625,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:39.251Z",
+      "crawledAt": "2026-10-29T21:25:06.517Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1789,7 +1711,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:29:39.102Z",
+      "crawledAt": "2026-10-29T21:25:06.377Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1837,6 +1759,87 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "selecta-031285260b42",
+      "slug": "operatore-automatico-m-f-d-selecta-suhr-reiden",
+      "slugByLocale": {
+        "it": "operatore-automatico-m-f-d-selecta-suhr-reiden",
+        "en": "automatic-operator-m-f-d-selecta-suhr-reiden",
+        "de": "automatenbetreuer-m-w-d-selecta-region-suhr-reiden",
+        "fr": "operateur-automatique-m-f-d-selecta-suhr-reiden"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Automatenbetreuer (m/w/d)",
+      "titleByLocale": {
+        "it": "Operatore automatico (m/f/d)",
+        "en": "Automatic operator (m/f/d)",
+        "de": "Automatenbetreuer (m/w/d)",
+        "fr": "Opérateur automatique (m/f/d)"
+      },
+      "description": "Automatenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Suhr / Reiden Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Heissgetränkezonen bei unseren Kunden.\n• Du engagierst dich für die Bedürfnisse der Kunden.\n• Du gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen im Raum Suhr / Reiden sicher. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du verfügst über den Führerausweis Kat. B (Handschaltung) und hast einen guten Orientierungssinn.\n• Du bist flexibel, stressresistent und behältst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "it": "Fornitore automatico di servizi (m/f/d) 100% Il Gruppo Selecta, con sede in Svizzera dal 1957, è il fornitore leader in Europa di caffè e soluzioni tecnologiche innovative sul posto di lavoro e negli spazi pubblici. Ogni giorno, serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati: donne che creano milioni di momenti di gioia per i nostri clienti ogni giorno: donne e consumatori: donne. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro Regione Suhr / Reiden Inizio del lavoro immediatamente o con accordo\n• Si prende cura delle nostre zone di bevanda calda con i nostri clienti.\n• Siete impegnati alle esigenze dei clienti.\n• Siete socievoli ed eloquenti ai nostri ospiti.\n• Assicura il servizio di pulizia e riempimento orientato al consumatore delle nostre zone di pausa nella stanza Suhr / Reiden. Formazione\n• Formazione nell'ospitalità o nel commercio al dettaglio (industria alimentare) di vantaggio Profilo\n• Hai la patente di guida Cat. B (cambio manuale) e hai un buon senso di orientamento.\n• Sei flessibile, resistente allo stress e mantenere la calma e la panoramica anche in situazioni frenetiche.\n• Certamente padroneggi la lingua tedesca in parola e scrittura.\n• Buone maniere, un aspetto ben curato e un atteggiamento positivo alla vita sono una questione naturalmente per voi. Applicazione speciale Abbiamo suscitato il vostro interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
+        "en": "Automatic service provider (m/f/d) 100% The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day, we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly qualified, committed and passionate Selecta employees: women who create millions of moments of joy for our customers every day: women and their consumers: women. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Place of work Region Suhr / Reiden Start of work immediately or by agreement Main tasks\n• You look after our hot drink zones with our customers.\n• You are committed to the needs of customers.\n• You are sociable and eloquent to our guests.\n• You ensure the consumer-oriented cleaning and filling service of our break zones in the room Suhr / Reiden. Training\n• Training in the hospitality or retail trade (food industry) of advantage Profile\n• You have the driver's license Cat. B (hand shift) and have a good sense of orientation.\n• You are flexible, resistant to stress and keep calm and overview even in hectic situations.\n• You certainly master the German language in word and writing.\n• Good manners, a well-groomed appearance and a positive attitude to life are a matter of course for you. Special application Have we aroused your interest? Then we would like to meet you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
+        "de": "Automatenbetreuer (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Region Suhr / Reiden Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Heissgetränkezonen bei unseren Kunden.\n• Du engagierst dich für die Bedürfnisse der Kunden.\n• Du gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen im Raum Suhr / Reiden sicher. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du verfügst über den Führerausweis Kat. B (Handschaltung) und hast einen guten Orientierungssinn.\n• Du bist flexibel, stressresistent und behältst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Fournisseur de services automatiques (m/f/d) 100% Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de solutions de café et de technologies alimentaires innovantes sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec un café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 employés hautement qualifiés, engagés et passionnés : des femmes qui créent des millions de moments de joie pour nos clients chaque jour : des femmes et leurs consommateurs : des femmes. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail Région Suhr / Reiden Début du travail immédiatement ou d'un commun accord Principales tâches\n• Vous vous occupez de nos zones de boissons chaudes avec nos clients.\n• Vous êtes déterminé à répondre aux besoins des clients.\n• Vous êtes sociable et éloquent envers nos invités.\n• Vous assurez le service de nettoyage et de remplissage axé sur le consommateur de nos zones de pause dans la chambre Suhr / Reiden. Formation\n• Formation dans l'hôtellerie ou le commerce de détail (industrie alimentaire) d'avantage Profil\n• Vous avez le permis de conduire Cat. B (équipe manuelle) et avez un bon sens de l'orientation.\n• Vous êtes flexible, résistant au stress et gardez le calme et la vue d'ensemble même dans des situations mouvementées.\n• Vous maîtrisez certainement la langue allemande en paroles et en écritures.\n• Les bonnes manières, une apparence soignée et une attitude positive à la vie sont bien sûr une question pour vous. Demande spéciale Avons-nous suscité votre intérêt ? Alors nous aimerions vous rencontrer. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail de carrière Selecta. Aucune demande par courrier électronique ou par la poste ne sera examinée."
+      },
+      "location": "Suhr / Reiden",
+      "canton": "AG",
+      "url": "https://careers.selecta.ch/Job/4604",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-29T09:29:41.240Z",
+      "addressLocality": "Suhr / Reiden",
+      "addressRegion": "AG",
+      "streetAddress": "",
+      "postalCode": "5034",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza Clienti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-05-27",
+      "postedDate": "2026-05-27",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.selecta.ch/Job/4604",
+      "department": "",
+      "jobReqId": "4604",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Suhr / Reiden"
+      },
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-region-suhr-reiden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "automatenbetreuer-m-w-d-selecta-region-suhr-reiden"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:56:50.146Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
