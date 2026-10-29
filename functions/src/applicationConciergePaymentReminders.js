@@ -500,6 +500,8 @@ async function processService(db, document, nowMs, newsletterSecret) {
   const claim = await claimReminder(db, document.id, day, nowMs);
   if (!claim.claimed) return { sent: 0, skipped: 1, failed: 0 };
 
+  let deliveryResult = null;
+  let providerCallStarted = false;
   try {
     const email = buildApplicationConciergePaymentReminderEmail({
       day,
@@ -520,6 +522,7 @@ async function processService(db, document, nowMs, newsletterSecret) {
         'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
       },
     };
+    providerCallStarted = true;
     const outcome = await sendEmailCascade([
       { payload, recipient: { email: claim.email }, meta: { orderId: document.id, key: `payment_reminder_${day}` } },
     ], { delayMs: 0 });
@@ -533,10 +536,26 @@ async function processService(db, document, nowMs, newsletterSecret) {
       provider: sent.provider || null,
       messageId: sent.messageId || null,
     };
+    deliveryResult = result;
     await finishReminder(db, document.id, day, result, nowMs);
     return { sent: result.failed ? 0 : 1, skipped: 0, failed: result.failed ? 1 : 0 };
   } catch (error) {
-    await finishReminder(db, document.id, day, { failed: true }, nowMs);
+    const fallbackResult = deliveryResult
+      ? (deliveryResult.failed
+        ? deliveryResult
+        : { ...deliveryResult, failed: false, ambiguous: true })
+      : providerCallStarted
+        ? { ambiguous: true }
+        : { failed: true };
+    try {
+      await finishReminder(db, document.id, day, fallbackResult, nowMs);
+    } catch (recordError) {
+      console.error('[applicationConciergePaymentReminders] delivery state could not be persisted', {
+        serviceId: document.id,
+        day,
+        errorType: recordError instanceof Error ? recordError.name : 'unknown',
+      });
+    }
     console.error('[applicationConciergePaymentReminders] send failed', {
       serviceId: document.id,
       day,
