@@ -587,6 +587,10 @@ export function questionFromLabel(label) {
   return String(label || '').replace(/\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/gi, '').replace(/\s*\*+/g, '').replace(/\s+/g, ' ').trim();
 }
 
+function isExactAvailableFromLabel(label) {
+  return /^available from$/i.test(questionFromLabel(label));
+}
+
 const STREET_ADDRESS_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street)\b/i;
 const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\s+civico|num(?:ero)?\s+civico|civico|hausnummer|num[eé]ro\s+(?:civique|de la rue))\b/i;
 // SuccessFactors (Rolex, 2026-10-07) labels the combined field «Rue et numéro».
@@ -719,7 +723,7 @@ export function questionTopic(label, context = '', metadata = {}) {
   if (SALUTATION_FIELD_RE.test(text) || titleInPersonalDetails) return 'salutation';
   if (PREFERRED_WORKLOAD_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'preferred_workload';
   if (NOTICE_PERIOD_QUESTION_RE.test(text)) return 'notice_period';
-  if (START_DATE_QUESTION_RE.test(text)) return CONTEXTUAL_START_DATE_LABEL_RE.test(text) ? 'start_date_contextual' : 'start_date';
+  if (isExactAvailableFromLabel(text) || START_DATE_QUESTION_RE.test(text)) return CONTEXTUAL_START_DATE_LABEL_RE.test(text) ? 'start_date_contextual' : 'start_date';
   if (AVAILABILITY_QUESTION_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'availability';
   if (CRIMINAL_RECORD_QUESTION_RE.test(text)) {
     return CRIMINAL_CERTIFICATE_QUESTION_RE.test(text) ? 'criminal_record_certificate' : 'criminal_record_status';
@@ -1142,6 +1146,8 @@ function isNoLanguageAnswer(value) {
 }
 const FIRST_NAME_FIELD_RE = /\b(?:first name|given name|forename|vorname|pr[ée]nom|nome|nombre)\b/i;
 const LAST_NAME_FIELD_RE = /\b(?:last name|surname|family name|nachname|nom de famille|cognome|apellido)\b/i;
+const BARE_FIRST_NAME_FIELD_RE = /^first$/i;
+const BARE_LAST_NAME_FIELD_RE = /^last$/i;
 const FULL_NAME_FIELD_RE = /^\s*(?:full name|complete name|vollst[äa]ndiger name|nome completo|nom complet)\s*$/i;
 const NON_CANDIDATE_NAME_RE = /\b(?:company|employer|organisation|organization|school|institution|university|azienda|datore|scuola|istituto|universit|entreprise|employeur|école|arbeitgeber|unternehmen|firma|reference|referee|emergency|contact person|supervisor|manager|recruiter|interviewer)\b/i;
 const AVAILABILITY_FIELD_RE = /availability|available for work|available to start|when can you start|earliest (?:possible )?start|possible start date|date you can start|starting date|data di inizio|data di assunzione|eintrittsdatum|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée]/i;
@@ -1370,7 +1376,7 @@ export function candidateAnswerForField(candidate, field) {
       if (other) return { value: other.label, source: 'answers' };
     }
     if (['birth_date', 'nationality', 'start_date', 'start_date_contextual', 'availability', 'preferred_workload', 'criminal_record_certificate', 'criminal_record_status'].includes(topic)
-      || topic.startsWith('salary_expectation:') || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
+      || topic.startsWith('salary_expectation:') || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || isExactAvailableFromLabel(field?.label) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
       const value = ['start_date', 'start_date_contextual', 'availability'].includes(topic) ? normalizeDateAnswer(field, previous)
         : field?.options?.length ? optionForAnswer(field, previous) : previous;
       return value ? { value, source: 'answers' } : null;
@@ -1381,8 +1387,8 @@ export function candidateAnswerForField(candidate, field) {
   const identity = candidate?.identity || {};
   const otherPersonField = NON_CANDIDATE_NAME_RE.test(`${label} ${field?.context || ''}`);
   let identityValue = '';
-  if (FIRST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.firstName || '';
-  else if (LAST_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.lastName || '';
+  if ((FIRST_NAME_FIELD_RE.test(label) || BARE_FIRST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.firstName || '';
+  else if ((LAST_NAME_FIELD_RE.test(label) || BARE_LAST_NAME_FIELD_RE.test(questionFromLabel(label))) && !otherPersonField) identityValue = identity.lastName || '';
   else if (FULL_NAME_FIELD_RE.test(label) && !otherPersonField) identityValue = identity.fullName || '';
   else if (IDENTITY_EMAIL_RE.test(label) && !EMAIL_CONFIRMATION_RE.test(label) && !otherPersonField) identityValue = identity.email || '';
   else if (PHONE_CODE_FIELD_RE.test(label) && !PHONE_COUNTRY_CODE_LABEL_RE.test(label) && !otherPersonField) identityValue = identity.phone || '';
@@ -1399,7 +1405,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = field?.options?.length ? optionForAnswer(field, candidate.profile.nationality) : candidate.profile.nationality;
     if (value) return { value, source: 'profile' };
   }
-  if (topic !== 'start_date_contextual' && AVAILABILITY_FIELD_RE.test(label)) {
+  if (topic !== 'start_date_contextual' && (AVAILABILITY_FIELD_RE.test(label) || isExactAvailableFromLabel(label))) {
     const availability = String(candidate?.answers?.availability || candidate?.profile?.availability || '').trim();
     const value = availability && (field?.options?.length ? optionForAnswer(field, availability) : availability);
     if (value) return { value, source: candidate?.answers?.availability ? 'answers' : 'profile' };

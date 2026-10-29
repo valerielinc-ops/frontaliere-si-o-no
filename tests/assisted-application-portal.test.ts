@@ -909,6 +909,77 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(residenceCountryCode('CH - Switzerland')).toBe('CH');
   });
 
+  it('keeps the Personio application page actionable when identity and availability labels are abbreviated', () => {
+    const page = {
+      buttons: [
+        { text: 'English' },
+        { text: '×' },
+        { text: 'Add file' },
+        { text: 'Submit Application' },
+      ],
+      fields: [
+        { id: 'first', kind: 'text', label: 'First', required: true },
+        { id: 'last', kind: 'text', label: 'Last', required: true },
+        { id: 'email', kind: 'text', label: 'Email* (required)', required: true },
+        { id: 'phone', kind: 'text', label: 'Phone* (required)', required: true },
+        { id: 'birthday', kind: 'text', label: 'Birthday* (required)', required: true },
+        { id: 'salary', kind: 'text', label: 'Expected salary* (required)', required: true },
+        { id: 'available-from', kind: 'text', label: 'Available from* (required)', required: true },
+        { id: 'workload', kind: 'text', label: 'What is your desired workload (in %)?* (required)', required: true },
+        { id: 'english', kind: 'select', label: 'English Fluency?* (required)', required: true },
+        { id: 'german', kind: 'select', label: 'German fluency?* (required)', required: true },
+        { id: 'referral', kind: 'select', label: 'Where did you hear about this job?* (required)', required: true },
+        { id: 'permit', kind: 'select', label: 'Do you currently hold a valid Swiss work permit or Swiss passport that allows you to work in Switzerland without restrictions?* (required)', required: true },
+        { id: 'other-permit', kind: 'text', label: 'For non-EU/EFTA citizens, what kind of work permit do you currently hold for Switzerland?', required: false },
+        { id: 'cv', kind: 'file', label: 'Upload CV', required: false },
+        { id: 'other', kind: 'file', label: 'Upload Other', required: false },
+      ],
+    };
+    expect(hasApplicationSurface(page)).toBe(true);
+    expect(findButton(page.buttons, SUBMIT_RE)).toMatchObject({ text: 'Submit Application' });
+    expect(page.fields.map((field) => field.label)).toEqual([
+      'First',
+      'Last',
+      'Email* (required)',
+      'Phone* (required)',
+      'Birthday* (required)',
+      'Expected salary* (required)',
+      'Available from* (required)',
+      'What is your desired workload (in %)?* (required)',
+      'English Fluency?* (required)',
+      'German fluency?* (required)',
+      'Where did you hear about this job?* (required)',
+      'Do you currently hold a valid Swiss work permit or Swiss passport that allows you to work in Switzerland without restrictions?* (required)',
+      'For non-EU/EFTA citizens, what kind of work permit do you currently hold for Switzerland?',
+      'Upload CV',
+      'Upload Other',
+    ]);
+
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'candidate@example.test', phone: '+41 79 000 00 00' },
+      profile: { availability: '2026-11-15' },
+    });
+    expect(questionTopic('Available from* (required)')).toBe('start_date');
+    expect(questionTopic('Available from')).toBe('start_date');
+    expect(questionTopic('Available from Monday to Friday')).not.toBe('start_date');
+    expect(candidateAnswerForField(
+      { answers: { availability: '2026-11-03' } },
+      { label: 'Available from Monday to Friday', kind: 'text' },
+    )).toBeNull();
+    expect(candidateAnswerForField(candidate, page.fields[0])).toEqual({ value: 'Test', source: 'identity' });
+    expect(candidateAnswerForField(candidate, page.fields[1])).toEqual({ value: 'Candidate', source: 'identity' });
+    expect(candidateAnswerForField(candidate, page.fields[6])).toEqual({ value: '2026-11-15', source: 'profile' });
+    expect(candidateAnswerForField(candidate, { id: 'other-name', kind: 'text', label: 'First name of manager', required: true })).toBeNull();
+
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [page.fields[0], page.fields[1], page.fields[6]], candidate);
+    expect(guarded.actions).toEqual(expect.arrayContaining([
+      expect.objectContaining({ fieldId: 'first', action: 'fill', value: 'Test', source: 'identity' }),
+      expect.objectContaining({ fieldId: 'last', action: 'fill', value: 'Candidate', source: 'identity' }),
+      expect.objectContaining({ fieldId: 'available-from', action: 'fill', value: '2026-11-15', source: 'profile' }),
+    ]));
+    expect(guarded.missingRequired).toEqual([]);
+  });
+
   it('binds a SuccessFactors icon-only CV trigger only to explicit document context', () => {
     const page = {
       fields: [
