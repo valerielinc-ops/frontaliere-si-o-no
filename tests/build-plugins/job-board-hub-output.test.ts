@@ -23,6 +23,7 @@ const hubPath = (locale: typeof locales[number], canton: string) => `${prefix(lo
 const daysAgo = (n: number) => new Date(Date.now() - n * 86400000).toISOString();
 const activeFirstSeenAt = daysAgo(3);
 const description = 'La posizione prevede la collaborazione con il gruppo di lavoro e la gestione delle attività quotidiane. Cerchiamo una persona con esperienza professionale, precisione e capacità organizzative, interessata a crescere in un ambiente qualificato. Offriamo formazione continua, un contratto stabile e condizioni di lavoro trasparenti. Le candidature complete vengono esaminate dal responsabile delle risorse umane.';
+const semanticDescription = `${description}\n\n## Mansioni\n- Gestire il dossier completo\n\n## Requisiti\n- **Laurea riconosciuta**\n\n${'Contenuto originale senza omissioni. '.repeat(30)}Conclusione integrale della descrizione.`;
 let root: string;
 let coverageSidecar: string;
 const previousCoverageOut = process.env.JOBPOSTING_COVERAGE_OUT;
@@ -31,7 +32,9 @@ const jobs = Array.from({ length: 8 }, (_, i) => ({
   titleByLocale: { it: `Specialista amministrativo ${i}`, en: `Administrative specialist ${i}`, de: `Verwaltungsspezialist ${i}`, fr: `Spécialiste administratif ${i}` },
   company: 'Audit Example SA', companyKey: 'audit-example', canton: i < 6 ? 'ZH' : 'TI',
   location: i < 6 ? 'Zürich' : 'Lugano', addressLocality: i < 6 ? 'Zürich' : 'Lugano',
-  description, descriptionByLocale: Object.fromEntries(locales.map((locale) => [locale, description])),
+  description: semanticDescription, descriptionByLocale: Object.fromEntries(locales.map((locale) => [locale, semanticDescription])),
+  previousSlugs: i === 0 ? ['old-audit-position'] : [],
+  requirements: ['IT', 'Go', ...Array.from({ length: 15 }, (_, item) => `Requisito originale ${item}`)],
   postingDateSource: i === 1 ? undefined : 'reported', datePosted: daysAgo(2), postedDate: daysAgo(2), crawledAt: daysAgo(1),
   tags: i === 4 ? ['infermiere'] : [],
   employmentType: 'FULL_TIME', contract: 'full-time', salaryMin: 70000, salaryMax: 90000,
@@ -125,6 +128,39 @@ function allTypes(value: any): string[] {
 }
 
 describe('job-board emitted output', () => {
+  it.each(locales)('emits full active, expired and previous-slug details with complete SEO in %s', (locale) => {
+    const activePath = `${hubPath(locale, 'ZH')}audit-position-0/`;
+    const expiredPath = `${hubPath(locale, 'TI')}archived-audit-position/`;
+    const aliasPath = `${hubPath(locale, 'ZH')}old-audit-position/`;
+    for (const route of [activePath, expiredPath, aliasPath]) {
+      const doc = htmlDoc(route);
+      expect(doc.querySelectorAll('h1'), route).toHaveLength(1);
+      expect(doc.querySelector('[data-job-description-full]')?.textContent, route).toContain('Conclusione integrale della descrizione.');
+      expect(doc.querySelector('[data-job-description-full] ul li')?.textContent, route).toBe('Gestire il dossier completo');
+      expect(doc.querySelector('[data-job-description-full] strong')?.textContent, route).toBe('Laurea riconosciuta');
+      expect(doc.querySelector('#job-auth-gate, [data-job-description-preview]'), route).toBeNull();
+      expect(doc.body.textContent).toContain('Requisito originale 14');
+      expect([...doc.querySelectorAll('li')].some((item) => item.textContent?.trim() === 'Go')).toBe(true);
+      for (const name of ['description', 'robots', 'twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']) {
+        expect(doc.querySelector(`meta[name="${name}"]`)?.getAttribute('content'), `${route} ${name}`).toBeTruthy();
+      }
+      for (const name of ['og:title', 'og:description', 'og:url', 'og:image', 'og:locale', 'og:type']) {
+        expect(doc.querySelector(`meta[property="${name}"]`)?.getAttribute('content'), `${route} ${name}`).toBeTruthy();
+      }
+      expect(doc.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${route === aliasPath ? activePath : route}`);
+      expect(doc.querySelector('link[rel="alternate"][hreflang]')).not.toBeNull();
+      const entities = structured(doc);
+      const posting = entities.find((value) => value['@type'] === 'JobPosting');
+      expect(posting, route).toBeTruthy();
+      expect(posting.description.length).toBeGreaterThan(220);
+      for (const key of ['title', 'datePosted', 'hiringOrganization', 'employmentType', 'baseSalary', 'jobLocation', 'validThrough']) expect(posting[key], `${route} ${key}`).toBeTruthy();
+      expect(posting.jobLocation.address.postalCode).toBeTruthy();
+      expect(posting.jobLocation.address.streetAddress).toBeTruthy();
+      expect(entities.some((value) => value['@type'] === 'BreadcrumbList')).toBe(true);
+      if (route === expiredPath) expect(Date.parse(posting.validThrough)).toBeLessThan(Date.now());
+    }
+  });
+
   it.each([
     ['it', 'Pagina generata', 'Aggiornato'],
     ['en', 'Page generated', 'Updated'],
@@ -296,8 +332,8 @@ describe('job-board emitted output', () => {
       expect(posting?.datePosted).toBe(jobs[1].crawledAt);
       expect(document.querySelector('h1')?.textContent).toBeTruthy();
       expect(structured(document).some((entry) => entry['@type'] === 'FAQPage')).toBe(true);
-      expect(document.querySelector('a.mab-cta')?.getAttribute('href')).toBe('#job-auth-gate');
-      expect(document.querySelector('#job-auth-gate')?.textContent?.trim()).toBeTruthy();
+      expect(document.querySelector('a.mab-cta')?.getAttribute('href')).toMatch(/^https?:\/\//);
+      expect(document.querySelector('#job-auth-gate')).toBeNull();
     }
   });
 
@@ -335,8 +371,8 @@ describe('job-board emitted output', () => {
       expect(document.body.textContent).toContain('La posizione prevede');
       const applicationHref = document.querySelector('a.mab-cta')?.getAttribute('href');
       expect(applicationHref).toBeTruthy();
-      expect(applicationHref).toBe('#job-auth-gate');
-      expect(document.querySelector(applicationHref!)?.textContent?.trim()).toBeTruthy();
+      expect(applicationHref).toMatch(/^https?:\/\//);
+      expect(document.querySelector('#job-auth-gate')).toBeNull();
       const seed = [...document.scripts].find((script) => script.textContent?.includes('window.__JOB_SEED__'));
       expect(seed?.textContent).toContain('https://example.test/careers/0/');
     }
@@ -380,8 +416,8 @@ describe('job-board emitted output', () => {
       if (['archived-short-description', 'archived-markup-short'].includes(slug)) expect(posting.description).toContain('Reparto dati.');
       if (slug === 'archived-medium-description') expect(posting.description).toContain('Esperienza in analisi dati e report.');
       if (['archived-sparse', 'archived-short-description', 'archived-medium-description', 'archived-markup-short'].includes(slug)) {
-        const unavailable = { it: 'non è più disponibile', en: 'no longer available', de: 'nicht mehr verfügbar', fr: "n'est plus disponible" };
-        expect(posting.description).toContain(unavailable[locale]);
+        expect(posting.description).toContain('Requisito originale 14');
+        expect(document.querySelector('.ft-expired-status')?.textContent?.trim()).toBeTruthy();
       }
       expect(posting.description).not.toMatch(/Candidatura diretta|Apply directly through|Direkte Bewerbung|Candidature directe/);
       expect(posting.description).not.toContain('source-role-description');

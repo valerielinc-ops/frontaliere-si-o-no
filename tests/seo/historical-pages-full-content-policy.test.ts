@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { jobDescriptionTextToHtml } from '../../build-plugins/shared/jobDescription/toHtml';
+import { renderJobDescriptionContent } from '../../build-plugins/shared/jobDescriptionContent';
 
 const root = path.resolve(__dirname, '../..');
 const policyPath = path.join(root, 'data/url-pruning-approved-patterns.json');
@@ -20,17 +20,18 @@ describe('historical job page content policy', () => {
     expect(configuredHistoricalPatterns).toEqual([]);
   });
 
-  // Since #10937 anonymous static HTML carries the shared description preview
-  // (tests/job-description-preview.test.ts); the archive keeps that section
-  // instead of dropping it, and signed-in readers still get the full text.
-  it('keeps the archived description section through the shared preview gate', () => {
+  // Owner contract 2026-10-29 supersedes the static preview from PR 10937:
+  // every archived detail retains its full semantic source before hydration.
+  it('keeps the archived description complete and ungated in static HTML', () => {
     const source = fs.readFileSync(jobsSeoPluginPath, 'utf8');
     const archivedDescription = `## Mansioni\n\n${'contenuto archiviato '.repeat(180)}\n\nCoda originale oltre il vecchio limite`;
-    const rendered = jobDescriptionTextToHtml(archivedDescription);
+    const rendered = renderJobDescriptionContent(archivedDescription, 'it');
 
-    expect(source).toMatch(/if \(jobDescription && jobDescription\.length > 30\) \{\s*staticBodyParts\.push\(renderJobDescriptionGate\(jobDescription, locale\)\);/);
+    expect(source).toContain('staticBodyParts.push(renderJobDescriptionContent(jobDescription, locale, jobRequirements))');
     expect(source).not.toContain('descText.slice(0, 2000)');
     expect(rendered).toContain('Coda originale oltre il vecchio limite');
+    expect(rendered).toContain('<h2>Mansioni</h2>');
+    expect(rendered).not.toContain('job-auth-gate');
   });
 
   it('does not retain long archived descriptions in the shared HTML LRU', () => {

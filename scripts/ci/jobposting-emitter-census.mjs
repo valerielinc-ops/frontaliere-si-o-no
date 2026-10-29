@@ -10,9 +10,10 @@ import ts from 'typescript';
  * hydrated JobBoard component: it is a public JSON-LD path too, and its
  * source must use the same canonical builder as the static paths. Keeping the
  * runtime entry in this inventory makes that otherwise easy-to-miss path part
- * of the same source contract.
+ * of the same source contract. The archive wrapper is registered as well so
+ * its closed-offer schema remains canonical-builder-backed.
  */
-export const JOBPOSTING_EMITTER_MANIFEST_VERSION = 2;
+export const JOBPOSTING_EMITTER_MANIFEST_VERSION = 3;
 
 export const JOBPOSTING_LOCALE_PREFIXES = Object.freeze({
   it: '/',
@@ -48,6 +49,13 @@ export const JOBPOSTING_EMITTER_MANIFEST = Object.freeze({
       'build-plugins/jobsSeoPagesPlugin.ts',
       ['buildJobPostingSchema', 'buildJobListEntry'],
       ['active', 'expired', 'list', 'hub'],
+      'static',
+    ),
+    emitter(
+      'archived-job-posting',
+      'build-plugins/shared/archivedJobPosting.ts',
+      ['buildJobPostingSchema'],
+      ['expired'],
       'static',
     ),
     emitter(

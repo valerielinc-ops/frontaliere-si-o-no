@@ -1,8 +1,10 @@
+import { buildBridgeThinHtml } from '../build-plugins/shared/bridgeThinShell';
+import { buildSoftLandingThinHtml } from '../build-plugins/shared/softLandingThinShell';
 // @vitest-environment jsdom
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { jobDescriptionPreview, JOB_DESCRIPTION_PREVIEW_LENGTH } from '../services/jobs/descriptionPreview';
-import { renderJobDescriptionGate } from '../build-plugins/shared/jobDescriptionGate';
+import { renderJobDescriptionContent } from '../build-plugins/shared/jobDescriptionContent';
 
 const body = 'La seguente posizione è rivolta ai candidati per uno Stage servizio infermieristico. '.repeat(20);
 const privateTail = 'Requisiti necessari: iscrizione SUPSI o SSSCI.';
@@ -22,24 +24,35 @@ describe('anonymous job description budget', () => {
     expect(jobDescriptionPreview('')).toBe('');
     expect(jobDescriptionPreview('<script>alert(1)</script>Descrizione')).toBe('Descrizione');
   });
-  it.each(['it', 'en', 'de', 'fr'] as const)('emits the same limited preview in static %s pages, without a hidden full-body copy', (locale) => {
-    const html = renderJobDescriptionGate(body + privateTail, locale);
+  it.each(['it', 'en', 'de', 'fr'] as const)('keeps the entire static %s description, with semantic markup and no access gate', (locale) => {
+    const html = renderJobDescriptionContent(`## Mansioni\n${body}\n\n## Requisiti\n- ${privateTail}\n- **Esperienza clinica**`, locale);
     document.body.innerHTML = html;
-    const preview = document.querySelector('[data-job-description-preview]');
-    expect(preview?.textContent).toBe(jobDescriptionPreview(body + privateTail));
-    expect(document.querySelector('#job-auth-gate')?.textContent).toBeTruthy();
-    expect(html).not.toContain(privateTail);
+    expect(document.querySelector('[data-job-description-full]')?.textContent).toContain(privateTail);
+    expect(document.querySelectorAll('h2').length).toBeGreaterThanOrEqual(2);
+    expect(document.querySelector('li')?.textContent).toContain(privateTail);
+    expect(document.querySelector('strong')?.textContent).toBe('Esperienza clinica');
+    expect(document.querySelector('#job-auth-gate')).toBeNull();
+    expect(document.querySelector('[data-job-description-preview]')).toBeNull();
   });
-  it('uses the gate in active, expired and historical static emitters and both mobile action paths', () => {
+  it('sanitizes full ATS HTML without losing its tail or introducing another H1', () => {
+    document.body.innerHTML = renderJobDescriptionContent(`<h1>Mansioni</h1><p>${body}</p><ul><li>${privateTail}</li></ul><img src=x onerror=alert(1)><script>alert(1)</script>`, 'it');
+    expect(document.querySelector('h1')).toBeNull();
+    expect(document.querySelector('script, [onerror]')).toBeNull();
+    expect(document.querySelector('li')?.textContent).toContain(privateTail);
+  });
+  it('protects full source content even if an alias or archive is offered to the thinning helpers', () => {
+    const content = renderJobDescriptionContent(`${body}${privateTail}`, 'it');
+    const page = `<html><head></head><body><main class="seo-static-content"><article class="ft-static-article"><h1>Offerta originale</h1>${content}</article></main></body></html>`;
+    expect(buildBridgeThinHtml(page, 'current-job', 'it')).toBe(page);
+    expect(buildSoftLandingThinHtml(page, 'it')).toBe(page);
+  });
+  it('uses the complete renderer in all static detail writers and keeps application links functional', () => {
     const source = readFileSync('build-plugins/jobsSeoPagesPlugin.ts', 'utf8');
-    expect(source).toContain('renderJobDescriptionGate(localizedDescriptionRaw, locale)');
-    expect(source).toContain('renderJobDescriptionGate(jobDescription, locale)');
-    expect(source).toContain('renderJobDescriptionGate(description, locale)');
-    expect(source.match(/referralUrl: \(\) => '#job-auth-gate'/g)).toHaveLength(2);
-    const template = source.slice(source.indexOf('<main class="seo-static-content static-job-page">'), source.indexOf('const cSlugBanner'));
-    expect(template).not.toContain('${summaryHtml}');
-    expect(template).not.toContain('${timelineHtml');
-    expect(template).not.toContain('renderHighlightsChips');
-    expect(template).toContain('canonicalKeywords: []');
+    expect(source).toContain('renderJobDescriptionContent(localizedDescriptionRaw, locale, fullRequirements)');
+    expect(source).toContain('renderJobDescriptionContent(jobDescription, locale, jobRequirements)');
+    expect(source).toContain('renderJobDescriptionContent(description, locale, archive?.requirements || [])');
+    expect(source).not.toContain("'#job-auth-gate'");
+    expect(source).not.toContain('buildBridgeThinHtml(');
+    expect(source).toContain("hasRealTitle ? 'full' : __slDecision.action");
   });
 });

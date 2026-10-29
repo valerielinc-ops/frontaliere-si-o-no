@@ -1,3 +1,4 @@
+import { buildJobPostingEditorialFields } from './jobs/jobPostingEditorial';
 import { resolveAuthorProfileMetadata } from './seo/authorProfileMetadata';
 import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import { buildCorrezioniSeo } from './seo/seo-correzioni';
@@ -527,6 +528,7 @@ async function resolveJobSeoBySlug(
  url: canonicalUrl,
  baseUrl: BASE_URL,
  });
+ if (!canonicalSchema) return null;
  // Job-specific FAQPage (build-plugins/shared/jobPostingFaq.ts) — same
  // deterministic template the static SSG plugin uses, so the client-hydrated
  // SPA content matches the prerendered HTML for a client-side navigation to
@@ -576,7 +578,7 @@ async function resolveJobSeoBySlug(
  description: canonicalSchema.description,
  keywords: localizedJobKeywords(locale, canonicalSchema.title, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
- structuredData: [canonicalSchema, faqPageSchema].filter((schema) => schema !== null),
+ structuredData: [{ ...canonicalSchema, ...buildJobPostingEditorialFields(canonicalInput.description || '', job.requirementsByLocale?.[locale] || job.requirements || [], locale) }, faqPageSchema].filter((schema) => schema !== null),
  };
 }
 
@@ -2169,6 +2171,14 @@ export async function updateMetaTags(section: string): Promise<void> {
  const el = document.querySelector(`meta[property="${prop}"]`);
  if (el) el.remove();
  });
+ }
+
+ if (isJobDetailPage) {
+ updateOrCreateMetaTag('name', 'twitter:card', 'summary_large_image');
+ updateOrCreateMetaTag('name', 'twitter:title', metaOgTitle);
+ updateOrCreateMetaTag('name', 'twitter:description', metaOgDescription);
+ const jobOgImage = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+ if (jobOgImage) updateOrCreateMetaTag('name', 'twitter:image', jobOgImage);
  }
 
  // Update canonical URL (uses current locale path)

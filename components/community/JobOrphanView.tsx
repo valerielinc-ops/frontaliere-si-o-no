@@ -1,3 +1,5 @@
+import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
+import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 /**
  * JobOrphanView — view for slugs with no metadata in expired-jobs.json.
  *
@@ -150,7 +152,12 @@ function parseSlug(slug: string): SlugParts {
 function getStaticBodyHtml(): string | null {
  try {
  const html = (window as unknown as Record<string, unknown>).__STATIC_BODY_HTML__;
- if (typeof html === 'string' && html.length > 0) return html;
+ if (typeof html === 'string' && html.length > 0) {
+ const body = new DOMParser().parseFromString(html, 'text/html').body;
+ // The React identity card already owns the page H1.
+ body.querySelectorAll('h1').forEach((heading) => heading.remove());
+ return body.innerHTML;
+ }
  } catch { /* SSR or missing */ }
  return null;
 }
@@ -191,13 +198,22 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse();
 
  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
- const alreadySignedIn = hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
+ const isCrawlerVisitor = isCrawlerVisitorAgent(navigator.userAgent || '');
+ const alreadySignedIn = isCrawlerVisitor || hasAccessProp || !!readBestEffortLocalStorage(JOB_EMAIL_ACCESS_KEY);
   const jobGate = useJobGateExperiment(shouldBypassJobGateExperiment() || alreadySignedIn);
   const gateVariant = jobGate.enrolled ? jobGate.arm : headlineVariant;
   const gateExperimentId = jobGate.enrolled ? JOBGATE_EXPERIMENT_ID : AUTHGATE_HEADLINE_EXPERIMENT_ID;
   const gateSkin = jobGateSkin(jobGate.arm);
 
  const [staticBodyHtml] = useState(() => getStaticBodyHtml());
+ const descriptionPreview = useMemo(() => {
+  if (!staticBodyHtml) return '';
+  const body = new DOMParser().parseFromString(staticBodyHtml, 'text/html').body;
+  const source = body.querySelector('[data-job-description-full]');
+  // Exclude the renderer's translated label from the anonymous text budget.
+  source?.querySelector('h2')?.remove();
+  return jobDescriptionPreview(source?.textContent || '');
+ }, [staticBodyHtml]);
 
  const prefix = PREFIX_BY_LOCALE[locale] ?? '';
  const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
@@ -672,7 +688,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  );
 
  const staticContentDetails = staticBodyHtml && (
- <details className="group rounded-xl border border-edge bg-surface/80 overflow-hidden">
+ <details open={isCrawlerVisitor} className="group rounded-xl border border-edge bg-surface/80 overflow-hidden">
  <summary className="px-5 py-3.5 text-sm font-semibold text-body cursor-pointer select-none hover:bg-surface-raised/60 transition-colors list-none flex items-center gap-2">
  <Search size={14} className="text-muted" />
  {locale === 'it' ? 'Informazioni per frontalieri' : locale === 'de' ? 'Informationen für Grenzgänger' : locale === 'fr' ? 'Informations pour frontaliers' : 'Information for cross-border workers'}
@@ -760,6 +776,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  {/* Job header card */}
  {jobHeaderCard}
+ {descriptionPreview && <p data-job-description-preview className="text-sm leading-relaxed text-body">{descriptionPreview}</p>}
+
 
  {/* Company banner */}
  {companyBanner}
@@ -930,8 +948,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  />
  )}
 
- {/* Static content */}
- {staticContentDetails}
+ {/* The complete static source is rendered only in the unlocked branch. */}
 
  {/* Job alert opt-in */}
  <JobAlertSection initialKeyword={slugParts.title || ''} />

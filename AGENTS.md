@@ -164,6 +164,8 @@ CI required job `tests.yml` (`vitest (unit + integration)`): `npm ci`, source gu
 
 ## Static SEO Pages
 
+- Job detail owner contract: `docs/JOB-DETAIL-RENDERING-CONTRACT.md` (#10937 superseded).
+
 - Static SSG page emit via build plugin DEVE usare `build-plugins/shared/seoPageShell.ts` → `buildSeoPageHtml`.
 - Static plugin contract: `apply: 'build'`, `enforce: 'post'`, emit in `closeBundle()`, pass `distDir`.
 - **Ogni loop SSG canton-scoped con floor/soglia** (`continue` su below-floor/zero-match) DEVE, STESSA PR: (1) emettere bridge page `noindex,follow` alla stessa URL invece di skip silenzioso (pattern `renderBelowFloorBridge`/`emitEditorialBelowFloorBridge`/`emitCantonHubBelowFloorBridge`, PR #3594); (2) aggiungere self-map in `build-plugins/searchConsoleCompat.ts:resolveSearchConsoleCompatTarget` (modello `isProfessionCantonPath`) — altrimenti uno snapshot 404 GSC resta non-risolvibile anche a pagina live. Nuovo self-map → precompila slug in `Set` a module-load (mai ricostruire Set per-chiamata nel loop: rompe `tests/search-console-compat.test.ts` su 150k+ path). Gate deterministico (`scripts/ci/check-below-floor-bridge.mjs`, ADVISORY in `pr-body-contract.yml`, euristico regex non AST — candidato ≠ verdetto). Dettaglio: `docs/AGENTS-HISTORY.md#below-floor-bridge-self-map`.

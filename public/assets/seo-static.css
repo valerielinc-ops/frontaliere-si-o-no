@@ -139,6 +139,8 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
   margin-bottom: 9px;
   background: var(--color-surface);
 }
+.section h2,
+.section h3,
 .section h4 {
   font-size: 14px;
   text-transform: uppercase;
@@ -609,31 +611,20 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
   margin-top: 16px;
 }
 .ft-expired-description:empty { display: none; }
-.ft-expired-description [data-job-description-preview] {
+.ft-expired-description [data-job-description-full] {
   margin: 0;
   padding: 16px 18px;
   border: 1px solid var(--color-edge);
   border-radius: 12px;
   background: var(--color-surface-alt);
 }
-.ft-expired-description [data-job-description-preview] p {
+.ft-expired-description [data-job-description-full] p {
   max-width: 68ch;
   margin: 0;
   color: var(--color-body);
   font-size: 1rem;
   line-height: 1.65;
 }
-.ft-expired-description #job-auth-gate {
-  margin: 16px 0 0;
-  padding: 18px 20px;
-  border: 1px solid var(--color-accent-border);
-  border-radius: 12px;
-  background: var(--color-accent-subtle);
-  color: var(--color-body);
-  font-size: 1rem;
-  line-height: 1.55;
-}
-.ft-expired-description #job-auth-gate p { margin: 0; }
 .ft-expired-shell > section {
   margin: 28px 0 0;
   padding-top: 24px;

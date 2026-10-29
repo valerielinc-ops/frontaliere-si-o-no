@@ -239,6 +239,8 @@ function buildThinArticle(
  * @returns         Thin HTML (~3-5 KB instead of ~10-15 KB).
  */
 export function buildSoftLandingThinHtml(fullHtml: string, locale: string): string {
+  // Owner contract: a complete job detail must survive every thinning pass.
+  if (fullHtml.includes('data-job-description-full')) return fullHtml;
   // Real per-URL facts (issue #4399 sibling) — the expired job's own
   // employer/location, pulled from the JobPosting JSON-LD before the
   // article body (which may or may not have repeated them as prose) is
@@ -316,6 +318,8 @@ export function buildSoftLandingThinHtml(fullHtml: string, locale: string): stri
  * bug it is meant to catch.
  */
 export function buildSoftLandingThinHtmlReference(fullHtml: string, locale: string): string {
+  // Owner contract: a complete job detail must survive every thinning pass.
+  if (fullHtml.includes('data-job-description-full')) return fullHtml;
   const thinArticle = buildThinArticle(
     extractH1Reference(fullHtml),
     extractJobPostingFactsReference(fullHtml).company,

@@ -20,7 +20,10 @@ export interface ExpiredJob {
  companyKey?: string;
  location?: string;
  addressLocality?: string;
+ description?: string;
  descriptionByLocale?: Record<string, string>;
+ requirements?: string[];
+ requirementsByLocale?: Record<string, string[]>;
  slugByLocale?: Record<string, string>;
  previousSlugs?: string[];
  previousSlugsByLocale?: Record<string, string[]>;

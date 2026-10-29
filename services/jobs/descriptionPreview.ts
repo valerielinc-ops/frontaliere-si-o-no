@@ -2,7 +2,7 @@ import { decodeHtmlText } from '../../packages/articles/engine/shared/htmlEntiti
 import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import { stripMarkdownMarkers } from './plainTextMarkdown';
 
-/** One preview budget across active, archived and pre-hydration job pages. */
+/** Hydrated anonymous-human preview only. Static HTML and crawlers always get the full source. */
 export const JOB_DESCRIPTION_PREVIEW_LENGTH = 220;
 
 export function jobDescriptionPlainText(description: string): string {

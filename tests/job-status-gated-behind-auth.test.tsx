@@ -1,3 +1,4 @@
+import JobBridgeView from '@/components/community/JobBridgeView';
 /**
  * Offer status is gated behind the auth-gate.
  *
@@ -53,6 +54,7 @@ describe('Offer status gated behind auth (logged-out)', () => {
  afterEach(() => {
   cleanup();
   localStorage.clear();
+  vi.restoreAllMocks();
  });
 
  it('JobExpiredView hides "no longer active" banner and expiry until sign-in', () => {
@@ -86,6 +88,62 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.queryByText(new RegExp(tail))).not.toBeInTheDocument();
   rerender(<JobExpiredView job={job} hasAccess={true} />);
   expect(screen.getByText(new RegExp(tail))).toBeInTheDocument();
+ });
+
+ it('preserves every separate archived requirement only after access', () => {
+  const requirements = ['IT', 'Go', ...Array.from({ length: 16 }, (_, i) => `Competenza archiviata ${i}`)];
+  const job = { ...expiredJob, descriptionByLocale: {}, description: 'Descrizione originale senza traduzioni.', requirements };
+  const { container, rerender } = render(<JobExpiredView job={job} hasAccess={false} />);
+  expect(container.textContent).not.toContain('Competenza archiviata 15');
+  rerender(<JobExpiredView job={job} hasAccess />);
+  expect(container.textContent).toContain('Descrizione originale senza traduzioni.');
+  expect(container.textContent).toContain('Competenza archiviata 15');
+  expect([...container.querySelectorAll('li')].some((item) => item.textContent?.trim() === 'Go')).toBe(true);
+ });
+
+ it.each(['Googlebot', 'Google-InspectionTool/1.0', 'GoogleOther', 'bingbot', 'SemrushBot', 'AhrefsBot'])('shows complete semantic expired content without a gate to %s', (userAgent) => {
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue(userAgent);
+  const prefix = 'Descrizione del lavoro in ambito sanitario. '.repeat(20);
+  const job = { ...expiredJob, descriptionByLocale: { it: `## Requisiti\n${prefix}\n\n- Laurea SUPSI richiesta` } };
+  const { container } = render(<JobExpiredView job={job} hasAccess={false} />);
+  expect(container.querySelector('#job-auth-gate')).toBeNull();
+  expect(screen.getByText('Laurea SUPSI richiesta')).toBeInTheDocument();
+  expect(screen.getByText(/non è più attiva/i)).toBeInTheDocument();
+ });
+
+ it('does not republish a full static orphan description below the human gate', () => {
+  const seeded = window as unknown as { __STATIC_BODY_HTML__?: string };
+  const tail = 'Requisito originale oltre il budget pubblico';
+  seeded.__STATIC_BODY_HTML__ = `<section data-job-description-full><h2>Descrizione completa</h2><p>${'Descrizione storica completa. '.repeat(30)}${tail}</p></section>`;
+  try {
+   const { container, rerender } = render(<JobOrphanView slug="software-engineer-acme-sa-lugano" hasAccess={false} />);
+   expect(container.querySelector('#job-auth-gate')).not.toBeNull();
+   expect(container.querySelector('[data-job-description-preview]')?.textContent?.length).toBeLessThanOrEqual(221);
+   expect(container.textContent).not.toContain(tail);
+   rerender(<JobOrphanView slug="software-engineer-acme-sa-lugano" hasAccess />);
+   expect(container.querySelector('#job-auth-gate')).toBeNull();
+   expect(container.textContent).toContain(tail);
+  } finally { delete seeded.__STATIC_BODY_HTML__; }
+ });
+
+ it('shows the historical body to a crawler without adding a duplicate H1', () => {
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('Googlebot');
+  const seeded = window as unknown as { __STATIC_BODY_HTML__?: string };
+  seeded.__STATIC_BODY_HTML__ = '<h1>Original identity</h1><section><h2>Dettagli originali</h2><ul><li>Requisiti storici completi</li></ul></section>';
+  try {
+   const { container } = render(<JobOrphanView slug="software-engineer-acme-sa-lugano" hasAccess={false} />);
+   expect(container.querySelector('#job-auth-gate')).toBeNull();
+   expect(container.querySelectorAll('h1')).toHaveLength(1);
+   expect(screen.getByText('Requisiti storici completi')).toBeInTheDocument();
+   expect(screen.getByText('Requisiti storici completi').closest('details')).toHaveAttribute('open');
+  } finally { delete seeded.__STATIC_BODY_HTML__; }
+ });
+
+ it('keeps the bridge sign-in block away from SEO crawlers', () => {
+  vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('bingbot');
+  const { container } = render(<JobBridgeView targetSlug="current-job" jobData={{ title: 'Original vacancy', company: 'Acme SA' }} hasAccess={false} />);
+  expect(container.querySelector('#job-auth-gate')).toBeNull();
+  expect(screen.getByRole('heading', { level: 1, name: 'Original vacancy' })).toBeInTheDocument();
  });
 
  it('JobOrphanView hides "no longer available" banner until sign-in', () => {

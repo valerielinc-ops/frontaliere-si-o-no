@@ -1,3 +1,4 @@
+import { buildJobPostingEditorialFields } from '../services/jobs/jobPostingEditorial';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { jobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
@@ -9,7 +10,6 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { seededJobMatchesSlug } from '../services/seededExpiredJob';
 import { parseSearchSlugFilter } from '../services/relatedSearchClusters';
 import { parseJobRouteSearchFilter } from '../components/community/JobBoard';
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 
 // Execute the production effect's selected and no-selected-job paths without mounting the
 // whole board or replacing its schema cleanup with a test implementation.
@@ -35,7 +35,7 @@ if (!callback) throw new Error('JobPosting production effect not found');
 const effectCode = ts.transpileModule(`const effect = ${callback.getText(source)}; effect();`, {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
 }).outputText;
-const executeEffect = new Function('document', 'isSeededExpiredDetail', 'selectedJob', 'initialJobSlug', 'searchSlugFilter', 'companySlugFilter', 'locationSlugFilter', 'editorialLandingDescriptor', 'window', 'hasSeededExpiredData', 'bridgeTargetSlug', 'buildJobPath', 'locale', 'sanitizeJobTitle', 'companyLogoUrl', 'resolveJobPostingPostalCode', 'buildJobPostingSchema', 'resolveReportedPostingDate', 'resolveRolloutPostingDate', 'jobDisplayTitle', effectCode);
+const executeEffect = new Function('document', 'isSeededExpiredDetail', 'selectedJob', 'initialJobSlug', 'searchSlugFilter', 'companySlugFilter', 'locationSlugFilter', 'editorialLandingDescriptor', 'window', 'hasSeededExpiredData', 'bridgeTargetSlug', 'buildJobPath', 'locale', 'sanitizeJobTitle', 'companyLogoUrl', 'resolveJobPostingPostalCode', 'buildJobPostingSchema', 'resolveReportedPostingDate', 'resolveRolloutPostingDate', 'jobDisplayTitle', 'buildJobPostingEditorialFields', effectCode);
 if (!locationParser || filterInitializers.size !== 2) throw new Error('Production slug filter declarations not found');
 const filterCode = ts.transpileModule(`${locationParser}
   const useMemo = (read: () => unknown) => read();
@@ -65,21 +65,22 @@ afterEach(() => {
 describe('archived JobPosting hydration and list navigation', () => {
   it.each([undefined, null, 'unknown'] as const)('replaces stale static JobPosting for selected %s while preserving page and FAQ', (postingDateSource) => {
     const date = new Date(Date.now() - 86400000).toISOString();
-    const selected = { id: 'active', slug: 'active', title: 'Infermiere', company: 'Example SA', location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', postingDateSource, datePosted: date, postedDate: date, crawledAt: date, description: 'Assistenza infermieristica ai pazienti nel reparto clinico e collaborazione con il gruppo sanitario.' };
+    const selected = { id: 'active', slug: 'active', title: 'Infermiere', company: 'Example SA', location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', postingDateSource, datePosted: date, postedDate: date, crawledAt: date, validThrough: new Date(Date.now() + 7 * 86400000).toISOString(), requirements: ['Laurea in infermieristica'], description: 'Assistenza infermieristica ai pazienti nel reparto clinico e collaborazione con il gruppo sanitario.' };
     document.head.insertAdjacentHTML('beforeend', '<script id="faq" type="application/ld+json">{"@type":"FAQPage","mainEntity":[]}</script>');
     document.body.innerHTML = '<h1>Infermiere</h1><a href="https://employer.test/apply/">Candidati</a>';
-    const run = (job: typeof selected) => executeEffect(document, false, job, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle);
+    const run = (job: typeof selected) => executeEffect(document, false, job, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields);
     run(selected);
     expect(document.getElementById('archived-posting')).toBeNull();
     const fallback = document.getElementById('jobposting-structured-data');
     expect(fallback).not.toBeNull();
+    const initialSerialized = fallback!.textContent;
     expect(JSON.parse(fallback!.textContent!)['@graph'][0].datePosted).toBe(date);
     expect(document.getElementById('archive-page')).not.toBeNull();
     expect(document.getElementById('faq')).not.toBeNull();
     expect(document.querySelector('h1')?.textContent).toBe('Infermiere');
     expect(document.querySelector('a')?.getAttribute('href')).toBe('https://employer.test/apply/');
     // A subsequent genuine source date restores eligible schema without remounting.
-    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle);
+    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields);
     expect(JSON.parse(document.getElementById('jobposting-structured-data')!.textContent!)['@graph'][0].datePosted).toBe(date);
     run(selected);
     // An active detail always retains JobPosting, even when the source date
@@ -87,7 +88,27 @@ describe('archived JobPosting hydration and list navigation', () => {
     const retained = document.getElementById('jobposting-structured-data');
     expect(retained).not.toBeNull();
     expect(JSON.parse(retained!.textContent!)['@graph'][0].datePosted).toBe(date);
+    expect(retained!.textContent).toBe(initialSerialized);
     expect(document.getElementById('faq')).not.toBeNull();
+  });
+
+  it.each(['title', 'company'] as const)('preserves a null schema-builder result when %s is missing', (field) => {
+    document.head.innerHTML = '';
+    const selected = {
+      id: 'invalid', slug: 'invalid', title: 'Infermiere', company: 'Example SA', location: 'Lugano', canton: 'TI',
+      description: '## Requisiti\n- Laurea in infermieristica e collaborazione con il team sanitario.',
+      requirements: ['Laurea in infermieristica'], [field]: '',
+    };
+    // The current builder supplies mandatory safe defaults. Simulate a null
+    // boundary result without changing that owner policy or emitting an
+    // editorial-only object if the builder rejects a record.
+    const rejectingBuilder = (input: Record<string, unknown>) => {
+      expect(input[field]).toBe('');
+      return null;
+    };
+    executeEffect(document, false, selected, 'invalid', null, null, null, null, window, () => false, null, () => '/lavoro/invalid/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, rejectingBuilder, resolveReportedPostingDate, resolveRolloutPostingDate, jobDisplayTitle, buildJobPostingEditorialFields);
+    expect(document.getElementById('jobposting-structured-data')).toBeNull();
+    expect(document.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(0);
   });
 
   it.each<[string, string | null]>([
