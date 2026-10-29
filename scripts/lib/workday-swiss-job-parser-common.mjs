@@ -117,14 +117,14 @@ export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swi
 
 /**
  * Country-facet names seen on the fleet's Workday tenants, the closed list the
- * factory may fall back to when a tenant rejects the default key with HTTP 400
- * and its board summary shows no facet holding the Swiss id. Only facets whose
+ * factory may fall back to when a tenant rejects the default key with HTTP
+ * 400/422 and its board summary shows no facet holding the Swiss id. Only facets whose
  * values are COUNTRIES belong here: the proof reads the same facet's values.
  *
  * `locationMainGroup` is deliberately absent. It is a group of nested facets
  * (`locations`, `primaryLocation`, `locationCountry`), not a filter key:
  * measured 2026-10-04, `appliedFacets: { locationMainGroup: [<CH id>] }`
- * answers HTTP 400 on Temenos, Lombard Odier, Medbase, Georg Fischer and
+ * answers HTTP 400/422 on Temenos, Lombard Odier, Medbase, Georg Fischer and
  * Medtronic, and the nested `locations` answers 502 to a country id.
  */
 export const WORKDAY_COUNTRY_FACET_PARAMETERS = Object.freeze([
@@ -604,9 +604,9 @@ function detectEmploymentType(timeType = '', title = '') {
  * @param {string[]} [config.locationFilters] Override the Swiss country facet.
  * @param {string} [config.countryFacetParameter='locationCountry'] Name of the
  *   tenant's country/location facet. Most tenants call it `locationCountry`;
- *   some (Imerys, KONE) call it `Country` and answer HTTP 400 to the default
- *   key. Leave it out: when the default is rejected with HTTP 400 the factory
- *   reads the board's facets and picks the country facet itself
+ *   some (Imerys, KONE) call it `Country` and answer HTTP 400/422 to the default
+ *   key. Leave it out: when the default is rejected with either validation
+ *   response, the factory reads the board's facets and picks the country facet itself
  *   (`discoverWorkdayCountryFacet`). Declare it only when that discovery finds
  *   nothing or the wrong facet; a declared key is never second-guessed.
  * @param {boolean} [config.proveSwissAbsentFromLiveBoard=true] Stamp an empty
@@ -705,7 +705,7 @@ export function createWorkdaySwissParser(config) {
     const out = [];
     // Default path applies the canonical Swiss `locationCountry` facet. Some
     // tenants name their country facet differently (`Location`,
-    // `alocationCountry`, …) and reject `locationCountry` with HTTP 400 — for
+    // `alocationCountry`, …) and reject `locationCountry` with HTTP 400/422 — for
     // those fetchAllJobs() first looks for the tenant's own country facet, and
     // only without one refetches the unfiltered board under strict canton
     // inference.
@@ -812,16 +812,18 @@ export function createWorkdaySwissParser(config) {
   }
 
   /**
-   * After the Swiss-faceted query failed: when it was an HTTP 400 on the
-   * default key (the tenant names its country facet differently), read the
-   * unfiltered board's facets and pick the tenant's own country facet. Any
-   * other failure (anti-bot, 5xx, network), a key the parser declared, or a
-   * board that does not name one facet unambiguously → `null`, today's path.
+   * After the Swiss-faceted query failed: when it was an HTTP 400 or 422 on
+   * the default key (the tenant names its country facet differently), read
+   * the unfiltered board's facets and pick the tenant's own country facet.
+   * Workday tenants have returned both statuses for the same invalid facet
+   * payload. Any other failure (anti-bot, 5xx, network), a key the parser
+   * declared, or a board that does not name one facet unambiguously → `null`,
+   * today's path.
    * The summary read here is kept in `boardCache` for the zero proof.
    */
   async function discoverCountryFacetAfterRejection(err, boardCache) {
     if (countryFacetDeclared) return null;
-    if (err instanceof WorkdayAuthError || err?.statusCode !== 400) return null;
+    if (err instanceof WorkdayAuthError || ![400, 422].includes(err?.statusCode)) return null;
     let summary;
     try {
       summary = await fetchWorkdayBoardSummary(API_BASE);

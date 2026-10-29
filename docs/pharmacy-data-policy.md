@@ -38,8 +38,14 @@ aree, ma non autorizza a dichiarare che ogni farmacia dell'area sia presente o
 aggiornata.
 
 Per l'anagrafica completa del Ticino la pipeline usa la lista cantonale PDF
-`Lista_Farmacie.pdf`, che comprende le sedi del cantone anche nel Locarnese. Per
-i turni usa le quattro pagine regionali OFCT più la fonte associativa regionale
+`Lista_Farmacie.pdf`, che comprende le sedi del cantone anche nel Locarnese. Il
+PDF viene richiesto prima sul canale cantonale `www4.ti.ch` e poi sul mirror
+tecnico `m4.ti.ch`; se il documento è temporaneamente irraggiungibile, le
+quattro tabelle anagrafiche OFCT sono una fonte secondaria di recupero per le
+sole regioni che pubblicano una tabella. Le righe OFCT aggiornano un record
+precedente solo dentro un catalogo già completo: non sostituiscono il PDF e non
+possono cancellare o inventare la copertura del Locarnese. Per i turni usa le
+quattro pagine regionali OFCT più la fonte associativa regionale
 `https://www.farmacielocarnese.ch/`, registrata in
 `sources.ticino.regionalSources.locarnese` come `active`, `html-scrape` e `P1D`.
 Il parser Locarnese emette un intervallo soltanto quando Farmacia e Località
@@ -90,9 +96,11 @@ La gerarchia è questa:
 
 ### Ticino (`CH-TI`)
 
-- Fonte primaria per le quattro regioni OFCT e per l'anagrafica compatibile:
+- Fonte live per i turni delle quattro regioni e fonte secondaria di recupero
+  anagrafico:
   [Ordine dei Farmacisti del Cantone Ticino — farmacie di turno](https://www.ofct.ch/farmacieturno/),
-  con pagine regionali HTML server-rendered.
+  con pagine regionali HTML server-rendered. La fonte primaria dell'anagrafica
+  completa resta la lista cantonale PDF.
 - Il sito OFCT dichiara `crawl-delay: 10`; il connettore deve rispettarlo e
   mantenere un User-Agent identificabile.
 - Fonte associativa regionale attiva per gli intervalli del Locarnese:
