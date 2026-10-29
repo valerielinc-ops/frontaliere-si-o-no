@@ -1193,6 +1193,27 @@ function preferHreflangVariant(candidate: ClusterContext, current: ClusterContex
   return candidate.candidate.slug < current.candidate.slug;
 }
 
+/**
+ * Return the source-backed identity shared by one search landing family.
+ *
+ * The candidate slug is the value that was generated for the URL and is also
+ * what the manifest records. `keyword`/`city` are display projections of a
+ * sampled term; punctuation, historical samples, and locale-specific text
+ * can make those projections differ even when the emitted URL family is the
+ * same. Never infer a family from matching jobs or sample ids: those facts are
+ * many-to-many and an ambiguous match would create a one-way hreflang link.
+ */
+export function getRelatedSearchClusterFamilyKey(
+  candidate: Pick<CandidateEntry, 'locale' | 'slug'>,
+): string | null {
+  if (!SUPPORTED_LOCALES.includes(candidate.locale)) return null;
+  const slug = typeof candidate.slug === 'string' ? candidate.slug.trim().toLowerCase() : '';
+  const prefix = `${getSearchSlugPrefix(candidate.locale)}-`;
+  if (!slug.startsWith(prefix)) return null;
+  const core = slug.slice(prefix.length);
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(core) ? core : null;
+}
+
 export interface ClusterContextBuildOptions {
   /** Maximum jobs to retain for this context. */
   readonly maxJobs?: number;
@@ -3659,8 +3680,8 @@ function renderHreflang(
   // lives in ONE place — shared/localeAlternateBlock.ts — because
   // jobsSeoPagesPlugin's three search-landing emitters need the identical
   // rule and a second literal copy is exactly the drift AGENTS.md #6
-  // forbids. The alternates come from `byKeywordCity`, which contains only
-  // self-canonical contexts eligible to carry a reciprocal set.
+  // forbids. The alternates come from the source-backed family map, which
+  // contains only self-canonical, sitemap-eligible contexts.
   const byLocale = new Map(hreflang.map((h) => [h.locale as string, h.url]));
   return buildLocaleAlternateBlock({
     eligibleLocales: byLocale.keys(),
@@ -6082,31 +6103,46 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPathCount} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
       );
 
-      // Group self-canonical pages by (normalized keyword + city) for
-      // cross-locale hreflang lookup. Below-floor contexts render as noindex
-      // bridges canonicalized to their locale hub and deliberately emit no
-      // hreflang; including one here would make every sibling point one-way
-      // at a page that cannot return the alternate.
-      // The composite key is also reused inside the per-cluster render loop
-      // (the `altKey` lookup against `byKeywordCity`), so we cache it onto a
-      // side Map keyed by ctx — `normalizeText` is NFKD + regex per call,
-      // ~180k × 2 calls/page in the render loop = ~360k normalizeText ops we
-      // skip by sharing the result.
-      const __tGroupHreflang = profileStart();
-      const byKeywordCity = new Map<string, Map<Locale, ClusterContext>>();
-      const altKeyByCtx = new Map<ClusterContext, string>();
+      // Decide every context before grouping. The same decision drives the
+      // owner render, the locale-shard sitemap skip, and this reciprocal map;
+      // a noindex or non-canonical variant must never become an hreflang
+      // member and force the manifest pass to strip the whole family.
+      const emissionByCtx = new Map<ClusterContext, ClusterEmissionDecision>();
+      const byClusterFamily = new Map<string, Map<Locale, ClusterContext>>();
+      const familyKeyByCtx = new Map<ClusterContext, string>();
+      const __tClusterDecide = profileStart();
       for (const ctx of contexts) {
-        const key = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
-        altKeyByCtx.set(ctx, key);
+        const emission = decideClusterEmission({
+          ctx,
+          locale: ctx.candidate.locale,
+          enriched: enriched[`${ctx.candidate.locale}::${ctx.candidate.slug}`],
+          indexedClusterUrlsByKey,
+          trafficFilter,
+          demand: gscDemand,
+        });
+        emissionByCtx.set(ctx, emission);
+      }
+      profileRecord('cluster-decide', __tClusterDecide);
+
+      const __tGroupHreflang = profileStart();
+      for (const ctx of contexts) {
+        const emission = emissionByCtx.get(ctx);
+        if (!emission) {
+          throw new Error(`missing cached cluster emission decision for ${ctx.candidate.locale}::${ctx.candidate.slug}`);
+        }
+        const key = getRelatedSearchClusterFamilyKey(ctx.candidate);
+        if (!key) continue;
         if (
           !hasSelfCanonicalClusterUrl(ctx, enriched[`${ctx.candidate.locale}::${ctx.candidate.slug}`])
+          || !emission.sitemapEligible
         ) {
           continue;
         }
-        let inner = byKeywordCity.get(key);
+        familyKeyByCtx.set(ctx, key);
+        let inner = byClusterFamily.get(key);
         if (!inner) {
           inner = new Map();
-          byKeywordCity.set(key, inner);
+          byClusterFamily.set(key, inner);
         }
         const current = inner.get(ctx.candidate.locale);
         if (!current || preferHreflangVariant(ctx, current)) {
@@ -6263,33 +6299,24 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
           // cannot vet what we push here — its cross-shard branch keeps
           // non-owned locs unconditionally, and correctly so (removing that
           // KEEP would truncate the merged sitemap to IT-only). Whatever this
-          // branch pushes SHIPS. It therefore asks the same question the owning
-          // shard asks, through the same function, instead of re-deriving a
-          // subset of it: that re-derivation is what leaked 31,624 below-floor
+          // branch pushes SHIPS. It therefore reads the same cached decision
+          // the owning shard uses instead of re-deriving a subset of it: that
+          // re-derivation is what leaked 31,624 below-floor
           // bridges in run 29636707053 and 106,276 inert-band URLs in run
-          // 31077435060. See `decideClusterEmission`.
-          const __tSkDecide = profileStart();
-          const __skEmission = decideClusterEmission({
-            ctx,
-            locale,
-            enriched: enriched[`${locale}::${ctx.candidate.slug}`],
-            indexedClusterUrlsByKey,
-            trafficFilter,
-            demand: gscDemand,
-          });
-          profileRecord('cluster-decide-skip', __tSkDecide);
+          // 31077435060. The prepass above has already computed the shared
+          // decision, so this path reads the same result as the owner.
+          const __skEmission = emissionByCtx.get(ctx);
+          if (!__skEmission) {
+            throw new Error(`missing cached cluster emission decision for ${ctx.candidate.locale}::${ctx.candidate.slug}`);
+          }
           if (__skEmission.sitemapEligible) sitemapLocs.push(__skEmission.loc);
           for (const mp of __skEmission.mirrorPaths) {
             crossSectionMirrorLocs.push(`${BASE_URL}${mp.replace(/\/+$/, '')}/`);
           }
           continue;
         }
-        // altKey was precomputed in the group-hreflang loop above and cached
-        // on `altKeyByCtx` so we don't re-normalize ctx.keyword + ctx.city
-        // here. Falls back to fresh compute for safety on the (impossible
-        // in practice) ctx-not-in-map path.
-        const altKey = altKeyByCtx.get(ctx) ?? `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
-        const altMap = byKeywordCity.get(altKey);
+        const altKey = familyKeyByCtx.get(ctx);
+        const altMap = altKey ? byClusterFamily.get(altKey) : undefined;
         // Only the selected representative can own this locale in the
         // reciprocal set. Ambiguous same-locale siblings emit no hreflang;
         // otherwise their self reference would have to point at a different
@@ -6333,22 +6360,19 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
         // with the same arguments. Nothing about "is this page noindex, and may
         // its URL enter a sitemap" is decided at this call site anymore.
         //
-        // Timed (issue #5130 follow-up, AGENTS.md #6). `render-cluster-page`
+        // The indexability decision was computed once in the prepass above;
+        // this path reuses it so the reciprocal map, sitemap and HTML robots
+        // directive cannot drift. Timed (issue #5130 follow-up, AGENTS.md #6).
+        // `render-cluster-page`
         // measured 111,523 ms over 80,368 pages on run 31036546298 as ONE
         // opaque bucket covering render + decide + thin conversion, and
         // `cluster tier: full=5601 thin=74767` says 93% take the thin path — so
         // buildClusterThinHtml re-scans a freshly-built document on more than
         // nine pages out of ten with no timer of its own.
-        const __tClDecide = profileStart();
-        const __clEmission = decideClusterEmission({
-          ctx,
-          locale,
-          enriched: enriched[enrichedKey],
-          indexedClusterUrlsByKey,
-          trafficFilter,
-          demand: gscDemand,
-        });
-        profileRecord('cluster-decide', __tClDecide);
+        const __clEmission = emissionByCtx.get(ctx);
+        if (!__clEmission) {
+          throw new Error(`missing cached cluster emission decision for ${enrichedKey}`);
+        }
         const __clMirrorPaths = __clEmission.mirrorPaths;
         const __clDecision = __clEmission.decision;
         const __clAction: 'full' | 'thin' = __clDecision.action === 'thin' ? 'thin' : 'full';
@@ -6602,7 +6626,9 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       // doesn't need any of these — keeping them pinned would push peak
       // heap up while the next plugin's closeBundle starts overlapping.
       contexts.length = 0;
-      byKeywordCity.clear();
+      emissionByCtx.clear();
+      byClusterFamily.clear();
+      familyKeyByCtx.clear();
       byLocale.clear();
       byLocaleCity.clear();
       // As above: `.clear()` only drops references. Force the actual
