@@ -3645,6 +3645,19 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4667135-conseiller-ere-sportif-ve-en-contrat-horaire-a-20-cdd-vevey-1800-vevey",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 12100,
+      "salaryMax": 18300,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 12100,
+          "maxValue": 18300,
+          "unitText": "YEAR"
+        }
+      },
       "firstSeenAt": "2026-10-28T20:06:12.546Z",
       "previousSlugsByLocale": {
         "it": [
@@ -3659,20 +3672,7 @@
       },
       "previousSlugs": [
         "conseiller-ere-sportif-ve-en-contrat-horaire-a-20-cdd-vevey-decathlon-ch"
-      ],
-      "salaryMin": 12100,
-      "salaryMax": 18300,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 12100,
-          "maxValue": 18300,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     }
   ]
 }

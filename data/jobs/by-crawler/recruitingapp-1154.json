@@ -1419,19 +1419,6 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3830/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T20:12:02.620Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "compliance-officer-gwg-80-100-recruitingapp-1154-ch"
-        ],
-        "en": [
-          "compliance-officer-gwg-80-100-recruitingapp-1154-ch"
-        ]
-      },
-      "previousSlugs": [
-        "compliance-officer-gwg-80-100-recruitingapp-1154-ch"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1444,7 +1431,19 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T20:12:02.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-gwg-80-100-recruitingapp-1154-ch"
+        ],
+        "en": [
+          "compliance-officer-gwg-80-100-recruitingapp-1154-ch"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-gwg-80-100-recruitingapp-1154-ch"
+      ]
     },
     {
       "id": "recruitingapp-1154-be39d7b35f2f",
@@ -1496,16 +1495,14 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3832/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-schalter-tresor-amp-kundenservices-80-100-befristet-auf-ein-jahr"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-schalter-tresor-amp-kundenservices-80-100-befristet-auf-ein-jahr"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T20:12:02.318Z",
+      "previousSlugs": [
+        "mitarbeiter-in-schalter-tresor-amp-kundenservices-80-100-befristet-auf-ein-jahr"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1518,7 +1515,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-28T20:12:02.318Z"
     }
   ]
 }

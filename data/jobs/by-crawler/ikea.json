@@ -1940,7 +1940,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ikea-c9c9b58fc31a",
@@ -2230,7 +2231,7 @@
           "store-graphic-communication-leader-80-100-ikea-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:13:03.347Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
