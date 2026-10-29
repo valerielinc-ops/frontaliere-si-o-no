@@ -93,8 +93,8 @@ import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import {
   titleLooksUntranslated,
   DEFAULT_JOB_LOCALES,
-  normalizeJobLocale,
 } from './lib/job-locale-utils.mjs';
+import { titleRepairSourceLang, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { applyMarks, persistMarksToSlices } from './lib/job-mark-persistence.mjs';
 import { masculineGermanTitle } from './local-mt-mopup.mjs';
@@ -148,9 +148,9 @@ export function descriptionOffence(job) {
 /** Wrong-language title slot? Exported for the same reason as
  *  `descriptionOffence` above — one implementation, two readers. */
 export function titleOffence(job) {
-  const sourceLang = String(job.sourceLang || 'it').toLowerCase();
+  const sourceLang = titleRepairSourceLang(job);
   const titles = job.titleByLocale && typeof job.titleByLocale === 'object' ? job.titleByLocale : {};
-  const sourceTitle = String(titles[sourceLang] || job.title || '');
+  const sourceTitle = titleRepairSourceTitle(job);
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const title = String(titles[locale] || '').trim();
@@ -192,8 +192,8 @@ export function hasGermanGenderForm(text) {
  * scheduled path from re-flagging the same jobs on every run.
  */
 export function genderFormOffence(job) {
-  const sourceLang = normalizeJobLocale(job?.sourceLang);
-  const sourceTitle = String(job.title || '');
+  const sourceLang = titleRepairSourceLang(job);
+  const sourceTitle = titleRepairSourceTitle(job);
   if (sourceLang !== 'de' || !hasGermanGenderForm(sourceTitle)) return null;
   return { locale: sourceLang, detail: `title ${sourceLang} => masculineGermanTitle` };
 }
@@ -207,7 +207,7 @@ export function genderFormOffence(job) {
  * @returns {boolean}
  */
 export function genderFormTargetResidual(job) {
-  const sourceLocale = normalizeJobLocale(job?.sourceLang);
+  const sourceLocale = titleRepairSourceLang(job);
   if (sourceLocale !== 'de') return false;
   const titles = job?.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale

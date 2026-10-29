@@ -3674,10 +3674,13 @@ function stripCopyPasteLocales(job) {
   if (out.titleByLocale && typeof out.titleByLocale === 'object') {
     const tbl = { ...out.titleByLocale };
     const baseTitle = normalizeSpace(out.title || '');
-    const sourceTitleNorm = normalizeSpace(tbl[sourceLang] || baseTitle).toLowerCase();
+    const titleSourceLang = migrosServiceCounterTitleSourceLang(out)
+      || pinnedTitleSourceLang(out)
+      || detectJobTitleLang(baseTitle, sourceLang);
+    const sourceTitleNorm = normalizeSpace(tbl[titleSourceLang] || baseTitle).toLowerCase();
     if (sourceTitleNorm.length > 25) {
       for (const locale of LOCALES) {
-        if (locale === sourceLang) continue;
+        if (locale === titleSourceLang) continue;
         const localized = normalizeSpace(tbl[locale] || '');
         if (localized && localized.toLowerCase() === sourceTitleNorm) {
           tbl[locale] = '';

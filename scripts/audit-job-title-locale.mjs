@@ -76,6 +76,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { titleLooksUntranslated, DEFAULT_JOB_LOCALES } from './lib/job-locale-utils.mjs';
+import { titleRepairSourceLang, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
 import { localizeGenderTrigraphs } from './lib/translation-glossary.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
@@ -155,9 +156,9 @@ export function auditJobTitles(jobs, { top = 15, samples = 20, limit, urlFor } =
     if (job.needsRetranslation) needsRetranslation += 1;
     if (job.localeMismatchSuppressed) localeMismatchSuppressed += 1;
 
-    const sourceLang = String(job.sourceLang || 'it').toLowerCase();
+    const sourceLang = titleRepairSourceLang(job);
     const titles = job.titleByLocale && typeof job.titleByLocale === 'object' ? job.titleByLocale : {};
-    const sourceTitle = String(titles[sourceLang] || job.title || '');
+    const sourceTitle = titleRepairSourceTitle(job);
     let jobHasFlag = false;
     let jobHasActionableFlag = false;
 
