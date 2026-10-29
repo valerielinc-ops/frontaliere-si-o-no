@@ -8646,7 +8646,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Le Conseil fédéral demande 165,4 millions de francs.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.norme-flessibilita-start-up.title': 'Conseil fédéral assouplit le temps de travail des start-up',
-    'blog.article.norme-flessibilita-start-up.excerpt': 'Nouvelles dispositions spéciales adoptées le 28 octobre 2026 Entrée en vigueur fixée au 1er décembre 2026 Dérogations ciblées pour certains salariés de start-up La révision met en œuvre l’objectif de l’initiative parlementaire 16.442',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Nouvelles dispositions spéciales adoptées le 28 octobre 2026 Entrée en vigueur fixée au 1er décembre 2026 Dérogations ciblées pour certains salariés de start-up La révision',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
     'blog.article.sem-rinnovo-simic-paralisi.title': 'Le SEM risque la paralysie pour le renouvellement de SIMIC',
     'blog.article.sem-rinnovo-simic-paralisi.excerpt': 'Le SEM risque la paralysie sans ressources supplémentaires SIMIC : d\'environ 66 à 193 millions estimés en 2024 Le nouveau système ne sera pas opérationnel avant 2032',
