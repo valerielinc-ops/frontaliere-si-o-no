@@ -1187,6 +1187,7 @@ describe('crawler generation state cleanup', () => {
       };
     });
     console.info(`[crawler-lane-benchmark] ${JSON.stringify(reports)}`);
+    // cron-count-ok: il benchmark copre le due corsie speciali 15 e 16.
     expect(reports).toHaveLength(2);
     for (const report of reports) {
       expect(report.members).toBe(30);
