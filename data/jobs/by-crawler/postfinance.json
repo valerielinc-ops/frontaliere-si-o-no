@@ -1,7 +1,7 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-10-29T14:30:54.972Z",
-  "runId": "40886938868",
+  "assembledAt": "2026-10-29T21:51:39.366Z",
+  "runId": "40957525673",
   "jobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
@@ -42,7 +42,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:46.933Z",
+      "crawledAt": "2026-10-29T21:51:32.016Z",
       "validThrough": "31.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -120,7 +120,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:46.176Z",
+      "crawledAt": "2026-10-29T21:51:31.324Z",
       "validThrough": "02.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -198,7 +198,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:45.462Z",
+      "crawledAt": "2026-10-29T21:51:30.645Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -276,7 +276,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:44.746Z",
+      "crawledAt": "2026-10-29T21:51:29.954Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -336,7 +336,7 @@
       "titleByLocale": {
         "it": "Senior Specialista TPRM Security Monitoring - Cyber Security (w/m/d)",
         "en": "Senior Specialist TPRM Security Monitoring - Cyber Security (m/f/d)",
-        "de": "Senior Spezialist TPRM Security Monitoring - Cyber Security (w/m/d)",
+        "de": "Senior Specialist TPRM Security Monitoring - Cyber Security (w/m/d)",
         "fr": "Senior Spécialiste TPRM Security Monitoring - Cyber Security (w/m/d)"
       },
       "slug": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
@@ -356,7 +356,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:44.030Z",
+      "crawledAt": "2026-10-29T21:51:29.244Z",
       "validThrough": "13.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -396,7 +396,8 @@
       },
       "postalCode": "3004",
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
@@ -417,7 +418,7 @@
       "titleByLocale": {
         "it": "Senior Specialista TPRM Security - Operations & Contracting (w/m/d)",
         "en": "Senior Specialist TPRM Security - Operations & Contracting (m/f/d)",
-        "de": "Senior Spezialist TPRM Security - Operations & Contracting (w/m/d)",
+        "de": "Senior Specialist TPRM Security - Operations & Contracting (w/m/d)",
         "fr": "Senior Spécialiste TPRM Security - Operations & Contracting (w/m/d)"
       },
       "slug": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
@@ -437,7 +438,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:43.319Z",
+      "crawledAt": "2026-10-29T21:51:28.542Z",
       "validThrough": "13.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -461,6 +462,7 @@
         ]
       },
       "firstSeenAt": "2026-10-13T09:40:44.845Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -498,7 +500,7 @@
       "titleByLocale": {
         "it": "Senior Specialista TPRM Security Monitoring - Information Security (w/m/d)",
         "en": "Senior Specialist TPRM Security Monitoring - Information Security (m/f/d)",
-        "de": "Senior Spezialist TPRM Security Monitoring - Information Security (w/m/d)",
+        "de": "Senior Specialist TPRM Security Monitoring - Information Security (w/m/d)",
         "fr": "Senior Spécialiste TPRM Security Monitoring - Information Security (w/m/d)"
       },
       "slug": "senior-specialista-tprm-security-monitoring-information-security-w-m-d-postfinance-bern",
@@ -518,7 +520,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:42.476Z",
+      "crawledAt": "2026-10-29T21:51:27.695Z",
       "validThrough": "13.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -558,7 +560,8 @@
       },
       "postalCode": "3004",
       "addressLocality": "Bern",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.postfinance.ch/job/Platform-Engineer-Continuous-Integration-%28wmd%29/74052-de_DE",
@@ -579,7 +582,7 @@
       "titleByLocale": {
         "it": "Platform Ingegnere Continuous Integration (w/m/d)",
         "en": "Platform Engineer Continuous Integration (m/f/d)",
-        "de": "Platform Ingenieur Continuous Integration (w/m/d)",
+        "de": "Platform Engineer Continuous Integration (w/m/d)",
         "fr": "Platform Ingénieur Continuous Integration (w/m/d)"
       },
       "slug": "platform-ingegnere-continuous-integration-w-m-d-postfinance-bern",
@@ -599,7 +602,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:41.774Z",
+      "crawledAt": "2026-10-29T21:51:27.029Z",
       "validThrough": "12.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -677,7 +680,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:41.046Z",
+      "crawledAt": "2026-10-29T21:51:26.216Z",
       "validThrough": "12.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -741,7 +744,7 @@
       "titleByLocale": {
         "it": "Responsabile del team di soluzioni per l'automazione dei processi degli ordini dei clienti (m/f/d)",
         "en": "Solution Team Lead Customer Order Process Automation (m/f/d)",
-        "de": "Solution Teamleiter Customer Order Process Automation (w/m/d)",
+        "de": "Solution Team Lead Customer Order Process Automation (w/m/d)",
         "fr": "Solution Chef d'équipe Customer Order Process Automation (w/m/d)"
       },
       "slug": "responsabile-del-team-di-soluzioni-per-l-automazione-dei-processi-degli-ordini-dei-clienti-m-f-d-postfinance-bern",
@@ -761,7 +764,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:40.328Z",
+      "crawledAt": "2026-10-29T21:51:25.526Z",
       "validThrough": "06.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -787,6 +790,7 @@
         ]
       },
       "firstSeenAt": "2026-10-13T21:42:11.134Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -824,13 +828,13 @@
       "titleByLocale": {
         "it": "Solution Team Lead relazione con i clienti (m/f/d)",
         "en": "Solution Team Lead Customer Relationship (m/f/d)",
-        "de": "Solution Teamleiter Kundenbeziehung (w/m/d)",
+        "de": "Solution Team Lead Kundenbeziehung (w/m/d)",
         "fr": "Solution Team Lead Relation client (h/f/d)"
       },
       "slug": "solution-team-lead-relazione-con-i-clienti-m-f-d-postfinance-bern",
       "slugByLocale": {
         "it": "solution-team-lead-relazione-con-i-clienti-m-f-d-postfinance-bern",
-        "en": "solution-team-lead-kundenbeziehung-w-m-d-postfinance",
+        "en": "solution-team-lead-customer-relationship-m-f-d-postfinance-bern",
         "de": "solution-teamleiter-kundenbeziehung-w-m-d-postfinance-bern",
         "fr": "solution-team-lead-relation-client-h-f-d-postfinance-bern"
       },
@@ -844,7 +848,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:39.524Z",
+      "crawledAt": "2026-10-29T21:51:24.822Z",
       "validThrough": "06.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -867,6 +871,9 @@
           "solution-team-lead-kundenbeziehung-w-m-d-postfinance"
         ],
         "de": [
+          "solution-team-lead-kundenbeziehung-w-m-d-postfinance"
+        ],
+        "en": [
           "solution-team-lead-kundenbeziehung-w-m-d-postfinance"
         ]
       },
@@ -928,7 +935,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:38.775Z",
+      "crawledAt": "2026-10-29T21:51:24.125Z",
       "validThrough": "15.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1009,7 +1016,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:38.072Z",
+      "crawledAt": "2026-10-29T21:51:23.422Z",
       "validThrough": "20.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1093,7 +1100,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:37.303Z",
+      "crawledAt": "2026-10-29T21:51:22.745Z",
       "validThrough": "10.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1177,7 +1184,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:36.592Z",
+      "crawledAt": "2026-10-29T21:51:22.034Z",
       "validThrough": "18.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1263,7 +1270,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:35.880Z",
+      "crawledAt": "2026-10-29T21:51:21.340Z",
       "validThrough": "19.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1347,7 +1354,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:35.173Z",
+      "crawledAt": "2026-10-29T21:51:20.671Z",
       "validThrough": "26.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1431,7 +1438,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-29T14:30:34.466Z",
+      "crawledAt": "2026-10-29T21:51:19.982Z",
       "validThrough": "29.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1469,6 +1476,77 @@
       "postalCode": "8867",
       "addressLocality": "Niederurnen",
       "addressRegion": "GL"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Team-Lead-Test-Data-Platform-%28wmd%29/74783-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Team-Lead-Test-Data-Platform-%28wmd%29/74783-de_DE",
+      "title": "Team Lead Test Data Platform  (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Im Solution Team Delivery-Tools & -Automation entwickelst du gemeinsam mit deinem Team die zentrale Test-Daten-Plattform (TDP) von PostFinance weiter. Sie ermöglicht Entwickler:innen und Tester:innen, synthetische Testdaten einfach, schnell und zuverlässig für ihre Entwicklungs- und Testprozesse bereitzustellen.\n\nAls Team Lead führst und entwickelst du ein interdisziplinäres Engineering-Team und schaffst die Voraussetzungen dafür, dass Menschen, Technologie und Zusammenarbeit ihr Potenzial entfalten können. Gemeinsam mit Product Owner und Architecture Owner sorgst du für klare Rahmenbedingungen, wirkungsvolle Zusammenarbeit und eine nachhaltige Weiterentwicklung des Teams.\n\nDamit leistest du einen wichtigen Beitrag zu einer schnelleren, zuverlässigeren und stärker automatisierten Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du führst und entwickelst dein Team personell, methodisch und organisatorisch und schaffst ein Umfeld, in dem Eigenverantwortung und Zusammenarbeit selbstverständlich sind\n\n- Gemeinsam mit Product Owner und Architecture Owner gestaltest du die Führung des Teams und sorgst für Klarheit bei Verantwortung, Prioritäten und Zusammenarbeit\n\n- Du schaffst die Rahmenbedingungen, damit sich das Team auf wertstiftende, qualitativ hochwertige und zuverlässige Lösungen konzentrieren kann\n\n- Du entwickelst die Zusammenarbeit und Arbeitsweise des Teams kontinuierlich weiter und beseitigst Hindernisse, die eine effiziente Software Delivery erschweren\n\n- Du förderst Lernen, Feedback, Selbstorganisation und eine Engineering-Kultur, in der kontinuierliche Verbesserung gelebt wird\n\n- Du gestaltest die Weiterentwicklung des Solution Teams Delivery-Tools & -Automation mit und bringst die Perspektive deines Teams in übergreifende Entscheidungen ein\n\n- Du vernetzt dich über Teamgrenzen hinweg und förderst den Austausch von Wissen und Best Practices innerhalb von PostFinance\n\nDas bringst du mit\n\n- Einen höheren Abschluss in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation durch mehrjährige Berufserfahrung\n\n- Mehrjährige Erfahrung in der Führung und Entwicklung von Software- oder Engineering-Teams\n\n- Ein gutes Verständnis moderner Softwareentwicklung, DevOps und automatisierter Delivery-Prozesse\n\n- Praktische Erfahrung mit agilen und Lean-Arbeitsweisen wie Scrum oder Kanban. Dabei verstehst du Agilität nicht als Selbstzweck, sondern als Mittel, um wirksam Ergebnisse zu liefern\n\n- Erfahrung in Teamentwicklung und Veränderungsprozessen sowie die Fähigkeit, Verantwortung konsequent ins Team zu geben\n\n- Ausgeprägte Kommunikations-, Moderations- und Konfliktlösungsfähigkeiten sowie Empathie und Entscheidungsstärke\n\n- Verhandlungssichere Deutsch- und Englischkenntnisse",
+      "descriptionByLocale": {
+        "de": "Im Solution Team Delivery-Tools & -Automation entwickelst du gemeinsam mit deinem Team die zentrale Test-Daten-Plattform (TDP) von PostFinance weiter. Sie ermöglicht Entwickler:innen und Tester:innen, synthetische Testdaten einfach, schnell und zuverlässig für ihre Entwicklungs- und Testprozesse bereitzustellen.\n\nAls Team Lead führst und entwickelst du ein interdisziplinäres Engineering-Team und schaffst die Voraussetzungen dafür, dass Menschen, Technologie und Zusammenarbeit ihr Potenzial entfalten können. Gemeinsam mit Product Owner und Architecture Owner sorgst du für klare Rahmenbedingungen, wirkungsvolle Zusammenarbeit und eine nachhaltige Weiterentwicklung des Teams.\n\nDamit leistest du einen wichtigen Beitrag zu einer schnelleren, zuverlässigeren und stärker automatisierten Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du führst und entwickelst dein Team personell, methodisch und organisatorisch und schaffst ein Umfeld, in dem Eigenverantwortung und Zusammenarbeit selbstverständlich sind\n\n- Gemeinsam mit Product Owner und Architecture Owner gestaltest du die Führung des Teams und sorgst für Klarheit bei Verantwortung, Prioritäten und Zusammenarbeit\n\n- Du schaffst die Rahmenbedingungen, damit sich das Team auf wertstiftende, qualitativ hochwertige und zuverlässige Lösungen konzentrieren kann\n\n- Du entwickelst die Zusammenarbeit und Arbeitsweise des Teams kontinuierlich weiter und beseitigst Hindernisse, die eine effiziente Software Delivery erschweren\n\n- Du förderst Lernen, Feedback, Selbstorganisation und eine Engineering-Kultur, in der kontinuierliche Verbesserung gelebt wird\n\n- Du gestaltest die Weiterentwicklung des Solution Teams Delivery-Tools & -Automation mit und bringst die Perspektive deines Teams in übergreifende Entscheidungen ein\n\n- Du vernetzt dich über Teamgrenzen hinweg und förderst den Austausch von Wissen und Best Practices innerhalb von PostFinance\n\nDas bringst du mit\n\n- Einen höheren Abschluss in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation durch mehrjährige Berufserfahrung\n\n- Mehrjährige Erfahrung in der Führung und Entwicklung von Software- oder Engineering-Teams\n\n- Ein gutes Verständnis moderner Softwareentwicklung, DevOps und automatisierter Delivery-Prozesse\n\n- Praktische Erfahrung mit agilen und Lean-Arbeitsweisen wie Scrum oder Kanban. Dabei verstehst du Agilität nicht als Selbstzweck, sondern als Mittel, um wirksam Ergebnisse zu liefern\n\n- Erfahrung in Teamentwicklung und Veränderungsprozessen sowie die Fähigkeit, Verantwortung konsequent ins Team zu geben\n\n- Ausgeprägte Kommunikations-, Moderations- und Konfliktlösungsfähigkeiten sowie Empathie und Entscheidungsstärke\n\n- Verhandlungssichere Deutsch- und Englischkenntnisse",
+        "it": "Im Solution Team Delivery-Tools & -Automation entwickelst du gemeinsam mit deinem Team die zentrale Test-Daten-Plattform (TDP) von PostFinance weiter. Sie ermöglicht Entwickler:innen und Tester:innen, synthetische Testdaten einfach, schnell und zuverlässig für ihre Entwicklungs- und Testprozesse bereitzustellen.\n\nAls Team Lead führst und entwickelst du ein interdisziplinäres Engineering-Team und schaffst die Voraussetzungen dafür, dass Menschen, Technologie und Zusammenarbeit ihr Potenzial entfalten können. Gemeinsam mit Product Owner und Architecture Owner sorgst du für klare Rahmenbedingungen, wirkungsvolle Zusammenarbeit und eine nachhaltige Weiterentwicklung des Teams.\n\nDamit leistest du einen wichtigen Beitrag zu einer schnelleren, zuverlässigeren und stärker automatisierten Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du führst und entwickelst dein Team personell, methodisch und organisatorisch und schaffst ein Umfeld, in dem Eigenverantwortung und Zusammenarbeit selbstverständlich sind\n\n- Gemeinsam mit Product Owner und Architecture Owner gestaltest du die Führung des Teams und sorgst für Klarheit bei Verantwortung, Prioritäten und Zusammenarbeit\n\n- Du schaffst die Rahmenbedingungen, damit sich das Team auf wertstiftende, qualitativ hochwertige und zuverlässige Lösungen konzentrieren kann\n\n- Du entwickelst die Zusammenarbeit und Arbeitsweise des Teams kontinuierlich weiter und beseitigst Hindernisse, die eine effiziente Software Delivery erschweren\n\n- Du förderst Lernen, Feedback, Selbstorganisation und eine Engineering-Kultur, in der kontinuierliche Verbesserung gelebt wird\n\n- Du gestaltest die Weiterentwicklung des Solution Teams Delivery-Tools & -Automation mit und bringst die Perspektive deines Teams in übergreifende Entscheidungen ein\n\n- Du vernetzt dich über Teamgrenzen hinweg und förderst den Austausch von Wissen und Best Practices innerhalb von PostFinance\n\nDas bringst du mit\n\n- Einen höheren Abschluss in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation durch mehrjährige Berufserfahrung\n\n- Mehrjährige Erfahrung in der Führung und Entwicklung von Software- oder Engineering-Teams\n\n- Ein gutes Verständnis moderner Softwareentwicklung, DevOps und automatisierter Delivery-Prozesse\n\n- Praktische Erfahrung mit agilen und Lean-Arbeitsweisen wie Scrum oder Kanban. Dabei verstehst du Agilität nicht als Selbstzweck, sondern als Mittel, um wirksam Ergebnisse zu liefern\n\n- Erfahrung in Teamentwicklung und Veränderungsprozessen sowie die Fähigkeit, Verantwortung konsequent ins Team zu geben\n\n- Ausgeprägte Kommunikations-, Moderations- und Konfliktlösungsfähigkeiten sowie Empathie und Entscheidungsstärke\n\n- Verhandlungssichere Deutsch- und Englischkenntnisse",
+        "en": "Im Solution Team Delivery-Tools & -Automation entwickelst du gemeinsam mit deinem Team die zentrale Test-Daten-Plattform (TDP) von PostFinance weiter. Sie ermöglicht Entwickler:innen und Tester:innen, synthetische Testdaten einfach, schnell und zuverlässig für ihre Entwicklungs- und Testprozesse bereitzustellen.\n\nAls Team Lead führst und entwickelst du ein interdisziplinäres Engineering-Team und schaffst die Voraussetzungen dafür, dass Menschen, Technologie und Zusammenarbeit ihr Potenzial entfalten können. Gemeinsam mit Product Owner und Architecture Owner sorgst du für klare Rahmenbedingungen, wirkungsvolle Zusammenarbeit und eine nachhaltige Weiterentwicklung des Teams.\n\nDamit leistest du einen wichtigen Beitrag zu einer schnelleren, zuverlässigeren und stärker automatisierten Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du führst und entwickelst dein Team personell, methodisch und organisatorisch und schaffst ein Umfeld, in dem Eigenverantwortung und Zusammenarbeit selbstverständlich sind\n\n- Gemeinsam mit Product Owner und Architecture Owner gestaltest du die Führung des Teams und sorgst für Klarheit bei Verantwortung, Prioritäten und Zusammenarbeit\n\n- Du schaffst die Rahmenbedingungen, damit sich das Team auf wertstiftende, qualitativ hochwertige und zuverlässige Lösungen konzentrieren kann\n\n- Du entwickelst die Zusammenarbeit und Arbeitsweise des Teams kontinuierlich weiter und beseitigst Hindernisse, die eine effiziente Software Delivery erschweren\n\n- Du förderst Lernen, Feedback, Selbstorganisation und eine Engineering-Kultur, in der kontinuierliche Verbesserung gelebt wird\n\n- Du gestaltest die Weiterentwicklung des Solution Teams Delivery-Tools & -Automation mit und bringst die Perspektive deines Teams in übergreifende Entscheidungen ein\n\n- Du vernetzt dich über Teamgrenzen hinweg und förderst den Austausch von Wissen und Best Practices innerhalb von PostFinance\n\nDas bringst du mit\n\n- Einen höheren Abschluss in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation durch mehrjährige Berufserfahrung\n\n- Mehrjährige Erfahrung in der Führung und Entwicklung von Software- oder Engineering-Teams\n\n- Ein gutes Verständnis moderner Softwareentwicklung, DevOps und automatisierter Delivery-Prozesse\n\n- Praktische Erfahrung mit agilen und Lean-Arbeitsweisen wie Scrum oder Kanban. Dabei verstehst du Agilität nicht als Selbstzweck, sondern als Mittel, um wirksam Ergebnisse zu liefern\n\n- Erfahrung in Teamentwicklung und Veränderungsprozessen sowie die Fähigkeit, Verantwortung konsequent ins Team zu geben\n\n- Ausgeprägte Kommunikations-, Moderations- und Konfliktlösungsfähigkeiten sowie Empathie und Entscheidungsstärke\n\n- Verhandlungssichere Deutsch- und Englischkenntnisse",
+        "fr": "Im Solution Team Delivery-Tools & -Automation entwickelst du gemeinsam mit deinem Team die zentrale Test-Daten-Plattform (TDP) von PostFinance weiter. Sie ermöglicht Entwickler:innen und Tester:innen, synthetische Testdaten einfach, schnell und zuverlässig für ihre Entwicklungs- und Testprozesse bereitzustellen.\n\nAls Team Lead führst und entwickelst du ein interdisziplinäres Engineering-Team und schaffst die Voraussetzungen dafür, dass Menschen, Technologie und Zusammenarbeit ihr Potenzial entfalten können. Gemeinsam mit Product Owner und Architecture Owner sorgst du für klare Rahmenbedingungen, wirkungsvolle Zusammenarbeit und eine nachhaltige Weiterentwicklung des Teams.\n\nDamit leistest du einen wichtigen Beitrag zu einer schnelleren, zuverlässigeren und stärker automatisierten Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du führst und entwickelst dein Team personell, methodisch und organisatorisch und schaffst ein Umfeld, in dem Eigenverantwortung und Zusammenarbeit selbstverständlich sind\n\n- Gemeinsam mit Product Owner und Architecture Owner gestaltest du die Führung des Teams und sorgst für Klarheit bei Verantwortung, Prioritäten und Zusammenarbeit\n\n- Du schaffst die Rahmenbedingungen, damit sich das Team auf wertstiftende, qualitativ hochwertige und zuverlässige Lösungen konzentrieren kann\n\n- Du entwickelst die Zusammenarbeit und Arbeitsweise des Teams kontinuierlich weiter und beseitigst Hindernisse, die eine effiziente Software Delivery erschweren\n\n- Du förderst Lernen, Feedback, Selbstorganisation und eine Engineering-Kultur, in der kontinuierliche Verbesserung gelebt wird\n\n- Du gestaltest die Weiterentwicklung des Solution Teams Delivery-Tools & -Automation mit und bringst die Perspektive deines Teams in übergreifende Entscheidungen ein\n\n- Du vernetzt dich über Teamgrenzen hinweg und förderst den Austausch von Wissen und Best Practices innerhalb von PostFinance\n\nDas bringst du mit\n\n- Einen höheren Abschluss in Informatik oder Wirtschaftsinformatik oder eine vergleichbare Qualifikation durch mehrjährige Berufserfahrung\n\n- Mehrjährige Erfahrung in der Führung und Entwicklung von Software- oder Engineering-Teams\n\n- Ein gutes Verständnis moderner Softwareentwicklung, DevOps und automatisierter Delivery-Prozesse\n\n- Praktische Erfahrung mit agilen und Lean-Arbeitsweisen wie Scrum oder Kanban. Dabei verstehst du Agilität nicht als Selbstzweck, sondern als Mittel, um wirksam Ergebnisse zu liefern\n\n- Erfahrung in Teamentwicklung und Veränderungsprozessen sowie die Fähigkeit, Verantwortung konsequent ins Team zu geben\n\n- Ausgeprägte Kommunikations-, Moderations- und Konfliktlösungsfähigkeiten sowie Empathie und Entscheidungsstärke\n\n- Verhandlungssichere Deutsch- und Englischkenntnisse"
+      },
+      "titleByLocale": {
+        "de": "Team Lead Test Data Platform  (w/m/d)",
+        "it": "Capo Team Test Data Platform (w/m/d)",
+        "en": "Team Lead Test Data Platform (w/m/d)",
+        "fr": "Chef d'équipe Test Data Platform (w/m/d)"
+      },
+      "slug": "team-lead-test-data-platform-w-m-d-postfinance",
+      "slugByLocale": {
+        "de": "senior-fullstack-engineer-w-m-d-postfinance",
+        "fr": "senior-fullstack-ingenieur-w-m-d-postfinance-bern",
+        "it": "team-lead-test-data-platform-w-m-d-postfinance",
+        "en": "team-lead-test-data-platform-w-m-d-postfinance"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-29T21:51:19.292Z",
+      "validThrough": "05.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "needsRetranslation": true,
+      "id": "postfinance-244da47b8362",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-10-29T21:51:19.292Z"
     }
   ]
 }
