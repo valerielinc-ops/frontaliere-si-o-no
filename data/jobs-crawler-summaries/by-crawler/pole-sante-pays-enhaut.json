@@ -1,7 +1,7 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-10-28T22:22:16.747Z",
+  "generatedAt": "2026-10-29T09:22:09.274Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 8242,
-  "avgDurationMs": 8242,
+  "durationMs": 9129,
+  "avgDurationMs": 9129,
   "durationHistory": [
-    8242
+    9129
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/011a0a3e-7de1-4c25-b065-fcf96d3fc418/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:21:59.907Z",
+      "crawledAt": "2026-10-29T09:21:54.828Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7e7196d4-d20c-4a17-ba10-0c48e91112c4/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:22:02.051Z",
+      "crawledAt": "2026-10-29T09:21:56.910Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:22:01.379Z",
+      "crawledAt": "2026-10-29T09:21:56.220Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/b06d4dbc-b055-4fd6-a4a4-9f9ff300fd38/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:22:00.542Z",
+      "crawledAt": "2026-10-29T09:21:55.566Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -194,18 +194,17 @@
     },
     {
       "id": "pole-sante-pays-enhaut-b434c2ee628a",
-      "slug": "auxiliaire-de-sante-polyvalent-e-au-cms-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+      "slug": "assistente-sanitario-multiuso-presso-cms-70-pole-sante-pays-d-enhaut-chateau-d-oex",
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
       "companyDomain": "pspe.ch",
       "title": "Auxiliaire de santé polyvalent·e au CMS (70%)",
-      "needsRetranslation": true,
       "location": "Château d'Oex",
       "canton": "VD",
       "url": "https://www.jobup.ch/fr/emplois/detail/81d3dade-8280-4885-8e6a-0f9ddefb394a/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:21:59.255Z",
+      "crawledAt": "2026-10-29T09:21:54.140Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -226,11 +225,11 @@
       "salaryMin": 60500,
       "salaryMax": 84400,
       "salarySource": "estimated",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -246,7 +245,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1494a82d-7426-4087-bd30-6408f424346f/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:21:58.679Z",
+      "crawledAt": "2026-10-29T09:21:53.372Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -282,13 +281,12 @@
       "companyKey": "pole-sante-pays-enhaut",
       "companyDomain": "pspe.ch",
       "title": "Assistant·e en soins et santé communautaire (ASSC) au CMS",
-      "needsRetranslation": true,
       "location": "Château d'Oex",
       "canton": "VD",
       "url": "https://www.jobup.ch/fr/emplois/detail/7059af5f-3d61-4594-bcd6-bf1b78f9acf2/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:21:58.092Z",
+      "crawledAt": "2026-10-29T09:21:52.507Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -318,5 +316,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }

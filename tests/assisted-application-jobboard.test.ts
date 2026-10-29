@@ -307,11 +307,15 @@ describe('assisted application JobBoard handoff', () => {
     );
   });
 
-  it('keeps the four-arm copy assignment ready before showing either paid offer', () => {
-    expect(jobBoardSource).toContain('useAssistedApplicationCopyVariant');
-    expect(jobBoardSource).toContain('assistedApplicationCopyVariantReady');
+  it('keeps Delega completa fixed and waits for the layout assignment before either paid offer', () => {
+    expect(jobBoardSource).toContain('useAssistedApplicationLayoutVariant');
+    expect(jobBoardSource).toContain('assistedApplicationLayoutVariantReady');
+    expect(jobBoardSource).toContain("const assistedApplicationCopyVariant: AssistedApplicationCopyVariant = 'handled_for_you';");
+    expect(jobBoardSource).toContain('active: assistedApplicationLayoutExperimentActive');
     expect(jobBoardSource).toContain('copyVariant: assistedApplicationCopyVariant');
     expect(jobBoardSource).toContain('copyVariant={assistedApplicationCopyVariant}');
+    expect(jobBoardSource).toContain('layoutVariant={assistedApplicationLayoutVariant}');
+    expect(jobBoardSource).toContain('layoutExperimentActive={assistedApplicationLayoutExperimentActive}');
   });
 
   it('keeps checkout auth failures distinct from session failures and records the auth resume', () => {

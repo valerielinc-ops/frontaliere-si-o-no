@@ -71,13 +71,13 @@ const blockedVerdict = (msAgo: number) => ({
   createdAt: at(msAgo),
 });
 
-describe('decideFailureIssueClose — i sette rami', () => {
+describe('decideFailureIssueClose — un solo verde chiude', () => {
   it('verde successivo all\'apertura, nessun hold → close', () => {
     const green = runOf('success', 1 * HOUR);
     const verdict = decide({ issue: issueOpened(2 * HOUR), history: [green], comments: [] });
     expect(verdict.action).toBe('close');
     expect(verdict.runId).toBe(green.databaseId);
-    expect(verdict.reason).toContain(`run ${green.databaseId} success`);
+    expect(verdict.reason).toContain(`one successful run (${green.databaseId}`);
   });
 
   it('verde PRECEDENTE all\'apertura → keep (incidente 9321)', () => {
@@ -115,50 +115,56 @@ describe('decideFailureIssueClose — i sette rami', () => {
     expect(decide({ issue: issueOpened(2 * HOUR), history, comments: null }).reason).toBe('still-red');
   });
 
-  it('cinque 🔁 in 168 ore → chronic-escalate la prima volta, chronic-hold dopo', () => {
+  it('cinque 🔁 in 168 ore sono osservati ma non bloccano il primo verde', () => {
     const base = { issue: issueOpened(6 * DAY), history: [runOf('success', HOUR)] };
     const first = decide({ ...base, comments: recurrences(5) });
-    expect(first.action).toBe('chronic-escalate');
+    expect(first.action).toBe('close');
+    expect(first.chronic).toMatchObject({ hold: true, escalate: true, count: 5 });
     const later = decide({ ...base, comments: [...recurrences(5), { body: CHRONIC_MARKER, createdAt: at(HOUR) }] });
-    expect(later.action).toBe('chronic-hold');
+    expect(later.action).toBe('close');
+    expect(later.chronic).toMatchObject({ hold: true, escalate: false, count: 5 });
     expect(later.reason).toMatch(/CRONICA/);
     // Quattro non bastano: la soglia è quella dichiarata, non «qualche ricorrenza».
     expect(decide({ ...base, comments: recurrences(4) }).action).toBe('close');
   });
 
-  it('il gate cronico ha precedenza sul TTL dello hold strutturale', () => {
-    // Verdetto `blocked-*` vecchio di 30 giorni: da solo il TTL (9 giorni) lo rilascia e
-    // la issue si chiuderebbe. Con cinque ricorrenze recenti NON deve chiudersi.
+  it('una ricorrenza cronica non annulla la chiusura dopo un verde', () => {
+    // Verdetto `blocked-*` vecchio di 30 giorni e cinque ricorrenze: entrambi restano
+    // contesto diagnostico, non una seconda soglia per chiudere.
     const issue = issueOpened(30 * DAY);
     const history = [runOf('success', HOUR)];
     const stale = blockedVerdict(30 * DAY);
     expect(decide({ issue, history, comments: [stale] }).action).toBe('close');
     const verdict = decide({ issue, history, comments: [stale, ...recurrences(5), { body: CHRONIC_MARKER, createdAt: at(HOUR) }] });
-    expect(verdict.action).toBe('chronic-hold');
-    expect(verdict.structural).toBeUndefined();
+    expect(verdict.action).toBe('close');
+    expect(verdict.chronic.hold).toBe(true);
+    expect(verdict.structural.hold).toBe(false);
   });
 
-  it('FIX_OUTCOME strutturale non scaduto → structural-hold', () => {
+  it('FIX_OUTCOME strutturale non scaduto viene registrato ma il verde chiude', () => {
     const verdict = decide({
       issue: issueOpened(3 * HOUR),
       history: [runOf('success', HOUR)],
       comments: [blockedVerdict(2 * HOUR)],
     });
-    expect(verdict.action).toBe('structural-hold');
+    expect(verdict.action).toBe('close');
     expect(verdict.structural.code).toBe('blocked-workflows-scope');
+    expect(verdict.structural.hold).toBe(true);
   });
 
-  it('commenti illeggibili nel ramo verde → structural-hold, mai close', () => {
+  it('commenti illeggibili nel ramo verde non impediscono la chiusura', () => {
     const verdict = decide({ issue: issueOpened(3 * HOUR), history: [runOf('success', HOUR)], comments: null });
-    expect(verdict.action).toBe('structural-hold');
+    expect(verdict.action).toBe('close');
+    expect(verdict.structural.unknown).toBe(true);
   });
 
-  it('due rossi nella finestra di ricorrenza → recurrence-hold, prima dello hold strutturale', () => {
+  it('due rossi nella finestra di ricorrenza vengono registrati ma non richiedono un secondo verde', () => {
     const history = [runOf('success', 10 * 60 * 1000), runOf('failure', HOUR), runOf('failure', 2 * HOUR)];
     const verdict = decide({ issue: issueOpened(3 * HOUR), history, comments: [blockedVerdict(2 * HOUR)] });
-    expect(verdict.action).toBe('recurrence-hold');
+    expect(verdict.action).toBe('close');
     expect(verdict.reason).toMatch(/RICORRE/);
-    expect(verdict.structural).toBeUndefined();
+    expect(verdict.recurrence.hold).toBe(true);
+    expect(verdict.structural.hold).toBe(true);
   });
 
   it('percorso crawler: run esplicita, nessuno storico → il gate di ricorrenza è un no-op', () => {
@@ -253,7 +259,7 @@ describe('main() usa la decisione esportata, e solo quella', () => {
       databaseId: id, status: 'completed', conclusion, createdAt: at(msAgo, now), headBranch: 'main',
     });
     const failureIssues = [
-      { number: 1, title: 'Workflow Failure: LC20 Recovered', runs: [liveRun(11, 'success', HOUR)], action: 'close', reason: /^recovered \(run 11 / },
+      { number: 1, title: 'Workflow Failure: LC20 Recovered', runs: [liveRun(11, 'success', HOUR)], action: 'close', reason: /^recovered by one successful run \(11 / },
       { number: 2, title: 'CI Failure: LC20 Red', runs: [liveRun(21, 'failure', HOUR)], action: 'keep', reason: /^still-red$/ },
       { number: 3, title: 'Workflow Failure: LC20 Gone', runs: [], action: 'keep', reason: /^no-run-window$/ },
       {
@@ -261,7 +267,7 @@ describe('main() usa la decisione esportata, e solo quella', () => {
         title: 'Workflow Failure: LC20 Skipped',
         runs: [liveRun(41, 'skipped', 5 * 60 * 1000), liveRun(42, 'skipped', 10 * 60 * 1000), liveRun(43, 'success', HOUR)],
         action: 'close',
-        reason: /^recovered \(run 43 /,
+        reason: /^recovered by one successful run \(43 /,
       },
     ];
     const fixture = {
@@ -642,11 +648,11 @@ describe('issue 12010 — prova dal branch dopo una pagina all-branch satura', (
     event: 'push',
   });
 
-  it('chiude con tre verdi del branch anche quando la pagina all-branch è satura', () => {
+  it('chiude con un solo verde del branch anche quando la pagina all-branch è satura', () => {
     const now = Date.now();
     const pass = runPass({
       branchRuns: {
-        success: [green(120103, 30 * 60 * 1000, now), green(120102, 60 * 60 * 1000, now), green(120101, 90 * 60 * 1000, now)],
+        success: [green(120103, 30 * 60 * 1000, now)],
         failure: [], timed_out: [], startup_failure: [],
       },
     });
@@ -670,18 +676,6 @@ describe('issue 12010 — prova dal branch dopo una pagina all-branch satura', (
     });
     expect(pass.verdict).toMatchObject({ action: 'keep', reason: 'branch-proof-insufficient' });
     expect(pass.result.stdout).toContain('red in window=true');
-  });
-
-  it('espone 2/3 quando il branch ha solo due verdi post-apertura', () => {
-    const now = Date.now();
-    const pass = runPass({
-      branchRuns: {
-        success: [green(120302, 60 * 60 * 1000, now), green(120301, 90 * 60 * 1000, now)],
-        failure: [], timed_out: [], startup_failure: [],
-      },
-    });
-    expect(pass.verdict).toMatchObject({ action: 'keep', reason: 'branch-proof-insufficient' });
-    expect(pass.result.stdout).toContain('2/3');
   });
 
   it('distingue il branch cancellato senza run dopo il guasto e non lo chiude', () => {

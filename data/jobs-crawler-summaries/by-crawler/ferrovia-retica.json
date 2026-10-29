@@ -1,20 +1,18 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-10-28T22:22:27.431Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-10-29T09:19:18.186Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 17910,
-  "avgDurationMs": 17910,
+  "durationMs": 19157,
+  "avgDurationMs": 19157,
   "durationHistory": [
-    17910
+    19157
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
       "title": "Rangiermitarbeiter/in (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -30,7 +28,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T21:20:14.410Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
@@ -53,6 +51,8 @@
       }
     }
   ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Geomatiker/in (80-100%)",
@@ -73,7 +73,7 @@
       "sourceLang": "de",
       "slug": "geomatisti-80-100-ferrovia-retica-rhb-chur",
       "percentage": "80-100%",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "applyUrl": "https://www.rhb.ch/it/job/geomatiker-in-80-100_2026-2261/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -105,7 +105,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "kunden-und-reiseberater-in-railservice-50-100-ferrovia-retica-rhb-bernina",
@@ -141,7 +141,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "collaboratore-trice-di-manovra-50-100-ferrovia-retica-rhb-chur",
@@ -177,7 +177,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "technischer-kontrolleur-in-80-100-ferrovia-retica-rhb-chur",
@@ -213,7 +213,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "quereinsteiger-in-zugbegleitung-100-samedan-ferrovia-retica-rhb-samedan",
@@ -249,7 +249,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur-c01df05c91",
@@ -289,7 +289,7 @@
       "sourceLang": "de",
       "slug": "meccanico-installatore-80-100-ferrovia-retica-rhb-chur",
       "percentage": "80-100%",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "applyUrl": "https://www.rhb.ch/it/job/mechaniker-in-monteur-in-80-100_2026-2274/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -325,7 +325,7 @@
       "sourceLang": "de",
       "slug": "pulitori-di-veicoli-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "applyUrl": "https://www.rhb.ch/it/job/fahrzeugreiniger-in-50-100_2026-2273/",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -357,7 +357,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-28T22:22:16.239Z",
+      "crawledAt": "2026-10-29T09:19:09.257Z",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "logistico-70-ferrovia-retica-rhb-chur",
@@ -379,5 +379,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }

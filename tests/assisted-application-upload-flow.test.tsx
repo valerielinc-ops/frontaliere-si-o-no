@@ -38,6 +38,11 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
   ASSISTED_APPLICATION_CONSENT_VERSION: 'assisted-application-v2',
   ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
   normalizeAssistedApplicationCopyVariant: () => 'control',
+  normalizeAssistedApplicationLayoutVariant: (value: unknown) => (
+    ['control', 'variant_7', 'proposal_5', 'proposal_b'].includes(String(value))
+      ? String(value)
+      : null
+  ),
   trackAssistedApplicationEvent: mocks.trackEvent,
 }));
 vi.mock('@/services/i18n', async () => {

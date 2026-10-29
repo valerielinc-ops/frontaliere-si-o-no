@@ -3367,6 +3367,7 @@ export async function submitViaPortal(ctx) {
         agent = await completeWithAgent({
           page,
           hint,
+          fields: current.fields || [],
           errors: current.errors || [],
           candidate: candidateWithRecordedAnswers(ctx.candidate, current),
           candidateLocale: ctx.candidateLocale,

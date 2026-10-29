@@ -1,7 +1,7 @@
 {
   "key": "komax",
   "label": "Komax",
-  "generatedAt": "2026-10-28T22:52:30.840Z",
+  "generatedAt": "2026-10-29T09:30:33.376Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4008,
-  "avgDurationMs": 4008,
+  "durationMs": 4463,
+  "avgDurationMs": 4463,
   "durationHistory": [
-    4008
+    4463
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:52:16.191Z",
+      "crawledAt": "2026-10-29T09:30:17.129Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -79,7 +79,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:52:16.189Z",
+      "crawledAt": "2026-10-29T09:30:17.127Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -101,7 +101,7 @@
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3097,
-      "retranslationAttempts": 13,
+      "retranslationAttempts": 14,
       "firstSeenAt": "2026-09-24T00:10:25.502Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -126,7 +126,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165135955/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:52:16.187Z",
+      "crawledAt": "2026-10-29T09:30:17.125Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -148,7 +148,7 @@
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2425,
-      "retranslationAttempts": 12,
+      "retranslationAttempts": 13,
       "firstSeenAt": "2026-09-10T23:22:05.166Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -173,7 +173,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Engineer-80-100-%28mw%29-3608/1165611355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:52:16.187Z",
+      "crawledAt": "2026-10-29T09:30:17.125Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -216,7 +216,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:52:16.185Z",
+      "crawledAt": "2026-10-29T09:30:17.123Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -263,7 +263,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:52:16.190Z",
+      "crawledAt": "2026-10-29T09:30:17.128Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -306,7 +306,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:52:16.186Z",
+      "crawledAt": "2026-10-29T09:30:17.124Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -338,5 +338,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spitex-zuerich",
-  "assembledAt": "2026-10-29T01:27:44.587Z",
-  "runId": "40798900705",
+  "assembledAt": "2026-10-29T09:40:00.130Z",
+  "runId": "40848431449",
   "jobs": [
     {
       "id": "spitex-zuerich-45bfb7867815",
@@ -35,7 +35,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ioan641fwjqhbsh83ulusl7ok95yfp1",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:37.550Z",
+      "crawledAt": "2026-10-29T09:39:53.148Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ypv2le9p78ygmhn2pogybj1gphgx2ls",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:36.304Z",
+      "crawledAt": "2026-10-29T09:39:52.374Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/nynx0x50jck8ymsizisnbynw0pr33uf",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:34.976Z",
+      "crawledAt": "2026-10-29T09:39:51.273Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/vyppgz6sflfv51sivm47ggunzrip7tw",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:34.089Z",
+      "crawledAt": "2026-10-29T09:39:50.188Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/4bjxg6mkpmzso26jy7lg4zdxb3bikx5",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:33.242Z",
+      "crawledAt": "2026-10-29T09:39:49.045Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/cjo4ai0y4m3ynl7pxfi0qinbgdwkm1e",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:32.002Z",
+      "crawledAt": "2026-10-29T09:39:47.865Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -496,7 +496,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/5771uviifporguue2ei1cz0s4hfatvk",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:30.727Z",
+      "crawledAt": "2026-10-29T09:39:47.036Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -552,7 +552,7 @@
       "slugByLocale": {
         "it": "specialista-in-ferite-60-80-a-spitex-zurich-zurich",
         "en": "wound-specialist-60-80-a-spitex-zurich-zurich",
-        "de": "wundspezialist-in-60-80-a-spitex-zurich-zurich",
+        "de": "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
         "fr": "specialiste-des-plaies-60-80-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
@@ -578,7 +578,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:29.436Z",
+      "crawledAt": "2026-10-29T09:39:45.917Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -597,10 +597,10 @@
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/43jag5jtai5x0utbf4ywxr8l5payjlq",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "wundspezialist-in-60-80-a-spitex-zurich-zurich"
+        ],
         "it": [
           "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
         ],
@@ -609,11 +609,12 @@
         ],
         "fr": [
           "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
-        ],
-        "de": [
-          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
         ]
       },
+      "previousSlugs": [
+        "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
+        "wundspezialist-in-60-80-a-spitex-zurich-zurich"
+      ],
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -660,7 +661,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ftcl1sap4pjlx3fu7uqqo9spw2rx2sn",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:28.136Z",
+      "crawledAt": "2026-10-29T09:39:44.825Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -709,7 +710,7 @@
         "it": "mitarbeitende-hauswirtschaft-e-betreuung-50-70-a-spitex-zurich",
         "en": "employee-housekeeping-and-support-50-70-a-spitex-zurich-zurich",
         "de": "mitarbeitende-hauswirtschaft-und-betreuung-50-70-a-spitex-zuerich-zurich",
-        "fr": "personnel-de-menage-et-de-soins-50-70-a-spitex-zurich-zurich"
+        "fr": "administration-et-soutien-des-employes-50-80-a-spitex-zurich"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
@@ -734,7 +735,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/uxnd9n2w77zl0spdig5tk7verwaggef",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:27:26.794Z",
+      "crawledAt": "2026-10-29T09:39:43.637Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -756,7 +757,7 @@
       "previousSlugs": [
         "mitarbeitende-hauswirtschaft-und-betreuung-50-80-a-spitex-zuerich-zurich",
         "mitarbeitende-hauswirtschaft-und-betreuung-50-80-a-spitex-zurich",
-        "administration-et-soutien-des-employes-50-80-a-spitex-zurich"
+        "personnel-de-menage-et-de-soins-50-70-a-spitex-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -770,7 +771,7 @@
         ],
         "fr": [
           "mitarbeitende-hauswirtschaft-und-betreuung-50-80-a-spitex-zurich",
-          "administration-et-soutien-des-employes-50-80-a-spitex-zurich"
+          "personnel-de-menage-et-de-soins-50-70-a-spitex-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-25T14:54:54.398Z",

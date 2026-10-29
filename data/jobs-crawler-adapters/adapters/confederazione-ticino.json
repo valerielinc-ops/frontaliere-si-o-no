@@ -11,14 +11,134 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-10-28T22:39:01.016Z",
+  "updatedAt": "2026-10-29T11:32:53.243Z",
   "seedMetaByUrl": {
-    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in/b7d97e44-3278-437d-8c89-3ed7d9ab6659": {
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/fa5ba55d-911c-49af-aa63-8929c285ebc6": {
+      "location": "Lehrbeginn August 2027, Monteceneri (TI)",
+      "canton": "TI",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T11:16:51Z",
+      "postedDate": "2026-10-29T11:16:51Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-ausserdienststellung-verteidigung/f0259ef1-9465-4dbd-94c5-409ada423b3f": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-28T14:55:37Z",
-      "postedDate": "2026-10-28T14:55:37Z",
+      "datePosted": "2026-10-29T10:56:43Z",
+      "postedDate": "2026-10-29T10:56:43Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-juristischer-dienst/e70c93f6-7fe5-4c6c-80e2-032e4fa0202a": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T10:51:42Z",
+      "postedDate": "2026-10-29T10:51:42Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/juristische-r-praktikant-in/cfd65ce0-b0b0-400c-a322-a9953b581c1c": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T11:18:24Z",
+      "postedDate": "2026-10-29T11:18:24Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net/068681ac-9f0c-4494-bdf5-7829203e9828": {
+      "location": "Ittigen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T09:51:52Z",
+      "postedDate": "2026-10-29T09:51:52Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-fachbereich-miliz-cfc/53249dd2-bbc5-42a3-b0b4-63013374ca7c": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T10:16:43Z",
+      "postedDate": "2026-10-29T10:16:43Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-professional-1348/89a548d2-8314-4c1e-bf5d-ad6fe47d4b1b": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-01T22:00:00Z",
+      "postedDate": "2026-10-01T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/chef-in-computer-security-incident-response-team-csirt-stv-c-cyber-fusion-center/f1899f55-5bf4-433b-94c8-f29cc4bc0fd8": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T10:37:17Z",
+      "postedDate": "2026-10-29T10:37:17Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/incident-und-problem-manager-in/1aa0d00d-557d-48d3-aa1f-0f6f19530752": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-28T23:00:00Z",
+      "postedDate": "2026-10-28T23:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/jurist-in-direktion-fuer-voelkerrecht-dv-asset-recovery/3fd14b47-c246-468b-b0a8-6a77e001099d": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T09:32:22Z",
+      "postedDate": "2026-10-29T09:32:22Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/jurist-in-politikwissenschaftler-in/cf7b1342-6223-4d01-a3ee-7b63615663e8": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T09:00:09Z",
+      "postedDate": "2026-10-29T09:00:09Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/soc-analyst-in-mit-security-governance-anteil/237ed59a-f317-4f13-98c9-f5c1bc00cf9c": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T07:51:52Z",
+      "postedDate": "2026-10-29T07:51:52Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-klimapolitik/8dc723e3-4981-4a66-a4d0-f55e256f7f06": {
+      "location": "Ittigen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-28T23:00:00Z",
+      "postedDate": "2026-10-28T23:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/abteilungsassistent-in-wirtschaftskriminalitaet/542cab02-8924-42f3-8afe-1e1a33218bec": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-28T23:00:00Z",
+      "postedDate": "2026-10-28T23:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/senior-ict-system-spezialist-in-standard-anwendungen/cfcb7b05-19e3-417f-b3a8-b39a65c7d8f1": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T07:12:45Z",
+      "postedDate": "2026-10-29T07:12:45Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-geschaeftsstelle-tabakpraeventionsfonds/17c06472-0ac3-4b50-8ee6-97b01c81b8cb": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-29T07:12:16Z",
+      "postedDate": "2026-10-29T07:12:16Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/verfahrensleiter-in-jurist-in/37fd7105-309a-4bc4-8798-568f63e5c919": {
@@ -35,6 +155,14 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-28T15:30:07Z",
       "postedDate": "2026-10-28T15:30:07Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in/b7d97e44-3278-437d-8c89-3ed7d9ab6659": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-28T14:55:37Z",
+      "postedDate": "2026-10-28T14:55:37Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/assistent-in-komm-vbs/b6b41e4a-471f-4b3a-968c-0a05c89dac23": {
@@ -77,6 +205,14 @@
       "postedDate": "2026-10-27T15:32:59Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-eu-screening-verfahren/d12f807a-2b62-49fd-ae22-2b58d2fbf9a8": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-27T14:28:56Z",
+      "postedDate": "2026-10-27T14:28:56Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/ict-berater-in-professional-1334/03e11c15-aa01-4795-85aa-fe44b3042971": {
       "location": "Zollikofen",
       "canton": "BE",
@@ -91,14 +227,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-27T13:44:36Z",
       "postedDate": "2026-10-27T13:44:36Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-eu-screening-verfahren/d12f807a-2b62-49fd-ae22-2b58d2fbf9a8": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-27T14:28:56Z",
-      "postedDate": "2026-10-27T14:28:56Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-deza-bundesrats-und-parlamentsgeschaefte/a06ee78c-01e6-4c5f-b264-c37c6e07f9cc": {
@@ -149,14 +277,6 @@
       "postedDate": "2026-10-25T23:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/informationssicherheitsbeauftragte-r-isbo/05ba8703-eadd-4bd1-926c-2532bd19c462": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-26T08:27:41Z",
-      "postedDate": "2026-10-26T08:27:41Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/system-architekt/c34a711d-b59f-4b08-8022-cb75bfef235f": {
       "location": "Zollikofen, mobiles Arbeiten",
       "canton": "BE",
@@ -165,12 +285,12 @@
       "postedDate": "2025-09-02T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-security-und-encryption/5659bbab-a7de-437b-8851-b34b59b75ee7": {
+    "https://jobs.admin.ch/posti-vacanti/informationssicherheitsbeauftragte-r-isbo/05ba8703-eadd-4bd1-926c-2532bd19c462": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-26T11:17:38Z",
-      "postedDate": "2026-10-26T11:17:38Z",
+      "datePosted": "2026-10-26T08:27:41Z",
+      "postedDate": "2026-10-26T08:27:41Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ressortleiter-in-logistik/5a5085b4-8062-40a1-a82f-2e2386de7b1f": {
@@ -181,12 +301,12 @@
       "postedDate": "2026-10-22T10:44:35Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/devsecops-ict-ingenieur-in-junior/e988eeb1-c988-458f-809c-b2c0572f6cc5": {
-      "location": "Payerne und Meiringen",
+    "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-security-und-encryption/5659bbab-a7de-437b-8851-b34b59b75ee7": {
+      "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-26T10:45:17Z",
-      "postedDate": "2026-10-26T10:45:17Z",
+      "datePosted": "2026-10-26T11:17:38Z",
+      "postedDate": "2026-10-26T11:17:38Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/devsecops-ict-ingenieur-in-professional/f04c4790-dee8-43b3-be7c-267d3d1447a8": {
@@ -195,6 +315,14 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-25T23:00:00Z",
       "postedDate": "2026-10-25T23:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/devsecops-ict-ingenieur-in-junior/e988eeb1-c988-458f-809c-b2c0572f6cc5": {
+      "location": "Payerne und Meiringen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-26T10:45:17Z",
+      "postedDate": "2026-10-26T10:45:17Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/bereichsleiter-in-support/211c79ef-832e-4338-9abe-2cf59acd3b9f": {
@@ -269,28 +397,20 @@
       "postedDate": "2026-10-22T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/jurist-in-oder-wirtschaftswissenschaftler-in/95c81b9a-c345-4579-9db7-c607b7d98c41": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-23T09:30:59Z",
-      "postedDate": "2026-10-23T09:30:59Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/local-information-system-security-manager/5c40b352-7e59-44bd-b8fb-d516ecd7f2f7": {
-      "location": "Meiringen (Unterbach)",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-23T09:48:22Z",
-      "postedDate": "2026-10-23T09:48:22Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/organisator-in-ausbildung-unternehmensorganisator-in-senior/11652057-2c0b-40ac-a6d8-3d80c82bdce7": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-23T09:00:14Z",
       "postedDate": "2026-10-23T09:00:14Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/jurist-in-oder-wirtschaftswissenschaftler-in/95c81b9a-c345-4579-9db7-c607b7d98c41": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-23T09:30:59Z",
+      "postedDate": "2026-10-23T09:30:59Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/logistiker-in/2d7168f3-4722-405a-8fb3-eedf59a80c0b": {
@@ -301,12 +421,28 @@
       "postedDate": "2026-10-23T09:15:41Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/local-information-system-security-manager/5c40b352-7e59-44bd-b8fb-d516ecd7f2f7": {
+      "location": "Meiringen (Unterbach)",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-23T09:48:22Z",
+      "postedDate": "2026-10-23T09:48:22Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-osint-data-analysis-intelligence-dai/1a62b9db-13c7-4b68-9a28-48759d3c6482": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-23T08:43:03Z",
       "postedDate": "2026-10-23T08:43:03Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/spezialist-in-benutzungsdienste-informationsvermittlung-und-raeume/6f82e749-97f9-4f4d-8529-e271373c652c": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-23T08:03:14Z",
+      "postedDate": "2026-10-23T08:03:14Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-system-specialist-devsecops-platform-engineer/0c8916d3-fd03-450a-8bf7-cbae4c667e9e": {
@@ -323,14 +459,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-23T08:16:41Z",
       "postedDate": "2026-10-23T08:16:41Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/spezialist-in-benutzungsdienste-informationsvermittlung-und-raeume/6f82e749-97f9-4f4d-8529-e271373c652c": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-23T08:03:14Z",
-      "postedDate": "2026-10-23T08:03:14Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-invasive-gebietsfremde-arten/616f2ace-e713-41bf-afc5-5e0651ff7d5e": {
@@ -373,20 +501,20 @@
       "postedDate": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-klimaextreme/375f6bad-c7f6-4b90-8e19-eabd8fe7359d": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-22T11:33:24Z",
-      "postedDate": "2026-10-22T11:33:24Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/staatssekretaer-in/ac3b2558-468b-4fa0-8cc3-55f2a860e399": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-20T22:00:00Z",
       "postedDate": "2026-10-20T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-klimaextreme/375f6bad-c7f6-4b90-8e19-eabd8fe7359d": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-22T11:33:24Z",
+      "postedDate": "2026-10-22T11:33:24Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-administration-dvs/0fd7931d-d41d-4a1c-a43f-e55c7ae4ff07": {
@@ -397,20 +525,20 @@
       "postedDate": "2026-10-21T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/sekretaer-in/e5977315-2fef-4bab-a4ee-7a8dedf44306": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-22T09:36:37Z",
-      "postedDate": "2026-10-22T09:36:37Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-design/a9c57c18-b039-46e0-9a6a-cdbd06c64ee3": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-25T22:00:00Z",
       "postedDate": "2026-10-25T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/sekretaer-in/e5977315-2fef-4bab-a4ee-7a8dedf44306": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-22T09:36:37Z",
+      "postedDate": "2026-10-22T09:36:37Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-sap-1093/858e79ca-b8de-4c07-a079-4a5817896a2b": {
@@ -493,14 +621,6 @@
       "postedDate": "2026-10-21T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-unterbringung-sicherheit-und-partner/ca7d7c06-85d8-469c-9441-9bd0207f475a": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-15T11:03:08Z",
-      "postedDate": "2026-10-15T11:03:08Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/stellvertretende-r-kommissariatsleiter-in/7afd60da-c323-473f-88b2-84ccfb797562": {
       "location": "Bern",
       "canton": "BE",
@@ -509,17 +629,25 @@
       "postedDate": "2026-10-20T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/kodiererin-kodierer-todesursachen/673ab88f-8a45-414d-a34c-47e09a0df0b1": {
-      "location": "Neuenburg",
-      "canton": "NE",
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-datenanalyse/035f3edf-6c1f-4aec-a947-45014a9db77b": {
+      "location": "Ittigen",
+      "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-20T22:00:00Z",
       "postedDate": "2026-10-20T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-datenanalyse/035f3edf-6c1f-4aec-a947-45014a9db77b": {
-      "location": "Ittigen",
-      "canton": "BE",
+    "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-unterbringung-sicherheit-und-partner/ca7d7c06-85d8-469c-9441-9bd0207f475a": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-15T11:03:08Z",
+      "postedDate": "2026-10-15T11:03:08Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/kodiererin-kodierer-todesursachen/673ab88f-8a45-414d-a34c-47e09a0df0b1": {
+      "location": "Neuenburg",
+      "canton": "NE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-20T22:00:00Z",
       "postedDate": "2026-10-20T22:00:00Z",
@@ -589,20 +717,20 @@
       "postedDate": "2026-10-26T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/bereichsleiter-in-rechtsdienst-und-stv-chef-in-abteilung-recht/ba228b67-0a9f-4bf8-ae83-8bfed22e2864": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-20T06:33:15Z",
-      "postedDate": "2026-10-20T06:33:15Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/fachberater-in-gebaeudeautomation-geba/03a4e907-9c6f-4913-88f0-6954fc2e9e07": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-19T22:00:00Z",
       "postedDate": "2026-10-19T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/bereichsleiter-in-rechtsdienst-und-stv-chef-in-abteilung-recht/ba228b67-0a9f-4bf8-ae83-8bfed22e2864": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-20T06:33:15Z",
+      "postedDate": "2026-10-20T06:33:15Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz-sportlehre-musiklehre/52550469-140f-419c-8a69-8a8c217d9cfc": {
@@ -637,20 +765,20 @@
       "postedDate": "2026-09-24T13:11:11Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/gerichtsschreiber-in/6127dd4e-45ac-4862-a574-dd80352a73e5": {
-      "location": "Luzern",
-      "canton": "LU",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-19T22:00:00Z",
-      "postedDate": "2026-10-19T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz/d6965a83-a611-452f-9068-37f9753ddd70": {
       "location": "Bern &amp; Zimmerwald",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/gerichtsschreiber-in/6127dd4e-45ac-4862-a574-dd80352a73e5": {
+      "location": "Luzern",
+      "canton": "LU",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-19T22:00:00Z",
+      "postedDate": "2026-10-19T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-information-und-kommunikation/c3e031fd-08d4-4417-b03d-bb5630138b66": {
@@ -667,14 +795,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-18T22:00:00Z",
       "postedDate": "2026-10-18T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/fachexpert-e-in-projektmanagement/f2b4196e-8924-4baa-be34-560f0953b4ad": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-19T12:00:21Z",
-      "postedDate": "2026-10-19T12:00:21Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/product-owner-senior/c2dd357c-7f11-4139-b80e-5d8319b787f5": {
@@ -725,20 +845,20 @@
       "postedDate": "2026-07-16T12:51:04Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-administration/6b160569-340e-4044-b0a1-cd4871e11271": {
-      "location": "Mittelhäusern und Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-19T07:01:50Z",
-      "postedDate": "2026-10-19T07:01:50Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/user-experience-architekt-in-business-analyst-in-professional/5763522c-2619-42ff-a9f6-7ab7659ad24a": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-19T07:24:03Z",
       "postedDate": "2026-10-19T07:24:03Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-administration/6b160569-340e-4044-b0a1-cd4871e11271": {
+      "location": "Mittelhäusern und Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-19T07:01:50Z",
+      "postedDate": "2026-10-19T07:01:50Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikantin-hochschulpraktikant-im-rechtsdienst/afd62b06-c015-4018-bf4f-8b67a9ca11eb": {
@@ -773,6 +893,22 @@
       "postedDate": "2026-10-16T15:27:48Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/waffenmechaniker-in/401c95e6-2d9e-4da4-a39b-656f23079ee8": {
+      "location": "Frauenfeld",
+      "canton": "TG",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-11T22:00:00Z",
+      "postedDate": "2026-10-11T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-information-+-kommunikation/9a4359c4-da06-4d2d-9aad-f7347e850662": {
+      "location": "Winterthur",
+      "canton": "ZH",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-15T22:00:00Z",
+      "postedDate": "2026-10-15T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-verkehrstechnik-und-signalisation/13d52ceb-7144-4f51-8b30-5aeec59b8a1d": {
       "location": "Bern",
       "canton": "BE",
@@ -789,20 +925,12 @@
       "postedDate": "2026-10-16T13:01:13Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-information-+-kommunikation/9a4359c4-da06-4d2d-9aad-f7347e850662": {
-      "location": "Winterthur",
-      "canton": "ZH",
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-ethikkommission/036936ec-5a8b-4411-b865-c53085dcfc94": {
+      "location": "Ittigen",
+      "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-15T22:00:00Z",
-      "postedDate": "2026-10-15T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/waffenmechaniker-in/401c95e6-2d9e-4da4-a39b-656f23079ee8": {
-      "location": "Frauenfeld",
-      "canton": "TG",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-11T22:00:00Z",
-      "postedDate": "2026-10-11T22:00:00Z",
+      "datePosted": "2026-10-18T22:00:00Z",
+      "postedDate": "2026-10-18T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-logistik/7e6b326b-1800-4c09-b80c-41cd685cfee2": {
@@ -813,12 +941,12 @@
       "postedDate": "2026-10-16T11:54:43Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-ethikkommission/036936ec-5a8b-4411-b865-c53085dcfc94": {
-      "location": "Ittigen",
+    "https://jobs.admin.ch/posti-vacanti/ict-system-engineer-senior-device-user-environment/edcf3381-ed33-4463-a9b0-560e1239d0e6": {
+      "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-18T22:00:00Z",
-      "postedDate": "2026-10-18T22:00:00Z",
+      "datePosted": "2026-10-16T11:23:36Z",
+      "postedDate": "2026-10-16T11:23:36Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-abteilung-sicherheits-und-verteidigungspolitik/b4c08402-f165-47e6-a148-5311b5df63b9": {
@@ -827,14 +955,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-07T12:02:51Z",
       "postedDate": "2026-10-07T12:02:51Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-engineer-senior-device-user-environment/edcf3381-ed33-4463-a9b0-560e1239d0e6": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-16T11:23:36Z",
-      "postedDate": "2026-10-16T11:23:36Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-im-rechtsdienst-efd/922f6d05-8fbf-4b94-bef4-2682761f46e7": {
@@ -853,28 +973,12 @@
       "postedDate": "2026-10-15T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/chef-in-finanzen-qsm-care/af6a37d6-0adc-4151-8f35-17d9c8c93dc1": {
-      "location": "Flugplatzkommando Locarno",
-      "canton": "TI",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-16T07:44:05Z",
-      "postedDate": "2026-10-16T07:44:05Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/intelligence-officer-analyst-in-europaeische-sicherheit-und-russland/280b7326-8738-4137-9add-5cf7b2f17753": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-16T06:56:48Z",
       "postedDate": "2026-10-16T06:56:48Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/juristische-r-hochschulpraktikant-in-im-bereich-verwaltungsstrafverfahren/40f8675f-5694-4375-a1a0-39788e09fb56": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-15T22:00:00Z",
-      "postedDate": "2026-10-15T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/chef-in-aktionen-cesa/e601cb1c-0c65-43b3-b267-afce0de85f5c": {
@@ -891,6 +995,14 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-16T06:05:23Z",
       "postedDate": "2026-10-16T06:05:23Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/juristische-r-hochschulpraktikant-in-im-bereich-verwaltungsstrafverfahren/40f8675f-5694-4375-a1a0-39788e09fb56": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-15T22:00:00Z",
+      "postedDate": "2026-10-15T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/doktorand-gerichtsschreiber-doktorandin-gerichtsschreiberin/94c020c3-c233-42fa-a7d2-82df678ced04": {
@@ -925,14 +1037,6 @@
       "postedDate": "2026-10-15T10:11:51Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/spezialist-in-finanzen-administration-deza-schweizer-ngo/07ba2d40-9e18-4c33-8dfb-e42816053794": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-15T08:17:13Z",
-      "postedDate": "2026-10-15T08:17:13Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/automobil-mechatroniker-in/18e162db-26d7-45d8-b445-57431881dc44": {
       "location": "Hinwil",
       "canton": "ZH",
@@ -941,12 +1045,12 @@
       "postedDate": "2026-10-15T05:43:16Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/spezialist-in-personen-und-objektsicherheit/6ed7125b-f6ee-40cc-877b-0972aac85e6d": {
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-risk-profiling/4ead3da4-24d5-4613-a34b-018be0137788": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-07T07:50:57Z",
-      "postedDate": "2026-10-07T07:50:57Z",
+      "datePosted": "2026-10-08T06:03:00Z",
+      "postedDate": "2026-10-08T06:03:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/intelligence-officer-technical-collection/f6ec9ed3-41be-407c-9c58-bf5be9f40c71": {
@@ -957,12 +1061,12 @@
       "postedDate": "2026-10-13T14:05:45Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/intelligence-officer-china-322021/4d03eb93-cddd-4963-8aa1-ecc608d2eb5d": {
+    "https://jobs.admin.ch/posti-vacanti/spezialist-in-personen-und-objektsicherheit/6ed7125b-f6ee-40cc-877b-0972aac85e6d": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-09-29T09:18:29Z",
-      "postedDate": "2026-09-29T09:18:29Z",
+      "datePosted": "2026-10-07T07:50:57Z",
+      "postedDate": "2026-10-07T07:50:57Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/intelligence-officer-social-media-intelligence/5e2f9066-66be-41dc-bff5-650e9c8277f2": {
@@ -981,36 +1085,12 @@
       "postedDate": "2026-10-12T10:01:03Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/intelligence-officer-china-321020/258f2221-6053-4763-8779-c88d5bcb36f6": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-09-29T09:13:01Z",
-      "postedDate": "2026-09-29T09:13:01Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-risk-profiling/4ead3da4-24d5-4613-a34b-018be0137788": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-08T06:03:00Z",
-      "postedDate": "2026-10-08T06:03:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-sektion-vollzug-und-datensysteme/03155fc9-2ec5-4948-bea4-e0b4e00dbdb3": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-14T13:52:55Z",
       "postedDate": "2026-10-14T13:52:55Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/aerztin-arzt-fliegeraerztliches-institut-luftwaffe/53b28a29-7b8d-4298-9ef2-1ecd22d1b804": {
-      "location": "Dübendorf",
-      "canton": "ZH",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-12T14:04:51Z",
-      "postedDate": "2026-10-12T14:04:51Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-land-und-rechtserwerb/853b344a-16d0-411a-b912-89b7edeb732b": {
@@ -1021,20 +1101,12 @@
       "postedDate": "2026-10-14T09:53:20Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ikt-verantwortliche-r-stv-techniker-in-pc-7-simulator/63dc8829-02fc-4f02-8318-8fc54aca75c0": {
-      "location": "Flugplatzkommando Locarno",
-      "canton": "TI",
+    "https://jobs.admin.ch/posti-vacanti/aerztin-arzt-fliegeraerztliches-institut-luftwaffe/53b28a29-7b8d-4298-9ef2-1ecd22d1b804": {
+      "location": "Dübendorf",
+      "canton": "ZH",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-14T09:02:31Z",
-      "postedDate": "2026-10-14T09:02:31Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-hr-admin-2-stellvertretende-r-teamleiter-in/c8c0cd41-8cd6-4383-91ae-146fa9aa8696": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-14T09:26:30Z",
-      "postedDate": "2026-10-14T09:26:30Z",
+      "datePosted": "2026-10-12T14:04:51Z",
+      "postedDate": "2026-10-12T14:04:51Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/mitarbeiter-in-logistik/3d45d475-852c-4da3-bbe5-020a2c96e897": {
@@ -1043,6 +1115,14 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-14T09:11:39Z",
       "postedDate": "2026-10-14T09:11:39Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-hr-admin-2-stellvertretende-r-teamleiter-in/c8c0cd41-8cd6-4383-91ae-146fa9aa8696": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-14T09:26:30Z",
+      "postedDate": "2026-10-14T09:26:30Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/luftfahrzeugmechaniker-in/df1f4c8d-7f95-4dbd-b017-48bd988060fd": {
@@ -1077,20 +1157,20 @@
       "postedDate": "2026-10-21T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-windows-client-platform-security/7d19c11f-2726-4428-81cc-a6f3c07c2dc9": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-08-18T06:08:15Z",
-      "postedDate": "2026-08-18T06:08:15Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-infrastruktur-und-objektsicherheit-mit-stv-leitung-infrastruktur-objekt-und-arbeitssicherheit/97355161-506c-4a77-bb46-3835dda97bb6": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-13T08:00:26Z",
       "postedDate": "2026-10-13T08:00:26Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-windows-client-platform-security/7d19c11f-2726-4428-81cc-a6f3c07c2dc9": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-08-18T06:08:15Z",
+      "postedDate": "2026-08-18T06:08:15Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/automobilmechatroniker-in-schwere-fahrzeuge-1/d50e9c99-f780-44f0-8e8b-e77418457af5": {
@@ -1117,12 +1197,12 @@
       "postedDate": "2026-10-12T06:28:55Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/leiter-in-bereich-verfahren-und-rente/1c18c5ea-385c-47c5-a17b-452c1ea4d275": {
-      "location": "Bern",
-      "canton": "BE",
+    "https://jobs.admin.ch/posti-vacanti/logistiker-in/f2b2c447-60c1-4e3b-a9de-5662085c3670": {
+      "location": "Hinwil",
+      "canton": "ZH",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-09T12:00:21Z",
-      "postedDate": "2026-10-09T12:00:21Z",
+      "datePosted": "2026-10-09T12:29:10Z",
+      "postedDate": "2026-10-09T12:29:10Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/spezialist-in-gebaeudebetrieb/af806359-8773-4069-86d0-a8e6c2316223": {
@@ -1133,20 +1213,12 @@
       "postedDate": "2026-10-09T12:14:34Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/logistiker-in/f2b2c447-60c1-4e3b-a9de-5662085c3670": {
-      "location": "Hinwil",
-      "canton": "ZH",
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-bereich-verfahren-und-rente/1c18c5ea-385c-47c5-a17b-452c1ea4d275": {
+      "location": "Bern",
+      "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-09T12:29:10Z",
-      "postedDate": "2026-10-09T12:29:10Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/chef-in-administration-kanzlei-im-lehrverband-genie-rettung-abc/2740b76a-1127-49a2-98f3-f317cebd2e7b": {
-      "location": "Zuchwil",
-      "canton": "SO",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-09T09:54:14Z",
-      "postedDate": "2026-10-09T09:54:14Z",
+      "datePosted": "2026-10-09T12:00:21Z",
+      "postedDate": "2026-10-09T12:00:21Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/applikationsmanager-in-senior/2ea9794a-6581-42e4-bbac-dff6b7abef34": {
@@ -1197,14 +1269,6 @@
       "postedDate": "2026-10-08T13:00:52Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/senior-system-spezialist-in-mit-fachverantwortung-netzwerk-sicherheit/c4826d29-06e0-4802-b589-a5f534525cd5": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-08T10:07:58Z",
-      "postedDate": "2026-10-08T10:07:58Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/ict-test-manager-in-senior/d98cd6a4-bd19-4135-84cf-bb1195378440": {
       "location": "Bern",
       "canton": "BE",
@@ -1213,12 +1277,12 @@
       "postedDate": "2026-10-08T10:12:39Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-portfoliomanagement-cer-ikt/99d09b96-c14b-4711-8973-c49887f68c58": {
-      "location": "Bern",
+    "https://jobs.admin.ch/posti-vacanti/senior-system-spezialist-in-mit-fachverantwortung-netzwerk-sicherheit/c4826d29-06e0-4802-b589-a5f534525cd5": {
+      "location": "Zollikofen",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-08T09:13:16Z",
-      "postedDate": "2026-10-08T09:13:16Z",
+      "datePosted": "2026-10-08T10:07:58Z",
+      "postedDate": "2026-10-08T10:07:58Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/system-ingenieur-in-luftraumueberwachungssysteme/3e5ee751-587b-4940-929c-c21fe9ba99a4": {
@@ -1227,6 +1291,14 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-07T22:00:00Z",
       "postedDate": "2026-10-07T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-portfoliomanagement-cer-ikt/99d09b96-c14b-4711-8973-c49887f68c58": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-08T09:13:16Z",
+      "postedDate": "2026-10-08T09:13:16Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/betriebsleiter-in/10b82687-0ed8-4c3d-a186-c77711f63ea9": {
@@ -1253,20 +1325,20 @@
       "postedDate": "2026-10-07T12:26:34Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-digital-real-estate/16992fb5-5d63-4386-ad8e-338bf8bf108b": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-07T05:29:04Z",
-      "postedDate": "2026-10-07T05:29:04Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/mechatroniker-in-waffensystem-gepanzerte-fahrzeuge/1998e119-73b0-4b75-ae85-b96699714340": {
       "location": "Hinwil",
       "canton": "ZH",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-07T10:58:34Z",
       "postedDate": "2026-10-07T10:58:34Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-digital-real-estate/16992fb5-5d63-4386-ad8e-338bf8bf108b": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-07T05:29:04Z",
+      "postedDate": "2026-10-07T05:29:04Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c": {
@@ -1301,14 +1373,6 @@
       "postedDate": "2026-10-06T08:19:43Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/motorgeraetemechaniker-in-hinwil/19e424d5-0b3a-44e6-b661-8ddb02582bfc": {
-      "location": "Hinwil",
-      "canton": "ZH",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-06T22:00:00Z",
-      "postedDate": "2026-10-06T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/gruppenleiter-in-vollzug-im-internationalen-artenschutz/5dae8fc7-4e59-47c4-acb4-c2701cfad9d9": {
       "location": "Bern",
       "canton": "BE",
@@ -1325,12 +1389,12 @@
       "postedDate": "2026-10-06T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/spezialist-in-kommunikation-stv-leiter-in-kommunikation/58f1a483-56d7-42b0-a4c2-c28823a23744": {
-      "location": "Bern",
-      "canton": "BE",
+    "https://jobs.admin.ch/posti-vacanti/motorgeraetemechaniker-in-hinwil/19e424d5-0b3a-44e6-b661-8ddb02582bfc": {
+      "location": "Hinwil",
+      "canton": "ZH",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-06T14:44:04Z",
-      "postedDate": "2026-10-06T14:44:04Z",
+      "datePosted": "2026-10-06T22:00:00Z",
+      "postedDate": "2026-10-06T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/chef-in-mittlere-und-kleinobjekte-glarus/634450b1-51f3-449c-922c-e89ea95ba82c": {
@@ -1413,14 +1477,6 @@
       "postedDate": "2026-10-05T12:25:15Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/projektleiter-in/dcd08900-cba0-4625-a422-0fded8d4064f": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-05T10:01:30Z",
-      "postedDate": "2026-10-05T10:01:30Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/experte-in-digital-health-mit-schwerpunkt-e-gd-und-rechtsetzungsprozess/a5916298-2d45-47d9-95f9-f6c38fa63f32": {
       "location": "Bern",
       "canton": "BE",
@@ -1453,14 +1509,6 @@
       "postedDate": "2026-05-28T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-professional-1348/89a548d2-8314-4c1e-bf5d-ad6fe47d4b1b": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-01T22:00:00Z",
-      "postedDate": "2026-10-01T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/steuerspezialist-in-recht-mwst/525239ae-e3c1-4753-8cad-ab04e14d25c3": {
       "location": "Bern",
       "canton": "BE",
@@ -1485,17 +1533,17 @@
       "postedDate": "2026-10-02T08:51:06Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/gerichtsschreiber-in-abt-iv-mit-hauptsprache-franzoesisch/139e3573-adf1-4bd1-9186-4f6ffe9d679f": {
-      "location": "St. Gallen",
-      "canton": "SG",
+    "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-debitorenmanagement/50859944-f432-433d-9749-25b371d49035": {
+      "location": "Bern",
+      "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-01T22:00:00Z",
       "postedDate": "2026-10-01T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-debitorenmanagement/50859944-f432-433d-9749-25b371d49035": {
-      "location": "Bern",
-      "canton": "BE",
+    "https://jobs.admin.ch/posti-vacanti/gerichtsschreiber-in-abt-iv-mit-hauptsprache-franzoesisch/139e3573-adf1-4bd1-9186-4f6ffe9d679f": {
+      "location": "St. Gallen",
+      "canton": "SG",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-01T22:00:00Z",
       "postedDate": "2026-10-01T22:00:00Z",
@@ -1517,20 +1565,20 @@
       "postedDate": "2026-09-30T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ingenieur-in-fuer-cloud-und-hybride-plattformen/6e39031d-6f1b-49e8-8a77-09ebb8558d2a": {
-      "location": "Neuenburg",
-      "canton": "NE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-01T07:27:35Z",
-      "postedDate": "2026-10-01T07:27:35Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/plattform-und-infrastrukturarchitekt-in/4585ddb0-4642-41de-93c8-9e0a5df2a23b": {
       "location": "Neuenburg",
       "canton": "NE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-01T07:38:21Z",
       "postedDate": "2026-10-01T07:38:21Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ingenieur-in-fuer-cloud-und-hybride-plattformen/6e39031d-6f1b-49e8-8a77-09ebb8558d2a": {
+      "location": "Neuenburg",
+      "canton": "NE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-01T07:27:35Z",
+      "postedDate": "2026-10-01T07:27:35Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-sektion-grundlagen-und-innovation/0b4a7db0-2542-428f-b751-29f0289c0786": {
@@ -1565,14 +1613,6 @@
       "postedDate": "2026-09-30T13:55:54Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/verfahrensassistent-in-wirtschaftskriminalitaet/672f976b-4be5-4941-a4f2-7c74cebf94fa": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-11T22:00:00Z",
-      "postedDate": "2026-10-11T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/leitende-r-begutachter-in/cc4bdf6e-b108-412b-bdd1-937f962adec2": {
       "location": "Bern",
       "canton": "BE",
@@ -1587,6 +1627,14 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-09-30T08:42:55Z",
       "postedDate": "2026-09-30T08:42:55Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/verfahrensassistent-in-wirtschaftskriminalitaet/672f976b-4be5-4941-a4f2-7c74cebf94fa": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-10-11T22:00:00Z",
+      "postedDate": "2026-10-11T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-system-engineer-senior-devsecops-gis/f39c122b-cefb-4ce4-a008-991cf75dc70f": {
@@ -1613,14 +1661,6 @@
       "postedDate": "2026-09-30T07:38:50Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/inspektor-in-rav-lam-kast/b019e7f2-4561-4fce-ab0e-5d9248a4d9b0": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-09-29T13:41:09Z",
-      "postedDate": "2026-09-29T13:41:09Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/wirtschaftsinformatiker-in-professional-1253/01ccd94b-2513-41ea-acf3-b51a1761bc4f": {
       "location": "Bern",
       "canton": "BE",
@@ -1645,12 +1685,12 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-senior-1130/c172d786-9bff-40c0-97fe-ed6aab55d81b": {
-      "location": "Zollikofen",
+    "https://jobs.admin.ch/posti-vacanti/wms-hms-praktikant-in-efz/dd6f603b-be18-4ae1-8a6f-05e2f98a1acd": {
+      "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-02-25T22:00:00Z",
-      "postedDate": "2026-02-25T22:00:00Z",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-expert-802/793dc901-85ce-4115-9eab-d3f4437d5ba2": {
@@ -1661,12 +1701,12 @@
       "postedDate": "2025-07-17T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/wms-hms-praktikant-in-efz/dd6f603b-be18-4ae1-8a6f-05e2f98a1acd": {
-      "location": "Bern",
+    "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-senior-1130/c172d786-9bff-40c0-97fe-ed6aab55d81b": {
+      "location": "Zollikofen",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
+      "datePosted": "2026-02-25T22:00:00Z",
+      "postedDate": "2026-02-25T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/assistenz-staatsanwaeltin-staatsanwalt-des-bundes-staatsschutz-und-kriminelle-organisationen/3be535ce-5e93-4142-8f75-4305dfc70f2e": {
@@ -1685,20 +1725,20 @@
       "postedDate": "2026-09-29T07:04:14Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/bundesermittler-in-kriminelle-organisationen/d2a4b643-272f-45be-8814-f1b702cdcfba": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-09-28T22:00:00Z",
-      "postedDate": "2026-09-28T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/pki-operations-specialist/f6939168-3d19-4d81-8e51-479825430765": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-29T11:36:33Z",
       "postedDate": "2026-07-29T11:36:33Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/bundesermittler-in-kriminelle-organisationen/d2a4b643-272f-45be-8814-f1b702cdcfba": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-09-28T22:00:00Z",
+      "postedDate": "2026-09-28T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/panzermechatroniker-in-schwere-raupenfahrzeuge/7913fbca-fc96-41b5-ba14-b44e842199d4": {
@@ -1805,20 +1845,20 @@
       "postedDate": "2026-09-23T14:33:24Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/bim-manager-in-und-fachspezialist-in-erhaltungsplanung/494c7ea9-57eb-4fcc-832e-30c39c9d1ccc": {
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-09-23T11:14:53Z",
-      "postedDate": "2026-09-23T11:14:53Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/jurist-in/eb2c39de-46fa-40a4-be9a-e10f97b293d0": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-09-23T12:30:42Z",
       "postedDate": "2026-09-23T12:30:42Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/bim-manager-in-und-fachspezialist-in-erhaltungsplanung/494c7ea9-57eb-4fcc-832e-30c39c9d1ccc": {
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-09-23T11:14:53Z",
+      "postedDate": "2026-09-23T11:14:53Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-information-und-kommunikation-filiale-thun/34ba0483-2b5c-4dd2-a122-3ac3d6a03c04": {
@@ -1877,20 +1917,20 @@
       "postedDate": "2026-09-21T12:43:08Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-im-bereich-betaeubungsmittelvollzug/1b3ee892-9ec7-4b6b-ac33-8997f792d7f2": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-09-21T09:57:43Z",
-      "postedDate": "2026-09-21T09:57:43Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme-fuer-uebertragbare-krankheiten/d1305fc7-73d1-453f-8453-8c2c5844a842": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-09-21T10:45:46Z",
       "postedDate": "2026-09-21T10:45:46Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-im-bereich-betaeubungsmittelvollzug/1b3ee892-9ec7-4b6b-ac33-8997f792d7f2": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-09-21T09:57:43Z",
+      "postedDate": "2026-09-21T09:57:43Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1305-1306/45a6ee41-b0ec-4e01-88ae-047631994f29": {
@@ -1941,7 +1981,7 @@
       "postedDate": "2026-09-17T06:47:24Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme-interoperabilitaet-gesundheitsdatenstandards/f04157db-99f5-489e-9fda-5db72ede0727": {
+    "https://jobs.admin.ch/posti-vacanti/epidemiologe-wissenschaftliche-r-mitarbeiter-in/6f6c543a-44ff-460a-ba7b-d44ea6c58823": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
@@ -1949,7 +1989,7 @@
       "postedDate": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/epidemiologe-wissenschaftliche-r-mitarbeiter-in/6f6c543a-44ff-460a-ba7b-d44ea6c58823": {
+    "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-nationale-ueberwachungssysteme-interoperabilitaet-gesundheitsdatenstandards/f04157db-99f5-489e-9fda-5db72ede0727": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
@@ -1989,16 +2029,8 @@
       "postedDate": "2026-09-14T06:35:46Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/87d7306e-81a9-4f8f-875f-ad450f4eeeae": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/5cf5f6eb-fab7-4943-8c94-d3dc87034131": {
-      "location": "Lehrbeginn August 2027, Thun",
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-logistiker-in-efz-berufsfeld-lager/16e5cbdb-a1e3-4b0e-9d61-49bfe7f16aa9": {
+      "location": "Brenzikofen",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
@@ -2013,7 +2045,7 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/7e573a5e-b63b-4523-91bf-caf5fdde9d3b": {
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/87d7306e-81a9-4f8f-875f-ad450f4eeeae": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
@@ -2037,8 +2069,16 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-logistiker-in-efz-berufsfeld-lager/16e5cbdb-a1e3-4b0e-9d61-49bfe7f16aa9": {
-      "location": "Brenzikofen",
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/7e573a5e-b63b-4523-91bf-caf5fdde9d3b": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-nutzfahrzeuge/5cf5f6eb-fab7-4943-8c94-d3dc87034131": {
+      "location": "Lehrbeginn August 2027, Thun",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
@@ -2067,14 +2107,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-09-13T22:00:00Z",
       "postedDate": "2026-09-13T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/leiter-in-asylregion-tessin-und-zentralschweiz/566c6ce3-9d3c-4f63-a57d-82ebaa1e6a9c": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-09-14T07:00:28Z",
-      "postedDate": "2026-09-14T07:00:28Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/chef-in-fachbereich-grundlagen-zivilschutz-und-ausbildung/7c0cf054-a887-4e35-84bc-ad4e52050ffb": {
@@ -2197,17 +2229,17 @@
       "postedDate": "2026-08-04T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-informatiker-in-fachrichtung-plattformentwicklung/141ccb00-e8e4-4900-a8bb-344b395d37e2": {
-      "location": "Bern",
-      "canton": "BE",
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/87a2fdf1-5a31-46d1-ae71-41754d108c68": {
+      "location": "Hinwil",
+      "canton": "ZH",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/87a2fdf1-5a31-46d1-ae71-41754d108c68": {
-      "location": "Hinwil",
-      "canton": "ZH",
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-informatiker-in-fachrichtung-plattformentwicklung/141ccb00-e8e4-4900-a8bb-344b395d37e2": {
+      "location": "Bern",
+      "canton": "BE",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
@@ -2261,6 +2293,14 @@
       "postedDate": "2026-07-29T06:57:06Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-expert-819/42e9b6f4-c738-4ce0-84f4-7a38b6026029": {
+      "location": "Zollikofen, mobiles Arbeiten",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2025-08-21T22:00:00Z",
+      "postedDate": "2025-08-21T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/ict-security-ingenieur-in-1192-1193/460bebbf-233f-47c3-8e1e-c0e1ec7b19d6": {
       "location": "Zollikofen",
       "canton": "BE",
@@ -2275,14 +2315,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2025-12-11T22:00:00Z",
       "postedDate": "2025-12-11T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-expert-819/42e9b6f4-c738-4ce0-84f4-7a38b6026029": {
-      "location": "Zollikofen, mobiles Arbeiten",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2025-08-21T22:00:00Z",
-      "postedDate": "2025-08-21T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1144-1145-1146/e38ec5bd-63e1-496f-89ae-f7037e87b084": {
@@ -2301,12 +2333,84 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db": {
-      "location": "STANS-OBERDORF / AUSLAND",
+    "https://jobs.admin.ch/posti-vacanti/ict-test-ingenieur-in-senior-1250-1251/2f3b42e4-7813-416b-9d41-75e1c431cdb6": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-05-28T22:00:00Z",
+      "postedDate": "2026-05-28T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-elektroniker-in-efz/ea005ce1-effe-4ebc-8aaa-ae297d901436": {
+      "location": "Lehrbeginn August 2024, Payerne",
+      "canton": "VD",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2023-10-26T22:00:00Z",
+      "postedDate": "2023-10-26T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-1219/8a845dd9-3476-4209-8058-d940fd62668a": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-06-15T22:00:00Z",
+      "postedDate": "2026-06-15T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/3-lernende-logistiker-innen-efz-fachrichtung-lager/c985f605-3a5e-481d-ad94-5e496af21298": {
+      "location": "Grolley (FR)",
+      "canton": "FR",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-cyber-1072/909ad068-7164-4763-830d-244d9ce002d5": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-01-05T22:00:00Z",
+      "postedDate": "2026-01-05T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/2-lernende-kauffrauen-maenner-efz-branche-dienstleistung-und-administration/e7e54d84-3f5e-49e1-9f38-ec400a2be8a2": {
+      "location": "Grolley (FR)",
+      "canton": "FR",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/403a0ed9-706f-4aa6-b20b-d6dac450a37f": {
+      "location": "Visp",
+      "canton": "VS",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lehrstelle-fachmann-frau-betriebsunterhalt-efz/92191499-d33c-453e-b07a-c2bdb1e43de9": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783": {
+      "location": "STANS-OBERDORF / Kosovo",
       "canton": "NW",
       "company": "Confederazione Svizzera",
-      "datePosted": "2020-05-29T06:58:49Z",
-      "postedDate": "2020-05-29T06:58:49Z",
+      "datePosted": "2017-09-25T22:01:32Z",
+      "postedDate": "2017-09-25T22:01:32Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883": {
+      "location": "Othmarsingen, Lernbeginn August 2027",
+      "canton": "AG",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/lernende-r-elektroniker-in-efz/fe3ab121-2167-4b05-b279-de743257ab55": {
@@ -2315,6 +2419,22 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db": {
+      "location": "STANS-OBERDORF / AUSLAND",
+      "canton": "NW",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2020-05-29T06:58:49Z",
+      "postedDate": "2020-05-29T06:58:49Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/asyl-dolmetscher-in/0181eed7-a2b2-4b22-b148-139bd72659a4": {
+      "location": "alle Standorte des SEM",
+      "canton": "JU",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2025-04-07T22:00:00Z",
+      "postedDate": "2025-04-07T22:00:00Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-sicherheits-officer-728-30-1162/b03ce98f-08f6-4bf1-bbaa-741c86226eda": {
@@ -2333,86 +2453,6 @@
       "postedDate": "2026-01-09T09:07:15Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/2-lernende-logistiker-innen-efz-fachrichtung-lager/4c24ff1a-43e9-40d4-ab34-eee893556e33": {
-      "location": "Romont (FR)",
-      "canton": "FR",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/cd590fb6-132b-4430-acfa-7543b447f35e": {
-      "location": "Othmarsingen",
-      "canton": "AG",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-polymechaniker-in-efz/d2f295cf-9b21-40b6-b741-87dcfa3ce15a": {
-      "location": "Payerne",
-      "canton": "VD",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-eba/50fd6b8c-2ed7-4a9b-8c08-01e918985916": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-architekt-in-cyber-1072/909ad068-7164-4763-830d-244d9ce002d5": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-01-05T22:00:00Z",
-      "postedDate": "2026-01-05T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/01d60d89-bf3e-460f-9a5c-1abc8d123377": {
-      "location": "Emmen",
-      "canton": "LU",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/uebermittlungs-informatikspezialist-in/793bdd51-2d47-4b3e-a4e0-ca5d4ba656f5": {
-      "location": "STANS-OBERDORF / AUSLAND",
-      "canton": "NW",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2019-09-10T22:00:00Z",
-      "postedDate": "2019-09-10T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1229-1230-1232/5a4ee7a3-bd41-49cc-9f2c-de933cbfd876": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-06-11T22:00:00Z",
-      "postedDate": "2026-06-11T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7": {
-      "location": "STANS-OBERDORF / AUSLAND",
-      "canton": "NW",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2020-06-04T22:00:00Z",
-      "postedDate": "2020-06-04T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/ef10ccd2-07b8-43f2-b32c-4aea3f2aea6d": {
-      "location": "Basel",
-      "canton": "BS",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
     "https://jobs.admin.ch/posti-vacanti/projektingenieur-in-gebaeudetechnik/e10fe9a1-357c-4c1f-b4f1-aec1068fd294": {
       "location": "Bern",
       "canton": "BE",
@@ -2421,89 +2461,9 @@
       "postedDate": "2026-05-05T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/3-lernende-logistiker-innen-efz-fachrichtung-lager/c985f605-3a5e-481d-ad94-5e496af21298": {
-      "location": "Grolley (FR)",
-      "canton": "FR",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-entwickler-in-digitales-business/f1a68402-16e9-4af1-b24b-e8d124fcbe31": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-1219/8a845dd9-3476-4209-8058-d940fd62668a": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-06-15T22:00:00Z",
-      "postedDate": "2026-06-15T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/403a0ed9-706f-4aa6-b20b-d6dac450a37f": {
-      "location": "Visp",
-      "canton": "VS",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-elektroniker-in-efz/ea005ce1-effe-4ebc-8aaa-ae297d901436": {
-      "location": "Lehrbeginn August 2024, Payerne",
-      "canton": "VD",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2023-10-26T22:00:00Z",
-      "postedDate": "2023-10-26T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/3-lernende-automobil-mechatroniker-innen-efz-fachrichtung-nutzfahrzeuge/1d309861-35c6-475d-a810-87b830c31883": {
-      "location": "Othmarsingen, Lernbeginn August 2027",
-      "canton": "AG",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/observer-lmt-lot-m-w/057ac591-65fa-4a62-b0d8-099cc6d69783": {
-      "location": "STANS-OBERDORF / Kosovo",
-      "canton": "NW",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2017-09-25T22:01:32Z",
-      "postedDate": "2017-09-25T22:01:32Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/asyl-dolmetscher-in/0181eed7-a2b2-4b22-b148-139bd72659a4": {
-      "location": "alle Standorte des SEM",
-      "canton": "JU",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2025-04-07T22:00:00Z",
-      "postedDate": "2025-04-07T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/2-lernende-kauffrauen-maenner-efz-branche-dienstleistung-und-administration/e7e54d84-3f5e-49e1-9f38-ec400a2be8a2": {
-      "location": "Grolley (FR)",
-      "canton": "FR",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-koch-koechin-efz/1a227faf-4e87-43d5-be12-2f71d29a3634": {
-      "location": "Payerne (VD)",
-      "canton": "VD",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/e74b8566-5393-4e09-82a9-626eb999a984": {
-      "location": "Hinwil (ZH)",
-      "canton": "ZH",
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-efz/ef10ccd2-07b8-43f2-b32c-4aea3f2aea6d": {
+      "location": "Basel",
+      "canton": "BS",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
@@ -2517,6 +2477,94 @@
       "postedDate": "2026-06-30T22:00:00Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/e74b8566-5393-4e09-82a9-626eb999a984": {
+      "location": "Hinwil (ZH)",
+      "canton": "ZH",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-entwickler-in-digitales-business/f1a68402-16e9-4af1-b24b-e8d124fcbe31": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/2-lernende-logistiker-innen-efz-fachrichtung-lager/4c24ff1a-43e9-40d4-ab34-eee893556e33": {
+      "location": "Romont (FR)",
+      "canton": "FR",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-sanitaer/6c4ff681-0325-4825-8334-1b476fa1b2c7": {
+      "location": "STANS-OBERDORF / AUSLAND",
+      "canton": "NW",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2020-06-04T22:00:00Z",
+      "postedDate": "2020-06-04T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/01d60d89-bf3e-460f-9a5c-1abc8d123377": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/ict-system-ingenieur-in-1229-1230-1232/5a4ee7a3-bd41-49cc-9f2c-de933cbfd876": {
+      "location": "Zollikofen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-06-11T22:00:00Z",
+      "postedDate": "2026-06-11T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-kauffrau-mann-eba/50fd6b8c-2ed7-4a9b-8c08-01e918985916": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-polymechaniker-in-efz/d2f295cf-9b21-40b6-b741-87dcfa3ce15a": {
+      "location": "Payerne",
+      "canton": "VD",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/cd590fb6-132b-4430-acfa-7543b447f35e": {
+      "location": "Othmarsingen",
+      "canton": "AG",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-koch-koechin-efz/1a227faf-4e87-43d5-be12-2f71d29a3634": {
+      "location": "Payerne (VD)",
+      "canton": "VD",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
+    "https://jobs.admin.ch/posti-vacanti/uebermittlungs-informatikspezialist-in/793bdd51-2d47-4b3e-a4e0-ca5d4ba656f5": {
+      "location": "STANS-OBERDORF / AUSLAND",
+      "canton": "NW",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2019-09-10T22:00:00Z",
+      "postedDate": "2019-09-10T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/wirtschaftsinformatiker-in-mit-sap-expertise/f62dd687-3bab-4a43-a16d-b0213cdff13d": {
       "location": "Bern",
       "canton": "BE",
@@ -2525,20 +2573,12 @@
       "postedDate": "2026-06-23T14:45:35Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lehrstelle-fachmann-frau-betriebsunterhalt-efz/92191499-d33c-453e-b07a-c2bdb1e43de9": {
+    "https://jobs.admin.ch/posti-vacanti/ict-system-engineer-sap-basis/a03d01d5-4b12-40c0-b56f-9e9591c3091e": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-test-ingenieur-in-senior-1250-1251/2f3b42e4-7813-416b-9d41-75e1c431cdb6": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-05-28T22:00:00Z",
-      "postedDate": "2026-05-28T22:00:00Z",
+      "datePosted": "2026-06-02T06:28:23Z",
+      "postedDate": "2026-06-02T06:28:23Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/978823f4-e23a-4cfd-9092-88005f3c233b": {
@@ -2549,17 +2589,17 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz/17c36907-3cf7-4c5c-a656-f0381f29a5c8": {
-      "location": "Bern",
-      "canton": "BE",
+    "https://jobs.admin.ch/posti-vacanti/militaerisches-kaderspersonal-m-w/6c59bb4d-6148-460e-a982-6d5eaab3d2d8": {
+      "location": "STANS-OBERDORF / Kosovo",
+      "canton": "NW",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-07-31T22:00:00Z",
-      "postedDate": "2026-07-31T22:00:00Z",
+      "datePosted": "2017-09-25T22:02:28Z",
+      "postedDate": "2017-09-25T22:02:28Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/f18eb6a8-ec4e-4985-a0e7-1af3a2259cde": {
-      "location": "Frauenfeld",
-      "canton": "TG",
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-polymechaniker-in-efz/9637dfac-52ff-418d-84f9-925f5112f710": {
+      "location": "Sitten",
+      "canton": "VS",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
@@ -2573,25 +2613,9 @@
       "postedDate": "2017-10-19T10:45:33Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/militaerisches-kaderspersonal-m-w/6c59bb4d-6148-460e-a982-6d5eaab3d2d8": {
-      "location": "STANS-OBERDORF / Kosovo",
-      "canton": "NW",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2017-09-25T22:02:28Z",
-      "postedDate": "2017-09-25T22:02:28Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/pki-security-officer-operator/0af2460f-c30d-4a28-92e2-a0cd7562cbce": {
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-kaufmann-frau-efz/17c36907-3cf7-4c5c-a656-f0381f29a5c8": {
       "location": "Bern",
       "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2025-08-08T08:31:58Z",
-      "postedDate": "2025-08-08T08:31:58Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/lernende-r-polymechaniker-in-efz/9637dfac-52ff-418d-84f9-925f5112f710": {
-      "location": "Sitten",
-      "canton": "VS",
       "company": "Confederazione Svizzera",
       "datePosted": "2026-07-31T22:00:00Z",
       "postedDate": "2026-07-31T22:00:00Z",
@@ -2605,6 +2629,14 @@
       "postedDate": "2026-07-31T22:00:00Z",
       "postingDateSource": "reported"
     },
+    "https://jobs.admin.ch/posti-vacanti/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/f18eb6a8-ec4e-4985-a0e7-1af3a2259cde": {
+      "location": "Frauenfeld",
+      "canton": "TG",
+      "company": "Confederazione Svizzera",
+      "datePosted": "2026-07-31T22:00:00Z",
+      "postedDate": "2026-07-31T22:00:00Z",
+      "postingDateSource": "reported"
+    },
     "https://jobs.admin.ch/posti-vacanti/wirtschaftsinformatiker-in-im-sap-umfeld/0fb75fcb-e9e4-430c-a692-38f85d45cbb5": {
       "location": "Bern",
       "canton": "BE",
@@ -2613,12 +2645,12 @@
       "postedDate": "2026-02-06T11:43:42Z",
       "postingDateSource": "reported"
     },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-engineer-sap-basis/a03d01d5-4b12-40c0-b56f-9e9591c3091e": {
+    "https://jobs.admin.ch/posti-vacanti/pki-security-officer-operator/0af2460f-c30d-4a28-92e2-a0cd7562cbce": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
-      "datePosted": "2026-06-02T06:28:23Z",
-      "postedDate": "2026-06-02T06:28:23Z",
+      "datePosted": "2025-08-08T08:31:58Z",
+      "postedDate": "2025-08-08T08:31:58Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-devops-engineer-data-analytics-senior/cc6f8275-0088-4fea-847a-f640949bc33b": {

@@ -29,7 +29,7 @@ describe('fuel price refresh publication', () => {
     expect(workflow).not.toMatch(/\bgit\s+push\b/);
   });
 
-  it('builds the canton dataset from the daily hand-off without blocking the main cache PR', () => {
+  it('publishes the core cache before the slow canton overlay and appends a valid build', () => {
     const workflow = read('.github/workflows/update-fuel-prices.yml');
     const gitignore = read('.gitignore');
 
@@ -39,6 +39,7 @@ describe('fuel price refresh publication', () => {
     expect(workflow).toContain('node scripts/build-fuel-cantons-dataset.mjs --input "$RUNNER_TEMP/fuel-cantons-input.json"');
     const step = workflow.slice(workflow.indexOf('- name: Build cantonal fuel dataset (P9b)'));
     expect(step.slice(0, step.indexOf('run:'))).toContain('continue-on-error: true');
+    expect(step.slice(0, step.indexOf('run:'))).toContain('timeout-minutes: 10');
     // Its failure is still surfaced, under a title of its own.
     expect(workflow).toContain("if: steps.fuel_cantons.outcome == 'failure'");
     expect(workflow).toContain('--title "Dataset carburanti per cantone rifiutato (update-fuel-prices)"');
@@ -46,11 +47,17 @@ describe('fuel price refresh publication', () => {
     expect(workflow).toContain("if: steps.fuel_cantons.outputs.built == 'true'");
     expect(workflow).not.toContain("if: steps.fuel_cantons.outcome == 'success'");
     expect(workflow).toMatch(/github-issue-creator\.mjs --resolve \\\n\s+--title "Dataset carburanti per cantone rifiutato \(update-fuel-prices\)"/);
-    // Joins the same refresh PR only once the file exists (untracked before
-    // its first successful build), with the same ignored-cache contract.
-    expect(workflow).toContain('if [ -f data/fuel-prices-cantons.json ] && [ -f public/data/fuel-prices-cantons.json ]; then');
-    expect(workflow).toContain('"${cantons_paths[@]}"');
-    expect(workflow.indexOf('Build cantonal fuel dataset (P9b)')).toBeLessThan(workflow.indexOf('Open PR with fuel price cache'));
+    const corePr = workflow.indexOf('Open PR with fuel price cache');
+    const cantonBuild = workflow.indexOf('Build cantonal fuel dataset (P9b)');
+    const cantonPr = workflow.indexOf('Add cantonal fuel cache to refresh PR');
+    expect(corePr).toBeLessThan(cantonBuild);
+    expect(cantonBuild).toBeLessThan(cantonPr);
+    expect(workflow).toContain("if: steps.fuel_cantons.outputs.built == 'true'");
+    expect(workflow).toContain('--path data/fuel-prices-cantons.json');
+    expect(workflow).toContain('--path public/data/fuel-prices-cantons.json');
+    expect(workflow).toMatch(/Add cantonal fuel cache to refresh PR[\s\S]*?--force[\s\S]*?--path data\/fuel-prices-cantons\.json[\s\S]*?--path public\/data\/fuel-prices-cantons\.json/u);
+    expect(workflow).not.toContain('cantons_paths=()');
+    expect(workflow).not.toContain('"${cantons_paths[@]}"');
     // Line-anchored: the ignore entries, not a mention in a comment.
     expect(gitignore).toMatch(/^data\/fuel-prices-cantons\.json$/m);
     expect(gitignore).toMatch(/^public\/data\/fuel-prices-cantons\.json$/m);

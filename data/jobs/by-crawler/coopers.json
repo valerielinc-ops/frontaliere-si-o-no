@@ -1,97 +1,8 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-28T22:24:09.405Z",
-  "runId": "40775024633",
+  "assembledAt": "2026-10-29T09:29:57.908Z",
+  "runId": "40847873211",
   "jobs": [
-    {
-      "id": "coopers-52cb4b048a24",
-      "slug": "sviluppatore-sviluppatrice-java-senior-m-f-d-coopers-group-ag-luzern",
-      "slugByLocale": {
-        "it": "sviluppatore-sviluppatrice-java-senior-m-f-d-coopers-group-ag-luzern",
-        "en": "senior-java-developer-m-f-d-coopers-group-ag-luzern",
-        "de": "senior-java-entwickler-in-m-w-d-coopers-luzern",
-        "fr": "developpeur-euse-java-senior-h-f-d-coopers-group-ag-luzern"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Senior Java Entwickler:in (m/w/d)",
-      "titleByLocale": {
-        "it": "Sviluppatore/sviluppatrice Java senior (m/f/d)",
-        "en": "Senior Java Developer (m/f/d)",
-        "de": "Senior Java Entwickler:in (m/w/d)",
-        "fr": "Développeur·euse Java senior (h/f/d)"
-      },
-      "description": "Für unseren Versicherungskunden in Luzern , suchen wir eine:n Senior Java Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Umsetzung AI-nativer Entwicklungsprozesse mit autonomen KI-Agenten zur Automatisierung des gesamten Software Development Lifecycle (SDLC)\n• Integration von AI-Coding-Tools und Agenten in bestehende Enterprise-Anwendungen und Entwicklungsprozesse\n• Automatisierung von Engineering-Aufgaben wie Anforderungsanalyse, Implementierung, Testing und Code Reviews unter Berücksichtigung definierter Qualitäts- und Sicherheitskontrollen\n• Entwicklung von Prototypen und iteratives Testen neuer KI-gestützter Workflows gemeinsam mit den Entwicklungsteams\n• Coaching und Befähigung der Engineers zur nachhaltigen Integration von KI in den Entwicklungsalltag\n\nDein Profil:\n• Mehrjährige Erfahrung in der agilen Softwareentwicklung mit modernen Java-Technologien, vorzugsweise JEE\n• Gute Kenntnisse mit Angular sowie in Event- und Workflow-basierten Architekturen\n• Erfahrung mit Docker, Kubernetes und Cucumber\n• Praxis in modernen Software-Engineering-Methoden wie Clean Code, Clean Architecture (Onion Architecture), TDD, BDD und DDD\n• Erfahrung in der Entwicklung, Implementierung und dem Betrieb von Software im DevOps-Umfeld\n• Erfahrung mit Scrum sowie idealerweise dem SAFe Lean-Agile-Framework\n• Hoher Qualitätsanspruch an nachhaltigen, wartbaren und architekturkonformen Code\n• Hohe Lernbereitschaft und Bereitschaft, sich in neue fachliche Themen einzuarbeiten\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise\n• Kreativität sowie ausgeprägtes Qualitätsbewusstsein\n• Offene, kommunikative Persönlichkeit mit Eigeninitiative sowie Teamfähigkeit und Freude an der interdisziplinären Zusammenarbeit\n• Bereitschaft, bestehende Lösungen konstruktiv zu hinterfragen und kontinuierlich zu verbessern\n• Fliessend in Deutsch, gute Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• ab sofort - 31.12.2027 mit Option zur Verlängerung\n• Java , J2EE, SAFe\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
-      "descriptionByLocale": {
-        "it": "Per il nostro cliente a Lucerne, stiamo cercando un:n Senior Java Sviluppatore:in.\n\nI vostri compiti:\n• Ulteriore sviluppo di soluzioni software complesse nel campo dei sistemi core per il test delle prestazioni\n• Preparazione e attuazione di norme per l'audit in collaborazione con settori specializzati\n• Sviluppo e realizzazione di soluzioni conformi all'architettura con le moderne tecnologie\n• Partecipazione all'intero ciclo di vita del software – dal concepimento allo sviluppo al funzionamento (DevOps)\n• Applicazione di moderne pratiche di ingegneria del software per garantire alta qualità del codice\n• Una stretta collaborazione con gli stakeholder aziendali e i team di sviluppo in un ambiente agile\n• Partecipazione attiva allo sviluppo tecnico e introduzione di nuove idee e miglioramenti\n\nIl tuo profilo:\n• Diversi anni di esperienza nello sviluppo di software agile con le moderne tecnologie Java\n• Buona conoscenza delle architetture angolari e basate su eventi e flussi di lavoro\n• Esperienza con Docker, Kubernetes e Cetriolo\n• Pratica nei moderni metodi di ingegneria del software come il codice pulito, l'architettura pulita (l'architettura onion), TDD, BDD e DDD\n• Esperienza nello sviluppo, implementazione e funzionamento del software nell'ambiente DevOps\n• Esperienza con Scrum e idealmente il quadro SAFe Lean-Agile\n• Standard di alta qualità per un codice sostenibile, mantenibile e conforme all'architettura\n• Alta disponibilità ad imparare e la disponibilità a familiarizzare con nuovi argomenti professionali\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n• Creatività e consapevolezza di alta qualità\n• Personalità aperta e comunicativa con iniziativa e lavoro di squadra e godimento della cooperazione interdisciplinare\n• La volontà di interrogare costruttivamente le soluzioni esistenti e migliorarle continuamente\n• Flusso in tedesco, buona conoscenza dell'inglese\n\nProfili di lavoro\n• IT - Ingegneria del software\n• Lucerna\n• Contratti\n• Tempo parziale, 80-100 %\n• Mid-August - 31.12.2026 con opzione di estensione\n• Java, J2EE, SAFe\n\nPrestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa",
-        "en": "For our customer in Lucerne, we are looking for a:n Senior Java Developer:in.\n\nYour tasks:\n• Further development of complex software solutions in the field of core systems for performance testing\n• Preparation and implementation of rules for auditing in cooperation with specialist areas\n• Development and implementation of architecture-compliant solutions with modern technologies\n• Participation in the entire software lifecycle – from conception to development to operation (DevOps)\n• Application of modern software engineering practices to ensure high code quality\n• Close cooperation with business stakeholders and development teams in an agile environment\n• Active participation in the technical development as well as introducing new ideas and improvements\n\nYour profile:\n• Several years of experience in agile software development with modern Java technologies\n• Good knowledge of Angular as well as event- and workflow-based architectures\n• Experience with Docker, Kubernetes and Cucumber\n• Practice in modern software engineering methods such as Clean Code, Clean Architecture (Onion Architecture), TDD, BDD and DDD\n• Experience in the development, implementation and operation of software in the DevOps environment\n• Experience with Scrum and ideally the SAFe Lean-Agile framework\n• High quality standards for sustainable, maintainable and architecture-compliant code\n• High willingness to learn and willingness to familiarize yourself with new professional topics\n• Independent, structured and solution-oriented working method\n• Creativity and high quality awareness\n• Open, communicative personality with initiative as well as teamwork and enjoyment of interdisciplinary cooperation\n• Willingness to constructively question existing solutions and continuously improve them\n• Flowing in German, good knowledge of English\n\nJob profiles\n• IT - Software Engineering\n• Lucerne\n• Contracting\n• Part Time, 80-100 %\n• Mid-August - 31.12.2026 with option of extension\n• Java, J2EE, SAFe\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance",
-        "de": "Für unseren Versicherungskunden in Luzern , suchen wir eine:n Senior Java Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Umsetzung AI-nativer Entwicklungsprozesse mit autonomen KI-Agenten zur Automatisierung des gesamten Software Development Lifecycle (SDLC)\n• Integration von AI-Coding-Tools und Agenten in bestehende Enterprise-Anwendungen und Entwicklungsprozesse\n• Automatisierung von Engineering-Aufgaben wie Anforderungsanalyse, Implementierung, Testing und Code Reviews unter Berücksichtigung definierter Qualitäts- und Sicherheitskontrollen\n• Entwicklung von Prototypen und iteratives Testen neuer KI-gestützter Workflows gemeinsam mit den Entwicklungsteams\n• Coaching und Befähigung der Engineers zur nachhaltigen Integration von KI in den Entwicklungsalltag\n\nDein Profil:\n• Mehrjährige Erfahrung in der agilen Softwareentwicklung mit modernen Java-Technologien, vorzugsweise JEE\n• Gute Kenntnisse mit Angular sowie in Event- und Workflow-basierten Architekturen\n• Erfahrung mit Docker, Kubernetes und Cucumber\n• Praxis in modernen Software-Engineering-Methoden wie Clean Code, Clean Architecture (Onion Architecture), TDD, BDD und DDD\n• Erfahrung in der Entwicklung, Implementierung und dem Betrieb von Software im DevOps-Umfeld\n• Erfahrung mit Scrum sowie idealerweise dem SAFe Lean-Agile-Framework\n• Hoher Qualitätsanspruch an nachhaltigen, wartbaren und architekturkonformen Code\n• Hohe Lernbereitschaft und Bereitschaft, sich in neue fachliche Themen einzuarbeiten\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise\n• Kreativität sowie ausgeprägtes Qualitätsbewusstsein\n• Offene, kommunikative Persönlichkeit mit Eigeninitiative sowie Teamfähigkeit und Freude an der interdisziplinären Zusammenarbeit\n• Bereitschaft, bestehende Lösungen konstruktiv zu hinterfragen und kontinuierlich zu verbessern\n• Fliessend in Deutsch, gute Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• ab sofort - 31.12.2027 mit Option zur Verlängerung\n• Java , J2EE, SAFe\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
-        "fr": "Pour notre client à Lucerne, nous recherchons un:n Senior Java Developer:in.\n\nVos tâches:\n• Poursuite du développement de solutions logicielles complexes dans le domaine des systèmes de base pour les tests de performance\n• Élaboration et application de règles d ' audit en coopération avec des domaines spécialisés\n• Développement et mise en œuvre de solutions conformes à l'architecture avec des technologies modernes\n• Participation à l'ensemble du cycle de vie du logiciel – de la conception au développement à l'exploitation (DevOps)\n• Application de pratiques modernes de génie logiciel pour assurer une qualité de code élevée\n• Coopération étroite avec les parties prenantes et les équipes de développement dans un environnement agile\n• Participation active au développement technique et introduction de nouvelles idées et améliorations\n\nVotre profil:\n• Plusieurs années d'expérience dans le développement de logiciels agiles avec les technologies Java modernes\n• Bonne connaissance des architectures angulaires et des architectures basées sur les événements et les flux de travail\n• Expérience avec Docker, Kubernetes et Cucumber\n• Pratique dans les méthodes modernes d'ingénierie des logiciels telles que Clean Code, Clean Architecture (Oignon Architecture), TDD, BDD et DDD\n• Expérience dans le développement, la mise en œuvre et le fonctionnement des logiciels dans l'environnement DevOps\n• Expérience avec Scrum et idéalement le cadre SAFe Lean-Agile\n• Normes de qualité élevées pour un code durable, durable et conforme à l'architecture\n• Haute volonté d'apprendre et de se familiariser avec de nouveaux sujets professionnels\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Créativité et sensibilisation de haute qualité\n• Personnalité ouverte et communicative avec initiative, travail d'équipe et plaisir de la coopération interdisciplinaire\n• Volonté de remettre en question de manière constructive les solutions existantes et de les améliorer continuellement\n• Flux en allemand, bonne connaissance de l'anglais\n\nProfils d'emploi\n• IT - Génie logiciel\n• Lucerne\n• Contrats\n• Temps partiel, 80-100 %\n• Mi-août - 31.12.2026 avec possibilité de prolongation\n• Java, J2EE, SAFe\n\nPrestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Ministère de l ' intérieur\n• Espace de travail moderne\n• Équilibre travail-vie privée"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:24:04.241Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contracting",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-30T00:00:00Z",
-      "postedDate": "2026-06-30T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
-      "requirements": [
-        "IT - Software Engineering",
-        "Luzern",
-        "Contracting",
-        "Part Time, 80-100%",
-        "ab sofort - 31.12.2027 mit Option zur Verlängerung",
-        "Java , J2EE, SAFe"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "IT - Software Engineering",
-          "Contracting",
-          "Part Time, 80-100%",
-          "Mitte August - 31.12.2026 mit Option zur Verlängerung",
-          "Java , J2EE, SAFe",
-          "ab sofort - 31.12.2027 mit Option zur Verlängerung"
-        ]
-      },
-      "previousSlugs": [
-        "senior-java-entwickler-in-m-w-d-coopers-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-java-entwickler-in-m-w-d-coopers-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-06-30T22:09:47.963Z",
-      "salaryMin": 107000,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 107000,
-          "maxValue": 162500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6003"
-    },
     {
       "id": "coopers-76e7d5c21035",
       "slug": "ingegnere-software-full-stack-senior-java-angular-m-f-d-coopers-group-ag-luzern",
@@ -123,7 +34,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:24:03.372Z",
+      "crawledAt": "2026-10-29T09:29:50.655Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -216,7 +127,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:24:02.515Z",
+      "crawledAt": "2026-10-29T09:29:49.748Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -307,7 +218,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:24:01.645Z",
+      "crawledAt": "2026-10-29T09:29:48.829Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -393,7 +304,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:24:00.780Z",
+      "crawledAt": "2026-10-29T09:29:47.927Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -488,7 +399,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:59.917Z",
+      "crawledAt": "2026-10-29T09:29:47.026Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -593,7 +504,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:59.057Z",
+      "crawledAt": "2026-10-29T09:29:46.129Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -680,7 +591,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:58.194Z",
+      "crawledAt": "2026-10-29T09:29:45.224Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -767,7 +678,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:57.310Z",
+      "crawledAt": "2026-10-29T09:29:44.310Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -855,7 +766,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:56.445Z",
+      "crawledAt": "2026-10-29T09:29:43.411Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -941,7 +852,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:55.576Z",
+      "crawledAt": "2026-10-29T09:29:42.512Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1042,7 +953,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:54.718Z",
+      "crawledAt": "2026-10-29T09:29:41.605Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1130,7 +1041,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:53.850Z",
+      "crawledAt": "2026-10-29T09:29:40.706Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1216,7 +1127,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:52.981Z",
+      "crawledAt": "2026-10-29T09:29:39.799Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1304,7 +1215,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:52.111Z",
+      "crawledAt": "2026-10-29T09:29:38.895Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1393,7 +1304,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:51.249Z",
+      "crawledAt": "2026-10-29T09:29:37.992Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1480,7 +1391,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SC117T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:50.366Z",
+      "crawledAt": "2026-10-29T09:29:37.060Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1573,7 +1484,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B3LB50",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:49.501Z",
+      "crawledAt": "2026-10-29T09:29:36.152Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1664,7 +1575,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5LY2U0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:48.635Z",
+      "crawledAt": "2026-10-29T09:29:35.251Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1759,7 +1670,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T5ME25",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:47.778Z",
+      "crawledAt": "2026-10-29T09:29:34.354Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1849,7 +1760,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OIT77",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:46.905Z",
+      "crawledAt": "2026-10-29T09:29:33.444Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1944,7 +1855,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2Y3C1X",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:46.037Z",
+      "crawledAt": "2026-10-29T09:29:32.536Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2036,7 +1947,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8ADY23",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:45.173Z",
+      "crawledAt": "2026-10-29T09:29:31.622Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2129,7 +2040,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0VTZ20",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:44.303Z",
+      "crawledAt": "2026-10-29T09:29:30.709Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2223,7 +2134,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:43.439Z",
+      "crawledAt": "2026-10-29T09:29:29.802Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2314,7 +2225,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V90UI0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:42.581Z",
+      "crawledAt": "2026-10-29T09:29:28.852Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -2394,7 +2305,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=60UUR1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:41.724Z",
+      "crawledAt": "2026-10-29T09:29:27.938Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2474,7 +2385,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OH3F98",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:40.855Z",
+      "crawledAt": "2026-10-29T09:29:27.000Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2570,7 +2481,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=D6GR56",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:39.995Z",
+      "crawledAt": "2026-10-29T09:29:26.091Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2658,7 +2569,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2JN4D0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:39.136Z",
+      "crawledAt": "2026-10-29T09:29:25.104Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2752,7 +2663,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6HR98P",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:38.272Z",
+      "crawledAt": "2026-10-29T09:29:24.201Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2849,7 +2760,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8WU85W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:37.405Z",
+      "crawledAt": "2026-10-29T09:29:23.294Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2938,7 +2849,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H3E57F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:36.537Z",
+      "crawledAt": "2026-10-29T09:29:22.386Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3018,7 +2929,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M4R79H",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:35.653Z",
+      "crawledAt": "2026-10-29T09:29:21.477Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3098,7 +3009,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=219YWB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:34.773Z",
+      "crawledAt": "2026-10-29T09:29:20.535Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3191,7 +3102,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=980SOQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:33.909Z",
+      "crawledAt": "2026-10-29T09:29:19.626Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3288,7 +3199,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=EHF530",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:33.044Z",
+      "crawledAt": "2026-10-29T09:29:18.654Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3381,7 +3292,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9IT6S4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:23:32.186Z",
+      "crawledAt": "2026-10-29T09:29:17.752Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3473,7 +3384,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=UZ52R4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:31.323Z",
+      "crawledAt": "2026-10-29T09:29:16.847Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3548,18 +3459,18 @@
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "Senior Real Estate Transaction Manager (m/w/d)",
+      "title": "Real Estate Transaction Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile senior delle transazioni immobiliari (m/f/d)",
-        "en": "Senior Real Estate Transaction Manager (m/f/d)",
-        "de": "Senior Real Estate Transaction Manager (m/w/d)",
+        "en": "Real Estate Transaction Manager (m/w/d)",
+        "de": "Real Estate Transaction Manager (m/w/d)",
         "fr": "Gestionnaire principal des transactions immobilières (h/f/d)"
       },
-      "description": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Senior Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
+      "description": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
       "descriptionByLocale": {
         "it": "Per i nostri clienti a Basilea, stiamo cercando un esperto Senior Real Estate Transaction Manager per sostenere progetti di acquisto e vendita impegnativi nel mercato immobiliare svizzero. In questo ruolo versatile, si assume la gestione indipendente delle transazioni immobiliari durante tutto il ciclo di vita.\n\nI vostri compiti:\n• Identificazione e esame preliminare delle opportunità di investimento nel mercato immobiliare svizzero\n• Preparazione e presentazione delle offerte di acquisto non vincolante e vincolante\n• Attuazione e coordinamento dei controlli di due diligence\n• Analisi, valutazione e verifica della plausibilità degli investimenti immobiliari\n• Preparazione delle basi decisionali e dei movimenti dei pannelli\n• Condotta dei negoziati contrattuali e dei contratti di vendita\n• Raccolta, preparazione ed esame dei documenti oggetto nell'ambito della due diligenza del venditore\n• Organizzazione, manutenzione e manutenzione delle sale dati\n• Tendenza, mandato e gestione di broker e consulenti esterni\n• Coordinamento con notai, proprietari e altri stakeholder esterni\n• Garantire la documentazione completa e la segnalazione facile da usare\n• Gestione indipendente e controllo dei progetti di acquisto e vendita in tutto il processo di transazione\n• Una stretta cooperazione con i servizi interni e gli organi decisionali\n• Responsabilità per l'implementazione tempestiva e di alta qualità delle transazioni immobiliari\n• Cooperazione nel mercato, ubicazione e analisi degli investimenti per individuare nuove opportunità\n\nIl tuo profilo:\n• Laurea in economia, architettura, giurisprudenza o un campo di studio comparabile\n• Formazione aggiuntiva nel settore immobiliare è vantaggioso\n• Diversi anni di esperienza professionale (almeno 3 anni) in Real Estate Transaction Management\n• Esperienza nelle transazioni immobiliari e investimenti diretti\n• Conoscenza del mercato immobiliare svizzero\n• Esperienza nella valutazione immobiliare e nell'ambiente di consulenza immobiliare\n• Metodi di lavoro autonomi e strutturati\n• Forte capacità analitiche e capacità di pensiero imprenditoriale\n• Esperienza nella gestione e gestione dei progetti di transazione\n• Conoscenza molto buona di MS Office, in particolare Excel, Word e PowerPoint\n• Esperienza pratica con Wüest Dimensioni e Immopac e conoscenza di GaraioREM\n• Sicurezza della negoziazione nel trattare con gli stakeholder interni ed esterni\n• Esperienza con altri strumenti immobiliari, valutazione o ricerca è vantaggioso\n• L'affinità per i metodi di lavoro digitali e le applicazioni AI è vantaggioso\n• Alta responsabilità personale così come forte comunicazione e assertività\n• Aspetto professionale e gestione sicura delle parti interessate esigenti nell'ambiente immobiliare\n• Conoscenza fluida del tedesco e buona conoscenza dell'inglese e del francese\n\nProfili di lavoro\n• Amministrazione - Gestione\n• Città di Basilea\n• Contratti\n• Tempo parziale, 50-80 %\n• Da ora in poi - aprile 2027\n• MS Office, Excel, Word, PPT, Software di valutazione e ricerca, Wüest Dimensioni Immopac, AM Software, GaraioREM",
         "en": "For our customers in Basel, we are looking for an experienced Senior Real Estate Transaction Manager to support demanding purchase and sales projects in the Swiss real estate market. In this versatile role, you take on the independent management of real estate transactions throughout the entire life cycle.\n\nYour tasks:\n• Identification and preliminary examination of investment opportunities in the Swiss real estate market\n• Preparation and submission of non-binding and binding purchase offers\n• Implementation and coordination of due diligence checks\n• Analysis, valuation and plausibility checking of real estate investments\n• Preparation of decision-making bases and panel motions\n• Conduct of contract and sales contract negotiations\n• Compilation, preparation and examination of object documents within the framework of vendor due diligence\n• Organisation, maintenance and maintenance of data rooms\n• Tendering, mandatement and management of external brokers and advisors\n• Coordination with notaries, landlords and other external stakeholders\n• Ensuring full documentation and user-friendly reporting\n• Independent management and control of purchase and sales projects throughout the entire transaction process\n• Close cooperation with internal departments and decision-making bodies\n• Responsibility for timely and high-quality implementation of real estate transactions\n• Cooperation in market, location and investment analyses to identify new opportunities\n\nYour profile:\n• University degree in business, architecture, jurisprudence or a comparable field of study\n• Additional training in real estate is beneficial\n• Several years of professional experience (at least 3 years) in Real Estate Transaction Management\n• Experience in real estate transactions and direct investments\n• Sound knowledge of the Swiss real estate market\n• Experience in property valuation and in the real estate advisory environment\n• Self-employed and structured working methods\n• Strong analytical skills and entrepreneurial thinking skills\n• Experience in managing and managing transaction projects\n• Very good knowledge of MS Office, especially Excel, Word and PowerPoint\n• Practical experience with Wüest Dimensions and Immopac as well as knowledge of GaraioREM\n• Negotiation security in dealing with internal and external stakeholders\n• Experience with other real estate, valuation or research tools is advantageous\n• Affinity for digital working methods and AI applications is beneficial\n• High personal responsibility as well as strong communication and assertiveness\n• Professional appearance and safe handling of demanding stakeholders in the real estate environment\n• Fluent knowledge of German and good knowledge of English and French\n\nJob profiles\n• Administration - Management\n• Basel City\n• Contracting\n• Part Time, 50-80 %\n• From now on - April 2027\n• MS Office, Excel, Word, PPT, Evaluation and Research Software, Wüest Dimensions Immopac, AM Software, GaraioREM",
-        "de": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Senior Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
+        "de": "Für unseren Kunden in Basel suchen wir per sofort einen erfahrenen Real Estate Transaction Manager zur Unterstützung bei anspruchsvollen An- und Verkaufsprojekten im Schweizer Immobilienmarkt. In dieser vielseitigen Rolle übernimmst du die selbstständige Leitung von Immobilientransaktionen über den gesamten Lebenszyklus hinweg.\n\nDeine Aufgaben:\n• Identifikation und Vorprüfung von Investitionsopportunitäten im Schweizer Immobilienmarkt\n• Erstellung und Einreichung unverbindlicher sowie verbindlicher Kaufangebote\n• Durchführung und Koordination von Due-Diligence-Prüfungen\n• Analyse, Bewertung und Plausibilisierung von Immobilieninvestitionen\n• Erstellung von Entscheidungsgrundlagen und Gremienanträgen\n• Führung von Vertrags- und Kaufvertragsverhandlungen\n• Zusammenstellung, Aufbereitung und Prüfung von Objektunterlagen im Rahmen von Vendor Due Diligence\n• Organisation, Pflege und Betreuung von Datenräumen\n• Ausschreibung, Mandatierung und Steuerung externer Broker und Berater\n• Koordination mit Notariaten, Grundbuchämtern sowie weiteren externen Stakeholdern\n• Sicherstellung einer vollständigen Dokumentation und eines adressatengerechten Reportings\n• Selbstständige Leitung und Steuerung von An- und Verkaufsprojekten über den gesamten Transaktionsprozess hinweg\n• Enge Zusammenarbeit mit internen Fachbereichen und Entscheidungsgremien\n• Verantwortung für die termingerechte und qualitativ hochwertige Umsetzung von Immobilientransaktionen\n• Mitarbeit bei Markt-, Standort- und Investitionsanalysen zur Identifikation neuer Opportunitäten\n\nDein Profil:\n• Universitätsabschluss in Wirtschaft, Architektur, Jurisprudenz oder einer vergleichbaren Fachrichtung\n• Zusatzausbildung im Immobilienbereich von Vorteil\n• Mehrjährige Berufserfahrung (mindestens 3 Jahre) im Real Estate Transaction Management\n• Erfahrung im Bereich Immobilientransaktionen und Direct Investments\n• Fundierte Kenntnisse des Schweizer Immobilienmarktes\n• Erfahrung in der Immobilienbewertung und im Real Estate Advisory Umfeld\n• Selbstständige und strukturierte Arbeitsweise\n• Ausgeprägte analytische Fähigkeiten sowie unternehmerisches Denkvermögen\n• Erfahrung in der Leitung und Steuerung von Transaktionsprojekten\n• Sehr gute Kenntnisse in MS Office, insbesondere Excel, Word und PowerPoint\n• Praxiserfahrung mit Wüest Dimensions und Immopac sowie Kenntnisse von GaraioREM von Vorteil\n• Verhandlungssicherheit im Umgang mit internen und externen Stakeholdern\n• Erfahrung mit weiteren Immobilien-, Bewertungs- oder Research-Tools von Vorteil\n• Affinität zu digitalen Arbeitsmethoden und KI-Anwendungen von Vorteil\n• Hohe Eigenverantwortung sowie ausgeprägte Kommunikations- und Durchsetzungsfähigkeit\n• Professionelles Auftreten und sicherer Umgang mit anspruchsvollen Anspruchsgruppen im Immobilienumfeld\n• Fliessend Deutschkenntnisse und gute Englisch- und Französischkenntnisse\n\nJob profile\n• Administration - Management\n• Basel-Stadt\n• Contracting\n• Part Time, 50-80%\n• Ab sofort - April 2027\n• MS Office, Excel, Word, PPT, Bewertungs und Researchsoftware, Wüest Dimensions Immopac, AM Software, GaraioREM",
         "fr": "Pour nos clients à Bâle, nous recherchons un Senior Real Estate Transaction Manager expérimenté pour soutenir des projets d'achat et de vente exigeants sur le marché immobilier suisse. Dans ce rôle polyvalent, vous assumez la gestion indépendante des transactions immobilières tout au long du cycle de vie.\n\nVos tâches:\n• Identification et examen préliminaire des opportunités d'investissement sur le marché immobilier suisse\n• Préparation et soumission d'offres d'achat non contraignantes et contraignantes\n• Mise en œuvre et coordination des contrôles de diligence raisonnable\n• Analyse, évaluation et contrôle de plausibilité des investissements immobiliers\n• Préparation des bases de décision et des motions des groupes spéciaux\n• Conduite des négociations relatives aux contrats et aux contrats de vente\n• Compilation, préparation et examen des documents d ' objet dans le cadre de la diligence raisonnable du fournisseur\n• Organisation, entretien et entretien des salles de données\n• Appel d'offres, mandat et gestion des courtiers et conseillers externes\n• Coordination avec les notaires, les propriétaires et les autres parties prenantes externes\n• Faire en sorte que la documentation soit complète et que les rapports soient faciles à utiliser\n• Gestion et contrôle indépendants des projets d'achat et de vente tout au long du processus de transaction\n• Coopération étroite avec les services internes et les organes de décision\n• Responsabilité de la mise en œuvre rapide et de qualité des transactions immobilières\n• Coopération dans les analyses de marché, de localisation et d'investissement pour identifier de nouvelles opportunités\n\nVotre profil:\n• Diplôme universitaire en affaires, architecture, jurisprudence ou domaine d'études comparable\n• Une formation supplémentaire en immobilier est bénéfique\n• Plusieurs années d'expérience professionnelle (au moins 3 ans) en gestion des transactions immobilières\n• Expérience dans les transactions immobilières et les investissements directs\n• Bonne connaissance du marché immobilier suisse\n• Expérience dans l'évaluation des biens immobiliers et dans l'environnement de conseil immobilier\n• Méthodes de travail indépendantes et structurées\n• Fortes compétences analytiques et de pensée entrepreneuriale\n• Expérience en gestion de projets de transaction\n• Très bonne connaissance de MS Office, en particulier Excel, Word et PowerPoint\n• Expérience pratique avec Wüest Dimensions et Immopac ainsi que connaissance de GaraioREM\n• Négociation de la sécurité dans les relations avec les parties prenantes internes et externes\n• L'expérience d'autres outils immobiliers, d'évaluation ou de recherche est avantageuse\n• L'affinité des méthodes de travail numériques et des applications d'IA est bénéfique\n• Haute responsabilité personnelle ainsi qu'une communication et une assurance fortes\n• L'apparence professionnelle et la gestion sécuritaire des intervenants exigeants dans l'environnement immobilier\n• Connaissance de l'allemand et bonne connaissance de l'anglais et du français\n\nProfils d'emploi\n• Administration - Gestion\n• Ville de Bâle\n• Contrats\n• Temps partiel, 50-80 %\n• À partir de maintenant - avril 2027\n• MS Office, Excel, Word, PPT, Logiciel d'évaluation et de recherche, Wüest Dimensions Immopac, AM Software, GaraioREM"
       },
       "location": "Basel-Stadt",
@@ -3567,7 +3478,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=ED033Q",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:30.443Z",
+      "crawledAt": "2026-10-29T09:29:15.929Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3575,7 +3486,7 @@
       "category": "Altro",
       "contract": "contracting",
       "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
@@ -3602,11 +3513,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
+        "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
+        "real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
+          "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt",
+          "real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
         ],
         "fr": [
           "senior-real-estate-transaction-manager-m-w-d-coopers-basel-stadt"
@@ -3660,7 +3573,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8ZU22W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:29.577Z",
+      "crawledAt": "2026-10-29T09:29:15.014Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3693,7 +3606,19 @@
           "VMWare, Cloud, vSphere"
         ]
       },
+      "previousSlugs": [
+        "senior-vmware-cloud-infrastructure-engineer-m-w-d-coopers-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-vmware-cloud-infrastructure-engineer-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "senior-vmware-cloud-infrastructure-engineer-m-w-d-coopers-bern"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:08:35.411Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -3707,19 +3632,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004",
-      "firstSeenAt": "2026-10-28T20:08:35.411Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-vmware-cloud-infrastructure-engineer-m-w-d-coopers-bern"
-        ],
-        "fr": [
-          "senior-vmware-cloud-infrastructure-engineer-m-w-d-coopers-bern"
-        ]
-      },
-      "previousSlugs": [
-        "senior-vmware-cloud-infrastructure-engineer-m-w-d-coopers-bern"
-      ]
+      "postalCode": "3004"
     },
     {
       "id": "coopers-ccaff3348ea3",
@@ -3752,7 +3665,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9TBS41",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:27.704Z",
+      "crawledAt": "2026-10-29T09:29:14.105Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3791,6 +3704,9 @@
           "HERMES, Jira, Confluence, Project Management, Migration, IT-Services"
         ]
       },
+      "previousSlugs": [
+        "projektleiter-in-it-infrastruktur-migration-m-w-d-coopers-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-it-infrastruktur-migration-m-w-d-coopers-bern"
@@ -3802,9 +3718,7 @@
           "projektleiter-in-it-infrastruktur-migration-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-in-it-infrastruktur-migration-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-10-28T20:08:34.541Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -3818,8 +3732,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004",
-      "firstSeenAt": "2026-10-28T20:08:34.541Z"
+      "postalCode": "3004"
     },
     {
       "id": "coopers-8c472b4d7c43",
@@ -3852,7 +3765,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7MQ5O5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:23:26.839Z",
+      "crawledAt": "2026-10-29T09:29:13.196Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3891,6 +3804,9 @@
           "HERMES, Jira, Confluence, Project Management"
         ]
       },
+      "previousSlugs": [
+        "projektleiter-in-m-w-d-coopers-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-m-w-d-coopers-bern"
@@ -3902,9 +3818,7 @@
           "projektleiter-in-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-in-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-10-28T20:08:33.675Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -3918,41 +3832,122 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004",
-      "firstSeenAt": "2026-10-28T20:08:33.675Z"
+      "postalCode": "3004"
     },
     {
-      "id": "coopers-eeafbae82670",
-      "slug": "sviluppatore-sviluppatrice-senior-java-jee-m-f-d-coopers-group-ag-luzern",
+      "id": "coopers-7cf39ec2b813",
+      "slug": "computerized-system-qa-manager-m-w-d-coopers-wallis",
       "slugByLocale": {
-        "it": "sviluppatore-sviluppatrice-senior-java-jee-m-f-d-coopers-group-ag-luzern",
-        "en": "senior-java-jee-developer-m-f-d-coopers-group-ag-luzern",
-        "de": "senior-java-jee-entwickler-in-m-w-d-coopers-luzern",
-        "fr": "developpeur-euse-senior-java-jee-h-f-d-coopers-group-ag-luzern"
+        "en": "computerized-system-qa-manager-m-w-d-coopers-wallis",
+        "it": "computerized-system-qa-manager-m-w-d-coopers-wallis",
+        "de": "computerized-system-qa-manager-m-w-d-coopers-wallis",
+        "fr": "computerized-system-qa-manager-m-w-d-coopers-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "Senior Java/JEE Entwickler:in (m/w/d)",
+      "title": "Computerized System QA Manager (m/w/d)",
       "titleByLocale": {
-        "it": "Sviluppatore/sviluppatrice senior Java/JEE (m/f/d)",
-        "en": "Senior Java/JEE Developer (m/f/d)",
-        "de": "Senior Java/JEE Entwickler:in (m/w/d)",
-        "fr": "Développeur·euse senior Java/JEE (h/f/d)"
+        "en": "Computerized System QA Manager (m/w/d)",
+        "it": "Computerized System QA Manager (m/w/d)",
+        "de": "Computerized System QA Manager (m/w/d)",
+        "fr": "Computerized System QA Manager (m/w/d)"
       },
-      "description": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
+      "description": "The Computerized System QA Manager will provide strategic and operational leadership for Computerized Systems Quality Assurance and Data Integrity across the site. The role partners closely with IT/OT, Automation, Manufacturing, Engineering, Quality Control, Quality & Compliance and global functions to ensure computerized systems remain compliant, inspection ready, and aligned with business objectives.\n\nLocation: Visp\n\nInitial 3 Months Contract with possibility to extend till 6 Months\n\nThe Computerized System QA Manager is responsible for establishing and maintaining a robust quality framework for GxP computerized systems , electronic records, electronic signatures, data governance and data integrity. The role ensures systems are validated, operated and maintained in compliance with EU GMP, FDA, Annex 11, GAMP 5 and applicable regulatory expectations. Additionally this role supports the lifecycle management of data not only electronically but paper based as well as the cultural maintenance of the Data Integrity and Good Documentation Practices within the site.\n\nResponsibilities\n• Must possess a comprehensive understanding of Computerized Systems Quality Assurance and Data Integrity programs.\n• Provide site leadership for Data Integrity governance, strategy, risk management and continuous improvement initiatives.\n• Act as the primary QA authority for computerized system validation (CSV) activities throughout the system lifecycle.\n• Ensure GxP computerized systems remain in a validated state through effective oversight of validation, periodic review and change management activities.\n• Lead and coach QA and non QA professionals supporting computerized systems and data integrity activities.\n• Review and approve validation plans, user requirements, risk assessments, specifications, test protocols and validation reports.\n• Provide QA oversight of computerized systems provided as a service to the site including MES, LIMS, DMS, SAP, TrackWise, DeltaV, historian systems and supporting infrastructure.\n• Assess and approve changes, deviations, CAPAs and investigations related to computerized systems and data integrity events.\n• Drive compliance with EU GMP Annex 11, FDA 21 CFR Part 11, Data Integrity guidance and GAMP 5 principles.\n• Lead site inspection readiness for computerized systems and represent QA during customer audits and regulatory inspections.\n• Establish and monitor key performance indicators for CSV and Data Integrity programs.\n• Partner with business functions to ensure effective governance of electronic records, audit trails, access management and backup/recovery processes.\n• Support digital transformation initiatives while ensuring compliance and patient safety.\n\nRequirements\n• Bachelor's or Master's degree in Computer Science, Engineering, Pharmaceutical Sciences, Biotechnology, or a related discipline.\n• Minimum 5 years of experience in Quality Assurance (QA), Computerized Systems Validation (CSV), IT Quality, Data Integrity, or a related quality/compliance function within a GMP-regulated pharmaceutical, biotechnology, or cell & gene therapy environment, including leadership or project leadership responsibilities.\n• Strong expertise in computerized system validation and analytical instrument qualification, including validation lifecycle activities (URS, IQ/OQ/PQ, risk assessments, traceability, testing, validation reports) and risk-based validation approaches.\n• Extensive knowledge of Data Integrity principles, governance, testing, and regulatory expectations, including compliance with EU GMP, FDA requirements, Annex 11, 21 CFR Part 11, GAMP 5, and other applicable GxP regulations.\n• Proven experience reviewing and approving validation documentation, deviations, CAPAs, change controls, risk assessments, investigations, and quality records.\n• Hands-on experience with regulated GxP systems and platforms such as MES, LIMS, DMS, SAP, TrackWise/TrackWise AQWA, Kneat, DeltaV, Learning Management Systems (LMS), laboratory systems, and manufacturing or automation platforms.\n• Experience in deviation management, CAPA management, quality event investigations, root cause analysis (5 Whys, Ishikawa/Fishbone), change control, and risk assessment methodologies.\n• Demonstrated experience supporting regulatory inspections, audits, inspection readiness activities, and customer audits.\n• Strong understanding of quality systems and compliance processes, including GxP documentation, SOP authoring and management, training management, gap assessments, supplier qualification, batch record review, product quality review, and quality metrics reporting.\n• Experience managing multiple validation and qualification activities simultaneously, including prioritization of high-volume protocol execution and documentation review.\n• Proven ability to lead cross-functional teams, drive continuous improvement initiatives, support business process optimization, and effectively collaborate with Quality, IT, Manufacturing, Engineering, Automation, and Laboratory stakeholders.\n\nJob profile\n• Engineering - Quality Management\n• Wallis\n• Contracting\n• Part Time, 100%\n• Immediately - 3 to 6 months\n• CSV, Quality Assurance, Data Integrity",
       "descriptionByLocale": {
-        "it": "Per i nostri clienti del settore assicurativo di Lucerne, stiamo cercando un:n senior Java/JEE Sviluppatore:in.\n\nI vostri compiti:\n• Sviluppo e sviluppo di soluzioni backend con Java / Jakarta EE\n• Lavorare con Kubernetes e moderne pratiche DevOps\n• Analisi e progettazione di requisiti tecnici e professionali\n• Applicazione di Domain Driven Design (DDD) e BPMN\n• Una stretta collaborazione con diverse discipline e team interdisciplinari\n• Impegno attivo con professionalità e processi aziendali\n• Lavorare in un ambiente Lean-Agile secondo SAFe\n\nIl tuo profilo:\n• Diversi anni di esperienza nello sviluppo di software backend con Java / Jakarta EE\n• Buona conoscenza di Kubernetes e DevOps\n• Esperienza con Domain Driven Design (DDD) e BPMN\n• Godere di analisi interdisciplinari e progettazione tecnica\n• La volontà di diventare intensamente coinvolta in nuovi temi tecnici e processi aziendali\n• Abilità angolare / Frontend sono un plus\n• Calma e serenità anche in situazioni difficili\n• Forte lavoro di squadra e una mentalità magra-agile\n• Metodo di lavoro indipendente e orientato alla soluzione\n• Flusso in tedesco e inglese\n\nProfili di lavoro\n• IT - Ingegneria del software\n• Lucerna\n• Contraente\n• Tempo parziale, 80-100 %\n• A partire da ora - fine del 2027 con opzione di estensione\n• Java, JEE\n\nPrestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa",
-        "en": "For our customers from the insurance industry in Lucerne, we are looking for a:n Senior Java/JEE Developer:in.\n\nYour tasks:\n• Development and further development of backend solutions with Java / Jakarta EE\n• Working with Kubernetes and modern DevOps practices\n• Analysis and design of technical and professional requirements\n• Application of Domain Driven Design (DDD) and BPMN\n• Close cooperation with different disciplines and interdisciplinary teams\n• Active engagement with professionalism and business processes\n• Working in a Lean-Agile environment according to SAFe\n\nYour profile:\n• Several years of experience in backend software development with Java / Jakarta EE\n• Good knowledge of Kubernetes and DevOps\n• Experience with Domain Driven Design (DDD) and BPMN\n• Enjoying interdisciplinary analysis and technical design\n• Willingness to become intensively involved in new technical topics and business processes\n• Angular / Frontend skills are a plus\n• Calm and serenity even in demanding situations\n• Strong teamwork and a lean-agile mindset\n• Independent and solution-oriented working method\n• Flowing in German and English\n\nJob profiles\n• IT - Software Engineering\n• Lucerne\n• Contracting\n• Part Time, 80-100 %\n• As of now - end of 2027 with option of extension\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance",
-        "de": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
-        "fr": "Pour nos clients de l'industrie de l'assurance à Lucerne, nous recherchons:n Senior Java/JEE Developer:in.\n\nVos tâches :\n• Développement et développement de solutions backend avec Java / Jakarta EE\n• Travailler avec Kubernetes et les pratiques DevOps modernes\n• Analyse et conception des exigences techniques et professionnelles\n• Application de la conception d'entraînement de domaine (DDD) et BPMN\n• Coopération étroite avec différentes disciplines et équipes interdisciplinaires\n• Engagement actif dans le professionnalisme et les processus opérationnels\n• Travailler dans un environnement Lean-Agile selon SAFe\n\nVotre profil:\n• Plusieurs années d'expérience dans le développement de logiciels backend avec Java / Jakarta EE\n• Bonne connaissance de Kubernetes et DevOps\n• Expérience avec DDD et BPMN\n• Profitez de l'analyse interdisciplinaire et de la conception technique\n• Volonté de s'impliquer activement dans de nouveaux sujets techniques et processus opérationnels\n• Les compétences angulaires / Frontend sont un plus\n• Calme et sérénité même dans des situations exigeantes\n• Un travail d'équipe fort et un état d'esprit agile maigre\n• Méthode de travail indépendante et axée sur la solution\n• Flux en allemand et en anglais\n\nProfils d'emploi\n• IT - Ingénierie des logiciels\n• Lucerne\n• Contrats\n• Temps partiel, 80-100 %\n• À partir de maintenant - fin 2027 avec option d'extension\n• Java, JEE\n\nPrestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Accueil\n• Espace de travail moderne\n• Équilibre travail-vie privée"
+        "en": "The Computerized System QA Manager will provide strategic and operational leadership for Computerized Systems Quality Assurance and Data Integrity across the site. The role partners closely with IT/OT, Automation, Manufacturing, Engineering, Quality Control, Quality & Compliance and global functions to ensure computerized systems remain compliant, inspection ready, and aligned with business objectives.\n\nLocation: Visp\n\nInitial 3 Months Contract with possibility to extend till 6 Months\n\nThe Computerized System QA Manager is responsible for establishing and maintaining a robust quality framework for GxP computerized systems , electronic records, electronic signatures, data governance and data integrity. The role ensures systems are validated, operated and maintained in compliance with EU GMP, FDA, Annex 11, GAMP 5 and applicable regulatory expectations. Additionally this role supports the lifecycle management of data not only electronically but paper based as well as the cultural maintenance of the Data Integrity and Good Documentation Practices within the site.\n\nResponsibilities\n• Must possess a comprehensive understanding of Computerized Systems Quality Assurance and Data Integrity programs.\n• Provide site leadership for Data Integrity governance, strategy, risk management and continuous improvement initiatives.\n• Act as the primary QA authority for computerized system validation (CSV) activities throughout the system lifecycle.\n• Ensure GxP computerized systems remain in a validated state through effective oversight of validation, periodic review and change management activities.\n• Lead and coach QA and non QA professionals supporting computerized systems and data integrity activities.\n• Review and approve validation plans, user requirements, risk assessments, specifications, test protocols and validation reports.\n• Provide QA oversight of computerized systems provided as a service to the site including MES, LIMS, DMS, SAP, TrackWise, DeltaV, historian systems and supporting infrastructure.\n• Assess and approve changes, deviations, CAPAs and investigations related to computerized systems and data integrity events.\n• Drive compliance with EU GMP Annex 11, FDA 21 CFR Part 11, Data Integrity guidance and GAMP 5 principles.\n• Lead site inspection readiness for computerized systems and represent QA during customer audits and regulatory inspections.\n• Establish and monitor key performance indicators for CSV and Data Integrity programs.\n• Partner with business functions to ensure effective governance of electronic records, audit trails, access management and backup/recovery processes.\n• Support digital transformation initiatives while ensuring compliance and patient safety.\n\nRequirements\n• Bachelor's or Master's degree in Computer Science, Engineering, Pharmaceutical Sciences, Biotechnology, or a related discipline.\n• Minimum 5 years of experience in Quality Assurance (QA), Computerized Systems Validation (CSV), IT Quality, Data Integrity, or a related quality/compliance function within a GMP-regulated pharmaceutical, biotechnology, or cell & gene therapy environment, including leadership or project leadership responsibilities.\n• Strong expertise in computerized system validation and analytical instrument qualification, including validation lifecycle activities (URS, IQ/OQ/PQ, risk assessments, traceability, testing, validation reports) and risk-based validation approaches.\n• Extensive knowledge of Data Integrity principles, governance, testing, and regulatory expectations, including compliance with EU GMP, FDA requirements, Annex 11, 21 CFR Part 11, GAMP 5, and other applicable GxP regulations.\n• Proven experience reviewing and approving validation documentation, deviations, CAPAs, change controls, risk assessments, investigations, and quality records.\n• Hands-on experience with regulated GxP systems and platforms such as MES, LIMS, DMS, SAP, TrackWise/TrackWise AQWA, Kneat, DeltaV, Learning Management Systems (LMS), laboratory systems, and manufacturing or automation platforms.\n• Experience in deviation management, CAPA management, quality event investigations, root cause analysis (5 Whys, Ishikawa/Fishbone), change control, and risk assessment methodologies.\n• Demonstrated experience supporting regulatory inspections, audits, inspection readiness activities, and customer audits.\n• Strong understanding of quality systems and compliance processes, including GxP documentation, SOP authoring and management, training management, gap assessments, supplier qualification, batch record review, product quality review, and quality metrics reporting.\n• Experience managing multiple validation and qualification activities simultaneously, including prioritization of high-volume protocol execution and documentation review.\n• Proven ability to lead cross-functional teams, drive continuous improvement initiatives, support business process optimization, and effectively collaborate with Quality, IT, Manufacturing, Engineering, Automation, and Laboratory stakeholders.\n\nJob profile\n• Engineering - Quality Management\n• Wallis\n• Contracting\n• Part Time, 100%\n• Immediately - 3 to 6 months\n• CSV, Quality Assurance, Data Integrity",
+        "it": "The Computerized System QA Manager will provide strategic and operational leadership for Computerized Systems Quality Assurance and Data Integrity across the site. The role partners closely with IT/OT, Automation, Manufacturing, Engineering, Quality Control, Quality & Compliance and global functions to ensure computerized systems remain compliant, inspection ready, and aligned with business objectives.\n\nLocation: Visp\n\nInitial 3 Months Contract with possibility to extend till 6 Months\n\nThe Computerized System QA Manager is responsible for establishing and maintaining a robust quality framework for GxP computerized systems , electronic records, electronic signatures, data governance and data integrity. The role ensures systems are validated, operated and maintained in compliance with EU GMP, FDA, Annex 11, GAMP 5 and applicable regulatory expectations. Additionally this role supports the lifecycle management of data not only electronically but paper based as well as the cultural maintenance of the Data Integrity and Good Documentation Practices within the site.\n\nResponsibilities\n• Must possess a comprehensive understanding of Computerized Systems Quality Assurance and Data Integrity programs.\n• Provide site leadership for Data Integrity governance, strategy, risk management and continuous improvement initiatives.\n• Act as the primary QA authority for computerized system validation (CSV) activities throughout the system lifecycle.\n• Ensure GxP computerized systems remain in a validated state through effective oversight of validation, periodic review and change management activities.\n• Lead and coach QA and non QA professionals supporting computerized systems and data integrity activities.\n• Review and approve validation plans, user requirements, risk assessments, specifications, test protocols and validation reports.\n• Provide QA oversight of computerized systems provided as a service to the site including MES, LIMS, DMS, SAP, TrackWise, DeltaV, historian systems and supporting infrastructure.\n• Assess and approve changes, deviations, CAPAs and investigations related to computerized systems and data integrity events.\n• Drive compliance with EU GMP Annex 11, FDA 21 CFR Part 11, Data Integrity guidance and GAMP 5 principles.\n• Lead site inspection readiness for computerized systems and represent QA during customer audits and regulatory inspections.\n• Establish and monitor key performance indicators for CSV and Data Integrity programs.\n• Partner with business functions to ensure effective governance of electronic records, audit trails, access management and backup/recovery processes.\n• Support digital transformation initiatives while ensuring compliance and patient safety.\n\nRequirements\n• Bachelor's or Master's degree in Computer Science, Engineering, Pharmaceutical Sciences, Biotechnology, or a related discipline.\n• Minimum 5 years of experience in Quality Assurance (QA), Computerized Systems Validation (CSV), IT Quality, Data Integrity, or a related quality/compliance function within a GMP-regulated pharmaceutical, biotechnology, or cell & gene therapy environment, including leadership or project leadership responsibilities.\n• Strong expertise in computerized system validation and analytical instrument qualification, including validation lifecycle activities (URS, IQ/OQ/PQ, risk assessments, traceability, testing, validation reports) and risk-based validation approaches.\n• Extensive knowledge of Data Integrity principles, governance, testing, and regulatory expectations, including compliance with EU GMP, FDA requirements, Annex 11, 21 CFR Part 11, GAMP 5, and other applicable GxP regulations.\n• Proven experience reviewing and approving validation documentation, deviations, CAPAs, change controls, risk assessments, investigations, and quality records.\n• Hands-on experience with regulated GxP systems and platforms such as MES, LIMS, DMS, SAP, TrackWise/TrackWise AQWA, Kneat, DeltaV, Learning Management Systems (LMS), laboratory systems, and manufacturing or automation platforms.\n• Experience in deviation management, CAPA management, quality event investigations, root cause analysis (5 Whys, Ishikawa/Fishbone), change control, and risk assessment methodologies.\n• Demonstrated experience supporting regulatory inspections, audits, inspection readiness activities, and customer audits.\n• Strong understanding of quality systems and compliance processes, including GxP documentation, SOP authoring and management, training management, gap assessments, supplier qualification, batch record review, product quality review, and quality metrics reporting.\n• Experience managing multiple validation and qualification activities simultaneously, including prioritization of high-volume protocol execution and documentation review.\n• Proven ability to lead cross-functional teams, drive continuous improvement initiatives, support business process optimization, and effectively collaborate with Quality, IT, Manufacturing, Engineering, Automation, and Laboratory stakeholders.\n\nJob profile\n• Engineering - Quality Management\n• Wallis\n• Contracting\n• Part Time, 100%\n• Immediately - 3 to 6 months\n• CSV, Quality Assurance, Data Integrity",
+        "de": "The Computerized System QA Manager will provide strategic and operational leadership for Computerized Systems Quality Assurance and Data Integrity across the site. The role partners closely with IT/OT, Automation, Manufacturing, Engineering, Quality Control, Quality & Compliance and global functions to ensure computerized systems remain compliant, inspection ready, and aligned with business objectives.\n\nLocation: Visp\n\nInitial 3 Months Contract with possibility to extend till 6 Months\n\nThe Computerized System QA Manager is responsible for establishing and maintaining a robust quality framework for GxP computerized systems , electronic records, electronic signatures, data governance and data integrity. The role ensures systems are validated, operated and maintained in compliance with EU GMP, FDA, Annex 11, GAMP 5 and applicable regulatory expectations. Additionally this role supports the lifecycle management of data not only electronically but paper based as well as the cultural maintenance of the Data Integrity and Good Documentation Practices within the site.\n\nResponsibilities\n• Must possess a comprehensive understanding of Computerized Systems Quality Assurance and Data Integrity programs.\n• Provide site leadership for Data Integrity governance, strategy, risk management and continuous improvement initiatives.\n• Act as the primary QA authority for computerized system validation (CSV) activities throughout the system lifecycle.\n• Ensure GxP computerized systems remain in a validated state through effective oversight of validation, periodic review and change management activities.\n• Lead and coach QA and non QA professionals supporting computerized systems and data integrity activities.\n• Review and approve validation plans, user requirements, risk assessments, specifications, test protocols and validation reports.\n• Provide QA oversight of computerized systems provided as a service to the site including MES, LIMS, DMS, SAP, TrackWise, DeltaV, historian systems and supporting infrastructure.\n• Assess and approve changes, deviations, CAPAs and investigations related to computerized systems and data integrity events.\n• Drive compliance with EU GMP Annex 11, FDA 21 CFR Part 11, Data Integrity guidance and GAMP 5 principles.\n• Lead site inspection readiness for computerized systems and represent QA during customer audits and regulatory inspections.\n• Establish and monitor key performance indicators for CSV and Data Integrity programs.\n• Partner with business functions to ensure effective governance of electronic records, audit trails, access management and backup/recovery processes.\n• Support digital transformation initiatives while ensuring compliance and patient safety.\n\nRequirements\n• Bachelor's or Master's degree in Computer Science, Engineering, Pharmaceutical Sciences, Biotechnology, or a related discipline.\n• Minimum 5 years of experience in Quality Assurance (QA), Computerized Systems Validation (CSV), IT Quality, Data Integrity, or a related quality/compliance function within a GMP-regulated pharmaceutical, biotechnology, or cell & gene therapy environment, including leadership or project leadership responsibilities.\n• Strong expertise in computerized system validation and analytical instrument qualification, including validation lifecycle activities (URS, IQ/OQ/PQ, risk assessments, traceability, testing, validation reports) and risk-based validation approaches.\n• Extensive knowledge of Data Integrity principles, governance, testing, and regulatory expectations, including compliance with EU GMP, FDA requirements, Annex 11, 21 CFR Part 11, GAMP 5, and other applicable GxP regulations.\n• Proven experience reviewing and approving validation documentation, deviations, CAPAs, change controls, risk assessments, investigations, and quality records.\n• Hands-on experience with regulated GxP systems and platforms such as MES, LIMS, DMS, SAP, TrackWise/TrackWise AQWA, Kneat, DeltaV, Learning Management Systems (LMS), laboratory systems, and manufacturing or automation platforms.\n• Experience in deviation management, CAPA management, quality event investigations, root cause analysis (5 Whys, Ishikawa/Fishbone), change control, and risk assessment methodologies.\n• Demonstrated experience supporting regulatory inspections, audits, inspection readiness activities, and customer audits.\n• Strong understanding of quality systems and compliance processes, including GxP documentation, SOP authoring and management, training management, gap assessments, supplier qualification, batch record review, product quality review, and quality metrics reporting.\n• Experience managing multiple validation and qualification activities simultaneously, including prioritization of high-volume protocol execution and documentation review.\n• Proven ability to lead cross-functional teams, drive continuous improvement initiatives, support business process optimization, and effectively collaborate with Quality, IT, Manufacturing, Engineering, Automation, and Laboratory stakeholders.\n\nJob profile\n• Engineering - Quality Management\n• Wallis\n• Contracting\n• Part Time, 100%\n• Immediately - 3 to 6 months\n• CSV, Quality Assurance, Data Integrity",
+        "fr": "The Computerized System QA Manager will provide strategic and operational leadership for Computerized Systems Quality Assurance and Data Integrity across the site. The role partners closely with IT/OT, Automation, Manufacturing, Engineering, Quality Control, Quality & Compliance and global functions to ensure computerized systems remain compliant, inspection ready, and aligned with business objectives.\n\nLocation: Visp\n\nInitial 3 Months Contract with possibility to extend till 6 Months\n\nThe Computerized System QA Manager is responsible for establishing and maintaining a robust quality framework for GxP computerized systems , electronic records, electronic signatures, data governance and data integrity. The role ensures systems are validated, operated and maintained in compliance with EU GMP, FDA, Annex 11, GAMP 5 and applicable regulatory expectations. Additionally this role supports the lifecycle management of data not only electronically but paper based as well as the cultural maintenance of the Data Integrity and Good Documentation Practices within the site.\n\nResponsibilities\n• Must possess a comprehensive understanding of Computerized Systems Quality Assurance and Data Integrity programs.\n• Provide site leadership for Data Integrity governance, strategy, risk management and continuous improvement initiatives.\n• Act as the primary QA authority for computerized system validation (CSV) activities throughout the system lifecycle.\n• Ensure GxP computerized systems remain in a validated state through effective oversight of validation, periodic review and change management activities.\n• Lead and coach QA and non QA professionals supporting computerized systems and data integrity activities.\n• Review and approve validation plans, user requirements, risk assessments, specifications, test protocols and validation reports.\n• Provide QA oversight of computerized systems provided as a service to the site including MES, LIMS, DMS, SAP, TrackWise, DeltaV, historian systems and supporting infrastructure.\n• Assess and approve changes, deviations, CAPAs and investigations related to computerized systems and data integrity events.\n• Drive compliance with EU GMP Annex 11, FDA 21 CFR Part 11, Data Integrity guidance and GAMP 5 principles.\n• Lead site inspection readiness for computerized systems and represent QA during customer audits and regulatory inspections.\n• Establish and monitor key performance indicators for CSV and Data Integrity programs.\n• Partner with business functions to ensure effective governance of electronic records, audit trails, access management and backup/recovery processes.\n• Support digital transformation initiatives while ensuring compliance and patient safety.\n\nRequirements\n• Bachelor's or Master's degree in Computer Science, Engineering, Pharmaceutical Sciences, Biotechnology, or a related discipline.\n• Minimum 5 years of experience in Quality Assurance (QA), Computerized Systems Validation (CSV), IT Quality, Data Integrity, or a related quality/compliance function within a GMP-regulated pharmaceutical, biotechnology, or cell & gene therapy environment, including leadership or project leadership responsibilities.\n• Strong expertise in computerized system validation and analytical instrument qualification, including validation lifecycle activities (URS, IQ/OQ/PQ, risk assessments, traceability, testing, validation reports) and risk-based validation approaches.\n• Extensive knowledge of Data Integrity principles, governance, testing, and regulatory expectations, including compliance with EU GMP, FDA requirements, Annex 11, 21 CFR Part 11, GAMP 5, and other applicable GxP regulations.\n• Proven experience reviewing and approving validation documentation, deviations, CAPAs, change controls, risk assessments, investigations, and quality records.\n• Hands-on experience with regulated GxP systems and platforms such as MES, LIMS, DMS, SAP, TrackWise/TrackWise AQWA, Kneat, DeltaV, Learning Management Systems (LMS), laboratory systems, and manufacturing or automation platforms.\n• Experience in deviation management, CAPA management, quality event investigations, root cause analysis (5 Whys, Ishikawa/Fishbone), change control, and risk assessment methodologies.\n• Demonstrated experience supporting regulatory inspections, audits, inspection readiness activities, and customer audits.\n• Strong understanding of quality systems and compliance processes, including GxP documentation, SOP authoring and management, training management, gap assessments, supplier qualification, batch record review, product quality review, and quality metrics reporting.\n• Experience managing multiple validation and qualification activities simultaneously, including prioritization of high-volume protocol execution and documentation review.\n• Proven ability to lead cross-functional teams, drive continuous improvement initiatives, support business process optimization, and effectively collaborate with Quality, IT, Manufacturing, Engineering, Automation, and Laboratory stakeholders.\n\nJob profile\n• Engineering - Quality Management\n• Wallis\n• Contracting\n• Part Time, 100%\n• Immediately - 3 to 6 months\n• CSV, Quality Assurance, Data Integrity"
+      },
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=TDT703",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-29T09:29:12.273Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-29T00:00:00Z",
+      "postedDate": "2026-10-29T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=TDT703",
+      "requirements": [
+        "Engineering - Quality Management",
+        "Wallis",
+        "Contracting",
+        "Part Time, 100%",
+        "Immediately - 3 to 6 months",
+        "CSV, Quality Assurance, Data Integrity"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Engineering - Quality Management",
+          "Wallis",
+          "Contracting",
+          "Part Time, 100%",
+          "Immediately - 3 to 6 months",
+          "CSV, Quality Assurance, Data Integrity"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "firstSeenAt": "2026-10-29T09:29:12.273Z"
+    },
+    {
+      "id": "coopers-52cb4b048a24",
+      "slug": "sviluppatore-sviluppatrice-java-senior-m-f-d-coopers-group-ag-luzern",
+      "slugByLocale": {
+        "it": "sviluppatore-sviluppatrice-java-senior-m-f-d-coopers-group-ag-luzern",
+        "en": "senior-java-developer-m-f-d-coopers-group-ag-luzern",
+        "de": "senior-java-entwickler-in-m-w-d-coopers-luzern",
+        "fr": "developpeur-euse-java-senior-h-f-d-coopers-group-ag-luzern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Senior Java Entwickler:in (m/w/d)",
+      "titleByLocale": {
+        "it": "Sviluppatore/sviluppatrice Java senior (m/f/d)",
+        "en": "Senior Java Developer (m/f/d)",
+        "de": "Senior Java Entwickler:in (m/w/d)",
+        "fr": "Développeur·euse Java senior (h/f/d)"
+      },
+      "description": "Für unseren Versicherungskunden in Luzern , suchen wir eine:n Senior Java Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Umsetzung AI-nativer Entwicklungsprozesse mit autonomen KI-Agenten zur Automatisierung des gesamten Software Development Lifecycle (SDLC)\n• Integration von AI-Coding-Tools und Agenten in bestehende Enterprise-Anwendungen und Entwicklungsprozesse\n• Automatisierung von Engineering-Aufgaben wie Anforderungsanalyse, Implementierung, Testing und Code Reviews unter Berücksichtigung definierter Qualitäts- und Sicherheitskontrollen\n• Entwicklung von Prototypen und iteratives Testen neuer KI-gestützter Workflows gemeinsam mit den Entwicklungsteams\n• Coaching und Befähigung der Engineers zur nachhaltigen Integration von KI in den Entwicklungsalltag\n\nDein Profil:\n• Mehrjährige Erfahrung in der agilen Softwareentwicklung mit modernen Java-Technologien, vorzugsweise JEE\n• Gute Kenntnisse mit Angular sowie in Event- und Workflow-basierten Architekturen\n• Erfahrung mit Docker, Kubernetes und Cucumber\n• Praxis in modernen Software-Engineering-Methoden wie Clean Code, Clean Architecture (Onion Architecture), TDD, BDD und DDD\n• Erfahrung in der Entwicklung, Implementierung und dem Betrieb von Software im DevOps-Umfeld\n• Erfahrung mit Scrum sowie idealerweise dem SAFe Lean-Agile-Framework\n• Hoher Qualitätsanspruch an nachhaltigen, wartbaren und architekturkonformen Code\n• Hohe Lernbereitschaft und Bereitschaft, sich in neue fachliche Themen einzuarbeiten\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise\n• Kreativität sowie ausgeprägtes Qualitätsbewusstsein\n• Offene, kommunikative Persönlichkeit mit Eigeninitiative sowie Teamfähigkeit und Freude an der interdisziplinären Zusammenarbeit\n• Bereitschaft, bestehende Lösungen konstruktiv zu hinterfragen und kontinuierlich zu verbessern\n• Fliessend in Deutsch, gute Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• ab sofort - 31.12.2027 mit Option zur Verlängerung\n• Java , J2EE, SAFe\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
+      "descriptionByLocale": {
+        "it": "Per il nostro cliente a Lucerne, stiamo cercando un:n Senior Java Sviluppatore:in.\n\nI vostri compiti:\n• Ulteriore sviluppo di soluzioni software complesse nel campo dei sistemi core per il test delle prestazioni\n• Preparazione e attuazione di norme per l'audit in collaborazione con settori specializzati\n• Sviluppo e realizzazione di soluzioni conformi all'architettura con le moderne tecnologie\n• Partecipazione all'intero ciclo di vita del software – dal concepimento allo sviluppo al funzionamento (DevOps)\n• Applicazione di moderne pratiche di ingegneria del software per garantire alta qualità del codice\n• Una stretta collaborazione con gli stakeholder aziendali e i team di sviluppo in un ambiente agile\n• Partecipazione attiva allo sviluppo tecnico e introduzione di nuove idee e miglioramenti\n\nIl tuo profilo:\n• Diversi anni di esperienza nello sviluppo di software agile con le moderne tecnologie Java\n• Buona conoscenza delle architetture angolari e basate su eventi e flussi di lavoro\n• Esperienza con Docker, Kubernetes e Cetriolo\n• Pratica nei moderni metodi di ingegneria del software come il codice pulito, l'architettura pulita (l'architettura onion), TDD, BDD e DDD\n• Esperienza nello sviluppo, implementazione e funzionamento del software nell'ambiente DevOps\n• Esperienza con Scrum e idealmente il quadro SAFe Lean-Agile\n• Standard di alta qualità per un codice sostenibile, mantenibile e conforme all'architettura\n• Alta disponibilità ad imparare e la disponibilità a familiarizzare con nuovi argomenti professionali\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n• Creatività e consapevolezza di alta qualità\n• Personalità aperta e comunicativa con iniziativa e lavoro di squadra e godimento della cooperazione interdisciplinare\n• La volontà di interrogare costruttivamente le soluzioni esistenti e migliorarle continuamente\n• Flusso in tedesco, buona conoscenza dell'inglese\n\nProfili di lavoro\n• IT - Ingegneria del software\n• Lucerna\n• Contratti\n• Tempo parziale, 80-100 %\n• Mid-August - 31.12.2026 con opzione di estensione\n• Java, J2EE, SAFe\n\nPrestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa",
+        "en": "For our customer in Lucerne, we are looking for a:n Senior Java Developer:in.\n\nYour tasks:\n• Further development of complex software solutions in the field of core systems for performance testing\n• Preparation and implementation of rules for auditing in cooperation with specialist areas\n• Development and implementation of architecture-compliant solutions with modern technologies\n• Participation in the entire software lifecycle – from conception to development to operation (DevOps)\n• Application of modern software engineering practices to ensure high code quality\n• Close cooperation with business stakeholders and development teams in an agile environment\n• Active participation in the technical development as well as introducing new ideas and improvements\n\nYour profile:\n• Several years of experience in agile software development with modern Java technologies\n• Good knowledge of Angular as well as event- and workflow-based architectures\n• Experience with Docker, Kubernetes and Cucumber\n• Practice in modern software engineering methods such as Clean Code, Clean Architecture (Onion Architecture), TDD, BDD and DDD\n• Experience in the development, implementation and operation of software in the DevOps environment\n• Experience with Scrum and ideally the SAFe Lean-Agile framework\n• High quality standards for sustainable, maintainable and architecture-compliant code\n• High willingness to learn and willingness to familiarize yourself with new professional topics\n• Independent, structured and solution-oriented working method\n• Creativity and high quality awareness\n• Open, communicative personality with initiative as well as teamwork and enjoyment of interdisciplinary cooperation\n• Willingness to constructively question existing solutions and continuously improve them\n• Flowing in German, good knowledge of English\n\nJob profiles\n• IT - Software Engineering\n• Lucerne\n• Contracting\n• Part Time, 80-100 %\n• Mid-August - 31.12.2026 with option of extension\n• Java, J2EE, SAFe\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance",
+        "de": "Für unseren Versicherungskunden in Luzern , suchen wir eine:n Senior Java Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Umsetzung AI-nativer Entwicklungsprozesse mit autonomen KI-Agenten zur Automatisierung des gesamten Software Development Lifecycle (SDLC)\n• Integration von AI-Coding-Tools und Agenten in bestehende Enterprise-Anwendungen und Entwicklungsprozesse\n• Automatisierung von Engineering-Aufgaben wie Anforderungsanalyse, Implementierung, Testing und Code Reviews unter Berücksichtigung definierter Qualitäts- und Sicherheitskontrollen\n• Entwicklung von Prototypen und iteratives Testen neuer KI-gestützter Workflows gemeinsam mit den Entwicklungsteams\n• Coaching und Befähigung der Engineers zur nachhaltigen Integration von KI in den Entwicklungsalltag\n\nDein Profil:\n• Mehrjährige Erfahrung in der agilen Softwareentwicklung mit modernen Java-Technologien, vorzugsweise JEE\n• Gute Kenntnisse mit Angular sowie in Event- und Workflow-basierten Architekturen\n• Erfahrung mit Docker, Kubernetes und Cucumber\n• Praxis in modernen Software-Engineering-Methoden wie Clean Code, Clean Architecture (Onion Architecture), TDD, BDD und DDD\n• Erfahrung in der Entwicklung, Implementierung und dem Betrieb von Software im DevOps-Umfeld\n• Erfahrung mit Scrum sowie idealerweise dem SAFe Lean-Agile-Framework\n• Hoher Qualitätsanspruch an nachhaltigen, wartbaren und architekturkonformen Code\n• Hohe Lernbereitschaft und Bereitschaft, sich in neue fachliche Themen einzuarbeiten\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise\n• Kreativität sowie ausgeprägtes Qualitätsbewusstsein\n• Offene, kommunikative Persönlichkeit mit Eigeninitiative sowie Teamfähigkeit und Freude an der interdisziplinären Zusammenarbeit\n• Bereitschaft, bestehende Lösungen konstruktiv zu hinterfragen und kontinuierlich zu verbessern\n• Fliessend in Deutsch, gute Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• ab sofort - 31.12.2027 mit Option zur Verlängerung\n• Java , J2EE, SAFe\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
+        "fr": "Pour notre client à Lucerne, nous recherchons un:n Senior Java Developer:in.\n\nVos tâches:\n• Poursuite du développement de solutions logicielles complexes dans le domaine des systèmes de base pour les tests de performance\n• Élaboration et application de règles d ' audit en coopération avec des domaines spécialisés\n• Développement et mise en œuvre de solutions conformes à l'architecture avec des technologies modernes\n• Participation à l'ensemble du cycle de vie du logiciel – de la conception au développement à l'exploitation (DevOps)\n• Application de pratiques modernes de génie logiciel pour assurer une qualité de code élevée\n• Coopération étroite avec les parties prenantes et les équipes de développement dans un environnement agile\n• Participation active au développement technique et introduction de nouvelles idées et améliorations\n\nVotre profil:\n• Plusieurs années d'expérience dans le développement de logiciels agiles avec les technologies Java modernes\n• Bonne connaissance des architectures angulaires et des architectures basées sur les événements et les flux de travail\n• Expérience avec Docker, Kubernetes et Cucumber\n• Pratique dans les méthodes modernes d'ingénierie des logiciels telles que Clean Code, Clean Architecture (Oignon Architecture), TDD, BDD et DDD\n• Expérience dans le développement, la mise en œuvre et le fonctionnement des logiciels dans l'environnement DevOps\n• Expérience avec Scrum et idéalement le cadre SAFe Lean-Agile\n• Normes de qualité élevées pour un code durable, durable et conforme à l'architecture\n• Haute volonté d'apprendre et de se familiariser avec de nouveaux sujets professionnels\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Créativité et sensibilisation de haute qualité\n• Personnalité ouverte et communicative avec initiative, travail d'équipe et plaisir de la coopération interdisciplinaire\n• Volonté de remettre en question de manière constructive les solutions existantes et de les améliorer continuellement\n• Flux en allemand, bonne connaissance de l'anglais\n\nProfils d'emploi\n• IT - Génie logiciel\n• Lucerne\n• Contrats\n• Temps partiel, 80-100 %\n• Mi-août - 31.12.2026 avec possibilité de prolongation\n• Java, J2EE, SAFe\n\nPrestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Ministère de l ' intérieur\n• Espace de travail moderne\n• Équilibre travail-vie privée"
       },
       "location": "Luzern",
       "canton": "LU",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T09:23:51.326Z",
+      "crawledAt": "2026-10-28T22:24:04.241Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3964,39 +3959,37 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-01T00:00:00Z",
-      "postedDate": "2026-10-01T00:00:00Z",
+      "datePosted": "2026-06-30T00:00:00Z",
+      "postedDate": "2026-06-30T00:00:00Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "requirements": [
         "IT - Software Engineering",
         "Luzern",
         "Contracting",
         "Part Time, 80-100%",
-        "Ab sofort - Ende 2027 mit Option auf Verlängerung",
-        "Java, JEE"
+        "ab sofort - 31.12.2027 mit Option zur Verlängerung",
+        "Java , J2EE, SAFe"
       ],
       "requirementsByLocale": {
         "de": [
           "IT - Software Engineering",
           "Contracting",
           "Part Time, 80-100%",
-          "Ab sofort - Ende 2027 mit Option auf Verlängerung",
-          "Java, JEE"
+          "Mitte August - 31.12.2026 mit Option zur Verlängerung",
+          "Java , J2EE, SAFe",
+          "ab sofort - 31.12.2027 mit Option zur Verlängerung"
         ]
       },
       "previousSlugs": [
-        "senior-java-jee-entwickler-in-m-w-d-coopers-luzern"
+        "senior-java-entwickler-in-m-w-d-coopers-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-java-jee-entwickler-in-m-w-d-coopers-luzern"
-        ],
-        "fr": [
-          "senior-java-jee-entwickler-in-m-w-d-coopers-luzern"
+          "senior-java-entwickler-in-m-w-d-coopers-luzern"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:22:34.230Z",
+      "firstSeenAt": "2026-06-30T22:09:47.963Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -4011,7 +4004,7 @@
         }
       },
       "postalCode": "6003",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }

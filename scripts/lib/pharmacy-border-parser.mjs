@@ -49,7 +49,7 @@ function decodeHtmlAttribute(value) {
     .replace(/&#x2f;|&#47;/gi, '/');
 }
 
-function isTicinoPharmacyPdfUrl(value, baseUrl) {
+export function isTicinoPharmacyPdfUrl(value, baseUrl = TICINO_PHARMACY_DIRECTORY_URL) {
   let url;
   try {
     url = new URL(decodeHtmlAttribute(value), baseUrl);

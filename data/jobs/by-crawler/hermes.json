@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-10-28T22:19:07.220Z",
-  "runId": "40773876042",
+  "assembledAt": "2026-10-29T09:17:36.558Z",
+  "runId": "40846764071",
   "jobs": [
     {
       "id": "hermes-4cca3ac90e60",
@@ -34,7 +34,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23939",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:18:59.194Z",
+      "crawledAt": "2026-10-29T09:17:31.059Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -119,7 +119,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23994",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-28T22:18:58.573Z",
+      "crawledAt": "2026-10-29T09:17:30.390Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:18:57.982Z",
+      "crawledAt": "2026-10-29T09:17:29.737Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24472",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:18:57.408Z",
+      "crawledAt": "2026-10-29T09:17:29.115Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -292,22 +292,9 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24472",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-28T20:05:20.282Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
+      "previousSlugs": [
+        "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
@@ -319,9 +306,22 @@
           "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
         ]
       },
-      "previousSlugs": [
-        "cdm-responsable-controle-interne-et-administration-h-f-hermes-ch"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-28T20:05:20.282Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001"
     }
   ]
 }

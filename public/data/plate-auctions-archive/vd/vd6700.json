@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120543",
+      "sourceKey": "VD",
+      "sourceRecordId": "120543",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "6700",
+      "normalizedPlate": "VD6700",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2100,
+      "bidCount": 2,
+      "closedAt": "2026-10-25T20:53:23.307Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/fr/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120543",
+      "sourceFetchedAt": "2026-10-25T20:53:23.307Z",
+      "lastVerifiedAt": "2026-10-25T20:53:23.307Z",
+      "firstSeenAt": "2026-10-19T04:41:05.856Z",
+      "lastSeenAt": "2026-10-25T20:53:23.307Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "6ec6c40250b1"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Analytics } from './analytics';
-import { getConfigValue } from './firebase';
+import { getConfigValue, getPublicConfigValue } from './firebase';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/functions/src/assistedApplicationConstants.js';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { isLikelyBot } from './botPatterns';
@@ -9,8 +9,13 @@ import {
   ASSISTED_APPLICATION_COPY_VARIANTS as COPY_VARIANTS,
   assistedApplicationCopyEventName,
 } from './assistedApplicationCopyAnalyticsContract.mjs';
+import {
+  ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID,
+  ASSISTED_APPLICATION_LAYOUT_VARIANTS as LAYOUT_VARIANTS,
+  assistedApplicationLayoutEventName,
+} from './assistedApplicationLayoutAnalyticsContract.mjs';
 
-export { ASSISTED_APPLICATION_COPY_EXPERIMENT_ID };
+export { ASSISTED_APPLICATION_COPY_EXPERIMENT_ID, ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID };
 
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 
@@ -30,6 +35,21 @@ export const ASSISTED_APPLICATION_COPY_VARIANTS = COPY_VARIANTS as readonly [
   'handled_for_you',
 ];
 export type AssistedApplicationCopyVariant = (typeof ASSISTED_APPLICATION_COPY_VARIANTS)[number];
+/** Layout-only test: message, price, service and CTA stay fixed across arms. */
+export const ASSISTED_APPLICATION_LAYOUT_VARIANT_RC_KEY = 'ASSISTED_APPLICATION_LAYOUT_VARIANT';
+export const ASSISTED_APPLICATION_LAYOUT_VARIANTS = LAYOUT_VARIANTS as readonly [
+  'control',
+  'variant_7',
+  'proposal_5',
+  'proposal_b',
+];
+export type AssistedApplicationLayoutVariant = (typeof ASSISTED_APPLICATION_LAYOUT_VARIANTS)[number];
+export interface AssistedApplicationJobDetails {
+  location: string | null;
+  salary: string | null;
+  contract: string | null;
+  description: string;
+}
 // v2 (2026-09-30): the mandate names the employer's terms accepted on the candidate's behalf.
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
 
@@ -190,6 +210,8 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
 ] as const;
 
 const ANONYMOUS_DISTINCT_ID_KEY = 'frontaliere_assisted_application_distinct_id';
+const LAYOUT_SESSION_DISTINCT_ID_KEY = 'frontaliere_assisted_application_layout_session_id';
+let inMemoryLayoutDistinctId: string | null = null;
 
 /** FNV-1a gives a small, dependency-free, stable bucket for a distinct id. */
 function hashDistinctId(value: string): number {
@@ -233,6 +255,22 @@ export function normalizeAssistedApplicationCopyVariant(value: unknown): Assiste
     : null;
 }
 
+/** Resolve one of the four layout arms with the same sticky, non-PII id. */
+export function resolveAssistedApplicationLayoutVariant(distinctId: string): AssistedApplicationLayoutVariant {
+  const normalized = String(distinctId || '').trim();
+  if (!normalized) return 'control';
+  // Salt this experiment so returning visitors keep a stable but independent
+  // assignment from the former copy test, which used the same anonymous id.
+  const bucketKey = `${ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID}:${normalized}`;
+  return ASSISTED_APPLICATION_LAYOUT_VARIANTS[hashDistinctId(bucketKey) % ASSISTED_APPLICATION_LAYOUT_VARIANTS.length];
+}
+
+export function normalizeAssistedApplicationLayoutVariant(value: unknown): AssistedApplicationLayoutVariant | null {
+  return ASSISTED_APPLICATION_LAYOUT_VARIANTS.includes(value as AssistedApplicationLayoutVariant)
+    ? value as AssistedApplicationLayoutVariant
+    : null;
+}
+
 function createAnonymousDistinctId(): string {
   try {
     if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
@@ -256,6 +294,23 @@ export function getAssistedApplicationDistinctId(): string | null {
     return created;
   } catch {
     return null;
+  }
+}
+
+/** Preserve four-arm assignment for this tab when persistent storage is unavailable. */
+function getLayoutAssignmentDistinctId(): string | null {
+  const persistent = getAssistedApplicationDistinctId();
+  if (persistent) return persistent;
+  if (typeof window === 'undefined') return null;
+  try {
+    const existing = window.sessionStorage.getItem(LAYOUT_SESSION_DISTINCT_ID_KEY);
+    if (existing) return existing;
+    const created = createAnonymousDistinctId();
+    window.sessionStorage.setItem(LAYOUT_SESSION_DISTINCT_ID_KEY, created);
+    return created;
+  } catch {
+    inMemoryLayoutDistinctId ??= createAnonymousDistinctId();
+    return inMemoryLayoutDistinctId;
   }
 }
 
@@ -390,11 +445,76 @@ export function useAssistedApplicationCopyVariant(enabled = true): AssistedAppli
   };
 }
 
+export interface AssistedApplicationLayoutVariantResult {
+  experimentId: string;
+  variant: AssistedApplicationLayoutVariant;
+  ready: boolean;
+  active: boolean;
+}
+
+/**
+ * Resolve the sticky layout assignment only after public Remote Config loads.
+ * Missing/invalid config safely shows the existing layout as the control.
+ */
+export function useAssistedApplicationLayoutVariant(enabled = true): AssistedApplicationLayoutVariantResult {
+  const [variant, setVariant] = useState<AssistedApplicationLayoutVariant>('control');
+  const [ready, setReady] = useState(!enabled);
+  const [active, setActive] = useState(false);
+  const [assignmentEnabled, setAssignmentEnabled] = useState(enabled);
+
+  useEffect(() => {
+    if (!enabled) {
+      setVariant('control');
+      setReady(true);
+      setActive(false);
+      setAssignmentEnabled(false);
+      return undefined;
+    }
+
+    setVariant('control');
+    setReady(false);
+    setActive(false);
+    setAssignmentEnabled(true);
+
+    let cancelled = false;
+    const assign = async () => {
+      const distinctId = getLayoutAssignmentDistinctId();
+      const configured = await getPublicConfigValue(ASSISTED_APPLICATION_LAYOUT_VARIANT_RC_KEY).catch(() => null);
+      if (cancelled) return;
+      const normalized = String(configured ?? '').trim().toLowerCase();
+      const forced = normalizeAssistedApplicationLayoutVariant(normalized);
+      const resolved = normalized === 'auto'
+        ? resolveAssistedApplicationLayoutVariant(distinctId || '')
+        : forced ?? 'control';
+      setVariant(resolved);
+      setActive(configured !== null && (normalized === 'auto' || forced !== null));
+      setReady(true);
+    };
+
+    void assign();
+    return () => {
+      cancelled = true;
+    };
+  }, [enabled]);
+
+  const effectiveVariant = assignmentEnabled === enabled ? variant : 'control';
+  const effectiveReady = assignmentEnabled === enabled ? ready : !enabled;
+  const effectiveActive = assignmentEnabled === enabled ? active : false;
+
+  return {
+    experimentId: ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID,
+    variant: effectiveVariant,
+    ready: effectiveReady,
+    active: effectiveActive,
+  };
+}
+
 export interface AssistedApplicationEventContext {
   variant: AssistedApplicationVariant;
   jobId: string;
   companyId: string;
   copy_variant?: AssistedApplicationCopyVariant;
+  layout_variant?: AssistedApplicationLayoutVariant;
   [key: string]: unknown;
 }
 
@@ -419,6 +539,7 @@ export function trackAssistedApplicationEvent(
   Analytics.trackExperimentEvent(eventName, {
     ...context,
     ...(context.copy_variant ? { copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID } : {}),
+    ...(context.layout_variant ? { layout_experiment_id: ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID } : {}),
     experiment_id: ASSISTED_APPLICATION_EXPERIMENT_ID,
     variant: context.variant,
     job_id: String(context.jobId),
@@ -435,6 +556,15 @@ export function trackAssistedApplicationEvent(
     Analytics.trackExperimentEvent(copyEventName, {
       experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
       variant: context.copy_variant,
+    });
+  }
+  const layoutEventName = context.layout_variant
+    ? assistedApplicationLayoutEventName(eventName, context.layout_variant)
+    : null;
+  if (layoutEventName && context.layout_variant) {
+    Analytics.trackExperimentEvent(layoutEventName, {
+      experiment_id: ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID,
+      variant: context.layout_variant,
     });
   }
 }

@@ -1,7 +1,7 @@
 {
   "key": "suedhang",
   "label": "Klinik Südhang",
-  "generatedAt": "2026-10-28T22:17:55.439Z",
+  "generatedAt": "2026-10-29T09:21:47.899Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6938,
-  "avgDurationMs": 6938,
+  "durationMs": 7184,
+  "avgDurationMs": 7184,
   "durationHistory": [
-    6938
+    7184
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-reinigung/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:17:37.742Z",
+      "crawledAt": "2026-10-29T09:21:34.261Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-im-nachtdienst/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:17:37.275Z",
+      "crawledAt": "2026-10-29T09:21:33.752Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:17:36.806Z",
+      "crawledAt": "2026-10-29T09:21:33.241Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:17:36.324Z",
+      "crawledAt": "2026-10-29T09:21:32.717Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -215,7 +215,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:17:35.855Z",
+      "crawledAt": "2026-10-29T09:21:32.208Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T22:17:35.382Z",
+      "crawledAt": "2026-10-29T09:21:31.696Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -292,5 +292,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }

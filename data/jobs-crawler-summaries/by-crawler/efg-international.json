@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-10-28T21:48:34.678Z",
+  "generatedAt": "2026-10-29T09:20:47.757Z",
   "total": 21,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 19,
-  "durationMs": 11613,
-  "avgDurationMs": 11613,
+  "durationMs": 10529,
+  "avgDurationMs": 10529,
   "durationHistory": [
-    11613
+    10529
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-28T21:48:26.401Z",
+      "crawledAt": "2026-10-29T09:20:34.291Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -166,7 +166,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-28T21:48:26.445Z",
+      "crawledAt": "2026-10-29T09:20:34.389Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -304,7 +304,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-28T21:48:26.441Z",
+      "crawledAt": "2026-10-29T09:20:34.383Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -361,7 +361,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-28T21:48:26.422Z",
+      "crawledAt": "2026-10-29T09:20:34.339Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28T09:29:23+00:00",
@@ -489,7 +489,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-28T21:48:26.420Z",
+      "crawledAt": "2026-10-29T09:20:34.334Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -547,7 +547,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-28T21:48:26.418Z",
+      "crawledAt": "2026-10-29T09:20:34.328Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -678,7 +678,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-28T21:48:26.407Z",
+      "crawledAt": "2026-10-29T09:20:34.302Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2059,5 +2059,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }

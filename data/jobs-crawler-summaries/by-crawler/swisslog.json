@@ -1,7 +1,7 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-10-28T21:56:39.879Z",
+  "generatedAt": "2026-10-29T09:20:00.925Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5064,
-  "avgDurationMs": 5064,
+  "durationMs": 4918,
+  "avgDurationMs": 4918,
   "durationHistory": [
-    5064
+    4918
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/apprentice-computer-scientist-mwd-4458",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:56:23.440Z",
+      "crawledAt": "2026-10-29T09:19:45.616Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -82,7 +82,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-28T21:56:23.441Z",
+      "crawledAt": "2026-10-29T09:19:45.617Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -114,5 +114,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }

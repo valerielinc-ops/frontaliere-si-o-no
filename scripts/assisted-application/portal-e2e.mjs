@@ -38,7 +38,7 @@ const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], rhbApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, privacyValidationRetry: false, privacyValidationRetries: 0, applicationPrivacySubmissions: [], flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
@@ -318,6 +318,14 @@ function fakePortal() {
       state.sixApplications.at(-1).hasCv = /name="cv"; filename="CV_Luca_Bianchi\.pdf"/.test(body);
       return send(page('Application received', '<h1>Thank you for your application</h1>'));
     }
+    // Talentsoft/RhB's final button has no application noun, just «Senden».
+    if (route === 'GET /rhb-form') return send(page('Pflegefachperson', `<h1>Pflegefachperson 80%</h1>${form('/rhb-submit', '<label for="mail">E-Mail *</label><input id="mail" type="email" name="email" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Senden</button>', true)}`));
+    if (route === 'POST /rhb-submit') {
+      const body = await readBody(req);
+      state.rhbApplications.push({ hasCv: /filename="CV_/.test(body) });
+      return redirect('/rhb-offer');
+    }
+    if (route === 'GET /rhb-offer') return send(page('Pflegefachperson', '<p role="status">Ihre persönlichen Angaben wurden gespeichert. Ihre Bewerbung auf das Stellenangebot TEST-42 – Pflegefachperson (80%) wurde erfolgreich gesendet.</p><h1>Pflegefachperson 80%</h1><a href="/rhb-form">Auf diese Stelle bewerben</a>'));
     if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
     // jobs.coopjobs.ch as seen on 2026-10-02: «Später bewerben» (a bookmark by
     // e-mail) comes first, a Usercentrics banner in a shadow root covers the
@@ -793,7 +801,7 @@ async function fakeCodex({ prompt }) {
     if (/^start date\b/i.test(field.label)) return act('fill', experience.start || education.start || '', { source: 'profile' });
     if (/^end date\b/i.test(field.label)) return act('fill', experience.end || education.end || '', { source: 'profile' });
     if (/preferred workload/i.test(field.label)) {
-      const answer = candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.question || ''))?.answer || '';
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.applicationQuestion || item.question || ''))?.answer || '';
       return act('fill', answer, { source: 'answers' });
     }
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
@@ -1074,6 +1082,13 @@ async function main() {
     state.unverifiedLoginStaysOnSignIn = false;
     check('the evidence names the files the form received', first.evidence.uploads?.some((item) => item.document === 'cv'));
     check('the newsletter box is left alone', !state.newsletter);
+    const rhb = await run({ applyUrl: `${base}/rhb-form`, codex: async (request) => {
+      if (request.prompt.includes('{"agentPage"')) throw new Error('standard_send_button_must_not_need_agent');
+      return fakeCodex(request);
+    } });
+    check('RhB Senden submits once with the required CV without agentic button discovery',
+      rhb.event.type === 'submit_succeeded' && rhb.evidence.finalOutcomes?.at(-1) === 'confirmed'
+      && state.rhbApplications.length === 1 && state.rhbApplications[0].hasCv);
     const sixApplyUrl = `${base}/talentcommunity/apply/1448418433/?locale=en_US`;
     const sixPostingUrl = `${base}/job/Zurich-Senior-IT-Manager/1448418433/`;
     const sixJob = { title: 'Senior IT Manager - CIO Office', company: 'SIX Group' };
@@ -1090,14 +1105,14 @@ async function main() {
       },
       launch: () => launchChromium({ headless: true, executablePath }),
     });
-    check('SIX pre-read follows the posting and captures the required workload question', sixRead.questions.some((item) => /preferred workload/i.test(item.question)) && state.sixPostingViews === 1);
+    check('SIX pre-read follows the posting and captures the required workload question', sixRead.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question)) && state.sixPostingViews === 1);
     const sixCodex = async (request) => {
       const planned = await fakeCodex(request);
       if (!request.prompt.includes('{"form"')) return planned;
       const payload = JSON.parse(request.prompt.slice(request.prompt.lastIndexOf('{"form"'), request.prompt.lastIndexOf('\n\nReturn exactly')));
       const cv = payload.form.fields.find((field) => field.kind === 'file' && /resume|cv/i.test(field.label));
       const workload = payload.form.fields.find((field) => /preferred workload/i.test(field.label));
-      const workloadAnswer = payload.candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.question || ''))?.answer || '';
+      const workloadAnswer = payload.candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.applicationQuestion || item.question || ''))?.answer || '';
       // The live SIX form asks for a personal preference that is not present in
       // the candidate facts. Keep the first phase at the candidate gate: the
       // final POST is only legal after the reviewed answer comes back on the
@@ -1121,7 +1136,7 @@ async function main() {
       candidate: sixCandidate,
     });
     check('SIX stops at the personal-answer gate without a final POST', sixNeedsCandidate.event.type === 'submit_needs_candidate'
-      && sixNeedsCandidate.event.questions.some((item) => /preferred workload/i.test(item.question || ''))
+      && sixNeedsCandidate.event.questions.some((item) => /preferred workload/i.test(item.applicationQuestion || item.question || ''))
       && state.sixApplications.length === 0);
     const six = await run({
       applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
@@ -1141,7 +1156,7 @@ async function main() {
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
     check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
-      && asked.length === 1 && asked[0].question === 'Geburtsdatum' && asked[0].type === 'date' && state.widgetApplications.length === 0);
+      && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0);
     // Review of #10707: Codex failing inside the fallback ends in the owner's handoff, not a failed run.
     const failing = async (request) => {
       if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
@@ -1435,7 +1450,7 @@ async function main() {
       state.registrationValidationOnce = true;
       state.registrationNeedsAnswerAfterValidation = true;
       const registrationQuestion = await run();
-      const permitQuestion = registrationQuestion.event.questions?.find((question) => /valid work permit/i.test(question.question || ''));
+      const permitQuestion = registrationQuestion.event.questions?.find((question) => /valid work permit/i.test(question.applicationQuestion || question.question || ''));
       check('a newly exposed registration fact becomes a candidate question and keeps the credential for resume',
         registrationQuestion.event.type === 'submit_needs_candidate' && Boolean(permitQuestion)
         && saved.get(accountHost)?.status === 'unanswered' && Boolean(saved.get(accountHost)?.password)
@@ -1446,7 +1461,7 @@ async function main() {
           identity: { email: ALIAS },
           profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
           answers: { [permitQuestion.id]: 'Yes' },
-          portalQuestionsAnswered: [{ id: permitQuestion.id, question: permitQuestion.question, context: permitQuestion.context, answer: 'Yes' }],
+          portalQuestionsAnswered: [{ id: permitQuestion.id, question: permitQuestion.applicationQuestion || permitQuestion.question, context: permitQuestion.context, section: permitQuestion.section, autocomplete: permitQuestion.autocomplete, answer: 'Yes' }],
         };
         const resumedApplication = await run({ candidate });
         check('an answered registration question resumes account creation and submits the application',

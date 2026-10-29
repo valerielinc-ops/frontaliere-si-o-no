@@ -13,12 +13,48 @@ import {
   refusal,
   runAction,
   withoutSecrets,
+  withAgentFieldProvenance,
 } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { isoDates, knownAnswer, knownValuesOf, planSystemPrompt } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { candidateForForm, machineLabel } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'widget', ...action });
 const turn = (status: string, actions: any[] = [], questions: any[] = []) => ({ status, reason: '', advanceRef: '', actions, questions });
+
+describe('fallback DOM provenance', () => {
+  const field = { label: 'Adresse 8 / 100 Zeichen', section: 'Persönliche Angaben', autocomplete: 'street-address' };
+  const context = 'Bewerberdaten · Persönliche Angaben · residence';
+  const candidate = { portalQuestionsAnswered: [{ question: field.label, context, section: field.section, autocomplete: field.autocomplete, answer: 'Via Esempio 12' }] };
+  const question = { question: 'Indirizzo', applicationQuestion: field.label, context, type: 'text', options: [], why: '' };
+
+  it('recognizes an answered Talentsoft question when the schema omitted DOM metadata', () => {
+    const raw = turn('needs_candidate', [], [question]);
+    expect(guardAgentStep(raw, candidate).status).toBe('needs_candidate');
+    const restored = withAgentFieldProvenance(raw, [field]);
+    expect(restored.questions[0]).toMatchObject({ section: field.section, autocomplete: field.autocomplete });
+    expect(guardAgentStep(restored, candidate)).toMatchObject({ status: 'stuck', questions: [] });
+  });
+
+  it('fills a saved answer through an action using DOM provenance', () => {
+    const raw = turn('act', [act({ action: 'fill', question: field.label, context, value: 'invented', answer: 'invented', source: 'answers' })]);
+    const guarded = guardAgentStep(withAgentFieldProvenance(raw, [field]), candidate);
+    expect(guarded.actions[0]).toMatchObject({ value: 'Via Esempio 12', answer: 'Via Esempio 12' });
+  });
+
+  it('does not assign provenance to ambiguous labels or unrelated questions', () => {
+    const raw = turn('needs_candidate', [], [question]);
+    expect(withAgentFieldProvenance(raw, [field, { ...field, section: 'Employer' }])).toEqual(raw);
+    expect(withAgentFieldProvenance(raw, [{ label: 'Other address', section: field.section }])).toEqual(raw);
+  });
+
+  it('matches a changed character counter without erasing substantive numeric labels', () => {
+    const raw = turn('needs_candidate', [], [question]);
+    expect(withAgentFieldProvenance(raw, [{ ...field, label: 'Adresse 30 / 100 Zeichen' }]).questions[0])
+      .toMatchObject({ section: field.section });
+    const numeric = turn('act', [act({ question: 'Experience 1 / 2' })]);
+    expect(withAgentFieldProvenance(numeric, [{ label: 'Experience 2 / 2', section: 'Work' }])).toEqual(numeric);
+  });
+});
 
 describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   it('hands off a non-multipart Workday HTTP 500 even when the selected filename is visible', async () => {

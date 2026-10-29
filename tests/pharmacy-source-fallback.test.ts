@@ -11,6 +11,7 @@ import {
   TICINO_PHARMACY_PDF_MIRROR_URL,
   TICINO_PHARMACY_PDF_URL,
   discoverTicinoPharmacyPdfUrls,
+  isTicinoPharmacyPdfUrl,
 } from '../scripts/lib/pharmacy-border-parser.mjs';
 
 describe('Ticino pharmacy PDF source fallback', () => {
@@ -57,6 +58,25 @@ describe('Ticino pharmacy PDF source fallback', () => {
     expect(calls).toEqual([TICINO_PHARMACY_PDF_URL, TICINO_PHARMACY_PDF_MIRROR_URL]);
   });
 
+  it('uses the official mirror after a wrapped fetch-failed transport error', async () => {
+    const calls: string[] = [];
+    const fetchSource = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (calls.length === 1) {
+        throw new Error('Failed to fetch www4 source (timeout): fetch failed', {
+          cause: new TypeError('fetch failed'),
+        });
+      }
+      return Buffer.from('%PDF');
+    });
+
+    await expect(fetchTicinoPdfDocument(fetchSource)).resolves.toEqual({
+      buffer: Buffer.from('%PDF'),
+      sourceUrl: TICINO_PHARMACY_PDF_MIRROR_URL,
+    });
+    expect(calls).toEqual([TICINO_PHARMACY_PDF_URL, TICINO_PHARMACY_PDF_MIRROR_URL]);
+  });
+
   it('does not reinterpret a persistent source error as a mirror fallback', async () => {
     const error = Object.assign(new Error('HTTP 403'), { status: 403 });
     const fetchSource = vi.fn().mockRejectedValue(error);
@@ -64,6 +84,52 @@ describe('Ticino pharmacy PDF source fallback', () => {
     await expect(fetchTicinoPdfBuffer(fetchSource)).rejects.toBe(error);
     expect(fetchSource).toHaveBeenCalledOnce();
     expect(fetchSource).toHaveBeenCalledWith(TICINO_PHARMACY_PDF_URL);
+  });
+
+  it('returns a retryable aggregate when both official PDF transports and the directory time out', async () => {
+    const fetchSource = vi.fn().mockRejectedValue(
+      Object.assign(new TypeError('fetch failed'), { retryBudgetExhausted: true }),
+    );
+    const fetchDirectory = vi.fn().mockRejectedValue(new TypeError('fetch failed'));
+
+    const failure = await fetchTicinoPdfDocument(fetchSource, fetchDirectory).catch((error: unknown) => error as Error & {
+      retryBudgetExhausted?: boolean;
+      sourceFailures?: Array<{ sourceUrl: string; canTryAnotherSource: boolean }>;
+    });
+
+    expect(failure).toMatchObject({ retryBudgetExhausted: true });
+    expect(failure.message).toContain('All official Ticino pharmacy sources failed');
+    expect(failure.sourceFailures).toHaveLength(3);
+    expect(failure.sourceFailures?.map(({ sourceUrl, canTryAnotherSource }) => ({ sourceUrl, canTryAnotherSource }))).toEqual([
+      { sourceUrl: TICINO_PHARMACY_PDF_URL, canTryAnotherSource: true },
+      { sourceUrl: TICINO_PHARMACY_PDF_MIRROR_URL, canTryAnotherSource: true },
+      { sourceUrl: TICINO_PHARMACY_DIRECTORY_URL, canTryAnotherSource: true },
+    ]);
+  });
+
+  it('preserves source provenance when the official mirror is the source of a fresh catalogue', () => {
+    const snapshot = buildTicinoCatalogueSnapshot({
+      parsed: { rows: Array.from({ length: 200 }, (_, index) => ({
+        id: `row-${index}`,
+        name: `Farmacia ${index}`,
+        address: `Via Roma ${index + 1}`,
+        postalCode: '6900',
+        city: 'Lugano',
+      })), warnings: [] },
+      previous: { pharmacies: [] },
+      fetchedAt: '2026-10-29T09:00:00.000Z',
+      sourceUrl: TICINO_PHARMACY_PDF_MIRROR_URL,
+    });
+
+    expect(snapshot._source).toBe(TICINO_PHARMACY_PDF_MIRROR_URL);
+    expect(snapshot._sourceCanonical).toBe(TICINO_PHARMACY_PDF_URL);
+  });
+
+  it('accepts the real official nested PDF path for provenance', () => {
+    expect(isTicinoPharmacyPdfUrl(TICINO_PHARMACY_PDF_URL)).toBe(TICINO_PHARMACY_PDF_URL);
+    expect(isTicinoPharmacyPdfUrl(TICINO_PHARMACY_PDF_MIRROR_URL)).toBe(TICINO_PHARMACY_PDF_MIRROR_URL);
+    expect(isTicinoPharmacyPdfUrl('https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_Farmacie_sito_web_stato_20261026.pdf')).toBe('https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Lista_Farmacie_sito_web_stato_20261026.pdf');
+    expect(isTicinoPharmacyPdfUrl('https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/altro.pdf')).toBeNull();
   });
 
   it('discovers the dated catalogue PDF only on the official Ticino hosts', () => {

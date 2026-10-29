@@ -36,11 +36,12 @@ const MIMIT_API_REGION_BY_PROVINCE = Object.freeze({
   TN: 4,
   BZ: 4,
 });
-// Osservaprezzi answers concurrent bursts with HTTP 429. Keep both lookup
-// levels serial and enforce the same spacing through the request wrapper so a
-// future caller cannot reintroduce a burst by raising either worker count.
+// Osservaprezzi answers concurrent bursts with HTTP 429. Keep province lookups
+// serial and enforce the same spacing through the request wrapper. A province
+// response is deliberately not expanded into one request per target town:
+// missing towns are normal for the partial search response, and that fan-out
+// can exhaust the upstream rate limit before a live snapshot is assembled.
 const MIMIT_API_CONCURRENCY = 1;
-const MIMIT_API_TOWN_CONCURRENCY = 1;
 const MIMIT_API_MIN_INTERVAL_MS = 1_000;
 const MIMIT_API_RATE_LIMIT_DEFAULT_COOLDOWN_MS = 15_000;
 const MIMIT_API_RATE_LIMIT_MAX_COOLDOWN_MS = 60_000;
@@ -94,10 +95,6 @@ function normalizeText(value = '') {
     .replace(/[^A-Za-z0-9]+/g, '')
     .toUpperCase()
     .trim();
-}
-
-function municipalityCoverageKey(municipality) {
-  return `${normalizeText(municipality?.name)}:${normalizeText(municipality?.province)}`;
 }
 
 function parseDelimited(text) {
@@ -441,8 +438,6 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
 
   const stationsById = new Map();
   const pricesByKey = new Map();
-  const targetMunicipalityKeys = new Set(municipalities.map(municipalityCoverageKey));
-  const coveredMunicipalityKeys = new Set();
   let latestObservedAt = null;
   for (const response of responses) {
     const province = String(response?.province || '').trim().toUpperCase();
@@ -492,17 +487,18 @@ export function buildItalyRowsFromMimitApi({ municipalities, responses }) {
         }
         pricesByKey.set(key, normalizedPriceRow);
       }
-      if (fuelRows.some((row) => row.descCarburante === 'Benzina')) {
-        coveredMunicipalityKeys.add(municipalityCoverageKey(municipality));
-      }
       if (!latestObservedAt || Date.parse(observationTimestamp) > Date.parse(latestObservedAt)) latestObservedAt = observationTimestamp;
     }
   }
 
   const stationsRows = [...stationsById.values()];
   const pricesRows = [...pricesByKey.values()];
-  const missingMunicipalities = [...targetMunicipalityKeys].filter((key) => !coveredMunicipalityKeys.has(key));
-  if (!stationsRows.length || !pricesRows.some((row) => row.descCarburante === 'Benzina') || missingMunicipalities.length) {
+  // The area endpoint can return a valid, bounded subset of a province. The
+  // bulk CSV validator above has the same invariant: at least one proven
+  // Benzina station in the target set, not synthetic coverage for every
+  // municipality. Requiring every target here caused an N×municipality retry
+  // storm and turned a usable live source into HTTP 429 carry-over.
+  if (!stationsRows.length || !pricesRows.some((row) => row.descCarburante === 'Benzina')) {
     throw new Error('MIMIT API returned no valid Benzina rows for target municipalities');
   }
   return {
@@ -623,15 +619,9 @@ export async function fetchMimitApiSource(
       return [provinceResponse];
     } catch (error) {
       if (!(error instanceof Error) || error.message !== 'MIMIT API returned no valid Benzina rows for target municipalities') throw error;
-      console.warn(`::warning::[fuel] MIMIT area lookup returned no target Benzina rows for ${province}; retrying ${targetMunicipalities.length} target municipalities`);
+      console.warn(`::warning::[fuel] MIMIT area lookup returned no target Benzina rows for ${province}; skipping municipality fan-out to avoid API rate limiting`);
+      return [];
     }
-    return mapWithConcurrency(targetMunicipalities, MIMIT_API_TOWN_CONCURRENCY, async (municipality) => fetchMimitApiArea({
-      region,
-      province,
-      town: municipality.name,
-      fetchImpl: rateLimitedFetch,
-      retries,
-    }));
   });
   const responses = responsesByProvince.flat();
   const result = { ok: true, source: 'mimit-api', ...buildItalyRowsFromMimitApi({ municipalities, responses }) };

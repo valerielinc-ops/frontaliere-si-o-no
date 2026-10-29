@@ -33,6 +33,7 @@ const ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION = 'assisted_application_
 // could not load (JobBoard handleRewardedApplicationUnavailable).
 const VALID_VARIANTS = new Set(['control', 'assisted_application', 'offerwall_fallback']);
 const VALID_COPY_VARIANTS = new Set(['control', 'time_saved', 'portal_relief', 'handled_for_you']);
+const VALID_LAYOUT_VARIANTS = new Set(['control', 'variant_7', 'proposal_5', 'proposal_b']);
 const VALID_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const VALID_SALARY_SOURCES = new Set(['reported', 'existing', 'estimated']);
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
@@ -168,6 +169,7 @@ function metadataForOrder(order, userId) {
     jobTitle: order.jobTitle,
     experimentVariant: order.experimentVariant,
     copyVariant: order.copyVariant || 'control',
+    layoutVariant: order.layoutVariant || 'control',
     userId,
     locale: order.locale || 'it',
   };
@@ -345,6 +347,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     }),
     experimentVariant: VALID_VARIANTS.has(body.experimentVariant) ? body.experimentVariant : 'control',
     copyVariant: VALID_COPY_VARIANTS.has(body.copyVariant) ? body.copyVariant : 'control',
+    layoutVariant: VALID_LAYOUT_VARIANTS.has(body.layoutVariant) ? body.layoutVariant : 'control',
   };
   const successUrl = boundedString(body.successUrl, 1000);
   const cancelUrl = boundedString(body.cancelUrl, 1000);

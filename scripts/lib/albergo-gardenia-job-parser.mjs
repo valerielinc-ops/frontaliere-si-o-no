@@ -28,9 +28,18 @@ export const ALBERGO_GARDENIA_FETCH_BUDGET = Object.freeze({
   content: Object.freeze({ timeoutMs: 15_000, retries: 2, retryBaseMs: 750 }),
 });
 export const ALBERGO_GARDENIA_TOTAL_BUDGET_MS = 30 * 60_000;
+const CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS = 105_000;
+const CLOUDFLARE_BROWSER_RENDERING_BACKENDS = Object.freeze([
+  undefined,
+  'kitesurf',
+]);
+const CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS = CLOUDFLARE_BROWSER_RENDERING_BACKENDS.length;
+const CLOUDFLARE_BROWSER_RENDERING_RETRY_DELAY_MS = 1_000;
 export const ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS = Math.max(
   ...Object.values(ALBERGO_GARDENIA_FETCH_BUDGET).map(({ timeoutMs, retries, retryBaseMs }) =>
     timeoutMs * (retries + 1) + retryBaseMs * retries * (retries + 1) / 2),
+  CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS * CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS
+    + CLOUDFLARE_BROWSER_RENDERING_RETRY_DELAY_MS * (CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS - 1),
 );
 
 const MIN_SITEMAP_URLS = 50;
@@ -41,7 +50,6 @@ const GARDENIA_APEX_HOST = ALBERGO_GARDENIA_COMPANY_DOMAIN;
 const GARDENIA_WWW_HOST = `www.${ALBERGO_GARDENIA_COMPANY_DOMAIN}`;
 const GARDENIA_CLEAN_EGRESS_SOURCE_ID = 'gardenia-clean-egress-source';
 const GARDENIA_CLEAN_EGRESS_ERROR_ID = 'gardenia-clean-egress-error';
-const CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS = 105_000;
 // Bounded settle after `domcontentloaded` so a client-side redirect (e.g. a
 // late inline `window.location = ...`) has a chance to land before we trust
 // `page.url()`. Best-effort only: a timeout here just means no further
@@ -359,10 +367,11 @@ function gardeniaCloudflareInventoryScript() {
  * session and the usual host delay. The returned URLs and every page body are
  * still validated by the source-specific identity and zero-vacancy contract.
  *
- * @param {{ fetchImpl?: typeof fetch, gardeniaCfAccount?: string, gardeniaCfToken?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
+ * @param {{ fetchImpl?: typeof fetch, sleepImpl?: (ms: number) => Promise<void>, gardeniaCfAccount?: string, gardeniaCfToken?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
  */
 export function createAlbergoGardeniaCleanEgressTransport({
   fetchImpl = fetch,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   gardeniaCfAccount = process.env.CF_ACCOUNT_ID,
   gardeniaCfToken = process.env.CF_API_TOKEN,
   gardeniaCfKey = process.env.CF_GLOBAL_API_KEY,
@@ -371,7 +380,7 @@ export function createAlbergoGardeniaCleanEgressTransport({
 } = {}) {
   let inventoryPromise = null;
 
-  async function loadAuthEmail() {
+  async function loadAuthEmail(signal) {
     if (gardeniaCfEmail) return gardeniaCfEmail;
     if (!gardeniaGithubToken) throw Object.assign(new Error('GitHub token missing for Cloudflare auth identity'), { status: 401 });
     const response = await fetchImpl('https://api.github.com/user/emails', {
@@ -380,6 +389,7 @@ export function createAlbergoGardeniaCleanEgressTransport({
         Accept: 'application/vnd.github+json',
         'User-Agent': UA,
       },
+      signal,
     });
     if (!response.ok) {
       throw Object.assign(new Error(`GitHub auth identity lookup failed (${response.status})`), {
@@ -422,52 +432,81 @@ export function createAlbergoGardeniaCleanEgressTransport({
         }),
         signal: controller.signal,
       });
-      const authAttempts = [];
-      if (gardeniaCfToken) {
-        authAttempts.push({
-          label: 'Cloudflare API token',
-          getHeaders: async () => ({ Authorization: `Bearer ${gardeniaCfToken}` }),
-        });
-      }
-      if (gardeniaCfKey) {
-        authAttempts.push({
-          label: 'Cloudflare Global API Key',
-          getHeaders: async () => ({
-            'X-Auth-Email': await loadAuthEmail(),
-            'X-Auth-Key': gardeniaCfKey,
-          }),
-        });
-      }
+      const requestInventory = async (browserBackend) => {
+        const authAttempts = [];
+        if (gardeniaCfToken) {
+          authAttempts.push({
+            label: 'Cloudflare API token',
+            getHeaders: async () => ({ Authorization: `Bearer ${gardeniaCfToken}` }),
+          });
+        }
+        if (gardeniaCfKey) {
+          authAttempts.push({
+            label: 'Cloudflare Global API Key',
+            getHeaders: async () => ({
+              'X-Auth-Email': await loadAuthEmail(controller.signal),
+              'X-Auth-Key': gardeniaCfKey,
+            }),
+          });
+        }
 
-      let response;
-      for (const [index, attempt] of authAttempts.entries()) {
-        response = await fetchImpl(
-          `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
-          requestOptions(await attempt.getHeaders()),
+        let response;
+        for (const [index, attempt] of authAttempts.entries()) {
+          const endpoint = new URL(
+            `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
+          );
+          if (browserBackend) endpoint.searchParams.set('browser', browserBackend);
+          response = await fetchImpl(endpoint.toString(), requestOptions(await attempt.getHeaders()));
+          const authRejected = response.status === 401 || response.status === 403;
+          const hasFallback = index < authAttempts.length - 1;
+          if (!authRejected || !hasFallback) break;
+          console.warn(`  ⚠️ ${attempt.label} rejected by Cloudflare (${response.status}); trying the configured fallback credential.`);
+        }
+        if (!response.ok) {
+          throw Object.assign(new Error(`Cloudflare browser rendering failed (${response.status})`), {
+            status: response.status,
+          });
+        }
+        const envelope = await response.json();
+        if (!envelope?.success || typeof envelope?.result !== 'string') {
+          throw Object.assign(new Error('Cloudflare browser rendering returned an invalid envelope'), { status: 502 });
+        }
+        const dom = new JSDOM(envelope.result);
+        try {
+          const remoteError = dom.window.document.getElementById(GARDENIA_CLEAN_EGRESS_ERROR_ID)?.textContent;
+          if (remoteError) throw Object.assign(new Error(`Cloudflare Gardenia session failed: ${remoteError}`), { status: 502 });
+          const payload = dom.window.document.getElementById(GARDENIA_CLEAN_EGRESS_SOURCE_ID)?.textContent;
+          if (!payload) throw Object.assign(new Error('Cloudflare Gardenia session returned no inventory'), { status: 502 });
+          return JSON.parse(payload);
+        } finally {
+          dom.window.close();
+        }
+      };
+
+      for (let attempt = 1; attempt <= CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS; attempt += 1) {
+        const browserBackend = CLOUDFLARE_BROWSER_RENDERING_BACKENDS[attempt - 1];
+        let snapshot;
+        try {
+          snapshot = await requestInventory(browserBackend);
+        } catch (error) {
+          const hasAnotherAttempt = attempt < CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS;
+          if (!hasAnotherAttempt || Number(error?.status) !== 415) throw error;
+          console.warn(
+            `  ⚠️ Cloudflare Gardenia browser API returned HTTP 415 on attempt ${attempt}`
+            + '; switching to the alternate rendering backend.',
+          );
+          await sleepImpl(CLOUDFLARE_BROWSER_RENDERING_RETRY_DELAY_MS);
+          continue;
+        }
+        const hasWafResponse = gardeniaInventoryHasWafResponse(snapshot);
+        const hasAnotherAttempt = attempt < CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS;
+        if (!hasWafResponse || !hasAnotherAttempt) return snapshot;
+        const backendLabel = browserBackend ? ` (${browserBackend})` : '';
+        console.warn(
+          `  ⚠️ Cloudflare Gardenia inventory attempt ${attempt}/${CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS}`
+          + `${backendLabel} returned an HTTP WAF response; switching rendering backend.`,
         );
-        const authRejected = response.status === 401 || response.status === 403;
-        const hasFallback = index < authAttempts.length - 1;
-        if (!authRejected || !hasFallback) break;
-        console.warn(`  ⚠️ ${attempt.label} rejected by Cloudflare (${response.status}); trying the configured fallback credential.`);
-      }
-      if (!response.ok) {
-        throw Object.assign(new Error(`Cloudflare browser rendering failed (${response.status})`), {
-          status: response.status,
-        });
-      }
-      const envelope = await response.json();
-      if (!envelope?.success || typeof envelope?.result !== 'string') {
-        throw Object.assign(new Error('Cloudflare browser rendering returned an invalid envelope'), { status: 502 });
-      }
-      const dom = new JSDOM(envelope.result);
-      try {
-        const remoteError = dom.window.document.getElementById(GARDENIA_CLEAN_EGRESS_ERROR_ID)?.textContent;
-        if (remoteError) throw Object.assign(new Error(`Cloudflare Gardenia session failed: ${remoteError}`), { status: 502 });
-        const payload = dom.window.document.getElementById(GARDENIA_CLEAN_EGRESS_SOURCE_ID)?.textContent;
-        if (!payload) throw Object.assign(new Error('Cloudflare Gardenia session returned no inventory'), { status: 502 });
-        return JSON.parse(payload);
-      } finally {
-        dom.window.close();
+        await sleepImpl(CLOUDFLARE_BROWSER_RENDERING_RETRY_DELAY_MS);
       }
     } finally {
       clearTimeout(timer);
@@ -599,6 +638,12 @@ function gardeniaDeadlineError(sourceUrl) {
     },
   );
   return error;
+}
+
+function gardeniaInventoryHasWafResponse(snapshot) {
+  if (WAF_IP_BLOCK_STATUS.has(Number(snapshot?.sitemap?.status))) return true;
+  return Array.isArray(snapshot?.pages)
+    && snapshot.pages.some((page) => WAF_IP_BLOCK_STATUS.has(Number(page?.status)));
 }
 
 /**
