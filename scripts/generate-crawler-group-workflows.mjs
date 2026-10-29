@@ -1043,12 +1043,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
   work.push('fi');
   work.push('exit 0');
 
-  if (!compact || crawler.slug === 'fachkraft') {
-    outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
-  }
-  if (!compact) {
-    outer.push('# shellcheck disable=SC2016');
-  }
+  // Keep the explicit target budget visible even in compact output. It is a
+  // contract marker for bounded crawlers, not decorative phase commentary.
+  outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
+  if (!compact) outer.push('# shellcheck disable=SC2016');
   outer.push(
     `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
   );
