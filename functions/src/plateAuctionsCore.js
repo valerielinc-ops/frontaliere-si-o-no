@@ -835,7 +835,12 @@ export async function fetchHtml(url, {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404 });
+      if (ca) {
+        // Keep custom-CA requests inside this retry loop. FR's SwissSign
+        // certificate path uses `https.request`; returning it directly here
+        // used to make one transient TLS timeout degrade the whole source.
+        return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404 });
+      }
       const response = await fetch(url, {
         redirect: 'follow',
         headers: {

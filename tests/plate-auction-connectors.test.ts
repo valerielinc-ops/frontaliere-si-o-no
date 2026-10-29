@@ -1,6 +1,8 @@
+import { EventEmitter } from 'node:events';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import https from 'node:https';
 import { describe, expect, it, vi } from 'vitest';
 import {
   extractPdfUrl,
@@ -198,6 +200,55 @@ describe('expanded plate-auction connectors', () => {
       expect(fetchMock).toHaveBeenCalledTimes(2);
     } finally {
       fetchMock.mockRestore();
+    }
+  });
+
+  it('retries transient TLS failures when a custom CA is required', async () => {
+    let attempts = 0;
+    const requestMock = vi.spyOn(https, 'request').mockImplementation(((
+      _url: unknown,
+      _options: unknown,
+      callback: (response: EventEmitter & { headers: Record<string, string>; statusCode: number; setEncoding: (encoding: string) => void }) => void,
+    ) => {
+      const request = new EventEmitter() as EventEmitter & {
+        destroy: (error?: Error) => void;
+        end: () => void;
+        setTimeout: (timeoutMs: number, callback: () => void) => void;
+      };
+      request.destroy = (error) => request.emit('error', error);
+      request.setTimeout = () => {};
+      request.end = () => {
+        attempts += 1;
+        queueMicrotask(() => {
+          if (attempts === 1) {
+            request.emit('error', new Error('temporary TLS reset'));
+            return;
+          }
+          const response = new EventEmitter() as EventEmitter & {
+            headers: Record<string, string>;
+            statusCode: number;
+            setEncoding: (encoding: string) => void;
+          };
+          response.headers = {};
+          response.statusCode = 200;
+          response.setEncoding = () => {};
+          callback(response);
+          response.emit('data', '<html>ok</html>');
+          response.emit('end');
+        });
+      };
+      return request as never;
+    }) as never);
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', {
+        ca: '-----BEGIN CERTIFICATE-----\nfixture\n-----END CERTIFICATE-----',
+        retries: 1,
+        retryDelayMs: 0,
+      })).resolves.toBe('<html>ok</html>');
+      expect(requestMock).toHaveBeenCalledTimes(2);
+    } finally {
+      requestMock.mockRestore();
     }
   });
 
