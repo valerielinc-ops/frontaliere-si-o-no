@@ -602,6 +602,33 @@ const App: React.FC = () => {
    }
  }, [activeTab, staticSnapshotOwnsBody, staticOverlay]);
 
+ // Expired soft-landings use the same outside-#root contract as the other
+ // static SEO pages, but keep a dedicated marker because their body is an
+ // article nested inside the static main. Remove it before paint when the
+ // visitor soft-navigates away (or when a different static page is reached),
+ // otherwise the archived offer could reappear below a later SPA route.
+ useLayoutEffect(() => {
+   const currentPath = contextualPath;
+   for (const staticBody of document.querySelectorAll<HTMLElement>('main[data-expired-static-body]')) {
+     if (!staticOverlay || staticBody.dataset.expiredStaticPath !== currentPath) {
+       staticBody.remove();
+     } else {
+       // The generic static-main handoff removes its inline display property;
+       // expired pages intentionally restore block layout because their child
+       // article owns the original full-width shell geometry.
+       staticBody.style.setProperty('display', 'block');
+     }
+   }
+   // The no-JS footer is kept in the static HTML for crawlers and disabled-JS
+   // visitors. React owns the same flow slot after mount, so discard only the
+   // marked static copy before the portal paints its live footer.
+   if (staticOverlay) {
+     for (const staticFooter of document.querySelectorAll<HTMLElement>('#footer-root > footer[data-static-footer]')) {
+       staticFooter.remove();
+     }
+   }
+ }, [contextualPath, staticOverlay]);
+
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
  // as a BODY-DIRECT sibling of `main.seo-static-content` so the sub-nav is on
