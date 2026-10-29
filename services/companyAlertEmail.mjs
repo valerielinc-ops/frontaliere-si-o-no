@@ -47,6 +47,7 @@
  * directly.
  */
 
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { nlNormLocale } from './newsletter-template.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { formatSalary, emailTagChip, normalizeContract, resolveLogoUrl } from './newsletter-content.mjs';
@@ -353,7 +354,7 @@ function jobCardHtml(job, hubUrl, wrapJobUrl, { locale, s, now, companyName, com
 
   const avatarHtml = logoSrc
     ? `<img src="${escHtml(logoSrc)}" alt="${escHtml(company)}" width="44" height="44" style="${logoStyle}">`
-    : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${escHtml(initial)}</div>`;
+    : `<div style="width:44px;height:44px;border-radius:10px;background:${BRAND_DARK};background-image:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${escHtml(initial)}</div>`;
 
   return `
         <tr><td style="padding:0 0 10px;">
@@ -553,7 +554,7 @@ export function buildCompanyAlertEmail({
   </style>
 </head>
 <body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${escHtml(preheader)}&nbsp;‌‌‌‌</div>
+  ${renderEmailPreview(preheader)}
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">

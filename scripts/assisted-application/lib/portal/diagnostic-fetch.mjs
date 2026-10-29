@@ -11,7 +11,8 @@ export function installFetchDiagnostics(target) {
   const pending = new Set();
   let reads = 0;
   let stopped = false;
-  const inspect = async (response, method) => {
+  let attempt = 0;
+  const inspect = async (response, method, requestAttempt) => {
     if (stopped || reads >= DIAGNOSTIC_BODY_READ_LIMIT || !/json/i.test(response.headers.get('content-type') || '')) return;
     const location = diagnosticLocation(response.url);
     if (!location) return;
@@ -23,15 +24,16 @@ export function installFetchDiagnostics(target) {
     if (stopped) return;
     const errors = bytes && responseErrors(JSON.parse(new TextDecoder().decode(bytes)), response.status >= 400);
     if (errors?.length) await target[FETCH_DIAGNOSTIC_BINDING]({
-      location, method, status: response.status, errors,
+      location, method, status: response.status, errors, attempt: requestAttempt,
     });
   };
   target.fetch = function (...args) {
+    const requestAttempt = attempt;
     const result = Reflect.apply(fetchOriginal, this, args);
     // Observe without replacing the original promise or changing its rejection.
     result.then((response) => {
       const method = String(args[1]?.method || args[0]?.method || 'GET').toUpperCase();
-      const task = inspect(response, method).catch(() => {});
+      const task = inspect(response, method, requestAttempt).catch(() => {});
       pending.add(task);
       task.finally(() => pending.delete(task));
     }).catch(() => {});
@@ -39,6 +41,7 @@ export function installFetchDiagnostics(target) {
   };
   target[FETCH_DIAGNOSTIC_CONTROL] = {
     reset() { reads = 0; },
+    setAttempt(value) { attempt = value; },
     async finish() {
       await settleDiagnostics(pending);
       stopped = true;

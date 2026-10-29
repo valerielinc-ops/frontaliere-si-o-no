@@ -9627,7 +9627,6 @@
           "sozialpadagog-in-im-schulhaus-grunau-stadt-zuerich-zurigo-51608"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:19.234Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -9641,8 +9640,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "stadt-zuerich-e9987d4211df",
@@ -27848,7 +27846,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 11,
+      "retranslationAttempts": 12,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2472,
       "needsRetranslation": true
@@ -28015,7 +28013,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 11,
+      "retranslationAttempts": 12,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2726,
       "needsRetranslation": true
@@ -30590,7 +30588,6 @@
           "university-intern-in-communications-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-09T09:49:12.106Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -30605,7 +30602,10 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2356,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-333b394aa4e9",

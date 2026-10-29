@@ -7,6 +7,7 @@
  * Autologin is handled externally by wrapping links with Firebase auth.
  */
 
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import {
   isApplicationConciergeRecommendation,
   pickNewsletterRecommendation,
@@ -420,7 +421,7 @@ function renderHeroExchangeRate({ rate, previousRate, locale, recipientName }) {
 
       <!--[if mso]><table cellpadding="0" cellspacing="0" align="center"><tr><td style="background:#1e293b;border-radius:16px;padding:20px 36px;"><![endif]-->
       <a target="_blank" rel="noopener noreferrer" href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="text-decoration:none;display:inline-block;">
-      <div class="rate-box" style="display:inline-block;background:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:20px 36px;margin:8px 0 16px;">
+      <div class="rate-box" style="display:inline-block;background:#1e293b;background-image:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:20px 36px;margin:8px 0 16px;">
         <div style="font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">${nlT(locale, 'rateLabel')}</div>
         <div class="hero-rate" style="font-size:52px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-1px;line-height:1.1;">${rate.toFixed(4)}</div>
         <div style="font-size:14px;margin-top:4px;color:${arrowColor};">${arrow} ${sign}${pct}% ${nlT(locale, 'vsLastWeek')}</div>
@@ -552,7 +553,7 @@ function renderJobs(matchedJobs, locale, totalJobs, rankingContext = null) {
                   ? `<div style="width:44px;height:44px;border-radius:10px;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;">
                        <img src="${escapeHtml(job.logoUrl)}" width="44" height="44" alt="${escapeHtml(job.company || '')}" style="width:44px;height:44px;object-fit:contain;border-radius:10px;display:block;">
                      </div>`
-                  : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#1e293b,#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>`
+                  : `<div style="width:44px;height:44px;border-radius:10px;background:#1e293b;background-image:linear-gradient(135deg,#1e293b,#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>`
                 }
               </td>
               <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
@@ -584,7 +585,7 @@ function renderQuote(fact, locale) {
   const source = fact?.source || nlT(locale, 'defaultQuoteSource');
   return `
     <tr><td class="section-pad" style="padding:8px 28px 16px;">
-      <div style="background:linear-gradient(135deg,${BRAND_ORANGE},#ea580c);border-radius:12px;padding:20px 22px;text-align:center;">
+      <div style="background:${BRAND_ORANGE};background-image:linear-gradient(135deg,${BRAND_ORANGE},#ea580c);border-radius:12px;padding:20px 22px;text-align:center;">
         <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">\u201c${escapeHtml(text)}\u201d</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.7);margin-top:6px;">\u2014 ${escapeHtml(source)}</div>
       </div>
@@ -632,7 +633,7 @@ function renderArticle(article, locale) {
     <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 8px;">
       <a target="_blank" rel="noopener noreferrer" href="${directUrl(article.url)}" style="text-decoration:none;display:block;">
         <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;overflow:hidden;">
-          <div style="width:100%;height:200px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:200px;">
+          <div style="width:100%;height:200px;background:#1e293b;background-image:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:200px;">
             <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
           </div>
           <div style="padding:18px 20px;">
@@ -842,7 +843,6 @@ export function buildNewsletter(data) {
     body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
     table{border-collapse:collapse;}
     img{border:0;max-width:100%;}
-    .preheader{display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;}
     @media only screen and (max-width:620px){
       .outer-table{width:100%!important;}
       .hero-rate{font-size:40px!important;}
@@ -859,7 +859,7 @@ export function buildNewsletter(data) {
   </style>
 </head>
 <body>
-  <div class="preheader">${escapeHtml(preheader)}&nbsp;\u200c\u200c\u200c\u200c\u200c\u200c\u200c</div>
+  ${renderEmailPreview(preheader)}
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;background:${WHITE};">

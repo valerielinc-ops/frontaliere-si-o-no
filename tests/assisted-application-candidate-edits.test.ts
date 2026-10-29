@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   candidateWithEdits,
+  candidateAnswersForQuestions,
   candidateQuestionAnswerKey,
   questionsForCandidate,
   rememberCandidateQuestionAnswers,
@@ -118,6 +119,36 @@ describe('candidate edits', () => {
       questions: [first], answers: { german_level: '' }, previous: memory, changed: { german_level: '' },
     });
     expect(cleared[candidateQuestionAnswerKey(first)]).toBe('');
+  });
+
+  it('reuses an explicit workload percentage across languages, wording and generated ids', () => {
+    const first = { id: 'workload', question: 'What is your desired workload (in %)?', type: 'number', validation: { min: 0, max: 100 } };
+    const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100' }, changed: { workload: '100' } });
+    for (const text of ['Qual è la tua disponibilità lavorativa desiderata in percentuale?', 'Grado di occupazione desiderato', 'Percentuale lavorativa desiderata', 'Welches Pensum wünschen Sie?', 'Gewünschter Beschäftigungsgrad', 'Gewünschte Beschäftigungsgrad', 'Quel taux d’activité souhaitez-vous ?', 'Taux d’activité souhaité', 'Taux d’occupation désiré']) {
+      const next = { id: 'new', question: text, type: 'number', validation: { min: 0, max: 100 } };
+      expect(candidateQuestionAnswerKey(next)).toBe(candidateQuestionAnswerKey(first));
+      expect(candidateAnswersForQuestions([next], {}, memory).new).toBe('100');
+    }
+    const percentMemory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100%' } });
+    expect(candidateAnswersForQuestions([{ ...first, id: 'numeric' }], {}, percentMemory).numeric).toBe('100');
+    expect(candidateAnswersForQuestions([{ ...first, id: 'restricted', validation: { min: 0, max: 80 } }], {}, memory).restricted).toBeUndefined();
+    expect(candidateAnswersForQuestions([{ ...first, id: 'options', type: 'choice', options: ['50', '80'] }], {}, memory).options).toBeUndefined();
+  });
+
+  it('does not infer shifts, employer requirements, consent or start dates from a workload preference', () => {
+    const first = { id: 'workload', question: 'What is your desired workload?', type: 'number' };
+    const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100' } });
+    for (const question of ['What is your current workload?', 'What workload is required by your employer?', 'What is your preferred workload if night shifts are required?', 'What is your desired workload in hours per week?', 'Gewünschtes Pensum in Stunden', 'Taux d’activité souhaité en heures', 'Quale percentuale di lavoro desideri se lavori di notte?', 'When can you start?', 'Do you agree to WhatsApp communication?', 'What is your notice period?']) {
+      const next = { id: 'new', question, type: 'text' };
+      expect(candidateQuestionAnswerKey(next)).not.toBe(candidateQuestionAnswerKey(first));
+      expect(candidateAnswersForQuestions([next], {}, memory).new).toBeUndefined();
+    }
+    for (const value of ['80-100', 'full-time', '150', '-1']) {
+      const invalid = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: value } });
+      expect(candidateAnswersForQuestions([{ ...first, id: 'new' }], {}, invalid).new).toBeUndefined();
+    }
+    const cleared = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '' }, previous: memory, changed: { workload: '' } });
+    expect(candidateAnswersForQuestions([{ ...first, id: 'new' }], {}, cleared).new).toBeUndefined();
   });
 
   it('reuses an answer when an ATS adds a generic contact context to the same question id family', () => {

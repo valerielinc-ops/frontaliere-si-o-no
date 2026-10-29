@@ -77,8 +77,8 @@ describe('newsletter article header images', () => {
 
   it('article header has adequate height for emoji display', () => {
     const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-template.mjs'), 'utf-8');
-    // Match the specific article header div (width:100%;height:NNNpx;background:linear-gradient)
-    const match = content.match(/width:100%;height:(\d+)px;background:linear-gradient/);
+    // Keep the minimum height check and require the explicit base color before the gradient.
+    const match = content.match(/width:100%;height:(\d+)px;background:#1e293b;background-image:linear-gradient/);
     expect(match).toBeTruthy();
     expect(parseInt(match![1])).toBeGreaterThanOrEqual(160);
   });

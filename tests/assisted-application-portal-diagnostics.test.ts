@@ -1,6 +1,6 @@
 import { EventEmitter } from 'node:events';
 import { describe, expect, it, vi } from 'vitest';
-import { diagnosticLocation, diagnosticText, isChallengeRequest, responseErrors, startPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
+import { diagnosticLocation, diagnosticText, isChallengeRequest, portalHandoffReason, responseErrors, startPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
 
 function fixture() {
   const page = Object.assign(new EventEmitter(), {
@@ -134,5 +134,46 @@ describe('encrypted portal diagnostics', () => {
     await diagnostics.finish();
     expect(large.body).not.toHaveBeenCalled();
     expect(diagnostics.data.responses[0].bodySkipped).toBe('size_not_bounded');
+  });
+});
+
+
+describe('transient CAPTCHA provider failures', () => {
+  const responses = [{ host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 520, attempt: 1 }];
+  it.each(['captcha', 'portal_needs_candidate'])('classifies %s as a technical outage only before the final click', reason => {
+    expect(portalHandoffReason(reason, { diagnostics: { responses }, attempt: 1 })).toBe('captcha_provider_unavailable');
+    expect(portalHandoffReason(reason, { diagnostics: { responses }, attempt: 1, finalClickAttempted: true })).toBe(reason);
+  });
+  it.each([
+    { host: 'api.nopecha.com.evil.test', path: '/v1/recognition/turnstile', status: 520 },
+    { host: 'jobs.example.test', path: '/v1/recognition/turnstile', status: 520 },
+    { host: 'api.nopecha.com', path: '/unrelated', status: 520 },
+    { host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 200 },
+    { host: 'api.nopecha.com', path: '/v1/recognition/turnstile', status: 401 },
+  ])('does not infer a provider outage from unrelated or non-transient responses: %j', entry => {
+    expect(portalHandoffReason('captcha', { diagnostics: { responses: [entry] } })).toBe('captcha');
+  });
+  it('never converts a candidate-only action into a technical retry', () => {
+    expect(portalHandoffReason('whatsapp', { diagnostics: { responses }, attempt: 1 })).toBe('whatsapp');
+  });
+  it('ignores a provider outage recorded by a previous portal attempt', () => {
+    expect(portalHandoffReason('portal_needs_candidate', {
+      diagnostics: { responses: [{ host: 'api.nopecha.com', path: '/v1/recognition/recaptcha', status: 503, attempt: 1 }] },
+      attempt: 2,
+    })).toBe('portal_needs_candidate');
+  });
+  it('tags a response with the attempt in which its request started', async () => {
+    const { context, request, response } = fixture();
+    const diagnostics = startPortalDiagnostics(context);
+    await diagnostics.beginAttempt();
+    context.emit('request', request);
+    context.emit('response', response({ errors: ['provider unavailable'] }, 503));
+    await diagnostics.beginAttempt();
+    expect(diagnostics.data.responses[0]).toMatchObject({ attempt: 1, status: 503 });
+    expect(portalHandoffReason('portal_needs_candidate', {
+      diagnostics: diagnostics.data,
+      attempt: diagnostics.currentAttempt(),
+    })).toBe('portal_needs_candidate');
+    await diagnostics.finish();
   });
 });

@@ -152,7 +152,7 @@ export function extractAlternateUrls(xml, urls) {
 }
 
 // ── Collect URLs from the complete sitemap graph ───────────────────────────
-export async function getUrlsFromSitemaps() {
+export async function getUrlsFromSitemaps({ fetchAttempts, fetchDelayMs } = {}) {
   const rootDir = getProjectRoot();
   const sitemapDir = existsSync(resolve(rootDir, 'dist', 'sitemap.xml'))
     ? resolve(rootDir, 'dist')
@@ -172,6 +172,8 @@ export async function getUrlsFromSitemaps() {
       rootDir: USE_LOCAL ? sitemapDir : undefined,
       seeds: graphSeeds,
       strict: !USE_LOCAL,
+      ...(fetchAttempts === undefined ? {} : { fetchAttempts }),
+      ...(fetchDelayMs === undefined ? {} : { fetchDelayMs }),
     });
 
     const rootRecord = crawl.records.get('sitemap.xml');
@@ -183,6 +185,8 @@ export async function getUrlsFromSitemaps() {
         rootDir: USE_LOCAL ? sitemapDir : undefined,
         seeds: [...new Set([...graphSeeds, ...SUB_SITEMAPS])],
         strict: !USE_LOCAL,
+        ...(fetchAttempts === undefined ? {} : { fetchAttempts }),
+        ...(fetchDelayMs === undefined ? {} : { fetchDelayMs }),
       });
     }
   } catch (error) {

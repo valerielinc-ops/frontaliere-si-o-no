@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -1403,7 +1404,7 @@ function buildAlertEmail(
   </style>
 </head>
 <body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${s.preheader(shownJobs.length, subjectLabel, useNewCopy)}&nbsp;\u200c\u200c\u200c\u200c</div>
+  ${renderEmailPreview(s.preheader(shownJobs.length, subjectLabel, useNewCopy))}
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">

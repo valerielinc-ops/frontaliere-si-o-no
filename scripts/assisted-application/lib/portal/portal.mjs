@@ -26,7 +26,7 @@ import path from 'node:path';
 import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
 import { extractFields, registerPortalChannelType } from './fields.mjs';
-import { startPortalDiagnostics } from './diagnostics.mjs';
+import { startPortalDiagnostics, portalHandoffReason } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic, targetEmployerNoOption } from './plan.mjs';
 import { portalAnswerForApplication, portalOptionMap, portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
@@ -551,6 +551,16 @@ function hasApplicationForm(snapshot) {
  */
 export function hasApplicationSurface(snapshot) {
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
+}
+
+/**
+ * An anti-bot interstitial is not evidence that the application belongs to a
+ * different posting. The initial page is checked before the form loop, so an
+ * unresolved challenge must take the same CAPTCHA handoff as a challenge
+ * discovered on a later form step.
+ */
+export function initialPortalHandoffReason({ snapshot = {}, liveness = {} } = {}) {
+  return snapshot?.captcha || liveness?.code === 'bot_challenge' ? 'captcha' : null;
 }
 
 export function needsPortalOptionRead(snapshot = {}) {
@@ -3191,12 +3201,14 @@ export async function submitViaPortal(ctx) {
   let context = null;
   let page = null;
   let diagnostics = null;
+  let finalClickAttempted = false;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
+    reason = portalHandoffReason(reason, { diagnostics: evidence.diagnostics, attempt: diagnostics?.currentAttempt(), finalClickAttempted });
     if (page) {
       evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
-      if (reason !== 'captcha') {
+      if (!['captcha', 'captcha_provider_unavailable'].includes(reason)) {
         const seen = await extractFields(page, NAVIGATION).catch(() => null);
         evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
       }
@@ -3238,6 +3250,7 @@ export async function submitViaPortal(ctx) {
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
     const entryUrl = portalEntryUrl(ctx);
     const enteredFromMatchingPosting = isVerifiedPostingEntry(ctx);
+    await diagnostics.beginAttempt();
     const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
@@ -3253,6 +3266,8 @@ export async function submitViaPortal(ctx) {
     });
     evidence.liveness = { result: rendered.result, code: rendered.code };
     if (isHardClosed(rendered)) return { event: { type: 'posting_closed', reason: rendered.code }, evidence };
+    const initialHandoff = initialPortalHandoffReason({ snapshot, liveness: rendered });
+    if (initialHandoff) return await handoff(initialHandoff);
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
     const postingUrl = page.url();
@@ -3265,6 +3280,8 @@ export async function submitViaPortal(ctx) {
     const postingNamed = postingMatch(postingSeen, ctx.job, postingUrl) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
+    const formHandoff = initialPortalHandoffReason({ snapshot });
+    if (formHandoff) return await handoff(formHandoff);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
@@ -3441,7 +3458,10 @@ export async function submitViaPortal(ctx) {
       };
     };
 
+    let loopAttemptStarted = false;
     for (let step = 1; step <= maxSteps; step += 1) {
+      if (loopAttemptStarted) await diagnostics?.beginAttempt();
+      else loopAttemptStarted = true;
       snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
@@ -3931,6 +3951,7 @@ export async function submitViaPortal(ctx) {
       // From here the outcome may be unknown: the submission guard records the click, and
       // submit.mjs what the form holds (the record of an attempt whose outcome may stay unknown).
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit({ uploads: evidence.uploads });
+      finalClickAttempted = true;
       diagnostics.finalClick();
       await final.click();
       const outcome = await waitForOutcome(page, Boolean(extensionPath));
