@@ -550,6 +550,20 @@ describe('handleCreateAssistedApplicationCheckout', () => {
 });
 
 describe('handleAssistedApplicationWebhookEvent', () => {
+  it.each(['unpaid', 'paid'])('checks a replacement lease inside the payment transaction for %s callbacks', async (payment_status) => {
+    const { handleAssistedApplicationWebhookEvent } = await loadCheckout();
+    store.assisted_applications = { 'order-1': {
+      paymentProvider: 'sumup', sumupCheckoutId: 'current', paymentStatus: 'pending', checkoutSessionStatus: 'creating',
+    } };
+    await handleAssistedApplicationWebhookEvent({ type: payment_status === 'paid' ? 'checkout.session.completed' : 'checkout.session.expired',
+      data: { object: { id: 'current', amount_total: 199, currency: 'eur', payment_status,
+        metadata: { product: 'assisted_application', paymentProvider: 'sumup', orderId: 'order-1' },
+      } },
+    }, { db: firestore, ts: '__webhook_timestamp__' });
+    expect(store.assisted_applications['order-1'].checkoutSessionStatus).toBe(payment_status === 'paid' ? 'completed' : 'creating');
+    expect(store.assisted_applications['order-1'].paymentStatus).toBe(payment_status === 'paid' ? 'paid' : 'pending');
+  });
+
   it('marks an order paid only on the signed-webhook dispatch target', async () => {
     const { handleCreateAssistedApplicationCheckout, handleAssistedApplicationWebhookEvent } = await loadCheckout();
     await handleCreateAssistedApplicationCheckout(request());

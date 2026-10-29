@@ -7,6 +7,7 @@
  * explicitly expired checkout, then sends one idempotent digest per user.
  */
 
+import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { FieldValue } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
 import { db as defaultDb, getStripe, verifyCaller } from './stripePublisherCore.js';
@@ -233,6 +234,11 @@ async function reserveCheckoutRenewal({ db, orderId, order, nowMs }) {
     if (!snapshot.exists) return { status: 'missing' };
     const current = snapshot.data() || {};
     if (current.paymentStatus === 'paid') return { status: 'paid' };
+    if (current.paymentStatus === 'refunded') return { status: 'waiting_provider', reason: 'payment_refunded' };
+    // The provider response described the captured checkout, not a newer one
+    // another request may already have published while we were awaiting it.
+    if (paymentProviderFor(current) !== paymentProviderFor(order)
+      || checkoutIdFor(current) !== checkoutIdFor(order)) return { status: 'in_progress' };
     const updatedAt = timestampMillis(current.updatedAt);
     if (current.checkoutSessionStatus === 'creating' && updatedAt !== null && nowMs - updatedAt < CHECKOUT_CREATING_TTL_MS) {
       return { status: 'in_progress' };
@@ -320,28 +326,37 @@ async function renewSumUpCheckout({ db, orderId, order, nowMs, createSumUp = cre
   const reservation = await reserveCheckoutRenewal({ db, orderId, order, nowMs });
   if (reservation.status !== 'reserved') return reservation;
   try {
-    const checkout = await createSumUp({ orderId, redirectUrl: buildOrderPageUrl(order, orderId) });
+    const checkout = await createSumUp({ orderId, redirectUrl: buildOrderPageUrl(order, orderId), checkoutAttempt: reservation.checkoutAttempt });
     const checkoutId = boundedString(checkout?.id, 200);
     if (!checkoutId) throw new Error('sumup_recovery_checkout_missing');
-    await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId).set({
-      paymentProvider: SUMUP_PAYMENT_PROVIDER,
-      paymentStatus: 'pending',
-      submissionStatus: 'awaiting_payment',
-      sumupCheckoutId: checkoutId,
-      checkoutAttempt: reservation.checkoutAttempt,
-      checkoutExpiresAt: null,
-      checkoutSessionStatus: 'open',
-      paymentFailureReason: null,
-      updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    return { status: 'renewed', checkoutId };
+    const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+    return db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(ref);
+      const current = snapshot.exists ? snapshot.data() || {} : {};
+      if (current.paymentStatus === 'paid') return { status: 'paid' };
+      if (current.paymentStatus === 'refunded') return { status: 'waiting_provider', reason: 'payment_refunded' };
+      if (current.checkoutSessionStatus !== 'creating' || current.checkoutAttempt !== reservation.checkoutAttempt
+        || checkoutIdFor(current) !== checkoutIdFor(order)) return { status: 'in_progress' };
+      transaction.set(ref, {
+        paymentProvider: SUMUP_PAYMENT_PROVIDER,
+        paymentStatus: 'pending',
+        submissionStatus: 'awaiting_payment',
+        sumupCheckoutId: checkoutId,
+        checkoutAttempt: reservation.checkoutAttempt,
+        checkoutExpiresAt: null,
+        checkoutSessionStatus: 'open',
+        paymentFailureReason: null,
+        updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+      return { status: 'renewed', checkoutId };
+    });
   } catch (error) {
     console.error('[assistedApplicationPaymentRecovery] SumUp renewal failed', orderId, error instanceof Error ? error.message : String(error));
     return { status: 'error', reason: 'sumup_session_creation_failed' };
   }
 }
 
-/** Verify the provider and, only for an explicit expiry/failure, renew it. */
+/** Verify the provider; only an explicitly expired SumUp checkout is renewed. */
 export async function inspectPendingAssistedApplicationPayment({
   db = defaultDb(),
   orderId,
@@ -362,7 +377,7 @@ export async function inspectPendingAssistedApplicationPayment({
 
   if (provider === SUMUP_PAYMENT_PROVIDER) {
     const checkout = await retrieveSumUp(checkoutId);
-    if (boundedString(checkout?.id, 200) !== checkoutId || boundedString(checkout?.checkout_reference, 200) !== orderId) {
+    if (boundedString(checkout?.id, 200) !== checkoutId || !matchesSumUpCheckoutReference(checkout?.checkout_reference, orderId)) {
       return { status: 'error', reason: 'sumup_checkout_mismatch' };
     }
     const status = String(checkout?.status || '').toUpperCase();
@@ -371,7 +386,22 @@ export async function inspectPendingAssistedApplicationPayment({
       return result?.paymentStatus === 'paid' ? { status: 'paid' } : { status: 'error', reason: 'sumup_paid_amount_mismatch' };
     }
     if (status === 'PENDING' || status === 'OPEN') return { status: 'open' };
-    if (status === 'EXPIRED' || status === 'FAILED' || status === 'CANCELLED') {
+    if (status === 'FAILED') {
+      // FAILED is the latest processing attempt, not an expired checkout.
+      // Reuse it, restoring the ledger only if it is still the verified one.
+      const ref = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+      return db.runTransaction(async (transaction) => {
+        const snapshot = await transaction.get(ref);
+        const current = snapshot.exists ? snapshot.data() || {} : {};
+        if (current.paymentStatus === 'paid') return { status: 'paid' };
+        if (current.paymentProvider !== SUMUP_PAYMENT_PROVIDER || current.sumupCheckoutId !== checkoutId
+          || current.paymentStatus === 'refunded' || current.checkoutSessionStatus === 'creating') return { status: 'in_progress' };
+        transaction.set(ref, { paymentStatus: 'pending', submissionStatus: 'awaiting_payment',
+          checkoutSessionStatus: 'open', paymentFailureReason: null, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+        return { status: 'open' };
+      });
+    }
+    if (status === 'EXPIRED') {
       return renewSumUpCheckout({ db, orderId, order, nowMs, createSumUp });
     }
     return { status: 'waiting_provider', reason: `sumup_status_${status.toLowerCase() || 'unknown'}` };

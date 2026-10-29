@@ -193,6 +193,14 @@ describe('assisted application consent and CV upload flow', () => {
     expect(screen.queryByRole('button', { name: itCore['jobBoard.assisted.fileCta'] })).toBeNull();
   });
 
+  it('keeps a provider-confirmable failed SumUp checkout recoverable', async () => {
+    orderData = paidOrder({ paymentProvider: 'sumup', sumupCheckoutId: 'retryable', paymentStatus: 'failed', paymentFailureReason: 'payment_not_confirmed', submissionStatus: 'awaiting_payment' });
+    mocks.fetch.mockResolvedValue({ ok: true, status: 200, json: async () => ({ ok: true, status: 'paid', orderId: ORDER_ID }) });
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+    await screen.findByRole('button', { name: itCore['jobBoard.assisted.pendingCta'] });
+    expect(screen.queryByText(itCore['jobBoard.assisted.paymentFailed'])).toBeNull();
+  });
+
   it('offers a server-verified payment resume action while the order is pending', async () => {
     orderData = paidOrder({
       paymentStatus: 'pending',

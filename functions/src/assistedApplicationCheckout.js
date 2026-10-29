@@ -797,6 +797,10 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
   await firestore.runTransaction(async (transaction) => {
     const currentSnapshot = await transaction.get(orderRef);
     const currentOrder = currentSnapshot.exists ? currentSnapshot.data() || {} : null;
+    // A late negative callback must not cancel a replacement lease acquired
+    // after the callback's initial read. Confirmed payments still win.
+    if (paymentProvider === SUMUP_PAYMENT_PROVIDER && currentOrder?.checkoutSessionStatus === 'creating'
+      && paymentStatus !== 'paid') return;
     if (shouldIgnoreAssistedApplicationWebhook(currentOrder, obj.id, paymentProvider)) return;
     transaction.set(orderRef, update, { merge: true });
   });
