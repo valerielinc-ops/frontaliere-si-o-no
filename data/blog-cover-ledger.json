@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 956,
+      "5": 957,
       "6": 5061
     },
-    "publishedCovers": 7699,
+    "publishedCovers": 7700,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -211410,6 +211410,39 @@
         "provider": "openai-codex",
         "assetId": "article-soletta-ratsleitung-puk-ospedali",
         "imageUrl": "/images/blog/article-soletta-ratsleitung-puk-ospedali.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-soletta-stipendi-pubblici-2027": {
+      "cover": "/images/blog/article-soletta-stipendi-pubblici-2027.webp",
+      "hash": "44f71ef6d5ef586ef752a616713c5097dee0c3da02a5accb145ee748328d5c67",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "soletta-stipendi-pubblici-2027",
+          "category": "novita",
+          "date": "2026-10-29T11:38:26.035Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-soletta-stipendi-pubblici-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-29",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-soletta-stipendi-pubblici-2027",
+        "imageUrl": "/images/blog/article-soletta-stipendi-pubblici-2027.webp",
         "evidence": "generated-engine-record"
       }
     }
