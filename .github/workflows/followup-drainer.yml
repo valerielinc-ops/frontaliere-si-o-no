@@ -11,6 +11,13 @@ on:
   schedule:
     - cron: '*/20 * * * *' # drena la coda ~ogni 20min
   workflow_dispatch:
+    inputs:
+      no_autoclose:
+        description: 'Imposta 1 solo per sospendere l autoclose verificato in un run manuale'
+        required: false
+        default: '0'
+        type: choice
+        options: ['0', '1']
   # Wake-up immediato quando una coda viene riempita da triage/pre-pass con
   # un'identità che può emettere eventi. Il cron resta il recupero durevole
   # per le scritture con GITHUB_TOKEN, che GitHub non ri-propaga.
@@ -263,7 +270,13 @@ jobs:
           # issue-fix usa Codex come provider primario e Claude come fallback.
           # Un beacon Claude non deve quindi congelare la coda del drainer.
           FOLLOWUP_CODEX_FALLBACK_MODE: '1'
-          FOLLOWUP_NO_AUTOCLOSE: '1'
+          # Il cron resta autoclose-on. Il kill switch è iniettabile solo nel
+          # workflow_dispatch manuale, con default esplicito 0.
+          FOLLOWUP_NO_AUTOCLOSE: ${{ github.event_name == 'workflow_dispatch' && inputs.no_autoclose == '1' && '1' || '' }}
+          # `already-fixed` è un verdetto terminale solo dopo una prova del
+          # fixer: il default deve chiudere l'issue verificata e liberare la
+          # coda. Il codice conserva `FOLLOWUP_NO_AUTOCLOSE=1` come override
+          # d'emergenza per un run isolato, ma non lo imponiamo al cron.
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "::warning::Nessun token usabile (App/PAT assenti) → drainer inerte (promozione non triggererebbe issue-fix)."

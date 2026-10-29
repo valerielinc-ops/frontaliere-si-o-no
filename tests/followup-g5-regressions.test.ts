@@ -156,7 +156,9 @@ describe('G5 — kill switch di auto-chiusura nei workflow', () => {
     const harvestScript = readFileSync('scripts/ci/harvest-agent-lessons.mjs', 'utf8');
 
     const drainStep = drainer.slice(drainer.indexOf('- name: Drain follow-up queue'));
-    expect(drainStep).toContain("FOLLOWUP_NO_AUTOCLOSE: '1'");
+    expect(drainStep).toMatch(/FOLLOWUP_NO_AUTOCLOSE:\s*\$\{\{[\s\S]*?inputs\.no_autoclose/);
+    expect(drainStep).toContain("github.event_name == 'workflow_dispatch' && inputs.no_autoclose == '1' && '1' || ''");
+    expect(drainStep).not.toMatch(/^\s*FOLLOWUP_NO_AUTOCLOSE:\s*['"]1['"]/m);
     // Lo step dell'harvester non lo imposta piu': il self-heal chiude solo senza
     // pin, con la finestra intera e sotto soglia dopo il cutoff (vedi
     // tests/harvest-escalation-driver.test.ts). L'interruttore resta per un'emergenza.
