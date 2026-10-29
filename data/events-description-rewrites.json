@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-29T13:38:49.115Z",
+  "generatedAt": "2026-10-29T14:33:13.774Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -18766,6 +18766,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T10:19:51.094Z"
     },
+    "guidle:A3MjaL5::0bb92a404c3a9a3c348c115b75fd71c4fd3ddebcb99a305682396ff39d9957e8": {
+      "id": "guidle:A3MjaL5",
+      "sourceDescriptionHash": "0bb92a404c3a9a3c348c115b75fd71c4fd3ddebcb99a305682396ff39d9957e8",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gemeindezentrum «Dreiklang»; comune: Steinhausen; cantone: ZG; categoria: Cabaret; organizzatore: Guidle; data: 2027-05-21; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gemeindezentrum «Dreiklang»; comune: Steinhausen; cantone: ZG; categoria: Cabaret; organizzatore: Guidle; data: 2027-05-21; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Gemeindezentrum «Dreiklang»; municipality: Steinhausen; canton: ZG; category: Cabaret; organiser: Guidle; date: 2027-05-21; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Gemeindezentrum «Dreiklang»; gemeinde: Steinhausen; kanton: ZG; kategorie: Cabaret; veranstalter: Guidle; datum: 2027-05-21; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Gemeindezentrum «Dreiklang»; commune: Steinhausen; canton: ZG; catégorie: Cabaret; organisateur: Guidle; date: 2027-05-21; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:06.655Z"
+    },
     "guidle:A3mtbeh::e2dc1060e102144d7e583efbff30c5a113034b7f7c01e65a38013eb26831678b": {
       "id": "guidle:A3mtbeh",
       "sourceDescriptionHash": "e2dc1060e102144d7e583efbff30c5a113034b7f7c01e65a38013eb26831678b",
@@ -19241,6 +19255,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T02:16:03.534Z"
+    },
+    "guidle:A4jbPnU::760feb9ad71bc2a1d1d1f0dea326c0b163298c06db58a1c606f21cb509c97f03": {
+      "id": "guidle:A4jbPnU",
+      "sourceDescriptionHash": "760feb9ad71bc2a1d1d1f0dea326c0b163298c06db58a1c606f21cb509c97f03",
+      "description": "Il concerto si tiene allo Stadthaus Dietikon. L’evento riunisce la scuola, la scuola di musica e la Stadtjugendmusik di Dietikon.",
+      "descriptionByLocale": {
+        "it": "Il concerto si tiene allo Stadthaus Dietikon. L’evento riunisce la scuola, la scuola di musica e la Stadtjugendmusik di Dietikon.",
+        "en": "The concert takes place at Stadthaus Dietikon. It is a joint event involving the school, the music school and Stadtjugendmusik Dietikon.",
+        "de": "Das Konzert bringt Schule, Musikschule und Stadtjugendmusik von Dietikon zusammen. Veranstaltungsort ist das Stadthaus Dietikon.",
+        "fr": "Le concert a lieu au Stadthaus Dietikon. Cette manifestation commune réunit l’école, l’école de musique et la Stadtjugendmusik de Dietikon."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:19:00.315Z"
     },
     "guidle:A4KDvbN::01fb054d344117a0667bf3b617dba9f7b92391f17e6b2ccb87e15c2f61848aa8": {
       "id": "guidle:A4KDvbN",
@@ -22140,6 +22168,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T14:17:13.844Z"
     },
+    "guidle:A98cxeB::3bec5054872c873a8e14bc04b95255d638527b9d8336b97b60d279624ce3c51b": {
+      "id": "guidle:A98cxeB",
+      "sourceDescriptionHash": "3bec5054872c873a8e14bc04b95255d638527b9d8336b97b60d279624ce3c51b",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Stadthalle Singen; categoria: Musical; organizzatore: Guidle; data: 2027-05-26; ora: 20:00; prezzo: EUR. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Stadthalle Singen; categoria: Musical; organizzatore: Guidle; data: 2027-05-26; ora: 20:00; prezzo: EUR. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Stadthalle Singen; category: Musical; organiser: Guidle; date: 2027-05-26; time: 20:00; price: EUR. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Stadthalle Singen; kategorie: Musical; veranstalter: Guidle; datum: 2027-05-26; uhrzeit: 20:00; preis: EUR. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Stadthalle Singen; catégorie: Musical; organisateur: Guidle; date: 2027-05-26; heure: 20:00; prix: EUR. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:42.375Z"
+    },
     "guidle:A9B2G8h::b63ea5394163fa272e681c3088fe7ff2ef78d9d28b708535820cfcbab1dd8d81": {
       "id": "guidle:A9B2G8h",
       "sourceDescriptionHash": "b63ea5394163fa272e681c3088fe7ff2ef78d9d28b708535820cfcbab1dd8d81",
@@ -23231,6 +23273,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T15:30:20.340Z"
+    },
+    "guidle:AaKesyw::fec9626051e2e57467ec035604f0da497a3f04a6f144244210935d2a255ce1ea": {
+      "id": "guidle:AaKesyw",
+      "sourceDescriptionHash": "fec9626051e2e57467ec035604f0da497a3f04a6f144244210935d2a255ce1ea",
+      "description": "Il programma riunisce tre formazioni: Marc Amacher, Megges e The Rudifutschers. Marc Amacher è associato al blues, Megges al rock e The Rudifutschers al punk; l’evento si tiene allo Zeughaus Kultur.",
+      "descriptionByLocale": {
+        "it": "Il programma riunisce tre formazioni: Marc Amacher, Megges e The Rudifutschers. Marc Amacher è associato al blues, Megges al rock e The Rudifutschers al punk; l’evento si tiene allo Zeughaus Kultur.",
+        "en": "The programme brings together three acts: Marc Amacher, Megges and The Rudifutschers. Marc Amacher is associated with blues, Megges with rock and The Rudifutschers with punk; the event takes place at Zeughaus Kultur.",
+        "de": "Die Veranstaltung vereint drei Formationen: Marc Amacher, Megges und The Rudifutschers. Marc Amacher wird dem Blues, Megges dem Rock und The Rudifutschers dem Punk zugeordnet; als Veranstaltungsort ist das Zeughaus Kultur angegeben.",
+        "fr": "Le programme réunit trois formations : Marc Amacher, Megges et The Rudifutschers. Marc Amacher est associé au blues, Megges au rock et The Rudifutschers au punk ; le rendez-vous a lieu au Zeughaus Kultur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:22:35.832Z"
     },
     "guidle:AaKtDhN::9dd0b49e910b0984c4c1b7c2e66029a4b1e384cabf3d95e0bb90d6d6ab31c93d": {
       "id": "guidle:AaKtDhN",
@@ -25808,6 +25864,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T15:14:08.639Z"
     },
+    "guidle:AcE23Za::d856a5125fb4a98453dd12f8f92c9507843f00fa564f18da56236e6650746c8b": {
+      "id": "guidle:AcE23Za",
+      "sourceDescriptionHash": "d856a5125fb4a98453dd12f8f92c9507843f00fa564f18da56236e6650746c8b",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Salle Métropole; cantone: VD; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-05-14; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Salle Métropole; cantone: VD; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-05-14; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Salle Métropole; canton: VD; category: Pop generalmente; organiser: Guidle; date: 2027-05-14; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Salle Métropole; kanton: VD; kategorie: Pop generalmente; veranstalter: Guidle; datum: 2027-05-14; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Salle Métropole; canton: VD; catégorie: Pop generalmente; organisateur: Guidle; date: 2027-05-14; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:06.646Z"
+    },
     "guidle:AcebVAx::fa0a29161d3a54a6d0f9fbb08f78041e56191c560c1ecc01b706344102ab2a50": {
       "id": "guidle:AcebVAx",
       "sourceDescriptionHash": "fa0a29161d3a54a6d0f9fbb08f78041e56191c560c1ecc01b706344102ab2a50",
@@ -27348,6 +27418,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T01:25:52.356Z"
     },
+    "guidle:AdG97aY::5e32b39d24f72aa5e5675436b4aef11135768d4603b495501717ef379b4ad945": {
+      "id": "guidle:AdG97aY",
+      "sourceDescriptionHash": "5e32b39d24f72aa5e5675436b4aef11135768d4603b495501717ef379b4ad945",
+      "description": "Festival Existe è un evento ricorrente al Theatre du Crochetan di Monthey. Il programma curato da Cooper & Voldo comprende artisti di tutta Europa, sfide di danza urbana, laboratori pensati per ogni fascia d’età e spettacoli affidati a compagnie di danza.",
+      "descriptionByLocale": {
+        "it": "Festival Existe è un evento ricorrente al Theatre du Crochetan di Monthey. Il programma curato da Cooper & Voldo comprende artisti di tutta Europa, sfide di danza urbana, laboratori pensati per ogni fascia d’età e spettacoli affidati a compagnie di danza.",
+        "en": "Festival Existe is a recurring event at Theatre du Crochetan in Monthey. A programme organised by Cooper & Voldo features artists from across Europe, urban dance battles, workshops open to every age group and appearances by dance companies.",
+        "de": "Festival Existe ist eine wiederkehrende Veranstaltung im Theatre du Crochetan in Monthey. Ein von Cooper & Voldo gestaltetes Programm umfasst Künstlerinnen und Künstler aus ganz Europa, urbane Tanz-Battles, Workshops für jedes Alter und Auftritte von Tanzkompanien.",
+        "fr": "Le Festival Existe est un événement récurrent au Theatre du Crochetan, à Monthey. Le programme porté par Cooper & Voldo comprend des artistes de toute l’Europe, des battles de danse urbaine, des ateliers pour tous les âges et des spectacles de compagnies de danse."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:19:00.309Z"
+    },
     "guidle:Adgnk2u::2312ad52d32977e12b5c5c2438039a791eb227f2dbd4490ca3b656f0f8f9e6f8": {
       "id": "guidle:Adgnk2u",
       "sourceDescriptionHash": "2312ad52d32977e12b5c5c2438039a791eb227f2dbd4490ca3b656f0f8f9e6f8",
@@ -28439,6 +28523,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-28T13:16:48.143Z"
+    },
+    "guidle:Ae6BM8d::3d910b184cf045f94c1ef8b84803b8d5632e170744d9a66ad60c03b211e4ee4f": {
+      "id": "guidle:Ae6BM8d",
+      "sourceDescriptionHash": "3d910b184cf045f94c1ef8b84803b8d5632e170744d9a66ad60c03b211e4ee4f",
+      "description": "L’appuntamento jazz alla Sängerhütte Tiengen riunisce la cantante Elina Duni e il chitarrista britannico Rob Luft. Duni, nata in Albania e cresciuta in Svizzera, ha incontrato Luft nel 2017 al Montreux Jazz Festival.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento jazz alla Sängerhütte Tiengen riunisce la cantante Elina Duni e il chitarrista britannico Rob Luft. Duni, nata in Albania e cresciuta in Svizzera, ha incontrato Luft nel 2017 al Montreux Jazz Festival.",
+        "en": "The jazz event at Sängerhütte Tiengen features singer Elina Duni and British guitarist Rob Luft. Born in Albania and raised in Switzerland, Duni met Luft at the Montreux Jazz Festival in 2017.",
+        "de": "In der Sängerhütte Tiengen findet ein Jazzkonzert mit der Sängerin Elina Duni und dem britischen Gitarristen Rob Luft statt. Die in Albanien geborene und in der Schweiz aufgewachsene Duni begegnete Luft 2017 beim Montreux Jazz Festival.",
+        "fr": "Le rendez-vous de jazz à la Sängerhütte Tiengen réunit la chanteuse Elina Duni et le guitariste britannique Rob Luft. Née en Albanie et élevée en Suisse, Duni a rencontré Luft en 2017 au Montreux Jazz Festival."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:25:37.683Z"
     },
     "guidle:AE7c5Dv::5a5aa370dbba8d2e4f099fb9d9de3408f88e40ea81147dbebae45a38e40d819d": {
       "id": "guidle:AE7c5Dv",
@@ -30414,6 +30512,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:01:14.142Z"
     },
+    "guidle:AfEsbGL::2e2f13acd542eb04dc678cf88c7215ae3ab36e96ca23448a57f568d2f74dbedd": {
+      "id": "guidle:AfEsbGL",
+      "sourceDescriptionHash": "2e2f13acd542eb04dc678cf88c7215ae3ab36e96ca23448a57f568d2f74dbedd",
+      "description": "L’appuntamento di musica comica con Caroline Bungeroth è ospitato dal Diogenes Theater di Altstätten. Il contenuto richiama il trasferimento da Berlino a Berna e l’idea di eliminare due lettere per concentrarsi sull’essenziale.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di musica comica con Caroline Bungeroth è ospitato dal Diogenes Theater di Altstätten. Il contenuto richiama il trasferimento da Berlino a Berna e l’idea di eliminare due lettere per concentrarsi sull’essenziale.",
+        "en": "Caroline Bungeroth appears in a comedy-music event at Diogenes Theater in Altstätten. The programme refers to her move from Berlin to Bern and to removing two letters in order to focus on essentials.",
+        "de": "Caroline Bungeroth steht im Diogenes Theater in Altstätten für einen Anlass mit komischer Musik auf dem Programm. Inhaltlich greift die Veranstaltung den Wechsel von Berlin nach Bern sowie das Weglassen von zwei Buchstaben zugunsten des Wesentlichen auf.",
+        "fr": "Caroline Bungeroth participe à un rendez-vous de musique comique au Diogenes Theater d’Altstätten. Le contenu évoque son passage de Berlin à Berne et le retrait de deux lettres pour revenir à l’essentiel."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:18:18.375Z"
+    },
     "guidle:AfET2qe::b833ffac14771cc2494260b4b2e8d59ec69ca8b17844d5fc5d8c36a8e1c5820e": {
       "id": "guidle:AfET2qe",
       "sourceDescriptionHash": "b833ffac14771cc2494260b4b2e8d59ec69ca8b17844d5fc5d8c36a8e1c5820e",
@@ -32318,6 +32430,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T12:16:56.785Z"
     },
+    "guidle:AGSHhff::87036530c6732d5b74fa1c0a7d668d9fe1eb2f0d1f3726514e5009d74bfb5794": {
+      "id": "guidle:AGSHhff",
+      "sourceDescriptionHash": "87036530c6732d5b74fa1c0a7d668d9fe1eb2f0d1f3726514e5009d74bfb5794",
+      "description": "Questo concerto annuale del coro propone un programma incentrato sull’umorismo. Si svolge presso la Schulhaus Donat / tgea da scola Donat e comprende canzoni in più lingue, con accompagnamento al pianoforte per alcuni brani.",
+      "descriptionByLocale": {
+        "it": "Questo concerto annuale del coro propone un programma incentrato sull’umorismo. Si svolge presso la Schulhaus Donat / tgea da scola Donat e comprende canzoni in più lingue, con accompagnamento al pianoforte per alcuni brani.",
+        "en": "This annual choral concert presents a programme built around humour. It takes place at Schulhaus Donat / tgea da scola Donat and includes songs in several languages, with piano accompaniment for some pieces.",
+        "de": "Das jährliche Chorkonzert findet im Schulhaus Donat / tgea da scola Donat statt und steht unter einem humorvollen Leitgedanken. Auf dem Programm stehen Lieder in mehreren Sprachen; bei einigen Stücken erklingt Klavierbegleitung.",
+        "fr": "Ce concert choral annuel s’articule autour d’un thème humoristique et a lieu au Schulhaus Donat / tgea da scola Donat. Le programme réunit des chansons en plusieurs langues, avec un accompagnement au piano pour certains morceaux."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:20:37.507Z"
+    },
     "guidle:AgSnu2Z::bec1ddbf5bcbd5745fbf51f6b4b26c5e09584b143bd665d94e0ab6f658381ba7": {
       "id": "guidle:AgSnu2Z",
       "sourceDescriptionHash": "bec1ddbf5bcbd5745fbf51f6b4b26c5e09584b143bd665d94e0ab6f658381ba7",
@@ -34124,6 +34250,34 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-23T13:26:27.872Z"
     },
+    "guidle:Ai95TGM::dc7e8b306a0a8eb5f16b7eb4420eccae400bd556ed46c4559075ff6dd27ac4bc": {
+      "id": "guidle:Ai95TGM",
+      "sourceDescriptionHash": "dc7e8b306a0a8eb5f16b7eb4420eccae400bd556ed46c4559075ff6dd27ac4bc",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: AHA Aeschbachhalle Aarau; comune: Aarau; cantone: AG; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-05-21; ora: 17:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: AHA Aeschbachhalle Aarau; comune: Aarau; cantone: AG; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-05-21; ora: 17:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: AHA Aeschbachhalle Aarau; municipality: Aarau; canton: AG; category: Festival / Incontro; organiser: Guidle; date: 2027-05-21; time: 17:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: AHA Aeschbachhalle Aarau; gemeinde: Aarau; kanton: AG; kategorie: Festival / Incontro; veranstalter: Guidle; datum: 2027-05-21; uhrzeit: 17:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: AHA Aeschbachhalle Aarau; commune: Aarau; canton: AG; catégorie: Festival / Incontro; organisateur: Guidle; date: 2027-05-21; heure: 17:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:42.362Z"
+    },
+    "guidle:Ai99GhB::f3ba020a9f34c0a316e11ca3c31a968da52784e24f01e0756cea49f6dd46fdbe": {
+      "id": "guidle:Ai99GhB",
+      "sourceDescriptionHash": "f3ba020a9f34c0a316e11ca3c31a968da52784e24f01e0756cea49f6dd46fdbe",
+      "description": "Eugénie Rebetez torna a esibirsi come solista al Monti-Winterquartier. La proposta personale combina danza, comicità, poesia e rock’n’roll in uno spettacolo per una sola interprete.",
+      "descriptionByLocale": {
+        "it": "Eugénie Rebetez torna a esibirsi come solista al Monti-Winterquartier. La proposta personale combina danza, comicità, poesia e rock’n’roll in uno spettacolo per una sola interprete.",
+        "en": "Eugénie Rebetez returns to the stage as a solo performer at Monti-Winterquartier. The personal format combines dance, comedy, poetry and rock ’n’ roll in a one-woman performance.",
+        "de": "Eugénie Rebetez tritt im Monti-Winterquartier als Solistin auf. Ihr persönliches Format verbindet Tanz und Poesie mit Komik sowie Rock’n’roll zu einer Ein-Personen-Show.",
+        "fr": "Eugénie Rebetez revient en solo au Monti-Winterquartier. Son spectacle personnel réunit danse, humour, poésie et rock’n’roll autour d’une seule interprète."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:18:18.384Z"
+    },
     "guidle:AiAdKXr::26ee7f82c6c56f2568afbee6d826ebefe828c46953ca7ec27a9ae241d27c5ad0": {
       "id": "guidle:AiAdKXr",
       "sourceDescriptionHash": "26ee7f82c6c56f2568afbee6d826ebefe828c46953ca7ec27a9ae241d27c5ad0",
@@ -34767,6 +34921,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-29T13:31:23.301Z"
+    },
+    "guidle:Aj6uB1h::4f6dad23e39c421d4e65f1b512121777024a9198eb9ace261c2aabd0eadee433": {
+      "id": "guidle:Aj6uB1h",
+      "sourceDescriptionHash": "4f6dad23e39c421d4e65f1b512121777024a9198eb9ace261c2aabd0eadee433",
+      "description": "Il Chor viril Domat propone il suo concerto annuale di musica corale. L’appuntamento si svolge presso la Mehrzweckhalle Tircal di Domat/Ems.",
+      "descriptionByLocale": {
+        "it": "Il Chor viril Domat propone il suo concerto annuale di musica corale. L’appuntamento si svolge presso la Mehrzweckhalle Tircal di Domat/Ems.",
+        "en": "Chor viril Domat presents its annual choral concert. The event takes place at Mehrzweckhalle Tircal in Domat/Ems.",
+        "de": "Der Chor viril Domat gibt sein jährliches Chorkonzert. Die Veranstaltung findet in der Mehrzweckhalle Tircal in Domat/Ems statt.",
+        "fr": "Le Chor viril Domat donne son concert choral annuel. L’événement a lieu à la Mehrzweckhalle Tircal, à Domat/Ems."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:20:37.523Z"
     },
     "guidle:Aj9nbT1::0e7d948289f24b10897fe11cf11205fd93515478238b2f09ab4c3b860f03878e": {
       "id": "guidle:Aj9nbT1",
@@ -36056,6 +36224,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T13:42:33.268Z"
     },
+    "guidle:Ak1j5tK::8ab48ca13b48b16ff3903f2574fa0a1df018d781140a2fd351e4090444add64d": {
+      "id": "guidle:Ak1j5tK",
+      "sourceDescriptionHash": "8ab48ca13b48b16ff3903f2574fa0a1df018d781140a2fd351e4090444add64d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Victoria Hall; cantone: GE; categoria: Altri musica; organizzatore: Guidle; data: 2027-05-29; ora: 11:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Victoria Hall; cantone: GE; categoria: Altri musica; organizzatore: Guidle; data: 2027-05-29; ora: 11:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Victoria Hall; canton: GE; category: Altri musica; organiser: Guidle; date: 2027-05-29; time: 11:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Victoria Hall; kanton: GE; kategorie: Altri musica; veranstalter: Guidle; datum: 2027-05-29; uhrzeit: 11:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Victoria Hall; canton: GE; catégorie: Altri musica; organisateur: Guidle; date: 2027-05-29; heure: 11:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:02.197Z"
+    },
     "guidle:Ak38jx4::70c0b3a09cd84995399cdb7022298791c5f5174a4e11a5ff94d09f98134e3cd0": {
       "id": "guidle:Ak38jx4",
       "sourceDescriptionHash": "70c0b3a09cd84995399cdb7022298791c5f5174a4e11a5ff94d09f98134e3cd0",
@@ -36839,6 +37021,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T16:16:42.551Z"
+    },
+    "guidle:AkLCcKs::e77065beb9a11f3ad15e9840c6d36651b6db9d657b385346d30649c93bc04bc5": {
+      "id": "guidle:AkLCcKs",
+      "sourceDescriptionHash": "e77065beb9a11f3ad15e9840c6d36651b6db9d657b385346d30649c93bc04bc5",
+      "description": "L'appuntamento è ospitato dallo Zeughaus Kultur, nel Canton Vallese. La proposta associa gioia di vivere e stimolo alla riflessione, con ingresso gratuito.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento è ospitato dallo Zeughaus Kultur, nel Canton Vallese. La proposta associa gioia di vivere e stimolo alla riflessione, con ingresso gratuito.",
+        "en": "The event is held at Zeughaus Kultur in the canton of Valais. It combines a zest for life with an invitation to reflect, and admission is free.",
+        "de": "Der Anlass findet im Zeughaus Kultur im Kanton Wallis statt. Er verbindet Lebensfreude mit einem Anstoß zum Nachdenken; der Eintritt ist kostenlos.",
+        "fr": "Le rendez-vous se tient au Zeughaus Kultur, dans le canton du Valais. Il associe la joie de vivre à une invitation à la réflexion, et l'entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:27:30.891Z"
     },
     "guidle:AkLKGQ7::9bd47b265a599733e0f65adbe0b9e41bda49588f0563d2b6cdd1c92ada01b495": {
       "id": "guidle:AkLKGQ7",
@@ -37707,6 +37903,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T21:21:46.166Z"
+    },
+    "guidle:AL7F6iU::6d5d2b691114409cd26e01a5d476780a7120543264ad26ede76b7c2f43261895": {
+      "id": "guidle:AL7F6iU",
+      "sourceDescriptionHash": "6d5d2b691114409cd26e01a5d476780a7120543264ad26ede76b7c2f43261895",
+      "description": "Al X-TRA è previsto un appuntamento rock con RIAN. L’evento rientra in un tour del 2027 e l’apertura delle porte precede l’inizio dello spettacolo.",
+      "descriptionByLocale": {
+        "it": "Al X-TRA è previsto un appuntamento rock con RIAN. L’evento rientra in un tour del 2027 e l’apertura delle porte precede l’inizio dello spettacolo.",
+        "en": "X-TRA hosts a rock event featuring RIAN. It is part of a 2027 tour, with the doors opening before the performance.",
+        "de": "Im X-TRA findet ein Rockanlass mit RIAN statt. Er gehört zu einer Tournee im Jahr 2027, wobei die Türen vor dem Beginn der Darbietung geöffnet werden.",
+        "fr": "Le X-TRA accueille un rendez-vous rock avec RIAN. Celui-ci s’inscrit dans une tournée de 2027 et prévoit l’ouverture des portes avant le spectacle."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:18:18.391Z"
     },
     "guidle:AL7MZkQ::b6d1a318a60cd73471cb43fea67355144c390a561ef39223eb264c3caab3f088": {
       "id": "guidle:AL7MZkQ",
@@ -39933,6 +40143,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T00:14:24.665Z"
+    },
+    "guidle:AndgZhu::d18ec2686f71f72dbcabe6050700837485441e7418116228d2f8ff706b2364b0": {
+      "id": "guidle:AndgZhu",
+      "sourceDescriptionHash": "d18ec2686f71f72dbcabe6050700837485441e7418116228d2f8ff706b2364b0",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Geneva Arena; comune: Le Grand-Saconnex; cantone: GE; categoria: Jazz; organizzatore: Guidle; partecipante: Déborah Lukalu; data: 2027-05-29; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Geneva Arena; comune: Le Grand-Saconnex; cantone: GE; categoria: Jazz; organizzatore: Guidle; partecipante: Déborah Lukalu; data: 2027-05-29; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Geneva Arena; municipality: Le Grand-Saconnex; canton: GE; category: Jazz; organiser: Guidle; participant: Déborah Lukalu; date: 2027-05-29; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Geneva Arena; gemeinde: Le Grand-Saconnex; kanton: GE; kategorie: Jazz; veranstalter: Guidle; mitwirkender: Déborah Lukalu; datum: 2027-05-29; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Geneva Arena; commune: Le Grand-Saconnex; canton: GE; catégorie: Jazz; organisateur: Guidle; participant: Déborah Lukalu; date: 2027-05-29; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:42.387Z"
     },
     "guidle:AnDHhtX::3ef4239347f7ff0c461b7e5fb7472ecffe74244ec7e499d1359faa9d2a79c7db": {
       "id": "guidle:AnDHhtX",
@@ -42188,6 +42412,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T14:27:52.295Z"
     },
+    "guidle:APXhdeQ::3e7ae861b7387df5a33d8249a61d30a74e4cdea7f35061cbca8de98d6d26ead6": {
+      "id": "guidle:APXhdeQ",
+      "sourceDescriptionHash": "3e7ae861b7387df5a33d8249a61d30a74e4cdea7f35061cbca8de98d6d26ead6",
+      "description": "Il programma propone Eros Ramazzotti in un appuntamento di musica pop alla Vaudoise Arena di Prilly, nel canton VD. L’ingresso costa 89,90 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma propone Eros Ramazzotti in un appuntamento di musica pop alla Vaudoise Arena di Prilly, nel canton VD. L’ingresso costa 89,90 CHF.",
+        "en": "Eros Ramazzotti is featured in a pop music event at Vaudoise Arena in Prilly, in canton VD. Admission is priced at CHF 89.90.",
+        "de": "Bei der Popveranstaltung in der Vaudoise Arena in Prilly tritt Eros Ramazzotti auf. Der Eintritt kostet 89,90 CHF.",
+        "fr": "Cette manifestation de musique pop présente Eros Ramazzotti à la Vaudoise Arena, à Prilly. Le prix d’entrée est de 89,90 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:22:47.508Z"
+    },
     "guidle:APxKkcv::00777ff044798fed69b8db1a31215b401b7872f7aea3e17f4c330a79d530c7a9": {
       "id": "guidle:APxKkcv",
       "sourceDescriptionHash": "00777ff044798fed69b8db1a31215b401b7872f7aea3e17f4c330a79d530c7a9",
@@ -42691,6 +42929,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-21T12:16:37.462Z"
+    },
+    "guidle:AQEVaUT::8bd13bb4ec49d8d96710668d82cf352ac5363eba76f65c5dd765ab24ea7a8c81": {
+      "id": "guidle:AQEVaUT",
+      "sourceDescriptionHash": "8bd13bb4ec49d8d96710668d82cf352ac5363eba76f65c5dd765ab24ea7a8c81",
+      "description": "Al Monti-Winterquartier di Ins, Mat e Nico Arn si esibiscono insieme in un programma di musica comica. Dopo aver seguito percorsi musicali separati, presentano canzoni e racconti sui loro percorsi. Il biglietto costa 50 CHF.",
+      "descriptionByLocale": {
+        "it": "Al Monti-Winterquartier di Ins, Mat e Nico Arn si esibiscono insieme in un programma di musica comica. Dopo aver seguito percorsi musicali separati, presentano canzoni e racconti sui loro percorsi. Il biglietto costa 50 CHF.",
+        "en": "At Monti-Winterquartier in Ins, Mat and Nico Arn appear together in a comedy-music programme. After following separate musical paths, they present songs and stories about those paths. Admission is CHF 50.",
+        "de": "Im Monti-Winterquartier in Ins treten Mat und Nico Arn gemeinsam in einem komischen Musikprogramm auf. Nach getrennten musikalischen Wegen präsentieren sie Lieder und Geschichten über ihre jeweiligen Wege. Der Eintritt kostet 50 CHF.",
+        "fr": "Au Monti-Winterquartier d’Ins, Mat et Nico Arn se retrouvent sur scène pour un programme de musique comique. Après avoir suivi des parcours musicaux distincts, ils présentent des chansons et des récits sur ces parcours. L’entrée coûte 50 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:19:40.180Z"
     },
     "guidle:AQf8R3T::789ea5b2adfbc444a6aca19abfec64464a08da689ef46ffee24b2d2544e8bf89": {
       "id": "guidle:AQf8R3T",
@@ -43840,6 +44092,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T13:14:51.861Z"
     },
+    "guidle:ArByU3d::0b3ca9797df25da125034fee1d65a6df5e627ad4fe6436b2798ac6fb4fec6423": {
+      "id": "guidle:ArByU3d",
+      "sourceDescriptionHash": "0b3ca9797df25da125034fee1d65a6df5e627ad4fe6436b2798ac6fb4fec6423",
+      "description": "La Streichermatinée è un appuntamento musicale alla Musikschule Weinfelden con la partecipazione degli allievi della sezione archi. L’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "La Streichermatinée è un appuntamento musicale alla Musikschule Weinfelden con la partecipazione degli allievi della sezione archi. L’ingresso è gratuito.",
+        "en": "The Streichermatinée is a music event at Musikschule Weinfelden featuring students from the string department. Admission is free.",
+        "de": "Die Streichermatinée findet an der Musikschule Weinfelden mit Lernenden aus dem Streicherbereich statt. Der Eintritt ist kostenlos.",
+        "fr": "La Streichermatinée est un rendez-vous musical à la Musikschule Weinfelden avec des élèves de la section des cordes. L’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:20:53.054Z"
+    },
     "guidle:Arc6UMJ::d04d34dbb6d4f0e34f2fc06c7c5b25793a7fa1c6e8adf4b6f54fae7f7c0b3703": {
       "id": "guidle:Arc6UMJ",
       "sourceDescriptionHash": "d04d34dbb6d4f0e34f2fc06c7c5b25793a7fa1c6e8adf4b6f54fae7f7c0b3703",
@@ -43909,6 +44175,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T17:36:19.767Z"
+    },
+    "guidle:Arcs4QZ::d2d45ed25df81a02462c9573b9defac796598236bb0e39129f6b60b1219532e3": {
+      "id": "guidle:Arcs4QZ",
+      "sourceDescriptionHash": "d2d45ed25df81a02462c9573b9defac796598236bb0e39129f6b60b1219532e3",
+      "description": "Il programma presenta Nils Petter Molvær, associato al jazz elettroacustico. L’evento è un festival jazz allo Stadtcasino Basel, a Basilea.",
+      "descriptionByLocale": {
+        "it": "Il programma presenta Nils Petter Molvær, associato al jazz elettroacustico. L’evento è un festival jazz allo Stadtcasino Basel, a Basilea.",
+        "en": "The programme presents Nils Petter Molvær, who is associated with electroacoustic jazz. The event is a jazz festival at Stadtcasino Basel in Basel.",
+        "de": "Das Programm präsentiert Nils Petter Molvær, der mit elektroakustischem Jazz verbunden wird. Die Veranstaltung ist ein Jazzfestival im Stadtcasino Basel in Basel.",
+        "fr": "Le programme présente Nils Petter Molvær, associé au jazz électroacoustique. L’événement est un festival de jazz au Stadtcasino Basel, à Bâle."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:20:09.419Z"
     },
     "guidle:ARCSqak::7f3daaef4e03540454d9190cf567e9326a64a5949367da3d15b56feded7512d2": {
       "id": "guidle:ARCSqak",
@@ -44428,6 +44708,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T13:04:54.155Z"
     },
+    "guidle:ARPbEh4::ae1e06aaf2913963bdc0f9a9cd40368408caba2e8ae98b9624a5bed663aafddf": {
+      "id": "guidle:ARPbEh4",
+      "sourceDescriptionHash": "ae1e06aaf2913963bdc0f9a9cd40368408caba2e8ae98b9624a5bed663aafddf",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Plaza Klub; cantone: ZH; categoria: cantautore; organizzatore: Guidle; partecipante: Argyle; data: 2027-05-28; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Plaza Klub; cantone: ZH; categoria: cantautore; organizzatore: Guidle; partecipante: Argyle; data: 2027-05-28; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Plaza Klub; canton: ZH; category: cantautore; organiser: Guidle; participant: Argyle; date: 2027-05-28; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Plaza Klub; kanton: ZH; kategorie: cantautore; veranstalter: Guidle; mitwirkender: Argyle; datum: 2027-05-28; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Plaza Klub; canton: ZH; catégorie: cantautore; organisateur: Guidle; participant: Argyle; date: 2027-05-28; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:06.662Z"
+    },
     "guidle:Arptr3w::0b653075444a6dce5ff2ff745841c9754cd34f42e828bff582d5fe504ce9d906": {
       "id": "guidle:Arptr3w",
       "sourceDescriptionHash": "0b653075444a6dce5ff2ff745841c9754cd34f42e828bff582d5fe504ce9d906",
@@ -44750,6 +45044,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:32:29.515Z"
     },
+    "guidle:ARwujUd::113080965cadf6d2be095ae6402d0088032656d84a86223d8f3844e21be0772a": {
+      "id": "guidle:ARwujUd",
+      "sourceDescriptionHash": "113080965cadf6d2be095ae6402d0088032656d84a86223d8f3844e21be0772a",
+      "description": "L’appuntamento di musica pop Plastic Creatures si svolge al Jazz Chälli di Visp. La formazione è attiva nel Vallese dal 1967 e ha tenuto il suo primo concerto quell’anno nell’allora cinema Apollo di Briga.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di musica pop Plastic Creatures si svolge al Jazz Chälli di Visp. La formazione è attiva nel Vallese dal 1967 e ha tenuto il suo primo concerto quell’anno nell’allora cinema Apollo di Briga.",
+        "en": "The pop event titled Plastic Creatures takes place at Jazz Chälli in Visp. The group has been active in Valais since 1967 and gave its first concert that year at the former Apollo Cinema in Brig.",
+        "de": "Der Popanlass mit Plastic Creatures findet im Jazz Chälli in Visp statt. Die Formation ist seit 1967 im Wallis aktiv und gab ihr erstes Konzert in jenem Jahr im damaligen Kino Apollo in Brig.",
+        "fr": "Le rendez-vous de musique pop Plastic Creatures se déroule au Jazz Chälli de Viège. Le groupe est actif dans le Valais depuis 1967 et a donné son premier concert cette année-là dans l’ancien cinéma Apollo de Brigue."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:21:56.237Z"
+    },
     "guidle:ArWwbSX::3460f0809904a52aef9e10966e4f0248f90ed9f4932da24568c6ab441d784fa6": {
       "id": "guidle:ArWwbSX",
       "sourceDescriptionHash": "3460f0809904a52aef9e10966e4f0248f90ed9f4932da24568c6ab441d784fa6",
@@ -44791,6 +45099,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-27T12:16:31.311Z"
+    },
+    "guidle:ARxH7B1::65d42a1e9d42ddaa2f460004fd7ac374bfb66c3b3c57cdfe8256fcaf4f1b69eb": {
+      "id": "guidle:ARxH7B1",
+      "sourceDescriptionHash": "65d42a1e9d42ddaa2f460004fd7ac374bfb66c3b3c57cdfe8256fcaf4f1b69eb",
+      "description": "Il programma unisce un’esibizione dei Tequila Boys a un’afterparty. L’evento, classificato nella categoria pop, si svolge alla Mühle Hunziken di Rubigen.",
+      "descriptionByLocale": {
+        "it": "Il programma unisce un’esibizione dei Tequila Boys a un’afterparty. L’evento, classificato nella categoria pop, si svolge alla Mühle Hunziken di Rubigen.",
+        "en": "The programme combines a Tequila Boys performance with an afterparty. The event is classified as pop and takes place at Mühle Hunziken in Rubigen.",
+        "de": "Das Programm verbindet einen Auftritt der Tequila Boys mit einer Afterparty. Die als Popveranstaltung eingestufte Veranstaltung findet in der Mühle Hunziken in Rubigen statt.",
+        "fr": "Le programme associe une prestation des Tequila Boys à une afterparty. L’événement relève de la catégorie pop et se déroule à la Mühle Hunziken, à Rubigen."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:22:35.883Z"
     },
     "guidle:ARxmGcV::8672f7dcb198c41f89337e46c7a0d20b81534e837a235ff3dfdbe8a7b3048690": {
       "id": "guidle:ARxmGcV",
@@ -45086,6 +45408,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T23:32:20.383Z"
     },
+    "guidle:AS8un93::2d95a0ca6db705a7473d0b1d0ba7b83e6e841b5f689f75aa9c0e230609182023": {
+      "id": "guidle:AS8un93",
+      "sourceDescriptionHash": "2d95a0ca6db705a7473d0b1d0ba7b83e6e841b5f689f75aa9c0e230609182023",
+      "description": "Abusitz è un appuntamento musicale presso Zeughaus Kultur. Il programma riunisce musica, letteratura e danza, con uno spazio bistrot dedicato all’incontro e al relax.",
+      "descriptionByLocale": {
+        "it": "Abusitz è un appuntamento musicale presso Zeughaus Kultur. Il programma riunisce musica, letteratura e danza, con uno spazio bistrot dedicato all’incontro e al relax.",
+        "en": "Abusitz is a music event held at Zeughaus Kultur. Its programme brings together music, literature and dance, with a bistro area offering space for conversation and relaxation.",
+        "de": "Abusitz ist eine musikalische Veranstaltung im Zeughaus Kultur. Vorgesehen sind Musik, Literatur und Tanz; ein Bistrobereich ergänzt das Angebot als Ort zum Austausch und zur Erholung.",
+        "fr": "Abusitz est un rendez-vous musical au Zeughaus Kultur. La programmation associe musique, littérature et danse, tandis qu’un espace bistrot permet de se retrouver et de se détendre."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:19:15.312Z"
+    },
     "guidle:AsASqdc::faf4a73de4bb74b1844ddb947a07b6eca65bb2677c790876e8cebd6028f9694d": {
       "id": "guidle:AsASqdc",
       "sourceDescriptionHash": "faf4a73de4bb74b1844ddb947a07b6eca65bb2677c790876e8cebd6028f9694d",
@@ -45211,6 +45547,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T21:15:15.746Z"
+    },
+    "guidle:AsbZS9T::ee65180c4578303374bdbc1fbfd4e6a0ca1c45652ac61a120661d885c0011373": {
+      "id": "guidle:AsbZS9T",
+      "sourceDescriptionHash": "ee65180c4578303374bdbc1fbfd4e6a0ca1c45652ac61a120661d885c0011373",
+      "description": "Il Jazz & Latin Trio propone un appuntamento jazz all’Ermitage Wellness & Spa-Hotel, presentato come speciale di Pentecoste. Il gruppo riunisce tre musicisti attivi nella scena jazz svizzera, che suonano insieme da diversi anni.",
+      "descriptionByLocale": {
+        "it": "Il Jazz & Latin Trio propone un appuntamento jazz all’Ermitage Wellness & Spa-Hotel, presentato come speciale di Pentecoste. Il gruppo riunisce tre musicisti attivi nella scena jazz svizzera, che suonano insieme da diversi anni.",
+        "en": "The Jazz & Latin Trio presents a jazz event at Ermitage Wellness & Spa-Hotel billed as a Pentecost special. The group consists of three musicians active in the Swiss jazz scene who have played together for several years.",
+        "de": "Das Jazz-&-Latin-Trio tritt im Ermitage Wellness & Spa-Hotel bei einem als Pfingst-Spezial bezeichneten Jazzabend auf. Die Formation besteht aus drei Musikern, die seit mehreren Jahren gemeinsam musizieren und in der Schweizer Jazzszene tätig sind.",
+        "fr": "Le Jazz & Latin Trio se produit à l’Ermitage Wellness & Spa-Hotel dans le cadre d’un spécial Pentecôte consacré au jazz. La formation compte trois musiciens actifs dans la scène jazz suisse et réunis depuis plusieurs années."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:22:02.218Z"
     },
     "guidle:AsCJCtD::c0a1cbb17d15e28b9e2df25eb6ab8e17a3b75dd973befc394f4c598ae25fc189": {
       "id": "guidle:AsCJCtD",
@@ -45659,6 +46009,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:25:29.468Z"
+    },
+    "guidle:ASmArx4::7814b8e34535cd7323dd430941490970edfb7e457dcefdff8c6d4d39118b8625": {
+      "id": "guidle:ASmArx4",
+      "sourceDescriptionHash": "7814b8e34535cd7323dd430941490970edfb7e457dcefdff8c6d4d39118b8625",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Victoria Hall; cantone: GE; categoria: Altri musica; organizzatore: Guidle; partecipante: D’un soir triste, ultime œuvre orchestrale; data: 2027-05-12; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Victoria Hall; cantone: GE; categoria: Altri musica; organizzatore: Guidle; partecipante: D’un soir triste, ultime œuvre orchestrale; data: 2027-05-12; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Victoria Hall; canton: GE; category: Altri musica; organiser: Guidle; participant: D’un soir triste, ultime œuvre orchestrale; date: 2027-05-12; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Victoria Hall; kanton: GE; kategorie: Altri musica; veranstalter: Guidle; mitwirkender: D’un soir triste, ultime œuvre orchestrale; datum: 2027-05-12; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Victoria Hall; canton: GE; catégorie: Altri musica; organisateur: Guidle; participant: D’un soir triste, ultime œuvre orchestrale; date: 2027-05-12; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:02.191Z"
     },
     "guidle:AsMcEft::95f685f05488219acba82e3a90ef731db7bb43b9433c878491e3aadf02a36a08": {
       "id": "guidle:AsMcEft",
@@ -52814,6 +53178,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T01:30:24.566Z"
     },
+    "guidle:AxRafw6::2631f3af8d365968a6b8adff39675f7e9358c0093e14d4a1499963fd471719d8": {
+      "id": "guidle:AxRafw6",
+      "sourceDescriptionHash": "2631f3af8d365968a6b8adff39675f7e9358c0093e14d4a1499963fd471719d8",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Markthalle Glarus; comune: Glarus; cantone: GL; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-05-29; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Markthalle Glarus; comune: Glarus; cantone: GL; categoria: Pop generalmente; organizzatore: Guidle; data: 2027-05-29; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Markthalle Glarus; municipality: Glarus; canton: GL; category: Pop generalmente; organiser: Guidle; date: 2027-05-29; time: 20:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Markthalle Glarus; gemeinde: Glarus; kanton: GL; kategorie: Pop generalmente; veranstalter: Guidle; datum: 2027-05-29; uhrzeit: 20:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Markthalle Glarus; commune: Glarus; canton: GL; catégorie: Pop generalmente; organisateur: Guidle; date: 2027-05-29; heure: 20:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:17:42.398Z"
+    },
     "guidle:AXrfeNk::9d94db5380274a0d09a7a33a6b708fbea712f32f13d527c899b3747148e80917": {
       "id": "guidle:AXrfeNk",
       "sourceDescriptionHash": "9d94db5380274a0d09a7a33a6b708fbea712f32f13d527c899b3747148e80917",
@@ -52911,6 +53289,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T16:17:30.126Z"
+    },
+    "guidle:AXtqNwG::6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc": {
+      "id": "guidle:AXtqNwG",
+      "sourceDescriptionHash": "6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc",
+      "description": "L’evento rende omaggio a Polo Hofer con musica pop. Si svolge alla Mühle Hunziken di Rubigen.",
+      "descriptionByLocale": {
+        "it": "L’evento rende omaggio a Polo Hofer con musica pop. Si svolge alla Mühle Hunziken di Rubigen.",
+        "en": "This event is a pop-music tribute to Polo Hofer. It takes place at Mühle Hunziken in Rubigen.",
+        "de": "Die Veranstaltung würdigt Polo Hofer mit Musik aus dem Popbereich. Sie findet in der Mühle Hunziken in Rubigen statt.",
+        "fr": "Cet événement rend hommage à Polo Hofer avec de la musique pop. Il se déroule à la Mühle Hunziken de Rubigen."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:19:52.489Z"
     },
     "guidle:AxtQSZt::a3c4fa8fa27dacc18efe669b976bffa8fa70055a54a18501a784b0cca6ddb4fd": {
       "id": "guidle:AxtQSZt",
@@ -55053,6 +55445,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T15:33:34.368Z"
+    },
+    "guidle:AZDxZ4m::6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc": {
+      "id": "guidle:AZDxZ4m",
+      "sourceDescriptionHash": "6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc",
+      "description": "L’evento di musica pop rende omaggio a Polo Hofer. Si svolge alla Mühle Hunziken, nel comune di Rubigen.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop rende omaggio a Polo Hofer. Si svolge alla Mühle Hunziken, nel comune di Rubigen.",
+        "en": "This pop event pays tribute to Polo Hofer. It takes place at Mühle Hunziken in Rubigen.",
+        "de": "Die Popveranstaltung ist Polo Hofer gewidmet. Sie findet in der Mühle Hunziken in Rubigen statt.",
+        "fr": "Cet événement de musique pop rend hommage à Polo Hofer. Il se déroule à la Mühle Hunziken, dans la commune de Rubigen."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-29T14:20:24.958Z"
     },
     "guidle:AZecuLV::9e4c775e36cbddb27b1b9fa834150797ea78554a548bb1326fb781af0948592e": {
       "id": "guidle:AZecuLV",
@@ -177576,6 +177982,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:A4hqKyu::a04289b58ddf4e19af469998c3e18f7cb25f825bcdb9175838b4dcf91459ee8d": {
+      "id": "guidle:A4hqKyu",
+      "sourceDescriptionHash": "a04289b58ddf4e19af469998c3e18f7cb25f825bcdb9175838b4dcf91459ee8d",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:25:21.896Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:A4UtSkG::10acc219071f52e783a3fd3c905f3b6f71754077fa2179283c9a7f6092e7e99f": {
       "id": "guidle:A4UtSkG",
       "sourceDescriptionHash": "10acc219071f52e783a3fd3c905f3b6f71754077fa2179283c9a7f6092e7e99f",
@@ -177636,6 +178051,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-10T02:17:52.953Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:A6Gvjis::b1221e2229e150b5b03f6fd6eafd65fdaf7afd76b8dcfc951bbcc34d4e5f4e36": {
+      "id": "guidle:A6Gvjis",
+      "sourceDescriptionHash": "b1221e2229e150b5b03f6fd6eafd65fdaf7afd76b8dcfc951bbcc34d4e5f4e36",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:28:07.161Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -177756,6 +178180,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:A8TWM49::08e5b9957ded5db738fc493081e5c593d754dada19b8980e0da5ad05799385ea": {
+      "id": "guidle:A8TWM49",
+      "sourceDescriptionHash": "08e5b9957ded5db738fc493081e5c593d754dada19b8980e0da5ad05799385ea",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:21:25.424Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:A8wG5WR::9ec7a55cce29e99ae2af6dd118964b2171b05661e75245c12957e4e7ece480c7": {
       "id": "guidle:A8wG5WR",
       "sourceDescriptionHash": "9ec7a55cce29e99ae2af6dd118964b2171b05661e75245c12957e4e7ece480c7",
@@ -177807,6 +178240,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-09T23:28:44.980Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AAfFuC8::6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc": {
+      "id": "guidle:AAfFuC8",
+      "sourceDescriptionHash": "6a8c8e376eeb5c5440844544eca140203d265ef356e59ddfc17a2cbf9e1876bc",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:18:51.655Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -177879,6 +178321,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T05:22:07.685Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AC2ZMAs::e4f49f22ee5573c33523e4ddf454d5c9ab7a3007a0ba78cdc984146cdc7d5bcb": {
+      "id": "guidle:AC2ZMAs",
+      "sourceDescriptionHash": "e4f49f22ee5573c33523e4ddf454d5c9ab7a3007a0ba78cdc984146cdc7d5bcb",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:23:27.275Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -177960,6 +178411,24 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-19T20:17:34.707Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AcsJufY::acd6202843912c5624fc2a9f8eada2985781bd7e966a16844881228c681d43c2": {
+      "id": "guidle:AcsJufY",
+      "sourceDescriptionHash": "acd6202843912c5624fc2a9f8eada2985781bd7e966a16844881228c681d43c2",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:28:40.414Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:ACu6FYi::c603c1903a3c34123b1baf5b9175c898d85cd64b4388b11bc3e33b0ccc12faca": {
+      "id": "guidle:ACu6FYi",
+      "sourceDescriptionHash": "c603c1903a3c34123b1baf5b9175c898d85cd64b4388b11bc3e33b0ccc12faca",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:20:39.713Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -178413,6 +178882,24 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AJpT4Sv::abf36fe7a08bf28ed44e5591ebe6bb6b93b9b5e9732a9a46779b19785cc9807c": {
+      "id": "guidle:AJpT4Sv",
+      "sourceDescriptionHash": "abf36fe7a08bf28ed44e5591ebe6bb6b93b9b5e9732a9a46779b19785cc9807c",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:26:08.631Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AJRS4Rn::f15edfcb1e0735aae72acff812f7ec2978c9d1049131bdd270b4a7faf798d894": {
+      "id": "guidle:AJRS4Rn",
+      "sourceDescriptionHash": "f15edfcb1e0735aae72acff812f7ec2978c9d1049131bdd270b4a7faf798d894",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:20:53.871Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:Ak8h8SE::2e87498459e21f79fafe8a2fd34c787498ebb324ab265449e84770751dfdd1b1": {
       "id": "guidle:Ak8h8SE",
       "sourceDescriptionHash": "2e87498459e21f79fafe8a2fd34c787498ebb324ab265449e84770751dfdd1b1",
@@ -178599,6 +179086,15 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T11:47:38.855Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AMdpPV8::b5257e54620296d3cfa33170a7e59fc5bf6f63cf0afce2a317cbe4d0d6d216bc": {
+      "id": "guidle:AMdpPV8",
+      "sourceDescriptionHash": "b5257e54620296d3cfa33170a7e59fc5bf6f63cf0afce2a317cbe4d0d6d216bc",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:24:11.294Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179007,6 +179503,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:ARmDauv::ede2adc3cb72dadf5ced52896e5e7cf31659365da10c31004238d48fd41e2df0": {
+      "id": "guidle:ARmDauv",
+      "sourceDescriptionHash": "ede2adc3cb72dadf5ced52896e5e7cf31659365da10c31004238d48fd41e2df0",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:19:57.825Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:ArmyKSQ::a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a": {
       "id": "guidle:ArmyKSQ",
       "sourceDescriptionHash": "a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a",
@@ -179151,12 +179656,30 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AtAkWcv::ac79ce197f7229b117c70d2b1868ffeeb38efc72ccc3c2a0a4f8481d3ec24538": {
+      "id": "guidle:AtAkWcv",
+      "sourceDescriptionHash": "ac79ce197f7229b117c70d2b1868ffeeb38efc72ccc3c2a0a4f8481d3ec24538",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:26:47.489Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:ATd473y::7b0a737189cc80e6f22045463e2385499ae5501e76bc60be8e4e92cdd2fb2487": {
       "id": "guidle:ATd473y",
       "sourceDescriptionHash": "7b0a737189cc80e6f22045463e2385499ae5501e76bc60be8e4e92cdd2fb2487",
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T15:23:25.275Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:ATEiv93::cfba74f0f4b0974bcf18a8538728b12c7037e25d1adca1d51dae1b4608b1be68": {
+      "id": "guidle:ATEiv93",
+      "sourceDescriptionHash": "cfba74f0f4b0974bcf18a8538728b12c7037e25d1adca1d51dae1b4608b1be68",
+      "code": "new-number",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:22:36.611Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179193,6 +179716,15 @@
       "code": "sentence-count",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-13T21:33:22.769Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:ATMk5ep::a1e55a1c95f3e7d2d76b001c1a84bb5bff2a1f5c671a5bd3949745d799207df3": {
+      "id": "guidle:ATMk5ep",
+      "sourceDescriptionHash": "a1e55a1c95f3e7d2d76b001c1a84bb5bff2a1f5c671a5bd3949745d799207df3",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:23:34.256Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -179535,6 +180067,15 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T00:19:53.502Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AxaG7Tj::2b7e6db091ec67997e391b15fc1dd4e35e0b2a0cd140735cfb9686942ed59d2d": {
+      "id": "guidle:AxaG7Tj",
+      "sourceDescriptionHash": "2b7e6db091ec67997e391b15fc1dd4e35e0b2a0cd140735cfb9686942ed59d2d",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-29T14:21:20.225Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
