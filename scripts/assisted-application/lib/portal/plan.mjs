@@ -587,6 +587,10 @@ export function questionFromLabel(label) {
   return String(label || '').replace(/\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/gi, '').replace(/\s*\*+/g, '').replace(/\s+/g, ' ').trim();
 }
 
+function isExactAvailableFromLabel(label) {
+  return /^available from$/i.test(questionFromLabel(label));
+}
+
 const STREET_ADDRESS_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street)\b/i;
 const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\s+civico|num(?:ero)?\s+civico|civico|hausnummer|num[eé]ro\s+(?:civique|de la rue))\b/i;
 // SuccessFactors (Rolex, 2026-10-07) labels the combined field «Rue et numéro».
@@ -610,7 +614,7 @@ const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment 
 const CURRENT_WORKLOAD_RE = /\b(?:current|currently|present|actual|attuale|attualmente|derzeit|zurzeit|actuel(?:le)?|gegenw(?:ä|ae)rtig)\b/i;
 const REFERRAL_SOURCE_QUESTION_RE = /\b(?:how (?:did|do) you (?:hear|learn|find out)|where did you (?:hear|find out)|how did you find (?:the )?(?:job|position|role)|come (?:hai|ha|avete) (?:saputo|scoperto|trovato)|come (?:sei|è) venut[oa] a conoscenza|come (?:hai|ha) conosciuto|wie haben (?:sie|du) (?:von|über|ueber)|wie bist du auf|comment (?:avez-vous|as-tu) (?:entendu|découvert)|source (?:of|for) (?:your )?(?:application|candidature)|referral source)\b/i;
 const REFERRAL_SOURCE_DETAIL_RE = /^\s*(?:please specify|specify|indicate|enter|provide|describe)\s+(?:the\s+)?source\s*[?:]?\s*$/i;
-const START_DATE_QUESTION_RE = /\b(?:earliest (?:possible )?(?:start(?:ing)? date|date (?:you can|to) start)|when can you start|available to start|available from|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
+const START_DATE_QUESTION_RE = /\b(?:earliest (?:possible )?(?:start(?:ing)? date|date (?:you can|to) start)|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
 const CONTEXTUAL_START_DATE_LABEL_RE = /^\s*(?:start(?:ing)? date|date of starting|entry date|date d['’]entr[ée]e|data di inizio)(?:\s*(?::\s*)?\(?\s*(?:[dtgj]{1,4}[./-]m{1,4}[./-][ayj]{2,4}|[ayj]{4}[./-]m{1,2}[./-][dtgj]{1,2})\s*\)?)?\s*[?:]?\s*$/i;
 const AVAILABILITY_QUESTION_RE = /\b(?:availability|available for work|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée])\b/i;
 const NOTICE_PERIOD_QUESTION_RE = /\b(?:notice period|notice time|period of notice|preavviso|d['’]lai de pr(?:é|e)avis|k(?:ü|ue)ndigungsfrist|notice required)\b/i;
@@ -719,7 +723,7 @@ export function questionTopic(label, context = '', metadata = {}) {
   if (SALUTATION_FIELD_RE.test(text) || titleInPersonalDetails) return 'salutation';
   if (PREFERRED_WORKLOAD_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'preferred_workload';
   if (NOTICE_PERIOD_QUESTION_RE.test(text)) return 'notice_period';
-  if (START_DATE_QUESTION_RE.test(text)) return CONTEXTUAL_START_DATE_LABEL_RE.test(text) ? 'start_date_contextual' : 'start_date';
+  if (isExactAvailableFromLabel(text) || START_DATE_QUESTION_RE.test(text)) return CONTEXTUAL_START_DATE_LABEL_RE.test(text) ? 'start_date_contextual' : 'start_date';
   if (AVAILABILITY_QUESTION_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'availability';
   if (CRIMINAL_RECORD_QUESTION_RE.test(text)) {
     return CRIMINAL_CERTIFICATE_QUESTION_RE.test(text) ? 'criminal_record_certificate' : 'criminal_record_status';
@@ -1146,7 +1150,7 @@ const BARE_FIRST_NAME_FIELD_RE = /^first$/i;
 const BARE_LAST_NAME_FIELD_RE = /^last$/i;
 const FULL_NAME_FIELD_RE = /^\s*(?:full name|complete name|vollst[äa]ndiger name|nome completo|nom complet)\s*$/i;
 const NON_CANDIDATE_NAME_RE = /\b(?:company|employer|organisation|organization|school|institution|university|azienda|datore|scuola|istituto|universit|entreprise|employeur|école|arbeitgeber|unternehmen|firma|reference|referee|emergency|contact person|supervisor|manager|recruiter|interviewer)\b/i;
-const AVAILABILITY_FIELD_RE = /availability|available for work|available to start|available from|when can you start|earliest (?:possible )?start|possible start date|date you can start|starting date|data di inizio|data di assunzione|eintrittsdatum|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée]/i;
+const AVAILABILITY_FIELD_RE = /availability|available for work|available to start|when can you start|earliest (?:possible )?start|possible start date|date you can start|starting date|data di inizio|data di assunzione|eintrittsdatum|notice period|k(?:ü|ue)ndigungsfrist|pr[ée]avis|preavviso|d[ée]lai de pr[ée]avis|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée]/i;
 const SALARY_FIELD_RE = /salary expectation|expected salary|desired salary|salary desired|salary requirement|expected annual compensation|wage expectation|aspettativ\w+ salarial\w+|retribuzione desiderat\w+|salario desiderat\w+|pretese salarial|pr[ée]tentions salariales|salaire souhait[ée]|lohnvorstellung|gehaltsvorstellung|r[eé]mun[ée]ration souhait[ée]e|salario esperado|expectativa salarial/i;
 const YES_NO_LANGUAGE_QUESTION_RE = /\b(?:do you|does the candidate|are you|can you|speak|spoken|parl\w*|sprech\w*|parlez|parli|connaiss\w*|kenntnis\w*|communicat\w*)\b/i;
 const LANGUAGE_PROFICIENCY_QUESTION_RE = /\b(?:level|niveau|livello|proficien(?:cy|t)|fluen(?:t|cy)|how well|wie gut|quel niveau|quel point|native|mother tongue|langue maternelle|madrelingua|muttersprache|written|oral|mündlich|schriftlich|écrit)\b/i;
@@ -1372,7 +1376,7 @@ export function candidateAnswerForField(candidate, field) {
       if (other) return { value: other.label, source: 'answers' };
     }
     if (['birth_date', 'nationality', 'start_date', 'start_date_contextual', 'availability', 'preferred_workload', 'criminal_record_certificate', 'criminal_record_status'].includes(topic)
-      || topic.startsWith('salary_expectation:') || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
+      || topic.startsWith('salary_expectation:') || AVAILABILITY_FIELD_RE.test(String(field?.label || '')) || isExactAvailableFromLabel(field?.label) || SALARY_FIELD_RE.test(String(field?.label || ''))) {
       const value = ['start_date', 'start_date_contextual', 'availability'].includes(topic) ? normalizeDateAnswer(field, previous)
         : field?.options?.length ? optionForAnswer(field, previous) : previous;
       return value ? { value, source: 'answers' } : null;
@@ -1401,7 +1405,7 @@ export function candidateAnswerForField(candidate, field) {
     const value = field?.options?.length ? optionForAnswer(field, candidate.profile.nationality) : candidate.profile.nationality;
     if (value) return { value, source: 'profile' };
   }
-  if (topic !== 'start_date_contextual' && AVAILABILITY_FIELD_RE.test(label)) {
+  if (topic !== 'start_date_contextual' && (AVAILABILITY_FIELD_RE.test(label) || isExactAvailableFromLabel(label))) {
     const availability = String(candidate?.answers?.availability || candidate?.profile?.availability || '').trim();
     const value = availability && (field?.options?.length ? optionForAnswer(field, availability) : availability);
     if (value) return { value, source: candidate?.answers?.availability ? 'answers' : 'profile' };

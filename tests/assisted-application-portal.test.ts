@@ -960,6 +960,12 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       profile: { availability: '2026-11-15' },
     });
     expect(questionTopic('Available from* (required)')).toBe('start_date');
+    expect(questionTopic('Available from')).toBe('start_date');
+    expect(questionTopic('Available from Monday to Friday')).not.toBe('start_date');
+    expect(candidateAnswerForField(
+      { answers: { availability: '2026-11-03' } },
+      { label: 'Available from Monday to Friday', kind: 'text' },
+    )).toBeNull();
     expect(candidateAnswerForField(candidate, page.fields[0])).toEqual({ value: 'Test', source: 'identity' });
     expect(candidateAnswerForField(candidate, page.fields[1])).toEqual({ value: 'Candidate', source: 'identity' });
     expect(candidateAnswerForField(candidate, page.fields[6])).toEqual({ value: '2026-11-15', source: 'profile' });
