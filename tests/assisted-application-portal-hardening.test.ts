@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
@@ -858,4 +858,23 @@ describe('portal: an application in progress from an earlier run', () => {
     expect(removalsOf(buttons, [''])).toEqual([]);
     expect(removalsOf(undefined as any, ['CV_Luca_Bianchi.pdf'])).toEqual([]);
   });
+});
+
+
+describe('translated language answer reuse', () => {
+  it.each([['English', 'Professionale', 'Professional'], ['German', 'Conversazionale', 'Conversational']])(
+    'uses the mapped %s answer without treating its original as a conflict', (language, original, translated) => {
+      const id = `portal_${language.toLowerCase()}_fluency_required`;
+      const label = `${language} Fluency?* (required)`;
+      const question = { id, question: `Livello di ${language}?`, applicationQuestion: label,
+        options: ['Seleziona', original], applicationOptions: ['Please select', translated],
+        optionMap: [{ candidate: 'Seleziona', application: 'Please select' }, { candidate: original, application: translated }] };
+      const candidate = candidateForForm({ identity: {}, answers: { [id]: original }, portalQuestions: [question] });
+      const field = { label, kind: 'select', options: question.applicationOptions.map(label => ({ label })) };
+      expect(candidateAnswerForField(candidate, field)).toEqual({ value: translated, source: 'answers' });
+      // A genuinely different answer under another field id must still block reuse.
+      candidate.answers[`portal_${language.toLowerCase()}_proficiency`] = 'Basic';
+      expect(candidateAnswerForField(candidate, field)).toBeNull();
+    },
+  );
 });
