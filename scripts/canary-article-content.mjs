@@ -53,8 +53,8 @@ import { realpathSync } from "node:fs";
 import process from "node:process";
 import { pathToFileURL } from "node:url";
 
-const SITE = "https://frontaliereticino.ch";
-const SITEMAP_URL = `${SITE}/sitemap-blog.xml`;
+export const SITE = "https://frontaliereticino.ch";
+export const SITEMAP_URL = `${SITE}/sitemap-blog.xml`;
 const DEFAULT_SAMPLES = 20;
 const MIN_BYTES = 5000;
 const FETCH_TIMEOUT_MS = 15000;
@@ -227,6 +227,19 @@ function buildErrorSummary(err) {
   };
 }
 
+export function buildFatalSummary(error, timestamp = new Date().toISOString()) {
+  return {
+    site: SITE,
+    sitemap: SITEMAP_URL,
+    sampleSize: 0,
+    pass: 0,
+    fail: 0,
+    failures: [],
+    fatalError: error instanceof Error ? error.message : String(error),
+    timestamp,
+  };
+}
+
 async function main() {
   try {
     log(`[canary-article-content] sitemap=${SITEMAP_URL}`);
@@ -260,14 +273,15 @@ async function main() {
       );
       process.exit(1);
     }
-    console.log(
-      `\x1b[32m[canary-article-content]\x1b[0m PASS — ${passes.length}/${sample.length} articles healthy`,
-    );
+    const passMessage =
+      `\x1b[32m[canary-article-content]\x1b[0m PASS — ${passes.length}/${sample.length} articles healthy`;
+    if (wantsJson) console.error(passMessage);
+    else console.log(passMessage);
     process.exit(0);
   } catch (err) {
-    const summary = buildErrorSummary(err);
+    const summary = buildFatalSummary(err);
     if (wantsJson) console.log(JSON.stringify(summary, null, 2));
-    console.error(`[canary-article-content] error: ${summary.error}`);
+    console.error(`[canary-article-content] error: ${summary.fatalError}`);
     process.exit(2);
   }
 }
