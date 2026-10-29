@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T15:31:36.718Z",
+  "generatedAt": "2026-10-29T16:30:56.094Z",
   "totalEvents": 15614,
   "events": [
     {
@@ -348651,7 +348651,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma propone, nell’ambito del festival, la proiezione di un film del 2001 legato a Mira Nair. La pellicola dura 114 minuti, presenta dialoghi in hindi e inglese e sottotitoli in francese e inglese; l’appuntamento è a Ginevra e il biglietto costa 8 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma propone, nell’ambito del festival, la proiezione di un film del 2001 legato a Mira Nair. La pellicola dura 114 minuti, presenta dialoghi in hindi e inglese e sottotitoli in francese e inglese; l’appuntamento è a Ginevra e il biglietto costa 8 CHF.",
+        "en": "The festival programme includes a screening of a 2001 film associated with Mira Nair. The film runs for 114 minutes, uses Hindi and English dialogue, and has French and English subtitles; the event takes place in Geneva and admission costs CHF 8.",
+        "de": "Das Festivalprogramm umfasst die Vorführung eines Films aus dem Jahr 2001, der mit Mira Nair verbunden ist. Der Film dauert 114 Minuten, liegt in Hindi und Englisch vor und hat französische und englische Untertitel; die Veranstaltung findet in Genf statt und der Eintritt kostet 8 CHF.",
+        "fr": "Le programme du festival propose la projection d’un film de 2001 associé à Mira Nair. L’œuvre dure 114 minutes, comporte des dialogues en hindi et en anglais ainsi que des sous-titres français et anglais; la séance a lieu à Genève et l’entrée coûte 8 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:giff-projection-placee",
@@ -705906,7 +705914,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma propone uno spettacolo pop di ambientazione interplanetaria del Landestheater Schwaben. L’evento si svolge al Bahnhof Fischbach, a Fischbach.",
+      "descriptionByLocale": {
+        "it": "Il programma propone uno spettacolo pop di ambientazione interplanetaria del Landestheater Schwaben. L’evento si svolge al Bahnhof Fischbach, a Fischbach.",
+        "en": "This event presents an interplanetary pop revue by Landestheater Schwaben. It takes place at Bahnhof Fischbach in Fischbach.",
+        "de": "Auf dem Programm steht eine interplanetarisch ausgerichtete Pop-Revue des Landestheaters Schwaben. Die Veranstaltung findet im Bahnhof Fischbach in Fischbach statt.",
+        "fr": "Le rendez-vous propose une revue pop à dimension interplanétaire du Landestheater Schwaben. Il se tient au Bahnhof Fischbach, à Fischbach."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:86674",
