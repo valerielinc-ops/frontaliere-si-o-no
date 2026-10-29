@@ -167,7 +167,7 @@ const FrontaliereWizard = lazyRetry(() => import('@/components/guide/Frontaliere
 const TredicesimalCalculator = lazyRetry(() => import('@/components/calculator/TredicesimalCalculator'));
 const WeeklyDigest = lazyRetry(() => import('@/components/community/WeeklyDigest'));
 const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWeek'));
-const AiChatbot = lazyRetry(() => import('@/components/shared/AiChatbot'));
+const JobSearchFloatingButton = lazyRetry(() => import('@/components/shared/JobSearchFloatingButton'));
 const NotFoundSuggestions = lazyRetry(() => import('@/components/shared/NotFoundSuggestions'));
 const SeoDailyBanner = lazyRetry(() => import('@/components/shared/SeoDailyBanner'));
 const QuickLinksGrid = lazyRetry(() => import('@/components/shared/QuickLinksGrid'));
@@ -365,17 +365,6 @@ function safeCompanyFollowPath(value: unknown): string | null {
   return null;
  }
 }
-
-/**
- * The assistant's fallback Google button (the one App.tsx hands to the chat as
- * `onSignIn` when the GIS button is not ready). Its own cta keeps it apart from
- * the rendered button's `ai_chatbot_social`; the component names the surface,
- * so the registration records `ai_chatbot` rather than an anonymous login.
- */
-const AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION = Object.freeze({
- cta: 'ai_chatbot_fallback_google',
- component: 'AiChatbot',
-});
 
 const App: React.FC = () => {
  const { t, locale } = useTranslation();
@@ -1588,28 +1577,6 @@ const App: React.FC = () => {
  cancelled = true;
  };
  }, [activeTab, authLoading, authUser, isPrivilegedAdmin, locale]);
-
- const chatbotGoogleSignIn = async (): Promise<any | null> => {
- // The assistant's fallback button: attributed to the assistant, so its
- // registration names the surface it came from.
- return googleSignIn(AI_CHATBOT_FALLBACK_AUTH_ATTRIBUTION);
- };
-
- const chatbotFacebookSignIn = async (): Promise<any | null> => {
- return facebookSignIn();
- };
-
- const chatbotContinueWithEmail = async (email: string): Promise<boolean> => {
- // The chatbot email gate grants access to the conversation only. It is not a
- // newsletter form and must not create a subscriber record as a side effect.
- const ok = Boolean(email && email.includes('@'));
- if (ok) {
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'success');
- } else {
- Analytics.trackUIInteraction('chatbot', 'auth_gate', 'email_access', 'error');
- }
- return ok;
- };
 
  // Google One Tap: prompt on first user interaction when not signed in.
  // Triggered by pointer/keyboard/scroll instead of a fixed timer so that:
@@ -4403,18 +4370,8 @@ const App: React.FC = () => {
  />
  </SafeLazy>
  )}
- <SafeLazy boundary="ai-chatbot">
- {/* Hide the floating AI assistant on the job-detail page: its bottom-right
- bubble overlaps the job-alert prompt toast and the apply CTA. */}
- {!(activeTab === 'job-board' && jobSlug) && (
- <AiChatbot
- isLoggedIn={!!authUser}
- onSignIn={chatbotGoogleSignIn}
- onSignInFacebook={chatbotFacebookSignIn}
- onContinueWithEmail={chatbotContinueWithEmail}
- hideOnMobile={activeTab === 'blog'}
- />
- )}
+ <SafeLazy boundary="job-search-floating-button">
+ <JobSearchFloatingButton />
  </SafeLazy>
  </div>
  </NavigationContext.Provider>
