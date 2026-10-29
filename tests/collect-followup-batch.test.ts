@@ -435,6 +435,21 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     expect(persistedBucketIssueMatches(unrelatedHeading, 8101)).toBe(false);
   });
 
+  it('legge la Sources dell’item successivo dopo un separatore letterale `\\n\\n`', () => {
+    const serializedBreak = String.raw`\n\n`;
+    const persistedWithEscapedBoundary = {
+      title: 'follow-up(daily:2026-09-09): 2 items — owner/repo',
+      body: [
+        '### FU-2026-09-09-001 — altro item',
+        '- State: open',
+        `- Sources: PR #8102${serializedBreak}### FU-2026-09-09-002 — item per questa PR`,
+        '- State: open',
+        '- Sources: PR #8101',
+      ].join('\n'),
+    };
+    expect(persistedBucketIssueMatches(persistedWithEscapedBoundary, 8101)).toBe(true);
+  });
+
   it('recognizes Markdown bullet markers as persistence claims', () => {
     expect(triageMarkerPersistenceExpectation(
       '## Post-merge follow-up triage\n- Created: daily bucket #42 con 1 item',
