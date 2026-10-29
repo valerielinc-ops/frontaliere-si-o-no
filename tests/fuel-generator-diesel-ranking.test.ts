@@ -25,6 +25,7 @@ import {
   fetchSwissStations,
   fetchSwissStationsByFuel,
   chunkSwissNationalStations,
+  chunkSwissBorderMunicipalities,
   SWISS_TCS_BBOX,
 } from '../scripts/generate-fuel-prices-dataset.mjs';
 
@@ -52,6 +53,18 @@ function runGenerator(rawStations: ReturnType<typeof rawStation>[]) {
 }
 
 describe('generate-fuel-prices-dataset diesel ranking', () => {
+  it('chunks the border comparator independently from the national station feed', () => {
+    const rows = Array.from({ length: 123 }, (_, index) => ({
+      municipality: `M${index}`,
+      province: 'CO',
+      swiss: { optionCount: 1 },
+    }));
+
+    expect(chunkSwissBorderMunicipalities(rows, 50).map((chunk) => chunk.length)).toEqual([50, 50, 23]);
+    expect(chunkSwissBorderMunicipalities([], 50)).toEqual([]);
+    expect(() => chunkSwissBorderMunicipalities(rows, 0)).toThrow('Swiss border chunk size must be a positive integer');
+  });
+
   it('extracts and validates the ECB reference date with the CHF rate', () => {
     const rate = extractEcbRate('<Envelope><Cube time="2026-06-01"><Cube currency="CHF" rate="0.95"/></Cube></Envelope>');
 

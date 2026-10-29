@@ -91,13 +91,30 @@ const TOP_SWISS_OPTIONS = 5;
 const FUEL_DATASET_SCHEMA_VERSION = 2;
 const SWISS_INVENTORY_PATH = path.join(ROOT, 'data', 'fuel-station-inventory.json');
 const SWISS_NATIONAL_FIRESTORE_CHUNK_SIZE = 250;
+const SWISS_BORDER_FIRESTORE_CHUNK_SIZE = 50;
+
+function chunkRows(rows, chunkSize, label) {
+  const input = Array.isArray(rows) ? rows : [];
+  if (!Number.isInteger(chunkSize) || chunkSize <= 0) throw new Error(`${label} chunk size must be a positive integer`);
+  const chunks = [];
+  for (let index = 0; index < input.length; index += chunkSize) chunks.push(input.slice(index, index + chunkSize));
+  return chunks;
+}
 
 export function chunkSwissNationalStations(stations, chunkSize = SWISS_NATIONAL_FIRESTORE_CHUNK_SIZE) {
-  const rows = Array.isArray(stations) ? stations : [];
-  if (!Number.isInteger(chunkSize) || chunkSize <= 0) throw new Error('Swiss national chunk size must be a positive integer');
-  const chunks = [];
-  for (let index = 0; index < rows.length; index += chunkSize) chunks.push(rows.slice(index, index + chunkSize));
-  return chunks;
+  return chunkRows(stations, chunkSize, 'Swiss national');
+}
+
+/**
+ * Keep the legacy border-comparator projection under Firestore's 1 MiB
+ * document limit once the national station feed grows. The national feed has
+ * its own chunks; this projection needs the same treatment independently.
+ */
+export function chunkSwissBorderMunicipalities(
+  municipalities,
+  chunkSize = SWISS_BORDER_FIRESTORE_CHUNK_SIZE,
+) {
+  return chunkRows(municipalities, chunkSize, 'Swiss border');
 }
 
 function readMunicipalities() {
@@ -1529,11 +1546,17 @@ async function writeToFirestore(payload) {
       .map((m) => ({ municipality: m.municipality, province: m.province, italy: m.italy })),
   };
 
-  const switzerlandDoc = {
-    municipalities: payload.municipalities
-      .filter((m) => m.swiss.optionCount > 0)
-      .map((m) => ({ municipality: m.municipality, province: m.province, swiss: m.swiss })),
-  };
+  const borderMunicipalities = payload.municipalities
+    .filter((m) => m.swiss.optionCount > 0)
+    .map((m) => ({ municipality: m.municipality, province: m.province, swiss: m.swiss }));
+  const borderChunks = chunkSwissBorderMunicipalities(borderMunicipalities);
+  const switzerlandDoc = borderChunks.length > 1
+    ? {
+      chunkCount: borderChunks.length,
+      chunkSize: SWISS_BORDER_FIRESTORE_CHUNK_SIZE,
+      municipalityCount: borderMunicipalities.length,
+    }
+    : { municipalities: borderMunicipalities };
 
   // Keep the full station feed in a separate document. The legacy
   // `switzerland` document remains the border-comparator projection; putting
@@ -1567,6 +1590,17 @@ async function writeToFirestore(payload) {
   batch.set(col.doc('metadata'), metadataDoc);
   batch.set(col.doc('italy'), italyDoc);
   batch.set(col.doc('switzerland'), switzerlandDoc);
+  if (borderChunks.length > 1) {
+    for (let index = 0; index < borderChunks.length; index += 1) {
+      const municipalities = borderChunks[index];
+      const chunkId = `switzerland-${String(index).padStart(3, '0')}`;
+      batch.set(col.doc(chunkId), {
+        chunkIndex: index,
+        chunkCount: borderChunks.length,
+        municipalities,
+      });
+    }
+  }
   if (switzerlandNationalDoc) {
     batch.set(col.doc('switzerland-national'), switzerlandNationalDoc);
     for (let index = 0; index < nationalChunkCount; index += 1) {
@@ -1584,7 +1618,9 @@ async function writeToFirestore(payload) {
   }
   await batch.commit();
 
-  console.log('🔥 Firestore: wrote ' + (switzerlandNationalDoc ? `${4 + nationalChunkCount}` : '3') + ' docs (metadata: ' + JSON.stringify(metadataDoc).length + ' B, italy: ' + JSON.stringify(italyDoc).length + ' B, switzerland: ' + JSON.stringify(switzerlandDoc).length + ' B' + (switzerlandNationalDoc ? `, switzerland-national manifest: ${JSON.stringify(switzerlandNationalDoc).length} B, ${nationalChunkCount} station chunks` : '') + ')');
+  const baseDocCount = switzerlandNationalDoc ? 4 : 3;
+  const borderDocCount = borderChunks.length > 1 ? borderChunks.length : 0;
+  console.log('🔥 Firestore: wrote ' + (baseDocCount + borderDocCount + (switzerlandNationalDoc ? nationalChunkCount : 0)) + ' docs (metadata: ' + JSON.stringify(metadataDoc).length + ' B, italy: ' + JSON.stringify(italyDoc).length + ' B, switzerland: ' + JSON.stringify(switzerlandDoc).length + ' B' + (borderChunks.length > 1 ? `, ${borderChunks.length} border-comparator chunks` : '') + (switzerlandNationalDoc ? `, switzerland-national manifest: ${JSON.stringify(switzerlandNationalDoc).length} B, ${nationalChunkCount} station chunks` : '') + ')');
 }
 
 async function main() {
