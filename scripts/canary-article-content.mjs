@@ -48,12 +48,17 @@
  */
 
 import process from "node:process";
+import { pathToFileURL } from "node:url";
+
+import { httpFetchWithRetry } from "./lib/transient-fetch.mjs";
 
 const SITE = "https://frontaliereticino.ch";
 const SITEMAP_URL = `${SITE}/sitemap-blog.xml`;
 const DEFAULT_SAMPLES = 20;
 const MIN_BYTES = 5000;
 const FETCH_TIMEOUT_MS = 15000;
+const FETCH_RETRIES = 2;
+const FETCH_RETRY_BASE_MS = 500;
 const PROBE_CONCURRENCY = 5;
 // Cloudflare in front of the live site returns 403 to requests carrying
 // undici's default (empty) User-Agent from datacenter IPs (GitHub Actions
@@ -76,23 +81,22 @@ function log(line) {
   else console.error(line);
 }
 
-async function fetchWithTimeout(url, init = {}) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
-  try {
-    return await fetch(url, {
-      ...init,
-      headers: {
-        "User-Agent": USER_AGENT,
-        Accept:
-          "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        ...(init.headers || {}),
-      },
-      signal: ctrl.signal,
-    });
-  } finally {
-    clearTimeout(timer);
-  }
+export async function fetchWithTimeout(url, init = {}, retryOptions = {}) {
+  return httpFetchWithRetry(url, {
+    ...init,
+    headers: {
+      "User-Agent": USER_AGENT,
+      Accept:
+        "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      ...(init.headers || {}),
+    },
+  }, {
+    timeout: FETCH_TIMEOUT_MS,
+    retries: FETCH_RETRIES,
+    retryBaseMs: FETCH_RETRY_BASE_MS,
+    label: `article-content canary ${url}`,
+    ...retryOptions,
+  });
 }
 
 async function loadArticleUrls() {
@@ -115,6 +119,18 @@ function pickSample(urls, n) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a.slice(0, k);
+}
+
+export function createFailureReport(error, { timestamp = new Date().toISOString() } = {}) {
+  const reason = String(error?.message || error || "unknown canary failure");
+  return {
+    site: SITE,
+    sampleSize: 0,
+    pass: 0,
+    fail: 1,
+    failures: [{ url: SITEMAP_URL, reason: `sitemap fetch failed: ${reason}` }],
+    timestamp,
+  };
 }
 
 async function probe(url) {
@@ -172,8 +188,10 @@ async function main() {
   const all = await loadArticleUrls();
   log(`[canary-article-content] sitemap=${all.length} URLs`);
   if (all.length === 0) {
+    if (wantsJson) console.log(JSON.stringify(createFailureReport(new Error("sitemap empty")), null, 2));
     console.error("[canary-article-content] FAIL — sitemap empty");
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
   const sample = pickSample(all, samples);
   log(`[canary-article-content] sampling ${sample.length} URLs at concurrency=${PROBE_CONCURRENCY}`);
@@ -206,10 +224,13 @@ async function main() {
   console.log(
     `\x1b[32m[canary-article-content]\x1b[0m PASS — ${passes.length}/${sample.length} articles healthy`,
   );
-  process.exit(0);
+  process.exitCode = 0;
 }
 
-main().catch((err) => {
-  console.error(`[canary-article-content] error: ${err.message || err}`);
-  process.exit(2);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((err) => {
+    if (wantsJson) console.log(JSON.stringify(createFailureReport(err), null, 2));
+    console.error(`[canary-article-content] error: ${err.message || err}`);
+    process.exitCode = 2;
+  });
+}
