@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchLaderachJobUrls,
   fetchLaderachDetailPage,
   parseLaderachListingHtml,
   parseLaderachNextDataJobs,
@@ -57,6 +58,23 @@ const SAMPLE_LISTING_HTML_NO_NEXT = `
 </body></html>
 `;
 
+const SAMPLE_JOB_FEED = {
+  dataFeedElement: [{
+    item: {
+      title: 'Technical IT Architect',
+      url: 'https://laderach.career.softgarden.de/jobs/62367409/Technical-IT-Architect/',
+      identifier: { value: 62367409 },
+      jobLocation: {
+        address: {
+          addressLocality: 'Bilten',
+          addressRegion: 'Glarus',
+          addressCountry: 'CH',
+        },
+      },
+    },
+  }],
+};
+
 const SAMPLE_DETAIL_HTML = `
 <html lang="de"><head>
 <script type="application/ld+json">{"@type":"JobPosting","title":"Technical IT Architect","@context":"http://schema.org/","datePosted":"2026-01-26T15:23:10.105+01:00","description":"<p>Hochwertige frische Schokolade – dafür steht die Schweizer Schokoladenmanufaktur Läderach. Das Familienunternehmen beschäftigt heute gruppenweit über 3000 Menschen.</p><b>Das erwartet dich</b><ul><li>Du entwickelst die technische Zielarchitektur für Plattformen und Cloud Integrationen</li></ul>","jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","postalCode":"8865","addressRegion":"Glarus","streetAddress":"Grabenstrasse 6","addressCountry":"Schweiz","addressLocality":"Bilten"}},"employmentType":"FULL_TIME","hiringOrganization":{"name":"Läderach (Schweiz) AG","@type":"Organization"}}</script>
@@ -75,6 +93,81 @@ const SAMPLE_DETAIL_HTML_MINIMAL = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Läderach job parser', () => {
+  describe('fetchLaderachJobUrls', () => {
+    it('retries transient listing HTTP 500 responses before parsing a later success', async () => {
+      const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+      const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRIES = '2';
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const fetchSpy = vi.spyOn(globalThis, 'fetch')
+        .mockResolvedValueOnce({ ok: false, status: 500 } as Response)
+        .mockResolvedValueOnce({ ok: false, status: 500 } as Response)
+        .mockResolvedValueOnce({ ok: true, status: 200, text: async () => SAMPLE_LISTING_HTML } as Response);
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      try {
+        await expect(fetchLaderachJobUrls()).resolves.toHaveLength(2);
+        expect(fetchSpy).toHaveBeenCalledTimes(3);
+        expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('retry 1/2'));
+      } finally {
+        if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+        else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+        if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+        fetchSpy.mockRestore();
+        warnSpy.mockRestore();
+      }
+    });
+
+    it('uses the first-party structured feed when the HTML listing stays unavailable', async () => {
+      const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+      const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRIES = '0';
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const fetchSpy = vi.spyOn(globalThis, 'fetch')
+        .mockResolvedValueOnce({ ok: false, status: 500 } as Response)
+        .mockResolvedValueOnce({ ok: true, status: 200, json: async () => SAMPLE_JOB_FEED } as Response);
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      try {
+        await expect(fetchLaderachJobUrls()).resolves.toMatchObject([{
+          jobId: '62367409',
+          location: 'Bilten, Glarus, CH',
+        }]);
+        expect(fetchSpy).toHaveBeenCalledTimes(2);
+        expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('trying structured job feed'));
+      } finally {
+        if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+        else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+        if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+        fetchSpy.mockRestore();
+        warnSpy.mockRestore();
+      }
+    });
+
+    it('keeps a persistent listing HTTP 500 as a hard failure after retries', async () => {
+      const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
+      const previousBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRIES = '2';
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 500 } as Response);
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      try {
+        const error = await fetchLaderachJobUrls().catch((value) => value);
+        expect(error).toMatchObject({ status: 500 });
+        expect(error).not.toHaveProperty('retryExhausted');
+        expect(error.message).toMatch(/HTTP 500.*structured feed fallback failed/);
+        expect(fetchSpy).toHaveBeenCalledTimes(6);
+      } finally {
+        if (previousRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+        else process.env.JOBS_CRAWLER_RETRIES = previousRetries;
+        if (previousBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousBaseMs;
+        fetchSpy.mockRestore();
+        warnSpy.mockRestore();
+      }
+    });
+  });
+
   describe('normalizeLaderachJobUrl', () => {
     it('allows only relative or same-origin HTTPS Läderach job routes', () => {
       const path = '/jobs/62367409/Technical-IT-Architect/';

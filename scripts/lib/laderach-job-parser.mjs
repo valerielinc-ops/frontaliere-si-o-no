@@ -11,8 +11,10 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
 import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
+import { fetchWithRetry } from './transient-fetch.mjs';
 
 const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
+const JOB_FEED_URL = 'https://laderach.career.softgarden.de/jobs.json';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -140,6 +142,56 @@ export function parseLaderachNextDataJobs(jobs) {
   return result;
 }
 
+function textValue(value) {
+  if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
+  if (value && typeof value === 'object' && typeof value.name === 'string') return value.name.trim();
+  return '';
+}
+
+function feedLocation(item) {
+  const locations = Array.isArray(item?.jobLocation) ? item.jobLocation : [item?.jobLocation];
+  for (const location of locations) {
+    const address = location?.address || {};
+    const value = [address.addressLocality, address.addressRegion, address.addressCountry]
+      .map(textValue)
+      .filter(Boolean)
+      .join(', ');
+    if (value) return value;
+  }
+  return textValue(item?.location);
+}
+
+/**
+ * Parse Softgarden's structured active-job feed, used when the HTML listing
+ * route is temporarily unavailable. The feed contains the same first-party
+ * detail URLs and enough location data for the normal Swiss-location gate.
+ */
+export function parseLaderachJobFeed(feed) {
+  if (!feed || !Array.isArray(feed.dataFeedElement)) return [];
+  const seen = new Set();
+  const result = [];
+
+  for (const entry of feed.dataFeedElement) {
+    const item = entry?.item;
+    const title = textValue(item?.title);
+    const url = normalizeLaderachJobUrl(item?.url);
+    if (!title || !url || seen.has(url)) continue;
+    seen.add(url);
+    const jobId = textValue(item?.identifier?.value) || url.match(/\/jobs\/(\d+)\//i)?.[1] || '';
+    const location = feedLocation(item);
+    result.push({
+      id: slugify(title),
+      jobId,
+      title,
+      url,
+      location,
+      canton: inferAnyCanton(location) || '',
+      department: '',
+    });
+  }
+  return result;
+}
+
 /**
  * Fallback: parse <a href="/jobs/ID/Slug/"> links from server-rendered HTML.
  */
@@ -229,23 +281,81 @@ export function parseLaderachDetailHtml(html) {
 
 // ── fetch helpers ─────────────────────────────────────────────────────
 
-export async function fetchLaderachJobUrls(timeoutMs = 15_000) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+function terminalHttpError(error, suffix = ' (after retries)') {
+  if (!Number.isFinite(error?.status)) return error;
+  const terminal = new Error(`${error.message}${suffix}`);
+  terminal.status = error.status;
+  return terminal;
+}
+
+async function fetchLaderachJobFeed(timeoutMs) {
   try {
-    const res = await fetch(CAREERS_URL, {
-      headers: { 'User-Agent': UA },
-      signal: controller.signal,
-    });
-    if (!res.ok) {
-      const error = new Error(`HTTP ${res.status} for ${CAREERS_URL}`);
-      error.status = res.status;
-      throw error;
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(JOB_FEED_URL, {
+          headers: { Accept: 'application/json', 'User-Agent': UA },
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const error = new Error(`HTTP ${res.status} for ${JOB_FEED_URL}`);
+          error.status = res.status;
+          error.response = res;
+          throw error;
+        }
+        return parseLaderachJobFeed(await res.json());
+      } finally {
+        clearTimeout(timeout);
+      }
+    }, { label: 'Läderach structured job feed' });
+  } catch (error) {
+    throw terminalHttpError(error);
+  }
+}
+
+export async function fetchLaderachJobUrls(timeoutMs = 15_000) {
+  try {
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(CAREERS_URL, {
+          headers: { 'User-Agent': UA },
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const error = new Error(`HTTP ${res.status} for ${CAREERS_URL}`);
+          error.status = res.status;
+          error.response = res;
+          throw error;
+        }
+        const html = await res.text();
+        return parseLaderachListingHtml(html);
+      } finally {
+        clearTimeout(timeout);
+      }
+    }, { label: 'Läderach listing' });
+  } catch (error) {
+    if (Number.isFinite(error?.status) && error.status >= 500) {
+      const listingError = terminalHttpError(error);
+      console.warn(`⚠️ Läderach listing failed (${error.message}); trying structured job feed.`);
+      try {
+        const feedJobs = await fetchLaderachJobFeed(timeoutMs);
+        if (feedJobs.length > 0) {
+          console.warn(`✅ Läderach structured job feed recovered ${feedJobs.length} listing(s).`);
+          return feedJobs;
+        }
+        throw new Error('structured job feed returned no usable job URLs');
+      } catch (feedError) {
+        const terminal = new Error(
+          `${listingError.message}; structured feed fallback failed: ${feedError?.message || feedError}`,
+        );
+        terminal.status = Number.isFinite(feedError?.status) ? feedError.status : listingError.status;
+        throw terminal;
+      }
     }
-    const html = await res.text();
-    return parseLaderachListingHtml(html);
-  } finally {
-    clearTimeout(timeout);
+    throw error;
   }
 }
 
