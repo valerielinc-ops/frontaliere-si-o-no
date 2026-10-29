@@ -1551,7 +1551,7 @@ describe('index without options keeps the old behaviour (interview prep, follow-
 describe('employer citations versus candidate facts', () => {
   const sources = { text: 'Commercial experience with customer relationships.', answers: '',
     order: 'Sales consultant\nEXAMPLE Group\nCandidate Example',
-    posting: 'La società è solida e dinamica e da oltre 50 anni supporta aziende con soluzioni di trasporto.' };
+    posting: 'EXAMPLE Group è una società solida e dinamica e da oltre 50 anni supporta aziende con soluzioni di trasporto.' };
 
   it('recognizes a canonical employer acronym only in employer-reference wording', () => {
     expect(checkDraftFacts({ coverLetter: 'La visione di EXAMPLE Retail mi interessa.' }, sources).ok).toBe(true);
@@ -1618,5 +1618,16 @@ describe('employer citations versus candidate facts', () => {
     'La società sta cercando un consulente di 50 anni.',
   ])('does not treat a recruiting requirement as employer age: %s', (text) => {
     expect(checkDraftFacts({ coverLetter: text }, sources).ok).toBe(false);
+  });
+});
+
+
+describe('employer age identity binding', () => {
+  it('rejects the same number about a different employer, including two named companies in the posting', () => {
+    const sources = { text: '', order: 'Sales\nAlfa SA\nCandidate', posting: 'La società Beta SA ha 10 anni.' };
+    expect(checkDraftFacts({ coverLetter: 'La società Alfa SA ha 10 anni.' }, sources).unsupported).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'number', token: '10' })]));
+    expect(checkDraftFacts({ coverLetter: 'La società Beta SA ha 10 anni.' }, { ...sources, posting: 'Alfa SA è una società giovane. Beta SA è una società attiva da 10 anni.' }).ok).toBe(false);
+    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Una società ha 10 anni.' }).ok).toBe(false);
+    expect(checkDraftFacts({ coverLetter: 'La società è attiva da 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(true);
   });
 });

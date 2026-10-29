@@ -58,9 +58,24 @@ function sameCanonicalEmployer(sentence, employerName) {
   return names.every((name) => normalize(name) === canonical || (aliases.has(name) && normalize(name) === normalize(name.toUpperCase())));
 }
 
+const CANONICAL_LEGAL_SUFFIX = /\s+(?:SA|AG|GmbH|Sagl|Srl|SRL|SpA|Ltd|Inc|LLC)\.?$/iu;
+const identityKey = value => String(value).trim().replace(CANONICAL_LEGAL_SUFFIX, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+function containsCanonicalIdentity(sentence, employerName) {
+  const canonical = identityKey(employerName);
+  return canonical.length >= 3 && ` ${identityKey(sentence)} `.includes(` ${canonical} `);
+}
+function hasOtherClosedEmployer(sentence, employerName) {
+  const names = /(?:\p{Lu}[\p{L}\p{N}'’.-]*\s+){1,5}(?:SA|AG|GmbH|Sagl|Srl|SRL|SpA|Ltd|Inc|LLC)(?![\p{L}\p{N}])/gu;
+  return [...sentence.matchAll(names)].some(match => !containsCanonicalIdentity(match[0], employerName));
+}
+
 /** A number about the employer's age must cite the canonical employer and same fact in the posting. */
 export function quotedEmployerAge(text, index, posting = '', employerName = '') {
   const age = companyAges(text).find((item) => index >= item.index && index < item.index + item.length);
-  return Boolean(age && sameCanonicalEmployer(age.sentence, employerName)
-    && companyAges(posting).some((item) => item.value === age.value && sameCanonicalEmployer(item.sentence, employerName)));
+  return Boolean(employerName && age && sameCanonicalEmployer(age.sentence, employerName)
+    && !hasOtherClosedEmployer(age.sentence, employerName)
+    && companyAges(posting).some((item) => item.value === age.value
+      && containsCanonicalIdentity(item.sentence, employerName)
+      && !hasOtherClosedEmployer(item.sentence, employerName)
+      && sameCanonicalEmployer(item.sentence, employerName)));
 }
