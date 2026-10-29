@@ -11,7 +11,9 @@ export function sanitizeTelemetryProperties(properties) {
  /** @param {string} value */
  const normalizeReference = (value) => value.replace(/[\t\n\r]/g, '').replace(/^[\u0000-\u0020]+|[\u0000-\u0020]+$/g, '');
  /** @param {string} value */
- const looksLikeUrl = (value) => /^(?:https?:|[\\/]|\.{1,2}[\\/]|[?#])/i.test(normalizeReference(value));
+ const hasUrlPrefix = (value) => /^(?:https?:|[\\/]|\.{1,2}[\\/]|[?#])/i.test(normalizeReference(value));
+ /** @param {string} value */
+ const looksLikeUrl = (value) => hasUrlPrefix(value) || /[?#]/.test(normalizeReference(value));
  const urlField = /(?:url|path|location|referrer|href|src)$/i;
  /** @param {string} value @param {number} [depth] @returns {string} */
  const cleanUrl = (value, depth = 0) => {
@@ -47,13 +49,28 @@ export function sanitizeTelemetryProperties(properties) {
     url.hash = '';
    } else {
     changed = cleanParams(url.searchParams) || changed;
-    if (url.hash.includes('?')) {
-     const cleanedHash = '#' + cleanUrl(url.hash.slice(1), depth + 1);
-     if (cleanedHash !== url.hash) { url.hash = cleanedHash; changed = true; }
-    } else if (url.hash.includes('=')) {
-     const hash = new URLSearchParams(url.hash.slice(1));
-     changed = cleanParams(hash) || changed;
-     url.hash = hash.toString();
+    let fragment = url.hash.slice(1);
+    let encoded = false;
+    // Decode a whole-fragment reference only; query/hash parameter values
+    // must retain their own escaping until URLSearchParams reads them.
+    if (!looksLikeUrl(fragment) && !fragment.includes('=')) {
+     try {
+      const decoded = decodeURIComponent(fragment);
+      if (looksLikeUrl(decoded)) { fragment = decoded; encoded = true; }
+     } catch { /* An ordinary malformed escape does not make the URL unsafe. */ }
+    }
+    let cleanedFragment = fragment;
+    const separator = fragment.search(/[?#]/);
+    const routeReference = separator >= 0 && !fragment.slice(0, separator).includes('=');
+    if (hasUrlPrefix(fragment) || routeReference) {
+     cleanedFragment = cleanUrl(fragment, depth + 1);
+    } else if (fragment.includes('=')) {
+     const hash = new URLSearchParams(fragment);
+     if (cleanParams(hash)) cleanedFragment = hash.toString();
+    }
+    if (cleanedFragment !== fragment) {
+     url.hash = encoded ? encodeURIComponent(cleanedFragment) : cleanedFragment;
+     changed = true;
     }
    }
    url.username = '';

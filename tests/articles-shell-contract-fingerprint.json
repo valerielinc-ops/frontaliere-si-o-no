@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "SHA-256 of SiteShellContract scalars. Re-recorded for userinfo and relative URL telemetry privacy; canonical source must stay byte-equal across site and corpus.",
+  "note": "SHA-256 of SiteShellContract scalars. Re-recorded for bare and fragment URL references in telemetry; canonical source must stay byte-equal across site and corpus.",
   "scalarFields": 22,
-  "sha256": "d06b555e8885f43b0837e118ff8fb879ff13605d4cc108834fa2211f1d1da2e0"
+  "sha256": "84faca672ac1db32b87df677cde235d6174dbfd573af47cd18145492ae004316"
 }
