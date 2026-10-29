@@ -154,6 +154,20 @@ jobs:
           fi
           exit "$SMOKE_RC"
 
+      - name: Check the Functions text fallback catalog
+        if: always()
+        run: |
+          mkdir -p .tmp
+          SERVER_AI_RC=0
+          node scripts/check-server-ai-fallbacks.mjs > .tmp/server-ai-fallbacks.json || SERVER_AI_RC=$?
+          {
+            echo "## Functions text fallback catalog"
+            echo '```json'
+            cat .tmp/server-ai-fallbacks.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$SERVER_AI_RC"
+
       - name: Upload smoke-test artifact
         if: always()
         uses: actions/upload-artifact@v7
@@ -162,6 +176,7 @@ jobs:
           path: |
             .tmp/smoke.json
             .tmp/smoke.log
+            .tmp/server-ai-fallbacks.json
           retention-days: 30
 
       - name: Cleanup Codex auth broker
@@ -192,7 +207,9 @@ jobs:
           **Trigger:** ${{ github.event_name }}
           **Ref:** ${{ github.ref_name }}
 
-          $(cat .tmp/fleet-health.md 2>/dev/null || true)" \
+          $(cat .tmp/fleet-health.md 2>/dev/null || true)
+
+          $(cat .tmp/server-ai-fallbacks.json 2>/dev/null || true)" \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
