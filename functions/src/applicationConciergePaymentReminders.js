@@ -10,7 +10,7 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
-import { bridgeEmailCascadeCredentialsToEnv, getNewsletterSecrets } from './remoteConfigSecrets.js';
+import { bridgeEmailCascadeCredentialsToEnv, getNewsletterSecrets, getAutologinPolicyConfig } from './remoteConfigSecrets.js';
 import { isProviderConfigured, PROVIDERS, sendEmailCascade } from './emailCascade.js';
 import {
   brandButton,
@@ -23,6 +23,8 @@ import {
   renderBrandedEmail,
 } from './assistedApplicationEmailLayout.js';
 import { APPLICATION_CONCIERGE_SERVICES_COLLECTION } from './applicationConciergeConstants.js';
+import { mintAutologinCode, resolveAutologinPolicy } from './lib/autologinCode.js';
+import { makeAuthenticatedUrl } from './lib/newsletterUrls.js';
 import { forensicsFields } from './lib/requestForensics.js';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -62,7 +64,7 @@ const COPY = Object.freeze({
         subject: 'Lascia a noi la parte lenta della candidatura',
         preheader: 'Tu valuti le opportunità. Noi prepariamo il materiale su misura.',
         title: 'Meno moduli, più candidature mirate.',
-        subtitle: 'Application Concierge lavora con te, come un assistente personale.',
+        subtitle: 'Il tuo assistente candidature segue con te ogni passaggio.',
         body: 'Individuiamo le offerte coerenti con il tuo percorso e prepariamo CV e lettera per ciascuna posizione. Tu devi solo dirci quali proposte approvare.',
         highlight: 'Niente candidature inviate alla cieca: ogni proposta passa prima da te.',
         features: ['Dati e documenti calibrati sull’annuncio', 'Nessun profilo da creare sui portali delle aziende', 'Aggiornamenti sugli stati delle candidature'],
@@ -83,7 +85,7 @@ const COPY = Object.freeze({
         preheader: 'Un solo servizio per 30 giorni: tu approvi, noi seguiamo il processo.',
         title: 'Vuoi che cerchiamo le opportunità per te?',
         subtitle: 'Questo è l’ultimo promemoria sul checkout lasciato in sospeso.',
-        body: 'Con il concierge ci invii CV e dati, poi valuti le proposte che troviamo per te. Prepariamo i materiali su misura e seguiamo i passaggi della candidatura che hai approvato.',
+        body: 'Con il tuo assistente candidature ci invii CV e dati, poi valuti le proposte che troviamo per te. Prepariamo i materiali su misura e seguiamo i passaggi della candidatura che hai approvato.',
         highlight: 'Meno tempo sui moduli. Più attenzione alle posizioni giuste per te.',
         features: ['30 giorni di assistenza', 'Fino a 10 posizioni approvate da te', 'Pagamento unico di €39,99, senza rinnovo'],
         cta: 'Vai alla candidatura assistita',
@@ -296,13 +298,18 @@ function paymentReminderUrl(uid, secret) {
   return url.toString();
 }
 
-function conciergeUrl(locale, serviceId) {
+function conciergeUrl(locale, serviceId, autologin) {
   const url = new URL(SERVICE_URLS[locale], 'https://frontaliereticino.ch');
   url.searchParams.set('application_concierge_service_id', serviceId);
   url.searchParams.set('utm_source', 'email');
   url.searchParams.set('utm_medium', 'payment_reminder');
   url.searchParams.set('utm_campaign', 'application_concierge');
-  return url.toString();
+  if (!autologin?.email || !autologin?.autologinCode) return url.toString();
+  return makeAuthenticatedUrl(url.toString(), autologin.email, {
+    autologinCode: autologin.autologinCode,
+    sessionGated: 'concierge payment recovery requires the recipient owner session',
+    utmSource: 'email', utmMedium: 'payment_reminder', utmCampaign: 'application_concierge',
+  });
 }
 
 function metricsHtml(locale) {
@@ -315,12 +322,12 @@ function metricsHtml(locale) {
     + '</tr></table>';
 }
 
-export function buildApplicationConciergePaymentReminderEmail({ day, locale = 'it', serviceId, unsubscribeUrl } = {}) {
+export function buildApplicationConciergePaymentReminderEmail({ day, locale = 'it', serviceId, unsubscribeUrl, autologin = null } = {}) {
   const safeLocale = localeFor(locale);
   const campaign = COPY[safeLocale];
   const copy = campaign.stages[Number(day)];
   if (!copy || !serviceId || !unsubscribeUrl) throw new Error('invalid_application_concierge_payment_reminder');
-  const ctaUrl = conciergeUrl(safeLocale, serviceId);
+  const ctaUrl = conciergeUrl(safeLocale, serviceId, autologin);
   const featureList = `<ul style="margin:0;padding:0 0 0 18px;">${copy.features
     .map((feature) => `<li style="margin:0 0 8px;line-height:1.5;">${escapeHtml(feature)}</li>`)
     .join('')}</ul>`;
@@ -503,15 +510,18 @@ async function processService(db, document, nowMs, newsletterSecret) {
   let deliveryResult = null;
   let providerCallStarted = false;
   try {
+    const policy = resolveAutologinPolicy(await getAutologinPolicyConfig());
+    const autologinCode = mintAutologinCode(claim.email, { secret: newsletterSecret, scheme: policy.mintScheme });
     const email = buildApplicationConciergePaymentReminderEmail({
       day,
       locale: claim.locale,
+      autologin: { email: claim.email, autologinCode },
       serviceId: document.id,
       unsubscribeUrl: paymentReminderUrl(claim.uid, newsletterSecret),
     });
     const unsubscribeUrl = paymentReminderUrl(claim.uid, newsletterSecret);
     const payload = {
-      from: 'Application Concierge · Frontaliere Ticino <confirmation@frontaliereticino.ch>',
+      from: 'Il tuo assistente candidature · Frontaliere Ticino <confirmation@frontaliereticino.ch>',
       to: [claim.email],
       subject: email.subject,
       html: email.html,

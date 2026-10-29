@@ -574,7 +574,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, mintAuthSession = mintNewsletterAuthSession, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, assistedApplicationOrderId = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, mintAuthSession = mintNewsletterAuthSession, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, assistedApplicationOrderId = undefined, applicationConciergeServiceId = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -761,6 +761,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
  ensureAdminApp();
  let uid = null;
  const orderId = String(assistedApplicationOrderId || '').trim();
+ const conciergeId = String(applicationConciergeServiceId || '').trim();
+ if (orderId && conciergeId) return { status: 400, json: { success: false, error: 'ambiguous_payment_recovery' } };
  if (orderId) {
   if (!ASSISTED_APPLICATION_ORDER_ID.test(orderId)) {
    return { status: 400, json: { success: false, error: 'invalid_assisted_application_order' } };
@@ -775,6 +777,24 @@ export async function handleSubscriptionManagement({ action, email, token, local
   // accounts, which is required by the Firestore ownership and payment APIs.
   const ownerRecord = await getAuth().getUser(String(order.userId).trim());
   uid = ownerRecord.uid;
+ } else if (conciergeId) {
+  if (!/^[A-Za-z0-9_-]{1,200}$/.test(conciergeId)) {
+   return { status: 400, json: { success: false, error: 'invalid_application_concierge_service' } };
+  }
+  const snapshot = await db.collection('application_concierge_services').doc(conciergeId).get();
+  const service = snapshot.exists ? snapshot.data() || {} : null;
+  const recipientEmail = String(service?.customerEmail || service?.applicantEmail || '').trim().toLowerCase();
+  if (!service || recipientEmail !== normalizedEmail || !String(service.userId || '').trim()) {
+   return { status: 403, json: { success: false, error: 'invalid_application_concierge_service' } };
+  }
+  // A signed recipient credential proves access; a bare service ID never does.
+  const owner = await getAuth().getUser(String(service.userId).trim());
+  const ownerEmail = String(owner.email || '').trim().toLowerCase();
+  const anonymousOwner = !owner.email && !owner.phoneNumber && !(owner.providerData || []).length;
+  if (owner.disabled || (!anonymousOwner && ownerEmail !== normalizedEmail)) {
+   return { status: 403, json: { success: false, error: 'invalid_application_concierge_service' } };
+  }
+  uid = owner.uid;
  } else {
   try {
    const userRecord = await getAuth().getUserByEmail(normalizedEmail);
