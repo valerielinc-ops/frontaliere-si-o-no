@@ -153,6 +153,7 @@ vi.mock('../functions/src/assistedApplicationCheckout.js', () => ({
 
 vi.mock('../functions/src/assistedApplicationConstants.js', () => ({
   ASSISTED_APPLICATIONS_COLLECTION: 'assisted_applications',
+  ASSISTED_APPLICATION_ORDER_ID_RE: /^[A-Za-z0-9_-]{6,128}$/,
 }));
 
 vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({
