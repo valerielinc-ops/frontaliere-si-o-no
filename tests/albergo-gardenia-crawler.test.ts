@@ -899,6 +899,51 @@ describe('Albergo Gardenia authoritative crawler', () => {
     });
     expect(fetchImpl).toHaveBeenCalledTimes(2);
     expect(sleepImpl).toHaveBeenCalledOnce();
+    expect(new URL(fetchImpl.mock.calls[0][0]).search).toBe('');
+    expect(new URL(fetchImpl.mock.calls[1][0]).search).toBe('?browser=kitesurf');
+  });
+
+  it('switches rendering backend when the Cloudflare browser API itself returns HTTP 415', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const snapshot = {
+      homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+      sitemap: {
+        status: 200,
+        url: ALBERGO_GARDENIA_SITEMAP_URL,
+        body: representativeSitemap(),
+      },
+      pages: [{
+        requestedUrl: sourceUrl,
+        status: 200,
+        url: sourceUrl,
+        body: gardeniaPage(),
+      }],
+    };
+    const escaped = JSON.stringify(snapshot)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce(new Response('', { status: 415 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({
+        success: true,
+        result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+      }), { status: 200 }));
+    const transport = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl,
+      sleepImpl: vi.fn(async () => {}),
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfKey: 'global-key',
+      gardeniaCfEmail: 'owner@example.test',
+    });
+
+    await expect(transport.fetchPage(sourceUrl)).resolves.toMatchObject({
+      ok: true,
+      status: 200,
+      url: sourceUrl,
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(new URL(fetchImpl.mock.calls[1][0]).search).toBe('?browser=kitesurf');
   });
 
   it('does not memoize a failed loadInventory() across fetchPage() calls', async () => {

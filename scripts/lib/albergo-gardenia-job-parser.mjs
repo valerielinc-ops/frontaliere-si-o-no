@@ -29,7 +29,11 @@ export const ALBERGO_GARDENIA_FETCH_BUDGET = Object.freeze({
 });
 export const ALBERGO_GARDENIA_TOTAL_BUDGET_MS = 30 * 60_000;
 const CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS = 105_000;
-const CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS = 2;
+const CLOUDFLARE_BROWSER_RENDERING_BACKENDS = Object.freeze([
+  undefined,
+  'kitesurf',
+]);
+const CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS = CLOUDFLARE_BROWSER_RENDERING_BACKENDS.length;
 const CLOUDFLARE_BROWSER_RENDERING_RETRY_DELAY_MS = 1_000;
 export const ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS = Math.max(
   ...Object.values(ALBERGO_GARDENIA_FETCH_BUDGET).map(({ timeoutMs, retries, retryBaseMs }) =>
@@ -363,7 +367,7 @@ function gardeniaCloudflareInventoryScript() {
  * session and the usual host delay. The returned URLs and every page body are
  * still validated by the source-specific identity and zero-vacancy contract.
  *
- * @param {{ fetchImpl?: typeof fetch, gardeniaCfAccount?: string, gardeniaCfToken?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
+ * @param {{ fetchImpl?: typeof fetch, sleepImpl?: (ms: number) => Promise<void>, gardeniaCfAccount?: string, gardeniaCfToken?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
  */
 export function createAlbergoGardeniaCleanEgressTransport({
   fetchImpl = fetch,
@@ -428,7 +432,7 @@ export function createAlbergoGardeniaCleanEgressTransport({
         }),
         signal: controller.signal,
       });
-      const requestInventory = async () => {
+      const requestInventory = async (browserBackend) => {
         const authAttempts = [];
         if (gardeniaCfToken) {
           authAttempts.push({
@@ -448,10 +452,11 @@ export function createAlbergoGardeniaCleanEgressTransport({
 
         let response;
         for (const [index, attempt] of authAttempts.entries()) {
-          response = await fetchImpl(
+          const endpoint = new URL(
             `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
-            requestOptions(await attempt.getHeaders()),
           );
+          if (browserBackend) endpoint.searchParams.set('browser', browserBackend);
+          response = await fetchImpl(endpoint.toString(), requestOptions(await attempt.getHeaders()));
           const authRejected = response.status === 401 || response.status === 403;
           const hasFallback = index < authAttempts.length - 1;
           if (!authRejected || !hasFallback) break;
@@ -479,13 +484,27 @@ export function createAlbergoGardeniaCleanEgressTransport({
       };
 
       for (let attempt = 1; attempt <= CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS; attempt += 1) {
-        const snapshot = await requestInventory();
+        const browserBackend = CLOUDFLARE_BROWSER_RENDERING_BACKENDS[attempt - 1];
+        let snapshot;
+        try {
+          snapshot = await requestInventory(browserBackend);
+        } catch (error) {
+          const hasAnotherAttempt = attempt < CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS;
+          if (!hasAnotherAttempt || Number(error?.status) !== 415) throw error;
+          console.warn(
+            `  ⚠️ Cloudflare Gardenia browser API returned HTTP 415 on attempt ${attempt}`
+            + '; switching to the alternate rendering backend.',
+          );
+          await sleepImpl(CLOUDFLARE_BROWSER_RENDERING_RETRY_DELAY_MS);
+          continue;
+        }
         const hasWafResponse = gardeniaInventoryHasWafResponse(snapshot);
         const hasAnotherAttempt = attempt < CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS;
         if (!hasWafResponse || !hasAnotherAttempt) return snapshot;
+        const backendLabel = browserBackend ? ` (${browserBackend})` : '';
         console.warn(
           `  ⚠️ Cloudflare Gardenia inventory attempt ${attempt}/${CLOUDFLARE_BROWSER_RENDERING_MAX_ATTEMPTS}`
-          + ' returned an HTTP WAF response; opening a fresh browser session.',
+          + `${backendLabel} returned an HTTP WAF response; switching rendering backend.`,
         );
         await sleepImpl(CLOUDFLARE_BROWSER_RENDERING_RETRY_DELAY_MS);
       }
