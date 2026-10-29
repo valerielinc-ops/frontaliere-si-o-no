@@ -39,14 +39,7 @@ export function repairJobTitleSemanticsInPlace(job) {
  */
 export function repairMigrosServiceCounterTitleInPlace(job) {
   if (!job || typeof job !== 'object') return 0;
-  const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
-  if (sourceLang && !sourceLang.startsWith('de')) return 0;
-  if (!isMigrosEmployer(job)) return 0;
-  const sourceTitles = [job.title, job.titleByLocale?.de]
-    .map((value) => String(value || '').trim())
-    .filter(Boolean);
-  if (!sourceTitles.length || sourceTitles.some((value) => !MIGROS_SERVICE_COUNTER_TITLE.test(value))) return 0;
-
+  if (!migrosServiceCounterTitleSourceLang(job)) return 0;
   const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale
     : (job.titleByLocale = {});
@@ -57,6 +50,20 @@ export function repairMigrosServiceCounterTitleInPlace(job) {
     changed++;
   }
   return changed;
+}
+
+/**
+ * A Migros counter title is German even when `sourceLang` describes a body in
+ * another language or is missing. This title-only hint is safe only when every
+ * populated source-title field matches the complete, employer-anchored phrase.
+ */
+export function migrosServiceCounterTitleSourceLang(job) {
+  if (!job || typeof job !== 'object' || !isMigrosEmployer(job)) return '';
+  const sourceTitles = [job.title, job.titleByLocale?.de]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean);
+  if (!sourceTitles.length || sourceTitles.some((value) => !MIGROS_SERVICE_COUNTER_TITLE.test(value))) return '';
+  return 'de';
 }
 
 /** Repair only observed brand corruptions backed by the original employer copy. */

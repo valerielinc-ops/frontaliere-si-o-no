@@ -40,7 +40,12 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { fillUnsupportedSourceTitleSlots } from './lib/dedicated-crawler-common.mjs';
 import { repairJobTitleSemanticsInPlace } from './lib/job-title-semantic-repair.mjs';
-import { isTitleRepairQueueVerdict, titleRepairQueueLocales, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
+import {
+  isTitleRepairQueueVerdict,
+  titleRepairQueueLocales,
+  titleRepairSourceLang,
+  titleRepairSourceTitle,
+} from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -112,7 +117,7 @@ function readAttemptState() {
 
 function titleFixAttemptKey(file, job, jobIdx, locale) {
   const identity = job.id || job.url || job.slug || `${file}#${jobIdx}`;
-  return `${identity}|${job.sourceLang || 'it'}|${locale}`;
+  return `${identity}|${titleRepairSourceLang(job)}|${locale}`;
 }
 
 function dateMs(value) {
@@ -181,7 +186,7 @@ function codexCanAcceptMoreWork(getCodexStats) {
 function titleFixCandidateContext(job, sourceTitle, locale) {
   return {
     sourceTitle,
-    sourceLang: job.sourceLang || 'it',
+    sourceLang: titleRepairSourceLang(job),
     targetLang: locale,
     targetLocale: locale,
     company: job.company || '',
@@ -273,7 +278,7 @@ export function runTitleFixCandidatePool({
     const sliceData = sliceCache?.get(candidate.file);
     const job = sliceData?.jobs?.[candidate.jobIdx];
     if (!job) return;
-    const sourceLang = job.sourceLang || 'it';
+    const sourceLang = titleRepairSourceLang(job);
     const sourceTitle = titleRepairSourceTitle(job);
     const table = job.titleByLocale || {};
     const existing = String(table[candidate.locale] || '').trim();
