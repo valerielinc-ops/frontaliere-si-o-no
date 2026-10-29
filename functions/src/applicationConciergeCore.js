@@ -10,6 +10,7 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
+import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatus.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -130,6 +131,7 @@ function serializeProposal(doc) {
     childApplicationId: optionalString(data.childApplicationId, 200),
     childApplicationState: optionalString(data.childApplicationState, 60),
     childSubmissionStatus: optionalString(data.childSubmissionStatus, 60),
+    childCandidateStatus: optionalString(data.childCandidateStatus, 40),
     matchScore: Number.isFinite(Number(data.matchScore)) ? Number(data.matchScore) : null,
     matchReasons: Array.isArray(data.matchReasons) ? data.matchReasons.map((value) => boundedString(value, 180)).filter(Boolean).slice(0, 6) : [],
     matchedAt: timestampToIso(data.matchedAt),
@@ -205,7 +207,7 @@ async function loadService(db, serviceId) {
     if (data.status !== 'accepted' || !validId(data.childApplicationId)) return proposal;
     const child = (await db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(data.childApplicationId).get()).data();
     if (child?.userId !== parent.userId || child.parentServiceId !== serviceId || child.parentProposalId !== proposal.id) return proposal;
-    return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data, childApplicationState: child.automationState || null, childSubmissionStatus: child.submissionStatus || null }) };
+    return { id: proposal.id, ref: proposal.ref || proposal, data: () => ({ ...data, childApplicationState: child.automationState || null, childSubmissionStatus: child.submissionStatus || null, childCandidateStatus: candidateStatusForAssistedApplication(child) }) };
   }));
   return { ref, snapshot, proposals: enriched };
 }

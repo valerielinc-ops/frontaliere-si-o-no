@@ -16,6 +16,7 @@ export interface ApplicationConciergeProposal {
   childApplicationId?: string | null;
   childApplicationState?: string | null;
   childSubmissionStatus?: string | null;
+  childCandidateStatus?: string | null;
   matchScore?: number | null;
   matchReasons?: string[];
   matchedAt?: string | null;
