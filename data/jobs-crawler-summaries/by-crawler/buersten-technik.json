@@ -1,7 +1,7 @@
 {
   "key": "buersten-technik",
   "label": "buersten-technik",
-  "generatedAt": "2026-10-29T01:29:21.939Z",
+  "generatedAt": "2026-10-29T09:38:56.533Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4035,
-  "avgDurationMs": 4035,
+  "durationMs": 4301,
+  "avgDurationMs": 4301,
   "durationHistory": [
-    4035
+    4301
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12473242-produktionsmechaniker-in-efz-wattwil-sg-a-b-buersten-technik-ag",
       "source": "buersten-technik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T01:29:08.980Z",
+      "crawledAt": "2026-10-29T09:38:42.134Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "4ca8ad27198ea34c1e91544236ff74871510b07f"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }
