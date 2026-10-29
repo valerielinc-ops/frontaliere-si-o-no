@@ -1176,12 +1176,15 @@ describe('crawler generation state cleanup', () => {
         baseline.crawlers[`update-jobs-${slug}`]?.avgDurationMs ?? baseline.medianDurationMs
       ));
       const baseline4Ms = projectedLaneDurationMs(durations, CRAWLER_GROUP_MAX_PARALLEL);
+      const capped2Ms = projectedLaneDurationMs(durations, 2);
       const capped3Ms = projectedLaneDurationMs(durations, crawlerGroupMaxParallel(group));
       return {
         group,
         members: members.length,
         missingSamples: members.filter((slug: string) => !baseline.crawlers[`update-jobs-${slug}`]).length,
         baseline4Minutes: Number((baseline4Ms / 60_000).toFixed(2)),
+        capped2Minutes: Number((capped2Ms / 60_000).toFixed(2)),
+        under340AtTwoWorkers: capped2Ms <= timeoutMs,
         capped3Minutes: Number((capped3Ms / 60_000).toFixed(2)),
         under340Minutes: capped3Ms <= timeoutMs,
       };
@@ -1191,6 +1194,7 @@ describe('crawler generation state cleanup', () => {
     expect(reports).toHaveLength(2);
     for (const report of reports) {
       expect(report.members).toBe(30);
+      expect(report.under340AtTwoWorkers).toBe(false);
       expect(report.capped3Minutes).toBeGreaterThan(report.baseline4Minutes);
       expect(report.under340Minutes).toBe(true);
     }
