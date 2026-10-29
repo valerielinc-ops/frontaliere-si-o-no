@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
 import type { ReactNode } from 'react';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, ShieldCheck, Sparkles, Target, UploadCloud, XCircle } from 'lucide-react';
 import { useLocale, useTranslation } from '@/services/i18n';
-import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
+import { conciergeServiceHref, conciergeProposalJobHref } from '@/services/applicationConciergeNavigation';
 import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { signInWithCustomAuthToken } from '@/services/authService';
@@ -12,6 +12,7 @@ import { createApplicationConciergeCheckout } from '@/services/applicationConcie
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
+  openApplicationConciergeChildReview,
   acceptApplicationConciergeProposal,
   declineApplicationConciergeProposal,
   recordApplicationConciergeConsent,
@@ -22,6 +23,8 @@ import {
   type ApplicationConciergeProposal,
   type ApplicationConciergeService,
 } from '@/services/applicationConciergeService';
+
+const ChildApplicationReview = lazy(() => import('@/components/community/AssistedApplicationReview'));
 
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
@@ -107,6 +110,10 @@ export default function ApplicationConciergePortal({
     [locale],
   );
   const [service, setService] = useState<ApplicationConciergeService | null>(null);
+  const [childReviewToken, setChildReviewToken] = useState<string | null>(null);
+  const [childReviewError, setChildReviewError] = useState(false);
+  const requestedChildId = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search).get('application_concierge_application_id');
+  const childProposalId = service?.proposals.find(proposal => proposal.status === 'accepted' && proposal.childApplicationId === requestedChildId)?.proposalId || null;
   const [currentUser, setCurrentUser] = useState<any | null>(authUser);
   const [loading, setLoading] = useState(Boolean(serviceId));
   const [busy, setBusy] = useState<string | null>(null);
@@ -264,6 +271,17 @@ export default function ApplicationConciergePortal({
     const translated = t(key);
     return translated === key ? t('jobBoard.concierge.errors.generic') : translated;
   }, [error, t]);
+
+  useEffect(() => {
+    let cancelled = false;
+    setChildReviewToken(null);
+    setChildReviewError(false);
+    if (!requestedChildId || !childProposalId || !serviceId || !currentUser?.getIdToken || authLoading) return;
+    void openApplicationConciergeChildReview(currentUser, serviceId, childProposalId).then(token => {
+      if (!cancelled) setChildReviewToken(token);
+    }).catch(() => { if (!cancelled) setChildReviewError(true); });
+    return () => { cancelled = true; };
+  }, [requestedChildId, childProposalId, serviceId, currentUser, authLoading]);
 
   const startCheckout = useCallback(async (resumeServiceId: string | null = null, automatic = false) => {
     if (checkoutInFlight.current) return;
@@ -502,6 +520,15 @@ export default function ApplicationConciergePortal({
           busy={sumUpPaymentBusy}
         />
       ));
+
+  if (requestedChildId && service && currentUser && !authLoading) {
+    return <div className={`mx-auto max-w-5xl space-y-5 px-4 py-8 ${REPLAY_PRIVATE_CLASS}`} {...REPLAY_PRIVATE_ATTRS}>
+      <a href={conciergeServiceHref(service.serviceId, locale)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">← {t('jobBoard.concierge.backToService')}</a>
+      {!childProposalId || childReviewError ? <p role="alert" className="rounded-xl border border-danger-border bg-danger-subtle p-4 text-danger">{t('jobBoard.concierge.errors.generic')}</p>
+        : childReviewToken ? <Suspense fallback={<p role="status">{t('jobBoard.concierge.loading')}</p>}><ChildApplicationReview token={childReviewToken} /></Suspense>
+        : <p role="status" className="flex items-center gap-2 text-subtle"><Loader2 size={18} className="animate-spin" aria-hidden="true" />{t('jobBoard.concierge.loading')}</p>}
+    </div>;
+  }
 
   if (entry && !serviceId) {
     return (
@@ -785,7 +812,7 @@ export default function ApplicationConciergePortal({
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
                 <div className="mt-5 space-y-3">
                   {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {visibleProposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
+                  {visibleProposals.map((proposal) => <ProposalCard key={proposal.proposalId} serviceId={service.serviceId} locale={locale} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
                 </div>
               </section>
             </div>
@@ -841,7 +868,50 @@ function Notice({ icon, text, tone = 'info' }: { icon: ReactNode; text: string; 
   return <div role="status" className={`flex items-start gap-2 rounded-xl border p-3 text-sm ${styles[tone]}`}>{icon}<span>{text}</span></div>;
 }
 
-function ProposalCard({ proposal, disabled, canAccept, busy, onDecision, t }: { proposal: ApplicationConciergeProposal; disabled: boolean; canAccept: boolean; busy: string | null; onDecision: (proposal: ApplicationConciergeProposal, decision: 'accept' | 'decline') => void; t: (key: string, params?: Record<string, string>) => string }) {
+function ProposalCard({ proposal, serviceId, locale, disabled, canAccept, busy, onDecision, t }: {
+  proposal: ApplicationConciergeProposal; serviceId: string; locale: 'it' | 'en' | 'de' | 'fr'; disabled: boolean; canAccept: boolean; busy: string | null;
+  onDecision: (proposal: ApplicationConciergeProposal, decision: 'accept' | 'decline') => void;
+  t: (key: string, params?: Record<string, string>) => string;
+}) {
   const proposed = proposal.status === 'proposed';
-  return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border"><div className="flex items-start gap-3"><div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div><div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>{proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div><span className={`shrink-0 rounded-full px-2 py-1 text-xs font-bold ${proposed ? 'bg-warning-subtle text-warning' : proposal.status === 'accepted' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span></div>{proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map((reason) => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}{proposed && <div className="mt-4 flex flex-wrap items-center gap-2"><a href={normalizeExternalJobDetailUrl(proposal.jobUrl)} target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a><button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button><button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{busy === `decline:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.decline')}</button></div>}{proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}</article>;
+  const accepted = proposal.status === 'accepted';
+  const [jobHref, setJobHref] = useState<string | null>(null);
+  const [jobLinkError, setJobLinkError] = useState(false);
+  const [linkAttempt, setLinkAttempt] = useState(0);
+  useEffect(() => {
+    const controller = new AbortController();
+    let cancelled = false;
+    setJobHref(null); setJobLinkError(false);
+    if (!proposed) return () => controller.abort();
+    const timer = window.setTimeout(() => { controller.abort(); if (!cancelled) setJobLinkError(true); }, 10_000);
+    void conciergeProposalJobHref(proposal, serviceId, locale, controller.signal).then(href => {
+      if (!controller.signal.aborted) setJobHref(href);
+    }).catch(() => { if (!cancelled) setJobLinkError(true); }).finally(() => window.clearTimeout(timer));
+    return () => { cancelled = true; controller.abort(); window.clearTimeout(timer); };
+  }, [proposed, proposal.jobId, proposal.proposalId, serviceId, locale, linkAttempt]);
+  const state = proposal.childApplicationState;
+  const childKey = state === 'needs_candidate_action' ? 'childNeedsAnswers'
+    : state === 'candidate_review' ? 'childNeedsReview'
+    : state === 'submitted' ? 'childSubmitted'
+    : state === 'owner_takeover' || state === 'owner_review' ? 'childProcessing'
+    : 'childPreparing';
+  return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border">
+    <div className="flex items-start gap-3">
+      <div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div>
+      <div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>
+        {proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div>
+      <span className={`shrink-0 rounded-full px-2 py-1 text-xs font-bold ${proposed ? 'bg-warning-subtle text-warning' : accepted ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span>
+    </div>
+    {proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map(reason => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}
+    {accepted && proposal.childApplicationId && <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-surface-raised p-3">
+      <p className="text-sm font-semibold text-heading">{t(`jobBoard.concierge.${childKey}`)}</p>
+      <a href={conciergeServiceHref(serviceId, locale, proposal.childApplicationId)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-bold text-on-accent hover:bg-accent-strong">{t(`jobBoard.concierge.${state === 'needs_candidate_action' ? 'answerChild' : state === 'candidate_review' ? 'reviewChild' : 'openChild'}`)}<ArrowRight size={16} aria-hidden="true" /></a>
+    </div>}
+    {proposed && <div className="mt-4 flex flex-wrap items-center gap-2">
+      {jobHref ? <a href={jobHref} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a> : jobLinkError ? <button type="button" onClick={() => setLinkAttempt(value => value + 1)} className="inline-flex min-h-[44px] items-center text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.retryJob')}</button> : <span className="text-xs text-subtle">{t('jobBoard.concierge.loading')}</span>}
+      <button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button>
+      <button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{t('jobBoard.concierge.decline')}</button>
+    </div>}
+    {proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}
+  </article>;
 }

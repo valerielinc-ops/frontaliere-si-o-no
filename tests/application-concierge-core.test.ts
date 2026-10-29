@@ -159,6 +159,7 @@ vi.mock('../functions/src/assistedApplicationCvCheck.js', () => ({
   ASSISTED_APPLICATION_STORAGE_BUCKET: 'test-bucket',
 }));
 
+vi.mock('../functions/src/assistedApplicationReviewToken.js', async (original) => ({ ...await original<typeof import('../functions/src/assistedApplicationReviewToken.js')>(), getReviewTokenSecret: vi.fn(async () => 'test-review-secret-for-candidate-access-123456') }));
 const { handleApplicationConcierge } = await import('../functions/src/applicationConciergeCore.js');
 
 function seedService() {
@@ -431,5 +432,39 @@ describe('application concierge candidate API', () => {
     expect(result.status).toBe(200);
     expect((result.body as any).services).toHaveLength(1);
     expect((result.body as any).services[0].serviceId).toBe('service-1');
+  });
+});
+
+
+describe('owned child status and private review access from the service', () => {
+  function acceptedChild(patch: Record<string, unknown> = {}) {
+    const proposal = mocks.documents.get('application_concierge_services/service-1/proposals/proposal-1')!;
+    Object.assign(proposal, { status: 'accepted', childApplicationId: 'child-accepted-1' });
+    mocks.documents.set('assisted_applications/child-accepted-1', {
+      userId: 'candidate-42', paymentStatus: 'paid', parentServiceId: 'service-1', parentProposalId: 'proposal-1',
+      automationState: 'needs_candidate_action', submissionStatus: 'awaiting_upload', ...patch,
+    });
+    mocks.documents.set('assisted_applications/child-accepted-1/automation/flow', { state: 'needs_candidate_action', round: 2 });
+  }
+  const open = () => handleApplicationConcierge({ method: 'POST', body: { action: 'openChildReview', serviceId: 'service-1', proposalId: 'proposal-1' }, get: () => 'Bearer candidate-token' });
+  it('shows the child state and mints access for the current round after an owner check', async () => {
+    acceptedChild();
+    const status = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(status.body.service.proposals[0]).toMatchObject({ childApplicationState: 'needs_candidate_action', childSubmissionStatus: 'awaiting_upload' });
+    const access = await open();
+    expect(access.status).toBe(200);
+    const { verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
+    expect(verifyReviewToken({ secret: 'test-review-secret-for-candidate-access-123456', token: access.body.token })).toMatchObject({ ok: true, orderId: 'child-accepted-1', round: 2 });
+    expect(mocks.verifyCaller).toHaveBeenLastCalledWith(expect.anything(), { checkRevoked: true });
+  });
+  it.each([{ userId: 'different-candidate' }, { parentServiceId: 'different-service' }, { retentionPurgedAt: new Date() }])('does not expose a child outside the owned service or after purge: %j', async patch => {
+    acceptedChild(patch);
+    expect(await open()).toMatchObject({ status: 404, body: { error: 'proposal_not_found' } });
+  });
+  it('allows an owned accepted application to be completed after the proposal window expires', async () => {
+    acceptedChild();
+    const parent = mocks.documents.get('application_concierge_services/service-1')!;
+    Object.assign(parent, { serviceStatus: 'expired', expiresAt: new Date(Date.now() - 86400000) });
+    expect((await open()).status).toBe(200);
   });
 });
