@@ -73,6 +73,7 @@ import {
   titleOffence,
   descriptionOffence,
   genderFormOffence,
+  genderFormSourceLang,
   genderFormTargetResidual,
 } from './mark-mistranslated-jobs.mjs';
 import { QUEUE_AGE_BUCKET_KEYS, jobQueuedAtMs, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
@@ -606,7 +607,7 @@ export function summarizeJobs(
             c.genderFormCohortCandidates.push({
               id,
               beforeSourceTitleHash: sourceTitleHash(job),
-              beforeSourceLang: jobTitleSourceLang(job),
+              beforeSourceLang: genderFormHit.locale,
             });
           }
         }
@@ -619,7 +620,7 @@ export function summarizeJobs(
     if (previouslyGenderFormSample && id) {
       const sampleRecord = previouslyGenderFormSample.get(id);
       const sameSourceTitle = sampleRecord?.beforeSourceTitleHash === sourceTitleHash(job);
-      const sourceLang = jobTitleSourceLang(job);
+      const sourceLang = genderFormSourceLang(job);
       const sameGermanSource = normalizeJobLocale(sampleRecord?.beforeSourceLang) === sourceLang &&
         sourceLang === 'de';
       if (sampleRecord && sameSourceTitle && sameGermanSource && !incomplete && !flagged) {

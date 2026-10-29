@@ -93,6 +93,7 @@ import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import {
   titleLooksUntranslated,
   DEFAULT_JOB_LOCALES,
+  normalizeJobLocale,
 } from './lib/job-locale-utils.mjs';
 import { titleRepairSourceLang, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -192,10 +193,20 @@ export function hasGermanGenderForm(text) {
  * scheduled path from re-flagging the same jobs on every run.
  */
 export function genderFormOffence(job) {
-  const sourceLang = titleRepairSourceLang(job);
+  const sourceLang = genderFormSourceLang(job);
   const sourceTitle = titleRepairSourceTitle(job);
   if (sourceLang !== 'de' || !hasGermanGenderForm(sourceTitle)) return null;
   return { locale: sourceLang, detail: `title ${sourceLang} => masculineGermanTitle` };
+}
+
+/**
+ * Resolve the German gender-form source without accepting an unsupported
+ * sourceLang prefix as evidence from the title detector.
+ */
+export function genderFormSourceLang(job) {
+  const declared = String(job?.sourceLang || '').trim();
+  if (declared && !DEFAULT_JOB_LOCALES.includes(normalizeJobLocale(declared))) return '';
+  return titleRepairSourceLang(job);
 }
 
 /**
@@ -207,7 +218,7 @@ export function genderFormOffence(job) {
  * @returns {boolean}
  */
 export function genderFormTargetResidual(job) {
-  const sourceLocale = titleRepairSourceLang(job);
+  const sourceLocale = genderFormSourceLang(job);
   if (sourceLocale !== 'de') return false;
   const titles = job?.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale
