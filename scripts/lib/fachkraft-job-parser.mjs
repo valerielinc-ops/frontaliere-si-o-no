@@ -622,9 +622,18 @@ async function fetchFachkraftListingSnapshot({
   };
 }
 
+function isGoneDetailError(error) {
+  const status = Number(error?.status);
+  return status === 404 || status === 410;
+}
+
 /**
- * One complete, all-or-nothing source snapshot. A failed detail aborts sibling
- * workers and rejects before the standard pipeline can write a scratch slice.
+ * One complete source snapshot. Transport and parse failures remain
+ * all-or-nothing: they abort sibling workers and reject before the standard
+ * pipeline can write a scratch slice. A source listing that has just gone
+ * away (HTTP 404/410) is different: it is a stale card in the authoritative
+ * index, so dropping that one card is safer than rejecting every still-live
+ * listing (#7134).
  */
 export async function fetchFachkraftSnapshot(options = {}) {
   const runTimeoutMs = boundedInteger(options.runTimeoutMs, FACHKRAFT_FETCH_BUDGET.runTimeoutMs, {
@@ -682,6 +691,7 @@ export async function fetchFachkraftSnapshot(options = {}) {
     let next = 0;
     let completed = 0;
     let qualityDropped = 0;
+    let staleDropped = 0;
     let firstError = null;
     const detailController = new AbortController();
     const detailSignal = combineSignals(runController.signal, detailController.signal);
@@ -703,9 +713,21 @@ export async function fetchFachkraftSnapshot(options = {}) {
           else qualityDropped++;
           completed++;
           if (completed % 100 === 0 || completed === pending.length) {
-            console.log(`[fachkraft] detail progress ${completed}/${pending.length}; quality-dropped=${qualityDropped}`);
+            console.log(
+              `[fachkraft] detail progress ${completed}/${pending.length}; `
+              + `quality-dropped=${qualityDropped}; stale-dropped=${staleDropped}`,
+            );
           }
         } catch (error) {
+          if (isGoneDetailError(error)) {
+            staleDropped++;
+            completed++;
+            console.warn(
+              `⚠️ fachkraft detail ${item.index + 1}/${rows.length} disappeared from the source `
+              + `(HTTP ${error.status}); dropping the stale listing and continuing`,
+            );
+            continue;
+          }
           firstError ||= error;
           detailController.abort(error);
         }
@@ -740,8 +762,9 @@ export async function fetchFachkraftSnapshot(options = {}) {
       detailRequested: pending.length,
       detailCompleted: completed,
       qualityDropped,
+      staleDropped,
       fetchFailures: 0,
-      accounted: listings.length + qualityDropped,
+      accounted: listings.length + qualityDropped + staleDropped,
     });
     if (audit.accounted !== audit.discovered) {
       throw new Error(`fachkraft snapshot accounting mismatch: ${audit.accounted}/${audit.discovered}`);
