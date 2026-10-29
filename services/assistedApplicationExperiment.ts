@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Analytics } from './analytics';
-import { getConfigValue } from './firebase';
+import { getConfigValue, getPublicConfigValue } from './firebase';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/functions/src/assistedApplicationConstants.js';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { isLikelyBot } from './botPatterns';
@@ -449,6 +449,7 @@ export interface AssistedApplicationLayoutVariantResult {
   experimentId: string;
   variant: AssistedApplicationLayoutVariant;
   ready: boolean;
+  active: boolean;
 }
 
 /**
@@ -458,31 +459,35 @@ export interface AssistedApplicationLayoutVariantResult {
 export function useAssistedApplicationLayoutVariant(enabled = true): AssistedApplicationLayoutVariantResult {
   const [variant, setVariant] = useState<AssistedApplicationLayoutVariant>('control');
   const [ready, setReady] = useState(!enabled);
+  const [active, setActive] = useState(false);
   const [assignmentEnabled, setAssignmentEnabled] = useState(enabled);
 
   useEffect(() => {
     if (!enabled) {
       setVariant('control');
       setReady(true);
+      setActive(false);
       setAssignmentEnabled(false);
       return undefined;
     }
 
     setVariant('control');
     setReady(false);
+    setActive(false);
     setAssignmentEnabled(true);
 
     let cancelled = false;
     const assign = async () => {
       const distinctId = getLayoutAssignmentDistinctId();
-      const configured = await getConfigValue(ASSISTED_APPLICATION_LAYOUT_VARIANT_RC_KEY).catch(() => 'control');
+      const configured = await getPublicConfigValue(ASSISTED_APPLICATION_LAYOUT_VARIANT_RC_KEY).catch(() => null);
       if (cancelled) return;
-      const normalized = configured.trim().toLowerCase();
+      const normalized = String(configured ?? '').trim().toLowerCase();
       const forced = normalizeAssistedApplicationLayoutVariant(normalized);
       const resolved = normalized === 'auto'
         ? resolveAssistedApplicationLayoutVariant(distinctId || '')
         : forced ?? 'control';
       setVariant(resolved);
+      setActive(configured !== null && (normalized === 'auto' || forced !== null));
       setReady(true);
     };
 
@@ -494,11 +499,13 @@ export function useAssistedApplicationLayoutVariant(enabled = true): AssistedApp
 
   const effectiveVariant = assignmentEnabled === enabled ? variant : 'control';
   const effectiveReady = assignmentEnabled === enabled ? ready : !enabled;
+  const effectiveActive = assignmentEnabled === enabled ? active : false;
 
   return {
     experimentId: ASSISTED_APPLICATION_LAYOUT_EXPERIMENT_ID,
     variant: effectiveVariant,
     ready: effectiveReady,
+    active: effectiveActive,
   };
 }
 

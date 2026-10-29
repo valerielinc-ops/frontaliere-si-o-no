@@ -2504,13 +2504,14 @@ function buildAssistedApplicationJobContext(
  variant: AssistedApplicationVariant,
  copyVariant: AssistedApplicationCopyVariant,
  layoutVariant: AssistedApplicationLayoutVariant,
+ layoutExperimentActive: boolean,
 ) {
  return {
   variant,
   jobId: String(job.id),
   companyId: String(job.companyKey || job.company || 'unknown'),
   copy_variant: copyVariant,
-  layout_variant: layoutVariant,
+  ...(layoutExperimentActive ? { layout_variant: layoutVariant } : {}),
  };
 }
 
@@ -2562,6 +2563,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const {
   variant: assistedApplicationLayoutVariant,
   ready: assistedApplicationLayoutVariantReady,
+  active: assistedApplicationLayoutExperimentActive,
  } = useAssistedApplicationLayoutVariant(!shouldBypassAssistedApplicationExperiment);
  const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment
   ? 'control'
@@ -2574,6 +2576,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    variant,
    assistedApplicationCopyVariant,
    assistedApplicationLayoutVariant,
+   assistedApplicationLayoutExperimentActive,
   )
  );
  const assistedApplicationJobDetails = (job: JobListing): AssistedApplicationJobDetails => ({
@@ -8040,7 +8043,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     category: String(job.category || '').trim() || null,
     experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
     copyVariant: assistedApplicationCopyVariant,
-    layoutVariant: assistedApplicationLayoutVariant,
+    ...(assistedApplicationLayoutExperimentActive ? { layoutVariant: assistedApplicationLayoutVariant } : {}),
     successUrl: currentPath,
     cancelUrl: currentPath,
    }, user);
@@ -8685,6 +8688,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     variant={assistedApplicationVariant}
     copyVariant={assistedApplicationCopyVariant}
     layoutVariant={assistedApplicationLayoutVariant}
+    layoutExperimentActive={assistedApplicationLayoutExperimentActive}
     jobDetails={assistedApplicationJobDetails(assistedApplicationJob)}
     onChooseExternal={handleAssistedExternal}
     onChoosePaid={handleAssistedPaid}
@@ -8709,6 +8713,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobTitle={sanitizeJobTitle(jobDisplayTitle(rewardedApplicationJob))}
     copyVariant={assistedApplicationCopyVariant}
     layoutVariant={assistedApplicationLayoutVariant}
+    layoutExperimentActive={assistedApplicationLayoutExperimentActive}
     jobDetails={assistedApplicationJobDetails(rewardedApplicationJob)}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}

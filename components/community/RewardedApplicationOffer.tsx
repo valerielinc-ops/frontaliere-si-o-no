@@ -235,6 +235,8 @@ export interface RewardedApplicationOfferProps {
   copyVariant?: AssistedApplicationCopyVariant;
   /** Layout arm used by the paid choice shown before the Offerwall. */
   layoutVariant?: AssistedApplicationLayoutVariant;
+  /** False until the public Remote Config allowlist assigns the layout test. */
+  layoutExperimentActive?: boolean;
   /** Real job metadata, formatted by JobBoard and shared across all arms. */
   jobDetails?: AssistedApplicationJobDetails;
   /**
@@ -312,6 +314,7 @@ export default function RewardedApplicationOffer({
   jobTitle,
   copyVariant = 'handled_for_you',
   layoutVariant = 'control',
+  layoutExperimentActive = false,
   jobDetails,
   onContinue,
   onUnavailable,
@@ -409,7 +412,7 @@ export default function RewardedApplicationOffer({
     ad_unit: ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
     format: REWARDED_WEB_AD_FORMAT,
     copy_variant: copyVariant,
-    layout_variant: layoutVariant,
+    ...(layoutExperimentActive ? { layout_variant: layoutVariant } : {}),
     ms_since_click: Math.round(now() - openedAtRef.current),
     ...(info?.requestId ? { request_id: info.requestId } : {}),
   });
@@ -1295,6 +1298,7 @@ export default function RewardedApplicationOffer({
         jobTitle={jobTitle}
         copyVariant={copyVariant}
         layoutVariant={layoutVariant}
+        layoutExperimentActive={layoutExperimentActive}
         jobDetails={jobDetails}
         variant="rewarded_ad"
         trigger={CHOICE_TRIGGER}

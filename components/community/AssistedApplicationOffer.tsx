@@ -26,6 +26,8 @@ export interface AssistedApplicationOfferProps {
   copyVariant?: AssistedApplicationCopyVariant;
   /** Layout arm; safe default preserves the current offer structure. */
   layoutVariant?: AssistedApplicationLayoutVariant;
+  /** False until the public Remote Config allowlist assigns the layout test. */
+  layoutExperimentActive?: boolean;
   /** Real, localized job facts from the selected listing. */
   jobDetails?: AssistedApplicationJobDetails;
   onChooseExternal: () => void;
@@ -54,6 +56,7 @@ export default function AssistedApplicationOffer({
   variant,
   copyVariant = 'handled_for_you',
   layoutVariant = 'control',
+  layoutExperimentActive = false,
   jobDetails,
   onChooseExternal,
   onChoosePaid,
@@ -93,7 +96,7 @@ export default function AssistedApplicationOffer({
     trackAssistedApplicationEvent('assisted_application_offer_viewed', {
       variant,
       copy_variant: copyVariant,
-      layout_variant: layoutVariant,
+      ...(layoutExperimentActive ? { layout_variant: layoutVariant } : {}),
       jobId,
       companyId,
       price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -101,7 +104,7 @@ export default function AssistedApplicationOffer({
     });
     // Viewed once per job; the trigger is the one it opened with.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [companyId, copyVariant, jobId, layoutVariant, variant]);
+  }, [companyId, copyVariant, jobId, layoutExperimentActive, layoutVariant, variant]);
 
   useEffect(() => {
     if (embedded) return undefined;

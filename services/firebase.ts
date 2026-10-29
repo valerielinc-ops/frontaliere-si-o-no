@@ -799,6 +799,15 @@ export async function getConfigValue(key: string): Promise<string> {
  return '';
 }
 
+/** Return a public Remote Config value only when the allowlist delivered it. */
+export async function getPublicConfigValue(key: string): Promise<string | null> {
+ await initRemoteConfig();
+ if (publicConfig && Object.prototype.hasOwnProperty.call(publicConfig, key)) {
+ return publicConfig[key];
+ }
+ return null;
+}
+
 /**
  * Forza il refresh della configurazione pubblica (bypassa la cache edge).
  */
