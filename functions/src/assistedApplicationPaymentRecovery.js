@@ -273,6 +273,7 @@ async function renewStripeCheckout({ db, orderId, order, stripe, nowMs }) {
     jobTitle: boundedString(order.jobTitle, 300),
     experimentVariant: boundedString(order.experimentVariant, 80) || 'control',
     copyVariant: boundedString(order.copyVariant, 80) || 'control',
+    layoutVariant: boundedString(order.layoutVariant, 80) || 'control',
     userId: boundedString(order.userId, 200),
     locale: boundedString(order.locale, 10) || 'it',
   };

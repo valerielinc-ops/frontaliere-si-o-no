@@ -39,7 +39,9 @@ import {
 import { isAdsConsentMessageOnScreen, onAdsConsentChange, reopenAdsConsentMessage } from '@/services/adsConsent';
 import {
   trackAssistedApplicationEvent,
+  type AssistedApplicationJobDetails,
   type AssistedApplicationCopyVariant,
+  type AssistedApplicationLayoutVariant,
 } from '@/services/assistedApplicationExperiment';
 import { useTranslation } from '@/services/i18n';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
@@ -231,6 +233,12 @@ export interface RewardedApplicationOfferProps {
   jobTitle: string;
   /** Copy arm used by the paid choice shown before the Offerwall. */
   copyVariant?: AssistedApplicationCopyVariant;
+  /** Layout arm used by the paid choice shown before the Offerwall. */
+  layoutVariant?: AssistedApplicationLayoutVariant;
+  /** False until the public Remote Config allowlist assigns the layout test. */
+  layoutExperimentActive?: boolean;
+  /** Real job metadata, formatted by JobBoard and shared across all arms. */
+  jobDetails?: AssistedApplicationJobDetails;
   /**
    * Opens the employer in a new tab. It may resolve `false` when no new tab
    * took the foreground (a popup the browser blocked): the offer then shows
@@ -304,7 +312,10 @@ export default function RewardedApplicationOffer({
   companyId,
   companyName,
   jobTitle,
-  copyVariant = 'control',
+  copyVariant = 'handled_for_you',
+  layoutVariant = 'control',
+  layoutExperimentActive = false,
+  jobDetails,
   onContinue,
   onUnavailable,
   onDismiss,
@@ -401,6 +412,7 @@ export default function RewardedApplicationOffer({
     ad_unit: ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
     format: REWARDED_WEB_AD_FORMAT,
     copy_variant: copyVariant,
+    ...(layoutExperimentActive ? { layout_variant: layoutVariant } : {}),
     ms_since_click: Math.round(now() - openedAtRef.current),
     ...(info?.requestId ? { request_id: info.requestId } : {}),
   });
@@ -1285,6 +1297,9 @@ export default function RewardedApplicationOffer({
         companyName={companyName}
         jobTitle={jobTitle}
         copyVariant={copyVariant}
+        layoutVariant={layoutVariant}
+        layoutExperimentActive={layoutExperimentActive}
+        jobDetails={jobDetails}
         variant="rewarded_ad"
         trigger={CHOICE_TRIGGER}
         externalLabel={t('jobBoard.assisted.externalCtaVideo')}

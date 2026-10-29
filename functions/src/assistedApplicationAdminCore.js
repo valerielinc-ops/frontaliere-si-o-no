@@ -213,6 +213,7 @@ function serializeOrder(doc, cvUrl) {
     parentServiceId: boundedString(data.parentServiceId, 200) || null,
     experimentVariant: boundedString(data.experimentVariant, 80),
     copyVariant: boundedString(data.copyVariant, 80) || 'control',
+    layoutVariant: boundedString(data.layoutVariant, 80) || 'control',
     paymentStatus: boundedString(data.paymentStatus, 40),
     amountTotal: amountFor(data),
     currency: boundedString(data.currency || 'eur', 12).toUpperCase(),

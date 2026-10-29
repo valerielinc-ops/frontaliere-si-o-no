@@ -39,9 +39,12 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // allowlisted getPublicConfig endpoint. `auto` preserves the deterministic
  // assisted-application split when no global arm is forced.
  ASSISTED_APPLICATION_EXPERIMENT_VARIANT: 'auto',
- // Copy-only test for the assisted-application offer. The safe default keeps
- // the current message until Remote Config explicitly enables `auto`.
- ASSISTED_APPLICATION_COPY_VARIANT: 'control',
+ // Keep the approved "Delega completa" message fixed while the layout test
+ // runs. The copy is also pinned in Remote Config for already-open clients.
+ ASSISTED_APPLICATION_COPY_VARIANT: 'handled_for_you',
+ // Layout test defaults to the current card until Remote Config explicitly
+ // enables the four-arm deterministic assignment.
+ ASSISTED_APPLICATION_LAYOUT_VARIANT: 'control',
  // Candidate answer AI check: disabled locally and until the Remote Config
  // rollout is explicitly activated. The server applies the same fail-closed
  // gate; this value only describes the allowlisted client activation state.
@@ -794,6 +797,15 @@ export async function getConfigValue(key: string): Promise<string> {
 
  firebaseWarn(`⚠️ Unknown config key "${key}" requested`);
  return '';
+}
+
+/** Return a public Remote Config value only when the allowlist delivered it. */
+export async function getPublicConfigValue(key: string): Promise<string | null> {
+ await initRemoteConfig();
+ if (publicConfig && Object.prototype.hasOwnProperty.call(publicConfig, key)) {
+ return publicConfig[key];
+ }
+ return null;
 }
 
 /**

@@ -1,5 +1,8 @@
 import { CREATE_ASSISTED_APPLICATION_CHECKOUT_URL } from './functionsBase';
-import type { AssistedApplicationCopyVariant } from './assistedApplicationExperiment';
+import type {
+  AssistedApplicationCopyVariant,
+  AssistedApplicationLayoutVariant,
+} from './assistedApplicationExperiment';
 
 export interface AssistedApplicationCheckoutInput {
   jobId: string;
@@ -34,6 +37,8 @@ export interface AssistedApplicationCheckoutInput {
   experimentVariant: 'control' | 'assisted_application' | 'offerwall_fallback';
   /** Copy arm shown in the paid offer; persisted for post-payment attribution. */
   copyVariant?: AssistedApplicationCopyVariant;
+  /** Layout arm shown in the paid offer; persisted for post-payment attribution. */
+  layoutVariant?: AssistedApplicationLayoutVariant;
   successUrl: string;
   cancelUrl: string;
   requestKey?: string;
