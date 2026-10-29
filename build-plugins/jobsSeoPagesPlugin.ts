@@ -3199,20 +3199,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   }
  }
  const titleLocaleQualifiersByJob = new WeakMap<object, Partial<Record<(typeof JOB_SEO_LOCALES)[number], string>>>();
- for (const job of validJobs) {
-  const title = jobDisplayTitle(job);
-  const location = String(job.location || '').trim();
-  for (const locale of localeList) {
-   const baseTitle = composeJobPageTitle(title, String(job.company || ''), location, locale, undefined, undefined, (s) => esc(s).length);
-   const mask = crossLocaleTitleMasks.get(titleCompareKey(baseTitle)) || 0;
-   if ((mask & (mask - 1)) === 0) continue;
-   const primaryLocale = localeList.find((candidate) => (mask & (localeTitleBits.get(candidate) || 0)) !== 0);
-   if (!primaryLocale || locale === primaryLocale) continue;
-   const qualifiers = titleLocaleQualifiersByJob.get(job) || {};
-   qualifiers[locale] = titleLocaleLabels[locale];
-   titleLocaleQualifiersByJob.set(job, qualifiers);
-  }
- }
  const titleLocaleQualifierForJob = (job: any, locale: string): string =>
   titleLocaleQualifiersByJob.get(job)?.[locale as (typeof JOB_SEO_LOCALES)[number]] || '';
  const combineTitleDisambiguators = (...tokens: Array<string | undefined>): string | undefined => {
@@ -3237,8 +3223,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const locale of localeList) {
  const lt = jobDisplayTitle(job);
  const loc = String(job.location || '').trim();
- const localeQualifier = titleLocaleQualifierForJob(job, locale);
- const baseTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, localeQualifier || undefined, undefined, (s) => esc(s).length);
+ const unqualifiedTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, undefined, (s) => esc(s).length);
+ const mask = crossLocaleTitleMasks.get(titleCompareKey(unqualifiedTitle)) || 0;
+ let localeQualifier = '';
+ if ((mask & (mask - 1)) !== 0) {
+  const primaryLocale = localeList.find((candidate) => (mask & (localeTitleBits.get(candidate) || 0)) !== 0);
+  if (primaryLocale && locale !== primaryLocale) {
+   localeQualifier = titleLocaleLabels[locale];
+   const qualifiers = titleLocaleQualifiersByJob.get(job) || {};
+   qualifiers[locale] = localeQualifier;
+   titleLocaleQualifiersByJob.set(job, qualifiers);
+  }
+ }
+ const baseTitle = localeQualifier
+  ? composeJobPageTitle(lt, String(job.company || ''), loc, locale, localeQualifier, undefined, (s) => esc(s).length)
+  : unqualifiedTitle;
  const bucket = titleCollisionByLocale[locale];
  bucket.set(baseTitle, (bucket.get(baseTitle) || 0) + 1);
  const noCityTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, localeQualifier || undefined, true, (s) => esc(s).length);
