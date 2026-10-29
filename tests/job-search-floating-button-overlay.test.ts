@@ -56,4 +56,19 @@ describe('job-search floating button overlay guard', () => {
 
     expect(hasVisibleBottomOverlay()).toBe(false);
   });
+
+  it('ignores overlays that cannot receive interaction', () => {
+    const ariaHidden = document.createElement('div');
+    ariaHidden.dataset.bottomOverlay = 'aria-hidden';
+    ariaHidden.setAttribute('aria-hidden', 'true');
+    setRect(ariaHidden, { top: 640, bottom: 740, width: 390, height: 100 });
+
+    const inert = document.createElement('div');
+    inert.dataset.bottomOverlay = 'inert';
+    inert.style.pointerEvents = 'none';
+    setRect(inert, { top: 640, bottom: 740, width: 390, height: 100 });
+    document.body.append(ariaHidden, inert);
+
+    expect(hasVisibleBottomOverlay()).toBe(false);
+  });
 });
