@@ -256,10 +256,12 @@ import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
  shouldOfferPaidFallback,
  trackAssistedApplicationEvent,
- useAssistedApplicationCopyVariant,
+ useAssistedApplicationLayoutVariant,
  useAssistedApplicationVariant,
  useOfferwallPaidFallback,
+ type AssistedApplicationJobDetails,
  type AssistedApplicationCopyVariant,
+ type AssistedApplicationLayoutVariant,
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 import { hasTransientUserActivation, watchNewTabOpened } from '@/services/userActivation';
@@ -2500,13 +2502,15 @@ async function upsertJobGateSubscriber(
 function buildAssistedApplicationJobContext(
  job: JobListing,
  variant: AssistedApplicationVariant,
- copyVariant?: AssistedApplicationCopyVariant,
+ copyVariant: AssistedApplicationCopyVariant,
+ layoutVariant: AssistedApplicationLayoutVariant,
 ) {
  return {
   variant,
   jobId: String(job.id),
   companyId: String(job.companyKey || job.company || 'unknown'),
-  ...(copyVariant ? { copy_variant: copyVariant } : {}),
+  copy_variant: copyVariant,
+  layout_variant: layoutVariant,
  };
 }
 
@@ -2553,18 +2557,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  } = useAssistedApplicationVariant(
   !alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
  );
+ // The approved "Delega completa" copy stays identical in all layout arms.
+ const assistedApplicationCopyVariant: AssistedApplicationCopyVariant = 'handled_for_you';
  const {
-  variant: assistedApplicationCopyVariant,
-  ready: assistedApplicationCopyVariantReady,
- } = useAssistedApplicationCopyVariant(!shouldBypassAssistedApplicationExperiment);
+  variant: assistedApplicationLayoutVariant,
+  ready: assistedApplicationLayoutVariantReady,
+ } = useAssistedApplicationLayoutVariant(!shouldBypassAssistedApplicationExperiment);
  const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment
   ? 'control'
   : alwaysRewardedApplicationSurface
   ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
  const assistedApplicationJobContext = (job: JobListing, variant: AssistedApplicationVariant) => (
-  buildAssistedApplicationJobContext(job, variant, assistedApplicationCopyVariant)
+  buildAssistedApplicationJobContext(
+   job,
+   variant,
+   assistedApplicationCopyVariant,
+   assistedApplicationLayoutVariant,
+  )
  );
+ const assistedApplicationJobDetails = (job: JobListing): AssistedApplicationJobDetails => ({
+  location: String(job.location || '').trim()
+   ? (isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : formatJobLocation(job.location, job.canton))
+   : null,
+  salary: formatSalary(job, locale),
+  contract: job.sourceContract || job.employmentType || job.contractType
+   ? t(contractTranslationKey(job))
+   : null,
+  description: String(job.descriptionByLocale?.[locale] ?? job.description ?? '').trim(),
+ });
  // Paid 1,99 € offer as the fallback of an Offerwall that could not load
  // (owner decision 2026-09-29), only on the rewarded job-board surface.
  const offerwallPaidFallbackEnabled = useOfferwallPaidFallback(
@@ -2573,7 +2594,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const assistedApplicationVariantReady = (shouldBypassAssistedApplicationExperiment
   || alwaysRewardedApplicationSurface
   || configuredAssistedApplicationVariantReady)
-  && (shouldBypassAssistedApplicationExperiment || assistedApplicationCopyVariantReady);
+  && (shouldBypassAssistedApplicationExperiment || assistedApplicationLayoutVariantReady);
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
  const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
@@ -8019,6 +8040,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     category: String(job.category || '').trim() || null,
     experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
     copyVariant: assistedApplicationCopyVariant,
+    layoutVariant: assistedApplicationLayoutVariant,
     successUrl: currentPath,
     cancelUrl: currentPath,
    }, user);
@@ -8662,6 +8684,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobTitle={sanitizeJobTitle(jobDisplayTitle(assistedApplicationJob))}
     variant={assistedApplicationVariant}
     copyVariant={assistedApplicationCopyVariant}
+    layoutVariant={assistedApplicationLayoutVariant}
+    jobDetails={assistedApplicationJobDetails(assistedApplicationJob)}
     onChooseExternal={handleAssistedExternal}
     onChoosePaid={handleAssistedPaid}
     onClose={() => {
@@ -8684,6 +8708,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyName={rewardedApplicationJob.company}
     jobTitle={sanitizeJobTitle(jobDisplayTitle(rewardedApplicationJob))}
     copyVariant={assistedApplicationCopyVariant}
+    layoutVariant={assistedApplicationLayoutVariant}
+    jobDetails={assistedApplicationJobDetails(rewardedApplicationJob)}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => {

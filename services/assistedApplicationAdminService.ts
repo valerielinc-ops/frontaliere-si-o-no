@@ -175,6 +175,7 @@ export interface AssistedApplicationAdminOrder {
   parentServiceId?: string | null;
   experimentVariant: AssistedApplicationVariant | string;
   copyVariant?: string;
+  layoutVariant?: string;
   paymentStatus: string;
   amountTotal: number | null;
   currency: string;
