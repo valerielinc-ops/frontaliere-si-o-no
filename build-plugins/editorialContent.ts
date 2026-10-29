@@ -3531,7 +3531,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>Eurostat misura i livelli nazionali dei prezzi usando le parità di potere d'acquisto: nel 2025 l'indice complessivo dei consumi delle famiglie era circa 171 in Svizzera e 100 in Italia (UE=100). È un indicatore nazionale, non un confronto degli affitti di Lugano e Milano. Per il tuo budget confronta canoni e spese locali omogenei e aggiornati. <a href=\"https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf\">Fonte Eurostat</a>.</p>",
  '<h2 class="s-FoMhWG">Quando vale la pena fare il frontaliere — matrice decisionale</h2>',
  "<p>La convenienza dipende da stipendio netto, imposte, contributi, assicurazione, cambio, costo e durata del tragitto, orari e bisogni familiari. Non esiste una distanza o una soglia di risparmio valida per tutti: confronta un'offerta concreta con le tue spese reali e verifica il regime fiscale personale.</p>",
- '<p class="s-tTvoK-">Fonti dati: Ufficio federale di statistica (UFS) rilevazione salari 2024, ISTAT rilevazione retributive 2024, contrattazione collettiva CCNL italiana, CCL settoriali ticinesi, elaborazione interna Frontaliere Ticino.</p>',
+ '<p class="s-tTvoK-">Riferimenti: <a href="https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf">Eurostat, livelli dei prezzi 2025</a> · <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">AFC, FAQ fiscali per frontalieri</a> · <a href="https://documenti.camera.it/leg19/dossier/testi/FI0093.htm">Legge 83/2023, art. 4</a>. La pagina non riporta medie salariali: confronta offerte e statistiche con perimetri omogenei.</p>',
  ],
  en: [
  '<h2 class="s-FoMhWG">Switzerland vs Italy salaries — the 2026 picture</h2>',
@@ -3544,7 +3544,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>Eurostat measures national price levels using purchasing power parities: in 2025 the overall household-consumption index was about 171 in Switzerland and 100 in Italy (EU=100). This is a national indicator, not a comparison of rents in Lugano and Milan. For a personal budget, compare current, like-for-like local rents and expenses. <a href=\"https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf\">Eurostat source</a>.</p>",
  '<h2 class="s-FoMhWG">When is frontaliere commuting worth it — decision matrix</h2>',
  "<p>Whether commuting is worthwhile depends on net salary, taxes, contributions, insurance, exchange rate, travel cost and time, work schedule and family needs. There is no distance or savings threshold that applies to everyone; compare an actual offer with your real expenses and tax situation.</p>",
- '<p class="s-tTvoK-">Data sources: Swiss Federal Statistical Office (UFS) 2024 wage survey, ISTAT 2024 earnings survey, Italian CCNL, Ticino CCL, Frontaliere Ticino internal elaboration.</p>',
+ '<p class="s-tTvoK-">References: <a href="https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf">Eurostat, 2025 price levels</a> · <a href="https://www.estv.admin.ch/dam/it/sd-web/Zbr5Jb-40aYm/int-laender-it-faktenblatt-faqs-it.pdf">Swiss Federal Tax Administration, frontier-worker tax FAQ (Italian)</a> · <a href="https://documenti.camera.it/leg19/dossier/testi/FI0093.htm">Italian Law 83/2023, Article 4</a>. This page does not report average salaries; compare offers and statistics on a like-for-like basis.</p>',
  ],
  de: [
  '<h2 class="s-FoMhWG">Löhne Schweiz vs Italien — das Bild 2026</h2>',
@@ -3557,6 +3557,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>Eurostat misst nationale Preisniveaus anhand von Kaufkraftparitäten: 2025 lag der Gesamtindex des privaten Haushaltskonsums bei ungefähr 171 für die Schweiz und 100 für Italien (EU=100). Das ist ein nationaler Indikator und kein Vergleich der Mieten in Lugano und Mailand. Für das eigene Budget sollten aktuelle und vergleichbare lokale Mieten und Ausgaben gegenübergestellt werden. <a href=\"https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf\">Eurostat-Quelle</a>.</p>",
  '<h2 class="s-FoMhWG">Wann lohnt sich der Grenzgänger-Status</h2>',
  "<p>Ob sich das Pendeln lohnt, hängt von Nettolohn, Steuern, Beiträgen, Versicherung, Wechselkurs, Fahrtkosten und -zeit, Arbeitsplan und Familienbedarf ab. Es gibt keine für alle gültige Entfernungs- oder Einsparschwelle. Vergleichen Sie ein konkretes Angebot mit Ihren tatsächlichen Ausgaben und Ihrer Steuersituation.</p>",
+ '<p class="s-tTvoK-">Quellen: <a href="https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf">Eurostat, Preisniveau 2025</a> · Eidgenössische Steuerverwaltung, Steuer-FAQ für Grenzgänger (auf Italienisch) · italienisches Gesetz 83/2023, Art. 4. Diese Seite nennt keine durchschnittlichen Löhne.</p>',
  ],
  fr: [
  '<h2 class="s-FoMhWG">Salaires Suisse vs Italie — tableau 2026</h2>',
@@ -3569,6 +3570,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  "<p>Eurostat mesure les niveaux nationaux des prix à l'aide des parités de pouvoir d'achat : en 2025, l'indice global de consommation des ménages était d'environ 171 en Suisse et 100 en Italie (UE=100). Cet indicateur national ne compare pas les loyers de Lugano et Milan. Pour votre budget, comparez des loyers et dépenses locales homogènes et à jour. <a href=\"https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf\">Source Eurostat</a>.</p>",
  '<h2 class="s-FoMhWG">Quand ça vaut la peine d\'être frontalier</h2>',
  "<p>La pertinence du trajet dépend du salaire net, des impôts, cotisations, assurances, du change, du coût et du temps de déplacement, des horaires et des besoins familiaux. Aucune distance ou économie minimale ne vaut pour tout le monde : comparez une offre concrète à vos dépenses et à votre situation fiscale.</p>",
+ '<p class="s-tTvoK-">Références : <a href="https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/2376.pdf">Eurostat, niveaux des prix 2025</a> · Administration fédérale des contributions, FAQ fiscales pour frontaliers (en italien) · loi italienne 83/2023, art. 4. Cette page ne présente pas de salaires moyens.</p>',
  ],
  },
 
