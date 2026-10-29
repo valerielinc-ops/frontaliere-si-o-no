@@ -47,7 +47,9 @@
  *   node scripts/canary-article-content.mjs --json       # JSON summary on stdout
  */
 
+import { realpathSync } from "node:fs";
 import process from "node:process";
+import { pathToFileURL } from "node:url";
 
 const SITE = "https://frontaliereticino.ch";
 const SITEMAP_URL = `${SITE}/sitemap-blog.xml`;
@@ -55,6 +57,8 @@ const DEFAULT_SAMPLES = 20;
 const MIN_BYTES = 5000;
 const FETCH_TIMEOUT_MS = 15000;
 const PROBE_CONCURRENCY = 5;
+const RETRY_ATTEMPTS = 3; // 1 initial request + 2 retries for transient failures.
+const RETRY_BACKOFF_MS = 1000;
 // Cloudflare in front of the live site returns 403 to requests carrying
 // undici's default (empty) User-Agent from datacenter IPs (GitHub Actions
 // runners). A descriptive UA — same convention as probe-5xx.mjs and
@@ -76,11 +80,11 @@ function log(line) {
   else console.error(line);
 }
 
-async function fetchWithTimeout(url, init = {}) {
+async function fetchWithTimeout(url, init = {}, fetchImpl = fetch) {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
   try {
-    return await fetch(url, {
+    return await fetchImpl(url, {
       ...init,
       headers: {
         "User-Agent": USER_AGENT,
@@ -95,8 +99,45 @@ async function fetchWithTimeout(url, init = {}) {
   }
 }
 
-async function loadArticleUrls() {
-  const res = await fetchWithTimeout(SITEMAP_URL);
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryableStatus(status) {
+  return status >= 500 && status < 600;
+}
+
+async function fetchWithRetry(
+  url,
+  init = {},
+  {
+    fetchImpl = fetch,
+    sleepImpl = sleep,
+    retryAttempts = RETRY_ATTEMPTS,
+    retryBackoffMs = RETRY_BACKOFF_MS,
+  } = {},
+) {
+  const attempts = Math.max(1, retryAttempts);
+  let lastError;
+
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const res = await fetchWithTimeout(url, init, fetchImpl);
+      if (!isRetryableStatus(res.status) || attempt === attempts) return res;
+      // Release an intermediate error response before opening the next attempt.
+      if (res.body) await res.body.cancel().catch(() => {});
+    } catch (err) {
+      lastError = err;
+      if (attempt === attempts) throw err;
+    }
+    await sleepImpl(retryBackoffMs);
+  }
+
+  throw lastError || new Error(`fetch failed after ${attempts} attempts`);
+}
+
+async function loadArticleUrls({ fetchImpl = fetch, sleepImpl = sleep } = {}) {
+  const res = await fetchWithRetry(SITEMAP_URL, {}, { fetchImpl, sleepImpl });
   if (!res.ok) throw new Error(`sitemap fetch ${res.status}`);
   const xml = await res.text();
   const urls = [];
@@ -117,10 +158,14 @@ function pickSample(urls, n) {
   return a.slice(0, k);
 }
 
-async function probe(url) {
+async function probe(url, { fetchImpl = fetch, sleepImpl = sleep } = {}) {
   let res;
   try {
-    res = await fetchWithTimeout(url, { redirect: "manual" });
+    res = await fetchWithRetry(
+      url,
+      { redirect: "manual" },
+      { fetchImpl, sleepImpl },
+    );
   } catch (err) {
     return { url, ok: false, reason: `fetch error: ${err.message || err}` };
   }
@@ -153,13 +198,13 @@ async function probe(url) {
   return { url, ok: true, bytes };
 }
 
-async function probeWithPool(urls, concurrency) {
+async function probeWithPool(urls, concurrency, options = {}) {
   const results = [];
   let cursor = 0;
   const lanes = Array.from({ length: concurrency }, async () => {
     while (cursor < urls.length) {
       const i = cursor++;
-      const r = await probe(urls[i]);
+      const r = await probe(urls[i], options);
       results.push(r);
     }
   });
@@ -167,49 +212,84 @@ async function probeWithPool(urls, concurrency) {
   return results;
 }
 
-async function main() {
-  log(`[canary-article-content] sitemap=${SITEMAP_URL}`);
-  const all = await loadArticleUrls();
-  log(`[canary-article-content] sitemap=${all.length} URLs`);
-  if (all.length === 0) {
-    console.error("[canary-article-content] FAIL — sitemap empty");
-    process.exit(1);
-  }
-  const sample = pickSample(all, samples);
-  log(`[canary-article-content] sampling ${sample.length} URLs at concurrency=${PROBE_CONCURRENCY}`);
-  const results = await probeWithPool(sample, PROBE_CONCURRENCY);
-  const failures = results.filter((r) => !r.ok);
-  const passes = results.filter((r) => r.ok);
-  const summary = {
+function buildErrorSummary(err) {
+  return {
     site: SITE,
-    sampleSize: sample.length,
-    pass: passes.length,
-    fail: failures.length,
-    failures: failures.map((f) => ({ url: f.url, reason: f.reason, bytes: f.bytes })),
+    sampleSize: 0,
+    pass: 0,
+    fail: 0,
+    failures: [],
+    error: err instanceof Error ? err.message : String(err || "unknown error"),
     timestamp: new Date().toISOString(),
   };
-  if (wantsJson) {
-    console.log(JSON.stringify(summary, null, 2));
-  } else {
-    log("");
-    log(`Results: ${passes.length} pass, ${failures.length} fail (sample=${sample.length})`);
-    for (const f of failures) {
-      log(`  FAIL ${f.url} — ${f.reason}${f.bytes !== undefined ? ` (body=${f.bytes}B)` : ""}`);
-    }
-  }
-  if (failures.length > 0) {
-    console.error(
-      `\x1b[31m[canary-article-content]\x1b[0m FAIL — ${failures.length}/${sample.length} articles regressed`,
-    );
-    process.exit(1);
-  }
-  console.log(
-    `\x1b[32m[canary-article-content]\x1b[0m PASS — ${passes.length}/${sample.length} articles healthy`,
-  );
-  process.exit(0);
 }
 
-main().catch((err) => {
-  console.error(`[canary-article-content] error: ${err.message || err}`);
-  process.exit(2);
-});
+async function main() {
+  try {
+    log(`[canary-article-content] sitemap=${SITEMAP_URL}`);
+    const all = await loadArticleUrls();
+    log(`[canary-article-content] sitemap=${all.length} URLs`);
+    if (all.length === 0) {
+      console.error("[canary-article-content] FAIL — sitemap empty");
+      process.exit(1);
+    }
+    const sample = pickSample(all, samples);
+    log(`[canary-article-content] sampling ${sample.length} URLs at concurrency=${PROBE_CONCURRENCY}`);
+    const results = await probeWithPool(sample, PROBE_CONCURRENCY);
+    const failures = results.filter((r) => !r.ok);
+    const passes = results.filter((r) => r.ok);
+    const summary = {
+      site: SITE,
+      sampleSize: sample.length,
+      pass: passes.length,
+      fail: failures.length,
+      failures: failures.map((f) => ({ url: f.url, reason: f.reason, bytes: f.bytes })),
+      timestamp: new Date().toISOString(),
+    };
+    if (wantsJson) {
+      console.log(JSON.stringify(summary, null, 2));
+    } else {
+      log("");
+      log(`Results: ${passes.length} pass, ${failures.length} fail (sample=${sample.length})`);
+      for (const f of failures) {
+        log(`  FAIL ${f.url} — ${f.reason}${f.bytes !== undefined ? ` (body=${f.bytes}B)` : ""}`);
+      }
+    }
+    if (failures.length > 0) {
+      console.error(
+        `\x1b[31m[canary-article-content]\x1b[0m FAIL — ${failures.length}/${sample.length} articles regressed`,
+      );
+      process.exit(1);
+    }
+    console.log(
+      `\x1b[32m[canary-article-content]\x1b[0m PASS — ${passes.length}/${sample.length} articles healthy`,
+    );
+    process.exit(0);
+  } catch (err) {
+    const summary = buildErrorSummary(err);
+    if (wantsJson) console.log(JSON.stringify(summary, null, 2));
+    console.error(`[canary-article-content] error: ${summary.error}`);
+    process.exit(2);
+  }
+}
+
+export {
+  buildErrorSummary,
+  fetchWithRetry,
+  isRetryableStatus,
+  loadArticleUrls,
+  probe,
+};
+
+if (
+  process.argv[1] &&
+  (() => {
+    try {
+      return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+    } catch {
+      return false;
+    }
+  })()
+) {
+  main();
+}
