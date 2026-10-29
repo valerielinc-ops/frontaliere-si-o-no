@@ -13,6 +13,7 @@ import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import {
   APPLICATION_CONCIERGE_MAX_POSITIONS,
+  APPLICATION_CONCIERGE_MATCHING_VERSION,
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
   acceptedPositionsCount,
   serviceIsActive,
@@ -22,7 +23,7 @@ const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-ind
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
 const MIN_MATCH_SCORE = 28;
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v6-full-requirements';
+export { APPLICATION_CONCIERGE_MATCHING_VERSION } from './applicationConciergeConstants.js';
 export const APPLICATION_CONCIERGE_REQUIREMENTS_VERIFIED = true;
 const LOCATION_MATCH_POINTS = Object.freeze({
   sameLocality: 8,

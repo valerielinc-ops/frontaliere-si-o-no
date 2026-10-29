@@ -1,14 +1,25 @@
 import { describe, expect, it } from 'vitest';
+import { APPLICATION_CONCIERGE_MATCHING_VERSION } from '../functions/src/applicationConciergeConstants.js';
 import { CONCIERGE_DAY_MS as DAY, conciergeRefreshDue, conciergeRenewalOffer } from '../functions/src/applicationConciergeLifecyclePolicy.js';
 
 const now = Date.now();
 function active(overrides = {}) {
   return { paymentStatus: 'paid', serviceStatus: 'active', cvStorageKey: 'private/cv.pdf', consentedAt: now - 4 * DAY,
     expiresAt: now + DAY, paidAt: now - 29 * DAY, matchingCompletedAt: now - 3 * DAY,
-    acceptedPositionsCount: 2, maxPositions: 10, ...overrides };
+    acceptedPositionsCount: 2, maxPositions: 10, matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION, ...overrides };
 }
 
 describe('three-day proposal refresh', () => {
+  it('revalidates legacy proposals immediately while retaining cap, expiry and active-run guards', () => {
+    const legacy = active({ matchingStatus: 'complete', matchingVersion: 'legacy-version', matchingCompletedAt: now });
+    expect(conciergeRefreshDue(legacy, now)).toBe(true);
+    expect(conciergeRefreshDue({ ...legacy, matchingVersion: APPLICATION_CONCIERGE_MATCHING_VERSION }, now)).toBe(false);
+    for (const patch of [{ acceptedPositionsCount: 10 }, { expiresAt: now }, { consentedAt: null }, { paymentStatus: 'refunded' }]) {
+      expect(conciergeRefreshDue({ ...legacy, ...patch }, now)).toBe(false);
+    }
+    expect(conciergeRefreshDue({ ...legacy, matchingStatus: 'running', matchingStartedAt: now - 60_000 }, now)).toBe(false);
+  });
+
   it('runs at the interval only for eligible services', () => {
     expect(conciergeRefreshDue(active(), now)).toBe(true);
     for (const patch of [{ acceptedPositionsCount: 10 }, { expiresAt: now }, { paymentStatus: 'refunded' },
@@ -19,7 +30,7 @@ describe('three-day proposal refresh', () => {
 });
 
 it('recovers a stale matching run only after the bounded lease', () => {
-  expect(conciergeRefreshDue(active({ matchingStatus: 'running', matchingStartedAt: now - 11 * 60 * 1000 }), now)).toBe(true);
+  expect(conciergeRefreshDue(active({ matchingStatus: 'running', matchingStartedAt: now - 11 * 60 * 1000, matchingCompletedAt: now }), now)).toBe(true);
   expect(conciergeRefreshDue(active({ matchingStatus: 'running', matchingStartedAt: now - 5 * 60 * 1000 }), now)).toBe(false);
 });
 
