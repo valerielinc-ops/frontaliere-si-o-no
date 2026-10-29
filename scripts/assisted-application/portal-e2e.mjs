@@ -323,8 +323,9 @@ function fakePortal() {
     if (route === 'POST /rhb-submit') {
       const body = await readBody(req);
       state.rhbApplications.push({ hasCv: /filename="CV_/.test(body) });
-      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+      return redirect('/rhb-offer');
     }
+    if (route === 'GET /rhb-offer') return send(page('Pflegefachperson', '<p role="status">Ihre persönlichen Angaben wurden gespeichert. Ihre Bewerbung auf das Stellenangebot TEST-42 – Pflegefachperson (80%) wurde erfolgreich gesendet.</p><h1>Pflegefachperson 80%</h1><a href="/rhb-form">Auf diese Stelle bewerben</a>'));
     if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
     // jobs.coopjobs.ch as seen on 2026-10-02: «Später bewerben» (a bookmark by
     // e-mail) comes first, a Usercentrics banner in a shadow root covers the
@@ -1086,7 +1087,8 @@ async function main() {
       return fakeCodex(request);
     } });
     check('RhB Senden submits once with the required CV without agentic button discovery',
-      rhb.event.type === 'submit_succeeded' && state.rhbApplications.length === 1 && state.rhbApplications[0].hasCv);
+      rhb.event.type === 'submit_succeeded' && rhb.evidence.finalOutcomes?.at(-1) === 'confirmed'
+      && state.rhbApplications.length === 1 && state.rhbApplications[0].hasCv);
     const sixApplyUrl = `${base}/talentcommunity/apply/1448418433/?locale=en_US`;
     const sixPostingUrl = `${base}/job/Zurich-Senior-IT-Manager/1448418433/`;
     const sixJob = { title: 'Senior IT Manager - CIO Office', company: 'SIX Group' };
@@ -1154,7 +1156,7 @@ async function main() {
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
     check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
-      && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0);
+      && asked.length === 1 && asked[0].applicationQuestion === 'Geburtsdatum *' && Boolean(asked[0].question) && asked[0].type === 'date' && state.widgetApplications.length === 0);
     // Review of #10707: Codex failing inside the fallback ends in the owner's handoff, not a failed run.
     const failing = async (request) => {
       if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
