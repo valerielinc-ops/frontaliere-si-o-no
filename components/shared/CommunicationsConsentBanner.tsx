@@ -283,6 +283,7 @@ export default function CommunicationsConsentBanner({
       role="dialog"
       aria-modal="false"
       aria-labelledby="comms-consent-title"
+      data-bottom-overlay="communications-consent"
       className="fixed inset-x-0 bottom-0 z-[60] border-t border-edge/50 bg-surface/98 backdrop-blur px-4 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+4.5rem)] md:pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] shadow-[0_-4px_16px_rgba(0,0,0,0.12)]"
     >
       <div className="mx-auto flex max-w-4xl flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">

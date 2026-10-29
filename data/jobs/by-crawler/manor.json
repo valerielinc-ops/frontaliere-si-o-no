@@ -1135,7 +1135,6 @@
         "fr": "Employé·e de caisse 40%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-1b116c96e0f2",
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -1604,7 +1603,6 @@
         "fr": "Employé·e de vente en parfumerie 80%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-fa7e4f30ad6d",
       "salaryMin": 63200,
       "salaryMax": 97200,
@@ -5092,7 +5090,6 @@
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
         "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve",
-        "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-763269553f",
         "collaboratore-del-supermercato-carcuterie-e-formaggi-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
       ],
@@ -5101,7 +5098,6 @@
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve",
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
           "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve",
-          "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-763269553f",
           "collaboratore-del-supermercato-carcuterie-e-formaggi-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
         ],
@@ -14442,7 +14438,6 @@
         "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
         "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve-dc4bad",
         "collaboratore-di-supermercato-carcuteries-dages-50-manor-ag-geneve",
-        "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-2fc36d19a1",
         "collaboratore-di-supermercato-carcuteries-dage-50-manor-ag-geneve",
         "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
       ],
@@ -14453,7 +14448,6 @@
           "manor-collaborateur-trice-supermarche-charcuteries-fromages-50-geneve-2",
           "collaboratore-trice-supermercato-salumi-formaggi-50-manor-ag-geneve-dc4bad",
           "collaboratore-di-supermercato-carcuteries-dages-50-manor-ag-geneve",
-          "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve-2fc36d19a1",
           "collaboratore-di-supermercato-carcuteries-dage-50-manor-ag-geneve",
           "collaborateur-trice-supermarche-charcuteries-fromages-50-manor-ag-geneve"
         ],
@@ -17424,7 +17418,6 @@
           "manor-collaborateur-trice-visual-merchandising-non-food-60-80-morges-collaborateurtrice-visual-merchandising"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:59:04.738Z",
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -18698,7 +18691,6 @@
         "manor-collaborateur-trice-logistique-50-geneve-d3fyo7",
         "manor-collaborateur-trice-logistique-50-geneve",
         "collaboratore-logistico-50-manor-ag-geneve-73a02c",
-        "collaborateur-trice-logistique-50-manor-ag-geneve-2909e8113f",
         "collaboratore-logistico-50-manor-ag-geneve",
         "collaborateur-trice-logistique-50-manor-ag-geneve"
       ],
@@ -18711,7 +18703,6 @@
           "manor-collaborateur-trice-logistique-50-geneve-d3fyo7",
           "manor-collaborateur-trice-logistique-50-geneve",
           "collaboratore-logistico-50-manor-ag-geneve-73a02c",
-          "collaborateur-trice-logistique-50-manor-ag-geneve-2909e8113f",
           "collaboratore-logistico-50-manor-ag-geneve",
           "collaborateur-trice-logistique-50-manor-ag-geneve"
         ],
@@ -20782,7 +20773,6 @@
         "manor-collaborateur-trice-logistique-50-geneve",
         "manor-collaborateur-trice-logistique-50-geneve-2",
         "collaboratore-logistico-50-manor-ag-geneve",
-        "collaborateur-trice-logistique-50-manor-ag-geneve-adb731fc85",
         "collaboratore-logistico-50-manor-ag-geneve-f53774",
         "collaborateur-trice-logistique-50-manor-ag-geneve"
       ],
@@ -20791,7 +20781,6 @@
           "manor-collaborateur-trice-logistique-50-geneve",
           "manor-collaborateur-trice-logistique-50-geneve-2",
           "collaboratore-logistico-50-manor-ag-geneve",
-          "collaborateur-trice-logistique-50-manor-ag-geneve-adb731fc85",
           "collaboratore-logistico-50-manor-ag-geneve-f53774",
           "collaborateur-trice-logistique-50-manor-ag-geneve"
         ],
@@ -25963,7 +25952,7 @@
       "slugByLocale": {
         "it": "dipendenti-in-cassa-40-manor-ag-hinwil-c1eb3a",
         "en": "employeecash-register-40-manor-ag-hinwil",
-        "de": "manor-mitarbeiter-in-kasse-40-hinwil",
+        "de": "manor-mitarbeiter-in-kasse-40-hinwil-tmq49k",
         "fr": "employe-e-caisse-40-manor-ag-hinwil"
       },
       "titleByLocale": {
@@ -25979,6 +25968,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-kasse-40-hinwil"
+        ],
+        "de": [
           "manor-mitarbeiter-in-kasse-40-hinwil"
         ]
       },

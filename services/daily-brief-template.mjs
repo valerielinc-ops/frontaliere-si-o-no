@@ -98,6 +98,7 @@
  *   still get the full light design from the inline styles.
  */
 
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { nlNormLocale, localizedUrl } from '../functions/src/lib/newsletterUrlPaths.js';
 import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 // Data-controller identity for the footer (#5675) — see that file's header
@@ -764,7 +765,7 @@ export function buildDailyBriefEmail(data) {
 </style>
 </head>
 <body class="fb-page" style="margin:0;padding:0;background:${PAGE_BG};color:${TEXT}">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">${esc(preheader)}</div>
+${renderEmailPreview(preheader)}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fb-page" style="background:${PAGE_BG};color:${TEXT}">
   <tr><td align="center" style="padding:24px 12px">
     <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="fb-card" style="width:600px;max-width:100%;background:${CARD_BG};color:${TEXT};border-radius:16px;overflow:hidden">

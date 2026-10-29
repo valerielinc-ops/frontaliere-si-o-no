@@ -1,3 +1,4 @@
+import { renderEmailPreview } from '../../functions/src/lib/emailPreview.js';
 import { dataControllerFooterLine } from '../../functions/src/lib/dataControllerIdentity.js';
 import { renderJobCard } from '../../services/newsletter/jobCard.mjs';
 import { renderRecommendedBlock } from '../../services/newsletter/recommendedBlock.mjs';
@@ -136,7 +137,7 @@ export function buildApplicationIntentReminderEmailHtml({
     campaign: 'application-intent-reminder',
   });
   return `<!DOCTYPE html><html lang="${escapeHtml(locale)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>${escapeHtml(s.heroTitle)} — Frontaliere Ticino</title><style>body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}table{border-collapse:collapse;}@media only screen and (max-width:620px){.outer-table{width:100%!important;}.section-pad{padding-left:16px!important;padding-right:16px!important;}}</style></head><body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${escapeHtml(s.preheader)}&nbsp;&#8203;&#8203;&#8203;&#8203;</div>
+  ${renderEmailPreview(s.preheader)}
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};"><tr><td align="center"><table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
     <tr><td style="background:${BRAND_DARK};padding:14px 28px;"><table width="100%" cellpadding="0" cellspacing="0"><tr><td style="font-size:15px;font-weight:800;color:${WHITE};"><span style="color:${BRAND_ORANGE};">●</span> Frontaliere Ticino</td><td align="right" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;"><a href="${escapeHtml(manageUrl)}" style="color:${BRAND_ORANGE};text-decoration:none;">${escapeHtml(s.manageCta)}</a></td></tr></table></td></tr>
     <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad"><div style="font-size:22px;font-weight:800;color:${WHITE};">${escapeHtml(s.heroTitle)}</div><div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:6px;">${escapeHtml(s.heroDesc)}</div></td></tr>

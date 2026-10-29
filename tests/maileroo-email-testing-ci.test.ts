@@ -6,18 +6,42 @@ import {
   buildTestCases,
   resolveTestingApiKey,
   validateAssertionsReport,
+  validateContentAnalysis,
 } from '../scripts/ci/maileroo-email-testing.mjs';
 
 describe('Maileroo Email Testing CI fixtures', () => {
   const cases = buildTestCases({ recipient: 'frontaliere-ci@example.invalid', runId: 'unit-test' });
 
   it('renders the production transactional, newsletter and application-reminder builders', () => {
-    expect(cases.map((testCase) => testCase.name)).toEqual(['transactional-confirmation', 'newsletter-weekly', 'application-intent-reminder']);
+    expect(cases.map((testCase) => testCase.name)).toEqual(['transactional-confirmation', 'newsletter-weekly', 'application-intent-reminder', 'welcome', 'assisted-application-retry']);
     for (const testCase of cases) {
       expect(testCase.html).toContain('frontaliereticino.ch');
       expect(testCase.text).not.toMatch(/<\/?[a-z][^>]*>/i);
       expect(testCase.headers['X-Frontaliere-CI-Run']).toContain('unit-test');
     }
+  });
+
+  it('renders visible previews without invisible filler or zero-sized fonts', () => {
+    for (const testCase of cases) {
+      expect(testCase.subject).toContain(testCase.subjectContains);
+      expect(testCase.html).not.toMatch(/display\s*:\s*none|font-size\s*:\s*0(?:px)?[;"']|[\u200b\u200c\u034f]|&#(?:8203|847);|&zwnj;/i);
+      // Some email clients and antispam parsers cannot render gradients. Keep
+      // the explicit base color so text never falls back onto a white canvas.
+      for (const [style] of testCase.html.matchAll(/style="[^"]*background-image:linear-gradient[^\"]*"/g)) {
+        expect(style).toMatch(/background:\s*#[0-9a-f]{3,6};/i);
+      }
+    }
+    expect(cases[3].html).toContain('class="email-preview"');
+    expect(cases[4].html).toContain('class="email-preview"');
+  });
+
+  it('fails the live check when either HTML antispam heuristic regresses', () => {
+    for (const symbol of ['ZERO_FONT', 'MANY_INVISIBLE_PARTS']) {
+      expect(() => validateContentAnalysis({ rspamd: { status: 'ok', symbols: [symbol] } }, 'fixture')).toThrow(symbol);
+    }
+    expect(() => validateContentAnalysis({}, 'fixture')).toThrow('unavailable');
+    // MIME wrapping belongs to the provider, not the HTML renderer.
+    expect(() => validateContentAnalysis({ rspamd: { status: 'ok', symbols: ['CTYPE_MIXED_BOGUS'] } }, 'fixture')).not.toThrow();
   });
 
   it('routes each fixture to its stream Application without embedding credentials', () => {

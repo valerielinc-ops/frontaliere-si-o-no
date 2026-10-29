@@ -73,10 +73,9 @@ const CASES: VisualCase[] = [
     name: 'home',
     url: '/',
     readySelector: '[data-testid="results-advantage-banner"]',
-    requiredMaskSelectors: [
-      // The dialect phrase is conditional; it remains an optional global mask.
-      '[data-testid="news-ticker"]',
-    ],
+    // The news ticker is source-dependent. It remains in the global mask list
+    // whenever it is mounted, but an empty/late live payload is a valid state
+    // and must not turn the visual gate into a false failure.
   },
   {
     name: 'salary-calculator',

@@ -318,7 +318,7 @@ function metricsHtml(locale) {
     + `<div style="font-size:28px;font-weight:800;line-height:1.1;color:#c2410c;">${value}</div>`
     + `<div style="margin-top:7px;font-size:12px;line-height:1.4;color:#334155;">${escapeHtml(label)}</div></td>`;
   return `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 0 18px;"><tr>`
-    + `${cell('12×', faster)}<td width="12" style="font-size:0;">&nbsp;</td>${cell('3×', hiring)}`
+    + `${cell('12×', faster)}<td width="12"></td>${cell('3×', hiring)}`
     + '</tr></table>';
 }
 

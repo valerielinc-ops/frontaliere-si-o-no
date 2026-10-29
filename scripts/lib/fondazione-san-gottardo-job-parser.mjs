@@ -7,9 +7,11 @@
  * The source page is a Joomla article. Its "Posizioni disponibili" block is
  * deliberately parsed as a bounded section: the same page also contains a
  * spontaneous-application form, HR documents and news links, none of which
- * are vacancies. An explicit empty-state sentence is carried to the standard
- * crawler as a source-proven zero; an unfamiliar page shape remains a
- * selector miss and therefore cannot retire an existing slice.
+ * are vacancies. The separately labelled pre-SUPSI stage is emitted as an
+ * internship opportunity, while an explicit vacancy-empty sentence is still
+ * carried to the standard crawler as a source-proven zero when no opportunity
+ * is present. An unfamiliar page shape remains a selector miss and therefore
+ * cannot retire an existing slice.
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
@@ -33,6 +35,7 @@ export const FONDAZIONE_SAN_GOTTARDO_KEY = 'fondazione-san-gottardo';
 export const FONDAZIONE_SAN_GOTTARDO_COMPANY_NAME = 'Fondazione San Gottardo';
 export const FONDAZIONE_SAN_GOTTARDO_COMPANY_DOMAIN = 'fsangottardo.ch';
 export const FONDAZIONE_SAN_GOTTARDO_CAREER_URL = 'https://www.fsangottardo.ch/lavoro';
+export const FONDAZIONE_SAN_GOTTARDO_INTERNSHIP_TITLE = 'Stage pre SUPSI (9 mesi)';
 
 const HQ = getCompanyDefaults(FONDAZIONE_SAN_GOTTARDO_KEY) || {
   city: 'Lopagno',
@@ -46,6 +49,8 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 
 const EMPTY_POSITION_RE = /(?:attualmente\s+)?non\s+(?:abbiamo|ci\s+sono)\s+posizion(?:e|i)\b/i;
 const POSITION_HEADING_RE = /^posizioni\s+disponibili\s*:?$/i;
+const INTERNSHIP_HEADING_RE = /^accettiamo\s+candidature\s+per\s*:?$/i;
+const INTERNSHIP_TITLE_RE = /\bstage\s+pre\s+SUPSI\s*\(\s*9\s+mesi\s*\)/i;
 const SECTION_STOP_RE = /^(?:accettiamo\s+candidature\s+per|candidature\s+spontanee|documenti\s+utili|formulario\s+per\s+l['’]inoltro)/i;
 const GENERIC_LINK_RE = /^(?:clicca\s+qui|qui|leggi(?:\s+il)?|scopri(?:\s+di\s+pi[uù])?|dettagli?|vai|visualizza|apri|maggiori\s+informazioni|concorso|bando)$/i;
 const GENERIC_TITLE_RE = /^(?:concorso(?:\s+assunzione\s+personale)?|bando|lavora\s+con\s+noi|candidature?|posizioni?\s+disponibili)$/i;
@@ -162,10 +167,8 @@ function findPositionHeading(panel) {
   return candidates.find((node) => POSITION_HEADING_RE.test(textOf(node))) || null;
 }
 
-function positionBoundary(panel) {
-  const marker = findPositionHeading(panel);
+function siblingSectionBoundary(marker) {
   if (!marker) return null;
-
   // In the live Joomla layout the marker is a <strong> inside a <p>. Use the
   // smallest semantic block so the following HR and vacancy list remain in
   // the same bounded sibling sequence.
@@ -184,6 +187,20 @@ function positionBoundary(panel) {
   }
 
   return { marker, start, parent, nodes };
+}
+
+function positionBoundary(panel) {
+  return siblingSectionBoundary(findPositionHeading(panel));
+}
+
+function findInternshipHeading(panel) {
+  if (!panel) return null;
+  const candidates = [...panel.querySelectorAll('p, h2, h3, h4, strong')];
+  return candidates.find((node) => INTERNSHIP_HEADING_RE.test(textOf(node))) || null;
+}
+
+function internshipBoundary(panel) {
+  return siblingSectionBoundary(findInternshipHeading(panel));
 }
 
 function titleFromAnchor(anchor) {
@@ -216,11 +233,11 @@ function isVacancyLink(anchor, pageUrl) {
 /**
  * Extract the vacancy inventory from the careers page only.
  *
- * @returns {{status: 'ok'|'empty'|'selector_miss', candidates: object[], evidence?: string, sectionText: string}}
+ * @returns {{status: 'ok'|'empty'|'selector_miss', candidates: object[], opportunities: object[], evidence?: string, sectionText: string}}
  */
 export function parseCareersPage(html = '', pageUrl = FONDAZIONE_SAN_GOTTARDO_CAREER_URL) {
   if (!String(html || '').trim()) {
-    return { status: 'selector_miss', candidates: [], sectionText: '' };
+    return { status: 'selector_miss', candidates: [], opportunities: [], sectionText: '' };
   }
 
   const dom = new JSDOM(html);
@@ -228,10 +245,26 @@ export function parseCareersPage(html = '', pageUrl = FONDAZIONE_SAN_GOTTARDO_CA
     const panel = findCareersPanel(dom.window.document);
     const boundary = positionBoundary(panel);
     if (!boundary) {
-      return { status: 'selector_miss', candidates: [], sectionText: '' };
+      return { status: 'selector_miss', candidates: [], opportunities: [], sectionText: '' };
     }
 
     const sectionText = normalizeSpace(boundary.nodes.map(textOf).filter(Boolean).join(' '));
+    const internshipSection = internshipBoundary(panel);
+    const internshipSectionText = internshipSection
+      ? normalizeSpace(internshipSection.nodes.map(textOf).filter(Boolean).join(' '))
+      : '';
+    const stageOption = [...panel.querySelectorAll('select option')]
+      .map(textOf)
+      .find((value) => INTERNSHIP_TITLE_RE.test(value));
+    const opportunities = INTERNSHIP_TITLE_RE.test(internshipSectionText)
+      ? [{
+        title: FONDAZIONE_SAN_GOTTARDO_INTERNSHIP_TITLE,
+        sectionText: internshipSectionText,
+        positionSectionText: sectionText,
+        applicationLabel: stageOption ? FONDAZIONE_SAN_GOTTARDO_INTERNSHIP_TITLE : '',
+        sourceUrl: canonicalUrl(pageUrl, FONDAZIONE_SAN_GOTTARDO_CAREER_URL),
+      }]
+      : [];
     const anchors = boundary.nodes.flatMap((node) => [...node.querySelectorAll('a[href]')]);
     const candidates = [];
     const seen = new Set();
@@ -251,13 +284,14 @@ export function parseCareersPage(html = '', pageUrl = FONDAZIONE_SAN_GOTTARDO_CA
     }
 
     if (candidates.length > 0) {
-      return { status: 'ok', candidates, sectionText };
+      return { status: 'ok', candidates, opportunities, sectionText };
     }
 
     if (EMPTY_POSITION_RE.test(sectionText)) {
       return {
         status: 'empty',
         candidates: [],
+        opportunities,
         sectionText,
         evidence: `Fondazione San Gottardo: la sezione "Posizioni disponibili" dichiara esplicitamente: ${sectionText}`,
       };
@@ -265,7 +299,7 @@ export function parseCareersPage(html = '', pageUrl = FONDAZIONE_SAN_GOTTARDO_CA
 
     // A present section without a supported empty marker is not evidence of
     // zero jobs. It is a parser/source drift and must keep the prior slice.
-    return { status: 'selector_miss', candidates: [], sectionText };
+    return { status: 'selector_miss', candidates: [], opportunities: [], sectionText };
   } finally {
     dom.window.close();
   }
@@ -377,6 +411,78 @@ function categoryFor(title = '') {
   if (/manut|tecnic|infrastruttur|cuoc|cucin/.test(value)) return 'Tecnica';
   if (/amministr|contab|risorse\s+umane|segretar/.test(value)) return 'Amministrazione';
   return 'Altro';
+}
+
+function internshipDescription(opportunity) {
+  const positionContext = EMPTY_POSITION_RE.test(opportunity.positionSectionText || '')
+    ? 'La stessa pagina specifica che attualmente non ci sono posizioni disponibili separate da questa candidatura di stage.'
+    : 'La stessa pagina presenta questa candidatura in una sezione distinta dalle posizioni disponibili.';
+  const applicationContext = opportunity.applicationLabel
+    ? `Per candidarsi, la Fondazione chiede di selezionare la dicitura corretta "${opportunity.applicationLabel}" nel campo "tipo di candidatura" del formulario presente sulla stessa pagina.`
+    : 'Per inoltrare la candidatura, occorre consultare le istruzioni e il formulario ufficiali riportati sulla pagina della Fondazione.';
+
+  return toPlainText([
+    `La ${FONDAZIONE_SAN_GOTTARDO_COMPANY_NAME} accetta candidature per lo ${opportunity.title}.`,
+    positionContext,
+    'La voce pubblicata dalla Fondazione identifica il percorso attraverso il riferimento alla SUPSI e la durata di nove mesi, senza associare una mansione specifica a questa candidatura.',
+    applicationContext,
+  ].join(' '));
+}
+
+/**
+ * Turn the source's explicit pre-SUPSI stage entry into a publishable
+ * internship record. It deliberately keeps the official careers page as both
+ * source and application URL: the source does not expose a separate detail
+ * page for this opportunity.
+ */
+function buildInternshipOpportunity(opportunity, pageUrl) {
+  const url = canonicalUrl(opportunity?.sourceUrl || pageUrl, pageUrl);
+  if (!url || !isTrustedDomain(url)) return null;
+
+  const title = opportunity?.title || FONDAZIONE_SAN_GOTTARDO_INTERNSHIP_TITLE;
+  const description = internshipDescription({
+    ...opportunity,
+    title,
+  });
+  if (!meetsSourceBodyFloor(description)) return null;
+
+  const sourceLang = detectLang(description, 'it');
+  const hash = createHash('sha1').update(`${url}#${title}`).digest('hex').slice(0, 12);
+  const jobSlug = slugify(`${title} ${HQ.city} ${FONDAZIONE_SAN_GOTTARDO_KEY} ch`);
+
+  return {
+    id: `${FONDAZIONE_SAN_GOTTARDO_KEY}-stage-${hash}`,
+    slug: jobSlug,
+    slugByLocale: { [sourceLang]: jobSlug },
+    company: FONDAZIONE_SAN_GOTTARDO_COMPANY_NAME,
+    companyKey: FONDAZIONE_SAN_GOTTARDO_KEY,
+    companyDomain: FONDAZIONE_SAN_GOTTARDO_COMPANY_DOMAIN,
+    title,
+    titleByLocale: { [sourceLang]: title },
+    description,
+    descriptionByLocale: { [sourceLang]: description },
+    location: HQ.city,
+    canton: HQ.canton,
+    addressLocality: HQ.city,
+    addressRegion: HQ.addressRegion || HQ.canton,
+    addressCountry: 'CH',
+    country: 'CH',
+    postalCode: HQ.postalCode,
+    url,
+    source: 'Fondazione San Gottardo Dedicated Parser (Internship Opportunity)',
+    sourceLang,
+    crawledAt: new Date().toISOString(),
+    category: categoryFor(title),
+    contract: 'internship',
+    employmentType: 'INTERN',
+    experienceLevel: 'intern',
+    sector: 'Servizi sociali',
+    currency: 'CHF',
+    featured: false,
+    applyUrl: url,
+    requirements: [],
+    requirementsByLocale: { [sourceLang]: [] },
+  };
 }
 
 /**
@@ -493,7 +599,8 @@ async function fetchDetailPage(url) {
 }
 
 /**
- * Fetch all currently linked vacancies from the official careers page.
+ * Fetch all currently linked vacancies and explicitly listed internship
+ * opportunities from the official careers page.
  * `fetchPage` and `fetchDetail` are injectable so the parser can be tested
  * without network access.
  */
@@ -507,9 +614,30 @@ export async function fetchAllFondazioneSanGottardoJobs({
   const html = await fetchPage();
   const inventory = parseCareersPage(html, FONDAZIONE_SAN_GOTTARDO_CAREER_URL);
 
+  const opportunityJobs = [];
+  for (const opportunity of inventory.opportunities || []) {
+    const job = buildInternshipOpportunity(opportunity, FONDAZIONE_SAN_GOTTARDO_CAREER_URL);
+    if (!job) {
+      throw sourceExtractionError(
+        `Fondazione San Gottardo internship opportunity did not expose a publishable source body: ${opportunity.title}`,
+        inventory.candidates.length + (inventory.opportunities || []).length,
+      );
+    }
+    opportunityJobs.push(job);
+  }
+
   if (inventory.status === 'empty') {
+    if (opportunityJobs.length === 0) {
+      console.log(`  ✅ ${inventory.evidence}`);
+      return markAuthoritativeEmptySnapshot([], inventory.evidence);
+    }
     console.log(`  ✅ ${inventory.evidence}`);
-    return markAuthoritativeEmptySnapshot([], inventory.evidence);
+    console.log(`  🎓 Internship opportunities found: ${opportunityJobs.length}`);
+    return {
+      jobs: opportunityJobs,
+      discoveredCount: opportunityJobs.length,
+      fetchOutcome: 'ok',
+    };
   }
 
   if (inventory.status !== 'ok') {
@@ -518,7 +646,10 @@ export async function fetchAllFondazioneSanGottardoJobs({
   }
 
   console.log(`  📋 Vacancy links found: ${inventory.candidates.length}`);
-  const jobs = [];
+  if (opportunityJobs.length > 0) {
+    console.log(`  🎓 Internship opportunities found: ${opportunityJobs.length}`);
+  }
+  const jobs = [...opportunityJobs];
   for (const candidate of inventory.candidates) {
     let detailHtml;
     try {
@@ -541,7 +672,11 @@ export async function fetchAllFondazioneSanGottardoJobs({
   }
 
   console.log(`\n📋 Total Fondazione San Gottardo jobs discovered: ${jobs.length}`);
-  return { jobs, discoveredCount: inventory.candidates.length, fetchOutcome: 'ok' };
+  return {
+    jobs,
+    discoveredCount: inventory.candidates.length + opportunityJobs.length,
+    fetchOutcome: 'ok',
+  };
 }
 
 export { categoryFor as detectCategory, employmentType as detectEmploymentType };

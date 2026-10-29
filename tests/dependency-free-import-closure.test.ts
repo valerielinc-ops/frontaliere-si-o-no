@@ -8,6 +8,8 @@ import {
   scanImportClosure,
   stripComments,
 } from '../scripts/ci/check-dependency-free-import-closure.mjs';
+import { jobTitleSourceLang as dependencyFreeJobTitleSourceLang } from '../scripts/lib/job-title-source-locale.mjs';
+import { jobTitleSourceLang as fullJobTitleSourceLang } from '../scripts/lib/job-locale-utils.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = 'scripts/ci/check-dependency-free-import-closure.mjs';
@@ -36,6 +38,32 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
     expect(files).toContain('scripts/lib/job-locale-core.mjs');
     expect(files).not.toContain('scripts/lib/job-locale-utils.mjs');
     expect(packageImports).toEqual([]);
+  });
+
+  it('keeps the dependency-free title-source resolver equivalent to the full resolver', () => {
+    const jobs = [
+      {
+        sourceLang: 'de',
+        title: 'Arztsekretär:in Onkologie',
+        titleByLocale: { de: 'Arztsekretär:in Onkologie', it: 'Segretario medico' },
+      },
+      {
+        sourceLang: 'it',
+        source: 'publisher-submitted',
+        title: 'Prompt engineer da remoto',
+        titleByLocale: { it: 'Prompt engineer da remoto' },
+      },
+      {
+        sourceLang: 'de',
+        companyKey: 'migros',
+        title: 'Verkäufer Metzgerei bedient',
+        titleByLocale: { de: 'Verkäufer Metzgerei bedient' },
+      },
+    ];
+
+    for (const job of jobs) {
+      expect(dependencyFreeJobTitleSourceLang(job)).toBe(fullJobTitleSourceLang(job));
+    }
   });
 
   it('runs the closure check before the zero-dependency drain entrypoint', () => {
