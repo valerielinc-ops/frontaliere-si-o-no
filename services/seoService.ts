@@ -528,6 +528,7 @@ async function resolveJobSeoBySlug(
  url: canonicalUrl,
  baseUrl: BASE_URL,
  });
+ if (!canonicalSchema) return null;
  // Job-specific FAQPage (build-plugins/shared/jobPostingFaq.ts) — same
  // deterministic template the static SSG plugin uses, so the client-hydrated
  // SPA content matches the prerendered HTML for a client-side navigation to
