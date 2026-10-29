@@ -75,7 +75,6 @@ const CASES: VisualCase[] = [
     readySelector: '[data-testid="results-advantage-banner"]',
     requiredMaskSelectors: [
       '[data-testid="news-ticker"]',
-      '[data-testid="daily-dialect-phrase"]',
     ],
   },
   {
