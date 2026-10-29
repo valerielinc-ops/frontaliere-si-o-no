@@ -244,6 +244,16 @@ describe('application concierge candidate API', () => {
     } } });
   });
 
+  it('serializes actual failed SumUp state consumed by the retry UI', async () => {
+    const key = 'application_concierge_services/service-1';
+    mocks.documents.set(key, { ...mocks.documents.get(key), paymentProvider: 'sumup', paymentStatus: 'failed',
+      serviceStatus: 'payment_failed', checkoutSessionStatus: 'failed' });
+    const result = await handleApplicationConcierge({ method: 'GET', query: { serviceId: 'service-1' } });
+    expect(result).toMatchObject({ status: 200, body: { ok: true, service: {
+      paymentProvider: 'sumup', paymentStatus: 'failed', serviceStatus: 'payment_failed', checkoutSessionStatus: 'failed',
+    } } });
+  });
+
   it('creates a child assisted application only after explicit proposal acceptance', async () => {
     const result = await handleApplicationConcierge({
       method: 'POST',

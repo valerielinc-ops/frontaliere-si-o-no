@@ -88,6 +88,11 @@ function isPending(service: ApplicationConciergeService | null): boolean {
   return service?.paymentStatus === 'pending' || service?.serviceStatus === 'awaiting_payment';
 }
 
+function isRetryablePayment(service: ApplicationConciergeService | null): boolean {
+  return service?.paymentStatus === 'failed' && (service.checkoutSessionStatus === 'expired'
+    || (service.paymentProvider === 'sumup' && service.checkoutSessionStatus === 'failed'));
+}
+
 export default function ApplicationConciergePortal({
   serviceId = null,
   entry = false,
@@ -198,13 +203,13 @@ export default function ApplicationConciergePortal({
   }, [authLoading, authUser, loadService, serviceId]);
 
   useEffect(() => {
-    if (!serviceId || !service || (!isPending(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
+    if (!serviceId || !service || (!isPending(service) && !isRetryablePayment(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
     let cancelled = false;
     const timer = window.setTimeout(async function poll() {
       if (cancelled) return;
       try {
         const loaded = await loadService();
-        if (!cancelled && loaded && (isPending(loaded) || MATCHING_STATES.has(String(loaded.matchingStatus || '')))) window.setTimeout(poll, POLL_MS);
+        if (!cancelled && loaded && (isPending(loaded) || isRetryablePayment(loaded) || MATCHING_STATES.has(String(loaded.matchingStatus || '')))) window.setTimeout(poll, POLL_MS);
       } catch (pollError) {
         if (!cancelled) setError(errorKey(pollError));
       }
@@ -240,23 +245,24 @@ export default function ApplicationConciergePortal({
         onRequireAuth?.();
         throw new Error('auth_required');
       }
-      if (sumUpPayment?.userId === user.uid && (!resumeServiceId || sumUpPayment.serviceId === resumeServiceId)) {
-        setSumUpPaymentError(null);
-        setSumUpPaymentOpen(true);
-        return;
-      }
+      // Cached widget state is presentation only; every reopen must verify
+      // the provider session before exposing another payment form.
+      const effectiveServiceId = resumeServiceId
+        || (sumUpPayment?.userId === user.uid ? sumUpPayment.serviceId : null);
 
       const base = new URL(window.location.href);
       base.searchParams.delete('application_concierge');
       base.searchParams.delete('application_concierge_service_id');
       base.searchParams.delete('application_concierge_payment_return');
+      const success = new URL(base.toString());
+      success.searchParams.set('application_concierge_payment_return', '1');
       const result = await createApplicationConciergeCheckout({
-        successUrl: base.toString(),
+        successUrl: success.toString(),
         cancelUrl: base.toString(),
         locale,
         requestKey: requestKeyForUser(String(user.uid)),
         customerEmail: checkoutEmail,
-        ...(resumeServiceId ? { serviceId: resumeServiceId } : {}),
+        ...(effectiveServiceId ? { serviceId: effectiveServiceId } : {}),
       }, user);
       if (result.paymentProvider === 'sumup') {
         const returnUrl = new URL(base.toString());
@@ -282,8 +288,7 @@ export default function ApplicationConciergePortal({
   }, [email, service, ensureUser, onRequireAuth, sumUpPayment, locale]);
 
   useEffect(() => {
-    const recoverable = service && (isPending(service)
-      || (service.paymentStatus === 'failed' && service.checkoutSessionStatus === 'expired'));
+    const recoverable = service && (isPending(service) || isRetryablePayment(service));
     if (!serviceId || !recoverable || loading || authLoading || autoResumedService.current === serviceId) return;
     if (['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase())) return;
     autoResumedService.current = serviceId;
@@ -595,7 +600,7 @@ export default function ApplicationConciergePortal({
   if (!service) return <PortalShell><p role="alert" className="text-sm text-danger">{displayError || t('jobBoard.concierge.errors.service_not_found')}</p></PortalShell>;
 
   const pending = isPending(service);
-  const retryablePayment = service.paymentStatus === 'failed' && service.checkoutSessionStatus === 'expired';
+  const retryablePayment = isRetryablePayment(service);
   const canResumePayment = retryablePayment
     || (pending && !['pending', 'completed'].includes(String(service.checkoutSessionStatus || '').toLowerCase()));
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);

@@ -8,6 +8,7 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
+import { matchesSumUpCheckoutReference } from './sumupCheckoutReference.js';
 import { db, getStripe, verifyCaller } from './stripePublisherCore.js';
 import {
   APPLICATION_CONCIERGE_CURRENCY,
@@ -85,9 +86,9 @@ function paymentProviderForOrder(service) {
   return service?.paymentProvider === SUMUP_PAYMENT_PROVIDER ? SUMUP_PAYMENT_PROVIDER : 'stripe';
 }
 
-function isResumeableService(service) {
-  return service?.paymentStatus === 'pending'
-    && !['expired', 'failed'].includes(String(service?.checkoutSessionStatus || '').toLowerCase());
+function checkoutIdForService(service) {
+  return boundedString(paymentProviderForOrder(service) === SUMUP_PAYMENT_PROVIDER
+    ? service?.sumupCheckoutId : service?.stripeCheckoutSessionId, 200);
 }
 
 function isRecoverableCheckout(service) {
@@ -97,7 +98,8 @@ function isRecoverableCheckout(service) {
       && !['pending', 'completed'].includes(checkoutSessionStatus))
     || (service?.paymentStatus === 'failed'
       && service?.serviceStatus === 'payment_failed'
-      && service?.checkoutSessionStatus === 'expired');
+      && (service?.checkoutSessionStatus === 'expired'
+        || (service?.paymentProvider === SUMUP_PAYMENT_PROVIDER && service?.checkoutSessionStatus === 'failed')));
 }
 
 function timestampMillis(value) {
@@ -169,7 +171,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   const requestKey = validRequestKey(body.requestKey);
   const successUrl = boundedString(body.successUrl, 1000);
   const cancelUrl = boundedString(body.cancelUrl, 1000);
-  const resumeServiceId = boundedString(body.serviceId, 200);
+  let resumeServiceId = boundedString(body.serviceId, 200);
   let customerEmail = normalizedEmail(body.customerEmail) || normalizedEmail(decoded.email);
   const locale = VALID_LOCALES.has(body.locale) ? body.locale : 'it';
   if (!userId || !requestKey) return { status: 400, body: { ok: false, error: 'invalid_request_key' } };
@@ -188,16 +190,51 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   const requestKeyHash = sha256(`${userId}:${requestKey}`);
   const requestRef = firestore.collection(APPLICATION_CONCIERGE_CHECKOUT_REQUESTS_COLLECTION).doc(requestKeyHash);
   const serviceCollection = firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION);
+  // A cached landing-page request must receive the same provider verification
+  // as an explicit payment-reminder service link.
+  if (!resumeServiceId) {
+    const existing = await requestRef.get();
+    if (existing.exists) {
+      const record = existing.data() || {};
+      if (record.userId !== userId || !/^[A-Za-z0-9_-]{1,200}$/.test(String(record.serviceId || ''))) {
+        return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
+      }
+      resumeServiceId = record.serviceId;
+    }
+  }
+  let observedResumeService = null;
   let requestRecord = null;
   let serviceRef = null;
   let checkoutAttempt = 1;
   let resumePaidServiceId = null;
   let terminalSumUpCheckoutId = null;
+  const publishCheckout = async (serviceUpdate, requestUpdate) => firestore.runTransaction(async (transaction) => {
+    const [serviceSnapshot, requestSnapshot] = await Promise.all([
+      transaction.get(serviceRef), transaction.get(requestRef),
+    ]);
+    const current = serviceSnapshot.exists ? serviceSnapshot.data() || {} : null;
+    const currentRequest = requestSnapshot.exists ? requestSnapshot.data() || {} : null;
+    if (!current || current.userId !== userId) return 'conflict';
+    if (current.paymentStatus === 'paid') return 'paid';
+    const previousId = observedResumeService ? checkoutIdForService(observedResumeService) : '';
+    if (current.paymentStatus !== 'pending' || current.checkoutSessionStatus !== 'creating'
+      || Number(current.checkoutAttempt) !== checkoutAttempt
+      || paymentProviderForOrder(current) !== requestRecord.paymentProvider
+      || checkoutIdForService(current) !== previousId
+      || !currentRequest || currentRequest.userId !== userId || currentRequest.serviceId !== serviceRef.id
+      || currentRequest.checkoutSessionStatus !== 'creating' || Number(currentRequest.checkoutAttempt) !== checkoutAttempt) {
+      return 'conflict';
+    }
+    transaction.set(serviceRef, { ...serviceUpdate, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    transaction.set(requestRef, { ...requestUpdate, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    return 'published';
+  });
 
   if (resumeServiceId) {
     const resumeServiceRef = serviceCollection.doc(resumeServiceId);
     const resumeSnapshot = await resumeServiceRef.get();
     const resumeService = resumeSnapshot.exists ? resumeSnapshot.data() || {} : null;
+    observedResumeService = resumeService;
     if (!resumeService || resumeService.userId !== userId) {
       return { status: 404, body: { ok: false, error: 'application_concierge_service_not_found' } };
     }
@@ -218,17 +255,18 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       await resumeServiceRef.set({ customerEmail, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
     }
 
-    if (String(resumeService.checkoutSessionStatus || '').toLowerCase() === 'open') {
+    if (String(resumeService.checkoutSessionStatus || '').toLowerCase() === 'open'
+      || (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.checkoutSessionStatus === 'failed')) {
       if (resumeService.paymentProvider === SUMUP_PAYMENT_PROVIDER && resumeService.sumupCheckoutId) {
         try {
           const checkout = await retrieveSumUpCheckout(resumeService.sumupCheckoutId);
-          if (checkout.id !== resumeService.sumupCheckoutId || checkout.checkout_reference !== resumeServiceId
+          if (checkout.id !== resumeService.sumupCheckoutId || !matchesSumUpCheckoutReference(checkout.checkout_reference, resumeServiceId)
             || Math.round(Number(checkout.amount) * 100) !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS
             || String(checkout.currency || '').toLowerCase() !== APPLICATION_CONCIERGE_CURRENCY) {
             return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
           }
           const status = String(checkout.status || '').toUpperCase();
-          if (status === 'PENDING' || status === 'OPEN') {
+          if (status === 'PENDING' || status === 'OPEN' || status === 'FAILED') {
             return { status: 200, body: {
               ok: true, paymentProvider: SUMUP_PAYMENT_PROVIDER,
               checkoutId: checkout.id, serviceId: resumeServiceId,
@@ -243,7 +281,7 @@ export async function handleCreateApplicationConciergeCheckout(req) {
             }
             return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
           }
-          if (!['EXPIRED', 'FAILED', 'CANCELLED'].includes(status)) {
+          if (status !== 'EXPIRED') {
             return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
           }
           terminalSumUpCheckoutId = checkout.id;
@@ -257,14 +295,27 @@ export async function handleCreateApplicationConciergeCheckout(req) {
         try {
           const stripe = await getStripe();
           const session = await stripe.checkout.sessions.retrieve(resumeService.stripeCheckoutSessionId);
+          if (session.id !== resumeService.stripeCheckoutSessionId
+            || (session.metadata?.serviceId && session.metadata.serviceId !== resumeServiceId)
+            || (session.metadata?.product && session.metadata.product !== APPLICATION_CONCIERGE_PRODUCT)) {
+            return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+          }
           if (session.status === 'open' && session.url) {
             return { status: 200, body: { ok: true, url: session.url, serviceId: resumeServiceId } };
           }
           if (session.status === 'complete' || session.payment_status === 'paid') {
-            return {
-              status: 200,
-              body: { ok: true, url: appendServiceId(successUrl, resumeServiceId), serviceId: resumeServiceId },
-            };
+            if (Number(session.amount_total) !== APPLICATION_CONCIERGE_PRICE_EUR_CENTS
+              || String(session.currency || '').toLowerCase() !== APPLICATION_CONCIERGE_CURRENCY) {
+              return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
+            }
+            await handleApplicationConciergeWebhookEvent({
+              type: 'checkout.session.completed', data: { object: session },
+            }, { db: () => firestore, ts: FieldValue.serverTimestamp() });
+            const fresh = (await resumeServiceRef.get()).data() || {};
+            if (fresh.paymentStatus === 'paid' || fresh.checkoutSessionStatus === 'pending') {
+              return { status: 200, body: { ok: true, url: appendServiceId(successUrl, resumeServiceId), serviceId: resumeServiceId } };
+            }
+            return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
           }
           if (session.status !== 'expired') {
             return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
@@ -294,6 +345,10 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           requestRecord = existingRecord;
           resumePaidServiceId = resumeServiceId;
           return;
+        }
+        if (paymentProviderForOrder(existingService) !== paymentProviderForOrder(observedResumeService)
+          || checkoutIdForService(existingService) !== checkoutIdForService(observedResumeService)) {
+          throw new ApplicationConciergeCheckoutConflictError();
         }
         if (!isRecoverableCheckout(existingService)) {
           throw new ApplicationConciergeCheckoutConflictError();
@@ -341,73 +396,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       }
 
       if (existing.exists) {
-        const existingRecord = existing.data() || {};
-        if (existingRecord.userId !== userId || !existingRecord.serviceId) {
-          throw new ApplicationConciergeCheckoutConflictError();
-        }
-        const existingServiceRef = serviceCollection.doc(existingRecord.serviceId);
-        const existingServiceSnapshot = await transaction.get(existingServiceRef);
-        const existingService = existingServiceSnapshot.exists ? existingServiceSnapshot.data() || {} : null;
-        if (!existingServiceSnapshot.exists || existingService.userId !== userId) {
-          throw new ApplicationConciergeCheckoutConflictError();
-        }
-        if (existingService.paymentStatus === 'paid') {
-          requestRecord = existingRecord;
-          serviceRef = existingServiceRef;
-          resumePaidServiceId = existingRecord.serviceId;
-          return;
-        }
-        if (
-          String(existingService.checkoutSessionStatus || '').toLowerCase() === 'creating'
-          && Date.now() - timestampMillis(existingService.checkoutClaimedAt) < CHECKOUT_CLAIM_TTL_MS
-        ) {
-          throw new ApplicationConciergeCheckoutConflictError();
-        }
-        const canResumeSumUpCheckout = existingRecord.paymentProvider === SUMUP_PAYMENT_PROVIDER
-          && boundedString(existingRecord.sumupCheckoutId, 200);
-        if (isResumeableService(existingService) && (existingRecord.checkoutUrl || canResumeSumUpCheckout)) {
-          requestRecord = existingRecord;
-          serviceRef = existingServiceRef;
-          checkoutAttempt = Number(existingRecord.checkoutAttempt) || 1;
-          transaction.update(serviceRef, {
-            customerEmail,
-            updatedAt: FieldValue.serverTimestamp(),
-          });
-          return;
-        }
-        if (existingService.paymentStatus === 'pending' && existingService.serviceStatus === 'awaiting_payment') {
-          serviceRef = existingServiceRef;
-          checkoutAttempt = Math.max(
-            Number(existingService.checkoutAttempt) || 0,
-            Number(existingRecord.checkoutAttempt) || 0,
-          ) + 1;
-          requestRecord = {
-            requestKeyHash,
-            userId,
-            serviceId: existingRecord.serviceId,
-            paymentProvider: existingService.paymentProvider === SUMUP_PAYMENT_PROVIDER ? SUMUP_PAYMENT_PROVIDER : 'stripe',
-            checkoutAttempt,
-            checkoutSessionStatus: 'creating',
-            createdAt: existingRecord.createdAt || FieldValue.serverTimestamp(),
-            updatedAt: FieldValue.serverTimestamp(),
-          };
-          transaction.set(requestRef, {
-            ...requestRecord,
-            checkoutUrl: FieldValue.delete(),
-            stripeCheckoutSessionId: FieldValue.delete(),
-            sumupCheckoutId: FieldValue.delete(),
-            updatedAt: FieldValue.serverTimestamp(),
-          }, { merge: true });
-          transaction.update(serviceRef, {
-            checkoutSessionStatus: 'creating',
-            customerEmail,
-            checkoutAttempt,
-            checkoutClaimedAt: FieldValue.serverTimestamp(),
-            updatedAt: FieldValue.serverTimestamp(),
-          });
-          return;
-        }
-        checkoutAttempt = (Number(existingRecord.checkoutAttempt) || 1) + 1;
+        // Another initial request won after preflight. Retry through the
+        // provider-verification path rather than exposing an unverified cache.
+        throw new ApplicationConciergeCheckoutConflictError();
       }
 
       serviceRef = serviceCollection.doc();
@@ -447,31 +438,6 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       body: { ok: true, url: appendServiceId(successUrl, resumePaidServiceId), serviceId: resumePaidServiceId },
     };
   }
-  if (
-    requestRecord?.paymentProvider === SUMUP_PAYMENT_PROVIDER
-    && requestRecord.sumupCheckoutId
-    && isResumeableService({
-      paymentStatus: 'pending',
-      checkoutSessionStatus: requestRecord.checkoutSessionStatus,
-    })
-  ) {
-    return {
-      status: 200,
-      body: {
-        ok: true,
-        paymentProvider: SUMUP_PAYMENT_PROVIDER,
-        checkoutId: requestRecord.sumupCheckoutId,
-        serviceId: requestRecord.serviceId,
-      },
-    };
-  }
-  if (requestRecord?.checkoutUrl && isResumeableService({
-    paymentStatus: 'pending',
-    checkoutSessionStatus: requestRecord.checkoutSessionStatus,
-  })) {
-    return { status: 200, body: { ok: true, url: requestRecord.checkoutUrl, serviceId: requestRecord.serviceId } };
-  }
-
   const serviceId = serviceRef.id;
   const paymentProvider = requestRecord?.paymentProvider || configuredPaymentProvider;
   const successRedirect = appendServiceId(successUrl, serviceId);
@@ -480,26 +446,20 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     const checkout = await createSumUpApplicationConciergeCheckout({
       serviceId,
       redirectUrl: successRedirect,
+      checkoutAttempt,
     });
     if (terminalSumUpCheckoutId && checkout.id === terminalSumUpCheckoutId) {
       // A duplicate-reference recovery must not hand a terminal checkout to the widget.
-      await serviceRef.set({ checkoutSessionStatus: 'open', checkoutClaimedAt: null }, { merge: true });
       return { status: 502, body: { ok: false, error: 'application_concierge_checkout_unavailable' } };
     }
-    await serviceRef.set({
-      paymentProvider: SUMUP_PAYMENT_PROVIDER,
-      sumupCheckoutId: checkout.id,
-      checkoutSessionStatus: 'open',
-      checkoutAttempt,
-      checkoutClaimedAt: null,
-      updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    await requestRef.set({
-      paymentProvider: SUMUP_PAYMENT_PROVIDER,
-      sumupCheckoutId: checkout.id,
-      checkoutSessionStatus: 'open',
-      updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+    const publication = await publishCheckout({
+      paymentProvider: SUMUP_PAYMENT_PROVIDER, sumupCheckoutId: checkout.id,
+      checkoutSessionStatus: 'open', checkoutAttempt, checkoutClaimedAt: null,
+    }, {
+      paymentProvider: SUMUP_PAYMENT_PROVIDER, sumupCheckoutId: checkout.id, checkoutSessionStatus: 'open',
+    });
+    if (publication === 'paid') return { status: 200, body: { ok: true, url: successRedirect, serviceId } };
+    if (publication !== 'published') return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
     return {
       status: 200,
       body: {
@@ -530,21 +490,14 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       payment_intent_data: { metadata },
     }, { idempotencyKey: `application-concierge:${requestKeyHash}:${checkoutAttempt}` });
     checkoutUrl = session.url;
-    await serviceRef.set({
-      paymentProvider: 'stripe',
-      stripeCheckoutSessionId: session.id,
-      checkoutSessionStatus: 'open',
-      checkoutAttempt,
-      checkoutClaimedAt: null,
-      updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    await requestRef.set({
-      paymentProvider: 'stripe',
-      stripeCheckoutSessionId: session.id,
-      checkoutUrl,
-      checkoutSessionStatus: 'open',
-      updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+    const publication = await publishCheckout({
+      paymentProvider: 'stripe', stripeCheckoutSessionId: session.id,
+      checkoutSessionStatus: 'open', checkoutAttempt, checkoutClaimedAt: null,
+    }, {
+      paymentProvider: 'stripe', stripeCheckoutSessionId: session.id, checkoutUrl, checkoutSessionStatus: 'open',
+    });
+    if (publication === 'paid') return { status: 200, body: { ok: true, url: successRedirect, serviceId } };
+    if (publication !== 'published') return { status: 409, body: { ok: false, error: 'application_concierge_checkout_conflict' } };
   }
 
   return { status: 200, body: { ok: true, url: checkoutUrl, serviceId } };

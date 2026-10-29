@@ -21,8 +21,8 @@ vi.mock('@/services/applicationConciergeService', () => ({
   recordApplicationConciergeConsent: vi.fn(), saveApplicationConciergeProfile: vi.fn(),
   getCandidateVisibleApplicationConciergeProposals: (proposals: unknown) => proposals,
 }));
-vi.mock('@/components/community/SumUpPaymentWidget', () => ({ default: ({ amountCents, onClose, onResponse }: any) => (
-  <div role="dialog" aria-label="SumUp">{amountCents}<button onClick={onClose}>close</button><button onClick={() => onResponse('success')}>success</button></div>
+vi.mock('@/components/community/SumUpPaymentWidget', () => ({ default: ({ amountCents, checkoutId, onClose, onResponse }: any) => (
+  <div role="dialog" aria-label="SumUp">{amountCents}<span>{checkoutId}</span><button onClick={onClose}>close</button><button onClick={() => onResponse('success')}>success</button></div>
 ) }));
 import ApplicationConciergePortal from '@/components/community/ApplicationConciergePortal';
 const owner = { uid: 'anonymous-owner', getIdToken: async () => 'test-token' };
@@ -33,6 +33,7 @@ const service = {
 };
 beforeEach(() => {
   vi.clearAllMocks();
+  window.history.replaceState(null, '', '/');
   mocks.fetchService.mockResolvedValue(service);
   mocks.checkout.mockResolvedValue({ ok: true, paymentProvider: 'sumup', checkoutId: 'sumup-test', serviceId: 'service-test' });
 });
@@ -59,6 +60,37 @@ describe('concierge reminder payment flow', () => {
     await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
     expect(mocks.checkout).toHaveBeenCalledOnce();
     expect(mocks.resume).toHaveBeenCalledOnce();
+  });
+
+  it('automatically offers retry for a failed SumUp attempt and keeps the concierge amount', async () => {
+    mocks.fetchService.mockResolvedValue({ ...service, paymentProvider: 'sumup', paymentStatus: 'failed',
+      serviceStatus: 'payment_failed', checkoutSessionStatus: 'failed' });
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    expect(await screen.findByRole('dialog', { name: 'SumUp' })).toHaveTextContent('3999');
+    expect(mocks.checkout).toHaveBeenCalledWith(expect.objectContaining({ serviceId: 'service-test' }), owner);
+    const input = mocks.checkout.mock.calls[0][0];
+    expect(new URL(input.successUrl).searchParams.get('application_concierge_payment_return')).toBe('1');
+    expect(new URL(input.cancelUrl).searchParams.has('application_concierge_payment_return')).toBe(false);
+  });
+
+  it('waits for verification on a payment return instead of automatically reopening checkout', async () => {
+    window.history.replaceState(null, '', '/?application_concierge_payment_return=1');
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    await screen.findByRole('button', { name: /jobBoard.concierge.resumePayment/ });
+    expect(mocks.checkout).not.toHaveBeenCalled();
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+
+  it('revalidates the server checkout after closing and reopening the widget', async () => {
+    render(<ApplicationConciergePortal serviceId="service-test" authUser={owner} />);
+    await screen.findByRole('dialog', { name: 'SumUp' });
+    fireEvent.click(screen.getByRole('button', { name: 'close' }));
+    mocks.checkout.mockResolvedValueOnce({ ok: true, paymentProvider: 'sumup', checkoutId: 'replacement-checkout', serviceId: 'service-test' });
+    fireEvent.click(screen.getByRole('button', { name: /jobBoard.concierge.resumePayment/ }));
+    expect(await screen.findByRole('dialog', { name: 'SumUp' })).toHaveTextContent('replacement-checkout');
+    expect(mocks.checkout).toHaveBeenCalledTimes(2);
+    expect(mocks.resume).toHaveBeenCalledOnce();
+    expect(mocks.click).toHaveBeenCalledOnce();
   });
 
   it('offers login on an unsigned historic link without fetching or creating an anonymous checkout', async () => {
