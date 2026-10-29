@@ -18,6 +18,7 @@ const {
   relaunchAuthorizedOwnerTakeover,
   parseAutomationFlag,
   runAutomationSweep,
+  reconcilePortalRetrySchedule,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
 const { CANDIDATE_REMINDER_BEFORE_MS, CANDIDATE_REVIEW_MS, PORTAL_AUTO_RETRY_DELAYS_MS } = await import('../functions/src/assistedApplicationFlow.js');
@@ -587,12 +588,12 @@ describe('sweep', () => {
     expect(effects.at(-1)).toMatchObject({ type: 'email', kind: 'owner_takeover', reason: 'runner_timeout' });
   });
 
-  it('automatically retries an approved unsupported portal handoff when its backoff expires', async () => {
+  it.each(['portal_needs_candidate', 'captcha_provider_unavailable'])('automatically retries an approved %s handoff when its backoff expires', async (reason) => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_ready', round: 1 }, runEffect, nowMs: T0 });
     await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'candidate_approve' }, actor: 'candidate', runEffect, nowMs: T0 + 1_000 });
-    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'submit_handoff', reason: 'portal_needs_candidate' }, actor: 'runner', runEffect, nowMs: T0 + 2_000 });
+    await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'submit_handoff', reason }, actor: 'runner', runEffect, nowMs: T0 + 2_000 });
     effects = [];
 
     const retryAt = T0 + 2_000 + PORTAL_AUTO_RETRY_DELAYS_MS[0];
@@ -649,7 +650,31 @@ describe('sweep', () => {
     expect(computeDueAt({ state: 'submitted', deadlineAt: 5 })).toBeNull();
     expect(computeDueAt({ state: 'candidate_review', deadlineAt: 10, reminderAt: 7 })).toBe(7);
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0 + 1_000 })).toBe(T0 + 1_000);
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1_000 })).toBe(T0 + 1_000);
+    expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: Infinity })).toBeNull();
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:captcha'], portalAutoRetryAt: T0 + 1_000 })).toBeNull();
+  });
+});
+
+describe('legacy portal retry schedule reconciliation', () => {
+  it('previews then repairs only the stale mirror and is idempotent', async () => {
+    const flow = { state: 'owner_takeover', heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 + 1000 };
+    await store.db.collection('assisted_applications').doc(ORDER).set({ automationState: 'owner_takeover', automationDueAt: null }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set(flow);
+    const args = { db: store.db, orderId: ORDER };
+    expect(await reconcilePortalRetrySchedule(args)).toEqual({ changed: true });
+    expect(store.read(ORDER_PATH)?.automationDueAt).toBeNull();
+    expect(await reconcilePortalRetrySchedule({ ...args, apply: true })).toEqual({ changed: true });
+    expect(store.read(ORDER_PATH)?.automationDueAt).toBe(T0 + 1000);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toEqual(flow);
+    expect(await reconcilePortalRetrySchedule({ ...args, apply: true })).toEqual({ changed: false });
+  });
+
+  it.each(['submitted', 'submitting', 'candidate_review'])('does not revive a flow that moved to %s', async state => {
+    await store.db.collection('assisted_applications').doc(ORDER).set({ automationState: 'owner_takeover', automationDueAt: null }, { merge: true });
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state, heldBy: ['portal:captcha_provider_unavailable'], portalAutoRetryAt: T0 });
+    expect(await reconcilePortalRetrySchedule({ db: store.db, orderId: ORDER, apply: true })).toEqual({ changed: false });
+    expect(store.read(ORDER_PATH)?.automationDueAt).toBeNull();
   });
 });
 

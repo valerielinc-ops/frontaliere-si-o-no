@@ -50,6 +50,9 @@ export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
 // not recoverable by blindly running the same portal flow again. A measured
 // 429/5xx from the solver before the final click can recover after backoff.
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
+export function isAutoRetryablePortalHold(flow) {
+  return (flow?.heldBy || []).some(reason => ['portal:portal_needs_candidate', 'portal:captcha_provider_unavailable'].includes(reason));
+}
 export const MAX_REVIEW_ROUNDS = 3;
 // A draft or submit run that failed on a transient error is dispatched again
 // up to this many runs in all; the owner hears about it only after the last.
@@ -588,7 +591,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'portal_auto_retry': {
       if (state !== 'owner_takeover') return ignore('not_taken_over');
-      if (!(current.heldBy || []).some(reason => ['portal:portal_needs_candidate', 'portal:captcha_provider_unavailable'].includes(reason))) return ignore('not_auto_retryable');
+      if (!isAutoRetryablePortalHold(current)) return ignore('not_auto_retryable');
       if (!Number(current.portalAutoRetryAt) || Number(current.portalAutoRetryAt) > nowMs) return ignore('portal_retry_not_due');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
