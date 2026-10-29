@@ -57,6 +57,7 @@ describe('fuel price refresh publication', () => {
     expect(workflow).toContain('--path public/data/fuel-prices-cantons.json');
     expect(workflow).toMatch(/Add cantonal fuel cache to refresh PR[\s\S]*?--force[\s\S]*?--path data\/fuel-prices-cantons\.json[\s\S]*?--path public\/data\/fuel-prices-cantons\.json/u);
     expect(workflow).not.toContain('cantons_paths=()');
+    expect(workflow).not.toContain('"${cantons_paths[@]}"');
     // Line-anchored: the ignore entries, not a mention in a comment.
     expect(gitignore).toMatch(/^data\/fuel-prices-cantons\.json$/m);
     expect(gitignore).toMatch(/^public\/data\/fuel-prices-cantons\.json$/m);
