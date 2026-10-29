@@ -291,7 +291,7 @@ function verifyUnsubscribeToken(uid, token, secret) {
   }
 }
 
-function paymentReminderUrl(uid, secret) {
+export function paymentReminderUrl(uid, secret) {
   const url = new URL(PAYMENT_REMINDER_UNSUBSCRIBE_URL);
   url.searchParams.set('uid', uid);
   url.searchParams.set('token', generateApplicationConciergePaymentReminderUnsubToken(uid, secret));

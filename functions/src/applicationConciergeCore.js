@@ -12,6 +12,7 @@ import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatus.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
+import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
 import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertSiteAdmin } from './adminAuth.js';
@@ -163,6 +164,8 @@ export function serializeApplicationConciergeService(doc, proposalDocs = [], { a
     serviceStatus: expired && data.serviceStatus === 'active' ? 'expired' : boundedString(data.serviceStatus, 40),
     paymentProvider: boundedString(data.paymentProvider, 40),
     renewal: data.renewal === true,
+    amountTotal: [2999, 3999].includes(data.nextAmountTotal) ? data.nextAmountTotal : [2999, 3999].includes(data.expectedAmountTotal) ? data.expectedAmountTotal : 3999,
+    renewalOffer: conciergeRenewalOffer(data),
     maxPositions: Number(data.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS,
     acceptedPositionsCount: acceptedPositionsCount(data),
     remainingPositions: Math.max(0, (Number(data.maxPositions) || APPLICATION_CONCIERGE_MAX_POSITIONS) - acceptedPositionsCount(data)),

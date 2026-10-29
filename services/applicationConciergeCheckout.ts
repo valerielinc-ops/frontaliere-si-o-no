@@ -7,6 +7,9 @@ export interface ApplicationConciergeCheckoutInput {
   locale: 'it' | 'en' | 'de' | 'fr';
   requestKey?: string;
   serviceId?: string;
+  renewalOfServiceId?: string;
+  acceptRenewalTerms?: boolean;
+  expectedAmountTotal?: number;
   customerEmail?: string;
 }
 
@@ -14,12 +17,16 @@ export type ApplicationConciergeCheckoutResult =
   | {
     ok: true;
     paymentProvider: 'sumup';
+    amountTotal?: number;
+    paymentComplete?: boolean;
     checkoutId: string;
     serviceId: string;
   }
   | {
     ok: true;
     paymentProvider: 'stripe';
+    amountTotal?: number;
+    paymentComplete?: boolean;
     url: string;
     serviceId: string;
   };

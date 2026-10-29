@@ -30,6 +30,8 @@ export interface ApplicationConciergeService {
   checkoutSessionStatus?: string;
   serviceStatus: string;
   renewal: boolean;
+  amountTotal?: number;
+  renewalOffer?: { amountTotal: number; currency: string; discounted: boolean; discountExpiresAt: number; reminderStage: number | null } | null;
   maxPositions: number;
   acceptedPositionsCount: number;
   remainingPositions: number;
