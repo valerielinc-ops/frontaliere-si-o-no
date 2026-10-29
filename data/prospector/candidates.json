@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-29T14:36:38.362Z",
+  "updatedAt": "2026-10-29T14:37:12.215Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -384649,12 +384649,12 @@
     },
     "elektriker-elektromonteur-jobs.ch": {
       "key": "elektriker-elektromonteur-jobs.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-20T08:57:48.192Z",
-      "updatedAt": "2026-10-28T12:26:05.879Z",
+      "updatedAt": "2026-10-29T14:37:12.152Z",
       "name": "elektriker-elektromonteur-jobs",
       "domain": "elektriker-elektromonteur-jobs.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -384903,7 +384903,9 @@
           "logoSourceUrl": "https://www.elektriker-elektromonteur-jobs.ch/favicon.ico",
           "employerSiteName": null
         }
-      ]
+      ],
+      "promotionPr": "15918",
+      "promotionBranch": "prospector/promote-2026-10-29"
     },
     "elektrisola-feindraht@escholzmatt": {
       "key": "elektrisola-feindraht@escholzmatt",
@@ -899882,12 +899884,12 @@
     },
     "nishcom.ch": {
       "key": "nishcom.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-22T09:21:56.440Z",
-      "updatedAt": "2026-10-28T12:26:18.097Z",
+      "updatedAt": "2026-10-29T14:37:12.153Z",
       "name": "nishcom",
       "domain": "nishcom.ch",
       "careersUrl": "https://nishcom.jobs.personio.de/job/2844123?language=de",
@@ -900101,7 +900103,9 @@
           "logoSourceUrl": "https://static.wixstatic.com/media/aa3922_bc0b3d015d904ae3b951a195a9c20138%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/aa3922_bc0b3d015d904ae3b951a195a9c20138%7Emv2.png",
           "employerSiteName": "nishcom"
         }
-      ]
+      ],
+      "promotionPr": "15918",
+      "promotionBranch": "prospector/promote-2026-10-29"
     },
     "nitrochemie-wimmis@wimmis": {
       "key": "nitrochemie-wimmis@wimmis",
@@ -923890,12 +923894,12 @@
     },
     "opacc.ch": {
       "key": "opacc.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-23T04:13:00.273Z",
-      "updatedAt": "2026-10-29T14:11:09.085Z",
+      "updatedAt": "2026-10-29T14:37:12.153Z",
       "name": "Opacc Software AG",
       "domain": "opacc.ch",
       "city": "Rothenburg",
@@ -924132,7 +924136,9 @@
           "logoSourceUrl": "https://www.opacc.ch/frontend/favicon/apple-touch-icon.png",
           "employerSiteName": "Opacc"
         }
-      ]
+      ],
+      "promotionPr": "15918",
+      "promotionBranch": "prospector/promote-2026-10-29"
     },
     "opal-associates@wetzikon-zh": {
       "key": "opal-associates@wetzikon-zh",
@@ -975858,12 +975864,12 @@
     },
     "pks-bewerbung.ch": {
       "key": "pks-bewerbung.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-09-27T09:43:28.741Z",
-      "updatedAt": "2026-10-29T14:11:18.014Z",
+      "updatedAt": "2026-10-29T14:37:12.153Z",
       "name": "pks-bewerbung",
       "domain": "pks-bewerbung.ch",
       "careersUrl": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php",
@@ -976112,7 +976118,9 @@
           "logoSourceUrl": "https://www.pks-bewerbung.ch/favicon.ico",
           "employerSiteName": null
         }
-      ]
+      ],
+      "promotionPr": "15918",
+      "promotionBranch": "prospector/promote-2026-10-29"
     },
     "pks-personal-kaderselektion": {
       "key": "pks-personal-kaderselektion",
@@ -983454,12 +983462,12 @@
     },
     "policelavaux.ch": {
       "key": "policelavaux.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-22T04:10:02.869Z",
-      "updatedAt": "2026-10-29T14:11:02.899Z",
+      "updatedAt": "2026-10-29T14:37:12.152Z",
       "name": "policelavaux",
       "domain": "policelavaux.ch",
       "careersUrl": "https://www.policelavaux.ch/emplois/devenir-policier/",
@@ -983708,7 +983716,9 @@
           "logoSourceUrl": "https://www.policelavaux.ch/favicons/default/apple-touch-icon-114x114.png",
           "employerSiteName": "Police Lavaux"
         }
-      ]
+      ],
+      "promotionPr": "15918",
+      "promotionBranch": "prospector/promote-2026-10-29"
     },
     "policentro.ch": {
       "key": "policentro.ch",
