@@ -420,12 +420,12 @@ const CRAWLER_TARGET_TIMEOUT_MAX_MINUTES = CRAWLER_WORKER_WATCHDOG_MAX_MINUTES -
 // exhaust a hosted runner and surface as a bare SIGTERM/exit 143. Four active
 // crawler bodies leave headroom for the runner and still keep the measured
 // group wall-clock comfortably below the 340-minute job budget. Groups 15 and
-// 16 are explicitly placed in a two-body resource lane: this is a concurrency
+// 16 are explicitly placed in a three-body resource lane: this is a concurrency
 // split, not a quarantine, and every member remains scheduled and attributable.
 export const CRAWLER_GROUP_MAX_PARALLEL = 4;
 export const CRAWLER_GROUP_PARALLEL_CAPS = Object.freeze({
-  15: 2,
-  16: 2,
+  15: 3,
+  16: 3,
 });
 
 export function crawlerGroupMaxParallel(groupIndex) {
