@@ -49,6 +49,7 @@ import {
   requirementsUserText,
   resolveLetterLanguage,
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
+import { canonicalizeEmployerAgeCitations } from '../../../functions/src/lib/employerFacts.js';
 import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
 import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
 import { candidateType } from '../../../functions/src/assistedApplicationCandidateType.js';
@@ -278,6 +279,10 @@ export async function buildDraft(ctx) {
       timeoutMs,
     }));
     if (!written.coverLetter.paragraphs.length || !written.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
+    // Bind employer biography to its source in the actual rendered texts, before the strict fact gate.
+    const attributeEmployerAge = (text) => canonicalizeEmployerAgeCitations(text, postingText, order.companyName);
+    written.coverLetter.paragraphs = written.coverLetter.paragraphs.map(attributeEmployerAge);
+    for (const key of ['emailBody', 'motivationShort', 'whyCompany']) written[key] = attributeEmployerAge(written[key]);
     // Swiss conventions in code (study 2026-10-02): salutation and closing per
     // language, no "ß", no line break inside "81 %".
     written.coverLetter = applyLetterConventions(written.coverLetter, { language, contactPerson });

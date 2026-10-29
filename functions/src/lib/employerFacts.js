@@ -82,9 +82,34 @@ function hasOtherClosedEmployer(sentence, employerName) {
 export function quotedEmployerAge(text, index, posting = '', employerName = '') {
   const age = companyAges(text).find((item) => index >= item.index && index < item.index + item.length);
   return Boolean(employerName && age && sameCanonicalEmployer(age.sentence, employerName)
+    && namesCanonicalEmployer(age.sentence, employerName)
     && !hasOtherClosedEmployer(age.sentence, employerName)
     && companyAges(posting).some((item) => item.value === age.value
-      && (!namesCanonicalEmployer(item.sentence, employerName) || namesCanonicalEmployer(age.sentence, employerName))
+      && namesCanonicalEmployer(item.sentence, employerName)
       && !hasOtherClosedEmployer(item.sentence, employerName)
       && sameCanonicalEmployer(item.sentence, employerName)));
+}
+
+/** Attribute a generic employer-age citation before rendering, only when the posting names its owner. */
+export function canonicalizeEmployerAgeCitations(text, posting = '', employerName = '') {
+  const original = String(text || '');
+  const company = String(employerName).trim();
+  if (!company || /[\n\r]/.test(company)) return original;
+  const supported = companyAges(posting).filter((age) => namesCanonicalEmployer(age.sentence, company)
+    && sameCanonicalEmployer(age.sentence, company) && !hasOtherClosedEmployer(age.sentence, company));
+  const insertions = new Set();
+  for (const age of companyAges(original)) {
+    if (namesCanonicalEmployer(age.sentence, company) || explicitCompanyNames(age.sentence).length
+      || hasOtherClosedEmployer(age.sentence, company) || !supported.some((source) => source.value === age.value)) continue;
+    // Only an unnamed company noun before this age: never replace a named employer or a personal fact.
+    const sentenceStart = original.lastIndexOf(age.sentence, age.index);
+    const noun = age.sentence.slice(0, age.index - sentenceStart).match(COMPANY_NOUN);
+    const afterNoun = noun ? age.sentence.slice(noun.index + noun[0].length) : '';
+    // A lowercase brand cannot be distinguished from a generic noun phrase by capitalisation alone.
+    const genericContinuation = /^\s+(?:è|ha|attiva|solida|dinamica|is|has|active|ist|hat|seit|est|a)(?![\p{L}\p{N}])/iu;
+    if (sentenceStart >= 0 && noun && genericContinuation.test(afterNoun)) {
+      insertions.add(sentenceStart + noun.index + noun[0].length);
+    }
+  }
+  return [...insertions].sort((a, b) => b - a).reduce((result, index) => `${result.slice(0, index)} ${company}${result.slice(index)}`, original);
 }

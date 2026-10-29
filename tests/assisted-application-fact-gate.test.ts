@@ -9,6 +9,7 @@ const {
 } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { applicationEmailSubject, formatLetterDate, letterPlaceDate, letterSubject } = await import('../functions/src/assistedApplicationAiPrompts.js');
 const { checkTailoredCvFacts, groundedInCv, sanitizeTailoredCv, tailoredCvSystemPrompt } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { canonicalizeEmployerAgeCitations } = await import('../functions/src/lib/employerFacts.js');
 const { normalizeText } = await import('../functions/src/assistedApplicationAts.js');
 const { buildCoverLetterPdf, extractPdfText, wrapText } = await import('../functions/src/assistedApplicationAiDocuments.js');
 const { mentionsVocabularyTool, vocabularyTools } = await import('../functions/src/lib/toolVocabulary.js');
@@ -1628,7 +1629,37 @@ describe('employer age identity binding', () => {
     expect(checkDraftFacts({ coverLetter: 'La società Alfa SA ha 10 anni.' }, sources).unsupported).toEqual(expect.arrayContaining([expect.objectContaining({ kind: 'number', token: '10' })]));
     expect(checkDraftFacts({ coverLetter: 'La società Beta SA ha 10 anni.' }, { ...sources, posting: 'Alfa SA è una società giovane. Beta SA è una società attiva da 10 anni.' }).ok).toBe(false);
     expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(false);
-    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Una società ha 10 anni.' }).ok).toBe(true);
+    expect(checkDraftFacts({ coverLetter: 'La società ha 10 anni.' }, { ...sources, posting: 'Una società ha 10 anni.' }).ok).toBe(false);
     expect(checkDraftFacts({ coverLetter: 'La società Alfa SA è attiva da 10 anni.' }, { ...sources, posting: 'Alfa SA è una società attiva da 10 anni.' }).ok).toBe(true);
+  });
+});
+
+
+describe('employer citations are attributed in rendered text', () => {
+  const company = 'Example Transport SA';
+  const posting = 'Example Transport SA è una società solida e dinamica, attiva da oltre 50 anni nel trasporto.';
+  const sources = { text: '', answers: '', order: `Sales\n${company}\nCandidate Example`, posting };
+  it('writes the explicit attribution before checking the same document', () => {
+    const generic = 'Mi interessa entrare in una società solida e dinamica, attiva da oltre 50 anni nel trasporto.';
+    expect(checkDraftFacts({ coverLetter: generic }, sources).ok).toBe(false);
+    const rendered = canonicalizeEmployerAgeCitations(generic, posting, company);
+    expect(rendered).toContain('società Example Transport SA solida');
+    expect(checkDraftFacts({ coverLetter: rendered }, sources).ok).toBe(true);
+    expect(canonicalizeEmployerAgeCitations(rendered, posting, company)).toBe(rendered);
+  });
+  it.each([
+    'Ho 50 anni di esperienza.',
+    'La società Beta SA è attiva da 50 anni.',
+    'La società beta è attiva da 50 anni.',
+    'La società non è attiva da 50 anni.',
+    'La società è attiva da 51 anni.',
+    'La mia società è attiva da 50 anni.',
+  ])('never repairs an unsupported or personal claim: %s', (text) => {
+    expect(canonicalizeEmployerAgeCitations(text, posting, company)).toBe(text);
+    expect(checkDraftFacts({ coverLetter: text }, sources).ok).toBe(false);
+  });
+  it('does not guess the owner of an unnamed posting fact', () => {
+    const text = 'La società è attiva da 50 anni.';
+    expect(canonicalizeEmployerAgeCitations(text, text, company)).toBe(text);
   });
 });
