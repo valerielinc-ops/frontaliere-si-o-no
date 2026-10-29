@@ -29,6 +29,7 @@
  * Pure + dependency-light (only the shared HMAC URL builders) so it is unit
  * testable. Table-based inline-styled HTML for email-client compatibility.
  */
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from './newsletterUrls.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
@@ -141,7 +142,7 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${s.heading}</title></head>
 <body style="margin:0;padding:0;background:${PAGE_BG};-webkit-text-size-adjust:100%;">
-<span style="display:none!important;max-height:0;overflow:hidden;opacity:0;color:${PAGE_BG};">${s.preheader}</span>
+${renderEmailPreview(s.preheader)}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${PAGE_BG};padding:24px 12px;">
   <tr><td align="center">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:${CARD_BG};border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">

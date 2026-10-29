@@ -9,6 +9,7 @@
  *   const html = buildNewsletter({ exchangeRate, topArticles, weeklyFact, latestArticle, featuredTool, unsubscribeUrl, locale });
  */
 
+import { renderEmailPreview } from '../functions/src/lib/emailPreview.js';
 import { newsletterPartnerPlacement } from '../functions/src/lib/newsletterPlacements.js';
 import { buildAffiliateHref } from '../functions/src/lib/affiliateLinks.js';
 import { getEnabledPartner } from '../functions/src/lib/affiliatePartnersRegistry.js';
@@ -624,7 +625,6 @@ export function buildNewsletter(data) {
     table { border-collapse:collapse; }
     img { border:0; max-width:100%; }
     a { color:${BRAND_BLUE}; }
-    .preheader { display:none!important; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; }
     @media (prefers-color-scheme:dark) {
       body { background:${LIGHT_BG}!important; }
       .outer-card { background:${CARD_BG}!important; }
@@ -637,7 +637,7 @@ export function buildNewsletter(data) {
   </style>
 </head>
 <body style="margin:0;padding:0;background:${LIGHT_BG};">
-  <div class="preheader">${escapeHtml(preheader)}&nbsp;${'‌'.repeat(80)}</div>
+  ${renderEmailPreview(preheader)}
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:24px 16px;">
       <table class="container" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
