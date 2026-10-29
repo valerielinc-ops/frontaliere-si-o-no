@@ -85,13 +85,13 @@ test('workflow reattests every contract source input', () => {
   }
 });
 
-test('workflow publishes through Remote Config PAT, never GITHUB_TOKEN', () => {
+test('workflow publishes through a trusted App/PAT identity, never GITHUB_TOKEN', () => {
   const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
 
   assert.doesNotMatch(workflow, /GH_TOKEN:\s*\$\{\{\s*github\.token\s*\}\}/u);
   assert.match(workflow, /persist-credentials:\s*false/u);
   assert.match(workflow, /Mint trusted GitHub App token/u);
   assert.match(workflow, /GITHUB_PAT/u);
-  assert.match(workflow, /git remote set-url origin .*\$\{token\}/u);
-  assert.match(workflow, /GH_TOKEN=\$token/u);
+  assert.match(workflow, /git remote set-url origin .*\$\{PUSH_TOKEN\}/u);
+  assert.match(workflow, /GH_TOKEN=\$PUSH_TOKEN/u);
 });
