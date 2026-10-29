@@ -7182,9 +7182,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  pillarNuovaLegge2026: {
  title: 'Regime fiscale frontalieri nel 2026 — Cosa Cambia, Tabelle, Impatti',
- description: 'Regime fiscale frontalieri nel 2026 secondo l'accordo Italia-Svizzera del 2020, requisiti dei regimi nuovo e transitorio, imposizione e credito d'imposta.',
+ description: "Regime fiscale frontalieri nel 2026 secondo l'accordo Italia-Svizzera del 2020, requisiti dei regimi nuovo e transitorio, imposizione e credito d'imposta.",
  keywords: 'regime fiscale frontalieri nel 2026, nuovo accordo frontalieri, accordo italia svizzera 2026, tasse frontalieri 2026, nuovi frontalieri 2023, vecchi frontalieri, franchigia 10000',
- ogTitle: 'Regime fiscale frontalieri nel 2026 — Guida all'accordo Italia-Svizzera',
+ ogTitle: "Regime fiscale frontalieri nel 2026 — Guida all'accordo Italia-Svizzera",
  ogDescription: 'Accordo fiscale Italia-Svizzera del 2020: regole applicate nel 2026, chi è nuovo e chi è vecchio frontaliere, tabelle IRPEF, impatto sul netto mensile.',
  canonicalPath: '/tasse-e-pensione/nuova-legge-frontalieri-2026/',
  structuredData: [
