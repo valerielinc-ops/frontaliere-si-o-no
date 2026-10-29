@@ -150,15 +150,18 @@ function textValue(value) {
 
 function feedLocation(item) {
   const locations = Array.isArray(item?.jobLocation) ? item.jobLocation : [item?.jobLocation];
+  let firstNonEmpty = '';
   for (const location of locations) {
     const address = location?.address || {};
     const value = [address.addressLocality, address.addressRegion, address.addressCountry]
       .map(textValue)
       .filter(Boolean)
       .join(', ');
-    if (value) return value;
+    if (!value) continue;
+    if (!firstNonEmpty) firstNonEmpty = value;
+    if (inferAnyCanton(value)) return value;
   }
-  return textValue(item?.location);
+  return firstNonEmpty || textValue(item?.location);
 }
 
 /**

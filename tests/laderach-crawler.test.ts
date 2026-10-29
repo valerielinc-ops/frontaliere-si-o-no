@@ -4,6 +4,7 @@ import {
   fetchLaderachDetailPage,
   parseLaderachListingHtml,
   parseLaderachNextDataJobs,
+  parseLaderachJobFeed,
   parseLaderachDetailHtml,
   normalizeLaderachJobUrl,
   extractNextData,
@@ -93,6 +94,25 @@ const SAMPLE_DETAIL_HTML_MINIMAL = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Läderach job parser', () => {
+  it('prefers a Swiss feed location when foreign locations appear first', () => {
+    const jobs = parseLaderachJobFeed({
+      dataFeedElement: [{
+        item: {
+          title: 'Swiss listing',
+          url: 'https://laderach.career.softgarden.de/jobs/62367409/Swiss-listing/',
+          jobLocation: [
+            { address: { addressLocality: 'Berlin', addressRegion: 'Berlin', addressCountry: 'DE' } },
+            { address: { addressLocality: 'Lugano', addressRegion: 'Ticino', addressCountry: 'CH' } },
+          ],
+        },
+      }],
+    });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].canton).toBe('TI');
+    expect(jobs[0].location).toBe('Lugano, Ticino, CH');
+  });
+
   describe('fetchLaderachJobUrls', () => {
     it('retries transient listing HTTP 500 responses before parsing a later success', async () => {
       const previousRetries = process.env.JOBS_CRAWLER_RETRIES;
