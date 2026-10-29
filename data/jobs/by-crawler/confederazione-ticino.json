@@ -170,7 +170,6 @@
         "fr": "chef-in-spedition-stv-chef-in-nachschub-confederazione-ittigen"
       },
       "id": "confederazione-ticino-a2f380fd0608",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -232,7 +231,6 @@
         "fr": "hochschulpraktikant-in-juristischer-dienst-confederazione-bern"
       },
       "id": "confederazione-ticino-240b581920a3",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -294,7 +292,6 @@
         "fr": "fachspezialist-in-it-prozesse-und-datenqualitat-rekrutierung-confederazione-bern"
       },
       "id": "confederazione-ticino-67a526836d1e",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-it-prozesse-und-datenqualitat-rekrutierung-confederazione-bern"
@@ -364,7 +361,6 @@
         "fr": "fachspezialist-in-ausserdienststellung-verteidigung-confederazione-bern"
       },
       "id": "confederazione-ticino-436569d3dec1",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -426,7 +422,6 @@
         "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-lehrbeginn-august-2027-monteceneri"
       },
       "id": "confederazione-ticino-e9330e402b4c",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-kauffrau-mann-efz-confederazione-lehrbeginn-august-2027-monteceneri"
@@ -571,7 +566,6 @@
         "fr": "leiter-in-fachbereich-miliz-cfc-confederazione-bern"
       },
       "id": "confederazione-ticino-1d4d1423cb28",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -641,7 +635,6 @@
         "fr": "wiss-mitarbeiter-in-klimapolitik-und-rechtsetzung-ccs-net-confederazione-ittigen"
       },
       "id": "confederazione-ticino-0f36b622adfd",
-      "needsRetranslation": true,
       "salaryMin": 89000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -773,7 +766,6 @@
         "fr": "incident-und-problem-manager-in-confederazione-zollikofen"
       },
       "id": "confederazione-ticino-bdceca79115b",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -17318,7 +17310,8 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-devops-engineer-data-analytics-senior/cc6f8275-0088-4fea-847a-f640949bc33b",
       "datePosted": "2026-07-22T11:14:23Z",
       "postingDateSource": "reported",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     }
   ]
 }

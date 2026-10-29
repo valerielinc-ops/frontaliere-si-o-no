@@ -3437,10 +3437,10 @@
       "id": "etat-de-vaud-6082",
       "slug": "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
       "slugByLocale": {
+        "fr": "curateur-trice-professionnel-le-etat-de-vaud-lausanne-j6wskh",
         "it": "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
         "en": "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
-        "de": "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
-        "fr": "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
+        "de": "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3500,6 +3500,9 @@
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
       "previousSlugsByLocale": {
         "it": [
+          "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
+        ],
+        "fr": [
           "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
         ]
       },
