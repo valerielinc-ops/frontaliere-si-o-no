@@ -1127,9 +1127,10 @@ async function ensureEmailProviders() {
  * @param {'customer'|'owner'|null} [args.audience] explicit recipient for keys
  *   outside NOTIFICATION_KEYS (the automated flow's per-round messages)
  * @param {number} [args.nowMs]
+ * @param {FirebaseFirestore.DocumentReference} [args.recordRef] parent-service ledger; disables order-specific tracking
  */
-export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, audience = null, nowMs = Date.now() }) {
-  const orderRef = orderRefFor(db, orderId);
+export async function sendOrderNotification({ db, orderId, key, build, recipientOverride = '', meta = {}, audience = null, nowMs = Date.now(), recordRef = null }) {
+  const orderRef = recordRef || orderRefFor(db, orderId);
   const testMode = Boolean(recipientOverride);
 
   let order;
@@ -1172,7 +1173,7 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     text: message.text,
     // The candidate's e-mails report opens and clicks to the admin panel
     // (assistedApplicationEmailEvents.js); the owner's and test copies do not.
-    ...(isCustomer && !testMode ? assistedEmailTracking(orderId, key) : { tracking: false }),
+    ...(isCustomer && !testMode && !recordRef ? assistedEmailTracking(orderId, key) : { tracking: false }),
     // Never in test mode: a "Reply" on a [TEST] copy would reach the real
     // customer as soon as the cascade falls back to Resend (the provider
     // that honours replyTo).
