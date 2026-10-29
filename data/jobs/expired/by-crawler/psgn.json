@@ -294,6 +294,8 @@
       "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-04200a76",
       "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-df2d61d8",
       "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-3927e728",
+      "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-31b1e569",
+      "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-518fd29b",
       "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
       "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
     ],
@@ -421,6 +423,8 @@
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-04200a76",
         "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-df2d61d8",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-3927e728",
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-31b1e569",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-518fd29b",
         "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       ],
@@ -485,6 +489,7 @@
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-b1786046",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-04200a76",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-3927e728",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-518fd29b",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "fr": [
@@ -548,6 +553,7 @@
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-b1786046",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-04200a76",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-3927e728",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-518fd29b",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       ]
     },
@@ -901,7 +907,7 @@
     "slugByLocale": {
       "it": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-ea9f2d747b",
       "en": "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg-8d2d29",
-      "de": "oberarztin-oberarzt-psgn-pfafers",
+      "de": "oberarztin-oberarzt-psgn-pfafers-4f8e8cb0",
       "fr": "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg-8d2d29"
     },
     "sector": "Sanità / Ospedali",
@@ -915,7 +921,7 @@
       "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers",
       "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers",
       "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-44dbe19373",
-      "oberarztin-oberarzt-psgn-pfafers",
+      "oberarztin-oberarzt-psgn-pfafers-4f8e8cb0",
       "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
       "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg",
       "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg",
@@ -926,7 +932,8 @@
       "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg-b449e6",
       "oberarztin-oberarzt-psgn-wil-sg-n84y4n",
       "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg-b449e6",
-      "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg"
+      "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
+      "oberarztin-oberarzt-psgn-pfafers"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -936,12 +943,13 @@
         "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers",
         "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-44dbe19373",
         "oberarztin-oberarzt-psgn-wil-sg",
-        "oberarztin-oberarzt-psgn-pfafers",
+        "oberarztin-oberarzt-psgn-pfafers-4f8e8cb0",
         "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
         "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-52877b8995",
         "oberarztin-oberarzt-psgn-wil-sg-2",
         "oberarztin-oberarzt-psgn-pfafers-2",
-        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-b449e6"
+        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-b449e6",
+        "oberarztin-oberarzt-psgn-pfafers"
       ],
       "en": [
         "oberarztin-oberarzt-psgn-wil-sg-3",
@@ -1167,6 +1175,7 @@
       "oberarztin-oberarzt-mbf-psgn-pfafers-ee7de360",
       "oberarztin-oberarzt-mbf-psgn-pfafers-17e893ef",
       "oberarztin-oberarzt-mbf-psgn-pfafers-f0bf1385",
+      "oberarztin-oberarzt-mbf-psgn-pfafers-2cf1d278",
       "oberarztin-oberarzt-mbf-psgn-pfafers"
     ],
     "previousSlugsByLocale": {
@@ -1236,6 +1245,7 @@
         "oberarztin-oberarzt-mbf-psgn-pfafers-ee7de360",
         "oberarztin-oberarzt-mbf-psgn-pfafers-17e893ef",
         "oberarztin-oberarzt-mbf-psgn-pfafers-f0bf1385",
+        "oberarztin-oberarzt-mbf-psgn-pfafers-2cf1d278",
         "oberarztin-oberarzt-mbf-psgn-pfafers"
       ],
       "en": [
