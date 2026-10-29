@@ -22,6 +22,18 @@ export interface SeededExpiredJobSlugs {
   previousSlugsByLocale?: Record<string, string[]>;
 }
 
+// The build-seeded blob belongs to the initial document only. Capture its
+// pathname while the entry bundle is loading so a later SPA navigation cannot
+// make the old global look authoritative for a new route.
+const SEEDED_EXPIRED_DOCUMENT_PATHNAME: string | null =
+  typeof window !== 'undefined' ? window.location.pathname : null;
+
+/** True while the browser is still on the document that carried the seed. */
+export function onSeededExpiredDocument(): boolean {
+  return typeof window !== 'undefined'
+    && window.location.pathname === SEEDED_EXPIRED_DOCUMENT_PATHNAME;
+}
+
 /**
  * True when `job` is known by `slug` under ANY of its names: the canonical
  * slug, a per-locale slug, or a historic (renamed) slug, flat or locale-aware.
@@ -51,11 +63,16 @@ export function expiredJobMatchesSlug(job: SeededExpiredJobSlugs, slug: string):
  */
 export function seededJobMatchesSlug(slug: string): boolean {
   try {
-    if (typeof window === 'undefined') return false;
+    if (!onSeededExpiredDocument()) return false;
     const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
     if (!raw || typeof raw !== 'object') return false;
     return expiredJobMatchesSlug(raw as SeededExpiredJobSlugs, slug);
   } catch {
     return false;
   }
+}
+
+/** Route-level guard for the static expired-job document. */
+export function seededExpiredDocumentMatchesSlug(slug: string): boolean {
+  return onSeededExpiredDocument() && seededJobMatchesSlug(slug);
 }
