@@ -66,6 +66,24 @@ describe('qualification before proposal publication', () => {
     expect(await check({ id: 'long-posting' })).toMatchObject({ status: 'unverified', reason: 'posting_incomplete' });
     expect(f.generate).toHaveBeenCalledTimes(1);
   });
+  it('normalizes indexed job fields and isolates cache entries and fingerprints by prompt metadata', async () => {
+    const f = fixture({ matches: [], verdict: 'strong', questions: [] });
+    const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
+    f.readPosting.mockResolvedValue({ text: `Posting body ${'role details '.repeat(20)}`, textTruncated: false, source: 'job_detail', location: 'Locarno' });
+    const first = await check({ jobId: 'job-a', jobUrl: 'https://example.test/a', jobTitle: 'Analyst', companyName: 'Alpha' });
+    const second = await check({ jobId: 'job-b', jobUrl: 'https://example.test/b', jobTitle: 'Engineer', companyName: 'Beta', location: 'Lugano' });
+
+    expect(f.readPosting).toHaveBeenNthCalledWith(1, { jobId: 'job-a', jobUrl: 'https://example.test/a' }, { maxPostingChars: 30_000 });
+    expect(f.readPosting).toHaveBeenNthCalledWith(2, { jobId: 'job-b', jobUrl: 'https://example.test/b' }, { maxPostingChars: 30_000 });
+    const requirementPrompts = f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT).map(([, prompt]) => prompt);
+    expect(requirementPrompts[0]).toContain('Job title: Analyst\nCompany: Alpha\nLocation: Locarno');
+    expect(requirementPrompts[1]).toContain('Job title: Engineer\nCompany: Beta\nLocation: Locarno');
+    expect(first.cacheId).not.toBe(second.cacheId);
+    expect(first.fingerprint).not.toBe(second.fingerprint);
+
+    await check({ jobId: 'job-a', jobUrl: 'https://example.test/a', jobTitle: 'Changed title', companyName: 'Alpha' });
+    expect(f.generate.mock.calls.filter(([system]) => system === REQUIREMENTS_SYSTEM_PROMPT)).toHaveLength(3);
+  });
   it('reuses a verified positive only for identical CV, posting and answer memory', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong', questions: [] });
     const required = { requirements: [{ requirement: 'English B2', importance: 'critical', basis: 'stated', quote: 'English B2' }] };

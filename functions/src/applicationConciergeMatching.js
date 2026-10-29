@@ -7,7 +7,7 @@
  * application child is created.
  */
 
-import { prepareConciergeEligibility } from './applicationConciergeEligibility.js';
+import { normalizeConciergeJobRecord, prepareConciergeEligibility } from './applicationConciergeEligibility.js';
 import { createHash } from 'node:crypto';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -367,7 +367,7 @@ function validJobUrl(value) {
 }
 
 function jobUrl(job) {
-  return job?.applyUrl || job?.url || '';
+  return job?.applyUrl || job?.url || job?.jobUrl || job?.canonicalUrl || '';
 }
 
 async function fetchJobs(url = process.env.APPLICATION_CONCIERGE_JOB_INDEX_URL || DEFAULT_JOB_INDEX_URL) {
@@ -443,7 +443,7 @@ export async function runApplicationConciergeMatching({ db = getAdminDb(), servi
 
   await serviceRef.set({ matchingStatus: 'running', matchingStartedAt: FieldValue.serverTimestamp(), matchingError: null, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
   try {
-    const jobs = await fetchJobs(jobIndexUrl);
+    const jobs = (await fetchJobs(jobIndexUrl)).map(normalizeConciergeJobRecord);
     const existingSnapshot = await serviceRef.collection('proposals').get();
     const existing = existingSnapshot.docs || [];
     const known = new Set(existing.map((doc) => {

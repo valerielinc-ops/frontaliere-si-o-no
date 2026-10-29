@@ -17,6 +17,17 @@ export const eligibilityHash = value => createHash('sha256').update(value).diges
 const sourceHash = value => eligibilityHash(String(value || '').replace(/\s+/g, ' ').trim());
 const PROMPT_VERSION = eligibilityHash([PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT, matchSystemPrompt('it')].join('\n'));
 
+export function normalizeConciergeJobRecord(job = {}) {
+  return {
+    ...job,
+    id: job.id || job.jobId || '',
+    url: job.url || job.jobUrl || job.applyUrl || job.canonicalUrl || '',
+    title: job.title || job.jobTitle || '',
+    company: job.company || job.companyName || '',
+    location: job.location || '',
+  };
+}
+
 async function generateJson(systemPrompt, userPrompt, schema) {
   const response = await generateServerText({ systemPrompt: `${systemPrompt}\nReturn ONLY valid JSON matching this schema:\n${JSON.stringify(schema)}`,
     userPrompt, maxTokens: 8192, temperature: 0, maxProviderAttempts: 2, allowCodexFallback: false });
@@ -55,18 +66,20 @@ export async function prepareConciergeEligibility({ db, serviceRef, service, pro
   const answerHash = eligibilityHash(JSON.stringify(answers));
   let analyses = 0;
   return async (job) => {
-    const posting = await readPosting({ jobId: job.id || job.jobId, jobUrl: job.url || job.applyUrl || job.canonicalUrl }, { maxPostingChars: 30_000 });
+    job = normalizeConciergeJobRecord(job);
+    const posting = await readPosting({ jobId: job.id, jobUrl: job.url }, { maxPostingChars: 30_000 });
     if (!posting.text || posting.text.length < 100 || posting.textTruncated) return { status: 'unverified', reason: 'posting_incomplete' };
     const postingHash = sourceHash(posting.text);
-    const fingerprint = eligibilityHash([cvHash, answerHash, postingHash, PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
-    const cacheId = `job-${eligibilityHash(String(job.id || job.url || job.canonicalUrl)).slice(0, 32)}`;
+    const postingMetadata = [job.title, job.company, posting.location || job.location].map(value => String(value || '').trim().replace(/\s+/g, ' '));
+    const fingerprint = eligibilityHash([cvHash, answerHash, postingHash, ...postingMetadata, PROMPT_VERSION, CONCIERGE_ELIGIBILITY_VERSION].join('|'));
+    const cacheId = `job-${eligibilityHash(String(job.id || job.url)).slice(0, 32)}`;
     const ref = cache.doc(cacheId);
     const cached = (await ref.get()).data();
     if (cached?.fingerprint === fingerprint) return { ...cached.result, fingerprint, cacheId };
     if (analyses >= 20) return { status: 'unverified', reason: 'analysis_deferred' };
     analyses += 1;
     const raw = await generate(REQUIREMENTS_SYSTEM_PROMPT, requirementsUserText({ jobTitle: job.title, companyName: job.company,
-      location: posting.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
+      location: posting.location || job.location, postingText: posting.text }), REQUIREMENTS_SCHEMA);
     if (!Array.isArray(raw.requirements) || !raw.requirements.length || raw.requirements.length > 12) return { status: 'unverified', reason: 'requirements_incomplete' };
     const requirements = verifyQuotes(sanitizeRequirements(raw), posting.text);
     const matchRaw = await generate(matchSystemPrompt(service.locale), matchUserText({ profile, requirements, answers,
