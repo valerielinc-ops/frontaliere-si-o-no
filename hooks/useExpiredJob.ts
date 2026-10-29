@@ -10,7 +10,7 @@
 
 import { useEffect, useState } from 'react';
 import { cdnDataUrl } from '@/services/cdnDataBase';
-import { expiredJobMatchesSlug } from '@/services/seededExpiredJob';
+import { expiredJobMatchesSlug, onSeededExpiredDocument } from '@/services/seededExpiredJob';
 
 export interface ExpiredJob {
  slug: string;
@@ -79,6 +79,7 @@ function matchExpiredSlug(job: ExpiredJob, slug: string): boolean {
  */
 function getSeededExpiredJob(): ExpiredJob | null {
  try {
+ if (!onSeededExpiredDocument()) return null;
  const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
  if (raw && typeof raw === 'object' && 'slug' in (raw as Record<string, unknown>)) {
  const candidate = raw as ExpiredJob;
@@ -111,6 +112,7 @@ export { seededJobMatchesSlug } from '@/services/seededExpiredJob';
  */
 export function hasSeededExpiredData(): boolean {
  try {
+ if (!onSeededExpiredDocument()) return false;
  const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
  // Check for slug only — title may be empty for orphan slugs that have no
  // enrichment data. Guard 1 in JobBoard.tsx must still fire for these pages

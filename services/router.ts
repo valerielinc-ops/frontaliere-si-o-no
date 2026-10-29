@@ -3089,12 +3089,13 @@ export function parsePath(pathname: string): ParseResult {
      // `/cerca-lavoro-zurigo/zurich/` and similar resolve consistently.
      // Sector hub matches are also honoured for parity with TI.
      if (rawSecond) {
-       // Expired soft-landings are emitted as static HTML. The seed is the
-       // authority for this exact document, so keep that body outside the SPA
-       // main instead of hydrating the generic job-detail gate over it.
+       // Expired soft-landings ship a rich static fallback for no-JS/crawlers,
+       // but the matching build seed is also the authority for the hydrated
+       // JobExpiredView. Keep the document guard here so a stale global cannot
+       // turn a later soft-navigation into the previous expired page.
        if (seededExpiredDocumentMatchesSlug(rawSecond)) {
          return {
-           route: { activeTab: 'job-board', jobBoardCanton: cantonCode, staticOverlay: true },
+           route: { activeTab: 'job-board', jobBoardCanton: cantonCode, jobSlug: rawSecond },
            locale,
          };
        }
@@ -3401,11 +3402,12 @@ export function parsePath(pathname: string): ParseResult {
  // the already-built location landing UI, while preserving the city
  // identifier for canonical URL generation in buildPath().
  if (rawSecond) {
- // Expired soft-landings are static-first pages. Match the build seed before
- // the sector/city/editorial disambiguators so an archived slug cannot fall
- // through to the hydrated JobExpiredView gate.
+ // Expired soft-landings have a static no-JS fallback but must hydrate the
+ // matching JobExpiredView. Match the build seed before the sector/city/
+ // editorial disambiguators so an archived slug cannot be misclassified as a
+ // filter; the document guard also blocks stale seed data after soft-nav/back.
  if (seededExpiredDocumentMatchesSlug(rawSecond)) {
- return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', jobSlug: rawSecond }, locale };
  }
  // Sector hub (infermieri / case-anziani / educatori) — clean canonical URLs.
  // staticOverlay tells App.tsx to skip the React main render so the
