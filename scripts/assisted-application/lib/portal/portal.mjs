@@ -455,7 +455,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
  */
 function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
   const items = questions.map((question) => ({
-    answerId: question.id,
+    answerId: portalAnswerForApplication(question, answers[question.id]) !== String(answers[question.id] ?? '').trim() ? question.id : undefined,
     question: question.applicationQuestion || question.question,
     ...(question.applicationQuestion ? { applicationQuestion: question.applicationQuestion } : {}),
     ...(question.applicationQuestion ? { candidateQuestion: question.question } : {}),
