@@ -55,6 +55,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 import { localeTitleDropsSourceWords } from './lib/job-title-identity.mjs';
+import { jobTitleSourceLang } from './lib/job-locale-utils.mjs';
 
 /**
  * True when `slug`, company/location/disambiguator tokens removed, only drops
@@ -153,7 +154,7 @@ async function main() {
     }
 
     for (const job of jobs) {
-      const sourceLang = job.sourceLang || 'it';
+      const sourceLang = jobTitleSourceLang(job, job.sourceLang || 'it');
       const tbl = job.titleByLocale || {};
       const sbl = job.slugByLocale || {};
       const company = job.company || '';

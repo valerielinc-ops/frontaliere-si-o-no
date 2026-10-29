@@ -37,9 +37,8 @@ import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
-import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
+import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, jobTitleSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 import {
-  migrosServiceCounterTitleSourceLang,
   repairMigrosServiceCounterTitleInPlace,
 } from './job-title-semantic-repair.mjs';
 import {
@@ -2346,9 +2345,7 @@ export function ensureLocaleFields(job) {
   // low-confidence re-detection that disagrees with the stored sourceLang must
   // not be allowed to move the slot (see holdSourceLang in job-locale-utils).
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
-  const titleSourceLang = migrosServiceCounterTitleSourceLang(out)
-    || pinnedLang
-    || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
+  const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang, title: baseTitle || bestTitle }, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
   const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
 
@@ -3674,9 +3671,7 @@ function stripCopyPasteLocales(job) {
   if (out.titleByLocale && typeof out.titleByLocale === 'object') {
     const tbl = { ...out.titleByLocale };
     const baseTitle = normalizeSpace(out.title || '');
-    const titleSourceLang = migrosServiceCounterTitleSourceLang(out)
-      || pinnedTitleSourceLang(out)
-      || detectJobTitleLang(baseTitle, sourceLang);
+    const titleSourceLang = jobTitleSourceLang(out, sourceLang);
     const sourceTitleNorm = normalizeSpace(tbl[titleSourceLang] || baseTitle).toLowerCase();
     if (sourceTitleNorm.length > 25) {
       for (const locale of LOCALES) {

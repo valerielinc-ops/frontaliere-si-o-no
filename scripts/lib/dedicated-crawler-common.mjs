@@ -34,6 +34,7 @@ import {
   detectJobTitleLocaleDetails,
   detectTextLocale,
   holdSourceLang,
+  jobTitleSourceLang,
   isDescriptionSourceCopy,
   normalizeJobLocale,
   pinnedTitleSourceLang,
@@ -1565,7 +1566,10 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
     // wrote (see pinnedTitleSourceLang in job-locale-utils.mjs).
     const pinnedLang = pinnedTitleSourceLang(job);
     const detectedSourceLang = pinnedLang || detectLang(baseDesc || baseTitle, 'it');
-    let titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle, detectedSourceLang);
+    let titleSourceLang = jobTitleSourceLang(
+      { ...job, sourceLang: detectedSourceLang, title: baseTitle },
+      detectedSourceLang,
+    );
     const sourceLang = pinnedLang || holdSourceLang(job, baseDesc || baseTitle, titleSourceLang);
     // Derive the title slot from the SAME held value. detectJobTitleLang falls
     // back to the description detection whenever the title alone is
@@ -1574,7 +1578,10 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
     // the title would keep hopping between slots in the titleByLocale write
     // below.
     if (!pinnedLang && sourceLang !== detectedSourceLang) {
-      titleSourceLang = detectJobTitleLang(baseTitle, sourceLang);
+      titleSourceLang = jobTitleSourceLang(
+        { ...job, sourceLang, title: baseTitle },
+        sourceLang,
+      );
     }
     if (!pinnedLang && baseTitle && titleSourceLang === 'it' && sourceLang !== 'it' && needsItalianTitleRepair(baseTitle)) {
       titleSourceLang = sourceLang;
@@ -1624,14 +1631,6 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
       (hasUsableTitle(baseTitle) || !hasUsableTitle(job.titleByLocale[titleSourceLang]))
     ) {
       job.titleByLocale[titleSourceLang] = baseTitle;
-      jobChanged = true;
-    }
-    if (
-      baseTitle &&
-      sourceLang !== titleSourceLang &&
-      !String(job.titleByLocale[sourceLang] || '').trim()
-    ) {
-      job.titleByLocale[sourceLang] = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
       jobChanged = true;
     }
     if (baseDesc && baseDesc.length >= 80 &&
@@ -1909,7 +1908,6 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
 
     const sourceTitleFallback = String(
       job.titleByLocale[titleSourceLang] ||
-      job.titleByLocale[sourceLang] ||
       baseTitle
     ).trim();
     if (sourceTitleFallback) {
@@ -1920,7 +1918,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
           // Coop Grigioni DE titles to appear under titleByLocale.it.
           // Only copy if the source language matches this locale OR if it's the
           // source language slot itself.
-          if (locale === sourceLang || locale === titleSourceLang) {
+          if (locale === titleSourceLang) {
             job.titleByLocale[locale] = sourceTitleFallback;
             jobChanged = true;
           }
@@ -2499,8 +2497,7 @@ export function hasUntranslatedLocaleTitles(job = {}, ctx = {}) {
   const ns = ctx.normalizeSpace || ((s) => String(s || '').replace(/\s+/g, ' ').trim());
   const sourceTitle = ns(job?.title || '');
   if (!sourceTitle) return false;
-  const sourceLang = pinnedTitleSourceLang(job)
-    || detectJobTitleLang(sourceTitle, detectLanguage(job?.description || '', 'en'));
+  const sourceLang = jobTitleSourceLang(job, detectLanguage(job?.description || '', 'en'));
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const localized = ns(job?.titleByLocale?.[locale] || '');
@@ -3184,7 +3181,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     currentByLocale[sourceLang] = resolvedSourceDescription;
   }
   const forceLocalization = shouldForceLocalizationForJob(out, ctx);
-  const titleSourceLang = normalizeJobLocale(pinnedLang) || detectJobTitleLang(out.title || '', sourceLang);
+  const titleSourceLang = jobTitleSourceLang({ ...out, sourceLang }, sourceLang);
   const sourceTitle = nsFn(titleByLocale[titleSourceLang] || out.title || '');
   if (sourceTitle) titleByLocale[titleSourceLang] = sourceTitle;
 
@@ -3707,8 +3704,9 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
         if (!job.descriptionByLocale || typeof job.descriptionByLocale !== 'object') job.descriptionByLocale = {};
         // Ensure source locale slots are populated
-        const titleLang = pinnedTitleSourceLang(job) || detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
-        const descLang = pinnedTitleSourceLang(job) || detectTextLocale(baseDesc || baseTitle, titleLang).lang;
+        const detectedBodyLang = detectLang(baseDesc || baseTitle, 'it');
+        const titleLang = jobTitleSourceLang({ ...job, sourceLang: detectedBodyLang, title: baseTitle }, detectedBodyLang);
+        const descLang = pinnedTitleSourceLang(job) || detectTextLocale(baseDesc || baseTitle, detectedBodyLang).lang;
         let sourceLocaleFilled = false;
         if (baseTitle && !job.titleByLocale[titleLang]) {
           job.titleByLocale[titleLang] = baseTitle;
@@ -3755,13 +3753,19 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
 
       const pinnedJobLang = pinnedTitleSourceLang(job);
       const detectedJobLang = pinnedJobLang || detectLang(baseDesc || baseTitle, 'it');
-      let titleSourceLang = pinnedJobLang || detectJobTitleLang(baseTitle, detectedJobLang);
+      let titleSourceLang = jobTitleSourceLang(
+        { ...job, sourceLang: detectedJobLang, title: baseTitle },
+        detectedJobLang,
+      );
       // Same hold as hardenJobLocaleFields: this path writes titleByLocale and
       // descriptionByLocale from these two values too, so an unheld flip here
       // damages the record identically.
       let sourceLang = pinnedJobLang || holdSourceLang(job, baseDesc || baseTitle, titleSourceLang);
       if (!pinnedJobLang && sourceLang !== detectedJobLang) {
-        titleSourceLang = detectJobTitleLang(baseTitle, sourceLang);
+        titleSourceLang = jobTitleSourceLang(
+          { ...job, sourceLang, title: baseTitle },
+          sourceLang,
+        );
       }
       let jobTranslated = false;
 
@@ -4988,10 +4992,7 @@ export function validateDedicatedLocaleCoverage({
     const baseDescIsThin = baseDescTrimmed.length < minSourceDescriptionCharsForHardValidation;
     const baseTitle = String(job?.title || '').trim();
     const sourceLang = pinnedTitleSourceLang(job) || detectSourceLang(`${job?.title || ''} ${baseDesc}`, job);
-    const titleSourceLang = pinnedTitleSourceLang(job) || detectJobTitleLang(
-      String(job?.titleByLocale?.[sourceLang] || baseTitle),
-      sourceLang,
-    );
+    const titleSourceLang = jobTitleSourceLang({ ...job, sourceLang }, sourceLang);
     // A job carrying an active crawlerMissStreak (mergePreserveLocaleData's
     // grace-period retention, dedicated-crawler-common.mjs) was NOT matched
     // by this run's fresh fetch — it's a carry-over already scheduled to be
@@ -7617,11 +7618,10 @@ export function hasFullLocaleCoverage(job, { minTitleChars = 3, minSlugChars = 3
  * Translation coverage for the indexed text fields, independent of slugs.
  *
  * A source-language copy in a non-source slot is not a completed translation:
- * locale hardening deliberately keeps that copy visible so deploy can render
- * the job, but the job must remain in the repair queue. This is the shared
- * guard used by the crawler merge and the translation writer; neither path may
- * clear `needsRetranslation` while one of the four title/description pairs is
- * still only a source copy or below its minimum length.
+ * title slots use the effective title language, while descriptions use the
+ * body's `sourceLang`. Locale hardening deliberately keeps usable source text
+ * visible, but the job remains queued until each slot is translated. This is
+ * the shared guard used by crawler merge and the translation writer.
  */
 export function hasCompleteLocaleTextCoverage(job, {
   sourceLang = job?.sourceLang || null,
@@ -7633,21 +7633,25 @@ export function hasCompleteLocaleTextCoverage(job, {
   if (localeTextCoverage(titles, minTitleChars) < LOCALES.length) return false;
   if (localeTextCoverage(descriptions, minDescriptionChars) < LOCALES.length) return false;
 
-  const normalizedSourceLocale = normalizeJobLocale(sourceLang);
-  const sourceLocale = LOCALES.includes(sourceLang)
-    ? sourceLang
+  const bodySourceLang = sourceLang || job?.sourceLang || 'it';
+  const normalizedSourceLocale = normalizeJobLocale(bodySourceLang);
+  const descriptionSourceLocale = LOCALES.includes(bodySourceLang)
+    ? bodySourceLang
     : (LOCALES.includes(normalizedSourceLocale) ? normalizedSourceLocale : null);
-  if (!sourceLocale) return true;
-  const sourceTitle = normalizeSpace(String(titles[sourceLocale] || job?.title || '')).toLowerCase();
+  const titleSourceLang = jobTitleSourceLang({ ...job, sourceLang: bodySourceLang }, bodySourceLang);
+  const sourceTitle = normalizeSpace(String(titles[titleSourceLang] || job?.title || '')).toLowerCase();
   const sourceDescriptionCandidates = [...new Set(
-    [descriptions[sourceLocale], ...sourceLocaleTextCandidates(job, 'description')]
+    [
+      descriptionSourceLocale && descriptions[descriptionSourceLocale],
+      ...sourceLocaleTextCandidates({ ...job, sourceLang: bodySourceLang }, 'description'),
+    ]
       .map((value) => String(value ?? '').trim())
       .filter(Boolean),
   )];
   for (const locale of LOCALES) {
-    if (locale === sourceLocale) continue;
-    if (sourceTitle && normalizeSpace(String(titles[locale] || '')).toLowerCase() === sourceTitle) return false;
-    if (sourceDescriptionCandidates.some((source) =>
+    if (locale !== titleSourceLang && sourceTitle
+      && normalizeSpace(String(titles[locale] || '')).toLowerCase() === sourceTitle) return false;
+    if (locale !== descriptionSourceLocale && sourceDescriptionCandidates.some((source) =>
       source.length >= minDescriptionChars && isDescriptionSourceCopy(descriptions[locale], source))) return false;
   }
   return true;
@@ -7667,10 +7671,15 @@ export function hasCompleteLocaleTextCoverage(job, {
  */
 export function hasCorrectLocaleCoverage(job, srcLang, opts = {}) {
   if (!hasFullLocaleCoverage(job, opts)) return false;
-  if (!srcLang) return true;
+  const effectiveBodyLang = srcLang || job?.sourceLang || 'it';
+  const titleSourceLang = jobTitleSourceLang({ ...job, sourceLang: effectiveBodyLang }, effectiveBodyLang);
   for (const locale of LOCALES) {
-    if (locale === srcLang) continue;
-    if (titleLooksUntranslatedFromSource(job?.titleByLocale?.[locale], srcLang, locale)) return false;
+    if (locale === titleSourceLang) continue;
+    if (titleLooksUntranslatedFromSource(job?.titleByLocale?.[locale], titleSourceLang, locale, {
+      sourceTitle: job?.titleByLocale?.[titleSourceLang] || job?.title || '',
+      company: job?.company || '',
+      location: job?.addressLocality || job?.location || '',
+    })) return false;
   }
   return true;
 }
@@ -7708,7 +7717,7 @@ function normalizeLocaleTextKeepLines(value = '') {
 const SOURCE_DRIFT_JACCARD_FLOOR = 0.15;
 
 function sourceTitleForEtaRole(job = {}) {
-  const sourceLocale = String(job?.sourceLang || '').trim();
+  const sourceLocale = jobTitleSourceLang(job);
   const localized = sourceLocale ? job?.titleByLocale?.[sourceLocale] : '';
   return normalizeSpace(
     localized
@@ -8019,7 +8028,14 @@ export function buildSourceTitleBridge(existingJobs, freshJobs, matchKey, ambigu
  */
 function carryLocaleTextFromSameSourceTitle(fresh, previous) {
   const srcLang = fresh.sourceLang || previous.sourceLang || null;
-  fresh.titleByLocale = mergeLocaleTextMap(previous.titleByLocale, fresh.titleByLocale || {}, 3, srcLang);
+  const titleSrcLang = jobTitleSourceLang({
+    ...previous,
+    ...fresh,
+    sourceLang: srcLang,
+    title: fresh.title || previous.title,
+    titleByLocale: { ...(previous.titleByLocale || {}), ...(fresh.titleByLocale || {}) },
+  }, srcLang || 'it');
+  fresh.titleByLocale = mergeLocaleTextMap(previous.titleByLocale, fresh.titleByLocale || {}, 3, titleSrcLang);
   fresh.descriptionByLocale = mergeLocaleTextMap(previous.descriptionByLocale, fresh.descriptionByLocale || {}, 30, srcLang);
   if (previous.requirementsByLocale && !fresh.requirementsByLocale) {
     fresh.requirementsByLocale = previous.requirementsByLocale;
@@ -8160,16 +8176,23 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
 
     // Determine source language for locale-aware merging
     const srcLang = fresh.sourceLang || old.sourceLang || null;
+    const titleSrcLang = jobTitleSourceLang({
+      ...old,
+      ...fresh,
+      sourceLang: srcLang,
+      title: fresh.title || old.title,
+      titleByLocale: { ...(old.titleByLocale || {}), ...(fresh.titleByLocale || {}) },
+    }, srcLang || 'it');
 
     // Merge locale maps: keep existing translations, update source-locale slot
     fresh.titleByLocale = mergeLocaleTextMap(
-      old.titleByLocale, fresh.titleByLocale || {}, 3, srcLang
+      old.titleByLocale, fresh.titleByLocale || {}, 3, titleSrcLang
     );
     fresh.descriptionByLocale = mergeLocaleTextMap(
       old.descriptionByLocale, fresh.descriptionByLocale || {}, 30, srcLang
     );
     fresh.slugByLocale = mergeLocaleTextMap(
-      old.slugByLocale, fresh.slugByLocale || {}, 3, srcLang
+      old.slugByLocale, fresh.slugByLocale || {}, 3, titleSrcLang
     );
 
     // Same "stable ID reused for an unrelated posting" case mergeLocaleTextMap
@@ -8178,9 +8201,9 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // empty by that guard get (re)populated against the NEW source text
     // instead of sitting blank until some unrelated future edit happens to
     // trigger it.
-    if (srcLang) {
-      const oldSrcTitleForDrift = normalizeSpace(String(old?.titleByLocale?.[srcLang] || old?.title || ''));
-      const newSrcTitleForDrift = normalizeSpace(String(fresh?.titleByLocale?.[srcLang] || fresh?.title || ''));
+    if (titleSrcLang) {
+      const oldSrcTitleForDrift = normalizeSpace(String(old?.titleByLocale?.[titleSrcLang] || old?.title || ''));
+      const newSrcTitleForDrift = normalizeSpace(String(fresh?.titleByLocale?.[titleSrcLang] || fresh?.title || ''));
       if (
         oldSrcTitleForDrift.length >= 3 && newSrcTitleForDrift.length >= 3
         && slugJaccard(slugify(oldSrcTitleForDrift), slugify(newSrcTitleForDrift)) < SOURCE_DRIFT_JACCARD_FLOOR
@@ -9232,6 +9255,14 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     const mergedPreviousSlugsCapped = capSlugArray(previousSlugsUnion, LEGACY_PREV_SLUGS_CAP, {
       jobId: mergeJobId, source: 'dedicated-crawler-common.mergeAndDeduplicate',
     });
+    const mergedBodySourceLang = next.sourceLang || prev.sourceLang || null;
+    const mergedTitleSourceLang = jobTitleSourceLang({
+      ...prev,
+      ...next,
+      sourceLang: mergedBodySourceLang,
+      title: next.title || prev.title,
+      titleByLocale: { ...(prev.titleByLocale || {}), ...(next.titleByLocale || {}) },
+    }, mergedBodySourceLang || 'it');
     const best = {
       ...prev,
       ...next,
@@ -9249,13 +9280,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       source: (next.source === 'Company Careers Crawler' || prev.source !== 'Company Careers Crawler')
         ? next.source
         : prev.source,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3, mergedTitleSourceLang),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120, next.sourceLang || prev.sourceLang || null),
       requirementsByLocale: mergeLocaleRequirementsMap(
         prev.requirementsByLocale || {}, next.requirementsByLocale || {},
         next.sourceLang || prev.sourceLang || null,
       ),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3, mergedTitleSourceLang),
       previousSlugs: mergedPreviousSlugsCapped,
       previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale, mergeJobId, 'mergeAndDeduplicate'),
     };
@@ -9364,8 +9395,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     }
     if (localeTextCoverage(best.titleByLocale, 3) === 0 && best.title) {
       const fallbackTitle = {};
-      const titleSourceLang = pinnedTitleSourceLang(best)
-        || detectJobTitleLang(best.title, detectLang(best.description || '', 'en'));
+      const titleSourceLang = jobTitleSourceLang(best, detectLang(best.description || '', 'en'));
       fallbackTitle[titleSourceLang] = best.title;
       best.titleByLocale = fallbackTitle;
     }

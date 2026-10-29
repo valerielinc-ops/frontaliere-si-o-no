@@ -8,6 +8,7 @@ import {
   normalizeJobLocale,
   titleContainsLlmReasoning,
 } from './job-locale-core.mjs';
+import { migrosServiceCounterTitleSourceLang } from './job-title-semantic-repair.mjs';
 
 export {
   DEFAULT_JOB_LOCALES,
@@ -851,4 +852,25 @@ export function pinnedTitleSourceLang(job) {
   if (original && original === lang && !DEFAULT_JOB_LOCALES.includes(original)) return original;
   if (job.source !== 'publisher-submitted') return null;
   return DEFAULT_JOB_LOCALES.includes(lang) ? lang : null;
+}
+
+/**
+ * Resolve the effective source language for title slots. `sourceLang` remains
+ * the description language; crawler jobs can have a title in another language.
+ * Explicit source pins and the source-backed Migros correction take precedence,
+ * followed by the same title detector used by crawler localization.
+ */
+export function jobTitleSourceLang(job, fallback = '') {
+  if (!job || typeof job !== 'object') return normalizeJobLocale(fallback) || 'it';
+  const semantic = migrosServiceCounterTitleSourceLang(job);
+  if (semantic) return semantic;
+  const pinned = pinnedTitleSourceLang(job);
+  if (pinned) return normalizeJobLocale(pinned) || String(pinned).trim().toLowerCase();
+
+  const bodyLang = normalizeJobLocale(job.sourceLang)
+    || normalizeJobLocale(fallback)
+    || 'it';
+  const title = String(job.title || '').trim()
+    || String(job.titleByLocale?.[bodyLang] || '').trim();
+  return detectJobTitleLang(title, bodyLang);
 }

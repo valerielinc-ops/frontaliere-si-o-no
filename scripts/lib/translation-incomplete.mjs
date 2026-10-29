@@ -18,6 +18,7 @@
 import {
   SOURCE_LANG_HOLD_CONFIDENCE,
   isDescriptionSourceCopy,
+  jobTitleSourceLang,
   normalizeJobLocale,
   sourceLocaleTextCandidates,
   sourceLocaleTextForTranslation,
@@ -55,6 +56,7 @@ export function isIncomplete(job) {
   const dbl = job.descriptionByLocale || {};
   const tbl = job.titleByLocale || {};
   const srcLang = normalizeJobLocale(job.sourceLang) || 'it';
+  const titleSrcLang = jobTitleSourceLang(job, srcLang);
   const baseDesc = (job.description || '').trim();
   const sourceDescriptions = sourceLocaleTextCandidates(job, 'description');
   const sourceStructureDesc = hasStructuredContent(baseDesc)
@@ -162,11 +164,11 @@ export function isIncomplete(job) {
     // never how many. Genuinely-international titles that no translator can
     // improve are absorbed by the existing give-up valve
     // (MAX_RETRANSLATION_ATTEMPTS → `localeMismatchSuppressed`).
-    if (locale !== srcLang && title) {
+    if (locale !== titleSrcLang && title) {
       const verdict = titleLooksUntranslated({
         title,
-        sourceTitle: (tbl[srcLang] || job.title || '').trim(),
-        sourceLang: srcLang,
+        sourceTitle: (tbl[titleSrcLang] || job.title || '').trim(),
+        sourceLang: titleSrcLang,
         targetLocale: locale,
         company: job.company || '',
         location: job.addressLocality || job.location || '',

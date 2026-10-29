@@ -1,5 +1,4 @@
-import { titleLooksUntranslated } from './job-locale-utils.mjs';
-import { migrosServiceCounterTitleSourceLang } from './job-title-semantic-repair.mjs';
+import { jobTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 
 // Reasons that send a title to the Codex repair lane. Gender codes are
 // reported by titleLooksUntranslated(), but are not an untranslated verdict
@@ -45,16 +44,12 @@ export function isTitleRepairQueueVerdict(verdict) {
 /**
  * Source locale of a title as the base language code the locale maps are keyed
  * by: a stored regional tag (`de-CH`, `fr_CH`) must still find the `de`/`fr`
- * slot and must still exclude it from target locales. A complete, employer-
- * anchored Migros title can override the body locale (or its missing-value
- * default) without changing `job.sourceLang` for the description. One place for
- * the inference and default keeps lookup, exclusion and detection aligned.
+ * slot and must still exclude it from target locales. Explicit source pins,
+ * source-backed corrections, and title detection are shared with crawler
+ * localization, without changing `job.sourceLang` for the description.
  */
 export function titleRepairSourceLang(job) {
-  const titleHint = migrosServiceCounterTitleSourceLang(job);
-  if (titleHint) return titleHint;
-  const base = String(job?.sourceLang || '').trim().toLowerCase().split(/[-_]/u)[0];
-  return base || 'it';
+  return jobTitleSourceLang(job);
 }
 
 /**

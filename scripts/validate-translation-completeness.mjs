@@ -159,7 +159,12 @@ export function collectRetranslationFlags(jobs) {
 export async function loadTitleLanguageCheck() {
   try {
     const mod = await import('./lib/job-locale-utils.mjs');
-    return typeof mod.titleLooksUntranslated === 'function' ? mod.titleLooksUntranslated : null;
+    if (typeof mod.titleLooksUntranslated !== 'function') return null;
+    const check = (args) => mod.titleLooksUntranslated(args);
+    if (typeof mod.jobTitleSourceLang === 'function') {
+      check.jobTitleSourceLang = mod.jobTitleSourceLang;
+    }
+    return check;
   } catch {
     return null;
   }
@@ -178,7 +183,9 @@ export function collectLanguageSuspects(jobs, titleLooksUntranslated) {
   if (typeof titleLooksUntranslated !== 'function') return { suspects, errors };
 
   for (const job of jobs) {
-    const sourceLang = job.sourceLang || 'it';
+    const sourceLang = typeof titleLooksUntranslated.jobTitleSourceLang === 'function'
+      ? titleLooksUntranslated.jobTitleSourceLang(job)
+      : (job.sourceLang || 'it');
     const sourceTitle = String(job.titleByLocale?.[sourceLang] || job.title || '');
     for (const locale of LOCALES) {
       if (locale === sourceLang) continue;
