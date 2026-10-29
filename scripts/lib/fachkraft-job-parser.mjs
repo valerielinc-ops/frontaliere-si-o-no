@@ -388,9 +388,11 @@ export async function fetchFachkraftPage(
   label,
   fetchJinaImpl = fetchHtmlViaJinaWithRetry,
   fetchBrowserImpl,
+  { method = 'GET', allowRescue = true } = {},
 ) {
   const startedAt = Date.now();
   const result = await politeFetch(url, {
+    method,
     urlPolicy,
     dispatcher: urlPolicy.dispatcher,
     fetchImpl: (target, init) => transport.fetchImpl(target, {
@@ -457,7 +459,7 @@ export async function fetchFachkraftPage(
     && !result.blockedByRobots
     && (routeRescueEligible || hardWafResponse);
   let rescuedBody = null;
-  if (routeRescueEligibleWithPolicy) {
+  if (allowRescue && routeRescueEligibleWithPolicy) {
     const reason = connectionLevelFailure
       ? `transport ${result.transportError || 'other'}`
       : `HTTP ${result.status}`;
@@ -466,13 +468,13 @@ export async function fetchFachkraftPage(
 
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
   const antiBotResponse = directChallenge || hardWafResponse;
-  if (!rescuedBody && directChallenge) rescuedBody = await rescueWithJina('anti-bot challenge');
+  if (allowRescue && !rescuedBody && directChallenge) rescuedBody = await rescueWithJina('anti-bot challenge');
 
   if (rescuedBody) {
     return { ...result, ok: true, body: rescuedBody, status: 200, proxiedBy: 'jina' };
   }
 
-  const browserRescueEligible = !result.policyBlocked
+  const browserRescueEligible = allowRescue && !result.policyBlocked
     && !result.blockedByRobots
     && (routeRescueEligible || antiBotResponse);
   if (browserRescueEligible && typeof fetchBrowserImpl === 'function') {
@@ -627,6 +629,41 @@ function isGoneDetailError(error) {
   return status === 404 || status === 410;
 }
 
+async function probeFachkraftDetail(
+  url,
+  transport,
+  urlPolicy,
+  signal,
+  label,
+) {
+  try {
+    await fetchFachkraftPage(
+      url,
+      transport,
+      urlPolicy,
+      signal,
+      label,
+      undefined,
+      undefined,
+      { method: 'HEAD', allowRescue: false },
+    );
+  } catch (error) {
+    // A few origins reject HEAD even when the same detail URL is healthy. In
+    // that case, use the normal GET once so a stale 404/410 is still retired.
+    if (![405, 501].includes(Number(error?.status))) throw error;
+    await fetchFachkraftPage(
+      url,
+      transport,
+      urlPolicy,
+      signal,
+      label,
+      undefined,
+      undefined,
+      { method: 'GET', allowRescue: false },
+    );
+  }
+}
+
 /**
  * One complete source snapshot. Transport and parse failures remain
  * all-or-nothing: they abort sibling workers and reject before the standard
@@ -675,26 +712,79 @@ export async function fetchFachkraftSnapshot(options = {}) {
     );
     const existingByUrl = new Map(readExistingFachkraftJobs(options).map((job) => [job?.url, job]));
     const enriched = new Array(rows.length);
+    const cacheCandidates = [];
     const pending = [];
     let reused = 0;
     for (const [index, row] of rows.entries()) {
       const cached = reusableExistingListing(row, existingByUrl.get(row.url));
       if (cached) {
-        enriched[index] = cached;
-        reused++;
+        cacheCandidates.push({ index, row, cached });
       } else {
         pending.push({ index, row });
       }
     }
-    console.log(`[fachkraft] listing=${rows.length} cached-source=${reused} detail-required=${pending.length}`);
+    console.log(`[fachkraft] listing=${rows.length} cache-candidates=${cacheCandidates.length} detail-required=${pending.length}`);
 
     let next = 0;
     let completed = 0;
     let qualityDropped = 0;
     let staleDropped = 0;
+    let cacheProbeNext = 0;
+    let cacheProbeCompleted = 0;
+    let cacheProbeFallbacks = 0;
     let firstError = null;
     const detailController = new AbortController();
     const detailSignal = combineSignals(runController.signal, detailController.signal);
+
+    const cacheProbeWorker = async () => {
+      while (cacheProbeNext < cacheCandidates.length) {
+        throwIfAborted(runController.signal, 'fachkraft cached detail probe aborted');
+        const item = cacheCandidates[cacheProbeNext++];
+        try {
+          await probeFachkraftDetail(
+            item.row.url,
+            transport,
+            urlPolicy,
+            runController.signal,
+            `cached detail ${item.index + 1}/${rows.length}`,
+          );
+          enriched[item.index] = item.cached;
+          reused++;
+        } catch (error) {
+          if (runController.signal.aborted) throw runController.signal.reason || error;
+          if (isGoneDetailError(error)) {
+            staleDropped++;
+            console.warn(
+              `⚠️ fachkraft cached detail ${item.index + 1}/${rows.length} disappeared from the source `
+              + `(HTTP ${error.status}); dropping the stale listing and continuing`,
+            );
+          } else {
+            // A transient probe failure is not evidence that a previously
+            // published detail disappeared; retain the bounded cache entry.
+            enriched[item.index] = item.cached;
+            reused++;
+            cacheProbeFallbacks++;
+          }
+        } finally {
+          cacheProbeCompleted++;
+        }
+      }
+    };
+    const cacheProbeWorkerCount = Math.max(1, Math.min(
+      boundedInteger(options.detailWorkers, FACHKRAFT_FETCH_BUDGET.detailWorkers, { min: 1, max: 8 }),
+      cacheCandidates.length || 1,
+    ));
+    await Promise.allSettled(Array.from({ length: cacheProbeWorkerCount }, cacheProbeWorker));
+    if (runController.signal.aborted) throw runController.signal.reason;
+    if (cacheProbeCompleted !== cacheCandidates.length) {
+      throw new Error(`fachkraft cached detail accounting incomplete: ${cacheProbeCompleted}/${cacheCandidates.length}`);
+    }
+    if (cacheProbeFallbacks > 0) {
+      console.warn(
+        `⚠️ fachkraft retained ${cacheProbeFallbacks} cached detail(s) after a non-terminal liveness probe failure`,
+      );
+    }
+
     const worker = async () => {
       while (!firstError && next < pending.length) {
         const item = pending[next++];
