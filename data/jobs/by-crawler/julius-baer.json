@@ -306,21 +306,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "previousSlugsByLocale": {
-        "en": [
-          "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
-        ],
-        "it": [
-          "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
-        ]
-      },
-      "previousSlugs": [
-        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
-      ],
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-10-29T09:28:54.030Z",
       "salaryMin": 79000,
@@ -336,7 +321,22 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
+        ],
+        "it": [
+          "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
+        ]
+      },
+      "previousSlugs": [
+        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
+      ],
+      "retranslationAttempts": 5,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3301,
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Relationship-Manager-Global-NRI_r-20321",
@@ -2162,7 +2162,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
       "retranslationAttempts": 58,
@@ -2181,7 +2180,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Leiter-Sicherheitsdienst-100---f-m-d-_r-19893",
@@ -2689,7 +2689,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5322,
       "retranslationAttempts": 58,
@@ -2708,7 +2707,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Strategy-Specialist---Group-Strategy--100---m-f-d-_r-19882",

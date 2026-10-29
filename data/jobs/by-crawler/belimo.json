@@ -1567,17 +1567,6 @@
       "jobReqId": "1165657455",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "system-engineer-cloud-technologies-80-100-belimo-hinwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "system-engineer-cloud-technologies-80-100-belimo-hinwil"
-        ],
-        "fr": [
-          "system-engineer-cloud-technologies-80-100-belimo-hinwil"
-        ]
-      },
       "firstSeenAt": "2026-10-22T09:13:57.993Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -1591,7 +1580,18 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-cloud-technologies-80-100-belimo-hinwil"
+        ],
+        "fr": [
+          "system-engineer-cloud-technologies-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-cloud-technologies-80-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-88592d98973d",

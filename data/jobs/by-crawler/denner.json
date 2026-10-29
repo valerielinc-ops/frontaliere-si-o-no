@@ -7779,7 +7779,8 @@
         "verkaufer-in-denner-zumikon-f0c353a7cc",
         "commesso-a-denner-zumikon-574f20ba39",
         "seller-denner-ag-zumikon",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "salesperson-denner-zumikon"
       ],
       "firstSeenAt": "2026-08-20T21:40:17.111Z",
       "salaryMin": 83000,
@@ -15097,7 +15098,8 @@
         "verkaufer-in-denner-zug",
         "verkaufer-in-denner-zug-rtrz4s",
         "venditore-trice-denner-zug-a4dbd7e08d",
-        "shop-assistant-denner-zug"
+        "shop-assistant-denner-zug",
+        "salesperson-denner-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25584,12 +25586,6 @@
       "crawledAt": "2026-10-29T09:30:52.245Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-samedan",
-        "verkaufer-in-denner-samedan-7th4hu",
-        "shop-assistant-denner-samedan"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
@@ -25604,7 +25600,12 @@
           "verkaufer-in-denner-samedan-7th4hu"
         ]
       },
-      "firstSeenAt": "2026-07-10T23:02:40.827Z",
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-samedan",
+        "verkaufer-in-denner-samedan-7th4hu",
+        "shop-assistant-denner-samedan"
+      ],
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -25617,7 +25618,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-10T23:02:40.827Z"
     },
     {
       "id": "denner-fe00e4c70d60",
