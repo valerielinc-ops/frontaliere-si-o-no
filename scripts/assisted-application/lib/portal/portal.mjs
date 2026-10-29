@@ -170,23 +170,41 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
   }
 }
 
+const LOCALE_PATH_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
+
+/**
+ * Read an employer-hosted `/jobs/<slug>` route, allowing one locale segment
+ * before `jobs`. ALTEN can redirect an English/canonical posting to
+ * `/de/jobs/<slug>/apply` while the stored posting URL remains `/jobs/<slug>/`;
+ * the host and complete slug still bind the two URLs to one posting.
+ */
+function directJobRoute(pathname, isApply) {
+  const segments = String(pathname || '').split('/').filter(Boolean);
+  if (isApply && segments.pop()?.toLowerCase() !== 'apply') return null;
+  if (segments.length < 2 || segments.at(-2)?.toLowerCase() !== 'jobs') return null;
+  const prefix = segments.slice(0, -2);
+  if (prefix.length > 1 || (prefix.length === 1 && !LOCALE_PATH_SEGMENT_RE.test(prefix[0]))) return null;
+  const slug = segments.at(-1);
+  return slug ? { slug } : null;
+}
+
 /**
  * Employer-hosted job apply routes can redirect to a generic application page
  * when opened cold. Enter through the matching job detail page first so its
  * normal Apply link establishes the portal session. Match both origin and the
- * complete job route: a stale or unrelated posting URL must never change
- * which application the runner opens.
+ * complete job slug: a stale or unrelated posting URL must never change which
+ * application the runner opens. A single locale segment may differ between
+ * the stored canonical URL and the localized apply route.
  */
 function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    const applyRoute = /^(.*\/jobs\/)([^/]+)\/apply\/?$/i.exec(apply.pathname);
-    const postingRoute = /^(.*\/jobs\/)([^/]+)\/?$/i.exec(posting.pathname);
+    const applyRoute = directJobRoute(apply.pathname, true);
+    const postingRoute = directJobRoute(posting.pathname, false);
     return apply.origin === posting.origin
       && Boolean(applyRoute && postingRoute)
-      && applyRoute[1] === postingRoute[1]
-      && applyRoute[2] === postingRoute[2];
+      && applyRoute.slug === postingRoute.slug;
   } catch {
     return false;
   }

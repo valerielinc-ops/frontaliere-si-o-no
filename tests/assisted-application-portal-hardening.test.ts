@@ -85,8 +85,16 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const postingUrl = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/';
 
     expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
+    const localizedApplyUrl = 'https://www.alten.ch/de/jobs/903-pipe-project-manager-it/apply';
+    const localizedEntry = isVerifiedPostingEntry({ applyUrl: localizedApplyUrl, postingUrl });
+    expect(localizedEntry).toBe(true);
+    expect(portalEntryUrl({ applyUrl: localizedApplyUrl, postingUrl })).toBe(postingUrl);
+    expect(formPostingMatch('Application Tracking System\nProject Manager - IT & Banking', {
+      company: 'ALTEN Switzerland', title: 'Project Manager - IT & Banking',
+    }, { postingMatched: localizedEntry, postingEntry: localizedEntry, pageUrl: localizedApplyUrl })).toBe('match');
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('903-pipe-project-manager-it', '879-google-cloud-platform') })).toBe(applyUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('www.alten.ch', 'alten.ch') })).toBe(applyUrl);
+    expect(portalEntryUrl({ applyUrl: localizedApplyUrl, postingUrl: postingUrl.replace('/jobs/', '/xx/jobs/') })).toBe(localizedApplyUrl);
   });
 
   it('opens an Umantis Application/New form from its matching vacancy page', () => {
