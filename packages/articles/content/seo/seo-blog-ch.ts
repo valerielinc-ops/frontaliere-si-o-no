@@ -109233,7 +109233,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-allarme-popolazione-165-milioni': {
     title: 'Allarme popolazione: 165,4 mln per modernizzazione',
-    description: 'Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell',
+    description: 'Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell broadcast integrerà l\'allerta esistente.',
     keywords: 'frontalieri, ticino, svizzera, italia, allarme, popolazione, modernizzazione, consiglio',
     ogTitle: 'Allarme popolazione: 165,4 mln per modernizzazione',
     ogDescription: 'Il Consiglio federale chiede 165,4 milioni di franchi.',
@@ -109242,7 +109242,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Allarme popolazione: 165,4 mln per modernizzazione",
-      "description": "Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell",
+      "description": "Il Consiglio federale chiede 165,4 milioni di franchi. Alertswiss sarà mantenuto e potenziato. Le sirene passeranno interamente ai Cantoni. Il cell broadcast integrerà l'allerta esistente.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -109272,16 +109272,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-norme-flessibilita-start-up': {
     title: 'Consiglio federale concede flessibilità alle start-up per l\'orario di lavoro',
-    description: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up',
+    description: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione attua l\'obiettivo dell\'iniziativa 16.442',
     keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, concede, flessibilità',
     ogTitle: 'Flessibilità oraria start-up: norme 2026',
-    ogDescription: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione',
+    ogDescription: 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione attua l\'obiettivo dell\'iniziativa 16.442',
     canonicalPath: '/articoli-svizzera/norme-flessibilita-start-up/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Consiglio federale concede flessibilità alle start-up per l'orario di lavoro",
-      "description": "Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up",
+      "description": "Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione attua l'obiettivo dell'iniziativa 16.442",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
@@ -109311,7 +109311,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-sem-rinnovo-simic-paralisi': {
     title: 'La SEM rischia la paralisi per il rinnovo di SIMIC',
-    description: 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima',
+    description: 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032',
     keywords: 'frontalieri, ticino, svizzera, italia, rischia, paralisi, rinnovo, simic',
     ogTitle: 'SIMIC, la SEM rischia la paralisi senza nuove risorse',
     ogDescription: 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032',
@@ -109320,7 +109320,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "La SEM rischia la paralisi per il rinnovo di SIMIC",
-      "description": "La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima",
+      "description": "La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
