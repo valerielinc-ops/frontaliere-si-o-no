@@ -14,6 +14,8 @@ import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
+import { APPLICATION_CONCIERGE_SERVICES_COLLECTION } from './applicationConciergeConstants.js';
+import { preflightExistingCvEligibility } from './applicationConciergeEligibility.js';
 import {
   createSumUpAssistedApplicationCheckout,
   retrieveSumUpCheckout,
@@ -140,6 +142,41 @@ function payloadHashFor(order) {
 function sameCanonicalCheckoutOrder(left, right) {
   return JSON.stringify(canonicalCheckoutOrder(left))
     === JSON.stringify(canonicalCheckoutOrder(right));
+}
+
+function validOwnedId(value) {
+  return /^[A-Za-z0-9_-]{1,200}$/.test(String(value || ''));
+}
+
+async function acceptedConciergeApplicationFor({ firestore, userId, jobId, jobUrl }) {
+  const services = firestore.collection(APPLICATION_CONCIERGE_SERVICES_COLLECTION);
+  if (typeof services.where !== 'function') return null;
+  const snapshot = await services.where('userId', '==', userId).get();
+  for (const serviceDoc of snapshot.docs || []) {
+    const service = serviceDoc.data() || {};
+    if (service.userId !== userId) continue;
+    const proposalsRef = serviceDoc.ref?.collection?.('proposals') || services.doc(serviceDoc.id).collection('proposals');
+    const proposals = await proposalsRef.get();
+    for (const proposalDoc of proposals.docs || []) {
+      const proposal = proposalDoc.data() || {};
+      if (proposal.status !== 'accepted' || !validOwnedId(proposal.childApplicationId)) continue;
+      if (String(proposal.jobId || '') !== String(jobId || '') && String(proposal.jobUrl || '') !== String(jobUrl || '')) continue;
+      return {
+        serviceId: String(serviceDoc.id || ''),
+        proposalId: String(proposalDoc.id || ''),
+        childApplicationId: String(proposal.childApplicationId),
+      };
+    }
+  }
+  return null;
+}
+
+function publicFitGaps(gaps) {
+  return (Array.isArray(gaps) ? gaps : []).slice(0, 3).map((gap) => ({
+    requirement: boundedString(gap?.requirement, 200),
+    quote: boundedString(gap?.quote, 300),
+    status: boundedString(gap?.status, 20) || 'unknown',
+  })).filter((gap) => gap.requirement || gap.quote);
 }
 
 function shouldIgnoreAssistedApplicationWebhook(currentOrder, sessionId, paymentProvider = 'stripe') {
@@ -353,6 +390,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   let checkoutAttempt = 1;
   let stripeRequestKey = requestKeyHash;
   let paidOrderResumeId = null;
+  let paidOrderAlreadyExists = false;
   let staleCheckout = null;
   let verifiedSumUpCheckout = null;
   let verifiedStripeCheckout = null;
@@ -367,6 +405,12 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     ) {
       const existingOrderSnapshot = await orderCollection.doc(existingRecord.orderId).get();
       const existingOrder = existingOrderSnapshot.exists ? existingOrderSnapshot.data() || {} : null;
+      if (existingOrder
+        && existingOrder.userId === userId
+        && sameCanonicalCheckoutOrder(existingOrder, order)
+        && existingOrder.paymentStatus === 'paid') {
+        paidOrderAlreadyExists = true;
+      }
       if (
         existingOrder
         && existingOrder.userId === userId
@@ -465,6 +509,57 @@ export async function handleCreateAssistedApplicationCheckout(req) {
           };
         }
       }
+    }
+  }
+
+  // An accepted concierge proposal is already a paid application handoff. Do
+  // not let a stale job-board CTA create a second one-off purchase for it.
+  let acceptedConcierge;
+  try {
+    acceptedConcierge = await acceptedConciergeApplicationFor({
+      firestore,
+      userId,
+      jobId: order.jobId,
+      jobUrl: order.jobUrl,
+    });
+  } catch (error) {
+    console.warn('[assistedApplicationCheckout] concierge lookup unavailable', error instanceof Error ? error.message : String(error));
+    return { status: 503, body: { ok: false, error: 'application_concierge_lookup_unavailable' } };
+  }
+  if (acceptedConcierge) {
+    return { status: 409, body: { ok: false, error: 'application_concierge_proposal_already_accepted', ...acceptedConcierge } };
+  }
+
+  if (!paidOrderAlreadyExists) {
+    let preflight;
+    try {
+      preflight = await preflightExistingCvEligibility({
+        db: firestore,
+        userId,
+        job: {
+          id: order.jobId,
+          url: order.jobUrl,
+          title: order.jobTitle,
+          company: order.companyName,
+        },
+      });
+    } catch (error) {
+      // A missing provider/posting is unknown evidence. Keep the existing
+      // post-payment review path rather than blocking a candidate on a
+      // transient preflight failure.
+      console.warn('[assistedApplicationCheckout] CV preflight unavailable', error instanceof Error ? error.message : String(error));
+      preflight = { status: 'unverified', reason: 'analysis_unavailable' };
+    }
+    if (preflight?.status === 'incompatible') {
+      const gaps = publicFitGaps(preflight.gaps);
+      return {
+        status: 409,
+        body: {
+          ok: false,
+          error: 'assisted_application_incompatible',
+          ...(gaps.length ? { gaps } : {}),
+        },
+      };
     }
   }
 

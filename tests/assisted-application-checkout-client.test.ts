@@ -127,4 +127,36 @@ describe('assisted application checkout client idempotency', () => {
     expect(getAssistedApplicationCheckoutErrorCode({ code: 'auth/network-request-failed' })).toBe('auth/network-request-failed');
     expect(getAssistedApplicationCheckoutErrorCode({ status: 503 })).toBe('http_503');
   });
+
+  it('preserves only bounded public fit gaps and concierge navigation ids', async () => {
+    fetchMock.mockImplementationOnce(async () => ({
+      ok: false,
+      status: 409,
+      json: async () => ({
+        ok: false,
+        error: 'assisted_application_incompatible',
+        gaps: [{ requirement: 'German B2', quote: 'German B2 required', status: 'missing', private: 'drop me' }],
+        serviceId: 'service-42',
+        proposalId: 'proposal-42',
+        childApplicationId: 'child-42',
+        privateProfile: 'drop me',
+      }),
+    }));
+    await expect(createAssistedApplicationCheckout(input, {
+      uid: 'user-client-fit',
+      getIdToken: vi.fn(async () => 'good-token'),
+    })).rejects.toMatchObject({
+      code: 'assisted_application_incompatible',
+      details: {
+        gaps: [{ requirement: 'German B2', quote: 'German B2 required', status: 'missing' }],
+        serviceId: 'service-42',
+        proposalId: 'proposal-42',
+        childApplicationId: 'child-42',
+      },
+    });
+    await expect(createAssistedApplicationCheckout(input, {
+      uid: 'user-client-fit-second',
+      getIdToken: vi.fn(async () => 'good-token'),
+    })).resolves.toBeDefined();
+  });
 });

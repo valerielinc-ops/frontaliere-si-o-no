@@ -202,6 +202,7 @@ export interface UserCvProfileRecord {
     permitExpiry?: string;
     skills?: string[];
     languages?: string[];
+    languagesExplicitList?: boolean;
     experienceSummary?: string[];
   };
   updatedAt?: unknown;

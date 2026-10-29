@@ -3,6 +3,32 @@ import { describe, expect, it, beforeEach, vi } from 'vitest';
 let store: Record<string, Record<string, Record<string, unknown>>> = {};
 let generatedOrderNumber = 0;
 
+function makeCollectionRef(collectionName: string) {
+  return {
+    doc: (id?: string) => makeDocRef(collectionName, id || `order-${++generatedOrderNumber}`),
+    async get() {
+      return {
+        docs: Object.entries(store[collectionName] || {}).map(([id, data]) => ({
+          id,
+          data: () => data,
+          ref: makeDocRef(collectionName, id),
+        })),
+      };
+    },
+    where(field: string, _operator: string, value: unknown) {
+      return {
+        async get() {
+          return {
+            docs: Object.entries(store[collectionName] || {})
+              .filter(([, data]) => data[field] === value)
+              .map(([id, data]) => ({ id, data: () => data, ref: makeDocRef(collectionName, id) })),
+          };
+        },
+      };
+    },
+  };
+}
+
 function makeDocRef(collectionName: string, id: string) {
   return {
     id,
@@ -15,14 +41,13 @@ function makeDocRef(collectionName: string, id: string) {
       store[collectionName] ||= {};
       store[collectionName][id] = options?.merge ? { ...current, ...data } : data;
     },
+    collection: (name: string) => makeCollectionRef(`${collectionName}/${id}/${name}`),
   };
 }
 
 function makeFirestore() {
   const database = () => ({
-    collection: (name: string) => ({
-      doc: (id?: string) => makeDocRef(name, id || `order-${++generatedOrderNumber}`),
-    }),
+    collection: (name: string) => makeCollectionRef(name),
     runTransaction: async (callback: any) => callback({
       get: (ref: any) => ref.get(),
       set: (ref: any, data: Record<string, unknown>, options?: { merge?: boolean }) => ref.set(data, options),
@@ -33,6 +58,9 @@ function makeFirestore() {
     { FieldValue: { serverTimestamp: () => '__server_timestamp__' } },
   );
 }
+
+const { generateServerTextMock } = vi.hoisted(() => ({ generateServerTextMock: vi.fn() }));
+vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: generateServerTextMock }));
 
 const firestore = makeFirestore();
 const verifyIdToken = vi.fn(async (token: string) => {
@@ -151,6 +179,7 @@ beforeEach(() => {
   store = {};
   generatedOrderNumber = 0;
   vi.clearAllMocks();
+  generateServerTextMock.mockReset();
   getRemoteConfigValueMock.mockImplementation(async (key: string) => {
     if (key === 'STRIPE_SECRET_KEY') return 'sk_test_assisted';
     if (key === 'STRIPE_WEBHOOK_SECRET') return 'whsec_assisted';
@@ -183,6 +212,69 @@ beforeEach(() => {
 });
 
 describe('handleCreateAssistedApplicationCheckout', () => {
+  it('blocks a certain CV mismatch before creating a payment checkout', async () => {
+    store.user_cv_profiles = {
+      'user-42': {
+        status: 'ready',
+        profile: { languages: ['English'], languagesExplicitList: true },
+      },
+    };
+    generateServerTextMock.mockImplementation(async ({ systemPrompt }: { systemPrompt: string }) => ({
+      status: 200,
+      body: {
+        ok: true,
+        text: JSON.stringify(systemPrompt.startsWith('You analyse a Swiss job posting')
+          ? { requirements: [{ requirement: 'Tedesco fluente', importance: 'critical', basis: 'stated', quote: 'Fluent German required' }] }
+          : { matches: [{ index: 0, status: 'missing', evidence: 'English' }], verdict: 'poor', questions: [] }),
+      },
+    }));
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: true,
+      async json() { return { description: `Fluent German required. ${'IT operations and infrastructure. '.repeat(20)} on the posting.` }; },
+    })));
+    try {
+      const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+      await expect(handleCreateAssistedApplicationCheckout(request())).resolves.toEqual({
+        status: 409,
+        body: {
+          ok: false,
+          error: 'assisted_application_incompatible',
+          gaps: [expect.objectContaining({ requirement: 'Tedesco fluente', status: 'missing' })],
+        },
+      });
+      expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+      expect(store.assisted_applications).toBeUndefined();
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('routes an already accepted concierge position without opening a second checkout', async () => {
+    store.application_concierge_services = {
+      'service-42': { userId: 'user-42' },
+    };
+    store['application_concierge_services/service-42/proposals'] = {
+      'proposal-42': {
+        status: 'accepted',
+        jobId: 'job-42',
+        jobUrl: 'https://jobs.example.test/jobs/job-42',
+        childApplicationId: 'child-42',
+      },
+    };
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    await expect(handleCreateAssistedApplicationCheckout(request())).resolves.toEqual({
+      status: 409,
+      body: {
+        ok: false,
+        error: 'application_concierge_proposal_already_accepted',
+        serviceId: 'service-42',
+        proposalId: 'proposal-42',
+        childApplicationId: 'child-42',
+      },
+    });
+    expect(stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
+  });
+
   it.each(['stripe', 'sumup'])('uses the real client redirect contract when %s payment wins during creation', async (provider) => {
     assistedApplicationPaymentProvider.mockResolvedValue(provider);
     const complete = async () => {

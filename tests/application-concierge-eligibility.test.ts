@@ -3,7 +3,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 vi.mock('../functions/src/geminiGenerate.js', () => ({ generateServerText: vi.fn() }));
 const { generateServerText } = await import('../functions/src/geminiGenerate.js');
 vi.mock('../functions/src/assistedApplicationAiDocuments.js', () => ({ extractCvText: vi.fn(async () => 'Candidate Example\nIT Manager, Example Systems\nLanguages: English B2, French B2\nInfrastructure management and operations experience.') }));
-const { prepareConciergeEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
+const { prepareConciergeEligibility, preflightExistingCvEligibility, vettedConciergeDraftInputs } = await import('../functions/src/applicationConciergeEligibility.js');
 const { conciergeProposalEligibility, fitNoticeOf } = await import('../functions/src/assistedApplicationFitNotice.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
 
@@ -143,5 +143,39 @@ describe('qualification before proposal publication', () => {
     expect(conciergeProposalEligibility(requirements, { matches: [], verdict: 'good' }).status).toBe('clarification_required');
     expect(conciergeProposalEligibility(requirements, { matches: [{ index: 0, status: 'met', evidence: '' }], verdict: 'good' }).status).toBe('clarification_required');
     expect(conciergeProposalEligibility({ requirements: [] }, { matches: [], verdict: 'strong' }).status).toBe('unverified');
+  });
+  it('uses a ready private CV projection for the single-checkout preflight', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: 'English' }], verdict: 'poor', questions: [] });
+    f.records.set('user_cv_profiles/candidate', {
+      status: 'ready',
+      profile: { languages: ['English'], languagesExplicitList: true },
+    });
+    const result = await preflightExistingCvEligibility({
+      db: f.db,
+      userId: 'candidate',
+      job: { id: 'job', url: 'https://example.test/job', title: 'IT Manager', company: 'Example' },
+      generate: f.generate,
+      readPosting: f.readPosting,
+    });
+    expect(result).toMatchObject({ status: 'incompatible', gaps: [{ status: 'missing' }] });
+    expect(result.gaps[0]).not.toHaveProperty('profile');
+  });
+  it('keeps a missing or unreadable projection unknown instead of blocking payment', async () => {
+    const f = fixture({ matches: [{ index: 0, status: 'missing', evidence: '' }], verdict: 'poor', questions: [] });
+    expect(await preflightExistingCvEligibility({
+      db: f.db,
+      userId: 'candidate',
+      job: { id: 'job', url: 'https://example.test/job' },
+      generate: f.generate,
+      readPosting: f.readPosting,
+    })).toEqual({ status: 'unverified', reason: 'profile_not_ready' });
+    f.records.set('user_cv_profiles/candidate', { status: 'ready', profile: { extractedTextAvailable: false } });
+    expect(await preflightExistingCvEligibility({
+      db: f.db,
+      userId: 'candidate',
+      job: { id: 'job', url: 'https://example.test/job' },
+      generate: f.generate,
+      readPosting: f.readPosting,
+    })).toEqual({ status: 'unverified', reason: 'profile_not_ready' });
   });
 });
