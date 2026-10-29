@@ -1189,6 +1189,9 @@
       "filialleiter-in-zkb-meilen-8a7ffb70",
       "filialleiter-in-zurcher-kantonalbank-meilen-657c0794",
       "branch-manager-zurcher-kantonalbank-meilen-99c4cae7",
+      "filialleiter-in-zkb-meilen-b08fec88",
+      "filialleiter-in-zurcher-kantonalbank-meilen-53f13d04",
+      "branch-manager-zurcher-kantonalbank-meilen-f55cb9f0",
       "filialleiter-in-zkb-meilen",
       "filialleiter-in-zurcher-kantonalbank-meilen",
       "branch-manager-zurcher-kantonalbank-meilen"
@@ -1311,6 +1314,8 @@
         "filialleiter-in-zurcher-kantonalbank-meilen-da3df7c5",
         "filialleiter-in-zkb-meilen-8a7ffb70",
         "filialleiter-in-zurcher-kantonalbank-meilen-657c0794",
+        "filialleiter-in-zkb-meilen-b08fec88",
+        "filialleiter-in-zurcher-kantonalbank-meilen-53f13d04",
         "filialleiter-in-zkb-meilen",
         "filialleiter-in-zurcher-kantonalbank-meilen"
       ],
@@ -1429,6 +1434,8 @@
         "branch-manager-zurcher-kantonalbank-meilen-285ab613",
         "filialleiter-in-zurcher-kantonalbank-meilen-657c0794",
         "branch-manager-zurcher-kantonalbank-meilen-99c4cae7",
+        "filialleiter-in-zurcher-kantonalbank-meilen-53f13d04",
+        "branch-manager-zurcher-kantonalbank-meilen-f55cb9f0",
         "filialleiter-in-zurcher-kantonalbank-meilen",
         "branch-manager-zurcher-kantonalbank-meilen"
       ],
@@ -1491,6 +1498,7 @@
         "filialleiter-in-zurcher-kantonalbank-meilen-fc91392d",
         "filialleiter-in-zurcher-kantonalbank-meilen-da3df7c5",
         "filialleiter-in-zurcher-kantonalbank-meilen-657c0794",
+        "filialleiter-in-zurcher-kantonalbank-meilen-53f13d04",
         "filialleiter-in-zurcher-kantonalbank-meilen"
       ]
     },
@@ -1899,7 +1907,7 @@
       "it": "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
       "en": "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-b4c77f3a",
       "de": "lead-devops-engineer-m-w-d-ebanking-zkb-zurich",
-      "fr": "fullstack-devops-ingenieur-m-w-d-zurcher-kantonalbank-zurich"
+      "fr": "fullstack-devops-ingenieur-m-w-d-zurcher-kantonalbank-zurich-1bf816d6"
     },
     "sector": "Finanza / Banca",
     "expiredAt": "2026-10-16T21:17:46.476Z",
@@ -2048,8 +2056,11 @@
       "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-857316cb",
       "fullstack-devops-engineer-m-w-d-zkb-zurich-ba67cf90",
       "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-c38ce0fe",
+      "fullstack-devops-engineer-m-w-d-zkb-zurich-0d102604",
+      "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-857d5df7",
       "fullstack-devops-engineer-m-w-d-zkb-zurich",
-      "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich"
+      "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich",
+      "fullstack-devops-ingenieur-m-w-d-zurcher-kantonalbank-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2129,6 +2140,7 @@
         "fullstack-devops-engineer-m-w-d-zkb-zurich-9fef2752",
         "fullstack-devops-engineer-m-w-d-zkb-zurich-6971f73d",
         "fullstack-devops-engineer-m-w-d-zkb-zurich-ba67cf90",
+        "fullstack-devops-engineer-m-w-d-zkb-zurich-0d102604",
         "fullstack-devops-engineer-m-w-d-zkb-zurich"
       ],
       "en": [
@@ -2202,6 +2214,7 @@
         "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-a7c5b04b",
         "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-857316cb",
         "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-c38ce0fe",
+        "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich-857d5df7",
         "fullstack-devops-engineer-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "de": [
@@ -2275,6 +2288,7 @@
         "fullstack-devops-engineer-m-w-d-zkb-zurich-9fef2752",
         "fullstack-devops-engineer-m-w-d-zkb-zurich-6971f73d",
         "fullstack-devops-engineer-m-w-d-zkb-zurich-ba67cf90",
+        "fullstack-devops-engineer-m-w-d-zkb-zurich-0d102604",
         "fullstack-devops-engineer-m-w-d-zkb-zurich"
       ],
       "fr": [
@@ -2349,7 +2363,9 @@
         "fullstack-devops-engineer-m-w-d-zkb-zurich-9fef2752",
         "fullstack-devops-engineer-m-w-d-zkb-zurich-6971f73d",
         "fullstack-devops-engineer-m-w-d-zkb-zurich-ba67cf90",
-        "fullstack-devops-engineer-m-w-d-zkb-zurich"
+        "fullstack-devops-engineer-m-w-d-zkb-zurich-0d102604",
+        "fullstack-devops-engineer-m-w-d-zkb-zurich",
+        "fullstack-devops-ingenieur-m-w-d-zurcher-kantonalbank-zurich"
       ]
     },
     "postalCode": "8001",
@@ -3209,6 +3225,10 @@
       "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-44f44e86",
       "business-engineer-billing-payments-m-w-d-zkb-zurich-000c1087",
       "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich-bc9f5702",
+      "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich-79269bf4",
+      "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-e3e1604e",
+      "business-engineer-billing-payments-m-w-d-zkb-zurich-fde9f0b0",
+      "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich-880ccb9e",
       "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich",
       "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich",
       "business-engineer-billing-payments-m-w-d-zkb-zurich",
@@ -3503,6 +3523,10 @@
         "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-44f44e86",
         "business-engineer-billing-payments-m-w-d-zkb-zurich-000c1087",
         "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich-bc9f5702",
+        "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich-79269bf4",
+        "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-e3e1604e",
+        "business-engineer-billing-payments-m-w-d-zkb-zurich-fde9f0b0",
+        "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich-880ccb9e",
         "business-ingegnere-billing-payments-m-w-d-zurcher-kantonalbank-zurich",
         "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich",
         "business-engineer-billing-payments-m-w-d-zkb-zurich",
@@ -3580,6 +3604,7 @@
         "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-67c5723e",
         "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-9eb12550",
         "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-44f44e86",
+        "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich-e3e1604e",
         "business-engineer-billing-payments-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "de": [
@@ -3653,6 +3678,7 @@
         "business-engineer-billing-payments-m-w-d-zkb-zurich-e36a8372",
         "business-engineer-billing-payments-m-w-d-zkb-zurich-690bfb31",
         "business-engineer-billing-payments-m-w-d-zkb-zurich-000c1087",
+        "business-engineer-billing-payments-m-w-d-zkb-zurich-fde9f0b0",
         "business-engineer-billing-payments-m-w-d-zkb-zurich"
       ],
       "fr": [
@@ -3797,6 +3823,8 @@
         "business-engineer-billing-payments-m-w-d-zkb-zurich-690bfb31",
         "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich-bc9f5702",
         "business-engineer-billing-payments-m-w-d-zkb-zurich-000c1087",
+        "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich-880ccb9e",
+        "business-engineer-billing-payments-m-w-d-zkb-zurich-fde9f0b0",
         "business-ingenieur-billing-payments-m-w-d-zurcher-kantonalbank-zurich",
         "business-engineer-billing-payments-m-w-d-zkb-zurich"
       ]
