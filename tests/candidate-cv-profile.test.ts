@@ -108,6 +108,7 @@ describe('candidate CV profile projection', () => {
     expect(profile.workPosition).toContain('Infermiere');
     expect(profile.skills).toContain('triage');
     expect(profile.languages).toEqual(expect.arrayContaining(['italiano', 'tedesco']));
+    expect(profile.languagesExplicitList).toBe(true);
     expect(profile.searchText).toContain('Infermiere');
   });
 
@@ -149,6 +150,18 @@ describe('candidate CV profile projection', () => {
     ].join('\n'));
 
     expect(profile.languages).toEqual(expect.arrayContaining(['deutsch', 'français', 'english']));
+    expect(profile.languagesExplicitList).toBe(true);
+  });
+
+  it('does not treat an incomplete language section as proof that other languages are absent', () => {
+    const profile = parseCandidateCvText([
+      'Candidate Example',
+      'Languages',
+      'English / Xhosa',
+    ].join('\n'));
+
+    expect(profile.languages).toContain('english');
+    expect(profile.languagesExplicitList).toBe(false);
   });
 
   it('keeps representative experience details as matching evidence when no skills section exists', () => {

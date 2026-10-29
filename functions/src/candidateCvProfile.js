@@ -130,7 +130,29 @@ function languageValues(lines) {
     for (const match of languageText.matchAll(pattern)) found.push({ index: match.index ?? 0, language });
   }
   found.sort((left, right) => left.index - right.index);
-  return unique(found.map((item) => item.language), 12);
+  const entries = languageLines.flatMap((line) => line.split(/[;,]/))
+    .map((line) => clean(line, 120))
+    .filter(Boolean);
+  const entryHasKnownLanguage = (entry) => {
+    let rest = entry;
+    let foundLanguage = false;
+    for (const [pattern] of candidates) {
+      const matcher = new RegExp(pattern.source, 'gi');
+      if (matcher.test(rest)) foundLanguage = true;
+      rest = rest.replace(matcher, ' ');
+    }
+    rest = rest
+      .replace(/\b(?:a1|a2|b1|b2|c1|c2|native|mother\s+tongue|fluent|fluency|fluente|fliessend|verhandlungssicher|courant|spoken|written|language|languages|level|livello|niveau|kenntnisse|conoscenza)\b/gi, ' ')
+      .replace(/[\s()[\]{}:;,|/+\-–—.&]+/g, ' ')
+      .trim();
+    return foundLanguage && !rest;
+  };
+  return {
+    values: unique(found.map((item) => item.language), 12),
+    // Only claim a complete list when every readable entry names a language
+    // from the parser's allowlist. Unknown entries keep absence unverified.
+    explicitList: entries.length > 0 && entries.every(entryHasKnownLanguage),
+  };
 }
 
 /** Read a value only when the CV labels it as that specific fact. */
@@ -429,7 +451,8 @@ export function parseCandidateCvText(text, { nowMs = Date.now() } = {}) {
   const fullName = likelyName(lines);
   const headline = likelyHeadline(lines, fullName);
   const skills = skillValues(lines);
-  const languages = languageValues(lines);
+  const languageFacts = languageValues(lines);
+  const languages = languageFacts.values;
   const familyMembersList = familyMemberValues(lines);
   const experienceSummary = experienceValues(lines);
   const workPosition = headline;
@@ -455,6 +478,7 @@ export function parseCandidateCvText(text, { nowMs = Date.now() } = {}) {
     permitExpiry: permitExpiryValue(lines),
     skills,
     languages,
+    languagesExplicitList: languageFacts.explicitList,
     experienceSummary,
     previousPositions: previousPositions(lines),
     extractedTextAvailable: Boolean(normalizedText),
