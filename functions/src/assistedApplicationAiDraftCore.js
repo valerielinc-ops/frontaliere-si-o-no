@@ -979,10 +979,13 @@ export function checkDraftFacts(texts, sources) {
     // ("Kubernetes Engineer" in the title does not make "uso Kubernetes" the candidate's).
     claimSources: [...candidate, employerInitials(sources?.order)],
     nameSources: [sources?.order, sources?.place],
+    // The order source has a fixed contract: job title, canonical employer, then applicant identity.
+    employerName: String(sources?.order || '').split('\n')[1] || '',
     // The title as the letter prints it (protected space, an apprenticeship's subject): quoted whole only.
     quotedNameSources: [sources?.titles],
     // A figure in the candidate's own texts comes from the candidate or the order line (the job
-    // title with its workload), never from the posting alone (study 2026-10-02: "un team di 5").
+    // title with its workload). Only a contextual employer-age citation may use the posting;
+    // its figures never back candidate experience (study 2026-10-02: "un team di 5").
     numberSources: [...candidate, sources?.order],
     echoSources: [sources?.posting],
     entitySources: [...candidate, sources?.order, sources?.place, sources?.posting],
