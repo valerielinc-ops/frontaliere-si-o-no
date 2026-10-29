@@ -147,9 +147,42 @@ describe('email-link telemetry URL privacy', () => {
   expect(result.searchParams.get('utm_medium')).toBe('payment_reminder');
  });
 
- it.each(['#ordinary-route', '#caf%C3%A9', '#topic=a%20b', '#invalid%escape'])('keeps ordinary fragments unchanged: %s', (fragment) => {
+ it.each(['#ordinary-route', '#caf%C3%A9', '#topic=a%20b'])('keeps ordinary fragments unchanged: %s', (fragment) => {
   const input = 'https://outer.test/?utm_campaign=a%26b' + fragment;
   expect(sanitizeTelemetryProperties({ page_location: input }).page_location).toBe(input);
+ });
+
+ it.each([
+  'https://user:password@inner.test/path%ZZ?ac=secret&ne=person',
+  encodeURIComponent('https://user:password@inner.test/path?ac=secret&ne=person') + '%ZZ',
+  encodeURIComponent('https://user:password@inner.test/path') + '%ZZ&ac=secret&ne=person',
+  'route?ac=secret&ne=person&value=%ZZ',
+  'invalid%escape',
+  '%E0%A4%A',
+ ])('omits undecodable fragments without losing outer attribution: %s', (fragment) => {
+  const prefix = 'https://outer.test/?application_concierge_service_id=service-test&utm_source=email&utm_campaign=a%26b';
+  const input = prefix + '#' + fragment;
+  const properties = { page_location: input, page_referrer: input };
+  expect(sanitizeTelemetryProperties(properties)).toEqual({ page_location: prefix, page_referrer: prefix });
+  expect(properties.page_location).toBe(input);
+ });
+
+ it('strips an undecodable fragment at the static GA4 boundary without changing the auth URL', () => {
+  const input = url.split('#')[0] + '#' + encodeURIComponent('https://user:password@inner.test/path?ac=secret&ne=person') + '%ZZ';
+  const context: Record<string, any> = {
+   location: new URL(input), navigator: { userAgent: 'Mozilla/5.0 (iPhone) Version/18.1 Mobile Safari/604.1', language: 'it-CH', languages: ['it-CH'] },
+   screen: { width: 390, height: 844 }, document: { title: 'Checkout', referrer: input }, URL, URLSearchParams,
+  };
+  context.window = context;
+  runInNewContext(GTAG_INIT_CONTENT, context);
+  const commands = context.dataLayer.map((entry: IArguments) => Array.from(entry));
+  const config = commands.find((entry: any[]) => entry[0] === 'config')[2];
+  const parsed = new URL(config.page_location);
+  expect(parsed.hash).toBe('');
+  expect(parsed.searchParams.get('utm_source')).toBe('email');
+  expect(parsed.searchParams.get('application_concierge_service_id')).toBe('service-test');
+  expect(JSON.stringify(config)).not.toMatch(/secret-code|candidate|password|person|secret/);
+  expect(context.location.href).toBe(input);
  });
 
  it('keeps ordinary URLs byte-identical and embeds canonical code in static producers', () => {
