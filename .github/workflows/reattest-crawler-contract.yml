@@ -48,6 +48,7 @@ jobs:
           sparse-checkout: |
             /.github/corpus-workflows/contract.json
             /scripts/ci/reattest-crawler-contract.mjs
+            /scripts/ci/check-sibling-patterns.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs
             /scripts/ci/lib/hook-command-parser.mjs
