@@ -40,6 +40,8 @@
  *   0 — every sampled article passed all checks
  *   1 — at least one article failed; details on stdout for the workflow
  *       to consume and turn into a GitHub issue
+ *   2 — the sitemap/probe could not complete after bounded retries; with
+ *       --json, stdout contains an `error` summary for the workflow issue
  *
  * Usage:
  *   node scripts/canary-article-content.mjs              # default: 20 samples
