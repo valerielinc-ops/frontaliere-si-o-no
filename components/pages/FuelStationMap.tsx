@@ -13,6 +13,7 @@ import {
   buildSwissStationSlug,
   fetchFuelPrices,
   zoneFromAddress,
+  type FuelNationalStation,
   type FuelPricesDataset,
   type FuelStationSwitzerland,
 } from '@/services/fuelPricesService';
@@ -155,7 +156,11 @@ function stationKey(station: Pick<FuelMapStation, 'brand' | 'name' | 'address'>)
     .join('|');
 }
 
-function priceForFuel(station: FuelStationSwitzerland, fuel: FuelType): number | null {
+function priceForFuel(
+  station: Pick<FuelStationSwitzerland, 'sp95PriceChf' | 'dieselPriceChf' | 'dieselSource'>
+    | Pick<FuelNationalStation, 'sp95PriceChf' | 'dieselPriceChf' | 'dieselSource'>,
+  fuel: FuelType,
+): number | null {
   if (fuel === 'benzina') {
     return typeof station.sp95PriceChf === 'number' && Number.isFinite(station.sp95PriceChf) && station.sp95PriceChf > 0
       ? station.sp95PriceChf
@@ -210,34 +215,40 @@ function normaliseLiveStations(
   const seen = new Set<string>();
   const result: FuelMapStation[] = [];
 
-  for (const municipality of dataset.municipalities) {
-    for (const station of municipality.swiss.nearbyStations) {
-      const zone = fuelZoneFromAddress(station.address);
-      const price = priceForFuel(station, payload.fuel);
-      if (!zone || price == null || !Number.isFinite(station.lat) || !Number.isFinite(station.lng)) continue;
-      const key = stationKey(station);
-      if (seen.has(key)) continue;
-      const fallback = fallbackByKey.get(key);
-      // Runtime data may contain a newly added or renamed station before the
-      // static SEO build emits its detail page. Keep the map's CTA closed over
-      // the emitted payload instead of manufacturing a link that can 404.
-      if (!fallback || fallback.zone !== zone) continue;
-      seen.add(key);
-      result.push({
-        id: fallback.id,
-        zone: fallback.zone,
-        slug: fallback.slug,
-        name: fallback.name,
-        brand: fallback.brand,
-        address: fallback.address,
-        href: fallback.href,
-        lat: station.lat,
-        lng: station.lng,
-        benzinaPriceChf: payload.fuel === 'benzina' ? price : (fallback?.benzinaPriceChf ?? null),
-        collectedAt: payload.fuel === 'diesel' ? station.dieselUpdatedAt ?? station.updatedAt : station.updatedAt,
-        dieselPriceChf: payload.fuel === 'diesel' ? price : (fallback?.dieselPriceChf ?? null),
-      });
-    }
+  // The national snapshot is the live source for the category map. The
+  // municipality rows remain the border-comparator projection; they are only
+  // the fallback for older Firestore/static snapshots without the new doc.
+  const sourceStations: Array<FuelStationSwitzerland | FuelNationalStation> = dataset.national?.stations?.length
+    ? dataset.national.stations
+    : dataset.municipalities.flatMap((municipality) => municipality.swiss.nearbyStations);
+  for (const station of sourceStations) {
+    const zone = fuelZoneFromAddress(station.address);
+    const price = priceForFuel(station, payload.fuel);
+    if (!zone || price == null || !Number.isFinite(station.lat) || !Number.isFinite(station.lng)) continue;
+    const key = stationKey(station);
+    if (seen.has(key)) continue;
+    const fallback = fallbackByKey.get(key);
+    // Runtime data may contain a newly added or renamed station before the
+    // static SEO build emits its detail page. Keep the map's CTA closed over
+    // the emitted payload instead of manufacturing a link that can 404.
+    if (!fallback || fallback.zone !== zone) continue;
+    seen.add(key);
+    result.push({
+      id: fallback.id,
+      zone: fallback.zone,
+      slug: fallback.slug,
+      name: fallback.name,
+      brand: fallback.brand,
+      address: fallback.address,
+      href: fallback.href,
+      lat: station.lat,
+      lng: station.lng,
+      benzinaPriceChf: payload.fuel === 'benzina' ? price : (fallback?.benzinaPriceChf ?? null),
+      collectedAt: payload.fuel === 'diesel'
+        ? station.dieselUpdatedAt ?? station.updatedAt ?? station.observedAt
+        : station.updatedAt ?? station.observedAt,
+      dieselPriceChf: payload.fuel === 'diesel' ? price : (fallback?.dieselPriceChf ?? null),
+    });
   }
   return result;
 }

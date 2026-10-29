@@ -168,6 +168,7 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'data/events/',
   'data/exchange-rate-snapshot.json',
   'data/fuel-prices',
+  'data/fuel-station-inventory.json',
   'data/gsc-orphan-queries',
   'data/health-premiums/',
   'data/job-popularity',

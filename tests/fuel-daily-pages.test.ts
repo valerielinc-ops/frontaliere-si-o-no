@@ -683,7 +683,7 @@ describe('fuel-daily page generation — observation date', () => {
     municipalities: [{
       swiss: { nearbyStations: [{
         id: 'dated', name: 'Dated Station', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso',
-        sp95PriceChf: 1.8, updatedAt: observedAt.toISOString(),
+        sp95PriceChf: 1.8, observedAt: observedAt.toISOString(),
       }] },
     }],
   };

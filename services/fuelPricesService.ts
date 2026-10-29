@@ -36,9 +36,85 @@ export interface FuelStationSwitzerland {
  dieselUpdatedAt?: string | null;
  sp95PriceEur: number;
  updatedAt: string | null;
+ observedAt?: string | null;
  nearestMunicipality: string | null;
  nearestMunicipalityDistanceKm: number;
  distanceKm?: number;
+}
+
+/**
+ * Unfiltered provider-neutral Swiss snapshot emitted by the fuel generator.
+ * It is national in query scope, not a verified census of every Swiss pump.
+ * It intentionally has no renderer-derived EUR/distance fields: those belong
+ * to the border-comparator projection in MunicipalityFuelRow.swiss.
+ */
+export interface FuelNationalStation {
+ schemaVersion?: number;
+ id: string;
+ name: string;
+ brand: string;
+ address: string;
+ lat: number;
+ lng: number;
+ sp95PriceChf: number | null;
+ dieselPriceChf?: number | null;
+ dieselSource?: FuelStationSwitzerland['dieselSource'];
+ dieselUpdatedAt?: string | null;
+ updatedAt: string | null;
+ observedAt?: string | null;
+ source: string;
+ sourceObservedAt?: string | null;
+ sourceQuality?: string;
+ sp95SourceQuality?: string | null;
+ dieselSourceQuality?: string | null;
+ priceStatus?: {
+  sp95: 'available' | 'unavailable' | string;
+  diesel: 'available' | 'unavailable' | string;
+ };
+ /** Derived URL canton/group key; not a provider completeness claim. */
+ canton?: string | null;
+ inventorySource?: string;
+ inventoryId?: string;
+ inventoryObservedAt?: string | null;
+ fuelTypes?: string[];
+}
+
+export interface FuelNationalCoverage {
+ [key: string]: unknown;
+}
+
+export interface FuelNationalDataset {
+ schemaVersion: number;
+ country: 'CH';
+ scope: 'national';
+ coverageType: 'provider-snapshot' | 'registry-plus-price-snapshot' | string;
+ inventoryCompleteness: 'not-verified';
+ anchorFuel: 'SP95';
+ stationCount: number;
+  /** Firestore manifest fields; static JSON keeps the full `stations` array inline. */
+  chunkCount?: number;
+  chunkSize?: number;
+ observedAt: string | null;
+ source: {
+  provider: string;
+  sourceId: string;
+  endpoint: string;
+  providerUrl: string;
+  timestampKind: string;
+  observedAt: string | null;
+  inventoryProvider?: string;
+  inventorySourceId?: string;
+  inventoryDataUrl?: string;
+  inventoryAttributionUrl?: string;
+  inventoryLicense?: string;
+  inventoryAttribution?: string;
+  inventoryObservedAt?: string | null;
+  inventoryStationCount?: number;
+  inventoryMatchedStationCount?: number;
+  inventoryOnlyStationCount?: number;
+ };
+ coverage: FuelNationalCoverage;
+ stations: FuelNationalStation[];
 }
 
 export interface MunicipalityFuelRow {
@@ -90,11 +166,24 @@ export interface FuelPricesFetchStatus {
 }
 
 export interface FuelPricesDataset {
+ schemaVersion?: number;
  generatedAt: string;
  fetchStatus?: FuelPricesFetchStatus;
  sources: {
  italy: { provider: string; priceSnapshotDate: string | null; stationsUrl: string; pricesUrl: string; };
- switzerland: { provider: string; providerUrl: string; stationCount: number; latestObservedUpdate: string | null; dieselStationCount?: number; dieselCoveragePct?: number; };
+ switzerland: {
+  provider: string;
+  providerUrl: string;
+  stationCount: number;
+  latestObservedUpdate: string | null;
+  dieselStationCount?: number;
+  dieselCoveragePct?: number;
+  borderStationCount?: number;
+  nationalStationCount?: number;
+  nationalDieselStationCount?: number;
+  nationalDieselCoveragePct?: number;
+  nationalCoverage?: FuelNationalCoverage;
+ };
  exchangeRate: { provider: string; sourceUrl: string; rateDate?: string | null; chfPerEur: number; eurPerChf: number; };
  };
  summary: {
@@ -112,6 +201,7 @@ export interface FuelPricesDataset {
  cheapestSwissStations: FuelStationSwitzerland[];
  bestCrossBorderSavings: Array<{ municipality: string; province: string; cheaperCountry: FuelComparisonCountry; saving50LEur: number | null; italyPriceEur: number | null; swissPriceEur: number | null; swissPriceChf: number | null; swissStation: FuelStationSwitzerland | null; }>;
  };
+ national?: FuelNationalDataset;
  municipalities: MunicipalityFuelRow[];
 }
 
@@ -185,10 +275,11 @@ async function fetchFromFirestore(): Promise<FuelPricesDataset> {
  );
  const db = getFirestore(await getApp());
 
- const [metaSnap, italySnap, swissSnap] = await Promise.all([
+ const [metaSnap, italySnap, swissSnap, nationalSnap] = await Promise.all([
  getDoc(doc(db, 'fuelPrices', 'metadata')),
  getDoc(doc(db, 'fuelPrices', 'italy')),
  getDoc(doc(db, 'fuelPrices', 'switzerland')),
+ getDoc(doc(db, 'fuelPrices', 'switzerland-national')),
  ]);
 
  if (!metaSnap.exists()) {
@@ -228,7 +319,34 @@ async function fetchFromFirestore(): Promise<FuelPricesDataset> {
  };
  });
 
- return { generatedAt: meta.generatedAt, sources: meta.sources, summary: meta.summary, rankings: meta.rankings, municipalities };
+ let national: FuelNationalDataset | undefined;
+ if (nationalSnap.exists()) {
+  const nationalManifest = nationalSnap.data() as FuelNationalDataset & { chunkCount?: number };
+  const chunkCount = Number(nationalManifest.chunkCount ?? 0);
+  if (chunkCount > 0 && !Array.isArray((nationalManifest as FuelNationalDataset).stations)) {
+   const chunkSnaps = await Promise.all(Array.from({ length: chunkCount }, (_, index) => getDoc(
+    doc(db, 'fuelPrices', `switzerland-national-${String(index).padStart(3, '0')}`),
+   )));
+   if (chunkSnaps.some((snap) => !snap.exists())) {
+    throw new Error('Fuel national snapshot is missing one or more station chunks');
+   }
+   const stations = chunkSnaps.flatMap((snap) => {
+    const data = snap.data() as { stations?: FuelNationalDataset['stations'] };
+    return Array.isArray(data.stations) ? data.stations : [];
+   });
+   national = { ...nationalManifest, stations };
+  } else {
+   national = nationalManifest as FuelNationalDataset;
+  }
+ }
+ return {
+  generatedAt: meta.generatedAt,
+  sources: meta.sources,
+  summary: meta.summary,
+  rankings: meta.rankings,
+  ...(national ? { national } : {}),
+  municipalities,
+ };
 }
 
 /** Fallback: fetch the daily JSON cache from the static build */

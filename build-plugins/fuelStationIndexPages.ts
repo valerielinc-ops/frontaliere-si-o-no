@@ -20,7 +20,8 @@
  *
  * Indexes emitted (per-fuel × per-locale):
  *
- *   /{section}/stazioni-svizzere/  — Swiss-station index (grouped by zone)
+ *   /{section}/stazioni-svizzere/  — Swiss-station index (Ticino zones or
+ *                                    national canton groups)
  *   /{section}/stazioni-italia/    — Italian-station index (grouped by city)
  *   /{section}/citta-italiane/     — Italian-city index (alphabetical hub)
  *
@@ -79,6 +80,8 @@ import {
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { paginationRobots } from './shared/paginationIndexPolicy';
+import { infeedAdListItemHtml } from './lib/adSlotHtml';
+import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 
 // Index pages use shared semantic-token CSS classes instead of repeating long
 // inline declarations in every row and pagination chip.
@@ -123,8 +126,12 @@ const FUEL_ZONE_BORDER_HINT: Record<FuelZone, Record<FuelDailyLocale, string>> =
 
 /** One Swiss station leaf (the data the index needs to render its anchor). */
 export interface SwissStationLeaf {
-  readonly zone: FuelZone;
-  readonly slug: string;
+  /** Present only when the station has a routeable Ticino detail contract. */
+  readonly zone?: FuelZone | null;
+  /** Present only when the station has a routeable Ticino detail contract. */
+  readonly slug?: string | null;
+  /** Derived canton URL group; never used to invent a detail URL. */
+  readonly canton?: string | null;
   readonly name: string;
   readonly brand: string;
   readonly address: string;
@@ -136,6 +143,38 @@ export interface SwissStationLeaf {
   readonly dieselPriceChf?: number | null;
   readonly updatedAt?: string | null;
   readonly dieselUpdatedAt?: string | null;
+  /** Retrieval timestamp; distinct from an unavailable pump-change timestamp. */
+  readonly observedAt?: string | null;
+  readonly priceStatus?: {
+    readonly sp95?: 'available' | 'unavailable' | string;
+    readonly diesel?: 'available' | 'unavailable' | string;
+  };
+}
+
+/**
+ * Explicit contract for the national Swiss index source.
+ *
+ * `stations` is the provider snapshot, not a census. A national station may
+ * deliberately have neither a Ticino `zone` nor a `slug`: the index renders
+ * it as a data row without manufacturing a URL.
+ */
+export interface SwissNationalIndexSnapshot {
+  readonly scope: 'national';
+  readonly provider: string;
+  readonly coverageType: 'provider-snapshot' | string;
+  readonly inventoryCompleteness: 'not-verified' | string;
+  readonly anchorFuel?: 'SP95' | string;
+  readonly stationCount?: number;
+  readonly observedAt?: string | null;
+  readonly source?: {
+    readonly inventoryProvider?: string;
+    readonly inventoryDataUrl?: string;
+    readonly inventoryAttributionUrl?: string;
+    readonly inventoryLicense?: string;
+    readonly inventoryAttribution?: string;
+    readonly inventoryObservedAt?: string | null;
+  };
+  readonly stations: readonly SwissStationLeaf[];
 }
 
 /** One Italian station leaf. */
@@ -160,6 +199,11 @@ export interface FuelIndexInputs {
   readonly rootDir?: string;
   readonly today: Date;
   readonly swissStations: readonly SwissStationLeaf[];
+  /**
+   * Optional unfiltered national snapshot for the canonical Swiss index.
+   * Omitted callers retain the historical five-zone, priced-only behaviour.
+   */
+  readonly swissNationalSnapshot?: SwissNationalIndexSnapshot;
   /**
    * Benzina Italian-station leaves. Kept as the back-compat default: callers
    * that don't pass `italianStationsByFuel` get benzina-only behaviour.
@@ -201,6 +245,9 @@ export type FuelIndexKind = keyof typeof FUEL_INDEX_SLUG;
  * stays below the shared 260 KB audit budget with room for upstream growth.
  */
 export const ITALIAN_STATIONS_INDEX_PAGE_SIZE = 100;
+
+/** Maximum number of national Swiss station rows rendered per HTML page. */
+export const SWISS_STATIONS_INDEX_PAGE_SIZE = 100;
 
 /**
  * Build the canonical path for a fuel-station / fuel-cities index page.
@@ -246,6 +293,7 @@ interface IndexCopy {
   readonly breadcrumbHome: string;
   readonly updatedLabel: string;
   readonly groupHeadingByZone: (zone: string) => string;
+  readonly groupHeadingByCanton: (canton: string) => string;
   readonly groupHeadingByCity: (city: string) => string;
   /** "Vicino a Chiasso" / "Near Chiasso" — used to group Italian cities by the nearest Ticino zone. */
   readonly groupHeadingNearZone: (zone: string) => string;
@@ -266,6 +314,7 @@ interface IndexCopy {
     readonly stations: string;
     readonly cities: string;
     readonly zones: string;
+    readonly nationalGroups: string;
     readonly source: string;
     readonly updateFreq: string;
     readonly updateValue: string;
@@ -279,6 +328,10 @@ interface IndexCopy {
   readonly ctaDailyHub: (fuelLabel: string) => string;
   /** Header above the zone-chip quick-jump nav. */
   readonly jumpNavLabel: string;
+  /** Header above the national canton/group quick-jump nav. */
+  readonly nationalJumpNavLabel: string;
+  /** Heading above the national canton/group browse list. */
+  readonly nationalBrowseHeading: string;
   /** Singular/plural noun for a station, used in zone count chips. */
   readonly stationsNoun: (count: number) => string;
   /** Singular/plural noun for a city, used in city-grouped indexes. */
@@ -289,6 +342,7 @@ const COPY_IT: IndexCopy = {
   breadcrumbHome: 'Home',
   updatedLabel: 'Aggiornato',
   groupHeadingByZone: (zone) => `Stazioni di ${zone}`,
+  groupHeadingByCanton: (canton) => `Gruppo cantonale ${canton}`,
   groupHeadingByCity: (city) => `Stazioni a ${city}`,
   groupHeadingNearZone: (zone) => `Vicino a ${zone}`,
   seeStationLink: (label) => `Vedi prezzi: ${label}`,
@@ -307,6 +361,7 @@ const COPY_IT: IndexCopy = {
     stations: 'Stazioni',
     cities: 'Città',
     zones: 'Zone',
+    nationalGroups: 'Cantoni/gruppi',
     source: 'Fonte',
     updateFreq: 'Aggiornamento',
     updateValue: 'Giornaliero',
@@ -325,6 +380,8 @@ const COPY_IT: IndexCopy = {
   },
   ctaDailyHub: (fuelLabel) => `Vedi il prezzo ${fuelLabel.toLowerCase()} di oggi`,
   jumpNavLabel: 'Salta alla zona',
+  nationalJumpNavLabel: 'Salta al cantone o gruppo cantonale',
+  nationalBrowseHeading: 'Sfoglia per cantone o gruppo cantonale',
   stationsNoun: (n) => (n === 1 ? 'stazione' : 'stazioni'),
   citiesNoun: (n) => (n === 1 ? 'città' : 'città'),
 };
@@ -333,6 +390,7 @@ const COPY_EN: IndexCopy = {
   breadcrumbHome: 'Home',
   updatedLabel: 'Updated',
   groupHeadingByZone: (zone) => `Stations in ${zone}`,
+  groupHeadingByCanton: (canton) => `Canton group ${canton}`,
   groupHeadingByCity: (city) => `Stations in ${city}`,
   groupHeadingNearZone: (zone) => `Near ${zone}`,
   seeStationLink: (label) => `See prices: ${label}`,
@@ -351,6 +409,7 @@ const COPY_EN: IndexCopy = {
     stations: 'Stations',
     cities: 'Cities',
     zones: 'Zones',
+    nationalGroups: 'Canton groups',
     source: 'Source',
     updateFreq: 'Refresh',
     updateValue: 'Daily',
@@ -369,6 +428,8 @@ const COPY_EN: IndexCopy = {
   },
   ctaDailyHub: (fuelLabel) => `See today’s ${fuelLabel.toLowerCase()} price`,
   jumpNavLabel: 'Jump to zone',
+  nationalJumpNavLabel: 'Jump to canton or canton group',
+  nationalBrowseHeading: 'Browse by canton or canton group',
   stationsNoun: (n) => (n === 1 ? 'station' : 'stations'),
   citiesNoun: (n) => (n === 1 ? 'city' : 'cities'),
 };
@@ -377,6 +438,7 @@ const COPY_DE: IndexCopy = {
   breadcrumbHome: 'Startseite',
   updatedLabel: 'Aktualisiert',
   groupHeadingByZone: (zone) => `Tankstellen in ${zone}`,
+  groupHeadingByCanton: (canton) => `Kantonsgruppe ${canton}`,
   groupHeadingByCity: (city) => `Tankstellen in ${city}`,
   groupHeadingNearZone: (zone) => `Nahe ${zone}`,
   seeStationLink: (label) => `Preise ansehen: ${label}`,
@@ -395,6 +457,7 @@ const COPY_DE: IndexCopy = {
     stations: 'Tankstellen',
     cities: 'Städte',
     zones: 'Regionen',
+    nationalGroups: 'Kantonsgruppen',
     source: 'Quelle',
     updateFreq: 'Aktualisierung',
     updateValue: 'Täglich',
@@ -413,6 +476,8 @@ const COPY_DE: IndexCopy = {
   },
   ctaDailyHub: (fuelLabel) => `${fuelLabel}-Preis heute ansehen`,
   jumpNavLabel: 'Zur Region springen',
+  nationalJumpNavLabel: 'Zu Kanton oder Kantonsgruppe springen',
+  nationalBrowseHeading: 'Nach Kanton oder Kantonsgruppe durchsuchen',
   stationsNoun: (n) => (n === 1 ? 'Tankstelle' : 'Tankstellen'),
   citiesNoun: (n) => (n === 1 ? 'Stadt' : 'Städte'),
 };
@@ -421,6 +486,7 @@ const COPY_FR: IndexCopy = {
   breadcrumbHome: 'Accueil',
   updatedLabel: 'Mis à jour',
   groupHeadingByZone: (zone) => `Stations à ${zone}`,
+  groupHeadingByCanton: (canton) => `Groupe cantonal ${canton}`,
   groupHeadingByCity: (city) => `Stations à ${city}`,
   groupHeadingNearZone: (zone) => `Près de ${zone}`,
   seeStationLink: (label) => `Voir les prix : ${label}`,
@@ -439,6 +505,7 @@ const COPY_FR: IndexCopy = {
     stations: 'Stations',
     cities: 'Villes',
     zones: 'Zones',
+    nationalGroups: 'Groupes cantonaux',
     source: 'Source',
     updateFreq: 'Mise à jour',
     updateValue: 'Quotidienne',
@@ -457,6 +524,8 @@ const COPY_FR: IndexCopy = {
   },
   ctaDailyHub: (fuelLabel) => `Voir le prix ${fuelLabel.toLowerCase()} du jour`,
   jumpNavLabel: 'Aller à la zone',
+  nationalJumpNavLabel: 'Aller au canton ou groupe cantonal',
+  nationalBrowseHeading: 'Parcourir par canton ou groupe cantonal',
   stationsNoun: (n) => (n === 1 ? 'station' : 'stations'),
   citiesNoun: (n) => (n === 1 ? 'ville' : 'villes'),
 };
@@ -485,14 +554,91 @@ export interface IndexTitleSet {
   readonly frontaliereContext: string;
 }
 
+export type FuelIndexScope = 'ticino' | 'national';
+
+/** Copy for the national Swiss index. It must describe a combined snapshot
+ * plus open inventory, never a complete census. */
+function nationalSwissTitleFor(locale: FuelDailyLocale, fuelLabel: string, hasOpenInventory = true): IndexTitleSet {
+  const lower = fuelLabel.toLowerCase();
+  if (!hasOpenInventory) {
+    if (locale === 'it') return {
+      title: `Stazioni ${lower} in Svizzera — snapshot nazionale`,
+      description: `Snapshot nazionale dei prezzi delle stazioni ${lower}, raggruppato per cantone o gruppo cantonale. Completezza della fonte non verificata; i prezzi mancanti restano visibili.`,
+      h1: `Stazioni ${lower} in Svizzera — snapshot nazionale`,
+      lede: `Tutte le stazioni restituite dalla fonte nazionale dei prezzi ${lower}, raggruppate per cantone o gruppo cantonale e distribuite su pagine navigabili.`,
+      methodology: `Questo indice conserva il provider snapshot nazionale disponibile e mantiene distinti inventario, prezzo e momento di acquisizione. La completezza della fonte non è verificata e l’elenco non è un censimento completo delle pompe svizzere. Benzina e diesel sono campi indipendenti: quando il prezzo ${lower} manca, la stazione resta nell’elenco con lo stato “Prezzo non disponibile per questo carburante”. L’orario di acquisizione indica quando il campione è stato letto; la sorgente può non fornire l’orario della variazione alla pompa. Per le stazioni ticinesi manteniamo i collegamenti alle pagine dettaglio esistenti; le altre restano righe informative finché non esiste un contratto URL nazionale.`,
+      frontaliereContext: `Per chi attraversa il confine Italia-Svizzera, il confronto utile dipende dal percorso reale, dal carburante scelto e dalla data del dato. Un prezzo nazionale può essere lontano dal tuo valico e non include automaticamente il costo della deviazione. Confronta lo stesso carburante in una valuta comune con un cambio datato, considera chilometri, pedaggi e tempo aggiuntivi e verifica sempre il prezzo esposto alla pompa. Le pagine Ticino continuano a servire il comparatore frontaliero, mentre questo indice conserva la vista nazionale della fonte disponibile.`,
+    };
+    if (locale === 'en') return {
+      title: `Swiss ${lower} stations — national snapshot`,
+      description: `National price snapshot for ${lower} stations grouped by canton or canton group. Source completeness is not verified; missing prices remain visible.`,
+      h1: `Swiss ${lower} stations — national snapshot`,
+      lede: `Every station returned by the national ${lower} price source, grouped by canton or canton group and split across browseable pages.`,
+      methodology: `This index preserves the available national provider snapshot and keeps inventory, price and collection time distinct. Source completeness is not verified and this is not a complete census of Swiss pumps. Petrol and diesel are independent fields: when the ${lower} price is missing, the station remains visible with “Price unavailable for this fuel”. Collection time records when the sample was read; the source may not provide the time when the pump price changed. Existing Ticino station detail links remain available; other stations are informational rows until a national URL contract exists.`,
+      frontaliereContext: `For cross-border commuters, a useful comparison depends on the actual route, fuel type and observation date. A national price may be far from your crossing and does not include detour costs. Compare the same fuel in one currency with a dated exchange rate, account for extra kilometres, tolls and time, and check the displayed pump price before refuelling. Ticino pages still serve the border comparator, while this index preserves the national view from the available source.`,
+    };
+    if (locale === 'de') return {
+      title: `Schweizer ${lower}-Tankstellen — nationaler Snapshot`,
+      description: `Nationaler Preissnapshot der ${lower}-Tankstellen, nach Kanton oder Kantonsgruppe gruppiert. Vollständigkeit der Quelle nicht verifiziert; fehlende Preise bleiben sichtbar.`,
+      h1: `Schweizer ${lower}-Tankstellen — nationaler Snapshot`,
+      lede: `Alle Tankstellen aus der nationalen ${lower}-Preisquelle, nach Kanton oder Kantonsgruppe gruppiert und auf navigierbare Seiten verteilt.`,
+      methodology: `Dieser Index bewahrt den verfügbaren nationalen provider snapshot und hält Inventar, Preis und Abrufzeit getrennt. Die Vollständigkeit der Quelle ist nicht verifiziert; dies ist keine vollständige Zählung aller Schweizer Zapfsäulen. Benzin und Diesel sind unabhängige Felder: Fehlt der ${lower}-Preis, bleibt die Tankstelle mit „Preis für diesen Kraftstoff nicht verfügbar“ sichtbar. Die Abrufzeit bezeichnet das Lesen des Samples; die Quelle liefert möglicherweise nicht den Zeitpunkt der Preisänderung. Bestehende Tessiner Detail-URLs bleiben erhalten; andere Stationen sind Informationszeilen, bis ein nationaler URL-Vertrag besteht.`,
+      frontaliereContext: `Für Grenzgänger hängt ein sinnvoller Vergleich von tatsächlicher Strecke, Kraftstoff und Erhebungsdatum ab. Ein nationaler Preis kann weit vom Übergang entfernt sein und enthält keine Umwegkosten. Vergleichen Sie denselben Kraftstoff in einer Währung mit datiertem Wechselkurs, berücksichtigen Sie zusätzliche Kilometer, Maut und Zeit und prüfen Sie den Preis an der Zapfsäule. Die Tessiner Seiten bleiben der Grenzvergleich, während dieser Index die nationale Sicht der verfügbaren Quelle bewahrt.`,
+    };
+    return {
+      title: `Stations ${lower} en Suisse — snapshot national`,
+      description: `Snapshot national des prix des stations ${lower}, groupés par canton ou groupe cantonal. Complétude de la source non vérifiée ; les prix manquants restent visibles.`,
+      h1: `Stations ${lower} en Suisse — snapshot national`,
+      lede: `Toutes les stations renvoyées par la source nationale de prix ${lower}, groupées par canton ou groupe cantonal et réparties sur des pages navigables.`,
+      methodology: `Cet index conserve le provider snapshot national disponible et garde séparés inventaire, observation de prix et date d’acquisition. La complétude de la source n’est pas vérifiée ; il ne s’agit pas d’un recensement complet des pompes suisses. L’essence et le diesel sont des champs indépendants : si le prix ${lower} manque, la station reste visible avec le statut « Prix indisponible pour ce carburant ». La date d’acquisition indique quand l’échantillon a été lu ; la source ne fournit peut-être pas l’heure du changement à la pompe. Les URL de détail tessinoises existantes restent disponibles ; les autres stations sont des lignes informatives jusqu’à un contrat URL national.`,
+      frontaliereContext: `Pour les frontaliers, une comparaison utile dépend du trajet réel, du carburant et de la date du relevé. Un prix national peut être éloigné du passage et n’inclut pas les frais du détour. Comparez le même carburant dans une devise avec un taux daté, comptez kilomètres, péages et temps supplémentaires et vérifiez le prix affiché à la pompe. Les pages tessinoises restent dédiées au comparateur, tandis que cet index conserve la vue nationale de la source disponible.`,
+    };
+  }
+  if (locale === 'it') return {
+    title: `Stazioni ${lower} in Svizzera — snapshot TCS + OSM`,
+    description: `Snapshot nazionale dei prezzi TCS e inventario fisico OpenStreetMap delle stazioni ${lower}, raggruppati per cantone o gruppo cantonale. Completezza inventariale non verificata; i prezzi mancanti restano visibili.`,
+    h1: `Stazioni ${lower} in Svizzera — snapshot TCS + OSM`,
+    lede: `Tutte le stazioni restituite dal prezzo nazionale TCS o dal registro fisico OpenStreetMap, raggruppate per cantone o gruppo cantonale e distribuite su pagine navigabili.`,
+    methodology: `Questo indice unisce il TCS provider snapshot acquisito dalla Cloud Function verificata con il registro fisico OpenStreetMap, mantenendo separati inventario e prezzo. Conserva tutte le righe dopo la deduplicazione stabile. Il contratto espone inventoryCompleteness: not-verified: non è un censimento completo delle pompe svizzere e non implica che ogni punto vendita sia presente. La benzina e il diesel sono campi indipendenti: quando il prezzo ${lower} manca, la stazione resta nell’elenco con lo stato “Prezzo non disponibile per questo carburante”. L’orario di acquisizione indica quando il campione è stato letto; la sorgente TCS non fornisce necessariamente l’orario della variazione alla pompa. Per le stazioni ticinesi manteniamo i collegamenti alle pagine dettaglio esistenti; le altre restano righe informative finché non esiste un contratto URL nazionale.`,
+    frontaliereContext: `Per chi attraversa il confine Italia-Svizzera, il confronto utile dipende dal percorso reale, dal carburante scelto e dalla data del dato. Un prezzo nazionale può essere lontano dal tuo valico e non include automaticamente il costo della deviazione. Confronta lo stesso carburante in una valuta comune con un cambio datato, considera chilometri, pedaggi e tempo aggiuntivi e verifica sempre il prezzo esposto alla pompa. Le pagine Ticino continuano a servire il comparatore frontaliero: la sua proiezione resta limitata alle stazioni entro 25 km dai comuni italiani monitorati, mentre questo indice conserva la vista nazionale TCS + OpenStreetMap.`,
+  };
+  if (locale === 'en') return {
+    title: `Swiss ${lower} stations — TCS + OSM snapshot`,
+    description: `National TCS price snapshot and OpenStreetMap physical inventory of ${lower} stations grouped by canton or canton group. Inventory completeness is not verified; missing prices remain visible.`,
+    h1: `Swiss ${lower} stations — TCS + OSM snapshot`,
+    lede: `Every station returned by the national TCS price source or the OpenStreetMap inventory, grouped by canton or canton group and split across browseable pages.`,
+    methodology: `This index combines a TCS provider snapshot collected from the verified Cloud Function with the OpenStreetMap physical inventory, keeping inventory and price observations separate. It keeps every row after stable deduplication. Its contract explicitly says inventoryCompleteness: not-verified: this is not a complete census of Swiss pumps and does not imply that every retail site is present. Petrol and diesel are independent fields: when the ${lower} price is missing, the station remains visible with “Price unavailable for this fuel”. Collection time records when the snapshot was read; TCS does not necessarily provide the time when the pump price changed. Existing Ticino station detail links remain available; other stations are informational rows until a national URL contract exists.`,
+    frontaliereContext: `For cross-border commuters, a useful comparison depends on the actual route, fuel type and observation date. A national price may be far from your crossing and does not include detour costs. Compare the same fuel in one currency with a dated exchange rate, account for extra kilometres, tolls and time, and check the displayed pump price before refuelling. Ticino pages still serve the border comparator: its projection remains limited to stations within 25 km of the monitored Italian municipalities, while this index preserves the combined TCS + OpenStreetMap national view.`,
+  };
+  if (locale === 'de') return {
+    title: `Schweizer ${lower}-Tankstellen — TCS + OSM`,
+    description: `Nationaler TCS-Preissnapshot und physisches OpenStreetMap-Inventar der ${lower}-Tankstellen, nach Kanton oder Kantonsgruppe gruppiert. Vollständigkeit des Inventars nicht verifiziert; fehlende Preise bleiben sichtbar.`,
+    h1: `Schweizer ${lower}-Tankstellen — TCS + OSM`,
+    lede: `Alle Tankstellen aus der nationalen TCS-Preisquelle oder dem OpenStreetMap-Inventar, nach Kanton oder Kantonsgruppe gruppiert und auf navigierbare Seiten verteilt.`,
+    methodology: `Dieser Index kombiniert einen TCS provider snapshot aus der verifizierten Cloud Function mit dem physischen OpenStreetMap-Inventar und hält Inventar und Preisbeobachtung getrennt. Nach stabiler Deduplizierung bleiben alle Zeilen sichtbar. Der Vertrag nennt ausdrücklich inventoryCompleteness: not-verified: Dies ist keine vollständige Zählung aller Schweizer Zapfsäulen und bedeutet nicht, dass jeder Standort enthalten ist. Benzin und Diesel sind unabhängige Felder: Fehlt der ${lower}-Preis, bleibt die Tankstelle mit dem Status „Preis für diesen Kraftstoff nicht verfügbar“ sichtbar. Die Abrufzeit bezeichnet das Lesen des Snapshots; TCS liefert nicht zwingend den Zeitpunkt der Preisänderung an der Zapfsäule. Bestehende Tessiner Detail-URLs bleiben erhalten; andere Stationen sind Informationszeilen, bis ein nationaler URL-Vertrag besteht.`,
+    frontaliereContext: `Für Grenzgänger hängt ein sinnvoller Vergleich von tatsächlicher Strecke, Kraftstoff und Erhebungsdatum ab. Ein nationaler Preis kann weit vom Übergang entfernt sein und enthält keine Umwegkosten. Vergleichen Sie denselben Kraftstoff in einer Währung mit datiertem Wechselkurs, berücksichtigen Sie zusätzliche Kilometer, Maut und Zeit und prüfen Sie den Preis an der Zapfsäule. Die Tessiner Seiten bleiben der Grenzvergleich: Ihre Projektion umfasst weiterhin nur Stationen innerhalb von 25 km der überwachten italienischen Gemeinden, während dieser Index die kombinierte nationale Sicht von TCS und OpenStreetMap bewahrt.`,
+  };
+  return {
+    title: `Stations ${lower} en Suisse — snapshot TCS + OSM`,
+    description: `Snapshot national des prix TCS et inventaire physique OpenStreetMap des stations ${lower}, groupés par canton ou groupe cantonal. Complétude de l’inventaire non vérifiée ; les prix manquants restent visibles.`,
+    h1: `Stations ${lower} en Suisse — snapshot TCS + OSM`,
+    lede: `Toutes les stations renvoyées par la source nationale de prix TCS ou l’inventaire OpenStreetMap, groupées par canton ou groupe cantonal et réparties sur des pages navigables.`,
+    methodology: `Cet index combine un TCS provider snapshot recueilli par la Cloud Function vérifiée avec l’inventaire physique OpenStreetMap, en gardant séparés inventaire et observation de prix. Toutes les lignes restent visibles après déduplication stable. Le contrat indique explicitement inventoryCompleteness: not-verified : il ne s’agit pas d’un recensement complet des pompes suisses et cela ne signifie pas que chaque site soit présent. L’essence et le diesel sont des champs indépendants : si le prix ${lower} manque, la station reste visible avec le statut « Prix indisponible pour ce carburant ». La date d’acquisition indique quand le snapshot a été lu ; TCS ne fournit pas forcément l’heure du changement à la pompe. Les URL de détail tessinoises existantes restent disponibles ; les autres stations sont des lignes informatives jusqu’à un contrat URL national.`,
+    frontaliereContext: `Pour les frontaliers, une comparaison utile dépend du trajet réel, du carburant et de la date du relevé. Un prix national peut être éloigné du passage et n’inclut pas les frais du détour. Comparez le même carburant dans une devise avec un taux daté, comptez kilomètres, péages et temps supplémentaires et vérifiez le prix affiché à la pompe. Les pages tessinoises restent dédiées au comparateur frontalier : sa projection demeure limitée aux stations dans un rayon de 25 km des communes italiennes suivies, tandis que cet index conserve la vue nationale combinée de TCS et OpenStreetMap.`,
+  };
+}
+
 export function titleFor(
   kind: FuelIndexKind,
   locale: FuelDailyLocale,
   fuel: FuelType,
+  scope: FuelIndexScope = 'ticino',
+  hasOpenInventory = true,
 ): IndexTitleSet {
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const lower = fuelLabel.toLowerCase();
   if (kind === 'swissStations') {
+    if (scope === 'national') return nationalSwissTitleFor(locale, fuelLabel, hasOpenInventory);
     if (locale === 'it') return {
       title: `Tutte le stazioni ${lower} in Ticino — indice per zona`,
       description: `Indice completo delle stazioni di rifornimento ${lower} monitorate in Ticino, raggruppate per zona (Chiasso, Mendrisio, Lugano, Bellinzona, Locarno). Prezzi segnalati dagli utenti TCS.`,
@@ -612,7 +758,8 @@ function esc(s: unknown): string {
 export interface GroupedAnchors {
   readonly heading: string;
   readonly anchors: ReadonlyArray<{
-    readonly href: string;
+    /** Absent for national rows without an approved detail URL. */
+    readonly href?: string | null;
     readonly label: string;
     readonly subtitle: string;
     /** Resolved brand logo URL, or null when the entity-card should fall back to the icon. */
@@ -694,24 +841,37 @@ function renderCompactStationGroup(
   copy: IndexCopy,
   locale: FuelDailyLocale,
   countKind: 'stations' | 'cities' = 'stations',
+  startPosition = 0,
+  totalItems = group.anchors.length,
 ): string {
   const count = group.anchors.length;
   const noun = countKind === 'cities' ? copy.citiesNoun(count) : copy.stationsNoun(count);
   const borderHint = group.zoneKey ? FUEL_ZONE_BORDER_HINT[group.zoneKey][locale] : '';
-  const rows = group.anchors.map((anchor) => {
+  let position = startPosition;
+  const rows: string[] = [];
+  for (const anchor of group.anchors) {
     const logo = anchor.logoUrl
       ? `<img src="${esc(anchor.logoUrl)}" alt="${esc(anchor.label)}" width="32" height="32" loading="lazy" decoding="async">`
       : '';
     const subtitle = anchor.subtitle
       ? `<small>${esc(anchor.subtitle)}</small>`
       : '';
-    return `<li><a href="${esc(anchor.href)}">${logo}<strong>${esc(anchor.label)}</strong>${subtitle}</a></li>`;
-  }).join('');
+    const content = `${logo}<strong>${esc(anchor.label)}</strong>${subtitle}`;
+    rows.push(anchor.href
+      ? `<li><a href="${esc(anchor.href)}">${content}</a></li>`
+      : `<li><div class="fuel-index-compact-group__row">${content}</div></li>`);
+    position += 1;
+    // The position is global to the current page, not reset per canton/zone.
+    // Never append an ad after the final station on that page.
+    if (position < totalItems && shouldPlaceInfeedAd(position)) {
+      rows.push(infeedAdListItemHtml({ spanFull: true }));
+    }
+  }
 
   return `<section class="fuel-index-compact-group" aria-labelledby="zone-${esc(group.slug)}">
     <h3 class="fuel-index-compact-group__title" id="zone-${esc(group.slug)}">${esc(group.heading)} <small class="fuel-index-compact-group__count">(${count} ${esc(noun)})</small></h3>
     ${borderHint ? `<p class="fuel-index-compact-group__hint">${esc(borderHint)}</p>` : ''}
-    <ul class="fuel-index-compact-group__list">${rows}</ul>
+    <ul class="fuel-index-compact-group__list">${rows.join('')}</ul>
   </section>`;
 }
 
@@ -722,25 +882,35 @@ function buildTagline(
   fuel: FuelType,
   totalAnchors: number,
   totalGroups: number,
+  scope: FuelIndexScope = 'ticino',
+  hasOpenInventory = true,
 ): string {
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel].toLowerCase();
   const n = totalAnchors;
   if (locale === 'it') {
-    if (kind === 'swissStations') return `${n} stazioni ${fuelLabel} in Ticino, ${totalGroups} zone di confine. Campione TCS.`;
+    if (kind === 'swissStations') return scope === 'national'
+      ? `${n} stazioni ${fuelLabel} nello snapshot nazionale${hasOpenInventory ? ' prezzi TCS + inventario OpenStreetMap' : ''}, ${totalGroups} gruppi cantonali. Completezza non verificata.`
+      : `${n} stazioni ${fuelLabel} in Ticino, ${totalGroups} zone di confine. Campione TCS.`;
     if (kind === 'italianStations') return `${n} stazioni ${fuelLabel} nelle città italiane di confine. Prezzi MIMIT aggiornati ogni giorno.`;
     return `${n} città italiane di confine seguite ogni giorno con il prezzo medio ${fuelLabel}.`;
   }
   if (locale === 'en') {
-    if (kind === 'swissStations') return `${n} Swiss ${fuelLabel} stations across ${totalGroups} border zones. TCS sample.`;
+    if (kind === 'swissStations') return scope === 'national'
+      ? `${n} Swiss ${fuelLabel} stations in the national snapshot${hasOpenInventory ? ' with TCS prices + OpenStreetMap inventory' : ''}, ${totalGroups} canton groups. Completeness not verified.`
+      : `${n} Swiss ${fuelLabel} stations across ${totalGroups} border zones. TCS sample.`;
     if (kind === 'italianStations') return `${n} Italian ${fuelLabel} stations across the border-zone cities. MIMIT prices refreshed daily.`;
     return `${n} Italian border cities tracked daily with the average ${fuelLabel} price.`;
   }
   if (locale === 'de') {
-    if (kind === 'swissStations') return `${n} Schweizer ${fuelLabel}-Tankstellen in ${totalGroups} Grenzregionen. TCS-Stichprobe.`;
+    if (kind === 'swissStations') return scope === 'national'
+      ? `${n} Schweizer ${fuelLabel}-Tankstellen im nationalen Snapshot${hasOpenInventory ? ' mit TCS-Preissnapshot + OpenStreetMap-Inventar' : ''}, ${totalGroups} Kantonsgruppen. Vollständigkeit nicht verifiziert.`
+      : `${n} Schweizer ${fuelLabel}-Tankstellen in ${totalGroups} Grenzregionen. TCS-Stichprobe.`;
     if (kind === 'italianStations') return `${n} italienische ${fuelLabel}-Tankstellen in den Grenzstädten. MIMIT-Preise, täglich aktualisiert.`;
     return `${n} italienische Grenzstädte mit täglichem Durchschnittspreis für ${fuelLabel}.`;
   }
-  if (kind === 'swissStations') return `${n} stations ${fuelLabel} en Suisse sur ${totalGroups} zones frontalières. Échantillon TCS.`;
+  if (kind === 'swissStations') return scope === 'national'
+    ? `${n} stations ${fuelLabel} dans le snapshot national${hasOpenInventory ? ' avec les prix TCS et l’inventaire OpenStreetMap' : ''}, ${totalGroups} groupes cantonaux. Complétude non vérifiée.`
+    : `${n} stations ${fuelLabel} en Suisse sur ${totalGroups} zones frontalières. Échantillon TCS.`;
   if (kind === 'italianStations') return `${n} stations italiennes ${fuelLabel} dans les villes frontalières. Prix MIMIT, mise à jour quotidienne.`;
   return `${n} villes italiennes frontalières suivies chaque jour avec le prix moyen ${frFuelOf(fuelLabel)}.`;
 }
@@ -751,11 +921,15 @@ function renderStatBar(
   copy: IndexCopy,
   totalAnchors: number,
   totalGroups: number,
+  scope: FuelIndexScope = 'ticino',
+  hasOpenInventory = true,
 ): string {
-  const source = kind === 'swissStations' ? 'TCS Benzinpreis' : 'MIMIT';
+  const source = kind === 'swissStations'
+    ? (scope === 'national' ? (hasOpenInventory ? 'TCS + OpenStreetMap' : 'TCS Benzinpreis') : 'TCS Benzinpreis')
+    : 'MIMIT';
   const isCityIndex = kind === 'italianCities';
   const primaryLabel = isCityIndex ? copy.statLabels.cities : copy.statLabels.stations;
-  const secondaryLabel = isCityIndex ? copy.statLabels.zones : copy.statLabels.zones;
+  const secondaryLabel = scope === 'national' ? copy.statLabels.nationalGroups : copy.statLabels.zones;
   const tile = (tone: string, label: string, value: string) =>
     `<div class="fuel-index-stat-tile ${tone}"><div class="s-tlbl">${esc(label)}</div><div class="s-tval">${esc(value)}</div></div>`;
   return `<div class="fuel-index-stat-grid">
@@ -764,6 +938,44 @@ function renderStatBar(
     ${tile('s-tbase', copy.statLabels.source, source)}
     ${tile('s-tbase', copy.statLabels.updateFreq, copy.statLabels.updateValue)}
   </div>`;
+}
+
+function renderNationalSnapshotNote(
+  locale: FuelDailyLocale,
+  snapshot: SwissNationalIndexSnapshot,
+): string {
+  const stationCount = snapshot.stationCount ?? snapshot.stations.length;
+  const status = `${snapshot.provider} · ${snapshot.coverageType} · inventoryCompleteness: ${snapshot.inventoryCompleteness}`;
+  const observedAt = validCollectionTime(snapshot.observedAt);
+  const acquisitionNote = observedAt
+    ? ` ${({
+      it: `Acquisizione snapshot: ${formatCollectionDate(locale, observedAt)}`,
+      en: `Snapshot collected: ${formatCollectionDate(locale, observedAt)}`,
+      de: `Snapshot abgerufen: ${formatCollectionDate(locale, observedAt)}`,
+      fr: `Snapshot acquis : ${formatCollectionDate(locale, observedAt)}`,
+    })[locale]}.`
+    : '';
+  const inventoryObservedAt = validCollectionTime(snapshot.source?.inventoryObservedAt);
+  const inventoryAcquisitionNote = inventoryObservedAt
+    ? ` ${({
+      it: `Inventario OpenStreetMap acquisito: ${formatCollectionDate(locale, inventoryObservedAt)}`,
+      en: `OpenStreetMap inventory collected: ${formatCollectionDate(locale, inventoryObservedAt)}`,
+      de: `OpenStreetMap-Inventar abgerufen: ${formatCollectionDate(locale, inventoryObservedAt)}`,
+      fr: `Inventaire OpenStreetMap acquis : ${formatCollectionDate(locale, inventoryObservedAt)}`,
+    })[locale]}.`
+    : '';
+  const inventoryAttribution = snapshot.source?.inventoryAttributionUrl
+    ? ` <a href="${esc(snapshot.source.inventoryAttributionUrl)}" rel="noopener noreferrer" target="_blank">${esc(snapshot.source.inventoryAttribution || snapshot.source.inventoryProvider || 'OpenStreetMap contributors')}</a>${snapshot.source.inventoryLicense ? ` · ${esc(snapshot.source.inventoryLicense)}` : ''}.`
+    : '';
+  const text = {
+    it: `Fonte: ${status}. ${stationCount} righe dello snapshot nazionale; non è un censimento completo.${acquisitionNote}${inventoryAcquisitionNote} Le stazioni senza prezzo per questo carburante restano visibili come non disponibili.${inventoryAttribution}`,
+    en: `Source: ${status}. ${stationCount} rows from the national snapshot; this is not a complete census.${acquisitionNote}${inventoryAcquisitionNote} Stations without this fuel price remain visible as unavailable.${inventoryAttribution}`,
+    de: `Quelle: ${status}. ${stationCount} Zeilen aus dem nationalen Snapshot; dies ist keine vollständige Erhebung.${acquisitionNote}${inventoryAcquisitionNote} Tankstellen ohne diesen Kraftstoffpreis bleiben als nicht verfügbar sichtbar.${inventoryAttribution}`,
+    fr: `Source : ${status}. ${stationCount} lignes du snapshot national ; il ne s’agit pas d’un recensement complet.${acquisitionNote}${inventoryAcquisitionNote} Les stations sans prix pour ce carburant restent visibles comme indisponibles.${inventoryAttribution}`,
+  }[locale];
+  const attributionHtml = snapshot.source?.inventoryAttributionUrl ? inventoryAttribution : '';
+  const cleanText = attributionHtml ? text.replace(inventoryAttribution, '') : text;
+  return `<aside class="fuel-index-source-note" data-fuel-national-source data-inventory-completeness="${esc(snapshot.inventoryCompleteness)}" aria-label="${esc(status)}"><strong>${esc(cleanText)}</strong>${attributionHtml}</aside>`;
 }
 
 /** Render the "Consiglio frontaliere" advice banner (always present). */
@@ -787,6 +999,7 @@ function renderCtaRow(href: string, label: string): string {
 function renderZoneNav(
   groups: ReadonlyArray<GroupedAnchors>,
   copy: IndexCopy,
+  label = copy.jumpNavLabel,
 ): string {
   if (groups.length < 2 || groups.length > 8) return '';
   const chips = groups
@@ -794,7 +1007,7 @@ function renderZoneNav(
       `<a class="fuel-index-zone-chip" href="#zone-${esc(g.slug)}">${esc(g.heading)}<span class="fuel-index-zone-chip__count">${g.anchors.length}</span></a>`,
     )
     .join('');
-  return `<nav class="fuel-index-zone-nav" aria-label="${esc(copy.jumpNavLabel)}">${chips}</nav>`;
+  return `<nav class="fuel-index-zone-nav" aria-label="${esc(label)}">${chips}</nav>`;
 }
 
 function paginationCopy(locale: FuelDailyLocale): {
@@ -861,8 +1074,10 @@ export function indexTitleFor(
   locale: FuelDailyLocale,
   fuel: FuelType,
   page: number,
+  scope: FuelIndexScope = 'ticino',
+  hasOpenInventory = true,
 ): string {
-  const { title } = titleFor(kind, locale, fuel);
+  const { title } = titleFor(kind, locale, fuel, scope, hasOpenInventory);
   const titleBase = page > 1
     ? `${title.split(' — ')[0]} — ${pageSuffix(locale, page)}`
     : title;
@@ -925,8 +1140,20 @@ function lastCompleteCollection(values: ReadonlyArray<string | null | undefined>
 
 function collectionLabel(locale: FuelDailyLocale, timestamp: string | null): string {
   if (!timestamp) return ({ it: 'Data di acquisizione non disponibile', en: 'Collection time unavailable', de: 'Abrufzeit nicht verfügbar', fr: 'Date d’acquisition indisponible' })[locale];
-  const date = new Intl.DateTimeFormat(`${locale}-CH`, { timeZone: 'Europe/Zurich', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }).format(new Date(timestamp));
+  const date = formatCollectionDate(locale, timestamp);
   return `${({ it: 'Ultima acquisizione nel campione', en: 'Latest collection in the sample', de: 'Letzter Abruf in der Stichprobe', fr: 'Dernière acquisition dans l’échantillon' })[locale]}: ${date}`;
+}
+
+function formatCollectionDate(locale: FuelDailyLocale, timestamp: string): string {
+  return new Intl.DateTimeFormat(`${locale}-CH`, {
+    timeZone: 'Europe/Zurich',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  }).format(new Date(timestamp));
 }
 
 function stationPriceSummary(
@@ -950,6 +1177,15 @@ function stationPriceSummary(
   }).format(new Date(collectedAt));
   const observedLabel = ({ it: 'rilevato', en: 'checked', de: 'abgerufen', fr: 'relevé' })[locale];
   return `${priceLabel} ${amount} CHF/l · ${observedLabel} ${observedAt}`;
+}
+
+function priceUnavailableLabel(locale: FuelDailyLocale): string {
+  return ({
+    it: 'Prezzo non disponibile per questo carburante',
+    en: 'Price unavailable for this fuel',
+    de: 'Preis für diesen Kraftstoff nicht verfügbar',
+    fr: 'Prix indisponible pour ce carburant',
+  })[locale];
 }
 
 function renderFuelMapSection(
@@ -1002,6 +1238,7 @@ interface RenderIndexOpts {
   readonly distDir?: string;
   /** Cross-links to the other 2 indexes + the daily hub. */
   readonly relatedLinks: ReadonlyArray<{ readonly href: string; readonly label: string }>;
+  readonly nationalSnapshot?: SwissNationalIndexSnapshot;
   readonly page: number;
   readonly totalPages: number;
   readonly pagePathFor: (page: number) => string;
@@ -1017,39 +1254,54 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     groups,
     distDir,
     relatedLinks,
+    nationalSnapshot,
     page,
     totalPages,
     pagePathFor,
   } = opts;
   const copy = COPY[locale];
-  const titles = titleFor(kind, locale, fuel);
+  const scope: FuelIndexScope = kind === 'swissStations' && nationalSnapshot ? 'national' : 'ticino';
+  const hasOpenInventory = Boolean(
+    nationalSnapshot?.source?.inventoryProvider
+      || nationalSnapshot?.coverageType === 'registry-plus-price-snapshot',
+  );
+  const titles = titleFor(kind, locale, fuel, scope, hasOpenInventory);
   const pageTitleSuffix = page > 1 ? pageSuffix(locale, page) : '';
   const pageH1 = pageTitleSuffix ? `${titles.h1} — ${pageTitleSuffix}` : titles.h1;
   // Keep the page number in the SERP title while retaining the most useful
   // keyword prefix inside the 66-character title budget.
-  const title = indexTitleFor(kind, locale, fuel, page);
+  const title = indexTitleFor(kind, locale, fuel, page, scope, hasOpenInventory);
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
-  const collectedAt = lastCompleteCollection(groups.flatMap((group) => group.anchors.map((anchor) => anchor.collectedAt)));
+  const collectedAt = scope === 'national'
+    ? validCollectionTime(nationalSnapshot?.observedAt) ?? lastCompleteCollection(groups.flatMap((group) => group.anchors.map((anchor) => anchor.collectedAt)))
+    : lastCompleteCollection(groups.flatMap((group) => group.anchors.map((anchor) => anchor.collectedAt)));
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const totalAnchors = groups.reduce((acc, g) => acc + g.anchors.length, 0);
   const totalGroups = groups.filter((g) => g.anchors.length > 0).length;
 
-  const mapStations = kind === 'swissStations'
+  const mapStations = kind === 'swissStations' && scope !== 'national'
     ? groups.flatMap((group) => group.anchors.flatMap((anchor) => anchor.mapStation ? [anchor.mapStation] : []))
     : [];
 
   // Browse blocks (the load-bearing internal-link section — these anchors are
   // what BFS from the homepage follows to reach the per-station / per-city
   // leaves and lift them out of the orphans bucket).
+  let groupStartPosition = 0;
   const groupsHtml =
     totalAnchors > 0
-      ? groups.map((g) => renderCompactStationGroup(
-        g,
-        copy,
-        locale,
-        kind === 'italianCities' ? 'cities' : 'stations',
-      )).join('')
+      ? groups.map((g) => {
+        const html = renderCompactStationGroup(
+          g,
+          copy,
+          locale,
+          kind === 'italianCities' ? 'cities' : 'stations',
+          groupStartPosition,
+          totalAnchors,
+        );
+        groupStartPosition += g.anchors.length;
+        return html;
+      }).join('')
       : `<p class="s-2n4DG5">${esc(locale === 'it' ? 'Nessuna stazione monitorata oggi.' : locale === 'de' ? 'Heute keine Stationen erfasst.' : locale === 'fr' ? 'Aucune station suivie aujourd\'hui.' : 'No stations tracked today.')}</p>`;
 
   // Cross-links to sibling indexes + daily hub.
@@ -1094,7 +1346,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   // hub. The visible anchors below ARE the full set — only the structured
   // ItemList is sampled.
   const ITEM_LIST_CAP = 50;
-  const flatListItems: Array<{ name: string; href: string }> = [];
+  const flatListItems: Array<{ name: string; href?: string | null }> = [];
   for (const g of groups) {
     for (const a of g.anchors) flatListItems.push({ name: a.label, href: a.href });
   }
@@ -1102,7 +1354,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     '@type': 'ListItem',
     position: i + 1,
     name: item.name,
-    url: `${BASE_URL}${item.href}`,
+    ...(item.href ? { url: `${BASE_URL}${item.href}` } : {}),
   }));
 
   const webPageLd = inlineScriptJson({
@@ -1136,14 +1388,26 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   // long methodology + frontaliere-context prose moves to the BOTTOM of the
   // page per CLAUDE.md rules #16/#17 (SEO filler must never push real
   // content below the mobile fold).
-  const tagline = buildTagline(kind, locale, fuel, totalAnchors, totalGroups);
-  const statBar = renderStatBar(kind, copy, totalAnchors, totalGroups);
+  const tagline = buildTagline(kind, locale, fuel, totalAnchors, totalGroups, scope, hasOpenInventory);
+  const statBar = renderStatBar(kind, copy, totalAnchors, totalGroups, scope, hasOpenInventory);
+  const nationalSourceNote = scope === 'national' && nationalSnapshot
+    ? renderNationalSnapshotNote(locale, nationalSnapshot)
+    : '';
   const advice = totalAnchors > 0 ? renderAdviceBanner(copy, kind, fuelLabel) : '';
   const ctaHref = buildFuelTodayPath(locale, fuel);
   const ctaRow = renderCtaRow(ctaHref, copy.ctaDailyHub(fuelLabel));
-  const zoneNav = totalAnchors > 0 ? renderZoneNav(groups, copy) : '';
+  const zoneNav = totalAnchors > 0 ? renderZoneNav(
+    groups,
+    copy,
+    scope === 'national' ? copy.nationalJumpNavLabel : copy.jumpNavLabel,
+  ) : '';
   const pagination = renderIndexPagination(locale, page, totalPages, pagePathFor);
-  const fuelMap = renderFuelMapSection(locale, fuel, lastCompleteCollection(mapStations.map((station) => station.collectedAt)), mapStations);
+  // The national index intentionally has no map until its map payload covers
+  // the full provider snapshot. A Ticino-only map would make the national
+  // page look incomplete while the list below is national.
+  const fuelMap = scope === 'national'
+    ? ''
+    : renderFuelMapSection(locale, fuel, lastCompleteCollection(mapStations.map((station) => station.collectedAt)), mapStations);
 
   const proseBlock = `<section class="fuel-index-methodology" aria-label="${esc(copy.methodologyHeading)}">
     <h2 class="fuel-index-methodology__heading">${esc(copy.methodologyHeading)}</h2>
@@ -1165,6 +1429,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     <h1 class="s-h1">${esc(pageH1)}</h1>
     <p class="fuel-index-tagline">${esc(tagline)}</p>
   </header>
+  ${nationalSourceNote}
   ${statBar}
   ${advice}
   ${ctaRow}
@@ -1172,7 +1437,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   ${fuelMap}
   ${zoneNav}
   <section aria-labelledby="browseAll">
-    <h2 id="browseAll" class="fuel-index-browse-title">${esc(copy.browseHeading)}</h2>
+    <h2 id="browseAll" class="fuel-index-browse-title">${esc(scope === 'national' ? copy.nationalBrowseHeading : copy.browseHeading)}</h2>
     ${groupsHtml}
   </section>
   ${relatedHtml}
@@ -1203,6 +1468,7 @@ function groupSwissByZone(stations: readonly SwissStationLeaf[]): Map<FuelZone, 
   const out = new Map<FuelZone, SwissStationLeaf[]>();
   for (const z of FUEL_ZONES) out.set(z, []);
   for (const s of stations) {
+    if (!s.zone) continue;
     const list = out.get(s.zone);
     if (list) list.push(s);
   }
@@ -1215,6 +1481,42 @@ function groupSwissByZone(stations: readonly SwissStationLeaf[]): Map<FuelZone, 
     });
   }
   return out;
+}
+
+function nationalCantonKey(value: string | null | undefined): string {
+  const normalized = String(value ?? '').trim().toUpperCase();
+  return normalized || 'UNRESOLVED';
+}
+
+/** Group the unfiltered national snapshot by the resolver's canton group. */
+function groupSwissByCanton(stations: readonly SwissStationLeaf[]): Map<string, SwissStationLeaf[]> {
+  const out = new Map<string, SwissStationLeaf[]>();
+  for (const station of stations) {
+    const canton = nationalCantonKey(station.canton);
+    const list = out.get(canton) ?? [];
+    list.push(station);
+    out.set(canton, list);
+  }
+  for (const list of out.values()) {
+    list.sort((a, b) => {
+      const k = (a.brand || a.name).localeCompare(b.brand || b.name);
+      if (k !== 0) return k;
+      const addressOrder = (a.address || '').localeCompare(b.address || '');
+      if (addressOrder !== 0) return addressOrder;
+      return (a.name || '').localeCompare(b.name || '');
+    });
+  }
+  return new Map(
+    [...out.entries()].sort(([a], [b]) => {
+      if (a === 'UNRESOLVED') return 1;
+      if (b === 'UNRESOLVED') return -1;
+      return a.localeCompare(b);
+    }),
+  );
+}
+
+function nationalCantonSlug(canton: string): string {
+  return `canton-${canton.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 }
 
 /**
@@ -1307,38 +1609,61 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
 
       // ── Swiss-stations index ───────────────────────────────────
       {
+        const isNational = Boolean(inp.swissNationalSnapshot);
+        const sourceStations = isNational
+          ? (inp.swissNationalSnapshot?.stations ?? [])
+          : swissStations;
+        const groupedSource = isNational
+          ? groupSwissByCanton(sourceStations)
+          : swissByZone;
         const groups: GroupedAnchors[] = [];
-        for (const zone of FUEL_ZONES) {
-          const list = (swissByZone.get(zone) ?? []).filter((station) => {
-            const price = fuel === 'benzina' ? station.benzinaPriceChf : station.dieselPriceChf;
-            return typeof price === 'number' && Number.isFinite(price) && price > 0;
-          });
+
+        for (const [groupKey, rawList] of groupedSource) {
+          const list = isNational
+            ? rawList
+            : rawList.filter((station) => {
+              const price = fuel === 'benzina' ? station.benzinaPriceChf : station.dieselPriceChf;
+              return typeof price === 'number' && Number.isFinite(price) && price > 0;
+            });
           if (list.length === 0) continue;
-          const anchors = list
-            .map((s) => {
-              const collectedAt = validCollectionTime(fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt);
-              const price = fuel === 'benzina' ? s.benzinaPriceChf : s.dieselPriceChf;
-              return {
-              href: buildFuelStationPath(locale, fuel, zone, s.slug),
+
+          const anchors = list.map((s) => {
+            const collectedAt = validCollectionTime(fuel === 'diesel'
+              ? s.dieselUpdatedAt ?? s.updatedAt ?? s.observedAt
+              : s.updatedAt ?? s.observedAt);
+            const price = fuel === 'benzina' ? s.benzinaPriceChf : s.dieselPriceChf;
+            const candidateHref = s.zone && s.slug
+              ? buildFuelStationPath(locale, fuel, s.zone, s.slug)
+              : null;
+            // A routeable row gets a link only when its detail page was
+            // actually emitted. National rows outside Ticino intentionally
+            // remain data-only: no speculative URL is created.
+            const href = candidateHref && isEmitted(candidateHref) ? candidateHref : null;
+            const subtitle = [
+              s.address,
+              typeof price === 'number' && Number.isFinite(price) && price > 0
+                ? stationPriceSummary(locale, price, collectedAt)
+                : priceUnavailableLabel(locale),
+            ].filter(Boolean).join(' · ');
+            const anchor = {
+              ...(href ? { href } : {}),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
-              subtitle: [s.address, typeof price === 'number' ? stationPriceSummary(locale, price, collectedAt) : ''].filter(Boolean).join(' · '),
+              subtitle,
               logoUrl: resolveStationBrandLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
               collectedAt,
             };
-            })
-            .filter((a) => isEmitted(a.href));
-          if (anchors.length === 0) continue;
-          const mapStationByHref = new Map(
-            list
-            .map((s) => {
-              const href = buildFuelStationPath(locale, fuel, zone, s.slug);
-              if (typeof s.lat !== 'number' || !Number.isFinite(s.lat) || typeof s.lng !== 'number' || !Number.isFinite(s.lng)) return null;
+
+            if (
+              href && s.zone && s.slug
+              && typeof s.lat === 'number' && Number.isFinite(s.lat)
+              && typeof s.lng === 'number' && Number.isFinite(s.lng)
+            ) {
               return {
-                href,
+                ...anchor,
                 mapStation: {
-                  id: `${zone}-${s.slug}`,
-                  zone,
+                  id: `${s.zone}-${s.slug}`,
+                  zone: s.zone,
                   slug: s.slug,
                   name: s.name,
                   brand: s.brand,
@@ -1347,40 +1672,48 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
                   lat: s.lat,
                   lng: s.lng,
                   benzinaPriceChf: typeof s.benzinaPriceChf === 'number' && Number.isFinite(s.benzinaPriceChf) ? s.benzinaPriceChf : null,
-                  collectedAt: validCollectionTime(fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt),
+                  collectedAt,
                   dieselPriceChf: typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf) ? s.dieselPriceChf : null,
                 },
               };
-            })
-            .filter((entry): entry is NonNullable<typeof entry> => entry !== null)
-            .map((entry) => [entry.href, entry.mapStation] as const),
-          );
-          const anchorsWithMap = anchors.map((anchor) => {
-            const mapStation = mapStationByHref.get(anchor.href);
-            return mapStation ? { ...anchor, mapStation } : anchor;
+            }
+            return anchor;
           });
+
           groups.push({
-            heading: copy.groupHeadingByZone(FUEL_ZONE_DISPLAY[zone]),
-            slug: zone,
-            zoneKey: zone,
-            anchors: anchorsWithMap,
+            heading: isNational
+              ? copy.groupHeadingByCanton(groupKey)
+              : copy.groupHeadingByZone(FUEL_ZONE_DISPLAY[groupKey as FuelZone]),
+            slug: isNational ? nationalCantonSlug(groupKey) : groupKey,
+            ...(isNational ? {} : { zoneKey: groupKey as FuelZone }),
+            anchors,
           });
         }
-        const canonicalPath = buildFuelIndexPath(locale, fuel, 'swissStations');
-        out[canonicalPath] = renderIndexPage({
-          locale,
-          fuel,
-          kind: 'swissStations',
-          canonicalPath,
-          alternates: buildAlternates('swissStations'),
-          groups,
-          today,
-          distDir,
-          relatedLinks: buildRelated('swissStations'),
-          page: 1,
-          totalPages: 1,
-          pagePathFor: (page) => buildFuelIndexPaginationPath(locale, fuel, 'swissStations', page),
-        });
+
+        const pages = isNational
+          ? paginateGroupedAnchors(groups, SWISS_STATIONS_INDEX_PAGE_SIZE)
+          : [groups];
+        const totalPages = Math.max(1, pages.length);
+        const pagePathFor = (page: number): string =>
+          buildFuelIndexPaginationPath(locale, fuel, 'swissStations', page);
+        for (let page = 1; page <= totalPages; page++) {
+          const canonicalPath = pagePathFor(page);
+          out[canonicalPath] = renderIndexPage({
+            locale,
+            fuel,
+            kind: 'swissStations',
+            canonicalPath,
+            alternates: buildAlternates('swissStations', page),
+            groups: pages[page - 1] ?? [],
+            today,
+            distDir,
+            relatedLinks: buildRelated('swissStations'),
+            nationalSnapshot: isNational ? inp.swissNationalSnapshot : undefined,
+            page,
+            totalPages,
+            pagePathFor,
+          });
+        }
       }
 
       // ── Italian-cities index ───────────────────────────────────

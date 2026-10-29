@@ -7,7 +7,21 @@ import { haversineKm } from './lib/haversine.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { dedupStations } from './lib/fuel-station-dedup.mjs';
+import { createStationCantonResolver } from './lib/fuel-cantons-dataset.mjs';
+import {
+  FUEL_STATION_SCHEMA_VERSION,
+  dedupStations,
+  normaliseFuelStationObservation,
+  sortStationsStable,
+} from './lib/fuel-station-dedup.mjs';
+import {
+  OSM_FUEL_DATA_URL,
+  OSM_FUEL_LICENSE,
+  OSM_FUEL_MAP_URL,
+  OSM_FUEL_PROVIDER,
+  OSM_FUEL_SOURCE,
+  mergeSwissStationInventories,
+} from './lib/fuel-openstreetmap.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -59,13 +73,32 @@ const ECB_DAILY_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily
 // returns clustered or unclustered stations for a given bbox + fuel filter.
 const SWISS_TCS_BBOX_URL = 'https://europe-west6-tcs-digitalbackend.cloudfunctions.net/benzinGetStationByBbox';
 const SWISS_TCS_REFERER = 'https://gas-prices-prod.firebaseapp.com/';
-// Single bbox covering all CH within 25 km of the Italian border (Geneva to
-// Mustair). At zoom 18 the server returns no clusters even for this span.
-const SWISS_TCS_BBOX = [6.0, 45.7, 10.7, 47.0];
+// The verified TCS Cloud Function accepts a bbox + fuel filter and returns
+// concrete station rows at zoom 18. The national bbox was verified against
+// the public Cloud Function on 2026-10-29: [6.0, 45.7, 10.7, 47.0] returned
+// only 1,634 SP95 rows, while this envelope returned 3,954 SP95 rows / 3,956
+// DIESEL rows and reaches latitude 47.79. Keep this as a source-contract
+// invariant: changing it changes national coverage, not just request tuning.
+// The border comparator is derived later by the explicit 25 km geo-filter.
+// Keep the national query separate from that consumer filter so the full
+// source snapshot remains available without changing existing comparator rows.
+export const SWISS_TCS_BBOX = Object.freeze([5.8, 45.7, 10.7, 47.9]);
+const SWISS_TCS_SOURCE = 'tcs-benzinpreis-cloud-function';
 const SWISS_TCS_ZOOM = 18;
 const SWISS_SEARCH_RADIUS_KM = 20;
 const SWISS_BORDER_FILTER_KM = 25;
 const TOP_SWISS_OPTIONS = 5;
+const FUEL_DATASET_SCHEMA_VERSION = 2;
+const SWISS_INVENTORY_PATH = path.join(ROOT, 'data', 'fuel-station-inventory.json');
+const SWISS_NATIONAL_FIRESTORE_CHUNK_SIZE = 250;
+
+export function chunkSwissNationalStations(stations, chunkSize = SWISS_NATIONAL_FIRESTORE_CHUNK_SIZE) {
+  const rows = Array.isArray(stations) ? stations : [];
+  if (!Number.isInteger(chunkSize) || chunkSize <= 0) throw new Error('Swiss national chunk size must be a positive integer');
+  const chunks = [];
+  for (let index = 0; index < rows.length; index += chunkSize) chunks.push(rows.slice(index, index + chunkSize));
+  return chunks;
+}
 
 function readMunicipalities() {
   const source = fs.readFileSync(MUNICIPALITIES_PATH, 'utf8');
@@ -710,73 +743,99 @@ async function mapWithConcurrency(items, concurrency, mapper) {
 // the spirit of the old 30-day max-age cutoff) and keep the rest.
 const STALE_FIABILITY = new Set(['OUTDATED_LAST_PRICE_UPDATE']);
 
-async function fetchSwissStationsByFuel(fuel) {
+export async function fetchSwissStationsByFuel(
+  fuel,
+  { fetchImpl = fetch, retries = 3, bbox = SWISS_TCS_BBOX } = {},
+) {
   const body = {
     zoom: SWISS_TCS_ZOOM,
     pixelRatio: 1,
-    bbox: SWISS_TCS_BBOX,
+    bbox,
     filters: { fuel, brands: [] },
   };
-  const json = await fetchJsonWithRetry(SWISS_TCS_BBOX_URL, 3, {
+  const json = await fetchJsonWithRetry(SWISS_TCS_BBOX_URL, retries, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       referer: SWISS_TCS_REFERER,
     },
     body: JSON.stringify(body),
-  });
+  }, fetchImpl);
   if (!Array.isArray(json)) throw new Error(`Unexpected response shape from ${SWISS_TCS_BBOX_URL}`);
   return json;
 }
 
-async function fetchSwissStations() {
-  // Two calls: SP95 (mandatory) + DIESEL (best-effort). Join by station id.
+export async function fetchSwissStations({ fetchImpl = fetch, retries = 3, now = new Date(), bbox = SWISS_TCS_BBOX } = {}) {
+  // Two calls: SP95 (mandatory) + DIESEL (best-effort). Join by station id,
+  // then retain the union: a station returned only by DIESEL is still a valid
+  // national inventory row with an explicit missing-SP95 status. The border
+  // comparator applies its own SP95 filter in buildSwissBorderStations.
   const [sp95Raw, dieselRaw] = await Promise.all([
-    fetchSwissStationsByFuel('SP95'),
-    fetchSwissStationsByFuel('DIESEL').catch((err) => {
+    fetchSwissStationsByFuel('SP95', { fetchImpl, retries, bbox }),
+    fetchSwissStationsByFuel('DIESEL', { fetchImpl, retries, bbox }).catch((err) => {
       console.warn(`⚠️ DIESEL fetch failed (continuing without diesel): ${err.message}`);
       return [];
     }),
   ]);
-  const dieselById = new Map();
-  for (const station of dieselRaw) {
-    if (station.cluster || !station.id) continue;
-    if (STALE_FIABILITY.has(station.fiability)) continue;
-    if (!Number.isFinite(Number(station.price))) continue;
-    dieselById.set(station.id, station);
-  }
+  const collectUsableById = (rows) => {
+    const byId = new Map();
+    for (const station of rows) {
+      if (station.cluster || !station.id) continue;
+      if (STALE_FIABILITY.has(station.fiability)) continue;
+      if (!Number.isFinite(Number(station.price)) || Number(station.price) <= 0) continue;
+      const id = String(station.id);
+      // A provider duplicate is not a second physical station. Keep the
+      // first row here; address-based dedup remains the final guard.
+      if (!byId.has(id)) byId.set(id, station);
+    }
+    return byId;
+  };
+  const sp95ById = collectUsableById(sp95Raw);
+  const dieselById = collectUsableById(dieselRaw);
+  const stationIds = new Set([...sp95ById.keys(), ...dieselById.keys()]);
 
-  const generatedAtIso = new Date().toISOString();
+  const generatedAtIso = new Date(now).toISOString();
   const out = [];
-  for (const station of sp95Raw) {
-    if (station.cluster || !station.id) continue;
-    if (STALE_FIABILITY.has(station.fiability)) continue;
+  for (const id of stationIds) {
+    const sp95 = sp95ById.get(id) || null;
+    const diesel = dieselById.get(id) || null;
+    const station = sp95 || diesel;
     const lat = Number(station.latitude);
     const lng = Number(station.longitude);
-    const sp95Price = Number(station.price);
-    if (!Number.isFinite(lat) || !Number.isFinite(lng) || !Number.isFinite(sp95Price)) continue;
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
 
-    const diesel = dieselById.get(station.id);
-    const dieselPriceChf = diesel ? Number(diesel.price) : null;
-
-    out.push({
-      id: String(station.id),
-      name: station.displayName || station.brand || 'Station',
-      brand: station.brand && station.brand !== 'UNDEFINED' ? station.brand : '',
-      address: station.formattedAddress || '',
+    const normalized = normaliseFuelStationObservation({
+      id,
+      name: sp95?.displayName || sp95?.brand || diesel?.displayName || diesel?.brand || 'Station',
+      brand: (sp95?.brand && sp95.brand !== 'UNDEFINED' ? sp95.brand : diesel?.brand && diesel.brand !== 'UNDEFINED' ? diesel.brand : '') || '',
+      address: sp95?.formattedAddress || diesel?.formattedAddress || '',
       lat,
       lng,
-      sp95PriceChf: sp95Price,
-      dieselPriceChf: Number.isFinite(dieselPriceChf) ? dieselPriceChf : null,
+      sp95PriceChf: sp95 ? Number(sp95.price) : null,
+      dieselPriceChf: diesel ? Number(diesel.price) : null,
       dieselSource: diesel ? 'api' : 'unknown',
-      // The CF response no longer carries a per-station lastPriceUpdate. We
-      // record the snapshot time so dedup tiebreaks remain meaningful and the
-      // UI's "ultimo aggiornamento" label keeps showing a date instead of
-      // disappearing.
-      dieselUpdatedAt: diesel ? generatedAtIso : null,
-      updatedAt: generatedAtIso,
+      // The CF response carries no authoritative per-price timestamp. Keep
+      // retrieval time explicit; it is a snapshot timestamp, not a claim
+      // that the pump changed at that instant. Fiability stays per fuel.
+      // The Cloud Function response does not expose the pump-change time.
+      // Keep price-update fields null and store the retrieval moment only in
+      // `observedAt`; consumers must label it as an acquisition timestamp.
+      dieselUpdatedAt: null,
+      updatedAt: null,
+      observedAt: generatedAtIso,
+      source: SWISS_TCS_SOURCE,
+      // `sourceQuality` is the legacy SP95-first alias. The explicit fields
+      // retain the provider fiability for each fuel independently.
+      sourceQuality: sp95?.fiability || diesel?.fiability || null,
+      sp95SourceQuality: sp95?.fiability || null,
+      dieselSourceQuality: diesel?.fiability || null,
     });
+    if (normalized) out.push(normalized);
   }
+  if (!sp95ById.size || !out.some((station) => station.priceStatus?.sp95 === 'available')) {
+    throw new Error('TCS SP95 returned no usable national station rows');
+  }
+  if (!out.length) throw new Error('TCS returned no usable national station rows');
   return out;
 }
 
@@ -890,6 +949,10 @@ function summarizeItalyStations(stations) {
 export function buildSwissBorderStations(municipalities, swissStations, eurPerChf) {
   const filtered = [];
   for (const station of swissStations) {
+    // The national union may contain DIESEL-only rows. They remain in
+    // `national.stations`, but the historical benzina comparator is explicitly
+    // SP95-backed and must not turn a missing value into zero.
+    if (!hasUsableFuelPrice(station.sp95PriceChf)) continue;
     let closestMunicipality = null;
     let minDistance = Number.POSITIVE_INFINITY;
     for (const municipality of municipalities) {
@@ -914,14 +977,223 @@ export function buildSwissBorderStations(municipalities, swissStations, eurPerCh
   return filtered.sort((a, b) => a.sp95PriceChf - b.sp95PriceChf);
 }
 
+function percentage(part, total) {
+  return total ? Math.round((part / total) * 1000) / 10 : 0;
+}
+
+function hasUsableFuelPrice(value) {
+  if (value == null || (typeof value === 'string' && value.trim() === '')) return false;
+  const number = Number(value);
+  return Number.isFinite(number) && number > 0;
+}
+
+function collectionTimestamp(station) {
+  // OpenStreetMap rows carry the inventory snapshot time, not a TCS price
+  // acquisition. The national page reports the TCS collection separately and
+  // exposes the inventory timestamp in its source metadata.
+  if (station?.source === OSM_FUEL_SOURCE) return null;
+  return station?.observedAt || station?.updatedAt || null;
+}
+
+function emptySwissAreaCoverage() {
+  return { stations: 0, benzina: 0, diesel: 0, dieselCoveragePct: 0 };
+}
+
+/**
+ * Produce diagnostics for the unfiltered national source snapshot.
+ *
+ * `byCanton` is deliberately diagnostic data, not a renderer input: an
+ * unresolved address is counted and reported instead of being silently
+ * assigned to a default canton. `byArea.CH` records the whole queried area,
+ * while the canton buckets show where the source actually resolved stations.
+ */
+export function buildSwissCoverageDiagnostics(stations, {
+  resolveStationCanton = null,
+  expectedCantons = [],
+  queriedBbox = SWISS_TCS_BBOX,
+  inputStationCount = Array.isArray(stations) ? stations.length : 0,
+  duplicateCount = 0,
+  observedAt = null,
+  source = SWISS_TCS_SOURCE,
+  inventory = null,
+} = {}) {
+  const rows = Array.isArray(stations) ? stations.filter(Boolean) : [];
+  const expected = [...new Set((expectedCantons || []).map((canton) => String(canton)).filter(Boolean))].sort();
+  const byCanton = Object.fromEntries(expected.map((canton) => [canton, emptySwissAreaCoverage()]));
+  let resolvedStationCount = 0;
+  let unresolvedStationCount = 0;
+  let resolutionError = false;
+
+  for (const station of rows) {
+    let canton = null;
+    if (typeof resolveStationCanton === 'function') {
+      try {
+        canton = resolveStationCanton(station);
+      } catch {
+        resolutionError = true;
+      }
+    }
+    if (!canton || !Object.hasOwn(byCanton, canton)) {
+      unresolvedStationCount += 1;
+      continue;
+    }
+    resolvedStationCount += 1;
+    const area = byCanton[canton];
+    area.stations += 1;
+    if (hasUsableFuelPrice(station.sp95PriceChf)) area.benzina += 1;
+    if (hasUsableFuelPrice(station.dieselPriceChf)) area.diesel += 1;
+    area.dieselCoveragePct = percentage(area.diesel, area.stations);
+  }
+
+  const benzinaCount = rows.filter((station) => hasUsableFuelPrice(station.sp95PriceChf)).length;
+  const dieselCount = rows.filter((station) => hasUsableFuelPrice(station.dieselPriceChf)).length;
+  const area = {
+    stations: rows.length,
+    benzina: benzinaCount,
+    diesel: dieselCount,
+    dieselCoveragePct: percentage(dieselCount, rows.length),
+  };
+  const bbox = Array.isArray(queriedBbox) && queriedBbox.length === 4
+    ? { west: Number(queriedBbox[0]), south: Number(queriedBbox[1]), east: Number(queriedBbox[2]), north: Number(queriedBbox[3]) }
+    : null;
+  const coveredCantonCount = Object.values(byCanton).filter((item) => item.stations > 0).length;
+
+  return {
+    schemaVersion: FUEL_STATION_SCHEMA_VERSION,
+    scope: 'national',
+    country: 'CH',
+    coverageType: 'provider-snapshot',
+    inventoryCompleteness: 'not-verified',
+    anchorFuel: 'SP95',
+    source,
+    observedAt,
+    bbox,
+    inputStationCount,
+    uniqueStationCount: rows.length,
+    duplicateCount,
+    resolvedStationCount,
+    unresolvedStationCount,
+    resolution: {
+      status: typeof resolveStationCanton === 'function'
+        ? (resolutionError || unresolvedStationCount > 0 || coveredCantonCount < expected.length ? 'partial' : 'ok')
+        : 'not-configured',
+      expectedCantonCount: expected.length,
+      coveredCantonCount,
+    },
+    fuelCoverage: {
+      benzina: {
+        stationCount: benzinaCount,
+        missingPriceCount: rows.length - benzinaCount,
+        coveragePct: percentage(benzinaCount, rows.length),
+      },
+      diesel: {
+        stationCount: dieselCount,
+        missingPriceCount: rows.length - dieselCount,
+        coveragePct: percentage(dieselCount, rows.length),
+      },
+    },
+    ...(inventory && typeof inventory === 'object' ? {
+      inventory: {
+        source: inventory.source || OSM_FUEL_SOURCE,
+        stationCount: Number(inventory.stationCount ?? 0),
+        matchedStationCount: Number(inventory.matchCount ?? 0),
+        inventoryOnlyStationCount: Number(inventory.inventoryOnlyCount ?? 0),
+        observedAt: inventory.observedAt || null,
+        completeness: inventory.completeness || 'not-verified',
+      },
+    } : {}),
+    byArea: { CH: area },
+    byCanton,
+  };
+}
+
+function readSwissCoverageConfig() {
+  try {
+    const readJson = (name) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', name), 'utf8'));
+    const cantonSlugFile = readJson('canton-url-slugs.json');
+    return {
+      resolveStationCanton: createStationCantonResolver({
+        postalIndex: readJson('swiss-postal-code-index.json'),
+        localityIndex: readJson('swiss-locality-postal-codes.json'),
+        cantonSlugFile,
+      }),
+      expectedCantons: Object.keys(cantonSlugFile.cantons || {}).sort(),
+    };
+  } catch (error) {
+    // The national station feed remains useful even if optional local
+    // reference data is unavailable. Diagnostics make that loss explicit.
+    console.warn(`⚠️ Swiss canton coverage resolver unavailable: ${error instanceof Error ? error.message : String(error)}`);
+    return { resolveStationCanton: null, expectedCantons: [] };
+  }
+}
+
+/**
+ * Read the optional OSM physical-station registry produced by the weekly
+ * inventory workflow. Price refreshes must remain independent from this
+ * slower source: an unavailable or not-yet-generated inventory never blocks a
+ * valid TCS price snapshot.
+ */
+export function readSwissFuelInventory(filePath = SWISS_INVENTORY_PATH) {
+  try {
+    const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const stations = Array.isArray(payload?.stations) ? payload.stations.filter((station) => station && typeof station === 'object') : [];
+    return {
+      stations,
+      observedAt: typeof payload?.observedAt === 'string' ? payload.observedAt : typeof payload?.generatedAt === 'string' ? payload.generatedAt : null,
+      source: payload?.source && typeof payload.source === 'object' ? payload.source : null,
+      coverageType: typeof payload?.coverageType === 'string' ? payload.coverageType : 'open-inventory',
+      inventoryCompleteness: typeof payload?.inventoryCompleteness === 'string' ? payload.inventoryCompleteness : 'not-verified',
+    };
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      console.warn(`⚠️ Swiss OSM fuel inventory unavailable: ${error instanceof Error ? error.message : String(error)}`);
+    }
+    return { stations: [], observedAt: null, source: null, coverageType: 'open-inventory', inventoryCompleteness: 'not-verified' };
+  }
+}
+
 export function buildDataset({
   municipalities,
   italyExtractedAt,
   swissStations,
+  nationalSwissStations = swissStations,
+  swissCoverage = null,
+  swissInventory = null,
   italyByMunicipality,
   exchangeRate,
   italyStatus = null,
 }) {
+  const nationalStations = sortStationsStable(nationalSwissStations || []);
+  const nationalObservedAtValues = nationalStations.map(collectionTimestamp).filter(Boolean).sort();
+  const nationalCoverage = {
+    ...(swissCoverage || buildSwissCoverageDiagnostics(nationalStations, {
+      observedAt: nationalObservedAtValues[nationalObservedAtValues.length - 1] || null,
+    })),
+  };
+  if (swissInventory && !swissCoverage) {
+    nationalCoverage.inventory = {
+      source: OSM_FUEL_SOURCE,
+      stationCount: Number(swissInventory.stationCount ?? swissInventory.stations?.length ?? 0),
+      matchedStationCount: Number(swissInventory.matchCount ?? 0),
+      inventoryOnlyStationCount: Number(swissInventory.inventoryOnlyCount ?? 0),
+      observedAt: swissInventory.observedAt ?? null,
+      completeness: swissInventory.inventoryCompleteness ?? 'not-verified',
+    };
+  }
+  const inventoryStationCount = Number(swissInventory?.stationCount ?? swissInventory?.stations?.length ?? 0);
+  const hasOpenInventory = inventoryStationCount > 0;
+  const nationalCoverageType = hasOpenInventory ? 'registry-plus-price-snapshot' : 'provider-snapshot';
+  // Keep the detailed diagnostics in lockstep with the renderer-facing
+  // national contract. Without this, the top-level dataset could advertise
+  // the OSM+TCS registry while its nested coverage object still said only
+  // provider-snapshot.
+  nationalCoverage.coverageType = nationalCoverageType;
+  const nationalProvider = hasOpenInventory
+    ? `${'TCS Benzinpreis'} + ${OSM_FUEL_PROVIDER}`
+    : 'TCS Benzinpreis';
+  const inventorySource = swissInventory?.source && typeof swissInventory.source === 'object'
+    ? swissInventory.source
+    : null;
   const municipalityRows = municipalities.map((municipality) => {
     const italyStations = italyByMunicipality.get(`${municipality.name}:${municipality.province}`) || [];
     const italy = summarizeItalyStations(italyStations);
@@ -1018,15 +1290,20 @@ export function buildDataset({
       swissStation: row.swiss.cheapestStation,
     }));
 
-  const swissUpdatedAtValues = swissStations.map((item) => item.updatedAt).filter(Boolean).sort();
-  const swissWithDiesel = swissStations.filter(
-    (s) => typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf),
-  ).length;
+  const swissUpdatedAtValues = swissStations.map(collectionTimestamp).filter(Boolean).sort();
+  const swissWithDiesel = swissStations.filter((s) => hasUsableFuelPrice(s.dieselPriceChf)).length;
   const swissDieselCoveragePct = swissStations.length
     ? Math.round((swissWithDiesel / swissStations.length) * 1000) / 10
     : 0;
+  const nationalWithDiesel = nationalStations.filter((s) => hasUsableFuelPrice(s.dieselPriceChf)).length;
+  const nationalDieselCoveragePct = nationalStations.length
+    ? Math.round((nationalWithDiesel / nationalStations.length) * 1000) / 10
+    : 0;
+  const nationalLatestObservedAt = nationalObservedAtValues[nationalObservedAtValues.length - 1]
+    || (typeof nationalCoverage.observedAt === 'string' ? nationalCoverage.observedAt : null);
 
   return {
+    schemaVersion: FUEL_DATASET_SCHEMA_VERSION,
     generatedAt: new Date().toISOString(),
     sources: {
       italy: {
@@ -1043,12 +1320,23 @@ export function buildDataset({
       switzerland: {
         provider: 'TCS Benzinpreis',
         providerUrl: 'https://benzin.tcs.ch/de/map/SP95',
+        // Keep `stationCount` as the historical border-comparator count for
+        // existing consumers; the national count is additive and explicit.
         stationCount: swissStations.length,
         latestObservedUpdate: swissUpdatedAtValues[swissUpdatedAtValues.length - 1] || null,
         // F6 — real-diesel ingestion. See `fetchSwissStations` above for the
         // dual SP95 + DIESEL pull from the TCS Cloud Function.
         dieselStationCount: swissWithDiesel,
         dieselCoveragePct: swissDieselCoveragePct,
+        borderStationCount: swissStations.length,
+        nationalStationCount: nationalStations.length,
+        nationalDieselStationCount: nationalWithDiesel,
+        nationalDieselCoveragePct,
+        nationalCoverageType,
+        nationalInventoryStationCount: inventoryStationCount,
+        nationalInventoryMatchedStationCount: Number(swissInventory?.matchCount ?? 0),
+        nationalInventoryOnlyStationCount: Number(swissInventory?.inventoryOnlyCount ?? 0),
+        nationalCoverage: nationalCoverage,
       },
       exchangeRate: {
         provider: 'ECB',
@@ -1060,6 +1348,8 @@ export function buildDataset({
     },
     summary: {
       municipalityCount: municipalityRows.length,
+      swissBorderStationCount: swissStations.length,
+      swissNationalStationCount: nationalStations.length,
       municipalitiesWithItalyPrices: municipalityRows.filter((row) => row.italy.stationCount > 0).length,
       municipalitiesWithSwissComparison: comparisonRows.length,
       cheaperItalyCount,
@@ -1072,6 +1362,38 @@ export function buildDataset({
       cheapestItalyMunicipalities,
       cheapestSwissStations: swissStations.slice(0, 20),
       bestCrossBorderSavings,
+    },
+    national: {
+      schemaVersion: FUEL_STATION_SCHEMA_VERSION,
+      country: 'CH',
+      scope: 'national',
+      coverageType: nationalCoverageType,
+      inventoryCompleteness: swissInventory?.inventoryCompleteness ?? 'not-verified',
+      anchorFuel: 'SP95',
+      stationCount: nationalStations.length,
+      observedAt: nationalLatestObservedAt,
+      source: {
+        provider: nationalProvider,
+        sourceId: SWISS_TCS_SOURCE,
+        endpoint: SWISS_TCS_BBOX_URL,
+        providerUrl: 'https://benzin.tcs.ch/de/map/SP95',
+        timestampKind: 'retrieved-snapshot',
+        observedAt: nationalLatestObservedAt,
+        ...(hasOpenInventory ? {
+          inventoryProvider: OSM_FUEL_PROVIDER,
+          inventorySourceId: OSM_FUEL_SOURCE,
+          inventoryDataUrl: inventorySource?.dataUrl || OSM_FUEL_DATA_URL,
+          inventoryAttributionUrl: inventorySource?.attributionUrl || OSM_FUEL_MAP_URL,
+          inventoryLicense: inventorySource?.license || OSM_FUEL_LICENSE,
+          inventoryAttribution: inventorySource?.attribution || '© OpenStreetMap contributors',
+          inventoryObservedAt: swissInventory?.observedAt ?? null,
+          inventoryStationCount,
+          inventoryMatchedStationCount: Number(swissInventory?.matchCount ?? 0),
+          inventoryOnlyStationCount: Number(swissInventory?.inventoryOnlyCount ?? 0),
+        } : {}),
+      },
+      coverage: nationalCoverage,
+      stations: nationalStations,
     },
     municipalities: municipalityRows,
   };
@@ -1189,6 +1511,7 @@ async function writeToFirestore(payload) {
   const db = getFirestore();
 
   const metadataDoc = {
+    schemaVersion: payload.schemaVersion ?? FUEL_DATASET_SCHEMA_VERSION,
     generatedAt: payload.generatedAt,
     sources: payload.sources,
     summary: payload.summary,
@@ -1212,14 +1535,56 @@ async function writeToFirestore(payload) {
       .map((m) => ({ municipality: m.municipality, province: m.province, swiss: m.swiss })),
   };
 
+  // Keep the full station feed in a separate document. The legacy
+  // `switzerland` document remains the border-comparator projection; putting
+  // the national rows there would make the existing Firestore contract both
+  // ambiguous and unnecessarily large.
+  // Firestore documents are capped at 1 MiB. A national TCS snapshot is
+  // already larger than that before the OSM inventory is unioned in, so the
+  // metadata document carries only the manifest and the station rows live in
+  // deterministic chunks. The client reads exactly the advertised chunks;
+  // the batch makes the manifest + chunks visible atomically.
+  const nationalStations = payload.national?.stations ?? [];
+  const nationalChunks = chunkSwissNationalStations(nationalStations);
+  const nationalChunkCount = nationalChunks.length;
+  const switzerlandNationalDoc = payload.national ? {
+    schemaVersion: payload.national.schemaVersion,
+    country: payload.national.country,
+    scope: payload.national.scope,
+    coverageType: payload.national.coverageType,
+    inventoryCompleteness: payload.national.inventoryCompleteness,
+    anchorFuel: payload.national.anchorFuel,
+    stationCount: payload.national.stationCount,
+    observedAt: payload.national.observedAt,
+    source: payload.national.source,
+    coverage: payload.national.coverage,
+    chunkCount: nationalChunkCount,
+    chunkSize: SWISS_NATIONAL_FIRESTORE_CHUNK_SIZE,
+  } : null;
+
   const batch = db.batch();
   const col = db.collection('fuelPrices');
   batch.set(col.doc('metadata'), metadataDoc);
   batch.set(col.doc('italy'), italyDoc);
   batch.set(col.doc('switzerland'), switzerlandDoc);
+  if (switzerlandNationalDoc) {
+    batch.set(col.doc('switzerland-national'), switzerlandNationalDoc);
+    for (let index = 0; index < nationalChunkCount; index += 1) {
+      const stations = nationalChunks[index];
+      const chunkId = `switzerland-national-${String(index).padStart(3, '0')}`;
+      batch.set(col.doc(chunkId), {
+        schemaVersion: payload.national.schemaVersion,
+        country: payload.national.country,
+        scope: payload.national.scope,
+        chunkIndex: index,
+        chunkCount: nationalChunkCount,
+        stations,
+      });
+    }
+  }
   await batch.commit();
 
-  console.log('🔥 Firestore: wrote 3 docs (metadata: ' + JSON.stringify(metadataDoc).length + ' B, italy: ' + JSON.stringify(italyDoc).length + ' B, switzerland: ' + JSON.stringify(switzerlandDoc).length + ' B)');
+  console.log('🔥 Firestore: wrote ' + (switzerlandNationalDoc ? `${4 + nationalChunkCount}` : '3') + ' docs (metadata: ' + JSON.stringify(metadataDoc).length + ' B, italy: ' + JSON.stringify(italyDoc).length + ' B, switzerland: ' + JSON.stringify(switzerlandDoc).length + ' B' + (switzerlandNationalDoc ? `, switzerland-national manifest: ${JSON.stringify(switzerlandNationalDoc).length} B, ${nationalChunkCount} station chunks` : '') + ')');
 }
 
 async function main() {
@@ -1273,20 +1638,78 @@ async function main() {
     const italyByMunicipality = italySource.italyByMunicipality;
     const prices = { extractedAt: italySource.extractedAt };
 
-    // AE-9 — collapse duplicate TCS records (same name + address, drifted
+    // OSM is a physical-station registry, not a price source. Attach its
+    // identity to nearby TCS rows where the address/brand match is strong and
+    // keep unmatched OSM rows as explicit price-unavailable inventory rows.
+    // The optional file is refreshed weekly, independently from the hourly
+    // TCS price pull.
+    const inventorySnapshot = readSwissFuelInventory();
+    const inventoryMerge = mergeSwissStationInventories(swissDocs, inventorySnapshot.stations);
+    const mergedSwissDocs = inventoryMerge.stations;
+    if (inventorySnapshot.stations.length > 0) {
+      console.log(`⛽ Swiss inventory union: ${inventorySnapshot.stations.length} OSM rows, ${inventoryMerge.matchCount} matched to TCS, ${inventoryMerge.inventoryOnlyCount} inventory-only rows.`);
+    }
+
+    // AE-9 — collapse duplicate TCS/OSM records (same name + address, drifted
     // coords) before geo-filtering so every downstream consumer sees one
     // canonical entry per physical station.
-    const { unique: dedupedSwissDocs, removed: swissRemoved } = dedupStations(swissDocs);
+    const { unique: dedupedSwissDocs, removed: swissRemoved } = dedupStations(mergedSwissDocs);
     if (swissRemoved.length > 0) {
       console.log(`⛽ Swiss station dedup: collapsed ${swissRemoved.length} duplicate record(s) (${swissDocs.length} → ${dedupedSwissDocs.length}).`);
     }
 
-    const swissStations = buildSwissBorderStations(municipalities, dedupedSwissDocs, exchangeRate.eurPerChf);
+    const coverageConfig = readSwissCoverageConfig();
+    // Preserve the full TCS provider snapshot for national consumers, then
+    // derive the historical 25 km border projection from the same canonical
+    // rows. Canton is a derived URL-group field from the local Swiss postal /
+    // locality resolver; unresolved rows remain explicit nulls.
+    const nationalSwissStations = sortStationsStable(dedupedSwissDocs).map((station) => {
+      let canton = null;
+      if (typeof station.canton === 'string' && /^[A-Z]{2}$/.test(station.canton)) {
+        canton = station.canton;
+      } else if (typeof coverageConfig.resolveStationCanton === 'function') {
+        try {
+          canton = coverageConfig.resolveStationCanton(station) || null;
+        } catch {
+          canton = null;
+        }
+      }
+      return { ...station, canton };
+    });
+    const nationalObservedAt = nationalSwissStations.map(collectionTimestamp).filter(Boolean).sort().at(-1) || null;
+    const swissCoverage = buildSwissCoverageDiagnostics(nationalSwissStations, {
+      resolveStationCanton: (station) => (
+        typeof station?.canton === 'string' && /^[A-Z]{2}$/.test(station.canton)
+          ? station.canton
+          : coverageConfig.resolveStationCanton?.(station)
+      ),
+      expectedCantons: coverageConfig.expectedCantons,
+      inputStationCount: mergedSwissDocs.length,
+      duplicateCount: swissRemoved.length,
+      observedAt: nationalObservedAt,
+      inventory: {
+        source: OSM_FUEL_SOURCE,
+        stationCount: inventorySnapshot.stations.length,
+        matchCount: inventoryMerge.matchCount,
+        inventoryOnlyCount: inventoryMerge.inventoryOnlyCount,
+        observedAt: inventorySnapshot.observedAt,
+        completeness: inventorySnapshot.inventoryCompleteness,
+      },
+    });
+    const swissStations = buildSwissBorderStations(municipalities, nationalSwissStations, exchangeRate.eurPerChf);
 
     const payload = buildDataset({
       municipalities,
       italyExtractedAt: prices.extractedAt,
       swissStations,
+      nationalSwissStations,
+      swissCoverage,
+      swissInventory: {
+        ...inventorySnapshot,
+        stationCount: inventorySnapshot.stations.length,
+        matchCount: inventoryMerge.matchCount,
+        inventoryOnlyCount: inventoryMerge.inventoryOnlyCount,
+      },
       italyByMunicipality,
       exchangeRate,
       italyStatus: italySource.status === 'live' ? null : { status: italySource.status, reason: italySource.reason },
@@ -1326,7 +1749,7 @@ async function main() {
       console.log(`💾 Canton dataset hand-off written to ${cantonsInputOut}`);
     }
 
-    console.log('⛽ Fuel dataset generated: ' + payload.summary.municipalityCount + ' municipalities, ' + payload.summary.municipalitiesWithItalyPrices + ' with Italian prices, ' + payload.summary.municipalitiesWithSwissComparison + ' with IT/CH comparison.');
+    console.log('⛽ Fuel dataset generated: ' + payload.summary.municipalityCount + ' municipalities, ' + payload.summary.municipalitiesWithItalyPrices + ' with Italian prices, ' + payload.summary.municipalitiesWithSwissComparison + ' with IT/CH comparison, ' + payload.national.stationCount + ' national Swiss stations (' + payload.national.coverage.resolution.coveredCantonCount + '/' + payload.national.coverage.resolution.expectedCantonCount + ' canton groups covered).');
   } catch (error) {
     const msg = error instanceof Error ? error.message : String(error);
     const cause = error instanceof Error ? error.cause : undefined;

@@ -36,6 +36,7 @@ import {
   type FuelZone,
 } from '../build-plugins/fuelDailyData';
 import {
+  collectSwissStationContexts,
   generateFuelStationPages,
   generateFuelItalianStationPages,
   generateFuelItalianCityPages,
@@ -566,6 +567,47 @@ describe('generateFuelStationPages() — Ticino only', () => {
     const grownPages = generateFuelStationPages({ dataset: DATASET, today, contexts: grownContexts as never });
     expect(Object.keys(grownPages)).toHaveLength(2056);
     expect(Object.keys(grownPages).filter((path) => path.includes('/cap-station-256/'))).toHaveLength(8);
+  });
+});
+
+describe('national snapshot renderer contract', () => {
+  it('uses national stations for routeable Ticino pages and leaves other cantons data-only', () => {
+    const datasetWithNationalSnapshot = {
+      ...DATASET,
+      national: {
+        scope: 'national' as const,
+        stations: [
+          {
+            id: 'national-lugano',
+            name: 'National Migrol Lugano',
+            brand: 'MIGROL',
+            address: 'Via Nazionale 1, 6900 Lugano',
+            lat: 46.01,
+            lng: 8.95,
+            sp95PriceChf: 1.79,
+            dieselPriceChf: 1.98,
+            updatedAt: '2026-10-29T12:00:00.000Z',
+            source: 'fixture-provider',
+          },
+          {
+            id: 'national-zurich',
+            name: 'National Zürich Station',
+            brand: 'COOP',
+            address: 'Zürichstrasse 1, 8000 Zürich',
+            lat: 47.38,
+            lng: 8.54,
+            sp95PriceChf: 1.82,
+            dieselPriceChf: 1.99,
+            updatedAt: '2026-10-29T12:00:00.000Z',
+            source: 'fixture-provider',
+          },
+        ],
+      },
+    };
+    const contexts = collectSwissStationContexts(datasetWithNationalSnapshot as never);
+
+    expect(contexts.map((context) => context.station.id)).toEqual(['national-lugano']);
+    expect(contexts.map((context) => context.zone)).toEqual(['lugano']);
   });
 });
 

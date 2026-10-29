@@ -1,0 +1,102 @@
+name: Update Swiss fuel-station inventory (OpenStreetMap)
+
+on:
+  schedule:
+    # The inventory changes slowly; keep the volunteer OSM infrastructure out
+    # of the hourly price refresh and publish one bounded weekly snapshot.
+    - cron: '17 4 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: fuel-station-inventory
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Prepare Firebase credentials for PR publishing
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for the OSM inventory refresh PR"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load publishing credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Install firebase-admin
+        run: npm install --no-save firebase-admin@14.5.0
+
+      - name: Install osmium-tool
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes osmium-tool
+
+      - name: Download Switzerland extract
+        run: |
+          curl --fail --location --retry 5 --retry-all-errors --retry-delay 5 \
+            --output "$RUNNER_TEMP/switzerland.osm.pbf" \
+            https://download.geofabrik.de/europe/switzerland-latest.osm.pbf
+
+      - name: Extract fuel stations as GeoJSON
+        run: |
+          osmium tags-filter "$RUNNER_TEMP/switzerland.osm.pbf" \
+            nwr/amenity=fuel \
+            --output "$RUNNER_TEMP/fuel-stations.osm.pbf" \
+            --overwrite
+          osmium export "$RUNNER_TEMP/fuel-stations.osm.pbf" \
+            --output "$RUNNER_TEMP/fuel-stations.geojson" \
+            --format geojson \
+            --overwrite
+
+      - name: Build tracked inventory
+        run: |
+          node scripts/update-fuel-station-inventory.mjs \
+            --input "$RUNNER_TEMP/fuel-stations.geojson" \
+            --observed-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+      - name: Open inventory refresh PR
+        env:
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
+        run: |
+          body="$RUNNER_TEMP/fuel-station-inventory-pr-body.md"
+          cat > "$body" <<'EOF'
+          Auto-generated from the weekly OpenStreetMap Switzerland extract.
+
+          ## Implementato
+          - Aggiorna il registro nazionale delle stazioni con `amenity=fuel` da OpenStreetMap.
+          - Mantiene separati inventario fisico e prezzi TCS: l'assenza di un prezzo resta esplicita.
+          - Include attribuzione ODbL a OpenStreetMap e il timestamp dello snapshot.
+
+          ## Non implementato (ancora)
+          - per scelta: questa PR non tratta il registro OSM come fonte di prezzi e non dichiara la completezza censuaria.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --force \
+            --path data/fuel-station-inventory.json \
+            --path public/data/fuel-station-inventory.json \
+            --branch chore/refresh-fuel-station-inventory \
+            --commit-message "chore(data): refresh Swiss fuel station inventory" \
+            --title "chore(data): refresh Swiss fuel station inventory" \
+            --body-file "$body"
