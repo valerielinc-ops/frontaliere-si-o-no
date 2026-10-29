@@ -1043,8 +1043,10 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes, { compact = false }
   work.push('fi');
   work.push('exit 0');
 
-  if (!compact) {
+  if (!compact || crawler.slug === 'fachkraft') {
     outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
+  }
+  if (!compact) {
     outer.push('# shellcheck disable=SC2016');
   }
   outer.push(

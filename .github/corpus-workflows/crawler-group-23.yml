@@ -3009,6 +3009,7 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
+          # ---- fachkraft: 150 minute target wall timeout ----
           timeout --signal=TERM --kill-after=30s 150m bash -c '\''set -uo pipefail
           set +e
 
