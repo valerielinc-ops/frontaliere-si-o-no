@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kone",
-  "assembledAt": "2026-10-29T09:45:32.582Z",
-  "runId": "40849122738",
+  "assembledAt": "2026-10-29T21:55:50.665Z",
+  "runId": "40957217544",
   "jobs": [
     {
       "id": "kone-8cc5f02244f1",
@@ -35,7 +35,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:45:26.292Z",
+      "crawledAt": "2026-10-29T21:55:44.763Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/echnicien-ne-de-maintenance-Ascenseurs---Rgion-Yverdon_R0665610",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:45:25.288Z",
+      "crawledAt": "2026-10-29T21:55:43.886Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Technicien-ne-de-maintenance-Ascenseurs---Rgion-Fribourg_R0665744",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-29T09:45:23.532Z",
+      "crawledAt": "2026-10-29T21:55:42.981Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -278,7 +278,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-29T09:45:22.572Z",
+      "crawledAt": "2026-10-29T21:55:42.117Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -413,7 +413,7 @@
         }
       },
       "postalCode": "8306",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
