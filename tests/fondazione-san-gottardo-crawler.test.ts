@@ -95,6 +95,22 @@ describe('Fondazione San Gottardo crawler', () => {
     ]);
   });
 
+  it('discovers Joomla detail links on the careers path when they have a query string', () => {
+    const html = LISTING_HTML.replace(
+      '/concorsi/educatore-specializzato',
+      '/lavoro?view=article&id=42',
+    );
+    const result = parseCareersPage(html);
+
+    expect(result.status).toBe('ok');
+    expect(result.candidates).toEqual([
+      expect.objectContaining({
+        title: 'Educatore/trice specializzato/a',
+        url: 'https://www.fsangottardo.ch/lavoro?view=article&id=42',
+      }),
+    ]);
+  });
+
   it('fails closed when the source section changes without an explicit zero', () => {
     const result = parseCareersPage(EMPTY_HTML.replace(
       'Attualmente non abbiamo posizioni disponibili.',
@@ -122,6 +138,23 @@ describe('Fondazione San Gottardo crawler', () => {
       url: 'https://www.fsangottardo.ch/concorsi/educatore-specializzato',
     }));
     expect((job?.description.split(/\s+/).length || 0)).toBeGreaterThanOrEqual(50);
+  });
+
+  it('selects the application link from the detail content, not global navigation', () => {
+    const html = `
+      <header><a href="/candidature">Candidature</a></header>
+      ${DETAIL_HTML.replace(
+        '</div>\n  </main>',
+        '<p><a href="/candidati/educatore">Invia candidatura</a></p></div>\n  </main>',
+      )}
+    `;
+    const job = parseDetailPage(
+      html,
+      'https://www.fsangottardo.ch/concorsi/educatore-specializzato',
+      { title: 'Educatore/trice specializzato/a' },
+    );
+
+    expect(job?.applyUrl).toBe('https://www.fsangottardo.ch/candidati/educatore');
   });
 
   it('stamps an authoritative empty snapshot for the current live shape', async () => {

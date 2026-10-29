@@ -76,7 +76,9 @@ function isSamePage(rawUrl = '', pageUrl = FONDAZIONE_SAN_GOTTARDO_CAREER_URL) {
   try {
     const a = new URL(rawUrl, pageUrl);
     const b = new URL(pageUrl);
-    return a.origin === b.origin && a.pathname.replace(/\/+$/, '') === b.pathname.replace(/\/+$/, '');
+    return a.origin === b.origin
+      && a.pathname.replace(/\/+$/, '') === b.pathname.replace(/\/+$/, '')
+      && a.search === b.search;
   } catch {
     return false;
   }
@@ -354,7 +356,7 @@ function detailText(document) {
 }
 
 function applicationUrl(document, pageUrl) {
-  for (const anchor of document.querySelectorAll('a[href]')) {
+  for (const anchor of detailContainer(document).querySelectorAll('a[href]')) {
     const text = textOf(anchor);
     const href = canonicalUrl(anchor.getAttribute('href') || '', pageUrl);
     if (href && /candidat|applic|postul|invia/i.test(`${text} ${href}`)) return href;
