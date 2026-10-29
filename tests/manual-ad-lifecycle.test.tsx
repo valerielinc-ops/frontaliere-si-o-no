@@ -2,7 +2,7 @@
 // @vitest-environment-options { "url": "https://frontaliereticino.ch/" }
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { observeManualAd } from '@/services/manualAdLifecycle';
-import { AD_FILL_TIMEOUT_MS } from '@/services/adsenseSlots';
+import { AD_FILL_TIMEOUT_MS, DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT } from '@/services/adsenseSlots';
 
 let observers: Array<{ callback: IntersectionObserverCallback; options?: IntersectionObserverInit; target?: Element; disconnected: boolean }>;
 let cleanups: Array<() => void>;
@@ -44,7 +44,7 @@ describe('manual ad lifecycle shared by SPA and static', () => {
     vi.advanceTimersByTime(60_000);
     expect(states).not.toHaveBeenCalled(); expect(events).not.toHaveBeenCalled();
   });
-  it.each([422, 1534])('preserves a slow filled company/fuel creative of %ipx', async (height) => {
+  it.each([422, DRIVEBY_DESKTOP_RESERVE_MIN_HEIGHT])('preserves a slow filled company/fuel creative of %ipx', async (height) => {
     const { el, states, events, lifecycle } = setup(1100);
     lifecycle.request();
     vi.advanceTimersByTime(30_000);

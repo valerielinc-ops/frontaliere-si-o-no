@@ -115,6 +115,10 @@ describe('initial SPA bootstrap — mobile first paint', () => {
     expect(fallbackReveal).toBeGreaterThan(paintGate);
     expect(handoffPaint).toBeGreaterThan(fallbackReveal);
     expect(jobBoardImport).toBeGreaterThan(handoffPaint);
+    const jobBoardPreload = entry.indexOf("import('@/components/community/JobBoard').catch(() => null)");
+    expect(jobBoardPreload).toBeGreaterThan(entry.indexOf('const staticFirstPaint ='));
+    expect(jobBoardPreload).toBeLessThan(entry.indexOf('if (homeCritical && i18n)'));
+    expect(entry).toContain("import('@/components/calculator/InputCard').catch(() => null)");
 
     const frames: FrameRequestCallback[] = [];
     let timerCallback: (() => void) | undefined;

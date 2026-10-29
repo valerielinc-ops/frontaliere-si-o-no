@@ -319,28 +319,34 @@ const CurrencyExchange: React.FC = () => {
 
  // Historical time-series data — cached in Firestore (shared across all users)
  // Only fetches from external APIs when the cache is stale (older than yesterday)
- const fetchHistory = async (period: string) => {
- setHistoryLoading(true);
+ const fetchHistory = async (period: string, isActive: () => boolean) => {
+ if (isActive()) setHistoryLoading(true);
  try {
  const { fetchExchangeHistory } = await import('@/services/exchangeRateService');
  const points = await fetchExchangeHistory(
  period as import('@/services/exchangeRateService').HistoryPeriod,
  realRate,
  );
- if (points.length > 0) {
+ if (points.length > 0 && isActive()) {
  setHistoryData(points);
  }
  } catch (e) {
- console.error('Failed to fetch history', e);
- reportCaughtError(e, 'currencyExchange.fetchHistory');
+ if (isActive()) {
+  console.error('Failed to fetch history', e);
+  reportCaughtError(e, 'currencyExchange.fetchHistory');
+ }
  } finally {
- setHistoryLoading(false);
+ if (isActive()) setHistoryLoading(false);
  }
  };
 
  useEffect(() => {
- fetchHistory(historyPeriod);
+ let active = true;
+ void fetchHistory(historyPeriod, () => active);
  Analytics.trackCurrencyExchange('convert', undefined, amount);
+ return () => {
+  active = false;
+ };
  }, [historyPeriod]);
 
  const calculateExchange = (provider: ExchangeProvider) => {

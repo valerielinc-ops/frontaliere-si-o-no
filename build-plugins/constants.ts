@@ -1078,7 +1078,7 @@ export const OFFERWALL_FC_SNIPPET = `<script>${OFFERWALL_FC_SCRIPT_CONTENT}</scr
  * console unit and swapping that one slot id in services/adsenseSlots.ts —
  * this snippet needs no further change (issue #1911 item 1).
  */
-export const DRIVEBY_AD_SNIPPET = `<div class="my-6">
+export const DRIVEBY_AD_SNIPPET = `<div class="my-6 ft-driveby-ad">
     ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY', { collapseWhenUnfilled: true })}
   </div>`;
 
