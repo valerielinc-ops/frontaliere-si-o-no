@@ -10,7 +10,7 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
-import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatus.js';
+import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { conciergeRenewalOffer } from './applicationConciergeLifecyclePolicy.js';
 import { randomUUID } from 'node:crypto';

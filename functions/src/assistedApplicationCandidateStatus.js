@@ -1,6 +1,7 @@
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
 import { flowRefFor } from './assistedApplicationAutomation.js';
 import {
   buildOrderPageUrl,
@@ -10,11 +11,7 @@ import {
 } from './assistedApplicationNotifications.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 
-const CANDIDATE_ACTION_STATES = new Set([
-  'candidate_review',
-  'needs_candidate_action',
-  'candidate_handoff',
-]);
+export { candidateStatusForAssistedApplication } from './assistedApplicationCandidateStatusCore.js';
 
 function isoDate(value) {
   if (value == null) return null;
@@ -55,18 +52,6 @@ function safeHttpsUrl(value) {
 function candidateLocation(value) {
   const location = boundedText(value, 240).replace(/\s+/g, ' ').slice(0, 180);
   return location || null;
-}
-
-export function candidateStatusForAssistedApplication(order) {
-  const submissionStatus = boundedText(order?.submissionStatus, 80);
-  const automationState = boundedText(order?.automationState, 80);
-
-  if (order?.paymentStatus === 'refunded' || submissionStatus === 'refunded') return 'refunded';
-  if (submissionStatus === 'submitted' || automationState === 'submitted') return 'submitted';
-  if (CANDIDATE_ACTION_STATES.has(automationState)) return 'needs_candidate';
-  if (submissionStatus === 'blocked' || ['failed', 'owner_takeover'].includes(automationState)) return 'under_review';
-  if (submissionStatus === 'awaiting_upload' && !boundedText(order?.cvStorageKey, 300)) return 'awaiting_materials';
-  return 'in_progress';
 }
 
 async function applicationUrlFor(db, orderId, order, status, getSecret) {
