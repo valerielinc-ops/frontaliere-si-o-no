@@ -1,7 +1,7 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-10-28T22:02:03.166Z",
+  "generatedAt": "2026-10-29T09:18:05.349Z",
   "total": 6,
   "sourceBodyFailureCount": 1,
   "sourceBodyFailures": [
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 11881,
-  "avgDurationMs": 11881,
+  "durationMs": 8512,
+  "avgDurationMs": 8512,
   "durationHistory": [
-    11881
+    8512
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6e333017-34f2-4666-b96f-b9823f48d74f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T22:01:47.238Z",
+      "crawledAt": "2026-10-29T09:17:50.414Z",
       "firstSeenAt": "2026-10-28T09:16:22.746Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -92,7 +92,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=92523e3b-33f8-479f-bdd2-2483250bc177,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T22:01:41.968Z",
+      "crawledAt": "2026-10-29T09:17:48.865Z",
       "firstSeenAt": "2026-10-16T09:13:58.210Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -132,7 +132,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=5185f2b9-4a36-4d7f-b778-e9fc8f25b387,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T22:01:42.215Z",
+      "crawledAt": "2026-10-29T09:17:49.091Z",
       "firstSeenAt": "2026-10-16T09:13:58.418Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -172,7 +172,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=5fe35897-3e0a-493b-8324-ef8babce1685,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T22:01:41.145Z",
+      "crawledAt": "2026-10-29T09:17:48.044Z",
       "firstSeenAt": "2026-05-30T10:21:10.149Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -212,7 +212,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=cff3878f-e39c-460e-910b-60cbe704fd30,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T22:01:41.488Z",
+      "crawledAt": "2026-10-29T09:17:48.415Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -252,7 +252,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=15c49f5b-66e5-4dd8-896a-766a2f4e06f0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-28T22:01:41.737Z",
+      "crawledAt": "2026-10-29T09:17:48.639Z",
       "firstSeenAt": "2026-10-13T09:15:25.455Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -266,5 +266,5 @@
       }
     }
   ],
-  "codeCommit": "d9b7b5942723d426685b91981c1053174ecc8300"
+  "codeCommit": "1ae525b73431838ced2aa2aae18f9908332e97fe"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-28T22:04:04.999Z",
-  "runId": "40774021048",
+  "assembledAt": "2026-10-29T09:18:18.922Z",
+  "runId": "40846903073",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.278Z",
+      "crawledAt": "2026-10-29T09:18:10.654Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -65,81 +65,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:41:37.239Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.277Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -186,7 +111,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.275Z",
+      "crawledAt": "2026-10-29T09:18:10.653Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -216,6 +141,156 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:26:00.523Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T09:18:10.651Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-3d22739aef94",
+      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
+        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
+        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
+        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyst – Enterprise Data Management (EDM)",
+      "titleByLocale": {
+        "it": "Business Analista – Enterprise Data Management (EDM)",
+        "en": "Business Analyst – Enterprise Data Management (EDM)",
+        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
+        "fr": "Business Analyste – Enterprise Data Management (EDM)"
+      },
+      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
+        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
+        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T09:18:10.650Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-08T13:16:20.226Z",
+      "postedDate": "2026-09-08T13:16:20.226Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "jobReqId": "744000148235109",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:35:44.207Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -262,7 +337,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.274Z",
+      "crawledAt": "2026-10-29T09:18:10.648Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -323,81 +398,6 @@
       }
     },
     {
-      "id": "talan-3d22739aef94",
-      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
-        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
-        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
-        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst – Enterprise Data Management (EDM)",
-      "titleByLocale": {
-        "it": "Business Analista – Enterprise Data Management (EDM)",
-        "en": "Business Analyst – Enterprise Data Management (EDM)",
-        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
-        "fr": "Business Analyste – Enterprise Data Management (EDM)"
-      },
-      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
-        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
-        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
-        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.272Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08T13:16:20.226Z",
-      "postedDate": "2026-09-08T13:16:20.226Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "jobReqId": "744000148235109",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:44.207Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-61c9acf4f11b",
       "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
       "slugByLocale": {
@@ -428,7 +428,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.270Z",
+      "crawledAt": "2026-10-29T09:18:10.647Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -504,7 +504,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.269Z",
+      "crawledAt": "2026-10-29T09:18:10.645Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -582,7 +582,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.268Z",
+      "crawledAt": "2026-10-29T09:18:10.644Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -669,7 +669,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.266Z",
+      "crawledAt": "2026-10-29T09:18:10.641Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -717,6 +717,84 @@
       }
     },
     {
+      "id": "talan-9f5be93106bb",
+      "slug": "senior-integration-ingegnere-talan-geneve",
+      "slugByLocale": {
+        "it": "senior-integration-ingegnere-talan-geneve",
+        "en": "senior-integration-engineer-talan-geneve-switzerland",
+        "de": "senior-integration-ingenieur-talan-geneve",
+        "fr": "senior-integration-engineer-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Senior Integration Engineer",
+      "titleByLocale": {
+        "it": "Senior Integration Ingegnere",
+        "en": "Senior Integration Engineer",
+        "de": "Senior Integration Ingenieur",
+        "fr": "Senior Integration Ingénieur"
+      },
+      "description": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\n Vous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\n Atouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\n Formation : Bachelor ou Master en informatique ou dans un domaine équivalent.\n Environnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un Senior Integration Engineer per rafforzare un'integrazione delle applicazioni e il team API.\nInterverrete nella progettazione, sviluppo e manutenzione di soluzioni di integrazione robuste, sicure e scalabili, consentendo lo scambio fluido di dati tra diverse applicazioni e piattaforme.\n\n• Progettazione, sviluppo e manutenzione di soluzioni di integrazione in Python, Java e SQL Server.\n\n• Sviluppare e gestire le API, in particolare con FastAPI, e contribuire alla loro governance tramite una piattaforma di gestione d Royalty.\n\n• Implementare flussi di dati in tempo reale con Kafka e eventi e architetture orientate ai microservizi.\n\n• Distribuire e mantenere i componenti di integrazione in ambienti OpenShift.\n\n• Assicurare affidabilità, sicurezza, prestazioni e disponibilità di servizi critici.\n\n• Partecipa a una risoluzione complessa degli incidenti e a un continuo miglioramento delle soluzioni esistenti.\n\n• Utilizzare strumenti generici AI per accelerare lo sviluppo, il test, l'analisi dei registri e la documentazione, convalidando la qualità dei risultati prodotti.\n\n• Collaborare con team tecnici e funzionali e garantire la documentazione delle soluzioni implementate.\n\n• Minimo 5 anni di esperienza nell'integrazione delle applicazioni.\n\n• Ottima padronanza di Python e Java, così come SQL Server.\n\n• Esperienza pratica di sviluppo di aPI con FastAPI.\n\n• Buon controllo di Kafka e meccanismi di streaming e messaggistica.\n\n• Esperienza di una piattaforma API Management, idealmente Gravitee.\n\n• Comodo per ambienti OpenShift e containerizzati.\n\n• Competenza in microservizi architettura, architettura degli eventi e modelli di integrazione aziendale.\n\n• Conoscenza dei processi ETL/ELT e dei problemi di trasformazione e scambio dei dati.\n\n• Esperienza pratica del Modello Context Protocol (MCP) e la sua integrazione in complesse architetture applicative.\n\n• Utilizzando gli assistenti IA per lo sviluppo e l'automazione, con la capacità di valutare criticamente il codice generato.\n\n• Capacità di progettare e mantenere servizi critici, sicuri e in evoluzione.\n\n• Eccellente capacità di analisi, problem solving e comunicazione.\nUlteriori vantaggi: la conoscenza di Talend BSE, Apache Camel o altri strumenti di integrazione.\nFormazione: Bachelor o Master in Informatica o equivalente.\nAmbiente tecnico: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP e d",
+        "en": "We are looking for a Senior Integration Engineer to strengthen an application integration and API team.\nYou will intervene in the design, development and maintenance of robust, secure and scalable integration solutions, allowing for fluid exchange of data between different applications and platforms.\n\n• Design, develop and maintain integration solutions in Python, Java and SQL Server.\n\n• Develop and manage APIs, particularly with FastAPI, and contribute to their governance via a d的API Management platform.\n\n• Implement real-time data streams with Kafka and events and microservices-oriented architectures.\n\n• Deploy and maintain integration components in OpenShift environments.\n\n• Ensure reliability, security, performance and availability of critical services.\n\n• Participate in complex incident resolution and continuous improvement of existing solutions.\n\n• Use generic AI tools to accelerate development, testing, log analysis and documentation, while validating the quality of the results produced.\n\n• Collaborate with technical and functional teams and ensure documentation of implemented solutions.\n\n• Minimum 5 years of experience in application integration.\n\n• Very good mastery of Python and Java, as well as SQL Server.\n\n• Practical experience of developing aPI with FastAPI.\n\n• Good control of Kafka and streaming and messaging mechanisms.\n\n• Experience of an API Management platform, ideally Gravitee.\n\n• Convenient to OpenShift and containerized environments.\n\n• Expertise in microservices architecture, event architecture and Enterprise Integration Patterns.\n\n• Knowledge of ETL/ELT processes and data transformation and exchange issues.\n\n• Practical experience of the Model Context Protocol (MCP) and its integration into complex application architectures.\n\n• Using IA assistants for development and automation, with a capacity to critically evaluate the generated code.\n\n• Ability to design and maintain critical, secure and evolving services.\n\n• Excellent analytical, problem-solving and communication capabilities.\nAdditional benefits: knowledge of Talend BSE, Apache Camel or other integration tools.\nTraining: Bachelor or Master in Computer Science or equivalent.\nTechnical environment: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP and d",
+        "de": "Wir suchen einen Senior Integration Engineer, um ein Application Integration und API Team zu stärken.\nSie werden in das Design, die Entwicklung und die Wartung robuster, sicherer und skalierbarer Integrationslösungen eingreifen, die einen flüssigen Datenaustausch zwischen verschiedenen Anwendungen und Plattformen ermöglichen.\n\n• Design, Entwicklung und Wartung von Integrationslösungen in Python, Java und SQL Server.\n\n• Entwickeln und verwalten Sie APIs, insbesondere mit FastAPI, und tragen Sie über eine duousAPI Management-Plattform zu ihrer Governance bei.\n\n• Implementieren Sie Echtzeit-Datenströme mit Kafka und Events sowie Microservices-orientierten Architekturen.\n\n• Bereitstellung und Pflege von Integrationskomponenten in OpenShift-Umgebungen.\n\n• Gewährleistung von Zuverlässigkeit, Sicherheit, Leistung und Verfügbarkeit kritischer Dienste.\n\n• Beteiligen Sie sich an der Lösung komplexer Vorfälle und der kontinuierlichen Verbesserung bestehender Lösungen.\n\n• Verwenden Sie generische KI-Tools, um Entwicklung, Tests, Protokollanalyse und Dokumentation zu beschleunigen und gleichzeitig die Qualität der erzielten Ergebnisse zu validieren.\n\n• Arbeiten Sie mit technischen und funktionalen Teams zusammen und gewährleisten Sie die Dokumentation der implementierten Lösungen.\n\n• Mindestens 5 Jahre Erfahrung in der Anwendungsintegration.\n\n• Sehr gute Beherrschung von Python und Java sowie SQL Server.\n\n• Praktische Erfahrung in der Entwicklung von aPI mit FastAPI.\n\n• Gute Kontrolle über Kafka und Streaming- und Messaging-Mechanismen.\n\n• Erfahrung mit einer API Management Plattform, idealerweise Gravitee.\n\n• Bequem für OpenShift und containerisierte Umgebungen.\n\n• Expertise in Microservices-Architektur, Event-Architektur und Enterprise Integration Patterns.\n\n• Kenntnisse über ETL/ELT-Prozesse und Datentransformations- und -austauschfragen.\n\n• Praktische Erfahrungen mit dem Model Context Protocol (MCP) und dessen Integration in komplexe Anwendungsarchitekturen.\n\n• Verwendung von IA-Assistenten für Entwicklung und Automatisierung, mit der Fähigkeit, den generierten Code kritisch zu bewerten.\n\n• Fähigkeit, kritische, sichere und sich entwickelnde Dienste zu entwerfen und zu pflegen.\n\n• Hervorragende Analyse-, Problemlösungs- und Kommunikationsfähigkeiten.\nZusätzliche Vorteile: Kenntnisse über Talend BSE, Apache Camel oder andere Integrationswerkzeuge.\nAusbildung: Bachelor oder Master in Informatik oder gleichwertig.\nTechnische Umgebung: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP und d",
+        "fr": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\nAtouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\nFormation : Bachelor ou Master en informatique ou dans un domaine équivalent.\nEnvironnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T09:18:10.639Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T11:59:18.670Z",
+      "postedDate": "2026-10-23T11:59:18.670Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
+      "jobReqId": "744000157455639",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-integration-engineer-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-integration-engineer-talan-geneve-switzerland"
+        ],
+        "de": [
+          "senior-integration-engineer-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.479Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-dbc24b5b3f3c",
       "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
       "slugByLocale": {
@@ -747,7 +825,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.264Z",
+      "crawledAt": "2026-10-29T09:18:10.631Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -870,85 +948,8 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "talan-9f5be93106bb",
-      "slug": "senior-integration-ingegnere-talan-geneve",
-      "slugByLocale": {
-        "it": "senior-integration-ingegnere-talan-geneve",
-        "en": "senior-integration-engineer-talan-geneve-switzerland",
-        "de": "senior-integration-ingenieur-talan-geneve",
-        "fr": "senior-integration-engineer-talan-geneve-switzerland"
       },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Senior Integration Engineer",
-      "titleByLocale": {
-        "it": "Senior Integration Ingegnere",
-        "en": "Senior Integration Engineer",
-        "de": "Senior Integration Ingenieur",
-        "fr": "Senior Integration Ingénieur"
-      },
-      "description": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\n Vous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\n Atouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\n Formation : Bachelor ou Master en informatique ou dans un domaine équivalent.\n Environnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un Senior Integration Engineer per rafforzare un'integrazione delle applicazioni e il team API.\nInterverrete nella progettazione, sviluppo e manutenzione di soluzioni di integrazione robuste, sicure e scalabili, consentendo lo scambio fluido di dati tra diverse applicazioni e piattaforme.\n\n• Progettazione, sviluppo e manutenzione di soluzioni di integrazione in Python, Java e SQL Server.\n\n• Sviluppare e gestire le API, in particolare con FastAPI, e contribuire alla loro governance tramite una piattaforma di gestione d Royalty.\n\n• Implementare flussi di dati in tempo reale con Kafka e eventi e architetture orientate ai microservizi.\n\n• Distribuire e mantenere i componenti di integrazione in ambienti OpenShift.\n\n• Assicurare affidabilità, sicurezza, prestazioni e disponibilità di servizi critici.\n\n• Partecipa a una risoluzione complessa degli incidenti e a un continuo miglioramento delle soluzioni esistenti.\n\n• Utilizzare strumenti generici AI per accelerare lo sviluppo, il test, l'analisi dei registri e la documentazione, convalidando la qualità dei risultati prodotti.\n\n• Collaborare con team tecnici e funzionali e garantire la documentazione delle soluzioni implementate.\n\n• Minimo 5 anni di esperienza nell'integrazione delle applicazioni.\n\n• Ottima padronanza di Python e Java, così come SQL Server.\n\n• Esperienza pratica di sviluppo di aPI con FastAPI.\n\n• Buon controllo di Kafka e meccanismi di streaming e messaggistica.\n\n• Esperienza di una piattaforma API Management, idealmente Gravitee.\n\n• Comodo per ambienti OpenShift e containerizzati.\n\n• Competenza in microservizi architettura, architettura degli eventi e modelli di integrazione aziendale.\n\n• Conoscenza dei processi ETL/ELT e dei problemi di trasformazione e scambio dei dati.\n\n• Esperienza pratica del Modello Context Protocol (MCP) e la sua integrazione in complesse architetture applicative.\n\n• Utilizzando gli assistenti IA per lo sviluppo e l'automazione, con la capacità di valutare criticamente il codice generato.\n\n• Capacità di progettare e mantenere servizi critici, sicuri e in evoluzione.\n\n• Eccellente capacità di analisi, problem solving e comunicazione.\nUlteriori vantaggi: la conoscenza di Talend BSE, Apache Camel o altri strumenti di integrazione.\nFormazione: Bachelor o Master in Informatica o equivalente.\nAmbiente tecnico: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP e d",
-        "en": "We are looking for a Senior Integration Engineer to strengthen an application integration and API team.\nYou will intervene in the design, development and maintenance of robust, secure and scalable integration solutions, allowing for fluid exchange of data between different applications and platforms.\n\n• Design, develop and maintain integration solutions in Python, Java and SQL Server.\n\n• Develop and manage APIs, particularly with FastAPI, and contribute to their governance via a d的API Management platform.\n\n• Implement real-time data streams with Kafka and events and microservices-oriented architectures.\n\n• Deploy and maintain integration components in OpenShift environments.\n\n• Ensure reliability, security, performance and availability of critical services.\n\n• Participate in complex incident resolution and continuous improvement of existing solutions.\n\n• Use generic AI tools to accelerate development, testing, log analysis and documentation, while validating the quality of the results produced.\n\n• Collaborate with technical and functional teams and ensure documentation of implemented solutions.\n\n• Minimum 5 years of experience in application integration.\n\n• Very good mastery of Python and Java, as well as SQL Server.\n\n• Practical experience of developing aPI with FastAPI.\n\n• Good control of Kafka and streaming and messaging mechanisms.\n\n• Experience of an API Management platform, ideally Gravitee.\n\n• Convenient to OpenShift and containerized environments.\n\n• Expertise in microservices architecture, event architecture and Enterprise Integration Patterns.\n\n• Knowledge of ETL/ELT processes and data transformation and exchange issues.\n\n• Practical experience of the Model Context Protocol (MCP) and its integration into complex application architectures.\n\n• Using IA assistants for development and automation, with a capacity to critically evaluate the generated code.\n\n• Ability to design and maintain critical, secure and evolving services.\n\n• Excellent analytical, problem-solving and communication capabilities.\nAdditional benefits: knowledge of Talend BSE, Apache Camel or other integration tools.\nTraining: Bachelor or Master in Computer Science or equivalent.\nTechnical environment: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP and d",
-        "de": "Wir suchen einen Senior Integration Engineer, um ein Application Integration und API Team zu stärken.\nSie werden in das Design, die Entwicklung und die Wartung robuster, sicherer und skalierbarer Integrationslösungen eingreifen, die einen flüssigen Datenaustausch zwischen verschiedenen Anwendungen und Plattformen ermöglichen.\n\n• Design, Entwicklung und Wartung von Integrationslösungen in Python, Java und SQL Server.\n\n• Entwickeln und verwalten Sie APIs, insbesondere mit FastAPI, und tragen Sie über eine duousAPI Management-Plattform zu ihrer Governance bei.\n\n• Implementieren Sie Echtzeit-Datenströme mit Kafka und Events sowie Microservices-orientierten Architekturen.\n\n• Bereitstellung und Pflege von Integrationskomponenten in OpenShift-Umgebungen.\n\n• Gewährleistung von Zuverlässigkeit, Sicherheit, Leistung und Verfügbarkeit kritischer Dienste.\n\n• Beteiligen Sie sich an der Lösung komplexer Vorfälle und der kontinuierlichen Verbesserung bestehender Lösungen.\n\n• Verwenden Sie generische KI-Tools, um Entwicklung, Tests, Protokollanalyse und Dokumentation zu beschleunigen und gleichzeitig die Qualität der erzielten Ergebnisse zu validieren.\n\n• Arbeiten Sie mit technischen und funktionalen Teams zusammen und gewährleisten Sie die Dokumentation der implementierten Lösungen.\n\n• Mindestens 5 Jahre Erfahrung in der Anwendungsintegration.\n\n• Sehr gute Beherrschung von Python und Java sowie SQL Server.\n\n• Praktische Erfahrung in der Entwicklung von aPI mit FastAPI.\n\n• Gute Kontrolle über Kafka und Streaming- und Messaging-Mechanismen.\n\n• Erfahrung mit einer API Management Plattform, idealerweise Gravitee.\n\n• Bequem für OpenShift und containerisierte Umgebungen.\n\n• Expertise in Microservices-Architektur, Event-Architektur und Enterprise Integration Patterns.\n\n• Kenntnisse über ETL/ELT-Prozesse und Datentransformations- und -austauschfragen.\n\n• Praktische Erfahrungen mit dem Model Context Protocol (MCP) und dessen Integration in komplexe Anwendungsarchitekturen.\n\n• Verwendung von IA-Assistenten für Entwicklung und Automatisierung, mit der Fähigkeit, den generierten Code kritisch zu bewerten.\n\n• Fähigkeit, kritische, sichere und sich entwickelnde Dienste zu entwerfen und zu pflegen.\n\n• Hervorragende Analyse-, Problemlösungs- und Kommunikationsfähigkeiten.\nZusätzliche Vorteile: Kenntnisse über Talend BSE, Apache Camel oder andere Integrationswerkzeuge.\nAusbildung: Bachelor oder Master in Informatik oder gleichwertig.\nTechnische Umgebung: Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP und d",
-        "fr": "Nous recherchons un·e Senior Integration Engineer pour renforcer une équipe spécialisée dans l’intégration applicative et les API.\nVous interviendrez sur la conception, le développement et la maintenance de solutions d’intégration robustes, sécurisées et évolutives, permettant de fluidifier les échanges de données entre différentes applications et plateformes.\n\n• Concevoir, développer et maintenir des solutions d’intégration en Python, Java et SQL Server.\n\n• Développer et gérer des API, notamment avec FastAPI, et contribuer à leur gouvernance via une plateforme d’API Management.\n\n• Mettre en œuvre des flux de données temps réel avec Kafka et des architectures orientées événements et microservices.\n\n• Déployer et maintenir les composants d’intégration dans des environnements OpenShift.\n\n• Assurer la fiabilité, la sécurité, la performance et la disponibilité de services critiques.\n\n• Participer à la résolution d’incidents complexes et à l’amélioration continue des solutions existantes.\n\n• Exploiter des outils d’IA générative pour accélérer le développement, les tests, l’analyse des logs et la documentation, tout en validant la qualité des résultats produits.\n\n• Collaborer avec les équipes techniques et fonctionnelles et assurer la documentation des solutions mises en œuvre.\n\n• Minimum 5 ans d’expérience en intégration applicative.\n\n• Très bonne maîtrise de Python et Java, ainsi que de SQL Server.\n\n• Expérience pratique du développement d’API avec FastAPI.\n\n• Bonne maîtrise de Kafka et des mécanismes de streaming et de messagerie.\n\n• Expérience d’une plateforme d’API Management, idéalement Gravitee.\n\n• Pratique d’OpenShift et des environnements conteneurisés.\n\n• Expertise en architectures microservices, architectures événementielles et Enterprise Integration Patterns.\n\n• Connaissance des processus ETL/ELT et des problématiques de transformation et d’échange de données.\n\n• Expérience pratique du Model Context Protocol (MCP) et de son intégration dans des architectures applicatives complexes.\n\n• Utilisation d’assistants IA pour le développement et l’automatisation, avec une capacité à évaluer de manière critique le code généré.\n\n• Capacité à concevoir et maintenir des services critiques, sécurisés et évolutifs.\n\n• Excellentes capacités d’analyse, de résolution de problèmes et de communication.\nAtouts complémentaires : connaissance de Talend ESB, Apache Camel ou d’autres outils d’intégration.\nFormation : Bachelor ou Master en informatique ou dans un domaine équivalent.\nEnvironnement technique : Python, Java, SQL Server, FastAPI, Kafka, Gravitee, OpenShift, API Management, Microservices, Event-Driven Architecture, ETL/ELT, MCP et outils d’IA appliqués au développement."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-28T22:03:56.256Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T11:59:18.670Z",
-      "postedDate": "2026-10-23T11:59:18.670Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157455639-senior-integration-engineer?oga=true",
-      "jobReqId": "744000157455639",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-integration-engineer-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-integration-engineer-talan-geneve-switzerland"
-        ],
-        "de": [
-          "senior-integration-engineer-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.479Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }

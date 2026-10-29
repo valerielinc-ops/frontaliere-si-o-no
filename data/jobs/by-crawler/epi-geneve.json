@@ -1,7 +1,7 @@
 {
   "crawlerKey": "epi-geneve",
-  "assembledAt": "2026-10-28T21:59:35.805Z",
-  "runId": "40774021048",
+  "assembledAt": "2026-10-29T09:13:54.892Z",
+  "runId": "40846903073",
   "jobs": [
     {
       "id": "epi-geneve-c5abefeebfd8",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000155701879-place-de-stage-formation-pratique-delphinium-upsa-100-?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:59:24.507Z",
+      "crawledAt": "2026-10-29T09:13:43.782Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -116,7 +116,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000156295630--assistant-te-socio-educatif-ve-kaolin-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:59:24.505Z",
+      "crawledAt": "2026-10-29T09:13:43.780Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin 36",
@@ -201,7 +201,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000158244358-un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:59:24.501Z",
+      "crawledAt": "2026-10-29T09:13:43.778Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "streetAddress": "Rue Daniel-Gevril",
@@ -222,6 +222,21 @@
       "jobReqId": "744000158244358",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge",
+        "un-e-assistent-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-etablissements-publics-pour-l-integration"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge"
+        ],
+        "en": [
+          "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge"
+        ],
+        "de": [
+          "un-e-assistent-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-etablissements-publics-pour-l-integration"
+        ]
+      },
       "firstSeenAt": "2026-10-28T20:01:46.825Z",
       "salaryMin": 42400,
       "salaryMax": 64000,
@@ -235,22 +250,7 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge"
-        ],
-        "en": [
-          "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge"
-        ],
-        "de": [
-          "un-e-assistent-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-etablissements-publics-pour-l-integration"
-        ]
-      },
-      "previousSlugs": [
-        "un-e-assistant-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-epi-geneve-carouge",
-        "un-e-assistent-e-socio-educatif-tive-residence-sarde-a-70-cdm-de-3-mois-etablissements-publics-pour-l-integration"
-      ]
+      }
     },
     {
       "id": "epi-geneve-61cc39efe1cf",
@@ -283,7 +283,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000156720896-un-e-maitre-esse-d-atelier-menuiserie-spark-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:59:24.497Z",
+      "crawledAt": "2026-10-29T09:13:43.776Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Champ-des-Filles 4A",
@@ -332,6 +332,146 @@
       }
     },
     {
+      "id": "epi-geneve-f48156b34595",
+      "slug": "un-e-assistant-e-socio-educatif-tive-residence-minoteries-75-cdm-3-mois-epi-geneve-geneve",
+      "slugByLocale": {
+        "fr": "un-e-assistant-e-socio-educatif-tive-residence-minoteries-75-cdm-3-mois-epi-geneve-geneve",
+        "it": "un-e-assistant-e-socio-educatif-tive-residence-minoteries-75-cdm-3-mois-epi-geneve-geneve",
+        "en": "un-e-assistant-e-socio-educatif-tive-residence-minoteries-75-cdm-3-mois-epi-geneve-geneve",
+        "de": "un-e-assistant-e-socio-educatif-tive-residence-minoteries-75-cdm-3-mois-epi-geneve-geneve"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Un-e assistant-e socio-éducatif-tive, résidence Minoteries, 75 %, CDM 3 mois",
+      "titleByLocale": {
+        "fr": "Un-e assistant-e socio-éducatif-tive, résidence Minoteries, 75 %, CDM 3 mois",
+        "it": "Un-e assistant-e socio-éducatif-tive, résidence Minoteries, 75 %, CDM 3 mois",
+        "en": "Un-e assistant-e socio-éducatif-tive, résidence Minoteries, 75 %, CDM 3 mois",
+        "de": "Un-e Assistent-e socio-éducatif-tive, résidence Minoteries, 75 %, CDM 3 mois"
+      },
+      "description": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mars 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+      "descriptionByLocale": {
+        "fr": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mars 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "it": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mars 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "en": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mars 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "de": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mars 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch"
+      },
+      "location": "Genève, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000158460139-un-e-assistant-e-socio-educatif-tive-residence-minoteries-75-cdm-3-mois?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T09:13:43.753Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "streetAddress": "Rue de la Maladière",
+      "postalCode": "1201",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-29T08:38:21.433Z",
+      "postedDate": "2026-10-29T08:38:21.433Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000158460139-un-e-assistant-e-socio-educatif-tive-residence-minoteries-75-cdm-3-mois?oga=true",
+      "jobReqId": "744000158460139",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 45400,
+      "salaryMax": 68600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 45400,
+          "maxValue": 68600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-29T09:13:43.753Z"
+    },
+    {
+      "id": "epi-geneve-e31b063aa9b4",
+      "slug": "un-e-assistant-e-socio-educatif-tive-residence-sarde-60-cdm-5-mois-epi-geneve-carouge-ge",
+      "slugByLocale": {
+        "fr": "un-e-assistant-e-socio-educatif-tive-residence-sarde-60-cdm-5-mois-epi-geneve-carouge-ge",
+        "it": "un-e-assistant-e-socio-educatif-tive-residence-sarde-60-cdm-5-mois-epi-geneve-carouge-ge",
+        "en": "un-e-assistant-e-socio-educatif-tive-residence-sarde-60-cdm-5-mois-epi-geneve-carouge-ge",
+        "de": "un-e-assistant-e-socio-educatif-tive-residence-sarde-60-cdm-5-mois-epi-geneve-carouge-ge"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Un-e assistant-e socio-éducatif-tive, résidence Sarde, 60 %, CDM 5 mois",
+      "titleByLocale": {
+        "fr": "Un-e assistant-e socio-éducatif-tive, résidence Sarde, 60 %, CDM 5 mois",
+        "it": "Un-e assistant-e socio-éducatif-tive, résidence Sarde, 60 %, CDM 5 mois",
+        "en": "Un-e assistant-e socio-éducatif-tive, résidence Sarde, 60 %, CDM 5 mois",
+        "de": "Un-e Assistent-e socio-éducatif-tive, résidence Sarde, 60 %, CDM 5 mois"
+      },
+      "description": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mai 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+      "descriptionByLocale": {
+        "fr": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mai 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "it": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mai 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "en": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mai 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+        "de": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié.\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 10 novembre 2026\n Entrée en fonction : 1er janvier 2027\n Durée du contrat à durée maximale : du 1er janvier au 31 mai 2027\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch"
+      },
+      "location": "Carouge, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000158459759-un-e-assistant-e-socio-educatif-tive-residence-sarde-60-cdm-5-mois?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-29T09:13:43.752Z",
+      "addressLocality": "Carouge",
+      "addressRegion": "GE",
+      "streetAddress": "Rue Daniel-Gevril",
+      "postalCode": "1227",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-29T08:35:40.695Z",
+      "postedDate": "2026-10-29T08:35:40.695Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000158459759-un-e-assistant-e-socio-educatif-tive-residence-sarde-60-cdm-5-mois?oga=true",
+      "jobReqId": "744000158459759",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 36300,
+      "salaryMax": 54900,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 36300,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-29T09:13:43.752Z"
+    },
+    {
       "id": "epi-geneve-8a7ab4da8655",
       "slug": "un-socio-educatore-upsa-90-9-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland",
       "slugByLocale": {
@@ -362,7 +502,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000158016568-un-e-socio-educateur-trice-upsa-90-cdm-de-9-mois?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-28T21:59:24.476Z",
+      "crawledAt": "2026-10-29T09:13:43.747Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -487,7 +627,8 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
