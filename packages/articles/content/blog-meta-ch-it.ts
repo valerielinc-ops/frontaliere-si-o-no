@@ -8646,11 +8646,14 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.allarme-popolazione-165-milioni.excerpt': 'Il Consiglio federale chiede 165,4 milioni di franchi.',
     'blog.article.allarme-popolazione-165-milioni.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.norme-flessibilita-start-up.title': 'Consiglio federale concede flessibilità alle start-up per l\'orario di lavoro',
-    'blog.article.norme-flessibilita-start-up.excerpt': 'Il Consiglio federale introduce nuove norme speciali per start-up e alcuni dipendenti: entreranno in vigore il 1° dicembre 2026 e consentiranno maggiore flessibilità nell’orario di lavoro a precise condizioni.',
+    'blog.article.norme-flessibilita-start-up.excerpt': 'Nuove norme speciali adottate il 28 ottobre 2026 Entrata in vigore fissata al 1° dicembre 2026 Deroghe mirate per alcuni dipendenti di start-up La revisione attua l’obiettivo dell’iniziativa parlamentare 16.442',
     'blog.article.norme-flessibilita-start-up.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.sem-rinnovo-simic-paralisi.title': 'La SEM rischia la paralisi per il rinnovo di SIMIC',
     'blog.article.sem-rinnovo-simic-paralisi.excerpt': 'La SEM rischia la paralisi senza risorse aggiuntive SIMIC: da circa 66 a 193 milioni stimati nel 2024 Il nuovo sistema non sarà operativo prima del 2032',
     'blog.article.sem-rinnovo-simic-paralisi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.farmaci-riserve-finanziamento.title': 'Farmaci: scorte obbligatorie sotto pressione in Svizzera',
+    'blog.article.farmaci-riserve-finanziamento.excerpt': 'In Svizzera mancano da anni antibiotici e antidolorifici.',
+    'blog.article.farmaci-riserve-finanziamento.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;
