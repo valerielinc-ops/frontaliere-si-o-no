@@ -22,12 +22,16 @@ const COMPANY_NOUN = /(?<![\p{L}\p{N}])(?:società|societa|azienda|gruppo|compan
 const PERSONAL_OR_NEGATED = /\b(?:ho|avevo|mio|mia|miei|mie|nostro|nostra|my|our|i have|i had|ich habe|mein\w*|j['’]ai|mon|mes|non|not|never|nicht|kein\w*|pas|candidate|candidat\w*|richiest\w*|required|must|you|votre|vostri)\b/iu;
 const THIRD_PARTY_SUBJECT = /\b(?:partner|clienti?|customers?|suppliers?|fornitor\w*|altra|other|autre)\b/iu;
 const COMPANY_YEARS = /\b(?:(?:da|for|seit|depuis|von)\s+)?(?:(?:oltre|over|more than|über|plus de)\s+)?(\d+)\s+(?:anni|years|jahren|jahre|ans)\b/giu;
+const EXPERIENCE_YEARS = /\b(?:anni\s+di\s+esperienza|years?\s+of\s+experience|jahre?n?\s+(?:an\s+)?erfahrung|ans\s+d['’]expérience)\b/iu;
+const RECRUITING_OR_REQUIREMENT = /\b(?:cerca|cercano|ricerca|ricercano|richiede|richiedono|assume|assumono|seeks?|requires?|recruit(?:s|ed|ing)?|looking|hiring|sucht|suchen|fordert|fordern|cherche|recherche)\b/iu;
 function companyAges(text) {
   return [...String(text).matchAll(COMPANY_YEARS)].flatMap((match) => {
     const sentence = sentenceAt(String(text), match.index);
     const before = String(text).slice(0, match.index);
     const sentenceBefore = sentenceAt(before, Math.max(0, before.length - 1));
-    if (PERSONAL_OR_NEGATED.test(sentence) || THIRD_PARTY_SUBJECT.test(sentenceBefore) || !COMPANY_NOUN.test(sentenceBefore)) return [];
+    if (PERSONAL_OR_NEGATED.test(sentence) || THIRD_PARTY_SUBJECT.test(sentenceBefore)
+      || EXPERIENCE_YEARS.test(sentence) || RECRUITING_OR_REQUIREMENT.test(sentence)
+      || !COMPANY_NOUN.test(sentenceBefore)) return [];
     return [{ value: match[1], index: match.index + match[0].indexOf(match[1]), length: match[1].length }];
   });
 }

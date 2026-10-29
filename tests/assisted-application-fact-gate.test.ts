@@ -1587,4 +1587,11 @@ describe('employer citations versus candidate facts', () => {
     }
     expect(checkDraftFacts({ coverLetter: 'La società è attiva da 50 anni.' }, { ...sources, posting: 'La società cerca personale.' }).ok).toBe(false);
   });
+
+  it.each([
+    'La società richiede 50 anni di esperienza.',
+    'La società cerca consulenti con 50 anni di esperienza.',
+  ])('does not treat a recruiting requirement as employer age: %s', (text) => {
+    expect(checkDraftFacts({ coverLetter: text }, sources).ok).toBe(false);
+  });
 });
