@@ -55,8 +55,9 @@ export function repairMigrosServiceCounterTitleInPlace(job) {
 
 /**
  * A Migros counter title is German even when `sourceLang` describes a body in
- * another language or is missing. This title-only hint is safe only when every
- * populated source-title field matches the complete, employer-anchored phrase.
+ * another language or is missing. Prefer the populated German locale slot as
+ * the source-backed evidence; fall back to the display title only when it is
+ * the sole available title field.
  */
 export function migrosServiceCounterTitleSourceLang(job) {
   if (!job || typeof job !== 'object') return '';
