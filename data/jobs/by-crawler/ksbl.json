@@ -3236,7 +3236,7 @@
       "slug": "fage-a-permanenza-walk-in-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "it": "fage-a-permanenza-walk-in-kantonsspital-baselland-ksbl-liestal",
-        "en": "fage-a-walk-in-permanence-ksbl-liestal",
+        "en": "healthcare-professional-a-walk-in-permanence-kantonsspital-baselland-ksbl-liestal",
         "de": "fage-a-walk-in-permanence-ksbl-liestal",
         "fr": "fage-a-duree-de-la-marche-kantonsspital-baselland-ksbl-liestal"
       },
@@ -3286,6 +3286,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fage-a-walk-in-permanence-ksbl-liestal"
+        ],
+        "en": [
           "fage-a-walk-in-permanence-ksbl-liestal"
         ]
       },
