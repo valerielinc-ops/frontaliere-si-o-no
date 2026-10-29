@@ -124,7 +124,7 @@ describe('candidate edits', () => {
   it('reuses an explicit workload percentage across languages, wording and generated ids', () => {
     const first = { id: 'workload', question: 'What is your desired workload (in %)?', type: 'number', validation: { min: 0, max: 100 } };
     const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100' }, changed: { workload: '100' } });
-    for (const text of ['Qual è la tua disponibilità lavorativa desiderata in percentuale?', 'Grado di occupazione desiderato', 'Welches Pensum wünschen Sie?', 'Quel taux d’activité souhaitez-vous ?']) {
+    for (const text of ['Qual è la tua disponibilità lavorativa desiderata in percentuale?', 'Grado di occupazione desiderato', 'Percentuale lavorativa desiderata', 'Welches Pensum wünschen Sie?', 'Gewünschter Beschäftigungsgrad', 'Gewünschte Beschäftigungsgrad', 'Quel taux d’activité souhaitez-vous ?', 'Taux d’activité souhaité', 'Taux d’occupation désiré']) {
       const next = { id: 'new', question: text, type: 'number', validation: { min: 0, max: 100 } };
       expect(candidateQuestionAnswerKey(next)).toBe(candidateQuestionAnswerKey(first));
       expect(candidateAnswersForQuestions([next], {}, memory).new).toBe('100');
@@ -138,7 +138,7 @@ describe('candidate edits', () => {
   it('does not infer shifts, employer requirements, consent or start dates from a workload preference', () => {
     const first = { id: 'workload', question: 'What is your desired workload?', type: 'number' };
     const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { workload: '100' } });
-    for (const question of ['What is your current workload?', 'What workload is required by your employer?', 'What is your preferred workload if night shifts are required?', 'When can you start?', 'Do you agree to WhatsApp communication?', 'What is your notice period?']) {
+    for (const question of ['What is your current workload?', 'What workload is required by your employer?', 'What is your preferred workload if night shifts are required?', 'What is your desired workload in hours per week?', 'Gewünschtes Pensum in Stunden', 'Taux d’activité souhaité en heures', 'Quale percentuale di lavoro desideri se lavori di notte?', 'When can you start?', 'Do you agree to WhatsApp communication?', 'What is your notice period?']) {
       const next = { id: 'new', question, type: 'text' };
       expect(candidateQuestionAnswerKey(next)).not.toBe(candidateQuestionAnswerKey(first));
       expect(candidateAnswersForQuestions([next], {}, memory).new).toBeUndefined();
