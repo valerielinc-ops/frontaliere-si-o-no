@@ -17,6 +17,11 @@ const order = (flow: Record<string, unknown> | null, extra: Partial<NextStepOrde
 const step = (flow: Record<string, unknown> | null, extra: Partial<NextStepOrder> = {}) => nextStepFor(order(flow, extra), NOW);
 
 describe('next step of an assisted-application order', () => {
+  it.each(['portal:portal_needs_candidate', 'portal:captcha_provider_unavailable'])('keeps a scheduled %s retry in the robot queue', held => {
+    expect(step({ state: 'owner_takeover', heldBy: [held], portalAutoRetryAt: NOW + HOUR })).toMatchObject({ group: 'robot', code: 'portal_auto_retry' });
+    expect(step({ state: 'owner_takeover', heldBy: [held], portalAutoRetryAt: null }).group).not.toBe('robot');
+    expect(step({ state: 'owner_takeover', heldBy: ['portal_ambiguous'], portalAutoRetryAt: NOW + HOUR })).toMatchObject({ group: 'owner', code: 'check_if_received' });
+  });
   it('waits for the candidate: answers or documents missing, or their approval', () => {
     // Medbase: one answer only the candidate can give, first reminder sent.
     const held = step({ state: 'candidate_review', heldBy: ['question:school_performance'], reminderAt: NOW + 44 * HOUR, history: [{ at: NOW - 30 * HOUR, event: 'owner_approve', state: 'candidate_review' }] });

@@ -15,6 +15,7 @@ import {
   parseLetterText,
 } from './assistedApplicationAiDraftCore.js';
 import { randomUUID } from 'node:crypto';
+import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
@@ -165,6 +166,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       round: Number(flow.round) || 1,
       deadlineAt: flow.deadlineAt || null,
       reminderAt: flow.reminderAt || null,
+      portalAutoRetryAt: portalRetryDueAt(flow),
       heldBy: flow.heldBy || [],
       feedback: flow.feedback || [],
       answers: candidateState.answers,

@@ -30,6 +30,7 @@ import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_ORDER_ID_RE } fr
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
@@ -143,8 +144,7 @@ export function automationEligibility(order, orderId) {
 export function computeDueAt(flow) {
   if (!flow) return null;
   if (flow.state === 'owner_takeover') {
-    const retryAt = Number(flow.portalAutoRetryAt) || 0;
-    return (flow.heldBy || []).includes('portal:portal_needs_candidate') && retryAt > 0 ? retryAt : null;
+    return portalRetryDueAt(flow);
   }
   if (TERMINAL_STATES.has(flow.state)) return null;
   if (['drafting', 'regenerating', 'submitting'].includes(flow.state)) {
@@ -161,6 +161,22 @@ function mirrorFields(flow) {
     automationDueAt: computeDueAt(flow),
     automationUpdatedAt: FieldValue.serverTimestamp(),
   };
+}
+
+/** Repair clocks written before a retry reason was recognized by the mirror.
+ * Only the query index changes; the state machine still owns every retry.
+ */
+export async function reconcilePortalRetrySchedule({ db, orderId, apply = false }) {
+  return db.runTransaction(async transaction => {
+    const orderRef = orderRefFor(db, orderId);
+    const order = (await transaction.get(orderRef)).data();
+    const flow = (await transaction.get(flowRefFor(db, orderId))).data();
+    if (order?.automationState !== 'owner_takeover' || flow?.state !== 'owner_takeover') return { changed: false };
+    const dueAt = computeDueAt(flow);
+    if (!dueAt || order.automationDueAt === dueAt) return { changed: false };
+    if (apply) transaction.set(orderRef, { automationDueAt: dueAt }, { merge: true });
+    return { changed: true };
+  });
 }
 
 // ── GitHub Actions dispatch ────────────────────────────────────────────────

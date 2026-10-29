@@ -85,6 +85,7 @@ export interface AssistedApplicationAutomationView {
     round: number;
     deadlineAt: number | null;
     reminderAt: number | null;
+    portalAutoRetryAt?: number | null;
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;

@@ -28,6 +28,7 @@
  */
 
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
+import { isAutoRetryablePortalHold, portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import {
   candidateAnswersForQuestions,
   candidateQuestionAnswerKey,
@@ -588,8 +589,9 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       break;
     case 'portal_auto_retry': {
       if (state !== 'owner_takeover') return ignore('not_taken_over');
-      if (!(current.heldBy || []).some(reason => ['portal:portal_needs_candidate', 'portal:captcha_provider_unavailable'].includes(reason))) return ignore('not_auto_retryable');
-      if (!Number(current.portalAutoRetryAt) || Number(current.portalAutoRetryAt) > nowMs) return ignore('portal_retry_not_due');
+      if (!isAutoRetryablePortalHold(current)) return ignore('not_auto_retryable');
+      const retryAt = portalRetryDueAt(current);
+      if (!retryAt || retryAt > nowMs) return ignore('portal_retry_not_due');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
       const attempts = Number(current.portalAutoRetryCount) || 0;
