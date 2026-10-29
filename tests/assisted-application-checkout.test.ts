@@ -167,6 +167,71 @@ beforeEach(() => {
 });
 
 describe('handleCreateAssistedApplicationCheckout', () => {
+  it.each(['stripe', 'sumup'])('uses the real client redirect contract when %s payment wins during creation', async (provider) => {
+    assistedApplicationPaymentProvider.mockResolvedValue(provider);
+    const complete = async () => {
+      const order = store.assisted_applications['order-1'];
+      Object.assign(order, { paymentStatus: 'paid', checkoutSessionStatus: 'completed',
+        ...(provider === 'sumup' ? { sumupCheckoutId: 'sumup_checkout_1' } : { stripeCheckoutSessionId: 'cs_assisted_1' }) });
+      return provider === 'sumup' ? { id: 'sumup_checkout_1' } : {
+        id: 'cs_assisted_1', url: 'https://checkout.stripe.com/cs_assisted_1', expires_at: Math.floor(Date.now() / 1000) + 3600,
+      };
+    };
+    if (provider === 'sumup') sumUpCheckoutCreate.mockImplementation(complete as any);
+    else stripeCheckoutSessionsCreate.mockImplementation(complete as any);
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const response = await handleCreateAssistedApplicationCheckout(request());
+    expect(response.status).toBe(200);
+    expect(response.body).not.toHaveProperty('checkoutId');
+    expect(response.body).not.toHaveProperty('paymentProvider');
+    expect(store.assisted_applications['order-1']).toMatchObject({ paymentStatus: 'paid', checkoutSessionStatus: 'completed' });
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: true, status: response.status,
+      json: async () => response.body } as Response);
+    try {
+      const { createAssistedApplicationCheckout } = await import('../services/assistedApplicationCheckout');
+      const result = await createAssistedApplicationCheckout(request().body as any, {
+        uid: 'user-42', getIdToken: async () => 'good-token',
+      });
+      expect(result).toMatchObject({ ok: true, orderId: 'order-1', url: expect.stringContaining('assisted_application_order_id=order-1') });
+      expect(result.paymentProvider).not.toBe('sumup');
+      expect(new URL((result as { url: string }).url).origin).toBe('https://frontaliereticino.ch');
+    } finally { fetchSpy.mockRestore(); }
+  });
+
+  it.each(['stripe', 'sumup'])('does not publish a payable %s checkout after a concurrent refund', async (provider) => {
+    assistedApplicationPaymentProvider.mockResolvedValue(provider);
+    const refund = async () => {
+      Object.assign(store.assisted_applications['order-1'], { paymentStatus: 'refunded', checkoutSessionStatus: 'refunded' });
+      return provider === 'sumup' ? { id: 'sumup_checkout_1' } : {
+        id: 'cs_assisted_1', url: 'https://checkout.stripe.com/cs_assisted_1', expires_at: Math.floor(Date.now() / 1000) + 3600,
+      };
+    };
+    if (provider === 'sumup') sumUpCheckoutCreate.mockImplementation(refund as any);
+    else stripeCheckoutSessionsCreate.mockImplementation(refund as any);
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    const response = await handleCreateAssistedApplicationCheckout(request());
+    expect(response).toEqual({ status: 409, body: { ok: false, error: 'assisted_application_payment_refunded' } });
+    expect(store.assisted_applications['order-1']).toMatchObject({ paymentStatus: 'refunded', checkoutSessionStatus: 'refunded' });
+    expect(Object.values(store.assisted_application_checkout_requests)[0].checkoutSessionStatus).toBe('creating');
+  });
+
+  it.each(['owner', 'request', 'attempt', 'checkout', 'provider-key'])('refuses an obsolete publication after %s identity changes', async (changed) => {
+    stripeCheckoutSessionsCreate.mockImplementation(async () => {
+      const order = store.assisted_applications['order-1'];
+      const record = Object.values(store.assisted_application_checkout_requests)[0];
+      if (changed === 'owner') order.userId = 'another-owner';
+      if (changed === 'request') record.orderId = 'new-order';
+      if (changed === 'attempt') { order.checkoutAttempt = 2; record.checkoutAttempt = 2; }
+      if (changed === 'checkout') order.stripeCheckoutSessionId = 'another-checkout';
+      if (changed === 'provider-key') record.stripeRequestKey = 'another-provider-key';
+      return { id: 'cs_assisted_1', url: 'https://checkout.stripe.com/cs_assisted_1', expires_at: Math.floor(Date.now() / 1000) + 3600 };
+    });
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+    expect(await handleCreateAssistedApplicationCheckout(request())).toEqual({ status: 409,
+      body: { ok: false, error: 'assisted_application_request_conflict' } });
+    expect(Object.values(store.assisted_application_checkout_requests)[0].checkoutSessionStatus).toBe('creating');
+  });
+
   it('rejects crawler and automation user-agents before authentication or Stripe', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
     const userAgents = ['Googlebot/2.1', 'Mozilla/5.0 HeadlessChrome/140.0.0.0'];
@@ -562,6 +627,21 @@ describe('handleAssistedApplicationWebhookEvent', () => {
     }, { db: firestore, ts: '__webhook_timestamp__' });
     expect(store.assisted_applications['order-1'].checkoutSessionStatus).toBe(payment_status === 'paid' ? 'completed' : 'creating');
     expect(store.assisted_applications['order-1'].paymentStatus).toBe(payment_status === 'paid' ? 'paid' : 'pending');
+  });
+
+  it.each(['unpaid', 'paid'])('protects a Stripe replacement lease while permitting %s confirmation', async (payment_status) => {
+    const { handleAssistedApplicationWebhookEvent } = await loadCheckout();
+    store.assisted_applications = { 'order-1': { paymentProvider: 'stripe', stripeCheckoutSessionId: 'old',
+      paymentStatus: 'pending', checkoutSessionStatus: 'creating' } };
+    await handleAssistedApplicationWebhookEvent({
+      type: payment_status === 'paid' ? 'checkout.session.completed' : 'checkout.session.expired',
+      data: { object: { id: 'old', amount_total: 199, currency: 'eur', payment_status,
+        metadata: { product: 'assisted_application', orderId: 'order-1' },
+      } },
+    }, { db: firestore, ts: '__webhook_timestamp__' });
+    expect(store.assisted_applications['order-1']).toMatchObject(payment_status === 'paid'
+      ? { paymentStatus: 'paid', checkoutSessionStatus: 'completed' }
+      : { paymentStatus: 'pending', checkoutSessionStatus: 'creating' });
   });
 
   it('marks an order paid only on the signed-webhook dispatch target', async () => {

@@ -329,6 +329,38 @@ describe('assisted-application payment recovery policy', () => {
     } });
   });
 
+  it('keeps legacy Stripe orders without an explicit provider recoverable', async () => {
+    const order = pendingOrder('stripe-legacy-publish');
+    delete order.paymentProvider;
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    const stripe = { checkout: { sessions: {
+      retrieve: vi.fn(async () => ({ id: order.stripeCheckoutSessionId, status: 'expired', expires_at: 1 })),
+      create: vi.fn(async () => ({ id: 'legacy-replacement', url: 'https://checkout.stripe.com/legacy-replacement', expires_at: Math.floor(NOW / 1000) + 3600 })),
+    } } };
+    expect(await recovery.inspectPendingAssistedApplicationPayment({ db, orderId: order.orderId, order, nowMs: NOW, stripe }))
+      .toMatchObject({ status: 'renewed', session: { id: 'legacy-replacement' } });
+    expect(db.store.assisted_applications[order.orderId]).toMatchObject({ paymentProvider: 'stripe', stripeCheckoutSessionId: 'legacy-replacement', checkoutSessionStatus: 'open' });
+  });
+
+  it.each(['paid', 'refunded', 'replacement'])('preserves a concurrent %s while publishing a renewed Stripe checkout', async (state) => {
+    const order = pendingOrder('stripe-publish-race');
+    const db = makeDb({ assisted_applications: { [order.orderId]: order } });
+    const retrieve = vi.fn(async () => ({ id: order.stripeCheckoutSessionId, status: 'expired', expires_at: 1 }));
+    const create = vi.fn(async () => {
+      const current = db.store.assisted_applications[order.orderId];
+      if (state === 'replacement') { current.checkoutAttempt = 3; current.stripeCheckoutSessionId = 'newer-checkout'; }
+      else current.paymentStatus = state;
+      return { id: 'stale-result', url: 'https://checkout.stripe.com/stale-result', expires_at: Math.floor(NOW / 1000) + 3600 };
+    });
+    const result = await recovery.inspectPendingAssistedApplicationPayment({ db, orderId: order.orderId, order, nowMs: NOW,
+      stripe: { checkout: { sessions: { retrieve, create } } },
+    });
+    expect(result.status).toBe(state === 'paid' ? 'paid' : state === 'refunded' ? 'waiting_provider' : 'in_progress');
+    expect(result).not.toHaveProperty('session');
+    expect(db.store.assisted_applications[order.orderId].stripeCheckoutSessionId).toBe(state === 'replacement' ? 'newer-checkout' : order.stripeCheckoutSessionId);
+    expect(db.store.assisted_applications[order.orderId].paymentStatus).toBe(state === 'replacement' ? 'pending' : state);
+  });
+
   it('does not replace a checkout already renewed by another request using the old snapshot', async () => {
     const order = pendingOrder('order-concurrent', { paymentProvider: 'sumup', sumupCheckoutId: 'old' });
     const db = makeDb({ assisted_applications: { [order.orderId]: order } });

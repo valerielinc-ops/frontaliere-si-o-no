@@ -574,6 +574,37 @@ export async function handleCreateAssistedApplicationCheckout(req) {
   const checkoutProvider = requestRecord?.paymentProvider || configuredPaymentProvider;
   const metadata = metadataForOrder({ ...order, orderId, locale, paymentProvider: checkoutProvider }, userId);
 
+  // The provider call may finish after a webhook or another creator. Publish
+  // its identity and the request cache together, only for this reserved order.
+  const publishCheckout = async (orderUpdate, requestUpdate) => firestore.runTransaction(async (transaction) => {
+    const [orderSnapshot, requestSnapshot] = await Promise.all([
+      transaction.get(orderRef), transaction.get(requestRef),
+    ]);
+    const current = orderSnapshot.exists ? orderSnapshot.data() || {} : null;
+    const currentRequest = requestSnapshot.exists ? requestSnapshot.data() || {} : null;
+    if (!current || current.userId !== userId || !currentRequest || currentRequest.userId !== userId
+      || currentRequest.requestKeyHash !== requestKeyHash || currentRequest.orderId !== orderId) return 'conflict';
+    if (current.paymentStatus === 'paid') return 'paid';
+    if (current.paymentStatus === 'refunded') return 'refunded';
+    const resultId = checkoutIdForRecord(orderUpdate);
+    if (!resultId) return 'conflict';
+    const orderIdNow = checkoutIdForRecord(current);
+    const requestIdNow = checkoutIdForRecord(currentRequest);
+    if (current.paymentStatus !== 'pending'
+      || current.paymentProvider !== checkoutProvider || currentRequest.paymentProvider !== checkoutProvider
+      || Number(current.checkoutAttempt) !== checkoutAttempt || Number(currentRequest.checkoutAttempt) !== checkoutAttempt
+      || (checkoutProvider === 'stripe' && (currentRequest.stripeRequestKey !== stripeRequestKey
+        || (current.stripeRequestKey && current.stripeRequestKey !== stripeRequestKey)))
+      || !['creating', 'open'].includes(current.checkoutSessionStatus)
+      || !['creating', 'open'].includes(currentRequest.checkoutSessionStatus)
+      || (orderIdNow && orderIdNow !== resultId) || (requestIdNow && requestIdNow !== resultId)
+      || (current.checkoutSessionStatus === 'open' && !orderIdNow)
+      || (currentRequest.checkoutSessionStatus === 'open' && !requestIdNow)) return 'conflict';
+    transaction.set(orderRef, { ...orderUpdate, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    transaction.set(requestRef, { ...requestUpdate, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    return 'published';
+  });
+  let publication;
   let checkoutUrl;
   let checkoutId;
   if (checkoutProvider === SUMUP_PAYMENT_PROVIDER) {
@@ -582,15 +613,14 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       redirectUrl: appendOrderId(successUrl, orderId),
     });
     checkoutId = checkout.id;
-    await orderRef.set({
+    publication = await publishCheckout({
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
       checkoutExpiresAt: null,
       checkoutAttempt,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    await requestRef.set({
+    }, {
       checkoutAttempt,
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
@@ -600,7 +630,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       checkoutUrl: null,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+    });
   } else {
     const stripe = await getStripe();
     const session = await stripe.checkout.sessions.create({
@@ -623,7 +653,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       idempotencyKey: 'assisted-application:' + stripeRequestKey,
     });
     checkoutUrl = session.url;
-    await orderRef.set({
+    publication = await publishCheckout({
       paymentProvider: 'stripe',
       stripeCheckoutSessionId: session.id,
       checkoutExpiresAt: checkoutExpirySeconds(session.expires_at),
@@ -631,8 +661,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       stripeRequestKey,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
-    await requestRef.set({
+    }, {
       checkoutAttempt,
       paymentProvider: 'stripe',
       stripeRequestKey,
@@ -641,9 +670,16 @@ export async function handleCreateAssistedApplicationCheckout(req) {
       checkoutUrl: session.url,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
-    }, { merge: true });
+    });
   }
 
+  if (publication === 'paid') {
+    return { status: 200, body: { ok: true, url: appendOrderId(successUrl, orderId), orderId } };
+  }
+  if (publication !== 'published') {
+    return { status: 409, body: { ok: false, error: publication === 'refunded'
+      ? 'assisted_application_payment_refunded' : 'assisted_application_request_conflict' } };
+  }
   return {
     status: 200,
     body: checkoutProvider === SUMUP_PAYMENT_PROVIDER
@@ -799,8 +835,7 @@ export async function handleAssistedApplicationWebhookEvent(event, { db: dbFn, t
     const currentOrder = currentSnapshot.exists ? currentSnapshot.data() || {} : null;
     // A late negative callback must not cancel a replacement lease acquired
     // after the callback's initial read. Confirmed payments still win.
-    if (paymentProvider === SUMUP_PAYMENT_PROVIDER && currentOrder?.checkoutSessionStatus === 'creating'
-      && paymentStatus !== 'paid') return;
+    if (currentOrder?.checkoutSessionStatus === 'creating' && paymentStatus !== 'paid') return;
     if (shouldIgnoreAssistedApplicationWebhook(currentOrder, obj.id, paymentProvider)) return;
     transaction.set(orderRef, update, { merge: true });
   });
