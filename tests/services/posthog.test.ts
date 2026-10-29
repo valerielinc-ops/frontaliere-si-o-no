@@ -213,10 +213,12 @@ describe('PostHog email URL privacy', () => {
    $current_url: 'https://frontaliereticino.ch/?ac=secret&ne=candidate%40example.test&utm_medium=email',
    $initial_current_url: 'https://frontaliereticino.ch/?authToken=secret&utm_medium=email',
   } };
-  const result = lastInitOptions!.before_send.reduce((value: unknown, filter: (event: unknown) => unknown) => value && filter(value), event);
+  // Pageleave may be dropped by the existing quota policy; privacy runs first.
+  const result = lastInitOptions!.before_send[0](event);
   expect(result).toBe(event);
   expect(JSON.stringify(result)).not.toContain('secret');
   expect(JSON.stringify(result)).not.toContain('candidate');
   expect(event.properties.$current_url).toContain('utm_medium=email');
+  expect(lastInitOptions!.before_send.slice(1).reduce((value: unknown, filter: (event: unknown) => unknown) => value && filter(value), event)).toBeNull();
  });
 });

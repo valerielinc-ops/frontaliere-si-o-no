@@ -599,7 +599,7 @@ export const GA4_BOT_GATE_FN = `function(){if((${BOT_GATE_FN})())return true;if(
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */
 export const ANALYTICS_EMISSION_ID_FACTORY_JS = `function(){try{if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function')return crypto.randomUUID();}catch(e){}return Date.now()+'-'+Math.random().toString(36).slice(2);}`;
-export const TELEMETRY_SANITIZER_JS = fs.readFileSync(new URL('../services/analyticsUrlPrivacy.js', import.meta.url), 'utf8').replace(/^export /m, '');
+export const TELEMETRY_SANITIZER_JS = fs.readFileSync(decodeURIComponent(new URL('../services/analyticsUrlPrivacy.js', import.meta.url).pathname), 'utf8').replace(/^export /m, '');
 export const GTAG_INIT_CONTENT = `(function(){if((${GA4_BOT_GATE_FN})())return;window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}var emissionId=(${ANALYTICS_EMISSION_ID_FACTORY_JS})();window.__GTAG_PAGE_VIEW_EMISSION_ID__=emissionId;window.__GTAG_PAGE_VIEW_PATH__=location.pathname;gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',Object.assign({transport_type:'beacon',send_page_view:false},(${TELEMETRY_SANITIZER_JS})({page_location:location.href,page_referrer:document.referrer})));gtag('event','page_view',(${TELEMETRY_SANITIZER_JS})({page_path:location.pathname,page_location:location.href,page_referrer:document.referrer,page_title:document.title,emission_id:emissionId}));})();`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
 // New HTML references a content-addressed filename so a stale edge copy of
