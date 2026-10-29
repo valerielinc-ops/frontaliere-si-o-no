@@ -4011,7 +4011,6 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
   const out = new Map<string, string>();
 
   for (const locale of LOCALES) {
-    if (!shouldEmitLocale(locale)) continue;
     const records = events.map((event) => ({
       event,
       comune: event.comune || OTHER_EVENTS_COMUNE_KEY,
@@ -4086,9 +4085,10 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
   };
   const claimedTitles = new Set<string>();
   // Locale-major order keeps the Italian title as the stable primary when a
-  // translated title collapses to the same shell-normalized string.
+  // title from any locale collides after shell normalization. Compute this
+  // over all locales even in a single-locale shard build so each shard emits
+  // the same deterministic disambiguators.
   for (const locale of LOCALES) {
-    if (!shouldEmitLocale(locale)) continue;
     for (const event of events) {
       const key = `${locale}|${event.id}`;
       const existing = out.get(key) || '';
