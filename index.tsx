@@ -26,7 +26,7 @@ const hasPreRenderedPaintContent = (): boolean => !!document.querySelector(
 );
 
 const JOB_BOARD_STATIC_CONTENT_SELECTOR =
- 'main.seo-static-content.job-board-static-hub, main.seo-static-content[data-sector-hub]';
+ 'main.seo-static-content.job-board-static-hub, main.seo-static-content.job-board-static-content, main.seo-static-content[data-sector-hub]';
 
 const hasJobBoardPreRenderedPaintContent = (): boolean =>
  !!document.querySelector(JOB_BOARD_STATIC_CONTENT_SELECTOR);
