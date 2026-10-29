@@ -711,3 +711,22 @@ describe('CV section boundaries in extracted PDF text', () => {
     expect(profile.searchText).not.toContain('Exampletown');
   });
 });
+
+
+describe('dated historical positions as matching evidence', () => {
+  it('keeps earlier commercial roles relevant when the latest position is HR without suggesting tax specialties', () => {
+    const year = new Date().getUTCFullYear();
+    const profile = parseCandidateCvText([
+      'Example Candidate', 'Consulente HR', 'ESPERIENZE LAVORATIVE E PROFESSIONALI',
+      `${year - 1} - ${year}`, 'Consulente HR',
+      `${year - 5} - ${year - 1}`, 'Consulente commerciale Legale',
+      `${year - 10} - ${year - 5}`, 'Sales account',
+      'Acquisizione e gestione clienti commerciali B2B con utilizzo di CRM',
+      'TRATTAMENTO DATI', 'Autorizzo il trattamento dei dati personali',
+    ].join('\n'));
+    expect(profile.previousPositions).toEqual(['Consulente HR', 'Consulente commerciale Legale', 'Sales account']);
+    expect(scoreJobForProfile({ title: 'Sales Representative B2B', category: 'sales' }, profile).score).toBeGreaterThan(0);
+    expect(scoreJobForProfile({ title: 'Senior Manager Business Tax Advisory Tax Legal', category: 'tax' }, profile).score).toBe(0);
+    expect(scoreJobForProfile({ title: 'Intern Transfer Pricing Tax Legal', category: 'tax' }, profile).score).toBe(0);
+  });
+});

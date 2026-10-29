@@ -349,6 +349,18 @@ function skillValues(lines) {
   return unique(values.filter((value) => value.length >= 2 && value.length <= 80));
 }
 
+function previousPositions(lines) {
+  const section = sectionLines(lines, EXPERIENCE_HEADING_RE);
+  const roles = [];
+  for (let index = 1; index < section.length; index += 1) {
+    if (!YEAR_RE.test(section[index - 1])) continue;
+    // Only the role immediately following a dated employment entry, never arbitrary prose.
+    const role = likelyHeadline([section[index]], '');
+    if (role) roles.push(role);
+  }
+  return unique(roles, 12);
+}
+
 function experienceValues(lines) {
   const isDated = (line) => YEAR_RE.test(line) || /\b(?:oggi|present|current|actuel|heute)\b/i.test(line);
   const section = sectionLines(lines, EXPERIENCE_HEADING_RE);
@@ -404,6 +416,7 @@ function normalizedSearchText(profile) {
     ...(profile.skills || []),
     ...(profile.languages || []),
     ...(profile.experienceSummary || []),
+    ...(profile.previousPositions || []),
   ].filter(Boolean).join(' '), MAX_SEARCH_TEXT);
 }
 
@@ -443,6 +456,7 @@ export function parseCandidateCvText(text, { nowMs = Date.now() } = {}) {
     skills,
     languages,
     experienceSummary,
+    previousPositions: previousPositions(lines),
     extractedTextAvailable: Boolean(normalizedText),
   };
   return { ...profile, searchText: normalizedSearchText(profile) };

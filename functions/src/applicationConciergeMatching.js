@@ -21,7 +21,7 @@ const DEFAULT_JOB_INDEX_URL = 'https://cdn.frontaliereticino.ch/data/jobs-it-ind
 const FETCH_TIMEOUT_MS = 90_000;
 const MAX_PROPOSALS_PER_RUN = 10;
 const MIN_MATCH_SCORE = 28;
-export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v4';
+export const APPLICATION_CONCIERGE_MATCHING_VERSION = 'cv-relevance-v5';
 const LOCATION_MATCH_POINTS = Object.freeze({
   sameLocality: 8,
   sameThreeDigitPostcode: 6,
@@ -109,9 +109,9 @@ function stripEmployerSuffix(value) {
 
 function profileEvidence(profile) {
   const skillTokens = new Set((profile?.skills || []).flatMap((value) => [...tokenize(value)]));
-  const titleText = [profile?.workPosition, profile?.headline].map(stripEmployerSuffix).filter(Boolean);
+  const titleText = [profile?.workPosition, profile?.headline, ...(profile?.previousPositions || [])].map(stripEmployerSuffix).filter(Boolean);
   const titleTokens = new Set(titleText.flatMap((value) => [...tokenize(value)]));
-  const experienceTokens = new Set((profile?.experienceSummary || [])
+  const experienceTokens = new Set([...(profile?.experienceSummary || []), ...(profile?.previousPositions || [])]
     .flatMap((value) => [...tokenize(stripEmployerSuffix(value))]));
   const allTokens = new Set([...skillTokens, ...titleTokens, ...experienceTokens]);
   const profileText = normalize([
