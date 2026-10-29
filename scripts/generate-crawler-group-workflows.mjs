@@ -3043,6 +3043,22 @@ function logicWriteAuthStep(members) {
   };
 }
 
+function compactCrawlerLogicShells(logicText, groupIndex, memberSpecs) {
+  const logic = YAML.parse(logicText);
+  const job = Object.values(logic.jobs ?? {})[0];
+  if (!job?.steps || !Array.isArray(memberSpecs)) {
+    throw new Error(`crawler-group-${groupIndex}: cannot compact missing member shell specs`);
+  }
+  for (const crawler of memberSpecs) {
+    const step = job.steps.find((candidate) => candidate?.id === `crawler-launch-${crawler.slug}`);
+    if (!step) throw new Error(`crawler-group-${groupIndex}: missing launcher for ${crawler.slug}`);
+    step.run = normalizeCrawlerInputReferences(
+      buildCrawlerLaunchShellBody(crawler, groupIndex, { compact: true }),
+    );
+  }
+  return YAML.stringify(logic, { lineWidth: 0 });
+}
+
 /** Deriva il workflow_call completo dalla stessa resa locale del generatore. */
 export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
   groupIndex,
@@ -3740,17 +3756,36 @@ export function generateCrossRepoExecutionArtifacts({
     const logicText = fs.readFileSync(logicPath, 'utf8');
     const members = assertCrawlerLogicParity(result.content, logicText, path.basename(logicPath));
     const logic = YAML.parse(logicText);
-    const rawContent = buildStandaloneCrossRepoWorkflow({
-      logicText,
-      name: `Crawler Group ${nn} (sparse cross-repo execution)`,
-      runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
-      workflowFile: fileName,
-      trigger: groupTrigger(logic),
-      concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },
-      runtimePaths: CRAWLER_GENERATION_RUNTIME_PATHS,
-      checkoutRef: "${{ inputs.site_code_commit || 'main' }}",
-    });
-    const portable = canonicalizePortableCrawlerIdentities(rawContent, logic, members);
+    const renderPortable = (sourceLogicText) => {
+      const rawContent = buildStandaloneCrossRepoWorkflow({
+        logicText: sourceLogicText,
+        name: `Crawler Group ${nn} (sparse cross-repo execution)`,
+        runName: `crawler-generation-${CRAWLER_GENERATION_TOKEN_EXPR}-group-${nn}`,
+        workflowFile: fileName,
+        trigger: groupTrigger(logic),
+        concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },
+        runtimePaths: CRAWLER_GENERATION_RUNTIME_PATHS,
+        checkoutRef: "${{ inputs.site_code_commit || 'main' }}",
+      });
+      return canonicalizePortableCrawlerIdentities(rawContent, logic, members);
+    };
+    let portable = renderPortable(logicText);
+    if (Buffer.byteLength(portable.content, 'utf8') > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES
+        && Array.isArray(result.memberSpecs)) {
+      // The portable checkout/retry wrapper is larger than the site workflow.
+      // Compact only this group's generated crawler shell comments when that
+      // extra wrapper would otherwise push it over the shared file budget.
+      const compactLogicText = compactCrawlerLogicShells(
+        logicText,
+        result.groupIndex,
+        result.memberSpecs,
+      );
+      const compactPortable = renderPortable(compactLogicText);
+      if (Buffer.byteLength(compactPortable.content, 'utf8')
+          < Buffer.byteLength(portable.content, 'utf8')) {
+        portable = compactPortable;
+      }
+    }
     const content = portable.content;
     YAML.parse(content);
     workflowPayloads.set(fileName, content);
@@ -4076,6 +4111,7 @@ export function generate({
         memberCount: group.members.length,
         wallClockMs: group.wallClockMs,
         members: group.members.map((m) => m.slug),
+        memberSpecs: group.members,
         content: finalContent,
       });
     });
