@@ -554,6 +554,20 @@ describe('explicit paid concierge renewal', () => {
     expect(result).toMatchObject({ status: 409, body: { error: 'application_concierge_renewal_price_changed' } });
     expect(mocks.stripeCheckoutSessionsCreate).not.toHaveBeenCalled();
   });
+  it('reprices a terminal renewal only after a fresh explicit quote confirmation', async () => {
+    source(Date.now() - 4 * day);
+    mocks.getAssistedApplicationPaymentProvider.mockResolvedValue('sumup');
+    const order = pendingService('sumup', { renewal: true, renewalOfServiceId: 'original-service', expectedAmountTotal: 2999,
+      paymentStatus: 'failed', serviceStatus: 'payment_failed', checkoutSessionStatus: 'expired', renewalDiscountExpiresAt: Date.now() - day });
+    const stale = await handleCreateApplicationConciergeCheckout(order.request());
+    expect(stale).toMatchObject({ status: 409, body: { error: 'application_concierge_renewal_price_changed' } });
+    expect(mocks.store.get(order.key)).toMatchObject({ expectedAmountTotal: 2999, nextAmountTotal: 3999 });
+    expect(mocks.createSumUpApplicationConciergeCheckout).not.toHaveBeenCalled();
+    const fresh = order.request();
+    const accepted = await handleCreateApplicationConciergeCheckout(request({ body: { ...fresh.body, expectedAmountTotal: 3999 } }));
+    expect(accepted.body).toMatchObject({ amountTotal: 3999, serviceId: order.serviceId });
+    expect(mocks.store.get(order.key)).toMatchObject({ expectedAmountTotal: 3999 });
+  });
   it('requires fresh consent and ownership', async () => {
     const req = request({ body: { ...source().body, acceptRenewalTerms: false } });
     expect((await handleCreateApplicationConciergeCheckout(req)).status).toBe(400);
