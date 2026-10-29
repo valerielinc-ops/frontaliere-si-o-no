@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 658,
+  "crawlerCount": 659,
   "groups": {
     "10": [
       "atec-personal",
@@ -561,6 +561,7 @@
       "citta-di-bellinzona",
       "citta-di-mendrisio",
       "clinique-la-source",
+      "conservatorio",
       "epi-geneve",
       "eraneos",
       "faulhaber",
@@ -847,6 +848,7 @@
     "concara": "data/jobs/by-crawler/concara.json",
     "concordia": "data/jobs/by-crawler/concordia.json",
     "confederazione-ticino": "data/jobs/by-crawler/confederazione-ticino.json",
+    "conservatorio": "data/jobs/by-crawler/conservatorio.json",
     "constellium": "data/jobs/by-crawler/constellium.json",
     "convit-holding": "data/jobs/by-crawler/convit-holding.json",
     "coop-ticino": "data/jobs/by-crawler/coop-ticino.json",
@@ -1370,5 +1372,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:a39534fef97e71090b52650a1b8dc600d6712d5503faa0cb02e9bb8631acb807"
+  "digest": "sha256:2a8739bd295795c8b4214e205c75ad8b66f4991ccef229a96ad14c618da7594c"
 }
