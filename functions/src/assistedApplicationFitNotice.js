@@ -100,6 +100,7 @@ export function conciergeProposalEligibility(requirements, match, { profile = nu
     const fluent = /\b(?:fluent|fluente|fließend|fliessend|courant|verhandlungssicher)\b/iu.test(row.quote || '');
     const native = /\b(?:native|mother tongue|madrelingua|muttersprache|langue maternelle)\b/iu.test(row.quote || '');
     const minimum = requested >= 0 ? requested : native ? 5 : fluent ? 4 : -1;
+    if (minimum < 0 && !/(?:knowledge|proficien|kenntnis|conoscenz|maîtrise|parlato|written|spoken)/iu.test(row.quote || '')) continue;
     const knownAbsent = !entry && !remembered && profile.languagesExplicitList === true && hasCompleteLanguageList(profile);
     if (knownAbsent || (!entry && !remembered) || (minimum >= 0 && (rank(level) < minimum))) {
       if (!gaps.some(gap => gap.index === index)) gaps.push({ index, requirement: row.requirement, importance: row.importance, status: knownAbsent ? 'missing' : 'unknown', knownMissing: knownAbsent || (minimum >= 0 && rank(level) >= 0 && rank(level) < minimum) });

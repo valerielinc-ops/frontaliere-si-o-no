@@ -42,6 +42,10 @@ describe('qualification before proposal publication', () => {
     expect(result.status).toBe('incompatible');
     expect(result.gaps).toContainEqual(expect.objectContaining({ status: 'missing' }));
   });
+  it('does not convert a geographic reference into a language requirement', () => {
+    const geographic = { requirements: [{ requirement: 'Office location', importance: 'critical', basis: 'stated', quote: 'Office in the German-speaking part of Switzerland' }] };
+    expect(conciergeProposalEligibility(geographic, { matches: [{ index: 0, status: 'met', evidence: 'English B2' }], verdict: 'strong' }, { profile: rawProfile }).status).toBe('compatible');
+  });
   it('does not treat a silent CV or unverified evidence as a positive match', async () => {
     const f = fixture({ matches: [{ index: 0, status: 'met', evidence: 'German C2' }], verdict: 'good', questions: [] });
     const check = await prepareConciergeEligibility({ ...f, profileRecord: {} });
