@@ -11,9 +11,9 @@
  *
  * It exercises the REAL `services/analytics.ts` (the suite mocks it globally,
  * so it is unmocked here) and captures at `posthogCapture` — the fan-out point
- * in `log()`. That matters: `log()` hands the SAME params object to PostHog and
- * to Firebase/GA4 one after the other, with no scrubbing layer in between, so
- * asserting on what PostHog receives is asserting on what both vendors receive.
+ * in `log()`. That covers the authored question fields before both vendors receive them.
+ * Firebase then adds only sanitized document URL/referrer context at its sink;
+ * that transport context does not contain question text.
  */
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 

@@ -11,6 +11,7 @@
  */
 
 import { createExceptionFilter, installRawStackRecorder } from './posthog-error-filter';
+import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
 import { isLikelyBot } from './botPatterns';
 import {
  POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
@@ -61,6 +62,10 @@ async function ensurePostHog(): Promise<any> {
  // event shape in posthog-error-filter is a subset of posthog-js's
  // CaptureResult — cast at the boundary so the helper stays SDK-free.
  before_send: [
+ (event: any) => {
+  if (event) Object.assign(event, sanitizeTelemetryProperties(event));
+  return event;
+ },
  createExceptionFilter() as unknown as (event: any) => any,
  createPostHogQuotaFilter() as unknown as (event: any) => any,
  ],

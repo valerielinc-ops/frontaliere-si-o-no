@@ -102,6 +102,7 @@
 import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJourneyIdentity } from './jobApplicationJourney';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { runAfterNextPaint } from './afterNextPaint';
+import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
 import { captureEvent as posthogCapture } from './posthog';
@@ -390,9 +391,22 @@ function flushQueue() {
  }
 }
 
+let configuredTelemetryLocation: string | null = null;
+
 function _doLog(eventName: string, params?: Record<string, any>) {
  try {
  if (_analytics && _logEvent) {
+ // Keep SDK-generated engagement events on the current SPA route as well.
+ // The initialization default protects the first event before autologin settles.
+ const gtag = typeof window === 'undefined' ? undefined : (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+ const context = typeof window === 'undefined' ? {} : sanitizeTelemetryProperties({ page_location: window.location.href, page_referrer: typeof document === 'undefined' ? '' : document.referrer });
+ const locationKey = JSON.stringify(context);
+ if (gtag && locationKey !== configuredTelemetryLocation) {
+  try {
+   gtag('config', GA4_MEASUREMENT_ID, { ...context, send_page_view: false });
+   configuredTelemetryLocation = locationKey;
+  } catch { /* A default-context update must not discard the explicit event. */ }
+ }
  _logEvent(_analytics, eventName as any, params);
  }
  } catch (error) {
@@ -422,6 +436,11 @@ function _doSetProps(properties: Record<string, string | null>) {
 }
 
 const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
+ // Override GA4's automatic document URL before the asynchronous auth exchange.
+ params = sanitizeTelemetryProperties({
+  ...(typeof window === 'undefined' ? {} : { page_location: window.location.href, page_referrer: typeof document === 'undefined' ? '' : document.referrer }),
+  ...params,
+ });
  // Error events from the dev server or the Firebase service domains are not
  // production errors: keep them out of the GA4 property the backlog feeder
  // reads (see ./nonProductionHost).
@@ -750,7 +769,7 @@ function enrichEventParams(eventName: string, params?: Record<string, any>): Rec
    ? createAnalyticsEmissionIdSource()
    : explicitEmissionId;
 
- return {
+ return sanitizeTelemetryProperties({
   page_path: eventPath,
   page_template: pageContext.pageTemplate,
   content_group: pageContext.contentGroup,
@@ -761,7 +780,7 @@ function enrichEventParams(eventName: string, params?: Record<string, any>): Rec
   landing_path: landingPath,
   ...eventParams,
   ...(emissionId === undefined ? {} : { emission_id: emissionId }),
- };
+ });
 }
 
 /**

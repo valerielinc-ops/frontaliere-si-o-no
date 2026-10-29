@@ -103,10 +103,10 @@ describe('PostHog smoke tests', () => {
     expect(opts.autocapture).toBe(false);
 
     // Quota controls: replay is capped locally and analytics sampling is
-    // installed as a second before_send hook after benign-error filtering.
+    // installed as a third before_send hook after URL privacy and benign-error filtering.
     expect(opts.session_recording.sampleRate).toBe(0.05);
     expect(Array.isArray(opts.before_send)).toBe(true);
-    expect(opts.before_send).toHaveLength(2);
+    expect(opts.before_send).toHaveLength(3);
   });
 
   it('lets the SPA $pageview through the whole before_send chain (no page view reached PostHog from 2026-09-16)', async () => {
@@ -203,4 +203,20 @@ describe('Silent consent guarantee', () => {
     consentModule.setDefaultConsent();
     expect(consentModule.isAnalyticsGranted()).toBe(true);
   });
+});
+
+describe('PostHog email URL privacy', () => {
+ it('filters SDK-added URLs before sending pageleave events', async () => {
+  posthogModule.initPostHog();
+  await waitFor(() => Boolean(lastInitOptions));
+  const event = { event: '$pageleave', $set: { $referrer: 'https://frontaliereticino.ch/?authToken=secret&utm_source=email' }, $set_once: { $initial_current_url: 'https://frontaliereticino.ch/?ac=secret&utm_source=email' }, properties: {
+   $current_url: 'https://frontaliereticino.ch/?ac=secret&ne=candidate%40example.test&utm_medium=email',
+   $initial_current_url: 'https://frontaliereticino.ch/?authToken=secret&utm_medium=email',
+  } };
+  const result = lastInitOptions!.before_send.reduce((value: unknown, filter: (event: unknown) => unknown) => value && filter(value), event);
+  expect(result).toBe(event);
+  expect(JSON.stringify(result)).not.toContain('secret');
+  expect(JSON.stringify(result)).not.toContain('candidate');
+  expect(event.properties.$current_url).toContain('utm_medium=email');
+ });
 });
