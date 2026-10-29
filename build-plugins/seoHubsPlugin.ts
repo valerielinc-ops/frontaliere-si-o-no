@@ -2947,13 +2947,20 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         // (e.g. "bps-banca-popolare-di-sondrio-suisse"). The urlToKey reverse
         // map bridges this gap.
         const key = companyUrlToKey.get(slug) ?? slug;
+        const href = `${sectionRoot}/${COMPANY_ROUTE_PREFIX[locale]}-${slug}/`;
+        // known-company-slugs.json is deliberately monotonic so fixture builds
+        // cannot shrink the production inventory. That means a slug may remain
+        // in the archive after its indexable company page stops being emitted.
+        // Keep the archive tied to the actual SSG output, and use each locale's
+        // canonical route prefix (`company-`, `unternehmen-`, `entreprise-`).
+        if (!hasEmittedJobDetailPage(fs, np, distDir, href)) continue;
         const logoUrl = logoUrlForRenderedOutput(resolveBrandLogoUrl(rootDir, key)
           ?? resolveBrandLogoUrl(rootDir, slug)
           ?? crawledLogos[key]
           ?? crawledLogos[slug]
           ?? null) ?? null;
         items.push({
-          href: `${sectionRoot}/azienda-${slug}/`,
+          href,
           label: humanizeSlug(slug),
           logo: logoUrl,
           jobCount: jobCountBySlug.get(key) ?? jobCountBySlug.get(slug),

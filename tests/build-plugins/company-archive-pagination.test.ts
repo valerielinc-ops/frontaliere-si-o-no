@@ -6,7 +6,7 @@ import { JSDOM } from 'jsdom';
 import { emitSeoHubs } from '../../build-plugins/seoHubsPlugin';
 import { COMPANIES_PAGE_SIZE, HUB_LOCALES, HUB_SLUGS, JOBS_PAGE_SIZE,
   PAGINATION_INDEX_THRESHOLD, paginatedPath, paginationIndexPath, paginationIndexCount } from '../../build-plugins/seoHubsData';
-import { legacyTiSectionRoot } from '../../build-plugins/shared/cantonSection';
+import { COMPANY_ROUTE_PREFIX, legacyTiSectionRoot } from '../../build-plugins/shared/cantonSection';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../../build-plugins/constants';
 import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 import { PAGINATION_NOINDEX_FROM_PAGE } from '../../build-plugins/shared/paginationIndexPolicy';
@@ -17,6 +17,17 @@ let xml: string;
 const companies = Array.from({ length: COMPANIES_PAGE_SIZE * 3 + 47 }, (_, i) => `company-fixture-${String(i).padStart(4, '0')}`);
 const read = (url: string) => fs.readFileSync(path.join(dist, url.slice(1), 'index.html'), 'utf8');
 
+function writeEmittedCompanyPages(distDir: string, slugs: readonly string[]): void {
+  for (const locale of HUB_LOCALES) {
+    for (const slug of slugs) {
+      const url = `${legacyTiSectionRoot(locale)}/${COMPANY_ROUTE_PREFIX[locale]}-${slug}/`;
+      const file = path.join(distDir, url.slice(1), 'index.html');
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, '<!doctype html><title>Company fixture</title>');
+    }
+  }
+}
+
 beforeAll(() => {
   root = fs.mkdtempSync(path.join(os.tmpdir(), 'company-archive-pagination-'));
   dist = path.join(root, 'dist');
@@ -25,6 +36,7 @@ beforeAll(() => {
   fs.mkdirSync(dist);
   fs.writeFileSync(path.join(root, 'data/jobs.json'), '[]');
   fs.writeFileSync(path.join(root, 'data/known-company-slugs.json'), JSON.stringify(companies));
+  writeEmittedCompanyPages(dist, companies);
   fs.writeFileSync(path.join(root, 'services/jobDataNormalization.ts'), 'export const CRAWLED_COMPANY_LOGOS = {};');
   const jobs = Object.fromEntries(Array.from({ length: JOBS_PAGE_SIZE * 2 + 1 }, (_, i) => {
     const slug = `archive-job-fixture-${i}`;
@@ -62,11 +74,11 @@ describe('company archives remain paginated in every locale', () => {
       expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(BASE_URL + url);
       expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).not.toMatch(/noindex/);
       expect(countHtmlBodyWords(html)).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
-      const prefix = `${legacyTiSectionRoot(locale)}/azienda-company-fixture-`;
+      const prefix = `${legacyTiSectionRoot(locale)}/${COMPANY_ROUTE_PREFIX[locale]}-company-fixture-`;
       const hrefs = [...document.querySelectorAll('a[href]')].map(a => a.getAttribute('href')!)
         .filter(href => href.startsWith(prefix));
       const expected = companies.slice((page - 1) * COMPANIES_PAGE_SIZE, page * COMPANIES_PAGE_SIZE)
-        .map(slug => `${legacyTiSectionRoot(locale)}/azienda-${slug}/`);
+        .map(slug => `${legacyTiSectionRoot(locale)}/${COMPANY_ROUTE_PREFIX[locale]}-${slug}/`);
       expect(hrefs).toEqual(expected);
       expect(document.querySelector('link[rel="prev"]')?.getAttribute('href') ?? null)
         .toBe(page === 1 ? null : BASE_URL + paginatedPath(base, page - 1));
@@ -97,6 +109,8 @@ describe('company archives remain paginated in every locale', () => {
     fs.writeFileSync(path.join(fixture, 'data/known-company-slugs.json'), JSON.stringify(
       Array.from({ length: count }, (_, i) => `range-company-fixture-${i}`),
     ));
+    writeEmittedCompanyPages(rangeDist,
+      Array.from({ length: count }, (_, i) => `range-company-fixture-${i}`));
     fs.writeFileSync(path.join(fixture, 'services/jobDataNormalization.ts'), 'export const CRAWLED_COMPANY_LOGOS = {};');
     const outputs = new Map<string, string>();
     emitSeoHubs({ rootDir: fixture, distDir: rangeDist, fs, np: path,

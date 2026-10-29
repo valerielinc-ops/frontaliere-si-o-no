@@ -1162,8 +1162,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    { href: '/premi-cassa-malati/', label: 'Premi LAMal' },
    { href: '/compara-servizi/', label: 'Comparatori' },
  ] : locale === 'en' ? [
-   { href: '/en/companies-hiring/all/', label: 'Companies hiring' },
-   { href: '/en/find-jobs-ticino/companies/', label: 'Ticino companies' },
+   { href: '/en/companies-hiring/all/', label: 'Companies hiring in Ticino' },
    { href: '/en/find-jobs-ticino/sectors/', label: 'Ticino sectors' },
    { href: '/en/cross-border-articles/all/', label: 'Cross-border articles' },
    { href: '/en/swiss-articles/all/', label: 'Swiss articles' },
@@ -1176,8 +1175,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    { href: '/de/schweiz-artikel/alle/', label: 'Schweiz-Artikel' },
    { href: '/de/krankenkassenpraemien/', label: 'KVG-Prämien' },
  ] : [
-   { href: '/fr/entreprises-qui-recrutent/toutes/', label: 'Entreprises qui recrutent' },
-   { href: '/fr/trouver-emploi-tessin/entreprises/', label: 'Entreprises Tessin' },
+   { href: '/fr/entreprises-qui-recrutent/toutes/', label: 'Entreprises qui recrutent au Tessin' },
    { href: '/fr/trouver-emploi-tessin/secteurs/', label: 'Secteurs Tessin' },
    { href: '/fr/articles-frontalier/tous/', label: 'Articles frontaliers' },
    { href: '/fr/articles-suisse/tous/', label: 'Articles Suisse' },
