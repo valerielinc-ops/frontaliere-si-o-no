@@ -3716,6 +3716,20 @@ function eventDetailMetaTitle(
     }
   }
   if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
+  // Preserve the disambiguator in overflow cases. Truncating the complete
+  // composition from the right can erase an ordinal while probing long
+  // place/date suffixes, causing distinct candidates to normalize alike.
+  const fallbackSuffix = `${metadataQualifier}${qualifier}`;
+  if (metadataQualifier && esc(fallbackSuffix).length < EVENT_DETAIL_META_TITLE_MAX_CHARS) {
+    const titleBudget = EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(fallbackSuffix).length;
+    let fallbackTitle = completeTitle;
+    for (let max = titleBudget; esc(fallbackTitle).length > titleBudget && max > 0; max -= 1) {
+      fallbackTitle = truncateHeadline(completeTitle, max);
+    }
+    if (esc(fallbackTitle).length > titleBudget) fallbackTitle = '';
+    const fallback = `${fallbackTitle}${fallbackSuffix}`;
+    if (esc(fallback).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return fallback;
+  }
   // Unreachable for gazetteer/canton-label comuni (the bare ` — ${comune}`
   // candidate always leaves budget); guards pathological place names so the
   // deploy-blocking audit:title-length gate can never trip on this page type.
@@ -3941,6 +3955,7 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
 }
 
 const EVENT_TITLE_STATUS_MARKER = /\s+\*+\s*(COMPLET|COMPLETA|ANNUL(?:É|E)|ANNULLAT[OA]|CANCEL(?:LED|ED)|ABGESAGT|AUSVERKAUFT|SOLD\s+OUT|FULL)\s*\*+\s*$/iu;
+const MAX_EVENT_TITLE_ORDINAL = 64;
 
 function eventDetailDisplayComune(event: SiteEvent, comune: string, locale: Locale): string {
   const canton = (event.canton || UNRESOLVED_CANTON_KEY).toUpperCase();
@@ -4051,14 +4066,22 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
           // the last rejected candidate here would reintroduce the collision
           // this pass is meant to remove.
           const token = stableTitleToken(record.event.id);
-          for (let ordinal = 2; ; ordinal += 1) {
+          let resolved = false;
+          const maxOrdinal = Math.max(MAX_EVENT_TITLE_ORDINAL, claimed.size + 2);
+          for (let ordinal = 2; ordinal <= maxOrdinal; ordinal += 1) {
             const candidate = `rif. ${token}-${ordinal}`;
             const candidateTitle = eventDetailTitleProbe(record.event, locale, record.comune, candidate);
             const candidateKey = candidateTitle.replace(/\s+/g, ' ').trim().toLocaleLowerCase();
             if (claimed.has(candidateKey)) continue;
             chosen = candidate;
             finalKey = candidateKey;
+            resolved = true;
             break;
+          }
+          if (!resolved) {
+            throw new Error(
+              `Unable to disambiguate event detail title within ${EVENT_DETAIL_META_TITLE_MAX_CHARS} characters: ${locale}|${record.event.id}`,
+            );
           }
         }
         out.set(`${locale}|${record.event.id}`, chosen);
@@ -4120,7 +4143,8 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
 
         if (!resolved) {
           const token = stableTitleToken(event.id);
-          for (let ordinal = 2; ; ordinal += 1) {
+          const maxOrdinal = Math.max(MAX_EVENT_TITLE_ORDINAL, claimedTitles.size + 2);
+          for (let ordinal = 2; ordinal <= maxOrdinal; ordinal += 1) {
             const candidate = `${localeLabels[locale]} · rif. ${token}-${ordinal}`;
             const candidateTitle = emittedTitle(event, locale, candidate);
             const candidateKey = titleKey(candidateTitle);
@@ -4128,7 +4152,13 @@ export function buildEventDetailTitleDisambiguators(events: readonly SiteEvent[]
             out.set(key, candidate);
             chosenTitle = candidateTitle;
             chosenKey = candidateKey;
+            resolved = true;
             break;
+          }
+          if (!resolved) {
+            throw new Error(
+              `Unable to disambiguate event detail title within ${EVENT_DETAIL_META_TITLE_MAX_CHARS} characters: ${locale}|${event.id}`,
+            );
           }
         }
       }
