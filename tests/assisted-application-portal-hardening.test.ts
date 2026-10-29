@@ -877,4 +877,28 @@ describe('translated language answer reuse', () => {
       expect(candidateAnswerForField(candidate, field)).toBeNull();
     },
   );
+
+  it('preserves the mapped answer id when a regenerated question reuses a previous answer', () => {
+    const candidate = candidateForForm({
+      identity: {},
+      answers: { portal_professionale: 'Professionale' },
+      portalQuestions: [{
+        id: 'portal_professionale_v2',
+        question: 'Livello di inglese?',
+        applicationQuestion: 'Professional',
+        options: ['Professionale'],
+        applicationOptions: ['Professional'],
+        optionMap: [{ candidate: 'Professionale', application: 'Professional' }],
+      }],
+      draft: { portalAnswers: { answers: [{
+        answerId: 'portal_professionale', question: 'Professional', answer: 'Professional',
+      }] } },
+    });
+
+    expect(candidate.portalQuestionsAnswered).toEqual(expect.arrayContaining([
+      expect.objectContaining({ answerId: 'portal_professionale', question: 'Professional', answer: 'Professional' }),
+    ]));
+    expect(candidateAnswerForField(candidate, { label: 'Professional', kind: 'select', options: [{ label: 'Professional' }] }))
+      .toEqual({ value: 'Professional', source: 'answers' });
+  });
 });

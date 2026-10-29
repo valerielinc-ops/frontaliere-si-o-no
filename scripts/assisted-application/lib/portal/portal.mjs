@@ -477,7 +477,7 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer || '').trim();
     if (!question || !answer) continue;
-    const prior = { question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
+    const prior = { answerId: String(item?.answerId || '').trim() || undefined, question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
