@@ -1651,6 +1651,12 @@ describe('employer citations are attributed in rendered text', () => {
     expect(checkDraftFacts({ coverLetter: rendered }, sources).ok).toBe(true);
     expect(canonicalizeEmployerAgeCitations(rendered, posting, company)).toBe(rendered);
   });
+  it.each(['leader', 'innovativa', 'storica'])('attributes a generic employer age after the descriptor “%s”', (descriptor) => {
+    const generic = `La società ${descriptor} è attiva da 50 anni.`;
+    const rendered = canonicalizeEmployerAgeCitations(generic, posting, company);
+    expect(rendered).toContain(`società ${company} ${descriptor}`);
+    expect(checkDraftFacts({ coverLetter: rendered }, sources).ok).toBe(true);
+  });
   it.each([
     'Ho 50 anni di esperienza.',
     'La società Beta SA è attiva da 50 anni.',

@@ -21,7 +21,7 @@ export function employerReferenceSpans(text, employerName = '') {
 const COMPANY_NOUN = /(?<![\p{L}\p{N}])(?:società|societa|azienda|gruppo|company|unternehmen|entreprise|société)(?![\p{L}\p{N}])/iu;
 const COMPANY_NAME_AFTER_NOUN = /^[\s:,(“"«]+((?:[\p{L}][\p{L}\p{M}\p{N}&'’.-]*)(?:\s+[\p{L}][\p{L}\p{M}\p{N}&'’.-]*){0,2})/u;
 const COMPANY_LEGAL_SUFFIX = /\b(?:SA|AG|GmbH|Sàrl|Sarl|Ltd|Inc|SAS|Srl)\b/iu;
-const GENERIC_COMPANY_CONTINUATIONS = new Set(['è', 'ha', 'attiva', 'attivo', 'solida', 'solido', 'dinamica', 'dinamico', 'giovane', 'is', 'has', 'active', 'solid', 'dynamic', 'growing', 'ist', 'hat', 'aktiv', 'solide', 'dynamisch', 'jung', 'est', 'a', 'active', 'solide', 'dynamique', 'jeune']);
+const GENERIC_COMPANY_CONTINUATIONS = new Set(['è', 'ha', 'attiva', 'attivo', 'solida', 'solido', 'dinamica', 'dinamico', 'giovane', 'leader', 'innovativa', 'storica', 'is', 'has', 'active', 'solid', 'dynamic', 'growing', 'ist', 'hat', 'aktiv', 'solide', 'dynamisch', 'jung', 'est', 'a', 'dynamique', 'jeune']);
 const PERSONAL_OR_NEGATED = /\b(?:ho|avevo|mio|mia|miei|mie|nostro|nostra|my|our|i have|i had|ich habe|mein\w*|j['’]ai|mon|mes|non|not|never|nicht|kein\w*|pas|candidate|candidat\w*|richiest\w*|required|must|you|votre|vostri)\b/iu;
 const THIRD_PARTY_SUBJECT = /\b(?:partner|clienti?|customers?|suppliers?|fornitor\w*|altra|other|autre)\b/iu;
 const COMPANY_YEARS = /\b(?:(?:da|for|seit|depuis|von)\s+)?(?:(?:oltre|over|more than|über|plus de)\s+)?(\d+)\s+(?:anni|years|jahren|jahre|ans)\b/giu;
@@ -112,7 +112,7 @@ export function canonicalizeEmployerAgeCitations(text, posting = '', employerNam
     const noun = age.sentence.slice(0, age.index - sentenceStart).match(COMPANY_NOUN);
     const afterNoun = noun ? age.sentence.slice(noun.index + noun[0].length) : '';
     // A lowercase brand cannot be distinguished from a generic noun phrase by capitalisation alone.
-    const genericContinuation = /^\s+(?:è|ha|attiva|solida|dinamica|is|has|active|ist|hat|seit|est|a)(?![\p{L}\p{N}])/iu;
+    const genericContinuation = /^\s+(?:è|ha|attiva|solida|dinamica|giovane|leader|innovativa|storica|is|has|active|ist|hat|seit|est|a)(?![\p{L}\p{N}])/iu;
     if (sentenceStart >= 0 && noun && genericContinuation.test(afterNoun)) {
       insertions.add(sentenceStart + noun.index + noun[0].length);
     }
