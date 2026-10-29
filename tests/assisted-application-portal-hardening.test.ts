@@ -95,6 +95,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('903-pipe-project-manager-it', '879-google-cloud-platform') })).toBe(applyUrl);
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('www.alten.ch', 'alten.ch') })).toBe(applyUrl);
     expect(portalEntryUrl({ applyUrl: localizedApplyUrl, postingUrl: postingUrl.replace('/jobs/', '/portal/jobs/') })).toBe(localizedApplyUrl);
+
+    expect(isVerifiedPostingEntry({
+      applyUrl: 'https://h/careers/jobs/a/apply',
+      postingUrl: 'https://h/careers/jobs/a/',
+    })).toBe(true);
+    expect(isVerifiedPostingEntry({
+      applyUrl: 'https://h/de/jobs/a/apply',
+      postingUrl: 'https://h/jobs/a/',
+    })).toBe(true);
+    expect(isVerifiedPostingEntry({
+      applyUrl: 'https://h/careers/jobs/a/apply',
+      postingUrl: 'https://h/jobs/a/',
+    })).toBe(false);
   });
 
   it('opens an Umantis Application/New form from its matching vacancy page', () => {
