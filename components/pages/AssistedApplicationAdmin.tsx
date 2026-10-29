@@ -4,9 +4,13 @@ import {
   AlertTriangle,
   CheckCircle2,
   Clock3,
+  Eye,
   ExternalLink,
   FileText,
+  Info,
   Loader2,
+  Mail,
+  MousePointerClick,
   RefreshCw,
   RotateCcw,
   Send,
@@ -272,25 +276,96 @@ function candidateEmailLabel(key: string): string {
 function CandidateEmails({ emails }: { emails: AssistedApplicationCandidateEmail[] }) {
   if (!emails.length) return <span className="block text-xs text-subtle">Nessuna email al candidato finora</span>;
   return (
-    <ul className="space-y-1.5">
-      {emails.map((email) => {
-        const facts = [
-          email.sentAt ? `inviata ${formatDate(email.sentAt)}` : null,
-          email.delivered ? 'consegnata' : null,
-          email.opens ? `aperta ${email.opens}× (prima ${formatDate(email.firstOpenAt)})` : 'non ancora aperta',
-          email.clicks ? `${email.clicks} clic (ultimo ${formatDate(email.lastClickAt)})` : null,
-          email.bounces ? 'rimbalzata' : null,
-          email.complaints ? 'segnalata come spam' : null,
-        ].filter(Boolean);
-        return (
-          <li key={email.key} className="text-xs">
-            <span className="font-semibold text-strong">{candidateEmailLabel(email.key)}</span>
-            <span className={`block ${email.bounces || email.complaints ? 'text-danger' : email.opens ? 'text-success' : 'text-subtle'}`}>{facts.join(' · ')}</span>
-            {email.lastClickUrl && <span className="block truncate text-subtle" title={email.lastClickUrl}>{email.lastClickUrl}</span>}
-          </li>
-        );
-      })}
-    </ul>
+    <div className="min-w-0">
+      <div role="table" aria-label="Invio e interazioni delle email al candidato">
+        <div role="rowgroup">
+          <div role="row" className="grid grid-cols-[minmax(0,1fr)_auto_auto] gap-x-3 border-b border-edge pb-2 text-xs font-medium text-muted md:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,0.8fr)] md:gap-x-4">
+            <span role="columnheader">Email</span>
+            <span role="columnheader" className="hidden md:block">Invio</span>
+            <span role="columnheader" className="inline-flex items-center gap-1"><Eye size={13} aria-hidden="true" />Lettura</span>
+            <span role="columnheader" className="inline-flex items-center gap-1"><MousePointerClick size={13} aria-hidden="true" />Clic</span>
+          </div>
+        </div>
+        <ul role="rowgroup" className="divide-y divide-edge">
+          {emails.map((email) => {
+            const sent = Boolean(email.sentAt || email.delivered || email.status === 'sent' || email.opens || email.clicks);
+            let sendLabel = emailStatusLabel(email.status || (sent ? 'sent' : null));
+            let sendIconTone = sent ? 'text-success' : 'text-muted';
+            const sendTextTone = email.bounces || email.complaints || email.status === 'failed'
+              ? 'text-danger'
+              : sent ? 'text-body' : 'text-muted';
+            if (email.bounces > 0) {
+              sendLabel = 'Rimbalzata';
+              sendIconTone = 'text-danger';
+            } else if (email.complaints > 0 || email.status === 'failed') {
+              sendLabel = email.complaints > 0 ? 'Segnalata come spam' : sendLabel;
+              sendIconTone = 'text-danger';
+            } else if (email.status === 'ambiguous') {
+              sendIconTone = 'text-warning';
+            } else if (email.status === 'sending') {
+              sendIconTone = 'text-info';
+            }
+            const trackingAvailable = sent && email.bounces === 0 && !['ambiguous', 'failed', 'sending'].includes(email.status || '');
+            const openedLabel = email.opens ? `Letta ${email.opens}×` : trackingAvailable ? 'Non letta' : '—';
+            const clickedLabel = email.clicks ? `${email.clicks} clic` : trackingAvailable ? 'Nessun clic' : '—';
+            const openedDescription = email.opens
+              ? `${openedLabel}${email.firstOpenAt ? `, prima apertura ${formatDate(email.firstOpenAt)}` : ''}`
+              : trackingAvailable ? 'Non ancora aperta' : 'Nessun dato di apertura';
+            const clickedDescription = email.clicks
+              ? `${clickedLabel}${email.lastClickAt ? `, ultimo ${formatDate(email.lastClickAt)}` : ''}`
+              : trackingAvailable ? 'Nessun clic registrato' : 'Nessun dato sui clic';
+            return (
+              <li role="row" key={email.key} className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-start gap-x-3 gap-y-1.5 py-2.5 text-xs md:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,0.8fr)] md:items-center md:gap-x-4">
+                <div role="cell" className="col-start-1 row-start-1 min-w-0 md:col-auto md:row-auto">
+                  <span className="flex min-w-0 items-start gap-1.5 font-semibold leading-snug text-strong" title={candidateEmailLabel(email.key)}>
+                    <Mail size={14} className="shrink-0 text-muted" aria-hidden="true" />
+                    <span className="min-w-0 break-words">{candidateEmailLabel(email.key)}</span>
+                  </span>
+                  <span className="mt-1 inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-body md:hidden">
+                    <Send size={13} className={sendIconTone} aria-hidden="true" />
+                    <span className={`font-medium ${sendTextTone}`}>{sendLabel}</span>
+                    {email.sentAt && <time className="text-subtle tabular-nums" dateTime={email.sentAt}>{formatDate(email.sentAt)}</time>}
+                    {email.bounces > 0 && <span className="text-danger">{email.bounces} rimbalzi</span>}
+                    {email.complaints > 0 && <span className="text-danger">{email.complaints} segnalazioni spam</span>}
+                  </span>
+                </div>
+                <span role="cell" className="hidden min-w-0 flex-wrap items-center gap-x-2 gap-y-0.5 text-body md:flex">
+                  <span className={`inline-flex items-center gap-1.5 font-medium ${sendTextTone}`}>
+                    <Send size={13} className={sendIconTone} aria-hidden="true" />
+                    {sendLabel}
+                  </span>
+                  {email.sentAt && <time className="text-xs text-subtle tabular-nums" dateTime={email.sentAt}>{formatDate(email.sentAt)}</time>}
+                  {email.bounces > 0 && <span className="text-xs text-danger">{email.bounces} rimbalzi</span>}
+                  {email.complaints > 0 && <span className="text-xs text-danger">{email.complaints} segnalazioni spam</span>}
+                </span>
+                <span role="cell"
+                  className={`col-start-2 row-start-1 inline-flex items-center justify-end gap-1.5 whitespace-nowrap font-medium md:col-auto md:row-auto md:justify-start ${sent ? 'text-body' : 'text-muted'}`}
+                  aria-label={openedDescription}
+                  title={openedDescription}
+                >
+                  <Eye size={14} className={email.opens ? 'text-success' : 'text-muted'} aria-hidden="true" />
+                  <span className="md:hidden tabular-nums">{trackingAvailable ? email.opens : '—'}</span>
+                  <span className="hidden md:inline">{openedLabel}</span>
+                </span>
+                <span role="cell"
+                  className={`col-start-3 row-start-1 inline-flex items-center justify-end gap-1.5 whitespace-nowrap font-medium md:col-auto md:row-auto md:justify-start ${sent ? 'text-body' : 'text-muted'}`}
+                  aria-label={clickedDescription}
+                  title={clickedDescription}
+                >
+                  <MousePointerClick size={14} className={email.clicks ? 'text-accent' : 'text-muted'} aria-hidden="true" />
+                  <span className="md:hidden tabular-nums">{trackingAvailable ? email.clicks : '—'}</span>
+                  <span className="hidden md:inline">{clickedLabel}</span>
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <span className="mt-2 inline-flex items-start gap-1.5 text-xs text-muted">
+        <Info size={14} className="mt-0.5 shrink-0" aria-hidden="true" />
+        Le aperture sono indicative: alcuni client email possono registrarle automaticamente.
+      </span>
+    </div>
   );
 }
 
@@ -316,9 +391,9 @@ function CvLink({ order }: { order: AssistedApplicationAdminOrder }) {
   );
 }
 
-function DataRow({ label, children }: { label: string; children: ReactNode }) {
+function DataRow({ label, children, className = '' }: { label: string; children: ReactNode; className?: string }) {
   return (
-    <div className="min-w-0">
+    <div className={`min-w-0 ${className}`}>
       <dt className="text-xs font-semibold uppercase tracking-wide text-muted">{label}</dt>
       <dd className="mt-1 break-words text-sm text-body">{children}</dd>
     </div>
@@ -663,9 +738,8 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
                     <span className="block text-xs text-subtle">Promemoria 48 h: {emailStatusLabel(order.emails?.reminder ?? null)}</span>
                     <span className="block text-xs text-subtle">Conferma invio: {emailStatusLabel(order.emails?.submitted ?? null)}</span>
                   </DataRow>
-                  <DataRow label="Aperture e clic del candidato">
+                  <DataRow label="Aperture e clic del candidato" className="sm:col-span-2 lg:col-span-5">
                     <CandidateEmails emails={order.candidateEmails || []} />
-                    <span className="mt-1 block text-xs text-muted">Le aperture sono indicative: alcuni client aprono ogni email alla consegna.</span>
                   </DataRow>
                 </dl>
 
