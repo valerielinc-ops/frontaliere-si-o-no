@@ -42,6 +42,35 @@ describe('email-link telemetry URL privacy', () => {
   expect(result.query).toBe('?utm_source=email');
  });
 
+ it.each([
+  '#https://user:pass@inner.test/path',
+  '#https%3A%2F%2Fuser%3Apass%40inner.test%2Fpath',
+ ])('removes userinfo from nested URL fragments: %s', (fragment) => {
+  const result = sanitizeTelemetryProperties({ page_location: 'https://outer.test/' + fragment });
+  expect(result.page_location).not.toContain('user:pass');
+  expect(new URL(result.page_location).hash).toBe('#https://inner.test/path');
+ });
+
+ it('keeps an ordinary percent-encoded route hash byte-identical', () => {
+  const value = 'https://outer.test/#%2Fcheckout%3Fstep%3D2';
+  expect(sanitizeTelemetryProperties({ page_location: value }).page_location).toBe(value);
+ });
+
+ it('preserves escaped attribution and fragment data in a sanitized nested URL fragment', () => {
+  const nested = 'https://user:pass@inner.test/path?utm_campaign=a%26b&email=secret#section%20one';
+  const input = 'https://outer.test/#' + encodeURIComponent(nested);
+  expect(sanitizeTelemetryProperties({ page_location: input }).page_location)
+   .toBe('https://outer.test/#https://inner.test/path?utm_campaign=a%26b#section%20one');
+ });
+
+ it('sanitizes a bare relative URL nested in a query parameter', () => {
+  const result = sanitizeTelemetryProperties({ page_location: 'https://outer.test/?next=login%3Femail%3Dsecret&utm_source=email' });
+  const parsed = new URL(result.page_location);
+  expect(parsed.searchParams.get('next')).toBe('login');
+  expect(parsed.searchParams.get('email')).toBeNull();
+  expect(parsed.searchParams.get('utm_source')).toBe('email');
+ });
+
  it('sanitizes static GA4 config and the pre-hydration pageview without changing the login URL', () => {
   const context: Record<string, any> = {
    location: new URL(url),

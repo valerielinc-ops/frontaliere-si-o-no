@@ -11,7 +11,10 @@ export function sanitizeTelemetryProperties(properties) {
  /** @param {string} value */
  const normalizeReference = (value) => value.replace(/[\t\n\r]/g, '').replace(/^[\u0000-\u0020]+|[\u0000-\u0020]+$/g, '');
  /** @param {string} value */
- const looksLikeUrl = (value) => /^(?:https?:|[\\/]|\.{1,2}[\\/]|[?#])/i.test(normalizeReference(value));
+ const looksLikeUrl = (value) => {
+  const reference = normalizeReference(value);
+  return /^(?:https?:|[\\/]|\.{1,2}[\\/]|[?#])/i.test(reference) || /^[^?#]+[?#]/.test(reference);
+ };
  const urlField = /(?:url|path|location|referrer|href|src)$/i;
  /** @param {string} value @param {number} [depth] @returns {string} */
  const cleanUrl = (value, depth = 0) => {
@@ -47,7 +50,16 @@ export function sanitizeTelemetryProperties(properties) {
     url.hash = '';
    } else {
     changed = cleanParams(url.searchParams) || changed;
-    if (url.hash.includes('?')) {
+    const fragmentReference = url.hash.slice(1);
+    let decodedFragmentReference = fragmentReference;
+    try { decodedFragmentReference = decodeURIComponent(fragmentReference); } catch {}
+    if (looksLikeUrl(decodedFragmentReference)) {
+     const cleanedFragmentReference = cleanUrl(decodedFragmentReference, depth + 1);
+     if (cleanedFragmentReference !== decodedFragmentReference) {
+      url.hash = '#' + cleanedFragmentReference;
+      changed = true;
+     }
+    } else if (url.hash.includes('?')) {
      const cleanedHash = '#' + cleanUrl(url.hash.slice(1), depth + 1);
      if (cleanedHash !== url.hash) { url.hash = cleanedHash; changed = true; }
     } else if (url.hash.includes('=')) {
